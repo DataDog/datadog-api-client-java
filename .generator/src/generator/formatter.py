@@ -462,7 +462,7 @@ def format_data_with_schema_list(
                     default_name=default_name,
                     replace_values=replace_values,
                 )
-            except (KeyError, ValueError) as e:
+            except (KeyError, ValueError):
                 continue
 
             if default_name:
@@ -600,6 +600,16 @@ def format_data_with_schema_dict(
     # NOTE this is a special case for unnamed objects that should be avoided in the future
     if schema.get("type") == "object" and not data:
         return None, "new Object()", set()
+
+    if schema.get("type") == "object" and "properties" not in schema and schema.get("additionalProperties") == {}:
+        parameters = ""
+        for k, v in data.items():
+            parameters += f'Map.entry("{k}", "{v}"),'
+        return (
+            "Map<String, Object>",
+            f"Map.ofEntries({parameters.rstrip(',')})",
+            imports,
+        )
 
     raise ValueError(f"{data} is not valid for schema {name}")
 

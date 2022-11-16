@@ -1,246 +1,360 @@
 [{
-  "id" : "2e6296c5-cbbd-4079-9c8d-f111772e7fda",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "Content-Type" : [ "application/json" ]
+      "x-datadog-trace-id" : [ "4428289965278510918" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "770" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Language" : [ "" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
+      "contentType" : "application/json",
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_k5/f0eQ\",\"account_specific_namespace_rules\":{\"api_gateway\":true},\"filter_tags\":[\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\",\"dontCollect:java\"],\"host_tags\":[\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\",\"javaTag:one\",\"java:success\"],\"role_name\":\"java-aWSLogsCheckLambdaAsyncTest-local-1626197830\"}"
+      "json" : {
+        "account_id" : "109427145466",
+        "account_specific_namespace_rules" : {
+          "api_gateway" : true
+        },
+        "cspm_resource_collection_enabled" : false,
+        "filter_tags" : [ "dontCollect:java", "dontCollect:java", "dontCollect:java", "dontCollect:java", "dontCollect:java", "dontCollect:java", "dontCollect:java", "dontCollect:java", "dontCollect:java", "dontCollect:java" ],
+        "host_tags" : [ "javaTag:one", "java:success", "javaTag:one", "java:success", "javaTag:one", "java:success", "javaTag:one", "java:success", "javaTag:one", "java:success", "javaTag:one", "java:success", "javaTag:one", "java:success", "javaTag:one", "java:success", "javaTag:one", "java:success", "javaTag:one", "java:success" ],
+        "metrics_collection_enabled" : true,
+        "resource_collection_enabled" : false,
+        "role_name" : "java-aWSLogsCheckLambdaAsyncTest-local-1664541724"
+      }
     }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 13 Jul 2021 17:37:12 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-ratelimit-reset" : [ "55" ],
+      "x-ratelimit-remaining" : [ "11995" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-limit" : [ "12000" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "50" ]
+      "x-content-type-options" : [ "nosniff" ],
+      "vary" : [ "Accept-Encoding" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "pragma" : [ "no-cache" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "cache-control" : [ "no-cache" ],
+      "Date" : [ "Fri, 30 Sep 2022 12:42:05 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"external_id\":\"cc8677c19f4a412989340a3f42e31f5e\"}"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "external_id" : "0470a177867d479f8b09210457bfb940"
+      }
+    }
+  },
+  "id" : "36e1c422-9781-4acc-8597-7b4c8f10e269",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }, {
-  "id" : "e025899c-ff37-48ce-a859-91c43ed3157c",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws/logs/check_async",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "Content-Type" : [ "application/json" ]
+      "x-datadog-trace-id" : [ "2581438616312079410" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "106" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Language" : [ "" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
+      "contentType" : "application/json",
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_k5/f0eQ\",\"lambda_arn\":\"arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest\"}"
+      "json" : {
+        "account_id" : "109427145466",
+        "lambda_arn" : "arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest"
+      }
     }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 13 Jul 2021 17:37:12 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-reset" : [ "54" ],
+      "x-ratelimit-remaining" : [ "11994" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-limit" : [ "12000" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "20" ]
+      "pragma" : [ "no-cache" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "cache-control" : [ "no-cache" ],
+      "Date" : [ "Fri, 30 Sep 2022 12:42:06 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"status\":\"created\"}"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "status" : "created"
+      }
+    }
+  },
+  "id" : "11016c1d-15db-4f73-8da5-dd487abccaaf",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }, {
-  "id" : "244b7bf7-ba89-4942-8a30-0e2537f351f6",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws/logs/check_async",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "Content-Type" : [ "application/json" ]
+      "x-datadog-trace-id" : [ "2726910863085908849" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "106" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Language" : [ "" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
+      "contentType" : "application/json",
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_k5/f0eQ\",\"lambda_arn\":\"arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest\"}"
+      "json" : {
+        "account_id" : "109427145466",
+        "lambda_arn" : "arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest"
+      }
     }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 13 Jul 2021 17:37:13 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-reset" : [ "53" ],
+      "x-ratelimit-remaining" : [ "11993" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-limit" : [ "12000" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "20" ]
+      "pragma" : [ "no-cache" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "cache-control" : [ "no-cache" ],
+      "Date" : [ "Fri, 30 Sep 2022 12:42:07 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"status\":\"waiting\"}"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "status" : "waiting"
+      }
+    }
+  },
+  "id" : "8383a5b8-f659-49ce-8416-454a2a447c4b",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }, {
-  "id" : "314ec465-8001-45c4-ad5e-03cc7d84d639",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws/logs/check_async",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "Content-Type" : [ "application/json" ]
+      "x-datadog-trace-id" : [ "983673759683121563" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "106" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Language" : [ "" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
+      "contentType" : "application/json",
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_k5/f0eQ\",\"lambda_arn\":\"arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest\"}"
+      "json" : {
+        "account_id" : "109427145466",
+        "lambda_arn" : "arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest"
+      }
     }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 13 Jul 2021 17:37:18 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-ratelimit-reset" : [ "46" ],
+      "x-ratelimit-remaining" : [ "11992" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-limit" : [ "12000" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "181" ]
+      "x-content-type-options" : [ "nosniff" ],
+      "vary" : [ "Accept-Encoding" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "pragma" : [ "no-cache" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "cache-control" : [ "no-cache" ],
+      "Date" : [ "Fri, 30 Sep 2022 12:42:14 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"status\":\"error\",\"errors\":[{\"message\":\"Missing permissions to list lambda functions on account java_k5/f0eQ\",\"code\":\"lambda_permission_error\",\"permission\":\"lambda:listfunctions\"}]}"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "status" : "error",
+        "errors" : [ {
+          "message" : "An unknown error occurred when checking if Lambda arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest exists.",
+          "code" : "unknown_error"
+        } ]
+      }
+    }
+  },
+  "id" : "8807632e-8fca-40ea-9dd7-c250e7f6528e",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }, {
-  "id" : "13ae62b8-2915-4ee8-9a4e-97ee5756abc9",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws/logs/check_async",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "Content-Type" : [ "application/json" ]
+      "x-datadog-trace-id" : [ "4480237825250190823" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "106" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Language" : [ "" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
+      "contentType" : "application/json",
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_k5/f0eQ\",\"lambda_arn\":\"arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest\"}"
+      "json" : {
+        "account_id" : "109427145466",
+        "lambda_arn" : "arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest"
+      }
     }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 13 Jul 2021 17:37:19 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-ratelimit-reset" : [ "46" ],
+      "x-ratelimit-remaining" : [ "11991" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-limit" : [ "12000" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "181" ]
+      "x-content-type-options" : [ "nosniff" ],
+      "vary" : [ "Accept-Encoding" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "pragma" : [ "no-cache" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "cache-control" : [ "no-cache" ],
+      "Date" : [ "Fri, 30 Sep 2022 12:42:14 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"status\":\"error\",\"errors\":[{\"message\":\"Missing permissions to list lambda functions on account java_k5/f0eQ\",\"code\":\"lambda_permission_error\",\"permission\":\"lambda:listfunctions\"}]}"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "status" : "error",
+        "errors" : [ {
+          "message" : "An unknown error occurred when checking if Lambda arn:aws:lambda:us-east-1:123456789101:function:JavaClientTest exists.",
+          "code" : "unknown_error"
+        } ]
+      }
+    }
+  },
+  "id" : "7883292d-dd6d-4f43-9c75-09f271017aaf",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }, {
-  "id" : "3045fd1e-f5a9-4f4e-beb9-389d9fdf00aa",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "aWSLogsCheckLambdaAsyncTest" ],
-      "Content-Type" : [ "application/json" ]
+      "x-datadog-trace-id" : [ "1576943573844680502" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "93" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Language" : [ "" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
+      "contentType" : "application/json",
       "type" : "JSON",
-      "json" : "{\"account_id\":\"java_k5/f0eQ\",\"role_name\":\"java-aWSLogsCheckLambdaAsyncTest-local-1626197830\"}"
+      "json" : {
+        "account_id" : "109427145466",
+        "role_name" : "java-aWSLogsCheckLambdaAsyncTest-local-1664541724"
+      }
     }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 13 Jul 2021 17:37:20 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "2" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-reset" : [ "45" ],
+      "x-ratelimit-remaining" : [ "11990" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-limit" : [ "12000" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
+      "pragma" : [ "no-cache" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "cache-control" : [ "no-cache" ],
+      "Date" : [ "Fri, 30 Sep 2022 12:42:15 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{}"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : { }
+    }
+  },
+  "id" : "00feb8ec-5c47-4545-8b60-028a6cba83ef",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }]

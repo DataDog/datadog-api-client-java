@@ -370,6 +370,7 @@ public class SLOHistorySLIData {
     return uptime;
   }
 
+  @Deprecated
   public void setUptime(Double uptime) {
     this.uptime = uptime;
   }

@@ -1413,6 +1413,144 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get a signal&#39;s details.
+   *
+   * <p>See {@link #getSecurityMonitoringSignalWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return SecurityMonitoringSignal
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSignal getSecurityMonitoringSignal(String signalId) throws ApiException {
+    return getSecurityMonitoringSignalWithHttpInfo(signalId).getData();
+  }
+
+  /**
+   * Get a signal&#39;s details.
+   *
+   * <p>See {@link #getSecurityMonitoringSignalWithHttpInfoAsync}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSignal&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSignal> getSecurityMonitoringSignalAsync(
+      String signalId) {
+    return getSecurityMonitoringSignalWithHttpInfoAsync(signalId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a signal's details.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return ApiResponse&lt;SecurityMonitoringSignal&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignal> getSecurityMonitoringSignalWithHttpInfo(
+      String signalId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'signalId' when calling getSecurityMonitoringSignal");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/{signal_id}"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityMonitoringSignal",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignal>() {});
+  }
+
+  /**
+   * Get a signal&#39;s details.
+   *
+   * <p>See {@link #getSecurityMonitoringSignalWithHttpInfo}.
+   *
+   * @param signalId The ID of the signal. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignal&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignal>>
+      getSecurityMonitoringSignalWithHttpInfoAsync(String signalId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'signalId' is set
+    if (signalId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignal>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'signalId' when calling"
+                  + " getSecurityMonitoringSignal"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/signals/{signal_id}"
+            .replaceAll("\\{" + "signal_id" + "\\}", apiClient.escapeString(signalId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "SecurityMonitoringApi.getSecurityMonitoringSignal",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSignal>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSignal>() {});
+  }
+
+  /**
    * Get all security filters.
    *
    * <p>See {@link #listSecurityFiltersWithHttpInfo}.

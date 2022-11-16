@@ -4,7 +4,7 @@
     <artifactId>datadog-api-client</artifactId>
     <packaging>jar</packaging>
     <name>datadog-api-client</name>
-    <version>2.2.1-SNAPSHOT</version>
+    <version>2.5.1-SNAPSHOT</version>
     <url>https://github.com/DataDog/datadog-api-client-java</url>
     <description>Java client library for Datadog API</description>
     <scm>
@@ -624,12 +624,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey-version>3.0.4</jersey-version>
         <jackson-version>2.13.2</jackson-version>
-        <jackson-databind-version>2.13.2.2</jackson-databind-version>
+        <jackson-databind-version>2.13.4.2</jackson-databind-version>
         <jackson-databind-nullable-version>0.2.3</jackson-databind-nullable-version>
         <jakarta-annotation-version>2.1.0</jakarta-annotation-version>
         <scribejava-version>8.3.1</scribejava-version>
         <junit-version>4.13.2</junit-version>
-        <dd-java-agent-version>0.98.1</dd-java-agent-version>
+        <dd-java-agent-version>0.113.0</dd-java-agent-version>
         <cucumber-version>7.2.3</cucumber-version>
         <project.scm.id>github</project.scm.id>
     </properties>

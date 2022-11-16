@@ -33,7 +33,7 @@ import java.util.Objects;
 public class MonitorType {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private Integer createdAt;
+  private Long createdAt;
 
   public static final String JSON_PROPERTY_GROUP_STATUS = "group_status";
   private Integer groupStatus;
@@ -42,13 +42,13 @@ public class MonitorType {
   private List<String> groups = null;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private Integer id;
+  private Long id;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
-  private Integer modified;
+  private Long modified;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -65,7 +65,7 @@ public class MonitorType {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
-  public MonitorType createdAt(Integer createdAt) {
+  public MonitorType createdAt(Long createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -78,11 +78,11 @@ public class MonitorType {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getCreatedAt() {
+  public Long getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(Integer createdAt) {
+  public void setCreatedAt(Long createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -92,7 +92,7 @@ public class MonitorType {
   }
 
   /**
-   * Monitor group status used when there is no <code>result_groups</code>.
+   * Monitor group status used when there is no <code>result_groups</code>. maximum: 2147483647
    *
    * @return groupStatus
    */
@@ -136,7 +136,7 @@ public class MonitorType {
     this.groups = groups;
   }
 
-  public MonitorType id(Integer id) {
+  public MonitorType id(Long id) {
     this.id = id;
     return this;
   }
@@ -149,11 +149,11 @@ public class MonitorType {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -178,7 +178,7 @@ public class MonitorType {
     this.message = message;
   }
 
-  public MonitorType modified(Integer modified) {
+  public MonitorType modified(Long modified) {
     this.modified = modified;
     return this;
   }
@@ -191,11 +191,11 @@ public class MonitorType {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getModified() {
+  public Long getModified() {
     return modified;
   }
 
-  public void setModified(Integer modified) {
+  public void setModified(Long modified) {
     this.modified = modified;
   }
 

@@ -102,6 +102,7 @@ public class DistributionWidgetDefinition {
     return legendSize;
   }
 
+  @Deprecated
   public void setLegendSize(String legendSize) {
     this.legendSize = legendSize;
   }
@@ -191,6 +192,7 @@ public class DistributionWidgetDefinition {
     return showLegend;
   }
 
+  @Deprecated
   public void setShowLegend(Boolean showLegend) {
     this.showLegend = showLegend;
   }

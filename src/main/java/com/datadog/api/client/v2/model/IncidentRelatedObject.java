@@ -24,8 +24,10 @@ import java.util.Set;
 public class IncidentRelatedObject {
 
   public static final IncidentRelatedObject USERS = new IncidentRelatedObject("users");
+  public static final IncidentRelatedObject ATTACHMENTS = new IncidentRelatedObject("attachments");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("users"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("users", "attachments"));
 
   private String value;
 

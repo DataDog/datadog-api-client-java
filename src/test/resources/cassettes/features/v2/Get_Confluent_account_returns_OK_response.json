@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestGetConfluentaccountreturnsOKresponse1665090165\",\"api_secret\":\"test-api-secret\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/confluent-cloud/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"api_key\":\"TestGetConfluentaccountreturnsOKresponse1665090165\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\",\"id\":\"d43d474jxm\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "664cac62-9cad-7cfe-0349-80ce3082a3e1"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/integrations/confluent-cloud/accounts/d43d474jxm",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"api_key\":\"TestGetConfluentaccountreturnsOKresponse1665090165\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\",\"id\":\"d43d474jxm\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e3672a63-9af4-9dfb-4ff6-0a8a8bf2168f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/confluent-cloud/accounts/d43d474jxm",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "14ba4899-ea29-4f17-253b-507c5e07a486"
+  }
+]

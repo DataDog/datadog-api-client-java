@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1652349197\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1652349197\"},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1666186606\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1666186606\"},\"type\":\"security_filters\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,10 +12,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1652349197\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1652349197\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"f8d-36h-d0y\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1666186606\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1666186606\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"dtb-n4z-x9c\"}}\n",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -27,25 +27,25 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e3be91d1-a50c-2e90-2f0b-abc920f9eedc"
+    "id": "63ecaf97-56ea-4340-049e-2245a3ad0ab7"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1652349197\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1652349197\",\"version\":1},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1666186606\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1666186606\",\"version\":1},\"type\":\"security_filters\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/f8d-36h-d0y",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/dtb-n4z-x9c",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1652349197\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[],\"version\":2,\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1652349197\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"f8d-36h-d0y\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1666186606\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[],\"version\":2,\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1666186606\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"dtb-n4z-x9c\"}}\n",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -57,20 +57,20 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e4e145b5-9600-b39e-1d46-be1a7766d21e"
+    "id": "14ae84ce-0409-a7f4-2479-52195db20b4e"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/f8d-36h-d0y",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/dtb-n4z-x9c",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "text/html; charset=utf-8"
         ]
       },
       "statusCode": 204,
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1ebda657-a403-c80c-8f92-6b2e1f568a7e"
+    "id": "17baa54a-ec50-6648-df06-0d8c196c1a3c"
   }
 ]

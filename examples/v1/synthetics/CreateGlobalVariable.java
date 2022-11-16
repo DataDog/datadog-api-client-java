@@ -29,6 +29,7 @@ public class Example {
             .parseTestOptions(
                 new SyntheticsGlobalVariableParseTestOptions()
                     .field("content-type")
+                    .localVariableName("LOCAL_VARIABLE")
                     .parser(
                         new SyntheticsVariableParser()
                             .type(SyntheticsGlobalVariableParserType.REGEX)

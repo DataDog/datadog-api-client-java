@@ -21,7 +21,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageSummaryDate.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_APM_FARGATE_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_APM_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM,
   UsageSummaryDate.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
   UsageSummaryDate.JSON_PROPERTY_AWS_HOST_TOP99P,
@@ -39,6 +41,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_HWM,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_CSPM_AWS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_CONTAINER_AVG,
   UsageSummaryDate.JSON_PROPERTY_CSPM_CONTAINER_HWM,
@@ -76,7 +79,10 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_UNITS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM,
+  UsageSummaryDate.JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM,
+  UsageSummaryDate.JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
@@ -95,8 +101,14 @@ public class UsageSummaryDate {
       "apm_azure_app_service_host_top99p";
   private Long apmAzureAppServiceHostTop99p;
 
+  public static final String JSON_PROPERTY_APM_FARGATE_COUNT_AVG = "apm_fargate_count_avg";
+  private Long apmFargateCountAvg;
+
   public static final String JSON_PROPERTY_APM_HOST_TOP99P = "apm_host_top99p";
   private Long apmHostTop99p;
+
+  public static final String JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG = "appsec_fargate_count_avg";
+  private Long appsecFargateCountAvg;
 
   public static final String JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM =
       "audit_logs_lines_indexed_sum";
@@ -157,6 +169,9 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_CSPM_AAS_HOST_TOP99P = "cspm_aas_host_top99p";
   private Long cspmAasHostTop99p;
+
+  public static final String JSON_PROPERTY_CSPM_AWS_HOST_TOP99P = "cspm_aws_host_top99p";
+  private Long cspmAwsHostTop99p;
 
   public static final String JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P = "cspm_azure_host_top99p";
   private Long cspmAzureHostTop99p;
@@ -282,9 +297,19 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_RUM_UNITS_SUM = "rum_units_sum";
   private Long rumUnitsSum;
 
+  public static final String JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM = "sds_apm_scanned_bytes_sum";
+  private Long sdsApmScannedBytesSum;
+
+  public static final String JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM =
+      "sds_events_scanned_bytes_sum";
+  private Long sdsEventsScannedBytesSum;
+
   public static final String JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM =
       "sds_logs_scanned_bytes_sum";
   private Long sdsLogsScannedBytesSum;
+
+  public static final String JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM = "sds_rum_scanned_bytes_sum";
+  private Long sdsRumScannedBytesSum;
 
   public static final String JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM =
       "sds_total_scanned_bytes_sum";
@@ -353,6 +378,28 @@ public class UsageSummaryDate {
     this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
   }
 
+  public UsageSummaryDate apmFargateCountAvg(Long apmFargateCountAvg) {
+    this.apmFargateCountAvg = apmFargateCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all APM ECS Fargate tasks over all hours in the current date for all
+   * organizations.
+   *
+   * @return apmFargateCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_FARGATE_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmFargateCountAvg() {
+    return apmFargateCountAvg;
+  }
+
+  public void setApmFargateCountAvg(Long apmFargateCountAvg) {
+    this.apmFargateCountAvg = apmFargateCountAvg;
+  }
+
   public UsageSummaryDate apmHostTop99p(Long apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
     return this;
@@ -373,6 +420,28 @@ public class UsageSummaryDate {
 
   public void setApmHostTop99p(Long apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
+  }
+
+  public UsageSummaryDate appsecFargateCountAvg(Long appsecFargateCountAvg) {
+    this.appsecFargateCountAvg = appsecFargateCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in
+   * the current date for all organizations.
+   *
+   * @return appsecFargateCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAppsecFargateCountAvg() {
+    return appsecFargateCountAvg;
+  }
+
+  public void setAppsecFargateCountAvg(Long appsecFargateCountAvg) {
+    this.appsecFargateCountAvg = appsecFargateCountAvg;
   }
 
   public UsageSummaryDate auditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
@@ -747,6 +816,28 @@ public class UsageSummaryDate {
 
   public void setCspmAasHostTop99p(Long cspmAasHostTop99p) {
     this.cspmAasHostTop99p = cspmAasHostTop99p;
+  }
+
+  public UsageSummaryDate cspmAwsHostTop99p(Long cspmAwsHostTop99p) {
+    this.cspmAwsHostTop99p = cspmAwsHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in
+   * the current date for all organizations.
+   *
+   * @return cspmAwsHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_AWS_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmAwsHostTop99p() {
+    return cspmAwsHostTop99p;
+  }
+
+  public void setCspmAwsHostTop99p(Long cspmAwsHostTop99p) {
+    this.cspmAwsHostTop99p = cspmAwsHostTop99p;
   }
 
   public UsageSummaryDate cspmAzureHostTop99p(Long cspmAzureHostTop99p) {
@@ -1575,6 +1666,50 @@ public class UsageSummaryDate {
     this.rumUnitsSum = rumUnitsSum;
   }
 
+  public UsageSummaryDate sdsApmScannedBytesSum(Long sdsApmScannedBytesSum) {
+    this.sdsApmScannedBytesSum = sdsApmScannedBytesSum;
+    return this;
+  }
+
+  /**
+   * Sum of all APM bytes scanned with sensitive data scanner over all hours in the current date for
+   * all organizations.
+   *
+   * @return sdsApmScannedBytesSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSdsApmScannedBytesSum() {
+    return sdsApmScannedBytesSum;
+  }
+
+  public void setSdsApmScannedBytesSum(Long sdsApmScannedBytesSum) {
+    this.sdsApmScannedBytesSum = sdsApmScannedBytesSum;
+  }
+
+  public UsageSummaryDate sdsEventsScannedBytesSum(Long sdsEventsScannedBytesSum) {
+    this.sdsEventsScannedBytesSum = sdsEventsScannedBytesSum;
+    return this;
+  }
+
+  /**
+   * Sum of all event stream events bytes scanned with sensitive data scanner over all hours in the
+   * current date for all organizations.
+   *
+   * @return sdsEventsScannedBytesSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSdsEventsScannedBytesSum() {
+    return sdsEventsScannedBytesSum;
+  }
+
+  public void setSdsEventsScannedBytesSum(Long sdsEventsScannedBytesSum) {
+    this.sdsEventsScannedBytesSum = sdsEventsScannedBytesSum;
+  }
+
   public UsageSummaryDate sdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
     this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
     return this;
@@ -1595,6 +1730,28 @@ public class UsageSummaryDate {
 
   public void setSdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
     this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
+  }
+
+  public UsageSummaryDate sdsRumScannedBytesSum(Long sdsRumScannedBytesSum) {
+    this.sdsRumScannedBytesSum = sdsRumScannedBytesSum;
+    return this;
+  }
+
+  /**
+   * Sum of all RUM bytes scanned with sensitive data scanner over all hours in the current date for
+   * all organizations.
+   *
+   * @return sdsRumScannedBytesSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSdsRumScannedBytesSum() {
+    return sdsRumScannedBytesSum;
+  }
+
+  public void setSdsRumScannedBytesSum(Long sdsRumScannedBytesSum) {
+    this.sdsRumScannedBytesSum = sdsRumScannedBytesSum;
   }
 
   public UsageSummaryDate sdsTotalScannedBytesSum(Long sdsTotalScannedBytesSum) {
@@ -1743,7 +1900,9 @@ public class UsageSummaryDate {
     return Objects.equals(this.agentHostTop99p, usageSummaryDate.agentHostTop99p)
         && Objects.equals(
             this.apmAzureAppServiceHostTop99p, usageSummaryDate.apmAzureAppServiceHostTop99p)
+        && Objects.equals(this.apmFargateCountAvg, usageSummaryDate.apmFargateCountAvg)
         && Objects.equals(this.apmHostTop99p, usageSummaryDate.apmHostTop99p)
+        && Objects.equals(this.appsecFargateCountAvg, usageSummaryDate.appsecFargateCountAvg)
         && Objects.equals(this.auditLogsLinesIndexedSum, usageSummaryDate.auditLogsLinesIndexedSum)
         && Objects.equals(this.avgProfiledFargateTasks, usageSummaryDate.avgProfiledFargateTasks)
         && Objects.equals(this.awsHostTop99p, usageSummaryDate.awsHostTop99p)
@@ -1767,6 +1926,7 @@ public class UsageSummaryDate {
         && Objects.equals(this.containerAvg, usageSummaryDate.containerAvg)
         && Objects.equals(this.containerHwm, usageSummaryDate.containerHwm)
         && Objects.equals(this.cspmAasHostTop99p, usageSummaryDate.cspmAasHostTop99p)
+        && Objects.equals(this.cspmAwsHostTop99p, usageSummaryDate.cspmAwsHostTop99p)
         && Objects.equals(this.cspmAzureHostTop99p, usageSummaryDate.cspmAzureHostTop99p)
         && Objects.equals(this.cspmContainerAvg, usageSummaryDate.cspmContainerAvg)
         && Objects.equals(this.cspmContainerHwm, usageSummaryDate.cspmContainerHwm)
@@ -1816,7 +1976,10 @@ public class UsageSummaryDate {
         && Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum)
         && Objects.equals(this.rumTotalSessionCountSum, usageSummaryDate.rumTotalSessionCountSum)
         && Objects.equals(this.rumUnitsSum, usageSummaryDate.rumUnitsSum)
+        && Objects.equals(this.sdsApmScannedBytesSum, usageSummaryDate.sdsApmScannedBytesSum)
+        && Objects.equals(this.sdsEventsScannedBytesSum, usageSummaryDate.sdsEventsScannedBytesSum)
         && Objects.equals(this.sdsLogsScannedBytesSum, usageSummaryDate.sdsLogsScannedBytesSum)
+        && Objects.equals(this.sdsRumScannedBytesSum, usageSummaryDate.sdsRumScannedBytesSum)
         && Objects.equals(this.sdsTotalScannedBytesSum, usageSummaryDate.sdsTotalScannedBytesSum)
         && Objects.equals(
             this.syntheticsBrowserCheckCallsCountSum,
@@ -1836,7 +1999,9 @@ public class UsageSummaryDate {
     return Objects.hash(
         agentHostTop99p,
         apmAzureAppServiceHostTop99p,
+        apmFargateCountAvg,
         apmHostTop99p,
+        appsecFargateCountAvg,
         auditLogsLinesIndexedSum,
         avgProfiledFargateTasks,
         awsHostTop99p,
@@ -1854,6 +2019,7 @@ public class UsageSummaryDate {
         containerAvg,
         containerHwm,
         cspmAasHostTop99p,
+        cspmAwsHostTop99p,
         cspmAzureHostTop99p,
         cspmContainerAvg,
         cspmContainerHwm,
@@ -1891,7 +2057,10 @@ public class UsageSummaryDate {
         rumSessionCountSum,
         rumTotalSessionCountSum,
         rumUnitsSum,
+        sdsApmScannedBytesSum,
+        sdsEventsScannedBytesSum,
         sdsLogsScannedBytesSum,
+        sdsRumScannedBytesSum,
         sdsTotalScannedBytesSum,
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
@@ -1908,7 +2077,11 @@ public class UsageSummaryDate {
     sb.append("    apmAzureAppServiceHostTop99p: ")
         .append(toIndentedString(apmAzureAppServiceHostTop99p))
         .append("\n");
+    sb.append("    apmFargateCountAvg: ").append(toIndentedString(apmFargateCountAvg)).append("\n");
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
+    sb.append("    appsecFargateCountAvg: ")
+        .append(toIndentedString(appsecFargateCountAvg))
+        .append("\n");
     sb.append("    auditLogsLinesIndexedSum: ")
         .append(toIndentedString(auditLogsLinesIndexedSum))
         .append("\n");
@@ -1948,6 +2121,7 @@ public class UsageSummaryDate {
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
     sb.append("    cspmAasHostTop99p: ").append(toIndentedString(cspmAasHostTop99p)).append("\n");
+    sb.append("    cspmAwsHostTop99p: ").append(toIndentedString(cspmAwsHostTop99p)).append("\n");
     sb.append("    cspmAzureHostTop99p: ")
         .append(toIndentedString(cspmAzureHostTop99p))
         .append("\n");
@@ -2023,8 +2197,17 @@ public class UsageSummaryDate {
         .append(toIndentedString(rumTotalSessionCountSum))
         .append("\n");
     sb.append("    rumUnitsSum: ").append(toIndentedString(rumUnitsSum)).append("\n");
+    sb.append("    sdsApmScannedBytesSum: ")
+        .append(toIndentedString(sdsApmScannedBytesSum))
+        .append("\n");
+    sb.append("    sdsEventsScannedBytesSum: ")
+        .append(toIndentedString(sdsEventsScannedBytesSum))
+        .append("\n");
     sb.append("    sdsLogsScannedBytesSum: ")
         .append(toIndentedString(sdsLogsScannedBytesSum))
+        .append("\n");
+    sb.append("    sdsRumScannedBytesSum: ")
+        .append(toIndentedString(sdsRumScannedBytesSum))
         .append("\n");
     sb.append("    sdsTotalScannedBytesSum: ")
         .append(toIndentedString(sdsTotalScannedBytesSum))

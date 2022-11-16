@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Pagination links. */
 @JsonPropertyOrder({
@@ -28,13 +29,13 @@ public class SearchSLOResponseLinks {
   private String first;
 
   public static final String JSON_PROPERTY_LAST = "last";
-  private String last;
+  private JsonNullable<String> last = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_NEXT = "next";
   private String next;
 
   public static final String JSON_PROPERTY_PREV = "prev";
-  private String prev;
+  private JsonNullable<String> prev = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SELF = "self";
   private String self;
@@ -61,7 +62,7 @@ public class SearchSLOResponseLinks {
   }
 
   public SearchSLOResponseLinks last(String last) {
-    this.last = last;
+    this.last = JsonNullable.<String>of(last);
     return this;
   }
 
@@ -71,14 +72,24 @@ public class SearchSLOResponseLinks {
    * @return last
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getLast() {
+    return last.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getLast() {
+  public JsonNullable<String> getLast_JsonNullable() {
     return last;
   }
 
-  public void setLast(String last) {
+  @JsonProperty(JSON_PROPERTY_LAST)
+  public void setLast_JsonNullable(JsonNullable<String> last) {
     this.last = last;
+  }
+
+  public void setLast(String last) {
+    this.last = JsonNullable.<String>of(last);
   }
 
   public SearchSLOResponseLinks next(String next) {
@@ -103,7 +114,7 @@ public class SearchSLOResponseLinks {
   }
 
   public SearchSLOResponseLinks prev(String prev) {
-    this.prev = prev;
+    this.prev = JsonNullable.<String>of(prev);
     return this;
   }
 
@@ -113,14 +124,24 @@ public class SearchSLOResponseLinks {
    * @return prev
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getPrev() {
+    return prev.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_PREV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPrev() {
+  public JsonNullable<String> getPrev_JsonNullable() {
     return prev;
   }
 
-  public void setPrev(String prev) {
+  @JsonProperty(JSON_PROPERTY_PREV)
+  public void setPrev_JsonNullable(JsonNullable<String> prev) {
     this.prev = prev;
+  }
+
+  public void setPrev(String prev) {
+    this.prev = JsonNullable.<String>of(prev);
   }
 
   public SearchSLOResponseLinks self(String self) {

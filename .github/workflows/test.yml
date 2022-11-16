@@ -32,6 +32,9 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
           token: ${{ steps.get_token.outputs.token }}
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
       - name: Install pre-commit
         run: python -m pip install pre-commit
       - name: set PY
@@ -80,7 +83,7 @@ jobs:
       matrix:
         # see DEVELOPMENT.md for information why we're using this specific combination
         # of JDKs to run unit tests on
-        java-version: ["8", "16"]
+        java-version: ["8", "16", "18", "19"]
 
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')
@@ -132,5 +135,5 @@ jobs:
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
-          status: ${{ needs.javadoc.result == 'success' && needs.test.result == 'success' && needs.examples.result == 'success' && 'success' || 'failure' }}
+          status: ${{ (needs.javadoc.result == 'cancelled' || needs.test.result == 'cancelled' || needs.examples.result == 'cancelled') && 'pending' || needs.javadoc.result == 'success' && needs.test.result == 'success' && needs.examples.result == 'success' && 'success' || 'failure' }}
           context: unit

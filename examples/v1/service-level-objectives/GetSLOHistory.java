@@ -8,7 +8,6 @@ import java.time.OffsetDateTime;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v1.getSloHistory", true);
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
 
     // there is a valid "slo" in the system

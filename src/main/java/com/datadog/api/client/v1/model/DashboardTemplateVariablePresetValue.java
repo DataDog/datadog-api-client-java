@@ -10,12 +10,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /** Template variables saved views. */
 @JsonPropertyOrder({
   DashboardTemplateVariablePresetValue.JSON_PROPERTY_NAME,
-  DashboardTemplateVariablePresetValue.JSON_PROPERTY_VALUE
+  DashboardTemplateVariablePresetValue.JSON_PROPERTY_VALUE,
+  DashboardTemplateVariablePresetValue.JSON_PROPERTY_VALUES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -26,6 +29,9 @@ public class DashboardTemplateVariablePresetValue {
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
+
+  public static final String JSON_PROPERTY_VALUES = "values";
+  private List<String> values = null;
 
   public DashboardTemplateVariablePresetValue name(String name) {
     this.name = name;
@@ -54,10 +60,13 @@ public class DashboardTemplateVariablePresetValue {
   }
 
   /**
-   * The value of the template variable within the saved view.
+   * (deprecated) The value of the template variable within the saved view. Cannot be used in
+   * conjunction with <code>values</code>.
    *
    * @return value
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -65,8 +74,40 @@ public class DashboardTemplateVariablePresetValue {
     return value;
   }
 
+  @Deprecated
   public void setValue(String value) {
     this.value = value;
+  }
+
+  public DashboardTemplateVariablePresetValue values(List<String> values) {
+    this.values = values;
+    return this;
+  }
+
+  public DashboardTemplateVariablePresetValue addValuesItem(String valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<>();
+    }
+    this.values.add(valuesItem);
+    return this;
+  }
+
+  /**
+   * One or many template variable values within the saved view, which will be unioned together
+   * using <code>OR</code> if more than one is specified. Cannot be used in conjunction with <code>
+   * value</code>.
+   *
+   * @return values
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getValues() {
+    return values;
+  }
+
+  public void setValues(List<String> values) {
+    this.values = values;
   }
 
   /** Return true if this DashboardTemplateVariablePresetValue object is equal to o. */
@@ -81,12 +122,13 @@ public class DashboardTemplateVariablePresetValue {
     DashboardTemplateVariablePresetValue dashboardTemplateVariablePresetValue =
         (DashboardTemplateVariablePresetValue) o;
     return Objects.equals(this.name, dashboardTemplateVariablePresetValue.name)
-        && Objects.equals(this.value, dashboardTemplateVariablePresetValue.value);
+        && Objects.equals(this.value, dashboardTemplateVariablePresetValue.value)
+        && Objects.equals(this.values, dashboardTemplateVariablePresetValue.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value);
+    return Objects.hash(name, value, values);
   }
 
   @Override
@@ -95,6 +137,7 @@ public class DashboardTemplateVariablePresetValue {
     sb.append("class DashboardTemplateVariablePresetValue {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

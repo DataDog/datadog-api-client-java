@@ -22,7 +22,10 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_CI,
   SyntheticsTestOptions.JSON_PROPERTY_DEVICE_IDS,
   SyntheticsTestOptions.JSON_PROPERTY_DISABLE_CORS,
+  SyntheticsTestOptions.JSON_PROPERTY_DISABLE_CSP,
   SyntheticsTestOptions.JSON_PROPERTY_FOLLOW_REDIRECTS,
+  SyntheticsTestOptions.JSON_PROPERTY_IGNORE_SERVER_CERTIFICATE_ERROR,
+  SyntheticsTestOptions.JSON_PROPERTY_INITIAL_NAVIGATION_TIMEOUT,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_LOCATION_FAILED,
   SyntheticsTestOptions.JSON_PROPERTY_MONITOR_NAME,
@@ -57,8 +60,18 @@ public class SyntheticsTestOptions {
   public static final String JSON_PROPERTY_DISABLE_CORS = "disableCors";
   private Boolean disableCors;
 
+  public static final String JSON_PROPERTY_DISABLE_CSP = "disableCsp";
+  private Boolean disableCsp;
+
   public static final String JSON_PROPERTY_FOLLOW_REDIRECTS = "follow_redirects";
   private Boolean followRedirects;
+
+  public static final String JSON_PROPERTY_IGNORE_SERVER_CERTIFICATE_ERROR =
+      "ignoreServerCertificateError";
+  private Boolean ignoreServerCertificateError;
+
+  public static final String JSON_PROPERTY_INITIAL_NAVIGATION_TIMEOUT = "initialNavigationTimeout";
+  private Long initialNavigationTimeout;
 
   public static final String JSON_PROPERTY_MIN_FAILURE_DURATION = "min_failure_duration";
   private Long minFailureDuration;
@@ -117,7 +130,7 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Allows loading insecure content for an HTTP request.
+   * Allows loading insecure content for an HTTP request in an API test.
    *
    * @return allowInsecure
    */
@@ -226,6 +239,27 @@ public class SyntheticsTestOptions {
     this.disableCors = disableCors;
   }
 
+  public SyntheticsTestOptions disableCsp(Boolean disableCsp) {
+    this.disableCsp = disableCsp;
+    return this;
+  }
+
+  /**
+   * Disable Content Security Policy for browser tests.
+   *
+   * @return disableCsp
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISABLE_CSP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getDisableCsp() {
+    return disableCsp;
+  }
+
+  public void setDisableCsp(Boolean disableCsp) {
+    this.disableCsp = disableCsp;
+  }
+
   public SyntheticsTestOptions followRedirects(Boolean followRedirects) {
     this.followRedirects = followRedirects;
     return this;
@@ -245,6 +279,48 @@ public class SyntheticsTestOptions {
 
   public void setFollowRedirects(Boolean followRedirects) {
     this.followRedirects = followRedirects;
+  }
+
+  public SyntheticsTestOptions ignoreServerCertificateError(Boolean ignoreServerCertificateError) {
+    this.ignoreServerCertificateError = ignoreServerCertificateError;
+    return this;
+  }
+
+  /**
+   * Ignore server certificate error for browser tests.
+   *
+   * @return ignoreServerCertificateError
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IGNORE_SERVER_CERTIFICATE_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIgnoreServerCertificateError() {
+    return ignoreServerCertificateError;
+  }
+
+  public void setIgnoreServerCertificateError(Boolean ignoreServerCertificateError) {
+    this.ignoreServerCertificateError = ignoreServerCertificateError;
+  }
+
+  public SyntheticsTestOptions initialNavigationTimeout(Long initialNavigationTimeout) {
+    this.initialNavigationTimeout = initialNavigationTimeout;
+    return this;
+  }
+
+  /**
+   * Timeout before declaring the initial step as failed (in seconds) for browser tests.
+   *
+   * @return initialNavigationTimeout
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INITIAL_NAVIGATION_TIMEOUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInitialNavigationTimeout() {
+    return initialNavigationTimeout;
+  }
+
+  public void setInitialNavigationTimeout(Long initialNavigationTimeout) {
+    this.initialNavigationTimeout = initialNavigationTimeout;
   }
 
   public SyntheticsTestOptions minFailureDuration(Long minFailureDuration) {
@@ -497,7 +573,12 @@ public class SyntheticsTestOptions {
         && Objects.equals(this.ci, syntheticsTestOptions.ci)
         && Objects.equals(this.deviceIds, syntheticsTestOptions.deviceIds)
         && Objects.equals(this.disableCors, syntheticsTestOptions.disableCors)
+        && Objects.equals(this.disableCsp, syntheticsTestOptions.disableCsp)
         && Objects.equals(this.followRedirects, syntheticsTestOptions.followRedirects)
+        && Objects.equals(
+            this.ignoreServerCertificateError, syntheticsTestOptions.ignoreServerCertificateError)
+        && Objects.equals(
+            this.initialNavigationTimeout, syntheticsTestOptions.initialNavigationTimeout)
         && Objects.equals(this.minFailureDuration, syntheticsTestOptions.minFailureDuration)
         && Objects.equals(this.minLocationFailed, syntheticsTestOptions.minLocationFailed)
         && Objects.equals(this.monitorName, syntheticsTestOptions.monitorName)
@@ -519,7 +600,10 @@ public class SyntheticsTestOptions {
         ci,
         deviceIds,
         disableCors,
+        disableCsp,
         followRedirects,
+        ignoreServerCertificateError,
+        initialNavigationTimeout,
         minFailureDuration,
         minLocationFailed,
         monitorName,
@@ -544,7 +628,14 @@ public class SyntheticsTestOptions {
     sb.append("    ci: ").append(toIndentedString(ci)).append("\n");
     sb.append("    deviceIds: ").append(toIndentedString(deviceIds)).append("\n");
     sb.append("    disableCors: ").append(toIndentedString(disableCors)).append("\n");
+    sb.append("    disableCsp: ").append(toIndentedString(disableCsp)).append("\n");
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
+    sb.append("    ignoreServerCertificateError: ")
+        .append(toIndentedString(ignoreServerCertificateError))
+        .append("\n");
+    sb.append("    initialNavigationTimeout: ")
+        .append(toIndentedString(initialNavigationTimeout))
+        .append("\n");
     sb.append("    minFailureDuration: ").append(toIndentedString(minFailureDuration)).append("\n");
     sb.append("    minLocationFailed: ").append(toIndentedString(minLocationFailed)).append("\n");
     sb.append("    monitorName: ").append(toIndentedString(monitorName)).append("\n");

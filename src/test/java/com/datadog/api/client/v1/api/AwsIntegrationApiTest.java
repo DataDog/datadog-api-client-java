@@ -15,9 +15,6 @@ import com.datadog.api.client.v1.model.*;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import org.junit.*;
 
@@ -132,21 +129,11 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   }
 
   public String generateAwsAccountId() {
-    // We need to make this unique enough, but unfortunately we only have 12 chars for accountId.
-    // Therefore we use SHA256 on the result of `getUniqueEntityName` and take the start of that
-    // string.
-    String testUniqueName = getUniqueEntityName();
-    try {
-      MessageDigest digest = MessageDigest.getInstance("SHA-256");
-      byte[] hash = digest.digest(testUniqueName.getBytes(StandardCharsets.UTF_8));
-      testUniqueName = Base64.getEncoder().encodeToString(hash);
-    } catch (NoSuchAlgorithmException e) {
-      // let's at least reverse the string, because the last 7 chars will contain the current
-      // second,
-      // which would hopefully be unique enough
-      testUniqueName = new StringBuilder(testUniqueName).reverse().toString();
-    }
-    return String.format("java_%s", testUniqueName.substring(0, 7));
+    String uniqueId =
+        new StringBuilder(String.valueOf(now.toInstant().toEpochMilli()))
+            .reverse()
+            .substring(0, 12);
+    return uniqueId;
   }
 
   public void assertAccountIn(AWSAccount accountToAssert, List<AWSAccount> accounts) {
@@ -200,7 +187,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     excludedRegions.add("us-east-1");
     excludedRegions.add("us-west-1");
     accountSpecificNamespaceRules.put("api_gateway", true);
-    awsAccountFull.setAccountId(awsAccount.getAccountId().replaceFirst("java", "JAVA"));
+    awsAccountFull.setAccountId(awsAccount.getAccountId().substring(0, 10) + "00");
     awsAccountFull.setRoleName(awsAccount.getRoleName() + "-full");
     awsAccountFull.setHostTags(hostTags);
     awsAccountFull.setExcludedRegions(excludedRegions);
@@ -262,8 +249,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
       awsAccounts.add(new AWSAccount());
       awsAccounts
           .get(i)
-          .setAccountId(generateAwsAccountId().substring(0, 10) + String.format("-%d", i));
-      awsAccounts.get(i).setRoleName(String.format("Java Client Role Name_%s", i));
+          .setAccountId(generateAwsAccountId().substring(0, 11) + String.format("%d", i));
+      awsAccounts.get(i).setRoleName(String.format("Java_Client_Role_Name_%s", i));
       awsAccounts.get(i).addFilterTagsItem("dontCollect:java");
       awsAccounts.get(i).setHostTags(hostTags);
       awsAccounts.get(i).setAccountSpecificNamespaceRules(accountSpecificNamespaceRules);

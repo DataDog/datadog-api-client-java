@@ -136,6 +136,7 @@ public class MonitorSummaryWidgetDefinition {
     return count;
   }
 
+  @Deprecated
   public void setCount(Long count) {
     this.count = count;
   }
@@ -293,6 +294,7 @@ public class MonitorSummaryWidgetDefinition {
     return start;
   }
 
+  @Deprecated
   public void setStart(Long start) {
     this.start = start;
   }

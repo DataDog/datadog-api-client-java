@@ -69,13 +69,13 @@ public class EventAttributes {
   private JsonNullable<List<String>> monitorGroups = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
-  private JsonNullable<Integer> monitorId = JsonNullable.<Integer>undefined();
+  private JsonNullable<Long> monitorId = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private JsonNullable<EventPriority> priority = JsonNullable.<EventPriority>undefined();
 
   public static final String JSON_PROPERTY_RELATED_EVENT_ID = "related_event_id";
-  private Integer relatedEventId;
+  private Long relatedEventId;
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
@@ -322,8 +322,8 @@ public class EventAttributes {
     this.monitorGroups = JsonNullable.<List<String>>of(monitorGroups);
   }
 
-  public EventAttributes monitorId(Integer monitorId) {
-    this.monitorId = JsonNullable.<Integer>of(monitorId);
+  public EventAttributes monitorId(Long monitorId) {
+    this.monitorId = JsonNullable.<Long>of(monitorId);
     return this;
   }
 
@@ -335,23 +335,23 @@ public class EventAttributes {
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
-  public Integer getMonitorId() {
+  public Long getMonitorId() {
     return monitorId.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Integer> getMonitorId_JsonNullable() {
+  public JsonNullable<Long> getMonitorId_JsonNullable() {
     return monitorId;
   }
 
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
-  public void setMonitorId_JsonNullable(JsonNullable<Integer> monitorId) {
+  public void setMonitorId_JsonNullable(JsonNullable<Long> monitorId) {
     this.monitorId = monitorId;
   }
 
-  public void setMonitorId(Integer monitorId) {
-    this.monitorId = JsonNullable.<Integer>of(monitorId);
+  public void setMonitorId(Long monitorId) {
+    this.monitorId = JsonNullable.<Long>of(monitorId);
   }
 
   public EventAttributes priority(EventPriority priority) {
@@ -388,7 +388,7 @@ public class EventAttributes {
     this.priority = JsonNullable.<EventPriority>of(priority);
   }
 
-  public EventAttributes relatedEventId(Integer relatedEventId) {
+  public EventAttributes relatedEventId(Long relatedEventId) {
     this.relatedEventId = relatedEventId;
     return this;
   }
@@ -401,11 +401,11 @@ public class EventAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATED_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getRelatedEventId() {
+  public Long getRelatedEventId() {
     return relatedEventId;
   }
 
-  public void setRelatedEventId(Integer relatedEventId) {
+  public void setRelatedEventId(Long relatedEventId) {
     this.relatedEventId = relatedEventId;
   }
 

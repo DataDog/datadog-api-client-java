@@ -68,6 +68,10 @@ public class UsageAttributionSort {
       new UsageAttributionSort("estimated_indexed_logs_usage");
   public static final UsageAttributionSort ESTIMATED_INDEXED_LOGS_PERCENTAGE =
       new UsageAttributionSort("estimated_indexed_logs_percentage");
+  public static final UsageAttributionSort ESTIMATED_INGESTED_LOGS_USAGE =
+      new UsageAttributionSort("estimated_ingested_logs_usage");
+  public static final UsageAttributionSort ESTIMATED_INGESTED_LOGS_PERCENTAGE =
+      new UsageAttributionSort("estimated_ingested_logs_percentage");
   public static final UsageAttributionSort ESTIMATED_INDEXED_SPANS_USAGE =
       new UsageAttributionSort("estimated_indexed_spans_usage");
   public static final UsageAttributionSort ESTIMATED_INDEXED_SPANS_PERCENTAGE =
@@ -76,6 +80,14 @@ public class UsageAttributionSort {
       new UsageAttributionSort("estimated_ingested_spans_usage");
   public static final UsageAttributionSort ESTIMATED_INGESTED_SPANS_PERCENTAGE =
       new UsageAttributionSort("estimated_ingested_spans_percentage");
+  public static final UsageAttributionSort APM_FARGATE_USAGE =
+      new UsageAttributionSort("apm_fargate_usage");
+  public static final UsageAttributionSort APM_FARGATE_PERCENTAGE =
+      new UsageAttributionSort("apm_fargate_percentage");
+  public static final UsageAttributionSort APPSEC_FARGATE_USAGE =
+      new UsageAttributionSort("appsec_fargate_usage");
+  public static final UsageAttributionSort APPSEC_FARGATE_PERCENTAGE =
+      new UsageAttributionSort("appsec_fargate_percentage");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -104,10 +116,16 @@ public class UsageAttributionSort {
               "lambda_invocations_percentage",
               "estimated_indexed_logs_usage",
               "estimated_indexed_logs_percentage",
+              "estimated_ingested_logs_usage",
+              "estimated_ingested_logs_percentage",
               "estimated_indexed_spans_usage",
               "estimated_indexed_spans_percentage",
               "estimated_ingested_spans_usage",
-              "estimated_ingested_spans_percentage"));
+              "estimated_ingested_spans_percentage",
+              "apm_fargate_usage",
+              "apm_fargate_percentage",
+              "appsec_fargate_usage",
+              "appsec_fargate_percentage"));
 
   private String value;
 

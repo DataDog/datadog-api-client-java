@@ -23,6 +23,7 @@ import java.util.Objects;
   UsageBillableSummaryHour.JSON_PROPERTY_ORG_NAME,
   UsageBillableSummaryHour.JSON_PROPERTY_PUBLIC_ID,
   UsageBillableSummaryHour.JSON_PROPERTY_RATIO_IN_MONTH,
+  UsageBillableSummaryHour.JSON_PROPERTY_REGION,
   UsageBillableSummaryHour.JSON_PROPERTY_START_DATE,
   UsageBillableSummaryHour.JSON_PROPERTY_USAGE
 })
@@ -49,6 +50,9 @@ public class UsageBillableSummaryHour {
 
   public static final String JSON_PROPERTY_RATIO_IN_MONTH = "ratio_in_month";
   private Double ratioInMonth;
+
+  public static final String JSON_PROPERTY_REGION = "region";
+  private String region;
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
 
@@ -184,6 +188,27 @@ public class UsageBillableSummaryHour {
     this.ratioInMonth = ratioInMonth;
   }
 
+  public UsageBillableSummaryHour region(String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * The region of the organization.
+   *
+   * @return region
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
   public UsageBillableSummaryHour startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
@@ -243,6 +268,7 @@ public class UsageBillableSummaryHour {
         && Objects.equals(this.orgName, usageBillableSummaryHour.orgName)
         && Objects.equals(this.publicId, usageBillableSummaryHour.publicId)
         && Objects.equals(this.ratioInMonth, usageBillableSummaryHour.ratioInMonth)
+        && Objects.equals(this.region, usageBillableSummaryHour.region)
         && Objects.equals(this.startDate, usageBillableSummaryHour.startDate)
         && Objects.equals(this.usage, usageBillableSummaryHour.usage);
   }
@@ -250,7 +276,7 @@ public class UsageBillableSummaryHour {
   @Override
   public int hashCode() {
     return Objects.hash(
-        billingPlan, endDate, numOrgs, orgName, publicId, ratioInMonth, startDate, usage);
+        billingPlan, endDate, numOrgs, orgName, publicId, ratioInMonth, region, startDate, usage);
   }
 
   @Override
@@ -263,6 +289,7 @@ public class UsageBillableSummaryHour {
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    ratioInMonth: ").append(toIndentedString(ratioInMonth)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");

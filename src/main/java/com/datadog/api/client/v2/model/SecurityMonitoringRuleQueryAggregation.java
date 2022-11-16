@@ -38,10 +38,13 @@ public class SecurityMonitoringRuleQueryAggregation {
       new SecurityMonitoringRuleQueryAggregation("new_value");
   public static final SecurityMonitoringRuleQueryAggregation GEO_DATA =
       new SecurityMonitoringRuleQueryAggregation("geo_data");
+  public static final SecurityMonitoringRuleQueryAggregation EVENT_COUNT =
+      new SecurityMonitoringRuleQueryAggregation("event_count");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("count", "cardinality", "sum", "max", "new_value", "geo_data"));
+          Arrays.asList(
+              "count", "cardinality", "sum", "max", "new_value", "geo_data", "event_count"));
 
   private String value;
 

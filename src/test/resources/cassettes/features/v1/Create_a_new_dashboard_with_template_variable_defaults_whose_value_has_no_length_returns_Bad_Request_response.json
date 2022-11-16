@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"description\":null,\"is_read_only\":false,\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"auto\",\"restricted_roles\":[],\"template_variables\":[{\"available_values\":[\"my-host\",\"host1\",\"host2\"],\"defaults\":[\"\"],\"name\":\"host1\",\"prefix\":\"host\"}],\"title\":\"\",\"widgets\":[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Minimum length of parameter 'defaults' should be 1\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "46a0f6ac-2198-ca81-3563-f3642a435388"
+  }
+]

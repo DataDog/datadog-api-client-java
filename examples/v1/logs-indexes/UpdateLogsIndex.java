@@ -17,12 +17,15 @@ public class Example {
 
     LogsIndexUpdateRequest body =
         new LogsIndexUpdateRequest()
+            .dailyLimit(300000000L)
+            .disableDailyLimit(false)
             .exclusionFilters(
                 Collections.singletonList(
                     new LogsExclusion()
                         .filter(new LogsExclusionFilter().query("*").sampleRate(1.0))
                         .name("payment")))
-            .filter(new LogsFilter().query("source:python"));
+            .filter(new LogsFilter().query("source:python"))
+            .numRetentionDays(15L);
 
     try {
       LogsIndex result = apiInstance.updateLogsIndex("name", body);

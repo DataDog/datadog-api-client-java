@@ -1,37 +1,55 @@
 [{
-  "id" : "3ef5409a-5173-4c35-8277-9d7be8085252",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/integration/aws/logs",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "logsAdd403ErrorTest" ],
-      "Content-Type" : [ "application/json" ]
+      "x-datadog-trace-id" : [ "8457642130746855420" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "37" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Language" : [ "" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
+      "contentType" : "application/json",
       "type" : "JSON",
-      "json" : "{\"account_id\":null,\"lambda_arn\":null}"
+      "json" : {
+        "account_id" : null,
+        "lambda_arn" : null
+      }
     }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 13 Jul 2021 17:37:07 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "170" ],
-      "Connection" : [ "keep-alive" ],
+      "via" : [ "haproxy" ],
       "cache-control" : [ "no-cache" ],
-      "via" : [ "haproxy" ]
+      "Date" : [ "Fri, 30 Sep 2022 12:41:59 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "status" : "error",
+        "code" : 403,
+        "errors" : [ "Forbidden" ],
+        "statuspage" : "http://status.datadoghq.com",
+        "twitter" : "http://twitter.com/datadogops",
+        "email" : "support@datadoghq.com"
+      }
+    }
+  },
+  "id" : "cb2e2dbc-1e7c-4b9e-b019-4e4e579fbab7",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }]

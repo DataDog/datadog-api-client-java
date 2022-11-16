@@ -14,6 +14,7 @@ import com.datadog.api.client.v2.model.LogsListRequest;
 import com.datadog.api.client.v2.model.LogsListRequestPage;
 import com.datadog.api.client.v2.model.LogsListResponse;
 import com.datadog.api.client.v2.model.LogsSort;
+import com.datadog.api.client.v2.model.LogsStorageTier;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.time.OffsetDateTime;
@@ -417,6 +418,7 @@ public class LogsApi {
     private String filterIndex;
     private OffsetDateTime filterFrom;
     private OffsetDateTime filterTo;
+    private LogsStorageTier filterStorageTier;
     private LogsSort sort;
     private String pageCursor;
     private Integer pageLimit;
@@ -463,6 +465,18 @@ public class LogsApi {
      */
     public ListLogsGetOptionalParameters filterTo(OffsetDateTime filterTo) {
       this.filterTo = filterTo;
+      return this;
+    }
+
+    /**
+     * Set filterStorageTier.
+     *
+     * @param filterStorageTier Specifies the storage type to be used (optional, default to
+     *     "indexes")
+     * @return ListLogsGetOptionalParameters
+     */
+    public ListLogsGetOptionalParameters filterStorageTier(LogsStorageTier filterStorageTier) {
+      this.filterStorageTier = filterStorageTier;
       return this;
     }
 
@@ -641,6 +655,7 @@ public class LogsApi {
     String filterIndex = parameters.filterIndex;
     OffsetDateTime filterFrom = parameters.filterFrom;
     OffsetDateTime filterTo = parameters.filterTo;
+    LogsStorageTier filterStorageTier = parameters.filterStorageTier;
     LogsSort sort = parameters.sort;
     String pageCursor = parameters.pageCursor;
     Integer pageLimit = parameters.pageLimit;
@@ -654,6 +669,8 @@ public class LogsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[index]", filterIndex));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[storage_tier]", filterStorageTier));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
@@ -693,6 +710,7 @@ public class LogsApi {
     String filterIndex = parameters.filterIndex;
     OffsetDateTime filterFrom = parameters.filterFrom;
     OffsetDateTime filterTo = parameters.filterTo;
+    LogsStorageTier filterStorageTier = parameters.filterStorageTier;
     LogsSort sort = parameters.sort;
     String pageCursor = parameters.pageCursor;
     Integer pageLimit = parameters.pageLimit;
@@ -706,6 +724,8 @@ public class LogsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[index]", filterIndex));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[storage_tier]", filterStorageTier));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));

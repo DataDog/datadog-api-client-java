@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1652349190\",\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1652349190\"},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1666186599\",\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1666186599\"},\"type\":\"security_filters\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,10 +12,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1652349190\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude staging\"}],\"version\":1,\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1652349190\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"2co-379-ngs\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1666186599\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude staging\"}],\"version\":1,\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1666186599\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"n8l-koa-vuo\"}}\n",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -27,20 +27,20 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "fcab5d50-7493-5a83-fd79-c349a5cc172d"
+    "id": "b72dcf78-0ce1-148e-70af-be98a8e26218"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/2co-379-ngs",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/n8l-koa-vuo",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "text/html; charset=utf-8"
         ]
       },
       "statusCode": 204,
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "84d7c7dc-43ca-343e-4edd-a64cc510911b"
+    "id": "f349cccb-a969-bd5f-68e7-d8c4b78601e3"
   }
 ]

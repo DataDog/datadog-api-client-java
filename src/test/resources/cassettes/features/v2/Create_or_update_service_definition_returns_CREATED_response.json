@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"contacts\":[{\"contact\":\"contact@datadoghq.com\",\"name\":\"Team Email\",\"type\":\"email\"}],\"dd-service\":\"service-Test-Create_or_update_service_definition_returns_CREATED_response-1668114884\",\"dd-team\":\"my-team\",\"docs\":[{\"name\":\"Architecture\",\"provider\":\"google drive\",\"url\":\"https://gdrive/mydoc\"}],\"extensions\":{\"myorgextension\":\"extensionvalue\"},\"integrations\":{\"opsgenie\":{\"region\":\"US\",\"service-url\":\"https://my-org.opsgenie.com/service/123e4567-e89b-12d3-a456-426614174000\"},\"pagerduty\":\"https://my-org.pagerduty.com/service-directory/PMyService\"},\"links\":[{\"name\":\"Runbook\",\"type\":\"runbook\",\"url\":\"https://my-runbook\"}],\"repos\":[{\"name\":\"Source Code\",\"provider\":\"GitHub\",\"url\":\"https://github.com/DataDog/schema\"}],\"schema-version\":\"v2\",\"tags\":[\"my:tag\",\"service:tag\"],\"team\":\"my-team\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/services/definitions",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"type\":\"service-definition\",\"attributes\":{\"meta\":{\"last-modified-time\":\"2022-11-10T21:14:45.52228008Z\",\"github-html-url\":\"\",\"ingestion-source\":\"api\",\"warnings\":[],\"ingested-schema-version\":\"v2\"},\"schema\":{\"schema-version\":\"v2\",\"dd-service\":\"service-test-create_or_update_service_definition_returns_created_response-1668114884\",\"dd-team\":\"my-team\",\"team\":\"my-team\",\"contacts\":[{\"name\":\"Team Email\",\"type\":\"email\",\"contact\":\"contact@datadoghq.com\"}],\"links\":[{\"name\":\"Runbook\",\"type\":\"runbook\",\"url\":\"https://my-runbook\"}],\"repos\":[{\"name\":\"Source Code\",\"provider\":\"GitHub\",\"url\":\"https://github.com/DataDog/schema\"}],\"docs\":[{\"name\":\"Architecture\",\"provider\":\"google drive\",\"url\":\"https://gdrive/mydoc\"}],\"tags\":[\"my:tag\",\"service:tag\"],\"integrations\":{\"pagerduty\":\"https://my-org.pagerduty.com/service-directory/PMyService\",\"opsgenie\":{\"service-url\":\"https://my-org.opsgenie.com/service/123e4567-e89b-12d3-a456-426614174000\",\"region\":\"US\"}},\"extensions\":{\"myorgextension\":\"extensionvalue\"}}}}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b5aa6928-e06a-8df2-c5c8-ff06a6bdb3f1"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/services/definitions/service-test-create_or_update_service_definition_returns_created_response-1668114884",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Not Found\"],\"error_details\":[{}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8da7c885-e895-edd3-27ae-d527f50e4817"
+  }
+]

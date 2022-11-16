@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"config\":{\"configVariables\":[{\"example\":\"content-type\",\"name\":\"PROPERTY\",\"pattern\":\"content-type\",\"type\":\"text\"}],\"steps\":[{\"allowFailure\":true,\"assertions\":[{\"operator\":\"is\",\"target\":200,\"type\":\"statusCode\"}],\"isCritical\":true,\"name\":\"request is sent\",\"request\":{\"method\":\"GET\",\"timeout\":10,\"url\":\"https://datadoghq.com\"},\"retry\":{\"count\":5,\"interval\":1000},\"subtype\":\"http\"}]},\"locations\":[\"aws:us-east-2\"],\"message\":\"BDD test payload: synthetics_api_test_multi_step_payload.json\",\"name\":\"Test-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response-1644495855\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"monitor_name\":\"Test-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response-1644495855\",\"monitor_priority\":5,\"retry\":{\"count\":3,\"interval\":1000},\"tick_every\":60},\"subtype\":\"multi\",\"tags\":[\"testing:api\"],\"type\":\"api\"}"
+        "json": "{\"config\":{\"configVariables\":[{\"example\":\"content-type\",\"name\":\"PROPERTY\",\"pattern\":\"content-type\",\"type\":\"text\"}],\"steps\":[{\"allowFailure\":true,\"assertions\":[{\"operator\":\"is\",\"target\":200,\"type\":\"statusCode\"}],\"extractedValues\":[{\"field\":\"server\",\"name\":\"EXTRACTED_VALUE\",\"parser\":{\"type\":\"raw\"},\"type\":\"http_header\"}],\"isCritical\":true,\"name\":\"request is sent\",\"request\":{\"method\":\"GET\",\"timeout\":10,\"url\":\"https://datadoghq.com\"},\"retry\":{\"count\":5,\"interval\":1000},\"subtype\":\"http\"}]},\"locations\":[\"aws:us-east-2\"],\"message\":\"BDD test payload: synthetics_api_test_multi_step_payload.json\",\"name\":\"Test-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response-1661864370\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"monitor_name\":\"Test-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response-1661864370\",\"monitor_priority\":5,\"retry\":{\"count\":3,\"interval\":1000},\"tick_every\":60},\"subtype\":\"multi\",\"tags\":[\"testing:api\"],\"type\":\"api\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"status\":\"live\",\"public_id\":\"b9s-ywq-qhf\",\"tags\":[\"testing:api\"],\"org_id\":321813,\"locations\":[\"aws:us-east-2\"],\"message\":\"BDD test payload: synthetics_api_test_multi_step_payload.json\",\"deleted_at\":null,\"name\":\"Test-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response-1644495855\",\"monitor_id\":63812390,\"type\":\"api\",\"created_at\":\"2022-02-10T12:24:16.216698+00:00\",\"modified_at\":\"2022-02-10T12:24:16.216698+00:00\",\"subtype\":\"multi\",\"config\":{\"steps\":[{\"retry\":{\"count\":5,\"interval\":1000},\"name\":\"request is sent\",\"request\":{\"url\":\"https://datadoghq.com\",\"method\":\"GET\",\"timeout\":10},\"subtype\":\"http\",\"allowFailure\":true,\"assertions\":[{\"operator\":\"is\",\"type\":\"statusCode\",\"target\":200}],\"isCritical\":true,\"id\":\"78t-9y9-ejd\"}],\"configVariables\":[{\"pattern\":\"content-type\",\"type\":\"text\",\"example\":\"content-type\",\"name\":\"PROPERTY\"}]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":1000},\"min_location_failed\":1,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"monitor_priority\":5,\"monitor_name\":\"Test-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response-1644495855\",\"tick_every\":60}}",
+      "body": "{\"status\":\"live\",\"public_id\":\"mtz-ccy-e3x\",\"tags\":[\"testing:api\"],\"org_id\":321813,\"locations\":[\"aws:us-east-2\"],\"message\":\"BDD test payload: synthetics_api_test_multi_step_payload.json\",\"deleted_at\":null,\"name\":\"Test-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response-1661864370\",\"monitor_id\":81568663,\"type\":\"api\",\"created_at\":\"2022-08-30T12:59:31.130267+00:00\",\"modified_at\":\"2022-08-30T12:59:31.130267+00:00\",\"subtype\":\"multi\",\"config\":{\"steps\":[{\"retry\":{\"count\":5,\"interval\":1000},\"name\":\"request is sent\",\"request\":{\"url\":\"https://datadoghq.com\",\"method\":\"GET\",\"timeout\":10},\"subtype\":\"http\",\"allowFailure\":true,\"assertions\":[{\"operator\":\"is\",\"type\":\"statusCode\",\"target\":200}],\"isCritical\":true,\"id\":\"vst-9t6-t7t\",\"extractedValues\":[{\"field\":\"server\",\"parser\":{\"type\":\"raw\"},\"type\":\"http_header\",\"name\":\"EXTRACTED_VALUE\"}]}],\"configVariables\":[{\"pattern\":\"content-type\",\"type\":\"text\",\"example\":\"content-type\",\"name\":\"PROPERTY\"}]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":1000},\"min_location_failed\":1,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"monitor_priority\":5,\"monitor_name\":\"Test-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response-1661864370\",\"tick_every\":60}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4ab1d620-38f0-2182-982c-a2dcc5bcff94"
+    "id": "e533bc72-3b59-ee7a-98aa-f6ba29c84927"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"public_ids\":[\"b9s-ywq-qhf\"]}"
+        "json": "{\"public_ids\":[\"mtz-ccy-e3x\"]}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_tests\":[{\"deleted_at\":\"2022-02-10T12:24:16.747773+00:00\",\"public_id\":\"b9s-ywq-qhf\"}]}",
+      "body": "{\"deleted_tests\":[{\"deleted_at\":\"2022-08-30T12:59:36.624525+00:00\",\"public_id\":\"mtz-ccy-e3x\"}]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,6 +57,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "91e45202-40b1-bb14-d83e-45b4a8e61bac"
+    "id": "49a77c60-9a86-a889-de5f-31472f457db9"
   }
 ]

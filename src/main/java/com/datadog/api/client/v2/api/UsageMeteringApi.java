@@ -75,7 +75,9 @@ public class UsageMeteringApi {
    *     for cost beginning this month. (required)
    * @return CostByOrgResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CostByOrgResponse getCostByOrg(OffsetDateTime startMonth) throws ApiException {
     return getCostByOrgWithHttpInfo(startMonth, new GetCostByOrgOptionalParameters()).getData();
   }
@@ -88,7 +90,9 @@ public class UsageMeteringApi {
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning this month. (required)
    * @return CompletableFuture&lt;CostByOrgResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<CostByOrgResponse> getCostByOrgAsync(OffsetDateTime startMonth) {
     return getCostByOrgWithHttpInfoAsync(startMonth, new GetCostByOrgOptionalParameters())
         .thenApply(
@@ -107,7 +111,9 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return CostByOrgResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CostByOrgResponse getCostByOrg(
       OffsetDateTime startMonth, GetCostByOrgOptionalParameters parameters) throws ApiException {
     return getCostByOrgWithHttpInfo(startMonth, parameters).getData();
@@ -122,7 +128,9 @@ public class UsageMeteringApi {
    *     for cost beginning this month. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;CostByOrgResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<CostByOrgResponse> getCostByOrgAsync(
       OffsetDateTime startMonth, GetCostByOrgOptionalParameters parameters) {
     return getCostByOrgWithHttpInfoAsync(startMonth, parameters)
@@ -134,7 +142,10 @@ public class UsageMeteringApi {
 
   /**
    * Get cost across multi-org account. Cost by org data for a given month becomes available no
-   * later than the 16th of the following month.
+   * later than the 16th of the following month. <strong>Note:</strong> This endpoint has been
+   * deprecated. Please use the new endpoint <a
+   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-historical-cost-across-your-account">
+   * <code>/historical_cost</code></a> instead.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning this month. (required)
@@ -150,7 +161,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CostByOrgResponse> getCostByOrgWithHttpInfo(
       OffsetDateTime startMonth, GetCostByOrgOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
@@ -199,7 +213,9 @@ public class UsageMeteringApi {
    *     for cost beginning this month. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;CostByOrgResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<CostByOrgResponse>> getCostByOrgWithHttpInfoAsync(
       OffsetDateTime startMonth, GetCostByOrgOptionalParameters parameters) {
     Object localVarPostBody = null;
@@ -251,10 +267,24 @@ public class UsageMeteringApi {
 
   /** Manage optional parameters to getEstimatedCostByOrg. */
   public static class GetEstimatedCostByOrgOptionalParameters {
+    private String view;
     private OffsetDateTime startMonth;
     private OffsetDateTime endMonth;
     private OffsetDateTime startDate;
     private OffsetDateTime endDate;
+
+    /**
+     * Set view.
+     *
+     * @param view String to specify whether cost is broken down at a parent-org level or at the
+     *     sub-org level. Available views are <code>summary</code> and <code>sub-org</code>.
+     *     Defaults to <code>summary</code>. (optional)
+     * @return GetEstimatedCostByOrgOptionalParameters
+     */
+    public GetEstimatedCostByOrgOptionalParameters view(String view) {
+      this.view = view;
+      return this;
+    }
 
     /**
      * Set startMonth.
@@ -312,13 +342,11 @@ public class UsageMeteringApi {
    *
    * <p>See {@link #getEstimatedCostByOrgWithHttpInfo}.
    *
-   * @param view String to specify whether cost is broken down at a parent-org level or at the
-   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @return CostByOrgResponse
    * @throws ApiException if fails to make API call
    */
-  public CostByOrgResponse getEstimatedCostByOrg(String view) throws ApiException {
-    return getEstimatedCostByOrgWithHttpInfo(view, new GetEstimatedCostByOrgOptionalParameters())
+  public CostByOrgResponse getEstimatedCostByOrg() throws ApiException {
+    return getEstimatedCostByOrgWithHttpInfo(new GetEstimatedCostByOrgOptionalParameters())
         .getData();
   }
 
@@ -327,13 +355,10 @@ public class UsageMeteringApi {
    *
    * <p>See {@link #getEstimatedCostByOrgWithHttpInfoAsync}.
    *
-   * @param view String to specify whether cost is broken down at a parent-org level or at the
-   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @return CompletableFuture&lt;CostByOrgResponse&gt;
    */
-  public CompletableFuture<CostByOrgResponse> getEstimatedCostByOrgAsync(String view) {
-    return getEstimatedCostByOrgWithHttpInfoAsync(
-            view, new GetEstimatedCostByOrgOptionalParameters())
+  public CompletableFuture<CostByOrgResponse> getEstimatedCostByOrgAsync() {
+    return getEstimatedCostByOrgWithHttpInfoAsync(new GetEstimatedCostByOrgOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -345,15 +370,13 @@ public class UsageMeteringApi {
    *
    * <p>See {@link #getEstimatedCostByOrgWithHttpInfo}.
    *
-   * @param view String to specify whether cost is broken down at a parent-org level or at the
-   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @param parameters Optional parameters for the request.
    * @return CostByOrgResponse
    * @throws ApiException if fails to make API call
    */
-  public CostByOrgResponse getEstimatedCostByOrg(
-      String view, GetEstimatedCostByOrgOptionalParameters parameters) throws ApiException {
-    return getEstimatedCostByOrgWithHttpInfo(view, parameters).getData();
+  public CostByOrgResponse getEstimatedCostByOrg(GetEstimatedCostByOrgOptionalParameters parameters)
+      throws ApiException {
+    return getEstimatedCostByOrgWithHttpInfo(parameters).getData();
   }
 
   /**
@@ -361,14 +384,12 @@ public class UsageMeteringApi {
    *
    * <p>See {@link #getEstimatedCostByOrgWithHttpInfoAsync}.
    *
-   * @param view String to specify whether cost is broken down at a parent-org level or at the
-   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;CostByOrgResponse&gt;
    */
   public CompletableFuture<CostByOrgResponse> getEstimatedCostByOrgAsync(
-      String view, GetEstimatedCostByOrgOptionalParameters parameters) {
-    return getEstimatedCostByOrgWithHttpInfoAsync(view, parameters)
+      GetEstimatedCostByOrgOptionalParameters parameters) {
+    return getEstimatedCostByOrgWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -377,11 +398,10 @@ public class UsageMeteringApi {
 
   /**
    * Get estimated cost across multi-org and single root-org accounts. Estimated cost data is only
-   * available for the current month and previous month. To access historical costs prior to this,
-   * use the /cost_by_org endpoint.
+   * available for the current month and previous month and is delayed by up to 72 hours from when
+   * it was incurred. To access historical costs prior to this, use the <code>/historical_cost
+   * </code> endpoint.
    *
-   * @param view String to specify whether cost is broken down at a parent-org level or at the
-   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CostByOrgResponse&gt;
    * @throws ApiException if fails to make API call
@@ -396,21 +416,9 @@ public class UsageMeteringApi {
    *     </table>
    */
   public ApiResponse<CostByOrgResponse> getEstimatedCostByOrgWithHttpInfo(
-      String view, GetEstimatedCostByOrgOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getEstimatedCostByOrg";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
+      GetEstimatedCostByOrgOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
-
-    // verify the required parameter 'view' is set
-    if (view == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'view' when calling getEstimatedCostByOrg");
-    }
+    String view = parameters.view;
     OffsetDateTime startMonth = parameters.startMonth;
     OffsetDateTime endMonth = parameters.endMonth;
     OffsetDateTime startDate = parameters.startDate;
@@ -452,33 +460,13 @@ public class UsageMeteringApi {
    *
    * <p>See {@link #getEstimatedCostByOrgWithHttpInfo}.
    *
-   * @param view String to specify whether cost is broken down at a parent-org level or at the
-   *     sub-org level. Currently, only the 'sub-org' view is supported. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;CostByOrgResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CostByOrgResponse>> getEstimatedCostByOrgWithHttpInfoAsync(
-      String view, GetEstimatedCostByOrgOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getEstimatedCostByOrg";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CostByOrgResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
+      GetEstimatedCostByOrgOptionalParameters parameters) {
     Object localVarPostBody = null;
-
-    // verify the required parameter 'view' is set
-    if (view == null) {
-      CompletableFuture<ApiResponse<CostByOrgResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'view' when calling getEstimatedCostByOrg"));
-      return result;
-    }
+    String view = parameters.view;
     OffsetDateTime startMonth = parameters.startMonth;
     OffsetDateTime endMonth = parameters.endMonth;
     OffsetDateTime startDate = parameters.startDate;
@@ -500,6 +488,231 @@ public class UsageMeteringApi {
       builder =
           apiClient.createBuilder(
               "UsageMeteringApi.getEstimatedCostByOrg",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CostByOrgResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostByOrgResponse>() {});
+  }
+
+  /** Manage optional parameters to getHistoricalCostByOrg. */
+  public static class GetHistoricalCostByOrgOptionalParameters {
+    private String view;
+    private OffsetDateTime endMonth;
+
+    /**
+     * Set view.
+     *
+     * @param view String to specify whether cost is broken down at a parent-org level or at the
+     *     sub-org level. Available views are <code>summary</code> and <code>sub-org</code>.
+     *     Defaults to <code>summary</code>. (optional)
+     * @return GetHistoricalCostByOrgOptionalParameters
+     */
+    public GetHistoricalCostByOrgOptionalParameters view(String view) {
+      this.view = view;
+      return this;
+    }
+
+    /**
+     * Set endMonth.
+     *
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+     *     for cost ending this month. (optional)
+     * @return GetHistoricalCostByOrgOptionalParameters
+     */
+    public GetHistoricalCostByOrgOptionalParameters endMonth(OffsetDateTime endMonth) {
+      this.endMonth = endMonth;
+      return this;
+    }
+  }
+
+  /**
+   * Get historical cost across your account.
+   *
+   * <p>See {@link #getHistoricalCostByOrgWithHttpInfo}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning this month. (required)
+   * @return CostByOrgResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostByOrgResponse getHistoricalCostByOrg(OffsetDateTime startMonth) throws ApiException {
+    return getHistoricalCostByOrgWithHttpInfo(
+            startMonth, new GetHistoricalCostByOrgOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get historical cost across your account.
+   *
+   * <p>See {@link #getHistoricalCostByOrgWithHttpInfoAsync}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning this month. (required)
+   * @return CompletableFuture&lt;CostByOrgResponse&gt;
+   */
+  public CompletableFuture<CostByOrgResponse> getHistoricalCostByOrgAsync(
+      OffsetDateTime startMonth) {
+    return getHistoricalCostByOrgWithHttpInfoAsync(
+            startMonth, new GetHistoricalCostByOrgOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get historical cost across your account.
+   *
+   * <p>See {@link #getHistoricalCostByOrgWithHttpInfo}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning this month. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CostByOrgResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CostByOrgResponse getHistoricalCostByOrg(
+      OffsetDateTime startMonth, GetHistoricalCostByOrgOptionalParameters parameters)
+      throws ApiException {
+    return getHistoricalCostByOrgWithHttpInfo(startMonth, parameters).getData();
+  }
+
+  /**
+   * Get historical cost across your account.
+   *
+   * <p>See {@link #getHistoricalCostByOrgWithHttpInfoAsync}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning this month. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;CostByOrgResponse&gt;
+   */
+  public CompletableFuture<CostByOrgResponse> getHistoricalCostByOrgAsync(
+      OffsetDateTime startMonth, GetHistoricalCostByOrgOptionalParameters parameters) {
+    return getHistoricalCostByOrgWithHttpInfoAsync(startMonth, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get historical cost across multi-org and single root-org accounts. Cost data for a given month
+   * becomes available no later than the 16th of the following month.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning this month. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;CostByOrgResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CostByOrgResponse> getHistoricalCostByOrgWithHttpInfo(
+      OffsetDateTime startMonth, GetHistoricalCostByOrgOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startMonth' is set
+    if (startMonth == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'startMonth' when calling getHistoricalCostByOrg");
+    }
+    String view = parameters.view;
+    OffsetDateTime endMonth = parameters.endMonth;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/historical_cost";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "view", view));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getHistoricalCostByOrg",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CostByOrgResponse>() {});
+  }
+
+  /**
+   * Get historical cost across your account.
+   *
+   * <p>See {@link #getHistoricalCostByOrgWithHttpInfo}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning this month. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;CostByOrgResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CostByOrgResponse>> getHistoricalCostByOrgWithHttpInfoAsync(
+      OffsetDateTime startMonth, GetHistoricalCostByOrgOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startMonth' is set
+    if (startMonth == null) {
+      CompletableFuture<ApiResponse<CostByOrgResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'startMonth' when calling getHistoricalCostByOrg"));
+      return result;
+    }
+    String view = parameters.view;
+    OffsetDateTime endMonth = parameters.endMonth;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/historical_cost";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "view", view));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "UsageMeteringApi.getHistoricalCostByOrg",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -716,7 +929,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage by product family
+   * Get hourly usage by product family.
    *
    * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
    *     for usage beginning at this hour. (required)

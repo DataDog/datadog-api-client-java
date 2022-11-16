@@ -30,7 +30,7 @@ public class Event {
   private String name;
 
   public static final String JSON_PROPERTY_SOURCE_ID = "source_id";
-  private Integer sourceId;
+  private Long sourceId;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -77,7 +77,7 @@ public class Event {
     this.name = name;
   }
 
-  public Event sourceId(Integer sourceId) {
+  public Event sourceId(Long sourceId) {
     this.sourceId = sourceId;
     return this;
   }
@@ -90,11 +90,11 @@ public class Event {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getSourceId() {
+  public Long getSourceId() {
     return sourceId;
   }
 
-  public void setSourceId(Integer sourceId) {
+  public void setSourceId(Long sourceId) {
     this.sourceId = sourceId;
   }
 

@@ -19,7 +19,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ListStreamQuery.JSON_PROPERTY_DATA_SOURCE,
   ListStreamQuery.JSON_PROPERTY_INDEXES,
-  ListStreamQuery.JSON_PROPERTY_QUERY_STRING
+  ListStreamQuery.JSON_PROPERTY_QUERY_STRING,
+  ListStreamQuery.JSON_PROPERTY_STORAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -33,6 +34,9 @@ public class ListStreamQuery {
 
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString;
+
+  public static final String JSON_PROPERTY_STORAGE = "storage";
+  private String storage;
 
   public ListStreamQuery() {}
 
@@ -118,6 +122,27 @@ public class ListStreamQuery {
     this.queryString = queryString;
   }
 
+  public ListStreamQuery storage(String storage) {
+    this.storage = storage;
+    return this;
+  }
+
+  /**
+   * Option for storage location. Feature in Private Beta.
+   *
+   * @return storage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STORAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStorage() {
+    return storage;
+  }
+
+  public void setStorage(String storage) {
+    this.storage = storage;
+  }
+
   /** Return true if this ListStreamQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -130,12 +155,13 @@ public class ListStreamQuery {
     ListStreamQuery listStreamQuery = (ListStreamQuery) o;
     return Objects.equals(this.dataSource, listStreamQuery.dataSource)
         && Objects.equals(this.indexes, listStreamQuery.indexes)
-        && Objects.equals(this.queryString, listStreamQuery.queryString);
+        && Objects.equals(this.queryString, listStreamQuery.queryString)
+        && Objects.equals(this.storage, listStreamQuery.storage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataSource, indexes, queryString);
+    return Objects.hash(dataSource, indexes, queryString, storage);
   }
 
   @Override
@@ -145,6 +171,7 @@ public class ListStreamQuery {
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
+    sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

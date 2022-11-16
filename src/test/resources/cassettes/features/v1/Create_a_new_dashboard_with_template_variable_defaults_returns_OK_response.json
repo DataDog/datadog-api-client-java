@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"description\":null,\"is_read_only\":false,\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"auto\",\"restricted_roles\":[],\"template_variables\":[{\"available_values\":[\"my-host\",\"host1\",\"host2\"],\"defaults\":[\"my-host\"],\"name\":\"host1\",\"prefix\":\"host\"}],\"title\":\"\",\"widgets\":[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"notify_list\":[],\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":[{\"prefix\":\"host\",\"defaults\":[\"my-host\"],\"available_values\":[\"my-host\",\"host1\",\"host2\"],\"name\":\"host1\"}],\"is_read_only\":false,\"id\":\"39h-cn5-kyd\",\"title\":\"\",\"url\":\"/dashboard/39h-cn5-kyd/\",\"created_at\":\"2022-09-12T20:05:49.753763+00:00\",\"modified_at\":\"2022-09-12T20:05:49.753763+00:00\",\"reflow_type\":\"auto\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"},\"id\":4911408545233424}],\"layout_type\":\"ordered\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bc9e8ee1-e35d-a8c1-128d-a24e2d821943"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/39h-cn5-kyd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"39h-cn5-kyd\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "589d25a8-18d1-f9ae-097d-e8af0e381784"
+  }
+]

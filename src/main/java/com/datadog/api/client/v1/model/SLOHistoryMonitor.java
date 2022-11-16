@@ -276,6 +276,7 @@ public class SLOHistoryMonitor {
     return precision;
   }
 
+  @Deprecated
   public void setPrecision(Double precision) {
     this.precision = precision;
   }
@@ -364,6 +365,7 @@ public class SLOHistoryMonitor {
     return uptime;
   }
 
+  @Deprecated
   public void setUptime(Double uptime) {
     this.uptime = uptime;
   }

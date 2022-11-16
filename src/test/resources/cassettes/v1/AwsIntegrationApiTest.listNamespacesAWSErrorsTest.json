@@ -1,33 +1,45 @@
 [{
-  "id" : "79bd0ceb-9510-4e56-8403-8f0b5bf7b883",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/integration/aws/available_namespace_rules",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "listNamespacesAWSErrorsTest" ],
-      "content-length" : [ "0" ]
+      "x-datadog-trace-id" : [ "7398338867078025609" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "0" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 13 Jul 2021 17:37:38 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "170" ],
-      "Connection" : [ "keep-alive" ],
+      "via" : [ "haproxy" ],
       "cache-control" : [ "no-cache" ],
-      "via" : [ "haproxy" ]
+      "Date" : [ "Fri, 30 Sep 2022 12:42:33 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "status" : "error",
+        "code" : 403,
+        "errors" : [ "Forbidden" ],
+        "statuspage" : "http://status.datadoghq.com",
+        "twitter" : "http://twitter.com/datadogops",
+        "email" : "support@datadoghq.com"
+      }
+    }
+  },
+  "id" : "85ec6e27-e48c-4063-8d6e-5ea8cd56e938",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }]

@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"test_name_create\",\"type\":\"browser\"},\"type\":\"rum_application_create\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/rum/applications",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"updated_by_handle\":\"frog@datadoghq.com\",\"application_id\":\"8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4\",\"name\":\"test_name_create\",\"created_by_handle\":\"frog@datadoghq.com\",\"created_at\":1664825637704,\"org_id\":321813,\"updated_at\":1664825637704,\"is_active\":false,\"hash\":\"pub1ef487d822e6ce60d082ad0364b29883\",\"type\":\"browser\"},\"type\":\"rum_application\",\"id\":\"8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "74945625-c01a-a598-e538-65a53ceb0685"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"updated_name_for_my_existing_rum_application\",\"type\":\"browser\"},\"id\":\"8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4\",\"type\":\"rum_application_update\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/rum/applications/8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"updated_by_handle\":\"frog@datadoghq.com\",\"application_id\":\"8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4\",\"name\":\"updated_name_for_my_existing_rum_application\",\"created_by_handle\":\"frog@datadoghq.com\",\"created_at\":1664825637704,\"org_id\":321813,\"updated_at\":1664825638467,\"is_active\":false,\"hash\":\"pub1ef487d822e6ce60d082ad0364b29883\",\"type\":\"browser\"},\"type\":\"rum_application\",\"id\":\"8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "42c264b8-0ec4-dfa8-51dc-d48f2e4f30e0"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/rum/applications/8aeaffbf-12e3-4192-9b71-7f85bb8f2bf4",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "29dd7139-f669-35ee-7523-e87b4e18ae49"
+  }
+]

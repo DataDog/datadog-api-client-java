@@ -22,7 +22,8 @@ import java.util.Objects;
   FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_GROUP_BY,
   FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_INDEXES,
   FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_NAME,
-  FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_SEARCH
+  FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_SEARCH,
+  FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_STORAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,6 +46,9 @@ public class FormulaAndFunctionEventQueryDefinition {
 
   public static final String JSON_PROPERTY_SEARCH = "search";
   private FormulaAndFunctionEventQueryDefinitionSearch search;
+
+  public static final String JSON_PROPERTY_STORAGE = "storage";
+  private String storage;
 
   public FormulaAndFunctionEventQueryDefinition() {}
 
@@ -217,6 +221,27 @@ public class FormulaAndFunctionEventQueryDefinition {
     this.search = search;
   }
 
+  public FormulaAndFunctionEventQueryDefinition storage(String storage) {
+    this.storage = storage;
+    return this;
+  }
+
+  /**
+   * Option for storage location. Feature in Private Beta.
+   *
+   * @return storage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STORAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStorage() {
+    return storage;
+  }
+
+  public void setStorage(String storage) {
+    this.storage = storage;
+  }
+
   /** Return true if this FormulaAndFunctionEventQueryDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -233,12 +258,13 @@ public class FormulaAndFunctionEventQueryDefinition {
         && Objects.equals(this.groupBy, formulaAndFunctionEventQueryDefinition.groupBy)
         && Objects.equals(this.indexes, formulaAndFunctionEventQueryDefinition.indexes)
         && Objects.equals(this.name, formulaAndFunctionEventQueryDefinition.name)
-        && Objects.equals(this.search, formulaAndFunctionEventQueryDefinition.search);
+        && Objects.equals(this.search, formulaAndFunctionEventQueryDefinition.search)
+        && Objects.equals(this.storage, formulaAndFunctionEventQueryDefinition.storage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute, dataSource, groupBy, indexes, name, search);
+    return Objects.hash(compute, dataSource, groupBy, indexes, name, search, storage);
   }
 
   @Override
@@ -251,6 +277,7 @@ public class FormulaAndFunctionEventQueryDefinition {
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    search: ").append(toIndentedString(search)).append("\n");
+    sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

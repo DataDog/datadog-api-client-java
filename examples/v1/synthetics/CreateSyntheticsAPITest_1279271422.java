@@ -15,10 +15,14 @@ import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptionsType;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParserType;
+import com.datadog.api.client.v1.model.SyntheticsParsingOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
+import com.datadog.api.client.v1.model.SyntheticsVariableParser;
 import java.util.Collections;
 
 public class Example {
@@ -48,6 +52,17 @@ public class Example {
                                                 .operator(SyntheticsAssertionOperator.IS)
                                                 .type(SyntheticsAssertionType.STATUS_CODE)
                                                 .target(200))))
+                                .extractedValues(
+                                    Collections.singletonList(
+                                        new SyntheticsParsingOptions()
+                                            .field("server")
+                                            .name("EXTRACTED_VALUE")
+                                            .parser(
+                                                new SyntheticsVariableParser()
+                                                    .type(SyntheticsGlobalVariableParserType.RAW))
+                                            .type(
+                                                SyntheticsGlobalVariableParseTestOptionsType
+                                                    .HTTP_HEADER)))
                                 .isCritical(true)
                                 .name("request is sent")
                                 .request(

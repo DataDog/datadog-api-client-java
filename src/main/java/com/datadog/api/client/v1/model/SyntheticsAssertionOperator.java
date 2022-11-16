@@ -47,6 +47,8 @@ public class SyntheticsAssertionOperator {
       new SyntheticsAssertionOperator("isInMoreThan");
   public static final SyntheticsAssertionOperator IS_IN_LESS_DAYS_THAN =
       new SyntheticsAssertionOperator("isInLessThan");
+  public static final SyntheticsAssertionOperator DOES_NOT_EXIST =
+      new SyntheticsAssertionOperator("doesNotExist");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -63,7 +65,8 @@ public class SyntheticsAssertionOperator {
               "doesNotMatch",
               "validates",
               "isInMoreThan",
-              "isInLessThan"));
+              "isInLessThan",
+              "doesNotExist"));
 
   private String value;
 

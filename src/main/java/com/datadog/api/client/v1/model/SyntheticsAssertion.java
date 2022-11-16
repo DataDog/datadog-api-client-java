@@ -169,6 +169,52 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
             Level.FINER, "Input data does not match schema 'SyntheticsAssertionJSONPathTarget'", e);
       }
 
+      // deserialize SyntheticsAssertionXPathTarget
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SyntheticsAssertionXPathTarget.class.equals(Integer.class)
+            || SyntheticsAssertionXPathTarget.class.equals(Long.class)
+            || SyntheticsAssertionXPathTarget.class.equals(Float.class)
+            || SyntheticsAssertionXPathTarget.class.equals(Double.class)
+            || SyntheticsAssertionXPathTarget.class.equals(Boolean.class)
+            || SyntheticsAssertionXPathTarget.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SyntheticsAssertionXPathTarget.class.equals(Integer.class)
+                        || SyntheticsAssertionXPathTarget.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SyntheticsAssertionXPathTarget.class.equals(Float.class)
+                        || SyntheticsAssertionXPathTarget.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SyntheticsAssertionXPathTarget.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SyntheticsAssertionXPathTarget.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SyntheticsAssertionXPathTarget.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SyntheticsAssertionXPathTarget) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SyntheticsAssertionXPathTarget'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'SyntheticsAssertionXPathTarget'", e);
+      }
+
       SyntheticsAssertion ret = new SyntheticsAssertion();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -208,11 +254,18 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public SyntheticsAssertion(SyntheticsAssertionXPathTarget o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("SyntheticsAssertionTarget", new GenericType<SyntheticsAssertionTarget>() {});
     schemas.put(
         "SyntheticsAssertionJSONPathTarget",
         new GenericType<SyntheticsAssertionJSONPathTarget>() {});
+    schemas.put(
+        "SyntheticsAssertionXPathTarget", new GenericType<SyntheticsAssertionXPathTarget>() {});
     JSON.registerDescendants(SyntheticsAssertion.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -223,7 +276,8 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: SyntheticsAssertionTarget, SyntheticsAssertionJSONPathTarget
+   * against the oneOf child schemas: SyntheticsAssertionTarget, SyntheticsAssertionJSONPathTarget,
+   * SyntheticsAssertionXPathTarget
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -239,6 +293,11 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        SyntheticsAssertionXPathTarget.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -246,14 +305,15 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
     }
     throw new RuntimeException(
         "Invalid instance type. Must be SyntheticsAssertionTarget,"
-            + " SyntheticsAssertionJSONPathTarget");
+            + " SyntheticsAssertionJSONPathTarget, SyntheticsAssertionXPathTarget");
   }
 
   /**
    * Get the actual instance, which can be the following: SyntheticsAssertionTarget,
-   * SyntheticsAssertionJSONPathTarget
+   * SyntheticsAssertionJSONPathTarget, SyntheticsAssertionXPathTarget
    *
-   * @return The actual instance (SyntheticsAssertionTarget, SyntheticsAssertionJSONPathTarget)
+   * @return The actual instance (SyntheticsAssertionTarget, SyntheticsAssertionJSONPathTarget,
+   *     SyntheticsAssertionXPathTarget)
    */
   @Override
   public Object getActualInstance() {
@@ -281,5 +341,17 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
   public SyntheticsAssertionJSONPathTarget getSyntheticsAssertionJSONPathTarget()
       throws ClassCastException {
     return (SyntheticsAssertionJSONPathTarget) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SyntheticsAssertionXPathTarget`. If the actual instance is not
+   * `SyntheticsAssertionXPathTarget`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SyntheticsAssertionXPathTarget`
+   * @throws ClassCastException if the instance is not `SyntheticsAssertionXPathTarget`
+   */
+  public SyntheticsAssertionXPathTarget getSyntheticsAssertionXPathTarget()
+      throws ClassCastException {
+    return (SyntheticsAssertionXPathTarget) super.getActualInstance();
   }
 }

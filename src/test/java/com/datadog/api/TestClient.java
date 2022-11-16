@@ -253,7 +253,7 @@ public class TestClient implements Client {
         body = (String) respBody.get("body");
       } catch (ClassCastException e) {
         LinkedHashMap bodyMap = (LinkedHashMap) respBody.get("body");
-        body = new Gson().toJson(bodyMap.get("json"), LinkedHashMap.class);
+        body = new Gson().toJson(bodyMap.get("json"));
       }
 
       return body;

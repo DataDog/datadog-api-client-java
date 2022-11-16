@@ -34,12 +34,14 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_NEW_HOST_DELAY,
   MonitorOptions.JSON_PROPERTY_NO_DATA_TIMEFRAME,
   MonitorOptions.JSON_PROPERTY_NOTIFY_AUDIT,
+  MonitorOptions.JSON_PROPERTY_NOTIFY_BY,
   MonitorOptions.JSON_PROPERTY_NOTIFY_NO_DATA,
   MonitorOptions.JSON_PROPERTY_ON_MISSING_DATA,
   MonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL,
   MonitorOptions.JSON_PROPERTY_RENOTIFY_OCCURRENCES,
   MonitorOptions.JSON_PROPERTY_RENOTIFY_STATUSES,
   MonitorOptions.JSON_PROPERTY_REQUIRE_FULL_WINDOW,
+  MonitorOptions.JSON_PROPERTY_SCHEDULING_OPTIONS,
   MonitorOptions.JSON_PROPERTY_SILENCED,
   MonitorOptions.JSON_PROPERTY_SYNTHETICS_CHECK_ID,
   MonitorOptions.JSON_PROPERTY_THRESHOLD_WINDOWS,
@@ -96,6 +98,9 @@ public class MonitorOptions {
   public static final String JSON_PROPERTY_NOTIFY_AUDIT = "notify_audit";
   private Boolean notifyAudit = false;
 
+  public static final String JSON_PROPERTY_NOTIFY_BY = "notify_by";
+  private List<String> notifyBy = null;
+
   public static final String JSON_PROPERTY_NOTIFY_NO_DATA = "notify_no_data";
   private Boolean notifyNoData = false;
 
@@ -114,6 +119,9 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_REQUIRE_FULL_WINDOW = "require_full_window";
   private Boolean requireFullWindow;
+
+  public static final String JSON_PROPERTY_SCHEDULING_OPTIONS = "scheduling_options";
+  private MonitorOptionsSchedulingOptions schedulingOptions;
 
   public static final String JSON_PROPERTY_SILENCED = "silenced";
   private Map<String, Long> silenced = null;
@@ -159,6 +167,7 @@ public class MonitorOptions {
     return deviceIds;
   }
 
+  @Deprecated
   public MonitorOptions enableLogsSample(Boolean enableLogsSample) {
     this.enableLogsSample = enableLogsSample;
     return this;
@@ -331,6 +340,7 @@ public class MonitorOptions {
     return locked;
   }
 
+  @Deprecated
   public void setLocked(Boolean locked) {
     this.locked = locked;
   }
@@ -457,6 +467,7 @@ public class MonitorOptions {
     return newHostDelay.orElse(null);
   }
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_NEW_HOST_DELAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getNewHostDelay_JsonNullable() {
@@ -526,6 +537,42 @@ public class MonitorOptions {
     this.notifyAudit = notifyAudit;
   }
 
+  public MonitorOptions notifyBy(List<String> notifyBy) {
+    this.notifyBy = notifyBy;
+    return this;
+  }
+
+  public MonitorOptions addNotifyByItem(String notifyByItem) {
+    if (this.notifyBy == null) {
+      this.notifyBy = new ArrayList<>();
+    }
+    this.notifyBy.add(notifyByItem);
+    return this;
+  }
+
+  /**
+   * Controls what granularity a monitor alerts on. Only available for monitors with groupings. For
+   * instance, a monitor grouped by <code>cluster</code>, <code>namespace</code>, and <code>pod
+   * </code> can be configured to only notify on each new <code>cluster</code> violating the alert
+   * conditions by setting <code>notify_by</code> to <code>["cluster"]</code>. Tags mentioned in
+   * <code>notify_by</code> must be a subset of the grouping tags in the query. For example, a query
+   * grouped by <code>cluster</code> and <code>namespace</code> cannot notify on <code>region</code>
+   * . Setting <code>notify_by</code> to <code>[*]</code> configures the monitor to notify as a
+   * simple-alert.
+   *
+   * @return notifyBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NOTIFY_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getNotifyBy() {
+    return notifyBy;
+  }
+
+  public void setNotifyBy(List<String> notifyBy) {
+    this.notifyBy = notifyBy;
+  }
+
   public MonitorOptions notifyNoData(Boolean notifyNoData) {
     this.notifyNoData = notifyNoData;
     return this;
@@ -557,9 +604,9 @@ public class MonitorOptions {
    * Controls how groups or monitors are treated if an evaluation does not return any data points.
    * The default option results in different behavior depending on the monitor query type. For
    * monitors using Count queries, an empty monitor evaluation is treated as 0 and is compared to
-   * the threshold conditions. For monitor using any query type other than Count, for example Gauge
-   * or Rate, the monitor shows the last known status. This option is only available for APM Trace
-   * Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+   * the threshold conditions. For monitors using any query type other than Count, for example
+   * Gauge, Measure, or Rate, the monitor shows the last known status. This option is only available
+   * for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
    *
    * @return onMissingData
    */
@@ -708,6 +755,28 @@ public class MonitorOptions {
     this.requireFullWindow = requireFullWindow;
   }
 
+  public MonitorOptions schedulingOptions(MonitorOptionsSchedulingOptions schedulingOptions) {
+    this.schedulingOptions = schedulingOptions;
+    this.unparsed |= schedulingOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration options for scheduling.
+   *
+   * @return schedulingOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCHEDULING_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorOptionsSchedulingOptions getSchedulingOptions() {
+    return schedulingOptions;
+  }
+
+  public void setSchedulingOptions(MonitorOptionsSchedulingOptions schedulingOptions) {
+    this.schedulingOptions = schedulingOptions;
+  }
+
   public MonitorOptions silenced(Map<String, Long> silenced) {
     this.silenced = silenced;
     return this;
@@ -735,6 +804,7 @@ public class MonitorOptions {
     return silenced;
   }
 
+  @Deprecated
   public void setSilenced(Map<String, Long> silenced) {
     this.silenced = silenced;
   }
@@ -757,6 +827,7 @@ public class MonitorOptions {
     return syntheticsCheckId.orElse(null);
   }
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getSyntheticsCheckId_JsonNullable() {
@@ -907,12 +978,14 @@ public class MonitorOptions {
         && Objects.equals(this.newHostDelay, monitorOptions.newHostDelay)
         && Objects.equals(this.noDataTimeframe, monitorOptions.noDataTimeframe)
         && Objects.equals(this.notifyAudit, monitorOptions.notifyAudit)
+        && Objects.equals(this.notifyBy, monitorOptions.notifyBy)
         && Objects.equals(this.notifyNoData, monitorOptions.notifyNoData)
         && Objects.equals(this.onMissingData, monitorOptions.onMissingData)
         && Objects.equals(this.renotifyInterval, monitorOptions.renotifyInterval)
         && Objects.equals(this.renotifyOccurrences, monitorOptions.renotifyOccurrences)
         && Objects.equals(this.renotifyStatuses, monitorOptions.renotifyStatuses)
         && Objects.equals(this.requireFullWindow, monitorOptions.requireFullWindow)
+        && Objects.equals(this.schedulingOptions, monitorOptions.schedulingOptions)
         && Objects.equals(this.silenced, monitorOptions.silenced)
         && Objects.equals(this.syntheticsCheckId, monitorOptions.syntheticsCheckId)
         && Objects.equals(this.thresholdWindows, monitorOptions.thresholdWindows)
@@ -939,12 +1012,14 @@ public class MonitorOptions {
         newHostDelay,
         noDataTimeframe,
         notifyAudit,
+        notifyBy,
         notifyNoData,
         onMissingData,
         renotifyInterval,
         renotifyOccurrences,
         renotifyStatuses,
         requireFullWindow,
+        schedulingOptions,
         silenced,
         syntheticsCheckId,
         thresholdWindows,
@@ -976,6 +1051,7 @@ public class MonitorOptions {
     sb.append("    newHostDelay: ").append(toIndentedString(newHostDelay)).append("\n");
     sb.append("    noDataTimeframe: ").append(toIndentedString(noDataTimeframe)).append("\n");
     sb.append("    notifyAudit: ").append(toIndentedString(notifyAudit)).append("\n");
+    sb.append("    notifyBy: ").append(toIndentedString(notifyBy)).append("\n");
     sb.append("    notifyNoData: ").append(toIndentedString(notifyNoData)).append("\n");
     sb.append("    onMissingData: ").append(toIndentedString(onMissingData)).append("\n");
     sb.append("    renotifyInterval: ").append(toIndentedString(renotifyInterval)).append("\n");
@@ -984,6 +1060,7 @@ public class MonitorOptions {
         .append("\n");
     sb.append("    renotifyStatuses: ").append(toIndentedString(renotifyStatuses)).append("\n");
     sb.append("    requireFullWindow: ").append(toIndentedString(requireFullWindow)).append("\n");
+    sb.append("    schedulingOptions: ").append(toIndentedString(schedulingOptions)).append("\n");
     sb.append("    silenced: ").append(toIndentedString(silenced)).append("\n");
     sb.append("    syntheticsCheckId: ").append(toIndentedString(syntheticsCheckId)).append("\n");
     sb.append("    thresholdWindows: ").append(toIndentedString(thresholdWindows)).append("\n");

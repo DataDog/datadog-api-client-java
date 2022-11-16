@@ -26,8 +26,12 @@ public class HourlyUsageAttributionUsageType {
 
   public static final HourlyUsageAttributionUsageType API_USAGE =
       new HourlyUsageAttributionUsageType("api_usage");
+  public static final HourlyUsageAttributionUsageType APM_FARGATE_USAGE =
+      new HourlyUsageAttributionUsageType("apm_fargate_usage");
   public static final HourlyUsageAttributionUsageType APM_HOST_USAGE =
       new HourlyUsageAttributionUsageType("apm_host_usage");
+  public static final HourlyUsageAttributionUsageType APPSEC_FARGATE_USAGE =
+      new HourlyUsageAttributionUsageType("appsec_fargate_usage");
   public static final HourlyUsageAttributionUsageType APPSEC_USAGE =
       new HourlyUsageAttributionUsageType("appsec_usage");
   public static final HourlyUsageAttributionUsageType BROWSER_USAGE =
@@ -50,6 +54,8 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("dbm_queries_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_LOGS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_indexed_logs_usage");
+  public static final HourlyUsageAttributionUsageType ESTIMATED_INGESTED_LOGS_USAGE =
+      new HourlyUsageAttributionUsageType("estimated_ingested_logs_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_SPANS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_indexed_spans_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INGESTED_SPANS_USAGE =
@@ -77,7 +83,9 @@ public class HourlyUsageAttributionUsageType {
       new HashSet<String>(
           Arrays.asList(
               "api_usage",
+              "apm_fargate_usage",
               "apm_host_usage",
+              "appsec_fargate_usage",
               "appsec_usage",
               "browser_usage",
               "container_usage",
@@ -89,6 +97,7 @@ public class HourlyUsageAttributionUsageType {
               "dbm_hosts_usage",
               "dbm_queries_usage",
               "estimated_indexed_logs_usage",
+              "estimated_ingested_logs_usage",
               "estimated_indexed_spans_usage",
               "estimated_ingested_spans_usage",
               "fargate_usage",

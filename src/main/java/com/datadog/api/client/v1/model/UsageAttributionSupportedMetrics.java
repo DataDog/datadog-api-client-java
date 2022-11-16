@@ -91,6 +91,10 @@ public class UsageAttributionSupportedMetrics {
       new UsageAttributionSupportedMetrics("estimated_indexed_logs_usage");
   public static final UsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_PERCENTAGE =
       new UsageAttributionSupportedMetrics("estimated_indexed_logs_percentage");
+  public static final UsageAttributionSupportedMetrics ESTIMATED_INGESTED_LOGS_USAGE =
+      new UsageAttributionSupportedMetrics("estimated_ingested_logs_usage");
+  public static final UsageAttributionSupportedMetrics ESTIMATED_INGESTED_LOGS_PERCENTAGE =
+      new UsageAttributionSupportedMetrics("estimated_ingested_logs_percentage");
   public static final UsageAttributionSupportedMetrics APPSEC_USAGE =
       new UsageAttributionSupportedMetrics("appsec_usage");
   public static final UsageAttributionSupportedMetrics APPSEC_PERCENTAGE =
@@ -103,6 +107,14 @@ public class UsageAttributionSupportedMetrics {
       new UsageAttributionSupportedMetrics("estimated_ingested_spans_usage");
   public static final UsageAttributionSupportedMetrics ESTIMATED_INGESTED_SPANS_PERCENTAGE =
       new UsageAttributionSupportedMetrics("estimated_ingested_spans_percentage");
+  public static final UsageAttributionSupportedMetrics APM_FARGATE_USAGE =
+      new UsageAttributionSupportedMetrics("apm_fargate_usage");
+  public static final UsageAttributionSupportedMetrics APM_FARGATE_PERCENTAGE =
+      new UsageAttributionSupportedMetrics("apm_fargate_percentage");
+  public static final UsageAttributionSupportedMetrics APPSEC_FARGATE_USAGE =
+      new UsageAttributionSupportedMetrics("appsec_fargate_usage");
+  public static final UsageAttributionSupportedMetrics APPSEC_FARGATE_PERCENTAGE =
+      new UsageAttributionSupportedMetrics("appsec_fargate_percentage");
   public static final UsageAttributionSupportedMetrics ALL =
       new UsageAttributionSupportedMetrics("*");
 
@@ -141,12 +153,18 @@ public class UsageAttributionSupportedMetrics {
               "dbm_queries_percentage",
               "estimated_indexed_logs_usage",
               "estimated_indexed_logs_percentage",
+              "estimated_ingested_logs_usage",
+              "estimated_ingested_logs_percentage",
               "appsec_usage",
               "appsec_percentage",
               "estimated_indexed_spans_usage",
               "estimated_indexed_spans_percentage",
               "estimated_ingested_spans_usage",
               "estimated_ingested_spans_percentage",
+              "apm_fargate_usage",
+              "apm_fargate_percentage",
+              "appsec_fargate_usage",
+              "appsec_fargate_percentage",
               "*"));
 
   private String value;
