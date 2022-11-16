@@ -1,0 +1,139 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Update_Dashboard_Report_returns_Bad_Request_response-1668631888 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"6xr-kta-shm\",\"title\":\"Test-Update_Dashboard_Report_returns_Bad_Request_response-1668631888 with Profile Metrics Query\",\"url\":\"/dashboard/6xr-kta-shm/test-updatedashboardreportreturnsbadrequestresponse-1668631888-with-profile-metr\",\"created_at\":\"2022-11-16T20:51:28.227138+00:00\",\"modified_at\":\"2022-11-16T20:51:28.227138+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"search\":{\"query\":\"runtime:jvm\"},\"group_by\":[{\"facet\":\"service\",\"sort\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\",\"order\":\"desc\"},\"limit\":10}],\"compute\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\"}}}],\"type\":\"timeseries\"},\"id\":6047937371518480}],\"layout_type\":\"ordered\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "36df8c21-a951-3713-80bb-1655adcdd08a"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"This report summarizes the recent errors, latency, and uptime of our Web Application Backend.\",\"destinations\":{\"email\":{\"recipient_addresses\":[\"jane.doe@example.com\"]}},\"schedule\":{\"active\":true,\"frequency\":\"1d\",\"repeat_at\":\"13:30\",\"repeat_on_day_of_month\":null,\"repeat_on_day_of_week\":null,\"timezone\":\"America/New_York\"},\"timeframe\":\"1w\",\"title\":\"Summary of recent stability and performance for Web Application Backend\"},\"type\":\"dashboard_reports\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/dashboards/6xr-kta-shm/reports",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"included\":[{\"attributes\":{\"name\":null,\"email\":\"frog@datadoghq.com\"},\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"},{\"attributes\":{\"dashboard_type\":\"custom_dashboard\",\"title\":\"Test-Update_Dashboard_Report_returns_Bad_Request_response-1668631888 with Profile Metrics Query\"},\"type\":\"dashboards\",\"id\":\"6xr-kta-shm\"}],\"data\":{\"relationships\":{\"dashboard\":{\"data\":{\"type\":\"dashboards\",\"id\":\"6xr-kta-shm\"}},\"author\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"},\"links\":{\"related\":\"/api/v2/users/3ad549bf-eba0-11e9-a77a-0705486660d0\"}}},\"attributes\":{\"description\":\"This report summarizes the recent errors, latency, and uptime of our Web Application Backend.\",\"schedule\":{\"repeat_on_day_of_week\":null,\"repeat_at\":\"13:30\",\"frequency\":\"1d\",\"timezone\":\"America/New_York\",\"active\":true,\"repeat_on_day_of_month\":null},\"created_at\":\"2022-11-16T20:51:28.420558+00:00\",\"destination\":{\"export_format\":{\"type\":\"html\"},\"export_type\":\"email\",\"email_addresses\":[\"jane.doe@example.com\"]},\"modified_at\":null,\"template_variables\":null,\"timeframe\":\"1w\",\"title\":\"Summary of recent stability and performance for Web Application Backend\",\"destinations\":{\"email\":{\"recipient_addresses\":[\"jane.doe@example.com\"]}}},\"type\":\"dashboard_reports\",\"id\":\"71351554-65f0-11ed-8caa-da7ad0900002\",\"links\":{\"self\":\"/api/v2/dashboards/6xr-kta-shm/reports/71351554-65f0-11ed-8caa-da7ad0900002\"}},\"links\":{\"self\":\"/api/v2/dashboards/6xr-kta-shm/reports/71351554-65f0-11ed-8caa-da7ad0900002\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "472e5601-a3c5-a8d8-d981-e079ec3fd27f"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"schedule\":{\"repeat_on_day_of_month\":\"1st\",\"repeat_on_day_of_week\":\"Monday\"}},\"id\":\"71351554-65f0-11ed-8caa-da7ad0900002\",\"type\":\"dashboard_reports\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/dashboards/6xr-kta-shm/reports/71351554-65f0-11ed-8caa-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"repeat_on_day_of_week and repeat_on_day_of_month are mutually exclusive. You must define _either_ field or neither\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "588878b8-f799-3d31-b4ff-fcbfaaa7c9be"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/dashboards/6xr-kta-shm/reports/71351554-65f0-11ed-8caa-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2428c107-ec7e-4e9c-009a-e7e767452f2c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/6xr-kta-shm",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"6xr-kta-shm\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "80fdf7bf-b76f-16e6-cab3-91d7629c2736"
+  }
+]
