@@ -49,6 +49,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_CONTAINER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_CONTAINER_HWM_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CSPM_GCP_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_TS_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM,
@@ -200,6 +201,9 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_CSPM_CONTAINER_HWM_SUM = "cspm_container_hwm_sum";
   private Long cspmContainerHwmSum;
+
+  public static final String JSON_PROPERTY_CSPM_GCP_HOST_TOP99P_SUM = "cspm_gcp_host_top99p_sum";
+  private Long cspmGcpHostTop99pSum;
 
   public static final String JSON_PROPERTY_CSPM_HOST_TOP99P_SUM = "cspm_host_top99p_sum";
   private Long cspmHostTop99pSum;
@@ -989,6 +993,28 @@ public class UsageSummaryResponse {
 
   public void setCspmContainerHwmSum(Long cspmContainerHwmSum) {
     this.cspmContainerHwmSum = cspmContainerHwmSum;
+  }
+
+  public UsageSummaryResponse cspmGcpHostTop99pSum(Long cspmGcpHostTop99pSum) {
+    this.cspmGcpHostTop99pSum = cspmGcpHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in
+   * the current months for all organizations.
+   *
+   * @return cspmGcpHostTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_GCP_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmGcpHostTop99pSum() {
+    return cspmGcpHostTop99pSum;
+  }
+
+  public void setCspmGcpHostTop99pSum(Long cspmGcpHostTop99pSum) {
+    this.cspmGcpHostTop99pSum = cspmGcpHostTop99pSum;
   }
 
   public UsageSummaryResponse cspmHostTop99pSum(Long cspmHostTop99pSum) {
@@ -2212,6 +2238,7 @@ public class UsageSummaryResponse {
         && Objects.equals(this.cspmAzureHostTop99pSum, usageSummaryResponse.cspmAzureHostTop99pSum)
         && Objects.equals(this.cspmContainerAvgSum, usageSummaryResponse.cspmContainerAvgSum)
         && Objects.equals(this.cspmContainerHwmSum, usageSummaryResponse.cspmContainerHwmSum)
+        && Objects.equals(this.cspmGcpHostTop99pSum, usageSummaryResponse.cspmGcpHostTop99pSum)
         && Objects.equals(this.cspmHostTop99pSum, usageSummaryResponse.cspmHostTop99pSum)
         && Objects.equals(this.customTsSum, usageSummaryResponse.customTsSum)
         && Objects.equals(this.cwsContainersAvgSum, usageSummaryResponse.cwsContainersAvgSum)
@@ -2337,6 +2364,7 @@ public class UsageSummaryResponse {
         cspmAzureHostTop99pSum,
         cspmContainerAvgSum,
         cspmContainerHwmSum,
+        cspmGcpHostTop99pSum,
         cspmHostTop99pSum,
         customTsSum,
         cwsContainersAvgSum,
@@ -2461,6 +2489,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    cspmContainerHwmSum: ")
         .append(toIndentedString(cspmContainerHwmSum))
+        .append("\n");
+    sb.append("    cspmGcpHostTop99pSum: ")
+        .append(toIndentedString(cspmGcpHostTop99pSum))
         .append("\n");
     sb.append("    cspmHostTop99pSum: ").append(toIndentedString(cspmHostTop99pSum)).append("\n");
     sb.append("    customTsSum: ").append(toIndentedString(customTsSum)).append("\n");
