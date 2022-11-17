@@ -23,6 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_AZURE_HOST_COUNT,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_COMPLIANCE_HOST_COUNT,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_CONTAINER_COUNT,
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_GCP_HOST_COUNT,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_HOST_COUNT,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_HOUR,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_ORG_NAME,
@@ -46,6 +47,9 @@ public class UsageCloudSecurityPostureManagementHour {
 
   public static final String JSON_PROPERTY_CONTAINER_COUNT = "container_count";
   private JsonNullable<Double> containerCount = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_GCP_HOST_COUNT = "gcp_host_count";
+  private JsonNullable<Double> gcpHostCount = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_HOST_COUNT = "host_count";
   private JsonNullable<Double> hostCount = JsonNullable.<Double>undefined();
@@ -216,6 +220,37 @@ public class UsageCloudSecurityPostureManagementHour {
     this.containerCount = JsonNullable.<Double>of(containerCount);
   }
 
+  public UsageCloudSecurityPostureManagementHour gcpHostCount(Double gcpHostCount) {
+    this.gcpHostCount = JsonNullable.<Double>of(gcpHostCount);
+    return this;
+  }
+
+  /**
+   * The number of Cloud Security Posture Management GCP hosts during a given hour.
+   *
+   * @return gcpHostCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getGcpHostCount() {
+    return gcpHostCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_GCP_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getGcpHostCount_JsonNullable() {
+    return gcpHostCount;
+  }
+
+  @JsonProperty(JSON_PROPERTY_GCP_HOST_COUNT)
+  public void setGcpHostCount_JsonNullable(JsonNullable<Double> gcpHostCount) {
+    this.gcpHostCount = gcpHostCount;
+  }
+
+  public void setGcpHostCount(Double gcpHostCount) {
+    this.gcpHostCount = JsonNullable.<Double>of(gcpHostCount);
+  }
+
   public UsageCloudSecurityPostureManagementHour hostCount(Double hostCount) {
     this.hostCount = JsonNullable.<Double>of(hostCount);
     return this;
@@ -329,6 +364,7 @@ public class UsageCloudSecurityPostureManagementHour {
             this.complianceHostCount, usageCloudSecurityPostureManagementHour.complianceHostCount)
         && Objects.equals(
             this.containerCount, usageCloudSecurityPostureManagementHour.containerCount)
+        && Objects.equals(this.gcpHostCount, usageCloudSecurityPostureManagementHour.gcpHostCount)
         && Objects.equals(this.hostCount, usageCloudSecurityPostureManagementHour.hostCount)
         && Objects.equals(this.hour, usageCloudSecurityPostureManagementHour.hour)
         && Objects.equals(this.orgName, usageCloudSecurityPostureManagementHour.orgName)
@@ -343,6 +379,7 @@ public class UsageCloudSecurityPostureManagementHour {
         azureHostCount,
         complianceHostCount,
         containerCount,
+        gcpHostCount,
         hostCount,
         hour,
         orgName,
@@ -360,6 +397,7 @@ public class UsageCloudSecurityPostureManagementHour {
         .append(toIndentedString(complianceHostCount))
         .append("\n");
     sb.append("    containerCount: ").append(toIndentedString(containerCount)).append("\n");
+    sb.append("    gcpHostCount: ").append(toIndentedString(gcpHostCount)).append("\n");
     sb.append("    hostCount: ").append(toIndentedString(hostCount)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
