@@ -167,7 +167,7 @@ public class CiVisibilityPipelinesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CiVisibilityPipelinesApi.aggregateCIAppPipelineEvents",
+              "v2.CiVisibilityPipelinesApi.aggregateCIAppPipelineEvents",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -476,7 +476,7 @@ public class CiVisibilityPipelinesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CiVisibilityPipelinesApi.listCIAppPipelineEvents",
+              "v2.CiVisibilityPipelinesApi.listCIAppPipelineEvents",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -705,7 +705,7 @@ public class CiVisibilityPipelinesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CiVisibilityPipelinesApi.searchCIAppPipelineEvents",
+              "v2.CiVisibilityPipelinesApi.searchCIAppPipelineEvents",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

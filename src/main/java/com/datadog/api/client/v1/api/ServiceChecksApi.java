@@ -158,7 +158,7 @@ public class ServiceChecksApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceChecksApi.submitServiceCheck",
+              "v1.ServiceChecksApi.submitServiceCheck",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

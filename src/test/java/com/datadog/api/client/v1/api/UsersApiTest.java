@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import org.junit.*;
 
 /** API tests for UsersApi */
@@ -126,6 +127,44 @@ public class UsersApiTest extends V1ApiTest {
       disableUsers.add(response.getUser().getHandle());
     }
     UserListResponse response = api.listUsers();
+    List<User> users = response.getUsers();
+    for (String suffix : suffixes) {
+      boolean found = false;
+      // user names are stored in lowercase, so make sure the string is properly lowercased before
+      // we try to search for it
+      String handle = String.format("%s-%s@datadoghq.com", testingUserName, suffix).toLowerCase();
+      for (User user : users) {
+        if (user.getHandle().equals(handle)) {
+          found = true;
+        }
+      }
+      assertTrue(String.format("User %s not found", handle), found);
+    }
+  }
+
+  /**
+   * Get all users async
+   *
+   * @throws ExecutionException
+   * @throws InterruptedException
+   */
+  @Test
+  public void listUsersTestAsync() throws ApiException, InterruptedException, ExecutionException {
+    Assume.assumeTrue(
+        "This test does not support replay from recording",
+        TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE));
+    ArrayList<String> suffixes = new ArrayList<>(Arrays.asList("1", "2", "3"));
+    // max name length is 55, so get 53 + add "-X" below
+    String testingUserName = getUniqueEntityName(53);
+    for (String suffix : suffixes) {
+      User user = new User();
+      user.setAccessRole(testingUserAR);
+      user.setHandle(String.format("%s-%s@datadoghq.com", testingUserName, suffix));
+      user.setName(String.format("%s-%s", testingUserName, suffix));
+      UserResponse response = api.createUserAsync(user).get();
+      disableUsers.add(response.getUser().getHandle());
+    }
+    UserListResponse response = api.listUsersAsync().get();
     List<User> users = response.getUsers();
     for (String suffix : suffixes) {
       boolean found = false;

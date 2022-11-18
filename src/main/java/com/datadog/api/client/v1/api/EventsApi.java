@@ -154,7 +154,7 @@ public class EventsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "EventsApi.createEvent",
+              "v1.EventsApi.createEvent",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -289,7 +289,7 @@ public class EventsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "EventsApi.getEvent",
+              "v1.EventsApi.getEvent",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -606,7 +606,7 @@ public class EventsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "EventsApi.listEvents",
+              "v1.EventsApi.listEvents",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,

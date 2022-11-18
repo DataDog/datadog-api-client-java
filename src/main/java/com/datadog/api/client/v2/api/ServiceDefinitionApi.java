@@ -161,7 +161,7 @@ public class ServiceDefinitionApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceDefinitionApi.createOrUpdateServiceDefinitions",
+              "v2.ServiceDefinitionApi.createOrUpdateServiceDefinitions",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -300,7 +300,7 @@ public class ServiceDefinitionApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceDefinitionApi.deleteServiceDefinition",
+              "v2.ServiceDefinitionApi.deleteServiceDefinition",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -442,7 +442,7 @@ public class ServiceDefinitionApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceDefinitionApi.getServiceDefinition",
+              "v2.ServiceDefinitionApi.getServiceDefinition",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -554,7 +554,7 @@ public class ServiceDefinitionApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceDefinitionApi.listServiceDefinitions",
+              "v2.ServiceDefinitionApi.listServiceDefinitions",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
