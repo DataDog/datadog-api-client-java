@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.ServiceLevelObjectiveCorrectionsApi;
+import com.datadog.api.client.v1.api.ServiceLevelObjectiveCorrectionsApi.ListSLOCorrectionOptionalParameters;
 import com.datadog.api.client.v1.model.SLOCorrectionListResponse;
 
 public class Example {
@@ -12,7 +13,9 @@ public class Example {
         new ServiceLevelObjectiveCorrectionsApi(defaultClient);
 
     try {
-      SLOCorrectionListResponse result = apiInstance.listSLOCorrection();
+      SLOCorrectionListResponse result =
+          apiInstance.listSLOCorrection(
+              new ListSLOCorrectionOptionalParameters().offset(1L).limit(1L));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
