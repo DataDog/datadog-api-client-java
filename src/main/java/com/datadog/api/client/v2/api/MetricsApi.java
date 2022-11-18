@@ -179,7 +179,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.createBulkTagsMetricsConfiguration",
+              "v2.MetricsApi.createBulkTagsMetricsConfiguration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -346,7 +346,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.createTagConfiguration",
+              "v2.MetricsApi.createTagConfiguration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -489,7 +489,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.deleteBulkTagsMetricsConfiguration",
+              "v2.MetricsApi.deleteBulkTagsMetricsConfiguration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -628,7 +628,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.deleteTagConfiguration",
+              "v2.MetricsApi.deleteTagConfiguration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -910,7 +910,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.estimateMetricsOutputSeries",
+              "v2.MetricsApi.estimateMetricsOutputSeries",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1125,7 +1125,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.listActiveMetricConfigurations",
+              "v2.MetricsApi.listActiveMetricConfigurations",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1269,7 +1269,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.listTagConfigurationByName",
+              "v2.MetricsApi.listTagConfigurationByName",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1555,7 +1555,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.listTagConfigurations",
+              "v2.MetricsApi.listTagConfigurations",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1695,7 +1695,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.listTagsByMetricName",
+              "v2.MetricsApi.listTagsByMetricName",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1837,7 +1837,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.listVolumesByMetricName",
+              "v2.MetricsApi.listVolumesByMetricName",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2044,7 +2044,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.submitMetrics",
+              "v2.MetricsApi.submitMetrics",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2209,7 +2209,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.updateTagConfiguration",
+              "v2.MetricsApi.updateTagConfiguration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

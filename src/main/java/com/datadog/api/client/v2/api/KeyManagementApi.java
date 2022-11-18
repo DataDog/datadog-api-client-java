@@ -160,7 +160,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.createAPIKey",
+              "v2.KeyManagementApi.createAPIKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -296,7 +296,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.createCurrentUserApplicationKey",
+              "v2.KeyManagementApi.createCurrentUserApplicationKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -428,7 +428,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.deleteAPIKey",
+              "v2.KeyManagementApi.deleteAPIKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -561,7 +561,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.deleteApplicationKey",
+              "v2.KeyManagementApi.deleteApplicationKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -698,7 +698,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.deleteCurrentUserApplicationKey",
+              "v2.KeyManagementApi.deleteCurrentUserApplicationKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -894,7 +894,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.getAPIKey",
+              "v2.KeyManagementApi.getAPIKey",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1091,7 +1091,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.getApplicationKey",
+              "v2.KeyManagementApi.getApplicationKey",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1230,7 +1230,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.getCurrentUserApplicationKey",
+              "v2.KeyManagementApi.getCurrentUserApplicationKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1542,7 +1542,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.listAPIKeys",
+              "v2.KeyManagementApi.listAPIKeys",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1800,7 +1800,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.listApplicationKeys",
+              "v2.KeyManagementApi.listApplicationKeys",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -2065,7 +2065,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.listCurrentUserApplicationKeys",
+              "v2.KeyManagementApi.listCurrentUserApplicationKeys",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -2222,7 +2222,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.updateAPIKey",
+              "v2.KeyManagementApi.updateAPIKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2379,7 +2379,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.updateApplicationKey",
+              "v2.KeyManagementApi.updateApplicationKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2543,7 +2543,7 @@ public class KeyManagementApi {
     try {
       builder =
           apiClient.createBuilder(
-              "KeyManagementApi.updateCurrentUserApplicationKey",
+              "v2.KeyManagementApi.updateCurrentUserApplicationKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

@@ -165,7 +165,7 @@ public class CiVisibilityTestsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CiVisibilityTestsApi.aggregateCIAppTestEvents",
+              "v2.CiVisibilityTestsApi.aggregateCIAppTestEvents",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -471,7 +471,7 @@ public class CiVisibilityTestsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CiVisibilityTestsApi.listCIAppTestEvents",
+              "v2.CiVisibilityTestsApi.listCIAppTestEvents",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -697,7 +697,7 @@ public class CiVisibilityTestsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CiVisibilityTestsApi.searchCIAppTestEvents",
+              "v2.CiVisibilityTestsApi.searchCIAppTestEvents",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

@@ -333,7 +333,7 @@ public class AuditApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AuditApi.listAuditLogs",
+              "v2.AuditApi.listAuditLogs",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -557,7 +557,7 @@ public class AuditApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AuditApi.searchAuditLogs",
+              "v2.AuditApi.searchAuditLogs",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

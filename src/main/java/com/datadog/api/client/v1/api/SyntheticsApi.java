@@ -173,7 +173,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.createGlobalVariable",
+              "v1.SyntheticsApi.createGlobalVariable",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -307,7 +307,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.createPrivateLocation",
+              "v1.SyntheticsApi.createPrivateLocation",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -440,7 +440,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.createSyntheticsAPITest",
+              "v1.SyntheticsApi.createSyntheticsAPITest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -575,7 +575,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.createSyntheticsBrowserTest",
+              "v1.SyntheticsApi.createSyntheticsBrowserTest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -712,7 +712,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.deleteGlobalVariable",
+              "v1.SyntheticsApi.deleteGlobalVariable",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -848,7 +848,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.deletePrivateLocation",
+              "v1.SyntheticsApi.deletePrivateLocation",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -981,7 +981,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.deleteTests",
+              "v1.SyntheticsApi.deleteTests",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1140,7 +1140,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.editGlobalVariable",
+              "v1.SyntheticsApi.editGlobalVariable",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1275,7 +1275,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getAPITest",
+              "v1.SyntheticsApi.getAPITest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1509,7 +1509,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getAPITestLatestResults",
+              "v1.SyntheticsApi.getAPITestLatestResults",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1670,7 +1670,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getAPITestResult",
+              "v1.SyntheticsApi.getAPITestResult",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1806,7 +1806,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getBrowserTest",
+              "v1.SyntheticsApi.getBrowserTest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2047,7 +2047,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getBrowserTestLatestResults",
+              "v1.SyntheticsApi.getBrowserTestLatestResults",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -2212,7 +2212,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getBrowserTestResult",
+              "v1.SyntheticsApi.getBrowserTestResult",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2350,7 +2350,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getGlobalVariable",
+              "v1.SyntheticsApi.getGlobalVariable",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2486,7 +2486,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getPrivateLocation",
+              "v1.SyntheticsApi.getPrivateLocation",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2620,7 +2620,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getSyntheticsCIBatch",
+              "v1.SyntheticsApi.getSyntheticsCIBatch",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2753,7 +2753,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getTest",
+              "v1.SyntheticsApi.getTest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2864,7 +2864,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.listGlobalVariables",
+              "v1.SyntheticsApi.listGlobalVariables",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2974,7 +2974,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.listLocations",
+              "v1.SyntheticsApi.listLocations",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3084,7 +3084,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.listTests",
+              "v1.SyntheticsApi.listTests",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3218,7 +3218,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.triggerCITests",
+              "v1.SyntheticsApi.triggerCITests",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3351,7 +3351,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.triggerTests",
+              "v1.SyntheticsApi.triggerTests",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3509,7 +3509,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.updateAPITest",
+              "v1.SyntheticsApi.updateAPITest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3666,7 +3666,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.updateBrowserTest",
+              "v1.SyntheticsApi.updateBrowserTest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3824,7 +3824,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.updatePrivateLocation",
+              "v1.SyntheticsApi.updatePrivateLocation",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3981,7 +3981,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.updateTestPauseStatus",
+              "v1.SyntheticsApi.updateTestPauseStatus",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

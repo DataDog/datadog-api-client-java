@@ -157,7 +157,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectiveCorrectionsApi.createSLOCorrection",
+              "v1.ServiceLevelObjectiveCorrectionsApi.createSLOCorrection",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -296,7 +296,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectiveCorrectionsApi.deleteSLOCorrection",
+              "v1.ServiceLevelObjectiveCorrectionsApi.deleteSLOCorrection",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -436,7 +436,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectiveCorrectionsApi.getSLOCorrection",
+              "v1.ServiceLevelObjectiveCorrectionsApi.getSLOCorrection",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -547,7 +547,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectiveCorrectionsApi.listSLOCorrection",
+              "v1.ServiceLevelObjectiveCorrectionsApi.listSLOCorrection",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -709,7 +709,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectiveCorrectionsApi.updateSLOCorrection",
+              "v1.ServiceLevelObjectiveCorrectionsApi.updateSLOCorrection",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

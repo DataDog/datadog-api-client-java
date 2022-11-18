@@ -183,7 +183,7 @@ public class IncidentsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentsApi.createIncident",
+              "v2.IncidentsApi.createIncident",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -336,7 +336,7 @@ public class IncidentsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentsApi.deleteIncident",
+              "v2.IncidentsApi.deleteIncident",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -552,7 +552,7 @@ public class IncidentsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentsApi.getIncident",
+              "v2.IncidentsApi.getIncident",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -798,7 +798,7 @@ public class IncidentsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentsApi.listIncidentAttachments",
+              "v2.IncidentsApi.listIncidentAttachments",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1072,7 +1072,7 @@ public class IncidentsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentsApi.listIncidents",
+              "v2.IncidentsApi.listIncidents",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1315,7 +1315,7 @@ public class IncidentsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentsApi.updateIncident",
+              "v2.IncidentsApi.updateIncident",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1575,7 +1575,7 @@ public class IncidentsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentsApi.updateIncidentAttachments",
+              "v2.IncidentsApi.updateIncidentAttachments",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,

@@ -156,7 +156,7 @@ public class LogsMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsMetricsApi.createLogsMetric",
+              "v2.LogsMetricsApi.createLogsMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -288,7 +288,7 @@ public class LogsMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsMetricsApi.deleteLogsMetric",
+              "v2.LogsMetricsApi.deleteLogsMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -423,7 +423,7 @@ public class LogsMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsMetricsApi.getLogsMetric",
+              "v2.LogsMetricsApi.getLogsMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -532,7 +532,7 @@ public class LogsMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsMetricsApi.listLogsMetrics",
+              "v2.LogsMetricsApi.listLogsMetrics",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -690,7 +690,7 @@ public class LogsMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsMetricsApi.updateLogsMetric",
+              "v2.LogsMetricsApi.updateLogsMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

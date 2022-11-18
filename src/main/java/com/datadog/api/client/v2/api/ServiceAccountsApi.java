@@ -194,7 +194,7 @@ public class ServiceAccountsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceAccountsApi.createServiceAccountApplicationKey",
+              "v2.ServiceAccountsApi.createServiceAccountApplicationKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -363,7 +363,7 @@ public class ServiceAccountsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceAccountsApi.deleteServiceAccountApplicationKey",
+              "v2.ServiceAccountsApi.deleteServiceAccountApplicationKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -534,7 +534,7 @@ public class ServiceAccountsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceAccountsApi.getServiceAccountApplicationKey",
+              "v2.ServiceAccountsApi.getServiceAccountApplicationKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -837,7 +837,7 @@ public class ServiceAccountsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceAccountsApi.listServiceAccountApplicationKeys",
+              "v2.ServiceAccountsApi.listServiceAccountApplicationKeys",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1038,7 +1038,7 @@ public class ServiceAccountsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceAccountsApi.updateServiceAccountApplicationKey",
+              "v2.ServiceAccountsApi.updateServiceAccountApplicationKey",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
