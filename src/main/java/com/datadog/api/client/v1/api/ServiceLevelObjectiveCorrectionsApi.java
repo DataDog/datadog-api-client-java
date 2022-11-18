@@ -12,6 +12,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -459,6 +460,36 @@ public class ServiceLevelObjectiveCorrectionsApi {
         new GenericType<SLOCorrectionResponse>() {});
   }
 
+  /** Manage optional parameters to listSLOCorrection. */
+  public static class ListSLOCorrectionOptionalParameters {
+    private Long offset;
+    private Long limit;
+
+    /**
+     * Set offset.
+     *
+     * @param offset The specific offset to use as the beginning of the returned response.
+     *     (optional)
+     * @return ListSLOCorrectionOptionalParameters
+     */
+    public ListSLOCorrectionOptionalParameters offset(Long offset) {
+      this.offset = offset;
+      return this;
+    }
+
+    /**
+     * Set limit.
+     *
+     * @param limit The number of SLO corrections to return in the response. Default is 25.
+     *     (optional)
+     * @return ListSLOCorrectionOptionalParameters
+     */
+    public ListSLOCorrectionOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+  }
+
   /**
    * Get all SLO corrections.
    *
@@ -468,7 +499,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    * @throws ApiException if fails to make API call
    */
   public SLOCorrectionListResponse listSLOCorrection() throws ApiException {
-    return listSLOCorrectionWithHttpInfo().getData();
+    return listSLOCorrectionWithHttpInfo(new ListSLOCorrectionOptionalParameters()).getData();
   }
 
   /**
@@ -479,7 +510,38 @@ public class ServiceLevelObjectiveCorrectionsApi {
    * @return CompletableFuture&lt;SLOCorrectionListResponse&gt;
    */
   public CompletableFuture<SLOCorrectionListResponse> listSLOCorrectionAsync() {
-    return listSLOCorrectionWithHttpInfoAsync()
+    return listSLOCorrectionWithHttpInfoAsync(new ListSLOCorrectionOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all SLO corrections.
+   *
+   * <p>See {@link #listSLOCorrectionWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SLOCorrectionListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SLOCorrectionListResponse listSLOCorrection(ListSLOCorrectionOptionalParameters parameters)
+      throws ApiException {
+    return listSLOCorrectionWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all SLO corrections.
+   *
+   * <p>See {@link #listSLOCorrectionWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SLOCorrectionListResponse&gt;
+   */
+  public CompletableFuture<SLOCorrectionListResponse> listSLOCorrectionAsync(
+      ListSLOCorrectionOptionalParameters parameters) {
+    return listSLOCorrectionWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -489,6 +551,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   /**
    * Get all Service Level Objective corrections.
    *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SLOCorrectionListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -500,19 +563,25 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SLOCorrectionListResponse> listSLOCorrectionWithHttpInfo()
-      throws ApiException {
+  public ApiResponse<SLOCorrectionListResponse> listSLOCorrectionWithHttpInfo(
+      ListSLOCorrectionOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    Long offset = parameters.offset;
+    Long limit = parameters.limit;
     // create path and map variables
     String localVarPath = "/api/v1/slo/correction";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v1.ServiceLevelObjectiveCorrectionsApi.listSLOCorrection",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -533,15 +602,22 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *
    * <p>See {@link #listSLOCorrectionWithHttpInfo}.
    *
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;SLOCorrectionListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SLOCorrectionListResponse>>
-      listSLOCorrectionWithHttpInfoAsync() {
+      listSLOCorrectionWithHttpInfoAsync(ListSLOCorrectionOptionalParameters parameters) {
     Object localVarPostBody = null;
+    Long offset = parameters.offset;
+    Long limit = parameters.limit;
     // create path and map variables
     String localVarPath = "/api/v1/slo/correction";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
     Invocation.Builder builder;
     try {
@@ -549,7 +625,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
           apiClient.createBuilder(
               "v1.ServiceLevelObjectiveCorrectionsApi.listSLOCorrection",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
