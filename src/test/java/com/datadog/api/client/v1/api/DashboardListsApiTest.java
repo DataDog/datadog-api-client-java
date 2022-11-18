@@ -20,7 +20,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
-
 import org.junit.*;
 
 /** API tests for DashboardListsApi */
@@ -106,10 +105,11 @@ public class DashboardListsApiTest extends V1ApiTest {
   }
 
   @Test
-  public void dashboardListCreateModifyDeleteTestAsync() throws ApiException, InterruptedException, ExecutionException {
+  public void dashboardListCreateModifyDeleteTestAsync()
+      throws ApiException, InterruptedException, ExecutionException {
     Assume.assumeTrue(
-      "This test does not support replay from recording",
-      TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE));
+        "This test does not support replay from recording",
+        TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE));
 
     long start = now.toInstant().toEpochMilli();
     DashboardList testDashboardList = new DashboardList().name(getUniqueEntityName());

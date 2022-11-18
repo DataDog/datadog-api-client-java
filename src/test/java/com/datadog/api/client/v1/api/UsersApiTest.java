@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
 import org.junit.*;
 
 /** API tests for UsersApi */
@@ -143,10 +142,12 @@ public class UsersApiTest extends V1ApiTest {
     }
   }
 
-
-  /** Get all users async
+  /**
+   * Get all users async
+   *
    * @throws ExecutionException
-   * @throws InterruptedException*/
+   * @throws InterruptedException
+   */
   @Test
   public void listUsersTestAsync() throws ApiException, InterruptedException, ExecutionException {
     Assume.assumeTrue(
