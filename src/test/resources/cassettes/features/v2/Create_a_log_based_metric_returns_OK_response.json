@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"}},\"id\":\"Test-Create_a_log_based_metric_returns_OK_response-1652349142\",\"type\":\"logs_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"}},\"id\":\"Test-Create_a_log_based_metric_returns_OK_response-1669044965\",\"type\":\"logs_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"*\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Create_a_log_based_metric_returns_OK_response_1652349142\"}}",
+      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"*\"},\"group_by\":[],\"compute\":{\"path\":\"@duration\",\"include_percentiles\":true,\"aggregation_type\":\"distribution\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Create_a_log_based_metric_returns_OK_response_1669044965\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7a675346-94e9-4694-283c-0d44987ec332"
+    "id": "f98bd593-0d60-46a0-11a3-32616cfb250b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/logs/config/metrics/Test_Create_a_log_based_metric_returns_OK_response_1652349142",
+      "path": "/api/v2/logs/config/metrics/Test_Create_a_log_based_metric_returns_OK_response_1669044965",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{}",
+      "body": "{}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "bba84067-fccc-33a3-9ff7-5f3414ad5e36"
+    "id": "12c1ae70-ac1d-021e-801d-57f41265ad38"
   }
 ]
