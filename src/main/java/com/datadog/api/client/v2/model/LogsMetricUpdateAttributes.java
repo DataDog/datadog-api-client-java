@@ -16,6 +16,7 @@ import java.util.Objects;
 
 /** The log-based metric properties that will be updated. */
 @JsonPropertyOrder({
+  LogsMetricUpdateAttributes.JSON_PROPERTY_COMPUTE,
   LogsMetricUpdateAttributes.JSON_PROPERTY_FILTER,
   LogsMetricUpdateAttributes.JSON_PROPERTY_GROUP_BY
 })
@@ -23,11 +24,36 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMPUTE = "compute";
+  private LogsMetricUpdateCompute compute;
+
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsMetricFilter filter;
 
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private List<LogsMetricGroupBy> groupBy = null;
+
+  public LogsMetricUpdateAttributes compute(LogsMetricUpdateCompute compute) {
+    this.compute = compute;
+    this.unparsed |= compute.unparsed;
+    return this;
+  }
+
+  /**
+   * The compute rule to compute the log-based metric.
+   *
+   * @return compute
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsMetricUpdateCompute getCompute() {
+    return compute;
+  }
+
+  public void setCompute(LogsMetricUpdateCompute compute) {
+    this.compute = compute;
+  }
 
   public LogsMetricUpdateAttributes filter(LogsMetricFilter filter) {
     this.filter = filter;
@@ -94,19 +120,21 @@ public class LogsMetricUpdateAttributes {
       return false;
     }
     LogsMetricUpdateAttributes logsMetricUpdateAttributes = (LogsMetricUpdateAttributes) o;
-    return Objects.equals(this.filter, logsMetricUpdateAttributes.filter)
+    return Objects.equals(this.compute, logsMetricUpdateAttributes.compute)
+        && Objects.equals(this.filter, logsMetricUpdateAttributes.filter)
         && Objects.equals(this.groupBy, logsMetricUpdateAttributes.groupBy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, groupBy);
+    return Objects.hash(compute, filter, groupBy);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsMetricUpdateAttributes {\n");
+    sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("}");
