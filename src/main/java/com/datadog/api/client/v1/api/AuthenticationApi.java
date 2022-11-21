@@ -130,7 +130,7 @@ public class AuthenticationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AuthenticationApi.validate",
+              "v1.AuthenticationApi.validate",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

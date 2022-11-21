@@ -158,7 +158,7 @@ public class PagerDutyIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "PagerDutyIntegrationApi.createPagerDutyIntegrationService",
+              "v1.PagerDutyIntegrationApi.createPagerDutyIntegrationService",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -298,7 +298,7 @@ public class PagerDutyIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "PagerDutyIntegrationApi.deletePagerDutyIntegrationService",
+              "v1.PagerDutyIntegrationApi.deletePagerDutyIntegrationService",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -441,7 +441,7 @@ public class PagerDutyIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "PagerDutyIntegrationApi.getPagerDutyIntegrationService",
+              "v1.PagerDutyIntegrationApi.getPagerDutyIntegrationService",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -606,7 +606,7 @@ public class PagerDutyIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "PagerDutyIntegrationApi.updatePagerDutyIntegrationService",
+              "v1.PagerDutyIntegrationApi.updatePagerDutyIntegrationService",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

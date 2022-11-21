@@ -153,7 +153,7 @@ public class DashboardListsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "DashboardListsApi.createDashboardList",
+              "v1.DashboardListsApi.createDashboardList",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -289,7 +289,7 @@ public class DashboardListsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "DashboardListsApi.deleteDashboardList",
+              "v1.DashboardListsApi.deleteDashboardList",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -424,7 +424,7 @@ public class DashboardListsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "DashboardListsApi.getDashboardList",
+              "v1.DashboardListsApi.getDashboardList",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -535,7 +535,7 @@ public class DashboardListsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "DashboardListsApi.listDashboardLists",
+              "v1.DashboardListsApi.listDashboardLists",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -691,7 +691,7 @@ public class DashboardListsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "DashboardListsApi.updateDashboardList",
+              "v1.DashboardListsApi.updateDashboardList",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

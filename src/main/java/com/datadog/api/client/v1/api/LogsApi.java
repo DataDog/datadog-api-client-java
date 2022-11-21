@@ -159,7 +159,7 @@ public class LogsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsApi.listLogs",
+              "v1.LogsApi.listLogs",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -398,7 +398,7 @@ public class LogsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsApi.submitLog",
+              "v1.LogsApi.submitLog",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,

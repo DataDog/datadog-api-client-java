@@ -324,7 +324,7 @@ public class SnapshotsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SnapshotsApi.getGraphSnapshot",
+              "v1.SnapshotsApi.getGraphSnapshot",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,

@@ -189,7 +189,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.addPermissionToRole",
+              "v2.RolesApi.addPermissionToRole",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -345,7 +345,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.addUserToRole",
+              "v2.RolesApi.addUserToRole",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -497,7 +497,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.cloneRole",
+              "v2.RolesApi.cloneRole",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -626,7 +626,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.createRole",
+              "v2.RolesApi.createRole",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -757,7 +757,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.deleteRole",
+              "v2.RolesApi.deleteRole",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -888,7 +888,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.getRole",
+              "v2.RolesApi.getRole",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -998,7 +998,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.listPermissions",
+              "v2.RolesApi.listPermissions",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1133,7 +1133,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.listRolePermissions",
+              "v2.RolesApi.listRolePermissions",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1349,7 +1349,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.listRoles",
+              "v2.RolesApi.listRoles",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1594,7 +1594,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.listRoleUsers",
+              "v2.RolesApi.listRoleUsers",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1752,7 +1752,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.removePermissionFromRole",
+              "v2.RolesApi.removePermissionFromRole",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1909,7 +1909,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.removeUserFromRole",
+              "v2.RolesApi.removeUserFromRole",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2063,7 +2063,7 @@ public class RolesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RolesApi.updateRole",
+              "v2.RolesApi.updateRole",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

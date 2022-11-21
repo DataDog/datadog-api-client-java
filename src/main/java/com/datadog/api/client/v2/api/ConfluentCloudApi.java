@@ -160,7 +160,7 @@ public class ConfluentCloudApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ConfluentCloudApi.createConfluentAccount",
+              "v2.ConfluentCloudApi.createConfluentAccount",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -318,7 +318,7 @@ public class ConfluentCloudApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ConfluentCloudApi.createConfluentResource",
+              "v2.ConfluentCloudApi.createConfluentResource",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -454,7 +454,7 @@ public class ConfluentCloudApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ConfluentCloudApi.deleteConfluentAccount",
+              "v2.ConfluentCloudApi.deleteConfluentAccount",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -615,7 +615,7 @@ public class ConfluentCloudApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ConfluentCloudApi.deleteConfluentResource",
+              "v2.ConfluentCloudApi.deleteConfluentResource",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -751,7 +751,7 @@ public class ConfluentCloudApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ConfluentCloudApi.getConfluentAccount",
+              "v2.ConfluentCloudApi.getConfluentAccount",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -914,7 +914,7 @@ public class ConfluentCloudApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ConfluentCloudApi.getConfluentResource",
+              "v2.ConfluentCloudApi.getConfluentResource",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1027,7 +1027,7 @@ public class ConfluentCloudApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ConfluentCloudApi.listConfluentAccount",
+              "v2.ConfluentCloudApi.listConfluentAccount",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1165,7 +1165,7 @@ public class ConfluentCloudApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ConfluentCloudApi.listConfluentResource",
+              "v2.ConfluentCloudApi.listConfluentResource",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1324,7 +1324,7 @@ public class ConfluentCloudApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ConfluentCloudApi.updateConfluentAccount",
+              "v2.ConfluentCloudApi.updateConfluentAccount",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1508,7 +1508,7 @@ public class ConfluentCloudApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ConfluentCloudApi.updateConfluentResource",
+              "v2.ConfluentCloudApi.updateConfluentResource",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

@@ -155,7 +155,7 @@ public class NotebooksApi {
     try {
       builder =
           apiClient.createBuilder(
-              "NotebooksApi.createNotebook",
+              "v1.NotebooksApi.createNotebook",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -290,7 +290,7 @@ public class NotebooksApi {
     try {
       builder =
           apiClient.createBuilder(
-              "NotebooksApi.deleteNotebook",
+              "v1.NotebooksApi.deleteNotebook",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -428,7 +428,7 @@ public class NotebooksApi {
     try {
       builder =
           apiClient.createBuilder(
-              "NotebooksApi.getNotebook",
+              "v1.NotebooksApi.getNotebook",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -752,7 +752,7 @@ public class NotebooksApi {
     try {
       builder =
           apiClient.createBuilder(
-              "NotebooksApi.listNotebooks",
+              "v1.NotebooksApi.listNotebooks",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -912,7 +912,7 @@ public class NotebooksApi {
     try {
       builder =
           apiClient.createBuilder(
-              "NotebooksApi.updateNotebook",
+              "v1.NotebooksApi.updateNotebook",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

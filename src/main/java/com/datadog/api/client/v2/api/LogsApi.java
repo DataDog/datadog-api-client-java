@@ -164,7 +164,7 @@ public class LogsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsApi.aggregateLogs",
+              "v2.LogsApi.aggregateLogs",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -389,7 +389,7 @@ public class LogsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsApi.listLogs",
+              "v2.LogsApi.listLogs",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -734,7 +734,7 @@ public class LogsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsApi.listLogsGet",
+              "v2.LogsApi.listLogsGet",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -969,7 +969,7 @@ public class LogsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsApi.submitLog",
+              "v2.LogsApi.submitLog",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
