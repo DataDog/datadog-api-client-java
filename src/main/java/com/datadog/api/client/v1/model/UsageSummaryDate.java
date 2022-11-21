@@ -73,6 +73,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_NPM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM,
   UsageSummaryDate.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_ORGS,
   UsageSummaryDate.JSON_PROPERTY_PROFILING_HOST_TOP99P,
@@ -277,6 +278,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM =
       "online_archive_events_count_sum";
   private Long onlineArchiveEventsCountSum;
+
+  public static final String JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P =
+      "opentelemetry_apm_host_top99p";
+  private Long opentelemetryApmHostTop99p;
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P = "opentelemetry_host_top99p";
   private Long opentelemetryHostTop99p;
@@ -1527,6 +1532,28 @@ public class UsageSummaryDate {
     this.onlineArchiveEventsCountSum = onlineArchiveEventsCountSum;
   }
 
+  public UsageSummaryDate opentelemetryApmHostTop99p(Long opentelemetryApmHostTop99p) {
+    this.opentelemetryApmHostTop99p = opentelemetryApmHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry
+   * Collector over all hours in the current date for all organizations.
+   *
+   * @return opentelemetryApmHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOpentelemetryApmHostTop99p() {
+    return opentelemetryApmHostTop99p;
+  }
+
+  public void setOpentelemetryApmHostTop99p(Long opentelemetryApmHostTop99p) {
+    this.opentelemetryApmHostTop99p = opentelemetryApmHostTop99p;
+  }
+
   public UsageSummaryDate opentelemetryHostTop99p(Long opentelemetryHostTop99p) {
     this.opentelemetryHostTop99p = opentelemetryHostTop99p;
     return this;
@@ -1995,6 +2022,8 @@ public class UsageSummaryDate {
             usageSummaryDate.observabilityPipelinesBytesProcessedSum)
         && Objects.equals(
             this.onlineArchiveEventsCountSum, usageSummaryDate.onlineArchiveEventsCountSum)
+        && Objects.equals(
+            this.opentelemetryApmHostTop99p, usageSummaryDate.opentelemetryApmHostTop99p)
         && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDate.opentelemetryHostTop99p)
         && Objects.equals(this.orgs, usageSummaryDate.orgs)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p)
@@ -2078,6 +2107,7 @@ public class UsageSummaryDate {
         npmHostTop99p,
         observabilityPipelinesBytesProcessedSum,
         onlineArchiveEventsCountSum,
+        opentelemetryApmHostTop99p,
         opentelemetryHostTop99p,
         orgs,
         profilingHostTop99p,
@@ -2210,6 +2240,9 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    onlineArchiveEventsCountSum: ")
         .append(toIndentedString(onlineArchiveEventsCountSum))
+        .append("\n");
+    sb.append("    opentelemetryApmHostTop99p: ")
+        .append(toIndentedString(opentelemetryApmHostTop99p))
         .append("\n");
     sb.append("    opentelemetryHostTop99p: ")
         .append(toIndentedString(opentelemetryHostTop99p))
