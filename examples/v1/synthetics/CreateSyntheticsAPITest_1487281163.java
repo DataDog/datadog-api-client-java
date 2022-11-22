@@ -17,6 +17,10 @@ import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsAssertionXPathOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionXPathTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionXPathTargetTarget;
+import com.datadog.api.client.v1.model.SyntheticsBasicAuth;
+import com.datadog.api.client.v1.model.SyntheticsBasicAuthOauthClient;
+import com.datadog.api.client.v1.model.SyntheticsBasicAuthOauthClientType;
+import com.datadog.api.client.v1.model.SyntheticsBasicAuthOauthTokenApiAuthentication;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
@@ -103,7 +107,19 @@ public class Example {
                             .proxy(
                                 new SyntheticsTestRequestProxy()
                                     .url("https://datadoghq.com")
-                                    .headers(Map.ofEntries()))))
+                                    .headers(Map.ofEntries()))
+                            .basicAuth(
+                                new SyntheticsBasicAuth(
+                                    new SyntheticsBasicAuthOauthClient()
+                                        .accessTokenUrl("https://datadog-token.com")
+                                        .audience("audience")
+                                        .clientId("client-id")
+                                        .clientSecret("client-secret")
+                                        .resource("resource")
+                                        .scope("yoyo")
+                                        .tokenApiAuthentication(
+                                            SyntheticsBasicAuthOauthTokenApiAuthentication.HEADER)
+                                        .type(SyntheticsBasicAuthOauthClientType.OAUTH_CLIENT)))))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_http_test_payload.json")
             .name(
