@@ -29,7 +29,6 @@ import java.util.Objects;
   UsageHostHour.JSON_PROPERTY_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_HOUR,
   UsageHostHour.JSON_PROPERTY_INFRA_AZURE_APP_SERVICE,
-  UsageHostHour.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_ORG_NAME,
   UsageHostHour.JSON_PROPERTY_PUBLIC_ID,
@@ -77,10 +76,6 @@ public class UsageHostHour {
 
   public static final String JSON_PROPERTY_INFRA_AZURE_APP_SERVICE = "infra_azure_app_service";
   private Long infraAzureAppService;
-
-  public static final String JSON_PROPERTY_OPENTELEMETRY_APM_HOST_COUNT =
-      "opentelemetry_apm_host_count";
-  private Long opentelemetryApmHostCount;
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT = "opentelemetry_host_count";
   private Long opentelemetryHostCount;
@@ -355,28 +350,6 @@ public class UsageHostHour {
     this.infraAzureAppService = infraAzureAppService;
   }
 
-  public UsageHostHour opentelemetryApmHostCount(Long opentelemetryApmHostCount) {
-    this.opentelemetryApmHostCount = opentelemetryApmHostCount;
-    return this;
-  }
-
-  /**
-   * Contains the total number of hosts using APM reported by Datadog exporter for the OpenTelemetry
-   * Collector.
-   *
-   * @return opentelemetryApmHostCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_APM_HOST_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOpentelemetryApmHostCount() {
-    return opentelemetryApmHostCount;
-  }
-
-  public void setOpentelemetryApmHostCount(Long opentelemetryApmHostCount) {
-    this.opentelemetryApmHostCount = opentelemetryApmHostCount;
-  }
-
   public UsageHostHour opentelemetryHostCount(Long opentelemetryHostCount) {
     this.opentelemetryHostCount = opentelemetryHostCount;
     return this;
@@ -486,7 +459,6 @@ public class UsageHostHour {
         && Objects.equals(this.hostCount, usageHostHour.hostCount)
         && Objects.equals(this.hour, usageHostHour.hour)
         && Objects.equals(this.infraAzureAppService, usageHostHour.infraAzureAppService)
-        && Objects.equals(this.opentelemetryApmHostCount, usageHostHour.opentelemetryApmHostCount)
         && Objects.equals(this.opentelemetryHostCount, usageHostHour.opentelemetryHostCount)
         && Objects.equals(this.orgName, usageHostHour.orgName)
         && Objects.equals(this.publicId, usageHostHour.publicId)
@@ -508,7 +480,6 @@ public class UsageHostHour {
         hostCount,
         hour,
         infraAzureAppService,
-        opentelemetryApmHostCount,
         opentelemetryHostCount,
         orgName,
         publicId,
@@ -534,9 +505,6 @@ public class UsageHostHour {
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    infraAzureAppService: ")
         .append(toIndentedString(infraAzureAppService))
-        .append("\n");
-    sb.append("    opentelemetryApmHostCount: ")
-        .append(toIndentedString(opentelemetryApmHostCount))
         .append("\n");
     sb.append("    opentelemetryHostCount: ")
         .append(toIndentedString(opentelemetryHostCount))

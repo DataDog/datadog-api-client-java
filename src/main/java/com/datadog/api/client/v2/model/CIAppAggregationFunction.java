@@ -36,11 +36,6 @@ public class CIAppAggregationFunction {
   public static final CIAppAggregationFunction MAX = new CIAppAggregationFunction("max");
   public static final CIAppAggregationFunction AVG = new CIAppAggregationFunction("avg");
   public static final CIAppAggregationFunction MEDIAN = new CIAppAggregationFunction("median");
-  public static final CIAppAggregationFunction LATEST = new CIAppAggregationFunction("latest");
-  public static final CIAppAggregationFunction EARLIEST = new CIAppAggregationFunction("earliest");
-  public static final CIAppAggregationFunction MOST_FREQUENT =
-      new CIAppAggregationFunction("most_frequent");
-  public static final CIAppAggregationFunction DELTA = new CIAppAggregationFunction("delta");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -56,11 +51,7 @@ public class CIAppAggregationFunction {
               "min",
               "max",
               "avg",
-              "median",
-              "latest",
-              "earliest",
-              "most_frequent",
-              "delta"));
+              "median"));
 
   private String value;
 

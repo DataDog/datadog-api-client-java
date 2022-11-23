@@ -26,9 +26,7 @@ public class Example {
                         new LogsMetricCreateAttributes()
                             .compute(
                                 new LogsMetricCompute()
-                                    .aggregationType(LogsMetricComputeAggregationType.DISTRIBUTION)
-                                    .includePercentiles(true)
-                                    .path("@duration"))));
+                                    .aggregationType(LogsMetricComputeAggregationType.COUNT))));
 
     try {
       LogsMetricResponse result = apiInstance.createLogsMetric(body);

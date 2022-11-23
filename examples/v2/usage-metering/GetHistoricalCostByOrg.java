@@ -14,7 +14,7 @@ public class Example {
     try {
       CostByOrgResponse result =
           apiInstance.getHistoricalCostByOrg(
-              OffsetDateTime.now().plusMonths(-2),
+              OffsetDateTime.now().plusMinutes(-1),
               new GetHistoricalCostByOrgOptionalParameters().view("sub-org"));
       System.out.println(result);
     } catch (ApiException e) {

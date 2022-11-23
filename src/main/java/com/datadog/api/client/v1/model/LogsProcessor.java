@@ -698,52 +698,6 @@ public class LogsProcessor extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'LogsLookupProcessor'", e);
       }
 
-      // deserialize ReferenceTableLogsLookupProcessor
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ReferenceTableLogsLookupProcessor.class.equals(Integer.class)
-            || ReferenceTableLogsLookupProcessor.class.equals(Long.class)
-            || ReferenceTableLogsLookupProcessor.class.equals(Float.class)
-            || ReferenceTableLogsLookupProcessor.class.equals(Double.class)
-            || ReferenceTableLogsLookupProcessor.class.equals(Boolean.class)
-            || ReferenceTableLogsLookupProcessor.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ReferenceTableLogsLookupProcessor.class.equals(Integer.class)
-                        || ReferenceTableLogsLookupProcessor.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ReferenceTableLogsLookupProcessor.class.equals(Float.class)
-                        || ReferenceTableLogsLookupProcessor.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ReferenceTableLogsLookupProcessor.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ReferenceTableLogsLookupProcessor.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(ReferenceTableLogsLookupProcessor.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ReferenceTableLogsLookupProcessor) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'ReferenceTableLogsLookupProcessor'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER, "Input data does not match schema 'ReferenceTableLogsLookupProcessor'", e);
-      }
-
       // deserialize LogsTraceRemapper
       try {
         boolean attemptParsing = true;
@@ -886,11 +840,6 @@ public class LogsProcessor extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public LogsProcessor(ReferenceTableLogsLookupProcessor o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public LogsProcessor(LogsTraceRemapper o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -911,9 +860,6 @@ public class LogsProcessor extends AbstractOpenApiSchema {
     schemas.put("LogsPipelineProcessor", new GenericType<LogsPipelineProcessor>() {});
     schemas.put("LogsGeoIPParser", new GenericType<LogsGeoIPParser>() {});
     schemas.put("LogsLookupProcessor", new GenericType<LogsLookupProcessor>() {});
-    schemas.put(
-        "ReferenceTableLogsLookupProcessor",
-        new GenericType<ReferenceTableLogsLookupProcessor>() {});
     schemas.put("LogsTraceRemapper", new GenericType<LogsTraceRemapper>() {});
     JSON.registerDescendants(LogsProcessor.class, Collections.unmodifiableMap(schemas));
   }
@@ -929,7 +875,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
    * LogsServiceRemapper, LogsMessageRemapper, LogsAttributeRemapper, LogsURLParser,
    * LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,
    * LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser, LogsLookupProcessor,
-   * ReferenceTableLogsLookupProcessor, LogsTraceRemapper
+   * LogsTraceRemapper
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -992,11 +938,6 @@ public class LogsProcessor extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(
-        ReferenceTableLogsLookupProcessor.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
     if (JSON.isInstanceOf(LogsTraceRemapper.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1011,7 +952,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             + " LogsServiceRemapper, LogsMessageRemapper, LogsAttributeRemapper, LogsURLParser,"
             + " LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,"
             + " LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser,"
-            + " LogsLookupProcessor, ReferenceTableLogsLookupProcessor, LogsTraceRemapper");
+            + " LogsLookupProcessor, LogsTraceRemapper");
   }
 
   /**
@@ -1019,13 +960,13 @@ public class LogsProcessor extends AbstractOpenApiSchema {
    * LogsStatusRemapper, LogsServiceRemapper, LogsMessageRemapper, LogsAttributeRemapper,
    * LogsURLParser, LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,
    * LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser, LogsLookupProcessor,
-   * ReferenceTableLogsLookupProcessor, LogsTraceRemapper
+   * LogsTraceRemapper
    *
    * @return The actual instance (LogsGrokParser, LogsDateRemapper, LogsStatusRemapper,
    *     LogsServiceRemapper, LogsMessageRemapper, LogsAttributeRemapper, LogsURLParser,
    *     LogsUserAgentParser, LogsCategoryProcessor, LogsArithmeticProcessor,
    *     LogsStringBuilderProcessor, LogsPipelineProcessor, LogsGeoIPParser, LogsLookupProcessor,
-   *     ReferenceTableLogsLookupProcessor, LogsTraceRemapper)
+   *     LogsTraceRemapper)
    */
   @Override
   public Object getActualInstance() {
@@ -1184,18 +1125,6 @@ public class LogsProcessor extends AbstractOpenApiSchema {
    */
   public LogsLookupProcessor getLogsLookupProcessor() throws ClassCastException {
     return (LogsLookupProcessor) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ReferenceTableLogsLookupProcessor`. If the actual instance is not
-   * `ReferenceTableLogsLookupProcessor`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `ReferenceTableLogsLookupProcessor`
-   * @throws ClassCastException if the instance is not `ReferenceTableLogsLookupProcessor`
-   */
-  public ReferenceTableLogsLookupProcessor getReferenceTableLogsLookupProcessor()
-      throws ClassCastException {
-    return (ReferenceTableLogsLookupProcessor) super.getActualInstance();
   }
 
   /**

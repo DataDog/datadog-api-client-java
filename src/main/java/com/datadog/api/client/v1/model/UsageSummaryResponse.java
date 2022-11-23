@@ -49,7 +49,6 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_CONTAINER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_CONTAINER_HWM_SUM,
-  UsageSummaryResponse.JSON_PROPERTY_CSPM_GCP_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_TS_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM,
@@ -81,7 +80,6 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_NPM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM,
-  UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_CONTAINER_AGENT_COUNT_AVG,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM,
@@ -203,9 +201,6 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_CSPM_CONTAINER_HWM_SUM = "cspm_container_hwm_sum";
   private Long cspmContainerHwmSum;
 
-  public static final String JSON_PROPERTY_CSPM_GCP_HOST_TOP99P_SUM = "cspm_gcp_host_top99p_sum";
-  private Long cspmGcpHostTop99pSum;
-
   public static final String JSON_PROPERTY_CSPM_HOST_TOP99P_SUM = "cspm_host_top99p_sum";
   private Long cspmHostTop99pSum;
 
@@ -317,10 +312,6 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM =
       "online_archive_events_count_agg_sum";
   private Long onlineArchiveEventsCountAggSum;
-
-  public static final String JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P_SUM =
-      "opentelemetry_apm_host_top99p_sum";
-  private Long opentelemetryApmHostTop99pSum;
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM =
       "opentelemetry_host_top99p_sum";
@@ -998,28 +989,6 @@ public class UsageSummaryResponse {
 
   public void setCspmContainerHwmSum(Long cspmContainerHwmSum) {
     this.cspmContainerHwmSum = cspmContainerHwmSum;
-  }
-
-  public UsageSummaryResponse cspmGcpHostTop99pSum(Long cspmGcpHostTop99pSum) {
-    this.cspmGcpHostTop99pSum = cspmGcpHostTop99pSum;
-    return this;
-  }
-
-  /**
-   * Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in
-   * the current months for all organizations.
-   *
-   * @return cspmGcpHostTop99pSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CSPM_GCP_HOST_TOP99P_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCspmGcpHostTop99pSum() {
-    return cspmGcpHostTop99pSum;
-  }
-
-  public void setCspmGcpHostTop99pSum(Long cspmGcpHostTop99pSum) {
-    this.cspmGcpHostTop99pSum = cspmGcpHostTop99pSum;
   }
 
   public UsageSummaryResponse cspmHostTop99pSum(Long cspmHostTop99pSum) {
@@ -1710,28 +1679,6 @@ public class UsageSummaryResponse {
     this.onlineArchiveEventsCountAggSum = onlineArchiveEventsCountAggSum;
   }
 
-  public UsageSummaryResponse opentelemetryApmHostTop99pSum(Long opentelemetryApmHostTop99pSum) {
-    this.opentelemetryApmHostTop99pSum = opentelemetryApmHostTop99pSum;
-    return this;
-  }
-
-  /**
-   * Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry
-   * Collector over all hours in the current months for all organizations.
-   *
-   * @return opentelemetryApmHostTop99pSum
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOpentelemetryApmHostTop99pSum() {
-    return opentelemetryApmHostTop99pSum;
-  }
-
-  public void setOpentelemetryApmHostTop99pSum(Long opentelemetryApmHostTop99pSum) {
-    this.opentelemetryApmHostTop99pSum = opentelemetryApmHostTop99pSum;
-  }
-
   public UsageSummaryResponse opentelemetryHostTop99pSum(Long opentelemetryHostTop99pSum) {
     this.opentelemetryHostTop99pSum = opentelemetryHostTop99pSum;
     return this;
@@ -2265,7 +2212,6 @@ public class UsageSummaryResponse {
         && Objects.equals(this.cspmAzureHostTop99pSum, usageSummaryResponse.cspmAzureHostTop99pSum)
         && Objects.equals(this.cspmContainerAvgSum, usageSummaryResponse.cspmContainerAvgSum)
         && Objects.equals(this.cspmContainerHwmSum, usageSummaryResponse.cspmContainerHwmSum)
-        && Objects.equals(this.cspmGcpHostTop99pSum, usageSummaryResponse.cspmGcpHostTop99pSum)
         && Objects.equals(this.cspmHostTop99pSum, usageSummaryResponse.cspmHostTop99pSum)
         && Objects.equals(this.customTsSum, usageSummaryResponse.customTsSum)
         && Objects.equals(this.cwsContainersAvgSum, usageSummaryResponse.cwsContainersAvgSum)
@@ -2320,8 +2266,6 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.onlineArchiveEventsCountAggSum,
             usageSummaryResponse.onlineArchiveEventsCountAggSum)
-        && Objects.equals(
-            this.opentelemetryApmHostTop99pSum, usageSummaryResponse.opentelemetryApmHostTop99pSum)
         && Objects.equals(
             this.opentelemetryHostTop99pSum, usageSummaryResponse.opentelemetryHostTop99pSum)
         && Objects.equals(
@@ -2393,7 +2337,6 @@ public class UsageSummaryResponse {
         cspmAzureHostTop99pSum,
         cspmContainerAvgSum,
         cspmContainerHwmSum,
-        cspmGcpHostTop99pSum,
         cspmHostTop99pSum,
         customTsSum,
         cwsContainersAvgSum,
@@ -2425,7 +2368,6 @@ public class UsageSummaryResponse {
         npmHostTop99pSum,
         observabilityPipelinesBytesProcessedAggSum,
         onlineArchiveEventsCountAggSum,
-        opentelemetryApmHostTop99pSum,
         opentelemetryHostTop99pSum,
         profilingContainerAgentCountAvg,
         profilingHostCountTop99pSum,
@@ -2520,9 +2462,6 @@ public class UsageSummaryResponse {
     sb.append("    cspmContainerHwmSum: ")
         .append(toIndentedString(cspmContainerHwmSum))
         .append("\n");
-    sb.append("    cspmGcpHostTop99pSum: ")
-        .append(toIndentedString(cspmGcpHostTop99pSum))
-        .append("\n");
     sb.append("    cspmHostTop99pSum: ").append(toIndentedString(cspmHostTop99pSum)).append("\n");
     sb.append("    customTsSum: ").append(toIndentedString(customTsSum)).append("\n");
     sb.append("    cwsContainersAvgSum: ")
@@ -2589,9 +2528,6 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    onlineArchiveEventsCountAggSum: ")
         .append(toIndentedString(onlineArchiveEventsCountAggSum))
-        .append("\n");
-    sb.append("    opentelemetryApmHostTop99pSum: ")
-        .append(toIndentedString(opentelemetryApmHostTop99pSum))
         .append("\n");
     sb.append("    opentelemetryHostTop99pSum: ")
         .append(toIndentedString(opentelemetryHostTop99pSum))
