@@ -622,7 +622,7 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jersey-version>3.0.4</jersey-version>
+        <jersey-version>3.0.8</jersey-version>
         <jackson-version>2.13.2</jackson-version>
         <jackson-databind-version>2.13.4.2</jackson-databind-version>
         <jackson-databind-nullable-version>0.2.3</jackson-databind-nullable-version>
