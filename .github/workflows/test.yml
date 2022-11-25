@@ -43,6 +43,12 @@ jobs:
         with:
           path: ~/.cache/pre-commit
           key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: "16"
+          distribution: "temurin"
+          cache: "maven"
       - id: pre_commit
         name: Run pre-commit
         if: github.event.action != 'closed' && github.event.pull_request.merged != true

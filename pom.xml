@@ -442,20 +442,6 @@
                     </execution>
                 </executions>
             </plugin>
-               <plugin>
-      <groupId>com.theoryinpractise</groupId>
-      <artifactId>googleformatter-maven-plugin</artifactId>
-      <version>1.7.4</version>
-      <executions>
-        <execution>
-          <id>reformat-sources</id>
-          <goals>
-            <goal>format</goal>
-          </goals>
-          <phase>process-sources</phase>
-        </execution>
-      </executions>
-    </plugin>
         </plugins>
     </build>
 
