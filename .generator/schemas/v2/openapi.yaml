@@ -5,7 +5,7 @@ components:
   links: {}
   parameters:
     APIKeyFilterCreatedAtEndParameter:
-      description: Only test include API keys created on or before the specified date.
+      description: Only include API keys created on or before the specified date.
       in: query
       name: filter[created_at][end]
       required: false
