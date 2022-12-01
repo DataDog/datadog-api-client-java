@@ -28,8 +28,20 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CSPM_CONTAINERS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CSPM_CONTAINERS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CSPM_HOSTS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CSPM_HOSTS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_CONTAINERS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_CONTAINERS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_HOSTS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_HOSTS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_DBM_HOSTS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_DBM_HOSTS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_DBM_QUERIES_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_DBM_QUERIES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE,
@@ -103,12 +115,49 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_CONTAINER_USAGE = "container_usage";
   private Double containerUsage;
 
+  public static final String JSON_PROPERTY_CSPM_CONTAINERS_PERCENTAGE =
+      "cspm_containers_percentage";
+  private Double cspmContainersPercentage;
+
+  public static final String JSON_PROPERTY_CSPM_CONTAINERS_USAGE = "cspm_containers_usage";
+  private Double cspmContainersUsage;
+
+  public static final String JSON_PROPERTY_CSPM_HOSTS_PERCENTAGE = "cspm_hosts_percentage";
+  private Double cspmHostsPercentage;
+
+  public static final String JSON_PROPERTY_CSPM_HOSTS_USAGE = "cspm_hosts_usage";
+  private Double cspmHostsUsage;
+
   public static final String JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE =
       "custom_timeseries_percentage";
   private Double customTimeseriesPercentage;
 
   public static final String JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
   private Double customTimeseriesUsage;
+
+  public static final String JSON_PROPERTY_CWS_CONTAINERS_PERCENTAGE = "cws_containers_percentage";
+  private Double cwsContainersPercentage;
+
+  public static final String JSON_PROPERTY_CWS_CONTAINERS_USAGE = "cws_containers_usage";
+  private Double cwsContainersUsage;
+
+  public static final String JSON_PROPERTY_CWS_HOSTS_PERCENTAGE = "cws_hosts_percentage";
+  private Double cwsHostsPercentage;
+
+  public static final String JSON_PROPERTY_CWS_HOSTS_USAGE = "cws_hosts_usage";
+  private Double cwsHostsUsage;
+
+  public static final String JSON_PROPERTY_DBM_HOSTS_PERCENTAGE = "dbm_hosts_percentage";
+  private Double dbmHostsPercentage;
+
+  public static final String JSON_PROPERTY_DBM_HOSTS_USAGE = "dbm_hosts_usage";
+  private Double dbmHostsUsage;
+
+  public static final String JSON_PROPERTY_DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage";
+  private Double dbmQueriesPercentage;
+
+  public static final String JSON_PROPERTY_DBM_QUERIES_USAGE = "dbm_queries_usage";
+  private Double dbmQueriesUsage;
 
   public static final String JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE =
       "estimated_indexed_logs_percentage";
@@ -491,6 +540,90 @@ public class MonthlyUsageAttributionValues {
     this.containerUsage = containerUsage;
   }
 
+  public MonthlyUsageAttributionValues cspmContainersPercentage(Double cspmContainersPercentage) {
+    this.cspmContainersPercentage = cspmContainersPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of CSPM container usage by tag(s).
+   *
+   * @return cspmContainersPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_CONTAINERS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCspmContainersPercentage() {
+    return cspmContainersPercentage;
+  }
+
+  public void setCspmContainersPercentage(Double cspmContainersPercentage) {
+    this.cspmContainersPercentage = cspmContainersPercentage;
+  }
+
+  public MonthlyUsageAttributionValues cspmContainersUsage(Double cspmContainersUsage) {
+    this.cspmContainersUsage = cspmContainersUsage;
+    return this;
+  }
+
+  /**
+   * The CSPM container usage by tag(s).
+   *
+   * @return cspmContainersUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_CONTAINERS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCspmContainersUsage() {
+    return cspmContainersUsage;
+  }
+
+  public void setCspmContainersUsage(Double cspmContainersUsage) {
+    this.cspmContainersUsage = cspmContainersUsage;
+  }
+
+  public MonthlyUsageAttributionValues cspmHostsPercentage(Double cspmHostsPercentage) {
+    this.cspmHostsPercentage = cspmHostsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of CSPM host usage by by tag(s).
+   *
+   * @return cspmHostsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_HOSTS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCspmHostsPercentage() {
+    return cspmHostsPercentage;
+  }
+
+  public void setCspmHostsPercentage(Double cspmHostsPercentage) {
+    this.cspmHostsPercentage = cspmHostsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues cspmHostsUsage(Double cspmHostsUsage) {
+    this.cspmHostsUsage = cspmHostsUsage;
+    return this;
+  }
+
+  /**
+   * The CSPM host usage by tag(s).
+   *
+   * @return cspmHostsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_HOSTS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCspmHostsUsage() {
+    return cspmHostsUsage;
+  }
+
+  public void setCspmHostsUsage(Double cspmHostsUsage) {
+    this.cspmHostsUsage = cspmHostsUsage;
+  }
+
   public MonthlyUsageAttributionValues customTimeseriesPercentage(
       Double customTimeseriesPercentage) {
     this.customTimeseriesPercentage = customTimeseriesPercentage;
@@ -532,6 +665,174 @@ public class MonthlyUsageAttributionValues {
 
   public void setCustomTimeseriesUsage(Double customTimeseriesUsage) {
     this.customTimeseriesUsage = customTimeseriesUsage;
+  }
+
+  public MonthlyUsageAttributionValues cwsContainersPercentage(Double cwsContainersPercentage) {
+    this.cwsContainersPercentage = cwsContainersPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Cloud Workload Security container usage by tag(s).
+   *
+   * @return cwsContainersPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CWS_CONTAINERS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCwsContainersPercentage() {
+    return cwsContainersPercentage;
+  }
+
+  public void setCwsContainersPercentage(Double cwsContainersPercentage) {
+    this.cwsContainersPercentage = cwsContainersPercentage;
+  }
+
+  public MonthlyUsageAttributionValues cwsContainersUsage(Double cwsContainersUsage) {
+    this.cwsContainersUsage = cwsContainersUsage;
+    return this;
+  }
+
+  /**
+   * The Cloud Workload Security container usage by tag(s).
+   *
+   * @return cwsContainersUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CWS_CONTAINERS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCwsContainersUsage() {
+    return cwsContainersUsage;
+  }
+
+  public void setCwsContainersUsage(Double cwsContainersUsage) {
+    this.cwsContainersUsage = cwsContainersUsage;
+  }
+
+  public MonthlyUsageAttributionValues cwsHostsPercentage(Double cwsHostsPercentage) {
+    this.cwsHostsPercentage = cwsHostsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Cloud Workload Security host usage by tag(s).
+   *
+   * @return cwsHostsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CWS_HOSTS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCwsHostsPercentage() {
+    return cwsHostsPercentage;
+  }
+
+  public void setCwsHostsPercentage(Double cwsHostsPercentage) {
+    this.cwsHostsPercentage = cwsHostsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues cwsHostsUsage(Double cwsHostsUsage) {
+    this.cwsHostsUsage = cwsHostsUsage;
+    return this;
+  }
+
+  /**
+   * The Cloud Workload Security host usage by tag(s).
+   *
+   * @return cwsHostsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CWS_HOSTS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCwsHostsUsage() {
+    return cwsHostsUsage;
+  }
+
+  public void setCwsHostsUsage(Double cwsHostsUsage) {
+    this.cwsHostsUsage = cwsHostsUsage;
+  }
+
+  public MonthlyUsageAttributionValues dbmHostsPercentage(Double dbmHostsPercentage) {
+    this.dbmHostsPercentage = dbmHostsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Database Monitoring host usage by tag(s).
+   *
+   * @return dbmHostsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DBM_HOSTS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDbmHostsPercentage() {
+    return dbmHostsPercentage;
+  }
+
+  public void setDbmHostsPercentage(Double dbmHostsPercentage) {
+    this.dbmHostsPercentage = dbmHostsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues dbmHostsUsage(Double dbmHostsUsage) {
+    this.dbmHostsUsage = dbmHostsUsage;
+    return this;
+  }
+
+  /**
+   * The Database Monitoring host usage by tag(s).
+   *
+   * @return dbmHostsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DBM_HOSTS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDbmHostsUsage() {
+    return dbmHostsUsage;
+  }
+
+  public void setDbmHostsUsage(Double dbmHostsUsage) {
+    this.dbmHostsUsage = dbmHostsUsage;
+  }
+
+  public MonthlyUsageAttributionValues dbmQueriesPercentage(Double dbmQueriesPercentage) {
+    this.dbmQueriesPercentage = dbmQueriesPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Database Monitoring queries usage by tag(s).
+   *
+   * @return dbmQueriesPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DBM_QUERIES_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDbmQueriesPercentage() {
+    return dbmQueriesPercentage;
+  }
+
+  public void setDbmQueriesPercentage(Double dbmQueriesPercentage) {
+    this.dbmQueriesPercentage = dbmQueriesPercentage;
+  }
+
+  public MonthlyUsageAttributionValues dbmQueriesUsage(Double dbmQueriesUsage) {
+    this.dbmQueriesUsage = dbmQueriesUsage;
+    return this;
+  }
+
+  /**
+   * The Database Monitoring queries usage by tag(s).
+   *
+   * @return dbmQueriesUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DBM_QUERIES_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDbmQueriesUsage() {
+    return dbmQueriesUsage;
+  }
+
+  public void setDbmQueriesUsage(Double dbmQueriesUsage) {
+    this.dbmQueriesUsage = dbmQueriesUsage;
   }
 
   public MonthlyUsageAttributionValues estimatedIndexedLogsPercentage(
@@ -1116,10 +1417,27 @@ public class MonthlyUsageAttributionValues {
             this.containerPercentage, monthlyUsageAttributionValues.containerPercentage)
         && Objects.equals(this.containerUsage, monthlyUsageAttributionValues.containerUsage)
         && Objects.equals(
+            this.cspmContainersPercentage, monthlyUsageAttributionValues.cspmContainersPercentage)
+        && Objects.equals(
+            this.cspmContainersUsage, monthlyUsageAttributionValues.cspmContainersUsage)
+        && Objects.equals(
+            this.cspmHostsPercentage, monthlyUsageAttributionValues.cspmHostsPercentage)
+        && Objects.equals(this.cspmHostsUsage, monthlyUsageAttributionValues.cspmHostsUsage)
+        && Objects.equals(
             this.customTimeseriesPercentage,
             monthlyUsageAttributionValues.customTimeseriesPercentage)
         && Objects.equals(
             this.customTimeseriesUsage, monthlyUsageAttributionValues.customTimeseriesUsage)
+        && Objects.equals(
+            this.cwsContainersPercentage, monthlyUsageAttributionValues.cwsContainersPercentage)
+        && Objects.equals(this.cwsContainersUsage, monthlyUsageAttributionValues.cwsContainersUsage)
+        && Objects.equals(this.cwsHostsPercentage, monthlyUsageAttributionValues.cwsHostsPercentage)
+        && Objects.equals(this.cwsHostsUsage, monthlyUsageAttributionValues.cwsHostsUsage)
+        && Objects.equals(this.dbmHostsPercentage, monthlyUsageAttributionValues.dbmHostsPercentage)
+        && Objects.equals(this.dbmHostsUsage, monthlyUsageAttributionValues.dbmHostsUsage)
+        && Objects.equals(
+            this.dbmQueriesPercentage, monthlyUsageAttributionValues.dbmQueriesPercentage)
+        && Objects.equals(this.dbmQueriesUsage, monthlyUsageAttributionValues.dbmQueriesUsage)
         && Objects.equals(
             this.estimatedIndexedLogsPercentage,
             monthlyUsageAttributionValues.estimatedIndexedLogsPercentage)
@@ -1188,8 +1506,20 @@ public class MonthlyUsageAttributionValues {
         browserUsage,
         containerPercentage,
         containerUsage,
+        cspmContainersPercentage,
+        cspmContainersUsage,
+        cspmHostsPercentage,
+        cspmHostsUsage,
         customTimeseriesPercentage,
         customTimeseriesUsage,
+        cwsContainersPercentage,
+        cwsContainersUsage,
+        cwsHostsPercentage,
+        cwsHostsUsage,
+        dbmHostsPercentage,
+        dbmHostsUsage,
+        dbmQueriesPercentage,
+        dbmQueriesUsage,
         estimatedIndexedLogsPercentage,
         estimatedIndexedLogsUsage,
         estimatedIndexedSpansPercentage,
@@ -1242,12 +1572,34 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(containerPercentage))
         .append("\n");
     sb.append("    containerUsage: ").append(toIndentedString(containerUsage)).append("\n");
+    sb.append("    cspmContainersPercentage: ")
+        .append(toIndentedString(cspmContainersPercentage))
+        .append("\n");
+    sb.append("    cspmContainersUsage: ")
+        .append(toIndentedString(cspmContainersUsage))
+        .append("\n");
+    sb.append("    cspmHostsPercentage: ")
+        .append(toIndentedString(cspmHostsPercentage))
+        .append("\n");
+    sb.append("    cspmHostsUsage: ").append(toIndentedString(cspmHostsUsage)).append("\n");
     sb.append("    customTimeseriesPercentage: ")
         .append(toIndentedString(customTimeseriesPercentage))
         .append("\n");
     sb.append("    customTimeseriesUsage: ")
         .append(toIndentedString(customTimeseriesUsage))
         .append("\n");
+    sb.append("    cwsContainersPercentage: ")
+        .append(toIndentedString(cwsContainersPercentage))
+        .append("\n");
+    sb.append("    cwsContainersUsage: ").append(toIndentedString(cwsContainersUsage)).append("\n");
+    sb.append("    cwsHostsPercentage: ").append(toIndentedString(cwsHostsPercentage)).append("\n");
+    sb.append("    cwsHostsUsage: ").append(toIndentedString(cwsHostsUsage)).append("\n");
+    sb.append("    dbmHostsPercentage: ").append(toIndentedString(dbmHostsPercentage)).append("\n");
+    sb.append("    dbmHostsUsage: ").append(toIndentedString(dbmHostsUsage)).append("\n");
+    sb.append("    dbmQueriesPercentage: ")
+        .append(toIndentedString(dbmQueriesPercentage))
+        .append("\n");
+    sb.append("    dbmQueriesUsage: ").append(toIndentedString(dbmQueriesUsage)).append("\n");
     sb.append("    estimatedIndexedLogsPercentage: ")
         .append(toIndentedString(estimatedIndexedLogsPercentage))
         .append("\n");
