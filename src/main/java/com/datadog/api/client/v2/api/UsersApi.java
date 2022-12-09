@@ -1001,7 +1001,8 @@ public class UsersApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. (optional, default to 10)
+     * @param pageSize Size for a given page. The maximum allowed value is 5000. (optional, default
+     *     to 10)
      * @return ListUsersOptionalParameters
      */
     public ListUsersOptionalParameters pageSize(Long pageSize) {
