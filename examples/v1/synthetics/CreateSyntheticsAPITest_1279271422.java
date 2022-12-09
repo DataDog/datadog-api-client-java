@@ -3,7 +3,6 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
-import com.datadog.api.client.v1.model.HTTPMethod;
 import com.datadog.api.client.v1.model.SyntheticsAPIStep;
 import com.datadog.api.client.v1.model.SyntheticsAPIStepSubtype;
 import com.datadog.api.client.v1.model.SyntheticsAPITest;
@@ -67,7 +66,7 @@ public class Example {
                                 .name("request is sent")
                                 .request(
                                     new SyntheticsTestRequest()
-                                        .method(HTTPMethod.GET)
+                                        .method("GET")
                                         .timeout(10.0)
                                         .url("https://datadoghq.com"))
                                 .retry(new SyntheticsTestOptionsRetry().count(5L).interval(1000.0))
