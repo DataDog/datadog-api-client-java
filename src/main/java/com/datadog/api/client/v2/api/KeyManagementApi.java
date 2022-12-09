@@ -1268,7 +1268,8 @@ public class KeyManagementApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. (optional, default to 10)
+     * @param pageSize Size for a given page. The maximum allowed value is 5000. (optional, default
+     *     to 10)
      * @return ListAPIKeysOptionalParameters
      */
     public ListAPIKeysOptionalParameters pageSize(Long pageSize) {
@@ -1577,7 +1578,8 @@ public class KeyManagementApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. (optional, default to 10)
+     * @param pageSize Size for a given page. The maximum allowed value is 5000. (optional, default
+     *     to 10)
      * @return ListApplicationKeysOptionalParameters
      */
     public ListApplicationKeysOptionalParameters pageSize(Long pageSize) {
@@ -1836,7 +1838,8 @@ public class KeyManagementApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. (optional, default to 10)
+     * @param pageSize Size for a given page. The maximum allowed value is 5000. (optional, default
+     *     to 10)
      * @return ListCurrentUserApplicationKeysOptionalParameters
      */
     public ListCurrentUserApplicationKeysOptionalParameters pageSize(Long pageSize) {
