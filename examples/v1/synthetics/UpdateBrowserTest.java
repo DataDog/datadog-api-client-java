@@ -3,7 +3,6 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
-import com.datadog.api.client.v1.model.HTTPMethod;
 import com.datadog.api.client.v1.model.SyntheticsBasicAuth;
 import com.datadog.api.client.v1.model.SyntheticsBasicAuthWeb;
 import com.datadog.api.client.v1.model.SyntheticsBasicAuthWebType;
@@ -18,6 +17,7 @@ import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
 import com.datadog.api.client.v1.model.SyntheticsDeviceID;
 import com.datadog.api.client.v1.model.SyntheticsStep;
 import com.datadog.api.client.v1.model.SyntheticsStepType;
+import com.datadog.api.client.v1.model.SyntheticsTestCallType;
 import com.datadog.api.client.v1.model.SyntheticsTestCiOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestExecutionRule;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
@@ -54,12 +54,13 @@ public class Example {
                                         .type(SyntheticsBasicAuthWebType.WEB)
                                         .username("my_username")))
                             .bodyType(SyntheticsTestRequestBodyType.TEXT_PLAIN)
+                            .callType(SyntheticsTestCallType.UNARY)
                             .certificate(
                                 new SyntheticsTestRequestCertificate()
                                     .cert(new SyntheticsTestRequestCertificateItem())
                                     .key(new SyntheticsTestRequestCertificateItem()))
-                            .method(HTTPMethod.GET)
                             .proxy(new SyntheticsTestRequestProxy().url("https://example.com"))
+                            .service("Greeter")
                             .url("https://example.com"))
                     .variables(
                         Collections.singletonList(

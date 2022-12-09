@@ -19,21 +19,16 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The HTTP method. */
-@JsonSerialize(using = HTTPMethod.HTTPMethodSerializer.class)
-public class HTTPMethod {
+/** The type of gRPC call to perform. */
+@JsonSerialize(using = SyntheticsTestCallType.SyntheticsTestCallTypeSerializer.class)
+public class SyntheticsTestCallType {
 
-  public static final HTTPMethod GET = new HTTPMethod("GET");
-  public static final HTTPMethod POST = new HTTPMethod("POST");
-  public static final HTTPMethod PATCH = new HTTPMethod("PATCH");
-  public static final HTTPMethod PUT = new HTTPMethod("PUT");
-  public static final HTTPMethod DELETE = new HTTPMethod("DELETE");
-  public static final HTTPMethod HEAD = new HTTPMethod("HEAD");
-  public static final HTTPMethod OPTIONS = new HTTPMethod("OPTIONS");
+  public static final SyntheticsTestCallType HEALTHCHECK =
+      new SyntheticsTestCallType("healthcheck");
+  public static final SyntheticsTestCallType UNARY = new SyntheticsTestCallType("unary");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("GET", "POST", "PATCH", "PUT", "DELETE", "HEAD", "OPTIONS"));
+      new HashSet<String>(Arrays.asList("healthcheck", "unary"));
 
   private String value;
 
@@ -41,21 +36,23 @@ public class HTTPMethod {
     return allowedValues.contains(this.value);
   }
 
-  HTTPMethod(String value) {
+  SyntheticsTestCallType(String value) {
     this.value = value;
   }
 
-  public static class HTTPMethodSerializer extends StdSerializer<HTTPMethod> {
-    public HTTPMethodSerializer(Class<HTTPMethod> t) {
+  public static class SyntheticsTestCallTypeSerializer
+      extends StdSerializer<SyntheticsTestCallType> {
+    public SyntheticsTestCallTypeSerializer(Class<SyntheticsTestCallType> t) {
       super(t);
     }
 
-    public HTTPMethodSerializer() {
+    public SyntheticsTestCallTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(HTTPMethod value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        SyntheticsTestCallType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -70,7 +67,7 @@ public class HTTPMethod {
     this.value = value;
   }
 
-  /** Return true if this HTTPMethod object is equal to o. */
+  /** Return true if this SyntheticsTestCallType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -79,7 +76,7 @@ public class HTTPMethod {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((HTTPMethod) o).value);
+    return this.value.equals(((SyntheticsTestCallType) o).value);
   }
 
   @Override
@@ -93,7 +90,7 @@ public class HTTPMethod {
   }
 
   @JsonCreator
-  public static HTTPMethod fromValue(String value) {
-    return new HTTPMethod(value);
+  public static SyntheticsTestCallType fromValue(String value) {
+    return new SyntheticsTestCallType(value);
   }
 }
