@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.HTTPMethod;
 import com.datadog.api.client.v1.model.SyntheticsAPITest;
 import com.datadog.api.client.v1.model.SyntheticsAPITestConfig;
 import com.datadog.api.client.v1.model.SyntheticsAPITestType;
@@ -38,7 +39,7 @@ public class Example {
                             .host("localhost")
                             .port(50051L)
                             .service("Hello")
-                            .method("GET")
+                            .method(HTTPMethod.GET)
                             .message("")
                             .metadata(Map.ofEntries())))
             .locations(Collections.singletonList("aws:us-east-2"))

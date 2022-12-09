@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.HTTPMethod;
 import com.datadog.api.client.v1.model.SyntheticsAPITest;
 import com.datadog.api.client.v1.model.SyntheticsAPITestConfig;
 import com.datadog.api.client.v1.model.SyntheticsAPITestType;
@@ -38,7 +39,10 @@ public class Example {
                                     .operator(SyntheticsAssertionOperator.LESS_THAN)
                                     .target(1000)
                                     .type(SyntheticsAssertionType.RESPONSE_TIME))))
-                    .request(new SyntheticsTestRequest().method("GET").url("https://example.com")))
+                    .request(
+                        new SyntheticsTestRequest()
+                            .method(HTTPMethod.GET)
+                            .url("https://example.com")))
             .locations(Collections.singletonList("aws:eu-west-3"))
             .message("Notification message")
             .name("Example test name")

@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.HTTPMethod;
 import com.datadog.api.client.v1.model.SyntheticsBrowserTest;
 import com.datadog.api.client.v1.model.SyntheticsBrowserTestConfig;
 import com.datadog.api.client.v1.model.SyntheticsBrowserTestType;
@@ -32,7 +33,10 @@ public class Example {
                                 .name("PROPERTY")
                                 .pattern("content-type")
                                 .type(SyntheticsConfigVariableType.TEXT)))
-                    .request(new SyntheticsTestRequest().method("GET").url("https://datadoghq.com"))
+                    .request(
+                        new SyntheticsTestRequest()
+                            .method(HTTPMethod.GET)
+                            .url("https://datadoghq.com"))
                     .setCookie("name:test"))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("Test message")

@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -19,16 +19,15 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The type of gRPC call to perform. */
-@JsonSerialize(using = SyntheticsTestCallType.SyntheticsTestCallTypeSerializer.class)
-public class SyntheticsTestCallType {
+/** The rule type. */
+@JsonSerialize(using = CloudConfigurationRuleType.CloudConfigurationRuleTypeSerializer.class)
+public class CloudConfigurationRuleType {
 
-  public static final SyntheticsTestCallType HEALTHCHECK =
-      new SyntheticsTestCallType("healthcheck");
-  public static final SyntheticsTestCallType UNARY = new SyntheticsTestCallType("unary");
+  public static final CloudConfigurationRuleType CLOUD_CONFIGURATION =
+      new CloudConfigurationRuleType("cloud_configuration");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("healthcheck", "unary"));
+      new HashSet<String>(Arrays.asList("cloud_configuration"));
 
   private String value;
 
@@ -36,23 +35,23 @@ public class SyntheticsTestCallType {
     return allowedValues.contains(this.value);
   }
 
-  SyntheticsTestCallType(String value) {
+  CloudConfigurationRuleType(String value) {
     this.value = value;
   }
 
-  public static class SyntheticsTestCallTypeSerializer
-      extends StdSerializer<SyntheticsTestCallType> {
-    public SyntheticsTestCallTypeSerializer(Class<SyntheticsTestCallType> t) {
+  public static class CloudConfigurationRuleTypeSerializer
+      extends StdSerializer<CloudConfigurationRuleType> {
+    public CloudConfigurationRuleTypeSerializer(Class<CloudConfigurationRuleType> t) {
       super(t);
     }
 
-    public SyntheticsTestCallTypeSerializer() {
+    public CloudConfigurationRuleTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        SyntheticsTestCallType value, JsonGenerator jgen, SerializerProvider provider)
+        CloudConfigurationRuleType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -67,7 +66,7 @@ public class SyntheticsTestCallType {
     this.value = value;
   }
 
-  /** Return true if this SyntheticsTestCallType object is equal to o. */
+  /** Return true if this CloudConfigurationRuleType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -76,7 +75,7 @@ public class SyntheticsTestCallType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((SyntheticsTestCallType) o).value);
+    return this.value.equals(((CloudConfigurationRuleType) o).value);
   }
 
   @Override
@@ -90,7 +89,7 @@ public class SyntheticsTestCallType {
   }
 
   @JsonCreator
-  public static SyntheticsTestCallType fromValue(String value) {
-    return new SyntheticsTestCallType(value);
+  public static CloudConfigurationRuleType fromValue(String value) {
+    return new CloudConfigurationRuleType(value);
   }
 }
