@@ -21,13 +21,17 @@ import java.util.Objects;
   UsageBillableSummaryKeys.JSON_PROPERTY_APM_PROFILER_HOST_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_APM_PROFILER_HOST_TOP99P,
   UsageBillableSummaryKeys.JSON_PROPERTY_APM_TRACE_SEARCH_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_APPLICATION_SECURITY_FARGATE_AVERAGE,
   UsageBillableSummaryKeys.JSON_PROPERTY_APPLICATION_SECURITY_HOST_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_APPLICATION_SECURITY_HOST_TOP99,
   UsageBillableSummaryKeys.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_CI_PIPELINE_MAXIMUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_CI_PIPELINE_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_CI_TESTING_MAXIMUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_CI_TESTING_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AVERAGE,
+  UsageBillableSummaryKeys.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_CSPM_CONTAINER_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_CSPM_HOST_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_CSPM_HOST_TOP99P,
@@ -59,6 +63,7 @@ import java.util.Objects;
   UsageBillableSummaryKeys.JSON_PROPERTY_IOT_TOP99P,
   UsageBillableSummaryKeys.JSON_PROPERTY_LAMBDA_FUNCTION_AVERAGE,
   UsageBillableSummaryKeys.JSON_PROPERTY_LAMBDA_FUNCTION_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_FORWARDING_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED15DAY_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED180DAY_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED30DAY_SUM,
@@ -86,10 +91,14 @@ import java.util.Objects;
   UsageBillableSummaryKeys.JSON_PROPERTY_RUM_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_RUM_UNITS_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_SENSITIVE_DATA_SCANNER_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_SERVERLESS_APM_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_SERVERLESS_INFRA_AVERAGE,
+  UsageBillableSummaryKeys.JSON_PROPERTY_SERVERLESS_INFRA_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_SERVERLESS_INVOCATION_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_SIEM_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_STANDARD_TIMESERIES_AVERAGE,
   UsageBillableSummaryKeys.JSON_PROPERTY_SYNTHETICS_API_TESTS_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_SYNTHETICS_APP_TESTING_MAXIMUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECKS_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_TIMESERIES_AVERAGE,
   UsageBillableSummaryKeys.JSON_PROPERTY_TIMESERIES_SUM
@@ -119,9 +128,17 @@ public class UsageBillableSummaryKeys {
   public static final String JSON_PROPERTY_APM_TRACE_SEARCH_SUM = "apm_trace_search_sum";
   private UsageBillableSummaryBody apmTraceSearchSum;
 
+  public static final String JSON_PROPERTY_APPLICATION_SECURITY_FARGATE_AVERAGE =
+      "application_security_fargate_average";
+  private UsageBillableSummaryBody applicationSecurityFargateAverage;
+
   public static final String JSON_PROPERTY_APPLICATION_SECURITY_HOST_SUM =
       "application_security_host_sum";
   private UsageBillableSummaryBody applicationSecurityHostSum;
+
+  public static final String JSON_PROPERTY_APPLICATION_SECURITY_HOST_TOP99 =
+      "application_security_host_top99";
+  private UsageBillableSummaryBody applicationSecurityHostTop99;
 
   public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM =
       "ci_pipeline_indexed_spans_sum";
@@ -141,6 +158,13 @@ public class UsageBillableSummaryKeys {
 
   public static final String JSON_PROPERTY_CI_TESTING_SUM = "ci_testing_sum";
   private UsageBillableSummaryBody ciTestingSum;
+
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AVERAGE =
+      "cloud_cost_management_average";
+  private UsageBillableSummaryBody cloudCostManagementAverage;
+
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_SUM = "cloud_cost_management_sum";
+  private UsageBillableSummaryBody cloudCostManagementSum;
 
   public static final String JSON_PROPERTY_CSPM_CONTAINER_SUM = "cspm_container_sum";
   private UsageBillableSummaryBody cspmContainerSum;
@@ -243,6 +267,9 @@ public class UsageBillableSummaryKeys {
   public static final String JSON_PROPERTY_LAMBDA_FUNCTION_SUM = "lambda_function_sum";
   private UsageBillableSummaryBody lambdaFunctionSum;
 
+  public static final String JSON_PROPERTY_LOGS_FORWARDING_SUM = "logs_forwarding_sum";
+  private UsageBillableSummaryBody logsForwardingSum;
+
   public static final String JSON_PROPERTY_LOGS_INDEXED15DAY_SUM = "logs_indexed_15day_sum";
   private UsageBillableSummaryBody logsIndexed15daySum;
 
@@ -327,6 +354,15 @@ public class UsageBillableSummaryKeys {
       "sensitive_data_scanner_sum";
   private UsageBillableSummaryBody sensitiveDataScannerSum;
 
+  public static final String JSON_PROPERTY_SERVERLESS_APM_SUM = "serverless_apm_sum";
+  private UsageBillableSummaryBody serverlessApmSum;
+
+  public static final String JSON_PROPERTY_SERVERLESS_INFRA_AVERAGE = "serverless_infra_average";
+  private UsageBillableSummaryBody serverlessInfraAverage;
+
+  public static final String JSON_PROPERTY_SERVERLESS_INFRA_SUM = "serverless_infra_sum";
+  private UsageBillableSummaryBody serverlessInfraSum;
+
   public static final String JSON_PROPERTY_SERVERLESS_INVOCATION_SUM = "serverless_invocation_sum";
   private UsageBillableSummaryBody serverlessInvocationSum;
 
@@ -339,6 +375,10 @@ public class UsageBillableSummaryKeys {
 
   public static final String JSON_PROPERTY_SYNTHETICS_API_TESTS_SUM = "synthetics_api_tests_sum";
   private UsageBillableSummaryBody syntheticsApiTestsSum;
+
+  public static final String JSON_PROPERTY_SYNTHETICS_APP_TESTING_MAXIMUM =
+      "synthetics_app_testing_maximum";
+  private UsageBillableSummaryBody syntheticsAppTestingMaximum;
 
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECKS_SUM =
       "synthetics_browser_checks_sum";
@@ -505,6 +545,30 @@ public class UsageBillableSummaryKeys {
     this.apmTraceSearchSum = apmTraceSearchSum;
   }
 
+  public UsageBillableSummaryKeys applicationSecurityFargateAverage(
+      UsageBillableSummaryBody applicationSecurityFargateAverage) {
+    this.applicationSecurityFargateAverage = applicationSecurityFargateAverage;
+    this.unparsed |= applicationSecurityFargateAverage.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return applicationSecurityFargateAverage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_SECURITY_FARGATE_AVERAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getApplicationSecurityFargateAverage() {
+    return applicationSecurityFargateAverage;
+  }
+
+  public void setApplicationSecurityFargateAverage(
+      UsageBillableSummaryBody applicationSecurityFargateAverage) {
+    this.applicationSecurityFargateAverage = applicationSecurityFargateAverage;
+  }
+
   public UsageBillableSummaryKeys applicationSecurityHostSum(
       UsageBillableSummaryBody applicationSecurityHostSum) {
     this.applicationSecurityHostSum = applicationSecurityHostSum;
@@ -526,6 +590,30 @@ public class UsageBillableSummaryKeys {
 
   public void setApplicationSecurityHostSum(UsageBillableSummaryBody applicationSecurityHostSum) {
     this.applicationSecurityHostSum = applicationSecurityHostSum;
+  }
+
+  public UsageBillableSummaryKeys applicationSecurityHostTop99(
+      UsageBillableSummaryBody applicationSecurityHostTop99) {
+    this.applicationSecurityHostTop99 = applicationSecurityHostTop99;
+    this.unparsed |= applicationSecurityHostTop99.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return applicationSecurityHostTop99
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_SECURITY_HOST_TOP99)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getApplicationSecurityHostTop99() {
+    return applicationSecurityHostTop99;
+  }
+
+  public void setApplicationSecurityHostTop99(
+      UsageBillableSummaryBody applicationSecurityHostTop99) {
+    this.applicationSecurityHostTop99 = applicationSecurityHostTop99;
   }
 
   public UsageBillableSummaryKeys ciPipelineIndexedSpansSum(
@@ -660,6 +748,52 @@ public class UsageBillableSummaryKeys {
 
   public void setCiTestingSum(UsageBillableSummaryBody ciTestingSum) {
     this.ciTestingSum = ciTestingSum;
+  }
+
+  public UsageBillableSummaryKeys cloudCostManagementAverage(
+      UsageBillableSummaryBody cloudCostManagementAverage) {
+    this.cloudCostManagementAverage = cloudCostManagementAverage;
+    this.unparsed |= cloudCostManagementAverage.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return cloudCostManagementAverage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AVERAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getCloudCostManagementAverage() {
+    return cloudCostManagementAverage;
+  }
+
+  public void setCloudCostManagementAverage(UsageBillableSummaryBody cloudCostManagementAverage) {
+    this.cloudCostManagementAverage = cloudCostManagementAverage;
+  }
+
+  public UsageBillableSummaryKeys cloudCostManagementSum(
+      UsageBillableSummaryBody cloudCostManagementSum) {
+    this.cloudCostManagementSum = cloudCostManagementSum;
+    this.unparsed |= cloudCostManagementSum.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return cloudCostManagementSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getCloudCostManagementSum() {
+    return cloudCostManagementSum;
+  }
+
+  public void setCloudCostManagementSum(UsageBillableSummaryBody cloudCostManagementSum) {
+    this.cloudCostManagementSum = cloudCostManagementSum;
   }
 
   public UsageBillableSummaryKeys cspmContainerSum(UsageBillableSummaryBody cspmContainerSum) {
@@ -1361,6 +1495,28 @@ public class UsageBillableSummaryKeys {
     this.lambdaFunctionSum = lambdaFunctionSum;
   }
 
+  public UsageBillableSummaryKeys logsForwardingSum(UsageBillableSummaryBody logsForwardingSum) {
+    this.logsForwardingSum = logsForwardingSum;
+    this.unparsed |= logsForwardingSum.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return logsForwardingSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_FORWARDING_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getLogsForwardingSum() {
+    return logsForwardingSum;
+  }
+
+  public void setLogsForwardingSum(UsageBillableSummaryBody logsForwardingSum) {
+    this.logsForwardingSum = logsForwardingSum;
+  }
+
   public UsageBillableSummaryKeys logsIndexed15daySum(
       UsageBillableSummaryBody logsIndexed15daySum) {
     this.logsIndexed15daySum = logsIndexed15daySum;
@@ -1967,6 +2123,73 @@ public class UsageBillableSummaryKeys {
     this.sensitiveDataScannerSum = sensitiveDataScannerSum;
   }
 
+  public UsageBillableSummaryKeys serverlessApmSum(UsageBillableSummaryBody serverlessApmSum) {
+    this.serverlessApmSum = serverlessApmSum;
+    this.unparsed |= serverlessApmSum.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return serverlessApmSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getServerlessApmSum() {
+    return serverlessApmSum;
+  }
+
+  public void setServerlessApmSum(UsageBillableSummaryBody serverlessApmSum) {
+    this.serverlessApmSum = serverlessApmSum;
+  }
+
+  public UsageBillableSummaryKeys serverlessInfraAverage(
+      UsageBillableSummaryBody serverlessInfraAverage) {
+    this.serverlessInfraAverage = serverlessInfraAverage;
+    this.unparsed |= serverlessInfraAverage.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return serverlessInfraAverage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_INFRA_AVERAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getServerlessInfraAverage() {
+    return serverlessInfraAverage;
+  }
+
+  public void setServerlessInfraAverage(UsageBillableSummaryBody serverlessInfraAverage) {
+    this.serverlessInfraAverage = serverlessInfraAverage;
+  }
+
+  public UsageBillableSummaryKeys serverlessInfraSum(UsageBillableSummaryBody serverlessInfraSum) {
+    this.serverlessInfraSum = serverlessInfraSum;
+    this.unparsed |= serverlessInfraSum.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return serverlessInfraSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_INFRA_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getServerlessInfraSum() {
+    return serverlessInfraSum;
+  }
+
+  public void setServerlessInfraSum(UsageBillableSummaryBody serverlessInfraSum) {
+    this.serverlessInfraSum = serverlessInfraSum;
+  }
+
   public UsageBillableSummaryKeys serverlessInvocationSum(
       UsageBillableSummaryBody serverlessInvocationSum) {
     this.serverlessInvocationSum = serverlessInvocationSum;
@@ -2058,6 +2281,29 @@ public class UsageBillableSummaryKeys {
     this.syntheticsApiTestsSum = syntheticsApiTestsSum;
   }
 
+  public UsageBillableSummaryKeys syntheticsAppTestingMaximum(
+      UsageBillableSummaryBody syntheticsAppTestingMaximum) {
+    this.syntheticsAppTestingMaximum = syntheticsAppTestingMaximum;
+    this.unparsed |= syntheticsAppTestingMaximum.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return syntheticsAppTestingMaximum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYNTHETICS_APP_TESTING_MAXIMUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getSyntheticsAppTestingMaximum() {
+    return syntheticsAppTestingMaximum;
+  }
+
+  public void setSyntheticsAppTestingMaximum(UsageBillableSummaryBody syntheticsAppTestingMaximum) {
+    this.syntheticsAppTestingMaximum = syntheticsAppTestingMaximum;
+  }
+
   public UsageBillableSummaryKeys syntheticsBrowserChecksSum(
       UsageBillableSummaryBody syntheticsBrowserChecksSum) {
     this.syntheticsBrowserChecksSum = syntheticsBrowserChecksSum;
@@ -2144,7 +2390,13 @@ public class UsageBillableSummaryKeys {
             this.apmProfilerHostTop99p, usageBillableSummaryKeys.apmProfilerHostTop99p)
         && Objects.equals(this.apmTraceSearchSum, usageBillableSummaryKeys.apmTraceSearchSum)
         && Objects.equals(
+            this.applicationSecurityFargateAverage,
+            usageBillableSummaryKeys.applicationSecurityFargateAverage)
+        && Objects.equals(
             this.applicationSecurityHostSum, usageBillableSummaryKeys.applicationSecurityHostSum)
+        && Objects.equals(
+            this.applicationSecurityHostTop99,
+            usageBillableSummaryKeys.applicationSecurityHostTop99)
         && Objects.equals(
             this.ciPipelineIndexedSpansSum, usageBillableSummaryKeys.ciPipelineIndexedSpansSum)
         && Objects.equals(this.ciPipelineMaximum, usageBillableSummaryKeys.ciPipelineMaximum)
@@ -2153,6 +2405,10 @@ public class UsageBillableSummaryKeys {
             this.ciTestIndexedSpansSum, usageBillableSummaryKeys.ciTestIndexedSpansSum)
         && Objects.equals(this.ciTestingMaximum, usageBillableSummaryKeys.ciTestingMaximum)
         && Objects.equals(this.ciTestingSum, usageBillableSummaryKeys.ciTestingSum)
+        && Objects.equals(
+            this.cloudCostManagementAverage, usageBillableSummaryKeys.cloudCostManagementAverage)
+        && Objects.equals(
+            this.cloudCostManagementSum, usageBillableSummaryKeys.cloudCostManagementSum)
         && Objects.equals(this.cspmContainerSum, usageBillableSummaryKeys.cspmContainerSum)
         && Objects.equals(this.cspmHostSum, usageBillableSummaryKeys.cspmHostSum)
         && Objects.equals(this.cspmHostTop99p, usageBillableSummaryKeys.cspmHostTop99p)
@@ -2200,6 +2456,7 @@ public class UsageBillableSummaryKeys {
         && Objects.equals(
             this.lambdaFunctionAverage, usageBillableSummaryKeys.lambdaFunctionAverage)
         && Objects.equals(this.lambdaFunctionSum, usageBillableSummaryKeys.lambdaFunctionSum)
+        && Objects.equals(this.logsForwardingSum, usageBillableSummaryKeys.logsForwardingSum)
         && Objects.equals(this.logsIndexed15daySum, usageBillableSummaryKeys.logsIndexed15daySum)
         && Objects.equals(this.logsIndexed180daySum, usageBillableSummaryKeys.logsIndexed180daySum)
         && Objects.equals(this.logsIndexed30daySum, usageBillableSummaryKeys.logsIndexed30daySum)
@@ -2231,6 +2488,10 @@ public class UsageBillableSummaryKeys {
         && Objects.equals(this.rumUnitsSum, usageBillableSummaryKeys.rumUnitsSum)
         && Objects.equals(
             this.sensitiveDataScannerSum, usageBillableSummaryKeys.sensitiveDataScannerSum)
+        && Objects.equals(this.serverlessApmSum, usageBillableSummaryKeys.serverlessApmSum)
+        && Objects.equals(
+            this.serverlessInfraAverage, usageBillableSummaryKeys.serverlessInfraAverage)
+        && Objects.equals(this.serverlessInfraSum, usageBillableSummaryKeys.serverlessInfraSum)
         && Objects.equals(
             this.serverlessInvocationSum, usageBillableSummaryKeys.serverlessInvocationSum)
         && Objects.equals(this.siemSum, usageBillableSummaryKeys.siemSum)
@@ -2238,6 +2499,8 @@ public class UsageBillableSummaryKeys {
             this.standardTimeseriesAverage, usageBillableSummaryKeys.standardTimeseriesAverage)
         && Objects.equals(
             this.syntheticsApiTestsSum, usageBillableSummaryKeys.syntheticsApiTestsSum)
+        && Objects.equals(
+            this.syntheticsAppTestingMaximum, usageBillableSummaryKeys.syntheticsAppTestingMaximum)
         && Objects.equals(
             this.syntheticsBrowserChecksSum, usageBillableSummaryKeys.syntheticsBrowserChecksSum)
         && Objects.equals(this.timeseriesAverage, usageBillableSummaryKeys.timeseriesAverage)
@@ -2254,13 +2517,17 @@ public class UsageBillableSummaryKeys {
         apmProfilerHostSum,
         apmProfilerHostTop99p,
         apmTraceSearchSum,
+        applicationSecurityFargateAverage,
         applicationSecurityHostSum,
+        applicationSecurityHostTop99,
         ciPipelineIndexedSpansSum,
         ciPipelineMaximum,
         ciPipelineSum,
         ciTestIndexedSpansSum,
         ciTestingMaximum,
         ciTestingSum,
+        cloudCostManagementAverage,
+        cloudCostManagementSum,
         cspmContainerSum,
         cspmHostSum,
         cspmHostTop99p,
@@ -2292,6 +2559,7 @@ public class UsageBillableSummaryKeys {
         iotTop99p,
         lambdaFunctionAverage,
         lambdaFunctionSum,
+        logsForwardingSum,
         logsIndexed15daySum,
         logsIndexed180daySum,
         logsIndexed30daySum,
@@ -2319,10 +2587,14 @@ public class UsageBillableSummaryKeys {
         rumSum,
         rumUnitsSum,
         sensitiveDataScannerSum,
+        serverlessApmSum,
+        serverlessInfraAverage,
+        serverlessInfraSum,
         serverlessInvocationSum,
         siemSum,
         standardTimeseriesAverage,
         syntheticsApiTestsSum,
+        syntheticsAppTestingMaximum,
         syntheticsBrowserChecksSum,
         timeseriesAverage,
         timeseriesSum);
@@ -2341,8 +2613,14 @@ public class UsageBillableSummaryKeys {
         .append(toIndentedString(apmProfilerHostTop99p))
         .append("\n");
     sb.append("    apmTraceSearchSum: ").append(toIndentedString(apmTraceSearchSum)).append("\n");
+    sb.append("    applicationSecurityFargateAverage: ")
+        .append(toIndentedString(applicationSecurityFargateAverage))
+        .append("\n");
     sb.append("    applicationSecurityHostSum: ")
         .append(toIndentedString(applicationSecurityHostSum))
+        .append("\n");
+    sb.append("    applicationSecurityHostTop99: ")
+        .append(toIndentedString(applicationSecurityHostTop99))
         .append("\n");
     sb.append("    ciPipelineIndexedSpansSum: ")
         .append(toIndentedString(ciPipelineIndexedSpansSum))
@@ -2354,6 +2632,12 @@ public class UsageBillableSummaryKeys {
         .append("\n");
     sb.append("    ciTestingMaximum: ").append(toIndentedString(ciTestingMaximum)).append("\n");
     sb.append("    ciTestingSum: ").append(toIndentedString(ciTestingSum)).append("\n");
+    sb.append("    cloudCostManagementAverage: ")
+        .append(toIndentedString(cloudCostManagementAverage))
+        .append("\n");
+    sb.append("    cloudCostManagementSum: ")
+        .append(toIndentedString(cloudCostManagementSum))
+        .append("\n");
     sb.append("    cspmContainerSum: ").append(toIndentedString(cspmContainerSum)).append("\n");
     sb.append("    cspmHostSum: ").append(toIndentedString(cspmHostSum)).append("\n");
     sb.append("    cspmHostTop99p: ").append(toIndentedString(cspmHostTop99p)).append("\n");
@@ -2413,6 +2697,7 @@ public class UsageBillableSummaryKeys {
         .append(toIndentedString(lambdaFunctionAverage))
         .append("\n");
     sb.append("    lambdaFunctionSum: ").append(toIndentedString(lambdaFunctionSum)).append("\n");
+    sb.append("    logsForwardingSum: ").append(toIndentedString(logsForwardingSum)).append("\n");
     sb.append("    logsIndexed15daySum: ")
         .append(toIndentedString(logsIndexed15daySum))
         .append("\n");
@@ -2462,6 +2747,11 @@ public class UsageBillableSummaryKeys {
     sb.append("    sensitiveDataScannerSum: ")
         .append(toIndentedString(sensitiveDataScannerSum))
         .append("\n");
+    sb.append("    serverlessApmSum: ").append(toIndentedString(serverlessApmSum)).append("\n");
+    sb.append("    serverlessInfraAverage: ")
+        .append(toIndentedString(serverlessInfraAverage))
+        .append("\n");
+    sb.append("    serverlessInfraSum: ").append(toIndentedString(serverlessInfraSum)).append("\n");
     sb.append("    serverlessInvocationSum: ")
         .append(toIndentedString(serverlessInvocationSum))
         .append("\n");
@@ -2471,6 +2761,9 @@ public class UsageBillableSummaryKeys {
         .append("\n");
     sb.append("    syntheticsApiTestsSum: ")
         .append(toIndentedString(syntheticsApiTestsSum))
+        .append("\n");
+    sb.append("    syntheticsAppTestingMaximum: ")
+        .append(toIndentedString(syntheticsAppTestingMaximum))
         .append("\n");
     sb.append("    syntheticsBrowserChecksSum: ")
         .append(toIndentedString(syntheticsBrowserChecksSum))

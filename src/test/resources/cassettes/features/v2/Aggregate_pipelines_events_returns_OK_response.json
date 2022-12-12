@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"compute\":[{\"aggregation\":\"pc90\",\"metric\":\"@duration\",\"type\":\"total\"}],\"filter\":{\"from\":\"now-15m\",\"query\":\"@ci.provider.name:github AND @ci.provider.instance:github-actions\",\"to\":\"now\"},\"group_by\":[{\"facet\":\"@ci.status\",\"limit\":10,\"total\":false}],\"options\":{\"timezone\":\"GMT\"},\"page\":{\"limit\":25}}"
+        "json": "{\"compute\":[{\"aggregation\":\"pc90\",\"metric\":\"@duration\",\"type\":\"total\"}],\"filter\":{\"from\":\"now-15m\",\"query\":\"@ci.provider.name:(gitlab OR github)\",\"to\":\"now\"},\"group_by\":[{\"facet\":\"@ci.status\",\"limit\":10,\"total\":false}],\"options\":{\"timezone\":\"GMT\"},\"page\":{\"limit\":25}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"elapsed\":113,\"request_id\":\"pddv1ChYwUEN0YnZ5dFNrdVZEbHhuSTliVEpnIiwKHGMtY3c8ixDp3d4CWjg8UkGmZ1-bi7LFmSWOebUSDClmkByOFEin86vlJg\",\"status\":\"done\"},\"data\":{\"buckets\":[{\"by\":{\"@ci.status\":\"canceled\"},\"computes\":{\"c0\":149536704640.0603}},{\"by\":{\"@ci.status\":\"error\"},\"computes\":{\"c0\":423086456660.7128}},{\"by\":{\"@ci.status\":\"skipped\"},\"computes\":{\"c0\":0.0}},{\"by\":{\"@ci.status\":\"success\"},\"computes\":{\"c0\":190099929600.14703}}]}}\n",
+      "body": "{\"meta\":{\"elapsed\":170,\"request_id\":\"pddv1ChYzYWhuN3VqLVR4ZTV4V0Q0LVFDYVB3IiwKHKG6G1xIn05fWwGRsD7MITrTmBASHDayL3wqgBcSDEOG5uEAxWRZVp8G4w\",\"status\":\"done\"},\"data\":{\"buckets\":[{\"computes\":{\"c0\":236880835985.0375},\"by\":{\"@ci.status\":\"error\"}},{\"computes\":{\"c0\":3026515237.0540113},\"by\":{\"@ci.status\":\"skipped\"}},{\"computes\":{\"c0\":146575581775.90088},\"by\":{\"@ci.status\":\"success\"}}]}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c56ff6ac-9e84-4d0e-5a04-e2ba5da2e5f4"
+    "id": "a2f719c1-d23b-8121-3c71-85d0426ee0c9"
   }
 ]

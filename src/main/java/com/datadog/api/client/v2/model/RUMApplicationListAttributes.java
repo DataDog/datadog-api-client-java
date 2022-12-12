@@ -13,29 +13,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** RUM application attributes. */
+/** RUM application list attributes. */
 @JsonPropertyOrder({
-  RUMApplicationAttributes.JSON_PROPERTY_APPLICATION_ID,
-  RUMApplicationAttributes.JSON_PROPERTY_CLIENT_TOKEN,
-  RUMApplicationAttributes.JSON_PROPERTY_CREATED_AT,
-  RUMApplicationAttributes.JSON_PROPERTY_CREATED_BY_HANDLE,
-  RUMApplicationAttributes.JSON_PROPERTY_HASH,
-  RUMApplicationAttributes.JSON_PROPERTY_IS_ACTIVE,
-  RUMApplicationAttributes.JSON_PROPERTY_NAME,
-  RUMApplicationAttributes.JSON_PROPERTY_ORG_ID,
-  RUMApplicationAttributes.JSON_PROPERTY_TYPE,
-  RUMApplicationAttributes.JSON_PROPERTY_UPDATED_AT,
-  RUMApplicationAttributes.JSON_PROPERTY_UPDATED_BY_HANDLE
+  RUMApplicationListAttributes.JSON_PROPERTY_APPLICATION_ID,
+  RUMApplicationListAttributes.JSON_PROPERTY_CREATED_AT,
+  RUMApplicationListAttributes.JSON_PROPERTY_CREATED_BY_HANDLE,
+  RUMApplicationListAttributes.JSON_PROPERTY_HASH,
+  RUMApplicationListAttributes.JSON_PROPERTY_IS_ACTIVE,
+  RUMApplicationListAttributes.JSON_PROPERTY_NAME,
+  RUMApplicationListAttributes.JSON_PROPERTY_ORG_ID,
+  RUMApplicationListAttributes.JSON_PROPERTY_TYPE,
+  RUMApplicationListAttributes.JSON_PROPERTY_UPDATED_AT,
+  RUMApplicationListAttributes.JSON_PROPERTY_UPDATED_BY_HANDLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RUMApplicationAttributes {
+public class RUMApplicationListAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION_ID = "application_id";
   private String applicationId;
-
-  public static final String JSON_PROPERTY_CLIENT_TOKEN = "client_token";
-  private String clientToken;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private Long createdAt;
@@ -64,12 +60,11 @@ public class RUMApplicationAttributes {
   public static final String JSON_PROPERTY_UPDATED_BY_HANDLE = "updated_by_handle";
   private String updatedByHandle;
 
-  public RUMApplicationAttributes() {}
+  public RUMApplicationListAttributes() {}
 
   @JsonCreator
-  public RUMApplicationAttributes(
+  public RUMApplicationListAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) String applicationId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_TOKEN) String clientToken,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) Long createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY_HANDLE)
           String createdByHandle,
@@ -80,7 +75,6 @@ public class RUMApplicationAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_BY_HANDLE)
           String updatedByHandle) {
     this.applicationId = applicationId;
-    this.clientToken = clientToken;
     this.createdAt = createdAt;
     this.createdByHandle = createdByHandle;
     this.name = name;
@@ -90,7 +84,7 @@ public class RUMApplicationAttributes {
     this.updatedByHandle = updatedByHandle;
   }
 
-  public RUMApplicationAttributes applicationId(String applicationId) {
+  public RUMApplicationListAttributes applicationId(String applicationId) {
     this.applicationId = applicationId;
     return this;
   }
@@ -110,27 +104,7 @@ public class RUMApplicationAttributes {
     this.applicationId = applicationId;
   }
 
-  public RUMApplicationAttributes clientToken(String clientToken) {
-    this.clientToken = clientToken;
-    return this;
-  }
-
-  /**
-   * Client token of the RUM application.
-   *
-   * @return clientToken
-   */
-  @JsonProperty(JSON_PROPERTY_CLIENT_TOKEN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getClientToken() {
-    return clientToken;
-  }
-
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
-  }
-
-  public RUMApplicationAttributes createdAt(Long createdAt) {
+  public RUMApplicationListAttributes createdAt(Long createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -150,7 +124,7 @@ public class RUMApplicationAttributes {
     this.createdAt = createdAt;
   }
 
-  public RUMApplicationAttributes createdByHandle(String createdByHandle) {
+  public RUMApplicationListAttributes createdByHandle(String createdByHandle) {
     this.createdByHandle = createdByHandle;
     return this;
   }
@@ -170,7 +144,7 @@ public class RUMApplicationAttributes {
     this.createdByHandle = createdByHandle;
   }
 
-  public RUMApplicationAttributes hash(String hash) {
+  public RUMApplicationListAttributes hash(String hash) {
     this.hash = hash;
     return this;
   }
@@ -191,7 +165,7 @@ public class RUMApplicationAttributes {
     this.hash = hash;
   }
 
-  public RUMApplicationAttributes isActive(Boolean isActive) {
+  public RUMApplicationListAttributes isActive(Boolean isActive) {
     this.isActive = isActive;
     return this;
   }
@@ -212,7 +186,7 @@ public class RUMApplicationAttributes {
     this.isActive = isActive;
   }
 
-  public RUMApplicationAttributes name(String name) {
+  public RUMApplicationListAttributes name(String name) {
     this.name = name;
     return this;
   }
@@ -232,7 +206,7 @@ public class RUMApplicationAttributes {
     this.name = name;
   }
 
-  public RUMApplicationAttributes orgId(Integer orgId) {
+  public RUMApplicationListAttributes orgId(Integer orgId) {
     this.orgId = orgId;
     return this;
   }
@@ -252,7 +226,7 @@ public class RUMApplicationAttributes {
     this.orgId = orgId;
   }
 
-  public RUMApplicationAttributes type(String type) {
+  public RUMApplicationListAttributes type(String type) {
     this.type = type;
     return this;
   }
@@ -273,7 +247,7 @@ public class RUMApplicationAttributes {
     this.type = type;
   }
 
-  public RUMApplicationAttributes updatedAt(Long updatedAt) {
+  public RUMApplicationListAttributes updatedAt(Long updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -293,7 +267,7 @@ public class RUMApplicationAttributes {
     this.updatedAt = updatedAt;
   }
 
-  public RUMApplicationAttributes updatedByHandle(String updatedByHandle) {
+  public RUMApplicationListAttributes updatedByHandle(String updatedByHandle) {
     this.updatedByHandle = updatedByHandle;
     return this;
   }
@@ -313,7 +287,7 @@ public class RUMApplicationAttributes {
     this.updatedByHandle = updatedByHandle;
   }
 
-  /** Return true if this RUMApplicationAttributes object is equal to o. */
+  /** Return true if this RUMApplicationListAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -322,25 +296,23 @@ public class RUMApplicationAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMApplicationAttributes rumApplicationAttributes = (RUMApplicationAttributes) o;
-    return Objects.equals(this.applicationId, rumApplicationAttributes.applicationId)
-        && Objects.equals(this.clientToken, rumApplicationAttributes.clientToken)
-        && Objects.equals(this.createdAt, rumApplicationAttributes.createdAt)
-        && Objects.equals(this.createdByHandle, rumApplicationAttributes.createdByHandle)
-        && Objects.equals(this.hash, rumApplicationAttributes.hash)
-        && Objects.equals(this.isActive, rumApplicationAttributes.isActive)
-        && Objects.equals(this.name, rumApplicationAttributes.name)
-        && Objects.equals(this.orgId, rumApplicationAttributes.orgId)
-        && Objects.equals(this.type, rumApplicationAttributes.type)
-        && Objects.equals(this.updatedAt, rumApplicationAttributes.updatedAt)
-        && Objects.equals(this.updatedByHandle, rumApplicationAttributes.updatedByHandle);
+    RUMApplicationListAttributes rumApplicationListAttributes = (RUMApplicationListAttributes) o;
+    return Objects.equals(this.applicationId, rumApplicationListAttributes.applicationId)
+        && Objects.equals(this.createdAt, rumApplicationListAttributes.createdAt)
+        && Objects.equals(this.createdByHandle, rumApplicationListAttributes.createdByHandle)
+        && Objects.equals(this.hash, rumApplicationListAttributes.hash)
+        && Objects.equals(this.isActive, rumApplicationListAttributes.isActive)
+        && Objects.equals(this.name, rumApplicationListAttributes.name)
+        && Objects.equals(this.orgId, rumApplicationListAttributes.orgId)
+        && Objects.equals(this.type, rumApplicationListAttributes.type)
+        && Objects.equals(this.updatedAt, rumApplicationListAttributes.updatedAt)
+        && Objects.equals(this.updatedByHandle, rumApplicationListAttributes.updatedByHandle);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         applicationId,
-        clientToken,
         createdAt,
         createdByHandle,
         hash,
@@ -355,9 +327,8 @@ public class RUMApplicationAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RUMApplicationAttributes {\n");
+    sb.append("class RUMApplicationListAttributes {\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
-    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdByHandle: ").append(toIndentedString(createdByHandle)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");

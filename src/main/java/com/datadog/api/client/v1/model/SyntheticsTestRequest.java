@@ -22,6 +22,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_BASIC_AUTH,
   SyntheticsTestRequest.JSON_PROPERTY_BODY,
   SyntheticsTestRequest.JSON_PROPERTY_BODY_TYPE,
+  SyntheticsTestRequest.JSON_PROPERTY_CALL_TYPE,
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE,
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE_DOMAINS,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER,
@@ -59,6 +60,9 @@ public class SyntheticsTestRequest {
   public static final String JSON_PROPERTY_BODY_TYPE = "bodyType";
   private SyntheticsTestRequestBodyType bodyType;
 
+  public static final String JSON_PROPERTY_CALL_TYPE = "callType";
+  private SyntheticsTestCallType callType;
+
   public static final String JSON_PROPERTY_CERTIFICATE = "certificate";
   private SyntheticsTestRequestCertificate certificate;
 
@@ -87,7 +91,7 @@ public class SyntheticsTestRequest {
   private Map<String, String> metadata = null;
 
   public static final String JSON_PROPERTY_METHOD = "method";
-  private HTTPMethod method;
+  private String method;
 
   public static final String JSON_PROPERTY_NO_SAVING_RESPONSE_BODY = "noSavingResponseBody";
   private Boolean noSavingResponseBody;
@@ -206,6 +210,31 @@ public class SyntheticsTestRequest {
       this.unparsed = true;
     }
     this.bodyType = bodyType;
+  }
+
+  public SyntheticsTestRequest callType(SyntheticsTestCallType callType) {
+    this.callType = callType;
+    this.unparsed |= !callType.isValid();
+    return this;
+  }
+
+  /**
+   * The type of gRPC call to perform.
+   *
+   * @return callType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CALL_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestCallType getCallType() {
+    return callType;
+  }
+
+  public void setCallType(SyntheticsTestCallType callType) {
+    if (!callType.isValid()) {
+      this.unparsed = true;
+    }
+    this.callType = callType;
   }
 
   public SyntheticsTestRequest certificate(SyntheticsTestRequestCertificate certificate) {
@@ -424,28 +453,26 @@ public class SyntheticsTestRequest {
     this.metadata = metadata;
   }
 
-  public SyntheticsTestRequest method(HTTPMethod method) {
+  public SyntheticsTestRequest method(String method) {
     this.method = method;
-    this.unparsed |= !method.isValid();
     return this;
   }
 
   /**
-   * The HTTP method.
+   * Either the HTTP method/verb to use or a gRPC method available on the service set in the <code>
+   * service</code> field. Required if <code>subtype</code> is <code>HTTP</code> or if <code>subtype
+   * </code> is <code>grpc</code> and <code>callType</code> is <code>unary</code>.
    *
    * @return method
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HTTPMethod getMethod() {
+  public String getMethod() {
     return method;
   }
 
-  public void setMethod(HTTPMethod method) {
-    if (!method.isValid()) {
-      this.unparsed = true;
-    }
+  public void setMethod(String method) {
     this.method = method;
   }
 
@@ -584,7 +611,7 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * gRPC service on which you want to perform the healthcheck.
+   * The gRPC service on which you want to perform the gRPC call.
    *
    * @return service
    */
@@ -676,6 +703,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.basicAuth, syntheticsTestRequest.basicAuth)
         && Objects.equals(this.body, syntheticsTestRequest.body)
         && Objects.equals(this.bodyType, syntheticsTestRequest.bodyType)
+        && Objects.equals(this.callType, syntheticsTestRequest.callType)
         && Objects.equals(this.certificate, syntheticsTestRequest.certificate)
         && Objects.equals(this.certificateDomains, syntheticsTestRequest.certificateDomains)
         && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer)
@@ -705,6 +733,7 @@ public class SyntheticsTestRequest {
         basicAuth,
         body,
         bodyType,
+        callType,
         certificate,
         certificateDomains,
         dnsServer,
@@ -735,6 +764,7 @@ public class SyntheticsTestRequest {
     sb.append("    basicAuth: ").append(toIndentedString(basicAuth)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    bodyType: ").append(toIndentedString(bodyType)).append("\n");
+    sb.append("    callType: ").append(toIndentedString(callType)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    certificateDomains: ").append(toIndentedString(certificateDomains)).append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");

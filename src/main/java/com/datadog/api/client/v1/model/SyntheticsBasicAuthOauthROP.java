@@ -22,6 +22,7 @@ import java.util.Objects;
   SyntheticsBasicAuthOauthROP.JSON_PROPERTY_PASSWORD,
   SyntheticsBasicAuthOauthROP.JSON_PROPERTY_RESOURCE,
   SyntheticsBasicAuthOauthROP.JSON_PROPERTY_SCOPE,
+  SyntheticsBasicAuthOauthROP.JSON_PROPERTY_TOKEN_API_AUTHENTICATION,
   SyntheticsBasicAuthOauthROP.JSON_PROPERTY_TYPE,
   SyntheticsBasicAuthOauthROP.JSON_PROPERTY_USERNAME
 })
@@ -50,6 +51,9 @@ public class SyntheticsBasicAuthOauthROP {
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
 
+  public static final String JSON_PROPERTY_TOKEN_API_AUTHENTICATION = "tokenApiAuthentication";
+  private SyntheticsBasicAuthOauthTokenApiAuthentication tokenApiAuthentication;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsBasicAuthOauthROPType type = SyntheticsBasicAuthOauthROPType.OAUTH_ROP;
 
@@ -62,9 +66,13 @@ public class SyntheticsBasicAuthOauthROP {
   public SyntheticsBasicAuthOauthROP(
       @JsonProperty(required = true, value = JSON_PROPERTY_ACCESS_TOKEN_URL) String accessTokenUrl,
       @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TOKEN_API_AUTHENTICATION)
+          SyntheticsBasicAuthOauthTokenApiAuthentication tokenApiAuthentication,
       @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
     this.accessTokenUrl = accessTokenUrl;
     this.password = password;
+    this.tokenApiAuthentication = tokenApiAuthentication;
+    this.unparsed |= !tokenApiAuthentication.isValid();
     this.username = username;
   }
 
@@ -213,6 +221,32 @@ public class SyntheticsBasicAuthOauthROP {
     this.scope = scope;
   }
 
+  public SyntheticsBasicAuthOauthROP tokenApiAuthentication(
+      SyntheticsBasicAuthOauthTokenApiAuthentication tokenApiAuthentication) {
+    this.tokenApiAuthentication = tokenApiAuthentication;
+    this.unparsed |= !tokenApiAuthentication.isValid();
+    return this;
+  }
+
+  /**
+   * Type of token to use when performing the authentication.
+   *
+   * @return tokenApiAuthentication
+   */
+  @JsonProperty(JSON_PROPERTY_TOKEN_API_AUTHENTICATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsBasicAuthOauthTokenApiAuthentication getTokenApiAuthentication() {
+    return tokenApiAuthentication;
+  }
+
+  public void setTokenApiAuthentication(
+      SyntheticsBasicAuthOauthTokenApiAuthentication tokenApiAuthentication) {
+    if (!tokenApiAuthentication.isValid()) {
+      this.unparsed = true;
+    }
+    this.tokenApiAuthentication = tokenApiAuthentication;
+  }
+
   public SyntheticsBasicAuthOauthROP type(SyntheticsBasicAuthOauthROPType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -275,6 +309,8 @@ public class SyntheticsBasicAuthOauthROP {
         && Objects.equals(this.password, syntheticsBasicAuthOauthRop.password)
         && Objects.equals(this.resource, syntheticsBasicAuthOauthRop.resource)
         && Objects.equals(this.scope, syntheticsBasicAuthOauthRop.scope)
+        && Objects.equals(
+            this.tokenApiAuthentication, syntheticsBasicAuthOauthRop.tokenApiAuthentication)
         && Objects.equals(this.type, syntheticsBasicAuthOauthRop.type)
         && Objects.equals(this.username, syntheticsBasicAuthOauthRop.username);
   }
@@ -289,6 +325,7 @@ public class SyntheticsBasicAuthOauthROP {
         password,
         resource,
         scope,
+        tokenApiAuthentication,
         type,
         username);
   }
@@ -304,6 +341,9 @@ public class SyntheticsBasicAuthOauthROP {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
+    sb.append("    tokenApiAuthentication: ")
+        .append(toIndentedString(tokenApiAuthentication))
+        .append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
