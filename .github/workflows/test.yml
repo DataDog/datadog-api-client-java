@@ -72,6 +72,11 @@ jobs:
           exit 1
         env:
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
+      - id: pre_commit_schedule
+        name: Run pre-commit in schedule
+        if: github.event_name == 'schedule'
+        run: |
+          pre-commit run --all-files --show-diff-on-failure --color=always
 
   javadoc:
     runs-on: ubuntu-latest
