@@ -21,7 +21,8 @@ import java.util.Objects;
   WidgetFormula.JSON_PROPERTY_CELL_DISPLAY_MODE,
   WidgetFormula.JSON_PROPERTY_CONDITIONAL_FORMATS,
   WidgetFormula.JSON_PROPERTY_FORMULA,
-  WidgetFormula.JSON_PROPERTY_LIMIT
+  WidgetFormula.JSON_PROPERTY_LIMIT,
+  WidgetFormula.JSON_PROPERTY_STYLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -41,6 +42,9 @@ public class WidgetFormula {
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private WidgetFormulaLimit limit;
+
+  public static final String JSON_PROPERTY_STYLE = "style";
+  private WidgetFormulaStyle style;
 
   public WidgetFormula() {}
 
@@ -171,6 +175,28 @@ public class WidgetFormula {
     this.limit = limit;
   }
 
+  public WidgetFormula style(WidgetFormulaStyle style) {
+    this.style = style;
+    this.unparsed |= style.unparsed;
+    return this;
+  }
+
+  /**
+   * Styling options for widget formulas.
+   *
+   * @return style
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STYLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetFormulaStyle getStyle() {
+    return style;
+  }
+
+  public void setStyle(WidgetFormulaStyle style) {
+    this.style = style;
+  }
+
   /** Return true if this WidgetFormula object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -185,12 +211,13 @@ public class WidgetFormula {
         && Objects.equals(this.cellDisplayMode, widgetFormula.cellDisplayMode)
         && Objects.equals(this.conditionalFormats, widgetFormula.conditionalFormats)
         && Objects.equals(this.formula, widgetFormula.formula)
-        && Objects.equals(this.limit, widgetFormula.limit);
+        && Objects.equals(this.limit, widgetFormula.limit)
+        && Objects.equals(this.style, widgetFormula.style);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alias, cellDisplayMode, conditionalFormats, formula, limit);
+    return Objects.hash(alias, cellDisplayMode, conditionalFormats, formula, limit, style);
   }
 
   @Override
@@ -202,6 +229,7 @@ public class WidgetFormula {
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("}");
     return sb.toString();
   }
