@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"cases\":[{\"notifications\":[\"channel\"],\"status\":\"info\"}],\"complianceSignalOptions\":{\"userActivationStatus\":true,\"userGroupByFields\":[\"@account_id\"]},\"isEnabled\":false,\"message\":\"Cloud configuration rule\",\"name\":\"Test-Get_a_cloud_configuration_rule_s_details_returns_OK_response-1671007609_cloud\",\"options\":{\"complianceRuleOptions\":{\"complexRule\":false,\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]}}},\"tags\":[\"a:tag\"],\"type\":\"cloud_configuration\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[\"a:tag\"],\"type\":\"cloud_configuration\",\"isEnabled\":false,\"hasExtendedTitle\":true,\"message\":\"Cloud configuration rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":7200,\"maxSignalDuration\":86400,\"complianceRuleOptions\":{\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"complexRule\":false},\"keepAlive\":21600},\"version\":1,\"createdAt\":1671007609108,\"filters\":[],\"queries\":[{\"query\":\"resource_type:gcp_compute_disk\",\"groupByFields\":[\"resource_type\",\"resource_id\"],\"aggregation\":\"count\",\"name\":\"a\",\"distinctFields\":[]}],\"isDeleted\":false,\"complianceSignalOptions\":{\"defaultActivationStatus\":null,\"userActivationStatus\":true,\"defaultGroupByFields\":null,\"userGroupByFields\":[\"@account_id\"]},\"cases\":[{\"status\":\"info\",\"notifications\":[\"channel\"],\"name\":\"\",\"condition\":\"a > 0\"}],\"id\":\"jxe-vmy-pef\",\"isDefault\":false,\"name\":\"Test-Get_a_cloud_configuration_rule_s_details_returns_OK_response-1671007609_cloud\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4f72a890-cefb-07f5-6cb0-b814fdf56027"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/security_monitoring/rules/jxe-vmy-pef",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[\"a:tag\"],\"type\":\"cloud_configuration\",\"isEnabled\":false,\"hasExtendedTitle\":true,\"message\":\"Cloud configuration rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":7200,\"maxSignalDuration\":86400,\"complianceRuleOptions\":{\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"complexRule\":false},\"keepAlive\":21600},\"version\":1,\"createdAt\":1671007609108,\"filters\":[],\"queries\":[{\"query\":\"resource_type:gcp_compute_disk\",\"groupByFields\":[\"resource_type\",\"resource_id\"],\"aggregation\":\"count\",\"name\":\"a\",\"distinctFields\":[]}],\"isDeleted\":false,\"complianceSignalOptions\":{\"defaultActivationStatus\":null,\"userActivationStatus\":true,\"defaultGroupByFields\":null,\"userGroupByFields\":[\"@account_id\"]},\"cases\":[{\"status\":\"info\",\"notifications\":[\"channel\"],\"name\":\"\",\"condition\":\"a > 0\"}],\"id\":\"jxe-vmy-pef\",\"isDefault\":false,\"name\":\"Test-Get_a_cloud_configuration_rule_s_details_returns_OK_response-1671007609_cloud\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f88f5523-683c-806f-040f-12bc613a9e66"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/rules/jxe-vmy-pef",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "04cd4025-7408-cf4a-6f0b-a2ef25de30c5"
+  }
+]
