@@ -14,6 +14,7 @@ import java.util.Objects;
 
 /** Options on rules. */
 @JsonPropertyOrder({
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_DETECTION_METHOD,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_EVALUATION_WINDOW,
@@ -27,6 +28,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleOptions {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS = "complianceRuleOptions";
+  private CloudConfigurationComplianceRuleOptions complianceRuleOptions;
+
   public static final String JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV =
       "decreaseCriticalityBasedOnEnv";
   private Boolean decreaseCriticalityBasedOnEnv;
@@ -51,6 +55,30 @@ public class SecurityMonitoringRuleOptions {
 
   public static final String JSON_PROPERTY_NEW_VALUE_OPTIONS = "newValueOptions";
   private SecurityMonitoringRuleNewValueOptions newValueOptions;
+
+  public SecurityMonitoringRuleOptions complianceRuleOptions(
+      CloudConfigurationComplianceRuleOptions complianceRuleOptions) {
+    this.complianceRuleOptions = complianceRuleOptions;
+    this.unparsed |= complianceRuleOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Options for cloud_configuration rules.
+   *
+   * @return complianceRuleOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudConfigurationComplianceRuleOptions getComplianceRuleOptions() {
+    return complianceRuleOptions;
+  }
+
+  public void setComplianceRuleOptions(
+      CloudConfigurationComplianceRuleOptions complianceRuleOptions) {
+    this.complianceRuleOptions = complianceRuleOptions;
+  }
 
   public SecurityMonitoringRuleOptions decreaseCriticalityBasedOnEnv(
       Boolean decreaseCriticalityBasedOnEnv) {
@@ -270,6 +298,8 @@ public class SecurityMonitoringRuleOptions {
     }
     SecurityMonitoringRuleOptions securityMonitoringRuleOptions = (SecurityMonitoringRuleOptions) o;
     return Objects.equals(
+            this.complianceRuleOptions, securityMonitoringRuleOptions.complianceRuleOptions)
+        && Objects.equals(
             this.decreaseCriticalityBasedOnEnv,
             securityMonitoringRuleOptions.decreaseCriticalityBasedOnEnv)
         && Objects.equals(this.detectionMethod, securityMonitoringRuleOptions.detectionMethod)
@@ -286,6 +316,7 @@ public class SecurityMonitoringRuleOptions {
   @Override
   public int hashCode() {
     return Objects.hash(
+        complianceRuleOptions,
         decreaseCriticalityBasedOnEnv,
         detectionMethod,
         evaluationWindow,
@@ -300,6 +331,9 @@ public class SecurityMonitoringRuleOptions {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleOptions {\n");
+    sb.append("    complianceRuleOptions: ")
+        .append(toIndentedString(complianceRuleOptions))
+        .append("\n");
     sb.append("    decreaseCriticalityBasedOnEnv: ")
         .append(toIndentedString(decreaseCriticalityBasedOnEnv))
         .append("\n");

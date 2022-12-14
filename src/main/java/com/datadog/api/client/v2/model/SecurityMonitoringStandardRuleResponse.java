@@ -17,6 +17,7 @@ import java.util.Objects;
 /** Rule. */
 @JsonPropertyOrder({
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CASES,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_FILTERS,
@@ -40,6 +41,9 @@ public class SecurityMonitoringStandardRuleResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCase> cases = null;
+
+  public static final String JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS = "complianceSignalOptions";
+  private CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions;
 
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private Long createdAt;
@@ -120,6 +124,30 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setCases(List<SecurityMonitoringRuleCase> cases) {
     this.cases = cases;
+  }
+
+  public SecurityMonitoringStandardRuleResponse complianceSignalOptions(
+      CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
+    this.complianceSignalOptions = complianceSignalOptions;
+    this.unparsed |= complianceSignalOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * How to generate compliance signals. Useful for cloud_configuration rules only.
+   *
+   * @return complianceSignalOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudConfigurationRuleComplianceSignalOptions getComplianceSignalOptions() {
+    return complianceSignalOptions;
+  }
+
+  public void setComplianceSignalOptions(
+      CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
+    this.complianceSignalOptions = complianceSignalOptions;
   }
 
   public SecurityMonitoringStandardRuleResponse createdAt(Long createdAt) {
@@ -510,6 +538,9 @@ public class SecurityMonitoringStandardRuleResponse {
     SecurityMonitoringStandardRuleResponse securityMonitoringStandardRuleResponse =
         (SecurityMonitoringStandardRuleResponse) o;
     return Objects.equals(this.cases, securityMonitoringStandardRuleResponse.cases)
+        && Objects.equals(
+            this.complianceSignalOptions,
+            securityMonitoringStandardRuleResponse.complianceSignalOptions)
         && Objects.equals(this.createdAt, securityMonitoringStandardRuleResponse.createdAt)
         && Objects.equals(
             this.creationAuthorId, securityMonitoringStandardRuleResponse.creationAuthorId)
@@ -535,6 +566,7 @@ public class SecurityMonitoringStandardRuleResponse {
   public int hashCode() {
     return Objects.hash(
         cases,
+        complianceSignalOptions,
         createdAt,
         creationAuthorId,
         filters,
@@ -558,6 +590,9 @@ public class SecurityMonitoringStandardRuleResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringStandardRuleResponse {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
+    sb.append("    complianceSignalOptions: ")
+        .append(toIndentedString(complianceSignalOptions))
+        .append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
