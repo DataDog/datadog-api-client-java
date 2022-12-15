@@ -348,7 +348,7 @@ public class EventsApi {
      * Set tags.
      *
      * @param tags A comma separated list indicating what tags, if any, should be used to filter the
-     *     list of monitors by scope. (optional)
+     *     list of events. (optional)
      * @return ListEventsOptionalParameters
      */
     public ListEventsOptionalParameters tags(String tags) {
