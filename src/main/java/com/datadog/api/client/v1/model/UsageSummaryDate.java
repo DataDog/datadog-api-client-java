@@ -88,6 +88,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM,
   UsageSummaryDate.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_VSPHERE_HOST_TOP99P
@@ -331,6 +332,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM =
       "synthetics_check_calls_count_sum";
   private Long syntheticsCheckCallsCountSum;
+
+  public static final String JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM =
+      "synthetics_parallel_testing_max_slots_hwm";
+  private Long syntheticsParallelTestingMaxSlotsHwm;
 
   public static final String JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM =
       "trace_search_indexed_events_count_sum";
@@ -1874,6 +1879,29 @@ public class UsageSummaryDate {
     this.syntheticsCheckCallsCountSum = syntheticsCheckCallsCountSum;
   }
 
+  public UsageSummaryDate syntheticsParallelTestingMaxSlotsHwm(
+      Long syntheticsParallelTestingMaxSlotsHwm) {
+    this.syntheticsParallelTestingMaxSlotsHwm = syntheticsParallelTestingMaxSlotsHwm;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of used synthetics parallel testing slots over all hours in the
+   * current date for all organizations.
+   *
+   * @return syntheticsParallelTestingMaxSlotsHwm
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSyntheticsParallelTestingMaxSlotsHwm() {
+    return syntheticsParallelTestingMaxSlotsHwm;
+  }
+
+  public void setSyntheticsParallelTestingMaxSlotsHwm(Long syntheticsParallelTestingMaxSlotsHwm) {
+    this.syntheticsParallelTestingMaxSlotsHwm = syntheticsParallelTestingMaxSlotsHwm;
+  }
+
   public UsageSummaryDate traceSearchIndexedEventsCountSum(Long traceSearchIndexedEventsCountSum) {
     this.traceSearchIndexedEventsCountSum = traceSearchIndexedEventsCountSum;
     return this;
@@ -2043,6 +2071,9 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.syntheticsCheckCallsCountSum, usageSummaryDate.syntheticsCheckCallsCountSum)
         && Objects.equals(
+            this.syntheticsParallelTestingMaxSlotsHwm,
+            usageSummaryDate.syntheticsParallelTestingMaxSlotsHwm)
+        && Objects.equals(
             this.traceSearchIndexedEventsCountSum,
             usageSummaryDate.traceSearchIndexedEventsCountSum)
         && Objects.equals(
@@ -2122,6 +2153,7 @@ public class UsageSummaryDate {
         sdsTotalScannedBytesSum,
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
+        syntheticsParallelTestingMaxSlotsHwm,
         traceSearchIndexedEventsCountSum,
         twolIngestedEventsBytesSum,
         vsphereHostTop99p);
@@ -2279,6 +2311,9 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    syntheticsCheckCallsCountSum: ")
         .append(toIndentedString(syntheticsCheckCallsCountSum))
+        .append("\n");
+    sb.append("    syntheticsParallelTestingMaxSlotsHwm: ")
+        .append(toIndentedString(syntheticsParallelTestingMaxSlotsHwm))
         .append("\n");
     sb.append("    traceSearchIndexedEventsCountSum: ")
         .append(toIndentedString(traceSearchIndexedEventsCountSum))
