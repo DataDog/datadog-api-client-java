@@ -1,0 +1,118 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/sensitive-data-scanner/config",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"count_limit\":100,\"version\":1211,\"group_count_limit\":20,\"is_pci_compliant\":false,\"has_highlight_enabled\":true},\"data\":{\"relationships\":{\"groups\":{\"data\":[]}},\"attributes\":{},\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "01611a93-5e74-0630-3c51-f707c3b51e7a"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"*\"},\"is_enabled\":false,\"name\":\"my-test-group\",\"product_list\":[\"logs\"]},\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}},\"type\":\"sensitive_data_scanner_group\"},\"meta\":{}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/sensitive-data-scanner/config/groups",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"version\":1212},\"data\":{\"relationships\":{\"rules\":{\"data\":[]},\"configuration\":{\"data\":{\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}},\"attributes\":{\"is_enabled\":false,\"filter\":{\"query\":\"*\"},\"product_list\":[\"logs\"],\"name\":\"my-test-group\"},\"type\":\"sensitive_data_scanner_group\",\"id\":\"CiAQStkNTd2K_irKY_-2Tg\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "33fa4a39-57ef-afdd-007a-0db82f7ed159"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"relationships\":{\"groups\":{\"data\":[{\"id\":\"Test-Reorder_Groups_returns_Bad_Request_response-1670579580\",\"type\":\"sensitive_data_scanner_group\"}]}},\"type\":\"sensitive_data_scanner_configuration\"},\"meta\":{}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/sensitive-data-scanner/config",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"invalid_argument(Pipelines to reorder do not match current pipelines)\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e846606d-b4df-aee2-78a7-eb6f1196887a"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"meta\":{}}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/sensitive-data-scanner/config/groups/CiAQStkNTd2K_irKY_-2Tg",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"version\":1213}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2ff56bf3-e283-30e0-cf7c-44de20074217"
+  }
+]

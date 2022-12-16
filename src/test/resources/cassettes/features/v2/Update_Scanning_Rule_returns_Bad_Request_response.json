@@ -1,0 +1,178 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/sensitive-data-scanner/config",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"count_limit\":100,\"version\":1314,\"group_count_limit\":20,\"is_pci_compliant\":false,\"has_highlight_enabled\":true},\"data\":{\"relationships\":{\"groups\":{\"data\":[]}},\"attributes\":{},\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "01611a93-5e74-0630-3c51-f707c3b51e78"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"*\"},\"is_enabled\":false,\"name\":\"my-test-group\",\"product_list\":[\"logs\"]},\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}},\"type\":\"sensitive_data_scanner_group\"},\"meta\":{}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/sensitive-data-scanner/config/groups",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"version\":1315},\"data\":{\"relationships\":{\"rules\":{\"data\":[]},\"configuration\":{\"data\":{\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}},\"attributes\":{\"is_enabled\":false,\"filter\":{\"query\":\"*\"},\"product_list\":[\"logs\"],\"name\":\"my-test-group\"},\"type\":\"sensitive_data_scanner_group\",\"id\":\"Fflhao4IQmGwBXW_dp6d0A\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "33fa4a39-57ef-afdd-007a-0db82f7ed158"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_Scanning_Rule_returns_Bad_Request_response-1671115856\",\"pattern\":\"pattern\",\"tags\":[\"sensitive_data:true\"],\"text_replacement\":{\"type\":\"none\"}},\"relationships\":{\"group\":{\"data\":{\"id\":\"Fflhao4IQmGwBXW_dp6d0A\",\"type\":\"sensitive_data_scanner_group\"}}},\"type\":\"sensitive_data_scanner_rule\"},\"meta\":{}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/sensitive-data-scanner/config/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"version\":1316},\"data\":{\"relationships\":{\"group\":{\"data\":{\"type\":\"sensitive_data_scanner_group\",\"id\":\"Fflhao4IQmGwBXW_dp6d0A\"}}},\"attributes\":{\"is_enabled\":true,\"excluded_namespaces\":[],\"name\":\"Test-Update_Scanning_Rule_returns_Bad_Request_response-1671115856\",\"tags\":[\"sensitive_data:true\"],\"pattern\":\"pattern\",\"namespaces\":[],\"text_replacement\":{\"type\":\"none\"}},\"type\":\"sensitive_data_scanner_rule\",\"id\":\"ObQSOR59TaaxBhlSeiyVXg\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0edad569-6433-34d1-de97-7f06cb9669b4"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_Scanning_Rule_returns_Bad_Request_response-1671115856\",\"pattern\":\"pattern\",\"tags\":[\"sensitive_data:true\"],\"text_replacement\":{\"type\":\"none\"}},\"relationships\":{\"group\":{\"data\":{\"id\":\"Fflhao4IQmGwBXW_dp6d0A\",\"type\":\"sensitive_data_scanner_group\"}}},\"type\":\"sensitive_data_scanner_rule\"},\"meta\":{}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/sensitive-data-scanner/config/rules/ObQSOR59TaaxBhlSeiyVXg",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"input_validation_error(Field 'data.id' is invalid: field 'data.id' is required)\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "69bc1321-ff04-2c2e-7f92-544242d24188"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"meta\":{}}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/sensitive-data-scanner/config/rules/ObQSOR59TaaxBhlSeiyVXg",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"version\":1317}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "842a2454-2a35-6c33-5ea9-db063917abda"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"meta\":{}}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/sensitive-data-scanner/config/groups/Fflhao4IQmGwBXW_dp6d0A",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"version\":1318}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a72dfc6e-4632-eb69-d3e3-f257a4e3e871"
+  }
+]

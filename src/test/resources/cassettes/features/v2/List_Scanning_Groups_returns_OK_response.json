@@ -1,0 +1,114 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/sensitive-data-scanner/config",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"count_limit\":100,\"version\":1209,\"group_count_limit\":20,\"is_pci_compliant\":false,\"has_highlight_enabled\":true},\"data\":{\"relationships\":{\"groups\":{\"data\":[]}},\"attributes\":{},\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "01611a93-5e74-0630-3c51-f707c3b51e82"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"*\"},\"is_enabled\":false,\"name\":\"my-test-group\",\"product_list\":[\"logs\"]},\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}},\"type\":\"sensitive_data_scanner_group\"},\"meta\":{}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/sensitive-data-scanner/config/groups",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"version\":1210},\"data\":{\"relationships\":{\"rules\":{\"data\":[]},\"configuration\":{\"data\":{\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}},\"attributes\":{\"is_enabled\":false,\"filter\":{\"query\":\"*\"},\"product_list\":[\"logs\"],\"name\":\"my-test-group\"},\"type\":\"sensitive_data_scanner_group\",\"id\":\"729biiqHSgOWuNyzZQLsbg\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "33fa4a39-57ef-afdd-007a-0db82f7ed161"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/sensitive-data-scanner/config",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"included\":[{\"relationships\":{\"rules\":{\"data\":[]},\"configuration\":{\"data\":{\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}},\"attributes\":{\"is_enabled\":false,\"filter\":{\"query\":\"*\"},\"product_list\":[\"logs\"],\"name\":\"my-test-group\"},\"type\":\"sensitive_data_scanner_group\",\"id\":\"729biiqHSgOWuNyzZQLsbg\"}],\"meta\":{\"count_limit\":100,\"version\":1210,\"group_count_limit\":20,\"is_pci_compliant\":false,\"has_highlight_enabled\":true},\"data\":{\"relationships\":{\"groups\":{\"data\":[{\"type\":\"sensitive_data_scanner_group\",\"id\":\"729biiqHSgOWuNyzZQLsbg\"}]}},\"attributes\":{},\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "01611a93-5e74-0630-3c51-f707c3b51e83"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"meta\":{}}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/sensitive-data-scanner/config/groups/729biiqHSgOWuNyzZQLsbg",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{\"version\":1211}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "956ec333-4719-b274-5ae0-9a54270be812"
+  }
+]
