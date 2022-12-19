@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"notifications\":[\"channel\"],\"status\":\"info\"}],\"complianceSignalOptions\":{\"userActivationStatus\":true,\"userGroupByFields\":[\"@account_id\"]},\"isEnabled\":false,\"message\":\"Cloud configuration rule\",\"name\":\"Test-Update_a_cloud_configuration_rule_s_details_returns_OK_response-1671007609_cloud\",\"options\":{\"complianceRuleOptions\":{\"complexRule\":false,\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]}}},\"tags\":[\"a:tag\"],\"type\":\"cloud_configuration\"}"
+        "json": "{\"cases\":[{\"notifications\":[\"channel\"],\"status\":\"info\"}],\"complianceSignalOptions\":{\"userActivationStatus\":true,\"userGroupByFields\":[\"@account_id\"]},\"isEnabled\":false,\"message\":\"Cloud configuration rule\",\"name\":\"Test-Update_a_cloud_configuration_rule_s_details_returns_OK_response-1671216835_cloud\",\"options\":{\"complianceRuleOptions\":{\"complexRule\":false,\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"resourceType\":\"gcp_compute_disk\"}},\"tags\":[\"a:tag\"],\"type\":\"cloud_configuration\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[\"a:tag\"],\"type\":\"cloud_configuration\",\"isEnabled\":false,\"hasExtendedTitle\":true,\"message\":\"Cloud configuration rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":7200,\"maxSignalDuration\":86400,\"complianceRuleOptions\":{\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"complexRule\":false},\"keepAlive\":21600},\"version\":1,\"createdAt\":1671007609528,\"filters\":[],\"queries\":[{\"query\":\"resource_type:gcp_compute_disk\",\"groupByFields\":[\"resource_type\",\"resource_id\"],\"aggregation\":\"count\",\"name\":\"a\",\"distinctFields\":[]}],\"isDeleted\":false,\"complianceSignalOptions\":{\"defaultActivationStatus\":null,\"userActivationStatus\":true,\"defaultGroupByFields\":null,\"userGroupByFields\":[\"@account_id\"]},\"cases\":[{\"status\":\"info\",\"notifications\":[\"channel\"],\"name\":\"\",\"condition\":\"a > 0\"}],\"id\":\"kuz-yjz-o3n\",\"isDefault\":false,\"name\":\"Test-Update_a_cloud_configuration_rule_s_details_returns_OK_response-1671007609_cloud\"}\n",
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[\"a:tag\"],\"type\":\"cloud_configuration\",\"isEnabled\":false,\"hasExtendedTitle\":true,\"message\":\"Cloud configuration rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":7200,\"maxSignalDuration\":86400,\"complianceRuleOptions\":{\"resourceType\":\"gcp_compute_disk\",\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"complexRule\":false},\"keepAlive\":21600},\"version\":1,\"createdAt\":1671216835653,\"filters\":[],\"queries\":[{\"query\":\"resource_type:gcp_compute_disk\",\"groupByFields\":[\"resource_type\",\"resource_id\"],\"aggregation\":\"count\",\"name\":\"a\",\"distinctFields\":[]}],\"isDeleted\":false,\"complianceSignalOptions\":{\"defaultActivationStatus\":null,\"userActivationStatus\":true,\"defaultGroupByFields\":null,\"userGroupByFields\":[\"@account_id\"]},\"cases\":[{\"status\":\"info\",\"notifications\":[\"channel\"],\"name\":\"\",\"condition\":\"a > 0\"}],\"id\":\"m84-8jv-h43\",\"isDefault\":false,\"name\":\"Test-Update_a_cloud_configuration_rule_s_details_returns_OK_response-1671216835_cloud\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "07d75590-91f7-cd98-ef18-68dd13399ac7"
+    "id": "adb41747-fea9-545a-4533-ad59432d1e77"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"notifications\":[],\"status\":\"info\"}],\"complianceSignalOptions\":{\"userActivationStatus\":false,\"userGroupByFields\":[]},\"isEnabled\":false,\"message\":\"ddd\",\"name\":\"Test-Update_a_cloud_configuration_rule_s_details_returns_OK_response-1671007609_cloud_updated\",\"options\":{\"complianceRuleOptions\":{\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]}}},\"tags\":[]}"
+        "json": "{\"cases\":[{\"notifications\":[],\"status\":\"info\"}],\"complianceSignalOptions\":{\"userActivationStatus\":false,\"userGroupByFields\":[]},\"isEnabled\":false,\"message\":\"ddd\",\"name\":\"Test-Update_a_cloud_configuration_rule_s_details_returns_OK_response-1671216835_cloud_updated\",\"options\":{\"complianceRuleOptions\":{\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"resourceType\":\"gcp_compute_disk\"}},\"tags\":[]}"
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/security_monitoring/rules/kuz-yjz-o3n",
+      "path": "/api/v2/security_monitoring/rules/m84-8jv-h43",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"updateAuthorId\":1445416,\"creationAuthorId\":1445416,\"tags\":[],\"type\":\"cloud_configuration\",\"isEnabled\":false,\"hasExtendedTitle\":true,\"message\":\"ddd\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":7200,\"maxSignalDuration\":86400,\"complianceRuleOptions\":{\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"complexRule\":false},\"keepAlive\":21600},\"version\":2,\"isDefault\":false,\"filters\":[],\"queries\":[{\"query\":\"resource_type:gcp_compute_disk\",\"groupByFields\":[\"resource_type\",\"resource_id\"],\"aggregation\":\"count\",\"name\":\"a\",\"distinctFields\":[]}],\"isDeleted\":false,\"complianceSignalOptions\":{\"defaultActivationStatus\":null,\"userActivationStatus\":false,\"defaultGroupByFields\":null,\"userGroupByFields\":[]},\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"id\":\"kuz-yjz-o3n\",\"createdAt\":1671007609528,\"name\":\"Test-Update_a_cloud_configuration_rule_s_details_returns_OK_response-1671007609_cloud_updated\"}\n",
+      "body": "{\"updateAuthorId\":1445416,\"creationAuthorId\":1445416,\"tags\":[],\"type\":\"cloud_configuration\",\"isEnabled\":false,\"hasExtendedTitle\":true,\"message\":\"ddd\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":7200,\"maxSignalDuration\":86400,\"complianceRuleOptions\":{\"resourceType\":\"gcp_compute_disk\",\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"complexRule\":false},\"keepAlive\":21600},\"version\":2,\"isDefault\":false,\"filters\":[],\"queries\":[{\"query\":\"resource_type:gcp_compute_disk\",\"groupByFields\":[\"resource_type\",\"resource_id\"],\"aggregation\":\"count\",\"name\":\"a\",\"distinctFields\":[]}],\"isDeleted\":false,\"complianceSignalOptions\":{\"defaultActivationStatus\":null,\"userActivationStatus\":false,\"defaultGroupByFields\":null,\"userGroupByFields\":[]},\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"id\":\"m84-8jv-h43\",\"createdAt\":1671216835653,\"name\":\"Test-Update_a_cloud_configuration_rule_s_details_returns_OK_response-1671216835_cloud_updated\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "917ac499-0694-5bcc-bae3-9ea428b15d20"
+    "id": "a72d0125-2c19-e0cf-388b-a0e7f7baf4bb"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/kuz-yjz-o3n",
+      "path": "/api/v2/security_monitoring/rules/m84-8jv-h43",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a6bb13b6-0c69-9141-0459-c115afef579d"
+    "id": "4bf15884-197c-b424-d948-5ca36e67c80f"
   }
 ]

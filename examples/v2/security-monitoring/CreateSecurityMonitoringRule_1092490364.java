@@ -35,6 +35,7 @@ public class Example {
                     new CloudConfigurationRuleOptions()
                         .complianceRuleOptions(
                             new CloudConfigurationComplianceRuleOptions()
+                                .resourceType("gcp_compute_disk")
                                 .complexRule(false)
                                 .regoRule(
                                     new CloudConfigurationRegoRule()
