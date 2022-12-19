@@ -16,8 +16,7 @@ import java.util.Objects;
 /** Options for cloud_configuration rules. */
 @JsonPropertyOrder({
   CloudConfigurationComplianceRuleOptions.JSON_PROPERTY_COMPLEX_RULE,
-  CloudConfigurationComplianceRuleOptions.JSON_PROPERTY_REGO_RULE,
-  CloudConfigurationComplianceRuleOptions.JSON_PROPERTY_RESOURCE_TYPE
+  CloudConfigurationComplianceRuleOptions.JSON_PROPERTY_REGO_RULE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -29,19 +28,14 @@ public class CloudConfigurationComplianceRuleOptions {
   public static final String JSON_PROPERTY_REGO_RULE = "regoRule";
   private CloudConfigurationRegoRule regoRule;
 
-  public static final String JSON_PROPERTY_RESOURCE_TYPE = "resourceType";
-  private String resourceType;
-
   public CloudConfigurationComplianceRuleOptions() {}
 
   @JsonCreator
   public CloudConfigurationComplianceRuleOptions(
       @JsonProperty(required = true, value = JSON_PROPERTY_REGO_RULE)
-          CloudConfigurationRegoRule regoRule,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_TYPE) String resourceType) {
+          CloudConfigurationRegoRule regoRule) {
     this.regoRule = regoRule;
     this.unparsed |= regoRule.unparsed;
-    this.resourceType = resourceType;
   }
 
   public CloudConfigurationComplianceRuleOptions complexRule(Boolean complexRule) {
@@ -87,27 +81,6 @@ public class CloudConfigurationComplianceRuleOptions {
     this.regoRule = regoRule;
   }
 
-  public CloudConfigurationComplianceRuleOptions resourceType(String resourceType) {
-    this.resourceType = resourceType;
-    return this;
-  }
-
-  /**
-   * Main resource type to be checked by the rule. It should be specified again in <code>
-   * regoRule.resourceTypes</code>.
-   *
-   * @return resourceType
-   */
-  @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getResourceType() {
-    return resourceType;
-  }
-
-  public void setResourceType(String resourceType) {
-    this.resourceType = resourceType;
-  }
-
   /** Return true if this CloudConfigurationComplianceRuleOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -120,13 +93,12 @@ public class CloudConfigurationComplianceRuleOptions {
     CloudConfigurationComplianceRuleOptions cloudConfigurationComplianceRuleOptions =
         (CloudConfigurationComplianceRuleOptions) o;
     return Objects.equals(this.complexRule, cloudConfigurationComplianceRuleOptions.complexRule)
-        && Objects.equals(this.regoRule, cloudConfigurationComplianceRuleOptions.regoRule)
-        && Objects.equals(this.resourceType, cloudConfigurationComplianceRuleOptions.resourceType);
+        && Objects.equals(this.regoRule, cloudConfigurationComplianceRuleOptions.regoRule);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(complexRule, regoRule, resourceType);
+    return Objects.hash(complexRule, regoRule);
   }
 
   @Override
@@ -135,7 +107,6 @@ public class CloudConfigurationComplianceRuleOptions {
     sb.append("class CloudConfigurationComplianceRuleOptions {\n");
     sb.append("    complexRule: ").append(toIndentedString(complexRule)).append("\n");
     sb.append("    regoRule: ").append(toIndentedString(regoRule)).append("\n");
-    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
