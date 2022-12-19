@@ -33,6 +33,7 @@ public class Example {
                 new SecurityMonitoringRuleOptions()
                     .complianceRuleOptions(
                         new CloudConfigurationComplianceRuleOptions()
+                            .resourceType("gcp_compute_disk")
                             .regoRule(
                                 new CloudConfigurationRegoRule()
                                     .policy("""
