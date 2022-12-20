@@ -1,5 +1,34 @@
 # CHANGELOG
 
+## 2.6.0 / 2022-12-20
+
+### Fixed
+* Fix async API requests methods by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1570
+* Add missing response fields to MTD usage attribution endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1586
+* Fix missing field in Synthetics tests authentication configuration by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1591
+* Mark `hosts` response version fields as nullable by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1588
+### Added
+* Add fields for CSPM GCP usage by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1562
+* Add offset and limit parameter to SLO correction API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1567
+* Add documentation for Logs Pipelines ReferenceTableLogsLookupProcessor  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1566
+* Adding new field for the usage metering infra hosts by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1571
+* Add `include_percentiles` field in Logs Custom Metrics by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1551
+* Add OAuth support for Synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1574
+* Add new billable summary fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1584
+* RUM Applications Management API add client_token by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1575
+* Support GRPC unary calls in Synthetics by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1581
+* Add style object to dashboard widget formulas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1595
+* Add enable_samples monitor option by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1596
+* Update security_monitoring endpoints for cloud_configuration rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1597
+* Add support for sensitive data scanner APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1592
+* Add synthetics_parallel_testing to Usage Metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1600
+* Synthetics add pagination params to get all tests endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1601
+### Changed
+* Bump jersey version to `3.0.8` by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1580
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.5.0...datadog-api-client-2.6.0
+
 ## 2.5.0 / 2022-11-16
 
 ### Fixed
