@@ -6,14 +6,16 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Options for cloud_configuration rules. */
+/**
+ * Options for cloud_configuration rules. Fields <code>resourceType</code> and <code>regoRule</code>
+ * are mandatory when managing custom <code>cloud_configuration</code> rules.
+ */
 @JsonPropertyOrder({
   CloudConfigurationComplianceRuleOptions.JSON_PROPERTY_COMPLEX_RULE,
   CloudConfigurationComplianceRuleOptions.JSON_PROPERTY_REGO_RULE,
@@ -31,18 +33,6 @@ public class CloudConfigurationComplianceRuleOptions {
 
   public static final String JSON_PROPERTY_RESOURCE_TYPE = "resourceType";
   private String resourceType;
-
-  public CloudConfigurationComplianceRuleOptions() {}
-
-  @JsonCreator
-  public CloudConfigurationComplianceRuleOptions(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REGO_RULE)
-          CloudConfigurationRegoRule regoRule,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_TYPE) String resourceType) {
-    this.regoRule = regoRule;
-    this.unparsed |= regoRule.unparsed;
-    this.resourceType = resourceType;
-  }
 
   public CloudConfigurationComplianceRuleOptions complexRule(Boolean complexRule) {
     this.complexRule = complexRule;
@@ -77,8 +67,9 @@ public class CloudConfigurationComplianceRuleOptions {
    *
    * @return regoRule
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REGO_RULE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public CloudConfigurationRegoRule getRegoRule() {
     return regoRule;
   }
@@ -98,8 +89,9 @@ public class CloudConfigurationComplianceRuleOptions {
    *
    * @return resourceType
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getResourceType() {
     return resourceType;
   }
