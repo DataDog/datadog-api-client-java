@@ -40,7 +40,8 @@ public class CloudConfigurationRuleOptions {
   }
 
   /**
-   * Options for cloud_configuration rules.
+   * Options for cloud_configuration rules. Fields <code>resourceType</code> and <code>regoRule
+   * </code> are mandatory when managing custom <code>cloud_configuration</code> rules.
    *
    * @return complianceRuleOptions
    */
