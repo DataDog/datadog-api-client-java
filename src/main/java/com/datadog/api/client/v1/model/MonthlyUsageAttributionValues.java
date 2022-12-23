@@ -50,6 +50,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_PERCENTAGE,
@@ -190,6 +192,14 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE =
       "estimated_ingested_spans_usage";
   private Double estimatedIngestedSpansUsage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_PERCENTAGE =
+      "estimated_rum_sessions_percentage";
+  private Double estimatedRumSessionsPercentage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_USAGE =
+      "estimated_rum_sessions_usage";
+  private Double estimatedRumSessionsUsage;
 
   public static final String JSON_PROPERTY_FARGATE_PERCENTAGE = "fargate_percentage";
   private Double fargatePercentage;
@@ -1010,6 +1020,49 @@ public class MonthlyUsageAttributionValues {
     this.estimatedIngestedSpansUsage = estimatedIngestedSpansUsage;
   }
 
+  public MonthlyUsageAttributionValues estimatedRumSessionsPercentage(
+      Double estimatedRumSessionsPercentage) {
+    this.estimatedRumSessionsPercentage = estimatedRumSessionsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of estimated rum sessions usage by tag(s). This field is in private beta.
+   *
+   * @return estimatedRumSessionsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedRumSessionsPercentage() {
+    return estimatedRumSessionsPercentage;
+  }
+
+  public void setEstimatedRumSessionsPercentage(Double estimatedRumSessionsPercentage) {
+    this.estimatedRumSessionsPercentage = estimatedRumSessionsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues estimatedRumSessionsUsage(Double estimatedRumSessionsUsage) {
+    this.estimatedRumSessionsUsage = estimatedRumSessionsUsage;
+    return this;
+  }
+
+  /**
+   * The estimated rum sessions usage by tag(s). This field is in private beta.
+   *
+   * @return estimatedRumSessionsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedRumSessionsUsage() {
+    return estimatedRumSessionsUsage;
+  }
+
+  public void setEstimatedRumSessionsUsage(Double estimatedRumSessionsUsage) {
+    this.estimatedRumSessionsUsage = estimatedRumSessionsUsage;
+  }
+
   public MonthlyUsageAttributionValues fargatePercentage(Double fargatePercentage) {
     this.fargatePercentage = fargatePercentage;
     return this;
@@ -1461,6 +1514,11 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.estimatedIngestedSpansUsage,
             monthlyUsageAttributionValues.estimatedIngestedSpansUsage)
+        && Objects.equals(
+            this.estimatedRumSessionsPercentage,
+            monthlyUsageAttributionValues.estimatedRumSessionsPercentage)
+        && Objects.equals(
+            this.estimatedRumSessionsUsage, monthlyUsageAttributionValues.estimatedRumSessionsUsage)
         && Objects.equals(this.fargatePercentage, monthlyUsageAttributionValues.fargatePercentage)
         && Objects.equals(this.fargateUsage, monthlyUsageAttributionValues.fargateUsage)
         && Objects.equals(
@@ -1528,6 +1586,8 @@ public class MonthlyUsageAttributionValues {
         estimatedIngestedLogsUsage,
         estimatedIngestedSpansPercentage,
         estimatedIngestedSpansUsage,
+        estimatedRumSessionsPercentage,
+        estimatedRumSessionsUsage,
         fargatePercentage,
         fargateUsage,
         functionsPercentage,
@@ -1623,6 +1683,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    estimatedIngestedSpansUsage: ")
         .append(toIndentedString(estimatedIngestedSpansUsage))
+        .append("\n");
+    sb.append("    estimatedRumSessionsPercentage: ")
+        .append(toIndentedString(estimatedRumSessionsPercentage))
+        .append("\n");
+    sb.append("    estimatedRumSessionsUsage: ")
+        .append(toIndentedString(estimatedRumSessionsUsage))
         .append("\n");
     sb.append("    fargatePercentage: ").append(toIndentedString(fargatePercentage)).append("\n");
     sb.append("    fargateUsage: ").append(toIndentedString(fargateUsage)).append("\n");

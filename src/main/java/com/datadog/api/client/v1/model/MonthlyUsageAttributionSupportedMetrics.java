@@ -134,6 +134,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("snmp_usage");
   public static final MonthlyUsageAttributionSupportedMetrics SNMP_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("snmp_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_RUM_SESSIONS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("estimated_rum_sessions_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_RUM_SESSIONS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("estimated_rum_sessions_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics ALL =
       new MonthlyUsageAttributionSupportedMetrics("*");
 
@@ -194,6 +198,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "profiled_host_percentage",
               "snmp_usage",
               "snmp_percentage",
+              "estimated_rum_sessions_usage",
+              "estimated_rum_sessions_percentage",
               "*"));
 
   private String value;
