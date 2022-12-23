@@ -438,6 +438,8 @@ public class ApiClient {
           put("v2.listIncidents", false);
           put("v2.updateIncident", false);
           put("v2.updateIncidentAttachments", false);
+          put("v2.queryScalarData", false);
+          put("v2.queryTimeseriesData", false);
           put("v2.createIncidentService", false);
           put("v2.deleteIncidentService", false);
           put("v2.getIncidentService", false);
