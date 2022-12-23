@@ -50,6 +50,8 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_FUNCTIONS_PERCENTAGE,
@@ -185,6 +187,14 @@ public class UsageAttributionValues {
   public static final String JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE =
       "estimated_ingested_spans_usage";
   private Double estimatedIngestedSpansUsage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_PERCENTAGE =
+      "estimated_rum_sessions_percentage";
+  private Double estimatedRumSessionsPercentage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_USAGE =
+      "estimated_rum_sessions_usage";
+  private Double estimatedRumSessionsUsage;
 
   public static final String JSON_PROPERTY_INFRA_HOST_PERCENTAGE = "infra_host_percentage";
   private Double infraHostPercentage;
@@ -993,6 +1003,49 @@ public class UsageAttributionValues {
     this.estimatedIngestedSpansUsage = estimatedIngestedSpansUsage;
   }
 
+  public UsageAttributionValues estimatedRumSessionsPercentage(
+      Double estimatedRumSessionsPercentage) {
+    this.estimatedRumSessionsPercentage = estimatedRumSessionsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of estimated rum sessions usage by tag(s). This field is in private beta.
+   *
+   * @return estimatedRumSessionsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedRumSessionsPercentage() {
+    return estimatedRumSessionsPercentage;
+  }
+
+  public void setEstimatedRumSessionsPercentage(Double estimatedRumSessionsPercentage) {
+    this.estimatedRumSessionsPercentage = estimatedRumSessionsPercentage;
+  }
+
+  public UsageAttributionValues estimatedRumSessionsUsage(Double estimatedRumSessionsUsage) {
+    this.estimatedRumSessionsUsage = estimatedRumSessionsUsage;
+    return this;
+  }
+
+  /**
+   * The estimated rum sessions usage by tag(s). This field is in private beta.
+   *
+   * @return estimatedRumSessionsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedRumSessionsUsage() {
+    return estimatedRumSessionsUsage;
+  }
+
+  public void setEstimatedRumSessionsUsage(Double estimatedRumSessionsUsage) {
+    this.estimatedRumSessionsUsage = estimatedRumSessionsUsage;
+  }
+
   public UsageAttributionValues infraHostPercentage(Double infraHostPercentage) {
     this.infraHostPercentage = infraHostPercentage;
     return this;
@@ -1349,6 +1402,11 @@ public class UsageAttributionValues {
             usageAttributionValues.estimatedIngestedSpansPercentage)
         && Objects.equals(
             this.estimatedIngestedSpansUsage, usageAttributionValues.estimatedIngestedSpansUsage)
+        && Objects.equals(
+            this.estimatedRumSessionsPercentage,
+            usageAttributionValues.estimatedRumSessionsPercentage)
+        && Objects.equals(
+            this.estimatedRumSessionsUsage, usageAttributionValues.estimatedRumSessionsUsage)
         && Objects.equals(this.infraHostPercentage, usageAttributionValues.infraHostPercentage)
         && Objects.equals(this.infraHostUsage, usageAttributionValues.infraHostUsage)
         && Objects.equals(
@@ -1410,6 +1468,8 @@ public class UsageAttributionValues {
         estimatedIngestedLogsUsage,
         estimatedIngestedSpansPercentage,
         estimatedIngestedSpansUsage,
+        estimatedRumSessionsPercentage,
+        estimatedRumSessionsUsage,
         infraHostPercentage,
         infraHostUsage,
         lambdaFunctionsPercentage,
@@ -1497,6 +1557,12 @@ public class UsageAttributionValues {
         .append("\n");
     sb.append("    estimatedIngestedSpansUsage: ")
         .append(toIndentedString(estimatedIngestedSpansUsage))
+        .append("\n");
+    sb.append("    estimatedRumSessionsPercentage: ")
+        .append(toIndentedString(estimatedRumSessionsPercentage))
+        .append("\n");
+    sb.append("    estimatedRumSessionsUsage: ")
+        .append(toIndentedString(estimatedRumSessionsUsage))
         .append("\n");
     sb.append("    infraHostPercentage: ")
         .append(toIndentedString(infraHostPercentage))

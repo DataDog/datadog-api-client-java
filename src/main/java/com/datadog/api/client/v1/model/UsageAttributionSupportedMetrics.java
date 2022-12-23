@@ -115,6 +115,10 @@ public class UsageAttributionSupportedMetrics {
       new UsageAttributionSupportedMetrics("appsec_fargate_usage");
   public static final UsageAttributionSupportedMetrics APPSEC_FARGATE_PERCENTAGE =
       new UsageAttributionSupportedMetrics("appsec_fargate_percentage");
+  public static final UsageAttributionSupportedMetrics ESTIMATED_RUM_USAGE_ATTRIBUTION_USAGE =
+      new UsageAttributionSupportedMetrics("estimated_rum_usage_attribution_usage");
+  public static final UsageAttributionSupportedMetrics ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE =
+      new UsageAttributionSupportedMetrics("estimated_rum_usage_attribution_percentage");
   public static final UsageAttributionSupportedMetrics ALL =
       new UsageAttributionSupportedMetrics("*");
 
@@ -165,6 +169,8 @@ public class UsageAttributionSupportedMetrics {
               "apm_fargate_percentage",
               "appsec_fargate_usage",
               "appsec_fargate_percentage",
+              "estimated_rum_usage_attribution_usage",
+              "estimated_rum_usage_attribution_percentage",
               "*"));
 
   private String value;
