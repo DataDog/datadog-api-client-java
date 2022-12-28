@@ -27,8 +27,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ServiceLevelObjectiveRequest.JSON_PROPERTY_NAME,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_QUERY,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_TAGS,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_TARGET_THRESHOLD,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_THRESHOLDS,
-  ServiceLevelObjectiveRequest.JSON_PROPERTY_TYPE
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_TIMEFRAME,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_TYPE,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_WARNING_THRESHOLD
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -52,11 +55,20 @@ public class ServiceLevelObjectiveRequest {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
+  public static final String JSON_PROPERTY_TARGET_THRESHOLD = "target_threshold";
+  private Double targetThreshold;
+
   public static final String JSON_PROPERTY_THRESHOLDS = "thresholds";
   private List<SLOThreshold> thresholds = new ArrayList<>();
 
+  public static final String JSON_PROPERTY_TIMEFRAME = "timeframe";
+  private SLOTimeframe timeframe;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private SLOType type;
+
+  public static final String JSON_PROPERTY_WARNING_THRESHOLD = "warning_threshold";
+  private Double warningThreshold;
 
   public ServiceLevelObjectiveRequest() {}
 
@@ -244,6 +256,28 @@ public class ServiceLevelObjectiveRequest {
     this.tags = tags;
   }
 
+  public ServiceLevelObjectiveRequest targetThreshold(Double targetThreshold) {
+    this.targetThreshold = targetThreshold;
+    return this;
+  }
+
+  /**
+   * The target threshold such that when the service level indicator is above this threshold over
+   * the given timeframe, the objective is being met.
+   *
+   * @return targetThreshold
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TARGET_THRESHOLD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getTargetThreshold() {
+    return targetThreshold;
+  }
+
+  public void setTargetThreshold(Double targetThreshold) {
+    this.targetThreshold = targetThreshold;
+  }
+
   public ServiceLevelObjectiveRequest thresholds(List<SLOThreshold> thresholds) {
     this.thresholds = thresholds;
     for (SLOThreshold item : thresholds) {
@@ -273,6 +307,31 @@ public class ServiceLevelObjectiveRequest {
     this.thresholds = thresholds;
   }
 
+  public ServiceLevelObjectiveRequest timeframe(SLOTimeframe timeframe) {
+    this.timeframe = timeframe;
+    this.unparsed |= !timeframe.isValid();
+    return this;
+  }
+
+  /**
+   * The SLO time window options.
+   *
+   * @return timeframe
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMEFRAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOTimeframe getTimeframe() {
+    return timeframe;
+  }
+
+  public void setTimeframe(SLOTimeframe timeframe) {
+    if (!timeframe.isValid()) {
+      this.unparsed = true;
+    }
+    this.timeframe = timeframe;
+  }
+
   public ServiceLevelObjectiveRequest type(SLOType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -297,6 +356,29 @@ public class ServiceLevelObjectiveRequest {
     this.type = type;
   }
 
+  public ServiceLevelObjectiveRequest warningThreshold(Double warningThreshold) {
+    this.warningThreshold = warningThreshold;
+    return this;
+  }
+
+  /**
+   * The optional warning threshold such that when the service level indicator is below this value
+   * for the given threshold, but above the target threshold, the objective appears in a "warning"
+   * state. This value must be greater than the target threshold.
+   *
+   * @return warningThreshold
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WARNING_THRESHOLD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getWarningThreshold() {
+    return warningThreshold;
+  }
+
+  public void setWarningThreshold(Double warningThreshold) {
+    this.warningThreshold = warningThreshold;
+  }
+
   /** Return true if this ServiceLevelObjectiveRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -313,13 +395,27 @@ public class ServiceLevelObjectiveRequest {
         && Objects.equals(this.name, serviceLevelObjectiveRequest.name)
         && Objects.equals(this.query, serviceLevelObjectiveRequest.query)
         && Objects.equals(this.tags, serviceLevelObjectiveRequest.tags)
+        && Objects.equals(this.targetThreshold, serviceLevelObjectiveRequest.targetThreshold)
         && Objects.equals(this.thresholds, serviceLevelObjectiveRequest.thresholds)
-        && Objects.equals(this.type, serviceLevelObjectiveRequest.type);
+        && Objects.equals(this.timeframe, serviceLevelObjectiveRequest.timeframe)
+        && Objects.equals(this.type, serviceLevelObjectiveRequest.type)
+        && Objects.equals(this.warningThreshold, serviceLevelObjectiveRequest.warningThreshold);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, groups, monitorIds, name, query, tags, thresholds, type);
+    return Objects.hash(
+        description,
+        groups,
+        monitorIds,
+        name,
+        query,
+        tags,
+        targetThreshold,
+        thresholds,
+        timeframe,
+        type,
+        warningThreshold);
   }
 
   @Override
@@ -332,8 +428,11 @@ public class ServiceLevelObjectiveRequest {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    targetThreshold: ").append(toIndentedString(targetThreshold)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
+    sb.append("    timeframe: ").append(toIndentedString(timeframe)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    warningThreshold: ").append(toIndentedString(warningThreshold)).append("\n");
     sb.append("}");
     return sb.toString();
   }

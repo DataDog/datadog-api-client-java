@@ -35,7 +35,10 @@ public class Example {
                         .targetDisplay("95.0")
                         .timeframe(SLOTimeframe.SEVEN_DAYS)
                         .warning(98.0)
-                        .warningDisplay("98.0")));
+                        .warningDisplay("98.0")))
+            .timeframe(SLOTimeframe.SEVEN_DAYS)
+            .targetThreshold(97.0)
+            .warningThreshold(98.0);
 
     try {
       SLOListResponse result = apiInstance.createSLO(body);
