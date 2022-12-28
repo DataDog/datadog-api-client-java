@@ -80,6 +80,8 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("snmp_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_RUM_SESSIONS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_rum_sessions_usage");
+  public static final HourlyUsageAttributionUsageType CONT_USAGE =
+      new HourlyUsageAttributionUsageType("cont_usage");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -111,7 +113,8 @@ public class HourlyUsageAttributionUsageType {
               "profiled_container_usage",
               "profiled_host_usage",
               "snmp_usage",
-              "estimated_rum_sessions_usage"));
+              "estimated_rum_sessions_usage",
+              "cont_usage"));
 
   private String value;
 

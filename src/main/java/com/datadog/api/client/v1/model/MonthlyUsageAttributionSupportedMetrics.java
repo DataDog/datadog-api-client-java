@@ -138,6 +138,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("estimated_rum_sessions_usage");
   public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_RUM_SESSIONS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("estimated_rum_sessions_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CONT_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cont_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics CONT_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cont_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics ALL =
       new MonthlyUsageAttributionSupportedMetrics("*");
 
@@ -200,6 +204,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "snmp_percentage",
               "estimated_rum_sessions_usage",
               "estimated_rum_sessions_percentage",
+              "cont_usage",
+              "cont_percentage",
               "*"));
 
   private String value;
