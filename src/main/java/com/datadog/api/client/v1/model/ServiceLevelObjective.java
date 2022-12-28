@@ -32,8 +32,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ServiceLevelObjective.JSON_PROPERTY_NAME,
   ServiceLevelObjective.JSON_PROPERTY_QUERY,
   ServiceLevelObjective.JSON_PROPERTY_TAGS,
+  ServiceLevelObjective.JSON_PROPERTY_TARGET_THRESHOLD,
   ServiceLevelObjective.JSON_PROPERTY_THRESHOLDS,
-  ServiceLevelObjective.JSON_PROPERTY_TYPE
+  ServiceLevelObjective.JSON_PROPERTY_TIMEFRAME,
+  ServiceLevelObjective.JSON_PROPERTY_TYPE,
+  ServiceLevelObjective.JSON_PROPERTY_WARNING_THRESHOLD
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -72,11 +75,20 @@ public class ServiceLevelObjective {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
+  public static final String JSON_PROPERTY_TARGET_THRESHOLD = "target_threshold";
+  private Double targetThreshold;
+
   public static final String JSON_PROPERTY_THRESHOLDS = "thresholds";
   private List<SLOThreshold> thresholds = new ArrayList<>();
 
+  public static final String JSON_PROPERTY_TIMEFRAME = "timeframe";
+  private SLOTimeframe timeframe;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private SLOType type;
+
+  public static final String JSON_PROPERTY_WARNING_THRESHOLD = "warning_threshold";
+  private Double warningThreshold;
 
   public ServiceLevelObjective() {}
 
@@ -351,6 +363,28 @@ public class ServiceLevelObjective {
     this.tags = tags;
   }
 
+  public ServiceLevelObjective targetThreshold(Double targetThreshold) {
+    this.targetThreshold = targetThreshold;
+    return this;
+  }
+
+  /**
+   * The target threshold such that when the service level indicator is above this threshold over
+   * the given timeframe, the objective is being met.
+   *
+   * @return targetThreshold
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TARGET_THRESHOLD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getTargetThreshold() {
+    return targetThreshold;
+  }
+
+  public void setTargetThreshold(Double targetThreshold) {
+    this.targetThreshold = targetThreshold;
+  }
+
   public ServiceLevelObjective thresholds(List<SLOThreshold> thresholds) {
     this.thresholds = thresholds;
     for (SLOThreshold item : thresholds) {
@@ -380,6 +414,31 @@ public class ServiceLevelObjective {
     this.thresholds = thresholds;
   }
 
+  public ServiceLevelObjective timeframe(SLOTimeframe timeframe) {
+    this.timeframe = timeframe;
+    this.unparsed |= !timeframe.isValid();
+    return this;
+  }
+
+  /**
+   * The SLO time window options.
+   *
+   * @return timeframe
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMEFRAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOTimeframe getTimeframe() {
+    return timeframe;
+  }
+
+  public void setTimeframe(SLOTimeframe timeframe) {
+    if (!timeframe.isValid()) {
+      this.unparsed = true;
+    }
+    this.timeframe = timeframe;
+  }
+
   public ServiceLevelObjective type(SLOType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -404,6 +463,29 @@ public class ServiceLevelObjective {
     this.type = type;
   }
 
+  public ServiceLevelObjective warningThreshold(Double warningThreshold) {
+    this.warningThreshold = warningThreshold;
+    return this;
+  }
+
+  /**
+   * The optional warning threshold such that when the service level indicator is below this value
+   * for the given threshold, but above the target threshold, the objective appears in a "warning"
+   * state. This value must be greater than the target threshold.
+   *
+   * @return warningThreshold
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WARNING_THRESHOLD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getWarningThreshold() {
+    return warningThreshold;
+  }
+
+  public void setWarningThreshold(Double warningThreshold) {
+    this.warningThreshold = warningThreshold;
+  }
+
   /** Return true if this ServiceLevelObjective object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -425,8 +507,11 @@ public class ServiceLevelObjective {
         && Objects.equals(this.name, serviceLevelObjective.name)
         && Objects.equals(this.query, serviceLevelObjective.query)
         && Objects.equals(this.tags, serviceLevelObjective.tags)
+        && Objects.equals(this.targetThreshold, serviceLevelObjective.targetThreshold)
         && Objects.equals(this.thresholds, serviceLevelObjective.thresholds)
-        && Objects.equals(this.type, serviceLevelObjective.type);
+        && Objects.equals(this.timeframe, serviceLevelObjective.timeframe)
+        && Objects.equals(this.type, serviceLevelObjective.type)
+        && Objects.equals(this.warningThreshold, serviceLevelObjective.warningThreshold);
   }
 
   @Override
@@ -443,8 +528,11 @@ public class ServiceLevelObjective {
         name,
         query,
         tags,
+        targetThreshold,
         thresholds,
-        type);
+        timeframe,
+        type,
+        warningThreshold);
   }
 
   @Override
@@ -462,8 +550,11 @@ public class ServiceLevelObjective {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    targetThreshold: ").append(toIndentedString(targetThreshold)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
+    sb.append("    timeframe: ").append(toIndentedString(timeframe)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    warningThreshold: ").append(toIndentedString(warningThreshold)).append("\n");
     sb.append("}");
     return sb.toString();
   }
