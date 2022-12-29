@@ -543,7 +543,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The container usage without Datadog agent by tag(s).
+   * The container usage without the Datadog Agent by tag(s).
    *
    * @return contUsage
    */

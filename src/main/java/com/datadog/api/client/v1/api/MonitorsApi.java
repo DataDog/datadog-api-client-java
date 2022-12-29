@@ -251,6 +251,10 @@ public class MonitorsApi {
    *   <li>error-tracking: <code>error-tracking alert</code>
    * </ul>
    *
+   * <p><strong>Note</strong>: Synthetic monitors are created through the Synthetics API. See the
+   * [Synthetics API] (https://docs.datadoghq.com/api/latest/synthetics/) documentation for more
+   * information.
+   *
    * <h3>Query Types</h3>
    *
    * <p><strong>Metric Alert Query</strong>
