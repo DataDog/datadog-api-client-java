@@ -19,6 +19,7 @@ import java.util.Objects;
   SyntheticsConfigVariable.JSON_PROPERTY_ID,
   SyntheticsConfigVariable.JSON_PROPERTY_NAME,
   SyntheticsConfigVariable.JSON_PROPERTY_PATTERN,
+  SyntheticsConfigVariable.JSON_PROPERTY_SECURE,
   SyntheticsConfigVariable.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -36,6 +37,9 @@ public class SyntheticsConfigVariable {
 
   public static final String JSON_PROPERTY_PATTERN = "pattern";
   private String pattern;
+
+  public static final String JSON_PROPERTY_SECURE = "secure";
+  private Boolean secure;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsConfigVariableType type;
@@ -135,6 +139,27 @@ public class SyntheticsConfigVariable {
     this.pattern = pattern;
   }
 
+  public SyntheticsConfigVariable secure(Boolean secure) {
+    this.secure = secure;
+    return this;
+  }
+
+  /**
+   * Whether the value of this variable will be obfuscated in test results.
+   *
+   * @return secure
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSecure() {
+    return secure;
+  }
+
+  public void setSecure(Boolean secure) {
+    this.secure = secure;
+  }
+
   public SyntheticsConfigVariable type(SyntheticsConfigVariableType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -173,12 +198,13 @@ public class SyntheticsConfigVariable {
         && Objects.equals(this.id, syntheticsConfigVariable.id)
         && Objects.equals(this.name, syntheticsConfigVariable.name)
         && Objects.equals(this.pattern, syntheticsConfigVariable.pattern)
+        && Objects.equals(this.secure, syntheticsConfigVariable.secure)
         && Objects.equals(this.type, syntheticsConfigVariable.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(example, id, name, pattern, type);
+    return Objects.hash(example, id, name, pattern, secure, type);
   }
 
   @Override
@@ -189,6 +215,7 @@ public class SyntheticsConfigVariable {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
+    sb.append("    secure: ").append(toIndentedString(secure)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

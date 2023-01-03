@@ -44,6 +44,7 @@ public class Example {
                         Collections.singletonList(
                             new SyntheticsConfigVariable()
                                 .name("VARIABLE_NAME")
+                                .secure(false)
                                 .type(SyntheticsConfigVariableType.TEXT)))
                     .request(
                         new SyntheticsTestRequest()
