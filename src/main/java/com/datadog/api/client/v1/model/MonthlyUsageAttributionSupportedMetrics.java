@@ -106,10 +106,6 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("functions_usage");
   public static final MonthlyUsageAttributionSupportedMetrics FUNCTIONS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("functions_percentage");
-  public static final MonthlyUsageAttributionSupportedMetrics INDEXED_LOGS_USAGE =
-      new MonthlyUsageAttributionSupportedMetrics("indexed_logs_usage");
-  public static final MonthlyUsageAttributionSupportedMetrics INDEXED_LOGS_PERCENTAGE =
-      new MonthlyUsageAttributionSupportedMetrics("indexed_logs_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics INFRA_HOST_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("infra_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics INFRA_HOST_PERCENTAGE =
@@ -188,8 +184,6 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "fargate_percentage",
               "functions_usage",
               "functions_percentage",
-              "indexed_logs_usage",
-              "indexed_logs_percentage",
               "infra_host_usage",
               "infra_host_percentage",
               "invocations_usage",

@@ -64,8 +64,6 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("fargate_usage");
   public static final HourlyUsageAttributionUsageType FUNCTIONS_USAGE =
       new HourlyUsageAttributionUsageType("functions_usage");
-  public static final HourlyUsageAttributionUsageType INDEXED_LOGS_USAGE =
-      new HourlyUsageAttributionUsageType("indexed_logs_usage");
   public static final HourlyUsageAttributionUsageType INFRA_HOST_USAGE =
       new HourlyUsageAttributionUsageType("infra_host_usage");
   public static final HourlyUsageAttributionUsageType INVOCATIONS_USAGE =
@@ -106,7 +104,6 @@ public class HourlyUsageAttributionUsageType {
               "estimated_ingested_spans_usage",
               "fargate_usage",
               "functions_usage",
-              "indexed_logs_usage",
               "infra_host_usage",
               "invocations_usage",
               "npm_host_usage",
