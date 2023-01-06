@@ -436,6 +436,7 @@ public class ApiClient {
           put("v2.getIncident", false);
           put("v2.listIncidentAttachments", false);
           put("v2.listIncidents", false);
+          put("v2.searchIncidents", false);
           put("v2.updateIncident", false);
           put("v2.updateIncidentAttachments", false);
           put("v2.queryScalarData", false);

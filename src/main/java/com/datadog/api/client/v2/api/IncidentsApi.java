@@ -14,6 +14,8 @@ import com.datadog.api.client.v2.model.IncidentCreateRequest;
 import com.datadog.api.client.v2.model.IncidentRelatedObject;
 import com.datadog.api.client.v2.model.IncidentResponse;
 import com.datadog.api.client.v2.model.IncidentResponseData;
+import com.datadog.api.client.v2.model.IncidentSearchResponse;
+import com.datadog.api.client.v2.model.IncidentSearchSortOrder;
 import com.datadog.api.client.v2.model.IncidentUpdateRequest;
 import com.datadog.api.client.v2.model.IncidentsResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -1094,6 +1096,264 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentsResponse>() {});
+  }
+
+  /** Manage optional parameters to searchIncidents. */
+  public static class SearchIncidentsOptionalParameters {
+    private IncidentRelatedObject include;
+    private IncidentSearchSortOrder sort;
+
+    /**
+     * Set include.
+     *
+     * @param include Specifies which types of related objects should be included in the response.
+     *     (optional)
+     * @return SearchIncidentsOptionalParameters
+     */
+    public SearchIncidentsOptionalParameters include(IncidentRelatedObject include) {
+      this.include = include;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Specifies the order of returned incidents. (optional)
+     * @return SearchIncidentsOptionalParameters
+     */
+    public SearchIncidentsOptionalParameters sort(IncidentSearchSortOrder sort) {
+      this.sort = sort;
+      return this;
+    }
+  }
+
+  /**
+   * Search for incidents.
+   *
+   * <p>See {@link #searchIncidentsWithHttpInfo}.
+   *
+   * @param query Specifies which incidents should be returned. After entering a search query in
+   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
+   *     parameter value in the URL of the page as the value for this parameter. The query can
+   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
+   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
+   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @return IncidentSearchResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentSearchResponse searchIncidents(String query) throws ApiException {
+    return searchIncidentsWithHttpInfo(query, new SearchIncidentsOptionalParameters()).getData();
+  }
+
+  /**
+   * Search for incidents.
+   *
+   * <p>See {@link #searchIncidentsWithHttpInfoAsync}.
+   *
+   * @param query Specifies which incidents should be returned. After entering a search query in
+   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
+   *     parameter value in the URL of the page as the value for this parameter. The query can
+   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
+   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
+   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @return CompletableFuture&lt;IncidentSearchResponse&gt;
+   */
+  public CompletableFuture<IncidentSearchResponse> searchIncidentsAsync(String query) {
+    return searchIncidentsWithHttpInfoAsync(query, new SearchIncidentsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search for incidents.
+   *
+   * <p>See {@link #searchIncidentsWithHttpInfo}.
+   *
+   * @param query Specifies which incidents should be returned. After entering a search query in
+   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
+   *     parameter value in the URL of the page as the value for this parameter. The query can
+   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
+   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
+   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentSearchResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentSearchResponse searchIncidents(
+      String query, SearchIncidentsOptionalParameters parameters) throws ApiException {
+    return searchIncidentsWithHttpInfo(query, parameters).getData();
+  }
+
+  /**
+   * Search for incidents.
+   *
+   * <p>See {@link #searchIncidentsWithHttpInfoAsync}.
+   *
+   * @param query Specifies which incidents should be returned. After entering a search query in
+   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
+   *     parameter value in the URL of the page as the value for this parameter. The query can
+   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
+   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
+   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentSearchResponse&gt;
+   */
+  public CompletableFuture<IncidentSearchResponse> searchIncidentsAsync(
+      String query, SearchIncidentsOptionalParameters parameters) {
+    return searchIncidentsWithHttpInfoAsync(query, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Search for incidents matching a certain query.
+   *
+   * @param query Specifies which incidents should be returned. After entering a search query in
+   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
+   *     parameter value in the URL of the page as the value for this parameter. The query can
+   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
+   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
+   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentSearchResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentSearchResponse> searchIncidentsWithHttpInfo(
+      String query, SearchIncidentsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "searchIncidents";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'query' when calling searchIncidents");
+    }
+    IncidentRelatedObject include = parameters.include;
+    IncidentSearchSortOrder sort = parameters.sort;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/search";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.searchIncidents",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentSearchResponse>() {});
+  }
+
+  /**
+   * Search for incidents.
+   *
+   * <p>See {@link #searchIncidentsWithHttpInfo}.
+   *
+   * @param query Specifies which incidents should be returned. After entering a search query in
+   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
+   *     parameter value in the URL of the page as the value for this parameter. The query can
+   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
+   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
+   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentSearchResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentSearchResponse>> searchIncidentsWithHttpInfoAsync(
+      String query, SearchIncidentsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "searchIncidents";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentSearchResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'query' is set
+    if (query == null) {
+      CompletableFuture<ApiResponse<IncidentSearchResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'query' when calling searchIncidents"));
+      return result;
+    }
+    IncidentRelatedObject include = parameters.include;
+    IncidentSearchSortOrder sort = parameters.sort;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/search";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.searchIncidents",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentSearchResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentSearchResponse>() {});
   }
 
   /** Manage optional parameters to updateIncident. */
