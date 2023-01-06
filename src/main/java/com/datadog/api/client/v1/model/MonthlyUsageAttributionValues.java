@@ -58,8 +58,6 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_USAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_INDEXED_LOGS_PERCENTAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_INDEXED_LOGS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INVOCATIONS_PERCENTAGE,
@@ -220,12 +218,6 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_FUNCTIONS_USAGE = "functions_usage";
   private Double functionsUsage;
-
-  public static final String JSON_PROPERTY_INDEXED_LOGS_PERCENTAGE = "indexed_logs_percentage";
-  private Double indexedLogsPercentage;
-
-  public static final String JSON_PROPERTY_INDEXED_LOGS_USAGE = "indexed_logs_usage";
-  private Double indexedLogsUsage;
 
   public static final String JSON_PROPERTY_INFRA_HOST_PERCENTAGE = "infra_host_percentage";
   private Double infraHostPercentage;
@@ -1197,48 +1189,6 @@ public class MonthlyUsageAttributionValues {
     this.functionsUsage = functionsUsage;
   }
 
-  public MonthlyUsageAttributionValues indexedLogsPercentage(Double indexedLogsPercentage) {
-    this.indexedLogsPercentage = indexedLogsPercentage;
-    return this;
-  }
-
-  /**
-   * The percentage of indexed logs usage by tags.
-   *
-   * @return indexedLogsPercentage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEXED_LOGS_PERCENTAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getIndexedLogsPercentage() {
-    return indexedLogsPercentage;
-  }
-
-  public void setIndexedLogsPercentage(Double indexedLogsPercentage) {
-    this.indexedLogsPercentage = indexedLogsPercentage;
-  }
-
-  public MonthlyUsageAttributionValues indexedLogsUsage(Double indexedLogsUsage) {
-    this.indexedLogsUsage = indexedLogsUsage;
-    return this;
-  }
-
-  /**
-   * The indexed logs usage by tags.
-   *
-   * @return indexedLogsUsage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEXED_LOGS_USAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getIndexedLogsUsage() {
-    return indexedLogsUsage;
-  }
-
-  public void setIndexedLogsUsage(Double indexedLogsUsage) {
-    this.indexedLogsUsage = indexedLogsUsage;
-  }
-
   public MonthlyUsageAttributionValues infraHostPercentage(Double infraHostPercentage) {
     this.infraHostPercentage = infraHostPercentage;
     return this;
@@ -1577,9 +1527,6 @@ public class MonthlyUsageAttributionValues {
             this.functionsPercentage, monthlyUsageAttributionValues.functionsPercentage)
         && Objects.equals(this.functionsUsage, monthlyUsageAttributionValues.functionsUsage)
         && Objects.equals(
-            this.indexedLogsPercentage, monthlyUsageAttributionValues.indexedLogsPercentage)
-        && Objects.equals(this.indexedLogsUsage, monthlyUsageAttributionValues.indexedLogsUsage)
-        && Objects.equals(
             this.infraHostPercentage, monthlyUsageAttributionValues.infraHostPercentage)
         && Objects.equals(this.infraHostUsage, monthlyUsageAttributionValues.infraHostUsage)
         && Objects.equals(
@@ -1646,8 +1593,6 @@ public class MonthlyUsageAttributionValues {
         fargateUsage,
         functionsPercentage,
         functionsUsage,
-        indexedLogsPercentage,
-        indexedLogsUsage,
         infraHostPercentage,
         infraHostUsage,
         invocationsPercentage,
@@ -1752,10 +1697,6 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(functionsPercentage))
         .append("\n");
     sb.append("    functionsUsage: ").append(toIndentedString(functionsUsage)).append("\n");
-    sb.append("    indexedLogsPercentage: ")
-        .append(toIndentedString(indexedLogsPercentage))
-        .append("\n");
-    sb.append("    indexedLogsUsage: ").append(toIndentedString(indexedLogsUsage)).append("\n");
     sb.append("    infraHostPercentage: ")
         .append(toIndentedString(infraHostPercentage))
         .append("\n");
