@@ -4,8 +4,10 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariable;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariableOptions;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptionsType;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariableTOTPParameters;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableValue;
 
 public class Example {
@@ -21,7 +23,16 @@ public class Example {
         new SyntheticsGlobalVariable()
             .description("")
             .name("GLOBAL_VARIABLE_PAYLOAD_EXAMPLECREATEAGLOBALVARIABLEFROMTESTRETURNSOKRESPONSE")
-            .value(new SyntheticsGlobalVariableValue().secure(false).value(""))
+            .value(
+                new SyntheticsGlobalVariableValue()
+                    .secure(false)
+                    .value("")
+                    .options(
+                        new SyntheticsGlobalVariableOptions()
+                            .totpParameters(
+                                new SyntheticsGlobalVariableTOTPParameters()
+                                    .digits(6)
+                                    .refreshInterval(30))))
             .parseTestPublicId(SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID)
             .parseTestOptions(
                 new SyntheticsGlobalVariableParseTestOptions()
