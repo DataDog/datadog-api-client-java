@@ -12,7 +12,6 @@ import com.datadog.api.client.v2.model.CIAppPipelinesAnalyticsAggregateResponse;
 import com.datadog.api.client.v2.model.CIAppPipelinesGroupBy;
 import com.datadog.api.client.v2.model.CIAppPipelinesQueryFilter;
 import com.datadog.api.client.v2.model.CIAppQueryOptions;
-import com.datadog.api.client.v2.model.CIAppQueryPageOptions;
 import java.util.Collections;
 
 public class Example {
@@ -39,8 +38,7 @@ public class Example {
                         .facet("@ci.status")
                         .limit(10L)
                         .total(new CIAppGroupByTotal(false))))
-            .options(new CIAppQueryOptions().timezone("GMT"))
-            .page(new CIAppQueryPageOptions().limit(25));
+            .options(new CIAppQueryOptions().timezone("GMT"));
 
     try {
       CIAppPipelinesAnalyticsAggregateResponse result =

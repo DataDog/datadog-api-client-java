@@ -16,17 +16,21 @@ import java.util.Objects;
 
 /** The metadata associated with a request. */
 @JsonPropertyOrder({
-  CIAppResponseMetadata.JSON_PROPERTY_ELAPSED,
-  CIAppResponseMetadata.JSON_PROPERTY_REQUEST_ID,
-  CIAppResponseMetadata.JSON_PROPERTY_STATUS,
-  CIAppResponseMetadata.JSON_PROPERTY_WARNINGS
+  CIAppResponseMetadataWithPagination.JSON_PROPERTY_ELAPSED,
+  CIAppResponseMetadataWithPagination.JSON_PROPERTY_PAGE,
+  CIAppResponseMetadataWithPagination.JSON_PROPERTY_REQUEST_ID,
+  CIAppResponseMetadataWithPagination.JSON_PROPERTY_STATUS,
+  CIAppResponseMetadataWithPagination.JSON_PROPERTY_WARNINGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CIAppResponseMetadata {
+public class CIAppResponseMetadataWithPagination {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ELAPSED = "elapsed";
   private Long elapsed;
+
+  public static final String JSON_PROPERTY_PAGE = "page";
+  private CIAppResponsePage page;
 
   public static final String JSON_PROPERTY_REQUEST_ID = "request_id";
   private String requestId;
@@ -37,7 +41,7 @@ public class CIAppResponseMetadata {
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private List<CIAppWarning> warnings = null;
 
-  public CIAppResponseMetadata elapsed(Long elapsed) {
+  public CIAppResponseMetadataWithPagination elapsed(Long elapsed) {
     this.elapsed = elapsed;
     return this;
   }
@@ -58,7 +62,29 @@ public class CIAppResponseMetadata {
     this.elapsed = elapsed;
   }
 
-  public CIAppResponseMetadata requestId(String requestId) {
+  public CIAppResponseMetadataWithPagination page(CIAppResponsePage page) {
+    this.page = page;
+    this.unparsed |= page.unparsed;
+    return this;
+  }
+
+  /**
+   * Paging attributes.
+   *
+   * @return page
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppResponsePage getPage() {
+    return page;
+  }
+
+  public void setPage(CIAppResponsePage page) {
+    this.page = page;
+  }
+
+  public CIAppResponseMetadataWithPagination requestId(String requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -79,7 +105,7 @@ public class CIAppResponseMetadata {
     this.requestId = requestId;
   }
 
-  public CIAppResponseMetadata status(CIAppResponseStatus status) {
+  public CIAppResponseMetadataWithPagination status(CIAppResponseStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
     return this;
@@ -104,7 +130,7 @@ public class CIAppResponseMetadata {
     this.status = status;
   }
 
-  public CIAppResponseMetadata warnings(List<CIAppWarning> warnings) {
+  public CIAppResponseMetadataWithPagination warnings(List<CIAppWarning> warnings) {
     this.warnings = warnings;
     for (CIAppWarning item : warnings) {
       this.unparsed |= item.unparsed;
@@ -112,7 +138,7 @@ public class CIAppResponseMetadata {
     return this;
   }
 
-  public CIAppResponseMetadata addWarningsItem(CIAppWarning warningsItem) {
+  public CIAppResponseMetadataWithPagination addWarningsItem(CIAppWarning warningsItem) {
     if (this.warnings == null) {
       this.warnings = new ArrayList<>();
     }
@@ -138,7 +164,7 @@ public class CIAppResponseMetadata {
     this.warnings = warnings;
   }
 
-  /** Return true if this CIAppResponseMetadata object is equal to o. */
+  /** Return true if this CIAppResponseMetadataWithPagination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,23 +173,26 @@ public class CIAppResponseMetadata {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CIAppResponseMetadata ciAppResponseMetadata = (CIAppResponseMetadata) o;
-    return Objects.equals(this.elapsed, ciAppResponseMetadata.elapsed)
-        && Objects.equals(this.requestId, ciAppResponseMetadata.requestId)
-        && Objects.equals(this.status, ciAppResponseMetadata.status)
-        && Objects.equals(this.warnings, ciAppResponseMetadata.warnings);
+    CIAppResponseMetadataWithPagination ciAppResponseMetadataWithPagination =
+        (CIAppResponseMetadataWithPagination) o;
+    return Objects.equals(this.elapsed, ciAppResponseMetadataWithPagination.elapsed)
+        && Objects.equals(this.page, ciAppResponseMetadataWithPagination.page)
+        && Objects.equals(this.requestId, ciAppResponseMetadataWithPagination.requestId)
+        && Objects.equals(this.status, ciAppResponseMetadataWithPagination.status)
+        && Objects.equals(this.warnings, ciAppResponseMetadataWithPagination.warnings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(elapsed, requestId, status, warnings);
+    return Objects.hash(elapsed, page, requestId, status, warnings);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CIAppResponseMetadata {\n");
+    sb.append("class CIAppResponseMetadataWithPagination {\n");
     sb.append("    elapsed: ").append(toIndentedString(elapsed)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
