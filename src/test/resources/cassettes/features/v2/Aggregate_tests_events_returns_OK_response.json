@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"compute\":[{\"aggregation\":\"count\",\"metric\":\"@test.is_flaky\",\"type\":\"total\"}],\"filter\":{\"from\":\"now-15m\",\"query\":\"@language:(python OR go)\",\"to\":\"now\"},\"group_by\":[{\"facet\":\"@git.branch\",\"limit\":10,\"sort\":{\"order\":\"asc\"},\"total\":false}],\"options\":{\"timezone\":\"GMT\"},\"page\":{\"limit\":25}}"
+        "json": "{\"compute\":[{\"aggregation\":\"count\",\"metric\":\"@test.is_flaky\",\"type\":\"total\"}],\"filter\":{\"from\":\"now-15m\",\"query\":\"@language:(python OR go)\",\"to\":\"now\"},\"group_by\":[{\"facet\":\"@git.branch\",\"limit\":10,\"sort\":{\"order\":\"asc\"},\"total\":false}],\"options\":{\"timezone\":\"GMT\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5b12751f-40e7-ea16-c44e-3175b516a9cc"
+    "id": "272d6a08-9b99-1c8e-2c3f-91de054ff118"
   }
 ]

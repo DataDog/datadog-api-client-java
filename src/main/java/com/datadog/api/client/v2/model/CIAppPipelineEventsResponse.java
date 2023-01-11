@@ -31,7 +31,7 @@ public class CIAppPipelineEventsResponse {
   private CIAppResponseLinks links;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private CIAppResponseMetadata meta;
+  private CIAppResponseMetadataWithPagination meta;
 
   public CIAppPipelineEventsResponse data(List<CIAppPipelineEvent> data) {
     this.data = data;
@@ -88,7 +88,7 @@ public class CIAppPipelineEventsResponse {
     this.links = links;
   }
 
-  public CIAppPipelineEventsResponse meta(CIAppResponseMetadata meta) {
+  public CIAppPipelineEventsResponse meta(CIAppResponseMetadataWithPagination meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
     return this;
@@ -102,11 +102,11 @@ public class CIAppPipelineEventsResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CIAppResponseMetadata getMeta() {
+  public CIAppResponseMetadataWithPagination getMeta() {
     return meta;
   }
 
-  public void setMeta(CIAppResponseMetadata meta) {
+  public void setMeta(CIAppResponseMetadataWithPagination meta) {
     this.meta = meta;
   }
 

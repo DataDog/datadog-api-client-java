@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"compute\":[{\"aggregation\":\"pc90\",\"metric\":\"@duration\",\"type\":\"total\"}],\"filter\":{\"from\":\"now-15m\",\"query\":\"@ci.provider.name:(gitlab OR github)\",\"to\":\"now\"},\"group_by\":[{\"facet\":\"@ci.status\",\"limit\":10,\"total\":false}],\"options\":{\"timezone\":\"GMT\"},\"page\":{\"limit\":25}}"
+        "json": "{\"compute\":[{\"aggregation\":\"pc90\",\"metric\":\"@duration\",\"type\":\"total\"}],\"filter\":{\"from\":\"now-15m\",\"query\":\"@ci.provider.name:(gitlab OR github)\",\"to\":\"now\"},\"group_by\":[{\"facet\":\"@ci.status\",\"limit\":10,\"total\":false}],\"options\":{\"timezone\":\"GMT\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a2f719c1-d23b-8121-3c71-85d0426ee0c9"
+    "id": "8aca276f-9210-4126-d196-5f116fa2418d"
   }
 ]

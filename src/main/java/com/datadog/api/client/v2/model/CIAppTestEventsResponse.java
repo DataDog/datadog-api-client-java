@@ -31,7 +31,7 @@ public class CIAppTestEventsResponse {
   private CIAppResponseLinks links;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private CIAppResponseMetadata meta;
+  private CIAppResponseMetadataWithPagination meta;
 
   public CIAppTestEventsResponse data(List<CIAppTestEvent> data) {
     this.data = data;
@@ -88,7 +88,7 @@ public class CIAppTestEventsResponse {
     this.links = links;
   }
 
-  public CIAppTestEventsResponse meta(CIAppResponseMetadata meta) {
+  public CIAppTestEventsResponse meta(CIAppResponseMetadataWithPagination meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
     return this;
@@ -102,11 +102,11 @@ public class CIAppTestEventsResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CIAppResponseMetadata getMeta() {
+  public CIAppResponseMetadataWithPagination getMeta() {
     return meta;
   }
 
-  public void setMeta(CIAppResponseMetadata meta) {
+  public void setMeta(CIAppResponseMetadataWithPagination meta) {
     this.meta = meta;
   }
 
