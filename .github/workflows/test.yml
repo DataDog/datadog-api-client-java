@@ -146,9 +146,10 @@ jobs:
           private_key: ${{ secrets.PIPELINE_GITHUB_APP_PRIVATE_KEY }}
           repository: DataDog/datadog-api-spec
       - name: Post status check
-        uses: DataDog/github-actions/post-status-check@v1.0.0
+        uses: DataDog/github-actions/post-status-check@v2
         with:
           github-token: ${{ steps.get_token.outputs.token }}
           repo: datadog-api-spec
-          status: ${{ (needs.javadoc.result == 'cancelled' || needs.test.result == 'cancelled' || needs.examples.result == 'cancelled') && 'pending' || needs.javadoc.result == 'success' && needs.test.result == 'success' && needs.examples.result == 'success' && 'success' || 'failure' }}
+          status: ${{ (needs.javadoc.result == 'cancelled' || needs.test.result == 'cancelled' || needs.examples.result == 'cancelled') && 'pending' || needs.javadoc.result == 'success' && needs.test.result == 'success' && needs.examples.result
+            == 'success' && 'success' || 'failure' }}
           context: unit
