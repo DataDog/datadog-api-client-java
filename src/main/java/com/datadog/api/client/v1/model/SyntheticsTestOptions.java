@@ -24,7 +24,6 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_DISABLE_CORS,
   SyntheticsTestOptions.JSON_PROPERTY_DISABLE_CSP,
   SyntheticsTestOptions.JSON_PROPERTY_FOLLOW_REDIRECTS,
-  SyntheticsTestOptions.JSON_PROPERTY_HTTP_VERSION,
   SyntheticsTestOptions.JSON_PROPERTY_IGNORE_SERVER_CERTIFICATE_ERROR,
   SyntheticsTestOptions.JSON_PROPERTY_INITIAL_NAVIGATION_TIMEOUT,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
@@ -66,9 +65,6 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_FOLLOW_REDIRECTS = "follow_redirects";
   private Boolean followRedirects;
-
-  public static final String JSON_PROPERTY_HTTP_VERSION = "httpVersion";
-  private SyntheticsTestOptionsHTTPVersion httpVersion;
 
   public static final String JSON_PROPERTY_IGNORE_SERVER_CERTIFICATE_ERROR =
       "ignoreServerCertificateError";
@@ -283,31 +279,6 @@ public class SyntheticsTestOptions {
 
   public void setFollowRedirects(Boolean followRedirects) {
     this.followRedirects = followRedirects;
-  }
-
-  public SyntheticsTestOptions httpVersion(SyntheticsTestOptionsHTTPVersion httpVersion) {
-    this.httpVersion = httpVersion;
-    this.unparsed |= !httpVersion.isValid();
-    return this;
-  }
-
-  /**
-   * HTTP version to use for a Synthetic test.
-   *
-   * @return httpVersion
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HTTP_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestOptionsHTTPVersion getHttpVersion() {
-    return httpVersion;
-  }
-
-  public void setHttpVersion(SyntheticsTestOptionsHTTPVersion httpVersion) {
-    if (!httpVersion.isValid()) {
-      this.unparsed = true;
-    }
-    this.httpVersion = httpVersion;
   }
 
   public SyntheticsTestOptions ignoreServerCertificateError(Boolean ignoreServerCertificateError) {
@@ -604,7 +575,6 @@ public class SyntheticsTestOptions {
         && Objects.equals(this.disableCors, syntheticsTestOptions.disableCors)
         && Objects.equals(this.disableCsp, syntheticsTestOptions.disableCsp)
         && Objects.equals(this.followRedirects, syntheticsTestOptions.followRedirects)
-        && Objects.equals(this.httpVersion, syntheticsTestOptions.httpVersion)
         && Objects.equals(
             this.ignoreServerCertificateError, syntheticsTestOptions.ignoreServerCertificateError)
         && Objects.equals(
@@ -632,7 +602,6 @@ public class SyntheticsTestOptions {
         disableCors,
         disableCsp,
         followRedirects,
-        httpVersion,
         ignoreServerCertificateError,
         initialNavigationTimeout,
         minFailureDuration,
@@ -661,7 +630,6 @@ public class SyntheticsTestOptions {
     sb.append("    disableCors: ").append(toIndentedString(disableCors)).append("\n");
     sb.append("    disableCsp: ").append(toIndentedString(disableCsp)).append("\n");
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
-    sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
     sb.append("    ignoreServerCertificateError: ")
         .append(toIndentedString(ignoreServerCertificateError))
         .append("\n");
