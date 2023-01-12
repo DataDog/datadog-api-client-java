@@ -16,6 +16,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestCiOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestExecutionRule;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsHTTPVersion;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsMonitorOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTestPauseStatus;
@@ -48,6 +49,7 @@ public class Example {
                         new SyntheticsTestCiOptions()
                             .executionRule(SyntheticsTestExecutionRule.BLOCKING))
                     .deviceIds(Collections.singletonList(SyntheticsDeviceID.LAPTOP_LARGE))
+                    .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP1)
                     .monitorOptions(new SyntheticsTestOptionsMonitorOptions())
                     .restrictedRoles(
                         Collections.singletonList("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"))
