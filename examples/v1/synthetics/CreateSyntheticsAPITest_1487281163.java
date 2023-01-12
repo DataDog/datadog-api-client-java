@@ -24,6 +24,7 @@ import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsHTTPVersion;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificate;
@@ -134,7 +135,8 @@ public class Example {
                         "Example-Create_an_API_HTTP_test_returns_OK_Returns_the_created_test_details_response")
                     .monitorPriority(5)
                     .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
-                    .tickEvery(60L))
+                    .tickEvery(60L)
+                    .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP2))
             .subtype(SyntheticsTestDetailsSubType.HTTP)
             .tags(Collections.singletonList("testing:api"))
             .type(SyntheticsAPITestType.API);
