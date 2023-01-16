@@ -17,7 +17,9 @@ import java.util.Objects;
 
 /** Updated list stream widget. */
 @JsonPropertyOrder({
+  ListStreamQuery.JSON_PROPERTY_COMPUTE,
   ListStreamQuery.JSON_PROPERTY_DATA_SOURCE,
+  ListStreamQuery.JSON_PROPERTY_GROUP_BY,
   ListStreamQuery.JSON_PROPERTY_INDEXES,
   ListStreamQuery.JSON_PROPERTY_QUERY_STRING,
   ListStreamQuery.JSON_PROPERTY_STORAGE
@@ -26,8 +28,14 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamQuery {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMPUTE = "compute";
+  private List<ListStreamComputeItems> compute = null;
+
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private ListStreamSource dataSource = ListStreamSource.APM_ISSUE_STREAM;
+
+  public static final String JSON_PROPERTY_GROUP_BY = "group_by";
+  private List<ListStreamGroupByItems> groupBy = null;
 
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
@@ -47,6 +55,40 @@ public class ListStreamQuery {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     this.queryString = queryString;
+  }
+
+  public ListStreamQuery compute(List<ListStreamComputeItems> compute) {
+    this.compute = compute;
+    for (ListStreamComputeItems item : compute) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public ListStreamQuery addComputeItem(ListStreamComputeItems computeItem) {
+    if (this.compute == null) {
+      this.compute = new ArrayList<>();
+    }
+    this.compute.add(computeItem);
+    this.unparsed |= computeItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Compute configuration for the List Stream Widget. Compute can be used only with the
+   * logs_transaction_stream (from 1 to 5 items) list stream source.
+   *
+   * @return compute
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ListStreamComputeItems> getCompute() {
+    return compute;
+  }
+
+  public void setCompute(List<ListStreamComputeItems> compute) {
+    this.compute = compute;
   }
 
   public ListStreamQuery dataSource(ListStreamSource dataSource) {
@@ -71,6 +113,41 @@ public class ListStreamQuery {
       this.unparsed = true;
     }
     this.dataSource = dataSource;
+  }
+
+  public ListStreamQuery groupBy(List<ListStreamGroupByItems> groupBy) {
+    this.groupBy = groupBy;
+    for (ListStreamGroupByItems item : groupBy) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public ListStreamQuery addGroupByItem(ListStreamGroupByItems groupByItem) {
+    if (this.groupBy == null) {
+      this.groupBy = new ArrayList<>();
+    }
+    this.groupBy.add(groupByItem);
+    this.unparsed |= groupByItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Group by configuration for the List Stream Widget. Group by can be used only with
+   * logs_pattern_stream (up to 3 items) or logs_transaction_stream (one group by item is required)
+   * list stream source.
+   *
+   * @return groupBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ListStreamGroupByItems> getGroupBy() {
+    return groupBy;
+  }
+
+  public void setGroupBy(List<ListStreamGroupByItems> groupBy) {
+    this.groupBy = groupBy;
   }
 
   public ListStreamQuery indexes(List<String> indexes) {
@@ -153,7 +230,9 @@ public class ListStreamQuery {
       return false;
     }
     ListStreamQuery listStreamQuery = (ListStreamQuery) o;
-    return Objects.equals(this.dataSource, listStreamQuery.dataSource)
+    return Objects.equals(this.compute, listStreamQuery.compute)
+        && Objects.equals(this.dataSource, listStreamQuery.dataSource)
+        && Objects.equals(this.groupBy, listStreamQuery.groupBy)
         && Objects.equals(this.indexes, listStreamQuery.indexes)
         && Objects.equals(this.queryString, listStreamQuery.queryString)
         && Objects.equals(this.storage, listStreamQuery.storage);
@@ -161,14 +240,16 @@ public class ListStreamQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataSource, indexes, queryString, storage);
+    return Objects.hash(compute, dataSource, groupBy, indexes, queryString, storage);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListStreamQuery {\n");
+    sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
+    sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
     sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
