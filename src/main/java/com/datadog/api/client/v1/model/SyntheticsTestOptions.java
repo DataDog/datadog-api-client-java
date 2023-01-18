@@ -36,6 +36,7 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_RESTRICTED_ROLES,
   SyntheticsTestOptions.JSON_PROPERTY_RETRY,
   SyntheticsTestOptions.JSON_PROPERTY_RUM_SETTINGS,
+  SyntheticsTestOptions.JSON_PROPERTY_SCHEDULING,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
 })
 @jakarta.annotation.Generated(
@@ -103,6 +104,9 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_RUM_SETTINGS = "rumSettings";
   private SyntheticsBrowserTestRumSettings rumSettings;
+
+  public static final String JSON_PROPERTY_SCHEDULING = "scheduling";
+  private SyntheticsTestOptionsScheduling scheduling;
 
   public static final String JSON_PROPERTY_TICK_EVERY = "tick_every";
   private Long tickEvery;
@@ -564,6 +568,28 @@ public class SyntheticsTestOptions {
     this.rumSettings = rumSettings;
   }
 
+  public SyntheticsTestOptions scheduling(SyntheticsTestOptionsScheduling scheduling) {
+    this.scheduling = scheduling;
+    this.unparsed |= scheduling.unparsed;
+    return this;
+  }
+
+  /**
+   * Object containing timeframes and timezone used for advanced scheduling.
+   *
+   * @return scheduling
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCHEDULING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestOptionsScheduling getScheduling() {
+    return scheduling;
+  }
+
+  public void setScheduling(SyntheticsTestOptionsScheduling scheduling) {
+    this.scheduling = scheduling;
+  }
+
   public SyntheticsTestOptions tickEvery(Long tickEvery) {
     this.tickEvery = tickEvery;
     return this;
@@ -618,6 +644,7 @@ public class SyntheticsTestOptions {
         && Objects.equals(this.restrictedRoles, syntheticsTestOptions.restrictedRoles)
         && Objects.equals(this.retry, syntheticsTestOptions.retry)
         && Objects.equals(this.rumSettings, syntheticsTestOptions.rumSettings)
+        && Objects.equals(this.scheduling, syntheticsTestOptions.scheduling)
         && Objects.equals(this.tickEvery, syntheticsTestOptions.tickEvery);
   }
 
@@ -644,6 +671,7 @@ public class SyntheticsTestOptions {
         restrictedRoles,
         retry,
         rumSettings,
+        scheduling,
         tickEvery);
   }
 
@@ -677,6 +705,7 @@ public class SyntheticsTestOptions {
     sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    rumSettings: ").append(toIndentedString(rumSettings)).append("\n");
+    sb.append("    scheduling: ").append(toIndentedString(scheduling)).append("\n");
     sb.append("    tickEvery: ").append(toIndentedString(tickEvery)).append("\n");
     sb.append("}");
     return sb.toString();
