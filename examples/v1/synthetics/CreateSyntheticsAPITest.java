@@ -19,8 +19,11 @@ import com.datadog.api.client.v1.model.SyntheticsTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsHTTPVersion;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsMonitorOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsScheduling;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsSchedulingTimeframe;
 import com.datadog.api.client.v1.model.SyntheticsTestPauseStatus;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -58,7 +61,20 @@ public class Example {
                         new SyntheticsBrowserTestRumSettings()
                             .applicationId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
                             .clientTokenId(12345L)
-                            .isEnabled(true)))
+                            .isEnabled(true))
+                    .scheduling(
+                        new SyntheticsTestOptionsScheduling()
+                            .timeframes(
+                                Arrays.asList(
+                                    new SyntheticsTestOptionsSchedulingTimeframe()
+                                        .day(1)
+                                        .from("07:00")
+                                        .to("16:00"),
+                                    new SyntheticsTestOptionsSchedulingTimeframe()
+                                        .day(3)
+                                        .from("07:00")
+                                        .to("16:00")))
+                            .timezone("America/New_York")))
             .status(SyntheticsTestPauseStatus.LIVE)
             .subtype(SyntheticsTestDetailsSubType.HTTP)
             .tags(Collections.singletonList("env:production"))
