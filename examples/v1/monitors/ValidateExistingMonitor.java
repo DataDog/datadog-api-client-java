@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.MonitorsApi;
 import com.datadog.api.client.v1.model.Monitor;
 import com.datadog.api.client.v1.model.MonitorOptions;
+import com.datadog.api.client.v1.model.MonitorOptionsNotificationPresets;
 import com.datadog.api.client.v1.model.MonitorThresholds;
 import com.datadog.api.client.v1.model.MonitorType;
 import com.datadog.api.client.v1.model.OnMissingDataOption;
@@ -42,6 +43,7 @@ logs("service:foo AND type:error").index("main").rollup("count").by("source").la
                     .notifyAudit(false)
                     .notifyNoData(false)
                     .onMissingData(OnMissingDataOption.SHOW_AND_NOTIFY_NO_DATA)
+                    .notificationPresetName(MonitorOptionsNotificationPresets.HIDE_HANDLES)
                     .renotifyInterval(60L)
                     .requireFullWindow(true)
                     .timeoutH(24L)

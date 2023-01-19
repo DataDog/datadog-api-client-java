@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Schedule_a_monitor_downtime_returns_OK_response-1660586679\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"groupby_simple_monitor\": true, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notify_audit\": false, \"notify_no_data\": false, \"on_missing_data\": \"show_and_notify_no_data\", \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 24}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testscheduleamonitordowntimereturnsokresponse1660586679\", \"env:ci\"], \"type\": \"log alert\"}"
+        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Schedule_a_monitor_downtime_returns_OK_response-1674067037\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"groupby_simple_monitor\": true, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notification_preset_name\": \"hide_handles\", \"notify_audit\": false, \"notify_no_data\": false, \"on_missing_data\": \"show_and_notify_no_data\", \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 24}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testscheduleamonitordowntimereturnsokresponse1674067037\", \"env:ci\"], \"type\": \"log alert\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"restricted_roles\":null,\"tags\":[\"test:testscheduleamonitordowntimereturnsokresponse1660586679\",\"env:ci\"],\"deleted\":null,\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"message\":\"some message Notify: @hipchat-channel\",\"id\":80119043,\"multi\":true,\"name\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1660586679\",\"created\":\"2022-08-15T18:04:40.058772+00:00\",\"created_at\":1660586680000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2022-08-15T18:04:40.058772+00:00\",\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"log alert\",\"options\":{\"notify_audit\":false,\"locked\":false,\"timeout_h\":24,\"renotify_interval\":60,\"include_tags\":true,\"no_data_timeframe\":null,\"silenced\":{},\"new_host_delay\":600,\"on_missing_data\":\"show_and_notify_no_data\",\"require_full_window\":true,\"notify_no_data\":false,\"enable_logs_sample\":true,\"groupby_simple_monitor\":true,\"escalation_message\":\"the situation has escalated\",\"evaluation_delay\":700,\"thresholds\":{\"critical\":2.0,\"warning\":1.0}}}",
+      "body": "{\"id\":108260301,\"org_id\":321813,\"type\":\"log alert\",\"name\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1674067037\",\"message\":\"some message Notify: @hipchat-channel\",\"tags\":[\"test:testscheduleamonitordowntimereturnsokresponse1674067037\",\"env:ci\"],\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"options\":{\"enable_logs_sample\":true,\"escalation_message\":\"the situation has escalated\",\"evaluation_delay\":700,\"groupby_simple_monitor\":true,\"include_tags\":true,\"locked\":false,\"new_host_delay\":600,\"no_data_timeframe\":null,\"notification_preset_name\":\"hide_handles\",\"notify_audit\":false,\"notify_no_data\":false,\"on_missing_data\":\"show_and_notify_no_data\",\"renotify_interval\":60,\"require_full_window\":true,\"thresholds\":{\"critical\":2.0,\"warning\":1.0},\"timeout_h\":24,\"silenced\":{}},\"multi\":true,\"created_at\":1674067037000,\"created\":\"2023-01-18T18:37:17.701290+00:00\",\"modified\":\"2023-01-18T18:37:17.701290+00:00\",\"deleted\":null,\"restricted_roles\":null,\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"id\":1445416}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "71c52e89-126a-931c-6e80-3e616930512c"
+    "id": "ba0c12c7-ef28-07d2-55ad-0448a5aaab7a"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1660586679\",\"monitor_id\":80119043,\"scope\":[\"test:testscheduleamonitordowntimereturnsokresponse1660586679\"],\"start\":1660586679,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"message\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1674067037\",\"monitor_id\":108260301,\"scope\":[\"test:testscheduleamonitordowntimereturnsokresponse1674067037\"],\"start\":1674067037,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":null,\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":80119043,\"mute_first_recovery_notification\":false,\"created\":1660586680,\"org_id\":321813,\"modified\":1660586680,\"disabled\":false,\"start\":1660586679,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testscheduleamonitordowntimereturnsokresponse1660586679\"],\"message\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1660586679\",\"downtime_type\":2,\"id\":2164108453,\"updater_id\":null}",
+      "body": "{\"id\":2598558218,\"monitor_id\":108260301,\"org_id\":321813,\"start\":1674067037,\"end\":null,\"canceled\":null,\"created\":1674067037,\"modified\":1674067037,\"message\":\"Test-Schedule_a_monitor_downtime_returns_OK_response-1674067037\",\"active\":true,\"disabled\":false,\"recurrence\":null,\"timezone\":\"Etc/UTC\",\"parent_id\":null,\"child_id\":null,\"creator_id\":1445416,\"updater_id\":null,\"downtime_type\":2,\"monitor_tags\":[\"*\"],\"mute_first_recovery_notification\":false,\"scope\":[\"test:testscheduleamonitordowntimereturnsokresponse1674067037\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,18 +57,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1b859970-ed83-ecd4-b17a-2b6c5d61f213"
+    "id": "48e1cb17-6d99-d5e6-5f94-89cc6a513678"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/downtime/2164108453",
+      "path": "/api/v1/downtime/2598558218",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -78,18 +82,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "052aced9-dc2f-233f-053a-e1cdcac623e4"
+    "id": "7151ccaf-7021-1463-1db1-dd0167c20777"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/monitor/80119043",
+      "path": "/api/v1/monitor/108260301",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_monitor_id\":80119043}",
+      "body": "{\"deleted_monitor_id\":108260301}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -104,6 +108,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "56680ef6-df30-cdc7-b409-2fece1eb6b1c"
+    "id": "af1e4808-6329-1bfe-779c-6406c96eeb1f"
   }
 ]
