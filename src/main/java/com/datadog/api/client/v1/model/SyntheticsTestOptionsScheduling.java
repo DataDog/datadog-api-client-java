@@ -70,7 +70,7 @@ public class SyntheticsTestOptionsScheduling {
   }
 
   /**
-   * Timezone on which the timeframe are based.
+   * Timezone in which the timeframe is based.
    *
    * @return timezone
    */
