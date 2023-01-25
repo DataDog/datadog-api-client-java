@@ -8,7 +8,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"count_limit\":100,\"version\":1295,\"group_count_limit\":20,\"is_pci_compliant\":false,\"has_highlight_enabled\":true},\"data\":{\"relationships\":{\"groups\":{\"data\":[]}},\"attributes\":{},\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}\n",
+      "body": "{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"attributes\":{},\"type\":\"sensitive_data_scanner_configuration\",\"relationships\":{\"groups\":{\"data\":[]}}},\"meta\":{\"version\":12578,\"count_limit\":100,\"group_count_limit\":20,\"is_pci_compliant\":false,\"has_highlight_enabled\":true,\"has_multi_pass_enabled\":true}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -38,7 +38,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"version\":1296},\"data\":{\"relationships\":{\"rules\":{\"data\":[]},\"configuration\":{\"data\":{\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}},\"attributes\":{\"is_enabled\":false,\"filter\":{\"query\":\"*\"},\"product_list\":[\"logs\"],\"name\":\"my-test-group\"},\"type\":\"sensitive_data_scanner_group\",\"id\":\"cXMD0eOmQjKTfy1Vm4wrWA\"}}\n",
+      "body": "{\"data\":{\"id\":\"TnVRBDeuSM67AsD6qluDxQ\",\"attributes\":{\"name\":\"my-test-group\",\"is_enabled\":false,\"filter\":{\"query\":\"*\"},\"product_list\":[\"logs\"]},\"type\":\"sensitive_data_scanner_group\",\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}}},\"meta\":{\"version\":12579}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -59,7 +59,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Delete_Scanning_Rule_returns_OK_response-1671095144\",\"pattern\":\"pattern\",\"tags\":[\"sensitive_data:true\"],\"text_replacement\":{\"type\":\"none\"}},\"relationships\":{\"group\":{\"data\":{\"id\":\"cXMD0eOmQjKTfy1Vm4wrWA\",\"type\":\"sensitive_data_scanner_group\"}}},\"type\":\"sensitive_data_scanner_rule\"},\"meta\":{}}"
+        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Delete_Scanning_Rule_returns_OK_response-1674565935\",\"namespaces\":[\"admin.email\"],\"pattern\":\"pattern\",\"tags\":[\"sensitive_data:true\"],\"text_replacement\":{\"type\":\"none\"}},\"relationships\":{\"group\":{\"data\":{\"id\":\"TnVRBDeuSM67AsD6qluDxQ\",\"type\":\"sensitive_data_scanner_group\"}}},\"type\":\"sensitive_data_scanner_rule\"},\"meta\":{}}"
       },
       "headers": {},
       "method": "POST",
@@ -68,7 +68,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"version\":1297},\"data\":{\"relationships\":{\"group\":{\"data\":{\"type\":\"sensitive_data_scanner_group\",\"id\":\"cXMD0eOmQjKTfy1Vm4wrWA\"}}},\"attributes\":{\"is_enabled\":true,\"excluded_namespaces\":[],\"name\":\"Test-Delete_Scanning_Rule_returns_OK_response-1671095144\",\"tags\":[\"sensitive_data:true\"],\"pattern\":\"pattern\",\"namespaces\":[],\"text_replacement\":{\"type\":\"none\"}},\"type\":\"sensitive_data_scanner_rule\",\"id\":\"0mMbznyeTb6d-9roSnX-Gw\"}}\n",
+      "body": "{\"data\":{\"id\":\"uTxgTNxqRy6L3a44B9KZDw\",\"attributes\":{\"name\":\"Test-Delete_Scanning_Rule_returns_OK_response-1674565935\",\"namespaces\":[\"admin.email\"],\"excluded_namespaces\":[],\"pattern\":\"pattern\",\"text_replacement\":{\"type\":\"none\"},\"tags\":[\"sensitive_data:true\"],\"is_enabled\":true},\"type\":\"sensitive_data_scanner_rule\",\"relationships\":{\"group\":{\"data\":{\"id\":\"TnVRBDeuSM67AsD6qluDxQ\",\"type\":\"sensitive_data_scanner_group\"}}}},\"meta\":{\"version\":12580}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -83,7 +83,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3e9a1bdf-38c0-c323-2757-dc86c3bc3312"
+    "id": "48573fda-ff6d-b5d7-00f7-9457b481b253"
   },
   {
     "httpRequest": {
@@ -93,12 +93,12 @@
       },
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/sensitive-data-scanner/config/rules/0mMbznyeTb6d-9roSnX-Gw",
+      "path": "/api/v2/sensitive-data-scanner/config/rules/uTxgTNxqRy6L3a44B9KZDw",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"version\":1298}}\n",
+      "body": "{\"meta\":{\"version\":12581}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -113,7 +113,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e6e3e7b7-75f7-60fa-3e84-e1474ae06a66"
+    "id": "6f50e927-b23e-4d39-193d-02e940bd7094"
   },
   {
     "httpRequest": {
@@ -123,7 +123,7 @@
       },
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/sensitive-data-scanner/config/rules/0mMbznyeTb6d-9roSnX-Gw",
+      "path": "/api/v2/sensitive-data-scanner/config/rules/uTxgTNxqRy6L3a44B9KZDw",
       "keepAlive": false,
       "secure": true
     },
@@ -143,7 +143,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e6e3e7b7-75f7-60fa-3e84-e1474ae06a67"
+    "id": "6f50e927-b23e-4d39-193d-02e940bd7095"
   },
   {
     "httpRequest": {
@@ -153,12 +153,12 @@
       },
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/sensitive-data-scanner/config/groups/cXMD0eOmQjKTfy1Vm4wrWA",
+      "path": "/api/v2/sensitive-data-scanner/config/groups/TnVRBDeuSM67AsD6qluDxQ",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"version\":1299}}\n",
+      "body": "{\"meta\":{\"version\":12582}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -173,6 +173,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0958f34a-74ee-1297-bba7-e35b48dfe857"
+    "id": "f6c767df-9ffb-7b71-da5a-e8efae8b8f7b"
   }
 ]
