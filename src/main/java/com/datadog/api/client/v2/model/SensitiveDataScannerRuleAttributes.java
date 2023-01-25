@@ -17,9 +17,10 @@ import java.util.Objects;
 /** Attributes of the Sensitive Data Scanner rule. */
 @JsonPropertyOrder({
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_DESCRIPTION,
-  SensitiveDataScannerRuleAttributes.JSON_PROPERTY_EXCLUDED_ATTRIBUTES,
+  SensitiveDataScannerRuleAttributes.JSON_PROPERTY_EXCLUDED_NAMESPACES,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_IS_ENABLED,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_NAME,
+  SensitiveDataScannerRuleAttributes.JSON_PROPERTY_NAMESPACES,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_PATTERN,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_TAGS,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_TEXT_REPLACEMENT
@@ -31,14 +32,17 @@ public class SensitiveDataScannerRuleAttributes {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String JSON_PROPERTY_EXCLUDED_ATTRIBUTES = "excluded_attributes";
-  private List<String> excludedAttributes = null;
+  public static final String JSON_PROPERTY_EXCLUDED_NAMESPACES = "excluded_namespaces";
+  private List<String> excludedNamespaces = null;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_NAMESPACES = "namespaces";
+  private List<String> namespaces = null;
 
   public static final String JSON_PROPERTY_PATTERN = "pattern";
   private String pattern;
@@ -70,34 +74,35 @@ public class SensitiveDataScannerRuleAttributes {
     this.description = description;
   }
 
-  public SensitiveDataScannerRuleAttributes excludedAttributes(List<String> excludedAttributes) {
-    this.excludedAttributes = excludedAttributes;
+  public SensitiveDataScannerRuleAttributes excludedNamespaces(List<String> excludedNamespaces) {
+    this.excludedNamespaces = excludedNamespaces;
     return this;
   }
 
-  public SensitiveDataScannerRuleAttributes addExcludedAttributesItem(
-      String excludedAttributesItem) {
-    if (this.excludedAttributes == null) {
-      this.excludedAttributes = new ArrayList<>();
+  public SensitiveDataScannerRuleAttributes addExcludedNamespacesItem(
+      String excludedNamespacesItem) {
+    if (this.excludedNamespaces == null) {
+      this.excludedNamespaces = new ArrayList<>();
     }
-    this.excludedAttributes.add(excludedAttributesItem);
+    this.excludedNamespaces.add(excludedNamespacesItem);
     return this;
   }
 
   /**
-   * Attributes excluded from the scan.
+   * Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the
+   * namespaces array.
    *
-   * @return excludedAttributes
+   * @return excludedNamespaces
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXCLUDED_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_EXCLUDED_NAMESPACES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getExcludedAttributes() {
-    return excludedAttributes;
+  public List<String> getExcludedNamespaces() {
+    return excludedNamespaces;
   }
 
-  public void setExcludedAttributes(List<String> excludedAttributes) {
-    this.excludedAttributes = excludedAttributes;
+  public void setExcludedNamespaces(List<String> excludedNamespaces) {
+    this.excludedNamespaces = excludedNamespaces;
   }
 
   public SensitiveDataScannerRuleAttributes isEnabled(Boolean isEnabled) {
@@ -140,6 +145,36 @@ public class SensitiveDataScannerRuleAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public SensitiveDataScannerRuleAttributes namespaces(List<String> namespaces) {
+    this.namespaces = namespaces;
+    return this;
+  }
+
+  public SensitiveDataScannerRuleAttributes addNamespacesItem(String namespacesItem) {
+    if (this.namespaces == null) {
+      this.namespaces = new ArrayList<>();
+    }
+    this.namespaces.add(namespacesItem);
+    return this;
+  }
+
+  /**
+   * Attributes included in the scan. If namespaces is empty or missing, all attributes except
+   * excluded_namespaces are scanned. If both are missing the whole event is scanned.
+   *
+   * @return namespaces
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAMESPACES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getNamespaces() {
+    return namespaces;
+  }
+
+  public void setNamespaces(List<String> namespaces) {
+    this.namespaces = namespaces;
   }
 
   public SensitiveDataScannerRuleAttributes pattern(String pattern) {
@@ -228,9 +263,10 @@ public class SensitiveDataScannerRuleAttributes {
         (SensitiveDataScannerRuleAttributes) o;
     return Objects.equals(this.description, sensitiveDataScannerRuleAttributes.description)
         && Objects.equals(
-            this.excludedAttributes, sensitiveDataScannerRuleAttributes.excludedAttributes)
+            this.excludedNamespaces, sensitiveDataScannerRuleAttributes.excludedNamespaces)
         && Objects.equals(this.isEnabled, sensitiveDataScannerRuleAttributes.isEnabled)
         && Objects.equals(this.name, sensitiveDataScannerRuleAttributes.name)
+        && Objects.equals(this.namespaces, sensitiveDataScannerRuleAttributes.namespaces)
         && Objects.equals(this.pattern, sensitiveDataScannerRuleAttributes.pattern)
         && Objects.equals(this.tags, sensitiveDataScannerRuleAttributes.tags)
         && Objects.equals(this.textReplacement, sensitiveDataScannerRuleAttributes.textReplacement);
@@ -239,7 +275,14 @@ public class SensitiveDataScannerRuleAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        description, excludedAttributes, isEnabled, name, pattern, tags, textReplacement);
+        description,
+        excludedNamespaces,
+        isEnabled,
+        name,
+        namespaces,
+        pattern,
+        tags,
+        textReplacement);
   }
 
   @Override
@@ -247,9 +290,10 @@ public class SensitiveDataScannerRuleAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class SensitiveDataScannerRuleAttributes {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    excludedAttributes: ").append(toIndentedString(excludedAttributes)).append("\n");
+    sb.append("    excludedNamespaces: ").append(toIndentedString(excludedNamespaces)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    textReplacement: ").append(toIndentedString(textReplacement)).append("\n");

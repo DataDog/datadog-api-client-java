@@ -8,7 +8,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"count_limit\":100,\"version\":1318,\"group_count_limit\":20,\"is_pci_compliant\":false,\"has_highlight_enabled\":true},\"data\":{\"relationships\":{\"groups\":{\"data\":[]}},\"attributes\":{},\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}\n",
+      "body": "{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"attributes\":{},\"type\":\"sensitive_data_scanner_configuration\",\"relationships\":{\"groups\":{\"data\":[]}}},\"meta\":{\"version\":12586,\"count_limit\":100,\"group_count_limit\":20,\"is_pci_compliant\":false,\"has_highlight_enabled\":true,\"has_multi_pass_enabled\":true}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -38,7 +38,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"version\":1319},\"data\":{\"relationships\":{\"rules\":{\"data\":[]},\"configuration\":{\"data\":{\"type\":\"sensitive_data_scanner_configuration\",\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\"}}},\"attributes\":{\"is_enabled\":false,\"filter\":{\"query\":\"*\"},\"product_list\":[\"logs\"],\"name\":\"my-test-group\"},\"type\":\"sensitive_data_scanner_group\",\"id\":\"LvetUHRAS_-QENoqFwKE9w\"}}\n",
+      "body": "{\"data\":{\"id\":\"g0hUfjkqQEejgzkTN8J1sA\",\"attributes\":{\"name\":\"my-test-group\",\"is_enabled\":false,\"filter\":{\"query\":\"*\"},\"product_list\":[\"logs\"]},\"type\":\"sensitive_data_scanner_group\",\"relationships\":{\"configuration\":{\"data\":{\"id\":\"7957915c634d4dcb581fa154157f5ad9c2947f50be632fb5599862069f4d2d87\",\"type\":\"sensitive_data_scanner_configuration\"}},\"rules\":{\"data\":[]}}},\"meta\":{\"version\":12587}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -59,7 +59,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_Scanning_Rule_returns_OK_response-1671115858\",\"pattern\":\"pattern\",\"tags\":[\"sensitive_data:true\"],\"text_replacement\":{\"type\":\"none\"}},\"relationships\":{\"group\":{\"data\":{\"id\":\"LvetUHRAS_-QENoqFwKE9w\",\"type\":\"sensitive_data_scanner_group\"}}},\"type\":\"sensitive_data_scanner_rule\"},\"meta\":{}}"
+        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_Scanning_Rule_returns_OK_response-1674565940\",\"namespaces\":[\"admin.email\"],\"pattern\":\"pattern\",\"tags\":[\"sensitive_data:true\"],\"text_replacement\":{\"type\":\"none\"}},\"relationships\":{\"group\":{\"data\":{\"id\":\"g0hUfjkqQEejgzkTN8J1sA\",\"type\":\"sensitive_data_scanner_group\"}}},\"type\":\"sensitive_data_scanner_rule\"},\"meta\":{}}"
       },
       "headers": {},
       "method": "POST",
@@ -68,7 +68,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"version\":1320},\"data\":{\"relationships\":{\"group\":{\"data\":{\"type\":\"sensitive_data_scanner_group\",\"id\":\"LvetUHRAS_-QENoqFwKE9w\"}}},\"attributes\":{\"is_enabled\":true,\"excluded_namespaces\":[],\"name\":\"Test-Update_Scanning_Rule_returns_OK_response-1671115858\",\"tags\":[\"sensitive_data:true\"],\"pattern\":\"pattern\",\"namespaces\":[],\"text_replacement\":{\"type\":\"none\"}},\"type\":\"sensitive_data_scanner_rule\",\"id\":\"xhid6C6USka2JdxmZCYg9w\"}}\n",
+      "body": "{\"data\":{\"id\":\"miOWlXzWQXCJaJktLUW40g\",\"attributes\":{\"name\":\"Test-Update_Scanning_Rule_returns_OK_response-1674565940\",\"namespaces\":[\"admin.email\"],\"excluded_namespaces\":[],\"pattern\":\"pattern\",\"text_replacement\":{\"type\":\"none\"},\"tags\":[\"sensitive_data:true\"],\"is_enabled\":true},\"type\":\"sensitive_data_scanner_rule\",\"relationships\":{\"group\":{\"data\":{\"id\":\"g0hUfjkqQEejgzkTN8J1sA\",\"type\":\"sensitive_data_scanner_group\"}}}},\"meta\":{\"version\":12588}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -83,22 +83,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "66372249-77ed-047e-3bac-024daf433114"
+    "id": "fe838132-1ff2-55a9-1059-839665df9181"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_Scanning_Rule_returns_OK_response-1671115858\",\"pattern\":\"pattern\",\"tags\":[\"sensitive_data:true\"],\"text_replacement\":{\"type\":\"none\"}},\"id\":\"xhid6C6USka2JdxmZCYg9w\",\"relationships\":{\"group\":{\"data\":{\"id\":\"LvetUHRAS_-QENoqFwKE9w\",\"type\":\"sensitive_data_scanner_group\"}}},\"type\":\"sensitive_data_scanner_rule\"},\"meta\":{}}"
+        "json": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_Scanning_Rule_returns_OK_response-1674565940\",\"pattern\":\"pattern\",\"tags\":[\"sensitive_data:true\"],\"text_replacement\":{\"type\":\"none\"}},\"id\":\"miOWlXzWQXCJaJktLUW40g\",\"relationships\":{\"group\":{\"data\":{\"id\":\"g0hUfjkqQEejgzkTN8J1sA\",\"type\":\"sensitive_data_scanner_group\"}}},\"type\":\"sensitive_data_scanner_rule\"},\"meta\":{}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/sensitive-data-scanner/config/rules/xhid6C6USka2JdxmZCYg9w",
+      "path": "/api/v2/sensitive-data-scanner/config/rules/miOWlXzWQXCJaJktLUW40g",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"version\":1321}}\n",
+      "body": "{\"meta\":{\"version\":12589}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -113,7 +113,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7bad7bc4-4851-e184-4546-2bff97bf662d"
+    "id": "41cd4ec8-ba4c-2dfb-0416-40d5c037dab6"
   },
   {
     "httpRequest": {
@@ -123,12 +123,12 @@
       },
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/sensitive-data-scanner/config/rules/xhid6C6USka2JdxmZCYg9w",
+      "path": "/api/v2/sensitive-data-scanner/config/rules/miOWlXzWQXCJaJktLUW40g",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"version\":1322}}\n",
+      "body": "{\"meta\":{\"version\":12590}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -143,7 +143,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5bc39d74-5aea-7c48-4ab0-b80e794381df"
+    "id": "91960e43-42cf-69fc-5bba-9ce49832ad3f"
   },
   {
     "httpRequest": {
@@ -153,12 +153,12 @@
       },
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/sensitive-data-scanner/config/groups/LvetUHRAS_-QENoqFwKE9w",
+      "path": "/api/v2/sensitive-data-scanner/config/groups/g0hUfjkqQEejgzkTN8J1sA",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"version\":1323}}\n",
+      "body": "{\"meta\":{\"version\":12591}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -173,6 +173,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cbdeb4d4-35c2-02be-784e-5f88fd24fc02"
+    "id": "efc51b28-bc6f-bdd2-aaba-25866eff4436"
   }
 ]

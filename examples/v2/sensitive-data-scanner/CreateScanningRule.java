@@ -35,6 +35,8 @@ public class Example {
                         new SensitiveDataScannerRuleAttributes()
                             .name("Example-Create_Scanning_Rule_returns_OK_response")
                             .pattern("pattern")
+                            .namespaces(Collections.singletonList("admin"))
+                            .excludedNamespaces(Collections.singletonList("admin.name"))
                             .textReplacement(
                                 new SensitiveDataScannerTextReplacement()
                                     .type(SensitiveDataScannerTextReplacementType.NONE))
