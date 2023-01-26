@@ -37,7 +37,7 @@ public class Example {
                         .warning(98.0)
                         .warningDisplay("98.0")))
             .timeframe(SLOTimeframe.SEVEN_DAYS)
-            .targetThreshold(97.0)
+            .targetThreshold(95.0)
             .warningThreshold(98.0);
 
     try {
