@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"datacenter\",\"tag_key_required\":true,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"type\":\"monitor-config-policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/policy",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"monitor-config-policy\",\"id\":\"cedaaafa-9833-11ed-81a5-da7ad0900002\",\"attributes\":{\"policy\":{\"tag_key\":\"datacenter\",\"tag_key_required\":true,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9e33b552-c97f-3cf2-fd32-b8dd1d13009c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/policy/cedaaafa-9833-11ed-81a5-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dba5779a-3be5-4e61-47ad-f394e297556a"
+  }
+]
