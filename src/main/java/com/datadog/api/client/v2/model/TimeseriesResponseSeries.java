@@ -102,7 +102,10 @@ public class TimeseriesResponseSeries {
   }
 
   /**
-   * List of units.
+   * Detailed information about the unit. The first element describes the "primary unit" (for
+   * example, <code>bytes</code> in <code>bytes per second</code>). The second element describes the
+   * "per unit" (for example, <code>second</code> in <code>bytes per second</code>). If the second
+   * element is not present, the API returns null.
    *
    * @return unit
    */

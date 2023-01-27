@@ -6,124 +6,269 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/** A single column in a scalar query response. */
-@JsonPropertyOrder({ScalarColumn.JSON_PROPERTY_UNIT, ScalarColumn.JSON_PROPERTY_VALUES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScalarColumn {
+@JsonDeserialize(using = ScalarColumn.ScalarColumnDeserializer.class)
+@JsonSerialize(using = ScalarColumn.ScalarColumnSerializer.class)
+public class ScalarColumn extends AbstractOpenApiSchema {
+  private static final Logger log = Logger.getLogger(ScalarColumn.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_UNIT = "unit";
-  private List<Unit> unit = null;
 
-  public static final String JSON_PROPERTY_VALUES = "values";
-  private List<Double> values = null;
-
-  public ScalarColumn unit(List<Unit> unit) {
-    this.unit = unit;
-    for (Unit item : unit) {
-      this.unparsed |= item.unparsed;
+  public static class ScalarColumnSerializer extends StdSerializer<ScalarColumn> {
+    public ScalarColumnSerializer(Class<ScalarColumn> t) {
+      super(t);
     }
-    return this;
+
+    public ScalarColumnSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(ScalarColumn value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
+    }
   }
 
-  public ScalarColumn addUnitItem(Unit unitItem) {
-    if (this.unit == null) {
-      this.unit = new ArrayList<>();
+  public static class ScalarColumnDeserializer extends StdDeserializer<ScalarColumn> {
+    public ScalarColumnDeserializer() {
+      this(ScalarColumn.class);
     }
-    this.unit.add(unitItem);
-    this.unparsed |= unitItem.unparsed;
-    return this;
+
+    public ScalarColumnDeserializer(Class<?> vc) {
+      super(vc);
+    }
+
+    @Override
+    public ScalarColumn deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize GroupScalarColumn
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (GroupScalarColumn.class.equals(Integer.class)
+            || GroupScalarColumn.class.equals(Long.class)
+            || GroupScalarColumn.class.equals(Float.class)
+            || GroupScalarColumn.class.equals(Double.class)
+            || GroupScalarColumn.class.equals(Boolean.class)
+            || GroupScalarColumn.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((GroupScalarColumn.class.equals(Integer.class)
+                        || GroupScalarColumn.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((GroupScalarColumn.class.equals(Float.class)
+                        || GroupScalarColumn.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (GroupScalarColumn.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (GroupScalarColumn.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(GroupScalarColumn.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((GroupScalarColumn) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'GroupScalarColumn'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'GroupScalarColumn'", e);
+      }
+
+      // deserialize DataScalarColumn
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (DataScalarColumn.class.equals(Integer.class)
+            || DataScalarColumn.class.equals(Long.class)
+            || DataScalarColumn.class.equals(Float.class)
+            || DataScalarColumn.class.equals(Double.class)
+            || DataScalarColumn.class.equals(Boolean.class)
+            || DataScalarColumn.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((DataScalarColumn.class.equals(Integer.class)
+                        || DataScalarColumn.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((DataScalarColumn.class.equals(Float.class)
+                        || DataScalarColumn.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (DataScalarColumn.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (DataScalarColumn.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(DataScalarColumn.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((DataScalarColumn) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'DataScalarColumn'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'DataScalarColumn'", e);
+      }
+
+      ScalarColumn ret = new ScalarColumn();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
+    }
+
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public ScalarColumn getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+      throw new JsonMappingException(ctxt.getParser(), "ScalarColumn cannot be null");
+    }
+  }
+
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public ScalarColumn() {
+    super("oneOf", Boolean.FALSE);
+  }
+
+  public ScalarColumn(GroupScalarColumn o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ScalarColumn(DataScalarColumn o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  static {
+    schemas.put("GroupScalarColumn", new GenericType<GroupScalarColumn>() {});
+    schemas.put("DataScalarColumn", new GenericType<DataScalarColumn>() {});
+    JSON.registerDescendants(ScalarColumn.class, Collections.unmodifiableMap(schemas));
+  }
+
+  @Override
+  public Map<String, GenericType> getSchemas() {
+    return ScalarColumn.schemas;
   }
 
   /**
-   * List of units.
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: GroupScalarColumn, DataScalarColumn
    *
-   * @return unit
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UNIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Unit> getUnit() {
-    return unit;
-  }
-
-  public void setUnit(List<Unit> unit) {
-    this.unit = unit;
-  }
-
-  public ScalarColumn values(List<Double> values) {
-    this.values = values;
-    return this;
-  }
-
-  public ScalarColumn addValuesItem(Double valuesItem) {
-    if (this.values == null) {
-      this.values = new ArrayList<>();
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(GroupScalarColumn.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    this.values.add(valuesItem);
-    return this;
+    if (JSON.isInstanceOf(DataScalarColumn.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be GroupScalarColumn, DataScalarColumn");
   }
 
   /**
-   * Array of values for each group-by combination that results from one formula or query.
+   * Get the actual instance, which can be the following: GroupScalarColumn, DataScalarColumn
    *
-   * @return values
+   * @return The actual instance (GroupScalarColumn, DataScalarColumn)
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VALUES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Double> getValues() {
-    return values;
-  }
-
-  public void setValues(List<Double> values) {
-    this.values = values;
-  }
-
-  /** Return true if this ScalarColumn object is equal to o. */
   @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ScalarColumn scalarColumn = (ScalarColumn) o;
-    return Objects.equals(this.unit, scalarColumn.unit)
-        && Objects.equals(this.values, scalarColumn.values);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(unit, values);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ScalarColumn {\n");
-    sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
-    sb.append("}");
-    return sb.toString();
+  public Object getActualInstance() {
+    return super.getActualInstance();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Get the actual instance of `GroupScalarColumn`. If the actual instance is not
+   * `GroupScalarColumn`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `GroupScalarColumn`
+   * @throws ClassCastException if the instance is not `GroupScalarColumn`
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+  public GroupScalarColumn getGroupScalarColumn() throws ClassCastException {
+    return (GroupScalarColumn) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `DataScalarColumn`. If the actual instance is not
+   * `DataScalarColumn`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `DataScalarColumn`
+   * @throws ClassCastException if the instance is not `DataScalarColumn`
+   */
+  public DataScalarColumn getDataScalarColumn() throws ClassCastException {
+    return (DataScalarColumn) super.getActualInstance();
   }
 }

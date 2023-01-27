@@ -1,4 +1,4 @@
-// Query timeseries data across multiple products returns "OK" response
+// Timeseries cross product query returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -31,20 +31,21 @@ public class Example {
                             .formulas(
                                 Collections.singletonList(
                                     new QueryFormula()
-                                        .formula("a+b")
+                                        .formula("a")
                                         .limit(
                                             new FormulaLimit()
                                                 .count(10)
                                                 .order(QuerySortOrder.DESC))))
-                            .from(1568899800000L)
+                            .from(1671612804000L)
                             .interval(5000L)
                             .queries(
                                 Collections.singletonList(
                                     new TimeseriesQuery(
                                         new MetricsTimeseriesQuery()
                                             .dataSource(MetricsDataSource.METRICS)
-                                            .query("avg:system.cpu.user{*} by {env}"))))
-                            .to(1568923200000L))
+                                            .query("avg:system.cpu.user{*}")
+                                            .name("a"))))
+                            .to(1671620004000L))
                     .type(TimeseriesFormulaRequestType.TIMESERIES_REQUEST));
 
     try {
