@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu\",\"email\":\"dev@datadog.com\",\"name\":\"datadog-dev\"},\"type\":\"cloudflare-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu\",\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971\"},\"type\":\"cloudflare-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"datadog-dev\"},\"type\":\"cloudflare-accounts\",\"id\":\"683184a71c14fb788635d4a977ffb541\"}}\n",
+      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971\"},\"type\":\"cloudflare-accounts\",\"id\":\"56a7295bd711e0aea34906a3bea8a2b3\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cae672fa-19b1-5f93-8e1b-f4b4657ccac5"
+    "id": "aa263524-60cf-9e30-eac1-e25fd4ae2b78"
   },
   {
     "httpRequest": {
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/integrations/cloudflare/accounts/683184a71c14fb788635d4a977ffb541",
+      "path": "/api/v2/integrations/cloudflare/accounts/56a7295bd711e0aea34906a3bea8a2b3",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Invalid account. Your Cloudflare configuration is invalid. Impossible to get zones for the account datadog-dev: API key or email is unknown.\"]}",
+      "body": "{\"errors\":[\"Invalid account. Your Cloudflare configuration is invalid. Impossible to get zones for the account testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971: API key or email is unknown.\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3bdfe9f7-96d4-5a83-ff2f-12064856c809"
+    "id": "3f23d00e-3a64-a6fa-757f-56c5364ca6d5"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/cloudflare/accounts/683184a71c14fb788635d4a977ffb541",
+      "path": "/api/v2/integrations/cloudflare/accounts/56a7295bd711e0aea34906a3bea8a2b3",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a4f3d530-5cac-a676-1a75-9693bfd79e6c"
+    "id": "ef4708ff-e201-db20-f8d5-b432046e803e"
   }
 ]

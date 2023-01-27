@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu\",\"email\":\"dev@datadog.com\",\"name\":\"datadog-dev\"},\"type\":\"cloudflare-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu\",\"email\":\"dev@datadog.com\",\"name\":\"testlistcloudflareaccountsreturnsokresponse1674810001\"},\"type\":\"cloudflare-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"datadog-dev\"},\"type\":\"cloudflare-accounts\",\"id\":\"683184a71c14fb788635d4a977ffb541\"}}\n",
+      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testlistcloudflareaccountsreturnsokresponse1674810001\"},\"type\":\"cloudflare-accounts\",\"id\":\"1458cfdd2c5679bdc8693a9c5a32bf45\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cae672fa-19b1-5f93-8e1b-f4b4657ccac2"
+    "id": "85219dfd-764d-0f01-81f8-7f40c885c8bb"
   },
   {
     "httpRequest": {
@@ -38,7 +38,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"datadog-dev\"},\"type\":\"cloudflare-accounts\",\"id\":\"683184a71c14fb788635d4a977ffb541\"},{\"attributes\":{\"email\":\"mustafa.abban@datadoghq.com\",\"name\":\"datadog-green-touch\"},\"type\":\"cloudflare-accounts\",\"id\":\"830a5253b1a04100c81cf8dd497007c6\"}]}\n",
+      "body": "{\"data\":[{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testlistcloudflareaccountsreturnsokresponse1674810001\"},\"type\":\"cloudflare-accounts\",\"id\":\"1458cfdd2c5679bdc8693a9c5a32bf45\"}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -59,7 +59,7 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/cloudflare/accounts/683184a71c14fb788635d4a977ffb541",
+      "path": "/api/v2/integrations/cloudflare/accounts/1458cfdd2c5679bdc8693a9c5a32bf45",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a4f3d530-5cac-a676-1a75-9693bfd79e69"
+    "id": "47f20943-6945-7e0c-ce5f-a938846d1e5d"
   }
 ]
