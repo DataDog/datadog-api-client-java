@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu\",\"email\":\"dev@datadog.com\",\"name\":\"datadog-dev\"},\"type\":\"cloudflare-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu\",\"email\":\"dev@datadog.com\",\"name\":\"testgetcloudflareaccountreturnsokresponse1674810021\"},\"type\":\"cloudflare-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"datadog-dev\"},\"type\":\"cloudflare-accounts\",\"id\":\"683184a71c14fb788635d4a977ffb541\"}}\n",
+      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testgetcloudflareaccountreturnsokresponse1674810021\"},\"type\":\"cloudflare-accounts\",\"id\":\"ec582035efa21742f8f4ef4393ded49c\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cae672fa-19b1-5f93-8e1b-f4b4657ccac4"
+    "id": "34766ccc-f428-49e5-e8e0-71bccdd05cf3"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/integrations/cloudflare/accounts/683184a71c14fb788635d4a977ffb541",
+      "path": "/api/v2/integrations/cloudflare/accounts/ec582035efa21742f8f4ef4393ded49c",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"datadog-dev\"},\"type\":\"cloudflare-accounts\",\"id\":\"683184a71c14fb788635d4a977ffb541\"}}\n",
+      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testgetcloudflareaccountreturnsokresponse1674810021\"},\"type\":\"cloudflare-accounts\",\"id\":\"ec582035efa21742f8f4ef4393ded49c\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "563ee8af-10d4-e1a7-ec8e-197ed726b16e"
+    "id": "e5262591-ea3c-b785-87ef-5e55125d7359"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/cloudflare/accounts/683184a71c14fb788635d4a977ffb541",
+      "path": "/api/v2/integrations/cloudflare/accounts/ec582035efa21742f8f4ef4393ded49c",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a4f3d530-5cac-a676-1a75-9693bfd79e6b"
+    "id": "dead9516-22e0-8a9b-2f0e-1d56d3fa167f"
   }
 ]

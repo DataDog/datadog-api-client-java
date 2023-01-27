@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"test-api-key\",\"name\":\"test-name\"},\"type\":\"cloudflare-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"test-api-key\",\"name\":\"testaddcloudflareaccountreturnsbadrequestresponseduetomissingemail1674730504\"},\"type\":\"cloudflare-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "07229c6c-785e-dd0e-d184-f08428b0d916"
+    "id": "13c7d145-8bac-4a16-202b-30a082c2a497"
   }
 ]
