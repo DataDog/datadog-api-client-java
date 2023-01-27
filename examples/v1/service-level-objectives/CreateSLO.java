@@ -31,8 +31,8 @@ public class Example {
             .thresholds(
                 Collections.singletonList(
                     new SLOThreshold()
-                        .target(95.0)
-                        .targetDisplay("95.0")
+                        .target(97.0)
+                        .targetDisplay("97.0")
                         .timeframe(SLOTimeframe.SEVEN_DAYS)
                         .warning(98.0)
                         .warningDisplay("98.0")))
