@@ -14,50 +14,52 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** The object describing a scalar response. */
-@JsonPropertyOrder({ScalarFormulaResponseAtrributes.JSON_PROPERTY_COLUMNS})
+/** Metadata for the resulting numerical values. */
+@JsonPropertyOrder({ScalarMeta.JSON_PROPERTY_UNIT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScalarFormulaResponseAtrributes {
+public class ScalarMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COLUMNS = "columns";
-  private List<ScalarColumn> columns = null;
+  public static final String JSON_PROPERTY_UNIT = "unit";
+  private List<Unit> unit = null;
 
-  public ScalarFormulaResponseAtrributes columns(List<ScalarColumn> columns) {
-    this.columns = columns;
-    for (ScalarColumn item : columns) {
+  public ScalarMeta unit(List<Unit> unit) {
+    this.unit = unit;
+    for (Unit item : unit) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public ScalarFormulaResponseAtrributes addColumnsItem(ScalarColumn columnsItem) {
-    if (this.columns == null) {
-      this.columns = new ArrayList<>();
+  public ScalarMeta addUnitItem(Unit unitItem) {
+    if (this.unit == null) {
+      this.unit = new ArrayList<>();
     }
-    this.columns.add(columnsItem);
-    this.unparsed |= columnsItem.unparsed;
+    this.unit.add(unitItem);
+    this.unparsed |= unitItem.unparsed;
     return this;
   }
 
   /**
-   * List of response columns, each corresponding to an individual formula or query in the request
-   * and with values in parallel arrays matching the series list.
+   * Detailed information about the unit. First element describes the "primary unit" (for example,
+   * <code>bytes</code> in <code>bytes per second</code>). The second element describes the "per
+   * unit" (for example, <code>second</code> in <code>bytes per second</code>). If the second
+   * element is not present, the API returns null.
    *
-   * @return columns
+   * @return unit
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COLUMNS)
+  @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ScalarColumn> getColumns() {
-    return columns;
+  public List<Unit> getUnit() {
+    return unit;
   }
 
-  public void setColumns(List<ScalarColumn> columns) {
-    this.columns = columns;
+  public void setUnit(List<Unit> unit) {
+    this.unit = unit;
   }
 
-  /** Return true if this ScalarFormulaResponseAtrributes object is equal to o. */
+  /** Return true if this ScalarMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -66,21 +68,20 @@ public class ScalarFormulaResponseAtrributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScalarFormulaResponseAtrributes scalarFormulaResponseAtrributes =
-        (ScalarFormulaResponseAtrributes) o;
-    return Objects.equals(this.columns, scalarFormulaResponseAtrributes.columns);
+    ScalarMeta scalarMeta = (ScalarMeta) o;
+    return Objects.equals(this.unit, scalarMeta.unit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(columns);
+    return Objects.hash(unit);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScalarFormulaResponseAtrributes {\n");
-    sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
+    sb.append("class ScalarMeta {\n");
+    sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1865,7 +1865,7 @@ public class MetricsApi {
   }
 
   /**
-   * Scalar cross product query.
+   * Query scalar data across multiple products.
    *
    * <p>See {@link #queryScalarDataWithHttpInfo}.
    *
@@ -1879,7 +1879,7 @@ public class MetricsApi {
   }
 
   /**
-   * Scalar cross product query.
+   * Query scalar data across multiple products.
    *
    * <p>See {@link #queryScalarDataWithHttpInfoAsync}.
    *
@@ -1896,8 +1896,8 @@ public class MetricsApi {
   }
 
   /**
-   * The internal endpoint to query scalar/table data for multiple data sources and process the data
-   * using formulas and functions.
+   * Query scalar values (as seen on Query Value, Table and Toplist widgets). Multiple data sources
+   * are supported with the ability to process the data using formulas and functions.
    *
    * @param body (required)
    * @return ApiResponse&lt;ScalarFormulaQueryResponse&gt;
@@ -1955,7 +1955,7 @@ public class MetricsApi {
   }
 
   /**
-   * Scalar cross product query.
+   * Query scalar data across multiple products.
    *
    * <p>See {@link #queryScalarDataWithHttpInfo}.
    *
@@ -2017,7 +2017,7 @@ public class MetricsApi {
   }
 
   /**
-   * Timeseries cross product query.
+   * Query timeseries data across multiple products.
    *
    * <p>See {@link #queryTimeseriesDataWithHttpInfo}.
    *
@@ -2031,7 +2031,7 @@ public class MetricsApi {
   }
 
   /**
-   * Timeseries cross product query.
+   * Query timeseries data across multiple products.
    *
    * <p>See {@link #queryTimeseriesDataWithHttpInfoAsync}.
    *
@@ -2048,8 +2048,8 @@ public class MetricsApi {
   }
 
   /**
-   * The internal endpoint to query timeseries data for multiple data sources and process the data
-   * by applying formulas and functions.
+   * Query timeseries data across various data sources and process the data by applying formulas and
+   * functions.
    *
    * @param body (required)
    * @return ApiResponse&lt;TimeseriesFormulaQueryResponse&gt;
@@ -2107,7 +2107,7 @@ public class MetricsApi {
   }
 
   /**
-   * Timeseries cross product query.
+   * Query timeseries data across multiple products.
    *
    * <p>See {@link #queryTimeseriesDataWithHttpInfo}.
    *
