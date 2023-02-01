@@ -2,7 +2,7 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.UsersApi;
+import com.datadog.api.client.v2.api.ServiceAccountsApi;
 import com.datadog.api.client.v2.model.RelationshipToRoleData;
 import com.datadog.api.client.v2.model.RelationshipToRoles;
 import com.datadog.api.client.v2.model.RolesType;
@@ -17,7 +17,7 @@ import java.util.Collections;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    UsersApi apiInstance = new UsersApi(defaultClient);
+    ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
 
     // there is a valid "role" in the system
     String ROLE_DATA_ID = System.getenv("ROLE_DATA_ID");
@@ -47,7 +47,7 @@ public class Example {
       UserResponse result = apiInstance.createServiceAccount(body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling UsersApi#createServiceAccount");
+      System.err.println("Exception when calling ServiceAccountsApi#createServiceAccount");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
