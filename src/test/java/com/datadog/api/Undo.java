@@ -23,9 +23,9 @@ public class Undo {
       public String template;
     }
 
+    public String tag;
     public String type;
     public String operationId;
-    public List<String> tags;
     public List<Parameter> parameters;
 
     public Map<String, Object> getRequestParameters(
@@ -80,7 +80,7 @@ public class Undo {
   }
 
   public String getAPIName() {
-    if (undo.tags != null) return Pattern.compile(" ").matcher(undo.tags.get(0)).replaceAll("");
+    if (undo.tag != null) return Pattern.compile(" ").matcher(undo.tag).replaceAll("");
     return Pattern.compile(" ").matcher(tag).replaceAll("");
   }
 
