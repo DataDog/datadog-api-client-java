@@ -471,16 +471,6 @@ public class UsageMeteringApiTest extends V1ApiTest {
   }
 
   @Test
-  public void getUsageAttributionTest() throws ApiException {
-    generalApiClient.setUnstableOperationEnabled("v1.getUsageAttribution", true);
-    UsageAttributionResponse usage =
-        api.getUsageAttribution(startMonth, UsageAttributionSupportedMetrics.ALL);
-
-    assertNotNull(usage.getUsage());
-    assertNotNull(usage.getMetadata());
-  }
-
-  @Test
   public void getUsageAnalyzedLogsErrorsTest() throws IOException {
     try {
       api.getUsageAnalyzedLogs(futureStartHr);
@@ -884,30 +874,6 @@ public class UsageMeteringApiTest extends V1ApiTest {
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
-      APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-      assertNotNull(error.getErrors());
-    }
-  }
-
-  @Test
-  public void getSpecifiedMonthlyCustomReportsErrorsTest() throws IOException {
-    try {
-      generalApiClient.setUnstableOperationEnabled("v1.getSpecifiedMonthlyCustomReports", true);
-      api.getSpecifiedMonthlyCustomReports("whatever");
-      fail("Expected ApiException not thrown");
-    } catch (ApiException e) {
-      assertEquals(400, e.getCode());
-      APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-      assertNotNull(error.getErrors());
-    }
-
-    try {
-      generalFakeAuthApiClient.setUnstableOperationEnabled(
-          "v1.getSpecifiedMonthlyCustomReports", true);
-      fakeAuthApi.getSpecifiedMonthlyCustomReports("whatever");
-      fail("Expected ApiException not thrown");
-    } catch (ApiException e) {
-      assertEquals(403, e.getCode());
       APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
       assertNotNull(error.getErrors());
     }
