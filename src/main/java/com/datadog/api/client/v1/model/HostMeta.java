@@ -55,7 +55,7 @@ public class HostMeta {
   private HostMetaInstallMethod installMethod;
 
   public static final String JSON_PROPERTY_MAC_V = "macV";
-  private List<String> macV = null;
+  private List<Object> macV = null;
 
   public static final String JSON_PROPERTY_MACHINE = "machine";
   private String machine;
@@ -224,12 +224,12 @@ public class HostMeta {
     this.installMethod = installMethod;
   }
 
-  public HostMeta macV(List<String> macV) {
+  public HostMeta macV(List<Object> macV) {
     this.macV = macV;
     return this;
   }
 
-  public HostMeta addMacVItem(String macVItem) {
+  public HostMeta addMacVItem(Object macVItem) {
     if (this.macV == null) {
       this.macV = new ArrayList<>();
     }
@@ -245,11 +245,11 @@ public class HostMeta {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAC_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getMacV() {
+  public List<Object> getMacV() {
     return macV;
   }
 
-  public void setMacV(List<String> macV) {
+  public void setMacV(List<Object> macV) {
     this.macV = macV;
   }
 
