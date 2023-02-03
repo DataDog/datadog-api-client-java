@@ -150,7 +150,8 @@ def type_to_java(schema, alternative_name=None):
 
         if schema.get("parent") and not alternative_name:
             if schema["parent"].get("type") == "array":
-                return get_name(schema["parent"]) + "Item"
+                if schema.get("type") is not None:
+                    return get_name(schema["parent"]) + "Item"
 
         return (
             prefix + alternative_name
