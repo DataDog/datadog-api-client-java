@@ -35,11 +35,18 @@ public class SecurityMonitoringRuleDetectionMethod {
       new SecurityMonitoringRuleDetectionMethod("impossible_travel");
   public static final SecurityMonitoringRuleDetectionMethod HARDCODED =
       new SecurityMonitoringRuleDetectionMethod("hardcoded");
+  public static final SecurityMonitoringRuleDetectionMethod THIRD_PARTY =
+      new SecurityMonitoringRuleDetectionMethod("third_party");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
-              "threshold", "new_value", "anomaly_detection", "impossible_travel", "hardcoded"));
+              "threshold",
+              "new_value",
+              "anomaly_detection",
+              "impossible_travel",
+              "hardcoded",
+              "third_party"));
 
   private String value;
 
