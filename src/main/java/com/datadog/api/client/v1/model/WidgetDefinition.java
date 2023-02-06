@@ -888,51 +888,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'QueryValueWidgetDefinition'", e);
       }
 
-      // deserialize RunWorkflowWidgetDefinition
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (RunWorkflowWidgetDefinition.class.equals(Integer.class)
-            || RunWorkflowWidgetDefinition.class.equals(Long.class)
-            || RunWorkflowWidgetDefinition.class.equals(Float.class)
-            || RunWorkflowWidgetDefinition.class.equals(Double.class)
-            || RunWorkflowWidgetDefinition.class.equals(Boolean.class)
-            || RunWorkflowWidgetDefinition.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((RunWorkflowWidgetDefinition.class.equals(Integer.class)
-                        || RunWorkflowWidgetDefinition.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((RunWorkflowWidgetDefinition.class.equals(Float.class)
-                        || RunWorkflowWidgetDefinition.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (RunWorkflowWidgetDefinition.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (RunWorkflowWidgetDefinition.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(RunWorkflowWidgetDefinition.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((RunWorkflowWidgetDefinition) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'RunWorkflowWidgetDefinition'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'RunWorkflowWidgetDefinition'", e);
-      }
-
       // deserialize ScatterPlotWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -1636,11 +1591,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public WidgetDefinition(RunWorkflowWidgetDefinition o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public WidgetDefinition(ScatterPlotWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1727,7 +1677,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         "MonitorSummaryWidgetDefinition", new GenericType<MonitorSummaryWidgetDefinition>() {});
     schemas.put("NoteWidgetDefinition", new GenericType<NoteWidgetDefinition>() {});
     schemas.put("QueryValueWidgetDefinition", new GenericType<QueryValueWidgetDefinition>() {});
-    schemas.put("RunWorkflowWidgetDefinition", new GenericType<RunWorkflowWidgetDefinition>() {});
     schemas.put("ScatterPlotWidgetDefinition", new GenericType<ScatterPlotWidgetDefinition>() {});
     schemas.put("SLOWidgetDefinition", new GenericType<SLOWidgetDefinition>() {});
     schemas.put("SLOListWidgetDefinition", new GenericType<SLOListWidgetDefinition>() {});
@@ -1758,11 +1707,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
    * HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
    * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   * QueryValueWidgetDefinition, RunWorkflowWidgetDefinition, ScatterPlotWidgetDefinition,
-   * SLOWidgetDefinition, SLOListWidgetDefinition, ServiceMapWidgetDefinition,
-   * ServiceSummaryWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
-   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition,
-   * ListStreamWidgetDefinition, FunnelWidgetDefinition, TopologyMapWidgetDefinition
+   * QueryValueWidgetDefinition, ScatterPlotWidgetDefinition, SLOWidgetDefinition,
+   * SLOListWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
+   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   * ToplistWidgetDefinition, TreeMapWidgetDefinition, ListStreamWidgetDefinition,
+   * FunnelWidgetDefinition, TopologyMapWidgetDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1842,10 +1791,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(RunWorkflowWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
     if (JSON.isInstanceOf(ScatterPlotWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1911,12 +1856,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             + " FreeTextWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,"
             + " HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,"
             + " ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,"
-            + " NoteWidgetDefinition, QueryValueWidgetDefinition, RunWorkflowWidgetDefinition,"
-            + " ScatterPlotWidgetDefinition, SLOWidgetDefinition, SLOListWidgetDefinition,"
-            + " ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,"
-            + " SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,"
-            + " ToplistWidgetDefinition, TreeMapWidgetDefinition, ListStreamWidgetDefinition,"
-            + " FunnelWidgetDefinition, TopologyMapWidgetDefinition");
+            + " NoteWidgetDefinition, QueryValueWidgetDefinition, ScatterPlotWidgetDefinition,"
+            + " SLOWidgetDefinition, SLOListWidgetDefinition, ServiceMapWidgetDefinition,"
+            + " ServiceSummaryWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,"
+            + " TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition,"
+            + " ListStreamWidgetDefinition, FunnelWidgetDefinition, TopologyMapWidgetDefinition");
   }
 
   /**
@@ -1926,12 +1870,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * FreeTextWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,
    * HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
    * ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
-   * NoteWidgetDefinition, QueryValueWidgetDefinition, RunWorkflowWidgetDefinition,
-   * ScatterPlotWidgetDefinition, SLOWidgetDefinition, SLOListWidgetDefinition,
-   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SunburstWidgetDefinition,
-   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
-   * TreeMapWidgetDefinition, ListStreamWidgetDefinition, FunnelWidgetDefinition,
-   * TopologyMapWidgetDefinition
+   * NoteWidgetDefinition, QueryValueWidgetDefinition, ScatterPlotWidgetDefinition,
+   * SLOWidgetDefinition, SLOListWidgetDefinition, ServiceMapWidgetDefinition,
+   * ServiceSummaryWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
+   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition,
+   * ListStreamWidgetDefinition, FunnelWidgetDefinition, TopologyMapWidgetDefinition
    *
    * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    *     ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,
@@ -1939,11 +1882,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    *     GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
    *     HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
    *     LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   *     QueryValueWidgetDefinition, RunWorkflowWidgetDefinition, ScatterPlotWidgetDefinition,
-   *     SLOWidgetDefinition, SLOListWidgetDefinition, ServiceMapWidgetDefinition,
-   *     ServiceSummaryWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
-   *     TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition,
-   *     ListStreamWidgetDefinition, FunnelWidgetDefinition, TopologyMapWidgetDefinition)
+   *     QueryValueWidgetDefinition, ScatterPlotWidgetDefinition, SLOWidgetDefinition,
+   *     SLOListWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
+   *     SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   *     ToplistWidgetDefinition, TreeMapWidgetDefinition, ListStreamWidgetDefinition,
+   *     FunnelWidgetDefinition, TopologyMapWidgetDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -2148,17 +2091,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public QueryValueWidgetDefinition getQueryValueWidgetDefinition() throws ClassCastException {
     return (QueryValueWidgetDefinition) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `RunWorkflowWidgetDefinition`. If the actual instance is not
-   * `RunWorkflowWidgetDefinition`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `RunWorkflowWidgetDefinition`
-   * @throws ClassCastException if the instance is not `RunWorkflowWidgetDefinition`
-   */
-  public RunWorkflowWidgetDefinition getRunWorkflowWidgetDefinition() throws ClassCastException {
-    return (RunWorkflowWidgetDefinition) super.getActualInstance();
   }
 
   /**
