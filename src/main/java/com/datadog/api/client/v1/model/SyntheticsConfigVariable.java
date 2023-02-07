@@ -145,7 +145,8 @@ public class SyntheticsConfigVariable {
   }
 
   /**
-   * Whether the value of this variable will be obfuscated in test results.
+   * Whether the value of this variable will be obfuscated in test results. Only for config
+   * variables of type <code>text</code>.
    *
    * @return secure
    */
