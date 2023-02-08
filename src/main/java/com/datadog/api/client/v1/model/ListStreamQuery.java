@@ -19,6 +19,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ListStreamQuery.JSON_PROPERTY_COMPUTE,
   ListStreamQuery.JSON_PROPERTY_DATA_SOURCE,
+  ListStreamQuery.JSON_PROPERTY_EVENT_SIZE,
   ListStreamQuery.JSON_PROPERTY_GROUP_BY,
   ListStreamQuery.JSON_PROPERTY_INDEXES,
   ListStreamQuery.JSON_PROPERTY_QUERY_STRING,
@@ -33,6 +34,9 @@ public class ListStreamQuery {
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private ListStreamSource dataSource = ListStreamSource.APM_ISSUE_STREAM;
+
+  public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";
+  private WidgetEventSize eventSize;
 
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private List<ListStreamGroupByItems> groupBy = null;
@@ -113,6 +117,31 @@ public class ListStreamQuery {
       this.unparsed = true;
     }
     this.dataSource = dataSource;
+  }
+
+  public ListStreamQuery eventSize(WidgetEventSize eventSize) {
+    this.eventSize = eventSize;
+    this.unparsed |= !eventSize.isValid();
+    return this;
+  }
+
+  /**
+   * Size to use to display an event.
+   *
+   * @return eventSize
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENT_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetEventSize getEventSize() {
+    return eventSize;
+  }
+
+  public void setEventSize(WidgetEventSize eventSize) {
+    if (!eventSize.isValid()) {
+      this.unparsed = true;
+    }
+    this.eventSize = eventSize;
   }
 
   public ListStreamQuery groupBy(List<ListStreamGroupByItems> groupBy) {
@@ -232,6 +261,7 @@ public class ListStreamQuery {
     ListStreamQuery listStreamQuery = (ListStreamQuery) o;
     return Objects.equals(this.compute, listStreamQuery.compute)
         && Objects.equals(this.dataSource, listStreamQuery.dataSource)
+        && Objects.equals(this.eventSize, listStreamQuery.eventSize)
         && Objects.equals(this.groupBy, listStreamQuery.groupBy)
         && Objects.equals(this.indexes, listStreamQuery.indexes)
         && Objects.equals(this.queryString, listStreamQuery.queryString)
@@ -240,7 +270,7 @@ public class ListStreamQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute, dataSource, groupBy, indexes, queryString, storage);
+    return Objects.hash(compute, dataSource, eventSize, groupBy, indexes, queryString, storage);
   }
 
   @Override
@@ -249,6 +279,7 @@ public class ListStreamQuery {
     sb.append("class ListStreamQuery {\n");
     sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
+    sb.append("    eventSize: ").append(toIndentedString(eventSize)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
