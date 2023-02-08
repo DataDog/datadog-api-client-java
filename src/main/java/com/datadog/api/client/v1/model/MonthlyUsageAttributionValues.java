@@ -26,8 +26,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_USAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_CONT_PERCENTAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_CONT_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_EXCL_AGENT_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_EXCL_AGENT_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CSPM_CONTAINERS_PERCENTAGE,
@@ -111,11 +111,13 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_BROWSER_USAGE = "browser_usage";
   private Double browserUsage;
 
-  public static final String JSON_PROPERTY_CONT_PERCENTAGE = "cont_percentage";
-  private Double contPercentage;
+  public static final String JSON_PROPERTY_CONTAINER_EXCL_AGENT_PERCENTAGE =
+      "container_excl_agent_percentage";
+  private Double containerExclAgentPercentage;
 
-  public static final String JSON_PROPERTY_CONT_USAGE = "cont_usage";
-  private Double contUsage;
+  public static final String JSON_PROPERTY_CONTAINER_EXCL_AGENT_USAGE =
+      "container_excl_agent_usage";
+  private Double containerExclAgentUsage;
 
   public static final String JSON_PROPERTY_CONTAINER_PERCENTAGE = "container_percentage";
   private Double containerPercentage;
@@ -508,46 +510,47 @@ public class MonthlyUsageAttributionValues {
     this.browserUsage = browserUsage;
   }
 
-  public MonthlyUsageAttributionValues contPercentage(Double contPercentage) {
-    this.contPercentage = contPercentage;
+  public MonthlyUsageAttributionValues containerExclAgentPercentage(
+      Double containerExclAgentPercentage) {
+    this.containerExclAgentPercentage = containerExclAgentPercentage;
     return this;
   }
 
   /**
    * The percentage of container usage without the Datadog Agent by tag(s).
    *
-   * @return contPercentage
+   * @return containerExclAgentPercentage
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONT_PERCENTAGE)
+  @JsonProperty(JSON_PROPERTY_CONTAINER_EXCL_AGENT_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getContPercentage() {
-    return contPercentage;
+  public Double getContainerExclAgentPercentage() {
+    return containerExclAgentPercentage;
   }
 
-  public void setContPercentage(Double contPercentage) {
-    this.contPercentage = contPercentage;
+  public void setContainerExclAgentPercentage(Double containerExclAgentPercentage) {
+    this.containerExclAgentPercentage = containerExclAgentPercentage;
   }
 
-  public MonthlyUsageAttributionValues contUsage(Double contUsage) {
-    this.contUsage = contUsage;
+  public MonthlyUsageAttributionValues containerExclAgentUsage(Double containerExclAgentUsage) {
+    this.containerExclAgentUsage = containerExclAgentUsage;
     return this;
   }
 
   /**
    * The container usage without the Datadog Agent by tag(s).
    *
-   * @return contUsage
+   * @return containerExclAgentUsage
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONT_USAGE)
+  @JsonProperty(JSON_PROPERTY_CONTAINER_EXCL_AGENT_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getContUsage() {
-    return contUsage;
+  public Double getContainerExclAgentUsage() {
+    return containerExclAgentUsage;
   }
 
-  public void setContUsage(Double contUsage) {
-    this.contUsage = contUsage;
+  public void setContainerExclAgentUsage(Double containerExclAgentUsage) {
+    this.containerExclAgentUsage = containerExclAgentUsage;
   }
 
   public MonthlyUsageAttributionValues containerPercentage(Double containerPercentage) {
@@ -1466,8 +1469,11 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(this.appsecUsage, monthlyUsageAttributionValues.appsecUsage)
         && Objects.equals(this.browserPercentage, monthlyUsageAttributionValues.browserPercentage)
         && Objects.equals(this.browserUsage, monthlyUsageAttributionValues.browserUsage)
-        && Objects.equals(this.contPercentage, monthlyUsageAttributionValues.contPercentage)
-        && Objects.equals(this.contUsage, monthlyUsageAttributionValues.contUsage)
+        && Objects.equals(
+            this.containerExclAgentPercentage,
+            monthlyUsageAttributionValues.containerExclAgentPercentage)
+        && Objects.equals(
+            this.containerExclAgentUsage, monthlyUsageAttributionValues.containerExclAgentUsage)
         && Objects.equals(
             this.containerPercentage, monthlyUsageAttributionValues.containerPercentage)
         && Objects.equals(this.containerUsage, monthlyUsageAttributionValues.containerUsage)
@@ -1561,8 +1567,8 @@ public class MonthlyUsageAttributionValues {
         appsecUsage,
         browserPercentage,
         browserUsage,
-        contPercentage,
-        contUsage,
+        containerExclAgentPercentage,
+        containerExclAgentUsage,
         containerPercentage,
         containerUsage,
         cspmContainersPercentage,
@@ -1627,8 +1633,12 @@ public class MonthlyUsageAttributionValues {
     sb.append("    appsecUsage: ").append(toIndentedString(appsecUsage)).append("\n");
     sb.append("    browserPercentage: ").append(toIndentedString(browserPercentage)).append("\n");
     sb.append("    browserUsage: ").append(toIndentedString(browserUsage)).append("\n");
-    sb.append("    contPercentage: ").append(toIndentedString(contPercentage)).append("\n");
-    sb.append("    contUsage: ").append(toIndentedString(contUsage)).append("\n");
+    sb.append("    containerExclAgentPercentage: ")
+        .append(toIndentedString(containerExclAgentPercentage))
+        .append("\n");
+    sb.append("    containerExclAgentUsage: ")
+        .append(toIndentedString(containerExclAgentUsage))
+        .append("\n");
     sb.append("    containerPercentage: ")
         .append(toIndentedString(containerPercentage))
         .append("\n");
