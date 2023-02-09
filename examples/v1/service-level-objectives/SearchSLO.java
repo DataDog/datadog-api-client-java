@@ -9,7 +9,7 @@ import com.datadog.api.client.v1.model.SearchSLOResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v1.searchSlo", true);
+    defaultClient.setUnstableOperationEnabled("v1.searchSLO", true);
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
 
     // there is a valid "slo" in the system
