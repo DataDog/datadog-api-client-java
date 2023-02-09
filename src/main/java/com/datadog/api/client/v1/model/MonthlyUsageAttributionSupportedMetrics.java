@@ -50,10 +50,6 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("browser_usage");
   public static final MonthlyUsageAttributionSupportedMetrics BROWSER_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("browser_percentage");
-  public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_EXCL_AGENT_USAGE =
-      new MonthlyUsageAttributionSupportedMetrics("container_excl_agent_usage");
-  public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_EXCL_AGENT_PERCENTAGE =
-      new MonthlyUsageAttributionSupportedMetrics("container_excl_agent_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("container_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_PERCENTAGE =
@@ -138,6 +134,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("estimated_rum_sessions_usage");
   public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_RUM_SESSIONS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("estimated_rum_sessions_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CONT_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cont_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics CONT_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cont_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics ALL =
       new MonthlyUsageAttributionSupportedMetrics("*");
 
@@ -156,8 +156,6 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "appsec_percentage",
               "browser_usage",
               "browser_percentage",
-              "container_excl_agent_usage",
-              "container_excl_agent_percentage",
               "container_usage",
               "container_percentage",
               "cspm_containers_percentage",
@@ -200,6 +198,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "snmp_percentage",
               "estimated_rum_sessions_usage",
               "estimated_rum_sessions_percentage",
+              "cont_usage",
+              "cont_percentage",
               "*"));
 
   private String value;

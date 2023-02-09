@@ -31,7 +31,6 @@ public class ListStreamSource {
       new ListStreamSource("logs_pattern_stream");
   public static final ListStreamSource LOGS_TRANSACTION_STREAM =
       new ListStreamSource("logs_transaction_stream");
-  public static final ListStreamSource EVENT_STREAM = new ListStreamSource("event_stream");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -41,8 +40,7 @@ public class ListStreamSource {
               "rum_issue_stream",
               "apm_issue_stream",
               "logs_pattern_stream",
-              "logs_transaction_stream",
-              "event_stream"));
+              "logs_transaction_stream"));
 
   private String value;
 

@@ -23,7 +23,6 @@ import java.util.Objects;
   CostByOrgAttributes.JSON_PROPERTY_DATE,
   CostByOrgAttributes.JSON_PROPERTY_ORG_NAME,
   CostByOrgAttributes.JSON_PROPERTY_PUBLIC_ID,
-  CostByOrgAttributes.JSON_PROPERTY_REGION,
   CostByOrgAttributes.JSON_PROPERTY_TOTAL_COST
 })
 @jakarta.annotation.Generated(
@@ -43,9 +42,6 @@ public class CostByOrgAttributes {
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
-
-  public static final String JSON_PROPERTY_REGION = "region";
-  private String region;
 
   public static final String JSON_PROPERTY_TOTAL_COST = "total_cost";
   private Double totalCost;
@@ -146,27 +142,6 @@ public class CostByOrgAttributes {
     this.publicId = publicId;
   }
 
-  public CostByOrgAttributes region(String region) {
-    this.region = region;
-    return this;
-  }
-
-  /**
-   * The region of the Datadog instance that the organization belongs to.
-   *
-   * @return region
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REGION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRegion() {
-    return region;
-  }
-
-  public void setRegion(String region) {
-    this.region = region;
-  }
-
   public CostByOrgAttributes totalCost(Double totalCost) {
     this.totalCost = totalCost;
     return this;
@@ -202,13 +177,12 @@ public class CostByOrgAttributes {
         && Objects.equals(this.date, costByOrgAttributes.date)
         && Objects.equals(this.orgName, costByOrgAttributes.orgName)
         && Objects.equals(this.publicId, costByOrgAttributes.publicId)
-        && Objects.equals(this.region, costByOrgAttributes.region)
         && Objects.equals(this.totalCost, costByOrgAttributes.totalCost);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(charges, date, orgName, publicId, region, totalCost);
+    return Objects.hash(charges, date, orgName, publicId, totalCost);
   }
 
   @Override
@@ -219,7 +193,6 @@ public class CostByOrgAttributes {
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
-    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    totalCost: ").append(toIndentedString(totalCost)).append("\n");
     sb.append("}");
     return sb.toString();
