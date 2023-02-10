@@ -897,7 +897,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The percentage of estimated live indexed logs usage by tag(s). This field is in private beta.
+   * The percentage of estimated live indexed logs usage by tag(s).
    *
    * @return estimatedIndexedLogsPercentage
    */
@@ -918,7 +918,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The estimated live indexed logs usage by tag(s). This field is in private beta.
+   * The estimated live indexed logs usage by tag(s).
    *
    * @return estimatedIndexedLogsUsage
    */
@@ -940,7 +940,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The percentage of estimated indexed spans usage by tag(s). This field is in private beta.
+   * The percentage of estimated indexed spans usage by tag(s).
    *
    * @return estimatedIndexedSpansPercentage
    */
@@ -962,7 +962,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The estimated indexed spans usage by tag(s). This field is in private beta.
+   * The estimated indexed spans usage by tag(s).
    *
    * @return estimatedIndexedSpansUsage
    */
@@ -984,7 +984,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The percentage of estimated live ingested logs usage by tag(s). This field is in private beta.
+   * The percentage of estimated live ingested logs usage by tag(s).
    *
    * @return estimatedIngestedLogsPercentage
    */
@@ -1006,7 +1006,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The estimated live ingested logs usage by tag(s). This field is in private beta.
+   * The estimated live ingested logs usage by tag(s).
    *
    * @return estimatedIngestedLogsUsage
    */
@@ -1028,7 +1028,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The percentage of estimated ingested spans usage by tag(s). This field is in private beta.
+   * The percentage of estimated ingested spans usage by tag(s).
    *
    * @return estimatedIngestedSpansPercentage
    */
@@ -1050,7 +1050,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The estimated ingested spans usage by tag(s). This field is in private beta.
+   * The estimated ingested spans usage by tag(s).
    *
    * @return estimatedIngestedSpansUsage
    */
@@ -1072,7 +1072,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The percentage of estimated rum sessions usage by tag(s). This field is in private beta.
+   * The percentage of estimated rum sessions usage by tag(s).
    *
    * @return estimatedRumSessionsPercentage
    */
@@ -1093,7 +1093,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The estimated rum sessions usage by tag(s). This field is in private beta.
+   * The estimated rum sessions usage by tag(s).
    *
    * @return estimatedRumSessionsUsage
    */
