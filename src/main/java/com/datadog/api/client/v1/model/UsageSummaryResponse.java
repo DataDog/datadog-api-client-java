@@ -42,6 +42,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P_SUM,
@@ -181,6 +182,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM_SUM =
       "ci_visibility_test_committers_hwm_sum";
   private Long ciVisibilityTestCommittersHwmSum;
+
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG_SUM =
+      "cloud_cost_management_host_count_avg_sum";
+  private Long cloudCostManagementHostCountAvgSum;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG_SUM = "container_avg_sum";
   private Long containerAvgSum;
@@ -849,6 +854,28 @@ public class UsageSummaryResponse {
 
   public void setCiVisibilityTestCommittersHwmSum(Long ciVisibilityTestCommittersHwmSum) {
     this.ciVisibilityTestCommittersHwmSum = ciVisibilityTestCommittersHwmSum;
+  }
+
+  public UsageSummaryResponse cloudCostManagementHostCountAvgSum(
+      Long cloudCostManagementHostCountAvgSum) {
+    this.cloudCostManagementHostCountAvgSum = cloudCostManagementHostCountAvgSum;
+    return this;
+  }
+
+  /**
+   * Sum of the host count average for Cloud Cost Management.
+   *
+   * @return cloudCostManagementHostCountAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCloudCostManagementHostCountAvgSum() {
+    return cloudCostManagementHostCountAvgSum;
+  }
+
+  public void setCloudCostManagementHostCountAvgSum(Long cloudCostManagementHostCountAvgSum) {
+    this.cloudCostManagementHostCountAvgSum = cloudCostManagementHostCountAvgSum;
   }
 
   public UsageSummaryResponse containerAvgSum(Long containerAvgSum) {
@@ -2287,6 +2314,9 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.ciVisibilityTestCommittersHwmSum,
             usageSummaryResponse.ciVisibilityTestCommittersHwmSum)
+        && Objects.equals(
+            this.cloudCostManagementHostCountAvgSum,
+            usageSummaryResponse.cloudCostManagementHostCountAvgSum)
         && Objects.equals(this.containerAvgSum, usageSummaryResponse.containerAvgSum)
         && Objects.equals(this.containerHwmSum, usageSummaryResponse.containerHwmSum)
         && Objects.equals(this.cspmAasHostTop99pSum, usageSummaryResponse.cspmAasHostTop99pSum)
@@ -2418,6 +2448,7 @@ public class UsageSummaryResponse {
         ciTestIndexedSpansAggSum,
         ciVisibilityPipelineCommittersHwmSum,
         ciVisibilityTestCommittersHwmSum,
+        cloudCostManagementHostCountAvgSum,
         containerAvgSum,
         containerHwmSum,
         cspmAasHostTop99pSum,
@@ -2535,6 +2566,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    ciVisibilityTestCommittersHwmSum: ")
         .append(toIndentedString(ciVisibilityTestCommittersHwmSum))
+        .append("\n");
+    sb.append("    cloudCostManagementHostCountAvgSum: ")
+        .append(toIndentedString(cloudCostManagementHostCountAvgSum))
         .append("\n");
     sb.append("    containerAvgSum: ").append(toIndentedString(containerAvgSum)).append("\n");
     sb.append("    containerHwmSum: ").append(toIndentedString(containerHwmSum)).append("\n");
