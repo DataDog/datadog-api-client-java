@@ -35,6 +35,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_AWS_HOST_TOP99P,
@@ -168,6 +169,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
+
+  public static final String JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG = "container_excl_agent_avg";
+  private Long containerExclAgentAvg;
 
   public static final String JSON_PROPERTY_CONTAINER_HWM = "container_hwm";
   private Long containerHwm;
@@ -811,6 +815,28 @@ public class UsageSummaryDateOrg {
 
   public void setContainerAvg(Long containerAvg) {
     this.containerAvg = containerAvg;
+  }
+
+  public UsageSummaryDateOrg containerExclAgentAvg(Long containerExclAgentAvg) {
+    this.containerExclAgentAvg = containerExclAgentAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of containers without the Datadog Agent over all hours in the current date
+   * for the given organization.
+   *
+   * @return containerExclAgentAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getContainerExclAgentAvg() {
+    return containerExclAgentAvg;
+  }
+
+  public void setContainerExclAgentAvg(Long containerExclAgentAvg) {
+    this.containerExclAgentAvg = containerExclAgentAvg;
   }
 
   public UsageSummaryDateOrg containerHwm(Long containerHwm) {
@@ -2061,6 +2087,7 @@ public class UsageSummaryDateOrg {
             this.cloudCostManagementHostCountAvg,
             usageSummaryDateOrg.cloudCostManagementHostCountAvg)
         && Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg)
+        && Objects.equals(this.containerExclAgentAvg, usageSummaryDateOrg.containerExclAgentAvg)
         && Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm)
         && Objects.equals(this.cspmAasHostTop99p, usageSummaryDateOrg.cspmAasHostTop99p)
         && Objects.equals(this.cspmAwsHostTop99p, usageSummaryDateOrg.cspmAwsHostTop99p)
@@ -2167,6 +2194,7 @@ public class UsageSummaryDateOrg {
         ciVisibilityTestCommittersHwm,
         cloudCostManagementHostCountAvg,
         containerAvg,
+        containerExclAgentAvg,
         containerHwm,
         cspmAasHostTop99p,
         cspmAwsHostTop99p,
@@ -2277,6 +2305,9 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(cloudCostManagementHostCountAvg))
         .append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
+    sb.append("    containerExclAgentAvg: ")
+        .append(toIndentedString(containerExclAgentAvg))
+        .append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
     sb.append("    cspmAasHostTop99p: ").append(toIndentedString(cspmAasHostTop99p)).append("\n");
     sb.append("    cspmAwsHostTop99p: ").append(toIndentedString(cspmAwsHostTop99p)).append("\n");
