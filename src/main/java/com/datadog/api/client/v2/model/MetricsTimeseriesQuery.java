@@ -51,7 +51,7 @@ public class MetricsTimeseriesQuery {
   }
 
   /**
-   * A data source that is powered by the Metrics backend.
+   * A data source that is powered by the Metrics platform.
    *
    * @return dataSource
    */
