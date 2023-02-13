@@ -19,13 +19,15 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** A data source that is powered by the Metrics backend. */
+/** A data source that is powered by the Metrics platform. */
 @JsonSerialize(using = MetricsDataSource.MetricsDataSourceSerializer.class)
 public class MetricsDataSource {
 
   public static final MetricsDataSource METRICS = new MetricsDataSource("metrics");
+  public static final MetricsDataSource CLOUD_COST = new MetricsDataSource("cloud_cost");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("metrics"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("metrics", "cloud_cost"));
 
   private String value;
 
