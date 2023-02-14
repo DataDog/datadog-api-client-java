@@ -13,24 +13,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Overall status of the SLO by timeframes. */
+/** Status of the SLO's primary timeframe. */
 @JsonPropertyOrder({
-  SLOOverallStatuses.JSON_PROPERTY_ERROR,
-  SLOOverallStatuses.JSON_PROPERTY_ERROR_BUDGET_REMAINING,
-  SLOOverallStatuses.JSON_PROPERTY_INDEXED_AT,
-  SLOOverallStatuses.JSON_PROPERTY_RAW_ERROR_BUDGET_REMAINING,
-  SLOOverallStatuses.JSON_PROPERTY_SPAN_PRECISION,
-  SLOOverallStatuses.JSON_PROPERTY_STATE,
-  SLOOverallStatuses.JSON_PROPERTY_STATUS,
-  SLOOverallStatuses.JSON_PROPERTY_TARGET,
-  SLOOverallStatuses.JSON_PROPERTY_TIMEFRAME
+  SLOStatus.JSON_PROPERTY_CALCULATION_ERROR,
+  SLOStatus.JSON_PROPERTY_ERROR_BUDGET_REMAINING,
+  SLOStatus.JSON_PROPERTY_INDEXED_AT,
+  SLOStatus.JSON_PROPERTY_RAW_ERROR_BUDGET_REMAINING,
+  SLOStatus.JSON_PROPERTY_SLI,
+  SLOStatus.JSON_PROPERTY_SPAN_PRECISION,
+  SLOStatus.JSON_PROPERTY_STATE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SLOOverallStatuses {
+public class SLOStatus {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ERROR = "error";
-  private JsonNullable<String> error = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_CALCULATION_ERROR = "calculation_error";
+  private JsonNullable<String> calculationError = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ERROR_BUDGET_REMAINING = "error_budget_remaining";
   private JsonNullable<Double> errorBudgetRemaining = JsonNullable.<Double>undefined();
@@ -43,53 +41,47 @@ public class SLOOverallStatuses {
   private JsonNullable<SLORawErrorBudgetRemaining> rawErrorBudgetRemaining =
       JsonNullable.<SLORawErrorBudgetRemaining>undefined();
 
+  public static final String JSON_PROPERTY_SLI = "sli";
+  private JsonNullable<Double> sli = JsonNullable.<Double>undefined();
+
   public static final String JSON_PROPERTY_SPAN_PRECISION = "span_precision";
   private JsonNullable<Long> spanPrecision = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_STATE = "state";
   private SLOState state;
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private JsonNullable<Double> status = JsonNullable.<Double>undefined();
-
-  public static final String JSON_PROPERTY_TARGET = "target";
-  private Double target;
-
-  public static final String JSON_PROPERTY_TIMEFRAME = "timeframe";
-  private SLOTimeframe timeframe;
-
-  public SLOOverallStatuses error(String error) {
-    this.error = JsonNullable.<String>of(error);
+  public SLOStatus calculationError(String calculationError) {
+    this.calculationError = JsonNullable.<String>of(calculationError);
     return this;
   }
 
   /**
    * Error message if SLO status or error budget could not be calculated.
    *
-   * @return error
+   * @return calculationError
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
-  public String getError() {
-    return error.orElse(null);
+  public String getCalculationError() {
+    return calculationError.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonProperty(JSON_PROPERTY_CALCULATION_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getError_JsonNullable() {
-    return error;
+  public JsonNullable<String> getCalculationError_JsonNullable() {
+    return calculationError;
   }
 
-  @JsonProperty(JSON_PROPERTY_ERROR)
-  public void setError_JsonNullable(JsonNullable<String> error) {
-    this.error = error;
+  @JsonProperty(JSON_PROPERTY_CALCULATION_ERROR)
+  public void setCalculationError_JsonNullable(JsonNullable<String> calculationError) {
+    this.calculationError = calculationError;
   }
 
-  public void setError(String error) {
-    this.error = JsonNullable.<String>of(error);
+  public void setCalculationError(String calculationError) {
+    this.calculationError = JsonNullable.<String>of(calculationError);
   }
 
-  public SLOOverallStatuses errorBudgetRemaining(Double errorBudgetRemaining) {
+  public SLOStatus errorBudgetRemaining(Double errorBudgetRemaining) {
     this.errorBudgetRemaining = JsonNullable.<Double>of(errorBudgetRemaining);
     return this;
   }
@@ -120,7 +112,7 @@ public class SLOOverallStatuses {
     this.errorBudgetRemaining = JsonNullable.<Double>of(errorBudgetRemaining);
   }
 
-  public SLOOverallStatuses indexedAt(Long indexedAt) {
+  public SLOStatus indexedAt(Long indexedAt) {
     this.indexedAt = indexedAt;
     return this;
   }
@@ -141,8 +133,7 @@ public class SLOOverallStatuses {
     this.indexedAt = indexedAt;
   }
 
-  public SLOOverallStatuses rawErrorBudgetRemaining(
-      SLORawErrorBudgetRemaining rawErrorBudgetRemaining) {
+  public SLOStatus rawErrorBudgetRemaining(SLORawErrorBudgetRemaining rawErrorBudgetRemaining) {
     this.rawErrorBudgetRemaining =
         JsonNullable.<SLORawErrorBudgetRemaining>of(rawErrorBudgetRemaining);
     return this;
@@ -176,13 +167,45 @@ public class SLOOverallStatuses {
         JsonNullable.<SLORawErrorBudgetRemaining>of(rawErrorBudgetRemaining);
   }
 
-  public SLOOverallStatuses spanPrecision(Long spanPrecision) {
+  public SLOStatus sli(Double sli) {
+    this.sli = JsonNullable.<Double>of(sli);
+    return this;
+  }
+
+  /**
+   * The current service level indicator (SLI) of the SLO, also known as 'status'. This is a
+   * percentage value from 0-100 (inclusive).
+   *
+   * @return sli
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getSli() {
+    return sli.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SLI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getSli_JsonNullable() {
+    return sli;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SLI)
+  public void setSli_JsonNullable(JsonNullable<Double> sli) {
+    this.sli = sli;
+  }
+
+  public void setSli(Double sli) {
+    this.sli = JsonNullable.<Double>of(sli);
+  }
+
+  public SLOStatus spanPrecision(Long spanPrecision) {
     this.spanPrecision = JsonNullable.<Long>of(spanPrecision);
     return this;
   }
 
   /**
-   * The amount of decimal places the SLI value is accurate to.
+   * The number of decimal places the SLI value is accurate to.
    *
    * @return spanPrecision
    */
@@ -207,7 +230,7 @@ public class SLOOverallStatuses {
     this.spanPrecision = JsonNullable.<Long>of(spanPrecision);
   }
 
-  public SLOOverallStatuses state(SLOState state) {
+  public SLOStatus state(SLOState state) {
     this.state = state;
     this.unparsed |= !state.isValid();
     return this;
@@ -232,84 +255,7 @@ public class SLOOverallStatuses {
     this.state = state;
   }
 
-  public SLOOverallStatuses status(Double status) {
-    this.status = JsonNullable.<Double>of(status);
-    return this;
-  }
-
-  /**
-   * The status of the SLO.
-   *
-   * @return status
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Double getStatus() {
-    return status.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Double> getStatus_JsonNullable() {
-    return status;
-  }
-
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  public void setStatus_JsonNullable(JsonNullable<Double> status) {
-    this.status = status;
-  }
-
-  public void setStatus(Double status) {
-    this.status = JsonNullable.<Double>of(status);
-  }
-
-  public SLOOverallStatuses target(Double target) {
-    this.target = target;
-    return this;
-  }
-
-  /**
-   * The target of the SLO.
-   *
-   * @return target
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getTarget() {
-    return target;
-  }
-
-  public void setTarget(Double target) {
-    this.target = target;
-  }
-
-  public SLOOverallStatuses timeframe(SLOTimeframe timeframe) {
-    this.timeframe = timeframe;
-    this.unparsed |= !timeframe.isValid();
-    return this;
-  }
-
-  /**
-   * The SLO time window options.
-   *
-   * @return timeframe
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMEFRAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SLOTimeframe getTimeframe() {
-    return timeframe;
-  }
-
-  public void setTimeframe(SLOTimeframe timeframe) {
-    if (!timeframe.isValid()) {
-      this.unparsed = true;
-    }
-    this.timeframe = timeframe;
-  }
-
-  /** Return true if this SLOOverallStatuses object is equal to o. */
+  /** Return true if this SLOStatus object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -318,37 +264,33 @@ public class SLOOverallStatuses {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOOverallStatuses sloOverallStatuses = (SLOOverallStatuses) o;
-    return Objects.equals(this.error, sloOverallStatuses.error)
-        && Objects.equals(this.errorBudgetRemaining, sloOverallStatuses.errorBudgetRemaining)
-        && Objects.equals(this.indexedAt, sloOverallStatuses.indexedAt)
-        && Objects.equals(this.rawErrorBudgetRemaining, sloOverallStatuses.rawErrorBudgetRemaining)
-        && Objects.equals(this.spanPrecision, sloOverallStatuses.spanPrecision)
-        && Objects.equals(this.state, sloOverallStatuses.state)
-        && Objects.equals(this.status, sloOverallStatuses.status)
-        && Objects.equals(this.target, sloOverallStatuses.target)
-        && Objects.equals(this.timeframe, sloOverallStatuses.timeframe);
+    SLOStatus sloStatus = (SLOStatus) o;
+    return Objects.equals(this.calculationError, sloStatus.calculationError)
+        && Objects.equals(this.errorBudgetRemaining, sloStatus.errorBudgetRemaining)
+        && Objects.equals(this.indexedAt, sloStatus.indexedAt)
+        && Objects.equals(this.rawErrorBudgetRemaining, sloStatus.rawErrorBudgetRemaining)
+        && Objects.equals(this.sli, sloStatus.sli)
+        && Objects.equals(this.spanPrecision, sloStatus.spanPrecision)
+        && Objects.equals(this.state, sloStatus.state);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        error,
+        calculationError,
         errorBudgetRemaining,
         indexedAt,
         rawErrorBudgetRemaining,
+        sli,
         spanPrecision,
-        state,
-        status,
-        target,
-        timeframe);
+        state);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SLOOverallStatuses {\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("class SLOStatus {\n");
+    sb.append("    calculationError: ").append(toIndentedString(calculationError)).append("\n");
     sb.append("    errorBudgetRemaining: ")
         .append(toIndentedString(errorBudgetRemaining))
         .append("\n");
@@ -356,11 +298,9 @@ public class SLOOverallStatuses {
     sb.append("    rawErrorBudgetRemaining: ")
         .append(toIndentedString(rawErrorBudgetRemaining))
         .append("\n");
+    sb.append("    sli: ").append(toIndentedString(sli)).append("\n");
     sb.append("    spanPrecision: ").append(toIndentedString(spanPrecision)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    target: ").append(toIndentedString(target)).append("\n");
-    sb.append("    timeframe: ").append(toIndentedString(timeframe)).append("\n");
     sb.append("}");
     return sb.toString();
   }

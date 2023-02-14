@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SearchServiceLevelObjectiveAttributes.JSON_PROPERTY_QUERY,
   SearchServiceLevelObjectiveAttributes.JSON_PROPERTY_SERVICE_TAGS,
   SearchServiceLevelObjectiveAttributes.JSON_PROPERTY_SLO_TYPE,
+  SearchServiceLevelObjectiveAttributes.JSON_PROPERTY_STATUS,
   SearchServiceLevelObjectiveAttributes.JSON_PROPERTY_TEAM_TAGS,
   SearchServiceLevelObjectiveAttributes.JSON_PROPERTY_THRESHOLDS
 })
@@ -78,6 +79,9 @@ public class SearchServiceLevelObjectiveAttributes {
 
   public static final String JSON_PROPERTY_SLO_TYPE = "slo_type";
   private SLOType sloType;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private SLOStatus status;
 
   public static final String JSON_PROPERTY_TEAM_TAGS = "team_tags";
   private List<String> teamTags = null;
@@ -467,6 +471,28 @@ public class SearchServiceLevelObjectiveAttributes {
     this.sloType = sloType;
   }
 
+  public SearchServiceLevelObjectiveAttributes status(SLOStatus status) {
+    this.status = status;
+    this.unparsed |= status.unparsed;
+    return this;
+  }
+
+  /**
+   * Status of the SLO's primary timeframe.
+   *
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(SLOStatus status) {
+    this.status = status;
+  }
+
   public SearchServiceLevelObjectiveAttributes teamTags(List<String> teamTags) {
     this.teamTags = teamTags;
     return this;
@@ -554,6 +580,7 @@ public class SearchServiceLevelObjectiveAttributes {
         && Objects.equals(this.query, searchServiceLevelObjectiveAttributes.query)
         && Objects.equals(this.serviceTags, searchServiceLevelObjectiveAttributes.serviceTags)
         && Objects.equals(this.sloType, searchServiceLevelObjectiveAttributes.sloType)
+        && Objects.equals(this.status, searchServiceLevelObjectiveAttributes.status)
         && Objects.equals(this.teamTags, searchServiceLevelObjectiveAttributes.teamTags)
         && Objects.equals(this.thresholds, searchServiceLevelObjectiveAttributes.thresholds);
   }
@@ -574,6 +601,7 @@ public class SearchServiceLevelObjectiveAttributes {
         query,
         serviceTags,
         sloType,
+        status,
         teamTags,
         thresholds);
   }
@@ -595,6 +623,7 @@ public class SearchServiceLevelObjectiveAttributes {
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    serviceTags: ").append(toIndentedString(serviceTags)).append("\n");
     sb.append("    sloType: ").append(toIndentedString(sloType)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    teamTags: ").append(toIndentedString(teamTags)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
     sb.append("}");

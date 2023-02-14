@@ -428,7 +428,6 @@ public class ApiClient {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
-          put("v1.searchSLO", false);
           put("v2.listEvents", false);
           put("v2.searchEvents", false);
           put("v2.createIncident", false);
