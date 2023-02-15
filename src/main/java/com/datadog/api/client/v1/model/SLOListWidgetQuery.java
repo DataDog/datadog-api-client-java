@@ -11,12 +11,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /** Updated SLO List widget. */
 @JsonPropertyOrder({
   SLOListWidgetQuery.JSON_PROPERTY_LIMIT,
-  SLOListWidgetQuery.JSON_PROPERTY_QUERY_STRING
+  SLOListWidgetQuery.JSON_PROPERTY_QUERY_STRING,
+  SLOListWidgetQuery.JSON_PROPERTY_SORT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -27,6 +30,9 @@ public class SLOListWidgetQuery {
 
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString;
+
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private List<WidgetFieldSort> sort = null;
 
   public SLOListWidgetQuery() {}
 
@@ -77,6 +83,39 @@ public class SLOListWidgetQuery {
     this.queryString = queryString;
   }
 
+  public SLOListWidgetQuery sort(List<WidgetFieldSort> sort) {
+    this.sort = sort;
+    for (WidgetFieldSort item : sort) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SLOListWidgetQuery addSortItem(WidgetFieldSort sortItem) {
+    if (this.sort == null) {
+      this.sort = new ArrayList<>();
+    }
+    this.sort.add(sortItem);
+    this.unparsed |= sortItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Options for sorting results.
+   *
+   * @return sort
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetFieldSort> getSort() {
+    return sort;
+  }
+
+  public void setSort(List<WidgetFieldSort> sort) {
+    this.sort = sort;
+  }
+
   /** Return true if this SLOListWidgetQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -88,12 +127,13 @@ public class SLOListWidgetQuery {
     }
     SLOListWidgetQuery sloListWidgetQuery = (SLOListWidgetQuery) o;
     return Objects.equals(this.limit, sloListWidgetQuery.limit)
-        && Objects.equals(this.queryString, sloListWidgetQuery.queryString);
+        && Objects.equals(this.queryString, sloListWidgetQuery.queryString)
+        && Objects.equals(this.sort, sloListWidgetQuery.sort);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, queryString);
+    return Objects.hash(limit, queryString, sort);
   }
 
   @Override
@@ -102,6 +142,7 @@ public class SLOListWidgetQuery {
     sb.append("class SLOListWidgetQuery {\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("}");
     return sb.toString();
   }
