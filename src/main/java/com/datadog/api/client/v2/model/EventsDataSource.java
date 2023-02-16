@@ -24,8 +24,10 @@ import java.util.Set;
 public class EventsDataSource {
 
   public static final EventsDataSource LOGS = new EventsDataSource("logs");
+  public static final EventsDataSource RUM = new EventsDataSource("rum");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("logs"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("logs", "rum"));
 
   private String value;
 

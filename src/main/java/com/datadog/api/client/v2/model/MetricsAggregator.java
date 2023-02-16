@@ -28,9 +28,15 @@ public class MetricsAggregator {
   public static final MetricsAggregator MAX = new MetricsAggregator("max");
   public static final MetricsAggregator SUM = new MetricsAggregator("sum");
   public static final MetricsAggregator LAST = new MetricsAggregator("last");
+  public static final MetricsAggregator PERCENTILE = new MetricsAggregator("percentile");
+  public static final MetricsAggregator MEAN = new MetricsAggregator("mean");
+  public static final MetricsAggregator L2NORM = new MetricsAggregator("l2norm");
+  public static final MetricsAggregator AREA = new MetricsAggregator("area");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("avg", "min", "max", "sum", "last"));
+      new HashSet<String>(
+          Arrays.asList(
+              "avg", "min", "max", "sum", "last", "percentile", "mean", "l2norm", "area"));
 
   private String value;
 
