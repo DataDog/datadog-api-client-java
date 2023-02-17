@@ -67,6 +67,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_IOT_DEVICE_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM,
+  UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
@@ -258,6 +259,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM =
       "mobile_rum_session_count_android_sum";
   private Long mobileRumSessionCountAndroidSum;
+
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM =
+      "mobile_rum_session_count_flutter_sum";
+  private Long mobileRumSessionCountFlutterSum;
 
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM =
       "mobile_rum_session_count_ios_sum";
@@ -1412,6 +1417,28 @@ public class UsageSummaryDate {
     this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
   }
 
+  public UsageSummaryDate mobileRumSessionCountFlutterSum(Long mobileRumSessionCountFlutterSum) {
+    this.mobileRumSessionCountFlutterSum = mobileRumSessionCountFlutterSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM Sessions on Flutter over all hours in the current date for all
+   * organizations.
+   *
+   * @return mobileRumSessionCountFlutterSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMobileRumSessionCountFlutterSum() {
+    return mobileRumSessionCountFlutterSum;
+  }
+
+  public void setMobileRumSessionCountFlutterSum(Long mobileRumSessionCountFlutterSum) {
+    this.mobileRumSessionCountFlutterSum = mobileRumSessionCountFlutterSum;
+  }
+
   public UsageSummaryDate mobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
     this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
     return this;
@@ -2091,6 +2118,8 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.mobileRumSessionCountAndroidSum, usageSummaryDate.mobileRumSessionCountAndroidSum)
         && Objects.equals(
+            this.mobileRumSessionCountFlutterSum, usageSummaryDate.mobileRumSessionCountFlutterSum)
+        && Objects.equals(
             this.mobileRumSessionCountIosSum, usageSummaryDate.mobileRumSessionCountIosSum)
         && Objects.equals(
             this.mobileRumSessionCountReactnativeSum,
@@ -2187,6 +2216,7 @@ public class UsageSummaryDate {
         iotDeviceTop99p,
         mobileRumLiteSessionCountSum,
         mobileRumSessionCountAndroidSum,
+        mobileRumSessionCountFlutterSum,
         mobileRumSessionCountIosSum,
         mobileRumSessionCountReactnativeSum,
         mobileRumSessionCountSum,
@@ -2315,6 +2345,9 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    mobileRumSessionCountAndroidSum: ")
         .append(toIndentedString(mobileRumSessionCountAndroidSum))
+        .append("\n");
+    sb.append("    mobileRumSessionCountFlutterSum: ")
+        .append(toIndentedString(mobileRumSessionCountFlutterSum))
         .append("\n");
     sb.append("    mobileRumSessionCountIosSum: ")
         .append(toIndentedString(mobileRumSessionCountIosSum))
