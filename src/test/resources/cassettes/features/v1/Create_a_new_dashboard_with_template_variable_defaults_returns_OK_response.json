@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":[],\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":[{\"prefix\":\"host\",\"defaults\":[\"my-host\"],\"available_values\":[\"my-host\",\"host1\",\"host2\"],\"name\":\"host1\"}],\"is_read_only\":false,\"id\":\"39h-cn5-kyd\",\"title\":\"\",\"url\":\"/dashboard/39h-cn5-kyd/\",\"created_at\":\"2022-09-12T20:05:49.753763+00:00\",\"modified_at\":\"2022-09-12T20:05:49.753763+00:00\",\"reflow_type\":\"auto\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"},\"id\":4911408545233424}],\"layout_type\":\"ordered\"}\n",
+      "body": "{\"id\":\"h5n-j24-t82\",\"title\":\"\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/h5n-j24-t82/\",\"is_read_only\":false,\"template_variables\":[{\"available_values\":[\"my-host\",\"host1\",\"host2\"],\"defaults\":[\"my-host\"],\"name\":\"host1\",\"prefix\":\"host\"}],\"widgets\":[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"},\"id\":355816329429238}],\"notify_list\":[],\"created_at\":\"2023-02-16T21:39:58.588908+00:00\",\"modified_at\":\"2023-02-16T21:39:58.588908+00:00\",\"reflow_type\":\"auto\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -33,12 +33,12 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/39h-cn5-kyd",
+      "path": "/api/v1/dashboard/h5n-j24-t82",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"39h-cn5-kyd\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"h5n-j24-t82\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "589d25a8-18d1-f9ae-097d-e8af0e381784"
+    "id": "f882ba6e-8469-1c7a-bded-91c6659f9ce3"
   }
 ]
