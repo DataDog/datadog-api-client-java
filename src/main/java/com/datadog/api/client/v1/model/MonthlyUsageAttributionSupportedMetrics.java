@@ -126,6 +126,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("profiled_container_usage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_CONTAINER_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("profiled_container_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics PROFILED_FARGATE_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("profiled_fargate_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics PROFILED_FARGATE_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("profiled_fargate_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_HOST_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("profiled_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_HOST_PERCENTAGE =
@@ -194,6 +198,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "npm_host_percentage",
               "profiled_container_usage",
               "profiled_container_percentage",
+              "profiled_fargate_usage",
+              "profiled_fargate_percentage",
               "profiled_host_usage",
               "profiled_host_percentage",
               "snmp_usage",
