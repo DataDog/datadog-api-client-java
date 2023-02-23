@@ -74,6 +74,8 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("npm_host_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_CONTAINER_USAGE =
       new HourlyUsageAttributionUsageType("profiled_container_usage");
+  public static final HourlyUsageAttributionUsageType PROFILED_FARGATE_USAGE =
+      new HourlyUsageAttributionUsageType("profiled_fargate_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_HOST_USAGE =
       new HourlyUsageAttributionUsageType("profiled_host_usage");
   public static final HourlyUsageAttributionUsageType SNMP_USAGE =
@@ -109,6 +111,7 @@ public class HourlyUsageAttributionUsageType {
               "invocations_usage",
               "npm_host_usage",
               "profiled_container_usage",
+              "profiled_fargate_usage",
               "profiled_host_usage",
               "snmp_usage",
               "estimated_rum_sessions_usage"));

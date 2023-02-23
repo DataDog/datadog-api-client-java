@@ -66,6 +66,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
@@ -245,6 +247,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_PROFILED_CONTAINER_USAGE = "profiled_container_usage";
   private Double profiledContainerUsage;
+
+  public static final String JSON_PROPERTY_PROFILED_FARGATE_PERCENTAGE =
+      "profiled_fargate_percentage";
+  private Double profiledFargatePercentage;
+
+  public static final String JSON_PROPERTY_PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
+  private Double profiledFargateUsage;
 
   public static final String JSON_PROPERTY_PROFILED_HOST_PERCENTAGE = "profiled_host_percentage";
   private Double profiledHostPercentage;
@@ -1361,6 +1370,48 @@ public class MonthlyUsageAttributionValues {
     this.profiledContainerUsage = profiledContainerUsage;
   }
 
+  public MonthlyUsageAttributionValues profiledFargatePercentage(Double profiledFargatePercentage) {
+    this.profiledFargatePercentage = profiledFargatePercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of profiled Fargate task usage by tag(s).
+   *
+   * @return profiledFargatePercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROFILED_FARGATE_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getProfiledFargatePercentage() {
+    return profiledFargatePercentage;
+  }
+
+  public void setProfiledFargatePercentage(Double profiledFargatePercentage) {
+    this.profiledFargatePercentage = profiledFargatePercentage;
+  }
+
+  public MonthlyUsageAttributionValues profiledFargateUsage(Double profiledFargateUsage) {
+    this.profiledFargateUsage = profiledFargateUsage;
+    return this;
+  }
+
+  /**
+   * The profiled Fargate task usage by tag(s).
+   *
+   * @return profiledFargateUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROFILED_FARGATE_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getProfiledFargateUsage() {
+    return profiledFargateUsage;
+  }
+
+  public void setProfiledFargateUsage(Double profiledFargateUsage) {
+    this.profiledFargateUsage = profiledFargateUsage;
+  }
+
   public MonthlyUsageAttributionValues profiledHostPercentage(Double profiledHostPercentage) {
     this.profiledHostPercentage = profiledHostPercentage;
     return this;
@@ -1546,6 +1597,10 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.profiledContainerUsage, monthlyUsageAttributionValues.profiledContainerUsage)
         && Objects.equals(
+            this.profiledFargatePercentage, monthlyUsageAttributionValues.profiledFargatePercentage)
+        && Objects.equals(
+            this.profiledFargateUsage, monthlyUsageAttributionValues.profiledFargateUsage)
+        && Objects.equals(
             this.profiledHostPercentage, monthlyUsageAttributionValues.profiledHostPercentage)
         && Objects.equals(this.profiledHostUsage, monthlyUsageAttributionValues.profiledHostUsage)
         && Objects.equals(this.snmpPercentage, monthlyUsageAttributionValues.snmpPercentage)
@@ -1607,6 +1662,8 @@ public class MonthlyUsageAttributionValues {
         npmHostUsage,
         profiledContainerPercentage,
         profiledContainerUsage,
+        profiledFargatePercentage,
+        profiledFargateUsage,
         profiledHostPercentage,
         profiledHostUsage,
         snmpPercentage,
@@ -1722,6 +1779,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    profiledContainerUsage: ")
         .append(toIndentedString(profiledContainerUsage))
+        .append("\n");
+    sb.append("    profiledFargatePercentage: ")
+        .append(toIndentedString(profiledFargatePercentage))
+        .append("\n");
+    sb.append("    profiledFargateUsage: ")
+        .append(toIndentedString(profiledFargateUsage))
         .append("\n");
     sb.append("    profiledHostPercentage: ")
         .append(toIndentedString(profiledHostPercentage))
