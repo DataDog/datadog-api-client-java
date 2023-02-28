@@ -6,49 +6,35 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.Objects;
 
 /**
-   * <p>The RUM data collection settings for the Synthetic browser test.
-   * <strong>Note:</strong> There are 3 ways to format RUM settings:</p>
-   * <p><code>{ isEnabled: false }</code>
-   * RUM data is not collected.</p>
-   * <p><code>{ isEnabled: true }</code>
-   * RUM data is collected from the Synthetic test's default application.</p>
-   * <p><code>{ isEnabled: true, applicationId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", clientTokenId: 12345 }</code>
-   * RUM data is collected using the specified application.</p>
+ * The RUM data collection settings for the Synthetic browser test. <strong>Note:</strong> There are
+ * 3 ways to format RUM settings:
+ *
+ * <p><code>{ isEnabled: false }</code> RUM data is not collected.
+ *
+ * <p><code>{ isEnabled: true }</code> RUM data is collected from the Synthetic test's default
+ * application.
+ *
+ * <p><code>
+ * { isEnabled: true, applicationId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", clientTokenId: 12345 }
+ * </code> RUM data is collected using the specified application.
  */
 @JsonPropertyOrder({
   SyntheticsBrowserTestRumSettings.JSON_PROPERTY_APPLICATION_ID,
   SyntheticsBrowserTestRumSettings.JSON_PROPERTY_CLIENT_TOKEN_ID,
   SyntheticsBrowserTestRumSettings.JSON_PROPERTY_IS_ENABLED
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestRumSettings {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION_ID = "applicationId";
   private String applicationId;
 
@@ -62,69 +48,73 @@ public class SyntheticsBrowserTestRumSettings {
 
   @JsonCreator
   public SyntheticsBrowserTestRumSettings(
-            @JsonProperty(required=true, value=JSON_PROPERTY_IS_ENABLED)Boolean isEnabled) {
-        this.isEnabled = isEnabled;
+      @JsonProperty(required = true, value = JSON_PROPERTY_IS_ENABLED) Boolean isEnabled) {
+    this.isEnabled = isEnabled;
   }
+
   public SyntheticsBrowserTestRumSettings applicationId(String applicationId) {
     this.applicationId = applicationId;
     return this;
   }
 
   /**
-   * <p>RUM application ID used to collect RUM data for the browser test.</p>
+   * RUM application ID used to collect RUM data for the browser test.
+   *
    * @return applicationId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getApplicationId() {
-        return applicationId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getApplicationId() {
+    return applicationId;
+  }
+
   public void setApplicationId(String applicationId) {
     this.applicationId = applicationId;
   }
+
   public SyntheticsBrowserTestRumSettings clientTokenId(Long clientTokenId) {
     this.clientTokenId = clientTokenId;
     return this;
   }
 
   /**
-   * <p>RUM application API key ID used to collect RUM data for the browser test.</p>
+   * RUM application API key ID used to collect RUM data for the browser test.
+   *
    * @return clientTokenId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CLIENT_TOKEN_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getClientTokenId() {
-        return clientTokenId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLIENT_TOKEN_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getClientTokenId() {
+    return clientTokenId;
+  }
+
   public void setClientTokenId(Long clientTokenId) {
     this.clientTokenId = clientTokenId;
   }
+
   public SyntheticsBrowserTestRumSettings isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
   /**
-   * <p>Determines whether RUM data is collected during test runs.</p>
+   * Determines whether RUM data is collected during test runs.
+   *
    * @return isEnabled
-  **/
-      @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Boolean getIsEnabled() {
-        return isEnabled;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getIsEnabled() {
+    return isEnabled;
+  }
+
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
 
-  /**
-   * Return true if this SyntheticsBrowserTestRumSettings object is equal to o.
-   */
+  /** Return true if this SyntheticsBrowserTestRumSettings object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,14 +123,16 @@ public class SyntheticsBrowserTestRumSettings {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsBrowserTestRumSettings syntheticsBrowserTestRumSettings = (SyntheticsBrowserTestRumSettings) o;
-    return Objects.equals(this.applicationId, syntheticsBrowserTestRumSettings.applicationId) && Objects.equals(this.clientTokenId, syntheticsBrowserTestRumSettings.clientTokenId) && Objects.equals(this.isEnabled, syntheticsBrowserTestRumSettings.isEnabled);
+    SyntheticsBrowserTestRumSettings syntheticsBrowserTestRumSettings =
+        (SyntheticsBrowserTestRumSettings) o;
+    return Objects.equals(this.applicationId, syntheticsBrowserTestRumSettings.applicationId)
+        && Objects.equals(this.clientTokenId, syntheticsBrowserTestRumSettings.clientTokenId)
+        && Objects.equals(this.isEnabled, syntheticsBrowserTestRumSettings.isEnabled);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationId,clientTokenId,isEnabled);
+    return Objects.hash(applicationId, clientTokenId, isEnabled);
   }
 
   @Override
@@ -155,8 +147,7 @@ public class SyntheticsBrowserTestRumSettings {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

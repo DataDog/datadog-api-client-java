@@ -6,41 +6,21 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Styling options for widget formulas.</p>
- */
+/** Styling options for widget formulas. */
 @JsonPropertyOrder({
   WidgetFormulaStyle.JSON_PROPERTY_PALETTE,
   WidgetFormulaStyle.JSON_PROPERTY_PALETTE_INDEX
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetFormulaStyle {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PALETTE = "palette";
   private String palette;
 
@@ -53,42 +33,44 @@ public class WidgetFormulaStyle {
   }
 
   /**
-   * <p>The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors</p>
+   * The color palette used to display the formula. A guide to the available color palettes can be
+   * found at https://docs.datadoghq.com/dashboards/guide/widget_colors
+   *
    * @return palette
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PALETTE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPalette() {
-        return palette;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PALETTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPalette() {
+    return palette;
+  }
+
   public void setPalette(String palette) {
     this.palette = palette;
   }
+
   public WidgetFormulaStyle paletteIndex(Long paletteIndex) {
     this.paletteIndex = paletteIndex;
     return this;
   }
 
   /**
-   * <p>Index specifying which color to use within the palette.</p>
+   * Index specifying which color to use within the palette.
+   *
    * @return paletteIndex
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PALETTE_INDEX)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getPaletteIndex() {
-        return paletteIndex;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PALETTE_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getPaletteIndex() {
+    return paletteIndex;
+  }
+
   public void setPaletteIndex(Long paletteIndex) {
     this.paletteIndex = paletteIndex;
   }
 
-  /**
-   * Return true if this WidgetFormulaStyle object is equal to o.
-   */
+  /** Return true if this WidgetFormulaStyle object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -98,13 +80,13 @@ public class WidgetFormulaStyle {
       return false;
     }
     WidgetFormulaStyle widgetFormulaStyle = (WidgetFormulaStyle) o;
-    return Objects.equals(this.palette, widgetFormulaStyle.palette) && Objects.equals(this.paletteIndex, widgetFormulaStyle.paletteIndex);
+    return Objects.equals(this.palette, widgetFormulaStyle.palette)
+        && Objects.equals(this.paletteIndex, widgetFormulaStyle.paletteIndex);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(palette,paletteIndex);
+    return Objects.hash(palette, paletteIndex);
   }
 
   @Override
@@ -118,8 +100,7 @@ public class WidgetFormulaStyle {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

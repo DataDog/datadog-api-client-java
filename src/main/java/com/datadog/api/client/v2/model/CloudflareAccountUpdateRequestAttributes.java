@@ -6,41 +6,22 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes object for updating a Cloudflare account.</p>
- */
+/** Attributes object for updating a Cloudflare account. */
 @JsonPropertyOrder({
   CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_API_KEY,
   CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_EMAIL
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudflareAccountUpdateRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
   private String apiKey;
 
@@ -51,50 +32,53 @@ public class CloudflareAccountUpdateRequestAttributes {
 
   @JsonCreator
   public CloudflareAccountUpdateRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_API_KEY)String apiKey) {
-        this.apiKey = apiKey;
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) String apiKey) {
+    this.apiKey = apiKey;
   }
+
   public CloudflareAccountUpdateRequestAttributes apiKey(String apiKey) {
     this.apiKey = apiKey;
     return this;
   }
 
   /**
-   * <p>The API key of the Cloudflare account.</p>
+   * The API key of the Cloudflare account.
+   *
    * @return apiKey
-  **/
-      @JsonProperty(JSON_PROPERTY_API_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getApiKey() {
-        return apiKey;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getApiKey() {
+    return apiKey;
+  }
+
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
   }
+
   public CloudflareAccountUpdateRequestAttributes email(String email) {
     this.email = email;
     return this;
   }
 
   /**
-   * <p>The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.</p>
+   * The email associated with the Cloudflare account. If an API key is provided (and not a token),
+   * this field is also required.
+   *
    * @return email
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EMAIL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getEmail() {
-        return email;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEmail() {
+    return email;
+  }
+
   public void setEmail(String email) {
     this.email = email;
   }
 
-  /**
-   * Return true if this CloudflareAccountUpdateRequestAttributes object is equal to o.
-   */
+  /** Return true if this CloudflareAccountUpdateRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,14 +87,15 @@ public class CloudflareAccountUpdateRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudflareAccountUpdateRequestAttributes cloudflareAccountUpdateRequestAttributes = (CloudflareAccountUpdateRequestAttributes) o;
-    return Objects.equals(this.apiKey, cloudflareAccountUpdateRequestAttributes.apiKey) && Objects.equals(this.email, cloudflareAccountUpdateRequestAttributes.email);
+    CloudflareAccountUpdateRequestAttributes cloudflareAccountUpdateRequestAttributes =
+        (CloudflareAccountUpdateRequestAttributes) o;
+    return Objects.equals(this.apiKey, cloudflareAccountUpdateRequestAttributes.apiKey)
+        && Objects.equals(this.email, cloudflareAccountUpdateRequestAttributes.email);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey,email);
+    return Objects.hash(apiKey, email);
   }
 
   @Override
@@ -124,8 +109,7 @@ public class CloudflareAccountUpdateRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

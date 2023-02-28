@@ -6,42 +6,22 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Standard pattern item.</p>
- */
+/** Standard pattern item. */
 @JsonPropertyOrder({
   SensitiveDataScannerStandardPatternsResponseItem.JSON_PROPERTY_ATTRIBUTES,
   SensitiveDataScannerStandardPatternsResponseItem.JSON_PROPERTY_ID,
   SensitiveDataScannerStandardPatternsResponseItem.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SensitiveDataScannerStandardPatternsResponseItem {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private SensitiveDataScannerStandardPatternAttributes attributes;
 
@@ -49,74 +29,80 @@ public class SensitiveDataScannerStandardPatternsResponseItem {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SensitiveDataScannerStandardPatternType type = SensitiveDataScannerStandardPatternType.SENSITIVE_DATA_SCANNER_STANDARD_PATTERN;
+  private SensitiveDataScannerStandardPatternType type =
+      SensitiveDataScannerStandardPatternType.SENSITIVE_DATA_SCANNER_STANDARD_PATTERN;
 
-  public SensitiveDataScannerStandardPatternsResponseItem attributes(SensitiveDataScannerStandardPatternAttributes attributes) {
+  public SensitiveDataScannerStandardPatternsResponseItem attributes(
+      SensitiveDataScannerStandardPatternAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * <p>Attributes of the Sensitive Data Scanner standard pattern.</p>
+   * Attributes of the Sensitive Data Scanner standard pattern.
+   *
    * @return attributes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SensitiveDataScannerStandardPatternAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SensitiveDataScannerStandardPatternAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(SensitiveDataScannerStandardPatternAttributes attributes) {
     this.attributes = attributes;
   }
+
   public SensitiveDataScannerStandardPatternsResponseItem id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>ID of the standard pattern.</p>
+   * ID of the standard pattern.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
-  public SensitiveDataScannerStandardPatternsResponseItem type(SensitiveDataScannerStandardPatternType type) {
+
+  public SensitiveDataScannerStandardPatternsResponseItem type(
+      SensitiveDataScannerStandardPatternType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * <p>Sensitive Data Scanner standard pattern type.</p>
+   * Sensitive Data Scanner standard pattern type.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SensitiveDataScannerStandardPatternType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SensitiveDataScannerStandardPatternType getType() {
+    return type;
+  }
+
   public void setType(SensitiveDataScannerStandardPatternType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this SensitiveDataScannerStandardPatternsResponseItem object is equal to o.
-   */
+  /** Return true if this SensitiveDataScannerStandardPatternsResponseItem object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -125,14 +111,18 @@ public class SensitiveDataScannerStandardPatternsResponseItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SensitiveDataScannerStandardPatternsResponseItem sensitiveDataScannerStandardPatternsResponseItem = (SensitiveDataScannerStandardPatternsResponseItem) o;
-    return Objects.equals(this.attributes, sensitiveDataScannerStandardPatternsResponseItem.attributes) && Objects.equals(this.id, sensitiveDataScannerStandardPatternsResponseItem.id) && Objects.equals(this.type, sensitiveDataScannerStandardPatternsResponseItem.type);
+    SensitiveDataScannerStandardPatternsResponseItem
+        sensitiveDataScannerStandardPatternsResponseItem =
+            (SensitiveDataScannerStandardPatternsResponseItem) o;
+    return Objects.equals(
+            this.attributes, sensitiveDataScannerStandardPatternsResponseItem.attributes)
+        && Objects.equals(this.id, sensitiveDataScannerStandardPatternsResponseItem.id)
+        && Objects.equals(this.type, sensitiveDataScannerStandardPatternsResponseItem.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,id,type);
+    return Objects.hash(attributes, id, type);
   }
 
   @Override
@@ -147,8 +137,7 @@ public class SensitiveDataScannerStandardPatternsResponseItem {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,41 +6,23 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Response with incidents and facets.</p>
- */
+/** Response with incidents and facets. */
 @JsonPropertyOrder({
   IncidentSearchResponse.JSON_PROPERTY_DATA,
   IncidentSearchResponse.JSON_PROPERTY_INCLUDED
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentSearchResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private IncidentSearchResponseData data;
 
@@ -51,10 +33,11 @@ public class IncidentSearchResponse {
 
   @JsonCreator
   public IncidentSearchResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)IncidentSearchResponseData data) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentSearchResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
   }
+
   public IncidentSearchResponse data(IncidentSearchResponseData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
@@ -62,34 +45,33 @@ public class IncidentSearchResponse {
   }
 
   /**
-   * <p>Data returned by an incident search.</p>
+   * Data returned by an incident search.
+   *
    * @return data
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public IncidentSearchResponseData getData() {
-        return data;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentSearchResponseData getData() {
+    return data;
+  }
+
   public void setData(IncidentSearchResponseData data) {
     this.data = data;
   }
 
   /**
-   * <p>Included related resources that the user requested.</p>
+   * Included related resources that the user requested.
+   *
    * @return included
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCLUDED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IncidentResponseIncludedItem> getIncluded() {
-        return included;
-      }
-
-  /**
-   * Return true if this IncidentSearchResponse object is equal to o.
    */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentResponseIncludedItem> getIncluded() {
+    return included;
+  }
+
+  /** Return true if this IncidentSearchResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,13 +81,13 @@ public class IncidentSearchResponse {
       return false;
     }
     IncidentSearchResponse incidentSearchResponse = (IncidentSearchResponse) o;
-    return Objects.equals(this.data, incidentSearchResponse.data) && Objects.equals(this.included, incidentSearchResponse.included);
+    return Objects.equals(this.data, incidentSearchResponse.data)
+        && Objects.equals(this.included, incidentSearchResponse.included);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,included);
+    return Objects.hash(data, included);
   }
 
   @Override
@@ -119,8 +101,7 @@ public class IncidentSearchResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

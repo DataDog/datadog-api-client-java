@@ -6,41 +6,23 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of the IP allowlist.</p>
- */
+/** Attributes of the IP allowlist. */
 @JsonPropertyOrder({
   IPAllowlistAttributes.JSON_PROPERTY_ENABLED,
   IPAllowlistAttributes.JSON_PROPERTY_ENTRIES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IPAllowlistAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -53,19 +35,21 @@ public class IPAllowlistAttributes {
   }
 
   /**
-   * <p>Whether the IP allowlist logic is enabled or not.</p>
+   * Whether the IP allowlist logic is enabled or not.
+   *
    * @return enabled
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getEnabled() {
-        return enabled;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
+
   public IPAllowlistAttributes entries(List<IPAllowlistEntry> entries) {
     this.entries = entries;
     for (IPAllowlistEntry item : entries) {
@@ -73,6 +57,7 @@ public class IPAllowlistAttributes {
     }
     return this;
   }
+
   public IPAllowlistAttributes addEntriesItem(IPAllowlistEntry entriesItem) {
     if (this.entries == null) {
       this.entries = new ArrayList<>();
@@ -83,23 +68,22 @@ public class IPAllowlistAttributes {
   }
 
   /**
-   * <p>Array of entries in the IP allowlist.</p>
+   * Array of entries in the IP allowlist.
+   *
    * @return entries
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ENTRIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<IPAllowlistEntry> getEntries() {
-        return entries;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENTRIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IPAllowlistEntry> getEntries() {
+    return entries;
+  }
+
   public void setEntries(List<IPAllowlistEntry> entries) {
     this.entries = entries;
   }
 
-  /**
-   * Return true if this IPAllowlistAttributes object is equal to o.
-   */
+  /** Return true if this IPAllowlistAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -109,13 +93,13 @@ public class IPAllowlistAttributes {
       return false;
     }
     IPAllowlistAttributes ipAllowlistAttributes = (IPAllowlistAttributes) o;
-    return Objects.equals(this.enabled, ipAllowlistAttributes.enabled) && Objects.equals(this.entries, ipAllowlistAttributes.entries);
+    return Objects.equals(this.enabled, ipAllowlistAttributes.enabled)
+        && Objects.equals(this.entries, ipAllowlistAttributes.entries);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled,entries);
+    return Objects.hash(enabled, entries);
   }
 
   @Override
@@ -129,8 +113,7 @@ public class IPAllowlistAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

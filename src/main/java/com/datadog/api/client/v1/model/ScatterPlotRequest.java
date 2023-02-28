@@ -6,33 +6,13 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Updated scatter plot.</p>
- */
+/** Updated scatter plot. */
 @JsonPropertyOrder({
   ScatterPlotRequest.JSON_PROPERTY_AGGREGATOR,
   ScatterPlotRequest.JSON_PROPERTY_APM_QUERY,
@@ -45,10 +25,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ScatterPlotRequest.JSON_PROPERTY_RUM_QUERY,
   ScatterPlotRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ScatterPlotRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private ScatterplotWidgetAggregator aggregator;
 
@@ -86,22 +66,24 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * <p>Aggregator used for the request.</p>
+   * Aggregator used for the request.
+   *
    * @return aggregator
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_AGGREGATOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ScatterplotWidgetAggregator getAggregator() {
-        return aggregator;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AGGREGATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScatterplotWidgetAggregator getAggregator() {
+    return aggregator;
+  }
+
   public void setAggregator(ScatterplotWidgetAggregator aggregator) {
     if (!aggregator.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.aggregator = aggregator;
   }
+
   public ScatterPlotRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
     this.unparsed |= apmQuery.unparsed;
@@ -109,19 +91,21 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return apmQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_APM_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getApmQuery() {
-        return apmQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getApmQuery() {
+    return apmQuery;
+  }
+
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
   }
+
   public ScatterPlotRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
     this.unparsed |= eventQuery.unparsed;
@@ -129,19 +113,21 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return eventQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getEventQuery() {
-        return eventQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getEventQuery() {
+    return eventQuery;
+  }
+
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
   }
+
   public ScatterPlotRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
     this.unparsed |= logQuery.unparsed;
@@ -149,19 +135,21 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return logQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOG_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getLogQuery() {
-        return logQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOG_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getLogQuery() {
+    return logQuery;
+  }
+
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
   }
+
   public ScatterPlotRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
     this.unparsed |= networkQuery.unparsed;
@@ -169,19 +157,21 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return networkQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getNetworkQuery() {
-        return networkQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getNetworkQuery() {
+    return networkQuery;
+  }
+
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
   }
+
   public ScatterPlotRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
     this.unparsed |= processQuery.unparsed;
@@ -189,19 +179,21 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * <p>The process query to use in the widget.</p>
+   * The process query to use in the widget.
+   *
    * @return processQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ProcessQueryDefinition getProcessQuery() {
-        return processQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProcessQueryDefinition getProcessQuery() {
+    return processQuery;
+  }
+
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
   }
+
   public ScatterPlotRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
     this.unparsed |= profileMetricsQuery.unparsed;
@@ -209,38 +201,42 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return profileMetricsQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getProfileMetricsQuery() {
-        return profileMetricsQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getProfileMetricsQuery() {
+    return profileMetricsQuery;
+  }
+
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
   }
+
   public ScatterPlotRequest q(String q) {
     this.q = q;
     return this;
   }
 
   /**
-   * <p>Query definition.</p>
+   * Query definition.
+   *
    * @return q
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_Q)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getQ() {
-        return q;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_Q)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQ() {
+    return q;
+  }
+
   public void setQ(String q) {
     this.q = q;
   }
+
   public ScatterPlotRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     this.unparsed |= rumQuery.unparsed;
@@ -248,19 +244,21 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return rumQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RUM_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getRumQuery() {
-        return rumQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getRumQuery() {
+    return rumQuery;
+  }
+
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
   }
+
   public ScatterPlotRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
     this.unparsed |= securityQuery.unparsed;
@@ -268,23 +266,22 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * <p>The log query.</p>
+   * The log query.
+   *
    * @return securityQuery
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogQueryDefinition getSecurityQuery() {
-        return securityQuery;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
   }
 
-  /**
-   * Return true if this ScatterPlotRequest object is equal to o.
-   */
+  /** Return true if this ScatterPlotRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -294,13 +291,31 @@ public class ScatterPlotRequest {
       return false;
     }
     ScatterPlotRequest scatterPlotRequest = (ScatterPlotRequest) o;
-    return Objects.equals(this.aggregator, scatterPlotRequest.aggregator) && Objects.equals(this.apmQuery, scatterPlotRequest.apmQuery) && Objects.equals(this.eventQuery, scatterPlotRequest.eventQuery) && Objects.equals(this.logQuery, scatterPlotRequest.logQuery) && Objects.equals(this.networkQuery, scatterPlotRequest.networkQuery) && Objects.equals(this.processQuery, scatterPlotRequest.processQuery) && Objects.equals(this.profileMetricsQuery, scatterPlotRequest.profileMetricsQuery) && Objects.equals(this.q, scatterPlotRequest.q) && Objects.equals(this.rumQuery, scatterPlotRequest.rumQuery) && Objects.equals(this.securityQuery, scatterPlotRequest.securityQuery);
+    return Objects.equals(this.aggregator, scatterPlotRequest.aggregator)
+        && Objects.equals(this.apmQuery, scatterPlotRequest.apmQuery)
+        && Objects.equals(this.eventQuery, scatterPlotRequest.eventQuery)
+        && Objects.equals(this.logQuery, scatterPlotRequest.logQuery)
+        && Objects.equals(this.networkQuery, scatterPlotRequest.networkQuery)
+        && Objects.equals(this.processQuery, scatterPlotRequest.processQuery)
+        && Objects.equals(this.profileMetricsQuery, scatterPlotRequest.profileMetricsQuery)
+        && Objects.equals(this.q, scatterPlotRequest.q)
+        && Objects.equals(this.rumQuery, scatterPlotRequest.rumQuery)
+        && Objects.equals(this.securityQuery, scatterPlotRequest.securityQuery);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregator,apmQuery,eventQuery,logQuery,networkQuery,processQuery,profileMetricsQuery,q,rumQuery,securityQuery);
+    return Objects.hash(
+        aggregator,
+        apmQuery,
+        eventQuery,
+        logQuery,
+        networkQuery,
+        processQuery,
+        profileMetricsQuery,
+        q,
+        rumQuery,
+        securityQuery);
   }
 
   @Override
@@ -313,7 +328,9 @@ public class ScatterPlotRequest {
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
-    sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
+    sb.append("    profileMetricsQuery: ")
+        .append(toIndentedString(profileMetricsQuery))
+        .append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
@@ -322,8 +339,7 @@ public class ScatterPlotRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

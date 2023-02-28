@@ -6,32 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
 /**
-   * <p>Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).</p>
+ * Number of RUM Units used for each hour for a given organization (data available as of November 1,
+ * 2021).
  */
 @JsonPropertyOrder({
   UsageRumUnitsHour.JSON_PROPERTY_BROWSER_RUM_UNITS,
@@ -40,10 +24,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   UsageRumUnitsHour.JSON_PROPERTY_PUBLIC_ID,
   UsageRumUnitsHour.JSON_PROPERTY_RUM_UNITS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageRumUnitsHour {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BROWSER_RUM_UNITS = "browser_rum_units";
   private Long browserRumUnits;
 
@@ -65,106 +49,116 @@ public class UsageRumUnitsHour {
   }
 
   /**
-   * <p>The number of browser RUM units.</p>
+   * The number of browser RUM units.
+   *
    * @return browserRumUnits
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getBrowserRumUnits() {
-        return browserRumUnits;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getBrowserRumUnits() {
+    return browserRumUnits;
+  }
+
   public void setBrowserRumUnits(Long browserRumUnits) {
     this.browserRumUnits = browserRumUnits;
   }
+
   public UsageRumUnitsHour mobileRumUnits(Long mobileRumUnits) {
     this.mobileRumUnits = mobileRumUnits;
     return this;
   }
 
   /**
-   * <p>The number of mobile RUM units.</p>
+   * The number of mobile RUM units.
+   *
    * @return mobileRumUnits
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getMobileRumUnits() {
-        return mobileRumUnits;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMobileRumUnits() {
+    return mobileRumUnits;
+  }
+
   public void setMobileRumUnits(Long mobileRumUnits) {
     this.mobileRumUnits = mobileRumUnits;
   }
+
   public UsageRumUnitsHour orgName(String orgName) {
     this.orgName = orgName;
     return this;
   }
 
   /**
-   * <p>The organization name.</p>
+   * The organization name.
+   *
    * @return orgName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORG_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOrgName() {
-        return orgName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
+
   public UsageRumUnitsHour publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * <p>The organization public ID.</p>
+   * The organization public ID.
+   *
    * @return publicId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublicId() {
-        return publicId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
+
   public UsageRumUnitsHour rumUnits(Long rumUnits) {
     this.rumUnits = JsonNullable.<Long>of(rumUnits);
     return this;
   }
 
   /**
-   * <p>Total RUM units across mobile and browser RUM.</p>
+   * Total RUM units across mobile and browser RUM.
+   *
    * @return rumUnits
-  **/
-      @jakarta.annotation.Nullable
-      @JsonIgnore
-      public Long getRumUnits() {
-        return rumUnits.orElse(null);
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getRumUnits() {
+    return rumUnits.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_RUM_UNITS)
-  @JsonInclude(
-    value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getRumUnits_JsonNullable() {
     return rumUnits;
   }
-  @JsonProperty(JSON_PROPERTY_RUM_UNITS)public void setRumUnits_JsonNullable(JsonNullable<Long> rumUnits) {
+
+  @JsonProperty(JSON_PROPERTY_RUM_UNITS)
+  public void setRumUnits_JsonNullable(JsonNullable<Long> rumUnits) {
     this.rumUnits = rumUnits;
   }
+
   public void setRumUnits(Long rumUnits) {
     this.rumUnits = JsonNullable.<Long>of(rumUnits);
   }
 
-  /**
-   * Return true if this UsageRumUnitsHour object is equal to o.
-   */
+  /** Return true if this UsageRumUnitsHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,13 +168,16 @@ public class UsageRumUnitsHour {
       return false;
     }
     UsageRumUnitsHour usageRumUnitsHour = (UsageRumUnitsHour) o;
-    return Objects.equals(this.browserRumUnits, usageRumUnitsHour.browserRumUnits) && Objects.equals(this.mobileRumUnits, usageRumUnitsHour.mobileRumUnits) && Objects.equals(this.orgName, usageRumUnitsHour.orgName) && Objects.equals(this.publicId, usageRumUnitsHour.publicId) && Objects.equals(this.rumUnits, usageRumUnitsHour.rumUnits);
+    return Objects.equals(this.browserRumUnits, usageRumUnitsHour.browserRumUnits)
+        && Objects.equals(this.mobileRumUnits, usageRumUnitsHour.mobileRumUnits)
+        && Objects.equals(this.orgName, usageRumUnitsHour.orgName)
+        && Objects.equals(this.publicId, usageRumUnitsHour.publicId)
+        && Objects.equals(this.rumUnits, usageRumUnitsHour.rumUnits);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(browserRumUnits,mobileRumUnits,orgName,publicId,rumUnits);
+    return Objects.hash(browserRumUnits, mobileRumUnits, orgName, publicId, rumUnits);
   }
 
   @Override
@@ -197,8 +194,7 @@ public class UsageRumUnitsHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

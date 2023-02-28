@@ -6,32 +6,17 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
-   * <p>The object sent with the request to retrieve aggregation buckets of test events from your organization.</p>
+ * The object sent with the request to retrieve aggregation buckets of test events from your
+ * organization.
  */
 @JsonPropertyOrder({
   CIAppTestsAggregateRequest.JSON_PROPERTY_COMPUTE,
@@ -39,10 +24,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   CIAppTestsAggregateRequest.JSON_PROPERTY_GROUP_BY,
   CIAppTestsAggregateRequest.JSON_PROPERTY_OPTIONS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CIAppTestsAggregateRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private List<CIAppCompute> compute = null;
 
@@ -62,6 +47,7 @@ public class CIAppTestsAggregateRequest {
     }
     return this;
   }
+
   public CIAppTestsAggregateRequest addComputeItem(CIAppCompute computeItem) {
     if (this.compute == null) {
       this.compute = new ArrayList<>();
@@ -72,19 +58,21 @@ public class CIAppTestsAggregateRequest {
   }
 
   /**
-   * <p>The list of metrics or timeseries to compute for the retrieved buckets.</p>
+   * The list of metrics or timeseries to compute for the retrieved buckets.
+   *
    * @return compute
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPUTE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<CIAppCompute> getCompute() {
-        return compute;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CIAppCompute> getCompute() {
+    return compute;
+  }
+
   public void setCompute(List<CIAppCompute> compute) {
     this.compute = compute;
   }
+
   public CIAppTestsAggregateRequest filter(CIAppTestsQueryFilter filter) {
     this.filter = filter;
     this.unparsed |= filter.unparsed;
@@ -92,19 +80,21 @@ public class CIAppTestsAggregateRequest {
   }
 
   /**
-   * <p>The search and filter query settings.</p>
+   * The search and filter query settings.
+   *
    * @return filter
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILTER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppTestsQueryFilter getFilter() {
-        return filter;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppTestsQueryFilter getFilter() {
+    return filter;
+  }
+
   public void setFilter(CIAppTestsQueryFilter filter) {
     this.filter = filter;
   }
+
   public CIAppTestsAggregateRequest groupBy(List<CIAppTestsGroupBy> groupBy) {
     this.groupBy = groupBy;
     for (CIAppTestsGroupBy item : groupBy) {
@@ -112,6 +102,7 @@ public class CIAppTestsAggregateRequest {
     }
     return this;
   }
+
   public CIAppTestsAggregateRequest addGroupByItem(CIAppTestsGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
@@ -122,19 +113,21 @@ public class CIAppTestsAggregateRequest {
   }
 
   /**
-   * <p>The rules for the group-by.</p>
+   * The rules for the group-by.
+   *
    * @return groupBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<CIAppTestsGroupBy> getGroupBy() {
-        return groupBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<CIAppTestsGroupBy> getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(List<CIAppTestsGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
+
   public CIAppTestsAggregateRequest options(CIAppQueryOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
@@ -142,24 +135,23 @@ public class CIAppTestsAggregateRequest {
   }
 
   /**
-   * <p>Global query options that are used during the query.
-   * Only supply timezone or time offset, not both. Otherwise, the query fails.</p>
+   * Global query options that are used during the query. Only supply timezone or time offset, not
+   * both. Otherwise, the query fails.
+   *
    * @return options
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPTIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppQueryOptions getOptions() {
-        return options;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppQueryOptions getOptions() {
+    return options;
+  }
+
   public void setOptions(CIAppQueryOptions options) {
     this.options = options;
   }
 
-  /**
-   * Return true if this CIAppTestsAggregateRequest object is equal to o.
-   */
+  /** Return true if this CIAppTestsAggregateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,13 +161,15 @@ public class CIAppTestsAggregateRequest {
       return false;
     }
     CIAppTestsAggregateRequest ciAppTestsAggregateRequest = (CIAppTestsAggregateRequest) o;
-    return Objects.equals(this.compute, ciAppTestsAggregateRequest.compute) && Objects.equals(this.filter, ciAppTestsAggregateRequest.filter) && Objects.equals(this.groupBy, ciAppTestsAggregateRequest.groupBy) && Objects.equals(this.options, ciAppTestsAggregateRequest.options);
+    return Objects.equals(this.compute, ciAppTestsAggregateRequest.compute)
+        && Objects.equals(this.filter, ciAppTestsAggregateRequest.filter)
+        && Objects.equals(this.groupBy, ciAppTestsAggregateRequest.groupBy)
+        && Objects.equals(this.options, ciAppTestsAggregateRequest.options);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute,filter,groupBy,options);
+    return Objects.hash(compute, filter, groupBy, options);
   }
 
   @Override
@@ -191,8 +185,7 @@ public class CIAppTestsAggregateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

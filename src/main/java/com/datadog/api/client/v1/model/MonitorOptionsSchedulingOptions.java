@@ -6,67 +6,48 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Configuration options for scheduling.</p>
- */
-@JsonPropertyOrder({
-  MonitorOptionsSchedulingOptions.JSON_PROPERTY_EVALUATION_WINDOW
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Configuration options for scheduling. */
+@JsonPropertyOrder({MonitorOptionsSchedulingOptions.JSON_PROPERTY_EVALUATION_WINDOW})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorOptionsSchedulingOptions {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluation_window";
   private MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow;
 
-  public MonitorOptionsSchedulingOptions evaluationWindow(MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow) {
+  public MonitorOptionsSchedulingOptions evaluationWindow(
+      MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow) {
     this.evaluationWindow = evaluationWindow;
     this.unparsed |= evaluationWindow.unparsed;
     return this;
   }
 
   /**
-   * <p>Configuration options for the evaluation window. If <code>hour_starts</code> is set, no other fields may be set. Otherwise, <code>day_starts</code> and <code>month_starts</code> must be set together.</p>
+   * Configuration options for the evaluation window. If <code>hour_starts</code> is set, no other
+   * fields may be set. Otherwise, <code>day_starts</code> and <code>month_starts</code> must be set
+   * together.
+   *
    * @return evaluationWindow
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EVALUATION_WINDOW)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public MonitorOptionsSchedulingOptionsEvaluationWindow getEvaluationWindow() {
-        return evaluationWindow;
-      }
-  public void setEvaluationWindow(MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow) {
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVALUATION_WINDOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorOptionsSchedulingOptionsEvaluationWindow getEvaluationWindow() {
+    return evaluationWindow;
+  }
+
+  public void setEvaluationWindow(
+      MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow) {
     this.evaluationWindow = evaluationWindow;
   }
 
-  /**
-   * Return true if this MonitorOptionsSchedulingOptions object is equal to o.
-   */
+  /** Return true if this MonitorOptionsSchedulingOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -75,10 +56,10 @@ public class MonitorOptionsSchedulingOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorOptionsSchedulingOptions monitorOptionsSchedulingOptions = (MonitorOptionsSchedulingOptions) o;
+    MonitorOptionsSchedulingOptions monitorOptionsSchedulingOptions =
+        (MonitorOptionsSchedulingOptions) o;
     return Objects.equals(this.evaluationWindow, monitorOptionsSchedulingOptions.evaluationWindow);
   }
-
 
   @Override
   public int hashCode() {
@@ -95,8 +76,7 @@ public class MonitorOptionsSchedulingOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

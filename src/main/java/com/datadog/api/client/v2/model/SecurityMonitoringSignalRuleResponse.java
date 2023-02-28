@@ -6,33 +6,15 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Rule.</p>
- */
+/** Rule. */
 @JsonPropertyOrder({
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CASES,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CREATED_AT,
@@ -53,10 +35,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_UPDATE_AUTHOR_ID,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalRuleResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCase> cases = null;
 
@@ -118,6 +100,7 @@ public class SecurityMonitoringSignalRuleResponse {
     }
     return this;
   }
+
   public SecurityMonitoringSignalRuleResponse addCasesItem(SecurityMonitoringRuleCase casesItem) {
     if (this.cases == null) {
       this.cases = new ArrayList<>();
@@ -128,76 +111,84 @@ public class SecurityMonitoringSignalRuleResponse {
   }
 
   /**
-   * <p>Cases for generating signals.</p>
+   * Cases for generating signals.
+   *
    * @return cases
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CASES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SecurityMonitoringRuleCase> getCases() {
-        return cases;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CASES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SecurityMonitoringRuleCase> getCases() {
+    return cases;
+  }
+
   public void setCases(List<SecurityMonitoringRuleCase> cases) {
     this.cases = cases;
   }
+
   public SecurityMonitoringSignalRuleResponse createdAt(Long createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * <p>When the rule was created, timestamp in milliseconds.</p>
+   * When the rule was created, timestamp in milliseconds.
+   *
    * @return createdAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCreatedAt() {
+    return createdAt;
+  }
+
   public void setCreatedAt(Long createdAt) {
     this.createdAt = createdAt;
   }
+
   public SecurityMonitoringSignalRuleResponse creationAuthorId(Long creationAuthorId) {
     this.creationAuthorId = creationAuthorId;
     return this;
   }
 
   /**
-   * <p>User ID of the user who created the rule.</p>
+   * User ID of the user who created the rule.
+   *
    * @return creationAuthorId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATION_AUTHOR_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getCreationAuthorId() {
-        return creationAuthorId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATION_AUTHOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCreationAuthorId() {
+    return creationAuthorId;
+  }
+
   public void setCreationAuthorId(Long creationAuthorId) {
     this.creationAuthorId = creationAuthorId;
   }
+
   public SecurityMonitoringSignalRuleResponse deprecationDate(Long deprecationDate) {
     this.deprecationDate = deprecationDate;
     return this;
   }
 
   /**
-   * <p>When the rule will be deprecated, timestamp in milliseconds.</p>
+   * When the rule will be deprecated, timestamp in milliseconds.
+   *
    * @return deprecationDate
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DEPRECATION_DATE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getDeprecationDate() {
-        return deprecationDate;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEPRECATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDeprecationDate() {
+    return deprecationDate;
+  }
+
   public void setDeprecationDate(Long deprecationDate) {
     this.deprecationDate = deprecationDate;
   }
+
   public SecurityMonitoringSignalRuleResponse filters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
     for (SecurityMonitoringFilter item : filters) {
@@ -205,6 +196,7 @@ public class SecurityMonitoringSignalRuleResponse {
     }
     return this;
   }
+
   public SecurityMonitoringSignalRuleResponse addFiltersItem(SecurityMonitoringFilter filtersItem) {
     if (this.filters == null) {
       this.filters = new ArrayList<>();
@@ -215,152 +207,168 @@ public class SecurityMonitoringSignalRuleResponse {
   }
 
   /**
-   * <p>Additional queries to filter matched events before they are processed.</p>
+   * Additional queries to filter matched events before they are processed.
+   *
    * @return filters
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILTERS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SecurityMonitoringFilter> getFilters() {
-        return filters;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SecurityMonitoringFilter> getFilters() {
+    return filters;
+  }
+
   public void setFilters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
   }
+
   public SecurityMonitoringSignalRuleResponse hasExtendedTitle(Boolean hasExtendedTitle) {
     this.hasExtendedTitle = hasExtendedTitle;
     return this;
   }
 
   /**
-   * <p>Whether the notifications include the triggering group-by values in their title.</p>
+   * Whether the notifications include the triggering group-by values in their title.
+   *
    * @return hasExtendedTitle
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getHasExtendedTitle() {
-        return hasExtendedTitle;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasExtendedTitle() {
+    return hasExtendedTitle;
+  }
+
   public void setHasExtendedTitle(Boolean hasExtendedTitle) {
     this.hasExtendedTitle = hasExtendedTitle;
   }
+
   public SecurityMonitoringSignalRuleResponse id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The ID of the rule.</p>
+   * The ID of the rule.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public SecurityMonitoringSignalRuleResponse isDefault(Boolean isDefault) {
     this.isDefault = isDefault;
     return this;
   }
 
   /**
-   * <p>Whether the rule is included by default.</p>
+   * Whether the rule is included by default.
+   *
    * @return isDefault
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getIsDefault() {
-        return isDefault;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_DEFAULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsDefault() {
+    return isDefault;
+  }
+
   public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
   }
+
   public SecurityMonitoringSignalRuleResponse isDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
   /**
-   * <p>Whether the rule has been deleted.</p>
+   * Whether the rule has been deleted.
+   *
    * @return isDeleted
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IS_DELETED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getIsDeleted() {
-        return isDeleted;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_DELETED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsDeleted() {
+    return isDeleted;
+  }
+
   public void setIsDeleted(Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
+
   public SecurityMonitoringSignalRuleResponse isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
   /**
-   * <p>Whether the rule is enabled.</p>
+   * Whether the rule is enabled.
+   *
    * @return isEnabled
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getIsEnabled() {
-        return isEnabled;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsEnabled() {
+    return isEnabled;
+  }
+
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
+
   public SecurityMonitoringSignalRuleResponse message(String message) {
     this.message = message;
     return this;
   }
 
   /**
-   * <p>Message for generated signals.</p>
+   * Message for generated signals.
+   *
    * @return message
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MESSAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getMessage() {
-        return message;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
+
   public void setMessage(String message) {
     this.message = message;
   }
+
   public SecurityMonitoringSignalRuleResponse name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public SecurityMonitoringSignalRuleResponse options(SecurityMonitoringRuleOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
@@ -368,27 +376,32 @@ public class SecurityMonitoringSignalRuleResponse {
   }
 
   /**
-   * <p>Options on rules.</p>
+   * Options on rules.
+   *
    * @return options
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPTIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecurityMonitoringRuleOptions getOptions() {
-        return options;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleOptions getOptions() {
+    return options;
+  }
+
   public void setOptions(SecurityMonitoringRuleOptions options) {
     this.options = options;
   }
-  public SecurityMonitoringSignalRuleResponse queries(List<SecurityMonitoringSignalRuleResponseQuery> queries) {
+
+  public SecurityMonitoringSignalRuleResponse queries(
+      List<SecurityMonitoringSignalRuleResponseQuery> queries) {
     this.queries = queries;
     for (SecurityMonitoringSignalRuleResponseQuery item : queries) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public SecurityMonitoringSignalRuleResponse addQueriesItem(SecurityMonitoringSignalRuleResponseQuery queriesItem) {
+
+  public SecurityMonitoringSignalRuleResponse addQueriesItem(
+      SecurityMonitoringSignalRuleResponseQuery queriesItem) {
     if (this.queries == null) {
       this.queries = new ArrayList<>();
     }
@@ -398,23 +411,26 @@ public class SecurityMonitoringSignalRuleResponse {
   }
 
   /**
-   * <p>Queries for selecting logs which are part of the rule.</p>
+   * Queries for selecting logs which are part of the rule.
+   *
    * @return queries
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_QUERIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SecurityMonitoringSignalRuleResponseQuery> getQueries() {
-        return queries;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SecurityMonitoringSignalRuleResponseQuery> getQueries() {
+    return queries;
+  }
+
   public void setQueries(List<SecurityMonitoringSignalRuleResponseQuery> queries) {
     this.queries = queries;
   }
+
   public SecurityMonitoringSignalRuleResponse tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public SecurityMonitoringSignalRuleResponse addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -424,19 +440,21 @@ public class SecurityMonitoringSignalRuleResponse {
   }
 
   /**
-   * <p>Tags for generated signals.</p>
+   * Tags for generated signals.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public SecurityMonitoringSignalRuleResponse type(SecurityMonitoringSignalRuleType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -444,64 +462,67 @@ public class SecurityMonitoringSignalRuleResponse {
   }
 
   /**
-   * <p>The rule type.</p>
+   * The rule type.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecurityMonitoringSignalRuleType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringSignalRuleType getType() {
+    return type;
+  }
+
   public void setType(SecurityMonitoringSignalRuleType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
+
   public SecurityMonitoringSignalRuleResponse updateAuthorId(Long updateAuthorId) {
     this.updateAuthorId = updateAuthorId;
     return this;
   }
 
   /**
-   * <p>User ID of the user who updated the rule.</p>
+   * User ID of the user who updated the rule.
+   *
    * @return updateAuthorId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_UPDATE_AUTHOR_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getUpdateAuthorId() {
-        return updateAuthorId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATE_AUTHOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUpdateAuthorId() {
+    return updateAuthorId;
+  }
+
   public void setUpdateAuthorId(Long updateAuthorId) {
     this.updateAuthorId = updateAuthorId;
   }
+
   public SecurityMonitoringSignalRuleResponse version(Long version) {
     this.version = version;
     return this;
   }
 
   /**
-   * <p>The version of the rule.</p>
+   * The version of the rule.
+   *
    * @return version
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_VERSION)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getVersion() {
-        return version;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getVersion() {
+    return version;
+  }
+
   public void setVersion(Long version) {
     this.version = version;
   }
 
-  /**
-   * Return true if this SecurityMonitoringSignalRuleResponse object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringSignalRuleResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -510,14 +531,52 @@ public class SecurityMonitoringSignalRuleResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalRuleResponse securityMonitoringSignalRuleResponse = (SecurityMonitoringSignalRuleResponse) o;
-    return Objects.equals(this.cases, securityMonitoringSignalRuleResponse.cases) && Objects.equals(this.createdAt, securityMonitoringSignalRuleResponse.createdAt) && Objects.equals(this.creationAuthorId, securityMonitoringSignalRuleResponse.creationAuthorId) && Objects.equals(this.deprecationDate, securityMonitoringSignalRuleResponse.deprecationDate) && Objects.equals(this.filters, securityMonitoringSignalRuleResponse.filters) && Objects.equals(this.hasExtendedTitle, securityMonitoringSignalRuleResponse.hasExtendedTitle) && Objects.equals(this.id, securityMonitoringSignalRuleResponse.id) && Objects.equals(this.isDefault, securityMonitoringSignalRuleResponse.isDefault) && Objects.equals(this.isDeleted, securityMonitoringSignalRuleResponse.isDeleted) && Objects.equals(this.isEnabled, securityMonitoringSignalRuleResponse.isEnabled) && Objects.equals(this.message, securityMonitoringSignalRuleResponse.message) && Objects.equals(this.name, securityMonitoringSignalRuleResponse.name) && Objects.equals(this.options, securityMonitoringSignalRuleResponse.options) && Objects.equals(this.queries, securityMonitoringSignalRuleResponse.queries) && Objects.equals(this.tags, securityMonitoringSignalRuleResponse.tags) && Objects.equals(this.type, securityMonitoringSignalRuleResponse.type) && Objects.equals(this.updateAuthorId, securityMonitoringSignalRuleResponse.updateAuthorId) && Objects.equals(this.version, securityMonitoringSignalRuleResponse.version);
+    SecurityMonitoringSignalRuleResponse securityMonitoringSignalRuleResponse =
+        (SecurityMonitoringSignalRuleResponse) o;
+    return Objects.equals(this.cases, securityMonitoringSignalRuleResponse.cases)
+        && Objects.equals(this.createdAt, securityMonitoringSignalRuleResponse.createdAt)
+        && Objects.equals(
+            this.creationAuthorId, securityMonitoringSignalRuleResponse.creationAuthorId)
+        && Objects.equals(
+            this.deprecationDate, securityMonitoringSignalRuleResponse.deprecationDate)
+        && Objects.equals(this.filters, securityMonitoringSignalRuleResponse.filters)
+        && Objects.equals(
+            this.hasExtendedTitle, securityMonitoringSignalRuleResponse.hasExtendedTitle)
+        && Objects.equals(this.id, securityMonitoringSignalRuleResponse.id)
+        && Objects.equals(this.isDefault, securityMonitoringSignalRuleResponse.isDefault)
+        && Objects.equals(this.isDeleted, securityMonitoringSignalRuleResponse.isDeleted)
+        && Objects.equals(this.isEnabled, securityMonitoringSignalRuleResponse.isEnabled)
+        && Objects.equals(this.message, securityMonitoringSignalRuleResponse.message)
+        && Objects.equals(this.name, securityMonitoringSignalRuleResponse.name)
+        && Objects.equals(this.options, securityMonitoringSignalRuleResponse.options)
+        && Objects.equals(this.queries, securityMonitoringSignalRuleResponse.queries)
+        && Objects.equals(this.tags, securityMonitoringSignalRuleResponse.tags)
+        && Objects.equals(this.type, securityMonitoringSignalRuleResponse.type)
+        && Objects.equals(this.updateAuthorId, securityMonitoringSignalRuleResponse.updateAuthorId)
+        && Objects.equals(this.version, securityMonitoringSignalRuleResponse.version);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(cases,createdAt,creationAuthorId,deprecationDate,filters,hasExtendedTitle,id,isDefault,isDeleted,isEnabled,message,name,options,queries,tags,type,updateAuthorId,version);
+    return Objects.hash(
+        cases,
+        createdAt,
+        creationAuthorId,
+        deprecationDate,
+        filters,
+        hasExtendedTitle,
+        id,
+        isDefault,
+        isDeleted,
+        isEnabled,
+        message,
+        name,
+        options,
+        queries,
+        tags,
+        type,
+        updateAuthorId,
+        version);
   }
 
   @Override
@@ -547,8 +606,7 @@ public class SecurityMonitoringSignalRuleResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

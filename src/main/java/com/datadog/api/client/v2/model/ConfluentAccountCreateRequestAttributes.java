@@ -6,43 +6,26 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes associated with the account creation request.</p>
- */
+/** Attributes associated with the account creation request. */
 @JsonPropertyOrder({
   ConfluentAccountCreateRequestAttributes.JSON_PROPERTY_API_KEY,
   ConfluentAccountCreateRequestAttributes.JSON_PROPERTY_API_SECRET,
   ConfluentAccountCreateRequestAttributes.JSON_PROPERTY_RESOURCES,
   ConfluentAccountCreateRequestAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ConfluentAccountCreateRequestAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
   private String apiKey;
 
@@ -59,55 +42,63 @@ public class ConfluentAccountCreateRequestAttributes {
 
   @JsonCreator
   public ConfluentAccountCreateRequestAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_API_KEY)String apiKey,
-            @JsonProperty(required=true, value=JSON_PROPERTY_API_SECRET)String apiSecret) {
-        this.apiKey = apiKey;
-        this.apiSecret = apiSecret;
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_KEY) String apiKey,
+      @JsonProperty(required = true, value = JSON_PROPERTY_API_SECRET) String apiSecret) {
+    this.apiKey = apiKey;
+    this.apiSecret = apiSecret;
   }
+
   public ConfluentAccountCreateRequestAttributes apiKey(String apiKey) {
     this.apiKey = apiKey;
     return this;
   }
 
   /**
-   * <p>The API key associated with your Confluent account.</p>
+   * The API key associated with your Confluent account.
+   *
    * @return apiKey
-  **/
-      @JsonProperty(JSON_PROPERTY_API_KEY)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getApiKey() {
-        return apiKey;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getApiKey() {
+    return apiKey;
+  }
+
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
   }
+
   public ConfluentAccountCreateRequestAttributes apiSecret(String apiSecret) {
     this.apiSecret = apiSecret;
     return this;
   }
 
   /**
-   * <p>The API secret associated with your Confluent account.</p>
+   * The API secret associated with your Confluent account.
+   *
    * @return apiSecret
-  **/
-      @JsonProperty(JSON_PROPERTY_API_SECRET)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getApiSecret() {
-        return apiSecret;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_API_SECRET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getApiSecret() {
+    return apiSecret;
+  }
+
   public void setApiSecret(String apiSecret) {
     this.apiSecret = apiSecret;
   }
-  public ConfluentAccountCreateRequestAttributes resources(List<ConfluentAccountResourceAttributes> resources) {
+
+  public ConfluentAccountCreateRequestAttributes resources(
+      List<ConfluentAccountResourceAttributes> resources) {
     this.resources = resources;
     for (ConfluentAccountResourceAttributes item : resources) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public ConfluentAccountCreateRequestAttributes addResourcesItem(ConfluentAccountResourceAttributes resourcesItem) {
+
+  public ConfluentAccountCreateRequestAttributes addResourcesItem(
+      ConfluentAccountResourceAttributes resourcesItem) {
     if (this.resources == null) {
       this.resources = new ArrayList<>();
     }
@@ -117,23 +108,26 @@ public class ConfluentAccountCreateRequestAttributes {
   }
 
   /**
-   * <p>A list of Confluent resources associated with the Confluent account.</p>
+   * A list of Confluent resources associated with the Confluent account.
+   *
    * @return resources
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RESOURCES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<ConfluentAccountResourceAttributes> getResources() {
-        return resources;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ConfluentAccountResourceAttributes> getResources() {
+    return resources;
+  }
+
   public void setResources(List<ConfluentAccountResourceAttributes> resources) {
     this.resources = resources;
   }
+
   public ConfluentAccountCreateRequestAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public ConfluentAccountCreateRequestAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -143,23 +137,23 @@ public class ConfluentAccountCreateRequestAttributes {
   }
 
   /**
-   * <p>A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.</p>
+   * A list of strings representing tags. Can be a single key, or key-value pairs separated by a
+   * colon.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
-  /**
-   * Return true if this ConfluentAccountCreateRequestAttributes object is equal to o.
-   */
+  /** Return true if this ConfluentAccountCreateRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -168,14 +162,17 @@ public class ConfluentAccountCreateRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ConfluentAccountCreateRequestAttributes confluentAccountCreateRequestAttributes = (ConfluentAccountCreateRequestAttributes) o;
-    return Objects.equals(this.apiKey, confluentAccountCreateRequestAttributes.apiKey) && Objects.equals(this.apiSecret, confluentAccountCreateRequestAttributes.apiSecret) && Objects.equals(this.resources, confluentAccountCreateRequestAttributes.resources) && Objects.equals(this.tags, confluentAccountCreateRequestAttributes.tags);
+    ConfluentAccountCreateRequestAttributes confluentAccountCreateRequestAttributes =
+        (ConfluentAccountCreateRequestAttributes) o;
+    return Objects.equals(this.apiKey, confluentAccountCreateRequestAttributes.apiKey)
+        && Objects.equals(this.apiSecret, confluentAccountCreateRequestAttributes.apiSecret)
+        && Objects.equals(this.resources, confluentAccountCreateRequestAttributes.resources)
+        && Objects.equals(this.tags, confluentAccountCreateRequestAttributes.tags);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey,apiSecret,resources,tags);
+    return Objects.hash(apiKey, apiSecret, resources, tags);
   }
 
   @Override
@@ -191,8 +188,7 @@ public class ConfluentAccountCreateRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

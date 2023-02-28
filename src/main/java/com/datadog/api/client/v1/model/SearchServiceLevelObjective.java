@@ -6,40 +6,18 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A service level objective data container.</p>
- */
-@JsonPropertyOrder({
-  SearchServiceLevelObjective.JSON_PROPERTY_DATA
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** A service level objective data container. */
+@JsonPropertyOrder({SearchServiceLevelObjective.JSON_PROPERTY_DATA})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SearchServiceLevelObjective {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private SearchServiceLevelObjectiveData data;
 
@@ -50,23 +28,22 @@ public class SearchServiceLevelObjective {
   }
 
   /**
-   * <p>A service level objective ID and attributes.</p>
+   * A service level objective ID and attributes.
+   *
    * @return data
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SearchServiceLevelObjectiveData getData() {
-        return data;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SearchServiceLevelObjectiveData getData() {
+    return data;
+  }
+
   public void setData(SearchServiceLevelObjectiveData data) {
     this.data = data;
   }
 
-  /**
-   * Return true if this SearchServiceLevelObjective object is equal to o.
-   */
+  /** Return true if this SearchServiceLevelObjective object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -78,7 +55,6 @@ public class SearchServiceLevelObjective {
     SearchServiceLevelObjective searchServiceLevelObjective = (SearchServiceLevelObjective) o;
     return Objects.equals(this.data, searchServiceLevelObjective.data);
   }
-
 
   @Override
   public int hashCode() {
@@ -95,8 +71,7 @@ public class SearchServiceLevelObjective {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

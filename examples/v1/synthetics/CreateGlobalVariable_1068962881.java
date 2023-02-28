@@ -1,21 +1,14 @@
 // Create a global variable from test returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
-import com.datadog.api.client.v1.model.SyntheticsGlobalVariable;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariable;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableOptions;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptionsType;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableTOTPParameters;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableValue;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -23,22 +16,28 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     // there is a valid "synthetics_api_test_multi_step" in the system
-    String SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID = System.getenv("SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID");
+    String SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID =
+        System.getenv("SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID");
 
-    SyntheticsGlobalVariable body = new SyntheticsGlobalVariable()
-.description("")
-.name("GLOBAL_VARIABLE_PAYLOAD_EXAMPLECREATEAGLOBALVARIABLEFROMTESTRETURNSOKRESPONSE")
-.value(new SyntheticsGlobalVariableValue()
-.secure(false)
-.value("")
-.options(new SyntheticsGlobalVariableOptions()
-.totpParameters(new SyntheticsGlobalVariableTOTPParameters()
-.digits(6)
-.refreshInterval(30))))
-.parseTestPublicId(SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID)
-.parseTestOptions(new SyntheticsGlobalVariableParseTestOptions()
-.type(SyntheticsGlobalVariableParseTestOptionsType.LOCAL_VARIABLE)
-.localVariableName("EXTRACTED_VALUE"));
+    SyntheticsGlobalVariable body =
+        new SyntheticsGlobalVariable()
+            .description("")
+            .name("GLOBAL_VARIABLE_PAYLOAD_EXAMPLECREATEAGLOBALVARIABLEFROMTESTRETURNSOKRESPONSE")
+            .value(
+                new SyntheticsGlobalVariableValue()
+                    .secure(false)
+                    .value("")
+                    .options(
+                        new SyntheticsGlobalVariableOptions()
+                            .totpParameters(
+                                new SyntheticsGlobalVariableTOTPParameters()
+                                    .digits(6)
+                                    .refreshInterval(30))))
+            .parseTestPublicId(SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID)
+            .parseTestOptions(
+                new SyntheticsGlobalVariableParseTestOptions()
+                    .type(SyntheticsGlobalVariableParseTestOptionsType.LOCAL_VARIABLE)
+                    .localVariableName("EXTRACTED_VALUE"));
 
     try {
       SyntheticsGlobalVariable result = apiInstance.createGlobalVariable(body);

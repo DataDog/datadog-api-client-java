@@ -6,41 +6,21 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Third party integrations that Datadog supports.</p>
- */
+/** Third party integrations that Datadog supports. */
 @JsonPropertyOrder({
   ServiceDefinitionV2Integrations.JSON_PROPERTY_OPSGENIE,
   ServiceDefinitionV2Integrations.JSON_PROPERTY_PAGERDUTY
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceDefinitionV2Integrations {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_OPSGENIE = "opsgenie";
   private ServiceDefinitionV2Opsgenie opsgenie;
 
@@ -54,42 +34,43 @@ public class ServiceDefinitionV2Integrations {
   }
 
   /**
-   * <p>Opsgenie integration for the service.</p>
+   * Opsgenie integration for the service.
+   *
    * @return opsgenie
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPSGENIE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public ServiceDefinitionV2Opsgenie getOpsgenie() {
-        return opsgenie;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPSGENIE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ServiceDefinitionV2Opsgenie getOpsgenie() {
+    return opsgenie;
+  }
+
   public void setOpsgenie(ServiceDefinitionV2Opsgenie opsgenie) {
     this.opsgenie = opsgenie;
   }
+
   public ServiceDefinitionV2Integrations pagerduty(String pagerduty) {
     this.pagerduty = pagerduty;
     return this;
   }
 
   /**
-   * <p>PagerDuty service URL for the service.</p>
+   * PagerDuty service URL for the service.
+   *
    * @return pagerduty
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PAGERDUTY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPagerduty() {
-        return pagerduty;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGERDUTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPagerduty() {
+    return pagerduty;
+  }
+
   public void setPagerduty(String pagerduty) {
     this.pagerduty = pagerduty;
   }
 
-  /**
-   * Return true if this ServiceDefinitionV2Integrations object is equal to o.
-   */
+  /** Return true if this ServiceDefinitionV2Integrations object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -98,14 +79,15 @@ public class ServiceDefinitionV2Integrations {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceDefinitionV2Integrations serviceDefinitionV2Integrations = (ServiceDefinitionV2Integrations) o;
-    return Objects.equals(this.opsgenie, serviceDefinitionV2Integrations.opsgenie) && Objects.equals(this.pagerduty, serviceDefinitionV2Integrations.pagerduty);
+    ServiceDefinitionV2Integrations serviceDefinitionV2Integrations =
+        (ServiceDefinitionV2Integrations) o;
+    return Objects.equals(this.opsgenie, serviceDefinitionV2Integrations.opsgenie)
+        && Objects.equals(this.pagerduty, serviceDefinitionV2Integrations.pagerduty);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(opsgenie,pagerduty);
+    return Objects.hash(opsgenie, pagerduty);
   }
 
   @Override
@@ -119,8 +101,7 @@ public class ServiceDefinitionV2Integrations {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

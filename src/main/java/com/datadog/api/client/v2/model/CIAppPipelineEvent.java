@@ -6,42 +6,22 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object description of a pipeline event after being processed and stored by Datadog.</p>
- */
+/** Object description of a pipeline event after being processed and stored by Datadog. */
 @JsonPropertyOrder({
   CIAppPipelineEvent.JSON_PROPERTY_ATTRIBUTES,
   CIAppPipelineEvent.JSON_PROPERTY_ID,
   CIAppPipelineEvent.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CIAppPipelineEvent {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CIAppEventAttributes attributes;
 
@@ -58,38 +38,42 @@ public class CIAppPipelineEvent {
   }
 
   /**
-   * <p>JSON object containing all event attributes and their associated values.</p>
+   * JSON object containing all event attributes and their associated values.
+   *
    * @return attributes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppEventAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppEventAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(CIAppEventAttributes attributes) {
     this.attributes = attributes;
   }
+
   public CIAppPipelineEvent id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>Unique ID of the event.</p>
+   * Unique ID of the event.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public CIAppPipelineEvent type(CIAppPipelineEventTypeName type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -97,26 +81,25 @@ public class CIAppPipelineEvent {
   }
 
   /**
-   * <p>Type of the event.</p>
+   * Type of the event.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppPipelineEventTypeName getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppPipelineEventTypeName getType() {
+    return type;
+  }
+
   public void setType(CIAppPipelineEventTypeName type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this CIAppPipelineEvent object is equal to o.
-   */
+  /** Return true if this CIAppPipelineEvent object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -126,13 +109,14 @@ public class CIAppPipelineEvent {
       return false;
     }
     CIAppPipelineEvent ciAppPipelineEvent = (CIAppPipelineEvent) o;
-    return Objects.equals(this.attributes, ciAppPipelineEvent.attributes) && Objects.equals(this.id, ciAppPipelineEvent.id) && Objects.equals(this.type, ciAppPipelineEvent.type);
+    return Objects.equals(this.attributes, ciAppPipelineEvent.attributes)
+        && Objects.equals(this.id, ciAppPipelineEvent.id)
+        && Objects.equals(this.type, ciAppPipelineEvent.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,id,type);
+    return Objects.hash(attributes, id, type);
   }
 
   @Override
@@ -147,8 +131,7 @@ public class CIAppPipelineEvent {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

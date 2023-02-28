@@ -6,51 +6,36 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of the IP allowlist entry.</p>
- */
+/** Attributes of the IP allowlist entry. */
 @JsonPropertyOrder({
   IPAllowlistEntryAttributes.JSON_PROPERTY_CIDR_BLOCK,
   IPAllowlistEntryAttributes.JSON_PROPERTY_CREATED_AT,
   IPAllowlistEntryAttributes.JSON_PROPERTY_MODIFIED_AT,
   IPAllowlistEntryAttributes.JSON_PROPERTY_NOTE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IPAllowlistEntryAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CIDR_BLOCK = "cidr_block";
   private String cidrBlock;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modifiedAt;
 
@@ -63,66 +48,67 @@ public class IPAllowlistEntryAttributes {
   }
 
   /**
-   * <p>The CIDR block describing the IP range of the entry.</p>
+   * The CIDR block describing the IP range of the entry.
+   *
    * @return cidrBlock
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CIDR_BLOCK)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getCidrBlock() {
-        return cidrBlock;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CIDR_BLOCK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCidrBlock() {
+    return cidrBlock;
+  }
+
   public void setCidrBlock(String cidrBlock) {
     this.cidrBlock = cidrBlock;
   }
 
   /**
-   * <p>Creation time of the entry.</p>
+   * Creation time of the entry.
+   *
    * @return createdAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CREATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getCreatedAt() {
-        return createdAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
 
   /**
-   * <p>Time of last entry modification.</p>
+   * Time of last entry modification.
+   *
    * @return modifiedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getModifiedAt() {
-        return modifiedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
+
   public IPAllowlistEntryAttributes note(String note) {
     this.note = note;
     return this;
   }
 
   /**
-   * <p>A note describing the IP allowlist entry.</p>
+   * A note describing the IP allowlist entry.
+   *
    * @return note
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NOTE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getNote() {
-        return note;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NOTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getNote() {
+    return note;
+  }
+
   public void setNote(String note) {
     this.note = note;
   }
 
-  /**
-   * Return true if this IPAllowlistEntryAttributes object is equal to o.
-   */
+  /** Return true if this IPAllowlistEntryAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -132,13 +118,15 @@ public class IPAllowlistEntryAttributes {
       return false;
     }
     IPAllowlistEntryAttributes ipAllowlistEntryAttributes = (IPAllowlistEntryAttributes) o;
-    return Objects.equals(this.cidrBlock, ipAllowlistEntryAttributes.cidrBlock) && Objects.equals(this.createdAt, ipAllowlistEntryAttributes.createdAt) && Objects.equals(this.modifiedAt, ipAllowlistEntryAttributes.modifiedAt) && Objects.equals(this.note, ipAllowlistEntryAttributes.note);
+    return Objects.equals(this.cidrBlock, ipAllowlistEntryAttributes.cidrBlock)
+        && Objects.equals(this.createdAt, ipAllowlistEntryAttributes.createdAt)
+        && Objects.equals(this.modifiedAt, ipAllowlistEntryAttributes.modifiedAt)
+        && Objects.equals(this.note, ipAllowlistEntryAttributes.note);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidrBlock,createdAt,modifiedAt,note);
+    return Objects.hash(cidrBlock, createdAt, modifiedAt, note);
   }
 
   @Override
@@ -154,8 +142,7 @@ public class IPAllowlistEntryAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

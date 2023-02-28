@@ -1,24 +1,17 @@
 // Create a dashboard list returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.DashboardListsApi;
 import com.datadog.api.client.v1.model.DashboardList;
-import com.datadog.api.client.v1.model.DashboardList;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
 
-    DashboardList body = new DashboardList()
-.name("Example-Create_a_dashboard_list_returns_OK_response");
+    DashboardList body =
+        new DashboardList().name("Example-Create_a_dashboard_list_returns_OK_response");
 
     try {
       DashboardList result = apiInstance.createDashboardList(body);

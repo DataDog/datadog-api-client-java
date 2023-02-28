@@ -6,33 +6,13 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The steps used in a Synthetics browser test.</p>
- */
+/** The steps used in a Synthetics browser test. */
 @JsonPropertyOrder({
   SyntheticsStep.JSON_PROPERTY_ALLOW_FAILURE,
   SyntheticsStep.JSON_PROPERTY_IS_CRITICAL,
@@ -42,10 +22,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsStep.JSON_PROPERTY_TIMEOUT,
   SyntheticsStep.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsStep {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
   private Boolean allowFailure;
 
@@ -73,114 +53,127 @@ public class SyntheticsStep {
   }
 
   /**
-   * <p>A boolean set to allow this step to fail.</p>
+   * A boolean set to allow this step to fail.
+   *
    * @return allowFailure
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getAllowFailure() {
-        return allowFailure;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAllowFailure() {
+    return allowFailure;
+  }
+
   public void setAllowFailure(Boolean allowFailure) {
     this.allowFailure = allowFailure;
   }
+
   public SyntheticsStep isCritical(Boolean isCritical) {
     this.isCritical = isCritical;
     return this;
   }
 
   /**
-   * <p>A boolean to use in addition to <code>allowFailure</code> to determine if the test should be marked as failed when the step fails.</p>
+   * A boolean to use in addition to <code>allowFailure</code> to determine if the test should be
+   * marked as failed when the step fails.
+   *
    * @return isCritical
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_IS_CRITICAL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getIsCritical() {
-        return isCritical;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_CRITICAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsCritical() {
+    return isCritical;
+  }
+
   public void setIsCritical(Boolean isCritical) {
     this.isCritical = isCritical;
   }
+
   public SyntheticsStep name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the step.</p>
+   * The name of the step.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public SyntheticsStep noScreenshot(Boolean noScreenshot) {
     this.noScreenshot = noScreenshot;
     return this;
   }
 
   /**
-   * <p>A boolean set to not take a screenshot for the step.</p>
+   * A boolean set to not take a screenshot for the step.
+   *
    * @return noScreenshot
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NO_SCREENSHOT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getNoScreenshot() {
-        return noScreenshot;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NO_SCREENSHOT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getNoScreenshot() {
+    return noScreenshot;
+  }
+
   public void setNoScreenshot(Boolean noScreenshot) {
     this.noScreenshot = noScreenshot;
   }
+
   public SyntheticsStep params(Object params) {
     this.params = params;
     return this;
   }
 
   /**
-   * <p>The parameters of the step.</p>
+   * The parameters of the step.
+   *
    * @return params
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PARAMS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Object getParams() {
-        return params;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PARAMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getParams() {
+    return params;
+  }
+
   public void setParams(Object params) {
     this.params = params;
   }
+
   public SyntheticsStep timeout(Long timeout) {
     this.timeout = timeout;
     return this;
   }
 
   /**
-   * <p>The time before declaring a step failed.</p>
+   * The time before declaring a step failed.
+   *
    * @return timeout
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMEOUT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTimeout() {
-        return timeout;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMEOUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTimeout() {
+    return timeout;
+  }
+
   public void setTimeout(Long timeout) {
     this.timeout = timeout;
   }
+
   public SyntheticsStep type(SyntheticsStepType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -188,26 +181,25 @@ public class SyntheticsStep {
   }
 
   /**
-   * <p>Step type used in your Synthetic test.</p>
+   * Step type used in your Synthetic test.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsStepType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsStepType getType() {
+    return type;
+  }
+
   public void setType(SyntheticsStepType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this SyntheticsStep object is equal to o.
-   */
+  /** Return true if this SyntheticsStep object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -217,13 +209,18 @@ public class SyntheticsStep {
       return false;
     }
     SyntheticsStep syntheticsStep = (SyntheticsStep) o;
-    return Objects.equals(this.allowFailure, syntheticsStep.allowFailure) && Objects.equals(this.isCritical, syntheticsStep.isCritical) && Objects.equals(this.name, syntheticsStep.name) && Objects.equals(this.noScreenshot, syntheticsStep.noScreenshot) && Objects.equals(this.params, syntheticsStep.params) && Objects.equals(this.timeout, syntheticsStep.timeout) && Objects.equals(this.type, syntheticsStep.type);
+    return Objects.equals(this.allowFailure, syntheticsStep.allowFailure)
+        && Objects.equals(this.isCritical, syntheticsStep.isCritical)
+        && Objects.equals(this.name, syntheticsStep.name)
+        && Objects.equals(this.noScreenshot, syntheticsStep.noScreenshot)
+        && Objects.equals(this.params, syntheticsStep.params)
+        && Objects.equals(this.timeout, syntheticsStep.timeout)
+        && Objects.equals(this.type, syntheticsStep.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowFailure,isCritical,name,noScreenshot,params,timeout,type);
+    return Objects.hash(allowFailure, isCritical, name, noScreenshot, params, timeout, type);
   }
 
   @Override
@@ -242,8 +239,7 @@ public class SyntheticsStep {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

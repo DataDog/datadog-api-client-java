@@ -6,44 +6,23 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
-   * <p>How to size the image on the widget. The values are based on the image <code>object-fit</code> CSS properties.
-   * <strong>Note</strong>: <code>zoom</code>, <code>fit</code> and <code>center</code> values are deprecated.</p>
+ * How to size the image on the widget. The values are based on the image <code>object-fit</code>
+ * CSS properties. <strong>Note</strong>: <code>zoom</code>, <code>fit</code> and <code>center
+ * </code> values are deprecated.
  */
 @JsonSerialize(using = WidgetImageSizing.WidgetImageSizingSerializer.class)
 public class WidgetImageSizing {
@@ -57,7 +36,9 @@ public class WidgetImageSizing {
   public static final WidgetImageSizing FIT = new WidgetImageSizing("fit");
   public static final WidgetImageSizing CENTER = new WidgetImageSizing("center");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("fill", "contain", "cover", "none", "scale-down", "zoom", "fit", "center"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("fill", "contain", "cover", "none", "scale-down", "zoom", "fit", "center"));
 
   private String value;
 
@@ -70,18 +51,19 @@ public class WidgetImageSizing {
   }
 
   public static class WidgetImageSizingSerializer extends StdSerializer<WidgetImageSizing> {
-      public WidgetImageSizingSerializer(Class<WidgetImageSizing> t) {
-          super(t);
-      }
+    public WidgetImageSizingSerializer(Class<WidgetImageSizing> t) {
+      super(t);
+    }
 
-      public WidgetImageSizingSerializer() {
-          this(null);
-      }
+    public WidgetImageSizingSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(WidgetImageSizing value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(WidgetImageSizing value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -93,9 +75,7 @@ public class WidgetImageSizing {
     this.value = value;
   }
 
-  /**
-   * Return true if this WidgetImageSizing object is equal to o.
-   */
+  /** Return true if this WidgetImageSizing object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -109,7 +89,7 @@ public class WidgetImageSizing {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override

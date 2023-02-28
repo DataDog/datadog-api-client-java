@@ -6,46 +6,30 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object containing the definition of a metric estimate attribute.</p>
- */
+/** Object containing the definition of a metric estimate attribute. */
 @JsonPropertyOrder({
   MetricEstimateAttributes.JSON_PROPERTY_ESTIMATE_TYPE,
   MetricEstimateAttributes.JSON_PROPERTY_ESTIMATED_AT,
   MetricEstimateAttributes.JSON_PROPERTY_ESTIMATED_OUTPUT_SERIES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricEstimateAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ESTIMATE_TYPE = "estimate_type";
   private MetricEstimateType estimateType = MetricEstimateType.COUNT_OR_GAUGE;
 
   public static final String JSON_PROPERTY_ESTIMATED_AT = "estimated_at";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime estimatedAt;
 
@@ -59,64 +43,70 @@ public class MetricEstimateAttributes {
   }
 
   /**
-   * <p>Estimate type based on the queried configuration. By default, <code>count_or_gauge</code> is returned. <code>distribution</code> is returned for distribution metrics without percentiles enabled. Lastly, <code>percentile</code> is returned if <code>filter[pct]=true</code> is queried with a distribution metric.</p>
+   * Estimate type based on the queried configuration. By default, <code>count_or_gauge</code> is
+   * returned. <code>distribution</code> is returned for distribution metrics without percentiles
+   * enabled. Lastly, <code>percentile</code> is returned if <code>filter[pct]=true</code> is
+   * queried with a distribution metric.
+   *
    * @return estimateType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ESTIMATE_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public MetricEstimateType getEstimateType() {
-        return estimateType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MetricEstimateType getEstimateType() {
+    return estimateType;
+  }
+
   public void setEstimateType(MetricEstimateType estimateType) {
     if (!estimateType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.estimateType = estimateType;
   }
+
   public MetricEstimateAttributes estimatedAt(OffsetDateTime estimatedAt) {
     this.estimatedAt = estimatedAt;
     return this;
   }
 
   /**
-   * <p>Timestamp when the cardinality estimate was requested.</p>
+   * Timestamp when the cardinality estimate was requested.
+   *
    * @return estimatedAt
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ESTIMATED_AT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getEstimatedAt() {
-        return estimatedAt;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getEstimatedAt() {
+    return estimatedAt;
+  }
+
   public void setEstimatedAt(OffsetDateTime estimatedAt) {
     this.estimatedAt = estimatedAt;
   }
+
   public MetricEstimateAttributes estimatedOutputSeries(Long estimatedOutputSeries) {
     this.estimatedOutputSeries = estimatedOutputSeries;
     return this;
   }
 
   /**
-   * <p>Estimated cardinality of the metric based on the queried configuration.</p>
+   * Estimated cardinality of the metric based on the queried configuration.
+   *
    * @return estimatedOutputSeries
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ESTIMATED_OUTPUT_SERIES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getEstimatedOutputSeries() {
-        return estimatedOutputSeries;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_OUTPUT_SERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEstimatedOutputSeries() {
+    return estimatedOutputSeries;
+  }
+
   public void setEstimatedOutputSeries(Long estimatedOutputSeries) {
     this.estimatedOutputSeries = estimatedOutputSeries;
   }
 
-  /**
-   * Return true if this MetricEstimateAttributes object is equal to o.
-   */
+  /** Return true if this MetricEstimateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -126,13 +116,15 @@ public class MetricEstimateAttributes {
       return false;
     }
     MetricEstimateAttributes metricEstimateAttributes = (MetricEstimateAttributes) o;
-    return Objects.equals(this.estimateType, metricEstimateAttributes.estimateType) && Objects.equals(this.estimatedAt, metricEstimateAttributes.estimatedAt) && Objects.equals(this.estimatedOutputSeries, metricEstimateAttributes.estimatedOutputSeries);
+    return Objects.equals(this.estimateType, metricEstimateAttributes.estimateType)
+        && Objects.equals(this.estimatedAt, metricEstimateAttributes.estimatedAt)
+        && Objects.equals(
+            this.estimatedOutputSeries, metricEstimateAttributes.estimatedOutputSeries);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(estimateType,estimatedAt,estimatedOutputSeries);
+    return Objects.hash(estimateType, estimatedAt, estimatedOutputSeries);
   }
 
   @Override
@@ -141,14 +133,15 @@ public class MetricEstimateAttributes {
     sb.append("class MetricEstimateAttributes {\n");
     sb.append("    estimateType: ").append(toIndentedString(estimateType)).append("\n");
     sb.append("    estimatedAt: ").append(toIndentedString(estimatedAt)).append("\n");
-    sb.append("    estimatedOutputSeries: ").append(toIndentedString(estimatedOutputSeries)).append("\n");
+    sb.append("    estimatedOutputSeries: ")
+        .append(toIndentedString(estimatedOutputSeries))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

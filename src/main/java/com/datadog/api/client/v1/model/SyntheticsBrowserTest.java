@@ -6,33 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object containing details about a Synthetic browser test.</p>
- */
+/** Object containing details about a Synthetic browser test. */
 @JsonPropertyOrder({
   SyntheticsBrowserTest.JSON_PROPERTY_CONFIG,
   SyntheticsBrowserTest.JSON_PROPERTY_LOCATIONS,
@@ -46,10 +29,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsBrowserTest.JSON_PROPERTY_TAGS,
   SyntheticsBrowserTest.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private SyntheticsBrowserTestConfig config;
 
@@ -87,22 +70,24 @@ public class SyntheticsBrowserTest {
 
   @JsonCreator
   public SyntheticsBrowserTest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CONFIG)SyntheticsBrowserTestConfig config,
-            @JsonProperty(required=true, value=JSON_PROPERTY_LOCATIONS)List<String> locations,
-            @JsonProperty(required=true, value=JSON_PROPERTY_MESSAGE)String message,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
-            @JsonProperty(required=true, value=JSON_PROPERTY_OPTIONS)SyntheticsTestOptions options,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SyntheticsBrowserTestType type) {
-        this.config = config;
-        this.unparsed |= config.unparsed;
-        this.locations = locations;
-        this.message = message;
-        this.name = name;
-        this.options = options;
-        this.unparsed |= options.unparsed;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG)
+          SyntheticsBrowserTestConfig config,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LOCATIONS) List<String> locations,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS) SyntheticsTestOptions options,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsBrowserTestType type) {
+    this.config = config;
+    this.unparsed |= config.unparsed;
+    this.locations = locations;
+    this.message = message;
+    this.name = name;
+    this.options = options;
+    this.unparsed |= options.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public SyntheticsBrowserTest config(SyntheticsBrowserTestConfig config) {
     this.config = config;
     this.unparsed |= config.unparsed;
@@ -110,88 +95,97 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * <p>Configuration object for a Synthetic browser test.</p>
+   * Configuration object for a Synthetic browser test.
+   *
    * @return config
-  **/
-      @JsonProperty(JSON_PROPERTY_CONFIG)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsBrowserTestConfig getConfig() {
-        return config;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsBrowserTestConfig getConfig() {
+    return config;
+  }
+
   public void setConfig(SyntheticsBrowserTestConfig config) {
     this.config = config;
   }
+
   public SyntheticsBrowserTest locations(List<String> locations) {
     this.locations = locations;
     return this;
   }
+
   public SyntheticsBrowserTest addLocationsItem(String locationsItem) {
     this.locations.add(locationsItem);
     return this;
   }
 
   /**
-   * <p>Array of locations used to run the test.</p>
+   * Array of locations used to run the test.
+   *
    * @return locations
-  **/
-      @JsonProperty(JSON_PROPERTY_LOCATIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getLocations() {
-        return locations;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_LOCATIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getLocations() {
+    return locations;
+  }
+
   public void setLocations(List<String> locations) {
     this.locations = locations;
   }
+
   public SyntheticsBrowserTest message(String message) {
     this.message = message;
     return this;
   }
 
   /**
-   * <p>Notification message associated with the test. Message can either be text or an empty string.</p>
+   * Notification message associated with the test. Message can either be text or an empty string.
+   *
    * @return message
-  **/
-      @JsonProperty(JSON_PROPERTY_MESSAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getMessage() {
-        return message;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMessage() {
+    return message;
+  }
+
   public void setMessage(String message) {
     this.message = message;
   }
 
   /**
-   * <p>The associated monitor ID.</p>
+   * The associated monitor ID.
+   *
    * @return monitorId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_MONITOR_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getMonitorId() {
-        return monitorId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONITOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMonitorId() {
+    return monitorId;
+  }
+
   public SyntheticsBrowserTest name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the test.</p>
+   * Name of the test.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public SyntheticsBrowserTest options(SyntheticsTestOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
@@ -199,30 +193,32 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * <p>Object describing the extra options for a Synthetic test.</p>
+   * Object describing the extra options for a Synthetic test.
+   *
    * @return options
-  **/
-      @JsonProperty(JSON_PROPERTY_OPTIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsTestOptions getOptions() {
-        return options;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsTestOptions getOptions() {
+    return options;
+  }
+
   public void setOptions(SyntheticsTestOptions options) {
     this.options = options;
   }
 
   /**
-   * <p>The public ID of the test.</p>
+   * The public ID of the test.
+   *
    * @return publicId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublicId() {
-        return publicId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
   public SyntheticsBrowserTest status(SyntheticsTestPauseStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -230,23 +226,25 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * <p>Define whether you want to start (<code>live</code>) or pause (<code>paused</code>) a
-   * Synthetic test.</p>
+   * Define whether you want to start (<code>live</code>) or pause (<code>paused</code>) a Synthetic
+   * test.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsTestPauseStatus getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestPauseStatus getStatus() {
+    return status;
+  }
+
   public void setStatus(SyntheticsTestPauseStatus status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
+
   public SyntheticsBrowserTest steps(List<SyntheticsStep> steps) {
     this.steps = steps;
     for (SyntheticsStep item : steps) {
@@ -254,6 +252,7 @@ public class SyntheticsBrowserTest {
     }
     return this;
   }
+
   public SyntheticsBrowserTest addStepsItem(SyntheticsStep stepsItem) {
     if (this.steps == null) {
       this.steps = new ArrayList<>();
@@ -264,23 +263,26 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * <p>Array of steps for the test.</p>
+   * Array of steps for the test.
+   *
    * @return steps
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STEPS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SyntheticsStep> getSteps() {
-        return steps;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STEPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsStep> getSteps() {
+    return steps;
+  }
+
   public void setSteps(List<SyntheticsStep> steps) {
     this.steps = steps;
   }
+
   public SyntheticsBrowserTest tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public SyntheticsBrowserTest addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -290,19 +292,21 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * <p>Array of tags attached to the test.</p>
+   * Array of tags attached to the test.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public SyntheticsBrowserTest type(SyntheticsBrowserTestType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -310,25 +314,24 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * <p>Type of the Synthetic test, <code>browser</code>.</p>
+   * Type of the Synthetic test, <code>browser</code>.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsBrowserTestType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsBrowserTestType getType() {
+    return type;
+  }
+
   public void setType(SyntheticsBrowserTestType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this SyntheticsBrowserTest object is equal to o.
-   */
+  /** Return true if this SyntheticsBrowserTest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -338,13 +341,23 @@ public class SyntheticsBrowserTest {
       return false;
     }
     SyntheticsBrowserTest syntheticsBrowserTest = (SyntheticsBrowserTest) o;
-    return Objects.equals(this.config, syntheticsBrowserTest.config) && Objects.equals(this.locations, syntheticsBrowserTest.locations) && Objects.equals(this.message, syntheticsBrowserTest.message) && Objects.equals(this.monitorId, syntheticsBrowserTest.monitorId) && Objects.equals(this.name, syntheticsBrowserTest.name) && Objects.equals(this.options, syntheticsBrowserTest.options) && Objects.equals(this.publicId, syntheticsBrowserTest.publicId) && Objects.equals(this.status, syntheticsBrowserTest.status) && Objects.equals(this.steps, syntheticsBrowserTest.steps) && Objects.equals(this.tags, syntheticsBrowserTest.tags) && Objects.equals(this.type, syntheticsBrowserTest.type);
+    return Objects.equals(this.config, syntheticsBrowserTest.config)
+        && Objects.equals(this.locations, syntheticsBrowserTest.locations)
+        && Objects.equals(this.message, syntheticsBrowserTest.message)
+        && Objects.equals(this.monitorId, syntheticsBrowserTest.monitorId)
+        && Objects.equals(this.name, syntheticsBrowserTest.name)
+        && Objects.equals(this.options, syntheticsBrowserTest.options)
+        && Objects.equals(this.publicId, syntheticsBrowserTest.publicId)
+        && Objects.equals(this.status, syntheticsBrowserTest.status)
+        && Objects.equals(this.steps, syntheticsBrowserTest.steps)
+        && Objects.equals(this.tags, syntheticsBrowserTest.tags)
+        && Objects.equals(this.type, syntheticsBrowserTest.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(config,locations,message,monitorId,name,options,publicId,status,steps,tags,type);
+    return Objects.hash(
+        config, locations, message, monitorId, name, options, publicId, status, steps, tags, type);
   }
 
   @Override
@@ -367,8 +380,7 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

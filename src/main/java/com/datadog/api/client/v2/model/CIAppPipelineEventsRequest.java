@@ -6,43 +6,23 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The request for a pipelines search.</p>
- */
+/** The request for a pipelines search. */
 @JsonPropertyOrder({
   CIAppPipelineEventsRequest.JSON_PROPERTY_FILTER,
   CIAppPipelineEventsRequest.JSON_PROPERTY_OPTIONS,
   CIAppPipelineEventsRequest.JSON_PROPERTY_PAGE,
   CIAppPipelineEventsRequest.JSON_PROPERTY_SORT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CIAppPipelineEventsRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
   private CIAppPipelinesQueryFilter filter;
 
@@ -62,19 +42,21 @@ public class CIAppPipelineEventsRequest {
   }
 
   /**
-   * <p>The search and filter query settings.</p>
+   * The search and filter query settings.
+   *
    * @return filter
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILTER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppPipelinesQueryFilter getFilter() {
-        return filter;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppPipelinesQueryFilter getFilter() {
+    return filter;
+  }
+
   public void setFilter(CIAppPipelinesQueryFilter filter) {
     this.filter = filter;
   }
+
   public CIAppPipelineEventsRequest options(CIAppQueryOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
@@ -82,20 +64,22 @@ public class CIAppPipelineEventsRequest {
   }
 
   /**
-   * <p>Global query options that are used during the query.
-   * Only supply timezone or time offset, not both. Otherwise, the query fails.</p>
+   * Global query options that are used during the query. Only supply timezone or time offset, not
+   * both. Otherwise, the query fails.
+   *
    * @return options
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_OPTIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppQueryOptions getOptions() {
-        return options;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppQueryOptions getOptions() {
+    return options;
+  }
+
   public void setOptions(CIAppQueryOptions options) {
     this.options = options;
   }
+
   public CIAppPipelineEventsRequest page(CIAppQueryPageOptions page) {
     this.page = page;
     this.unparsed |= page.unparsed;
@@ -103,19 +87,21 @@ public class CIAppPipelineEventsRequest {
   }
 
   /**
-   * <p>Paging attributes for listing events.</p>
+   * Paging attributes for listing events.
+   *
    * @return page
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PAGE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppQueryPageOptions getPage() {
-        return page;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppQueryPageOptions getPage() {
+    return page;
+  }
+
   public void setPage(CIAppQueryPageOptions page) {
     this.page = page;
   }
+
   public CIAppPipelineEventsRequest sort(CIAppSort sort) {
     this.sort = sort;
     this.unparsed |= !sort.isValid();
@@ -123,26 +109,25 @@ public class CIAppPipelineEventsRequest {
   }
 
   /**
-   * <p>Sort parameters when querying events.</p>
+   * Sort parameters when querying events.
+   *
    * @return sort
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public CIAppSort getSort() {
-        return sort;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CIAppSort getSort() {
+    return sort;
+  }
+
   public void setSort(CIAppSort sort) {
     if (!sort.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.sort = sort;
   }
 
-  /**
-   * Return true if this CIAppPipelineEventsRequest object is equal to o.
-   */
+  /** Return true if this CIAppPipelineEventsRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -152,13 +137,15 @@ public class CIAppPipelineEventsRequest {
       return false;
     }
     CIAppPipelineEventsRequest ciAppPipelineEventsRequest = (CIAppPipelineEventsRequest) o;
-    return Objects.equals(this.filter, ciAppPipelineEventsRequest.filter) && Objects.equals(this.options, ciAppPipelineEventsRequest.options) && Objects.equals(this.page, ciAppPipelineEventsRequest.page) && Objects.equals(this.sort, ciAppPipelineEventsRequest.sort);
+    return Objects.equals(this.filter, ciAppPipelineEventsRequest.filter)
+        && Objects.equals(this.options, ciAppPipelineEventsRequest.options)
+        && Objects.equals(this.page, ciAppPipelineEventsRequest.page)
+        && Objects.equals(this.sort, ciAppPipelineEventsRequest.sort);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter,options,page,sort);
+    return Objects.hash(filter, options, page, sort);
   }
 
   @Override
@@ -174,8 +161,7 @@ public class CIAppPipelineEventsRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

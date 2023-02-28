@@ -1,32 +1,29 @@
 // Add Cloudflare account returns "CREATED" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CloudflareIntegrationApi;
-import com.datadog.api.client.v2.model.CloudflareAccountResponse;
 import com.datadog.api.client.v2.model.CloudflareAccountCreateRequest;
 import com.datadog.api.client.v2.model.CloudflareAccountCreateRequestAttributes;
 import com.datadog.api.client.v2.model.CloudflareAccountCreateRequestData;
+import com.datadog.api.client.v2.model.CloudflareAccountResponse;
 import com.datadog.api.client.v2.model.CloudflareAccountType;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     CloudflareIntegrationApi apiInstance = new CloudflareIntegrationApi(defaultClient);
 
-    CloudflareAccountCreateRequest body = new CloudflareAccountCreateRequest()
-.data(new CloudflareAccountCreateRequestData()
-.attributes(new CloudflareAccountCreateRequestAttributes()
-.apiKey("6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu")
-.email("new@email")
-.name("exampleaddcloudflareaccountreturnscreatedresponse"))
-.type(CloudflareAccountType.CLOUDFLARE_ACCOUNTS));
+    CloudflareAccountCreateRequest body =
+        new CloudflareAccountCreateRequest()
+            .data(
+                new CloudflareAccountCreateRequestData()
+                    .attributes(
+                        new CloudflareAccountCreateRequestAttributes()
+                            .apiKey("6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu")
+                            .email("new@email")
+                            .name("exampleaddcloudflareaccountreturnscreatedresponse"))
+                    .type(CloudflareAccountType.CLOUDFLARE_ACCOUNTS));
 
     try {
       CloudflareAccountResponse result = apiInstance.createCloudflareAccount(body);

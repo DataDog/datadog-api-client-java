@@ -6,41 +6,24 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A list of current AWS services for which Datadog offers automatic log collection.</p>
- */
+/** A list of current AWS services for which Datadog offers automatic log collection. */
 @JsonPropertyOrder({
   AWSLogsServicesRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSLogsServicesRequest.JSON_PROPERTY_SERVICES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AWSLogsServicesRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
@@ -51,55 +34,59 @@ public class AWSLogsServicesRequest {
 
   @JsonCreator
   public AWSLogsServicesRequest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ACCOUNT_ID)String accountId,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICES)List<String> services) {
-        this.accountId = accountId;
-        this.services = services;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_ID) String accountId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICES) List<String> services) {
+    this.accountId = accountId;
+    this.services = services;
   }
+
   public AWSLogsServicesRequest accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
 
   /**
-   * <p>Your AWS Account ID without dashes.</p>
+   * Your AWS Account ID without dashes.
+   *
    * @return accountId
-  **/
-      @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getAccountId() {
-        return accountId;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getAccountId() {
+    return accountId;
+  }
+
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
+
   public AWSLogsServicesRequest services(List<String> services) {
     this.services = services;
     return this;
   }
+
   public AWSLogsServicesRequest addServicesItem(String servicesItem) {
     this.services.add(servicesItem);
     return this;
   }
 
   /**
-   * <p>Array of services IDs set to enable automatic log collection. Discover the list of available services with the get list of AWS log ready services API endpoint.</p>
+   * Array of services IDs set to enable automatic log collection. Discover the list of available
+   * services with the get list of AWS log ready services API endpoint.
+   *
    * @return services
-  **/
-      @JsonProperty(JSON_PROPERTY_SERVICES)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getServices() {
-        return services;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SERVICES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getServices() {
+    return services;
+  }
+
   public void setServices(List<String> services) {
     this.services = services;
   }
 
-  /**
-   * Return true if this AWSLogsServicesRequest object is equal to o.
-   */
+  /** Return true if this AWSLogsServicesRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -109,13 +96,13 @@ public class AWSLogsServicesRequest {
       return false;
     }
     AWSLogsServicesRequest awsLogsServicesRequest = (AWSLogsServicesRequest) o;
-    return Objects.equals(this.accountId, awsLogsServicesRequest.accountId) && Objects.equals(this.services, awsLogsServicesRequest.services);
+    return Objects.equals(this.accountId, awsLogsServicesRequest.accountId)
+        && Objects.equals(this.services, awsLogsServicesRequest.services);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId,services);
+    return Objects.hash(accountId, services);
   }
 
   @Override
@@ -129,8 +116,7 @@ public class AWSLogsServicesRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

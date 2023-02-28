@@ -6,40 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The compute rule to compute the log-based metric.</p>
- */
-@JsonPropertyOrder({
-  LogsMetricUpdateCompute.JSON_PROPERTY_INCLUDE_PERCENTILES
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** The compute rule to compute the log-based metric. */
+@JsonPropertyOrder({LogsMetricUpdateCompute.JSON_PROPERTY_INCLUDE_PERCENTILES})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricUpdateCompute {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INCLUDE_PERCENTILES = "include_percentiles";
   private Boolean includePercentiles;
 
@@ -49,24 +27,23 @@ public class LogsMetricUpdateCompute {
   }
 
   /**
-   * <p>Toggle to include or exclude percentile aggregations for distribution metrics.
-   * Only present when the <code>aggregation_type</code> is <code>distribution</code>.</p>
+   * Toggle to include or exclude percentile aggregations for distribution metrics. Only present
+   * when the <code>aggregation_type</code> is <code>distribution</code>.
+   *
    * @return includePercentiles
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INCLUDE_PERCENTILES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Boolean getIncludePercentiles() {
-        return includePercentiles;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDE_PERCENTILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIncludePercentiles() {
+    return includePercentiles;
+  }
+
   public void setIncludePercentiles(Boolean includePercentiles) {
     this.includePercentiles = includePercentiles;
   }
 
-  /**
-   * Return true if this LogsMetricUpdateCompute object is equal to o.
-   */
+  /** Return true if this LogsMetricUpdateCompute object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -78,7 +55,6 @@ public class LogsMetricUpdateCompute {
     LogsMetricUpdateCompute logsMetricUpdateCompute = (LogsMetricUpdateCompute) o;
     return Objects.equals(this.includePercentiles, logsMetricUpdateCompute.includePercentiles);
   }
-
 
   @Override
   public int hashCode() {
@@ -95,8 +71,7 @@ public class LogsMetricUpdateCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

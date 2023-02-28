@@ -6,50 +6,28 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
-/**
-   * <p>The type of the resource. The value should always be scalar_request.</p>
- */
+/** The type of the resource. The value should always be scalar_request. */
 @JsonSerialize(using = ScalarFormulaRequestType.ScalarFormulaRequestTypeSerializer.class)
 public class ScalarFormulaRequestType {
 
-  public static final ScalarFormulaRequestType SCALAR_REQUEST = new ScalarFormulaRequestType("scalar_request");
+  public static final ScalarFormulaRequestType SCALAR_REQUEST =
+      new ScalarFormulaRequestType("scalar_request");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("scalar_request"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("scalar_request"));
 
   private String value;
 
@@ -61,19 +39,22 @@ public class ScalarFormulaRequestType {
     this.value = value;
   }
 
-  public static class ScalarFormulaRequestTypeSerializer extends StdSerializer<ScalarFormulaRequestType> {
-      public ScalarFormulaRequestTypeSerializer(Class<ScalarFormulaRequestType> t) {
-          super(t);
-      }
+  public static class ScalarFormulaRequestTypeSerializer
+      extends StdSerializer<ScalarFormulaRequestType> {
+    public ScalarFormulaRequestTypeSerializer(Class<ScalarFormulaRequestType> t) {
+      super(t);
+    }
 
-      public ScalarFormulaRequestTypeSerializer() {
-          this(null);
-      }
+    public ScalarFormulaRequestTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ScalarFormulaRequestType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        ScalarFormulaRequestType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -85,9 +66,7 @@ public class ScalarFormulaRequestType {
     this.value = value;
   }
 
-  /**
-   * Return true if this ScalarFormulaRequestType object is equal to o.
-   */
+  /** Return true if this ScalarFormulaRequestType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,7 +80,7 @@ public class ScalarFormulaRequestType {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override

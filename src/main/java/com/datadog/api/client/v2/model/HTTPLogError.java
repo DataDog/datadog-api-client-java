@@ -6,42 +6,22 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>List of errors.</p>
- */
+/** List of errors. */
 @JsonPropertyOrder({
   HTTPLogError.JSON_PROPERTY_DETAIL,
   HTTPLogError.JSON_PROPERTY_STATUS,
   HTTPLogError.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HTTPLogError {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DETAIL = "detail";
   private String detail;
 
@@ -57,61 +37,64 @@ public class HTTPLogError {
   }
 
   /**
-   * <p>Error message.</p>
+   * Error message.
+   *
    * @return detail
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DETAIL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDetail() {
-        return detail;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDetail() {
+    return detail;
+  }
+
   public void setDetail(String detail) {
     this.detail = detail;
   }
+
   public HTTPLogError status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * <p>Error code.</p>
+   * Error code.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatus() {
+    return status;
+  }
+
   public void setStatus(String status) {
     this.status = status;
   }
+
   public HTTPLogError title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>Error title.</p>
+   * Error title.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
 
-  /**
-   * Return true if this HTTPLogError object is equal to o.
-   */
+  /** Return true if this HTTPLogError object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -121,13 +104,14 @@ public class HTTPLogError {
       return false;
     }
     HTTPLogError httpLogError = (HTTPLogError) o;
-    return Objects.equals(this.detail, httpLogError.detail) && Objects.equals(this.status, httpLogError.status) && Objects.equals(this.title, httpLogError.title);
+    return Objects.equals(this.detail, httpLogError.detail)
+        && Objects.equals(this.status, httpLogError.status)
+        && Objects.equals(this.title, httpLogError.title);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail,status,title);
+    return Objects.hash(detail, status, title);
   }
 
   @Override
@@ -142,8 +126,7 @@ public class HTTPLogError {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

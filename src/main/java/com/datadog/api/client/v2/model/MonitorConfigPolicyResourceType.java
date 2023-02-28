@@ -6,50 +6,29 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
-/**
-   * <p>Monitor configuration policy resource type.</p>
- */
-@JsonSerialize(using = MonitorConfigPolicyResourceType.MonitorConfigPolicyResourceTypeSerializer.class)
+/** Monitor configuration policy resource type. */
+@JsonSerialize(
+    using = MonitorConfigPolicyResourceType.MonitorConfigPolicyResourceTypeSerializer.class)
 public class MonitorConfigPolicyResourceType {
 
-  public static final MonitorConfigPolicyResourceType MONITOR_CONFIG_POLICY = new MonitorConfigPolicyResourceType("monitor-config-policy");
+  public static final MonitorConfigPolicyResourceType MONITOR_CONFIG_POLICY =
+      new MonitorConfigPolicyResourceType("monitor-config-policy");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("monitor-config-policy"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("monitor-config-policy"));
 
   private String value;
 
@@ -61,19 +40,22 @@ public class MonitorConfigPolicyResourceType {
     this.value = value;
   }
 
-  public static class MonitorConfigPolicyResourceTypeSerializer extends StdSerializer<MonitorConfigPolicyResourceType> {
-      public MonitorConfigPolicyResourceTypeSerializer(Class<MonitorConfigPolicyResourceType> t) {
-          super(t);
-      }
+  public static class MonitorConfigPolicyResourceTypeSerializer
+      extends StdSerializer<MonitorConfigPolicyResourceType> {
+    public MonitorConfigPolicyResourceTypeSerializer(Class<MonitorConfigPolicyResourceType> t) {
+      super(t);
+    }
 
-      public MonitorConfigPolicyResourceTypeSerializer() {
-          this(null);
-      }
+    public MonitorConfigPolicyResourceTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(MonitorConfigPolicyResourceType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        MonitorConfigPolicyResourceType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -85,9 +67,7 @@ public class MonitorConfigPolicyResourceType {
     this.value = value;
   }
 
-  /**
-   * Return true if this MonitorConfigPolicyResourceType object is equal to o.
-   */
+  /** Return true if this MonitorConfigPolicyResourceType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,7 +81,7 @@ public class MonitorConfigPolicyResourceType {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override

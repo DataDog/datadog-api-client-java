@@ -6,42 +6,23 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A dimension on which to split a query's results.</p>
- */
+/** A dimension on which to split a query's results. */
 @JsonPropertyOrder({
   EventsGroupBy.JSON_PROPERTY_FACET,
   EventsGroupBy.JSON_PROPERTY_LIMIT,
   EventsGroupBy.JSON_PROPERTY_SORT
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventsGroupBy {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
   private String facet;
 
@@ -54,48 +35,51 @@ public class EventsGroupBy {
   public EventsGroupBy() {}
 
   @JsonCreator
-  public EventsGroupBy(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FACET)String facet) {
-        this.facet = facet;
+  public EventsGroupBy(@JsonProperty(required = true, value = JSON_PROPERTY_FACET) String facet) {
+    this.facet = facet;
   }
+
   public EventsGroupBy facet(String facet) {
     this.facet = facet;
     return this;
   }
 
   /**
-   * <p>The facet by which to split groups.</p>
+   * The facet by which to split groups.
+   *
    * @return facet
-  **/
-      @JsonProperty(JSON_PROPERTY_FACET)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getFacet() {
-        return facet;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FACET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getFacet() {
+    return facet;
+  }
+
   public void setFacet(String facet) {
     this.facet = facet;
   }
+
   public EventsGroupBy limit(Integer limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * <p>The maximum number of groups to return.</p>
-   * maximum: 2147483647
+   * The maximum number of groups to return. maximum: 2147483647
+   *
    * @return limit
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LIMIT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Integer getLimit() {
-        return limit;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getLimit() {
+    return limit;
+  }
+
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
+
   public EventsGroupBy sort(EventsGroupBySort sort) {
     this.sort = sort;
     this.unparsed |= sort.unparsed;
@@ -103,23 +87,22 @@ public class EventsGroupBy {
   }
 
   /**
-   * <p>The dimension by which to sort a query's results.</p>
+   * The dimension by which to sort a query's results.
+   *
    * @return sort
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SORT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EventsGroupBySort getSort() {
-        return sort;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EventsGroupBySort getSort() {
+    return sort;
+  }
+
   public void setSort(EventsGroupBySort sort) {
     this.sort = sort;
   }
 
-  /**
-   * Return true if this EventsGroupBy object is equal to o.
-   */
+  /** Return true if this EventsGroupBy object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,13 +112,14 @@ public class EventsGroupBy {
       return false;
     }
     EventsGroupBy eventsGroupBy = (EventsGroupBy) o;
-    return Objects.equals(this.facet, eventsGroupBy.facet) && Objects.equals(this.limit, eventsGroupBy.limit) && Objects.equals(this.sort, eventsGroupBy.sort);
+    return Objects.equals(this.facet, eventsGroupBy.facet)
+        && Objects.equals(this.limit, eventsGroupBy.limit)
+        && Objects.equals(this.sort, eventsGroupBy.sort);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(facet,limit,sort);
+    return Objects.hash(facet, limit, sort);
   }
 
   @Override
@@ -150,8 +134,7 @@ public class EventsGroupBy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

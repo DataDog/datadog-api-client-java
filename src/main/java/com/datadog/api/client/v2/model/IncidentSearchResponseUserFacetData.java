@@ -6,33 +6,13 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Facet data for user attributes of an incident.</p>
- */
+/** Facet data for user attributes of an incident. */
 @JsonPropertyOrder({
   IncidentSearchResponseUserFacetData.JSON_PROPERTY_COUNT,
   IncidentSearchResponseUserFacetData.JSON_PROPERTY_EMAIL,
@@ -40,10 +20,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   IncidentSearchResponseUserFacetData.JSON_PROPERTY_NAME,
   IncidentSearchResponseUserFacetData.JSON_PROPERTY_UUID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentSearchResponseUserFacetData {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNT = "count";
   private Integer count;
 
@@ -65,100 +45,106 @@ public class IncidentSearchResponseUserFacetData {
   }
 
   /**
-   * <p>Count of the facet value appearing in search results.</p>
-   * maximum: 2147483647
+   * Count of the facet value appearing in search results. maximum: 2147483647
+   *
    * @return count
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Integer getCount() {
-        return count;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getCount() {
+    return count;
+  }
+
   public void setCount(Integer count) {
     this.count = count;
   }
+
   public IncidentSearchResponseUserFacetData email(String email) {
     this.email = email;
     return this;
   }
 
   /**
-   * <p>Email of the user.</p>
+   * Email of the user.
+   *
    * @return email
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EMAIL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getEmail() {
-        return email;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEmail() {
+    return email;
+  }
+
   public void setEmail(String email) {
     this.email = email;
   }
+
   public IncidentSearchResponseUserFacetData handle(String handle) {
     this.handle = handle;
     return this;
   }
 
   /**
-   * <p>Handle of the user.</p>
+   * Handle of the user.
+   *
    * @return handle
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HANDLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHandle() {
-        return handle;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HANDLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHandle() {
+    return handle;
+  }
+
   public void setHandle(String handle) {
     this.handle = handle;
   }
+
   public IncidentSearchResponseUserFacetData name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the user.</p>
+   * Name of the user.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public IncidentSearchResponseUserFacetData uuid(String uuid) {
     this.uuid = uuid;
     return this;
   }
 
   /**
-   * <p>ID of the user.</p>
+   * ID of the user.
+   *
    * @return uuid
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_UUID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getUuid() {
-        return uuid;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUuid() {
+    return uuid;
+  }
+
   public void setUuid(String uuid) {
     this.uuid = uuid;
   }
 
-  /**
-   * Return true if this IncidentSearchResponseUserFacetData object is equal to o.
-   */
+  /** Return true if this IncidentSearchResponseUserFacetData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -167,14 +153,18 @@ public class IncidentSearchResponseUserFacetData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentSearchResponseUserFacetData incidentSearchResponseUserFacetData = (IncidentSearchResponseUserFacetData) o;
-    return Objects.equals(this.count, incidentSearchResponseUserFacetData.count) && Objects.equals(this.email, incidentSearchResponseUserFacetData.email) && Objects.equals(this.handle, incidentSearchResponseUserFacetData.handle) && Objects.equals(this.name, incidentSearchResponseUserFacetData.name) && Objects.equals(this.uuid, incidentSearchResponseUserFacetData.uuid);
+    IncidentSearchResponseUserFacetData incidentSearchResponseUserFacetData =
+        (IncidentSearchResponseUserFacetData) o;
+    return Objects.equals(this.count, incidentSearchResponseUserFacetData.count)
+        && Objects.equals(this.email, incidentSearchResponseUserFacetData.email)
+        && Objects.equals(this.handle, incidentSearchResponseUserFacetData.handle)
+        && Objects.equals(this.name, incidentSearchResponseUserFacetData.name)
+        && Objects.equals(this.uuid, incidentSearchResponseUserFacetData.uuid);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(count,email,handle,name,uuid);
+    return Objects.hash(count, email, handle, name, uuid);
   }
 
   @Override
@@ -191,8 +181,7 @@ public class IncidentSearchResponseUserFacetData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

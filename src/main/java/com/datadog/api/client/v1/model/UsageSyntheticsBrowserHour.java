@@ -6,47 +6,31 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Number of Synthetics Browser tests run for each hour for a given organization.</p>
- */
+/** Number of Synthetics Browser tests run for each hour for a given organization. */
 @JsonPropertyOrder({
   UsageSyntheticsBrowserHour.JSON_PROPERTY_BROWSER_CHECK_CALLS_COUNT,
   UsageSyntheticsBrowserHour.JSON_PROPERTY_HOUR,
   UsageSyntheticsBrowserHour.JSON_PROPERTY_ORG_NAME,
   UsageSyntheticsBrowserHour.JSON_PROPERTY_PUBLIC_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSyntheticsBrowserHour {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BROWSER_CHECK_CALLS_COUNT = "browser_check_calls_count";
   private Long browserCheckCallsCount;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime hour;
 
@@ -62,80 +46,85 @@ public class UsageSyntheticsBrowserHour {
   }
 
   /**
-   * <p>Contains the number of Synthetics Browser tests run.</p>
+   * Contains the number of Synthetics Browser tests run.
+   *
    * @return browserCheckCallsCount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_BROWSER_CHECK_CALLS_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getBrowserCheckCallsCount() {
-        return browserCheckCallsCount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BROWSER_CHECK_CALLS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getBrowserCheckCallsCount() {
+    return browserCheckCallsCount;
+  }
+
   public void setBrowserCheckCallsCount(Long browserCheckCallsCount) {
     this.browserCheckCallsCount = browserCheckCallsCount;
   }
+
   public UsageSyntheticsBrowserHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
   /**
-   * <p>The hour for the usage.</p>
+   * The hour for the usage.
+   *
    * @return hour
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOUR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getHour() {
-        return hour;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getHour() {
+    return hour;
+  }
+
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
+
   public UsageSyntheticsBrowserHour orgName(String orgName) {
     this.orgName = orgName;
     return this;
   }
 
   /**
-   * <p>The organization name.</p>
+   * The organization name.
+   *
    * @return orgName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORG_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOrgName() {
-        return orgName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
+
   public UsageSyntheticsBrowserHour publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * <p>The organization public ID.</p>
+   * The organization public ID.
+   *
    * @return publicId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublicId() {
-        return publicId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
 
-  /**
-   * Return true if this UsageSyntheticsBrowserHour object is equal to o.
-   */
+  /** Return true if this UsageSyntheticsBrowserHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,20 +134,25 @@ public class UsageSyntheticsBrowserHour {
       return false;
     }
     UsageSyntheticsBrowserHour usageSyntheticsBrowserHour = (UsageSyntheticsBrowserHour) o;
-    return Objects.equals(this.browserCheckCallsCount, usageSyntheticsBrowserHour.browserCheckCallsCount) && Objects.equals(this.hour, usageSyntheticsBrowserHour.hour) && Objects.equals(this.orgName, usageSyntheticsBrowserHour.orgName) && Objects.equals(this.publicId, usageSyntheticsBrowserHour.publicId);
+    return Objects.equals(
+            this.browserCheckCallsCount, usageSyntheticsBrowserHour.browserCheckCallsCount)
+        && Objects.equals(this.hour, usageSyntheticsBrowserHour.hour)
+        && Objects.equals(this.orgName, usageSyntheticsBrowserHour.orgName)
+        && Objects.equals(this.publicId, usageSyntheticsBrowserHour.publicId);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(browserCheckCallsCount,hour,orgName,publicId);
+    return Objects.hash(browserCheckCallsCount, hour, orgName, publicId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageSyntheticsBrowserHour {\n");
-    sb.append("    browserCheckCallsCount: ").append(toIndentedString(browserCheckCallsCount)).append("\n");
+    sb.append("    browserCheckCallsCount: ")
+        .append(toIndentedString(browserCheckCallsCount))
+        .append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
@@ -167,8 +161,7 @@ public class UsageSyntheticsBrowserHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,42 +6,23 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Options for sorting group by results.</p>
- */
+/** Options for sorting group by results. */
 @JsonPropertyOrder({
   FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_AGGREGATION,
   FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_METRIC,
   FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_ORDER
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionEventQueryGroupBySort {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private FormulaAndFunctionEventAggregation aggregation;
 
@@ -55,51 +36,58 @@ public class FormulaAndFunctionEventQueryGroupBySort {
 
   @JsonCreator
   public FormulaAndFunctionEventQueryGroupBySort(
-            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)FormulaAndFunctionEventAggregation aggregation) {
-        this.aggregation = aggregation;
-        this.unparsed |= !aggregation.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
+          FormulaAndFunctionEventAggregation aggregation) {
+    this.aggregation = aggregation;
+    this.unparsed |= !aggregation.isValid();
   }
-  public FormulaAndFunctionEventQueryGroupBySort aggregation(FormulaAndFunctionEventAggregation aggregation) {
+
+  public FormulaAndFunctionEventQueryGroupBySort aggregation(
+      FormulaAndFunctionEventAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
     return this;
   }
 
   /**
-   * <p>Aggregation methods for event platform queries.</p>
+   * Aggregation methods for event platform queries.
+   *
    * @return aggregation
-  **/
-      @JsonProperty(JSON_PROPERTY_AGGREGATION)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public FormulaAndFunctionEventAggregation getAggregation() {
-        return aggregation;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FormulaAndFunctionEventAggregation getAggregation() {
+    return aggregation;
+  }
+
   public void setAggregation(FormulaAndFunctionEventAggregation aggregation) {
     if (!aggregation.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.aggregation = aggregation;
   }
+
   public FormulaAndFunctionEventQueryGroupBySort metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * <p>Metric used for sorting group by results.</p>
+   * Metric used for sorting group by results.
+   *
    * @return metric
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_METRIC)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getMetric() {
-        return metric;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMetric() {
+    return metric;
+  }
+
   public void setMetric(String metric) {
     this.metric = metric;
   }
+
   public FormulaAndFunctionEventQueryGroupBySort order(QuerySortOrder order) {
     this.order = order;
     this.unparsed |= !order.isValid();
@@ -107,26 +95,25 @@ public class FormulaAndFunctionEventQueryGroupBySort {
   }
 
   /**
-   * <p>Direction of sort.</p>
+   * Direction of sort.
+   *
    * @return order
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORDER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public QuerySortOrder getOrder() {
-        return order;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public QuerySortOrder getOrder() {
+    return order;
+  }
+
   public void setOrder(QuerySortOrder order) {
     if (!order.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.order = order;
   }
 
-  /**
-   * Return true if this FormulaAndFunctionEventQueryGroupBySort object is equal to o.
-   */
+  /** Return true if this FormulaAndFunctionEventQueryGroupBySort object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,14 +122,16 @@ public class FormulaAndFunctionEventQueryGroupBySort {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormulaAndFunctionEventQueryGroupBySort formulaAndFunctionEventQueryGroupBySort = (FormulaAndFunctionEventQueryGroupBySort) o;
-    return Objects.equals(this.aggregation, formulaAndFunctionEventQueryGroupBySort.aggregation) && Objects.equals(this.metric, formulaAndFunctionEventQueryGroupBySort.metric) && Objects.equals(this.order, formulaAndFunctionEventQueryGroupBySort.order);
+    FormulaAndFunctionEventQueryGroupBySort formulaAndFunctionEventQueryGroupBySort =
+        (FormulaAndFunctionEventQueryGroupBySort) o;
+    return Objects.equals(this.aggregation, formulaAndFunctionEventQueryGroupBySort.aggregation)
+        && Objects.equals(this.metric, formulaAndFunctionEventQueryGroupBySort.metric)
+        && Objects.equals(this.order, formulaAndFunctionEventQueryGroupBySort.order);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation,metric,order);
+    return Objects.hash(aggregation, metric, order);
   }
 
   @Override
@@ -157,8 +146,7 @@ public class FormulaAndFunctionEventQueryGroupBySort {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

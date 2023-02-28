@@ -6,43 +6,28 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Timeframe to retrieve the log from.</p>
- */
+/** Timeframe to retrieve the log from. */
 @JsonPropertyOrder({
   LogsListRequestTime.JSON_PROPERTY_FROM,
   LogsListRequestTime.JSON_PROPERTY_TIMEZONE,
   LogsListRequestTime.JSON_PROPERTY_TO
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListRequestTime {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime from;
 
@@ -50,6 +35,7 @@ public class LogsListRequestTime {
   private String timezone;
 
   public static final String JSON_PROPERTY_TO = "to";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime to;
 
@@ -57,71 +43,75 @@ public class LogsListRequestTime {
 
   @JsonCreator
   public LogsListRequestTime(
-            @JsonProperty(required=true, value=JSON_PROPERTY_FROM)OffsetDateTime from,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TO)OffsetDateTime to) {
-        this.from = from;
-        this.to = to;
+      @JsonProperty(required = true, value = JSON_PROPERTY_FROM) OffsetDateTime from,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TO) OffsetDateTime to) {
+    this.from = from;
+    this.to = to;
   }
+
   public LogsListRequestTime from(OffsetDateTime from) {
     this.from = from;
     return this;
   }
 
   /**
-   * <p>Minimum timestamp for requested logs.</p>
+   * Minimum timestamp for requested logs.
+   *
    * @return from
-  **/
-      @JsonProperty(JSON_PROPERTY_FROM)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OffsetDateTime getFrom() {
-        return from;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_FROM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getFrom() {
+    return from;
+  }
+
   public void setFrom(OffsetDateTime from) {
     this.from = from;
   }
+
   public LogsListRequestTime timezone(String timezone) {
     this.timezone = timezone;
     return this;
   }
 
   /**
-   * <p>Timezone can be specified both as an offset (for example "UTC+03:00")
-   * or a regional zone (for example "Europe/Paris").</p>
+   * Timezone can be specified both as an offset (for example "UTC+03:00") or a regional zone (for
+   * example "Europe/Paris").
+   *
    * @return timezone
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMEZONE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTimezone() {
-        return timezone;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMEZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTimezone() {
+    return timezone;
+  }
+
   public void setTimezone(String timezone) {
     this.timezone = timezone;
   }
+
   public LogsListRequestTime to(OffsetDateTime to) {
     this.to = to;
     return this;
   }
 
   /**
-   * <p>Maximum timestamp for requested logs.</p>
+   * Maximum timestamp for requested logs.
+   *
    * @return to
-  **/
-      @JsonProperty(JSON_PROPERTY_TO)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public OffsetDateTime getTo() {
-        return to;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TO)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getTo() {
+    return to;
+  }
+
   public void setTo(OffsetDateTime to) {
     this.to = to;
   }
 
-  /**
-   * Return true if this LogsListRequestTime object is equal to o.
-   */
+  /** Return true if this LogsListRequestTime object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -131,13 +121,14 @@ public class LogsListRequestTime {
       return false;
     }
     LogsListRequestTime logsListRequestTime = (LogsListRequestTime) o;
-    return Objects.equals(this.from, logsListRequestTime.from) && Objects.equals(this.timezone, logsListRequestTime.timezone) && Objects.equals(this.to, logsListRequestTime.to);
+    return Objects.equals(this.from, logsListRequestTime.from)
+        && Objects.equals(this.timezone, logsListRequestTime.timezone)
+        && Objects.equals(this.to, logsListRequestTime.to);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(from,timezone,to);
+    return Objects.hash(from, timezone, to);
   }
 
   @Override
@@ -152,8 +143,7 @@ public class LogsListRequestTime {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

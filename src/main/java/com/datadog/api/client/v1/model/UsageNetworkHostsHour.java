@@ -6,47 +6,31 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Number of active NPM hosts for each hour for a given organization.</p>
- */
+/** Number of active NPM hosts for each hour for a given organization. */
 @JsonPropertyOrder({
   UsageNetworkHostsHour.JSON_PROPERTY_HOST_COUNT,
   UsageNetworkHostsHour.JSON_PROPERTY_HOUR,
   UsageNetworkHostsHour.JSON_PROPERTY_ORG_NAME,
   UsageNetworkHostsHour.JSON_PROPERTY_PUBLIC_ID
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageNetworkHostsHour {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOST_COUNT = "host_count";
   private Long hostCount;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime hour;
 
@@ -62,80 +46,85 @@ public class UsageNetworkHostsHour {
   }
 
   /**
-   * <p>Contains the number of active NPM hosts.</p>
+   * Contains the number of active NPM hosts.
+   *
    * @return hostCount
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOST_COUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getHostCount() {
-        return hostCount;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getHostCount() {
+    return hostCount;
+  }
+
   public void setHostCount(Long hostCount) {
     this.hostCount = hostCount;
   }
+
   public UsageNetworkHostsHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
   /**
-   * <p>The hour for the usage.</p>
+   * The hour for the usage.
+   *
    * @return hour
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOUR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getHour() {
-        return hour;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getHour() {
+    return hour;
+  }
+
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
+
   public UsageNetworkHostsHour orgName(String orgName) {
     this.orgName = orgName;
     return this;
   }
 
   /**
-   * <p>The organization name.</p>
+   * The organization name.
+   *
    * @return orgName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORG_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOrgName() {
-        return orgName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
+
   public UsageNetworkHostsHour publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * <p>The organization public ID.</p>
+   * The organization public ID.
+   *
    * @return publicId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublicId() {
-        return publicId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
 
-  /**
-   * Return true if this UsageNetworkHostsHour object is equal to o.
-   */
+  /** Return true if this UsageNetworkHostsHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,13 +134,15 @@ public class UsageNetworkHostsHour {
       return false;
     }
     UsageNetworkHostsHour usageNetworkHostsHour = (UsageNetworkHostsHour) o;
-    return Objects.equals(this.hostCount, usageNetworkHostsHour.hostCount) && Objects.equals(this.hour, usageNetworkHostsHour.hour) && Objects.equals(this.orgName, usageNetworkHostsHour.orgName) && Objects.equals(this.publicId, usageNetworkHostsHour.publicId);
+    return Objects.equals(this.hostCount, usageNetworkHostsHour.hostCount)
+        && Objects.equals(this.hour, usageNetworkHostsHour.hour)
+        && Objects.equals(this.orgName, usageNetworkHostsHour.orgName)
+        && Objects.equals(this.publicId, usageNetworkHostsHour.publicId);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostCount,hour,orgName,publicId);
+    return Objects.hash(hostCount, hour, orgName, publicId);
   }
 
   @Override
@@ -167,8 +158,7 @@ public class UsageNetworkHostsHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

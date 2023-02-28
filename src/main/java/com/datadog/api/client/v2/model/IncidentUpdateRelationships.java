@@ -6,42 +6,22 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The incident's relationships for an update request.</p>
- */
+/** The incident's relationships for an update request. */
 @JsonPropertyOrder({
   IncidentUpdateRelationships.JSON_PROPERTY_COMMANDER_USER,
   IncidentUpdateRelationships.JSON_PROPERTY_INTEGRATIONS,
   IncidentUpdateRelationships.JSON_PROPERTY_POSTMORTEM
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentUpdateRelationships {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
   private NullableRelationshipToUser commanderUser;
 
@@ -58,39 +38,44 @@ public class IncidentUpdateRelationships {
   }
 
   /**
-   * <p>Relationship to user.</p>
+   * Relationship to user.
+   *
    * @return commanderUser
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public NullableRelationshipToUser getCommanderUser() {
-        return commanderUser;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NullableRelationshipToUser getCommanderUser() {
+    return commanderUser;
+  }
+
   public void setCommanderUser(NullableRelationshipToUser commanderUser) {
     this.commanderUser = commanderUser;
   }
-  public IncidentUpdateRelationships integrations(RelationshipToIncidentIntegrationMetadatas integrations) {
+
+  public IncidentUpdateRelationships integrations(
+      RelationshipToIncidentIntegrationMetadatas integrations) {
     this.integrations = integrations;
     this.unparsed |= integrations.unparsed;
     return this;
   }
 
   /**
-   * <p>A relationship reference for multiple integration metadata objects.</p>
+   * A relationship reference for multiple integration metadata objects.
+   *
    * @return integrations
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public RelationshipToIncidentIntegrationMetadatas getIntegrations() {
-        return integrations;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToIncidentIntegrationMetadatas getIntegrations() {
+    return integrations;
+  }
+
   public void setIntegrations(RelationshipToIncidentIntegrationMetadatas integrations) {
     this.integrations = integrations;
   }
+
   public IncidentUpdateRelationships postmortem(RelationshipToIncidentPostmortem postmortem) {
     this.postmortem = postmortem;
     this.unparsed |= postmortem.unparsed;
@@ -98,23 +83,22 @@ public class IncidentUpdateRelationships {
   }
 
   /**
-   * <p>A relationship reference for postmortems.</p>
+   * A relationship reference for postmortems.
+   *
    * @return postmortem
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_POSTMORTEM)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public RelationshipToIncidentPostmortem getPostmortem() {
-        return postmortem;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POSTMORTEM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToIncidentPostmortem getPostmortem() {
+    return postmortem;
+  }
+
   public void setPostmortem(RelationshipToIncidentPostmortem postmortem) {
     this.postmortem = postmortem;
   }
 
-  /**
-   * Return true if this IncidentUpdateRelationships object is equal to o.
-   */
+  /** Return true if this IncidentUpdateRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -124,13 +108,14 @@ public class IncidentUpdateRelationships {
       return false;
     }
     IncidentUpdateRelationships incidentUpdateRelationships = (IncidentUpdateRelationships) o;
-    return Objects.equals(this.commanderUser, incidentUpdateRelationships.commanderUser) && Objects.equals(this.integrations, incidentUpdateRelationships.integrations) && Objects.equals(this.postmortem, incidentUpdateRelationships.postmortem);
+    return Objects.equals(this.commanderUser, incidentUpdateRelationships.commanderUser)
+        && Objects.equals(this.integrations, incidentUpdateRelationships.integrations)
+        && Objects.equals(this.postmortem, incidentUpdateRelationships.postmortem);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(commanderUser,integrations,postmortem);
+    return Objects.hash(commanderUser, integrations, postmortem);
   }
 
   @Override
@@ -145,8 +130,7 @@ public class IncidentUpdateRelationships {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

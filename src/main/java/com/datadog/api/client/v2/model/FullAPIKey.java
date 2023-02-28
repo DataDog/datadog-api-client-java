@@ -6,43 +6,23 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Datadog API key.</p>
- */
+/** Datadog API key. */
 @JsonPropertyOrder({
   FullAPIKey.JSON_PROPERTY_ATTRIBUTES,
   FullAPIKey.JSON_PROPERTY_ID,
   FullAPIKey.JSON_PROPERTY_RELATIONSHIPS,
   FullAPIKey.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FullAPIKey {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private FullAPIKeyAttributes attributes;
 
@@ -62,38 +42,42 @@ public class FullAPIKey {
   }
 
   /**
-   * <p>Attributes of a full API key.</p>
+   * Attributes of a full API key.
+   *
    * @return attributes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FullAPIKeyAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FullAPIKeyAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(FullAPIKeyAttributes attributes) {
     this.attributes = attributes;
   }
+
   public FullAPIKey id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>ID of the API key.</p>
+   * ID of the API key.
+   *
    * @return id
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getId() {
-        return id;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public FullAPIKey relationships(APIKeyRelationships relationships) {
     this.relationships = relationships;
     this.unparsed |= relationships.unparsed;
@@ -101,19 +85,21 @@ public class FullAPIKey {
   }
 
   /**
-   * <p>Resources related to the API key.</p>
+   * Resources related to the API key.
+   *
    * @return relationships
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public APIKeyRelationships getRelationships() {
-        return relationships;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public APIKeyRelationships getRelationships() {
+    return relationships;
+  }
+
   public void setRelationships(APIKeyRelationships relationships) {
     this.relationships = relationships;
   }
+
   public FullAPIKey type(APIKeysType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -121,26 +107,25 @@ public class FullAPIKey {
   }
 
   /**
-   * <p>API Keys resource type.</p>
+   * API Keys resource type.
+   *
    * @return type
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public APIKeysType getType() {
-        return type;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public APIKeysType getType() {
+    return type;
+  }
+
   public void setType(APIKeysType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this FullAPIKey object is equal to o.
-   */
+  /** Return true if this FullAPIKey object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -150,13 +135,15 @@ public class FullAPIKey {
       return false;
     }
     FullAPIKey fullApiKey = (FullAPIKey) o;
-    return Objects.equals(this.attributes, fullApiKey.attributes) && Objects.equals(this.id, fullApiKey.id) && Objects.equals(this.relationships, fullApiKey.relationships) && Objects.equals(this.type, fullApiKey.type);
+    return Objects.equals(this.attributes, fullApiKey.attributes)
+        && Objects.equals(this.id, fullApiKey.id)
+        && Objects.equals(this.relationships, fullApiKey.relationships)
+        && Objects.equals(this.type, fullApiKey.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,id,relationships,type);
+    return Objects.hash(attributes, id, relationships, type);
   }
 
   @Override
@@ -172,8 +159,7 @@ public class FullAPIKey {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

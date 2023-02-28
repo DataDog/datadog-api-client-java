@@ -6,43 +6,24 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Markers allow you to add visual conditional formatting for your graphs.</p>
- */
+/** Markers allow you to add visual conditional formatting for your graphs. */
 @JsonPropertyOrder({
   WidgetMarker.JSON_PROPERTY_DISPLAY_TYPE,
   WidgetMarker.JSON_PROPERTY_LABEL,
   WidgetMarker.JSON_PROPERTY_TIME,
   WidgetMarker.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetMarker {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY_TYPE = "display_type";
   private String displayType;
 
@@ -58,92 +39,95 @@ public class WidgetMarker {
   public WidgetMarker() {}
 
   @JsonCreator
-  public WidgetMarker(
-            @JsonProperty(required=true, value=JSON_PROPERTY_VALUE)String value) {
-        this.value = value;
+  public WidgetMarker(@JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
+    this.value = value;
   }
+
   public WidgetMarker displayType(String displayType) {
     this.displayType = displayType;
     return this;
   }
 
   /**
-   * <p>Combination of:
-   *   - A severity error, warning, ok, or info
-   *   - A line type: dashed, solid, or bold
-   * In this case of a Distribution widget, this can be set to be <code>x_axis_percentile</code>.</p>
+   * Combination of: - A severity error, warning, ok, or info - A line type: dashed, solid, or bold
+   * In this case of a Distribution widget, this can be set to be <code>x_axis_percentile</code>.
+   *
    * @return displayType
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DISPLAY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getDisplayType() {
-        return displayType;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISPLAY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayType() {
+    return displayType;
+  }
+
   public void setDisplayType(String displayType) {
     this.displayType = displayType;
   }
+
   public WidgetMarker label(String label) {
     this.label = label;
     return this;
   }
 
   /**
-   * <p>Label to display over the marker.</p>
+   * Label to display over the marker.
+   *
    * @return label
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LABEL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getLabel() {
-        return label;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLabel() {
+    return label;
+  }
+
   public void setLabel(String label) {
     this.label = label;
   }
+
   public WidgetMarker time(String time) {
     this.time = time;
     return this;
   }
 
   /**
-   * <p>Timestamp for the widget.</p>
+   * Timestamp for the widget.
+   *
    * @return time
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTime() {
-        return time;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTime() {
+    return time;
+  }
+
   public void setTime(String time) {
     this.time = time;
   }
+
   public WidgetMarker value(String value) {
     this.value = value;
     return this;
   }
 
   /**
-   * <p>Value to apply. Can be a single value y = 15 or a range of values 0 &lt; y &lt; 10.</p>
+   * Value to apply. Can be a single value y = 15 or a range of values 0 &lt; y &lt; 10.
+   *
    * @return value
-  **/
-      @JsonProperty(JSON_PROPERTY_VALUE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getValue() {
-        return value;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getValue() {
+    return value;
+  }
+
   public void setValue(String value) {
     this.value = value;
   }
 
-  /**
-   * Return true if this WidgetMarker object is equal to o.
-   */
+  /** Return true if this WidgetMarker object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,13 +137,15 @@ public class WidgetMarker {
       return false;
     }
     WidgetMarker widgetMarker = (WidgetMarker) o;
-    return Objects.equals(this.displayType, widgetMarker.displayType) && Objects.equals(this.label, widgetMarker.label) && Objects.equals(this.time, widgetMarker.time) && Objects.equals(this.value, widgetMarker.value);
+    return Objects.equals(this.displayType, widgetMarker.displayType)
+        && Objects.equals(this.label, widgetMarker.label)
+        && Objects.equals(this.time, widgetMarker.time)
+        && Objects.equals(this.value, widgetMarker.value);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayType,label,time,value);
+    return Objects.hash(displayType, label, time, value);
   }
 
   @Override
@@ -175,8 +161,7 @@ public class WidgetMarker {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,43 +6,24 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes of the created user.</p>
- */
+/** Attributes of the created user. */
 @JsonPropertyOrder({
   ServiceAccountCreateAttributes.JSON_PROPERTY_EMAIL,
   ServiceAccountCreateAttributes.JSON_PROPERTY_NAME,
   ServiceAccountCreateAttributes.JSON_PROPERTY_SERVICE_ACCOUNT,
   ServiceAccountCreateAttributes.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceAccountCreateAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
@@ -59,89 +40,96 @@ public class ServiceAccountCreateAttributes {
 
   @JsonCreator
   public ServiceAccountCreateAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_EMAIL)String email,
-            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE_ACCOUNT)Boolean serviceAccount) {
-        this.email = email;
-        this.serviceAccount = serviceAccount;
+      @JsonProperty(required = true, value = JSON_PROPERTY_EMAIL) String email,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE_ACCOUNT)
+          Boolean serviceAccount) {
+    this.email = email;
+    this.serviceAccount = serviceAccount;
   }
+
   public ServiceAccountCreateAttributes email(String email) {
     this.email = email;
     return this;
   }
 
   /**
-   * <p>The email of the user.</p>
+   * The email of the user.
+   *
    * @return email
-  **/
-      @JsonProperty(JSON_PROPERTY_EMAIL)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getEmail() {
-        return email;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getEmail() {
+    return email;
+  }
+
   public void setEmail(String email) {
     this.email = email;
   }
+
   public ServiceAccountCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The name of the user.</p>
+   * The name of the user.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public ServiceAccountCreateAttributes serviceAccount(Boolean serviceAccount) {
     this.serviceAccount = serviceAccount;
     return this;
   }
 
   /**
-   * <p>Whether the user is a service account. Must be true.</p>
+   * Whether the user is a service account. Must be true.
+   *
    * @return serviceAccount
-  **/
-      @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public Boolean getServiceAccount() {
-        return serviceAccount;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getServiceAccount() {
+    return serviceAccount;
+  }
+
   public void setServiceAccount(Boolean serviceAccount) {
     this.serviceAccount = serviceAccount;
   }
+
   public ServiceAccountCreateAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * <p>The title of the user.</p>
+   * The title of the user.
+   *
    * @return title
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TITLE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTitle() {
-        return title;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
   public void setTitle(String title) {
     this.title = title;
   }
 
-  /**
-   * Return true if this ServiceAccountCreateAttributes object is equal to o.
-   */
+  /** Return true if this ServiceAccountCreateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -150,14 +138,17 @@ public class ServiceAccountCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceAccountCreateAttributes serviceAccountCreateAttributes = (ServiceAccountCreateAttributes) o;
-    return Objects.equals(this.email, serviceAccountCreateAttributes.email) && Objects.equals(this.name, serviceAccountCreateAttributes.name) && Objects.equals(this.serviceAccount, serviceAccountCreateAttributes.serviceAccount) && Objects.equals(this.title, serviceAccountCreateAttributes.title);
+    ServiceAccountCreateAttributes serviceAccountCreateAttributes =
+        (ServiceAccountCreateAttributes) o;
+    return Objects.equals(this.email, serviceAccountCreateAttributes.email)
+        && Objects.equals(this.name, serviceAccountCreateAttributes.name)
+        && Objects.equals(this.serviceAccount, serviceAccountCreateAttributes.serviceAccount)
+        && Objects.equals(this.title, serviceAccountCreateAttributes.title);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(email,name,serviceAccount,title);
+    return Objects.hash(email, name, serviceAccount, title);
   }
 
   @Override
@@ -173,8 +164,7 @@ public class ServiceAccountCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

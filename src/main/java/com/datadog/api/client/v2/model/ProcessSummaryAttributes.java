@@ -6,33 +6,15 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Attributes for a process summary.</p>
- */
+/** Attributes for a process summary. */
 @JsonPropertyOrder({
   ProcessSummaryAttributes.JSON_PROPERTY_CMDLINE,
   ProcessSummaryAttributes.JSON_PROPERTY_HOST,
@@ -43,10 +25,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   ProcessSummaryAttributes.JSON_PROPERTY_TIMESTAMP,
   ProcessSummaryAttributes.JSON_PROPERTY_USER
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessSummaryAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CMDLINE = "cmdline";
   private String cmdline;
 
@@ -77,99 +59,110 @@ public class ProcessSummaryAttributes {
   }
 
   /**
-   * <p>Process command line.</p>
+   * Process command line.
+   *
    * @return cmdline
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_CMDLINE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getCmdline() {
-        return cmdline;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CMDLINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCmdline() {
+    return cmdline;
+  }
+
   public void setCmdline(String cmdline) {
     this.cmdline = cmdline;
   }
+
   public ProcessSummaryAttributes host(String host) {
     this.host = host;
     return this;
   }
 
   /**
-   * <p>Host running the process.</p>
+   * Host running the process.
+   *
    * @return host
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOST)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getHost() {
-        return host;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHost() {
+    return host;
+  }
+
   public void setHost(String host) {
     this.host = host;
   }
+
   public ProcessSummaryAttributes pid(Long pid) {
     this.pid = pid;
     return this;
   }
 
   /**
-   * <p>Process ID.</p>
+   * Process ID.
+   *
    * @return pid
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getPid() {
-        return pid;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getPid() {
+    return pid;
+  }
+
   public void setPid(Long pid) {
     this.pid = pid;
   }
+
   public ProcessSummaryAttributes ppid(Long ppid) {
     this.ppid = ppid;
     return this;
   }
 
   /**
-   * <p>Parent process ID.</p>
+   * Parent process ID.
+   *
    * @return ppid
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PPID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getPpid() {
-        return ppid;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PPID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getPpid() {
+    return ppid;
+  }
+
   public void setPpid(Long ppid) {
     this.ppid = ppid;
   }
+
   public ProcessSummaryAttributes start(String start) {
     this.start = start;
     return this;
   }
 
   /**
-   * <p>Time the process was started.</p>
+   * Time the process was started.
+   *
    * @return start
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_START)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStart() {
-        return start;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_START)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStart() {
+    return start;
+  }
+
   public void setStart(String start) {
     this.start = start;
   }
+
   public ProcessSummaryAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public ProcessSummaryAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -179,61 +172,64 @@ public class ProcessSummaryAttributes {
   }
 
   /**
-   * <p>List of tags associated with the process.</p>
+   * List of tags associated with the process.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public ProcessSummaryAttributes timestamp(String timestamp) {
     this.timestamp = timestamp;
     return this;
   }
 
   /**
-   * <p>Time the process was seen.</p>
+   * Time the process was seen.
+   *
    * @return timestamp
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMESTAMP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getTimestamp() {
-        return timestamp;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTimestamp() {
+    return timestamp;
+  }
+
   public void setTimestamp(String timestamp) {
     this.timestamp = timestamp;
   }
+
   public ProcessSummaryAttributes user(String user) {
     this.user = user;
     return this;
   }
 
   /**
-   * <p>Process owner.</p>
+   * Process owner.
+   *
    * @return user
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_USER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getUser() {
-        return user;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUser() {
+    return user;
+  }
+
   public void setUser(String user) {
     this.user = user;
   }
 
-  /**
-   * Return true if this ProcessSummaryAttributes object is equal to o.
-   */
+  /** Return true if this ProcessSummaryAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -243,13 +239,19 @@ public class ProcessSummaryAttributes {
       return false;
     }
     ProcessSummaryAttributes processSummaryAttributes = (ProcessSummaryAttributes) o;
-    return Objects.equals(this.cmdline, processSummaryAttributes.cmdline) && Objects.equals(this.host, processSummaryAttributes.host) && Objects.equals(this.pid, processSummaryAttributes.pid) && Objects.equals(this.ppid, processSummaryAttributes.ppid) && Objects.equals(this.start, processSummaryAttributes.start) && Objects.equals(this.tags, processSummaryAttributes.tags) && Objects.equals(this.timestamp, processSummaryAttributes.timestamp) && Objects.equals(this.user, processSummaryAttributes.user);
+    return Objects.equals(this.cmdline, processSummaryAttributes.cmdline)
+        && Objects.equals(this.host, processSummaryAttributes.host)
+        && Objects.equals(this.pid, processSummaryAttributes.pid)
+        && Objects.equals(this.ppid, processSummaryAttributes.ppid)
+        && Objects.equals(this.start, processSummaryAttributes.start)
+        && Objects.equals(this.tags, processSummaryAttributes.tags)
+        && Objects.equals(this.timestamp, processSummaryAttributes.timestamp)
+        && Objects.equals(this.user, processSummaryAttributes.user);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(cmdline,host,pid,ppid,start,tags,timestamp,user);
+    return Objects.hash(cmdline, host, pid, ppid, start, tags, timestamp, user);
   }
 
   @Override
@@ -269,8 +271,7 @@ public class ProcessSummaryAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

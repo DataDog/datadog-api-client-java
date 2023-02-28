@@ -6,42 +6,27 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The object description of an event response attribute.</p>
- */
+/** The object description of an event response attribute. */
 @JsonPropertyOrder({
   EventResponseAttributes.JSON_PROPERTY_ATTRIBUTES,
   EventResponseAttributes.JSON_PROPERTY_TAGS,
   EventResponseAttributes.JSON_PROPERTY_TIMESTAMP
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventResponseAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private EventAttributes attributes;
 
@@ -49,6 +34,7 @@ public class EventResponseAttributes {
   private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime timestamp;
 
@@ -59,23 +45,26 @@ public class EventResponseAttributes {
   }
 
   /**
-   * <p>Object description of attributes from your event.</p>
+   * Object description of attributes from your event.
+   *
    * @return attributes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EventAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EventAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(EventAttributes attributes) {
     this.attributes = attributes;
   }
+
   public EventResponseAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
+
   public EventResponseAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -85,42 +74,43 @@ public class EventResponseAttributes {
   }
 
   /**
-   * <p>An array of tags associated with the event.</p>
+   * An array of tags associated with the event.
+   *
    * @return tags
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TAGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getTags() {
-        return tags;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
   public EventResponseAttributes timestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
     return this;
   }
 
   /**
-   * <p>The timestamp of the event.</p>
+   * The timestamp of the event.
+   *
    * @return timestamp
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TIMESTAMP)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getTimestamp() {
-        return timestamp;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getTimestamp() {
+    return timestamp;
+  }
+
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
   }
 
-  /**
-   * Return true if this EventResponseAttributes object is equal to o.
-   */
+  /** Return true if this EventResponseAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,13 +120,14 @@ public class EventResponseAttributes {
       return false;
     }
     EventResponseAttributes eventResponseAttributes = (EventResponseAttributes) o;
-    return Objects.equals(this.attributes, eventResponseAttributes.attributes) && Objects.equals(this.tags, eventResponseAttributes.tags) && Objects.equals(this.timestamp, eventResponseAttributes.timestamp);
+    return Objects.equals(this.attributes, eventResponseAttributes.attributes)
+        && Objects.equals(this.tags, eventResponseAttributes.tags)
+        && Objects.equals(this.timestamp, eventResponseAttributes.timestamp);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,tags,timestamp);
+    return Objects.hash(attributes, tags, timestamp);
   }
 
   @Override
@@ -151,8 +142,7 @@ public class EventResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

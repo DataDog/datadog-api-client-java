@@ -6,103 +6,91 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The attributes object for a postmortem attachment.</p>
- */
+/** The attributes object for a postmortem attachment. */
 @JsonPropertyOrder({
   IncidentAttachmentPostmortemAttributes.JSON_PROPERTY_ATTACHMENT,
   IncidentAttachmentPostmortemAttributes.JSON_PROPERTY_ATTACHMENT_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentAttachmentPostmortemAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTACHMENT = "attachment";
   private IncidentAttachmentsPostmortemAttributesAttachmentObject attachment;
 
   public static final String JSON_PROPERTY_ATTACHMENT_TYPE = "attachment_type";
-  private IncidentAttachmentPostmortemAttachmentType attachmentType = IncidentAttachmentPostmortemAttachmentType.POSTMORTEM;
+  private IncidentAttachmentPostmortemAttachmentType attachmentType =
+      IncidentAttachmentPostmortemAttachmentType.POSTMORTEM;
 
   public IncidentAttachmentPostmortemAttributes() {}
 
   @JsonCreator
   public IncidentAttachmentPostmortemAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ATTACHMENT)IncidentAttachmentsPostmortemAttributesAttachmentObject attachment,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ATTACHMENT_TYPE)IncidentAttachmentPostmortemAttachmentType attachmentType) {
-        this.attachment = attachment;
-        this.unparsed |= attachment.unparsed;
-        this.attachmentType = attachmentType;
-        this.unparsed |= !attachmentType.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTACHMENT)
+          IncidentAttachmentsPostmortemAttributesAttachmentObject attachment,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTACHMENT_TYPE)
+          IncidentAttachmentPostmortemAttachmentType attachmentType) {
+    this.attachment = attachment;
+    this.unparsed |= attachment.unparsed;
+    this.attachmentType = attachmentType;
+    this.unparsed |= !attachmentType.isValid();
   }
-  public IncidentAttachmentPostmortemAttributes attachment(IncidentAttachmentsPostmortemAttributesAttachmentObject attachment) {
+
+  public IncidentAttachmentPostmortemAttributes attachment(
+      IncidentAttachmentsPostmortemAttributesAttachmentObject attachment) {
     this.attachment = attachment;
     this.unparsed |= attachment.unparsed;
     return this;
   }
 
   /**
-   * <p>The postmortem attachment.</p>
+   * The postmortem attachment.
+   *
    * @return attachment
-  **/
-      @JsonProperty(JSON_PROPERTY_ATTACHMENT)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public IncidentAttachmentsPostmortemAttributesAttachmentObject getAttachment() {
-        return attachment;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ATTACHMENT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentAttachmentsPostmortemAttributesAttachmentObject getAttachment() {
+    return attachment;
+  }
+
   public void setAttachment(IncidentAttachmentsPostmortemAttributesAttachmentObject attachment) {
     this.attachment = attachment;
   }
-  public IncidentAttachmentPostmortemAttributes attachmentType(IncidentAttachmentPostmortemAttachmentType attachmentType) {
+
+  public IncidentAttachmentPostmortemAttributes attachmentType(
+      IncidentAttachmentPostmortemAttachmentType attachmentType) {
     this.attachmentType = attachmentType;
     this.unparsed |= !attachmentType.isValid();
     return this;
   }
 
   /**
-   * <p>The type of postmortem attachment attributes.</p>
+   * The type of postmortem attachment attributes.
+   *
    * @return attachmentType
-  **/
-      @JsonProperty(JSON_PROPERTY_ATTACHMENT_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public IncidentAttachmentPostmortemAttachmentType getAttachmentType() {
-        return attachmentType;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ATTACHMENT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentAttachmentPostmortemAttachmentType getAttachmentType() {
+    return attachmentType;
+  }
+
   public void setAttachmentType(IncidentAttachmentPostmortemAttachmentType attachmentType) {
     if (!attachmentType.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.attachmentType = attachmentType;
   }
 
-  /**
-   * Return true if this IncidentAttachmentPostmortemAttributes object is equal to o.
-   */
+  /** Return true if this IncidentAttachmentPostmortemAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,14 +99,16 @@ public class IncidentAttachmentPostmortemAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentAttachmentPostmortemAttributes incidentAttachmentPostmortemAttributes = (IncidentAttachmentPostmortemAttributes) o;
-    return Objects.equals(this.attachment, incidentAttachmentPostmortemAttributes.attachment) && Objects.equals(this.attachmentType, incidentAttachmentPostmortemAttributes.attachmentType);
+    IncidentAttachmentPostmortemAttributes incidentAttachmentPostmortemAttributes =
+        (IncidentAttachmentPostmortemAttributes) o;
+    return Objects.equals(this.attachment, incidentAttachmentPostmortemAttributes.attachment)
+        && Objects.equals(
+            this.attachmentType, incidentAttachmentPostmortemAttributes.attachmentType);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachment,attachmentType);
+    return Objects.hash(attachment, attachmentType);
   }
 
   @Override
@@ -132,8 +122,7 @@ public class IncidentAttachmentPostmortemAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,33 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Sensitive Data Scanner usage for a given organization for a given hour.</p>
- */
+/** Sensitive Data Scanner usage for a given organization for a given hour. */
 @JsonPropertyOrder({
   UsageSDSHour.JSON_PROPERTY_APM_SCANNED_BYTES,
   UsageSDSHour.JSON_PROPERTY_EVENTS_SCANNED_BYTES,
@@ -43,10 +26,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   UsageSDSHour.JSON_PROPERTY_RUM_SCANNED_BYTES,
   UsageSDSHour.JSON_PROPERTY_TOTAL_SCANNED_BYTES
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSDSHour {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_SCANNED_BYTES = "apm_scanned_bytes";
   private Long apmScannedBytes;
 
@@ -54,6 +37,7 @@ public class UsageSDSHour {
   private Long eventsScannedBytes;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
+
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime hour;
 
@@ -78,156 +62,174 @@ public class UsageSDSHour {
   }
 
   /**
-   * <p>The total number of bytes scanned of APM usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.</p>
+   * The total number of bytes scanned of APM usage across all usage types by the Sensitive Data
+   * Scanner from the start of the given hour’s month until the given hour.
+   *
    * @return apmScannedBytes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_APM_SCANNED_BYTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getApmScannedBytes() {
-        return apmScannedBytes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_SCANNED_BYTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmScannedBytes() {
+    return apmScannedBytes;
+  }
+
   public void setApmScannedBytes(Long apmScannedBytes) {
     this.apmScannedBytes = apmScannedBytes;
   }
+
   public UsageSDSHour eventsScannedBytes(Long eventsScannedBytes) {
     this.eventsScannedBytes = eventsScannedBytes;
     return this;
   }
 
   /**
-   * <p>The total number of bytes scanned of Events usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.</p>
+   * The total number of bytes scanned of Events usage across all usage types by the Sensitive Data
+   * Scanner from the start of the given hour’s month until the given hour.
+   *
    * @return eventsScannedBytes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_EVENTS_SCANNED_BYTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getEventsScannedBytes() {
-        return eventsScannedBytes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EVENTS_SCANNED_BYTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEventsScannedBytes() {
+    return eventsScannedBytes;
+  }
+
   public void setEventsScannedBytes(Long eventsScannedBytes) {
     this.eventsScannedBytes = eventsScannedBytes;
   }
+
   public UsageSDSHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
   /**
-   * <p>The hour for the usage.</p>
+   * The hour for the usage.
+   *
    * @return hour
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_HOUR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public OffsetDateTime getHour() {
-        return hour;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getHour() {
+    return hour;
+  }
+
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
+
   public UsageSDSHour logsScannedBytes(Long logsScannedBytes) {
     this.logsScannedBytes = logsScannedBytes;
     return this;
   }
 
   /**
-   * <p>The total number of bytes scanned of logs usage by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.</p>
+   * The total number of bytes scanned of logs usage by the Sensitive Data Scanner from the start of
+   * the given hour’s month until the given hour.
+   *
    * @return logsScannedBytes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOGS_SCANNED_BYTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getLogsScannedBytes() {
-        return logsScannedBytes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_SCANNED_BYTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLogsScannedBytes() {
+    return logsScannedBytes;
+  }
+
   public void setLogsScannedBytes(Long logsScannedBytes) {
     this.logsScannedBytes = logsScannedBytes;
   }
+
   public UsageSDSHour orgName(String orgName) {
     this.orgName = orgName;
     return this;
   }
 
   /**
-   * <p>The organization name.</p>
+   * The organization name.
+   *
    * @return orgName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ORG_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getOrgName() {
-        return orgName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
+
   public UsageSDSHour publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * <p>The organization public ID.</p>
+   * The organization public ID.
+   *
    * @return publicId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPublicId() {
-        return publicId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
+
   public UsageSDSHour rumScannedBytes(Long rumScannedBytes) {
     this.rumScannedBytes = rumScannedBytes;
     return this;
   }
 
   /**
-   * <p>The total number of bytes scanned of RUM usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.</p>
+   * The total number of bytes scanned of RUM usage across all usage types by the Sensitive Data
+   * Scanner from the start of the given hour’s month until the given hour.
+   *
    * @return rumScannedBytes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_RUM_SCANNED_BYTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getRumScannedBytes() {
-        return rumScannedBytes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_SCANNED_BYTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumScannedBytes() {
+    return rumScannedBytes;
+  }
+
   public void setRumScannedBytes(Long rumScannedBytes) {
     this.rumScannedBytes = rumScannedBytes;
   }
+
   public UsageSDSHour totalScannedBytes(Long totalScannedBytes) {
     this.totalScannedBytes = totalScannedBytes;
     return this;
   }
 
   /**
-   * <p>The total number of bytes scanned across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.</p>
+   * The total number of bytes scanned across all usage types by the Sensitive Data Scanner from the
+   * start of the given hour’s month until the given hour.
+   *
    * @return totalScannedBytes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_TOTAL_SCANNED_BYTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Long getTotalScannedBytes() {
-        return totalScannedBytes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOTAL_SCANNED_BYTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotalScannedBytes() {
+    return totalScannedBytes;
+  }
+
   public void setTotalScannedBytes(Long totalScannedBytes) {
     this.totalScannedBytes = totalScannedBytes;
   }
 
-  /**
-   * Return true if this UsageSDSHour object is equal to o.
-   */
+  /** Return true if this UsageSDSHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -237,13 +239,27 @@ public class UsageSDSHour {
       return false;
     }
     UsageSDSHour usageSdsHour = (UsageSDSHour) o;
-    return Objects.equals(this.apmScannedBytes, usageSdsHour.apmScannedBytes) && Objects.equals(this.eventsScannedBytes, usageSdsHour.eventsScannedBytes) && Objects.equals(this.hour, usageSdsHour.hour) && Objects.equals(this.logsScannedBytes, usageSdsHour.logsScannedBytes) && Objects.equals(this.orgName, usageSdsHour.orgName) && Objects.equals(this.publicId, usageSdsHour.publicId) && Objects.equals(this.rumScannedBytes, usageSdsHour.rumScannedBytes) && Objects.equals(this.totalScannedBytes, usageSdsHour.totalScannedBytes);
+    return Objects.equals(this.apmScannedBytes, usageSdsHour.apmScannedBytes)
+        && Objects.equals(this.eventsScannedBytes, usageSdsHour.eventsScannedBytes)
+        && Objects.equals(this.hour, usageSdsHour.hour)
+        && Objects.equals(this.logsScannedBytes, usageSdsHour.logsScannedBytes)
+        && Objects.equals(this.orgName, usageSdsHour.orgName)
+        && Objects.equals(this.publicId, usageSdsHour.publicId)
+        && Objects.equals(this.rumScannedBytes, usageSdsHour.rumScannedBytes)
+        && Objects.equals(this.totalScannedBytes, usageSdsHour.totalScannedBytes);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmScannedBytes,eventsScannedBytes,hour,logsScannedBytes,orgName,publicId,rumScannedBytes,totalScannedBytes);
+    return Objects.hash(
+        apmScannedBytes,
+        eventsScannedBytes,
+        hour,
+        logsScannedBytes,
+        orgName,
+        publicId,
+        rumScannedBytes,
+        totalScannedBytes);
   }
 
   @Override
@@ -263,8 +279,7 @@ public class UsageSDSHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

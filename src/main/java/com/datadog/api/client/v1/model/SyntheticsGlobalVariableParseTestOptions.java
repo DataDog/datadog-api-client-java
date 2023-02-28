@@ -6,32 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.Objects;
 
 /**
-   * <p>Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with <code>parse_test_public_id</code>.</p>
+ * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in
+ * conjunction with <code>parse_test_public_id</code>.
  */
 @JsonPropertyOrder({
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_FIELD,
@@ -39,10 +23,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_PARSER,
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsGlobalVariableParseTestOptions {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
@@ -59,48 +43,55 @@ public class SyntheticsGlobalVariableParseTestOptions {
 
   @JsonCreator
   public SyntheticsGlobalVariableParseTestOptions(
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SyntheticsGlobalVariableParseTestOptionsType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          SyntheticsGlobalVariableParseTestOptionsType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public SyntheticsGlobalVariableParseTestOptions field(String field) {
     this.field = field;
     return this;
   }
 
   /**
-   * <p>When type is <code>http_header</code>, name of the header to use to extract the value.</p>
+   * When type is <code>http_header</code>, name of the header to use to extract the value.
+   *
    * @return field
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FIELD)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getField() {
-        return field;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getField() {
+    return field;
+  }
+
   public void setField(String field) {
     this.field = field;
   }
+
   public SyntheticsGlobalVariableParseTestOptions localVariableName(String localVariableName) {
     this.localVariableName = localVariableName;
     return this;
   }
 
   /**
-   * <p>When type is <code>local_variable</code>, name of the local variable to use to extract the value.</p>
+   * When type is <code>local_variable</code>, name of the local variable to use to extract the
+   * value.
+   *
    * @return localVariableName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOCAL_VARIABLE_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getLocalVariableName() {
-        return localVariableName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOCAL_VARIABLE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLocalVariableName() {
+    return localVariableName;
+  }
+
   public void setLocalVariableName(String localVariableName) {
     this.localVariableName = localVariableName;
   }
+
   public SyntheticsGlobalVariableParseTestOptions parser(SyntheticsVariableParser parser) {
     this.parser = parser;
     this.unparsed |= parser.unparsed;
@@ -108,45 +99,47 @@ public class SyntheticsGlobalVariableParseTestOptions {
   }
 
   /**
-   * <p>Details of the parser to use for the global variable.</p>
+   * Details of the parser to use for the global variable.
+   *
    * @return parser
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PARSER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SyntheticsVariableParser getParser() {
-        return parser;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PARSER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsVariableParser getParser() {
+    return parser;
+  }
+
   public void setParser(SyntheticsVariableParser parser) {
     this.parser = parser;
   }
-  public SyntheticsGlobalVariableParseTestOptions type(SyntheticsGlobalVariableParseTestOptionsType type) {
+
+  public SyntheticsGlobalVariableParseTestOptions type(
+      SyntheticsGlobalVariableParseTestOptionsType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * <p>Property of the Synthetics Test Response to use for a Synthetics global variable.</p>
+   * Property of the Synthetics Test Response to use for a Synthetics global variable.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SyntheticsGlobalVariableParseTestOptionsType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsGlobalVariableParseTestOptionsType getType() {
+    return type;
+  }
+
   public void setType(SyntheticsGlobalVariableParseTestOptionsType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this SyntheticsGlobalVariableParseTestOptions object is equal to o.
-   */
+  /** Return true if this SyntheticsGlobalVariableParseTestOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -155,14 +148,18 @@ public class SyntheticsGlobalVariableParseTestOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsGlobalVariableParseTestOptions syntheticsGlobalVariableParseTestOptions = (SyntheticsGlobalVariableParseTestOptions) o;
-    return Objects.equals(this.field, syntheticsGlobalVariableParseTestOptions.field) && Objects.equals(this.localVariableName, syntheticsGlobalVariableParseTestOptions.localVariableName) && Objects.equals(this.parser, syntheticsGlobalVariableParseTestOptions.parser) && Objects.equals(this.type, syntheticsGlobalVariableParseTestOptions.type);
+    SyntheticsGlobalVariableParseTestOptions syntheticsGlobalVariableParseTestOptions =
+        (SyntheticsGlobalVariableParseTestOptions) o;
+    return Objects.equals(this.field, syntheticsGlobalVariableParseTestOptions.field)
+        && Objects.equals(
+            this.localVariableName, syntheticsGlobalVariableParseTestOptions.localVariableName)
+        && Objects.equals(this.parser, syntheticsGlobalVariableParseTestOptions.parser)
+        && Objects.equals(this.type, syntheticsGlobalVariableParseTestOptions.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(field,localVariableName,parser,type);
+    return Objects.hash(field, localVariableName, parser, type);
   }
 
   @Override
@@ -178,8 +175,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

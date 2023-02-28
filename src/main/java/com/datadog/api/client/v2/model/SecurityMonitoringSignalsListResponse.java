@@ -6,43 +6,26 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
-
-import com.datadog.api.client.JsonTimeSerializer;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
-   * <p>The response object with all security signals matching the request
-   * and pagination information.</p>
+ * The response object with all security signals matching the request and pagination information.
  */
 @JsonPropertyOrder({
   SecurityMonitoringSignalsListResponse.JSON_PROPERTY_DATA,
   SecurityMonitoringSignalsListResponse.JSON_PROPERTY_LINKS,
   SecurityMonitoringSignalsListResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalsListResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<SecurityMonitoringSignal> data = null;
 
@@ -59,6 +42,7 @@ public class SecurityMonitoringSignalsListResponse {
     }
     return this;
   }
+
   public SecurityMonitoringSignalsListResponse addDataItem(SecurityMonitoringSignal dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
@@ -69,63 +53,68 @@ public class SecurityMonitoringSignalsListResponse {
   }
 
   /**
-   * <p>An array of security signals matching the request.</p>
+   * An array of security signals matching the request.
+   *
    * @return data
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SecurityMonitoringSignal> getData() {
-        return data;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SecurityMonitoringSignal> getData() {
+    return data;
+  }
+
   public void setData(List<SecurityMonitoringSignal> data) {
     this.data = data;
   }
-  public SecurityMonitoringSignalsListResponse links(SecurityMonitoringSignalsListResponseLinks links) {
+
+  public SecurityMonitoringSignalsListResponse links(
+      SecurityMonitoringSignalsListResponseLinks links) {
     this.links = links;
     this.unparsed |= links.unparsed;
     return this;
   }
 
   /**
-   * <p>Links attributes.</p>
+   * Links attributes.
+   *
    * @return links
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LINKS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecurityMonitoringSignalsListResponseLinks getLinks() {
-        return links;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringSignalsListResponseLinks getLinks() {
+    return links;
+  }
+
   public void setLinks(SecurityMonitoringSignalsListResponseLinks links) {
     this.links = links;
   }
-  public SecurityMonitoringSignalsListResponse meta(SecurityMonitoringSignalsListResponseMeta meta) {
+
+  public SecurityMonitoringSignalsListResponse meta(
+      SecurityMonitoringSignalsListResponseMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
     return this;
   }
 
   /**
-   * <p>Meta attributes.</p>
+   * Meta attributes.
+   *
    * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SecurityMonitoringSignalsListResponseMeta getMeta() {
-        return meta;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringSignalsListResponseMeta getMeta() {
+    return meta;
+  }
+
   public void setMeta(SecurityMonitoringSignalsListResponseMeta meta) {
     this.meta = meta;
   }
 
-  /**
-   * Return true if this SecurityMonitoringSignalsListResponse object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringSignalsListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -134,14 +123,16 @@ public class SecurityMonitoringSignalsListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalsListResponse securityMonitoringSignalsListResponse = (SecurityMonitoringSignalsListResponse) o;
-    return Objects.equals(this.data, securityMonitoringSignalsListResponse.data) && Objects.equals(this.links, securityMonitoringSignalsListResponse.links) && Objects.equals(this.meta, securityMonitoringSignalsListResponse.meta);
+    SecurityMonitoringSignalsListResponse securityMonitoringSignalsListResponse =
+        (SecurityMonitoringSignalsListResponse) o;
+    return Objects.equals(this.data, securityMonitoringSignalsListResponse.data)
+        && Objects.equals(this.links, securityMonitoringSignalsListResponse.links)
+        && Objects.equals(this.meta, securityMonitoringSignalsListResponse.meta);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(data,links,meta);
+    return Objects.hash(data, links, meta);
   }
 
   @Override
@@ -156,8 +147,7 @@ public class SecurityMonitoringSignalsListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,33 +6,13 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Object containing the metric unit family, scale factor, name, and short name.</p>
- */
+/** Object containing the metric unit family, scale factor, name, and short name. */
 @JsonPropertyOrder({
   Unit.JSON_PROPERTY_FAMILY,
   Unit.JSON_PROPERTY_NAME,
@@ -40,10 +20,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   Unit.JSON_PROPERTY_SCALE_FACTOR,
   Unit.JSON_PROPERTY_SHORT_NAME
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Unit {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FAMILY = "family";
   private String family;
 
@@ -65,99 +45,106 @@ public class Unit {
   }
 
   /**
-   * <p>Unit family, allows for conversion between units of the same family, for scaling.</p>
+   * Unit family, allows for conversion between units of the same family, for scaling.
+   *
    * @return family
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FAMILY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getFamily() {
-        return family;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FAMILY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFamily() {
+    return family;
+  }
+
   public void setFamily(String family) {
     this.family = family;
   }
+
   public Unit name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Unit name</p>
+   * Unit name
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public Unit plural(String plural) {
     this.plural = plural;
     return this;
   }
 
   /**
-   * <p>Plural form of the unit name.</p>
+   * Plural form of the unit name.
+   *
    * @return plural
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_PLURAL)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getPlural() {
-        return plural;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PLURAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPlural() {
+    return plural;
+  }
+
   public void setPlural(String plural) {
     this.plural = plural;
   }
+
   public Unit scaleFactor(Double scaleFactor) {
     this.scaleFactor = scaleFactor;
     return this;
   }
 
   /**
-   * <p>Factor for scaling between units of the same family.</p>
+   * Factor for scaling between units of the same family.
+   *
    * @return scaleFactor
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SCALE_FACTOR)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public Double getScaleFactor() {
-        return scaleFactor;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCALE_FACTOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getScaleFactor() {
+    return scaleFactor;
+  }
+
   public void setScaleFactor(Double scaleFactor) {
     this.scaleFactor = scaleFactor;
   }
+
   public Unit shortName(String shortName) {
     this.shortName = shortName;
     return this;
   }
 
   /**
-   * <p>Abbreviation of the unit.</p>
+   * Abbreviation of the unit.
+   *
    * @return shortName
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SHORT_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getShortName() {
-        return shortName;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHORT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getShortName() {
+    return shortName;
+  }
+
   public void setShortName(String shortName) {
     this.shortName = shortName;
   }
 
-  /**
-   * Return true if this Unit object is equal to o.
-   */
+  /** Return true if this Unit object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -167,13 +154,16 @@ public class Unit {
       return false;
     }
     Unit unit = (Unit) o;
-    return Objects.equals(this.family, unit.family) && Objects.equals(this.name, unit.name) && Objects.equals(this.plural, unit.plural) && Objects.equals(this.scaleFactor, unit.scaleFactor) && Objects.equals(this.shortName, unit.shortName);
+    return Objects.equals(this.family, unit.family)
+        && Objects.equals(this.name, unit.name)
+        && Objects.equals(this.plural, unit.plural)
+        && Objects.equals(this.scaleFactor, unit.scaleFactor)
+        && Objects.equals(this.shortName, unit.shortName);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(family,name,plural,scaleFactor,shortName);
+    return Objects.hash(family, name, plural, scaleFactor, shortName);
   }
 
   @Override
@@ -190,8 +180,7 @@ public class Unit {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,40 +6,20 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>List of groups, ordered.</p>
- */
-@JsonPropertyOrder({
-  SensitiveDataScannerGroupList.JSON_PROPERTY_DATA
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** List of groups, ordered. */
+@JsonPropertyOrder({SensitiveDataScannerGroupList.JSON_PROPERTY_DATA})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SensitiveDataScannerGroupList {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<SensitiveDataScannerGroupItem> data = null;
 
@@ -50,6 +30,7 @@ public class SensitiveDataScannerGroupList {
     }
     return this;
   }
+
   public SensitiveDataScannerGroupList addDataItem(SensitiveDataScannerGroupItem dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
@@ -60,23 +41,22 @@ public class SensitiveDataScannerGroupList {
   }
 
   /**
-   * <p>List of groups. The order is important.</p>
+   * List of groups. The order is important.
+   *
    * @return data
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_DATA)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<SensitiveDataScannerGroupItem> getData() {
-        return data;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SensitiveDataScannerGroupItem> getData() {
+    return data;
+  }
+
   public void setData(List<SensitiveDataScannerGroupItem> data) {
     this.data = data;
   }
 
-  /**
-   * Return true if this SensitiveDataScannerGroupList object is equal to o.
-   */
+  /** Return true if this SensitiveDataScannerGroupList object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,7 +68,6 @@ public class SensitiveDataScannerGroupList {
     SensitiveDataScannerGroupList sensitiveDataScannerGroupList = (SensitiveDataScannerGroupList) o;
     return Objects.equals(this.data, sensitiveDataScannerGroupList.data);
   }
-
 
   @Override
   public int hashCode() {
@@ -105,8 +84,7 @@ public class SensitiveDataScannerGroupList {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,42 +6,23 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Data object for Fastly service requests.</p>
- */
+/** Data object for Fastly service requests. */
 @JsonPropertyOrder({
   FastlyServiceData.JSON_PROPERTY_ATTRIBUTES,
   FastlyServiceData.JSON_PROPERTY_ID,
   FastlyServiceData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FastlyServiceData {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private FastlyServiceAttributes attributes;
 
@@ -55,12 +36,13 @@ public class FastlyServiceData {
 
   @JsonCreator
   public FastlyServiceData(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)FastlyServiceType type) {
-        this.id = id;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FastlyServiceType type) {
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public FastlyServiceData attributes(FastlyServiceAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -68,37 +50,41 @@ public class FastlyServiceData {
   }
 
   /**
-   * <p>Attributes object for Fastly service requests.</p>
+   * Attributes object for Fastly service requests.
+   *
    * @return attributes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public FastlyServiceAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FastlyServiceAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(FastlyServiceAttributes attributes) {
     this.attributes = attributes;
   }
+
   public FastlyServiceData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>The ID of the Fastly service.</p>
+   * The ID of the Fastly service.
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public FastlyServiceData type(FastlyServiceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -106,25 +92,24 @@ public class FastlyServiceData {
   }
 
   /**
-   * <p>The JSON:API type for this API. Should always be <code>fastly-services</code>.</p>
+   * The JSON:API type for this API. Should always be <code>fastly-services</code>.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public FastlyServiceType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FastlyServiceType getType() {
+    return type;
+  }
+
   public void setType(FastlyServiceType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this FastlyServiceData object is equal to o.
-   */
+  /** Return true if this FastlyServiceData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -134,13 +119,14 @@ public class FastlyServiceData {
       return false;
     }
     FastlyServiceData fastlyServiceData = (FastlyServiceData) o;
-    return Objects.equals(this.attributes, fastlyServiceData.attributes) && Objects.equals(this.id, fastlyServiceData.id) && Objects.equals(this.type, fastlyServiceData.type);
+    return Objects.equals(this.attributes, fastlyServiceData.attributes)
+        && Objects.equals(this.id, fastlyServiceData.id)
+        && Objects.equals(this.type, fastlyServiceData.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,id,type);
+    return Objects.hash(attributes, id, type);
   }
 
   @Override
@@ -155,8 +141,7 @@ public class FastlyServiceData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,33 +6,16 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>An individual timeseries events query.</p>
- */
+/** An individual timeseries events query. */
 @JsonPropertyOrder({
   EventsTimeseriesQuery.JSON_PROPERTY_COMPUTE,
   EventsTimeseriesQuery.JSON_PROPERTY_DATA_SOURCE,
@@ -41,10 +24,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   EventsTimeseriesQuery.JSON_PROPERTY_NAME,
   EventsTimeseriesQuery.JSON_PROPERTY_SEARCH
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventsTimeseriesQuery {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private EventsCompute compute;
 
@@ -67,13 +50,15 @@ public class EventsTimeseriesQuery {
 
   @JsonCreator
   public EventsTimeseriesQuery(
-            @JsonProperty(required=true, value=JSON_PROPERTY_COMPUTE)EventsCompute compute,
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)EventsDataSource dataSource) {
-        this.compute = compute;
-        this.unparsed |= compute.unparsed;
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPUTE) EventsCompute compute,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          EventsDataSource dataSource) {
+    this.compute = compute;
+    this.unparsed |= compute.unparsed;
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
   }
+
   public EventsTimeseriesQuery compute(EventsCompute compute) {
     this.compute = compute;
     this.unparsed |= compute.unparsed;
@@ -81,18 +66,20 @@ public class EventsTimeseriesQuery {
   }
 
   /**
-   * <p>The instructions for what to compute for this query.</p>
+   * The instructions for what to compute for this query.
+   *
    * @return compute
-  **/
-      @JsonProperty(JSON_PROPERTY_COMPUTE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public EventsCompute getCompute() {
-        return compute;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public EventsCompute getCompute() {
+    return compute;
+  }
+
   public void setCompute(EventsCompute compute) {
     this.compute = compute;
   }
+
   public EventsTimeseriesQuery dataSource(EventsDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -100,21 +87,23 @@ public class EventsTimeseriesQuery {
   }
 
   /**
-   * <p>A data source that is powered by the Events Platform.</p>
+   * A data source that is powered by the Events Platform.
+   *
    * @return dataSource
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public EventsDataSource getDataSource() {
-        return dataSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public EventsDataSource getDataSource() {
+    return dataSource;
+  }
+
   public void setDataSource(EventsDataSource dataSource) {
     if (!dataSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
+
   public EventsTimeseriesQuery groupBy(List<EventsGroupBy> groupBy) {
     this.groupBy = groupBy;
     for (EventsGroupBy item : groupBy) {
@@ -122,6 +111,7 @@ public class EventsTimeseriesQuery {
     }
     return this;
   }
+
   public EventsTimeseriesQuery addGroupByItem(EventsGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
@@ -132,23 +122,26 @@ public class EventsTimeseriesQuery {
   }
 
   /**
-   * <p>The list of facets on which to split results.</p>
+   * The list of facets on which to split results.
+   *
    * @return groupBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<EventsGroupBy> getGroupBy() {
-        return groupBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<EventsGroupBy> getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(List<EventsGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
+
   public EventsTimeseriesQuery indexes(List<String> indexes) {
     this.indexes = indexes;
     return this;
   }
+
   public EventsTimeseriesQuery addIndexesItem(String indexesItem) {
     if (this.indexes == null) {
       this.indexes = new ArrayList<>();
@@ -158,38 +151,42 @@ public class EventsTimeseriesQuery {
   }
 
   /**
-   * <p>The indexes in which to search.</p>
+   * The indexes in which to search.
+   *
    * @return indexes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INDEXES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getIndexes() {
-        return indexes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIndexes() {
+    return indexes;
+  }
+
   public void setIndexes(List<String> indexes) {
     this.indexes = indexes;
   }
+
   public EventsTimeseriesQuery name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>The variable name for use in formulas.</p>
+   * The variable name for use in formulas.
+   *
    * @return name
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getName() {
-        return name;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public EventsTimeseriesQuery search(EventsSearch search) {
     this.search = search;
     this.unparsed |= search.unparsed;
@@ -197,23 +194,22 @@ public class EventsTimeseriesQuery {
   }
 
   /**
-   * <p>Configuration of the search/filter for an events query.</p>
+   * Configuration of the search/filter for an events query.
+   *
    * @return search
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SEARCH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public EventsSearch getSearch() {
-        return search;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEARCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EventsSearch getSearch() {
+    return search;
+  }
+
   public void setSearch(EventsSearch search) {
     this.search = search;
   }
 
-  /**
-   * Return true if this EventsTimeseriesQuery object is equal to o.
-   */
+  /** Return true if this EventsTimeseriesQuery object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -223,13 +219,17 @@ public class EventsTimeseriesQuery {
       return false;
     }
     EventsTimeseriesQuery eventsTimeseriesQuery = (EventsTimeseriesQuery) o;
-    return Objects.equals(this.compute, eventsTimeseriesQuery.compute) && Objects.equals(this.dataSource, eventsTimeseriesQuery.dataSource) && Objects.equals(this.groupBy, eventsTimeseriesQuery.groupBy) && Objects.equals(this.indexes, eventsTimeseriesQuery.indexes) && Objects.equals(this.name, eventsTimeseriesQuery.name) && Objects.equals(this.search, eventsTimeseriesQuery.search);
+    return Objects.equals(this.compute, eventsTimeseriesQuery.compute)
+        && Objects.equals(this.dataSource, eventsTimeseriesQuery.dataSource)
+        && Objects.equals(this.groupBy, eventsTimeseriesQuery.groupBy)
+        && Objects.equals(this.indexes, eventsTimeseriesQuery.indexes)
+        && Objects.equals(this.name, eventsTimeseriesQuery.name)
+        && Objects.equals(this.search, eventsTimeseriesQuery.search);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute,dataSource,groupBy,indexes,name,search);
+    return Objects.hash(compute, dataSource, groupBy, indexes, name, search);
   }
 
   @Override
@@ -247,8 +247,7 @@ public class EventsTimeseriesQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,40 +6,21 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The attributes associated with the archive order.</p>
- */
-@JsonPropertyOrder({
-  LogsArchiveOrderAttributes.JSON_PROPERTY_ARCHIVE_IDS
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** The attributes associated with the archive order. */
+@JsonPropertyOrder({LogsArchiveOrderAttributes.JSON_PROPERTY_ARCHIVE_IDS})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsArchiveOrderAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ARCHIVE_IDS = "archive_ids";
   private List<String> archiveIds = new ArrayList<>();
 
@@ -47,36 +28,37 @@ public class LogsArchiveOrderAttributes {
 
   @JsonCreator
   public LogsArchiveOrderAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ARCHIVE_IDS)List<String> archiveIds) {
-        this.archiveIds = archiveIds;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ARCHIVE_IDS) List<String> archiveIds) {
+    this.archiveIds = archiveIds;
   }
+
   public LogsArchiveOrderAttributes archiveIds(List<String> archiveIds) {
     this.archiveIds = archiveIds;
     return this;
   }
+
   public LogsArchiveOrderAttributes addArchiveIdsItem(String archiveIdsItem) {
     this.archiveIds.add(archiveIdsItem);
     return this;
   }
 
   /**
-   * <p>An ordered array of <code>&lt;ARCHIVE_ID&gt;</code> strings, the order of archive IDs in the array
-   * define the overall archives order for Datadog.</p>
+   * An ordered array of <code>&lt;ARCHIVE_ID&gt;</code> strings, the order of archive IDs in the
+   * array define the overall archives order for Datadog.
+   *
    * @return archiveIds
-  **/
-      @JsonProperty(JSON_PROPERTY_ARCHIVE_IDS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public List<String> getArchiveIds() {
-        return archiveIds;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ARCHIVE_IDS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getArchiveIds() {
+    return archiveIds;
+  }
+
   public void setArchiveIds(List<String> archiveIds) {
     this.archiveIds = archiveIds;
   }
 
-  /**
-   * Return true if this LogsArchiveOrderAttributes object is equal to o.
-   */
+  /** Return true if this LogsArchiveOrderAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,7 +70,6 @@ public class LogsArchiveOrderAttributes {
     LogsArchiveOrderAttributes logsArchiveOrderAttributes = (LogsArchiveOrderAttributes) o;
     return Objects.equals(this.archiveIds, logsArchiveOrderAttributes.archiveIds);
   }
-
 
   @Override
   public int hashCode() {
@@ -105,8 +86,7 @@ public class LogsArchiveOrderAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

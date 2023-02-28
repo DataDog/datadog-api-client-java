@@ -6,41 +6,24 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Description of signals.</p>
- */
+/** Description of signals. */
 @JsonPropertyOrder({
   CloudConfigurationRuleCaseCreate.JSON_PROPERTY_NOTIFICATIONS,
   CloudConfigurationRuleCaseCreate.JSON_PROPERTY_STATUS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudConfigurationRuleCaseCreate {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NOTIFICATIONS = "notifications";
   private List<String> notifications = null;
 
@@ -51,14 +34,17 @@ public class CloudConfigurationRuleCaseCreate {
 
   @JsonCreator
   public CloudConfigurationRuleCaseCreate(
-            @JsonProperty(required=true, value=JSON_PROPERTY_STATUS)SecurityMonitoringRuleSeverity status) {
-        this.status = status;
-        this.unparsed |= !status.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
+          SecurityMonitoringRuleSeverity status) {
+    this.status = status;
+    this.unparsed |= !status.isValid();
   }
+
   public CloudConfigurationRuleCaseCreate notifications(List<String> notifications) {
     this.notifications = notifications;
     return this;
   }
+
   public CloudConfigurationRuleCaseCreate addNotificationsItem(String notificationsItem) {
     if (this.notifications == null) {
       this.notifications = new ArrayList<>();
@@ -68,19 +54,21 @@ public class CloudConfigurationRuleCaseCreate {
   }
 
   /**
-   * <p>Notification targets for each rule case.</p>
+   * Notification targets for each rule case.
+   *
    * @return notifications
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getNotifications() {
-        return notifications;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getNotifications() {
+    return notifications;
+  }
+
   public void setNotifications(List<String> notifications) {
     this.notifications = notifications;
   }
+
   public CloudConfigurationRuleCaseCreate status(SecurityMonitoringRuleSeverity status) {
     this.status = status;
     this.unparsed |= !status.isValid();
@@ -88,25 +76,24 @@ public class CloudConfigurationRuleCaseCreate {
   }
 
   /**
-   * <p>Severity of the Security Signal.</p>
+   * Severity of the Security Signal.
+   *
    * @return status
-  **/
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public SecurityMonitoringRuleSeverity getStatus() {
-        return status;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SecurityMonitoringRuleSeverity getStatus() {
+    return status;
+  }
+
   public void setStatus(SecurityMonitoringRuleSeverity status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
 
-  /**
-   * Return true if this CloudConfigurationRuleCaseCreate object is equal to o.
-   */
+  /** Return true if this CloudConfigurationRuleCaseCreate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,14 +102,15 @@ public class CloudConfigurationRuleCaseCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudConfigurationRuleCaseCreate cloudConfigurationRuleCaseCreate = (CloudConfigurationRuleCaseCreate) o;
-    return Objects.equals(this.notifications, cloudConfigurationRuleCaseCreate.notifications) && Objects.equals(this.status, cloudConfigurationRuleCaseCreate.status);
+    CloudConfigurationRuleCaseCreate cloudConfigurationRuleCaseCreate =
+        (CloudConfigurationRuleCaseCreate) o;
+    return Objects.equals(this.notifications, cloudConfigurationRuleCaseCreate.notifications)
+        && Objects.equals(this.status, cloudConfigurationRuleCaseCreate.status);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(notifications,status);
+    return Objects.hash(notifications, status);
   }
 
   @Override
@@ -136,8 +124,7 @@ public class CloudConfigurationRuleCaseCreate {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

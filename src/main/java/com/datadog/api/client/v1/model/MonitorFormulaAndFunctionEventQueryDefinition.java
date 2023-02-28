@@ -6,33 +6,16 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A formula and functions events query.</p>
- */
+/** A formula and functions events query. */
 @JsonPropertyOrder({
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_COMPUTE,
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
@@ -41,10 +24,10 @@ import com.datadog.api.client.JsonTimeSerializer;
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_NAME,
   MonitorFormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_SEARCH
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorFormulaAndFunctionEventQueryDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private MonitorFormulaAndFunctionEventQueryDefinitionCompute compute;
 
@@ -67,64 +50,76 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
 
   @JsonCreator
   public MonitorFormulaAndFunctionEventQueryDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_COMPUTE)MonitorFormulaAndFunctionEventQueryDefinitionCompute compute,
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)MonitorFormulaAndFunctionEventsDataSource dataSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
-        this.compute = compute;
-        this.unparsed |= compute.unparsed;
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.name = name;
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPUTE)
+          MonitorFormulaAndFunctionEventQueryDefinitionCompute compute,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          MonitorFormulaAndFunctionEventsDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.compute = compute;
+    this.unparsed |= compute.unparsed;
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.name = name;
   }
-  public MonitorFormulaAndFunctionEventQueryDefinition compute(MonitorFormulaAndFunctionEventQueryDefinitionCompute compute) {
+
+  public MonitorFormulaAndFunctionEventQueryDefinition compute(
+      MonitorFormulaAndFunctionEventQueryDefinitionCompute compute) {
     this.compute = compute;
     this.unparsed |= compute.unparsed;
     return this;
   }
 
   /**
-   * <p>Compute options.</p>
+   * Compute options.
+   *
    * @return compute
-  **/
-      @JsonProperty(JSON_PROPERTY_COMPUTE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public MonitorFormulaAndFunctionEventQueryDefinitionCompute getCompute() {
-        return compute;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MonitorFormulaAndFunctionEventQueryDefinitionCompute getCompute() {
+    return compute;
+  }
+
   public void setCompute(MonitorFormulaAndFunctionEventQueryDefinitionCompute compute) {
     this.compute = compute;
   }
-  public MonitorFormulaAndFunctionEventQueryDefinition dataSource(MonitorFormulaAndFunctionEventsDataSource dataSource) {
+
+  public MonitorFormulaAndFunctionEventQueryDefinition dataSource(
+      MonitorFormulaAndFunctionEventsDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     return this;
   }
 
   /**
-   * <p>Data source for event platform-based queries.</p>
+   * Data source for event platform-based queries.
+   *
    * @return dataSource
-  **/
-      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public MonitorFormulaAndFunctionEventsDataSource getDataSource() {
-        return dataSource;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MonitorFormulaAndFunctionEventsDataSource getDataSource() {
+    return dataSource;
+  }
+
   public void setDataSource(MonitorFormulaAndFunctionEventsDataSource dataSource) {
     if (!dataSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
-  public MonitorFormulaAndFunctionEventQueryDefinition groupBy(List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
+
+  public MonitorFormulaAndFunctionEventQueryDefinition groupBy(
+      List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
     for (MonitorFormulaAndFunctionEventQueryGroupBy item : groupBy) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-  public MonitorFormulaAndFunctionEventQueryDefinition addGroupByItem(MonitorFormulaAndFunctionEventQueryGroupBy groupByItem) {
+
+  public MonitorFormulaAndFunctionEventQueryDefinition addGroupByItem(
+      MonitorFormulaAndFunctionEventQueryGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
     }
@@ -134,23 +129,26 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
   }
 
   /**
-   * <p>Group by options.</p>
+   * Group by options.
+   *
    * @return groupBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<MonitorFormulaAndFunctionEventQueryGroupBy> getGroupBy() {
-        return groupBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorFormulaAndFunctionEventQueryGroupBy> getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(List<MonitorFormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
+
   public MonitorFormulaAndFunctionEventQueryDefinition indexes(List<String> indexes) {
     this.indexes = indexes;
     return this;
   }
+
   public MonitorFormulaAndFunctionEventQueryDefinition addIndexesItem(String indexesItem) {
     if (this.indexes == null) {
       this.indexes = new ArrayList<>();
@@ -160,61 +158,66 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
   }
 
   /**
-   * <p>An array of index names to query in the stream. Omit or use <code>[]</code> to query all indexes at once.</p>
+   * An array of index names to query in the stream. Omit or use <code>[]</code> to query all
+   * indexes at once.
+   *
    * @return indexes
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_INDEXES)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<String> getIndexes() {
-        return indexes;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIndexes() {
+    return indexes;
+  }
+
   public void setIndexes(List<String> indexes) {
     this.indexes = indexes;
   }
+
   public MonitorFormulaAndFunctionEventQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * <p>Name of the query for use in formulas.</p>
+   * Name of the query for use in formulas.
+   *
    * @return name
-  **/
-      @JsonProperty(JSON_PROPERTY_NAME)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getName() {
-        return name;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
   public void setName(String name) {
     this.name = name;
   }
-  public MonitorFormulaAndFunctionEventQueryDefinition search(MonitorFormulaAndFunctionEventQueryDefinitionSearch search) {
+
+  public MonitorFormulaAndFunctionEventQueryDefinition search(
+      MonitorFormulaAndFunctionEventQueryDefinitionSearch search) {
     this.search = search;
     this.unparsed |= search.unparsed;
     return this;
   }
 
   /**
-   * <p>Search options.</p>
+   * Search options.
+   *
    * @return search
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_SEARCH)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public MonitorFormulaAndFunctionEventQueryDefinitionSearch getSearch() {
-        return search;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEARCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorFormulaAndFunctionEventQueryDefinitionSearch getSearch() {
+    return search;
+  }
+
   public void setSearch(MonitorFormulaAndFunctionEventQueryDefinitionSearch search) {
     this.search = search;
   }
 
-  /**
-   * Return true if this MonitorFormulaAndFunctionEventQueryDefinition object is equal to o.
-   */
+  /** Return true if this MonitorFormulaAndFunctionEventQueryDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -223,14 +226,19 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorFormulaAndFunctionEventQueryDefinition monitorFormulaAndFunctionEventQueryDefinition = (MonitorFormulaAndFunctionEventQueryDefinition) o;
-    return Objects.equals(this.compute, monitorFormulaAndFunctionEventQueryDefinition.compute) && Objects.equals(this.dataSource, monitorFormulaAndFunctionEventQueryDefinition.dataSource) && Objects.equals(this.groupBy, monitorFormulaAndFunctionEventQueryDefinition.groupBy) && Objects.equals(this.indexes, monitorFormulaAndFunctionEventQueryDefinition.indexes) && Objects.equals(this.name, monitorFormulaAndFunctionEventQueryDefinition.name) && Objects.equals(this.search, monitorFormulaAndFunctionEventQueryDefinition.search);
+    MonitorFormulaAndFunctionEventQueryDefinition monitorFormulaAndFunctionEventQueryDefinition =
+        (MonitorFormulaAndFunctionEventQueryDefinition) o;
+    return Objects.equals(this.compute, monitorFormulaAndFunctionEventQueryDefinition.compute)
+        && Objects.equals(this.dataSource, monitorFormulaAndFunctionEventQueryDefinition.dataSource)
+        && Objects.equals(this.groupBy, monitorFormulaAndFunctionEventQueryDefinition.groupBy)
+        && Objects.equals(this.indexes, monitorFormulaAndFunctionEventQueryDefinition.indexes)
+        && Objects.equals(this.name, monitorFormulaAndFunctionEventQueryDefinition.name)
+        && Objects.equals(this.search, monitorFormulaAndFunctionEventQueryDefinition.search);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute,dataSource,groupBy,indexes,name,search);
+    return Objects.hash(compute, dataSource, groupBy, indexes, name, search);
   }
 
   @Override
@@ -248,8 +256,7 @@ public class MonitorFormulaAndFunctionEventQueryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

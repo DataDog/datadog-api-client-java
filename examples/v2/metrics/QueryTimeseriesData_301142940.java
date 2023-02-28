@@ -1,25 +1,20 @@
 // Timeseries cross product query returns "OK" response
 
-import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.MetricsApi;
-import com.datadog.api.client.v2.model.TimeseriesFormulaQueryResponse;
 import com.datadog.api.client.v2.model.FormulaLimit;
 import com.datadog.api.client.v2.model.MetricsDataSource;
 import com.datadog.api.client.v2.model.MetricsTimeseriesQuery;
 import com.datadog.api.client.v2.model.QueryFormula;
 import com.datadog.api.client.v2.model.QuerySortOrder;
 import com.datadog.api.client.v2.model.TimeseriesFormulaQueryRequest;
+import com.datadog.api.client.v2.model.TimeseriesFormulaQueryResponse;
 import com.datadog.api.client.v2.model.TimeseriesFormulaRequest;
 import com.datadog.api.client.v2.model.TimeseriesFormulaRequestAttributes;
 import com.datadog.api.client.v2.model.TimeseriesFormulaRequestType;
 import com.datadog.api.client.v2.model.TimeseriesQuery;
-import java.io.File;
-import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -27,23 +22,31 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.queryTimeseriesData", true);
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
-    TimeseriesFormulaQueryRequest body = new TimeseriesFormulaQueryRequest()
-.data(new TimeseriesFormulaRequest()
-.attributes(new TimeseriesFormulaRequestAttributes()
-.formulas(Collections.singletonList(new QueryFormula()
-.formula("a")
-.limit(new FormulaLimit()
-.count(10)
-.order(QuerySortOrder.DESC))))
-.from(1671612804000L)
-.interval(5000L)
-.queries(Collections.singletonList(new TimeseriesQuery(
-new MetricsTimeseriesQuery()
-.dataSource(MetricsDataSource.METRICS)
-.query("avg:system.cpu.user{*}")
-.name("a"))))
-.to(1671620004000L))
-.type(TimeseriesFormulaRequestType.TIMESERIES_REQUEST));
+    TimeseriesFormulaQueryRequest body =
+        new TimeseriesFormulaQueryRequest()
+            .data(
+                new TimeseriesFormulaRequest()
+                    .attributes(
+                        new TimeseriesFormulaRequestAttributes()
+                            .formulas(
+                                Collections.singletonList(
+                                    new QueryFormula()
+                                        .formula("a")
+                                        .limit(
+                                            new FormulaLimit()
+                                                .count(10)
+                                                .order(QuerySortOrder.DESC))))
+                            .from(1671612804000L)
+                            .interval(5000L)
+                            .queries(
+                                Collections.singletonList(
+                                    new TimeseriesQuery(
+                                        new MetricsTimeseriesQuery()
+                                            .dataSource(MetricsDataSource.METRICS)
+                                            .query("avg:system.cpu.user{*}")
+                                            .name("a"))))
+                            .to(1671620004000L))
+                    .type(TimeseriesFormulaRequestType.TIMESERIES_REQUEST));
 
     try {
       TimeseriesFormulaQueryResponse result = apiInstance.queryTimeseriesData(body);

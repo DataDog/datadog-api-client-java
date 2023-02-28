@@ -6,42 +6,24 @@
 
 package com.datadog.api.client.v1.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Response object with all logs matching the request and pagination information.</p>
- */
+/** Response object with all logs matching the request and pagination information. */
 @JsonPropertyOrder({
   LogsListResponse.JSON_PROPERTY_LOGS,
   LogsListResponse.JSON_PROPERTY_NEXT_LOG_ID,
   LogsListResponse.JSON_PROPERTY_STATUS
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsListResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LOGS = "logs";
   private List<Log> logs = null;
 
@@ -58,6 +40,7 @@ public class LogsListResponse {
     }
     return this;
   }
+
   public LogsListResponse addLogsItem(Log logsItem) {
     if (this.logs == null) {
       this.logs = new ArrayList<>();
@@ -68,62 +51,65 @@ public class LogsListResponse {
   }
 
   /**
-   * <p>Array of logs matching the request and the <code>nextLogId</code> if sent.</p>
+   * Array of logs matching the request and the <code>nextLogId</code> if sent.
+   *
    * @return logs
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_LOGS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<Log> getLogs() {
-        return logs;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Log> getLogs() {
+    return logs;
+  }
+
   public void setLogs(List<Log> logs) {
     this.logs = logs;
   }
+
   public LogsListResponse nextLogId(String nextLogId) {
     this.nextLogId = nextLogId;
     return this;
   }
 
   /**
-   * <p>Hash identifier of the next log to return in the list.
-   * This parameter is used for the pagination feature.</p>
+   * Hash identifier of the next log to return in the list. This parameter is used for the
+   * pagination feature.
+   *
    * @return nextLogId
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_NEXT_LOG_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getNextLogId() {
-        return nextLogId;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NEXT_LOG_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getNextLogId() {
+    return nextLogId;
+  }
+
   public void setNextLogId(String nextLogId) {
     this.nextLogId = nextLogId;
   }
+
   public LogsListResponse status(String status) {
     this.status = status;
     return this;
   }
 
   /**
-   * <p>Status of the response.</p>
+   * Status of the response.
+   *
    * @return status
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_STATUS)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public String getStatus() {
-        return status;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatus() {
+    return status;
+  }
+
   public void setStatus(String status) {
     this.status = status;
   }
 
-  /**
-   * Return true if this LogsListResponse object is equal to o.
-   */
+  /** Return true if this LogsListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,13 +119,14 @@ public class LogsListResponse {
       return false;
     }
     LogsListResponse logsListResponse = (LogsListResponse) o;
-    return Objects.equals(this.logs, logsListResponse.logs) && Objects.equals(this.nextLogId, logsListResponse.nextLogId) && Objects.equals(this.status, logsListResponse.status);
+    return Objects.equals(this.logs, logsListResponse.logs)
+        && Objects.equals(this.nextLogId, logsListResponse.nextLogId)
+        && Objects.equals(this.status, logsListResponse.status);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(logs,nextLogId,status);
+    return Objects.hash(logs, nextLogId, status);
   }
 
   @Override
@@ -154,8 +141,7 @@ public class LogsListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

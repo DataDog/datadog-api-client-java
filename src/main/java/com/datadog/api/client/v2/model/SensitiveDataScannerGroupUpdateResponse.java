@@ -6,40 +6,18 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>Update group response.</p>
- */
-@JsonPropertyOrder({
-  SensitiveDataScannerGroupUpdateResponse.JSON_PROPERTY_META
-})
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+/** Update group response. */
+@JsonPropertyOrder({SensitiveDataScannerGroupUpdateResponse.JSON_PROPERTY_META})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SensitiveDataScannerGroupUpdateResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_META = "meta";
   private SensitiveDataScannerMetaVersionOnly meta;
 
@@ -50,23 +28,22 @@ public class SensitiveDataScannerGroupUpdateResponse {
   }
 
   /**
-   * <p>Meta payload containing information about the API.</p>
+   * Meta payload containing information about the API.
+   *
    * @return meta
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_META)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public SensitiveDataScannerMetaVersionOnly getMeta() {
-        return meta;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SensitiveDataScannerMetaVersionOnly getMeta() {
+    return meta;
+  }
+
   public void setMeta(SensitiveDataScannerMetaVersionOnly meta) {
     this.meta = meta;
   }
 
-  /**
-   * Return true if this SensitiveDataScannerGroupUpdateResponse object is equal to o.
-   */
+  /** Return true if this SensitiveDataScannerGroupUpdateResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -75,10 +52,10 @@ public class SensitiveDataScannerGroupUpdateResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SensitiveDataScannerGroupUpdateResponse sensitiveDataScannerGroupUpdateResponse = (SensitiveDataScannerGroupUpdateResponse) o;
+    SensitiveDataScannerGroupUpdateResponse sensitiveDataScannerGroupUpdateResponse =
+        (SensitiveDataScannerGroupUpdateResponse) o;
     return Objects.equals(this.meta, sensitiveDataScannerGroupUpdateResponse.meta);
   }
-
 
   @Override
   public int hashCode() {
@@ -95,8 +72,7 @@ public class SensitiveDataScannerGroupUpdateResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

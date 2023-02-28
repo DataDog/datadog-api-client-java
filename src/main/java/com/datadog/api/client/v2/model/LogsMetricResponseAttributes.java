@@ -6,42 +6,24 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>The object describing a Datadog log-based metric.</p>
- */
+/** The object describing a Datadog log-based metric. */
 @JsonPropertyOrder({
   LogsMetricResponseAttributes.JSON_PROPERTY_COMPUTE,
   LogsMetricResponseAttributes.JSON_PROPERTY_FILTER,
   LogsMetricResponseAttributes.JSON_PROPERTY_GROUP_BY
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMetricResponseAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private LogsMetricResponseCompute compute;
 
@@ -58,19 +40,21 @@ public class LogsMetricResponseAttributes {
   }
 
   /**
-   * <p>The compute rule to compute the log-based metric.</p>
+   * The compute rule to compute the log-based metric.
+   *
    * @return compute
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_COMPUTE)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogsMetricResponseCompute getCompute() {
-        return compute;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsMetricResponseCompute getCompute() {
+    return compute;
+  }
+
   public void setCompute(LogsMetricResponseCompute compute) {
     this.compute = compute;
   }
+
   public LogsMetricResponseAttributes filter(LogsMetricResponseFilter filter) {
     this.filter = filter;
     this.unparsed |= filter.unparsed;
@@ -78,19 +62,21 @@ public class LogsMetricResponseAttributes {
   }
 
   /**
-   * <p>The log-based metric filter. Logs matching this filter will be aggregated in this metric.</p>
+   * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+   *
    * @return filter
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_FILTER)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public LogsMetricResponseFilter getFilter() {
-        return filter;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsMetricResponseFilter getFilter() {
+    return filter;
+  }
+
   public void setFilter(LogsMetricResponseFilter filter) {
     this.filter = filter;
   }
+
   public LogsMetricResponseAttributes groupBy(List<LogsMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
     for (LogsMetricResponseGroupBy item : groupBy) {
@@ -98,6 +84,7 @@ public class LogsMetricResponseAttributes {
     }
     return this;
   }
+
   public LogsMetricResponseAttributes addGroupByItem(LogsMetricResponseGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
@@ -108,23 +95,22 @@ public class LogsMetricResponseAttributes {
   }
 
   /**
-   * <p>The rules for the group by.</p>
+   * The rules for the group by.
+   *
    * @return groupBy
-  **/
-      @jakarta.annotation.Nullable
-      @JsonProperty(JSON_PROPERTY_GROUP_BY)
-      @JsonInclude(
-        value = JsonInclude.Include.USE_DEFAULTS)
-      public List<LogsMetricResponseGroupBy> getGroupBy() {
-        return groupBy;
-      }
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LogsMetricResponseGroupBy> getGroupBy() {
+    return groupBy;
+  }
+
   public void setGroupBy(List<LogsMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
 
-  /**
-   * Return true if this LogsMetricResponseAttributes object is equal to o.
-   */
+  /** Return true if this LogsMetricResponseAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -134,13 +120,14 @@ public class LogsMetricResponseAttributes {
       return false;
     }
     LogsMetricResponseAttributes logsMetricResponseAttributes = (LogsMetricResponseAttributes) o;
-    return Objects.equals(this.compute, logsMetricResponseAttributes.compute) && Objects.equals(this.filter, logsMetricResponseAttributes.filter) && Objects.equals(this.groupBy, logsMetricResponseAttributes.groupBy);
+    return Objects.equals(this.compute, logsMetricResponseAttributes.compute)
+        && Objects.equals(this.filter, logsMetricResponseAttributes.filter)
+        && Objects.equals(this.groupBy, logsMetricResponseAttributes.groupBy);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute,filter,groupBy);
+    return Objects.hash(compute, filter, groupBy);
   }
 
   @Override
@@ -155,8 +142,7 @@ public class LogsMetricResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

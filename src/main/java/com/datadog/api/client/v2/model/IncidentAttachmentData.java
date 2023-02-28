@@ -6,43 +6,24 @@
 
 package com.datadog.api.client.v2.model;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.time.OffsetDateTime;
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.Objects;
 
-import com.datadog.api.client.JsonTimeSerializer;
-
-
-/**
-   * <p>A single incident attachment.</p>
- */
+/** A single incident attachment. */
 @JsonPropertyOrder({
   IncidentAttachmentData.JSON_PROPERTY_ATTRIBUTES,
   IncidentAttachmentData.JSON_PROPERTY_ID,
   IncidentAttachmentData.JSON_PROPERTY_RELATIONSHIPS,
   IncidentAttachmentData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentAttachmentData {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private IncidentAttachmentAttributes attributes;
 
@@ -59,18 +40,21 @@ public class IncidentAttachmentData {
 
   @JsonCreator
   public IncidentAttachmentData(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES)IncidentAttachmentAttributes attributes,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
-            @JsonProperty(required=true, value=JSON_PROPERTY_RELATIONSHIPS)IncidentAttachmentRelationships relationships,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)IncidentAttachmentType type) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        this.id = id;
-        this.relationships = relationships;
-        this.unparsed |= relationships.unparsed;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          IncidentAttachmentAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RELATIONSHIPS)
+          IncidentAttachmentRelationships relationships,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentAttachmentType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.id = id;
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
+
   public IncidentAttachmentData attributes(IncidentAttachmentAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -78,36 +62,40 @@ public class IncidentAttachmentData {
   }
 
   /**
-   * <p>The attributes object for an attachment.</p>
+   * The attributes object for an attachment.
+   *
    * @return attributes
-  **/
-      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public IncidentAttachmentAttributes getAttributes() {
-        return attributes;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentAttachmentAttributes getAttributes() {
+    return attributes;
+  }
+
   public void setAttributes(IncidentAttachmentAttributes attributes) {
     this.attributes = attributes;
   }
+
   public IncidentAttachmentData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * <p>A unique identifier that represents the incident attachment.</p>
+   * A unique identifier that represents the incident attachment.
+   *
    * @return id
-  **/
-      @JsonProperty(JSON_PROPERTY_ID)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public String getId() {
-        return id;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
   public void setId(String id) {
     this.id = id;
   }
+
   public IncidentAttachmentData relationships(IncidentAttachmentRelationships relationships) {
     this.relationships = relationships;
     this.unparsed |= relationships.unparsed;
@@ -115,18 +103,20 @@ public class IncidentAttachmentData {
   }
 
   /**
-   * <p>The incident attachment's relationships.</p>
+   * The incident attachment's relationships.
+   *
    * @return relationships
-  **/
-      @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public IncidentAttachmentRelationships getRelationships() {
-        return relationships;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentAttachmentRelationships getRelationships() {
+    return relationships;
+  }
+
   public void setRelationships(IncidentAttachmentRelationships relationships) {
     this.relationships = relationships;
   }
+
   public IncidentAttachmentData type(IncidentAttachmentType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -134,25 +124,24 @@ public class IncidentAttachmentData {
   }
 
   /**
-   * <p>The incident attachment resource type.</p>
+   * The incident attachment resource type.
+   *
    * @return type
-  **/
-      @JsonProperty(JSON_PROPERTY_TYPE)
-      @JsonInclude(
-        value = JsonInclude.Include.ALWAYS)
-      public IncidentAttachmentType getType() {
-        return type;
-      }
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentAttachmentType getType() {
+    return type;
+  }
+
   public void setType(IncidentAttachmentType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-  /**
-   * Return true if this IncidentAttachmentData object is equal to o.
-   */
+  /** Return true if this IncidentAttachmentData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -162,13 +151,15 @@ public class IncidentAttachmentData {
       return false;
     }
     IncidentAttachmentData incidentAttachmentData = (IncidentAttachmentData) o;
-    return Objects.equals(this.attributes, incidentAttachmentData.attributes) && Objects.equals(this.id, incidentAttachmentData.id) && Objects.equals(this.relationships, incidentAttachmentData.relationships) && Objects.equals(this.type, incidentAttachmentData.type);
+    return Objects.equals(this.attributes, incidentAttachmentData.attributes)
+        && Objects.equals(this.id, incidentAttachmentData.id)
+        && Objects.equals(this.relationships, incidentAttachmentData.relationships)
+        && Objects.equals(this.type, incidentAttachmentData.type);
   }
-
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes,id,relationships,type);
+    return Objects.hash(attributes, id, relationships, type);
   }
 
   @Override
@@ -184,8 +175,7 @@ public class IncidentAttachmentData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
