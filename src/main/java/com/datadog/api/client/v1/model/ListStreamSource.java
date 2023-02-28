@@ -25,6 +25,8 @@ public class ListStreamSource {
 
   public static final ListStreamSource LOGS_STREAM = new ListStreamSource("logs_stream");
   public static final ListStreamSource AUDIT_STREAM = new ListStreamSource("audit_stream");
+  public static final ListStreamSource CI_PIPELINE_STREAM =
+      new ListStreamSource("ci_pipeline_stream");
   public static final ListStreamSource RUM_ISSUE_STREAM = new ListStreamSource("rum_issue_stream");
   public static final ListStreamSource APM_ISSUE_STREAM = new ListStreamSource("apm_issue_stream");
   public static final ListStreamSource LOGS_PATTERN_STREAM =
@@ -38,6 +40,7 @@ public class ListStreamSource {
           Arrays.asList(
               "logs_stream",
               "audit_stream",
+              "ci_pipeline_stream",
               "rum_issue_stream",
               "apm_issue_stream",
               "logs_pattern_stream",
