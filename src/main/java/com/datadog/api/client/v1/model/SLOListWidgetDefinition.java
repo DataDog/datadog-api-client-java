@@ -6,16 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Use the SLO List widget to track your SLOs (Service Level Objectives) on dashboards. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Use the SLO List widget to track your SLOs (Service Level Objectives) on dashboards.</p>
+ */
 @JsonPropertyOrder({
   SLOListWidgetDefinition.JSON_PROPERTY_REQUESTS,
   SLOListWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -23,10 +40,10 @@ import java.util.Objects;
   SLOListWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   SLOListWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOListWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<SLOListWidgetRequest> requests = new ArrayList<>();
 
@@ -46,14 +63,12 @@ public class SLOListWidgetDefinition {
 
   @JsonCreator
   public SLOListWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          List<SLOListWidgetRequest> requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SLOListWidgetDefinitionType type) {
-    this.requests = requests;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS)List<SLOListWidgetRequest> requests,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SLOListWidgetDefinitionType type) {
+        this.requests = requests;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public SLOListWidgetDefinition requests(List<SLOListWidgetRequest> requests) {
     this.requests = requests;
     for (SLOListWidgetRequest item : requests) {
@@ -61,7 +76,6 @@ public class SLOListWidgetDefinition {
     }
     return this;
   }
-
   public SLOListWidgetDefinition addRequestsItem(SLOListWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
@@ -69,41 +83,37 @@ public class SLOListWidgetDefinition {
   }
 
   /**
-   * Array of one request object to display in the widget.
-   *
+   * <p>Array of one request object to display in the widget.</p>
    * @return requests
-   */
-  @JsonProperty(JSON_PROPERTY_REQUESTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SLOListWidgetRequest> getRequests() {
-    return requests;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_REQUESTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<SLOListWidgetRequest> getRequests() {
+        return requests;
+      }
   public void setRequests(List<SLOListWidgetRequest> requests) {
     this.requests = requests;
   }
-
   public SLOListWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * Title of the widget.
-   *
+   * <p>Title of the widget.</p>
    * @return title
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
-
   public SLOListWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -111,45 +121,41 @@ public class SLOListWidgetDefinition {
   }
 
   /**
-   * How to align the text on the widget.
-   *
+   * <p>How to align the text on the widget.</p>
    * @return titleAlign
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetTextAlign getTitleAlign() {
-    return titleAlign;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetTextAlign getTitleAlign() {
+        return titleAlign;
+      }
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
-
   public SLOListWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * Size of the title.
-   *
+   * <p>Size of the title.</p>
    * @return titleSize
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitleSize() {
-    return titleSize;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitleSize() {
+        return titleSize;
+      }
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
-
   public SLOListWidgetDefinition type(SLOListWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -157,24 +163,25 @@ public class SLOListWidgetDefinition {
   }
 
   /**
-   * Type of the SLO List widget.
-   *
+   * <p>Type of the SLO List widget.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SLOListWidgetDefinitionType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SLOListWidgetDefinitionType getType() {
+        return type;
+      }
   public void setType(SLOListWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this SLOListWidgetDefinition object is equal to o. */
+  /**
+   * Return true if this SLOListWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -184,16 +191,13 @@ public class SLOListWidgetDefinition {
       return false;
     }
     SLOListWidgetDefinition sloListWidgetDefinition = (SLOListWidgetDefinition) o;
-    return Objects.equals(this.requests, sloListWidgetDefinition.requests)
-        && Objects.equals(this.title, sloListWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, sloListWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, sloListWidgetDefinition.titleSize)
-        && Objects.equals(this.type, sloListWidgetDefinition.type);
+    return Objects.equals(this.requests, sloListWidgetDefinition.requests) && Objects.equals(this.title, sloListWidgetDefinition.title) && Objects.equals(this.titleAlign, sloListWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, sloListWidgetDefinition.titleSize) && Objects.equals(this.type, sloListWidgetDefinition.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(requests, title, titleAlign, titleSize, type);
+    return Objects.hash(requests,title,titleAlign,titleSize,type);
   }
 
   @Override
@@ -210,7 +214,8 @@ public class SLOListWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

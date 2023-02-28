@@ -6,16 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Check status shows the current status or number of results for any check performed. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Check status shows the current status or number of results for any check performed.</p>
+ */
 @JsonPropertyOrder({
   CheckStatusWidgetDefinition.JSON_PROPERTY_CHECK,
   CheckStatusWidgetDefinition.JSON_PROPERTY_GROUP,
@@ -28,10 +45,10 @@ import java.util.Objects;
   CheckStatusWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   CheckStatusWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CheckStatusWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHECK = "check";
   private String check;
 
@@ -66,63 +83,56 @@ public class CheckStatusWidgetDefinition {
 
   @JsonCreator
   public CheckStatusWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CHECK) String check,
-      @JsonProperty(required = true, value = JSON_PROPERTY_GROUPING) WidgetGrouping grouping,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          CheckStatusWidgetDefinitionType type) {
-    this.check = check;
-    this.grouping = grouping;
-    this.unparsed |= !grouping.isValid();
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_CHECK)String check,
+            @JsonProperty(required=true, value=JSON_PROPERTY_GROUPING)WidgetGrouping grouping,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)CheckStatusWidgetDefinitionType type) {
+        this.check = check;
+        this.grouping = grouping;
+        this.unparsed |= !grouping.isValid();
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public CheckStatusWidgetDefinition check(String check) {
     this.check = check;
     return this;
   }
 
   /**
-   * Name of the check to use in the widget.
-   *
+   * <p>Name of the check to use in the widget.</p>
    * @return check
-   */
-  @JsonProperty(JSON_PROPERTY_CHECK)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getCheck() {
-    return check;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CHECK)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getCheck() {
+        return check;
+      }
   public void setCheck(String check) {
     this.check = check;
   }
-
   public CheckStatusWidgetDefinition group(String group) {
     this.group = group;
     return this;
   }
 
   /**
-   * Group reporting a single check.
-   *
+   * <p>Group reporting a single check.</p>
    * @return group
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getGroup() {
-    return group;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GROUP)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getGroup() {
+        return group;
+      }
   public void setGroup(String group) {
     this.group = group;
   }
-
   public CheckStatusWidgetDefinition groupBy(List<String> groupBy) {
     this.groupBy = groupBy;
     return this;
   }
-
   public CheckStatusWidgetDefinition addGroupByItem(String groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
@@ -132,21 +142,19 @@ public class CheckStatusWidgetDefinition {
   }
 
   /**
-   * List of tag prefixes to group by in the case of a cluster check.
-   *
+   * <p>List of tag prefixes to group by in the case of a cluster check.</p>
    * @return groupBy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GROUP_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getGroupBy() {
-    return groupBy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GROUP_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getGroupBy() {
+        return groupBy;
+      }
   public void setGroupBy(List<String> groupBy) {
     this.groupBy = groupBy;
   }
-
   public CheckStatusWidgetDefinition grouping(WidgetGrouping grouping) {
     this.grouping = grouping;
     this.unparsed |= !grouping.isValid();
@@ -154,28 +162,25 @@ public class CheckStatusWidgetDefinition {
   }
 
   /**
-   * The kind of grouping to use.
-   *
+   * <p>The kind of grouping to use.</p>
    * @return grouping
-   */
-  @JsonProperty(JSON_PROPERTY_GROUPING)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public WidgetGrouping getGrouping() {
-    return grouping;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_GROUPING)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public WidgetGrouping getGrouping() {
+        return grouping;
+      }
   public void setGrouping(WidgetGrouping grouping) {
     if (!grouping.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.grouping = grouping;
   }
-
   public CheckStatusWidgetDefinition tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public CheckStatusWidgetDefinition addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -185,21 +190,19 @@ public class CheckStatusWidgetDefinition {
   }
 
   /**
-   * List of tags used to filter the groups reporting a cluster check.
-   *
+   * <p>List of tags used to filter the groups reporting a cluster check.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
   public CheckStatusWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -207,42 +210,38 @@ public class CheckStatusWidgetDefinition {
   }
 
   /**
-   * Time setting for the widget.
-   *
+   * <p>Time setting for the widget.</p>
    * @return time
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetTime getTime() {
-    return time;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetTime getTime() {
+        return time;
+      }
   public void setTime(WidgetTime time) {
     this.time = time;
   }
-
   public CheckStatusWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * Title of the widget.
-   *
+   * <p>Title of the widget.</p>
    * @return title
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
-
   public CheckStatusWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -250,45 +249,41 @@ public class CheckStatusWidgetDefinition {
   }
 
   /**
-   * How to align the text on the widget.
-   *
+   * <p>How to align the text on the widget.</p>
    * @return titleAlign
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetTextAlign getTitleAlign() {
-    return titleAlign;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetTextAlign getTitleAlign() {
+        return titleAlign;
+      }
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
-
   public CheckStatusWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * Size of the title.
-   *
+   * <p>Size of the title.</p>
    * @return titleSize
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitleSize() {
-    return titleSize;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitleSize() {
+        return titleSize;
+      }
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
-
   public CheckStatusWidgetDefinition type(CheckStatusWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -296,24 +291,25 @@ public class CheckStatusWidgetDefinition {
   }
 
   /**
-   * Type of the check status widget.
-   *
+   * <p>Type of the check status widget.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CheckStatusWidgetDefinitionType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CheckStatusWidgetDefinitionType getType() {
+        return type;
+      }
   public void setType(CheckStatusWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this CheckStatusWidgetDefinition object is equal to o. */
+  /**
+   * Return true if this CheckStatusWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -323,22 +319,13 @@ public class CheckStatusWidgetDefinition {
       return false;
     }
     CheckStatusWidgetDefinition checkStatusWidgetDefinition = (CheckStatusWidgetDefinition) o;
-    return Objects.equals(this.check, checkStatusWidgetDefinition.check)
-        && Objects.equals(this.group, checkStatusWidgetDefinition.group)
-        && Objects.equals(this.groupBy, checkStatusWidgetDefinition.groupBy)
-        && Objects.equals(this.grouping, checkStatusWidgetDefinition.grouping)
-        && Objects.equals(this.tags, checkStatusWidgetDefinition.tags)
-        && Objects.equals(this.time, checkStatusWidgetDefinition.time)
-        && Objects.equals(this.title, checkStatusWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, checkStatusWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, checkStatusWidgetDefinition.titleSize)
-        && Objects.equals(this.type, checkStatusWidgetDefinition.type);
+    return Objects.equals(this.check, checkStatusWidgetDefinition.check) && Objects.equals(this.group, checkStatusWidgetDefinition.group) && Objects.equals(this.groupBy, checkStatusWidgetDefinition.groupBy) && Objects.equals(this.grouping, checkStatusWidgetDefinition.grouping) && Objects.equals(this.tags, checkStatusWidgetDefinition.tags) && Objects.equals(this.time, checkStatusWidgetDefinition.time) && Objects.equals(this.title, checkStatusWidgetDefinition.title) && Objects.equals(this.titleAlign, checkStatusWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, checkStatusWidgetDefinition.titleSize) && Objects.equals(this.type, checkStatusWidgetDefinition.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        check, group, groupBy, grouping, tags, time, title, titleAlign, titleSize, type);
+    return Objects.hash(check,group,groupBy,grouping,tags,time,title,titleAlign,titleSize,type);
   }
 
   @Override
@@ -360,7 +347,8 @@ public class CheckStatusWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

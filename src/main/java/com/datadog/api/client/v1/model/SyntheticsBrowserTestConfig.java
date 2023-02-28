@@ -6,16 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Configuration object for a Synthetic browser test. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Configuration object for a Synthetic browser test.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsBrowserTestConfig.JSON_PROPERTY_ASSERTIONS,
   SyntheticsBrowserTestConfig.JSON_PROPERTY_CONFIG_VARIABLES,
@@ -23,10 +40,10 @@ import java.util.Objects;
   SyntheticsBrowserTestConfig.JSON_PROPERTY_SET_COOKIE,
   SyntheticsBrowserTestConfig.JSON_PROPERTY_VARIABLES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestConfig {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<SyntheticsAssertion> assertions = new ArrayList<>();
 
@@ -46,14 +63,12 @@ public class SyntheticsBrowserTestConfig {
 
   @JsonCreator
   public SyntheticsBrowserTestConfig(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ASSERTIONS)
-          List<SyntheticsAssertion> assertions,
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST) SyntheticsTestRequest request) {
-    this.assertions = assertions;
-    this.request = request;
-    this.unparsed |= request.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ASSERTIONS)List<SyntheticsAssertion> assertions,
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUEST)SyntheticsTestRequest request) {
+        this.assertions = assertions;
+        this.request = request;
+        this.unparsed |= request.unparsed;
   }
-
   public SyntheticsBrowserTestConfig assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
     for (SyntheticsAssertion item : assertions) {
@@ -61,7 +76,6 @@ public class SyntheticsBrowserTestConfig {
     }
     return this;
   }
-
   public SyntheticsBrowserTestConfig addAssertionsItem(SyntheticsAssertion assertionsItem) {
     this.assertions.add(assertionsItem);
     this.unparsed |= assertionsItem.unparsed;
@@ -69,31 +83,26 @@ public class SyntheticsBrowserTestConfig {
   }
 
   /**
-   * Array of assertions used for the test.
-   *
+   * <p>Array of assertions used for the test.</p>
    * @return assertions
-   */
-  @JsonProperty(JSON_PROPERTY_ASSERTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SyntheticsAssertion> getAssertions() {
-    return assertions;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ASSERTIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<SyntheticsAssertion> getAssertions() {
+        return assertions;
+      }
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
   }
-
-  public SyntheticsBrowserTestConfig configVariables(
-      List<SyntheticsConfigVariable> configVariables) {
+  public SyntheticsBrowserTestConfig configVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
     for (SyntheticsConfigVariable item : configVariables) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public SyntheticsBrowserTestConfig addConfigVariablesItem(
-      SyntheticsConfigVariable configVariablesItem) {
+  public SyntheticsBrowserTestConfig addConfigVariablesItem(SyntheticsConfigVariable configVariablesItem) {
     if (this.configVariables == null) {
       this.configVariables = new ArrayList<>();
     }
@@ -103,21 +112,19 @@ public class SyntheticsBrowserTestConfig {
   }
 
   /**
-   * Array of variables used for the test.
-   *
+   * <p>Array of variables used for the test.</p>
    * @return configVariables
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsConfigVariable> getConfigVariables() {
-    return configVariables;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SyntheticsConfigVariable> getConfigVariables() {
+        return configVariables;
+      }
   public void setConfigVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
   }
-
   public SyntheticsBrowserTestConfig request(SyntheticsTestRequest request) {
     this.request = request;
     this.unparsed |= request.unparsed;
@@ -125,43 +132,37 @@ public class SyntheticsBrowserTestConfig {
   }
 
   /**
-   * Object describing the Synthetic test request.
-   *
+   * <p>Object describing the Synthetic test request.</p>
    * @return request
-   */
-  @JsonProperty(JSON_PROPERTY_REQUEST)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsTestRequest getRequest() {
-    return request;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_REQUEST)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SyntheticsTestRequest getRequest() {
+        return request;
+      }
   public void setRequest(SyntheticsTestRequest request) {
     this.request = request;
   }
-
   public SyntheticsBrowserTestConfig setCookie(String setCookie) {
     this.setCookie = setCookie;
     return this;
   }
 
   /**
-   * Cookies to be used for the request, using the <a
-   * href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">Set-Cookie</a>
-   * syntax.
-   *
+   * <p>Cookies to be used for the request, using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">Set-Cookie</a> syntax.</p>
    * @return setCookie
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SET_COOKIE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSetCookie() {
-    return setCookie;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SET_COOKIE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getSetCookie() {
+        return setCookie;
+      }
   public void setSetCookie(String setCookie) {
     this.setCookie = setCookie;
   }
-
   public SyntheticsBrowserTestConfig variables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
     for (SyntheticsBrowserVariable item : variables) {
@@ -169,7 +170,6 @@ public class SyntheticsBrowserTestConfig {
     }
     return this;
   }
-
   public SyntheticsBrowserTestConfig addVariablesItem(SyntheticsBrowserVariable variablesItem) {
     if (this.variables == null) {
       this.variables = new ArrayList<>();
@@ -180,22 +180,23 @@ public class SyntheticsBrowserTestConfig {
   }
 
   /**
-   * Array of variables used for the test steps.
-   *
+   * <p>Array of variables used for the test steps.</p>
    * @return variables
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VARIABLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsBrowserVariable> getVariables() {
-    return variables;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VARIABLES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SyntheticsBrowserVariable> getVariables() {
+        return variables;
+      }
   public void setVariables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
   }
 
-  /** Return true if this SyntheticsBrowserTestConfig object is equal to o. */
+  /**
+   * Return true if this SyntheticsBrowserTestConfig object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -205,16 +206,13 @@ public class SyntheticsBrowserTestConfig {
       return false;
     }
     SyntheticsBrowserTestConfig syntheticsBrowserTestConfig = (SyntheticsBrowserTestConfig) o;
-    return Objects.equals(this.assertions, syntheticsBrowserTestConfig.assertions)
-        && Objects.equals(this.configVariables, syntheticsBrowserTestConfig.configVariables)
-        && Objects.equals(this.request, syntheticsBrowserTestConfig.request)
-        && Objects.equals(this.setCookie, syntheticsBrowserTestConfig.setCookie)
-        && Objects.equals(this.variables, syntheticsBrowserTestConfig.variables);
+    return Objects.equals(this.assertions, syntheticsBrowserTestConfig.assertions) && Objects.equals(this.configVariables, syntheticsBrowserTestConfig.configVariables) && Objects.equals(this.request, syntheticsBrowserTestConfig.request) && Objects.equals(this.setCookie, syntheticsBrowserTestConfig.setCookie) && Objects.equals(this.variables, syntheticsBrowserTestConfig.variables);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(assertions, configVariables, request, setCookie, variables);
+    return Objects.hash(assertions,configVariables,request,setCookie,variables);
   }
 
   @Override
@@ -231,7 +229,8 @@ public class SyntheticsBrowserTestConfig {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

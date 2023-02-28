@@ -6,24 +6,41 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Specifies which principals are associated with a relation. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Specifies which principals are associated with a relation.</p>
+ */
 @JsonPropertyOrder({
   RestrictionPolicyBinding.JSON_PROPERTY_PRINCIPALS,
   RestrictionPolicyBinding.JSON_PROPERTY_RELATION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RestrictionPolicyBinding {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_PRINCIPALS = "principals";
   private List<String> principals = new ArrayList<>();
 
@@ -34,60 +51,57 @@ public class RestrictionPolicyBinding {
 
   @JsonCreator
   public RestrictionPolicyBinding(
-      @JsonProperty(required = true, value = JSON_PROPERTY_PRINCIPALS) List<String> principals,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RELATION) String relation) {
-    this.principals = principals;
-    this.relation = relation;
+            @JsonProperty(required=true, value=JSON_PROPERTY_PRINCIPALS)List<String> principals,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RELATION)String relation) {
+        this.principals = principals;
+        this.relation = relation;
   }
-
   public RestrictionPolicyBinding principals(List<String> principals) {
     this.principals = principals;
     return this;
   }
-
   public RestrictionPolicyBinding addPrincipalsItem(String principalsItem) {
     this.principals.add(principalsItem);
     return this;
   }
 
   /**
-   * An array of principals. A principal is a subject or group of subjects. Each principal is
-   * formatted as <code>type:id</code>. Supported types: <code>role</code> and <code>org</code>. The
-   * org ID can be obtained through the api/v2/current_user API.
-   *
+   * <p>An array of principals. A principal is a subject or group of subjects.
+   * Each principal is formatted as <code>type:id</code>. Supported types: <code>role</code> and <code>org</code>.
+   * The org ID can be obtained through the api/v2/current_user API.</p>
    * @return principals
-   */
-  @JsonProperty(JSON_PROPERTY_PRINCIPALS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getPrincipals() {
-    return principals;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PRINCIPALS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getPrincipals() {
+        return principals;
+      }
   public void setPrincipals(List<String> principals) {
     this.principals = principals;
   }
-
   public RestrictionPolicyBinding relation(String relation) {
     this.relation = relation;
     return this;
   }
 
   /**
-   * The role/level of access.
-   *
+   * <p>The role/level of access.</p>
    * @return relation
-   */
-  @JsonProperty(JSON_PROPERTY_RELATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getRelation() {
-    return relation;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RELATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getRelation() {
+        return relation;
+      }
   public void setRelation(String relation) {
     this.relation = relation;
   }
 
-  /** Return true if this RestrictionPolicyBinding object is equal to o. */
+  /**
+   * Return true if this RestrictionPolicyBinding object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -97,13 +111,13 @@ public class RestrictionPolicyBinding {
       return false;
     }
     RestrictionPolicyBinding restrictionPolicyBinding = (RestrictionPolicyBinding) o;
-    return Objects.equals(this.principals, restrictionPolicyBinding.principals)
-        && Objects.equals(this.relation, restrictionPolicyBinding.relation);
+    return Objects.equals(this.principals, restrictionPolicyBinding.principals) && Objects.equals(this.relation, restrictionPolicyBinding.relation);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(principals, relation);
+    return Objects.hash(principals,relation);
   }
 
   @Override
@@ -117,7 +131,8 @@ public class RestrictionPolicyBinding {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,22 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes describing an assignee update operation over a security signal. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes describing an assignee update operation over a security signal.</p>
+ */
 @JsonPropertyOrder({
   SignalAssigneeUpdateRequest.JSON_PROPERTY_ASSIGNEE,
   SignalAssigneeUpdateRequest.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SignalAssigneeUpdateRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSIGNEE = "assignee";
   private String assignee;
 
@@ -32,52 +51,50 @@ public class SignalAssigneeUpdateRequest {
 
   @JsonCreator
   public SignalAssigneeUpdateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ASSIGNEE) String assignee) {
-    this.assignee = assignee;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ASSIGNEE)String assignee) {
+        this.assignee = assignee;
   }
-
   public SignalAssigneeUpdateRequest assignee(String assignee) {
     this.assignee = assignee;
     return this;
   }
 
   /**
-   * The UUID of the user being assigned. Use empty string to return signal to unassigned.
-   *
+   * <p>The UUID of the user being assigned. Use empty string to return signal to unassigned.</p>
    * @return assignee
-   */
-  @JsonProperty(JSON_PROPERTY_ASSIGNEE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getAssignee() {
-    return assignee;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ASSIGNEE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getAssignee() {
+        return assignee;
+      }
   public void setAssignee(String assignee) {
     this.assignee = assignee;
   }
-
   public SignalAssigneeUpdateRequest version(Long version) {
     this.version = version;
     return this;
   }
 
   /**
-   * Version of the updated signal. If server side version is higher, update will be rejected.
-   *
+   * <p>Version of the updated signal. If server side version is higher, update will be rejected.</p>
    * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getVersion() {
-    return version;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getVersion() {
+        return version;
+      }
   public void setVersion(Long version) {
     this.version = version;
   }
 
-  /** Return true if this SignalAssigneeUpdateRequest object is equal to o. */
+  /**
+   * Return true if this SignalAssigneeUpdateRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -87,13 +104,13 @@ public class SignalAssigneeUpdateRequest {
       return false;
     }
     SignalAssigneeUpdateRequest signalAssigneeUpdateRequest = (SignalAssigneeUpdateRequest) o;
-    return Objects.equals(this.assignee, signalAssigneeUpdateRequest.assignee)
-        && Objects.equals(this.version, signalAssigneeUpdateRequest.version);
+    return Objects.equals(this.assignee, signalAssigneeUpdateRequest.assignee) && Objects.equals(this.version, signalAssigneeUpdateRequest.version);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignee, version);
+    return Objects.hash(assignee,version);
   }
 
   @Override
@@ -107,7 +124,8 @@ public class SignalAssigneeUpdateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

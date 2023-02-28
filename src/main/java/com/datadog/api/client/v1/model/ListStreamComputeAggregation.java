@@ -6,29 +6,50 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import java.io.IOException;
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
 
-/** Aggregation value. */
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Aggregation value.</p>
+ */
 @JsonSerialize(using = ListStreamComputeAggregation.ListStreamComputeAggregationSerializer.class)
 public class ListStreamComputeAggregation {
 
-  public static final ListStreamComputeAggregation COUNT =
-      new ListStreamComputeAggregation("count");
-  public static final ListStreamComputeAggregation CARDINALITY =
-      new ListStreamComputeAggregation("cardinality");
-  public static final ListStreamComputeAggregation MEDIAN =
-      new ListStreamComputeAggregation("median");
+  public static final ListStreamComputeAggregation COUNT = new ListStreamComputeAggregation("count");
+  public static final ListStreamComputeAggregation CARDINALITY = new ListStreamComputeAggregation("cardinality");
+  public static final ListStreamComputeAggregation MEDIAN = new ListStreamComputeAggregation("median");
   public static final ListStreamComputeAggregation PC75 = new ListStreamComputeAggregation("pc75");
   public static final ListStreamComputeAggregation PC90 = new ListStreamComputeAggregation("pc90");
   public static final ListStreamComputeAggregation PC95 = new ListStreamComputeAggregation("pc95");
@@ -38,31 +59,11 @@ public class ListStreamComputeAggregation {
   public static final ListStreamComputeAggregation MIN = new ListStreamComputeAggregation("min");
   public static final ListStreamComputeAggregation MAX = new ListStreamComputeAggregation("max");
   public static final ListStreamComputeAggregation AVG = new ListStreamComputeAggregation("avg");
-  public static final ListStreamComputeAggregation EARLIEST =
-      new ListStreamComputeAggregation("earliest");
-  public static final ListStreamComputeAggregation LATEST =
-      new ListStreamComputeAggregation("latest");
-  public static final ListStreamComputeAggregation MOST_FREQUENT =
-      new ListStreamComputeAggregation("most_frequent");
+  public static final ListStreamComputeAggregation EARLIEST = new ListStreamComputeAggregation("earliest");
+  public static final ListStreamComputeAggregation LATEST = new ListStreamComputeAggregation("latest");
+  public static final ListStreamComputeAggregation MOST_FREQUENT = new ListStreamComputeAggregation("most_frequent");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "count",
-              "cardinality",
-              "median",
-              "pc75",
-              "pc90",
-              "pc95",
-              "pc98",
-              "pc99",
-              "sum",
-              "min",
-              "max",
-              "avg",
-              "earliest",
-              "latest",
-              "most_frequent"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("count", "cardinality", "median", "pc75", "pc90", "pc95", "pc98", "pc99", "sum", "min", "max", "avg", "earliest", "latest", "most_frequent"));
 
   private String value;
 
@@ -74,22 +75,19 @@ public class ListStreamComputeAggregation {
     this.value = value;
   }
 
-  public static class ListStreamComputeAggregationSerializer
-      extends StdSerializer<ListStreamComputeAggregation> {
-    public ListStreamComputeAggregationSerializer(Class<ListStreamComputeAggregation> t) {
-      super(t);
-    }
+  public static class ListStreamComputeAggregationSerializer extends StdSerializer<ListStreamComputeAggregation> {
+      public ListStreamComputeAggregationSerializer(Class<ListStreamComputeAggregation> t) {
+          super(t);
+      }
 
-    public ListStreamComputeAggregationSerializer() {
-      this(null);
-    }
+      public ListStreamComputeAggregationSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ListStreamComputeAggregation value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ListStreamComputeAggregation value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -101,7 +99,9 @@ public class ListStreamComputeAggregation {
     this.value = value;
   }
 
-  /** Return true if this ListStreamComputeAggregation object is equal to o. */
+  /**
+   * Return true if this ListStreamComputeAggregation object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,7 +115,7 @@ public class ListStreamComputeAggregation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override

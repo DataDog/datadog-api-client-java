@@ -1,8 +1,9 @@
 // Update a dashboard returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
 import com.datadog.api.client.v1.model.ListStreamColumn;
@@ -15,7 +16,12 @@ import com.datadog.api.client.v1.model.ListStreamWidgetDefinitionType;
 import com.datadog.api.client.v1.model.ListStreamWidgetRequest;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -25,33 +31,22 @@ public class Example {
     // there is a valid "dashboard" in the system
     String DASHBOARD_ID = System.getenv("DASHBOARD_ID");
 
-    Dashboard body =
-        new Dashboard()
-            .layoutType(DashboardLayoutType.ORDERED)
-            .title("Example-Update_a_dashboard_returns_OK_response with list_stream widget")
-            .description("Updated description")
-            .widgets(
-                Collections.singletonList(
-                    new Widget()
-                        .definition(
-                            new WidgetDefinition(
-                                new ListStreamWidgetDefinition()
-                                    .type(ListStreamWidgetDefinitionType.LIST_STREAM)
-                                    .requests(
-                                        Collections.singletonList(
-                                            new ListStreamWidgetRequest()
-                                                .columns(
-                                                    Collections.singletonList(
-                                                        new ListStreamColumn()
-                                                            .width(ListStreamColumnWidth.AUTO)
-                                                            .field("timestamp")))
-                                                .query(
-                                                    new ListStreamQuery()
-                                                        .dataSource(
-                                                            ListStreamSource.APM_ISSUE_STREAM)
-                                                        .queryString(""))
-                                                .responseFormat(
-                                                    ListStreamResponseFormat.EVENT_LIST)))))));
+    Dashboard body = new Dashboard()
+.layoutType(DashboardLayoutType.ORDERED)
+.title("Example-Update_a_dashboard_returns_OK_response with list_stream widget")
+.description("Updated description")
+.widgets(Collections.singletonList(new Widget()
+.definition(new WidgetDefinition(
+new ListStreamWidgetDefinition()
+.type(ListStreamWidgetDefinitionType.LIST_STREAM)
+.requests(Collections.singletonList(new ListStreamWidgetRequest()
+.columns(Collections.singletonList(new ListStreamColumn()
+.width(ListStreamColumnWidth.AUTO)
+.field("timestamp")))
+.query(new ListStreamQuery()
+.dataSource(ListStreamSource.APM_ISSUE_STREAM)
+.queryString(""))
+.responseFormat(ListStreamResponseFormat.EVENT_LIST)))))));
 
     try {
       Dashboard result = apiInstance.updateDashboard(DASHBOARD_ID, body);

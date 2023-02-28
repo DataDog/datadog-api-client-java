@@ -6,19 +6,40 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object describing the browser test configuration. */
-@JsonPropertyOrder({SyntheticsBrowserTestResultFullCheck.JSON_PROPERTY_CONFIG})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object describing the browser test configuration.</p>
+ */
+@JsonPropertyOrder({
+  SyntheticsBrowserTestResultFullCheck.JSON_PROPERTY_CONFIG
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsBrowserTestResultFullCheck {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private SyntheticsTestConfig config;
 
@@ -26,11 +47,10 @@ public class SyntheticsBrowserTestResultFullCheck {
 
   @JsonCreator
   public SyntheticsBrowserTestResultFullCheck(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG) SyntheticsTestConfig config) {
-    this.config = config;
-    this.unparsed |= config.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CONFIG)SyntheticsTestConfig config) {
+        this.config = config;
+        this.unparsed |= config.unparsed;
   }
-
   public SyntheticsBrowserTestResultFullCheck config(SyntheticsTestConfig config) {
     this.config = config;
     this.unparsed |= config.unparsed;
@@ -38,21 +58,22 @@ public class SyntheticsBrowserTestResultFullCheck {
   }
 
   /**
-   * Configuration object for a Synthetic test.
-   *
+   * <p>Configuration object for a Synthetic test.</p>
    * @return config
-   */
-  @JsonProperty(JSON_PROPERTY_CONFIG)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsTestConfig getConfig() {
-    return config;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CONFIG)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SyntheticsTestConfig getConfig() {
+        return config;
+      }
   public void setConfig(SyntheticsTestConfig config) {
     this.config = config;
   }
 
-  /** Return true if this SyntheticsBrowserTestResultFullCheck object is equal to o. */
+  /**
+   * Return true if this SyntheticsBrowserTestResultFullCheck object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -61,10 +82,10 @@ public class SyntheticsBrowserTestResultFullCheck {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsBrowserTestResultFullCheck syntheticsBrowserTestResultFullCheck =
-        (SyntheticsBrowserTestResultFullCheck) o;
+    SyntheticsBrowserTestResultFullCheck syntheticsBrowserTestResultFullCheck = (SyntheticsBrowserTestResultFullCheck) o;
     return Objects.equals(this.config, syntheticsBrowserTestResultFullCheck.config);
   }
+
 
   @Override
   public int hashCode() {
@@ -81,7 +102,8 @@ public class SyntheticsBrowserTestResultFullCheck {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

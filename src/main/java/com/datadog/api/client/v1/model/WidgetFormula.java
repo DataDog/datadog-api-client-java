@@ -6,16 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Formula to be used in a widget query. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Formula to be used in a widget query.</p>
+ */
 @JsonPropertyOrder({
   WidgetFormula.JSON_PROPERTY_ALIAS,
   WidgetFormula.JSON_PROPERTY_CELL_DISPLAY_MODE,
@@ -24,10 +41,10 @@ import java.util.Objects;
   WidgetFormula.JSON_PROPERTY_LIMIT,
   WidgetFormula.JSON_PROPERTY_STYLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class WidgetFormula {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIAS = "alias";
   private String alias;
 
@@ -50,31 +67,28 @@ public class WidgetFormula {
 
   @JsonCreator
   public WidgetFormula(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FORMULA) String formula) {
-    this.formula = formula;
+            @JsonProperty(required=true, value=JSON_PROPERTY_FORMULA)String formula) {
+        this.formula = formula;
   }
-
   public WidgetFormula alias(String alias) {
     this.alias = alias;
     return this;
   }
 
   /**
-   * Expression alias.
-   *
+   * <p>Expression alias.</p>
    * @return alias
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALIAS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAlias() {
-    return alias;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ALIAS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAlias() {
+        return alias;
+      }
   public void setAlias(String alias) {
     this.alias = alias;
   }
-
   public WidgetFormula cellDisplayMode(TableWidgetCellDisplayMode cellDisplayMode) {
     this.cellDisplayMode = cellDisplayMode;
     this.unparsed |= !cellDisplayMode.isValid();
@@ -82,24 +96,22 @@ public class WidgetFormula {
   }
 
   /**
-   * Define a display mode for the table cell.
-   *
+   * <p>Define a display mode for the table cell.</p>
    * @return cellDisplayMode
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TableWidgetCellDisplayMode getCellDisplayMode() {
-    return cellDisplayMode;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TableWidgetCellDisplayMode getCellDisplayMode() {
+        return cellDisplayMode;
+      }
   public void setCellDisplayMode(TableWidgetCellDisplayMode cellDisplayMode) {
     if (!cellDisplayMode.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.cellDisplayMode = cellDisplayMode;
   }
-
   public WidgetFormula conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
     for (WidgetConditionalFormat item : conditionalFormats) {
@@ -107,7 +119,6 @@ public class WidgetFormula {
     }
     return this;
   }
-
   public WidgetFormula addConditionalFormatsItem(WidgetConditionalFormat conditionalFormatsItem) {
     if (this.conditionalFormats == null) {
       this.conditionalFormats = new ArrayList<>();
@@ -118,41 +129,37 @@ public class WidgetFormula {
   }
 
   /**
-   * List of conditional formats.
-   *
+   * <p>List of conditional formats.</p>
    * @return conditionalFormats
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<WidgetConditionalFormat> getConditionalFormats() {
-    return conditionalFormats;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<WidgetConditionalFormat> getConditionalFormats() {
+        return conditionalFormats;
+      }
   public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
   }
-
   public WidgetFormula formula(String formula) {
     this.formula = formula;
     return this;
   }
 
   /**
-   * String expression built from queries, formulas, and functions.
-   *
+   * <p>String expression built from queries, formulas, and functions.</p>
    * @return formula
-   */
-  @JsonProperty(JSON_PROPERTY_FORMULA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getFormula() {
-    return formula;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_FORMULA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getFormula() {
+        return formula;
+      }
   public void setFormula(String formula) {
     this.formula = formula;
   }
-
   public WidgetFormula limit(WidgetFormulaLimit limit) {
     this.limit = limit;
     this.unparsed |= limit.unparsed;
@@ -160,21 +167,19 @@ public class WidgetFormula {
   }
 
   /**
-   * Options for limiting results returned.
-   *
+   * <p>Options for limiting results returned.</p>
    * @return limit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetFormulaLimit getLimit() {
-    return limit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIMIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetFormulaLimit getLimit() {
+        return limit;
+      }
   public void setLimit(WidgetFormulaLimit limit) {
     this.limit = limit;
   }
-
   public WidgetFormula style(WidgetFormulaStyle style) {
     this.style = style;
     this.unparsed |= style.unparsed;
@@ -182,22 +187,23 @@ public class WidgetFormula {
   }
 
   /**
-   * Styling options for widget formulas.
-   *
+   * <p>Styling options for widget formulas.</p>
    * @return style
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STYLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetFormulaStyle getStyle() {
-    return style;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STYLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetFormulaStyle getStyle() {
+        return style;
+      }
   public void setStyle(WidgetFormulaStyle style) {
     this.style = style;
   }
 
-  /** Return true if this WidgetFormula object is equal to o. */
+  /**
+   * Return true if this WidgetFormula object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -207,17 +213,13 @@ public class WidgetFormula {
       return false;
     }
     WidgetFormula widgetFormula = (WidgetFormula) o;
-    return Objects.equals(this.alias, widgetFormula.alias)
-        && Objects.equals(this.cellDisplayMode, widgetFormula.cellDisplayMode)
-        && Objects.equals(this.conditionalFormats, widgetFormula.conditionalFormats)
-        && Objects.equals(this.formula, widgetFormula.formula)
-        && Objects.equals(this.limit, widgetFormula.limit)
-        && Objects.equals(this.style, widgetFormula.style);
+    return Objects.equals(this.alias, widgetFormula.alias) && Objects.equals(this.cellDisplayMode, widgetFormula.cellDisplayMode) && Objects.equals(this.conditionalFormats, widgetFormula.conditionalFormats) && Objects.equals(this.formula, widgetFormula.formula) && Objects.equals(this.limit, widgetFormula.limit) && Objects.equals(this.style, widgetFormula.style);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(alias, cellDisplayMode, conditionalFormats, formula, limit, style);
+    return Objects.hash(alias,cellDisplayMode,conditionalFormats,formula,limit,style);
   }
 
   @Override
@@ -235,7 +237,8 @@ public class WidgetFormula {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

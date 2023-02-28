@@ -6,15 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes of the Sensitive Data Scanner rule. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes of the Sensitive Data Scanner rule.</p>
+ */
 @JsonPropertyOrder({
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_DESCRIPTION,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_EXCLUDED_NAMESPACES,
@@ -25,10 +43,10 @@ import java.util.Objects;
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_TAGS,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_TEXT_REPLACEMENT
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SensitiveDataScannerRuleAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -59,28 +77,24 @@ public class SensitiveDataScannerRuleAttributes {
   }
 
   /**
-   * Description of the rule.
-   *
+   * <p>Description of the rule.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public SensitiveDataScannerRuleAttributes excludedNamespaces(List<String> excludedNamespaces) {
     this.excludedNamespaces = excludedNamespaces;
     return this;
   }
-
-  public SensitiveDataScannerRuleAttributes addExcludedNamespacesItem(
-      String excludedNamespacesItem) {
+  public SensitiveDataScannerRuleAttributes addExcludedNamespacesItem(String excludedNamespacesItem) {
     if (this.excludedNamespaces == null) {
       this.excludedNamespaces = new ArrayList<>();
     }
@@ -89,69 +103,61 @@ public class SensitiveDataScannerRuleAttributes {
   }
 
   /**
-   * Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the
-   * namespaces array.
-   *
+   * <p>Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.</p>
    * @return excludedNamespaces
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXCLUDED_NAMESPACES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getExcludedNamespaces() {
-    return excludedNamespaces;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EXCLUDED_NAMESPACES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getExcludedNamespaces() {
+        return excludedNamespaces;
+      }
   public void setExcludedNamespaces(List<String> excludedNamespaces) {
     this.excludedNamespaces = excludedNamespaces;
   }
-
   public SensitiveDataScannerRuleAttributes isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
   /**
-   * Whether or not the rule is enabled.
-   *
+   * <p>Whether or not the rule is enabled.</p>
    * @return isEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsEnabled() {
+        return isEnabled;
+      }
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
-
   public SensitiveDataScannerRuleAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the rule.
-   *
+   * <p>Name of the rule.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public SensitiveDataScannerRuleAttributes namespaces(List<String> namespaces) {
     this.namespaces = namespaces;
     return this;
   }
-
   public SensitiveDataScannerRuleAttributes addNamespacesItem(String namespacesItem) {
     if (this.namespaces == null) {
       this.namespaces = new ArrayList<>();
@@ -161,48 +167,43 @@ public class SensitiveDataScannerRuleAttributes {
   }
 
   /**
-   * Attributes included in the scan. If namespaces is empty or missing, all attributes except
-   * excluded_namespaces are scanned. If both are missing the whole event is scanned.
-   *
+   * <p>Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned.
+   * If both are missing the whole event is scanned.</p>
    * @return namespaces
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAMESPACES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getNamespaces() {
-    return namespaces;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAMESPACES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getNamespaces() {
+        return namespaces;
+      }
   public void setNamespaces(List<String> namespaces) {
     this.namespaces = namespaces;
   }
-
   public SensitiveDataScannerRuleAttributes pattern(String pattern) {
     this.pattern = pattern;
     return this;
   }
 
   /**
-   * Not included if there is a relationship to a standard pattern.
-   *
+   * <p>Not included if there is a relationship to a standard pattern.</p>
    * @return pattern
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PATTERN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPattern() {
-    return pattern;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PATTERN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPattern() {
+        return pattern;
+      }
   public void setPattern(String pattern) {
     this.pattern = pattern;
   }
-
   public SensitiveDataScannerRuleAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public SensitiveDataScannerRuleAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -212,45 +213,43 @@ public class SensitiveDataScannerRuleAttributes {
   }
 
   /**
-   * List of tags.
-   *
+   * <p>List of tags.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
-  public SensitiveDataScannerRuleAttributes textReplacement(
-      SensitiveDataScannerTextReplacement textReplacement) {
+  public SensitiveDataScannerRuleAttributes textReplacement(SensitiveDataScannerTextReplacement textReplacement) {
     this.textReplacement = textReplacement;
     this.unparsed |= textReplacement.unparsed;
     return this;
   }
 
   /**
-   * Object describing how the scanned event will be replaced.
-   *
+   * <p>Object describing how the scanned event will be replaced.</p>
    * @return textReplacement
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEXT_REPLACEMENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SensitiveDataScannerTextReplacement getTextReplacement() {
-    return textReplacement;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TEXT_REPLACEMENT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SensitiveDataScannerTextReplacement getTextReplacement() {
+        return textReplacement;
+      }
   public void setTextReplacement(SensitiveDataScannerTextReplacement textReplacement) {
     this.textReplacement = textReplacement;
   }
 
-  /** Return true if this SensitiveDataScannerRuleAttributes object is equal to o. */
+  /**
+   * Return true if this SensitiveDataScannerRuleAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -259,30 +258,14 @@ public class SensitiveDataScannerRuleAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SensitiveDataScannerRuleAttributes sensitiveDataScannerRuleAttributes =
-        (SensitiveDataScannerRuleAttributes) o;
-    return Objects.equals(this.description, sensitiveDataScannerRuleAttributes.description)
-        && Objects.equals(
-            this.excludedNamespaces, sensitiveDataScannerRuleAttributes.excludedNamespaces)
-        && Objects.equals(this.isEnabled, sensitiveDataScannerRuleAttributes.isEnabled)
-        && Objects.equals(this.name, sensitiveDataScannerRuleAttributes.name)
-        && Objects.equals(this.namespaces, sensitiveDataScannerRuleAttributes.namespaces)
-        && Objects.equals(this.pattern, sensitiveDataScannerRuleAttributes.pattern)
-        && Objects.equals(this.tags, sensitiveDataScannerRuleAttributes.tags)
-        && Objects.equals(this.textReplacement, sensitiveDataScannerRuleAttributes.textReplacement);
+    SensitiveDataScannerRuleAttributes sensitiveDataScannerRuleAttributes = (SensitiveDataScannerRuleAttributes) o;
+    return Objects.equals(this.description, sensitiveDataScannerRuleAttributes.description) && Objects.equals(this.excludedNamespaces, sensitiveDataScannerRuleAttributes.excludedNamespaces) && Objects.equals(this.isEnabled, sensitiveDataScannerRuleAttributes.isEnabled) && Objects.equals(this.name, sensitiveDataScannerRuleAttributes.name) && Objects.equals(this.namespaces, sensitiveDataScannerRuleAttributes.namespaces) && Objects.equals(this.pattern, sensitiveDataScannerRuleAttributes.pattern) && Objects.equals(this.tags, sensitiveDataScannerRuleAttributes.tags) && Objects.equals(this.textReplacement, sensitiveDataScannerRuleAttributes.textReplacement);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        description,
-        excludedNamespaces,
-        isEnabled,
-        name,
-        namespaces,
-        pattern,
-        tags,
-        textReplacement);
+    return Objects.hash(description,excludedNamespaces,isEnabled,name,namespaces,pattern,tags,textReplacement);
   }
 
   @Override
@@ -302,7 +285,8 @@ public class SensitiveDataScannerRuleAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

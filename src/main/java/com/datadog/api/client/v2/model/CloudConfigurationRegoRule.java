@@ -6,24 +6,41 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Rule details. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Rule details.</p>
+ */
 @JsonPropertyOrder({
   CloudConfigurationRegoRule.JSON_PROPERTY_POLICY,
   CloudConfigurationRegoRule.JSON_PROPERTY_RESOURCE_TYPES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudConfigurationRegoRule {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_POLICY = "policy";
   private String policy;
 
@@ -34,60 +51,55 @@ public class CloudConfigurationRegoRule {
 
   @JsonCreator
   public CloudConfigurationRegoRule(
-      @JsonProperty(required = true, value = JSON_PROPERTY_POLICY) String policy,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_TYPES)
-          List<String> resourceTypes) {
-    this.policy = policy;
-    this.resourceTypes = resourceTypes;
+            @JsonProperty(required=true, value=JSON_PROPERTY_POLICY)String policy,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RESOURCE_TYPES)List<String> resourceTypes) {
+        this.policy = policy;
+        this.resourceTypes = resourceTypes;
   }
-
   public CloudConfigurationRegoRule policy(String policy) {
     this.policy = policy;
     return this;
   }
 
   /**
-   * The policy written in <code>rego</code>, see:
-   * https://www.openpolicyagent.org/docs/latest/policy-language/
-   *
+   * <p>The policy written in <code>rego</code>, see: https://www.openpolicyagent.org/docs/latest/policy-language/</p>
    * @return policy
-   */
-  @JsonProperty(JSON_PROPERTY_POLICY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getPolicy() {
-    return policy;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_POLICY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getPolicy() {
+        return policy;
+      }
   public void setPolicy(String policy) {
     this.policy = policy;
   }
-
   public CloudConfigurationRegoRule resourceTypes(List<String> resourceTypes) {
     this.resourceTypes = resourceTypes;
     return this;
   }
-
   public CloudConfigurationRegoRule addResourceTypesItem(String resourceTypesItem) {
     this.resourceTypes.add(resourceTypesItem);
     return this;
   }
 
   /**
-   * List of resource types that will be evaluated upon. Must have at least one element.
-   *
+   * <p>List of resource types that will be evaluated upon. Must have at least one element.</p>
    * @return resourceTypes
-   */
-  @JsonProperty(JSON_PROPERTY_RESOURCE_TYPES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getResourceTypes() {
-    return resourceTypes;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_RESOURCE_TYPES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getResourceTypes() {
+        return resourceTypes;
+      }
   public void setResourceTypes(List<String> resourceTypes) {
     this.resourceTypes = resourceTypes;
   }
 
-  /** Return true if this CloudConfigurationRegoRule object is equal to o. */
+  /**
+   * Return true if this CloudConfigurationRegoRule object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -97,13 +109,13 @@ public class CloudConfigurationRegoRule {
       return false;
     }
     CloudConfigurationRegoRule cloudConfigurationRegoRule = (CloudConfigurationRegoRule) o;
-    return Objects.equals(this.policy, cloudConfigurationRegoRule.policy)
-        && Objects.equals(this.resourceTypes, cloudConfigurationRegoRule.resourceTypes);
+    return Objects.equals(this.policy, cloudConfigurationRegoRule.policy) && Objects.equals(this.resourceTypes, cloudConfigurationRegoRule.resourceTypes);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(policy, resourceTypes);
+    return Objects.hash(policy,resourceTypes);
   }
 
   @Override
@@ -117,7 +129,8 @@ public class CloudConfigurationRegoRule {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

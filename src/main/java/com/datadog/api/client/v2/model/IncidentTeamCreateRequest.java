@@ -6,19 +6,40 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Create request with an incident team payload. */
-@JsonPropertyOrder({IncidentTeamCreateRequest.JSON_PROPERTY_DATA})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Create request with an incident team payload.</p>
+ */
+@JsonPropertyOrder({
+  IncidentTeamCreateRequest.JSON_PROPERTY_DATA
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentTeamCreateRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private IncidentTeamCreateData data;
 
@@ -26,11 +47,10 @@ public class IncidentTeamCreateRequest {
 
   @JsonCreator
   public IncidentTeamCreateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentTeamCreateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)IncidentTeamCreateData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
   }
-
   public IncidentTeamCreateRequest data(IncidentTeamCreateData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
@@ -38,21 +58,22 @@ public class IncidentTeamCreateRequest {
   }
 
   /**
-   * Incident Team data for a create request.
-   *
+   * <p>Incident Team data for a create request.</p>
    * @return data
-   */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentTeamCreateData getData() {
-    return data;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public IncidentTeamCreateData getData() {
+        return data;
+      }
   public void setData(IncidentTeamCreateData data) {
     this.data = data;
   }
 
-  /** Return true if this IncidentTeamCreateRequest object is equal to o. */
+  /**
+   * Return true if this IncidentTeamCreateRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -64,6 +85,7 @@ public class IncidentTeamCreateRequest {
     IncidentTeamCreateRequest incidentTeamCreateRequest = (IncidentTeamCreateRequest) o;
     return Objects.equals(this.data, incidentTeamCreateRequest.data);
   }
+
 
   @Override
   public int hashCode() {
@@ -80,7 +102,8 @@ public class IncidentTeamCreateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

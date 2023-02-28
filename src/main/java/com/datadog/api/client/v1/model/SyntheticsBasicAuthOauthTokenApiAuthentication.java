@@ -6,33 +6,51 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import java.io.IOException;
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
 
-/** Type of token to use when performing the authentication. */
-@JsonSerialize(
-    using =
-        SyntheticsBasicAuthOauthTokenApiAuthentication
-            .SyntheticsBasicAuthOauthTokenApiAuthenticationSerializer.class)
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Type of token to use when performing the authentication.</p>
+ */
+@JsonSerialize(using = SyntheticsBasicAuthOauthTokenApiAuthentication.SyntheticsBasicAuthOauthTokenApiAuthenticationSerializer.class)
 public class SyntheticsBasicAuthOauthTokenApiAuthentication {
 
-  public static final SyntheticsBasicAuthOauthTokenApiAuthentication HEADER =
-      new SyntheticsBasicAuthOauthTokenApiAuthentication("header");
-  public static final SyntheticsBasicAuthOauthTokenApiAuthentication BODY =
-      new SyntheticsBasicAuthOauthTokenApiAuthentication("body");
+  public static final SyntheticsBasicAuthOauthTokenApiAuthentication HEADER = new SyntheticsBasicAuthOauthTokenApiAuthentication("header");
+  public static final SyntheticsBasicAuthOauthTokenApiAuthentication BODY = new SyntheticsBasicAuthOauthTokenApiAuthentication("body");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("header", "body"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("header", "body"));
 
   private String value;
 
@@ -44,25 +62,19 @@ public class SyntheticsBasicAuthOauthTokenApiAuthentication {
     this.value = value;
   }
 
-  public static class SyntheticsBasicAuthOauthTokenApiAuthenticationSerializer
-      extends StdSerializer<SyntheticsBasicAuthOauthTokenApiAuthentication> {
-    public SyntheticsBasicAuthOauthTokenApiAuthenticationSerializer(
-        Class<SyntheticsBasicAuthOauthTokenApiAuthentication> t) {
-      super(t);
-    }
+  public static class SyntheticsBasicAuthOauthTokenApiAuthenticationSerializer extends StdSerializer<SyntheticsBasicAuthOauthTokenApiAuthentication> {
+      public SyntheticsBasicAuthOauthTokenApiAuthenticationSerializer(Class<SyntheticsBasicAuthOauthTokenApiAuthentication> t) {
+          super(t);
+      }
 
-    public SyntheticsBasicAuthOauthTokenApiAuthenticationSerializer() {
-      this(null);
-    }
+      public SyntheticsBasicAuthOauthTokenApiAuthenticationSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SyntheticsBasicAuthOauthTokenApiAuthentication value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SyntheticsBasicAuthOauthTokenApiAuthentication value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -74,7 +86,9 @@ public class SyntheticsBasicAuthOauthTokenApiAuthentication {
     this.value = value;
   }
 
-  /** Return true if this SyntheticsBasicAuthOauthTokenApiAuthentication object is equal to o. */
+  /**
+   * Return true if this SyntheticsBasicAuthOauthTokenApiAuthentication object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,7 +102,7 @@ public class SyntheticsBasicAuthOauthTokenApiAuthentication {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override

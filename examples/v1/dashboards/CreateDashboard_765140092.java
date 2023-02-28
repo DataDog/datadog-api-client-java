@@ -1,8 +1,9 @@
 // Create a new dashboard with a query value widget using timeseries background
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardLayoutType;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricAggregation;
@@ -22,58 +23,50 @@ import com.datadog.api.client.v1.model.WidgetFormula;
 import com.datadog.api.client.v1.model.WidgetLayout;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import com.datadog.api.client.v1.model.WidgetTime;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
-    Dashboard body =
-        new Dashboard()
-            .layoutType(DashboardLayoutType.ORDERED)
-            .title(
-                "Example-Create_a_new_dashboard_with_a_query_value_widget_using_timeseries_background"
-                    + " with QVW Timeseries Background")
-            .widgets(
-                Collections.singletonList(
-                    new Widget()
-                        .definition(
-                            new WidgetDefinition(
-                                new QueryValueWidgetDefinition()
-                                    .titleSize("16")
-                                    .title("")
-                                    .titleAlign(WidgetTextAlign.LEFT)
-                                    .precision(2L)
-                                    .time(new WidgetTime())
-                                    .autoscale(true)
-                                    .requests(
-                                        Collections.singletonList(
-                                            new QueryValueWidgetRequest()
-                                                .formulas(
-                                                    Collections.singletonList(
-                                                        new WidgetFormula().formula("query1")))
-                                                .responseFormat(
-                                                    FormulaAndFunctionResponseFormat.SCALAR)
-                                                .queries(
-                                                    Collections.singletonList(
-                                                        new FormulaAndFunctionQueryDefinition(
-                                                            new FormulaAndFunctionMetricQueryDefinition()
-                                                                .query(
-                                                                    "sum:my.cool.count.metric{*}")
-                                                                .dataSource(
-                                                                    FormulaAndFunctionMetricDataSource
-                                                                        .METRICS)
-                                                                .name("query1")
-                                                                .aggregator(
-                                                                    FormulaAndFunctionMetricAggregation
-                                                                        .PERCENTILE))))))
-                                    .type(QueryValueWidgetDefinitionType.QUERY_VALUE)
-                                    .timeseriesBackground(
-                                        new TimeseriesBackground()
-                                            .type(TimeseriesBackgroundType.AREA)
-                                            .yaxis(new WidgetAxis().includeZero(true)))))
-                        .layout(new WidgetLayout().y(0L).x(0L).height(2L).width(2L))));
+    Dashboard body = new Dashboard()
+.layoutType(DashboardLayoutType.ORDERED)
+.title("Example-Create_a_new_dashboard_with_a_query_value_widget_using_timeseries_background with QVW Timeseries Background")
+.widgets(Collections.singletonList(new Widget()
+.definition(new WidgetDefinition(
+new QueryValueWidgetDefinition()
+.titleSize("16")
+.title("")
+.titleAlign(WidgetTextAlign.LEFT)
+.precision(2L)
+.time(new WidgetTime())
+.autoscale(true)
+.requests(Collections.singletonList(new QueryValueWidgetRequest()
+.formulas(Collections.singletonList(new WidgetFormula()
+.formula("query1")))
+.responseFormat(FormulaAndFunctionResponseFormat.SCALAR)
+.queries(Collections.singletonList(new FormulaAndFunctionQueryDefinition(
+new FormulaAndFunctionMetricQueryDefinition()
+.query("sum:my.cool.count.metric{*}")
+.dataSource(FormulaAndFunctionMetricDataSource.METRICS)
+.name("query1")
+.aggregator(FormulaAndFunctionMetricAggregation.PERCENTILE))))))
+.type(QueryValueWidgetDefinitionType.QUERY_VALUE)
+.timeseriesBackground(new TimeseriesBackground()
+.type(TimeseriesBackgroundType.AREA)
+.yaxis(new WidgetAxis()
+.includeZero(true)))))
+.layout(new WidgetLayout()
+.y(0L)
+.x(0L)
+.height(2L)
+.width(2L))));
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

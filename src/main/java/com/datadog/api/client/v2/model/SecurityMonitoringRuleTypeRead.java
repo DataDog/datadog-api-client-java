@@ -6,40 +6,53 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import java.io.IOException;
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
 
-/** The rule type. */
-@JsonSerialize(
-    using = SecurityMonitoringRuleTypeRead.SecurityMonitoringRuleTypeReadSerializer.class)
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The rule type.</p>
+ */
+@JsonSerialize(using = SecurityMonitoringRuleTypeRead.SecurityMonitoringRuleTypeReadSerializer.class)
 public class SecurityMonitoringRuleTypeRead {
 
-  public static final SecurityMonitoringRuleTypeRead LOG_DETECTION =
-      new SecurityMonitoringRuleTypeRead("log_detection");
-  public static final SecurityMonitoringRuleTypeRead INFRASTRUCTURE_CONFIGURATION =
-      new SecurityMonitoringRuleTypeRead("infrastructure_configuration");
-  public static final SecurityMonitoringRuleTypeRead WORKLOAD_SECURITY =
-      new SecurityMonitoringRuleTypeRead("workload_security");
-  public static final SecurityMonitoringRuleTypeRead CLOUD_CONFIGURATION =
-      new SecurityMonitoringRuleTypeRead("cloud_configuration");
+  public static final SecurityMonitoringRuleTypeRead LOG_DETECTION = new SecurityMonitoringRuleTypeRead("log_detection");
+  public static final SecurityMonitoringRuleTypeRead INFRASTRUCTURE_CONFIGURATION = new SecurityMonitoringRuleTypeRead("infrastructure_configuration");
+  public static final SecurityMonitoringRuleTypeRead WORKLOAD_SECURITY = new SecurityMonitoringRuleTypeRead("workload_security");
+  public static final SecurityMonitoringRuleTypeRead CLOUD_CONFIGURATION = new SecurityMonitoringRuleTypeRead("cloud_configuration");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "log_detection",
-              "infrastructure_configuration",
-              "workload_security",
-              "cloud_configuration"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("log_detection", "infrastructure_configuration", "workload_security", "cloud_configuration"));
 
   private String value;
 
@@ -51,22 +64,19 @@ public class SecurityMonitoringRuleTypeRead {
     this.value = value;
   }
 
-  public static class SecurityMonitoringRuleTypeReadSerializer
-      extends StdSerializer<SecurityMonitoringRuleTypeRead> {
-    public SecurityMonitoringRuleTypeReadSerializer(Class<SecurityMonitoringRuleTypeRead> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringRuleTypeReadSerializer extends StdSerializer<SecurityMonitoringRuleTypeRead> {
+      public SecurityMonitoringRuleTypeReadSerializer(Class<SecurityMonitoringRuleTypeRead> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringRuleTypeReadSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringRuleTypeReadSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringRuleTypeRead value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringRuleTypeRead value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -78,7 +88,9 @@ public class SecurityMonitoringRuleTypeRead {
     this.value = value;
   }
 
-  /** Return true if this SecurityMonitoringRuleTypeRead object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringRuleTypeRead object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -92,7 +104,7 @@ public class SecurityMonitoringRuleTypeRead {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override

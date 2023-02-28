@@ -6,19 +6,40 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Request object that includes the Agent rule with the attributes to update. */
-@JsonPropertyOrder({CloudWorkloadSecurityAgentRuleUpdateRequest.JSON_PROPERTY_DATA})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Request object that includes the Agent rule with the attributes to update.</p>
+ */
+@JsonPropertyOrder({
+  CloudWorkloadSecurityAgentRuleUpdateRequest.JSON_PROPERTY_DATA
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleUpdateRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private CloudWorkloadSecurityAgentRuleUpdateData data;
 
@@ -26,35 +47,33 @@ public class CloudWorkloadSecurityAgentRuleUpdateRequest {
 
   @JsonCreator
   public CloudWorkloadSecurityAgentRuleUpdateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          CloudWorkloadSecurityAgentRuleUpdateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA)CloudWorkloadSecurityAgentRuleUpdateData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
   }
-
-  public CloudWorkloadSecurityAgentRuleUpdateRequest data(
-      CloudWorkloadSecurityAgentRuleUpdateData data) {
+  public CloudWorkloadSecurityAgentRuleUpdateRequest data(CloudWorkloadSecurityAgentRuleUpdateData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Object for a single Agent rule.
-   *
+   * <p>Object for a single Agent rule.</p>
    * @return data
-   */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CloudWorkloadSecurityAgentRuleUpdateData getData() {
-    return data;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CloudWorkloadSecurityAgentRuleUpdateData getData() {
+        return data;
+      }
   public void setData(CloudWorkloadSecurityAgentRuleUpdateData data) {
     this.data = data;
   }
 
-  /** Return true if this CloudWorkloadSecurityAgentRuleUpdateRequest object is equal to o. */
+  /**
+   * Return true if this CloudWorkloadSecurityAgentRuleUpdateRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -63,10 +82,10 @@ public class CloudWorkloadSecurityAgentRuleUpdateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudWorkloadSecurityAgentRuleUpdateRequest cloudWorkloadSecurityAgentRuleUpdateRequest =
-        (CloudWorkloadSecurityAgentRuleUpdateRequest) o;
+    CloudWorkloadSecurityAgentRuleUpdateRequest cloudWorkloadSecurityAgentRuleUpdateRequest = (CloudWorkloadSecurityAgentRuleUpdateRequest) o;
     return Objects.equals(this.data, cloudWorkloadSecurityAgentRuleUpdateRequest.data);
   }
+
 
   @Override
   public int hashCode() {
@@ -83,7 +102,8 @@ public class CloudWorkloadSecurityAgentRuleUpdateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,28 +6,50 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import java.io.IOException;
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
 
-/** The type of the resource. The value should always be timeseries_request. */
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The type of the resource. The value should always be timeseries_request.</p>
+ */
 @JsonSerialize(using = TimeseriesFormulaRequestType.TimeseriesFormulaRequestTypeSerializer.class)
 public class TimeseriesFormulaRequestType {
 
-  public static final TimeseriesFormulaRequestType TIMESERIES_REQUEST =
-      new TimeseriesFormulaRequestType("timeseries_request");
+  public static final TimeseriesFormulaRequestType TIMESERIES_REQUEST = new TimeseriesFormulaRequestType("timeseries_request");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("timeseries_request"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("timeseries_request"));
 
   private String value;
 
@@ -39,22 +61,19 @@ public class TimeseriesFormulaRequestType {
     this.value = value;
   }
 
-  public static class TimeseriesFormulaRequestTypeSerializer
-      extends StdSerializer<TimeseriesFormulaRequestType> {
-    public TimeseriesFormulaRequestTypeSerializer(Class<TimeseriesFormulaRequestType> t) {
-      super(t);
-    }
+  public static class TimeseriesFormulaRequestTypeSerializer extends StdSerializer<TimeseriesFormulaRequestType> {
+      public TimeseriesFormulaRequestTypeSerializer(Class<TimeseriesFormulaRequestType> t) {
+          super(t);
+      }
 
-    public TimeseriesFormulaRequestTypeSerializer() {
-      this(null);
-    }
+      public TimeseriesFormulaRequestTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        TimeseriesFormulaRequestType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(TimeseriesFormulaRequestType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -66,7 +85,9 @@ public class TimeseriesFormulaRequestType {
     this.value = value;
   }
 
-  /** Return true if this TimeseriesFormulaRequestType object is equal to o. */
+  /**
+   * Return true if this TimeseriesFormulaRequestType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -80,7 +101,7 @@ public class TimeseriesFormulaRequestType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override

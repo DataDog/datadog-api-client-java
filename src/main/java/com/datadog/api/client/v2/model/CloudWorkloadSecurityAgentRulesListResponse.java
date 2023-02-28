@@ -6,34 +6,51 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Response object that includes a list of Agent rule. */
-@JsonPropertyOrder({CloudWorkloadSecurityAgentRulesListResponse.JSON_PROPERTY_DATA})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Response object that includes a list of Agent rule.</p>
+ */
+@JsonPropertyOrder({
+  CloudWorkloadSecurityAgentRulesListResponse.JSON_PROPERTY_DATA
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRulesListResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<CloudWorkloadSecurityAgentRuleData> data = null;
 
-  public CloudWorkloadSecurityAgentRulesListResponse data(
-      List<CloudWorkloadSecurityAgentRuleData> data) {
+  public CloudWorkloadSecurityAgentRulesListResponse data(List<CloudWorkloadSecurityAgentRuleData> data) {
     this.data = data;
     for (CloudWorkloadSecurityAgentRuleData item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public CloudWorkloadSecurityAgentRulesListResponse addDataItem(
-      CloudWorkloadSecurityAgentRuleData dataItem) {
+  public CloudWorkloadSecurityAgentRulesListResponse addDataItem(CloudWorkloadSecurityAgentRuleData dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -43,22 +60,23 @@ public class CloudWorkloadSecurityAgentRulesListResponse {
   }
 
   /**
-   * A list of Agent rules objects.
-   *
+   * <p>A list of Agent rules objects.</p>
    * @return data
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<CloudWorkloadSecurityAgentRuleData> getData() {
-    return data;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<CloudWorkloadSecurityAgentRuleData> getData() {
+        return data;
+      }
   public void setData(List<CloudWorkloadSecurityAgentRuleData> data) {
     this.data = data;
   }
 
-  /** Return true if this CloudWorkloadSecurityAgentRulesListResponse object is equal to o. */
+  /**
+   * Return true if this CloudWorkloadSecurityAgentRulesListResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -67,10 +85,10 @@ public class CloudWorkloadSecurityAgentRulesListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudWorkloadSecurityAgentRulesListResponse cloudWorkloadSecurityAgentRulesListResponse =
-        (CloudWorkloadSecurityAgentRulesListResponse) o;
+    CloudWorkloadSecurityAgentRulesListResponse cloudWorkloadSecurityAgentRulesListResponse = (CloudWorkloadSecurityAgentRulesListResponse) o;
     return Objects.equals(this.data, cloudWorkloadSecurityAgentRulesListResponse.data);
   }
+
 
   @Override
   public int hashCode() {
@@ -87,7 +105,8 @@ public class CloudWorkloadSecurityAgentRulesListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

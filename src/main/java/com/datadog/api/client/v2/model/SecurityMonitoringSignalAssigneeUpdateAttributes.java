@@ -6,22 +6,41 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Attributes describing the new assignee of a security signal. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Attributes describing the new assignee of a security signal.</p>
+ */
 @JsonPropertyOrder({
   SecurityMonitoringSignalAssigneeUpdateAttributes.JSON_PROPERTY_ASSIGNEE,
   SecurityMonitoringSignalAssigneeUpdateAttributes.JSON_PROPERTY_VERSION
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalAssigneeUpdateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSIGNEE = "assignee";
   private SecurityMonitoringTriageUser assignee;
 
@@ -32,56 +51,52 @@ public class SecurityMonitoringSignalAssigneeUpdateAttributes {
 
   @JsonCreator
   public SecurityMonitoringSignalAssigneeUpdateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ASSIGNEE)
-          SecurityMonitoringTriageUser assignee) {
-    this.assignee = assignee;
-    this.unparsed |= assignee.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ASSIGNEE)SecurityMonitoringTriageUser assignee) {
+        this.assignee = assignee;
+        this.unparsed |= assignee.unparsed;
   }
-
-  public SecurityMonitoringSignalAssigneeUpdateAttributes assignee(
-      SecurityMonitoringTriageUser assignee) {
+  public SecurityMonitoringSignalAssigneeUpdateAttributes assignee(SecurityMonitoringTriageUser assignee) {
     this.assignee = assignee;
     this.unparsed |= assignee.unparsed;
     return this;
   }
 
   /**
-   * Object representing a given user entity.
-   *
+   * <p>Object representing a given user entity.</p>
    * @return assignee
-   */
-  @JsonProperty(JSON_PROPERTY_ASSIGNEE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityMonitoringTriageUser getAssignee() {
-    return assignee;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ASSIGNEE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SecurityMonitoringTriageUser getAssignee() {
+        return assignee;
+      }
   public void setAssignee(SecurityMonitoringTriageUser assignee) {
     this.assignee = assignee;
   }
-
   public SecurityMonitoringSignalAssigneeUpdateAttributes version(Long version) {
     this.version = version;
     return this;
   }
 
   /**
-   * Version of the updated signal. If server side version is higher, update will be rejected.
-   *
+   * <p>Version of the updated signal. If server side version is higher, update will be rejected.</p>
    * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getVersion() {
-    return version;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_VERSION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getVersion() {
+        return version;
+      }
   public void setVersion(Long version) {
     this.version = version;
   }
 
-  /** Return true if this SecurityMonitoringSignalAssigneeUpdateAttributes object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringSignalAssigneeUpdateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -90,16 +105,14 @@ public class SecurityMonitoringSignalAssigneeUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalAssigneeUpdateAttributes
-        securityMonitoringSignalAssigneeUpdateAttributes =
-            (SecurityMonitoringSignalAssigneeUpdateAttributes) o;
-    return Objects.equals(this.assignee, securityMonitoringSignalAssigneeUpdateAttributes.assignee)
-        && Objects.equals(this.version, securityMonitoringSignalAssigneeUpdateAttributes.version);
+    SecurityMonitoringSignalAssigneeUpdateAttributes securityMonitoringSignalAssigneeUpdateAttributes = (SecurityMonitoringSignalAssigneeUpdateAttributes) o;
+    return Objects.equals(this.assignee, securityMonitoringSignalAssigneeUpdateAttributes.assignee) && Objects.equals(this.version, securityMonitoringSignalAssigneeUpdateAttributes.version);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignee, version);
+    return Objects.hash(assignee,version);
   }
 
   @Override
@@ -113,7 +126,8 @@ public class SecurityMonitoringSignalAssigneeUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

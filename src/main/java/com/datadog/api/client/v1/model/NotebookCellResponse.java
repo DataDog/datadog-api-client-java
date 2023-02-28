@@ -6,23 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The description of a notebook cell response. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The description of a notebook cell response.</p>
+ */
 @JsonPropertyOrder({
   NotebookCellResponse.JSON_PROPERTY_ATTRIBUTES,
   NotebookCellResponse.JSON_PROPERTY_ID,
   NotebookCellResponse.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookCellResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private NotebookCellResponseAttributes attributes;
 
@@ -36,17 +55,15 @@ public class NotebookCellResponse {
 
   @JsonCreator
   public NotebookCellResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          NotebookCellResponseAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) NotebookCellResourceType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES)NotebookCellResponseAttributes attributes,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)NotebookCellResourceType type) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public NotebookCellResponse attributes(NotebookCellResponseAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
@@ -54,43 +71,37 @@ public class NotebookCellResponse {
   }
 
   /**
-   * The attributes of a notebook cell response. Valid cell types are <code>markdown</code>, <code>
-   * timeseries</code>, <code>toplist</code>, <code>heatmap</code>, <code>distribution</code>,
-   * <code>log_stream</code>. <a href="https://docs.datadoghq.com/dashboards/widgets/">More
-   * information on each graph visualization type.</a>
-   *
+   * <p>The attributes of a notebook cell response. Valid cell types are <code>markdown</code>, <code>timeseries</code>, <code>toplist</code>, <code>heatmap</code>, <code>distribution</code>,
+   * <code>log_stream</code>. <a href="https://docs.datadoghq.com/dashboards/widgets/">More information on each graph visualization type.</a></p>
    * @return attributes
-   */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public NotebookCellResponseAttributes getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public NotebookCellResponseAttributes getAttributes() {
+        return attributes;
+      }
   public void setAttributes(NotebookCellResponseAttributes attributes) {
     this.attributes = attributes;
   }
-
   public NotebookCellResponse id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Notebook cell ID.
-   *
+   * <p>Notebook cell ID.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
-
   public NotebookCellResponse type(NotebookCellResourceType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -98,24 +109,25 @@ public class NotebookCellResponse {
   }
 
   /**
-   * Type of the Notebook Cell resource.
-   *
+   * <p>Type of the Notebook Cell resource.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public NotebookCellResourceType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public NotebookCellResourceType getType() {
+        return type;
+      }
   public void setType(NotebookCellResourceType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this NotebookCellResponse object is equal to o. */
+  /**
+   * Return true if this NotebookCellResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -125,14 +137,13 @@ public class NotebookCellResponse {
       return false;
     }
     NotebookCellResponse notebookCellResponse = (NotebookCellResponse) o;
-    return Objects.equals(this.attributes, notebookCellResponse.attributes)
-        && Objects.equals(this.id, notebookCellResponse.id)
-        && Objects.equals(this.type, notebookCellResponse.type);
+    return Objects.equals(this.attributes, notebookCellResponse.attributes) && Objects.equals(this.id, notebookCellResponse.id) && Objects.equals(this.type, notebookCellResponse.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type);
+    return Objects.hash(attributes,id,type);
   }
 
   @Override
@@ -147,7 +158,8 @@ public class NotebookCellResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,28 +6,44 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.time.OffsetDateTime;
-import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Audit logs usage for a given organization for a given hour. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Audit logs usage for a given organization for a given hour.</p>
+ */
 @JsonPropertyOrder({
   UsageAuditLogsHour.JSON_PROPERTY_HOUR,
   UsageAuditLogsHour.JSON_PROPERTY_LINES_INDEXED,
   UsageAuditLogsHour.JSON_PROPERTY_ORG_NAME,
   UsageAuditLogsHour.JSON_PROPERTY_PUBLIC_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageAuditLogsHour {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime hour;
 
@@ -46,85 +62,80 @@ public class UsageAuditLogsHour {
   }
 
   /**
-   * The hour for the usage.
-   *
+   * <p>The hour for the usage.</p>
    * @return hour
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOUR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getHour() {
-    return hour;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HOUR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getHour() {
+        return hour;
+      }
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
-
   public UsageAuditLogsHour linesIndexed(Long linesIndexed) {
     this.linesIndexed = linesIndexed;
     return this;
   }
 
   /**
-   * The total number of audit logs lines indexed during a given hour.
-   *
+   * <p>The total number of audit logs lines indexed during a given hour.</p>
    * @return linesIndexed
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINES_INDEXED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLinesIndexed() {
-    return linesIndexed;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LINES_INDEXED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLinesIndexed() {
+        return linesIndexed;
+      }
   public void setLinesIndexed(Long linesIndexed) {
     this.linesIndexed = linesIndexed;
   }
-
   public UsageAuditLogsHour orgName(String orgName) {
     this.orgName = orgName;
     return this;
   }
 
   /**
-   * The organization name.
-   *
+   * <p>The organization name.</p>
    * @return orgName
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORG_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getOrgName() {
-    return orgName;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ORG_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getOrgName() {
+        return orgName;
+      }
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
-
   public UsageAuditLogsHour publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * The organization public ID.
-   *
+   * <p>The organization public ID.</p>
    * @return publicId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPublicId() {
-    return publicId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPublicId() {
+        return publicId;
+      }
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
 
-  /** Return true if this UsageAuditLogsHour object is equal to o. */
+  /**
+   * Return true if this UsageAuditLogsHour object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -134,15 +145,13 @@ public class UsageAuditLogsHour {
       return false;
     }
     UsageAuditLogsHour usageAuditLogsHour = (UsageAuditLogsHour) o;
-    return Objects.equals(this.hour, usageAuditLogsHour.hour)
-        && Objects.equals(this.linesIndexed, usageAuditLogsHour.linesIndexed)
-        && Objects.equals(this.orgName, usageAuditLogsHour.orgName)
-        && Objects.equals(this.publicId, usageAuditLogsHour.publicId);
+    return Objects.equals(this.hour, usageAuditLogsHour.hour) && Objects.equals(this.linesIndexed, usageAuditLogsHour.linesIndexed) && Objects.equals(this.orgName, usageAuditLogsHour.orgName) && Objects.equals(this.publicId, usageAuditLogsHour.publicId);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, linesIndexed, orgName, publicId);
+    return Objects.hash(hour,linesIndexed,orgName,publicId);
   }
 
   @Override
@@ -158,7 +167,8 @@ public class UsageAuditLogsHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

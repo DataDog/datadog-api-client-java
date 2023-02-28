@@ -1,9 +1,16 @@
 // Update a downtime returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.DowntimesApi;
 import com.datadog.api.client.v1.model.Downtime;
+import com.datadog.api.client.v1.model.Downtime;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -13,10 +20,9 @@ public class Example {
     // there is a valid "downtime" in the system
     Long DOWNTIME_ID = Long.parseLong(System.getenv("DOWNTIME_ID"));
 
-    Downtime body =
-        new Downtime()
-            .message("Example-Update_a_downtime_returns_OK_response-updated")
-            .muteFirstRecoveryNotification(true);
+    Downtime body = new Downtime()
+.message("Example-Update_a_downtime_returns_OK_response-updated")
+.muteFirstRecoveryNotification(true);
 
     try {
       Downtime result = apiInstance.updateDowntime(DOWNTIME_ID, body);

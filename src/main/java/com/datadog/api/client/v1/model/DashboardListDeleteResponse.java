@@ -6,18 +6,40 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Deleted dashboard details. */
-@JsonPropertyOrder({DashboardListDeleteResponse.JSON_PROPERTY_DELETED_DASHBOARD_LIST_ID})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Deleted dashboard details.</p>
+ */
+@JsonPropertyOrder({
+  DashboardListDeleteResponse.JSON_PROPERTY_DELETED_DASHBOARD_LIST_ID
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardListDeleteResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELETED_DASHBOARD_LIST_ID = "deleted_dashboard_list_id";
   private Long deletedDashboardListId;
 
@@ -27,22 +49,23 @@ public class DashboardListDeleteResponse {
   }
 
   /**
-   * ID of the deleted dashboard list.
-   *
+   * <p>ID of the deleted dashboard list.</p>
    * @return deletedDashboardListId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETED_DASHBOARD_LIST_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDeletedDashboardListId() {
-    return deletedDashboardListId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DELETED_DASHBOARD_LIST_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getDeletedDashboardListId() {
+        return deletedDashboardListId;
+      }
   public void setDeletedDashboardListId(Long deletedDashboardListId) {
     this.deletedDashboardListId = deletedDashboardListId;
   }
 
-  /** Return true if this DashboardListDeleteResponse object is equal to o. */
+  /**
+   * Return true if this DashboardListDeleteResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -52,9 +75,9 @@ public class DashboardListDeleteResponse {
       return false;
     }
     DashboardListDeleteResponse dashboardListDeleteResponse = (DashboardListDeleteResponse) o;
-    return Objects.equals(
-        this.deletedDashboardListId, dashboardListDeleteResponse.deletedDashboardListId);
+    return Objects.equals(this.deletedDashboardListId, dashboardListDeleteResponse.deletedDashboardListId);
   }
+
 
   @Override
   public int hashCode() {
@@ -65,15 +88,14 @@ public class DashboardListDeleteResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DashboardListDeleteResponse {\n");
-    sb.append("    deletedDashboardListId: ")
-        .append(toIndentedString(deletedDashboardListId))
-        .append("\n");
+    sb.append("    deletedDashboardListId: ").append(toIndentedString(deletedDashboardListId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

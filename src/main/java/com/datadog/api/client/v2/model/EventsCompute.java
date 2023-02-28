@@ -6,23 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The instructions for what to compute for this query. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The instructions for what to compute for this query.</p>
+ */
 @JsonPropertyOrder({
   EventsCompute.JSON_PROPERTY_AGGREGATION,
   EventsCompute.JSON_PROPERTY_INTERVAL,
   EventsCompute.JSON_PROPERTY_METRIC
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventsCompute {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private EventsAggregation aggregation = EventsAggregation.COUNT;
 
@@ -36,12 +55,10 @@ public class EventsCompute {
 
   @JsonCreator
   public EventsCompute(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
-          EventsAggregation aggregation) {
-    this.aggregation = aggregation;
-    this.unparsed |= !aggregation.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)EventsAggregation aggregation) {
+        this.aggregation = aggregation;
+        this.unparsed |= !aggregation.isValid();
   }
-
   public EventsCompute aggregation(EventsAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
@@ -49,66 +66,63 @@ public class EventsCompute {
   }
 
   /**
-   * The type of aggregation that can be performed on events-based queries.
-   *
+   * <p>The type of aggregation that can be performed on events-based queries.</p>
    * @return aggregation
-   */
-  @JsonProperty(JSON_PROPERTY_AGGREGATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public EventsAggregation getAggregation() {
-    return aggregation;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AGGREGATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public EventsAggregation getAggregation() {
+        return aggregation;
+      }
   public void setAggregation(EventsAggregation aggregation) {
     if (!aggregation.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.aggregation = aggregation;
   }
-
   public EventsCompute interval(Long interval) {
     this.interval = interval;
     return this;
   }
 
   /**
-   * Interval for compute in milliseconds.
-   *
+   * <p>Interval for compute in milliseconds.</p>
    * @return interval
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInterval() {
-    return interval;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INTERVAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getInterval() {
+        return interval;
+      }
   public void setInterval(Long interval) {
     this.interval = interval;
   }
-
   public EventsCompute metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * The "measure" attribute on which to perform the computation.
-   *
+   * <p>The "measure" attribute on which to perform the computation.</p>
    * @return metric
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRIC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMetric() {
-    return metric;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METRIC)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getMetric() {
+        return metric;
+      }
   public void setMetric(String metric) {
     this.metric = metric;
   }
 
-  /** Return true if this EventsCompute object is equal to o. */
+  /**
+   * Return true if this EventsCompute object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -118,14 +132,13 @@ public class EventsCompute {
       return false;
     }
     EventsCompute eventsCompute = (EventsCompute) o;
-    return Objects.equals(this.aggregation, eventsCompute.aggregation)
-        && Objects.equals(this.interval, eventsCompute.interval)
-        && Objects.equals(this.metric, eventsCompute.metric);
+    return Objects.equals(this.aggregation, eventsCompute.aggregation) && Objects.equals(this.interval, eventsCompute.interval) && Objects.equals(this.metric, eventsCompute.metric);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, interval, metric);
+    return Objects.hash(aggregation,interval,metric);
   }
 
   @Override
@@ -140,7 +153,8 @@ public class EventsCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

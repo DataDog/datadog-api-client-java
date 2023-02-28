@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Creator of the object. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Creator of the object.</p>
+ */
 @JsonPropertyOrder({
   Creator.JSON_PROPERTY_EMAIL,
   Creator.JSON_PROPERTY_HANDLE,
   Creator.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Creator {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
@@ -37,64 +57,61 @@ public class Creator {
   }
 
   /**
-   * Email of the creator.
-   *
+   * <p>Email of the creator.</p>
    * @return email
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEmail() {
-    return email;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EMAIL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getEmail() {
+        return email;
+      }
   public void setEmail(String email) {
     this.email = email;
   }
-
   public Creator handle(String handle) {
     this.handle = handle;
     return this;
   }
 
   /**
-   * Handle of the creator.
-   *
+   * <p>Handle of the creator.</p>
    * @return handle
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HANDLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHandle() {
-    return handle;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HANDLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getHandle() {
+        return handle;
+      }
   public void setHandle(String handle) {
     this.handle = handle;
   }
-
   public Creator name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the creator.
-   *
+   * <p>Name of the creator.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
 
-  /** Return true if this Creator object is equal to o. */
+  /**
+   * Return true if this Creator object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,14 +121,13 @@ public class Creator {
       return false;
     }
     Creator creator = (Creator) o;
-    return Objects.equals(this.email, creator.email)
-        && Objects.equals(this.handle, creator.handle)
-        && Objects.equals(this.name, creator.name);
+    return Objects.equals(this.email, creator.email) && Objects.equals(this.handle, creator.handle) && Objects.equals(this.name, creator.name);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, handle, name);
+    return Objects.hash(email,handle,name);
   }
 
   @Override
@@ -126,7 +142,8 @@ public class Creator {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

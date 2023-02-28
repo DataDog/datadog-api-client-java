@@ -6,23 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Template variables saved views. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Template variables saved views.</p>
+ */
 @JsonPropertyOrder({
   DashboardTemplateVariablePreset.JSON_PROPERTY_NAME,
   DashboardTemplateVariablePreset.JSON_PROPERTY_TEMPLATE_VARIABLES
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardTemplateVariablePreset {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -35,32 +53,27 @@ public class DashboardTemplateVariablePreset {
   }
 
   /**
-   * The name of the variable.
-   *
+   * <p>The name of the variable.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
-  public DashboardTemplateVariablePreset templateVariables(
-      List<DashboardTemplateVariablePresetValue> templateVariables) {
+  public DashboardTemplateVariablePreset templateVariables(List<DashboardTemplateVariablePresetValue> templateVariables) {
     this.templateVariables = templateVariables;
     for (DashboardTemplateVariablePresetValue item : templateVariables) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
-
-  public DashboardTemplateVariablePreset addTemplateVariablesItem(
-      DashboardTemplateVariablePresetValue templateVariablesItem) {
+  public DashboardTemplateVariablePreset addTemplateVariablesItem(DashboardTemplateVariablePresetValue templateVariablesItem) {
     if (this.templateVariables == null) {
       this.templateVariables = new ArrayList<>();
     }
@@ -70,22 +83,23 @@ public class DashboardTemplateVariablePreset {
   }
 
   /**
-   * List of variables.
-   *
+   * <p>List of variables.</p>
    * @return templateVariables
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DashboardTemplateVariablePresetValue> getTemplateVariables() {
-    return templateVariables;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<DashboardTemplateVariablePresetValue> getTemplateVariables() {
+        return templateVariables;
+      }
   public void setTemplateVariables(List<DashboardTemplateVariablePresetValue> templateVariables) {
     this.templateVariables = templateVariables;
   }
 
-  /** Return true if this DashboardTemplateVariablePreset object is equal to o. */
+  /**
+   * Return true if this DashboardTemplateVariablePreset object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,16 +108,14 @@ public class DashboardTemplateVariablePreset {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DashboardTemplateVariablePreset dashboardTemplateVariablePreset =
-        (DashboardTemplateVariablePreset) o;
-    return Objects.equals(this.name, dashboardTemplateVariablePreset.name)
-        && Objects.equals(
-            this.templateVariables, dashboardTemplateVariablePreset.templateVariables);
+    DashboardTemplateVariablePreset dashboardTemplateVariablePreset = (DashboardTemplateVariablePreset) o;
+    return Objects.equals(this.name, dashboardTemplateVariablePreset.name) && Objects.equals(this.templateVariables, dashboardTemplateVariablePreset.templateVariables);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, templateVariables);
+    return Objects.hash(name,templateVariables);
   }
 
   @Override
@@ -117,7 +129,8 @@ public class DashboardTemplateVariablePreset {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

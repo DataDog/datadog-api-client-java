@@ -1,32 +1,38 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.CIAppPipelineEvent;
-import com.datadog.api.client.v2.model.CIAppPipelineEventsRequest;
-import com.datadog.api.client.v2.model.CIAppPipelineEventsResponse;
-import com.datadog.api.client.v2.model.CIAppPipelinesAggregateRequest;
-import com.datadog.api.client.v2.model.CIAppPipelinesAnalyticsAggregateResponse;
-import com.datadog.api.client.v2.model.CIAppQueryPageOptions;
-import com.datadog.api.client.v2.model.CIAppSort;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
-import java.time.OffsetDateTime;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import com.datadog.api.client.v2.model.CIAppPipelinesAnalyticsAggregateResponse;
+import com.datadog.api.client.v2.model.CIAppPipelinesAggregateRequest;
+import com.datadog.api.client.v2.model.CIAppPipelineEventsResponse;
+import com.datadog.api.client.v2.model.CIAppSort;
+import com.datadog.api.client.v2.model.CIAppPipelineEventsRequest;
+import com.datadog.api.client.v2.model.CIAppPipelineEvent;
+import com.datadog.api.client.v2.model.CIAppPipelineEvent;
+import com.datadog.api.client.v2.model.CIAppPipelineEventsRequest;
+import com.datadog.api.client.v2.model.CIAppQueryPageOptions;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CiVisibilityPipelinesApi {
   private ApiClient apiClient;
-
   public CiVisibilityPipelinesApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -54,45 +60,41 @@ public class CiVisibilityPipelinesApi {
   }
 
   /**
-   * Aggregate pipelines events.
-   *
-   * <p>See {@link #aggregateCIAppPipelineEventsWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return CIAppPipelinesAnalyticsAggregateResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CIAppPipelinesAnalyticsAggregateResponse aggregateCIAppPipelineEvents(
-      CIAppPipelinesAggregateRequest body) throws ApiException {
+ * Aggregate pipelines events.
+ *
+ * See {@link #aggregateCIAppPipelineEventsWithHttpInfo}.
+ *
+ * @param body  (required)
+ * @return CIAppPipelinesAnalyticsAggregateResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CIAppPipelinesAnalyticsAggregateResponse  aggregateCIAppPipelineEvents(CIAppPipelinesAggregateRequest body) throws ApiException {
     return aggregateCIAppPipelineEventsWithHttpInfo(body).getData();
   }
 
   /**
-   * Aggregate pipelines events.
-   *
-   * <p>See {@link #aggregateCIAppPipelineEventsWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;CIAppPipelinesAnalyticsAggregateResponse&gt;
-   */
-  public CompletableFuture<CIAppPipelinesAnalyticsAggregateResponse>
-      aggregateCIAppPipelineEventsAsync(CIAppPipelinesAggregateRequest body) {
-    return aggregateCIAppPipelineEventsWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Aggregate pipelines events.
+ *
+ * See {@link #aggregateCIAppPipelineEventsWithHttpInfoAsync}.
+ *
+ * @param body  (required)
+ * @return CompletableFuture&lt;CIAppPipelinesAnalyticsAggregateResponse&gt;
+ */
+  public CompletableFuture<CIAppPipelinesAnalyticsAggregateResponse>aggregateCIAppPipelineEventsAsync(CIAppPipelinesAggregateRequest body) {
+    return aggregateCIAppPipelineEventsWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * The API endpoint to aggregate CI Visibility pipeline events into buckets of computed metrics
-   * and timeseries.
+   * <p>The API endpoint to aggregate CI Visibility pipeline events into buckets of computed metrics and timeseries.</p>
    *
-   * @param body (required)
+   * @param body  (required)
    * @return ApiResponse&lt;CIAppPipelinesAnalyticsAggregateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -101,97 +103,62 @@ public class CiVisibilityPipelinesApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CIAppPipelinesAnalyticsAggregateResponse>
-      aggregateCIAppPipelineEventsWithHttpInfo(CIAppPipelinesAggregateRequest body)
-          throws ApiException {
+  public ApiResponse<CIAppPipelinesAnalyticsAggregateResponse> aggregateCIAppPipelineEventsWithHttpInfo(CIAppPipelinesAggregateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling aggregateCIAppPipelineEvents");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling aggregateCIAppPipelineEvents");
     }
     // create path and map variables
     String localVarPath = "/api/v2/ci/pipelines/analytics/aggregate";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CiVisibilityPipelinesApi.aggregateCIAppPipelineEvents",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CIAppPipelinesAnalyticsAggregateResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CiVisibilityPipelinesApi.aggregateCIAppPipelineEvents", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CIAppPipelinesAnalyticsAggregateResponse>() {});
   }
 
   /**
    * Aggregate pipelines events.
    *
-   * <p>See {@link #aggregateCIAppPipelineEventsWithHttpInfo}.
+   * See {@link #aggregateCIAppPipelineEventsWithHttpInfo}.
    *
-   * @param body (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CIAppPipelinesAnalyticsAggregateResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CIAppPipelinesAnalyticsAggregateResponse>>
-      aggregateCIAppPipelineEventsWithHttpInfoAsync(CIAppPipelinesAggregateRequest body) {
+  public CompletableFuture<ApiResponse<CIAppPipelinesAnalyticsAggregateResponse>> aggregateCIAppPipelineEventsWithHttpInfoAsync(CIAppPipelinesAggregateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<CIAppPipelinesAnalyticsAggregateResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling aggregateCIAppPipelineEvents"));
-      return result;
+        CompletableFuture<ApiResponse<CIAppPipelinesAnalyticsAggregateResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling aggregateCIAppPipelineEvents"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/ci/pipelines/analytics/aggregate";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CiVisibilityPipelinesApi.aggregateCIAppPipelineEvents",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.CiVisibilityPipelinesApi.aggregateCIAppPipelineEvents", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<CIAppPipelinesAnalyticsAggregateResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<CIAppPipelinesAnalyticsAggregateResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CIAppPipelinesAnalyticsAggregateResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CIAppPipelinesAnalyticsAggregateResponse>() {});
   }
 
-  /** Manage optional parameters to listCIAppPipelineEvents. */
+  /**
+   * Manage optional parameters to listCIAppPipelineEvents.
+   */
   public static class ListCIAppPipelineEventsOptionalParameters {
     private String filterQuery;
     private OffsetDateTime filterFrom;
@@ -202,7 +169,6 @@ public class CiVisibilityPipelinesApi {
 
     /**
      * Set filterQuery.
-     *
      * @param filterQuery Search query following log syntax. (optional)
      * @return ListCIAppPipelineEventsOptionalParameters
      */
@@ -213,7 +179,6 @@ public class CiVisibilityPipelinesApi {
 
     /**
      * Set filterFrom.
-     *
      * @param filterFrom Minimum timestamp for requested events. (optional)
      * @return ListCIAppPipelineEventsOptionalParameters
      */
@@ -224,7 +189,6 @@ public class CiVisibilityPipelinesApi {
 
     /**
      * Set filterTo.
-     *
      * @param filterTo Maximum timestamp for requested events. (optional)
      * @return ListCIAppPipelineEventsOptionalParameters
      */
@@ -235,7 +199,6 @@ public class CiVisibilityPipelinesApi {
 
     /**
      * Set sort.
-     *
      * @param sort Order of events in results. (optional)
      * @return ListCIAppPipelineEventsOptionalParameters
      */
@@ -246,9 +209,7 @@ public class CiVisibilityPipelinesApi {
 
     /**
      * Set pageCursor.
-     *
-     * @param pageCursor List following results with a cursor provided in the previous query.
-     *     (optional)
+     * @param pageCursor List following results with a cursor provided in the previous query. (optional)
      * @return ListCIAppPipelineEventsOptionalParameters
      */
     public ListCIAppPipelineEventsOptionalParameters pageCursor(String pageCursor) {
@@ -258,7 +219,6 @@ public class CiVisibilityPipelinesApi {
 
     /**
      * Set pageLimit.
-     *
      * @param pageLimit Maximum number of events in the response. (optional, default to 10)
      * @return ListCIAppPipelineEventsOptionalParameters
      */
@@ -269,128 +229,112 @@ public class CiVisibilityPipelinesApi {
   }
 
   /**
-   * Get a list of pipelines events.
-   *
-   * <p>See {@link #listCIAppPipelineEventsWithHttpInfo}.
-   *
-   * @return CIAppPipelineEventsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CIAppPipelineEventsResponse listCIAppPipelineEvents() throws ApiException {
-    return listCIAppPipelineEventsWithHttpInfo(new ListCIAppPipelineEventsOptionalParameters())
-        .getData();
+ * Get a list of pipelines events.
+ *
+ * See {@link #listCIAppPipelineEventsWithHttpInfo}.
+ *
+ * @return CIAppPipelineEventsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CIAppPipelineEventsResponse listCIAppPipelineEvents () throws ApiException {
+    return listCIAppPipelineEventsWithHttpInfo(new ListCIAppPipelineEventsOptionalParameters()).getData();
   }
 
   /**
-   * Get a list of pipelines events.
-   *
-   * <p>See {@link #listCIAppPipelineEventsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;CIAppPipelineEventsResponse&gt;
-   */
-  public CompletableFuture<CIAppPipelineEventsResponse> listCIAppPipelineEventsAsync() {
-    return listCIAppPipelineEventsWithHttpInfoAsync(new ListCIAppPipelineEventsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get a list of pipelines events.
+ *
+ * See {@link #listCIAppPipelineEventsWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;CIAppPipelineEventsResponse&gt;
+ */
+  public CompletableFuture<CIAppPipelineEventsResponse>listCIAppPipelineEventsAsync() {
+    return listCIAppPipelineEventsWithHttpInfoAsync(new ListCIAppPipelineEventsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get a list of pipelines events.
-   *
-   * <p>See {@link #listCIAppPipelineEventsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CIAppPipelineEventsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CIAppPipelineEventsResponse listCIAppPipelineEvents(
-      ListCIAppPipelineEventsOptionalParameters parameters) throws ApiException {
+ * Get a list of pipelines events.
+ *
+ * See {@link #listCIAppPipelineEventsWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CIAppPipelineEventsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CIAppPipelineEventsResponse listCIAppPipelineEvents(ListCIAppPipelineEventsOptionalParameters parameters) throws ApiException {
     return listCIAppPipelineEventsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get a list of pipelines events.
-   *
-   * <p>See {@link #listCIAppPipelineEventsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;CIAppPipelineEventsResponse&gt;
-   */
-  public CompletableFuture<CIAppPipelineEventsResponse> listCIAppPipelineEventsAsync(
-      ListCIAppPipelineEventsOptionalParameters parameters) {
-    return listCIAppPipelineEventsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get a list of pipelines events.
+ *
+ * See {@link #listCIAppPipelineEventsWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;CIAppPipelineEventsResponse&gt;
+ */
+  public CompletableFuture<CIAppPipelineEventsResponse>listCIAppPipelineEventsAsync(ListCIAppPipelineEventsOptionalParameters parameters) {
+    return listCIAppPipelineEventsWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get a list of pipelines events.
-   *
-   * <p>See {@link #listCIAppPipelineEventsWithHttpInfo}.
-   *
-   * @return PaginationIterable&lt;CIAppPipelineEvent&gt;
-   */
+ * Get a list of pipelines events.
+ *
+ * See {@link #listCIAppPipelineEventsWithHttpInfo}.
+ *
+ * @return PaginationIterable&lt;CIAppPipelineEvent&gt;
+ */
   public PaginationIterable<CIAppPipelineEvent> listCIAppPipelineEventsWithPagination() {
-    ListCIAppPipelineEventsOptionalParameters parameters =
-        new ListCIAppPipelineEventsOptionalParameters();
+    ListCIAppPipelineEventsOptionalParameters parameters = new ListCIAppPipelineEventsOptionalParameters();
     return listCIAppPipelineEventsWithPagination(parameters);
   }
 
   /**
-   * Get a list of pipelines events.
-   *
-   * <p>See {@link #listCIAppPipelineEventsWithHttpInfo}.
-   *
-   * @return CIAppPipelineEventsResponse
-   */
-  public PaginationIterable<CIAppPipelineEvent> listCIAppPipelineEventsWithPagination(
-      ListCIAppPipelineEventsOptionalParameters parameters) {
-    String resultsPath = "getData";
-    String valueGetterPath = "getMeta.getPage.getAfter";
-    String valueSetterPath = "pageCursor";
-    Boolean valueSetterParamOptional = true;
-    Integer limit;
+ * Get a list of pipelines events.
+ *
+ * See {@link #listCIAppPipelineEventsWithHttpInfo}.
+ *
+ * @return CIAppPipelineEventsResponse
+ */
+  public PaginationIterable<CIAppPipelineEvent> listCIAppPipelineEventsWithPagination(ListCIAppPipelineEventsOptionalParameters parameters) {
+  String resultsPath = "getData";
+  String valueGetterPath = "getMeta.getPage.getAfter";
+  String valueSetterPath = "pageCursor";
+  Boolean valueSetterParamOptional = true;
+  Integer limit;
 
-    if (parameters.pageLimit == null) {
+  
+  if (parameters.pageLimit == null) {
       limit = 10;
       parameters.pageLimit(limit);
-    } else {
+  } else {
       limit = parameters.pageLimit;
-    }
+  }
+  
 
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
+  
+  LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+  args.put("optionalParams", parameters);
 
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "listCIAppPipelineEvents",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            limit,
-            args);
+  PaginationIterable iterator = new PaginationIterable(this, "listCIAppPipelineEvents", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, limit, args);
 
-    return iterator;
+  return iterator;
   }
 
+
   /**
-   * List endpoint returns CI Visibility pipeline events that match a log search query. <a
-   * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
-   * paginated similarly to logs</a>.
-   *
-   * <p>Use this endpoint to see your latest pipeline events.
+   * <p>List endpoint returns CI Visibility pipeline events that match a log search query.
+   * <a href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are paginated similarly to logs</a>.</p>
+   * <p>Use this endpoint to see your latest pipeline events.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CIAppPipelineEventsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -399,8 +343,7 @@ public class CiVisibilityPipelinesApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CIAppPipelineEventsResponse> listCIAppPipelineEventsWithHttpInfo(
-      ListCIAppPipelineEventsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<CIAppPipelineEventsResponse> listCIAppPipelineEventsWithHttpInfo(ListCIAppPipelineEventsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
     OffsetDateTime filterFrom = parameters.filterFrom;
@@ -411,6 +354,7 @@ public class CiVisibilityPipelinesApi {
     // create path and map variables
     String localVarPath = "/api/v2/ci/pipelines/events";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -421,37 +365,19 @@ public class CiVisibilityPipelinesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CiVisibilityPipelinesApi.listCIAppPipelineEvents",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CIAppPipelineEventsResponse>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.CiVisibilityPipelinesApi.listCIAppPipelineEvents", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CIAppPipelineEventsResponse>() {});
   }
 
   /**
    * Get a list of pipelines events.
    *
-   * <p>See {@link #listCIAppPipelineEventsWithHttpInfo}.
+   * See {@link #listCIAppPipelineEventsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;CIAppPipelineEventsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CIAppPipelineEventsResponse>>
-      listCIAppPipelineEventsWithHttpInfoAsync(
-          ListCIAppPipelineEventsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<CIAppPipelineEventsResponse>> listCIAppPipelineEventsWithHttpInfoAsync(ListCIAppPipelineEventsOptionalParameters parameters) {
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
     OffsetDateTime filterFrom = parameters.filterFrom;
@@ -462,6 +388,7 @@ public class CiVisibilityPipelinesApi {
     // create path and map variables
     String localVarPath = "/api/v2/ci/pipelines/events";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -474,40 +401,24 @@ public class CiVisibilityPipelinesApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CiVisibilityPipelinesApi.listCIAppPipelineEvents",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.CiVisibilityPipelinesApi.listCIAppPipelineEvents", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<CIAppPipelineEventsResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<CIAppPipelineEventsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CIAppPipelineEventsResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CIAppPipelineEventsResponse>() {});
   }
 
-  /** Manage optional parameters to searchCIAppPipelineEvents. */
+  /**
+   * Manage optional parameters to searchCIAppPipelineEvents.
+   */
   public static class SearchCIAppPipelineEventsOptionalParameters {
     private CIAppPipelineEventsRequest body;
 
     /**
      * Set body.
-     *
-     * @param body (optional)
+     * @param body  (optional)
      * @return SearchCIAppPipelineEventsOptionalParameters
      */
     public SearchCIAppPipelineEventsOptionalParameters body(CIAppPipelineEventsRequest body) {
@@ -517,137 +428,122 @@ public class CiVisibilityPipelinesApi {
   }
 
   /**
-   * Search pipelines events.
-   *
-   * <p>See {@link #searchCIAppPipelineEventsWithHttpInfo}.
-   *
-   * @return CIAppPipelineEventsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CIAppPipelineEventsResponse searchCIAppPipelineEvents() throws ApiException {
-    return searchCIAppPipelineEventsWithHttpInfo(new SearchCIAppPipelineEventsOptionalParameters())
-        .getData();
+ * Search pipelines events.
+ *
+ * See {@link #searchCIAppPipelineEventsWithHttpInfo}.
+ *
+ * @return CIAppPipelineEventsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CIAppPipelineEventsResponse searchCIAppPipelineEvents () throws ApiException {
+    return searchCIAppPipelineEventsWithHttpInfo(new SearchCIAppPipelineEventsOptionalParameters()).getData();
   }
 
   /**
-   * Search pipelines events.
-   *
-   * <p>See {@link #searchCIAppPipelineEventsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;CIAppPipelineEventsResponse&gt;
-   */
-  public CompletableFuture<CIAppPipelineEventsResponse> searchCIAppPipelineEventsAsync() {
-    return searchCIAppPipelineEventsWithHttpInfoAsync(
-            new SearchCIAppPipelineEventsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Search pipelines events.
+ *
+ * See {@link #searchCIAppPipelineEventsWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;CIAppPipelineEventsResponse&gt;
+ */
+  public CompletableFuture<CIAppPipelineEventsResponse>searchCIAppPipelineEventsAsync() {
+    return searchCIAppPipelineEventsWithHttpInfoAsync(new SearchCIAppPipelineEventsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Search pipelines events.
-   *
-   * <p>See {@link #searchCIAppPipelineEventsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CIAppPipelineEventsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public CIAppPipelineEventsResponse searchCIAppPipelineEvents(
-      SearchCIAppPipelineEventsOptionalParameters parameters) throws ApiException {
+ * Search pipelines events.
+ *
+ * See {@link #searchCIAppPipelineEventsWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CIAppPipelineEventsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public CIAppPipelineEventsResponse searchCIAppPipelineEvents(SearchCIAppPipelineEventsOptionalParameters parameters) throws ApiException {
     return searchCIAppPipelineEventsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Search pipelines events.
-   *
-   * <p>See {@link #searchCIAppPipelineEventsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;CIAppPipelineEventsResponse&gt;
-   */
-  public CompletableFuture<CIAppPipelineEventsResponse> searchCIAppPipelineEventsAsync(
-      SearchCIAppPipelineEventsOptionalParameters parameters) {
-    return searchCIAppPipelineEventsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Search pipelines events.
+ *
+ * See {@link #searchCIAppPipelineEventsWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;CIAppPipelineEventsResponse&gt;
+ */
+  public CompletableFuture<CIAppPipelineEventsResponse>searchCIAppPipelineEventsAsync(SearchCIAppPipelineEventsOptionalParameters parameters) {
+    return searchCIAppPipelineEventsWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Search pipelines events.
-   *
-   * <p>See {@link #searchCIAppPipelineEventsWithHttpInfo}.
-   *
-   * @return PaginationIterable&lt;CIAppPipelineEvent&gt;
-   */
+ * Search pipelines events.
+ *
+ * See {@link #searchCIAppPipelineEventsWithHttpInfo}.
+ *
+ * @return PaginationIterable&lt;CIAppPipelineEvent&gt;
+ */
   public PaginationIterable<CIAppPipelineEvent> searchCIAppPipelineEventsWithPagination() {
-    SearchCIAppPipelineEventsOptionalParameters parameters =
-        new SearchCIAppPipelineEventsOptionalParameters();
+    SearchCIAppPipelineEventsOptionalParameters parameters = new SearchCIAppPipelineEventsOptionalParameters();
     return searchCIAppPipelineEventsWithPagination(parameters);
   }
 
   /**
-   * Search pipelines events.
-   *
-   * <p>See {@link #searchCIAppPipelineEventsWithHttpInfo}.
-   *
-   * @return CIAppPipelineEventsResponse
-   */
-  public PaginationIterable<CIAppPipelineEvent> searchCIAppPipelineEventsWithPagination(
-      SearchCIAppPipelineEventsOptionalParameters parameters) {
-    String resultsPath = "getData";
-    String valueGetterPath = "getMeta.getPage.getAfter";
-    String valueSetterPath = "body.getPage.setCursor";
-    Boolean valueSetterParamOptional = true;
-    Integer limit;
+ * Search pipelines events.
+ *
+ * See {@link #searchCIAppPipelineEventsWithHttpInfo}.
+ *
+ * @return CIAppPipelineEventsResponse
+ */
+  public PaginationIterable<CIAppPipelineEvent> searchCIAppPipelineEventsWithPagination(SearchCIAppPipelineEventsOptionalParameters parameters) {
+  String resultsPath = "getData";
+  String valueGetterPath = "getMeta.getPage.getAfter";
+  String valueSetterPath = "body.getPage.setCursor";
+  Boolean valueSetterParamOptional = true;
+  Integer limit;
 
-    if (parameters.body == null) {
+  
+  if (parameters.body ==  null) {
       parameters.body(new CIAppPipelineEventsRequest());
-    }
-
-    if (parameters.body.getPage() == null) {
-      parameters.body.setPage(new CIAppQueryPageOptions());
-    }
-
-    if (parameters.body.getPage().getLimit() == null) {
-      limit = 10;
-      parameters.body.getPage().setLimit(limit);
-    } else {
-      limit = parameters.body.getPage().getLimit();
-    }
-
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
-
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "searchCIAppPipelineEvents",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            limit,
-            args);
-
-    return iterator;
   }
 
+  if(parameters.body.getPage() == null) {
+      parameters.body.setPage(new CIAppQueryPageOptions());
+  }
+
+  
+
+  
+  if (parameters.body.getPage().getLimit() == null) {
+      limit = 10;
+      parameters.body.getPage().setLimit(limit);
+  } else {
+      limit = parameters.body.getPage().getLimit();
+  }
+
+  
+  LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+  args.put("optionalParams", parameters);
+
+  PaginationIterable iterator = new PaginationIterable(this, "searchCIAppPipelineEvents", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, limit, args);
+
+  return iterator;
+  }
+
+
   /**
-   * List endpoint returns CI Visibility pipeline events that match a log search query. <a
-   * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
-   * paginated similarly to logs</a>.
-   *
-   * <p>Use this endpoint to build complex events filtering and search.
+   * <p>List endpoint returns CI Visibility pipeline events that match a log search query.
+   * <a href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are paginated similarly to logs</a>.</p>
+   * <p>Use this endpoint to build complex events filtering and search.</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CIAppPipelineEventsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -656,76 +552,44 @@ public class CiVisibilityPipelinesApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<CIAppPipelineEventsResponse> searchCIAppPipelineEventsWithHttpInfo(
-      SearchCIAppPipelineEventsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<CIAppPipelineEventsResponse> searchCIAppPipelineEventsWithHttpInfo(SearchCIAppPipelineEventsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = parameters.body;
     // create path and map variables
     String localVarPath = "/api/v2/ci/pipelines/events/search";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CiVisibilityPipelinesApi.searchCIAppPipelineEvents",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CIAppPipelineEventsResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.CiVisibilityPipelinesApi.searchCIAppPipelineEvents", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CIAppPipelineEventsResponse>() {});
   }
 
   /**
    * Search pipelines events.
    *
-   * <p>See {@link #searchCIAppPipelineEventsWithHttpInfo}.
+   * See {@link #searchCIAppPipelineEventsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;CIAppPipelineEventsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<CIAppPipelineEventsResponse>>
-      searchCIAppPipelineEventsWithHttpInfoAsync(
-          SearchCIAppPipelineEventsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<CIAppPipelineEventsResponse>> searchCIAppPipelineEventsWithHttpInfoAsync(SearchCIAppPipelineEventsOptionalParameters parameters) {
     Object localVarPostBody = parameters.body;
     // create path and map variables
     String localVarPath = "/api/v2/ci/pipelines/events/search";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CiVisibilityPipelinesApi.searchCIAppPipelineEvents",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.CiVisibilityPipelinesApi.searchCIAppPipelineEvents", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<CIAppPipelineEventsResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<CIAppPipelineEventsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CIAppPipelineEventsResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<CIAppPipelineEventsResponse>() {});
   }
 }

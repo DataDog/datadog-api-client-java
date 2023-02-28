@@ -6,17 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.time.OffsetDateTime;
-import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A dashboard within a list. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A dashboard within a list.</p>
+ */
 @JsonPropertyOrder({
   DashboardListItem.JSON_PROPERTY_AUTHOR,
   DashboardListItem.JSON_PROPERTY_CREATED,
@@ -31,15 +47,14 @@ import java.util.Objects;
   DashboardListItem.JSON_PROPERTY_TYPE,
   DashboardListItem.JSON_PROPERTY_URL
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardListItem {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private Creator author;
 
   public static final String JSON_PROPERTY_CREATED = "created";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime created;
 
@@ -59,7 +74,6 @@ public class DashboardListItem {
   private Boolean isShared;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
-
   @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modified;
 
@@ -79,13 +93,12 @@ public class DashboardListItem {
 
   @JsonCreator
   public DashboardListItem(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DashboardType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)DashboardType type) {
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public DashboardListItem author(Creator author) {
     this.author = author;
     this.unparsed |= author.unparsed;
@@ -93,137 +106,134 @@ public class DashboardListItem {
   }
 
   /**
-   * Creator of the object.
-   *
+   * <p>Creator of the object.</p>
    * @return author
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTHOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Creator getAuthor() {
-    return author;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AUTHOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Creator getAuthor() {
+        return author;
+      }
   public void setAuthor(Creator author) {
     this.author = author;
   }
 
   /**
-   * Date of creation of the dashboard.
-   *
+   * <p>Date of creation of the dashboard.</p>
    * @return created
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreated() {
-    return created;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getCreated() {
+        return created;
+      }
 
   /**
-   * URL to the icon of the dashboard.
-   *
+   * <p>URL to the icon of the dashboard.</p>
    * @return icon
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ICON)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIcon() {
-    return icon;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ICON)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getIcon() {
+        return icon;
+      }
   public DashboardListItem id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * ID of the dashboard.
-   *
+   * <p>ID of the dashboard.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public void setId(String id) {
     this.id = id;
   }
 
   /**
-   * Whether or not the dashboard is in the favorites.
-   *
+   * <p>Whether or not the dashboard is in the favorites.</p>
    * @return isFavorite
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsFavorite() {
-    return isFavorite;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_FAVORITE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsFavorite() {
+        return isFavorite;
+      }
 
   /**
-   * Whether or not the dashboard is read only.
-   *
+   * <p>Whether or not the dashboard is read only.</p>
    * @return isReadOnly
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsReadOnly() {
-    return isReadOnly;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsReadOnly() {
+        return isReadOnly;
+      }
 
   /**
-   * Whether the dashboard is publicly shared or not.
-   *
+   * <p>Whether the dashboard is publicly shared or not.</p>
    * @return isShared
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_SHARED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsShared() {
-    return isShared;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_SHARED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsShared() {
+        return isShared;
+      }
 
   /**
-   * Date of last edition of the dashboard.
-   *
+   * <p>Date of last edition of the dashboard.</p>
    * @return modified
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModified() {
-    return modified;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_MODIFIED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OffsetDateTime getModified() {
+        return modified;
+      }
 
   /**
-   * Popularity of the dashboard. maximum: 5
-   *
+   * <p>Popularity of the dashboard.</p>
+   * maximum: 5
    * @return popularity
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POPULARITY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getPopularity() {
-    return popularity;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_POPULARITY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Integer getPopularity() {
+        return popularity;
+      }
 
   /**
-   * Title of the dashboard.
-   *
+   * <p>Title of the dashboard.</p>
    * @return title
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitle() {
+        return title;
+      }
   public DashboardListItem type(DashboardType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -231,36 +241,37 @@ public class DashboardListItem {
   }
 
   /**
-   * The type of the dashboard.
-   *
+   * <p>The type of the dashboard.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DashboardType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public DashboardType getType() {
+        return type;
+      }
   public void setType(DashboardType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
   /**
-   * URL path to the dashboard.
-   *
+   * <p>URL path to the dashboard.</p>
    * @return url
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUrl() {
-    return url;
-  }
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getUrl() {
+        return url;
+      }
 
-  /** Return true if this DashboardListItem object is equal to o. */
+  /**
+   * Return true if this DashboardListItem object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -270,35 +281,13 @@ public class DashboardListItem {
       return false;
     }
     DashboardListItem dashboardListItem = (DashboardListItem) o;
-    return Objects.equals(this.author, dashboardListItem.author)
-        && Objects.equals(this.created, dashboardListItem.created)
-        && Objects.equals(this.icon, dashboardListItem.icon)
-        && Objects.equals(this.id, dashboardListItem.id)
-        && Objects.equals(this.isFavorite, dashboardListItem.isFavorite)
-        && Objects.equals(this.isReadOnly, dashboardListItem.isReadOnly)
-        && Objects.equals(this.isShared, dashboardListItem.isShared)
-        && Objects.equals(this.modified, dashboardListItem.modified)
-        && Objects.equals(this.popularity, dashboardListItem.popularity)
-        && Objects.equals(this.title, dashboardListItem.title)
-        && Objects.equals(this.type, dashboardListItem.type)
-        && Objects.equals(this.url, dashboardListItem.url);
+    return Objects.equals(this.author, dashboardListItem.author) && Objects.equals(this.created, dashboardListItem.created) && Objects.equals(this.icon, dashboardListItem.icon) && Objects.equals(this.id, dashboardListItem.id) && Objects.equals(this.isFavorite, dashboardListItem.isFavorite) && Objects.equals(this.isReadOnly, dashboardListItem.isReadOnly) && Objects.equals(this.isShared, dashboardListItem.isShared) && Objects.equals(this.modified, dashboardListItem.modified) && Objects.equals(this.popularity, dashboardListItem.popularity) && Objects.equals(this.title, dashboardListItem.title) && Objects.equals(this.type, dashboardListItem.type) && Objects.equals(this.url, dashboardListItem.url);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        author,
-        created,
-        icon,
-        id,
-        isFavorite,
-        isReadOnly,
-        isShared,
-        modified,
-        popularity,
-        title,
-        type,
-        url);
+    return Objects.hash(author,created,icon,id,isFavorite,isReadOnly,isShared,modified,popularity,title,type,url);
   }
 
   @Override
@@ -322,7 +311,8 @@ public class DashboardListItem {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

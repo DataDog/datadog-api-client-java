@@ -6,24 +6,43 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Create a new Cloud Workload Security Agent rule. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Create a new Cloud Workload Security Agent rule.</p>
+ */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_DESCRIPTION,
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_ENABLED,
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_EXPRESSION,
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_NAME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleCreateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -40,95 +59,89 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
 
   @JsonCreator
   public CloudWorkloadSecurityAgentRuleCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_EXPRESSION) String expression,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.expression = expression;
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_EXPRESSION)String expression,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.expression = expression;
+        this.name = name;
   }
-
   public CloudWorkloadSecurityAgentRuleCreateAttributes description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * The description of the Agent rule.
-   *
+   * <p>The description of the Agent rule.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public CloudWorkloadSecurityAgentRuleCreateAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
   /**
-   * Whether the Agent rule is enabled.
-   *
+   * <p>Whether the Agent rule is enabled.</p>
    * @return enabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getEnabled() {
+        return enabled;
+      }
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
-
   public CloudWorkloadSecurityAgentRuleCreateAttributes expression(String expression) {
     this.expression = expression;
     return this;
   }
 
   /**
-   * The SECL expression of the Agent rule.
-   *
+   * <p>The SECL expression of the Agent rule.</p>
    * @return expression
-   */
-  @JsonProperty(JSON_PROPERTY_EXPRESSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getExpression() {
-    return expression;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_EXPRESSION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getExpression() {
+        return expression;
+      }
   public void setExpression(String expression) {
     this.expression = expression;
   }
-
   public CloudWorkloadSecurityAgentRuleCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the Agent rule.
-   *
+   * <p>The name of the Agent rule.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
 
-  /** Return true if this CloudWorkloadSecurityAgentRuleCreateAttributes object is equal to o. */
+  /**
+   * Return true if this CloudWorkloadSecurityAgentRuleCreateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -137,19 +150,14 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudWorkloadSecurityAgentRuleCreateAttributes cloudWorkloadSecurityAgentRuleCreateAttributes =
-        (CloudWorkloadSecurityAgentRuleCreateAttributes) o;
-    return Objects.equals(
-            this.description, cloudWorkloadSecurityAgentRuleCreateAttributes.description)
-        && Objects.equals(this.enabled, cloudWorkloadSecurityAgentRuleCreateAttributes.enabled)
-        && Objects.equals(
-            this.expression, cloudWorkloadSecurityAgentRuleCreateAttributes.expression)
-        && Objects.equals(this.name, cloudWorkloadSecurityAgentRuleCreateAttributes.name);
+    CloudWorkloadSecurityAgentRuleCreateAttributes cloudWorkloadSecurityAgentRuleCreateAttributes = (CloudWorkloadSecurityAgentRuleCreateAttributes) o;
+    return Objects.equals(this.description, cloudWorkloadSecurityAgentRuleCreateAttributes.description) && Objects.equals(this.enabled, cloudWorkloadSecurityAgentRuleCreateAttributes.enabled) && Objects.equals(this.expression, cloudWorkloadSecurityAgentRuleCreateAttributes.expression) && Objects.equals(this.name, cloudWorkloadSecurityAgentRuleCreateAttributes.name);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, enabled, expression, name);
+    return Objects.hash(description,enabled,expression,name);
   }
 
   @Override
@@ -165,7 +173,8 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

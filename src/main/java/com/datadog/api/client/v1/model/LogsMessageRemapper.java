@@ -6,22 +6,36 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * The message is a key attribute in Datadog. It is displayed in the message column of the Log
- * Explorer and you can do full string search on it. Use this Processor to define one or more
- * attributes as the official log message.
- *
- * <p><strong>Note:</strong> If multiple log message remapper processors can be applied to a given
- * log, only the first one (according to the pipeline order) is taken into account.
+   * <p>The message is a key attribute in Datadog.
+   * It is displayed in the message column of the Log Explorer and you can do full string search on it.
+   * Use this Processor to define one or more attributes as the official log message.</p>
+   * <p><strong>Note:</strong> If multiple log message remapper processors can be applied to a given log,
+   * only the first one (according to the pipeline order) is taken into account.</p>
  */
 @JsonPropertyOrder({
   LogsMessageRemapper.JSON_PROPERTY_IS_ENABLED,
@@ -29,10 +43,10 @@ import java.util.Objects;
   LogsMessageRemapper.JSON_PROPERTY_SOURCES,
   LogsMessageRemapper.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsMessageRemapper {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
 
@@ -49,80 +63,72 @@ public class LogsMessageRemapper {
 
   @JsonCreator
   public LogsMessageRemapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES) List<String> sources,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsMessageRemapperType type) {
-    this.sources = sources;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_SOURCES)List<String> sources,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)LogsMessageRemapperType type) {
+        this.sources = sources;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public LogsMessageRemapper isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
   /**
-   * Whether or not the processor is enabled.
-   *
+   * <p>Whether or not the processor is enabled.</p>
    * @return isEnabled
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsEnabled() {
+        return isEnabled;
+      }
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
-
   public LogsMessageRemapper name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the processor.
-   *
+   * <p>Name of the processor.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public LogsMessageRemapper sources(List<String> sources) {
     this.sources = sources;
     return this;
   }
-
   public LogsMessageRemapper addSourcesItem(String sourcesItem) {
     this.sources.add(sourcesItem);
     return this;
   }
 
   /**
-   * Array of source attributes.
-   *
+   * <p>Array of source attributes.</p>
    * @return sources
-   */
-  @JsonProperty(JSON_PROPERTY_SOURCES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<String> getSources() {
-    return sources;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_SOURCES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<String> getSources() {
+        return sources;
+      }
   public void setSources(List<String> sources) {
     this.sources = sources;
   }
-
   public LogsMessageRemapper type(LogsMessageRemapperType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -130,24 +136,25 @@ public class LogsMessageRemapper {
   }
 
   /**
-   * Type of logs message remapper.
-   *
+   * <p>Type of logs message remapper.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LogsMessageRemapperType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public LogsMessageRemapperType getType() {
+        return type;
+      }
   public void setType(LogsMessageRemapperType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this LogsMessageRemapper object is equal to o. */
+  /**
+   * Return true if this LogsMessageRemapper object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -157,15 +164,13 @@ public class LogsMessageRemapper {
       return false;
     }
     LogsMessageRemapper logsMessageRemapper = (LogsMessageRemapper) o;
-    return Objects.equals(this.isEnabled, logsMessageRemapper.isEnabled)
-        && Objects.equals(this.name, logsMessageRemapper.name)
-        && Objects.equals(this.sources, logsMessageRemapper.sources)
-        && Objects.equals(this.type, logsMessageRemapper.type);
+    return Objects.equals(this.isEnabled, logsMessageRemapper.isEnabled) && Objects.equals(this.name, logsMessageRemapper.name) && Objects.equals(this.sources, logsMessageRemapper.sources) && Objects.equals(this.type, logsMessageRemapper.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(isEnabled, name, sources, type);
+    return Objects.hash(isEnabled,name,sources,type);
   }
 
   @Override
@@ -181,7 +186,8 @@ public class LogsMessageRemapper {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

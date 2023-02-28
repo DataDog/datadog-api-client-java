@@ -6,22 +6,41 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A dashboard within a list. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A dashboard within a list.</p>
+ */
 @JsonPropertyOrder({
   DashboardListItemResponse.JSON_PROPERTY_ID,
   DashboardListItemResponse.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DashboardListItemResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -32,24 +51,23 @@ public class DashboardListItemResponse {
 
   @JsonCreator
   public DashboardListItemResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DashboardType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID)String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)DashboardType type) {
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   /**
-   * ID of the dashboard.
-   *
+   * <p>ID of the dashboard.</p>
    * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getId() {
+        return id;
+      }
   public DashboardListItemResponse type(DashboardType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -57,24 +75,25 @@ public class DashboardListItemResponse {
   }
 
   /**
-   * The type of the dashboard.
-   *
+   * <p>The type of the dashboard.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DashboardType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public DashboardType getType() {
+        return type;
+      }
   public void setType(DashboardType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this DashboardListItemResponse object is equal to o. */
+  /**
+   * Return true if this DashboardListItemResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -84,13 +103,13 @@ public class DashboardListItemResponse {
       return false;
     }
     DashboardListItemResponse dashboardListItemResponse = (DashboardListItemResponse) o;
-    return Objects.equals(this.id, dashboardListItemResponse.id)
-        && Objects.equals(this.type, dashboardListItemResponse.type);
+    return Objects.equals(this.id, dashboardListItemResponse.id) && Objects.equals(this.type, dashboardListItemResponse.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type);
+    return Objects.hash(id,type);
   }
 
   @Override
@@ -104,7 +123,8 @@ public class DashboardListItemResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
