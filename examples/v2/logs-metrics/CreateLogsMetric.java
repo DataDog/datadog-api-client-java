@@ -20,7 +20,7 @@ public class Example {
         new LogsMetricCreateRequest()
             .data(
                 new LogsMetricCreateData()
-                    .id("Example-Create_a_log_based_metric_returns_OK_response")
+                    .id("ExampleCreatealogbasedmetricreturnsOKresponse")
                     .type(LogsMetricType.LOGS_METRICS)
                     .attributes(
                         new LogsMetricCreateAttributes()
