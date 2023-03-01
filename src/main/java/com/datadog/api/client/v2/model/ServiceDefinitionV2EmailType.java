@@ -6,25 +6,48 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import java.io.IOException;
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
 
-/** Contact type. */
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>Contact type.</p>
+ */
 @JsonSerialize(using = ServiceDefinitionV2EmailType.ServiceDefinitionV2EmailTypeSerializer.class)
 public class ServiceDefinitionV2EmailType {
 
-  public static final ServiceDefinitionV2EmailType EMAIL =
-      new ServiceDefinitionV2EmailType("email");
+  public static final ServiceDefinitionV2EmailType EMAIL = new ServiceDefinitionV2EmailType("email");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("email"));
 
@@ -38,22 +61,19 @@ public class ServiceDefinitionV2EmailType {
     this.value = value;
   }
 
-  public static class ServiceDefinitionV2EmailTypeSerializer
-      extends StdSerializer<ServiceDefinitionV2EmailType> {
-    public ServiceDefinitionV2EmailTypeSerializer(Class<ServiceDefinitionV2EmailType> t) {
-      super(t);
-    }
+  public static class ServiceDefinitionV2EmailTypeSerializer extends StdSerializer<ServiceDefinitionV2EmailType> {
+      public ServiceDefinitionV2EmailTypeSerializer(Class<ServiceDefinitionV2EmailType> t) {
+          super(t);
+      }
 
-    public ServiceDefinitionV2EmailTypeSerializer() {
-      this(null);
-    }
+      public ServiceDefinitionV2EmailTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ServiceDefinitionV2EmailType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ServiceDefinitionV2EmailType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -65,7 +85,9 @@ public class ServiceDefinitionV2EmailType {
     this.value = value;
   }
 
-  /** Return true if this ServiceDefinitionV2EmailType object is equal to o. */
+  /**
+   * Return true if this ServiceDefinitionV2EmailType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -79,7 +101,7 @@ public class ServiceDefinitionV2EmailType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override

@@ -6,26 +6,43 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * Used to perform a histogram computation (only for measure facets). At most, 100 buckets are
- * allowed, the number of buckets is <code>(max - min)/interval</code>.
+   * <p>Used to perform a histogram computation (only for measure facets).
+   * At most, 100 buckets are allowed, the number of buckets is <code>(max - min)/interval</code>.</p>
  */
 @JsonPropertyOrder({
   CIAppGroupByHistogram.JSON_PROPERTY_INTERVAL,
   CIAppGroupByHistogram.JSON_PROPERTY_MAX,
   CIAppGroupByHistogram.JSON_PROPERTY_MIN
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CIAppGroupByHistogram {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_INTERVAL = "interval";
   private Double interval;
 
@@ -39,77 +56,73 @@ public class CIAppGroupByHistogram {
 
   @JsonCreator
   public CIAppGroupByHistogram(
-      @JsonProperty(required = true, value = JSON_PROPERTY_INTERVAL) Double interval,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MAX) Double max,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MIN) Double min) {
-    this.interval = interval;
-    this.max = max;
-    this.min = min;
+            @JsonProperty(required=true, value=JSON_PROPERTY_INTERVAL)Double interval,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MAX)Double max,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MIN)Double min) {
+        this.interval = interval;
+        this.max = max;
+        this.min = min;
   }
-
   public CIAppGroupByHistogram interval(Double interval) {
     this.interval = interval;
     return this;
   }
 
   /**
-   * The bin size of the histogram buckets.
-   *
+   * <p>The bin size of the histogram buckets.</p>
    * @return interval
-   */
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getInterval() {
-    return interval;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_INTERVAL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getInterval() {
+        return interval;
+      }
   public void setInterval(Double interval) {
     this.interval = interval;
   }
-
   public CIAppGroupByHistogram max(Double max) {
     this.max = max;
     return this;
   }
 
   /**
-   * The maximum value for the measure used in the histogram (values greater than this one are
-   * filtered out).
-   *
+   * <p>The maximum value for the measure used in the histogram
+   * (values greater than this one are filtered out).</p>
    * @return max
-   */
-  @JsonProperty(JSON_PROPERTY_MAX)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getMax() {
-    return max;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MAX)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getMax() {
+        return max;
+      }
   public void setMax(Double max) {
     this.max = max;
   }
-
   public CIAppGroupByHistogram min(Double min) {
     this.min = min;
     return this;
   }
 
   /**
-   * The minimum value for the measure used in the histogram (values smaller than this one are
-   * filtered out).
-   *
+   * <p>The minimum value for the measure used in the histogram
+   * (values smaller than this one are filtered out).</p>
    * @return min
-   */
-  @JsonProperty(JSON_PROPERTY_MIN)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Double getMin() {
-    return min;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MIN)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Double getMin() {
+        return min;
+      }
   public void setMin(Double min) {
     this.min = min;
   }
 
-  /** Return true if this CIAppGroupByHistogram object is equal to o. */
+  /**
+   * Return true if this CIAppGroupByHistogram object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -119,14 +132,13 @@ public class CIAppGroupByHistogram {
       return false;
     }
     CIAppGroupByHistogram ciAppGroupByHistogram = (CIAppGroupByHistogram) o;
-    return Objects.equals(this.interval, ciAppGroupByHistogram.interval)
-        && Objects.equals(this.max, ciAppGroupByHistogram.max)
-        && Objects.equals(this.min, ciAppGroupByHistogram.min);
+    return Objects.equals(this.interval, ciAppGroupByHistogram.interval) && Objects.equals(this.max, ciAppGroupByHistogram.max) && Objects.equals(this.min, ciAppGroupByHistogram.min);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(interval, max, min);
+    return Objects.hash(interval,max,min);
   }
 
   @Override
@@ -141,7 +153,8 @@ public class CIAppGroupByHistogram {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

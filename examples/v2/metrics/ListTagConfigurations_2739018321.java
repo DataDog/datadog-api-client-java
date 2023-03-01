@@ -1,10 +1,16 @@
 // Get a list of metrics with configured filter returns "Success" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.MetricsApi;
 import com.datadog.api.client.v2.api.MetricsApi.ListTagConfigurationsOptionalParameters;
 import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurationsResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -12,9 +18,7 @@ public class Example {
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {
-      MetricsAndMetricTagConfigurationsResponse result =
-          apiInstance.listTagConfigurations(
-              new ListTagConfigurationsOptionalParameters().filterConfigured(true));
+      MetricsAndMetricTagConfigurationsResponse result = apiInstance.listTagConfigurations(new ListTagConfigurationsOptionalParameters().filterConfigured(true));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#listTagConfigurations");

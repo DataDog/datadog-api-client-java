@@ -6,18 +6,40 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Response metadata object. */
-@JsonPropertyOrder({ProcessSummariesMeta.JSON_PROPERTY_PAGE})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Response metadata object.</p>
+ */
+@JsonPropertyOrder({
+  ProcessSummariesMeta.JSON_PROPERTY_PAGE
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessSummariesMeta {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_PAGE = "page";
   private ProcessSummariesMetaPage page;
 
@@ -28,22 +50,23 @@ public class ProcessSummariesMeta {
   }
 
   /**
-   * Paging attributes.
-   *
+   * <p>Paging attributes.</p>
    * @return page
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ProcessSummariesMetaPage getPage() {
-    return page;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ProcessSummariesMetaPage getPage() {
+        return page;
+      }
   public void setPage(ProcessSummariesMetaPage page) {
     this.page = page;
   }
 
-  /** Return true if this ProcessSummariesMeta object is equal to o. */
+  /**
+   * Return true if this ProcessSummariesMeta object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -55,6 +78,7 @@ public class ProcessSummariesMeta {
     ProcessSummariesMeta processSummariesMeta = (ProcessSummariesMeta) o;
     return Objects.equals(this.page, processSummariesMeta.page);
   }
+
 
   @Override
   public int hashCode() {
@@ -71,7 +95,8 @@ public class ProcessSummariesMeta {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

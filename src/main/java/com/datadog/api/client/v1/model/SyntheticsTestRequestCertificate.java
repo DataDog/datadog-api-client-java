@@ -6,21 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Client certificate to use when performing the test request. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Client certificate to use when performing the test request.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsTestRequestCertificate.JSON_PROPERTY_CERT,
   SyntheticsTestRequestCertificate.JSON_PROPERTY_KEY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestRequestCertificate {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CERT = "cert";
   private SyntheticsTestRequestCertificateItem cert;
 
@@ -34,21 +54,19 @@ public class SyntheticsTestRequestCertificate {
   }
 
   /**
-   * Define a request certificate.
-   *
+   * <p>Define a request certificate.</p>
    * @return cert
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CERT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestRequestCertificateItem getCert() {
-    return cert;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CERT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestRequestCertificateItem getCert() {
+        return cert;
+      }
   public void setCert(SyntheticsTestRequestCertificateItem cert) {
     this.cert = cert;
   }
-
   public SyntheticsTestRequestCertificate key(SyntheticsTestRequestCertificateItem key) {
     this.key = key;
     this.unparsed |= key.unparsed;
@@ -56,22 +74,23 @@ public class SyntheticsTestRequestCertificate {
   }
 
   /**
-   * Define a request certificate.
-   *
+   * <p>Define a request certificate.</p>
    * @return key
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestRequestCertificateItem getKey() {
-    return key;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_KEY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestRequestCertificateItem getKey() {
+        return key;
+      }
   public void setKey(SyntheticsTestRequestCertificateItem key) {
     this.key = key;
   }
 
-  /** Return true if this SyntheticsTestRequestCertificate object is equal to o. */
+  /**
+   * Return true if this SyntheticsTestRequestCertificate object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -80,15 +99,14 @@ public class SyntheticsTestRequestCertificate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestRequestCertificate syntheticsTestRequestCertificate =
-        (SyntheticsTestRequestCertificate) o;
-    return Objects.equals(this.cert, syntheticsTestRequestCertificate.cert)
-        && Objects.equals(this.key, syntheticsTestRequestCertificate.key);
+    SyntheticsTestRequestCertificate syntheticsTestRequestCertificate = (SyntheticsTestRequestCertificate) o;
+    return Objects.equals(this.cert, syntheticsTestRequestCertificate.cert) && Objects.equals(this.key, syntheticsTestRequestCertificate.key);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(cert, key);
+    return Objects.hash(cert,key);
   }
 
   @Override
@@ -102,7 +120,8 @@ public class SyntheticsTestRequestCertificate {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

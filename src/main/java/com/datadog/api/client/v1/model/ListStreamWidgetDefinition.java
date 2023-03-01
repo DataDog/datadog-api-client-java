@@ -6,18 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
 
 /**
- * The list stream visualization displays a table of recent events in your application that match a
- * search criteria using user-defined columns.
+   * <p>The list stream visualization displays a table of recent events in your application that
+   * match a search criteria using user-defined columns.</p>
  */
 @JsonPropertyOrder({
   ListStreamWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
@@ -29,10 +44,10 @@ import java.util.Objects;
   ListStreamWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
   ListStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private String legendSize;
 
@@ -61,36 +76,31 @@ public class ListStreamWidgetDefinition {
 
   @JsonCreator
   public ListStreamWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          List<ListStreamWidgetRequest> requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ListStreamWidgetDefinitionType type) {
-    this.requests = requests;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS)List<ListStreamWidgetRequest> requests,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)ListStreamWidgetDefinitionType type) {
+        this.requests = requests;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public ListStreamWidgetDefinition legendSize(String legendSize) {
     this.legendSize = legendSize;
     return this;
   }
 
   /**
-   * Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
-   *
+   * <p>Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".</p>
    * @return legendSize
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getLegendSize() {
-    return legendSize;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getLegendSize() {
+        return legendSize;
+      }
   public void setLegendSize(String legendSize) {
     this.legendSize = legendSize;
   }
-
   public ListStreamWidgetDefinition requests(List<ListStreamWidgetRequest> requests) {
     this.requests = requests;
     for (ListStreamWidgetRequest item : requests) {
@@ -98,7 +108,6 @@ public class ListStreamWidgetDefinition {
     }
     return this;
   }
-
   public ListStreamWidgetDefinition addRequestsItem(ListStreamWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
     this.unparsed |= requestsItem.unparsed;
@@ -106,41 +115,37 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Request payload used to query items.
-   *
+   * <p>Request payload used to query items.</p>
    * @return requests
-   */
-  @JsonProperty(JSON_PROPERTY_REQUESTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<ListStreamWidgetRequest> getRequests() {
-    return requests;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_REQUESTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<ListStreamWidgetRequest> getRequests() {
+        return requests;
+      }
   public void setRequests(List<ListStreamWidgetRequest> requests) {
     this.requests = requests;
   }
-
   public ListStreamWidgetDefinition showLegend(Boolean showLegend) {
     this.showLegend = showLegend;
     return this;
   }
 
   /**
-   * Whether or not to display the legend on this widget.
-   *
+   * <p>Whether or not to display the legend on this widget.</p>
    * @return showLegend
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getShowLegend() {
-    return showLegend;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getShowLegend() {
+        return showLegend;
+      }
   public void setShowLegend(Boolean showLegend) {
     this.showLegend = showLegend;
   }
-
   public ListStreamWidgetDefinition time(WidgetTime time) {
     this.time = time;
     this.unparsed |= time.unparsed;
@@ -148,42 +153,38 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Time setting for the widget.
-   *
+   * <p>Time setting for the widget.</p>
    * @return time
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetTime getTime() {
-    return time;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TIME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetTime getTime() {
+        return time;
+      }
   public void setTime(WidgetTime time) {
     this.time = time;
   }
-
   public ListStreamWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * Title of the widget.
-   *
+   * <p>Title of the widget.</p>
    * @return title
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
-
   public ListStreamWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     this.unparsed |= !titleAlign.isValid();
@@ -191,45 +192,41 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * How to align the text on the widget.
-   *
+   * <p>How to align the text on the widget.</p>
    * @return titleAlign
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetTextAlign getTitleAlign() {
-    return titleAlign;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetTextAlign getTitleAlign() {
+        return titleAlign;
+      }
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
-
   public ListStreamWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
   /**
-   * Size of the title.
-   *
+   * <p>Size of the title.</p>
    * @return titleSize
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitleSize() {
-    return titleSize;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitleSize() {
+        return titleSize;
+      }
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
-
   public ListStreamWidgetDefinition type(ListStreamWidgetDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -237,24 +234,25 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Type of the list stream widget.
-   *
+   * <p>Type of the list stream widget.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ListStreamWidgetDefinitionType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public ListStreamWidgetDefinitionType getType() {
+        return type;
+      }
   public void setType(ListStreamWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this ListStreamWidgetDefinition object is equal to o. */
+  /**
+   * Return true if this ListStreamWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -264,19 +262,13 @@ public class ListStreamWidgetDefinition {
       return false;
     }
     ListStreamWidgetDefinition listStreamWidgetDefinition = (ListStreamWidgetDefinition) o;
-    return Objects.equals(this.legendSize, listStreamWidgetDefinition.legendSize)
-        && Objects.equals(this.requests, listStreamWidgetDefinition.requests)
-        && Objects.equals(this.showLegend, listStreamWidgetDefinition.showLegend)
-        && Objects.equals(this.time, listStreamWidgetDefinition.time)
-        && Objects.equals(this.title, listStreamWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, listStreamWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, listStreamWidgetDefinition.titleSize)
-        && Objects.equals(this.type, listStreamWidgetDefinition.type);
+    return Objects.equals(this.legendSize, listStreamWidgetDefinition.legendSize) && Objects.equals(this.requests, listStreamWidgetDefinition.requests) && Objects.equals(this.showLegend, listStreamWidgetDefinition.showLegend) && Objects.equals(this.time, listStreamWidgetDefinition.time) && Objects.equals(this.title, listStreamWidgetDefinition.title) && Objects.equals(this.titleAlign, listStreamWidgetDefinition.titleAlign) && Objects.equals(this.titleSize, listStreamWidgetDefinition.titleSize) && Objects.equals(this.type, listStreamWidgetDefinition.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(legendSize, requests, showLegend, time, title, titleAlign, titleSize, type);
+    return Objects.hash(legendSize,requests,showLegend,time,title,titleAlign,titleSize,type);
   }
 
   @Override
@@ -296,7 +288,8 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

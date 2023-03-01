@@ -6,24 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** An assertion for the <code>validatesJSONPath</code> operator. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>An assertion for the <code>validatesJSONPath</code> operator.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_OPERATOR,
   SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_PROPERTY,
   SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_TARGET,
   SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAssertionJSONPathTarget {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_OPERATOR = "operator";
   private SyntheticsAssertionJSONPathOperator operator;
 
@@ -40,15 +59,13 @@ public class SyntheticsAssertionJSONPathTarget {
 
   @JsonCreator
   public SyntheticsAssertionJSONPathTarget(
-      @JsonProperty(required = true, value = JSON_PROPERTY_OPERATOR)
-          SyntheticsAssertionJSONPathOperator operator,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsAssertionType type) {
-    this.operator = operator;
-    this.unparsed |= !operator.isValid();
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_OPERATOR)SyntheticsAssertionJSONPathOperator operator,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE)SyntheticsAssertionType type) {
+        this.operator = operator;
+        this.unparsed |= !operator.isValid();
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
-
   public SyntheticsAssertionJSONPathTarget operator(SyntheticsAssertionJSONPathOperator operator) {
     this.operator = operator;
     this.unparsed |= !operator.isValid();
@@ -56,44 +73,40 @@ public class SyntheticsAssertionJSONPathTarget {
   }
 
   /**
-   * Assertion operator to apply.
-   *
+   * <p>Assertion operator to apply.</p>
    * @return operator
-   */
-  @JsonProperty(JSON_PROPERTY_OPERATOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsAssertionJSONPathOperator getOperator() {
-    return operator;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_OPERATOR)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SyntheticsAssertionJSONPathOperator getOperator() {
+        return operator;
+      }
   public void setOperator(SyntheticsAssertionJSONPathOperator operator) {
     if (!operator.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.operator = operator;
   }
-
   public SyntheticsAssertionJSONPathTarget property(String property) {
     this.property = property;
     return this;
   }
 
   /**
-   * The associated assertion property.
-   *
+   * <p>The associated assertion property.</p>
    * @return property
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROPERTY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProperty() {
-    return property;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROPERTY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getProperty() {
+        return property;
+      }
   public void setProperty(String property) {
     this.property = property;
   }
-
   public SyntheticsAssertionJSONPathTarget target(SyntheticsAssertionJSONPathTargetTarget target) {
     this.target = target;
     this.unparsed |= target.unparsed;
@@ -101,21 +114,19 @@ public class SyntheticsAssertionJSONPathTarget {
   }
 
   /**
-   * Composed target for <code>validatesJSONPath</code> operator.
-   *
+   * <p>Composed target for <code>validatesJSONPath</code> operator.</p>
    * @return target
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsAssertionJSONPathTargetTarget getTarget() {
-    return target;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TARGET)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsAssertionJSONPathTargetTarget getTarget() {
+        return target;
+      }
   public void setTarget(SyntheticsAssertionJSONPathTargetTarget target) {
     this.target = target;
   }
-
   public SyntheticsAssertionJSONPathTarget type(SyntheticsAssertionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -123,24 +134,25 @@ public class SyntheticsAssertionJSONPathTarget {
   }
 
   /**
-   * Type of the assertion.
-   *
+   * <p>Type of the assertion.</p>
    * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsAssertionType getType() {
-    return type;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SyntheticsAssertionType getType() {
+        return type;
+      }
   public void setType(SyntheticsAssertionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this SyntheticsAssertionJSONPathTarget object is equal to o. */
+  /**
+   * Return true if this SyntheticsAssertionJSONPathTarget object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -149,17 +161,14 @@ public class SyntheticsAssertionJSONPathTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAssertionJSONPathTarget syntheticsAssertionJsonPathTarget =
-        (SyntheticsAssertionJSONPathTarget) o;
-    return Objects.equals(this.operator, syntheticsAssertionJsonPathTarget.operator)
-        && Objects.equals(this.property, syntheticsAssertionJsonPathTarget.property)
-        && Objects.equals(this.target, syntheticsAssertionJsonPathTarget.target)
-        && Objects.equals(this.type, syntheticsAssertionJsonPathTarget.type);
+    SyntheticsAssertionJSONPathTarget syntheticsAssertionJsonPathTarget = (SyntheticsAssertionJSONPathTarget) o;
+    return Objects.equals(this.operator, syntheticsAssertionJsonPathTarget.operator) && Objects.equals(this.property, syntheticsAssertionJsonPathTarget.property) && Objects.equals(this.target, syntheticsAssertionJsonPathTarget.target) && Objects.equals(this.type, syntheticsAssertionJsonPathTarget.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(operator, property, target, type);
+    return Objects.hash(operator,property,target,type);
   }
 
   @Override
@@ -175,7 +184,8 @@ public class SyntheticsAssertionJSONPathTarget {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

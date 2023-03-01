@@ -6,24 +6,43 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** An individual scalar metrics query. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>An individual scalar metrics query.</p>
+ */
 @JsonPropertyOrder({
   MetricsScalarQuery.JSON_PROPERTY_AGGREGATOR,
   MetricsScalarQuery.JSON_PROPERTY_DATA_SOURCE,
   MetricsScalarQuery.JSON_PROPERTY_NAME,
   MetricsScalarQuery.JSON_PROPERTY_QUERY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsScalarQuery {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private MetricsAggregator aggregator = MetricsAggregator.AVG;
 
@@ -40,17 +59,15 @@ public class MetricsScalarQuery {
 
   @JsonCreator
   public MetricsScalarQuery(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATOR) MetricsAggregator aggregator,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
-          MetricsDataSource dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.aggregator = aggregator;
-    this.unparsed |= !aggregator.isValid();
-    this.dataSource = dataSource;
-    this.unparsed |= !dataSource.isValid();
-    this.query = query;
+            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATOR)MetricsAggregator aggregator,
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)MetricsDataSource dataSource,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY)String query) {
+        this.aggregator = aggregator;
+        this.unparsed |= !aggregator.isValid();
+        this.dataSource = dataSource;
+        this.unparsed |= !dataSource.isValid();
+        this.query = query;
   }
-
   public MetricsScalarQuery aggregator(MetricsAggregator aggregator) {
     this.aggregator = aggregator;
     this.unparsed |= !aggregator.isValid();
@@ -58,23 +75,21 @@ public class MetricsScalarQuery {
   }
 
   /**
-   * The type of aggregation that can be performed on metrics queries.
-   *
+   * <p>The type of aggregation that can be performed on metrics queries.</p>
    * @return aggregator
-   */
-  @JsonProperty(JSON_PROPERTY_AGGREGATOR)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MetricsAggregator getAggregator() {
-    return aggregator;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AGGREGATOR)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public MetricsAggregator getAggregator() {
+        return aggregator;
+      }
   public void setAggregator(MetricsAggregator aggregator) {
     if (!aggregator.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.aggregator = aggregator;
   }
-
   public MetricsScalarQuery dataSource(MetricsDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
@@ -82,65 +97,62 @@ public class MetricsScalarQuery {
   }
 
   /**
-   * A data source that is powered by the Metrics platform.
-   *
+   * <p>A data source that is powered by the Metrics platform.</p>
    * @return dataSource
-   */
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MetricsDataSource getDataSource() {
-    return dataSource;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public MetricsDataSource getDataSource() {
+        return dataSource;
+      }
   public void setDataSource(MetricsDataSource dataSource) {
     if (!dataSource.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
-
   public MetricsScalarQuery name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The variable name for use in formulas.
-   *
+   * <p>The variable name for use in formulas.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public MetricsScalarQuery query(String query) {
     this.query = query;
     return this;
   }
 
   /**
-   * A classic metrics query string.
-   *
+   * <p>A classic metrics query string.</p>
    * @return query
-   */
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getQuery() {
+        return query;
+      }
   public void setQuery(String query) {
     this.query = query;
   }
 
-  /** Return true if this MetricsScalarQuery object is equal to o. */
+  /**
+   * Return true if this MetricsScalarQuery object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -150,15 +162,13 @@ public class MetricsScalarQuery {
       return false;
     }
     MetricsScalarQuery metricsScalarQuery = (MetricsScalarQuery) o;
-    return Objects.equals(this.aggregator, metricsScalarQuery.aggregator)
-        && Objects.equals(this.dataSource, metricsScalarQuery.dataSource)
-        && Objects.equals(this.name, metricsScalarQuery.name)
-        && Objects.equals(this.query, metricsScalarQuery.query);
+    return Objects.equals(this.aggregator, metricsScalarQuery.aggregator) && Objects.equals(this.dataSource, metricsScalarQuery.dataSource) && Objects.equals(this.name, metricsScalarQuery.name) && Objects.equals(this.query, metricsScalarQuery.query);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregator, dataSource, name, query);
+    return Objects.hash(aggregator,dataSource,name,query);
   }
 
   @Override
@@ -174,7 +184,8 @@ public class MetricsScalarQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

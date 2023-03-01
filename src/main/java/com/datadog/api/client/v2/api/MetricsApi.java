@@ -1,41 +1,48 @@
+
 package com.datadog.api.client.v2.api;
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.IntakePayloadAccepted;
-import com.datadog.api.client.v2.model.MetricAllTagsResponse;
-import com.datadog.api.client.v2.model.MetricBulkTagConfigCreateRequest;
-import com.datadog.api.client.v2.model.MetricBulkTagConfigDeleteRequest;
-import com.datadog.api.client.v2.model.MetricBulkTagConfigResponse;
-import com.datadog.api.client.v2.model.MetricContentEncoding;
-import com.datadog.api.client.v2.model.MetricEstimateResponse;
-import com.datadog.api.client.v2.model.MetricPayload;
-import com.datadog.api.client.v2.model.MetricSuggestedTagsAndAggregationsResponse;
-import com.datadog.api.client.v2.model.MetricTagConfigurationCreateRequest;
-import com.datadog.api.client.v2.model.MetricTagConfigurationMetricTypes;
-import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
-import com.datadog.api.client.v2.model.MetricTagConfigurationUpdateRequest;
-import com.datadog.api.client.v2.model.MetricVolumesResponse;
-import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurationsResponse;
-import com.datadog.api.client.v2.model.ScalarFormulaQueryRequest;
-import com.datadog.api.client.v2.model.ScalarFormulaQueryResponse;
-import com.datadog.api.client.v2.model.TimeseriesFormulaQueryRequest;
-import com.datadog.api.client.v2.model.TimeseriesFormulaQueryResponse;
-import jakarta.ws.rs.client.Invocation;
+import com.datadog.api.client.PaginationIterable;
+
 import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.client.Invocation;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.concurrent.CompletableFuture;
+import java.time.OffsetDateTime;
+import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurationsResponse;
+import com.datadog.api.client.v2.model.MetricTagConfigurationMetricTypes;
+import com.datadog.api.client.v2.model.MetricBulkTagConfigResponse;
+import com.datadog.api.client.v2.model.MetricBulkTagConfigDeleteRequest;
+import com.datadog.api.client.v2.model.MetricBulkTagConfigCreateRequest;
+import com.datadog.api.client.v2.model.MetricSuggestedTagsAndAggregationsResponse;
+import com.datadog.api.client.v2.model.MetricAllTagsResponse;
+import com.datadog.api.client.v2.model.MetricEstimateResponse;
+import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
+import com.datadog.api.client.v2.model.MetricTagConfigurationUpdateRequest;
+import com.datadog.api.client.v2.model.MetricTagConfigurationCreateRequest;
+import com.datadog.api.client.v2.model.MetricVolumesResponse;
+import com.datadog.api.client.v2.model.ScalarFormulaQueryResponse;
+import com.datadog.api.client.v2.model.ScalarFormulaQueryRequest;
+import com.datadog.api.client.v2.model.TimeseriesFormulaQueryResponse;
+import com.datadog.api.client.v2.model.TimeseriesFormulaQueryRequest;
+import com.datadog.api.client.v2.model.IntakePayloadAccepted;
+import com.datadog.api.client.v2.model.MetricContentEncoding;
+import com.datadog.api.client.v2.model.MetricPayload;
 
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsApi {
   private ApiClient apiClient;
-
   public MetricsApi() {
     this(ApiClient.getDefaultApiClient());
   }
@@ -63,50 +70,46 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics.
-   *
-   * <p>See {@link #createBulkTagsMetricsConfigurationWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return MetricBulkTagConfigResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricBulkTagConfigResponse createBulkTagsMetricsConfiguration(
-      MetricBulkTagConfigCreateRequest body) throws ApiException {
+ * Configure tags for multiple metrics.
+ *
+ * See {@link #createBulkTagsMetricsConfigurationWithHttpInfo}.
+ *
+ * @param body  (required)
+ * @return MetricBulkTagConfigResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricBulkTagConfigResponse  createBulkTagsMetricsConfiguration(MetricBulkTagConfigCreateRequest body) throws ApiException {
     return createBulkTagsMetricsConfigurationWithHttpInfo(body).getData();
   }
 
   /**
-   * Configure tags for multiple metrics.
-   *
-   * <p>See {@link #createBulkTagsMetricsConfigurationWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;MetricBulkTagConfigResponse&gt;
-   */
-  public CompletableFuture<MetricBulkTagConfigResponse> createBulkTagsMetricsConfigurationAsync(
-      MetricBulkTagConfigCreateRequest body) {
-    return createBulkTagsMetricsConfigurationWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Configure tags for multiple metrics.
+ *
+ * See {@link #createBulkTagsMetricsConfigurationWithHttpInfoAsync}.
+ *
+ * @param body  (required)
+ * @return CompletableFuture&lt;MetricBulkTagConfigResponse&gt;
+ */
+  public CompletableFuture<MetricBulkTagConfigResponse>createBulkTagsMetricsConfigurationAsync(MetricBulkTagConfigCreateRequest body) {
+    return createBulkTagsMetricsConfigurationWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and
-   * distribution metrics. Metrics are selected by passing a metric name prefix. Use the Delete
-   * method of this API path to remove tag configurations. Results can be sent to a set of account
-   * email addresses, just like the same operation in the Datadog web app. If multiple calls include
-   * the same metric, the last configuration applied (not by submit order) is used, do not expect
-   * deterministic ordering of concurrent calls. Can only be used with application keys of users
-   * with the <code>Manage Tags for Metrics</code> permission.
+   * <p>Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
+   * Metrics are selected by passing a metric name prefix. Use the Delete method of this API path to remove tag configurations.
+   * Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
+   * If multiple calls include the same metric, the last configuration applied (not by submit order) is used, do not
+   * expect deterministic ordering of concurrent calls.
+   * Can only be used with application keys of users with the <code>Manage Tags for Metrics</code> permission.</p>
    *
-   * @param body (required)
+   * @param body  (required)
    * @return ApiResponse&lt;MetricBulkTagConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -116,142 +119,101 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricBulkTagConfigResponse> createBulkTagsMetricsConfigurationWithHttpInfo(
-      MetricBulkTagConfigCreateRequest body) throws ApiException {
+  public ApiResponse<MetricBulkTagConfigResponse> createBulkTagsMetricsConfigurationWithHttpInfo(MetricBulkTagConfigCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'body' when calling createBulkTagsMetricsConfiguration");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createBulkTagsMetricsConfiguration");
     }
     // create path and map variables
     String localVarPath = "/api/v2/metrics/config/bulk-tags";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.createBulkTagsMetricsConfiguration",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricBulkTagConfigResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.createBulkTagsMetricsConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricBulkTagConfigResponse>() {});
   }
 
   /**
    * Configure tags for multiple metrics.
    *
-   * <p>See {@link #createBulkTagsMetricsConfigurationWithHttpInfo}.
+   * See {@link #createBulkTagsMetricsConfigurationWithHttpInfo}.
    *
-   * @param body (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricBulkTagConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>>
-      createBulkTagsMetricsConfigurationWithHttpInfoAsync(MetricBulkTagConfigCreateRequest body) {
+  public CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> createBulkTagsMetricsConfigurationWithHttpInfoAsync(MetricBulkTagConfigCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling"
-                  + " createBulkTagsMetricsConfiguration"));
-      return result;
+        CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createBulkTagsMetricsConfiguration"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/metrics/config/bulk-tags";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.createBulkTagsMetricsConfiguration",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.createBulkTagsMetricsConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricBulkTagConfigResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricBulkTagConfigResponse>() {});
   }
 
   /**
-   * Create a tag configuration.
-   *
-   * <p>See {@link #createTagConfigurationWithHttpInfo}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @param body (required)
-   * @return MetricTagConfigurationResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricTagConfigurationResponse createTagConfiguration(
-      String metricName, MetricTagConfigurationCreateRequest body) throws ApiException {
+ * Create a tag configuration.
+ *
+ * See {@link #createTagConfigurationWithHttpInfo}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @param body  (required)
+ * @return MetricTagConfigurationResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricTagConfigurationResponse  createTagConfiguration(String metricName, MetricTagConfigurationCreateRequest body) throws ApiException {
     return createTagConfigurationWithHttpInfo(metricName, body).getData();
   }
 
   /**
-   * Create a tag configuration.
-   *
-   * <p>See {@link #createTagConfigurationWithHttpInfoAsync}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;MetricTagConfigurationResponse&gt;
-   */
-  public CompletableFuture<MetricTagConfigurationResponse> createTagConfigurationAsync(
-      String metricName, MetricTagConfigurationCreateRequest body) {
-    return createTagConfigurationWithHttpInfoAsync(metricName, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Create a tag configuration.
+ *
+ * See {@link #createTagConfigurationWithHttpInfoAsync}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;MetricTagConfigurationResponse&gt;
+ */
+  public CompletableFuture<MetricTagConfigurationResponse>createTagConfigurationAsync(String metricName, MetricTagConfigurationCreateRequest body) {
+    return createTagConfigurationWithHttpInfoAsync(metricName, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution
-   * metric. Optionally, include percentile aggregations on any distribution metric or configure
-   * custom aggregations on any count, rate, or gauge metric. Can only be used with application keys
-   * of users with the <code>Manage Tags for Metrics</code> permission.
+   * <p>Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
+   * Optionally, include percentile aggregations on any distribution metric or configure custom aggregations
+   * on any count, rate, or gauge metric.
+   * Can only be used with application keys of users with the <code>Manage Tags for Metrics</code> permission.</p>
    *
    * @param metricName The name of the metric. (required)
-   * @param body (required)
+   * @param body  (required)
    * @return ApiResponse&lt;MetricTagConfigurationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
@@ -261,162 +223,113 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricTagConfigurationResponse> createTagConfigurationWithHttpInfo(
-      String metricName, MetricTagConfigurationCreateRequest body) throws ApiException {
+  public ApiResponse<MetricTagConfigurationResponse> createTagConfigurationWithHttpInfo(String metricName, MetricTagConfigurationCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'metricName' when calling createTagConfiguration");
+      throw new ApiException(400, "Missing the required parameter 'metricName' when calling createTagConfiguration");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createTagConfiguration");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createTagConfiguration");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/tags"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/tags"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.createTagConfiguration",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricTagConfigurationResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.createTagConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricTagConfigurationResponse>() {});
   }
 
   /**
    * Create a tag configuration.
    *
-   * <p>See {@link #createTagConfigurationWithHttpInfo}.
+   * See {@link #createTagConfigurationWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
-   * @param body (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricTagConfigurationResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>>
-      createTagConfigurationWithHttpInfoAsync(
-          String metricName, MetricTagConfigurationCreateRequest body) {
+  public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> createTagConfigurationWithHttpInfoAsync(String metricName, MetricTagConfigurationCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'metricName' when calling createTagConfiguration"));
-      return result;
+        CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'metricName' when calling createTagConfiguration"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createTagConfiguration"));
-      return result;
+        CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling createTagConfiguration"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/tags"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/tags"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.createTagConfiguration",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.createTagConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricTagConfigurationResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricTagConfigurationResponse>() {});
   }
 
   /**
-   * Configure tags for multiple metrics.
-   *
-   * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return MetricBulkTagConfigResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricBulkTagConfigResponse deleteBulkTagsMetricsConfiguration(
-      MetricBulkTagConfigDeleteRequest body) throws ApiException {
+ * Configure tags for multiple metrics.
+ *
+ * See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfo}.
+ *
+ * @param body  (required)
+ * @return MetricBulkTagConfigResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricBulkTagConfigResponse  deleteBulkTagsMetricsConfiguration(MetricBulkTagConfigDeleteRequest body) throws ApiException {
     return deleteBulkTagsMetricsConfigurationWithHttpInfo(body).getData();
   }
 
   /**
-   * Configure tags for multiple metrics.
-   *
-   * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;MetricBulkTagConfigResponse&gt;
-   */
-  public CompletableFuture<MetricBulkTagConfigResponse> deleteBulkTagsMetricsConfigurationAsync(
-      MetricBulkTagConfigDeleteRequest body) {
-    return deleteBulkTagsMetricsConfigurationWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Configure tags for multiple metrics.
+ *
+ * See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfoAsync}.
+ *
+ * @param body  (required)
+ * @return CompletableFuture&lt;MetricBulkTagConfigResponse&gt;
+ */
+  public CompletableFuture<MetricBulkTagConfigResponse>deleteBulkTagsMetricsConfigurationAsync(MetricBulkTagConfigDeleteRequest body) {
+    return deleteBulkTagsMetricsConfigurationWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and
-   * distribution metrics. Metrics are selected by passing a metric name prefix. Results can be sent
-   * to a set of account email addresses, just like the same operation in the Datadog web app. Can
-   * only be used with application keys of users with the <code>Manage Tags for Metrics</code>
-   * permission.
+   * <p>Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
+   * Metrics are selected by passing a metric name prefix.
+   * Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
+   * Can only be used with application keys of users with the <code>Manage Tags for Metrics</code> permission.</p>
    *
-   * @param body (required)
+   * @param body  (required)
    * @return ApiResponse&lt;MetricBulkTagConfigResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
@@ -426,134 +339,95 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricBulkTagConfigResponse> deleteBulkTagsMetricsConfigurationWithHttpInfo(
-      MetricBulkTagConfigDeleteRequest body) throws ApiException {
+  public ApiResponse<MetricBulkTagConfigResponse> deleteBulkTagsMetricsConfigurationWithHttpInfo(MetricBulkTagConfigDeleteRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'body' when calling deleteBulkTagsMetricsConfiguration");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling deleteBulkTagsMetricsConfiguration");
     }
     // create path and map variables
     String localVarPath = "/api/v2/metrics/config/bulk-tags";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.deleteBulkTagsMetricsConfiguration",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricBulkTagConfigResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.deleteBulkTagsMetricsConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricBulkTagConfigResponse>() {});
   }
 
   /**
    * Configure tags for multiple metrics.
    *
-   * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfo}.
+   * See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfo}.
    *
-   * @param body (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricBulkTagConfigResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>>
-      deleteBulkTagsMetricsConfigurationWithHttpInfoAsync(MetricBulkTagConfigDeleteRequest body) {
+  public CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> deleteBulkTagsMetricsConfigurationWithHttpInfoAsync(MetricBulkTagConfigDeleteRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'body' when calling"
-                  + " deleteBulkTagsMetricsConfiguration"));
-      return result;
+        CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling deleteBulkTagsMetricsConfiguration"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/metrics/config/bulk-tags";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.deleteBulkTagsMetricsConfiguration",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.deleteBulkTagsMetricsConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<MetricBulkTagConfigResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricBulkTagConfigResponse>() {});
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricBulkTagConfigResponse>() {});
   }
 
   /**
-   * Delete a tag configuration.
-   *
-   * <p>See {@link #deleteTagConfigurationWithHttpInfo}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void deleteTagConfiguration(String metricName) throws ApiException {
+ * Delete a tag configuration.
+ *
+ * See {@link #deleteTagConfigurationWithHttpInfo}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @throws ApiException if fails to make API call
+ */
+  public  void  deleteTagConfiguration(String metricName) throws ApiException {
     deleteTagConfigurationWithHttpInfo(metricName);
   }
 
   /**
-   * Delete a tag configuration.
-   *
-   * <p>See {@link #deleteTagConfigurationWithHttpInfoAsync}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> deleteTagConfigurationAsync(String metricName) {
-    return deleteTagConfigurationWithHttpInfoAsync(metricName)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Delete a tag configuration.
+ *
+ * See {@link #deleteTagConfigurationWithHttpInfoAsync}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @return CompletableFuture
+ */
+  public CompletableFuture<Void>deleteTagConfigurationAsync(String metricName) {
+    return deleteTagConfigurationWithHttpInfoAsync(metricName).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Deletes a metric's tag configuration. Can only be used with application keys from users with
-   * the <code>Manage Tags for Metrics</code> permission.
+   * <p>Deletes a metric's tag configuration. Can only be used with application
+   * keys from users with the <code>Manage Tags for Metrics</code> permission.</p>
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
@@ -562,100 +436,64 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteTagConfigurationWithHttpInfo(String metricName)
-      throws ApiException {
+  public ApiResponse<Void> deleteTagConfigurationWithHttpInfo(String metricName) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'metricName' when calling deleteTagConfiguration");
+      throw new ApiException(400, "Missing the required parameter 'metricName' when calling deleteTagConfiguration");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/tags"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/tags"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.deleteTagConfiguration",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.deleteTagConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
   /**
    * Delete a tag configuration.
    *
-   * <p>See {@link #deleteTagConfigurationWithHttpInfo}.
+   * See {@link #deleteTagConfigurationWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteTagConfigurationWithHttpInfoAsync(
-      String metricName) {
+  public CompletableFuture<ApiResponse<Void>> deleteTagConfigurationWithHttpInfoAsync(String metricName) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'metricName' when calling deleteTagConfiguration"));
-      return result;
+        CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'metricName' when calling deleteTagConfiguration"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/tags"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/tags"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.deleteTagConfiguration",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.deleteTagConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"*/*" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+    return apiClient.invokeAPIAsync("DELETE", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, null);
   }
 
-  /** Manage optional parameters to estimateMetricsOutputSeries. */
+  /**
+   * Manage optional parameters to estimateMetricsOutputSeries.
+   */
   public static class EstimateMetricsOutputSeriesOptionalParameters {
     private String filterGroups;
     private Integer filterHoursAgo;
@@ -665,7 +503,6 @@ public class MetricsApi {
 
     /**
      * Set filterGroups.
-     *
      * @param filterGroups Filtered tag keys that the metric is configured to query with. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
@@ -676,9 +513,7 @@ public class MetricsApi {
 
     /**
      * Set filterHoursAgo.
-     *
-     * @param filterHoursAgo The number of hours of look back (from now) to estimate cardinality
-     *     with. (optional)
+     * @param filterHoursAgo The number of hours of look back (from now) to estimate cardinality with. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterHoursAgo(Integer filterHoursAgo) {
@@ -688,23 +523,17 @@ public class MetricsApi {
 
     /**
      * Set filterNumAggregations.
-     *
-     * @param filterNumAggregations The number of aggregations that a <code>count</code>, <code>rate
-     *     </code>, or <code>gauge</code> metric is configured to use. Max number of aggregation
-     *     combos is 9. (optional)
+     * @param filterNumAggregations The number of aggregations that a <code>count</code>, <code>rate</code>, or <code>gauge</code> metric is configured to use. Max number of aggregation combos is 9. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
-    public EstimateMetricsOutputSeriesOptionalParameters filterNumAggregations(
-        Integer filterNumAggregations) {
+    public EstimateMetricsOutputSeriesOptionalParameters filterNumAggregations(Integer filterNumAggregations) {
       this.filterNumAggregations = filterNumAggregations;
       return this;
     }
 
     /**
      * Set filterPct.
-     *
-     * @param filterPct A boolean, for distribution metrics only, to estimate cardinality if the
-     *     metric includes additional percentile aggregators. (optional)
+     * @param filterPct A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterPct(Boolean filterPct) {
@@ -714,9 +543,7 @@ public class MetricsApi {
 
     /**
      * Set filterTimespanH.
-     *
-     * @param filterTimespanH A window, in hours, from the look back to estimate cardinality with.
-     *     (optional)
+     * @param filterTimespanH A window, in hours, from the look back to estimate cardinality with. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterTimespanH(Integer filterTimespanH) {
@@ -726,82 +553,71 @@ public class MetricsApi {
   }
 
   /**
-   * Tag Configuration Cardinality Estimator.
-   *
-   * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @return MetricEstimateResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricEstimateResponse estimateMetricsOutputSeries(String metricName) throws ApiException {
-    return estimateMetricsOutputSeriesWithHttpInfo(
-            metricName, new EstimateMetricsOutputSeriesOptionalParameters())
-        .getData();
+ * Tag Configuration Cardinality Estimator.
+ *
+ * See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @return MetricEstimateResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricEstimateResponse estimateMetricsOutputSeries (String metricName) throws ApiException {
+    return estimateMetricsOutputSeriesWithHttpInfo( metricName, new EstimateMetricsOutputSeriesOptionalParameters()).getData();
   }
 
   /**
-   * Tag Configuration Cardinality Estimator.
-   *
-   * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @return CompletableFuture&lt;MetricEstimateResponse&gt;
-   */
-  public CompletableFuture<MetricEstimateResponse> estimateMetricsOutputSeriesAsync(
-      String metricName) {
-    return estimateMetricsOutputSeriesWithHttpInfoAsync(
-            metricName, new EstimateMetricsOutputSeriesOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Tag Configuration Cardinality Estimator.
+ *
+ * See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @return CompletableFuture&lt;MetricEstimateResponse&gt;
+ */
+  public CompletableFuture<MetricEstimateResponse>estimateMetricsOutputSeriesAsync(String metricName) {
+    return estimateMetricsOutputSeriesWithHttpInfoAsync(metricName, new EstimateMetricsOutputSeriesOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Tag Configuration Cardinality Estimator.
-   *
-   * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @param parameters Optional parameters for the request.
-   * @return MetricEstimateResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricEstimateResponse estimateMetricsOutputSeries(
-      String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters)
-      throws ApiException {
+ * Tag Configuration Cardinality Estimator.
+ *
+ * See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @param parameters Optional parameters for the request.
+ * @return MetricEstimateResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricEstimateResponse estimateMetricsOutputSeries(String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters) throws ApiException {
     return estimateMetricsOutputSeriesWithHttpInfo(metricName, parameters).getData();
   }
 
   /**
-   * Tag Configuration Cardinality Estimator.
-   *
-   * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;MetricEstimateResponse&gt;
-   */
-  public CompletableFuture<MetricEstimateResponse> estimateMetricsOutputSeriesAsync(
-      String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters) {
-    return estimateMetricsOutputSeriesWithHttpInfoAsync(metricName, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Tag Configuration Cardinality Estimator.
+ *
+ * See {@link #estimateMetricsOutputSeriesWithHttpInfoAsync}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;MetricEstimateResponse&gt;
+ */
+  public CompletableFuture<MetricEstimateResponse>estimateMetricsOutputSeriesAsync( String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters) {
+    return estimateMetricsOutputSeriesWithHttpInfoAsync(metricName, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Returns the estimated cardinality for a metric with a given tag, percentile and number of
-   * aggregations configuration using Metrics without Limits&trade;.
+   * <p>Returns the estimated cardinality for a metric with a given tag, percentile and number of aggregations configuration using Metrics without Limits&trade;.</p>
    *
    * @param metricName The name of the metric. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricEstimateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
@@ -811,16 +627,12 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricEstimateResponse> estimateMetricsOutputSeriesWithHttpInfo(
-      String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<MetricEstimateResponse> estimateMetricsOutputSeriesWithHttpInfo(String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'metricName' when calling estimateMetricsOutputSeries");
+      throw new ApiException(400, "Missing the required parameter 'metricName' when calling estimateMetricsOutputSeries");
     }
     String filterGroups = parameters.filterGroups;
     Integer filterHoursAgo = parameters.filterHoursAgo;
@@ -828,65 +640,40 @@ public class MetricsApi {
     Boolean filterPct = parameters.filterPct;
     Integer filterTimespanH = parameters.filterTimespanH;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/estimate"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/estimate"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[groups]", filterGroups));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[hours_ago]", filterHoursAgo));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[num_aggregations]", filterNumAggregations));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[num_aggregations]", filterNumAggregations));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[pct]", filterPct));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[timespan_h]", filterTimespanH));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[timespan_h]", filterTimespanH));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.estimateMetricsOutputSeries",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricEstimateResponse>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.estimateMetricsOutputSeries", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricEstimateResponse>() {});
   }
 
   /**
    * Tag Configuration Cardinality Estimator.
    *
-   * <p>See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
+   * See {@link #estimateMetricsOutputSeriesWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MetricEstimateResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MetricEstimateResponse>>
-      estimateMetricsOutputSeriesWithHttpInfoAsync(
-          String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<MetricEstimateResponse>> estimateMetricsOutputSeriesWithHttpInfoAsync(String metricName, EstimateMetricsOutputSeriesOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      CompletableFuture<ApiResponse<MetricEstimateResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'metricName' when calling"
-                  + " estimateMetricsOutputSeries"));
-      return result;
+        CompletableFuture<ApiResponse<MetricEstimateResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'metricName' when calling estimateMetricsOutputSeries"));
+        return result;
     }
     String filterGroups = parameters.filterGroups;
     Integer filterHoursAgo = parameters.filterHoursAgo;
@@ -894,59 +681,39 @@ public class MetricsApi {
     Boolean filterPct = parameters.filterPct;
     Integer filterTimespanH = parameters.filterTimespanH;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/estimate"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/estimate"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[groups]", filterGroups));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[hours_ago]", filterHoursAgo));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[num_aggregations]", filterNumAggregations));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[num_aggregations]", filterNumAggregations));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[pct]", filterPct));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[timespan_h]", filterTimespanH));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[timespan_h]", filterTimespanH));
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.estimateMetricsOutputSeries",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.estimateMetricsOutputSeries", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MetricEstimateResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricEstimateResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricEstimateResponse>() {});
   }
 
-  /** Manage optional parameters to listActiveMetricConfigurations. */
+  /**
+   * Manage optional parameters to listActiveMetricConfigurations.
+   */
   public static class ListActiveMetricConfigurationsOptionalParameters {
     private Long windowSeconds;
 
     /**
      * Set windowSeconds.
-     *
-     * @param windowSeconds The number of seconds of look back (from now). Default value is 604,800
-     *     (1 week), minimum value is 7200 (2 hours), maximum value is 2,630,000 (1 month).
-     *     (optional)
+     * @param windowSeconds The number of seconds of look back (from now). Default value is 604,800 (1 week), minimum value is 7200 (2 hours), maximum value is 2,630,000 (1 month). (optional)
      * @return ListActiveMetricConfigurationsOptionalParameters
      */
     public ListActiveMetricConfigurationsOptionalParameters windowSeconds(Long windowSeconds) {
@@ -956,84 +723,71 @@ public class MetricsApi {
   }
 
   /**
-   * List active tags and aggregations.
-   *
-   * <p>See {@link #listActiveMetricConfigurationsWithHttpInfo}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @return MetricSuggestedTagsAndAggregationsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricSuggestedTagsAndAggregationsResponse listActiveMetricConfigurations(
-      String metricName) throws ApiException {
-    return listActiveMetricConfigurationsWithHttpInfo(
-            metricName, new ListActiveMetricConfigurationsOptionalParameters())
-        .getData();
+ * List active tags and aggregations.
+ *
+ * See {@link #listActiveMetricConfigurationsWithHttpInfo}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @return MetricSuggestedTagsAndAggregationsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricSuggestedTagsAndAggregationsResponse listActiveMetricConfigurations (String metricName) throws ApiException {
+    return listActiveMetricConfigurationsWithHttpInfo( metricName, new ListActiveMetricConfigurationsOptionalParameters()).getData();
   }
 
   /**
-   * List active tags and aggregations.
-   *
-   * <p>See {@link #listActiveMetricConfigurationsWithHttpInfoAsync}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @return CompletableFuture&lt;MetricSuggestedTagsAndAggregationsResponse&gt;
-   */
-  public CompletableFuture<MetricSuggestedTagsAndAggregationsResponse>
-      listActiveMetricConfigurationsAsync(String metricName) {
-    return listActiveMetricConfigurationsWithHttpInfoAsync(
-            metricName, new ListActiveMetricConfigurationsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List active tags and aggregations.
+ *
+ * See {@link #listActiveMetricConfigurationsWithHttpInfoAsync}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @return CompletableFuture&lt;MetricSuggestedTagsAndAggregationsResponse&gt;
+ */
+  public CompletableFuture<MetricSuggestedTagsAndAggregationsResponse>listActiveMetricConfigurationsAsync(String metricName) {
+    return listActiveMetricConfigurationsWithHttpInfoAsync(metricName, new ListActiveMetricConfigurationsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * List active tags and aggregations.
-   *
-   * <p>See {@link #listActiveMetricConfigurationsWithHttpInfo}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @param parameters Optional parameters for the request.
-   * @return MetricSuggestedTagsAndAggregationsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricSuggestedTagsAndAggregationsResponse listActiveMetricConfigurations(
-      String metricName, ListActiveMetricConfigurationsOptionalParameters parameters)
-      throws ApiException {
+ * List active tags and aggregations.
+ *
+ * See {@link #listActiveMetricConfigurationsWithHttpInfo}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @param parameters Optional parameters for the request.
+ * @return MetricSuggestedTagsAndAggregationsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricSuggestedTagsAndAggregationsResponse listActiveMetricConfigurations(String metricName, ListActiveMetricConfigurationsOptionalParameters parameters) throws ApiException {
     return listActiveMetricConfigurationsWithHttpInfo(metricName, parameters).getData();
   }
 
   /**
-   * List active tags and aggregations.
-   *
-   * <p>See {@link #listActiveMetricConfigurationsWithHttpInfoAsync}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;MetricSuggestedTagsAndAggregationsResponse&gt;
-   */
-  public CompletableFuture<MetricSuggestedTagsAndAggregationsResponse>
-      listActiveMetricConfigurationsAsync(
-          String metricName, ListActiveMetricConfigurationsOptionalParameters parameters) {
-    return listActiveMetricConfigurationsWithHttpInfoAsync(metricName, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List active tags and aggregations.
+ *
+ * See {@link #listActiveMetricConfigurationsWithHttpInfoAsync}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;MetricSuggestedTagsAndAggregationsResponse&gt;
+ */
+  public CompletableFuture<MetricSuggestedTagsAndAggregationsResponse>listActiveMetricConfigurationsAsync( String metricName, ListActiveMetricConfigurationsOptionalParameters parameters) {
+    return listActiveMetricConfigurationsWithHttpInfoAsync(metricName, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * List tags and aggregations that are actively queried on dashboards and monitors for a given
-   * metric name.
+   * <p>List tags and aggregations that are actively queried on dashboards and monitors for a given metric name.</p>
    *
    * @param metricName The name of the metric. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricSuggestedTagsAndAggregationsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
@@ -1043,83 +797,52 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricSuggestedTagsAndAggregationsResponse>
-      listActiveMetricConfigurationsWithHttpInfo(
-          String metricName, ListActiveMetricConfigurationsOptionalParameters parameters)
-          throws ApiException {
+  public ApiResponse<MetricSuggestedTagsAndAggregationsResponse> listActiveMetricConfigurationsWithHttpInfo(String metricName, ListActiveMetricConfigurationsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'metricName' when calling"
-              + " listActiveMetricConfigurations");
+      throw new ApiException(400, "Missing the required parameter 'metricName' when calling listActiveMetricConfigurations");
     }
     Long windowSeconds = parameters.windowSeconds;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/active-configurations"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/active-configurations"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.listActiveMetricConfigurations",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricSuggestedTagsAndAggregationsResponse>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.listActiveMetricConfigurations", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricSuggestedTagsAndAggregationsResponse>() {});
   }
 
   /**
    * List active tags and aggregations.
    *
-   * <p>See {@link #listActiveMetricConfigurationsWithHttpInfo}.
+   * See {@link #listActiveMetricConfigurationsWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MetricSuggestedTagsAndAggregationsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MetricSuggestedTagsAndAggregationsResponse>>
-      listActiveMetricConfigurationsWithHttpInfoAsync(
-          String metricName, ListActiveMetricConfigurationsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<MetricSuggestedTagsAndAggregationsResponse>> listActiveMetricConfigurationsWithHttpInfoAsync(String metricName, ListActiveMetricConfigurationsOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      CompletableFuture<ApiResponse<MetricSuggestedTagsAndAggregationsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'metricName' when calling"
-                  + " listActiveMetricConfigurations"));
-      return result;
+        CompletableFuture<ApiResponse<MetricSuggestedTagsAndAggregationsResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'metricName' when calling listActiveMetricConfigurations"));
+        return result;
     }
     Long windowSeconds = parameters.windowSeconds;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/active-configurations"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/active-configurations"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1127,71 +850,51 @@ public class MetricsApi {
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.listActiveMetricConfigurations",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.listActiveMetricConfigurations", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MetricSuggestedTagsAndAggregationsResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<MetricSuggestedTagsAndAggregationsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricSuggestedTagsAndAggregationsResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricSuggestedTagsAndAggregationsResponse>() {});
   }
 
   /**
-   * List tag configuration by name.
-   *
-   * <p>See {@link #listTagConfigurationByNameWithHttpInfo}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @return MetricTagConfigurationResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricTagConfigurationResponse listTagConfigurationByName(String metricName)
-      throws ApiException {
+ * List tag configuration by name.
+ *
+ * See {@link #listTagConfigurationByNameWithHttpInfo}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @return MetricTagConfigurationResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricTagConfigurationResponse  listTagConfigurationByName(String metricName) throws ApiException {
     return listTagConfigurationByNameWithHttpInfo(metricName).getData();
   }
 
   /**
-   * List tag configuration by name.
-   *
-   * <p>See {@link #listTagConfigurationByNameWithHttpInfoAsync}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @return CompletableFuture&lt;MetricTagConfigurationResponse&gt;
-   */
-  public CompletableFuture<MetricTagConfigurationResponse> listTagConfigurationByNameAsync(
-      String metricName) {
-    return listTagConfigurationByNameWithHttpInfoAsync(metricName)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List tag configuration by name.
+ *
+ * See {@link #listTagConfigurationByNameWithHttpInfoAsync}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @return CompletableFuture&lt;MetricTagConfigurationResponse&gt;
+ */
+  public CompletableFuture<MetricTagConfigurationResponse>listTagConfigurationByNameAsync(String metricName) {
+    return listTagConfigurationByNameWithHttpInfoAsync(metricName).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Returns the tag configuration for the given metric name.
+   * <p>Returns the tag configuration for the given metric name.</p>
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;MetricTagConfigurationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
@@ -1200,104 +903,64 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricTagConfigurationResponse> listTagConfigurationByNameWithHttpInfo(
-      String metricName) throws ApiException {
+  public ApiResponse<MetricTagConfigurationResponse> listTagConfigurationByNameWithHttpInfo(String metricName) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      throw new ApiException(
-          400,
-          "Missing the required parameter 'metricName' when calling listTagConfigurationByName");
+      throw new ApiException(400, "Missing the required parameter 'metricName' when calling listTagConfigurationByName");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/tags"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/tags"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.listTagConfigurationByName",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricTagConfigurationResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.listTagConfigurationByName", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricTagConfigurationResponse>() {});
   }
 
   /**
    * List tag configuration by name.
    *
-   * <p>See {@link #listTagConfigurationByNameWithHttpInfo}.
+   * See {@link #listTagConfigurationByNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricTagConfigurationResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>>
-      listTagConfigurationByNameWithHttpInfoAsync(String metricName) {
+  public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> listTagConfigurationByNameWithHttpInfoAsync(String metricName) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'metricName' when calling"
-                  + " listTagConfigurationByName"));
-      return result;
+        CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'metricName' when calling listTagConfigurationByName"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/tags"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/tags"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.listTagConfigurationByName",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.listTagConfigurationByName", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricTagConfigurationResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricTagConfigurationResponse>() {});
   }
 
-  /** Manage optional parameters to listTagConfigurations. */
+  /**
+   * Manage optional parameters to listTagConfigurations.
+   */
   public static class ListTagConfigurationsOptionalParameters {
     private Boolean filterConfigured;
     private String filterTagsConfigured;
@@ -1309,7 +972,6 @@ public class MetricsApi {
 
     /**
      * Set filterConfigured.
-     *
      * @param filterConfigured Filter custom metrics that have configured tags. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
@@ -1320,47 +982,37 @@ public class MetricsApi {
 
     /**
      * Set filterTagsConfigured.
-     *
      * @param filterTagsConfigured Filter tag configurations by configured tags. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
-    public ListTagConfigurationsOptionalParameters filterTagsConfigured(
-        String filterTagsConfigured) {
+    public ListTagConfigurationsOptionalParameters filterTagsConfigured(String filterTagsConfigured) {
       this.filterTagsConfigured = filterTagsConfigured;
       return this;
     }
 
     /**
      * Set filterMetricType.
-     *
      * @param filterMetricType Filter metrics by metric type. (optional, default to "gauge")
      * @return ListTagConfigurationsOptionalParameters
      */
-    public ListTagConfigurationsOptionalParameters filterMetricType(
-        MetricTagConfigurationMetricTypes filterMetricType) {
+    public ListTagConfigurationsOptionalParameters filterMetricType(MetricTagConfigurationMetricTypes filterMetricType) {
       this.filterMetricType = filterMetricType;
       return this;
     }
 
     /**
      * Set filterIncludePercentiles.
-     *
-     * @param filterIncludePercentiles Filter distributions with additional percentile aggregations
-     *     enabled or disabled. (optional)
+     * @param filterIncludePercentiles Filter distributions with additional percentile aggregations enabled or disabled. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
-    public ListTagConfigurationsOptionalParameters filterIncludePercentiles(
-        Boolean filterIncludePercentiles) {
+    public ListTagConfigurationsOptionalParameters filterIncludePercentiles(Boolean filterIncludePercentiles) {
       this.filterIncludePercentiles = filterIncludePercentiles;
       return this;
     }
 
     /**
      * Set filterQueried.
-     *
-     * @param filterQueried Filter custom metrics that have or have not been queried in the
-     *     specified window[seconds]. If no window is provided or the window is less than 2 hours, a
-     *     default of 2 hours will be applied. (optional)
+     * @param filterQueried Filter custom metrics that have or have not been queried in the specified window[seconds]. If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterQueried(Boolean filterQueried) {
@@ -1370,10 +1022,7 @@ public class MetricsApi {
 
     /**
      * Set filterTags.
-     *
-     * @param filterTags Filter metrics that have been submitted with the given tags. Supports
-     *     boolean and wildcard expressions. Can only be combined with the filter[queried] filter.
-     *     (optional)
+     * @param filterTags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Can only be combined with the filter[queried] filter. (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterTags(String filterTags) {
@@ -1383,10 +1032,7 @@ public class MetricsApi {
 
     /**
      * Set windowSeconds.
-     *
-     * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag]
-     *     or filter[queried] query. Defaults value is 3600 (1 hour), maximum value is 1,209,600 (2
-     *     weeks). (optional)
+     * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag] or filter[queried] query. Defaults value is 3600 (1 hour), maximum value is 1,209,600 (2 weeks). (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters windowSeconds(Long windowSeconds) {
@@ -1396,73 +1042,66 @@ public class MetricsApi {
   }
 
   /**
-   * Get a list of metrics.
-   *
-   * <p>See {@link #listTagConfigurationsWithHttpInfo}.
-   *
-   * @return MetricsAndMetricTagConfigurationsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricsAndMetricTagConfigurationsResponse listTagConfigurations() throws ApiException {
-    return listTagConfigurationsWithHttpInfo(new ListTagConfigurationsOptionalParameters())
-        .getData();
+ * Get a list of metrics.
+ *
+ * See {@link #listTagConfigurationsWithHttpInfo}.
+ *
+ * @return MetricsAndMetricTagConfigurationsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricsAndMetricTagConfigurationsResponse listTagConfigurations () throws ApiException {
+    return listTagConfigurationsWithHttpInfo(new ListTagConfigurationsOptionalParameters()).getData();
   }
 
   /**
-   * Get a list of metrics.
-   *
-   * <p>See {@link #listTagConfigurationsWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;MetricsAndMetricTagConfigurationsResponse&gt;
-   */
-  public CompletableFuture<MetricsAndMetricTagConfigurationsResponse> listTagConfigurationsAsync() {
-    return listTagConfigurationsWithHttpInfoAsync(new ListTagConfigurationsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get a list of metrics.
+ *
+ * See {@link #listTagConfigurationsWithHttpInfoAsync}.
+ *
+ * @return CompletableFuture&lt;MetricsAndMetricTagConfigurationsResponse&gt;
+ */
+  public CompletableFuture<MetricsAndMetricTagConfigurationsResponse>listTagConfigurationsAsync() {
+    return listTagConfigurationsWithHttpInfoAsync(new ListTagConfigurationsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Get a list of metrics.
-   *
-   * <p>See {@link #listTagConfigurationsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return MetricsAndMetricTagConfigurationsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricsAndMetricTagConfigurationsResponse listTagConfigurations(
-      ListTagConfigurationsOptionalParameters parameters) throws ApiException {
+ * Get a list of metrics.
+ *
+ * See {@link #listTagConfigurationsWithHttpInfo}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return MetricsAndMetricTagConfigurationsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricsAndMetricTagConfigurationsResponse listTagConfigurations(ListTagConfigurationsOptionalParameters parameters) throws ApiException {
     return listTagConfigurationsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get a list of metrics.
-   *
-   * <p>See {@link #listTagConfigurationsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;MetricsAndMetricTagConfigurationsResponse&gt;
-   */
-  public CompletableFuture<MetricsAndMetricTagConfigurationsResponse> listTagConfigurationsAsync(
-      ListTagConfigurationsOptionalParameters parameters) {
-    return listTagConfigurationsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Get a list of metrics.
+ *
+ * See {@link #listTagConfigurationsWithHttpInfoAsync}.
+ *
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;MetricsAndMetricTagConfigurationsResponse&gt;
+ */
+  public CompletableFuture<MetricsAndMetricTagConfigurationsResponse>listTagConfigurationsAsync(ListTagConfigurationsOptionalParameters parameters) {
+    return listTagConfigurationsWithHttpInfoAsync(parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Returns all metrics that can be configured in the Metrics Summary page or with Metrics without
-   * Limits™ (matching additional filters if specified).
+   * <p>Returns all metrics that can be configured in the Metrics Summary page or with Metrics without Limits™ (matching additional filters if specified).</p>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
@@ -1471,8 +1110,7 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricsAndMetricTagConfigurationsResponse> listTagConfigurationsWithHttpInfo(
-      ListTagConfigurationsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<MetricsAndMetricTagConfigurationsResponse> listTagConfigurationsWithHttpInfo(ListTagConfigurationsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Boolean filterConfigured = parameters.filterConfigured;
     String filterTagsConfigured = parameters.filterTagsConfigured;
@@ -1484,51 +1122,31 @@ public class MetricsApi {
     // create path and map variables
     String localVarPath = "/api/v2/metrics";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[configured]", filterConfigured));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[tags_configured]", filterTagsConfigured));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[metric_type]", filterMetricType));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[include_percentiles]", filterIncludePercentiles));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[configured]", filterConfigured));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags_configured]", filterTagsConfigured));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric_type]", filterMetricType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[include_percentiles]", filterIncludePercentiles));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[queried]", filterQueried));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.listTagConfigurations",
-            localVarPath,
-            localVarQueryParams,
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricsAndMetricTagConfigurationsResponse>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.listTagConfigurations", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricsAndMetricTagConfigurationsResponse>() {});
   }
 
   /**
    * Get a list of metrics.
    *
-   * <p>See {@link #listTagConfigurationsWithHttpInfo}.
+   * See {@link #listTagConfigurationsWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MetricsAndMetricTagConfigurationsResponse>>
-      listTagConfigurationsWithHttpInfoAsync(ListTagConfigurationsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<MetricsAndMetricTagConfigurationsResponse>> listTagConfigurationsWithHttpInfoAsync(ListTagConfigurationsOptionalParameters parameters) {
     Object localVarPostBody = null;
     Boolean filterConfigured = parameters.filterConfigured;
     String filterTagsConfigured = parameters.filterTagsConfigured;
@@ -1540,86 +1158,65 @@ public class MetricsApi {
     // create path and map variables
     String localVarPath = "/api/v2/metrics";
 
+    
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[configured]", filterConfigured));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[tags_configured]", filterTagsConfigured));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[metric_type]", filterMetricType));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[include_percentiles]", filterIncludePercentiles));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[configured]", filterConfigured));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags_configured]", filterTagsConfigured));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[metric_type]", filterMetricType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[include_percentiles]", filterIncludePercentiles));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[queried]", filterQueried));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.listTagConfigurations",
-              localVarPath,
-              localVarQueryParams,
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.listTagConfigurations", localVarPath, localVarQueryParams, localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MetricsAndMetricTagConfigurationsResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<MetricsAndMetricTagConfigurationsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricsAndMetricTagConfigurationsResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricsAndMetricTagConfigurationsResponse>() {});
   }
 
   /**
-   * List tags by metric name.
-   *
-   * <p>See {@link #listTagsByMetricNameWithHttpInfo}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @return MetricAllTagsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricAllTagsResponse listTagsByMetricName(String metricName) throws ApiException {
+ * List tags by metric name.
+ *
+ * See {@link #listTagsByMetricNameWithHttpInfo}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @return MetricAllTagsResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricAllTagsResponse  listTagsByMetricName(String metricName) throws ApiException {
     return listTagsByMetricNameWithHttpInfo(metricName).getData();
   }
 
   /**
-   * List tags by metric name.
-   *
-   * <p>See {@link #listTagsByMetricNameWithHttpInfoAsync}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @return CompletableFuture&lt;MetricAllTagsResponse&gt;
-   */
-  public CompletableFuture<MetricAllTagsResponse> listTagsByMetricNameAsync(String metricName) {
-    return listTagsByMetricNameWithHttpInfoAsync(metricName)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List tags by metric name.
+ *
+ * See {@link #listTagsByMetricNameWithHttpInfoAsync}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @return CompletableFuture&lt;MetricAllTagsResponse&gt;
+ */
+  public CompletableFuture<MetricAllTagsResponse>listTagsByMetricNameAsync(String metricName) {
+    return listTagsByMetricNameWithHttpInfoAsync(metricName).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * View indexed tag key-value pairs for a given metric name.
+   * <p>View indexed tag key-value pairs for a given metric name.</p>
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;MetricAllTagsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
@@ -1629,139 +1226,98 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricAllTagsResponse> listTagsByMetricNameWithHttpInfo(String metricName)
-      throws ApiException {
+  public ApiResponse<MetricAllTagsResponse> listTagsByMetricNameWithHttpInfo(String metricName) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'metricName' when calling listTagsByMetricName");
+      throw new ApiException(400, "Missing the required parameter 'metricName' when calling listTagsByMetricName");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/all-tags"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/all-tags"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.listTagsByMetricName",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricAllTagsResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.listTagsByMetricName", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricAllTagsResponse>() {});
   }
 
   /**
    * List tags by metric name.
    *
-   * <p>See {@link #listTagsByMetricNameWithHttpInfo}.
+   * See {@link #listTagsByMetricNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricAllTagsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MetricAllTagsResponse>>
-      listTagsByMetricNameWithHttpInfoAsync(String metricName) {
+  public CompletableFuture<ApiResponse<MetricAllTagsResponse>> listTagsByMetricNameWithHttpInfoAsync(String metricName) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      CompletableFuture<ApiResponse<MetricAllTagsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'metricName' when calling listTagsByMetricName"));
-      return result;
+        CompletableFuture<ApiResponse<MetricAllTagsResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'metricName' when calling listTagsByMetricName"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/all-tags"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/all-tags"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.listTagsByMetricName",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.listTagsByMetricName", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MetricAllTagsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricAllTagsResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricAllTagsResponse>() {});
   }
 
   /**
-   * List distinct metric volumes by metric name.
-   *
-   * <p>See {@link #listVolumesByMetricNameWithHttpInfo}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @return MetricVolumesResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricVolumesResponse listVolumesByMetricName(String metricName) throws ApiException {
+ * List distinct metric volumes by metric name.
+ *
+ * See {@link #listVolumesByMetricNameWithHttpInfo}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @return MetricVolumesResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricVolumesResponse  listVolumesByMetricName(String metricName) throws ApiException {
     return listVolumesByMetricNameWithHttpInfo(metricName).getData();
   }
 
   /**
-   * List distinct metric volumes by metric name.
-   *
-   * <p>See {@link #listVolumesByMetricNameWithHttpInfoAsync}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @return CompletableFuture&lt;MetricVolumesResponse&gt;
-   */
-  public CompletableFuture<MetricVolumesResponse> listVolumesByMetricNameAsync(String metricName) {
-    return listVolumesByMetricNameWithHttpInfoAsync(metricName)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * List distinct metric volumes by metric name.
+ *
+ * See {@link #listVolumesByMetricNameWithHttpInfoAsync}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @return CompletableFuture&lt;MetricVolumesResponse&gt;
+ */
+  public CompletableFuture<MetricVolumesResponse>listVolumesByMetricNameAsync(String metricName) {
+    return listVolumesByMetricNameWithHttpInfoAsync(metricName).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * View distinct metrics volumes for the given metric name.
-   *
-   * <p>Custom metrics generated in-app from other products will return <code>null</code> for
-   * ingested volumes.
+   * <p>View distinct metrics volumes for the given metric name.</p>
+   * <p>Custom metrics generated in-app from other products will return <code>null</code> for ingested volumes.</p>
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;MetricVolumesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
@@ -1771,139 +1327,99 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricVolumesResponse> listVolumesByMetricNameWithHttpInfo(String metricName)
-      throws ApiException {
+  public ApiResponse<MetricVolumesResponse> listVolumesByMetricNameWithHttpInfo(String metricName) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'metricName' when calling listVolumesByMetricName");
+      throw new ApiException(400, "Missing the required parameter 'metricName' when calling listVolumesByMetricName");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/volumes"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/volumes"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.listVolumesByMetricName",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricVolumesResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.listVolumesByMetricName", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricVolumesResponse>() {});
   }
 
   /**
    * List distinct metric volumes by metric name.
    *
-   * <p>See {@link #listVolumesByMetricNameWithHttpInfo}.
+   * See {@link #listVolumesByMetricNameWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricVolumesResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MetricVolumesResponse>>
-      listVolumesByMetricNameWithHttpInfoAsync(String metricName) {
+  public CompletableFuture<ApiResponse<MetricVolumesResponse>> listVolumesByMetricNameWithHttpInfoAsync(String metricName) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      CompletableFuture<ApiResponse<MetricVolumesResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'metricName' when calling listVolumesByMetricName"));
-      return result;
+        CompletableFuture<ApiResponse<MetricVolumesResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'metricName' when calling listVolumesByMetricName"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/volumes"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/volumes"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.listVolumesByMetricName",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.listVolumesByMetricName", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MetricVolumesResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricVolumesResponse>() {});
+    return apiClient.invokeAPIAsync("GET", builder, localVarHeaderParams,  new String[] { }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricVolumesResponse>() {});
   }
 
   /**
-   * Query scalar data across multiple products.
-   *
-   * <p>See {@link #queryScalarDataWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return ScalarFormulaQueryResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ScalarFormulaQueryResponse queryScalarData(ScalarFormulaQueryRequest body)
-      throws ApiException {
+ * Query scalar data across multiple products.
+ *
+ * See {@link #queryScalarDataWithHttpInfo}.
+ *
+ * @param body  (required)
+ * @return ScalarFormulaQueryResponse
+ * @throws ApiException if fails to make API call
+ */
+  public ScalarFormulaQueryResponse  queryScalarData(ScalarFormulaQueryRequest body) throws ApiException {
     return queryScalarDataWithHttpInfo(body).getData();
   }
 
   /**
-   * Query scalar data across multiple products.
-   *
-   * <p>See {@link #queryScalarDataWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;ScalarFormulaQueryResponse&gt;
-   */
-  public CompletableFuture<ScalarFormulaQueryResponse> queryScalarDataAsync(
-      ScalarFormulaQueryRequest body) {
-    return queryScalarDataWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Query scalar data across multiple products.
+ *
+ * See {@link #queryScalarDataWithHttpInfoAsync}.
+ *
+ * @param body  (required)
+ * @return CompletableFuture&lt;ScalarFormulaQueryResponse&gt;
+ */
+  public CompletableFuture<ScalarFormulaQueryResponse>queryScalarDataAsync(ScalarFormulaQueryRequest body) {
+    return queryScalarDataWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Query scalar values (as seen on Query Value, Table and Toplist widgets). Multiple data sources
-   * are supported with the ability to process the data using formulas and functions.
+   * <p>Query scalar values (as seen on Query Value, Table and Toplist widgets).
+   * Multiple data sources are supported with the ability to
+   * process the data using formulas and functions.</p>
    *
-   * @param body (required)
+   * @param body  (required)
    * @return ApiResponse&lt;ScalarFormulaQueryResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -1913,8 +1429,7 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ScalarFormulaQueryResponse> queryScalarDataWithHttpInfo(
-      ScalarFormulaQueryRequest body) throws ApiException {
+  public ApiResponse<ScalarFormulaQueryResponse> queryScalarDataWithHttpInfo(ScalarFormulaQueryRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "queryScalarData";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1926,136 +1441,100 @@ public class MetricsApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling queryScalarData");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling queryScalarData");
     }
     // create path and map variables
     String localVarPath = "/api/v2/query/scalar";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.queryScalarData",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ScalarFormulaQueryResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.queryScalarData", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ScalarFormulaQueryResponse>() {});
   }
 
   /**
    * Query scalar data across multiple products.
    *
-   * <p>See {@link #queryScalarDataWithHttpInfo}.
+   * See {@link #queryScalarDataWithHttpInfo}.
    *
-   * @param body (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ScalarFormulaQueryResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ScalarFormulaQueryResponse>>
-      queryScalarDataWithHttpInfoAsync(ScalarFormulaQueryRequest body) {
+  public CompletableFuture<ApiResponse<ScalarFormulaQueryResponse>> queryScalarDataWithHttpInfoAsync(ScalarFormulaQueryRequest body) {
     // Check if unstable operation is enabled
     String operationId = "queryScalarData";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
       CompletableFuture<ApiResponse<ScalarFormulaQueryResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<ScalarFormulaQueryResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling queryScalarData"));
-      return result;
+        CompletableFuture<ApiResponse<ScalarFormulaQueryResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling queryScalarData"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/query/scalar";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.queryScalarData",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.queryScalarData", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ScalarFormulaQueryResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<ScalarFormulaQueryResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<ScalarFormulaQueryResponse>() {});
   }
 
   /**
-   * Query timeseries data across multiple products.
-   *
-   * <p>See {@link #queryTimeseriesDataWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return TimeseriesFormulaQueryResponse
-   * @throws ApiException if fails to make API call
-   */
-  public TimeseriesFormulaQueryResponse queryTimeseriesData(TimeseriesFormulaQueryRequest body)
-      throws ApiException {
+ * Query timeseries data across multiple products.
+ *
+ * See {@link #queryTimeseriesDataWithHttpInfo}.
+ *
+ * @param body  (required)
+ * @return TimeseriesFormulaQueryResponse
+ * @throws ApiException if fails to make API call
+ */
+  public TimeseriesFormulaQueryResponse  queryTimeseriesData(TimeseriesFormulaQueryRequest body) throws ApiException {
     return queryTimeseriesDataWithHttpInfo(body).getData();
   }
 
   /**
-   * Query timeseries data across multiple products.
-   *
-   * <p>See {@link #queryTimeseriesDataWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;TimeseriesFormulaQueryResponse&gt;
-   */
-  public CompletableFuture<TimeseriesFormulaQueryResponse> queryTimeseriesDataAsync(
-      TimeseriesFormulaQueryRequest body) {
-    return queryTimeseriesDataWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Query timeseries data across multiple products.
+ *
+ * See {@link #queryTimeseriesDataWithHttpInfoAsync}.
+ *
+ * @param body  (required)
+ * @return CompletableFuture&lt;TimeseriesFormulaQueryResponse&gt;
+ */
+  public CompletableFuture<TimeseriesFormulaQueryResponse>queryTimeseriesDataAsync(TimeseriesFormulaQueryRequest body) {
+    return queryTimeseriesDataWithHttpInfoAsync(body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Query timeseries data across various data sources and process the data by applying formulas and
-   * functions.
+   * <p>Query timeseries data across various data sources and
+   * process the data by applying formulas and functions.</p>
    *
-   * @param body (required)
+   * @param body  (required)
    * @return ApiResponse&lt;TimeseriesFormulaQueryResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2065,8 +1544,7 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<TimeseriesFormulaQueryResponse> queryTimeseriesDataWithHttpInfo(
-      TimeseriesFormulaQueryRequest body) throws ApiException {
+  public ApiResponse<TimeseriesFormulaQueryResponse> queryTimeseriesDataWithHttpInfo(TimeseriesFormulaQueryRequest body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "queryTimeseriesData";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -2078,108 +1556,72 @@ public class MetricsApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling queryTimeseriesData");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling queryTimeseriesData");
     }
     // create path and map variables
     String localVarPath = "/api/v2/query/timeseries";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.queryTimeseriesData",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<TimeseriesFormulaQueryResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.queryTimeseriesData", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<TimeseriesFormulaQueryResponse>() {});
   }
 
   /**
    * Query timeseries data across multiple products.
    *
-   * <p>See {@link #queryTimeseriesDataWithHttpInfo}.
+   * See {@link #queryTimeseriesDataWithHttpInfo}.
    *
-   * @param body (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;TimeseriesFormulaQueryResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>>
-      queryTimeseriesDataWithHttpInfoAsync(TimeseriesFormulaQueryRequest body) {
+  public CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>> queryTimeseriesDataWithHttpInfoAsync(TimeseriesFormulaQueryRequest body) {
     // Check if unstable operation is enabled
     String operationId = "queryTimeseriesData";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
     }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling queryTimeseriesData"));
-      return result;
+        CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling queryTimeseriesData"));
+        return result;
     }
     // create path and map variables
     String localVarPath = "/api/v2/query/timeseries";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.queryTimeseriesData",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.queryTimeseriesData", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "AuthZ", "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<TimeseriesFormulaQueryResponse>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<TimeseriesFormulaQueryResponse>() {});
   }
 
-  /** Manage optional parameters to submitMetrics. */
+  /**
+   * Manage optional parameters to submitMetrics.
+   */
   public static class SubmitMetricsOptionalParameters {
     private MetricContentEncoding contentEncoding;
 
     /**
      * Set contentEncoding.
-     *
-     * @param contentEncoding HTTP header used to compress the media-type. (optional, default to
-     *     "deflate")
+     * @param contentEncoding HTTP header used to compress the media-type. (optional, default to "deflate")
      * @return SubmitMetricsOptionalParameters
      */
     public SubmitMetricsOptionalParameters contentEncoding(MetricContentEncoding contentEncoding) {
@@ -2189,90 +1631,81 @@ public class MetricsApi {
   }
 
   /**
-   * Submit metrics.
-   *
-   * <p>See {@link #submitMetricsWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return IntakePayloadAccepted
-   * @throws ApiException if fails to make API call
-   */
-  public IntakePayloadAccepted submitMetrics(MetricPayload body) throws ApiException {
-    return submitMetricsWithHttpInfo(body, new SubmitMetricsOptionalParameters()).getData();
+ * Submit metrics.
+ *
+ * See {@link #submitMetricsWithHttpInfo}.
+ *
+ * @param body  (required)
+ * @return IntakePayloadAccepted
+ * @throws ApiException if fails to make API call
+ */
+  public IntakePayloadAccepted submitMetrics (MetricPayload body) throws ApiException {
+    return submitMetricsWithHttpInfo( body, new SubmitMetricsOptionalParameters()).getData();
   }
 
   /**
-   * Submit metrics.
-   *
-   * <p>See {@link #submitMetricsWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
-   */
-  public CompletableFuture<IntakePayloadAccepted> submitMetricsAsync(MetricPayload body) {
-    return submitMetricsWithHttpInfoAsync(body, new SubmitMetricsOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Submit metrics.
+ *
+ * See {@link #submitMetricsWithHttpInfoAsync}.
+ *
+ * @param body  (required)
+ * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
+ */
+  public CompletableFuture<IntakePayloadAccepted>submitMetricsAsync(MetricPayload body) {
+    return submitMetricsWithHttpInfoAsync(body, new SubmitMetricsOptionalParameters()).thenApply(response -> {
+        return response.getData();
+    });
   }
 
   /**
-   * Submit metrics.
-   *
-   * <p>See {@link #submitMetricsWithHttpInfo}.
-   *
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return IntakePayloadAccepted
-   * @throws ApiException if fails to make API call
-   */
-  public IntakePayloadAccepted submitMetrics(
-      MetricPayload body, SubmitMetricsOptionalParameters parameters) throws ApiException {
+ * Submit metrics.
+ *
+ * See {@link #submitMetricsWithHttpInfo}.
+ *
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return IntakePayloadAccepted
+ * @throws ApiException if fails to make API call
+ */
+  public IntakePayloadAccepted submitMetrics(MetricPayload body, SubmitMetricsOptionalParameters parameters) throws ApiException {
     return submitMetricsWithHttpInfo(body, parameters).getData();
   }
 
   /**
-   * Submit metrics.
-   *
-   * <p>See {@link #submitMetricsWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
-   */
-  public CompletableFuture<IntakePayloadAccepted> submitMetricsAsync(
-      MetricPayload body, SubmitMetricsOptionalParameters parameters) {
-    return submitMetricsWithHttpInfoAsync(body, parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Submit metrics.
+ *
+ * See {@link #submitMetricsWithHttpInfoAsync}.
+ *
+ * @param body  (required)
+ * @param parameters Optional parameters for the request.
+ * @return CompletableFuture&lt;IntakePayloadAccepted&gt;
+ */
+  public CompletableFuture<IntakePayloadAccepted>submitMetricsAsync( MetricPayload body, SubmitMetricsOptionalParameters parameters) {
+    return submitMetricsWithHttpInfoAsync(body, parameters).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s
-   * dashboards. The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads must
-   * have a decompressed size of less than 5 megabytes (5242880 bytes).
-   *
-   * <p>If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
-   *
+   * <p>The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
+   * The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads must have a decompressed size of less than 5 megabytes (5242880 bytes).</p>
+   * <p>If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:</p>
    * <ul>
-   *   <li>64 bits for the timestamp
-   *   <li>64 bits for the value
-   *   <li>20 bytes for the metric names
-   *   <li>50 bytes for the timeseries
-   *   <li>The full payload is approximately 100 bytes.
+   * <li>64 bits for the timestamp</li>
+   * <li>64 bits for the value</li>
+   * <li>20 bytes for the metric names</li>
+   * <li>50 bytes for the timeseries</li>
+   * <li>The full payload is approximately 100 bytes.</li>
    * </ul>
+   * <p>Host name is one of the resources in the Resources field.</p>
    *
-   * <p>Host name is one of the resources in the Resources field.
-   *
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;IntakePayloadAccepted&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
@@ -2283,145 +1716,105 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<IntakePayloadAccepted> submitMetricsWithHttpInfo(
-      MetricPayload body, SubmitMetricsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<IntakePayloadAccepted> submitMetricsWithHttpInfo(MetricPayload body, SubmitMetricsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling submitMetrics");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling submitMetrics");
     }
     MetricContentEncoding contentEncoding = parameters.contentEncoding;
     // create path and map variables
     String localVarPath = "/api/v2/series";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    if (contentEncoding != null)
-      localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+      if (contentEncoding != null) localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.submitMetrics",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<IntakePayloadAccepted>() {});
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.submitMetrics", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth" });
+    return apiClient.invokeAPI("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<IntakePayloadAccepted>() {});
   }
 
   /**
    * Submit metrics.
    *
-   * <p>See {@link #submitMetricsWithHttpInfo}.
+   * See {@link #submitMetricsWithHttpInfo}.
    *
-   * @param body (required)
+   * @param body  (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;IntakePayloadAccepted&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<IntakePayloadAccepted>> submitMetricsWithHttpInfoAsync(
-      MetricPayload body, SubmitMetricsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<IntakePayloadAccepted>> submitMetricsWithHttpInfoAsync(MetricPayload body, SubmitMetricsOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<IntakePayloadAccepted>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling submitMetrics"));
-      return result;
+        CompletableFuture<ApiResponse<IntakePayloadAccepted>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling submitMetrics"));
+        return result;
     }
     MetricContentEncoding contentEncoding = parameters.contentEncoding;
     // create path and map variables
     String localVarPath = "/api/v2/series";
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    if (contentEncoding != null)
-      localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+      if (contentEncoding != null) localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.submitMetrics",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.submitMetrics", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth" });
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<IntakePayloadAccepted>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<IntakePayloadAccepted>() {});
+    return apiClient.invokeAPIAsync("POST", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<IntakePayloadAccepted>() {});
   }
 
   /**
-   * Update a tag configuration.
-   *
-   * <p>See {@link #updateTagConfigurationWithHttpInfo}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @param body (required)
-   * @return MetricTagConfigurationResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MetricTagConfigurationResponse updateTagConfiguration(
-      String metricName, MetricTagConfigurationUpdateRequest body) throws ApiException {
+ * Update a tag configuration.
+ *
+ * See {@link #updateTagConfigurationWithHttpInfo}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @param body  (required)
+ * @return MetricTagConfigurationResponse
+ * @throws ApiException if fails to make API call
+ */
+  public MetricTagConfigurationResponse  updateTagConfiguration(String metricName, MetricTagConfigurationUpdateRequest body) throws ApiException {
     return updateTagConfigurationWithHttpInfo(metricName, body).getData();
   }
 
   /**
-   * Update a tag configuration.
-   *
-   * <p>See {@link #updateTagConfigurationWithHttpInfoAsync}.
-   *
-   * @param metricName The name of the metric. (required)
-   * @param body (required)
-   * @return CompletableFuture&lt;MetricTagConfigurationResponse&gt;
-   */
-  public CompletableFuture<MetricTagConfigurationResponse> updateTagConfigurationAsync(
-      String metricName, MetricTagConfigurationUpdateRequest body) {
-    return updateTagConfigurationWithHttpInfoAsync(metricName, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
+ * Update a tag configuration.
+ *
+ * See {@link #updateTagConfigurationWithHttpInfoAsync}.
+ *
+ * @param metricName The name of the metric. (required)
+ * @param body  (required)
+ * @return CompletableFuture&lt;MetricTagConfigurationResponse&gt;
+ */
+  public CompletableFuture<MetricTagConfigurationResponse>updateTagConfigurationAsync(String metricName, MetricTagConfigurationUpdateRequest body) {
+    return updateTagConfigurationWithHttpInfoAsync(metricName, body).thenApply(response -> {
+        return response.getData();
+    });
   }
 
+
   /**
-   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or
-   * custom aggregations of a count, rate, or gauge metric. Can only be used with application keys
-   * from users with the <code>Manage Tags for Metrics</code> permission.
+   * <p>Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations
+   * of a count, rate, or gauge metric.
+   * Can only be used with application keys from users with the <code>Manage Tags for Metrics</code> permission.</p>
    *
    * @param metricName The name of the metric. (required)
-   * @param body (required)
+   * @param body  (required)
    * @return ApiResponse&lt;MetricTagConfigurationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
-   *     <table border="1">
+   * <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
@@ -2431,116 +1824,71 @@ public class MetricsApi {
    *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MetricTagConfigurationResponse> updateTagConfigurationWithHttpInfo(
-      String metricName, MetricTagConfigurationUpdateRequest body) throws ApiException {
+  public ApiResponse<MetricTagConfigurationResponse> updateTagConfigurationWithHttpInfo(String metricName, MetricTagConfigurationUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'metricName' when calling updateTagConfiguration");
+      throw new ApiException(400, "Missing the required parameter 'metricName' when calling updateTagConfiguration");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateTagConfiguration");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling updateTagConfiguration");
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/tags"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/tags"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MetricsApi.updateTagConfiguration",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricTagConfigurationResponse>() {});
+
+    Invocation.Builder builder = apiClient.createBuilder("v2.MetricsApi.updateTagConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
+    return apiClient.invokeAPI("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricTagConfigurationResponse>() {});
   }
 
   /**
    * Update a tag configuration.
    *
-   * <p>See {@link #updateTagConfigurationWithHttpInfo}.
+   * See {@link #updateTagConfigurationWithHttpInfo}.
    *
    * @param metricName The name of the metric. (required)
-   * @param body (required)
+   * @param body  (required)
    * @return CompletableFuture&lt;ApiResponse&lt;MetricTagConfigurationResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>>
-      updateTagConfigurationWithHttpInfoAsync(
-          String metricName, MetricTagConfigurationUpdateRequest body) {
+  public CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> updateTagConfigurationWithHttpInfoAsync(String metricName, MetricTagConfigurationUpdateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'metricName' is set
     if (metricName == null) {
-      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'metricName' when calling updateTagConfiguration"));
-      return result;
+        CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'metricName' when calling updateTagConfiguration"));
+        return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateTagConfiguration"));
-      return result;
+        CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result = new CompletableFuture<>();
+        result.completeExceptionally(new ApiException(400, "Missing the required parameter 'body' when calling updateTagConfiguration"));
+        return result;
     }
     // create path and map variables
-    String localVarPath =
-        "/api/v2/metrics/{metric_name}/tags"
-            .replaceAll(
-                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+    String localVarPath = "/api/v2/metrics/{metric_name}/tags"
+      .replaceAll("\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
 
+    
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
 
     Invocation.Builder builder;
     try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MetricsApi.updateTagConfiguration",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+      builder = apiClient.createBuilder("v2.MetricsApi.updateTagConfiguration", localVarPath, new ArrayList<Pair>(), localVarHeaderParams, new HashMap<String, String>(), new String[] {"application/json" }, new String[] { "apiKeyAuth", "appKeyAuth" });
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result =
-          new CompletableFuture<>();
+      CompletableFuture<ApiResponse<MetricTagConfigurationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MetricTagConfigurationResponse>() {});
+    return apiClient.invokeAPIAsync("PATCH", builder, localVarHeaderParams,  new String[] {"application/json" }, localVarPostBody,new HashMap<String, Object>() , false, new GenericType<MetricTagConfigurationResponse>() {});
   }
 }

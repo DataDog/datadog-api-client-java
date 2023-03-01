@@ -6,20 +6,41 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Response containing information about multiple roles. */
-@JsonPropertyOrder({RolesResponse.JSON_PROPERTY_DATA, RolesResponse.JSON_PROPERTY_META})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Response containing information about multiple roles.</p>
+ */
+@JsonPropertyOrder({
+  RolesResponse.JSON_PROPERTY_DATA,
+  RolesResponse.JSON_PROPERTY_META
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RolesResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<Role> data = null;
 
@@ -33,7 +54,6 @@ public class RolesResponse {
     }
     return this;
   }
-
   public RolesResponse addDataItem(Role dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
@@ -44,21 +64,19 @@ public class RolesResponse {
   }
 
   /**
-   * Array of returned roles.
-   *
+   * <p>Array of returned roles.</p>
    * @return data
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Role> getData() {
-    return data;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<Role> getData() {
+        return data;
+      }
   public void setData(List<Role> data) {
     this.data = data;
   }
-
   public RolesResponse meta(ResponseMetaAttributes meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -66,22 +84,23 @@ public class RolesResponse {
   }
 
   /**
-   * Object describing meta attributes of response.
-   *
+   * <p>Object describing meta attributes of response.</p>
    * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ResponseMetaAttributes getMeta() {
-    return meta;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_META)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ResponseMetaAttributes getMeta() {
+        return meta;
+      }
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
   }
 
-  /** Return true if this RolesResponse object is equal to o. */
+  /**
+   * Return true if this RolesResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,13 +110,13 @@ public class RolesResponse {
       return false;
     }
     RolesResponse rolesResponse = (RolesResponse) o;
-    return Objects.equals(this.data, rolesResponse.data)
-        && Objects.equals(this.meta, rolesResponse.meta);
+    return Objects.equals(this.data, rolesResponse.data) && Objects.equals(this.meta, rolesResponse.meta);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta);
+    return Objects.hash(data,meta);
   }
 
   @Override
@@ -111,7 +130,8 @@ public class RolesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

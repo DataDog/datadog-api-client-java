@@ -6,59 +6,71 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** How to generate compliance signals. Useful for cloud_configuration rules only. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>How to generate compliance signals. Useful for cloud_configuration rules only.</p>
+ */
 @JsonPropertyOrder({
   CloudConfigurationRuleComplianceSignalOptions.JSON_PROPERTY_USER_ACTIVATION_STATUS,
   CloudConfigurationRuleComplianceSignalOptions.JSON_PROPERTY_USER_GROUP_BY_FIELDS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudConfigurationRuleComplianceSignalOptions {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_USER_ACTIVATION_STATUS = "userActivationStatus";
   private Boolean userActivationStatus;
 
   public static final String JSON_PROPERTY_USER_GROUP_BY_FIELDS = "userGroupByFields";
   private List<String> userGroupByFields = null;
 
-  public CloudConfigurationRuleComplianceSignalOptions userActivationStatus(
-      Boolean userActivationStatus) {
+  public CloudConfigurationRuleComplianceSignalOptions userActivationStatus(Boolean userActivationStatus) {
     this.userActivationStatus = userActivationStatus;
     return this;
   }
 
   /**
-   * Whether signals will be sent.
-   *
+   * <p>Whether signals will be sent.</p>
    * @return userActivationStatus
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_ACTIVATION_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getUserActivationStatus() {
-    return userActivationStatus;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USER_ACTIVATION_STATUS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getUserActivationStatus() {
+        return userActivationStatus;
+      }
   public void setUserActivationStatus(Boolean userActivationStatus) {
     this.userActivationStatus = userActivationStatus;
   }
-
-  public CloudConfigurationRuleComplianceSignalOptions userGroupByFields(
-      List<String> userGroupByFields) {
+  public CloudConfigurationRuleComplianceSignalOptions userGroupByFields(List<String> userGroupByFields) {
     this.userGroupByFields = userGroupByFields;
     return this;
   }
-
-  public CloudConfigurationRuleComplianceSignalOptions addUserGroupByFieldsItem(
-      String userGroupByFieldsItem) {
+  public CloudConfigurationRuleComplianceSignalOptions addUserGroupByFieldsItem(String userGroupByFieldsItem) {
     if (this.userGroupByFields == null) {
       this.userGroupByFields = new ArrayList<>();
     }
@@ -67,22 +79,23 @@ public class CloudConfigurationRuleComplianceSignalOptions {
   }
 
   /**
-   * Fields to use to group findings by when sending signals.
-   *
+   * <p>Fields to use to group findings by when sending signals.</p>
    * @return userGroupByFields
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER_GROUP_BY_FIELDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getUserGroupByFields() {
-    return userGroupByFields;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_USER_GROUP_BY_FIELDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getUserGroupByFields() {
+        return userGroupByFields;
+      }
   public void setUserGroupByFields(List<String> userGroupByFields) {
     this.userGroupByFields = userGroupByFields;
   }
 
-  /** Return true if this CloudConfigurationRuleComplianceSignalOptions object is equal to o. */
+  /**
+   * Return true if this CloudConfigurationRuleComplianceSignalOptions object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,35 +104,29 @@ public class CloudConfigurationRuleComplianceSignalOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudConfigurationRuleComplianceSignalOptions cloudConfigurationRuleComplianceSignalOptions =
-        (CloudConfigurationRuleComplianceSignalOptions) o;
-    return Objects.equals(
-            this.userActivationStatus,
-            cloudConfigurationRuleComplianceSignalOptions.userActivationStatus)
-        && Objects.equals(
-            this.userGroupByFields,
-            cloudConfigurationRuleComplianceSignalOptions.userGroupByFields);
+    CloudConfigurationRuleComplianceSignalOptions cloudConfigurationRuleComplianceSignalOptions = (CloudConfigurationRuleComplianceSignalOptions) o;
+    return Objects.equals(this.userActivationStatus, cloudConfigurationRuleComplianceSignalOptions.userActivationStatus) && Objects.equals(this.userGroupByFields, cloudConfigurationRuleComplianceSignalOptions.userGroupByFields);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(userActivationStatus, userGroupByFields);
+    return Objects.hash(userActivationStatus,userGroupByFields);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudConfigurationRuleComplianceSignalOptions {\n");
-    sb.append("    userActivationStatus: ")
-        .append(toIndentedString(userActivationStatus))
-        .append("\n");
+    sb.append("    userActivationStatus: ").append(toIndentedString(userActivationStatus)).append("\n");
     sb.append("    userGroupByFields: ").append(toIndentedString(userGroupByFields)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

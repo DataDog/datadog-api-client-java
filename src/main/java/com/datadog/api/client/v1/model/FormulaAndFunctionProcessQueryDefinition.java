@@ -6,16 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Process query using formulas and functions. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Process query using formulas and functions.</p>
+ */
 @JsonPropertyOrder({
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_AGGREGATOR,
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
@@ -27,10 +44,10 @@ import java.util.Objects;
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TAG_FILTERS,
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_TEXT_FILTER
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionProcessQueryDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private FormulaAndFunctionMetricAggregation aggregator;
 
@@ -62,149 +79,133 @@ public class FormulaAndFunctionProcessQueryDefinition {
 
   @JsonCreator
   public FormulaAndFunctionProcessQueryDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
-          FormulaAndFunctionProcessQueryDataSource dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC) String metric,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.dataSource = dataSource;
-    this.unparsed |= !dataSource.isValid();
-    this.metric = metric;
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE)FormulaAndFunctionProcessQueryDataSource dataSource,
+            @JsonProperty(required=true, value=JSON_PROPERTY_METRIC)String metric,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.dataSource = dataSource;
+        this.unparsed |= !dataSource.isValid();
+        this.metric = metric;
+        this.name = name;
   }
-
-  public FormulaAndFunctionProcessQueryDefinition aggregator(
-      FormulaAndFunctionMetricAggregation aggregator) {
+  public FormulaAndFunctionProcessQueryDefinition aggregator(FormulaAndFunctionMetricAggregation aggregator) {
     this.aggregator = aggregator;
     this.unparsed |= !aggregator.isValid();
     return this;
   }
 
   /**
-   * The aggregation methods available for metrics queries.
-   *
+   * <p>The aggregation methods available for metrics queries.</p>
    * @return aggregator
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AGGREGATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FormulaAndFunctionMetricAggregation getAggregator() {
-    return aggregator;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_AGGREGATOR)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public FormulaAndFunctionMetricAggregation getAggregator() {
+        return aggregator;
+      }
   public void setAggregator(FormulaAndFunctionMetricAggregation aggregator) {
     if (!aggregator.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.aggregator = aggregator;
   }
-
-  public FormulaAndFunctionProcessQueryDefinition dataSource(
-      FormulaAndFunctionProcessQueryDataSource dataSource) {
+  public FormulaAndFunctionProcessQueryDefinition dataSource(FormulaAndFunctionProcessQueryDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     return this;
   }
 
   /**
-   * Data sources that rely on the process backend.
-   *
+   * <p>Data sources that rely on the process backend.</p>
    * @return dataSource
-   */
-  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public FormulaAndFunctionProcessQueryDataSource getDataSource() {
-    return dataSource;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public FormulaAndFunctionProcessQueryDataSource getDataSource() {
+        return dataSource;
+      }
   public void setDataSource(FormulaAndFunctionProcessQueryDataSource dataSource) {
     if (!dataSource.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
-
   public FormulaAndFunctionProcessQueryDefinition isNormalizedCpu(Boolean isNormalizedCpu) {
     this.isNormalizedCpu = isNormalizedCpu;
     return this;
   }
 
   /**
-   * Whether to normalize the CPU percentages.
-   *
+   * <p>Whether to normalize the CPU percentages.</p>
    * @return isNormalizedCpu
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_NORMALIZED_CPU)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsNormalizedCpu() {
-    return isNormalizedCpu;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_IS_NORMALIZED_CPU)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getIsNormalizedCpu() {
+        return isNormalizedCpu;
+      }
   public void setIsNormalizedCpu(Boolean isNormalizedCpu) {
     this.isNormalizedCpu = isNormalizedCpu;
   }
-
   public FormulaAndFunctionProcessQueryDefinition limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
   /**
-   * Number of hits to return.
-   *
+   * <p>Number of hits to return.</p>
    * @return limit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLimit() {
-    return limit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIMIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLimit() {
+        return limit;
+      }
   public void setLimit(Long limit) {
     this.limit = limit;
   }
-
   public FormulaAndFunctionProcessQueryDefinition metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * Process metric name.
-   *
+   * <p>Process metric name.</p>
    * @return metric
-   */
-  @JsonProperty(JSON_PROPERTY_METRIC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMetric() {
-    return metric;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_METRIC)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getMetric() {
+        return metric;
+      }
   public void setMetric(String metric) {
     this.metric = metric;
   }
-
   public FormulaAndFunctionProcessQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of query for use in formulas.
-   *
+   * <p>Name of query for use in formulas.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public FormulaAndFunctionProcessQueryDefinition sort(QuerySortOrder sort) {
     this.sort = sort;
     this.unparsed |= !sort.isValid();
@@ -212,29 +213,26 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   /**
-   * Direction of sort.
-   *
+   * <p>Direction of sort.</p>
    * @return sort
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SORT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public QuerySortOrder getSort() {
-    return sort;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SORT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public QuerySortOrder getSort() {
+        return sort;
+      }
   public void setSort(QuerySortOrder sort) {
     if (!sort.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.sort = sort;
   }
-
   public FormulaAndFunctionProcessQueryDefinition tagFilters(List<String> tagFilters) {
     this.tagFilters = tagFilters;
     return this;
   }
-
   public FormulaAndFunctionProcessQueryDefinition addTagFiltersItem(String tagFiltersItem) {
     if (this.tagFilters == null) {
       this.tagFilters = new ArrayList<>();
@@ -244,43 +242,42 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   /**
-   * An array of tags to filter by.
-   *
+   * <p>An array of tags to filter by.</p>
    * @return tagFilters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAG_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTagFilters() {
-    return tagFilters;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAG_FILTERS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTagFilters() {
+        return tagFilters;
+      }
   public void setTagFilters(List<String> tagFilters) {
     this.tagFilters = tagFilters;
   }
-
   public FormulaAndFunctionProcessQueryDefinition textFilter(String textFilter) {
     this.textFilter = textFilter;
     return this;
   }
 
   /**
-   * Text to use as filter.
-   *
+   * <p>Text to use as filter.</p>
    * @return textFilter
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEXT_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTextFilter() {
-    return textFilter;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TEXT_FILTER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTextFilter() {
+        return textFilter;
+      }
   public void setTextFilter(String textFilter) {
     this.textFilter = textFilter;
   }
 
-  /** Return true if this FormulaAndFunctionProcessQueryDefinition object is equal to o. */
+  /**
+   * Return true if this FormulaAndFunctionProcessQueryDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -289,24 +286,14 @@ public class FormulaAndFunctionProcessQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormulaAndFunctionProcessQueryDefinition formulaAndFunctionProcessQueryDefinition =
-        (FormulaAndFunctionProcessQueryDefinition) o;
-    return Objects.equals(this.aggregator, formulaAndFunctionProcessQueryDefinition.aggregator)
-        && Objects.equals(this.dataSource, formulaAndFunctionProcessQueryDefinition.dataSource)
-        && Objects.equals(
-            this.isNormalizedCpu, formulaAndFunctionProcessQueryDefinition.isNormalizedCpu)
-        && Objects.equals(this.limit, formulaAndFunctionProcessQueryDefinition.limit)
-        && Objects.equals(this.metric, formulaAndFunctionProcessQueryDefinition.metric)
-        && Objects.equals(this.name, formulaAndFunctionProcessQueryDefinition.name)
-        && Objects.equals(this.sort, formulaAndFunctionProcessQueryDefinition.sort)
-        && Objects.equals(this.tagFilters, formulaAndFunctionProcessQueryDefinition.tagFilters)
-        && Objects.equals(this.textFilter, formulaAndFunctionProcessQueryDefinition.textFilter);
+    FormulaAndFunctionProcessQueryDefinition formulaAndFunctionProcessQueryDefinition = (FormulaAndFunctionProcessQueryDefinition) o;
+    return Objects.equals(this.aggregator, formulaAndFunctionProcessQueryDefinition.aggregator) && Objects.equals(this.dataSource, formulaAndFunctionProcessQueryDefinition.dataSource) && Objects.equals(this.isNormalizedCpu, formulaAndFunctionProcessQueryDefinition.isNormalizedCpu) && Objects.equals(this.limit, formulaAndFunctionProcessQueryDefinition.limit) && Objects.equals(this.metric, formulaAndFunctionProcessQueryDefinition.metric) && Objects.equals(this.name, formulaAndFunctionProcessQueryDefinition.name) && Objects.equals(this.sort, formulaAndFunctionProcessQueryDefinition.sort) && Objects.equals(this.tagFilters, formulaAndFunctionProcessQueryDefinition.tagFilters) && Objects.equals(this.textFilter, formulaAndFunctionProcessQueryDefinition.textFilter);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        aggregator, dataSource, isNormalizedCpu, limit, metric, name, sort, tagFilters, textFilter);
+    return Objects.hash(aggregator,dataSource,isNormalizedCpu,limit,metric,name,sort,tagFilters,textFilter);
   }
 
   @Override
@@ -327,7 +314,8 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

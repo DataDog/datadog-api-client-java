@@ -6,19 +6,40 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Data containing the patch for changing the assignee of a signal. */
-@JsonPropertyOrder({SecurityMonitoringSignalAssigneeUpdateData.JSON_PROPERTY_ATTRIBUTES})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Data containing the patch for changing the assignee of a signal.</p>
+ */
+@JsonPropertyOrder({
+  SecurityMonitoringSignalAssigneeUpdateData.JSON_PROPERTY_ATTRIBUTES
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalAssigneeUpdateData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private SecurityMonitoringSignalAssigneeUpdateAttributes attributes;
 
@@ -26,35 +47,33 @@ public class SecurityMonitoringSignalAssigneeUpdateData {
 
   @JsonCreator
   public SecurityMonitoringSignalAssigneeUpdateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          SecurityMonitoringSignalAssigneeUpdateAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES)SecurityMonitoringSignalAssigneeUpdateAttributes attributes) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
   }
-
-  public SecurityMonitoringSignalAssigneeUpdateData attributes(
-      SecurityMonitoringSignalAssigneeUpdateAttributes attributes) {
+  public SecurityMonitoringSignalAssigneeUpdateData attributes(SecurityMonitoringSignalAssigneeUpdateAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes describing the new assignee of a security signal.
-   *
+   * <p>Attributes describing the new assignee of a security signal.</p>
    * @return attributes
-   */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SecurityMonitoringSignalAssigneeUpdateAttributes getAttributes() {
-    return attributes;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public SecurityMonitoringSignalAssigneeUpdateAttributes getAttributes() {
+        return attributes;
+      }
   public void setAttributes(SecurityMonitoringSignalAssigneeUpdateAttributes attributes) {
     this.attributes = attributes;
   }
 
-  /** Return true if this SecurityMonitoringSignalAssigneeUpdateData object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringSignalAssigneeUpdateData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -63,10 +82,10 @@ public class SecurityMonitoringSignalAssigneeUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalAssigneeUpdateData securityMonitoringSignalAssigneeUpdateData =
-        (SecurityMonitoringSignalAssigneeUpdateData) o;
+    SecurityMonitoringSignalAssigneeUpdateData securityMonitoringSignalAssigneeUpdateData = (SecurityMonitoringSignalAssigneeUpdateData) o;
     return Objects.equals(this.attributes, securityMonitoringSignalAssigneeUpdateData.attributes);
   }
+
 
   @Override
   public int hashCode() {
@@ -83,7 +102,8 @@ public class SecurityMonitoringSignalAssigneeUpdateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

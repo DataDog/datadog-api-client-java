@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A search SLO response containing results from the search query. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A search SLO response containing results from the search query.</p>
+ */
 @JsonPropertyOrder({
   SearchSLOResponse.JSON_PROPERTY_DATA,
   SearchSLOResponse.JSON_PROPERTY_LINKS,
   SearchSLOResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SearchSLOResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private SearchSLOResponseData data;
 
@@ -38,21 +58,19 @@ public class SearchSLOResponse {
   }
 
   /**
-   * Data from search SLO response.
-   *
+   * <p>Data from search SLO response.</p>
    * @return data
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SearchSLOResponseData getData() {
-    return data;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SearchSLOResponseData getData() {
+        return data;
+      }
   public void setData(SearchSLOResponseData data) {
     this.data = data;
   }
-
   public SearchSLOResponse links(SearchSLOResponseLinks links) {
     this.links = links;
     this.unparsed |= links.unparsed;
@@ -60,21 +78,19 @@ public class SearchSLOResponse {
   }
 
   /**
-   * Pagination links.
-   *
+   * <p>Pagination links.</p>
    * @return links
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SearchSLOResponseLinks getLinks() {
-    return links;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LINKS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SearchSLOResponseLinks getLinks() {
+        return links;
+      }
   public void setLinks(SearchSLOResponseLinks links) {
     this.links = links;
   }
-
   public SearchSLOResponse meta(SearchSLOResponseMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
@@ -82,22 +98,23 @@ public class SearchSLOResponse {
   }
 
   /**
-   * Searches metadata returned by the API.
-   *
+   * <p>Searches metadata returned by the API.</p>
    * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SearchSLOResponseMeta getMeta() {
-    return meta;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_META)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SearchSLOResponseMeta getMeta() {
+        return meta;
+      }
   public void setMeta(SearchSLOResponseMeta meta) {
     this.meta = meta;
   }
 
-  /** Return true if this SearchSLOResponse object is equal to o. */
+  /**
+   * Return true if this SearchSLOResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -107,14 +124,13 @@ public class SearchSLOResponse {
       return false;
     }
     SearchSLOResponse searchSloResponse = (SearchSLOResponse) o;
-    return Objects.equals(this.data, searchSloResponse.data)
-        && Objects.equals(this.links, searchSloResponse.links)
-        && Objects.equals(this.meta, searchSloResponse.meta);
+    return Objects.equals(this.data, searchSloResponse.data) && Objects.equals(this.links, searchSloResponse.links) && Objects.equals(this.meta, searchSloResponse.meta);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, meta);
+    return Objects.hash(data,links,meta);
   }
 
   @Override
@@ -129,7 +145,8 @@ public class SearchSLOResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

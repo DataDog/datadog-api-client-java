@@ -6,22 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Test configuration for Synthetics */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Test configuration for Synthetics</p>
+ */
 @JsonPropertyOrder({
   SyntheticsTriggerTest.JSON_PROPERTY_METADATA,
   SyntheticsTriggerTest.JSON_PROPERTY_PUBLIC_ID
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTriggerTest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private SyntheticsCIBatchMetadata metadata;
 
@@ -32,10 +51,9 @@ public class SyntheticsTriggerTest {
 
   @JsonCreator
   public SyntheticsTriggerTest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_PUBLIC_ID) String publicId) {
-    this.publicId = publicId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_PUBLIC_ID)String publicId) {
+        this.publicId = publicId;
   }
-
   public SyntheticsTriggerTest metadata(SyntheticsCIBatchMetadata metadata) {
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
@@ -43,42 +61,41 @@ public class SyntheticsTriggerTest {
   }
 
   /**
-   * Metadata for the Synthetics tests run.
-   *
+   * <p>Metadata for the Synthetics tests run.</p>
    * @return metadata
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsCIBatchMetadata getMetadata() {
-    return metadata;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METADATA)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsCIBatchMetadata getMetadata() {
+        return metadata;
+      }
   public void setMetadata(SyntheticsCIBatchMetadata metadata) {
     this.metadata = metadata;
   }
-
   public SyntheticsTriggerTest publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * The public ID of the Synthetics test to trigger.
-   *
+   * <p>The public ID of the Synthetics test to trigger.</p>
    * @return publicId
-   */
-  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getPublicId() {
-    return publicId;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getPublicId() {
+        return publicId;
+      }
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
 
-  /** Return true if this SyntheticsTriggerTest object is equal to o. */
+  /**
+   * Return true if this SyntheticsTriggerTest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,13 +105,13 @@ public class SyntheticsTriggerTest {
       return false;
     }
     SyntheticsTriggerTest syntheticsTriggerTest = (SyntheticsTriggerTest) o;
-    return Objects.equals(this.metadata, syntheticsTriggerTest.metadata)
-        && Objects.equals(this.publicId, syntheticsTriggerTest.publicId);
+    return Objects.equals(this.metadata, syntheticsTriggerTest.metadata) && Objects.equals(this.publicId, syntheticsTriggerTest.publicId);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(metadata, publicId);
+    return Objects.hash(metadata,publicId);
   }
 
   @Override
@@ -108,7 +125,8 @@ public class SyntheticsTriggerTest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,25 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Configuration object for a Synthetic API test. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Configuration object for a Synthetic API test.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsAPITestConfig.JSON_PROPERTY_ASSERTIONS,
   SyntheticsAPITestConfig.JSON_PROPERTY_CONFIG_VARIABLES,
   SyntheticsAPITestConfig.JSON_PROPERTY_REQUEST,
   SyntheticsAPITestConfig.JSON_PROPERTY_STEPS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAPITestConfig {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<SyntheticsAssertion> assertions = null;
 
@@ -44,7 +62,6 @@ public class SyntheticsAPITestConfig {
     }
     return this;
   }
-
   public SyntheticsAPITestConfig addAssertionsItem(SyntheticsAssertion assertionsItem) {
     if (this.assertions == null) {
       this.assertions = new ArrayList<>();
@@ -55,21 +72,19 @@ public class SyntheticsAPITestConfig {
   }
 
   /**
-   * Array of assertions used for the test. Required for single API tests.
-   *
+   * <p>Array of assertions used for the test. Required for single API tests.</p>
    * @return assertions
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ASSERTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsAssertion> getAssertions() {
-    return assertions;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ASSERTIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SyntheticsAssertion> getAssertions() {
+        return assertions;
+      }
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
   }
-
   public SyntheticsAPITestConfig configVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
     for (SyntheticsConfigVariable item : configVariables) {
@@ -77,9 +92,7 @@ public class SyntheticsAPITestConfig {
     }
     return this;
   }
-
-  public SyntheticsAPITestConfig addConfigVariablesItem(
-      SyntheticsConfigVariable configVariablesItem) {
+  public SyntheticsAPITestConfig addConfigVariablesItem(SyntheticsConfigVariable configVariablesItem) {
     if (this.configVariables == null) {
       this.configVariables = new ArrayList<>();
     }
@@ -89,21 +102,19 @@ public class SyntheticsAPITestConfig {
   }
 
   /**
-   * Array of variables used for the test.
-   *
+   * <p>Array of variables used for the test.</p>
    * @return configVariables
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsConfigVariable> getConfigVariables() {
-    return configVariables;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SyntheticsConfigVariable> getConfigVariables() {
+        return configVariables;
+      }
   public void setConfigVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
   }
-
   public SyntheticsAPITestConfig request(SyntheticsTestRequest request) {
     this.request = request;
     this.unparsed |= request.unparsed;
@@ -111,21 +122,19 @@ public class SyntheticsAPITestConfig {
   }
 
   /**
-   * Object describing the Synthetic test request.
-   *
+   * <p>Object describing the Synthetic test request.</p>
    * @return request
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REQUEST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestRequest getRequest() {
-    return request;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_REQUEST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public SyntheticsTestRequest getRequest() {
+        return request;
+      }
   public void setRequest(SyntheticsTestRequest request) {
     this.request = request;
   }
-
   public SyntheticsAPITestConfig steps(List<SyntheticsAPIStep> steps) {
     this.steps = steps;
     for (SyntheticsAPIStep item : steps) {
@@ -133,7 +142,6 @@ public class SyntheticsAPITestConfig {
     }
     return this;
   }
-
   public SyntheticsAPITestConfig addStepsItem(SyntheticsAPIStep stepsItem) {
     if (this.steps == null) {
       this.steps = new ArrayList<>();
@@ -144,22 +152,23 @@ public class SyntheticsAPITestConfig {
   }
 
   /**
-   * When the test subtype is <code>multi</code>, the steps of the test.
-   *
+   * <p>When the test subtype is <code>multi</code>, the steps of the test.</p>
    * @return steps
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STEPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsAPIStep> getSteps() {
-    return steps;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_STEPS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<SyntheticsAPIStep> getSteps() {
+        return steps;
+      }
   public void setSteps(List<SyntheticsAPIStep> steps) {
     this.steps = steps;
   }
 
-  /** Return true if this SyntheticsAPITestConfig object is equal to o. */
+  /**
+   * Return true if this SyntheticsAPITestConfig object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,15 +178,13 @@ public class SyntheticsAPITestConfig {
       return false;
     }
     SyntheticsAPITestConfig syntheticsApiTestConfig = (SyntheticsAPITestConfig) o;
-    return Objects.equals(this.assertions, syntheticsApiTestConfig.assertions)
-        && Objects.equals(this.configVariables, syntheticsApiTestConfig.configVariables)
-        && Objects.equals(this.request, syntheticsApiTestConfig.request)
-        && Objects.equals(this.steps, syntheticsApiTestConfig.steps);
+    return Objects.equals(this.assertions, syntheticsApiTestConfig.assertions) && Objects.equals(this.configVariables, syntheticsApiTestConfig.configVariables) && Objects.equals(this.request, syntheticsApiTestConfig.request) && Objects.equals(this.steps, syntheticsApiTestConfig.steps);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(assertions, configVariables, request, steps);
+    return Objects.hash(assertions,configVariables,request,steps);
   }
 
   @Override
@@ -193,7 +200,8 @@ public class SyntheticsAPITestConfig {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

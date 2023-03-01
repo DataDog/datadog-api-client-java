@@ -6,20 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
+import com.datadog.api.client.JsonTimeSerializer;
+
+
 /**
- * A metric to submit to Datadog. See <a
- * href="https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties">Datadog
- * metrics</a>.
+   * <p>A metric to submit to Datadog.
+   * See <a href="https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties">Datadog metrics</a>.</p>
  */
 @JsonPropertyOrder({
   Series.JSON_PROPERTY_HOST,
@@ -29,10 +42,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Series.JSON_PROPERTY_TAGS,
   Series.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Series {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOST = "host";
   private String host;
 
@@ -55,116 +68,100 @@ public class Series {
 
   @JsonCreator
   public Series(
-      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC) String metric,
-      @JsonProperty(required = true, value = JSON_PROPERTY_POINTS) List<List<Double>> points) {
-    this.metric = metric;
-    this.points = points;
+            @JsonProperty(required=true, value=JSON_PROPERTY_METRIC)String metric,
+            @JsonProperty(required=true, value=JSON_PROPERTY_POINTS)List<List<Double>> points) {
+        this.metric = metric;
+        this.points = points;
   }
-
   public Series host(String host) {
     this.host = host;
     return this;
   }
 
   /**
-   * The name of the host that produced the metric.
-   *
+   * <p>The name of the host that produced the metric.</p>
    * @return host
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HOST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHost() {
-    return host;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_HOST)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getHost() {
+        return host;
+      }
   public void setHost(String host) {
     this.host = host;
   }
-
   public Series interval(Long interval) {
     this.interval = JsonNullable.<Long>of(interval);
     return this;
   }
 
   /**
-   * If the type of the metric is rate or count, define the corresponding interval.
-   *
+   * <p>If the type of the metric is rate or count, define the corresponding interval.</p>
    * @return interval
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getInterval() {
-    return interval.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public Long getInterval() {
+        return interval.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<Long> getInterval_JsonNullable() {
     return interval;
   }
-
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
-  public void setInterval_JsonNullable(JsonNullable<Long> interval) {
+  @JsonProperty(JSON_PROPERTY_INTERVAL)public void setInterval_JsonNullable(JsonNullable<Long> interval) {
     this.interval = interval;
   }
-
   public void setInterval(Long interval) {
     this.interval = JsonNullable.<Long>of(interval);
   }
-
   public Series metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * The name of the timeseries.
-   *
+   * <p>The name of the timeseries.</p>
    * @return metric
-   */
-  @JsonProperty(JSON_PROPERTY_METRIC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMetric() {
-    return metric;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_METRIC)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getMetric() {
+        return metric;
+      }
   public void setMetric(String metric) {
     this.metric = metric;
   }
-
   public Series points(List<List<Double>> points) {
     this.points = points;
     return this;
   }
-
   public Series addPointsItem(List<Double> pointsItem) {
     this.points.add(pointsItem);
     return this;
   }
 
   /**
-   * Points relating to a metric. All points must be tuples with timestamp and a scalar value
-   * (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than
-   * ten minutes in the future or more than one hour in the past.
-   *
+   * <p>Points relating to a metric. All points must be tuples with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.</p>
    * @return points
-   */
-  @JsonProperty(JSON_PROPERTY_POINTS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<List<Double>> getPoints() {
-    return points;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_POINTS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<List<Double>> getPoints() {
+        return points;
+      }
   public void setPoints(List<List<Double>> points) {
     this.points = points;
   }
-
   public Series tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public Series addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -174,44 +171,42 @@ public class Series {
   }
 
   /**
-   * A list of tags associated with the metric.
-   *
+   * <p>A list of tags associated with the metric.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
   public Series type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * The type of the metric. Valid types are "",<code>count</code>, <code>gauge</code>, and <code>
-   * rate</code>.
-   *
+   * <p>The type of the metric. Valid types are "",<code>count</code>, <code>gauge</code>, and <code>rate</code>.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
 
-  /** Return true if this Series object is equal to o. */
+  /**
+   * Return true if this Series object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -221,17 +216,13 @@ public class Series {
       return false;
     }
     Series series = (Series) o;
-    return Objects.equals(this.host, series.host)
-        && Objects.equals(this.interval, series.interval)
-        && Objects.equals(this.metric, series.metric)
-        && Objects.equals(this.points, series.points)
-        && Objects.equals(this.tags, series.tags)
-        && Objects.equals(this.type, series.type);
+    return Objects.equals(this.host, series.host) && Objects.equals(this.interval, series.interval) && Objects.equals(this.metric, series.metric) && Objects.equals(this.points, series.points) && Objects.equals(this.tags, series.tags) && Objects.equals(this.type, series.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, interval, metric, points, tags, type);
+    return Objects.hash(host,interval,metric,points,tags,type);
   }
 
   @Override
@@ -249,7 +240,8 @@ public class Series {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

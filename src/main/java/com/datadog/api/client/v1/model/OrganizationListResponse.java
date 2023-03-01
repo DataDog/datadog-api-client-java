@@ -6,20 +6,40 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Response with the list of organizations. */
-@JsonPropertyOrder({OrganizationListResponse.JSON_PROPERTY_ORGS})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Response with the list of organizations.</p>
+ */
+@JsonPropertyOrder({
+  OrganizationListResponse.JSON_PROPERTY_ORGS
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OrganizationListResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private List<Organization> orgs = null;
 
@@ -30,7 +50,6 @@ public class OrganizationListResponse {
     }
     return this;
   }
-
   public OrganizationListResponse addOrgsItem(Organization orgsItem) {
     if (this.orgs == null) {
       this.orgs = new ArrayList<>();
@@ -41,22 +60,23 @@ public class OrganizationListResponse {
   }
 
   /**
-   * Array of organization objects.
-   *
+   * <p>Array of organization objects.</p>
    * @return orgs
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Organization> getOrgs() {
-    return orgs;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ORGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<Organization> getOrgs() {
+        return orgs;
+      }
   public void setOrgs(List<Organization> orgs) {
     this.orgs = orgs;
   }
 
-  /** Return true if this OrganizationListResponse object is equal to o. */
+  /**
+   * Return true if this OrganizationListResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -68,6 +88,7 @@ public class OrganizationListResponse {
     OrganizationListResponse organizationListResponse = (OrganizationListResponse) o;
     return Objects.equals(this.orgs, organizationListResponse.orgs);
   }
+
 
   @Override
   public int hashCode() {
@@ -84,7 +105,8 @@ public class OrganizationListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,24 +6,43 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A compute rule to compute metrics or timeseries. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A compute rule to compute metrics or timeseries.</p>
+ */
 @JsonPropertyOrder({
   CIAppCompute.JSON_PROPERTY_AGGREGATION,
   CIAppCompute.JSON_PROPERTY_INTERVAL,
   CIAppCompute.JSON_PROPERTY_METRIC,
   CIAppCompute.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CIAppCompute {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private CIAppAggregationFunction aggregation;
 
@@ -40,12 +59,10 @@ public class CIAppCompute {
 
   @JsonCreator
   public CIAppCompute(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
-          CIAppAggregationFunction aggregation) {
-    this.aggregation = aggregation;
-    this.unparsed |= !aggregation.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_AGGREGATION)CIAppAggregationFunction aggregation) {
+        this.aggregation = aggregation;
+        this.unparsed |= !aggregation.isValid();
   }
-
   public CIAppCompute aggregation(CIAppAggregationFunction aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
@@ -53,65 +70,60 @@ public class CIAppCompute {
   }
 
   /**
-   * An aggregation function.
-   *
+   * <p>An aggregation function.</p>
    * @return aggregation
-   */
-  @JsonProperty(JSON_PROPERTY_AGGREGATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CIAppAggregationFunction getAggregation() {
-    return aggregation;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_AGGREGATION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CIAppAggregationFunction getAggregation() {
+        return aggregation;
+      }
   public void setAggregation(CIAppAggregationFunction aggregation) {
     if (!aggregation.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.aggregation = aggregation;
   }
-
   public CIAppCompute interval(String interval) {
     this.interval = interval;
     return this;
   }
 
   /**
-   * The time buckets' size (only used for type=timeseries) Defaults to a resolution of 150 points.
-   *
+   * <p>The time buckets' size (only used for type=timeseries)
+   * Defaults to a resolution of 150 points.</p>
    * @return interval
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getInterval() {
-    return interval;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_INTERVAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getInterval() {
+        return interval;
+      }
   public void setInterval(String interval) {
     this.interval = interval;
   }
-
   public CIAppCompute metric(String metric) {
     this.metric = metric;
     return this;
   }
 
   /**
-   * The metric to use.
-   *
+   * <p>The metric to use.</p>
    * @return metric
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRIC)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMetric() {
-    return metric;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_METRIC)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getMetric() {
+        return metric;
+      }
   public void setMetric(String metric) {
     this.metric = metric;
   }
-
   public CIAppCompute type(CIAppComputeType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -119,25 +131,26 @@ public class CIAppCompute {
   }
 
   /**
-   * The type of compute.
-   *
+   * <p>The type of compute.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CIAppComputeType getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public CIAppComputeType getType() {
+        return type;
+      }
   public void setType(CIAppComputeType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this CIAppCompute object is equal to o. */
+  /**
+   * Return true if this CIAppCompute object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -147,15 +160,13 @@ public class CIAppCompute {
       return false;
     }
     CIAppCompute ciAppCompute = (CIAppCompute) o;
-    return Objects.equals(this.aggregation, ciAppCompute.aggregation)
-        && Objects.equals(this.interval, ciAppCompute.interval)
-        && Objects.equals(this.metric, ciAppCompute.metric)
-        && Objects.equals(this.type, ciAppCompute.type);
+    return Objects.equals(this.aggregation, ciAppCompute.aggregation) && Objects.equals(this.interval, ciAppCompute.interval) && Objects.equals(this.metric, ciAppCompute.metric) && Objects.equals(this.type, ciAppCompute.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, interval, metric, type);
+    return Objects.hash(aggregation,interval,metric,type);
   }
 
   @Override
@@ -171,7 +182,8 @@ public class CIAppCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

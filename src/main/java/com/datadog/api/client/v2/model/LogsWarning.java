@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A warning message indicating something that went wrong with the query */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A warning message indicating something that went wrong with the query</p>
+ */
 @JsonPropertyOrder({
   LogsWarning.JSON_PROPERTY_CODE,
   LogsWarning.JSON_PROPERTY_DETAIL,
   LogsWarning.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsWarning {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
@@ -37,64 +57,61 @@ public class LogsWarning {
   }
 
   /**
-   * A unique code for this type of warning
-   *
+   * <p>A unique code for this type of warning</p>
    * @return code
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCode() {
-    return code;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CODE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCode() {
+        return code;
+      }
   public void setCode(String code) {
     this.code = code;
   }
-
   public LogsWarning detail(String detail) {
     this.detail = detail;
     return this;
   }
 
   /**
-   * A detailed explanation of this specific warning
-   *
+   * <p>A detailed explanation of this specific warning</p>
    * @return detail
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DETAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDetail() {
-    return detail;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DETAIL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDetail() {
+        return detail;
+      }
   public void setDetail(String detail) {
     this.detail = detail;
   }
-
   public LogsWarning title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * A short human-readable summary of the warning
-   *
+   * <p>A short human-readable summary of the warning</p>
    * @return title
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
 
-  /** Return true if this LogsWarning object is equal to o. */
+  /**
+   * Return true if this LogsWarning object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,14 +121,13 @@ public class LogsWarning {
       return false;
     }
     LogsWarning logsWarning = (LogsWarning) o;
-    return Objects.equals(this.code, logsWarning.code)
-        && Objects.equals(this.detail, logsWarning.detail)
-        && Objects.equals(this.title, logsWarning.title);
+    return Objects.equals(this.code, logsWarning.code) && Objects.equals(this.detail, logsWarning.detail) && Objects.equals(this.title, logsWarning.title);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, detail, title);
+    return Objects.hash(code,detail,title);
   }
 
   @Override
@@ -126,7 +142,8 @@ public class LogsWarning {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,25 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a notebook <code>timeseries</code> cell. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The attributes of a notebook <code>timeseries</code> cell.</p>
+ */
 @JsonPropertyOrder({
   NotebookTimeseriesCellAttributes.JSON_PROPERTY_DEFINITION,
   NotebookTimeseriesCellAttributes.JSON_PROPERTY_GRAPH_SIZE,
   NotebookTimeseriesCellAttributes.JSON_PROPERTY_SPLIT_BY,
   NotebookTimeseriesCellAttributes.JSON_PROPERTY_TIME
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class NotebookTimeseriesCellAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
   private TimeseriesWidgetDefinition definition;
 
@@ -41,12 +59,10 @@ public class NotebookTimeseriesCellAttributes {
 
   @JsonCreator
   public NotebookTimeseriesCellAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
-          TimeseriesWidgetDefinition definition) {
-    this.definition = definition;
-    this.unparsed |= definition.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DEFINITION)TimeseriesWidgetDefinition definition) {
+        this.definition = definition;
+        this.unparsed |= definition.unparsed;
   }
-
   public NotebookTimeseriesCellAttributes definition(TimeseriesWidgetDefinition definition) {
     this.definition = definition;
     this.unparsed |= definition.unparsed;
@@ -54,21 +70,18 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * The timeseries visualization allows you to display the evolution of one or more metrics, log
-   * events, or Indexed Spans over time.
-   *
+   * <p>The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.</p>
    * @return definition
-   */
-  @JsonProperty(JSON_PROPERTY_DEFINITION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TimeseriesWidgetDefinition getDefinition() {
-    return definition;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DEFINITION)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public TimeseriesWidgetDefinition getDefinition() {
+        return definition;
+      }
   public void setDefinition(TimeseriesWidgetDefinition definition) {
     this.definition = definition;
   }
-
   public NotebookTimeseriesCellAttributes graphSize(NotebookGraphSize graphSize) {
     this.graphSize = graphSize;
     this.unparsed |= !graphSize.isValid();
@@ -76,24 +89,22 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * The size of the graph.
-   *
+   * <p>The size of the graph.</p>
    * @return graphSize
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GRAPH_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public NotebookGraphSize getGraphSize() {
-    return graphSize;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_GRAPH_SIZE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public NotebookGraphSize getGraphSize() {
+        return graphSize;
+      }
   public void setGraphSize(NotebookGraphSize graphSize) {
     if (!graphSize.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.graphSize = graphSize;
   }
-
   public NotebookTimeseriesCellAttributes splitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
     this.unparsed |= splitBy.unparsed;
@@ -101,53 +112,49 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * Object describing how to split the graph to display multiple visualizations per request.
-   *
+   * <p>Object describing how to split the graph to display multiple visualizations per request.</p>
    * @return splitBy
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SPLIT_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public NotebookSplitBy getSplitBy() {
-    return splitBy;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SPLIT_BY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public NotebookSplitBy getSplitBy() {
+        return splitBy;
+      }
   public void setSplitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
   }
-
   public NotebookTimeseriesCellAttributes time(NotebookCellTime time) {
     this.time = JsonNullable.<NotebookCellTime>of(time);
     return this;
   }
 
   /**
-   * Timeframe for the notebook cell. When 'null', the notebook global time is used.
-   *
+   * <p>Timeframe for the notebook cell. When 'null', the notebook global time is used.</p>
    * @return time
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public NotebookCellTime getTime() {
-    return time.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public NotebookCellTime getTime() {
+        return time.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_TIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<NotebookCellTime> getTime_JsonNullable() {
     return time;
   }
-
-  @JsonProperty(JSON_PROPERTY_TIME)
-  public void setTime_JsonNullable(JsonNullable<NotebookCellTime> time) {
+  @JsonProperty(JSON_PROPERTY_TIME)public void setTime_JsonNullable(JsonNullable<NotebookCellTime> time) {
     this.time = time;
   }
-
   public void setTime(NotebookCellTime time) {
     this.time = JsonNullable.<NotebookCellTime>of(time);
   }
 
-  /** Return true if this NotebookTimeseriesCellAttributes object is equal to o. */
+  /**
+   * Return true if this NotebookTimeseriesCellAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -156,17 +163,14 @@ public class NotebookTimeseriesCellAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotebookTimeseriesCellAttributes notebookTimeseriesCellAttributes =
-        (NotebookTimeseriesCellAttributes) o;
-    return Objects.equals(this.definition, notebookTimeseriesCellAttributes.definition)
-        && Objects.equals(this.graphSize, notebookTimeseriesCellAttributes.graphSize)
-        && Objects.equals(this.splitBy, notebookTimeseriesCellAttributes.splitBy)
-        && Objects.equals(this.time, notebookTimeseriesCellAttributes.time);
+    NotebookTimeseriesCellAttributes notebookTimeseriesCellAttributes = (NotebookTimeseriesCellAttributes) o;
+    return Objects.equals(this.definition, notebookTimeseriesCellAttributes.definition) && Objects.equals(this.graphSize, notebookTimeseriesCellAttributes.graphSize) && Objects.equals(this.splitBy, notebookTimeseriesCellAttributes.splitBy) && Objects.equals(this.time, notebookTimeseriesCellAttributes.time);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(definition, graphSize, splitBy, time);
+    return Objects.hash(definition,graphSize,splitBy,time);
   }
 
   @Override
@@ -182,7 +186,8 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

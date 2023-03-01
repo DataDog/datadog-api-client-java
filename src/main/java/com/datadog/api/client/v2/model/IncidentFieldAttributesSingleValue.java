@@ -6,25 +6,43 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A field with a single value selected. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>A field with a single value selected.</p>
+ */
 @JsonPropertyOrder({
   IncidentFieldAttributesSingleValue.JSON_PROPERTY_TYPE,
   IncidentFieldAttributesSingleValue.JSON_PROPERTY_VALUE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentFieldAttributesSingleValue {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
-  private IncidentFieldAttributesSingleValueType type =
-      IncidentFieldAttributesSingleValueType.DROPDOWN;
+  private IncidentFieldAttributesSingleValueType type = IncidentFieldAttributesSingleValueType.DROPDOWN;
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private JsonNullable<String> value = JsonNullable.<String>undefined();
@@ -36,56 +54,52 @@ public class IncidentFieldAttributesSingleValue {
   }
 
   /**
-   * Type of the single value field definitions.
-   *
+   * <p>Type of the single value field definitions.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentFieldAttributesSingleValueType getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public IncidentFieldAttributesSingleValueType getType() {
+        return type;
+      }
   public void setType(IncidentFieldAttributesSingleValueType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
-
   public IncidentFieldAttributesSingleValue value(String value) {
     this.value = JsonNullable.<String>of(value);
     return this;
   }
 
   /**
-   * The single value selected for this field.
-   *
+   * <p>The single value selected for this field.</p>
    * @return value
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getValue() {
-    return value.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getValue() {
+        return value.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getValue_JsonNullable() {
     return value;
   }
-
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  public void setValue_JsonNullable(JsonNullable<String> value) {
+  @JsonProperty(JSON_PROPERTY_VALUE)public void setValue_JsonNullable(JsonNullable<String> value) {
     this.value = value;
   }
-
   public void setValue(String value) {
     this.value = JsonNullable.<String>of(value);
   }
 
-  /** Return true if this IncidentFieldAttributesSingleValue object is equal to o. */
+  /**
+   * Return true if this IncidentFieldAttributesSingleValue object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,15 +108,14 @@ public class IncidentFieldAttributesSingleValue {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentFieldAttributesSingleValue incidentFieldAttributesSingleValue =
-        (IncidentFieldAttributesSingleValue) o;
-    return Objects.equals(this.type, incidentFieldAttributesSingleValue.type)
-        && Objects.equals(this.value, incidentFieldAttributesSingleValue.value);
+    IncidentFieldAttributesSingleValue incidentFieldAttributesSingleValue = (IncidentFieldAttributesSingleValue) o;
+    return Objects.equals(this.type, incidentFieldAttributesSingleValue.type) && Objects.equals(this.value, incidentFieldAttributesSingleValue.value);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, value);
+    return Objects.hash(type,value);
   }
 
   @Override
@@ -116,7 +129,8 @@ public class IncidentFieldAttributesSingleValue {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

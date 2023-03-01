@@ -6,22 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object describing a timeframe. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Object describing a timeframe.</p>
+ */
 @JsonPropertyOrder({
   SyntheticsTestOptionsSchedulingTimeframe.JSON_PROPERTY_DAY,
   SyntheticsTestOptionsSchedulingTimeframe.JSON_PROPERTY_FROM,
   SyntheticsTestOptionsSchedulingTimeframe.JSON_PROPERTY_TO
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestOptionsSchedulingTimeframe {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DAY = "day";
   private Integer day;
 
@@ -37,64 +57,63 @@ public class SyntheticsTestOptionsSchedulingTimeframe {
   }
 
   /**
-   * Number representing the day of the week. minimum: 1 maximum: 7
-   *
+   * <p>Number representing the day of the week.</p>
+   * minimum: 1
+   * maximum: 7
    * @return day
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getDay() {
-    return day;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DAY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Integer getDay() {
+        return day;
+      }
   public void setDay(Integer day) {
     this.day = day;
   }
-
   public SyntheticsTestOptionsSchedulingTimeframe from(String from) {
     this.from = from;
     return this;
   }
 
   /**
-   * The hour of the day on which scheduling starts.
-   *
+   * <p>The hour of the day on which scheduling starts.</p>
    * @return from
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FROM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getFrom() {
-    return from;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_FROM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getFrom() {
+        return from;
+      }
   public void setFrom(String from) {
     this.from = from;
   }
-
   public SyntheticsTestOptionsSchedulingTimeframe to(String to) {
     this.to = to;
     return this;
   }
 
   /**
-   * The hour of the day on which scheduling ends.
-   *
+   * <p>The hour of the day on which scheduling ends.</p>
    * @return to
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTo() {
-    return to;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TO)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTo() {
+        return to;
+      }
   public void setTo(String to) {
     this.to = to;
   }
 
-  /** Return true if this SyntheticsTestOptionsSchedulingTimeframe object is equal to o. */
+  /**
+   * Return true if this SyntheticsTestOptionsSchedulingTimeframe object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,16 +122,14 @@ public class SyntheticsTestOptionsSchedulingTimeframe {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestOptionsSchedulingTimeframe syntheticsTestOptionsSchedulingTimeframe =
-        (SyntheticsTestOptionsSchedulingTimeframe) o;
-    return Objects.equals(this.day, syntheticsTestOptionsSchedulingTimeframe.day)
-        && Objects.equals(this.from, syntheticsTestOptionsSchedulingTimeframe.from)
-        && Objects.equals(this.to, syntheticsTestOptionsSchedulingTimeframe.to);
+    SyntheticsTestOptionsSchedulingTimeframe syntheticsTestOptionsSchedulingTimeframe = (SyntheticsTestOptionsSchedulingTimeframe) o;
+    return Objects.equals(this.day, syntheticsTestOptionsSchedulingTimeframe.day) && Objects.equals(this.from, syntheticsTestOptionsSchedulingTimeframe.from) && Objects.equals(this.to, syntheticsTestOptionsSchedulingTimeframe.to);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(day, from, to);
+    return Objects.hash(day,from,to);
   }
 
   @Override
@@ -127,7 +144,8 @@ public class SyntheticsTestOptionsSchedulingTimeframe {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

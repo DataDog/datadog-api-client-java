@@ -6,23 +6,42 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The metadata for the current pagination. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The metadata for the current pagination.</p>
+ */
 @JsonPropertyOrder({
   UsageTopAvgMetricsPagination.JSON_PROPERTY_LIMIT,
   UsageTopAvgMetricsPagination.JSON_PROPERTY_NEXT_RECORD_ID,
   UsageTopAvgMetricsPagination.JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageTopAvgMetricsPagination {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Long limit;
 
@@ -38,75 +57,68 @@ public class UsageTopAvgMetricsPagination {
   }
 
   /**
-   * Maximum amount of records to be returned.
-   *
+   * <p>Maximum amount of records to be returned.</p>
    * @return limit
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LIMIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLimit() {
-    return limit;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LIMIT)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getLimit() {
+        return limit;
+      }
   public void setLimit(Long limit) {
     this.limit = limit;
   }
-
   public UsageTopAvgMetricsPagination nextRecordId(String nextRecordId) {
     this.nextRecordId = JsonNullable.<String>of(nextRecordId);
     return this;
   }
 
   /**
-   * The cursor to get the next results (if any). To make the next request, use the same parameters
-   * and add <code>next_record_id</code>.
-   *
+   * <p>The cursor to get the next results (if any). To make the next request, use the same parameters and add <code>next_record_id</code>.</p>
    * @return nextRecordId
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getNextRecordId() {
-    return nextRecordId.orElse(null);
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonIgnore
+      public String getNextRecordId() {
+        return nextRecordId.orElse(null);
+      }
   @JsonProperty(JSON_PROPERTY_NEXT_RECORD_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(
+    value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<String> getNextRecordId_JsonNullable() {
     return nextRecordId;
   }
-
-  @JsonProperty(JSON_PROPERTY_NEXT_RECORD_ID)
-  public void setNextRecordId_JsonNullable(JsonNullable<String> nextRecordId) {
+  @JsonProperty(JSON_PROPERTY_NEXT_RECORD_ID)public void setNextRecordId_JsonNullable(JsonNullable<String> nextRecordId) {
     this.nextRecordId = nextRecordId;
   }
-
   public void setNextRecordId(String nextRecordId) {
     this.nextRecordId = JsonNullable.<String>of(nextRecordId);
   }
-
   public UsageTopAvgMetricsPagination totalNumberOfRecords(Long totalNumberOfRecords) {
     this.totalNumberOfRecords = totalNumberOfRecords;
     return this;
   }
 
   /**
-   * Total number of records.
-   *
+   * <p>Total number of records.</p>
    * @return totalNumberOfRecords
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTotalNumberOfRecords() {
-    return totalNumberOfRecords;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Long getTotalNumberOfRecords() {
+        return totalNumberOfRecords;
+      }
   public void setTotalNumberOfRecords(Long totalNumberOfRecords) {
     this.totalNumberOfRecords = totalNumberOfRecords;
   }
 
-  /** Return true if this UsageTopAvgMetricsPagination object is equal to o. */
+  /**
+   * Return true if this UsageTopAvgMetricsPagination object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -116,15 +128,13 @@ public class UsageTopAvgMetricsPagination {
       return false;
     }
     UsageTopAvgMetricsPagination usageTopAvgMetricsPagination = (UsageTopAvgMetricsPagination) o;
-    return Objects.equals(this.limit, usageTopAvgMetricsPagination.limit)
-        && Objects.equals(this.nextRecordId, usageTopAvgMetricsPagination.nextRecordId)
-        && Objects.equals(
-            this.totalNumberOfRecords, usageTopAvgMetricsPagination.totalNumberOfRecords);
+    return Objects.equals(this.limit, usageTopAvgMetricsPagination.limit) && Objects.equals(this.nextRecordId, usageTopAvgMetricsPagination.nextRecordId) && Objects.equals(this.totalNumberOfRecords, usageTopAvgMetricsPagination.totalNumberOfRecords);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, nextRecordId, totalNumberOfRecords);
+    return Objects.hash(limit,nextRecordId,totalNumberOfRecords);
   }
 
   @Override
@@ -133,15 +143,14 @@ public class UsageTopAvgMetricsPagination {
     sb.append("class UsageTopAvgMetricsPagination {\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    nextRecordId: ").append(toIndentedString(nextRecordId)).append("\n");
-    sb.append("    totalNumberOfRecords: ")
-        .append(toIndentedString(totalNumberOfRecords))
-        .append("\n");
+    sb.append("    totalNumberOfRecords: ").append(toIndentedString(totalNumberOfRecords)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

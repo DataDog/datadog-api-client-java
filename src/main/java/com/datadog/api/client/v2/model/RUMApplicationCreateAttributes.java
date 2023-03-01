@@ -6,22 +6,41 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** RUM application creation attributes. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>RUM application creation attributes.</p>
+ */
 @JsonPropertyOrder({
   RUMApplicationCreateAttributes.JSON_PROPERTY_NAME,
   RUMApplicationCreateAttributes.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RUMApplicationCreateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -32,53 +51,50 @@ public class RUMApplicationCreateAttributes {
 
   @JsonCreator
   public RUMApplicationCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.name = name;
   }
-
   public RUMApplicationCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the RUM application.
-   *
+   * <p>Name of the RUM application.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public RUMApplicationCreateAttributes type(String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Type of the RUM application. Supported values are <code>browser</code>, <code>ios</code>,
-   * <code>android</code>, <code>react-native</code>, <code>flutter</code>.
-   *
+   * <p>Type of the RUM application. Supported values are <code>browser</code>, <code>ios</code>, <code>android</code>, <code>react-native</code>, <code>flutter</code>.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getType() {
+        return type;
+      }
   public void setType(String type) {
     this.type = type;
   }
 
-  /** Return true if this RUMApplicationCreateAttributes object is equal to o. */
+  /**
+   * Return true if this RUMApplicationCreateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -87,15 +103,14 @@ public class RUMApplicationCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RUMApplicationCreateAttributes rumApplicationCreateAttributes =
-        (RUMApplicationCreateAttributes) o;
-    return Objects.equals(this.name, rumApplicationCreateAttributes.name)
-        && Objects.equals(this.type, rumApplicationCreateAttributes.type);
+    RUMApplicationCreateAttributes rumApplicationCreateAttributes = (RUMApplicationCreateAttributes) o;
+    return Objects.equals(this.name, rumApplicationCreateAttributes.name) && Objects.equals(this.type, rumApplicationCreateAttributes.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type);
+    return Objects.hash(name,type);
   }
 
   @Override
@@ -109,7 +124,8 @@ public class RUMApplicationCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

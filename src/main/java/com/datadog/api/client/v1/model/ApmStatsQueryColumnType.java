@@ -6,24 +6,43 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Column properties. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Column properties.</p>
+ */
 @JsonPropertyOrder({
   ApmStatsQueryColumnType.JSON_PROPERTY_ALIAS,
   ApmStatsQueryColumnType.JSON_PROPERTY_CELL_DISPLAY_MODE,
   ApmStatsQueryColumnType.JSON_PROPERTY_NAME,
   ApmStatsQueryColumnType.JSON_PROPERTY_ORDER
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApmStatsQueryColumnType {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIAS = "alias";
   private String alias;
 
@@ -40,31 +59,28 @@ public class ApmStatsQueryColumnType {
 
   @JsonCreator
   public ApmStatsQueryColumnType(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name) {
+        this.name = name;
   }
-
   public ApmStatsQueryColumnType alias(String alias) {
     this.alias = alias;
     return this;
   }
 
   /**
-   * A user-assigned alias for the column.
-   *
+   * <p>A user-assigned alias for the column.</p>
    * @return alias
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALIAS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAlias() {
-    return alias;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ALIAS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getAlias() {
+        return alias;
+      }
   public void setAlias(String alias) {
     this.alias = alias;
   }
-
   public ApmStatsQueryColumnType cellDisplayMode(TableWidgetCellDisplayMode cellDisplayMode) {
     this.cellDisplayMode = cellDisplayMode;
     this.unparsed |= !cellDisplayMode.isValid();
@@ -72,44 +88,40 @@ public class ApmStatsQueryColumnType {
   }
 
   /**
-   * Define a display mode for the table cell.
-   *
+   * <p>Define a display mode for the table cell.</p>
    * @return cellDisplayMode
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TableWidgetCellDisplayMode getCellDisplayMode() {
-    return cellDisplayMode;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public TableWidgetCellDisplayMode getCellDisplayMode() {
+        return cellDisplayMode;
+      }
   public void setCellDisplayMode(TableWidgetCellDisplayMode cellDisplayMode) {
     if (!cellDisplayMode.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.cellDisplayMode = cellDisplayMode;
   }
-
   public ApmStatsQueryColumnType name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Column name.
-   *
+   * <p>Column name.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public ApmStatsQueryColumnType order(WidgetSort order) {
     this.order = order;
     this.unparsed |= !order.isValid();
@@ -117,25 +129,26 @@ public class ApmStatsQueryColumnType {
   }
 
   /**
-   * Widget sorting methods.
-   *
+   * <p>Widget sorting methods.</p>
    * @return order
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetSort getOrder() {
-    return order;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_ORDER)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public WidgetSort getOrder() {
+        return order;
+      }
   public void setOrder(WidgetSort order) {
     if (!order.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.order = order;
   }
 
-  /** Return true if this ApmStatsQueryColumnType object is equal to o. */
+  /**
+   * Return true if this ApmStatsQueryColumnType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,15 +158,13 @@ public class ApmStatsQueryColumnType {
       return false;
     }
     ApmStatsQueryColumnType apmStatsQueryColumnType = (ApmStatsQueryColumnType) o;
-    return Objects.equals(this.alias, apmStatsQueryColumnType.alias)
-        && Objects.equals(this.cellDisplayMode, apmStatsQueryColumnType.cellDisplayMode)
-        && Objects.equals(this.name, apmStatsQueryColumnType.name)
-        && Objects.equals(this.order, apmStatsQueryColumnType.order);
+    return Objects.equals(this.alias, apmStatsQueryColumnType.alias) && Objects.equals(this.cellDisplayMode, apmStatsQueryColumnType.cellDisplayMode) && Objects.equals(this.name, apmStatsQueryColumnType.name) && Objects.equals(this.order, apmStatsQueryColumnType.order);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(alias, cellDisplayMode, name, order);
+    return Objects.hash(alias,cellDisplayMode,name,order);
   }
 
   @Override
@@ -169,7 +180,8 @@ public class ApmStatsQueryColumnType {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

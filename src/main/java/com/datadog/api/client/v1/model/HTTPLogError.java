@@ -6,19 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Invalid query performed. */
-@JsonPropertyOrder({HTTPLogError.JSON_PROPERTY_CODE, HTTPLogError.JSON_PROPERTY_MESSAGE})
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Invalid query performed.</p>
+ */
+@JsonPropertyOrder({
+  HTTPLogError.JSON_PROPERTY_CODE,
+  HTTPLogError.JSON_PROPERTY_MESSAGE
+})
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HTTPLogError {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CODE = "code";
   private Integer code;
 
@@ -29,53 +51,52 @@ public class HTTPLogError {
 
   @JsonCreator
   public HTTPLogError(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CODE) Integer code,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message) {
-    this.code = code;
-    this.message = message;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CODE)Integer code,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MESSAGE)String message) {
+        this.code = code;
+        this.message = message;
   }
-
   public HTTPLogError code(Integer code) {
     this.code = code;
     return this;
   }
 
   /**
-   * Error code. maximum: 2147483647
-   *
+   * <p>Error code.</p>
+   * maximum: 2147483647
    * @return code
-   */
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getCode() {
-    return code;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CODE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Integer getCode() {
+        return code;
+      }
   public void setCode(Integer code) {
     this.code = code;
   }
-
   public HTTPLogError message(String message) {
     this.message = message;
     return this;
   }
 
   /**
-   * Error message.
-   *
+   * <p>Error message.</p>
    * @return message
-   */
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMessage() {
-    return message;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MESSAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getMessage() {
+        return message;
+      }
   public void setMessage(String message) {
     this.message = message;
   }
 
-  /** Return true if this HTTPLogError object is equal to o. */
+  /**
+   * Return true if this HTTPLogError object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,13 +106,13 @@ public class HTTPLogError {
       return false;
     }
     HTTPLogError httpLogError = (HTTPLogError) o;
-    return Objects.equals(this.code, httpLogError.code)
-        && Objects.equals(this.message, httpLogError.message);
+    return Objects.equals(this.code, httpLogError.code) && Objects.equals(this.message, httpLogError.message);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message);
+    return Objects.hash(code,message);
   }
 
   @Override
@@ -105,7 +126,8 @@ public class HTTPLogError {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

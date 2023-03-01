@@ -6,16 +6,33 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Create a new cloud configuration rule. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Create a new cloud configuration rule.</p>
+ */
 @JsonPropertyOrder({
   CloudConfigurationRuleCreatePayload.JSON_PROPERTY_CASES,
   CloudConfigurationRuleCreatePayload.JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS,
@@ -26,10 +43,10 @@ import java.util.Objects;
   CloudConfigurationRuleCreatePayload.JSON_PROPERTY_TAGS,
   CloudConfigurationRuleCreatePayload.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudConfigurationRuleCreatePayload {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<CloudConfigurationRuleCaseCreate> cases = new ArrayList<>();
 
@@ -58,25 +75,21 @@ public class CloudConfigurationRuleCreatePayload {
 
   @JsonCreator
   public CloudConfigurationRuleCreatePayload(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CASES)
-          List<CloudConfigurationRuleCaseCreate> cases,
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS)
-          CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions,
-      @JsonProperty(required = true, value = JSON_PROPERTY_IS_ENABLED) Boolean isEnabled,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS)
-          CloudConfigurationRuleOptions options) {
-    this.cases = cases;
-    this.complianceSignalOptions = complianceSignalOptions;
-    this.unparsed |= complianceSignalOptions.unparsed;
-    this.isEnabled = isEnabled;
-    this.message = message;
-    this.name = name;
-    this.options = options;
-    this.unparsed |= options.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CASES)List<CloudConfigurationRuleCaseCreate> cases,
+            @JsonProperty(required=true, value=JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS)CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions,
+            @JsonProperty(required=true, value=JSON_PROPERTY_IS_ENABLED)Boolean isEnabled,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MESSAGE)String message,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME)String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_OPTIONS)CloudConfigurationRuleOptions options) {
+        this.cases = cases;
+        this.complianceSignalOptions = complianceSignalOptions;
+        this.unparsed |= complianceSignalOptions.unparsed;
+        this.isEnabled = isEnabled;
+        this.message = message;
+        this.name = name;
+        this.options = options;
+        this.unparsed |= options.unparsed;
   }
-
   public CloudConfigurationRuleCreatePayload cases(List<CloudConfigurationRuleCaseCreate> cases) {
     this.cases = cases;
     for (CloudConfigurationRuleCaseCreate item : cases) {
@@ -84,113 +97,98 @@ public class CloudConfigurationRuleCreatePayload {
     }
     return this;
   }
-
-  public CloudConfigurationRuleCreatePayload addCasesItem(
-      CloudConfigurationRuleCaseCreate casesItem) {
+  public CloudConfigurationRuleCreatePayload addCasesItem(CloudConfigurationRuleCaseCreate casesItem) {
     this.cases.add(casesItem);
     this.unparsed |= casesItem.unparsed;
     return this;
   }
 
   /**
-   * Description of generated findings and signals (severity and channels to be notified in case of
-   * a signal). Must contain exactly one item.
-   *
+   * <p>Description of generated findings and signals (severity and channels to be notified in case of a signal). Must contain exactly one item.</p>
    * @return cases
-   */
-  @JsonProperty(JSON_PROPERTY_CASES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<CloudConfigurationRuleCaseCreate> getCases() {
-    return cases;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_CASES)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public List<CloudConfigurationRuleCaseCreate> getCases() {
+        return cases;
+      }
   public void setCases(List<CloudConfigurationRuleCaseCreate> cases) {
     this.cases = cases;
   }
-
-  public CloudConfigurationRuleCreatePayload complianceSignalOptions(
-      CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
+  public CloudConfigurationRuleCreatePayload complianceSignalOptions(CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
     this.complianceSignalOptions = complianceSignalOptions;
     this.unparsed |= complianceSignalOptions.unparsed;
     return this;
   }
 
   /**
-   * How to generate compliance signals. Useful for cloud_configuration rules only.
-   *
+   * <p>How to generate compliance signals. Useful for cloud_configuration rules only.</p>
    * @return complianceSignalOptions
-   */
-  @JsonProperty(JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CloudConfigurationRuleComplianceSignalOptions getComplianceSignalOptions() {
-    return complianceSignalOptions;
-  }
-
-  public void setComplianceSignalOptions(
-      CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
+  **/
+      @JsonProperty(JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CloudConfigurationRuleComplianceSignalOptions getComplianceSignalOptions() {
+        return complianceSignalOptions;
+      }
+  public void setComplianceSignalOptions(CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
     this.complianceSignalOptions = complianceSignalOptions;
   }
-
   public CloudConfigurationRuleCreatePayload isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
   /**
-   * Whether the rule is enabled.
-   *
+   * <p>Whether the rule is enabled.</p>
    * @return isEnabled
-   */
-  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getIsEnabled() {
-    return isEnabled;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public Boolean getIsEnabled() {
+        return isEnabled;
+      }
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
-
   public CloudConfigurationRuleCreatePayload message(String message) {
     this.message = message;
     return this;
   }
 
   /**
-   * Message in markdown format for generated findings and signals.
-   *
+   * <p>Message in markdown format for generated findings and signals.</p>
    * @return message
-   */
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMessage() {
-    return message;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_MESSAGE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getMessage() {
+        return message;
+      }
   public void setMessage(String message) {
     this.message = message;
   }
-
   public CloudConfigurationRuleCreatePayload name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the rule.
-   *
+   * <p>The name of the rule.</p>
    * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public CloudConfigurationRuleCreatePayload options(CloudConfigurationRuleOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
@@ -198,25 +196,22 @@ public class CloudConfigurationRuleCreatePayload {
   }
 
   /**
-   * Options on cloud configuration rules.
-   *
+   * <p>Options on cloud configuration rules.</p>
    * @return options
-   */
-  @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CloudConfigurationRuleOptions getOptions() {
-    return options;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_OPTIONS)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public CloudConfigurationRuleOptions getOptions() {
+        return options;
+      }
   public void setOptions(CloudConfigurationRuleOptions options) {
     this.options = options;
   }
-
   public CloudConfigurationRuleCreatePayload tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
-
   public CloudConfigurationRuleCreatePayload addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
@@ -226,21 +221,19 @@ public class CloudConfigurationRuleCreatePayload {
   }
 
   /**
-   * Tags for generated findings and signals.
-   *
+   * <p>Tags for generated findings and signals.</p>
    * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TAGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getTags() {
+        return tags;
+      }
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
   public CloudConfigurationRuleCreatePayload type(CloudConfigurationRuleType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -248,25 +241,26 @@ public class CloudConfigurationRuleCreatePayload {
   }
 
   /**
-   * The rule type.
-   *
+   * <p>The rule type.</p>
    * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CloudConfigurationRuleType getType() {
-    return type;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TYPE)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public CloudConfigurationRuleType getType() {
+        return type;
+      }
   public void setType(CloudConfigurationRuleType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this CloudConfigurationRuleCreatePayload object is equal to o. */
+  /**
+   * Return true if this CloudConfigurationRuleCreatePayload object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -275,24 +269,14 @@ public class CloudConfigurationRuleCreatePayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudConfigurationRuleCreatePayload cloudConfigurationRuleCreatePayload =
-        (CloudConfigurationRuleCreatePayload) o;
-    return Objects.equals(this.cases, cloudConfigurationRuleCreatePayload.cases)
-        && Objects.equals(
-            this.complianceSignalOptions,
-            cloudConfigurationRuleCreatePayload.complianceSignalOptions)
-        && Objects.equals(this.isEnabled, cloudConfigurationRuleCreatePayload.isEnabled)
-        && Objects.equals(this.message, cloudConfigurationRuleCreatePayload.message)
-        && Objects.equals(this.name, cloudConfigurationRuleCreatePayload.name)
-        && Objects.equals(this.options, cloudConfigurationRuleCreatePayload.options)
-        && Objects.equals(this.tags, cloudConfigurationRuleCreatePayload.tags)
-        && Objects.equals(this.type, cloudConfigurationRuleCreatePayload.type);
+    CloudConfigurationRuleCreatePayload cloudConfigurationRuleCreatePayload = (CloudConfigurationRuleCreatePayload) o;
+    return Objects.equals(this.cases, cloudConfigurationRuleCreatePayload.cases) && Objects.equals(this.complianceSignalOptions, cloudConfigurationRuleCreatePayload.complianceSignalOptions) && Objects.equals(this.isEnabled, cloudConfigurationRuleCreatePayload.isEnabled) && Objects.equals(this.message, cloudConfigurationRuleCreatePayload.message) && Objects.equals(this.name, cloudConfigurationRuleCreatePayload.name) && Objects.equals(this.options, cloudConfigurationRuleCreatePayload.options) && Objects.equals(this.tags, cloudConfigurationRuleCreatePayload.tags) && Objects.equals(this.type, cloudConfigurationRuleCreatePayload.type);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        cases, complianceSignalOptions, isEnabled, message, name, options, tags, type);
+    return Objects.hash(cases,complianceSignalOptions,isEnabled,message,name,options,tags,type);
   }
 
   @Override
@@ -300,9 +284,7 @@ public class CloudConfigurationRuleCreatePayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudConfigurationRuleCreatePayload {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
-    sb.append("    complianceSignalOptions: ")
-        .append(toIndentedString(complianceSignalOptions))
-        .append("\n");
+    sb.append("    complianceSignalOptions: ").append(toIndentedString(complianceSignalOptions)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -314,7 +296,8 @@ public class CloudConfigurationRuleCreatePayload {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

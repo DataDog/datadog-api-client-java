@@ -6,21 +6,41 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Org related information about the service. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Org related information about the service.</p>
+ */
 @JsonPropertyOrder({
   ServiceDefinitionV1Org.JSON_PROPERTY_APPLICATION,
   ServiceDefinitionV1Org.JSON_PROPERTY_TEAM
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ServiceDefinitionV1Org {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION = "application";
   private String application;
 
@@ -33,43 +53,42 @@ public class ServiceDefinitionV1Org {
   }
 
   /**
-   * App feature this service supports.
-   *
+   * <p>App feature this service supports.</p>
    * @return application
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPLICATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getApplication() {
-    return application;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APPLICATION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getApplication() {
+        return application;
+      }
   public void setApplication(String application) {
     this.application = application;
   }
-
   public ServiceDefinitionV1Org team(String team) {
     this.team = team;
     return this;
   }
 
   /**
-   * Team that owns the service.
-   *
+   * <p>Team that owns the service.</p>
    * @return team
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTeam() {
-    return team;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TEAM)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getTeam() {
+        return team;
+      }
   public void setTeam(String team) {
     this.team = team;
   }
 
-  /** Return true if this ServiceDefinitionV1Org object is equal to o. */
+  /**
+   * Return true if this ServiceDefinitionV1Org object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -79,13 +98,13 @@ public class ServiceDefinitionV1Org {
       return false;
     }
     ServiceDefinitionV1Org serviceDefinitionV1Org = (ServiceDefinitionV1Org) o;
-    return Objects.equals(this.application, serviceDefinitionV1Org.application)
-        && Objects.equals(this.team, serviceDefinitionV1Org.team);
+    return Objects.equals(this.application, serviceDefinitionV1Org.application) && Objects.equals(this.team, serviceDefinitionV1Org.team);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(application, team);
+    return Objects.hash(application,team);
   }
 
   @Override
@@ -99,7 +118,8 @@ public class ServiceDefinitionV1Org {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

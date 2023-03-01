@@ -6,22 +6,41 @@
 
 package com.datadog.api.client.v2.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The postmortem attachment. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>The postmortem attachment.</p>
+ */
 @JsonPropertyOrder({
   IncidentAttachmentsPostmortemAttributesAttachmentObject.JSON_PROPERTY_DOCUMENT_URL,
   IncidentAttachmentsPostmortemAttributesAttachmentObject.JSON_PROPERTY_TITLE
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentAttachmentsPostmortemAttributesAttachmentObject {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DOCUMENT_URL = "documentUrl";
   private String documentUrl;
 
@@ -32,55 +51,50 @@ public class IncidentAttachmentsPostmortemAttributesAttachmentObject {
 
   @JsonCreator
   public IncidentAttachmentsPostmortemAttributesAttachmentObject(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DOCUMENT_URL) String documentUrl,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
-    this.documentUrl = documentUrl;
-    this.title = title;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DOCUMENT_URL)String documentUrl,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TITLE)String title) {
+        this.documentUrl = documentUrl;
+        this.title = title;
   }
-
   public IncidentAttachmentsPostmortemAttributesAttachmentObject documentUrl(String documentUrl) {
     this.documentUrl = documentUrl;
     return this;
   }
 
   /**
-   * The URL of this notebook attachment.
-   *
+   * <p>The URL of this notebook attachment.</p>
    * @return documentUrl
-   */
-  @JsonProperty(JSON_PROPERTY_DOCUMENT_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDocumentUrl() {
-    return documentUrl;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_DOCUMENT_URL)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getDocumentUrl() {
+        return documentUrl;
+      }
   public void setDocumentUrl(String documentUrl) {
     this.documentUrl = documentUrl;
   }
-
   public IncidentAttachmentsPostmortemAttributesAttachmentObject title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * The title of this postmortem attachment.
-   *
+   * <p>The title of this postmortem attachment.</p>
    * @return title
-   */
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTitle() {
-    return title;
-  }
-
+  **/
+      @JsonProperty(JSON_PROPERTY_TITLE)
+      @JsonInclude(
+        value = JsonInclude.Include.ALWAYS)
+      public String getTitle() {
+        return title;
+      }
   public void setTitle(String title) {
     this.title = title;
   }
 
   /**
-   * Return true if this IncidentAttachmentsPostmortemAttributesAttachmentObject object is equal to
-   * o.
+   * Return true if this IncidentAttachmentsPostmortemAttributesAttachmentObject object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -90,18 +104,14 @@ public class IncidentAttachmentsPostmortemAttributesAttachmentObject {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentAttachmentsPostmortemAttributesAttachmentObject
-        incidentAttachmentsPostmortemAttributesAttachmentObject =
-            (IncidentAttachmentsPostmortemAttributesAttachmentObject) o;
-    return Objects.equals(
-            this.documentUrl, incidentAttachmentsPostmortemAttributesAttachmentObject.documentUrl)
-        && Objects.equals(
-            this.title, incidentAttachmentsPostmortemAttributesAttachmentObject.title);
+    IncidentAttachmentsPostmortemAttributesAttachmentObject incidentAttachmentsPostmortemAttributesAttachmentObject = (IncidentAttachmentsPostmortemAttributesAttachmentObject) o;
+    return Objects.equals(this.documentUrl, incidentAttachmentsPostmortemAttributesAttachmentObject.documentUrl) && Objects.equals(this.title, incidentAttachmentsPostmortemAttributesAttachmentObject.title);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentUrl, title);
+    return Objects.hash(documentUrl,title);
   }
 
   @Override
@@ -115,7 +125,8 @@ public class IncidentAttachmentsPostmortemAttributesAttachmentObject {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

@@ -6,13 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Updated host map. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Updated host map.</p>
+ */
 @JsonPropertyOrder({
   HostMapRequest.JSON_PROPERTY_APM_QUERY,
   HostMapRequest.JSON_PROPERTY_EVENT_QUERY,
@@ -24,10 +44,10 @@ import java.util.Objects;
   HostMapRequest.JSON_PROPERTY_RUM_QUERY,
   HostMapRequest.JSON_PROPERTY_SECURITY_QUERY
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HostMapRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
 
@@ -62,21 +82,19 @@ public class HostMapRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return apmQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APM_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getApmQuery() {
-    return apmQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_APM_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getApmQuery() {
+        return apmQuery;
+      }
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
   }
-
   public HostMapRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
     this.unparsed |= eventQuery.unparsed;
@@ -84,21 +102,19 @@ public class HostMapRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return eventQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getEventQuery() {
-    return eventQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getEventQuery() {
+        return eventQuery;
+      }
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
   }
-
   public HostMapRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
     this.unparsed |= logQuery.unparsed;
@@ -106,21 +122,19 @@ public class HostMapRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return logQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOG_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getLogQuery() {
-    return logQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_LOG_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getLogQuery() {
+        return logQuery;
+      }
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
   }
-
   public HostMapRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
     this.unparsed |= networkQuery.unparsed;
@@ -128,21 +142,19 @@ public class HostMapRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return networkQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getNetworkQuery() {
-    return networkQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getNetworkQuery() {
+        return networkQuery;
+      }
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
   }
-
   public HostMapRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
     this.unparsed |= processQuery.unparsed;
@@ -150,21 +162,19 @@ public class HostMapRequest {
   }
 
   /**
-   * The process query to use in the widget.
-   *
+   * <p>The process query to use in the widget.</p>
    * @return processQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ProcessQueryDefinition getProcessQuery() {
-    return processQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public ProcessQueryDefinition getProcessQuery() {
+        return processQuery;
+      }
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
   }
-
   public HostMapRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
     this.unparsed |= profileMetricsQuery.unparsed;
@@ -172,42 +182,38 @@ public class HostMapRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return profileMetricsQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getProfileMetricsQuery() {
-    return profileMetricsQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getProfileMetricsQuery() {
+        return profileMetricsQuery;
+      }
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
   }
-
   public HostMapRequest q(String q) {
     this.q = q;
     return this;
   }
 
   /**
-   * Query definition.
-   *
+   * <p>Query definition.</p>
    * @return q
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_Q)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getQ() {
-    return q;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_Q)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getQ() {
+        return q;
+      }
   public void setQ(String q) {
     this.q = q;
   }
-
   public HostMapRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     this.unparsed |= rumQuery.unparsed;
@@ -215,21 +221,19 @@ public class HostMapRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return rumQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUM_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getRumQuery() {
-    return rumQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_RUM_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getRumQuery() {
+        return rumQuery;
+      }
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
   }
-
   public HostMapRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
     this.unparsed |= securityQuery.unparsed;
@@ -237,22 +241,23 @@ public class HostMapRequest {
   }
 
   /**
-   * The log query.
-   *
+   * <p>The log query.</p>
    * @return securityQuery
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinition getSecurityQuery() {
-    return securityQuery;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public LogQueryDefinition getSecurityQuery() {
+        return securityQuery;
+      }
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
   }
 
-  /** Return true if this HostMapRequest object is equal to o. */
+  /**
+   * Return true if this HostMapRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -262,29 +267,13 @@ public class HostMapRequest {
       return false;
     }
     HostMapRequest hostMapRequest = (HostMapRequest) o;
-    return Objects.equals(this.apmQuery, hostMapRequest.apmQuery)
-        && Objects.equals(this.eventQuery, hostMapRequest.eventQuery)
-        && Objects.equals(this.logQuery, hostMapRequest.logQuery)
-        && Objects.equals(this.networkQuery, hostMapRequest.networkQuery)
-        && Objects.equals(this.processQuery, hostMapRequest.processQuery)
-        && Objects.equals(this.profileMetricsQuery, hostMapRequest.profileMetricsQuery)
-        && Objects.equals(this.q, hostMapRequest.q)
-        && Objects.equals(this.rumQuery, hostMapRequest.rumQuery)
-        && Objects.equals(this.securityQuery, hostMapRequest.securityQuery);
+    return Objects.equals(this.apmQuery, hostMapRequest.apmQuery) && Objects.equals(this.eventQuery, hostMapRequest.eventQuery) && Objects.equals(this.logQuery, hostMapRequest.logQuery) && Objects.equals(this.networkQuery, hostMapRequest.networkQuery) && Objects.equals(this.processQuery, hostMapRequest.processQuery) && Objects.equals(this.profileMetricsQuery, hostMapRequest.profileMetricsQuery) && Objects.equals(this.q, hostMapRequest.q) && Objects.equals(this.rumQuery, hostMapRequest.rumQuery) && Objects.equals(this.securityQuery, hostMapRequest.securityQuery);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        apmQuery,
-        eventQuery,
-        logQuery,
-        networkQuery,
-        processQuery,
-        profileMetricsQuery,
-        q,
-        rumQuery,
-        securityQuery);
+    return Objects.hash(apmQuery,eventQuery,logQuery,networkQuery,processQuery,profileMetricsQuery,q,rumQuery,securityQuery);
   }
 
   @Override
@@ -296,9 +285,7 @@ public class HostMapRequest {
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
-    sb.append("    profileMetricsQuery: ")
-        .append(toIndentedString(profileMetricsQuery))
-        .append("\n");
+    sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
@@ -307,7 +294,8 @@ public class HostMapRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

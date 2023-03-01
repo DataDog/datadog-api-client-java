@@ -6,20 +6,44 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import java.io.IOException;
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
 
-/** The available timeframes depend on the widget you are using. */
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The available timeframes depend on the widget you are using.</p>
+ */
 @JsonSerialize(using = WidgetLiveSpan.WidgetLiveSpanSerializer.class)
 public class WidgetLiveSpan {
 
@@ -39,11 +63,7 @@ public class WidgetLiveSpan {
   public static final WidgetLiveSpan PAST_ONE_YEAR = new WidgetLiveSpan("1y");
   public static final WidgetLiveSpan ALERT = new WidgetLiveSpan("alert");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "1m", "5m", "10m", "15m", "30m", "1h", "4h", "1d", "2d", "1w", "1mo", "3mo", "6mo",
-              "1y", "alert"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("1m", "5m", "10m", "15m", "30m", "1h", "4h", "1d", "2d", "1w", "1mo", "3mo", "6mo", "1y", "alert"));
 
   private String value;
 
@@ -56,19 +76,18 @@ public class WidgetLiveSpan {
   }
 
   public static class WidgetLiveSpanSerializer extends StdSerializer<WidgetLiveSpan> {
-    public WidgetLiveSpanSerializer(Class<WidgetLiveSpan> t) {
-      super(t);
-    }
+      public WidgetLiveSpanSerializer(Class<WidgetLiveSpan> t) {
+          super(t);
+      }
 
-    public WidgetLiveSpanSerializer() {
-      this(null);
-    }
+      public WidgetLiveSpanSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(WidgetLiveSpan value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(WidgetLiveSpan value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -80,7 +99,9 @@ public class WidgetLiveSpan {
     this.value = value;
   }
 
-  /** Return true if this WidgetLiveSpan object is equal to o. */
+  /**
+   * Return true if this WidgetLiveSpan object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +115,7 @@ public class WidgetLiveSpan {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override

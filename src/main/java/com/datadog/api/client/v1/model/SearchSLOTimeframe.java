@@ -6,20 +6,44 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import java.io.IOException;
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
 
-/** The SLO time window options. */
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.datadog.api.client.JsonTimeSerializer;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+   * <p>The SLO time window options.</p>
+ */
 @JsonSerialize(using = SearchSLOTimeframe.SearchSLOTimeframeSerializer.class)
 public class SearchSLOTimeframe {
 
@@ -27,8 +51,7 @@ public class SearchSLOTimeframe {
   public static final SearchSLOTimeframe THIRTY_DAYS = new SearchSLOTimeframe("30d");
   public static final SearchSLOTimeframe NINETY_DAYS = new SearchSLOTimeframe("90d");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("7d", "30d", "90d"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("7d", "30d", "90d"));
 
   private String value;
 
@@ -41,19 +64,18 @@ public class SearchSLOTimeframe {
   }
 
   public static class SearchSLOTimeframeSerializer extends StdSerializer<SearchSLOTimeframe> {
-    public SearchSLOTimeframeSerializer(Class<SearchSLOTimeframe> t) {
-      super(t);
-    }
+      public SearchSLOTimeframeSerializer(Class<SearchSLOTimeframe> t) {
+          super(t);
+      }
 
-    public SearchSLOTimeframeSerializer() {
-      this(null);
-    }
+      public SearchSLOTimeframeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(SearchSLOTimeframe value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SearchSLOTimeframe value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -65,7 +87,9 @@ public class SearchSLOTimeframe {
     this.value = value;
   }
 
-  /** Return true if this SearchSLOTimeframe object is equal to o. */
+  /**
+   * Return true if this SearchSLOTimeframe object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -79,7 +103,7 @@ public class SearchSLOTimeframe {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override

@@ -6,23 +6,41 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** An array of service level objective objects. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>An array of service level objective objects.</p>
+ */
 @JsonPropertyOrder({
   SLOBulkDeleteResponseData.JSON_PROPERTY_DELETED,
   SLOBulkDeleteResponseData.JSON_PROPERTY_UPDATED
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SLOBulkDeleteResponseData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELETED = "deleted";
   private List<String> deleted = null;
 
@@ -33,7 +51,6 @@ public class SLOBulkDeleteResponseData {
     this.deleted = deleted;
     return this;
   }
-
   public SLOBulkDeleteResponseData addDeletedItem(String deletedItem) {
     if (this.deleted == null) {
       this.deleted = new ArrayList<>();
@@ -43,27 +60,24 @@ public class SLOBulkDeleteResponseData {
   }
 
   /**
-   * An array of service level objective object IDs that indicates which objects that were
-   * completely deleted.
-   *
+   * <p>An array of service level objective object IDs that indicates
+   * which objects that were completely deleted.</p>
    * @return deleted
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DELETED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getDeleted() {
-    return deleted;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DELETED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getDeleted() {
+        return deleted;
+      }
   public void setDeleted(List<String> deleted) {
     this.deleted = deleted;
   }
-
   public SLOBulkDeleteResponseData updated(List<String> updated) {
     this.updated = updated;
     return this;
   }
-
   public SLOBulkDeleteResponseData addUpdatedItem(String updatedItem) {
     if (this.updated == null) {
       this.updated = new ArrayList<>();
@@ -73,23 +87,25 @@ public class SLOBulkDeleteResponseData {
   }
 
   /**
-   * An array of service level objective object IDs that indicates which objects that were modified
-   * (objects for which at least one threshold was deleted, but that were not completely deleted).
-   *
+   * <p>An array of service level objective object IDs that indicates
+   * which objects that were modified (objects for which at least one
+   * threshold was deleted, but that were not completely deleted).</p>
    * @return updated
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPDATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getUpdated() {
-    return updated;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_UPDATED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public List<String> getUpdated() {
+        return updated;
+      }
   public void setUpdated(List<String> updated) {
     this.updated = updated;
   }
 
-  /** Return true if this SLOBulkDeleteResponseData object is equal to o. */
+  /**
+   * Return true if this SLOBulkDeleteResponseData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,13 +115,13 @@ public class SLOBulkDeleteResponseData {
       return false;
     }
     SLOBulkDeleteResponseData sloBulkDeleteResponseData = (SLOBulkDeleteResponseData) o;
-    return Objects.equals(this.deleted, sloBulkDeleteResponseData.deleted)
-        && Objects.equals(this.updated, sloBulkDeleteResponseData.updated);
+    return Objects.equals(this.deleted, sloBulkDeleteResponseData.deleted) && Objects.equals(this.updated, sloBulkDeleteResponseData.updated);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleted, updated);
+    return Objects.hash(deleted,updated);
   }
 
   @Override
@@ -119,7 +135,8 @@ public class SLOBulkDeleteResponseData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {

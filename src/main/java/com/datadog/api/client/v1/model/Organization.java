@@ -6,13 +6,33 @@
 
 package com.datadog.api.client.v1.model;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.Objects;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Create, edit, and manage organizations. */
+import com.datadog.api.client.JsonTimeSerializer;
+
+
+/**
+   * <p>Create, edit, and manage organizations.</p>
+ */
 @JsonPropertyOrder({
   Organization.JSON_PROPERTY_BILLING,
   Organization.JSON_PROPERTY_CREATED,
@@ -23,10 +43,10 @@ import java.util.Objects;
   Organization.JSON_PROPERTY_SUBSCRIPTION,
   Organization.JSON_PROPERTY_TRIAL
 })
-@jakarta.annotation.Generated(
-    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+@jakarta.annotation.Generated(value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Organization {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BILLING = "billing";
   private OrganizationBilling billing;
 
@@ -58,99 +78,91 @@ public class Organization {
   }
 
   /**
-   * A JSON array of billing type.
-   *
+   * <p>A JSON array of billing type.</p>
    * @return billing
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BILLING)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OrganizationBilling getBilling() {
-    return billing;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_BILLING)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OrganizationBilling getBilling() {
+        return billing;
+      }
   @Deprecated
   public void setBilling(OrganizationBilling billing) {
     this.billing = billing;
   }
 
   /**
-   * Date of the organization creation.
-   *
+   * <p>Date of the organization creation.</p>
    * @return created
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCreated() {
-    return created;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_CREATED)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getCreated() {
+        return created;
+      }
   public Organization description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Description of the organization.
-   *
+   * <p>Description of the organization.</p>
    * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getDescription() {
+        return description;
+      }
   public void setDescription(String description) {
     this.description = description;
   }
-
   public Organization name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the new child-organization, limited to 32 characters.
-   *
+   * <p>The name of the new child-organization, limited to 32 characters.</p>
    * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_NAME)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getName() {
+        return name;
+      }
   public void setName(String name) {
     this.name = name;
   }
-
   public Organization publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
   /**
-   * The <code>public_id</code> of the organization you are operating within.
-   *
+   * <p>The <code>public_id</code> of the organization you are operating within.</p>
    * @return publicId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPublicId() {
-    return publicId;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public String getPublicId() {
+        return publicId;
+      }
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
-
   public Organization settings(OrganizationSettings settings) {
     this.settings = settings;
     this.unparsed |= settings.unparsed;
@@ -158,21 +170,19 @@ public class Organization {
   }
 
   /**
-   * A JSON array of settings.
-   *
+   * <p>A JSON array of settings.</p>
    * @return settings
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SETTINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OrganizationSettings getSettings() {
-    return settings;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SETTINGS)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OrganizationSettings getSettings() {
+        return settings;
+      }
   public void setSettings(OrganizationSettings settings) {
     this.settings = settings;
   }
-
   public Organization subscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
     this.unparsed |= subscription.unparsed;
@@ -180,46 +190,45 @@ public class Organization {
   }
 
   /**
-   * Subscription definition.
-   *
+   * <p>Subscription definition.</p>
    * @return subscription
    * @deprecated
-   */
-  @Deprecated
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OrganizationSubscription getSubscription() {
-    return subscription;
-  }
-
+  **/
+      @Deprecated
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public OrganizationSubscription getSubscription() {
+        return subscription;
+      }
   @Deprecated
   public void setSubscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
   }
-
   public Organization trial(Boolean trial) {
     this.trial = trial;
     return this;
   }
 
   /**
-   * Only available for MSP customers. Allows child organizations to be created on a trial plan.
-   *
+   * <p>Only available for MSP customers. Allows child organizations to be created on a trial plan.</p>
    * @return trial
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRIAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getTrial() {
-    return trial;
-  }
-
+  **/
+      @jakarta.annotation.Nullable
+      @JsonProperty(JSON_PROPERTY_TRIAL)
+      @JsonInclude(
+        value = JsonInclude.Include.USE_DEFAULTS)
+      public Boolean getTrial() {
+        return trial;
+      }
   public void setTrial(Boolean trial) {
     this.trial = trial;
   }
 
-  /** Return true if this Organization object is equal to o. */
+  /**
+   * Return true if this Organization object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -229,20 +238,13 @@ public class Organization {
       return false;
     }
     Organization organization = (Organization) o;
-    return Objects.equals(this.billing, organization.billing)
-        && Objects.equals(this.created, organization.created)
-        && Objects.equals(this.description, organization.description)
-        && Objects.equals(this.name, organization.name)
-        && Objects.equals(this.publicId, organization.publicId)
-        && Objects.equals(this.settings, organization.settings)
-        && Objects.equals(this.subscription, organization.subscription)
-        && Objects.equals(this.trial, organization.trial);
+    return Objects.equals(this.billing, organization.billing) && Objects.equals(this.created, organization.created) && Objects.equals(this.description, organization.description) && Objects.equals(this.name, organization.name) && Objects.equals(this.publicId, organization.publicId) && Objects.equals(this.settings, organization.settings) && Objects.equals(this.subscription, organization.subscription) && Objects.equals(this.trial, organization.trial);
   }
+
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        billing, created, description, name, publicId, settings, subscription, trial);
+    return Objects.hash(billing,created,description,name,publicId,settings,subscription,trial);
   }
 
   @Override
@@ -262,7 +264,8 @@ public class Organization {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
