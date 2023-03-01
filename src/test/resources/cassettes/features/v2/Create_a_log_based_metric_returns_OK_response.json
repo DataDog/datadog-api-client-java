@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"}},\"id\":\"Test-Create_a_log_based_metric_returns_OK_response-1669044965\",\"type\":\"logs_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"}},\"id\":\"TestCreatealogbasedmetricreturnsOKresponse1677265321\",\"type\":\"logs_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"*\"},\"group_by\":[],\"compute\":{\"path\":\"@duration\",\"include_percentiles\":true,\"aggregation_type\":\"distribution\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Create_a_log_based_metric_returns_OK_response_1669044965\"}}\n",
+      "body": "{\"data\":{\"id\":\"TestCreatealogbasedmetricreturnsOKresponse1677265321\",\"attributes\":{\"filter\":{\"query\":\"*\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":true}},\"type\":\"logs_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f98bd593-0d60-46a0-11a3-32616cfb250b"
+    "id": "ac3bc540-9b20-2360-5878-ba38f943df2e"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/logs/config/metrics/Test_Create_a_log_based_metric_returns_OK_response_1669044965",
+      "path": "/api/v2/logs/config/metrics/TestCreatealogbasedmetricreturnsOKresponse1677265321",
       "keepAlive": false,
       "secure": true
     },
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "12c1ae70-ac1d-021e-801d-57f41265ad38"
+    "id": "4f554b9a-a008-3e95-d132-404e1b4748b1"
   }
 ]
