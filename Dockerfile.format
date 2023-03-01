@@ -1,4 +1,4 @@
-FROM openjdk:21-jdk
+FROM openjdk:20-jdk
 
 RUN mkdir -p /app
 WORKDIR /app
