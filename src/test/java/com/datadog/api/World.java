@@ -133,12 +133,9 @@ public class World {
   }
 
   private void configureClient(Class<?> clientClass, Object client)
-      throws java.lang.reflect.InvocationTargetException,
-          java.lang.IllegalAccessException,
-          java.lang.InstantiationException,
-          java.lang.NoSuchMethodException,
-          java.lang.ClassNotFoundException,
-          java.lang.NoSuchFieldException {
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
     // client.setServerIndex(0);
     clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 0);
 
@@ -192,12 +189,9 @@ public class World {
   }
 
   public void setupClient(String apiVersion)
-      throws java.lang.reflect.InvocationTargetException,
-          java.lang.IllegalAccessException,
-          java.lang.InstantiationException,
-          java.lang.NoSuchMethodException,
-          java.lang.ClassNotFoundException,
-          java.lang.NoSuchFieldException {
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
     // import com.datadog.api.client.ApiClient
     clientClass = Class.forName("com.datadog.api.client.ApiClient");
     // client = new ApiClient()
@@ -206,10 +200,8 @@ public class World {
   }
 
   public void setupAPI(String apiVersion, String apiName)
-      throws java.lang.ClassNotFoundException,
-          java.lang.InstantiationException,
-          java.lang.IllegalAccessException,
-          java.lang.NoSuchMethodException,
+      throws java.lang.ClassNotFoundException, java.lang.InstantiationException,
+          java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException {
     // import com.datadog.api.{{ apiVersion }}.client.api.{{ apiName }}Api
     apiClass = Class.forName("com.datadog.api.client." + apiVersion + ".api." + apiName + "Api");
@@ -218,8 +210,7 @@ public class World {
   }
 
   public void setUnstableOperationEnabled(String operationId)
-      throws java.lang.reflect.InvocationTargetException,
-          java.lang.IllegalAccessException,
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
           java.lang.NoSuchMethodException {
     // client.setUnstableOperationEnabled(operationId, true)
     clientClass
@@ -228,16 +219,14 @@ public class World {
   }
 
   public void configureApiKeys(Map<String, String> secrets)
-      throws java.lang.reflect.InvocationTargetException,
-          java.lang.IllegalAccessException,
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
           java.lang.NoSuchMethodException {
     // client.configureApiKeys(secrets)
     clientClass.getMethod("configureApiKeys", Map.class).invoke(client, secrets);
   }
 
   public void authenticateClient(Class<?> clientClass, Object client)
-      throws java.lang.reflect.InvocationTargetException,
-          java.lang.IllegalAccessException,
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
           java.lang.NoSuchMethodException {
 
     HashMap<String, String> secrets = new HashMap<String, String>();
@@ -269,10 +258,8 @@ public class World {
   }
 
   public void addRequestParameter(String parameterName, String value)
-      throws java.lang.IllegalAccessException,
-          java.lang.NoSuchFieldException,
-          java.lang.NoSuchMethodException,
-          java.lang.reflect.InvocationTargetException,
+      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
+          java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException,
           com.fasterxml.jackson.core.JsonProcessingException {
     String propertyName = toPropertyName(parameterName);
     Class fieldType = null;
@@ -307,10 +294,8 @@ public class World {
   }
 
   public void addRequestParameterFixture(String parameterName, String fixturePath)
-      throws java.lang.IllegalAccessException,
-          java.lang.NoSuchFieldException,
-          java.lang.NoSuchMethodException,
-          java.lang.reflect.InvocationTargetException {
+      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
+          java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException {
     String propertyName = toPropertyName(parameterName);
     Class fieldType = null;
     boolean isOptional = false;
@@ -586,8 +571,7 @@ public class World {
   }
 
   public ObjectMapper getObjectMapper()
-      throws java.lang.IllegalAccessException,
-          java.lang.NoSuchMethodException,
+      throws java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException {
     Method getJSON = clientClass.getMethod("getJSON");
     Object json = getJSON.invoke(client);
