@@ -32,6 +32,8 @@ public class SecurityMonitoringRuleTypeRead {
       new SecurityMonitoringRuleTypeRead("workload_security");
   public static final SecurityMonitoringRuleTypeRead CLOUD_CONFIGURATION =
       new SecurityMonitoringRuleTypeRead("cloud_configuration");
+  public static final SecurityMonitoringRuleTypeRead APPLICATION_SECURITY =
+      new SecurityMonitoringRuleTypeRead("application_security");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -39,7 +41,8 @@ public class SecurityMonitoringRuleTypeRead {
               "log_detection",
               "infrastructure_configuration",
               "workload_security",
-              "cloud_configuration"));
+              "cloud_configuration",
+              "application_security"));
 
   private String value;
 
