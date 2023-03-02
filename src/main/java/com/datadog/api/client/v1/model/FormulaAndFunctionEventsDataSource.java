@@ -42,6 +42,8 @@ public class FormulaAndFunctionEventsDataSource {
       new FormulaAndFunctionEventsDataSource("events");
   public static final FormulaAndFunctionEventsDataSource CI_TESTS =
       new FormulaAndFunctionEventsDataSource("ci_tests");
+  public static final FormulaAndFunctionEventsDataSource CI_PIPELINES =
+      new FormulaAndFunctionEventsDataSource("ci_pipelines");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -54,7 +56,8 @@ public class FormulaAndFunctionEventsDataSource {
               "profiles",
               "audit",
               "events",
-              "ci_tests"));
+              "ci_tests",
+              "ci_pipelines"));
 
   private String value;
 
