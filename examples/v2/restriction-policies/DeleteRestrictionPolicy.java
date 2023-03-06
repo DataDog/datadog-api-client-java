@@ -10,7 +10,7 @@ public class Example {
     RestrictionPoliciesApi apiInstance = new RestrictionPoliciesApi(defaultClient);
 
     try {
-      apiInstance.deleteRestrictionPolicy("dashboard:abc-def-ghi");
+      apiInstance.deleteRestrictionPolicy("dashboard:test-delete");
     } catch (ApiException e) {
       System.err.println("Exception when calling RestrictionPoliciesApi#deleteRestrictionPolicy");
       System.err.println("Status code: " + e.getCode());
