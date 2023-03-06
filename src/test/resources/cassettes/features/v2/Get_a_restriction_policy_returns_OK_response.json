@@ -3,12 +3,12 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/restriction_policy/dashboard%3Aabc-def-ghi",
+      "path": "/api/v2/restriction_policy/dashboard%3Atest-get",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"restriction_policy\",\"id\":\"dashboard:abc-def-ghi\",\"attributes\":{\"bindings\":[]}}}\n",
+      "body": "{\"data\":{\"type\":\"restriction_policy\",\"id\":\"dashboard:test-get\",\"attributes\":{\"bindings\":[]}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3cc81f35-6bd0-a0d6-ecef-a82dd77dff1e"
+    "id": "ef55b9a7-ebba-2db0-5f01-4188eb8e0fa8"
   }
 ]

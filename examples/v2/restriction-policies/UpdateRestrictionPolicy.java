@@ -24,7 +24,7 @@ public class Example {
         new RestrictionPolicyUpdateRequest()
             .data(
                 new RestrictionPolicy()
-                    .id("dashboard:abc-def-ghi")
+                    .id("dashboard:test-update")
                     .type(RestrictionPolicyType.RESTRICTION_POLICY)
                     .attributes(
                         new RestrictionPolicyAttributes()
@@ -38,7 +38,7 @@ public class Example {
 
     try {
       RestrictionPolicyResponse result =
-          apiInstance.updateRestrictionPolicy("dashboard:abc-def-ghi", body);
+          apiInstance.updateRestrictionPolicy("dashboard:test-update", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RestrictionPoliciesApi#updateRestrictionPolicy");

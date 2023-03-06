@@ -11,7 +11,7 @@ public class Example {
     RestrictionPoliciesApi apiInstance = new RestrictionPoliciesApi(defaultClient);
 
     try {
-      RestrictionPolicyResponse result = apiInstance.getRestrictionPolicy("dashboard:abc-def-ghi");
+      RestrictionPolicyResponse result = apiInstance.getRestrictionPolicy("dashboard:test-get");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RestrictionPoliciesApi#getRestrictionPolicy");
