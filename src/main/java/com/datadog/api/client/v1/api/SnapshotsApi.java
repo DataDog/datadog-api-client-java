@@ -131,8 +131,8 @@ public class SnapshotsApi {
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
-   * @param start The POSIX timestamp of the start of the query. (required)
-   * @param end The POSIX timestamp of the end of the query. (required)
+   * @param start The POSIX timestamp of the start of the query in seconds. (required)
+   * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @return GraphSnapshot
    * @throws ApiException if fails to make API call
    */
@@ -146,8 +146,8 @@ public class SnapshotsApi {
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfoAsync}.
    *
-   * @param start The POSIX timestamp of the start of the query. (required)
-   * @param end The POSIX timestamp of the end of the query. (required)
+   * @param start The POSIX timestamp of the start of the query in seconds. (required)
+   * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @return CompletableFuture&lt;GraphSnapshot&gt;
    */
   public CompletableFuture<GraphSnapshot> getGraphSnapshotAsync(Long start, Long end) {
@@ -163,8 +163,8 @@ public class SnapshotsApi {
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
-   * @param start The POSIX timestamp of the start of the query. (required)
-   * @param end The POSIX timestamp of the end of the query. (required)
+   * @param start The POSIX timestamp of the start of the query in seconds. (required)
+   * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @param parameters Optional parameters for the request.
    * @return GraphSnapshot
    * @throws ApiException if fails to make API call
@@ -179,8 +179,8 @@ public class SnapshotsApi {
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfoAsync}.
    *
-   * @param start The POSIX timestamp of the start of the query. (required)
-   * @param end The POSIX timestamp of the end of the query. (required)
+   * @param start The POSIX timestamp of the start of the query in seconds. (required)
+   * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;GraphSnapshot&gt;
    */
@@ -197,8 +197,8 @@ public class SnapshotsApi {
    * Take graph snapshots. <strong>Note</strong>: When a snapshot is created, there is some delay
    * before it is available.
    *
-   * @param start The POSIX timestamp of the start of the query. (required)
-   * @param end The POSIX timestamp of the end of the query. (required)
+   * @param start The POSIX timestamp of the start of the query in seconds. (required)
+   * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;GraphSnapshot&gt;
    * @throws ApiException if fails to make API call
@@ -273,8 +273,8 @@ public class SnapshotsApi {
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
-   * @param start The POSIX timestamp of the start of the query. (required)
-   * @param end The POSIX timestamp of the end of the query. (required)
+   * @param start The POSIX timestamp of the start of the query in seconds. (required)
+   * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;GraphSnapshot&gt;&gt;
    */
