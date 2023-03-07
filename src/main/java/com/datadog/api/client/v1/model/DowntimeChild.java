@@ -408,10 +408,10 @@ public class DowntimeChild {
   }
 
   /**
-   * The scope(s) to which the downtime applies. For example, <code>host:app2</code>. Provide
-   * multiple scopes as a comma-separated list like <code>env:dev,env:prod</code>. The resulting
-   * downtime applies to sources that matches ALL provided scopes (<code>env:dev</code>
-   * <strong>AND</strong> <code>env:prod</code>).
+   * The scope(s) to which the downtime applies and must be in <code>key:value</code> format. For
+   * example, <code>host:app2</code>. Provide multiple scopes as a comma-separated list like <code>
+   * env:dev,env:prod</code>. The resulting downtime applies to sources that matches ALL provided
+   * scopes (<code>env:dev</code> <strong>AND</strong> <code>env:prod</code>).
    *
    * @return scope
    */
