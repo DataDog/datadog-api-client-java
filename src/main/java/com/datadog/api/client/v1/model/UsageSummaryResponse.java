@@ -106,6 +106,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_USAGE,
+  UsageSummaryResponse.JSON_PROPERTY_USM_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM
 })
 @jakarta.annotation.Generated(
@@ -417,6 +418,9 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageSummaryDate> usage = null;
+
+  public static final String JSON_PROPERTY_USM_HOST_COUNT_TOP99P_SUM = "usm_host_count_top99p_sum";
+  private Long usmHostCountTop99pSum;
 
   public static final String JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM = "vsphere_host_top99p_sum";
   private Long vsphereHostTop99pSum;
@@ -2299,6 +2303,28 @@ public class UsageSummaryResponse {
     this.usage = usage;
   }
 
+  public UsageSummaryResponse usmHostCountTop99pSum(Long usmHostCountTop99pSum) {
+    this.usmHostCountTop99pSum = usmHostCountTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Universal Service Monitoring hosts over all hours in the
+   * current months for all organizations.
+   *
+   * @return usmHostCountTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USM_HOST_COUNT_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUsmHostCountTop99pSum() {
+    return usmHostCountTop99pSum;
+  }
+
+  public void setUsmHostCountTop99pSum(Long usmHostCountTop99pSum) {
+    this.usmHostCountTop99pSum = usmHostCountTop99pSum;
+  }
+
   public UsageSummaryResponse vsphereHostTop99pSum(Long vsphereHostTop99pSum) {
     this.vsphereHostTop99pSum = vsphereHostTop99pSum;
     return this;
@@ -2482,6 +2508,7 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.twolIngestedEventsBytesAggSum, usageSummaryResponse.twolIngestedEventsBytesAggSum)
         && Objects.equals(this.usage, usageSummaryResponse.usage)
+        && Objects.equals(this.usmHostCountTop99pSum, usageSummaryResponse.usmHostCountTop99pSum)
         && Objects.equals(this.vsphereHostTop99pSum, usageSummaryResponse.vsphereHostTop99pSum);
   }
 
@@ -2572,6 +2599,7 @@ public class UsageSummaryResponse {
         traceSearchIndexedEventsCountAggSum,
         twolIngestedEventsBytesAggSum,
         usage,
+        usmHostCountTop99pSum,
         vsphereHostTop99pSum);
   }
 
@@ -2785,6 +2813,9 @@ public class UsageSummaryResponse {
         .append(toIndentedString(twolIngestedEventsBytesAggSum))
         .append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
+    sb.append("    usmHostCountTop99pSum: ")
+        .append(toIndentedString(usmHostCountTop99pSum))
+        .append("\n");
     sb.append("    vsphereHostTop99pSum: ")
         .append(toIndentedString(vsphereHostTop99pSum))
         .append("\n");
