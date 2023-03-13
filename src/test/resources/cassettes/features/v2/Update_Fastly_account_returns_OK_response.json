@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestUpdateFastlyaccountreturnsOKresponse1672855615\",\"name\":\"test-name\",\"services\":[]},\"type\":\"fastly-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestUpdateFastlyaccountreturnsOKresponse1678702217\",\"name\":\"Test-Update_Fastly_account_returns_OK_response-1678702217\",\"services\":[]},\"type\":\"fastly-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"services\":[],\"name\":\"test-name\"},\"type\":\"fastly-accounts\",\"id\":\"42ed7da188c8af4a6964376d49bb7caa\"}}\n",
+      "body": "{\"data\":{\"type\":\"fastly-accounts\",\"id\":\"e37e834ae856fa24a2924973fdc7c276\",\"attributes\":{\"services\":[],\"name\":\"Test-Update_Fastly_account_returns_OK_response-1678702217\"}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2aa0e81a-d6a2-dadb-8b1b-0e4dda4d7ec5"
+    "id": "3a43a7f8-3d1c-ee7b-8332-d368ff50eb98"
   },
   {
     "httpRequest": {
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/integrations/fastly/accounts/42ed7da188c8af4a6964376d49bb7caa",
+      "path": "/api/v2/integrations/fastly/accounts/e37e834ae856fa24a2924973fdc7c276",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"services\":[],\"name\":\"test-name\"},\"type\":\"fastly-accounts\",\"id\":\"42ed7da188c8af4a6964376d49bb7caa\"}}\n",
+      "body": "{\"data\":{\"type\":\"fastly-accounts\",\"id\":\"e37e834ae856fa24a2924973fdc7c276\",\"attributes\":{\"services\":[],\"name\":\"Test-Update_Fastly_account_returns_OK_response-1678702217\"}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "64b6b5d9-a682-6ab0-e8ca-f2a4cda0a895"
+    "id": "d22976db-c8c1-d599-d199-8b8a58bdc72c"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/fastly/accounts/42ed7da188c8af4a6964376d49bb7caa",
+      "path": "/api/v2/integrations/fastly/accounts/e37e834ae856fa24a2924973fdc7c276",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6deeab12-3953-96cc-b337-045823a1fa7e"
+    "id": "e65ca2e7-b2ca-9c94-494e-9796ef2399a3"
   }
 ]
