@@ -25,6 +25,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_APM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM,
+  UsageSummaryDate.JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM,
   UsageSummaryDate.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
   UsageSummaryDate.JSON_PROPERTY_AWS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT,
@@ -119,6 +120,9 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM =
       "audit_logs_lines_indexed_sum";
   private Long auditLogsLinesIndexedSum;
+
+  public static final String JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM = "audit_trail_enabled_hwm";
+  private Long auditTrailEnabledHwm;
 
   public static final String JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS =
       "avg_profiled_fargate_tasks";
@@ -492,6 +496,27 @@ public class UsageSummaryDate {
 
   public void setAuditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
     this.auditLogsLinesIndexedSum = auditLogsLinesIndexedSum;
+  }
+
+  public UsageSummaryDate auditTrailEnabledHwm(Long auditTrailEnabledHwm) {
+    this.auditTrailEnabledHwm = auditTrailEnabledHwm;
+    return this;
+  }
+
+  /**
+   * Shows the number of organizations that had Audit Trail enabled in the current date.
+   *
+   * @return auditTrailEnabledHwm
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAuditTrailEnabledHwm() {
+    return auditTrailEnabledHwm;
+  }
+
+  public void setAuditTrailEnabledHwm(Long auditTrailEnabledHwm) {
+    this.auditTrailEnabledHwm = auditTrailEnabledHwm;
   }
 
   public UsageSummaryDate avgProfiledFargateTasks(Long avgProfiledFargateTasks) {
@@ -2064,6 +2089,7 @@ public class UsageSummaryDate {
         && Objects.equals(this.apmHostTop99p, usageSummaryDate.apmHostTop99p)
         && Objects.equals(this.appsecFargateCountAvg, usageSummaryDate.appsecFargateCountAvg)
         && Objects.equals(this.auditLogsLinesIndexedSum, usageSummaryDate.auditLogsLinesIndexedSum)
+        && Objects.equals(this.auditTrailEnabledHwm, usageSummaryDate.auditTrailEnabledHwm)
         && Objects.equals(this.avgProfiledFargateTasks, usageSummaryDate.avgProfiledFargateTasks)
         && Objects.equals(this.awsHostTop99p, usageSummaryDate.awsHostTop99p)
         && Objects.equals(this.awsLambdaFuncCount, usageSummaryDate.awsLambdaFuncCount)
@@ -2174,6 +2200,7 @@ public class UsageSummaryDate {
         apmHostTop99p,
         appsecFargateCountAvg,
         auditLogsLinesIndexedSum,
+        auditTrailEnabledHwm,
         avgProfiledFargateTasks,
         awsHostTop99p,
         awsLambdaFuncCount,
@@ -2261,6 +2288,9 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    auditLogsLinesIndexedSum: ")
         .append(toIndentedString(auditLogsLinesIndexedSum))
+        .append("\n");
+    sb.append("    auditTrailEnabledHwm: ")
+        .append(toIndentedString(auditTrailEnabledHwm))
         .append("\n");
     sb.append("    avgProfiledFargateTasks: ")
         .append(toIndentedString(avgProfiledFargateTasks))
