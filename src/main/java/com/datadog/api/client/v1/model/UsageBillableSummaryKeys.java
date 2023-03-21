@@ -23,7 +23,7 @@ import java.util.Objects;
   UsageBillableSummaryKeys.JSON_PROPERTY_APM_TRACE_SEARCH_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_APPLICATION_SECURITY_FARGATE_AVERAGE,
   UsageBillableSummaryKeys.JSON_PROPERTY_APPLICATION_SECURITY_HOST_SUM,
-  UsageBillableSummaryKeys.JSON_PROPERTY_APPLICATION_SECURITY_HOST_TOP99,
+  UsageBillableSummaryKeys.JSON_PROPERTY_APPLICATION_SECURITY_HOST_TOP99P,
   UsageBillableSummaryKeys.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_CI_PIPELINE_MAXIMUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_CI_PIPELINE_SUM,
@@ -136,9 +136,9 @@ public class UsageBillableSummaryKeys {
       "application_security_host_sum";
   private UsageBillableSummaryBody applicationSecurityHostSum;
 
-  public static final String JSON_PROPERTY_APPLICATION_SECURITY_HOST_TOP99 =
-      "application_security_host_top99";
-  private UsageBillableSummaryBody applicationSecurityHostTop99;
+  public static final String JSON_PROPERTY_APPLICATION_SECURITY_HOST_TOP99P =
+      "application_security_host_top99p";
+  private UsageBillableSummaryBody applicationSecurityHostTop99p;
 
   public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_SUM =
       "ci_pipeline_indexed_spans_sum";
@@ -592,28 +592,28 @@ public class UsageBillableSummaryKeys {
     this.applicationSecurityHostSum = applicationSecurityHostSum;
   }
 
-  public UsageBillableSummaryKeys applicationSecurityHostTop99(
-      UsageBillableSummaryBody applicationSecurityHostTop99) {
-    this.applicationSecurityHostTop99 = applicationSecurityHostTop99;
-    this.unparsed |= applicationSecurityHostTop99.unparsed;
+  public UsageBillableSummaryKeys applicationSecurityHostTop99p(
+      UsageBillableSummaryBody applicationSecurityHostTop99p) {
+    this.applicationSecurityHostTop99p = applicationSecurityHostTop99p;
+    this.unparsed |= applicationSecurityHostTop99p.unparsed;
     return this;
   }
 
   /**
    * Response with properties for each aggregated usage type.
    *
-   * @return applicationSecurityHostTop99
+   * @return applicationSecurityHostTop99p
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPLICATION_SECURITY_HOST_TOP99)
+  @JsonProperty(JSON_PROPERTY_APPLICATION_SECURITY_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public UsageBillableSummaryBody getApplicationSecurityHostTop99() {
-    return applicationSecurityHostTop99;
+  public UsageBillableSummaryBody getApplicationSecurityHostTop99p() {
+    return applicationSecurityHostTop99p;
   }
 
-  public void setApplicationSecurityHostTop99(
-      UsageBillableSummaryBody applicationSecurityHostTop99) {
-    this.applicationSecurityHostTop99 = applicationSecurityHostTop99;
+  public void setApplicationSecurityHostTop99p(
+      UsageBillableSummaryBody applicationSecurityHostTop99p) {
+    this.applicationSecurityHostTop99p = applicationSecurityHostTop99p;
   }
 
   public UsageBillableSummaryKeys ciPipelineIndexedSpansSum(
@@ -2395,8 +2395,8 @@ public class UsageBillableSummaryKeys {
         && Objects.equals(
             this.applicationSecurityHostSum, usageBillableSummaryKeys.applicationSecurityHostSum)
         && Objects.equals(
-            this.applicationSecurityHostTop99,
-            usageBillableSummaryKeys.applicationSecurityHostTop99)
+            this.applicationSecurityHostTop99p,
+            usageBillableSummaryKeys.applicationSecurityHostTop99p)
         && Objects.equals(
             this.ciPipelineIndexedSpansSum, usageBillableSummaryKeys.ciPipelineIndexedSpansSum)
         && Objects.equals(this.ciPipelineMaximum, usageBillableSummaryKeys.ciPipelineMaximum)
@@ -2519,7 +2519,7 @@ public class UsageBillableSummaryKeys {
         apmTraceSearchSum,
         applicationSecurityFargateAverage,
         applicationSecurityHostSum,
-        applicationSecurityHostTop99,
+        applicationSecurityHostTop99p,
         ciPipelineIndexedSpansSum,
         ciPipelineMaximum,
         ciPipelineSum,
@@ -2619,8 +2619,8 @@ public class UsageBillableSummaryKeys {
     sb.append("    applicationSecurityHostSum: ")
         .append(toIndentedString(applicationSecurityHostSum))
         .append("\n");
-    sb.append("    applicationSecurityHostTop99: ")
-        .append(toIndentedString(applicationSecurityHostTop99))
+    sb.append("    applicationSecurityHostTop99p: ")
+        .append(toIndentedString(applicationSecurityHostTop99p))
         .append("\n");
     sb.append("    ciPipelineIndexedSpansSum: ")
         .append(toIndentedString(ciPipelineIndexedSpansSum))
