@@ -21,7 +21,7 @@ public class Example {
             .filter(
                 new AuditLogsQueryFilter()
                     .from("now-15m")
-                    .query("@type:session AND @session.type:user")
+                    .query("@evt.name:Request @auth_method:API_AND_APP_KEY")
                     .to("now"))
             .options(new AuditLogsQueryOptions().timeOffset(0L).timezone("GMT"))
             .page(new AuditLogsQueryPageOptions().limit(25))
