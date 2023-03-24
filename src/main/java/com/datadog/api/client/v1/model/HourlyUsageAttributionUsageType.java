@@ -44,6 +44,8 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("cspm_containers_usage");
   public static final HourlyUsageAttributionUsageType CSPM_HOSTS_USAGE =
       new HourlyUsageAttributionUsageType("cspm_hosts_usage");
+  public static final HourlyUsageAttributionUsageType CUSTOM_INGESTED_TIMESERIES_USAGE =
+      new HourlyUsageAttributionUsageType("custom_ingested_timeseries_usage");
   public static final HourlyUsageAttributionUsageType CUSTOM_TIMESERIES_USAGE =
       new HourlyUsageAttributionUsageType("custom_timeseries_usage");
   public static final HourlyUsageAttributionUsageType CWS_CONTAINERS_USAGE =
@@ -96,6 +98,7 @@ public class HourlyUsageAttributionUsageType {
               "container_usage",
               "cspm_containers_usage",
               "cspm_hosts_usage",
+              "custom_ingested_timeseries_usage",
               "custom_timeseries_usage",
               "cws_containers_usage",
               "cws_hosts_usage",
