@@ -581,6 +581,7 @@ public class DowntimesApi {
   /** Manage optional parameters to listDowntimes. */
   public static class ListDowntimesOptionalParameters {
     private Boolean currentOnly;
+    private Boolean withCreator;
 
     /**
      * Set currentOnly.
@@ -590,6 +591,17 @@ public class DowntimesApi {
      */
     public ListDowntimesOptionalParameters currentOnly(Boolean currentOnly) {
       this.currentOnly = currentOnly;
+      return this;
+    }
+
+    /**
+     * Set withCreator.
+     *
+     * @param withCreator Return creator information. (optional)
+     * @return ListDowntimesOptionalParameters
+     */
+    public ListDowntimesOptionalParameters withCreator(Boolean withCreator) {
+      this.withCreator = withCreator;
       return this;
     }
   }
@@ -671,6 +683,7 @@ public class DowntimesApi {
       ListDowntimesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Boolean currentOnly = parameters.currentOnly;
+    Boolean withCreator = parameters.withCreator;
     // create path and map variables
     String localVarPath = "/api/v1/downtime";
 
@@ -678,6 +691,7 @@ public class DowntimesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "current_only", currentOnly));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_creator", withCreator));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -711,6 +725,7 @@ public class DowntimesApi {
       ListDowntimesOptionalParameters parameters) {
     Object localVarPostBody = null;
     Boolean currentOnly = parameters.currentOnly;
+    Boolean withCreator = parameters.withCreator;
     // create path and map variables
     String localVarPath = "/api/v1/downtime";
 
@@ -718,6 +733,7 @@ public class DowntimesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "current_only", currentOnly));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_creator", withCreator));
 
     Invocation.Builder builder;
     try {
