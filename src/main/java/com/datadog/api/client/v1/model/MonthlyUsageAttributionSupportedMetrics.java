@@ -70,6 +70,11 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("custom_timeseries_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CUSTOM_TIMESERIES_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("custom_timeseries_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CUSTOM_INGESTED_TIMESERIES_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("custom_ingested_timeseries_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics
+      CUSTOM_INGESTED_TIMESERIES_PERCENTAGE =
+          new MonthlyUsageAttributionSupportedMetrics("custom_ingested_timeseries_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics CWS_CONTAINERS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("cws_containers_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics CWS_CONTAINERS_USAGE =
@@ -170,6 +175,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "cspm_hosts_usage",
               "custom_timeseries_usage",
               "custom_timeseries_percentage",
+              "custom_ingested_timeseries_usage",
+              "custom_ingested_timeseries_percentage",
               "cws_containers_percentage",
               "cws_containers_usage",
               "cws_hosts_percentage",

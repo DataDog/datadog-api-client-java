@@ -34,6 +34,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_CSPM_CONTAINERS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CSPM_HOSTS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CSPM_HOSTS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_INGESTED_TIMESERIES_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_INGESTED_TIMESERIES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_CONTAINERS_PERCENTAGE,
@@ -139,6 +141,14 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_CSPM_HOSTS_USAGE = "cspm_hosts_usage";
   private Double cspmHostsUsage;
+
+  public static final String JSON_PROPERTY_CUSTOM_INGESTED_TIMESERIES_PERCENTAGE =
+      "custom_ingested_timeseries_percentage";
+  private Double customIngestedTimeseriesPercentage;
+
+  public static final String JSON_PROPERTY_CUSTOM_INGESTED_TIMESERIES_USAGE =
+      "custom_ingested_timeseries_usage";
+  private Double customIngestedTimeseriesUsage;
 
   public static final String JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE =
       "custom_timeseries_percentage";
@@ -688,6 +698,50 @@ public class MonthlyUsageAttributionValues {
     this.cspmHostsUsage = cspmHostsUsage;
   }
 
+  public MonthlyUsageAttributionValues customIngestedTimeseriesPercentage(
+      Double customIngestedTimeseriesPercentage) {
+    this.customIngestedTimeseriesPercentage = customIngestedTimeseriesPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of ingested custom metrics usage by tag(s).
+   *
+   * @return customIngestedTimeseriesPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_INGESTED_TIMESERIES_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCustomIngestedTimeseriesPercentage() {
+    return customIngestedTimeseriesPercentage;
+  }
+
+  public void setCustomIngestedTimeseriesPercentage(Double customIngestedTimeseriesPercentage) {
+    this.customIngestedTimeseriesPercentage = customIngestedTimeseriesPercentage;
+  }
+
+  public MonthlyUsageAttributionValues customIngestedTimeseriesUsage(
+      Double customIngestedTimeseriesUsage) {
+    this.customIngestedTimeseriesUsage = customIngestedTimeseriesUsage;
+    return this;
+  }
+
+  /**
+   * The ingested custom metrics usage by tag(s).
+   *
+   * @return customIngestedTimeseriesUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_INGESTED_TIMESERIES_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCustomIngestedTimeseriesUsage() {
+    return customIngestedTimeseriesUsage;
+  }
+
+  public void setCustomIngestedTimeseriesUsage(Double customIngestedTimeseriesUsage) {
+    this.customIngestedTimeseriesUsage = customIngestedTimeseriesUsage;
+  }
+
   public MonthlyUsageAttributionValues customTimeseriesPercentage(
       Double customTimeseriesPercentage) {
     this.customTimeseriesPercentage = customTimeseriesPercentage;
@@ -695,7 +749,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The percentage of custom metrics usage by tag(s).
+   * The percentage of indexed custom metrics usage by tag(s).
    *
    * @return customTimeseriesPercentage
    */
@@ -716,7 +770,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The custom metrics usage by tag(s).
+   * The indexed custom metrics usage by tag(s).
    *
    * @return customTimeseriesUsage
    */
@@ -1536,6 +1590,12 @@ public class MonthlyUsageAttributionValues {
             this.cspmHostsPercentage, monthlyUsageAttributionValues.cspmHostsPercentage)
         && Objects.equals(this.cspmHostsUsage, monthlyUsageAttributionValues.cspmHostsUsage)
         && Objects.equals(
+            this.customIngestedTimeseriesPercentage,
+            monthlyUsageAttributionValues.customIngestedTimeseriesPercentage)
+        && Objects.equals(
+            this.customIngestedTimeseriesUsage,
+            monthlyUsageAttributionValues.customIngestedTimeseriesUsage)
+        && Objects.equals(
             this.customTimeseriesPercentage,
             monthlyUsageAttributionValues.customTimeseriesPercentage)
         && Objects.equals(
@@ -1630,6 +1690,8 @@ public class MonthlyUsageAttributionValues {
         cspmContainersUsage,
         cspmHostsPercentage,
         cspmHostsUsage,
+        customIngestedTimeseriesPercentage,
+        customIngestedTimeseriesUsage,
         customTimeseriesPercentage,
         customTimeseriesUsage,
         cwsContainersPercentage,
@@ -1710,6 +1772,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(cspmHostsPercentage))
         .append("\n");
     sb.append("    cspmHostsUsage: ").append(toIndentedString(cspmHostsUsage)).append("\n");
+    sb.append("    customIngestedTimeseriesPercentage: ")
+        .append(toIndentedString(customIngestedTimeseriesPercentage))
+        .append("\n");
+    sb.append("    customIngestedTimeseriesUsage: ")
+        .append(toIndentedString(customIngestedTimeseriesUsage))
+        .append("\n");
     sb.append("    customTimeseriesPercentage: ")
         .append(toIndentedString(customTimeseriesPercentage))
         .append("\n");
