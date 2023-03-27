@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"tags\":[\"tm:foobar\"],\"title\":\"Test-Create_a_new_dashboard_with_invalid_team_tags_returns_Bad_Request_response-1678315499\",\"widgets\":[{\"definition\":{\"requests\":[{\"change_type\":\"absolute\",\"compare_to\":\"hour_before\",\"formulas\":[{\"formula\":\"hour_before(query1)\"},{\"formula\":\"query1\"}],\"increase_good\":true,\"order_by\":\"change\",\"order_dir\":\"desc\",\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"change\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid tag format. Tag key must be `team`.\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "56fcc8f4-a1be-ee23-e0c7-69e483b38177"
+  }
+]

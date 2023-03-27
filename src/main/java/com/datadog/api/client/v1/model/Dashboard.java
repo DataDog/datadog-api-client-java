@@ -35,6 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Dashboard.JSON_PROPERTY_NOTIFY_LIST,
   Dashboard.JSON_PROPERTY_REFLOW_TYPE,
   Dashboard.JSON_PROPERTY_RESTRICTED_ROLES,
+  Dashboard.JSON_PROPERTY_TAGS,
   Dashboard.JSON_PROPERTY_TEMPLATE_VARIABLE_PRESETS,
   Dashboard.JSON_PROPERTY_TEMPLATE_VARIABLES,
   Dashboard.JSON_PROPERTY_TITLE,
@@ -81,6 +82,9 @@ public class Dashboard {
 
   public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
   private List<String> restrictedRoles = null;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_TEMPLATE_VARIABLE_PRESETS = "template_variable_presets";
   private JsonNullable<List<DashboardTemplateVariablePreset>> templateVariablePresets =
@@ -367,6 +371,49 @@ public class Dashboard {
     this.restrictedRoles = restrictedRoles;
   }
 
+  public Dashboard tags(List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+    return this;
+  }
+
+  public Dashboard addTagsItem(String tagsItem) {
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.tags.get().add(tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * List of team names representing ownership of a dashboard.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getTags() {
+    return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<List<String>> tags) {
+    this.tags = tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = JsonNullable.<List<String>>of(tags);
+  }
+
   public Dashboard templateVariablePresets(
       List<DashboardTemplateVariablePreset> templateVariablePresets) {
     this.templateVariablePresets =
@@ -544,6 +591,7 @@ public class Dashboard {
         && Objects.equals(this.notifyList, dashboard.notifyList)
         && Objects.equals(this.reflowType, dashboard.reflowType)
         && Objects.equals(this.restrictedRoles, dashboard.restrictedRoles)
+        && Objects.equals(this.tags, dashboard.tags)
         && Objects.equals(this.templateVariablePresets, dashboard.templateVariablePresets)
         && Objects.equals(this.templateVariables, dashboard.templateVariables)
         && Objects.equals(this.title, dashboard.title)
@@ -565,6 +613,7 @@ public class Dashboard {
         notifyList,
         reflowType,
         restrictedRoles,
+        tags,
         templateVariablePresets,
         templateVariables,
         title,
@@ -587,6 +636,7 @@ public class Dashboard {
     sb.append("    notifyList: ").append(toIndentedString(notifyList)).append("\n");
     sb.append("    reflowType: ").append(toIndentedString(reflowType)).append("\n");
     sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    templateVariablePresets: ")
         .append(toIndentedString(templateVariablePresets))
         .append("\n");
