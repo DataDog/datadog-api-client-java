@@ -19,6 +19,7 @@ import com.datadog.api.client.v2.model.IncidentRelatedObject;
 import com.datadog.api.client.v2.model.IncidentResponse;
 import com.datadog.api.client.v2.model.IncidentResponseData;
 import com.datadog.api.client.v2.model.IncidentSearchResponse;
+import com.datadog.api.client.v2.model.IncidentSearchResponseIncidentsData;
 import com.datadog.api.client.v2.model.IncidentSearchSortOrder;
 import com.datadog.api.client.v2.model.IncidentTodoCreateRequest;
 import com.datadog.api.client.v2.model.IncidentTodoListResponse;
@@ -2526,6 +2527,8 @@ public class IncidentsApi {
   public static class SearchIncidentsOptionalParameters {
     private IncidentRelatedObject include;
     private IncidentSearchSortOrder sort;
+    private Long pageSize;
+    private Long pageOffset;
 
     /**
      * Set include.
@@ -2547,6 +2550,30 @@ public class IncidentsApi {
      */
     public SearchIncidentsOptionalParameters sort(IncidentSearchSortOrder sort) {
       this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 5000. (optional, default
+     *     to 10)
+     * @return SearchIncidentsOptionalParameters
+     */
+    public SearchIncidentsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
+     *     default to 0)
+     * @return SearchIncidentsOptionalParameters
+     */
+    public SearchIncidentsOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
       return this;
     }
   }
@@ -2634,6 +2661,71 @@ public class IncidentsApi {
   }
 
   /**
+   * Search for incidents.
+   *
+   * <p>See {@link #searchIncidentsWithHttpInfo}.
+   *
+   * @param query Specifies which incidents should be returned. After entering a search query in
+   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
+   *     parameter value in the URL of the page as the value for this parameter. The query can
+   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
+   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
+   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @return PaginationIterable&lt;IncidentSearchResponseIncidentsData&gt;
+   */
+  public PaginationIterable<IncidentSearchResponseIncidentsData> searchIncidentsWithPagination(
+      String query) {
+    SearchIncidentsOptionalParameters parameters = new SearchIncidentsOptionalParameters();
+    return searchIncidentsWithPagination(query, parameters);
+  }
+
+  /**
+   * Search for incidents.
+   *
+   * <p>See {@link #searchIncidentsWithHttpInfo}.
+   *
+   * @param query Specifies which incidents should be returned. After entering a search query in
+   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
+   *     parameter value in the URL of the page as the value for this parameter. The query can
+   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
+   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
+   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @return IncidentSearchResponse
+   */
+  public PaginationIterable<IncidentSearchResponseIncidentsData> searchIncidentsWithPagination(
+      String query, SearchIncidentsOptionalParameters parameters) {
+    String resultsPath = "getData.getAttributes.getIncidents";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageOffset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("query", query);
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "searchIncidents",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
    * Search for incidents matching a certain query.
    *
    * @param query Specifies which incidents should be returned. After entering a search query in
@@ -2675,6 +2767,8 @@ public class IncidentsApi {
     }
     IncidentRelatedObject include = parameters.include;
     IncidentSearchSortOrder sort = parameters.sort;
+    Long pageSize = parameters.pageSize;
+    Long pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/incidents/search";
 
@@ -2684,6 +2778,8 @@ public class IncidentsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2743,6 +2839,8 @@ public class IncidentsApi {
     }
     IncidentRelatedObject include = parameters.include;
     IncidentSearchSortOrder sort = parameters.sort;
+    Long pageSize = parameters.pageSize;
+    Long pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/incidents/search";
 
@@ -2752,6 +2850,8 @@ public class IncidentsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
     Invocation.Builder builder;
     try {
