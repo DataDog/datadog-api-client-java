@@ -36,7 +36,7 @@ public class Example {
                                 .name("Team Email")
                                 .type(ServiceDefinitionV2Dot1EmailType.EMAIL))))
                 .ddService(
-                    "service-Example-Create_or_update_service_definition_using_schema_v2_1_returns_CREATED_response")
+                    "service-examplecreateorupdateservicedefinitionusingschemav21returnscreatedresponse")
                 .extensions(Map.ofEntries(Map.entry("myorgextension", "extensionvalue")))
                 .integrations(
                     new ServiceDefinitionV2Dot1Integrations()
