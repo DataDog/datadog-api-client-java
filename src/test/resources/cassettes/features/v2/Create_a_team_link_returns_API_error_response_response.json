@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"1679941978\",\"name\":\"1679941978\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"cc3d71dc-cccd-11ed-ac3a-da7ad0900002\",\"attributes\":{\"name\":\"1679941978\",\"handle\":\"1679941978\",\"summary\":null,\"description\":null,\"color\":10,\"created_at\":\"2023-03-27T18:32:58.528371+00:00\",\"modified_at\":\"2023-03-27T18:32:58.528375+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/cc3d71dc-cccd-11ed-ac3a-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/cc3d71dc-cccd-11ed-ac3a-da7ad0900002/permission-settings\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c4fea764-3393-21aa-76b7-a7786bf1a7db"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"label\":\"\",\"position\":0,\"url\":\"https://example.com\"},\"type\":\"team_links\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team/cc3d71dc-cccd-11ed-ac3a-da7ad0900002/links",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"label cannot be empty\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 422,
+      "reasonPhrase": "Unprocessable Entity"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "90f4ba2a-4e04-c7d7-5e52-3976a0b7b361"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/cc3d71dc-cccd-11ed-ac3a-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "31b51d9f-eaf5-614b-0722-d5b7e2e96a57"
+  }
+]
