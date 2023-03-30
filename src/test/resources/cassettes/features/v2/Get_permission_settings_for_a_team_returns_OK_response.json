@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"1679941991\",\"name\":\"1679941991\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"d3fcfa50-cccd-11ed-ba3b-da7ad0900002\",\"attributes\":{\"name\":\"1679941991\",\"handle\":\"1679941991\",\"summary\":null,\"description\":null,\"color\":11,\"created_at\":\"2023-03-27T18:33:11.528141+00:00\",\"modified_at\":\"2023-03-27T18:33:11.528147+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/d3fcfa50-cccd-11ed-ba3b-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/d3fcfa50-cccd-11ed-ba3b-da7ad0900002/permission-settings\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "100e024d-5fdd-bb53-1094-6274332bbdab"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/team/d3fcfa50-cccd-11ed-ba3b-da7ad0900002/permission-settings",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"type\":\"team_permission_settings\",\"attributes\":{\"title\":\"Add and Remove Members\",\"editable\":true,\"value\":\"organization\",\"options\":[\"user_access_manage\",\"admins\",\"members\",\"organization\"],\"action\":\"manage_membership\"},\"id\":\"TeamPermission-d3fcfa50-cccd-11ed-ba3b-da7ad0900002-manage_membership\"},{\"type\":\"team_permission_settings\",\"attributes\":{\"title\":\"Edit Team Details\",\"editable\":true,\"value\":\"members\",\"options\":[\"teams_manage\",\"admins\",\"members\"],\"action\":\"edit\"},\"id\":\"TeamPermission-d3fcfa50-cccd-11ed-ba3b-da7ad0900002-edit\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "81f39beb-bfbc-3464-9236-e20bcb956759"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/d3fcfa50-cccd-11ed-ba3b-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6539a861-68c0-1726-3fb9-5995beadc888"
+  }
+]
