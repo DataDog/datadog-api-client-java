@@ -19,16 +19,17 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Included related resources optionally requested. */
-@JsonSerialize(using = GetAllTeamsInclude.GetAllTeamsIncludeSerializer.class)
-public class GetAllTeamsInclude {
+/** Specifies the order of the returned teams */
+@JsonSerialize(using = ListTeamsSort.ListTeamsSortSerializer.class)
+public class ListTeamsSort {
 
-  public static final GetAllTeamsInclude TEAM_LINKS = new GetAllTeamsInclude("team_links");
-  public static final GetAllTeamsInclude USER_TEAM_PERMISSIONS =
-      new GetAllTeamsInclude("user_team_permissions");
+  public static final ListTeamsSort NAME = new ListTeamsSort("name");
+  public static final ListTeamsSort _NAME = new ListTeamsSort("-name");
+  public static final ListTeamsSort USER_COUNT = new ListTeamsSort("user_count");
+  public static final ListTeamsSort _USER_COUNT = new ListTeamsSort("-user_count");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("team_links", "user_team_permissions"));
+      new HashSet<String>(Arrays.asList("name", "-name", "user_count", "-user_count"));
 
   private String value;
 
@@ -36,21 +37,21 @@ public class GetAllTeamsInclude {
     return allowedValues.contains(this.value);
   }
 
-  GetAllTeamsInclude(String value) {
+  ListTeamsSort(String value) {
     this.value = value;
   }
 
-  public static class GetAllTeamsIncludeSerializer extends StdSerializer<GetAllTeamsInclude> {
-    public GetAllTeamsIncludeSerializer(Class<GetAllTeamsInclude> t) {
+  public static class ListTeamsSortSerializer extends StdSerializer<ListTeamsSort> {
+    public ListTeamsSortSerializer(Class<ListTeamsSort> t) {
       super(t);
     }
 
-    public GetAllTeamsIncludeSerializer() {
+    public ListTeamsSortSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(GetAllTeamsInclude value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(ListTeamsSort value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -65,7 +66,7 @@ public class GetAllTeamsInclude {
     this.value = value;
   }
 
-  /** Return true if this GetAllTeamsInclude object is equal to o. */
+  /** Return true if this ListTeamsSort object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -74,7 +75,7 @@ public class GetAllTeamsInclude {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((GetAllTeamsInclude) o).value);
+    return this.value.equals(((ListTeamsSort) o).value);
   }
 
   @Override
@@ -88,7 +89,7 @@ public class GetAllTeamsInclude {
   }
 
   @JsonCreator
-  public static GetAllTeamsInclude fromValue(String value) {
-    return new GetAllTeamsInclude(value);
+  public static ListTeamsSort fromValue(String value) {
+    return new ListTeamsSort(value);
   }
 }

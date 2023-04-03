@@ -11,10 +11,10 @@ public class Example {
     TeamsApi apiInstance = new TeamsApi(defaultClient);
 
     try {
-      TeamsResponse result = apiInstance.getAllTeams();
+      TeamsResponse result = apiInstance.listTeams();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TeamsApi#getAllTeams");
+      System.err.println("Exception when calling TeamsApi#listTeams");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

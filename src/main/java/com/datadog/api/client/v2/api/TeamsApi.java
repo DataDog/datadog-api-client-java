@@ -4,9 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.GetAllTeamsInclude;
-import com.datadog.api.client.v2.model.GetAllTeamsSort;
 import com.datadog.api.client.v2.model.GetTeamMembershipsSort;
+import com.datadog.api.client.v2.model.ListTeamsInclude;
+import com.datadog.api.client.v2.model.ListTeamsSort;
 import com.datadog.api.client.v2.model.TeamCreateRequest;
 import com.datadog.api.client.v2.model.TeamLinkCreateRequest;
 import com.datadog.api.client.v2.model.TeamLinkResponse;
@@ -501,106 +501,28 @@ public class TeamsApi {
         new GenericType<UserTeamResponse>() {});
   }
 
-  /** Manage optional parameters to getAllTeams. */
-  public static class GetAllTeamsOptionalParameters {
-    private Long pageNumber;
-    private Long pageSize;
-    private GetAllTeamsSort sort;
-    private List<GetAllTeamsInclude> include;
-    private String filterKeyword;
-    private Boolean filterMe;
-
-    /**
-     * Set pageNumber.
-     *
-     * @param pageNumber Specific page number to return. (optional, default to 0)
-     * @return GetAllTeamsOptionalParameters
-     */
-    public GetAllTeamsOptionalParameters pageNumber(Long pageNumber) {
-      this.pageNumber = pageNumber;
-      return this;
-    }
-
-    /**
-     * Set pageSize.
-     *
-     * @param pageSize Size for a given page. The maximum allowed value is 5000. (optional, default
-     *     to 10)
-     * @return GetAllTeamsOptionalParameters
-     */
-    public GetAllTeamsOptionalParameters pageSize(Long pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    /**
-     * Set sort.
-     *
-     * @param sort Specifies the order of the returned teams (optional)
-     * @return GetAllTeamsOptionalParameters
-     */
-    public GetAllTeamsOptionalParameters sort(GetAllTeamsSort sort) {
-      this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Set include.
-     *
-     * @param include Included related resources optionally requested. Allowed enum values: <code>
-     *     team_links, user_team_permissions</code> (optional)
-     * @return GetAllTeamsOptionalParameters
-     */
-    public GetAllTeamsOptionalParameters include(List<GetAllTeamsInclude> include) {
-      this.include = include;
-      return this;
-    }
-
-    /**
-     * Set filterKeyword.
-     *
-     * @param filterKeyword Search query. Can be team name, team handle, or email of team member
-     *     (optional)
-     * @return GetAllTeamsOptionalParameters
-     */
-    public GetAllTeamsOptionalParameters filterKeyword(String filterKeyword) {
-      this.filterKeyword = filterKeyword;
-      return this;
-    }
-
-    /**
-     * Set filterMe.
-     *
-     * @param filterMe When true, only returns teams the current user belongs to (optional)
-     * @return GetAllTeamsOptionalParameters
-     */
-    public GetAllTeamsOptionalParameters filterMe(Boolean filterMe) {
-      this.filterMe = filterMe;
-      return this;
-    }
-  }
-
   /**
-   * Get all teams.
+   * Remove a team.
    *
-   * <p>See {@link #getAllTeamsWithHttpInfo}.
+   * <p>See {@link #deleteTeamWithHttpInfo}.
    *
-   * @return TeamsResponse
+   * @param teamId None (required)
    * @throws ApiException if fails to make API call
    */
-  public TeamsResponse getAllTeams() throws ApiException {
-    return getAllTeamsWithHttpInfo(new GetAllTeamsOptionalParameters()).getData();
+  public void deleteTeam(String teamId) throws ApiException {
+    deleteTeamWithHttpInfo(teamId);
   }
 
   /**
-   * Get all teams.
+   * Remove a team.
    *
-   * <p>See {@link #getAllTeamsWithHttpInfoAsync}.
+   * <p>See {@link #deleteTeamWithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;TeamsResponse&gt;
+   * @param teamId None (required)
+   * @return CompletableFuture
    */
-  public CompletableFuture<TeamsResponse> getAllTeamsAsync() {
-    return getAllTeamsWithHttpInfoAsync(new GetAllTeamsOptionalParameters())
+  public CompletableFuture<Void> deleteTeamAsync(String teamId) {
+    return deleteTeamWithHttpInfoAsync(teamId)
         .thenApply(
             response -> {
               return response.getData();
@@ -608,147 +530,413 @@ public class TeamsApi {
   }
 
   /**
-   * Get all teams.
+   * Remove a team using the team's <code>id</code>.
    *
-   * <p>See {@link #getAllTeamsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return TeamsResponse
-   * @throws ApiException if fails to make API call
-   */
-  public TeamsResponse getAllTeams(GetAllTeamsOptionalParameters parameters) throws ApiException {
-    return getAllTeamsWithHttpInfo(parameters).getData();
-  }
-
-  /**
-   * Get all teams.
-   *
-   * <p>See {@link #getAllTeamsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;TeamsResponse&gt;
-   */
-  public CompletableFuture<TeamsResponse> getAllTeamsAsync(
-      GetAllTeamsOptionalParameters parameters) {
-    return getAllTeamsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Get all teams. Can be used to search for teams using the <code>filter[keyword]</code> and
-   * <code>filter[me]</code> query parameters.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;TeamsResponse&gt;
+   * @param teamId None (required)
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<TeamsResponse> getAllTeamsWithHttpInfo(
-      GetAllTeamsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<Void> deleteTeamWithHttpInfo(String teamId) throws ApiException {
     Object localVarPostBody = null;
-    Long pageNumber = parameters.pageNumber;
-    Long pageSize = parameters.pageSize;
-    GetAllTeamsSort sort = parameters.sort;
-    List<GetAllTeamsInclude> include = parameters.include;
-    String filterKeyword = parameters.filterKeyword;
-    Boolean filterMe = parameters.filterMe;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling deleteTeam");
+    }
     // create path and map variables
-    String localVarPath = "/api/v2/team";
+    String localVarPath =
+        "/api/v2/team/{team_id}"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[keyword]", filterKeyword));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[me]", filterMe));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.TeamsApi.getAllTeams",
+            "v2.TeamsApi.deleteTeam",
             localVarPath,
-            localVarQueryParams,
+            new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "GET",
+        "DELETE",
         builder,
         localVarHeaderParams,
         new String[] {},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TeamsResponse>() {});
+        null);
   }
 
   /**
-   * Get all teams.
+   * Remove a team.
    *
-   * <p>See {@link #getAllTeamsWithHttpInfo}.
+   * <p>See {@link #deleteTeamWithHttpInfo}.
    *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;TeamsResponse&gt;&gt;
+   * @param teamId None (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<TeamsResponse>> getAllTeamsWithHttpInfoAsync(
-      GetAllTeamsOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<Void>> deleteTeamWithHttpInfoAsync(String teamId) {
     Object localVarPostBody = null;
-    Long pageNumber = parameters.pageNumber;
-    Long pageSize = parameters.pageSize;
-    GetAllTeamsSort sort = parameters.sort;
-    List<GetAllTeamsInclude> include = parameters.include;
-    String filterKeyword = parameters.filterKeyword;
-    Boolean filterMe = parameters.filterMe;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'teamId' when calling deleteTeam"));
+      return result;
+    }
     // create path and map variables
-    String localVarPath = "/api/v2/team";
+    String localVarPath =
+        "/api/v2/team/{team_id}"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[keyword]", filterKeyword));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[me]", filterMe));
 
     Invocation.Builder builder;
     try {
       builder =
           apiClient.createBuilder(
-              "v2.TeamsApi.getAllTeams",
+              "v2.TeamsApi.deleteTeam",
               localVarPath,
-              localVarQueryParams,
+              new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<TeamsResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
     return apiClient.invokeAPIAsync(
-        "GET",
+        "DELETE",
         builder,
         localVarHeaderParams,
         new String[] {},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<TeamsResponse>() {});
+        null);
+  }
+
+  /**
+   * Remove a team link.
+   *
+   * <p>See {@link #deleteTeamLinkWithHttpInfo}.
+   *
+   * @param teamId None (required)
+   * @param linkId None (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteTeamLink(String teamId, String linkId) throws ApiException {
+    deleteTeamLinkWithHttpInfo(teamId, linkId);
+  }
+
+  /**
+   * Remove a team link.
+   *
+   * <p>See {@link #deleteTeamLinkWithHttpInfoAsync}.
+   *
+   * @param teamId None (required)
+   * @param linkId None (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteTeamLinkAsync(String teamId, String linkId) {
+    return deleteTeamLinkWithHttpInfoAsync(teamId, linkId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove a link from a team.
+   *
+   * @param teamId None (required)
+   * @param linkId None (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteTeamLinkWithHttpInfo(String teamId, String linkId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling deleteTeamLink");
+    }
+
+    // verify the required parameter 'linkId' is set
+    if (linkId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'linkId' when calling deleteTeamLink");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/links/{link_id}"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()))
+            .replaceAll("\\{" + "link_id" + "\\}", apiClient.escapeString(linkId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.deleteTeamLink",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove a team link.
+   *
+   * <p>See {@link #deleteTeamLinkWithHttpInfo}.
+   *
+   * @param teamId None (required)
+   * @param linkId None (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteTeamLinkWithHttpInfoAsync(
+      String teamId, String linkId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'teamId' when calling deleteTeamLink"));
+      return result;
+    }
+
+    // verify the required parameter 'linkId' is set
+    if (linkId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'linkId' when calling deleteTeamLink"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/links/{link_id}"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()))
+            .replaceAll("\\{" + "link_id" + "\\}", apiClient.escapeString(linkId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.deleteTeamLink",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove a user from a team.
+   *
+   * <p>See {@link #deleteTeamMembershipWithHttpInfo}.
+   *
+   * @param teamId None (required)
+   * @param userId None (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteTeamMembership(String teamId, String userId) throws ApiException {
+    deleteTeamMembershipWithHttpInfo(teamId, userId);
+  }
+
+  /**
+   * Remove a user from a team.
+   *
+   * <p>See {@link #deleteTeamMembershipWithHttpInfoAsync}.
+   *
+   * @param teamId None (required)
+   * @param userId None (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteTeamMembershipAsync(String teamId, String userId) {
+    return deleteTeamMembershipWithHttpInfoAsync(teamId, userId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove a user from a team.
+   *
+   * @param teamId None (required)
+   * @param userId None (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteTeamMembershipWithHttpInfo(String teamId, String userId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling deleteTeamMembership");
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userId' when calling deleteTeamMembership");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/memberships/{user_id}"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()))
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.deleteTeamMembership",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove a user from a team.
+   *
+   * <p>See {@link #deleteTeamMembershipWithHttpInfo}.
+   *
+   * @param teamId None (required)
+   * @param userId None (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteTeamMembershipWithHttpInfoAsync(
+      String teamId, String userId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'teamId' when calling deleteTeamMembership"));
+      return result;
+    }
+
+    // verify the required parameter 'userId' is set
+    if (userId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userId' when calling deleteTeamMembership"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{team_id}/memberships/{user_id}"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()))
+            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.deleteTeamMembership",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -1552,28 +1740,106 @@ public class TeamsApi {
         new GenericType<TeamPermissionSettingsResponse>() {});
   }
 
-  /**
-   * Remove a team.
-   *
-   * <p>See {@link #removeTeamWithHttpInfo}.
-   *
-   * @param teamId None (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void removeTeam(String teamId) throws ApiException {
-    removeTeamWithHttpInfo(teamId);
+  /** Manage optional parameters to listTeams. */
+  public static class ListTeamsOptionalParameters {
+    private Long pageNumber;
+    private Long pageSize;
+    private ListTeamsSort sort;
+    private List<ListTeamsInclude> include;
+    private String filterKeyword;
+    private Boolean filterMe;
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListTeamsOptionalParameters
+     */
+    public ListTeamsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 5000. (optional, default
+     *     to 10)
+     * @return ListTeamsOptionalParameters
+     */
+    public ListTeamsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort Specifies the order of the returned teams (optional)
+     * @return ListTeamsOptionalParameters
+     */
+    public ListTeamsOptionalParameters sort(ListTeamsSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Included related resources optionally requested. Allowed enum values: <code>
+     *     team_links, user_team_permissions</code> (optional)
+     * @return ListTeamsOptionalParameters
+     */
+    public ListTeamsOptionalParameters include(List<ListTeamsInclude> include) {
+      this.include = include;
+      return this;
+    }
+
+    /**
+     * Set filterKeyword.
+     *
+     * @param filterKeyword Search query. Can be team name, team handle, or email of team member
+     *     (optional)
+     * @return ListTeamsOptionalParameters
+     */
+    public ListTeamsOptionalParameters filterKeyword(String filterKeyword) {
+      this.filterKeyword = filterKeyword;
+      return this;
+    }
+
+    /**
+     * Set filterMe.
+     *
+     * @param filterMe When true, only returns teams the current user belongs to (optional)
+     * @return ListTeamsOptionalParameters
+     */
+    public ListTeamsOptionalParameters filterMe(Boolean filterMe) {
+      this.filterMe = filterMe;
+      return this;
+    }
   }
 
   /**
-   * Remove a team.
+   * Get all teams.
    *
-   * <p>See {@link #removeTeamWithHttpInfoAsync}.
+   * <p>See {@link #listTeamsWithHttpInfo}.
    *
-   * @param teamId None (required)
-   * @return CompletableFuture
+   * @return TeamsResponse
+   * @throws ApiException if fails to make API call
    */
-  public CompletableFuture<Void> removeTeamAsync(String teamId) {
-    return removeTeamWithHttpInfoAsync(teamId)
+  public TeamsResponse listTeams() throws ApiException {
+    return listTeamsWithHttpInfo(new ListTeamsOptionalParameters()).getData();
+  }
+
+  /**
+   * Get all teams.
+   *
+   * <p>See {@link #listTeamsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;TeamsResponse&gt;
+   */
+  public CompletableFuture<TeamsResponse> listTeamsAsync() {
+    return listTeamsWithHttpInfoAsync(new ListTeamsOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -1581,131 +1847,28 @@ public class TeamsApi {
   }
 
   /**
-   * Remove a team using the team's <code>id</code>.
+   * Get all teams.
    *
-   * @param teamId None (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<Void> removeTeamWithHttpInfo(String teamId) throws ApiException {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'teamId' is set
-    if (teamId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'teamId' when calling removeTeam");
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/team/{team_id}"
-            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.TeamsApi.removeTeam",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
-  }
-
-  /**
-   * Remove a team.
+   * <p>See {@link #listTeamsWithHttpInfo}.
    *
-   * <p>See {@link #removeTeamWithHttpInfo}.
-   *
-   * @param teamId None (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<Void>> removeTeamWithHttpInfoAsync(String teamId) {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'teamId' is set
-    if (teamId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'teamId' when calling removeTeam"));
-      return result;
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/team/{team_id}"
-            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.TeamsApi.removeTeam",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
-  }
-
-  /**
-   * Remove a team link.
-   *
-   * <p>See {@link #removeTeamLinkWithHttpInfo}.
-   *
-   * @param teamId None (required)
-   * @param linkId None (required)
+   * @param parameters Optional parameters for the request.
+   * @return TeamsResponse
    * @throws ApiException if fails to make API call
    */
-  public void removeTeamLink(String teamId, String linkId) throws ApiException {
-    removeTeamLinkWithHttpInfo(teamId, linkId);
+  public TeamsResponse listTeams(ListTeamsOptionalParameters parameters) throws ApiException {
+    return listTeamsWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Remove a team link.
+   * Get all teams.
    *
-   * <p>See {@link #removeTeamLinkWithHttpInfoAsync}.
+   * <p>See {@link #listTeamsWithHttpInfoAsync}.
    *
-   * @param teamId None (required)
-   * @param linkId None (required)
-   * @return CompletableFuture
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TeamsResponse&gt;
    */
-  public CompletableFuture<Void> removeTeamLinkAsync(String teamId, String linkId) {
-    return removeTeamLinkWithHttpInfoAsync(teamId, linkId)
+  public CompletableFuture<TeamsResponse> listTeamsAsync(ListTeamsOptionalParameters parameters) {
+    return listTeamsWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -1713,281 +1876,117 @@ public class TeamsApi {
   }
 
   /**
-   * Remove a link from a team.
+   * Get all teams. Can be used to search for teams using the <code>filter[keyword]</code> and
+   * <code>filter[me]</code> query parameters.
    *
-   * @param teamId None (required)
-   * @param linkId None (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TeamsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> removeTeamLinkWithHttpInfo(String teamId, String linkId)
+  public ApiResponse<TeamsResponse> listTeamsWithHttpInfo(ListTeamsOptionalParameters parameters)
       throws ApiException {
     Object localVarPostBody = null;
-
-    // verify the required parameter 'teamId' is set
-    if (teamId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'teamId' when calling removeTeamLink");
-    }
-
-    // verify the required parameter 'linkId' is set
-    if (linkId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'linkId' when calling removeTeamLink");
-    }
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    ListTeamsSort sort = parameters.sort;
+    List<ListTeamsInclude> include = parameters.include;
+    String filterKeyword = parameters.filterKeyword;
+    Boolean filterMe = parameters.filterMe;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/team/{team_id}/links/{link_id}"
-            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()))
-            .replaceAll("\\{" + "link_id" + "\\}", apiClient.escapeString(linkId.toString()));
+    String localVarPath = "/api/v2/team";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[keyword]", filterKeyword));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[me]", filterMe));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.TeamsApi.removeTeamLink",
+            "v2.TeamsApi.listTeams",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"*/*"},
+            new String[] {"application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
-        "DELETE",
+        "GET",
         builder,
         localVarHeaderParams,
         new String[] {},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        null);
+        new GenericType<TeamsResponse>() {});
   }
 
   /**
-   * Remove a team link.
+   * Get all teams.
    *
-   * <p>See {@link #removeTeamLinkWithHttpInfo}.
+   * <p>See {@link #listTeamsWithHttpInfo}.
    *
-   * @param teamId None (required)
-   * @param linkId None (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> removeTeamLinkWithHttpInfoAsync(
-      String teamId, String linkId) {
+  public CompletableFuture<ApiResponse<TeamsResponse>> listTeamsWithHttpInfoAsync(
+      ListTeamsOptionalParameters parameters) {
     Object localVarPostBody = null;
-
-    // verify the required parameter 'teamId' is set
-    if (teamId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'teamId' when calling removeTeamLink"));
-      return result;
-    }
-
-    // verify the required parameter 'linkId' is set
-    if (linkId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'linkId' when calling removeTeamLink"));
-      return result;
-    }
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    ListTeamsSort sort = parameters.sort;
+    List<ListTeamsInclude> include = parameters.include;
+    String filterKeyword = parameters.filterKeyword;
+    Boolean filterMe = parameters.filterMe;
     // create path and map variables
-    String localVarPath =
-        "/api/v2/team/{team_id}/links/{link_id}"
-            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()))
-            .replaceAll("\\{" + "link_id" + "\\}", apiClient.escapeString(linkId.toString()));
+    String localVarPath = "/api/v2/team";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[keyword]", filterKeyword));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[me]", filterMe));
 
     Invocation.Builder builder;
     try {
       builder =
           apiClient.createBuilder(
-              "v2.TeamsApi.removeTeamLink",
+              "v2.TeamsApi.listTeams",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"*/*"},
+              new String[] {"application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<TeamsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
     return apiClient.invokeAPIAsync(
-        "DELETE",
+        "GET",
         builder,
         localVarHeaderParams,
         new String[] {},
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        null);
-  }
-
-  /**
-   * Remove a user from a team.
-   *
-   * <p>See {@link #removeTeamMembershipWithHttpInfo}.
-   *
-   * @param teamId None (required)
-   * @param userId None (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void removeTeamMembership(String teamId, String userId) throws ApiException {
-    removeTeamMembershipWithHttpInfo(teamId, userId);
-  }
-
-  /**
-   * Remove a user from a team.
-   *
-   * <p>See {@link #removeTeamMembershipWithHttpInfoAsync}.
-   *
-   * @param teamId None (required)
-   * @param userId None (required)
-   * @return CompletableFuture
-   */
-  public CompletableFuture<Void> removeTeamMembershipAsync(String teamId, String userId) {
-    return removeTeamMembershipWithHttpInfoAsync(teamId, userId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Remove a user from a team.
-   *
-   * @param teamId None (required)
-   * @param userId None (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<Void> removeTeamMembershipWithHttpInfo(String teamId, String userId)
-      throws ApiException {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'teamId' is set
-    if (teamId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'teamId' when calling removeTeamMembership");
-    }
-
-    // verify the required parameter 'userId' is set
-    if (userId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'userId' when calling removeTeamMembership");
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/team/{team_id}/memberships/{user_id}"
-            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()))
-            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.TeamsApi.removeTeamMembership",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"*/*"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
-  }
-
-  /**
-   * Remove a user from a team.
-   *
-   * <p>See {@link #removeTeamMembershipWithHttpInfo}.
-   *
-   * @param teamId None (required)
-   * @param userId None (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<Void>> removeTeamMembershipWithHttpInfoAsync(
-      String teamId, String userId) {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'teamId' is set
-    if (teamId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'teamId' when calling removeTeamMembership"));
-      return result;
-    }
-
-    // verify the required parameter 'userId' is set
-    if (userId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'userId' when calling removeTeamMembership"));
-      return result;
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/team/{team_id}/memberships/{user_id}"
-            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()))
-            .replaceAll("\\{" + "user_id" + "\\}", apiClient.escapeString(userId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.TeamsApi.removeTeamMembership",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"*/*"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        null);
+        new GenericType<TeamsResponse>() {});
   }
 
   /**
