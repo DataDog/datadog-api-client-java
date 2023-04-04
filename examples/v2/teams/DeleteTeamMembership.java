@@ -1,4 +1,4 @@
-// Remove a team returns "No Content" response
+// Remove a user from a team returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -13,9 +13,9 @@ public class Example {
     String DD_TEAM_DATA_ID = System.getenv("DD_TEAM_DATA_ID");
 
     try {
-      apiInstance.removeTeam(DD_TEAM_DATA_ID);
+      apiInstance.deleteTeamMembership(DD_TEAM_DATA_ID, "user_id");
     } catch (ApiException e) {
-      System.err.println("Exception when calling TeamsApi#removeTeam");
+      System.err.println("Exception when calling TeamsApi#deleteTeamMembership");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

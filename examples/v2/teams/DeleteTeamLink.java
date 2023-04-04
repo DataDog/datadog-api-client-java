@@ -16,9 +16,9 @@ public class Example {
     String TEAM_LINK_DATA_ID = System.getenv("TEAM_LINK_DATA_ID");
 
     try {
-      apiInstance.removeTeamLink(DD_TEAM_DATA_ID, TEAM_LINK_DATA_ID);
+      apiInstance.deleteTeamLink(DD_TEAM_DATA_ID, TEAM_LINK_DATA_ID);
     } catch (ApiException e) {
-      System.err.println("Exception when calling TeamsApi#removeTeamLink");
+      System.err.println("Exception when calling TeamsApi#deleteTeamLink");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
