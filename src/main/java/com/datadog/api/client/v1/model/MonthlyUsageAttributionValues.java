@@ -73,7 +73,9 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_USAGE
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_USAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -276,6 +278,14 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_SNMP_USAGE = "snmp_usage";
   private Double snmpUsage;
+
+  public static final String JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_PERCENTAGE =
+      "universal_service_monitoring_percentage";
+  private Double universalServiceMonitoringPercentage;
+
+  public static final String JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_USAGE =
+      "universal_service_monitoring_usage";
+  private Double universalServiceMonitoringUsage;
 
   public MonthlyUsageAttributionValues apiPercentage(Double apiPercentage) {
     this.apiPercentage = apiPercentage;
@@ -1550,6 +1560,50 @@ public class MonthlyUsageAttributionValues {
     this.snmpUsage = snmpUsage;
   }
 
+  public MonthlyUsageAttributionValues universalServiceMonitoringPercentage(
+      Double universalServiceMonitoringPercentage) {
+    this.universalServiceMonitoringPercentage = universalServiceMonitoringPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of universal service monitoring usage by tag(s).
+   *
+   * @return universalServiceMonitoringPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getUniversalServiceMonitoringPercentage() {
+    return universalServiceMonitoringPercentage;
+  }
+
+  public void setUniversalServiceMonitoringPercentage(Double universalServiceMonitoringPercentage) {
+    this.universalServiceMonitoringPercentage = universalServiceMonitoringPercentage;
+  }
+
+  public MonthlyUsageAttributionValues universalServiceMonitoringUsage(
+      Double universalServiceMonitoringUsage) {
+    this.universalServiceMonitoringUsage = universalServiceMonitoringUsage;
+    return this;
+  }
+
+  /**
+   * The universal service monitoring usage by tag(s).
+   *
+   * @return universalServiceMonitoringUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getUniversalServiceMonitoringUsage() {
+    return universalServiceMonitoringUsage;
+  }
+
+  public void setUniversalServiceMonitoringUsage(Double universalServiceMonitoringUsage) {
+    this.universalServiceMonitoringUsage = universalServiceMonitoringUsage;
+  }
+
   /** Return true if this MonthlyUsageAttributionValues object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -1664,7 +1718,13 @@ public class MonthlyUsageAttributionValues {
             this.profiledHostPercentage, monthlyUsageAttributionValues.profiledHostPercentage)
         && Objects.equals(this.profiledHostUsage, monthlyUsageAttributionValues.profiledHostUsage)
         && Objects.equals(this.snmpPercentage, monthlyUsageAttributionValues.snmpPercentage)
-        && Objects.equals(this.snmpUsage, monthlyUsageAttributionValues.snmpUsage);
+        && Objects.equals(this.snmpUsage, monthlyUsageAttributionValues.snmpUsage)
+        && Objects.equals(
+            this.universalServiceMonitoringPercentage,
+            monthlyUsageAttributionValues.universalServiceMonitoringPercentage)
+        && Objects.equals(
+            this.universalServiceMonitoringUsage,
+            monthlyUsageAttributionValues.universalServiceMonitoringUsage);
   }
 
   @Override
@@ -1729,7 +1789,9 @@ public class MonthlyUsageAttributionValues {
         profiledHostPercentage,
         profiledHostUsage,
         snmpPercentage,
-        snmpUsage);
+        snmpUsage,
+        universalServiceMonitoringPercentage,
+        universalServiceMonitoringUsage);
   }
 
   @Override
@@ -1860,6 +1922,12 @@ public class MonthlyUsageAttributionValues {
     sb.append("    profiledHostUsage: ").append(toIndentedString(profiledHostUsage)).append("\n");
     sb.append("    snmpPercentage: ").append(toIndentedString(snmpPercentage)).append("\n");
     sb.append("    snmpUsage: ").append(toIndentedString(snmpUsage)).append("\n");
+    sb.append("    universalServiceMonitoringPercentage: ")
+        .append(toIndentedString(universalServiceMonitoringPercentage))
+        .append("\n");
+    sb.append("    universalServiceMonitoringUsage: ")
+        .append(toIndentedString(universalServiceMonitoringUsage))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
