@@ -92,7 +92,6 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM,
-  UsageSummaryDateOrg.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_VSPHERE_HOST_TOP99P
 })
 @jakarta.annotation.Generated(
@@ -364,10 +363,6 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM =
       "twol_ingested_events_bytes_sum";
   private Long twolIngestedEventsBytesSum;
-
-  public static final String JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P =
-      "universal_service_monitoring_host_top99p";
-  private Long universalServiceMonitoringHostTop99p;
 
   public static final String JSON_PROPERTY_VSPHERE_HOST_TOP99P = "vsphere_host_top99p";
   private Long vsphereHostTop99p;
@@ -2079,29 +2074,6 @@ public class UsageSummaryDateOrg {
     this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
   }
 
-  public UsageSummaryDateOrg universalServiceMonitoringHostTop99p(
-      Long universalServiceMonitoringHostTop99p) {
-    this.universalServiceMonitoringHostTop99p = universalServiceMonitoringHostTop99p;
-    return this;
-  }
-
-  /**
-   * Shows the 99th percentile of all Universal Service Monitoring hosts over all hours in the
-   * current date for the given org.
-   *
-   * @return universalServiceMonitoringHostTop99p
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getUniversalServiceMonitoringHostTop99p() {
-    return universalServiceMonitoringHostTop99p;
-  }
-
-  public void setUniversalServiceMonitoringHostTop99p(Long universalServiceMonitoringHostTop99p) {
-    this.universalServiceMonitoringHostTop99p = universalServiceMonitoringHostTop99p;
-  }
-
   public UsageSummaryDateOrg vsphereHostTop99p(Long vsphereHostTop99p) {
     this.vsphereHostTop99p = vsphereHostTop99p;
     return this;
@@ -2251,9 +2223,6 @@ public class UsageSummaryDateOrg {
             usageSummaryDateOrg.traceSearchIndexedEventsCountSum)
         && Objects.equals(
             this.twolIngestedEventsBytesSum, usageSummaryDateOrg.twolIngestedEventsBytesSum)
-        && Objects.equals(
-            this.universalServiceMonitoringHostTop99p,
-            usageSummaryDateOrg.universalServiceMonitoringHostTop99p)
         && Objects.equals(this.vsphereHostTop99p, usageSummaryDateOrg.vsphereHostTop99p);
   }
 
@@ -2338,7 +2307,6 @@ public class UsageSummaryDateOrg {
         syntheticsParallelTestingMaxSlotsHwm,
         traceSearchIndexedEventsCountSum,
         twolIngestedEventsBytesSum,
-        universalServiceMonitoringHostTop99p,
         vsphereHostTop99p);
   }
 
@@ -2517,9 +2485,6 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    twolIngestedEventsBytesSum: ")
         .append(toIndentedString(twolIngestedEventsBytesSum))
-        .append("\n");
-    sb.append("    universalServiceMonitoringHostTop99p: ")
-        .append(toIndentedString(universalServiceMonitoringHostTop99p))
         .append("\n");
     sb.append("    vsphereHostTop99p: ").append(toIndentedString(vsphereHostTop99p)).append("\n");
     sb.append("}");

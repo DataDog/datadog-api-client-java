@@ -84,8 +84,6 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("snmp_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_RUM_SESSIONS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_rum_sessions_usage");
-  public static final HourlyUsageAttributionUsageType UNIVERSAL_SERVICE_MONITORING_USAGE =
-      new HourlyUsageAttributionUsageType("universal_service_monitoring_usage");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -119,8 +117,7 @@ public class HourlyUsageAttributionUsageType {
               "profiled_fargate_usage",
               "profiled_host_usage",
               "snmp_usage",
-              "estimated_rum_sessions_usage",
-              "universal_service_monitoring_usage"));
+              "estimated_rum_sessions_usage"));
 
   private String value;
 
