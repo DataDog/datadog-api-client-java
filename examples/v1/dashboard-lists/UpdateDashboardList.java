@@ -13,8 +13,7 @@ public class Example {
     // there is a valid "dashboard_list" in the system
     Long DASHBOARD_LIST_ID = Long.parseLong(System.getenv("DASHBOARD_LIST_ID"));
 
-    DashboardList body =
-        new DashboardList().name("updated Example-Update_a_dashboard_list_returns_OK_response");
+    DashboardList body = new DashboardList().name("updated Example-Dashboard-List");
 
     try {
       DashboardList result = apiInstance.updateDashboardList(DASHBOARD_LIST_ID, body);

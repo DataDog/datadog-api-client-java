@@ -23,8 +23,7 @@ public class Example {
 
     SecurityMonitoringRuleUpdatePayload body =
         new SecurityMonitoringRuleUpdatePayload()
-            .name(
-                "Example-Update_a_cloud_configuration_rule_s_details_returns_OK_response_cloud_updated")
+            .name("Example-Security-Monitoring_cloud_updated")
             .isEnabled(false)
             .cases(
                 Collections.singletonList(

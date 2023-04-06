@@ -33,7 +33,7 @@ public class Example {
                     .type(SensitiveDataScannerRuleType.SENSITIVE_DATA_SCANNER_RULE)
                     .attributes(
                         new SensitiveDataScannerRuleAttributes()
-                            .name("Example-Create_Scanning_Rule_returns_OK_response")
+                            .name("Example-Sensitive-Data-Scanner")
                             .pattern("pattern")
                             .namespaces(Collections.singletonList("admin"))
                             .excludedNamespaces(Collections.singletonList("admin.name"))

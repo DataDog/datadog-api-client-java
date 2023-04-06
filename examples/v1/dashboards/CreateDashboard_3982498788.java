@@ -24,9 +24,7 @@ public class Example {
     Dashboard body =
         new Dashboard()
             .layoutType(DashboardLayoutType.ORDERED)
-            .title(
-                "Example-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes"
-                    + " with timeseries widget")
+            .title("Example-Dashboard with timeseries widget")
             .widgets(
                 Collections.singletonList(
                     new Widget()

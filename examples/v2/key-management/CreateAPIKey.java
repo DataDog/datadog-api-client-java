@@ -19,9 +19,7 @@ public class Example {
             .data(
                 new APIKeyCreateData()
                     .type(APIKeysType.API_KEYS)
-                    .attributes(
-                        new APIKeyCreateAttributes()
-                            .name("Example-Create_an_API_key_returns_Created_response")));
+                    .attributes(new APIKeyCreateAttributes().name("Example-Key-Management")));
 
     try {
       APIKeyResponse result = apiInstance.createAPIKey(body);

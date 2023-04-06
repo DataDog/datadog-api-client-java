@@ -18,12 +18,12 @@ public class Example {
 
     SyntheticsPrivateLocation body =
         new SyntheticsPrivateLocation()
-            .description("Test Example-Create_a_private_location_returns_OK_response description")
+            .description("Test Example-Synthetic description")
             .metadata(
                 new SyntheticsPrivateLocationMetadata()
                     .restrictedRoles(Collections.singletonList(ROLE_DATA_ID)))
-            .name("Example-Create_a_private_location_returns_OK_response")
-            .tags(Collections.singletonList("test:examplecreateaprivatelocationreturnsokresponse"));
+            .name("Example-Synthetic")
+            .tags(Collections.singletonList("test:examplesynthetic"));
 
     try {
       SyntheticsPrivateLocationCreationResponse result = apiInstance.createPrivateLocation(body);

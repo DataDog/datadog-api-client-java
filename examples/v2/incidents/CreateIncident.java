@@ -33,7 +33,7 @@ public class Example {
                     .type(IncidentType.INCIDENTS)
                     .attributes(
                         new IncidentCreateAttributes()
-                            .title("Example-Create_an_incident_returns_CREATED_response")
+                            .title("Example-Incident")
                             .customerImpacted(false)
                             .fields(
                                 Map.ofEntries(

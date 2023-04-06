@@ -106,7 +106,7 @@ y = 6;
                                                         .splitBy(new NotebookSplitBy())
                                                         .time(null)))
                                             .type(NotebookCellResourceType.NOTEBOOK_CELLS))))
-                            .name("Example-Update_a_notebook_returns_OK_response-updated")
+                            .name("Example-Notebook-updated")
                             .status(NotebookStatus.PUBLISHED)
                             .time(
                                 new NotebookGlobalTime(

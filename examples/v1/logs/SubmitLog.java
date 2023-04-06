@@ -14,10 +14,7 @@ public class Example {
 
     List<HTTPLogItem> body =
         Collections.singletonList(
-            new HTTPLogItem()
-                .message(
-                    "Example-Send_logs_returns_Response_from_server_always_200_empty_JSON_response")
-                .ddtags("host:ExampleSendlogsreturnsResponsefromserveralways200emptyJSONresponse"));
+            new HTTPLogItem().message("Example-Log").ddtags("host:ExampleLog"));
 
     try {
       apiInstance.submitLog(body);

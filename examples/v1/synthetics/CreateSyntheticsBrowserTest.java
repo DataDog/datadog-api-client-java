@@ -37,8 +37,7 @@ public class Example {
                     .setCookie("name:test"))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("Test message")
-            .name(
-                "Example-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response")
+            .name("Example-Synthetic")
             .options(
                 new SyntheticsTestOptions()
                     .acceptSelfSigned(false)

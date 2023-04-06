@@ -26,7 +26,7 @@ public class Example {
                     .attributes(
                         new SLOCorrectionCreateRequestAttributes()
                             .category(SLOCorrectionCategory.SCHEDULED_MAINTENANCE)
-                            .description("Example-Create_an_SLO_correction_returns_OK_response")
+                            .description("Example-Service-Level-Objective-Correction")
                             .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
                             .sloId(SLO_DATA_0_ID)
                             .start(OffsetDateTime.now().toInstant().getEpochSecond())

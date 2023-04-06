@@ -31,10 +31,8 @@ public class Example {
 
     Dashboard body =
         new Dashboard()
-            .title(
-                "Example-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu")
-            .description(
-                "Example-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu")
+            .title("Example-Dashboard")
+            .description("Example-Dashboard")
             .widgets(
                 Collections.singletonList(
                     new Widget()

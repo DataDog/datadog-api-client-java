@@ -15,7 +15,7 @@ public class Example {
 
     Downtime body =
         new Downtime()
-            .message("Example-Schedule_a_downtime_with_until_occurrences")
+            .message("Example-Downtime")
             .recurrence(
                 new DowntimeRecurrence()
                     .period(1)

@@ -15,9 +15,7 @@ public class Example {
     try {
       List<Monitor> result =
           apiInstance.listMonitors(
-              new ListMonitorsOptionalParameters()
-                  .tags("test:examplegetallmonitordetailswithtags")
-                  .pageSize(1));
+              new ListMonitorsOptionalParameters().tags("test:examplemonitor").pageSize(1));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MonitorsApi#listMonitors");
