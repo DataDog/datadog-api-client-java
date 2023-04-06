@@ -16,11 +16,7 @@ public class Example {
 
     List<HTTPLogItem> body =
         Collections.singletonList(
-            new HTTPLogItem()
-                .message(
-                    "Example-Send_gzip_logs_returns_Response_from_server_always_200_empty_JSON_response")
-                .ddtags(
-                    "host:ExampleSendgziplogsreturnsResponsefromserveralways200emptyJSONresponse"));
+            new HTTPLogItem().message("Example-Log").ddtags("host:ExampleLog"));
 
     try {
       apiInstance.submitLog(

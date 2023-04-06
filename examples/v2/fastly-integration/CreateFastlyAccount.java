@@ -20,8 +20,8 @@ public class Example {
                 new FastlyAccountCreateRequestData()
                     .attributes(
                         new FastlyAccountCreateRequestAttributes()
-                            .apiKey("ExampleAddFastlyaccountreturnsCREATEDresponse")
-                            .name("Example-Add_Fastly_account_returns_CREATED_response"))
+                            .apiKey("ExampleFastlyIntegration")
+                            .name("Example-Fastly-Integration"))
                     .type(FastlyAccountType.FASTLY_ACCOUNTS));
 
     try {

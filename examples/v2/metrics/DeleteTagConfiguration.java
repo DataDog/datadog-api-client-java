@@ -10,7 +10,7 @@ public class Example {
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {
-      apiInstance.deleteTagConfiguration("ExampleDeleteatagconfigurationreturnsNoContentresponse");
+      apiInstance.deleteTagConfiguration("ExampleMetric");
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#deleteTagConfiguration");
       System.err.println("Status code: " + e.getCode());

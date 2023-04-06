@@ -28,9 +28,7 @@ public class Example {
     Dashboard body =
         new Dashboard()
             .layoutType(DashboardLayoutType.ORDERED)
-            .title(
-                "Example-Create_a_new_dashboard_with_logs_transaction_stream_list_stream_widget"
-                    + " with list_stream widget")
+            .title("Example-Dashboard with list_stream widget")
             .widgets(
                 Collections.singletonList(
                     new Widget()

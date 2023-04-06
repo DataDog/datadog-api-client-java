@@ -22,9 +22,7 @@ public class Example {
             .data(
                 new ApplicationKeyCreateData()
                     .attributes(
-                        new ApplicationKeyCreateAttributes()
-                            .name(
-                                "Example-Create_an_app_key_for_this_service_account_returns_Created_response"))
+                        new ApplicationKeyCreateAttributes().name("Example-Service-Account"))
                     .type(ApplicationKeysType.APPLICATION_KEYS));
 
     try {

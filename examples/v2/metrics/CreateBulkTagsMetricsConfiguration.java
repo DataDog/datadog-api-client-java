@@ -26,10 +26,7 @@ public class Example {
                     .attributes(
                         new MetricBulkTagConfigCreateAttributes()
                             .emails(Collections.singletonList(USER_DATA_ATTRIBUTES_EMAIL))
-                            .tags(
-                                Arrays.asList(
-                                    "test",
-                                    "exampleconfiguretagsformultiplemetricsreturnsacceptedresponse")))
+                            .tags(Arrays.asList("test", "examplemetric")))
                     .id("system.load.1")
                     .type(MetricBulkConfigureTagsType.BULK_MANAGE_TAGS));
 

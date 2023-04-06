@@ -20,9 +20,7 @@ public class Example {
                 new ApplicationKeyCreateData()
                     .type(ApplicationKeysType.APPLICATION_KEYS)
                     .attributes(
-                        new ApplicationKeyCreateAttributes()
-                            .name(
-                                "Example-Create_an_Application_key_for_current_user_returns_Created_response")));
+                        new ApplicationKeyCreateAttributes().name("Example-Key-Management")));
 
     try {
       ApplicationKeyResponse result = apiInstance.createCurrentUserApplicationKey(body);

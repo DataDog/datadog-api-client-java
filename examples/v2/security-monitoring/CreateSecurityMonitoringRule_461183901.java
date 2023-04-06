@@ -51,8 +51,7 @@ public class Example {
                         .impossibleTravelOptions(
                             new SecurityMonitoringRuleImpossibleTravelOptions()
                                 .baselineUserLocations(false)))
-                .name(
-                    "Example-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response")
+                .name("Example-Security-Monitoring")
                 .type(SecurityMonitoringRuleTypeCreate.LOG_DETECTION));
 
     try {

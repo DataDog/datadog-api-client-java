@@ -24,7 +24,7 @@ public class Example {
         new SecurityMonitoringRuleCreatePayload(
             new CloudConfigurationRuleCreatePayload()
                 .type(CloudConfigurationRuleType.CLOUD_CONFIGURATION)
-                .name("Example-Create_a_cloud_configuration_rule_returns_OK_response_cloud")
+                .name("Example-Security-Monitoring_cloud")
                 .isEnabled(false)
                 .cases(
                     Collections.singletonList(

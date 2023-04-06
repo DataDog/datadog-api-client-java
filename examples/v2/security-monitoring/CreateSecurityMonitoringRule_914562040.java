@@ -32,8 +32,7 @@ public class Example {
     SecurityMonitoringRuleCreatePayload body =
         new SecurityMonitoringRuleCreatePayload(
             new SecurityMonitoringSignalRuleCreatePayload()
-                .name(
-                    "Example-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response_signal_rule")
+                .name("Example-Security-Monitoring_signal_rule")
                 .queries(
                     Arrays.asList(
                         new SecurityMonitoringSignalRuleQuery()

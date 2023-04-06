@@ -22,7 +22,7 @@ public class Example {
             .type(SLOType.METRIC)
             .description("string")
             .groups(Arrays.asList("env:test", "role:mysql"))
-            .name("Example-Create_an_SLO_object_returns_OK_response")
+            .name("Example-Service-Level-Objective")
             .query(
                 new ServiceLevelObjectiveQuery()
                     .denominator("sum:httpservice.hits{!code:3xx}.as_count()")

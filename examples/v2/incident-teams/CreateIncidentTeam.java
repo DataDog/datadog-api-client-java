@@ -20,9 +20,7 @@ public class Example {
             .data(
                 new IncidentTeamCreateData()
                     .type(IncidentTeamType.TEAMS)
-                    .attributes(
-                        new IncidentTeamCreateAttributes()
-                            .name("Example-Create_a_new_incident_team_returns_CREATED_response")));
+                    .attributes(new IncidentTeamCreateAttributes().name("Example-Incident-Team")));
 
     try {
       IncidentTeamResponse result = apiInstance.createIncidentTeam(body);

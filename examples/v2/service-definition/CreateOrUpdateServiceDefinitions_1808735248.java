@@ -36,8 +36,7 @@ public class Example {
                                 .contact("contact@datadoghq.com")
                                 .name("Team Email")
                                 .type(ServiceDefinitionV2EmailType.EMAIL))))
-                .ddService(
-                    "service-examplecreateorupdateservicedefinitionusingschemav2returnscreatedresponse")
+                .ddService("service-exampleservicedefinition")
                 .ddTeam("my-team")
                 .docs(
                     Collections.singletonList(

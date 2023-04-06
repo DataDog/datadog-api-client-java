@@ -20,9 +20,7 @@ public class Example {
                 .check("app.ok")
                 .hostName("host")
                 .status(ServiceCheckStatus.OK)
-                .tags(
-                    Collections.singletonList(
-                        "test:ExampleSubmitaServiceCheckreturnsPayloadacceptedresponse")));
+                .tags(Collections.singletonList("test:ExampleServiceCheck")));
 
     try {
       IntakePayloadAccepted result = apiInstance.submitServiceCheck(body);

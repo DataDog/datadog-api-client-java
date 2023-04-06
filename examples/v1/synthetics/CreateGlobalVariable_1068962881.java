@@ -22,7 +22,7 @@ public class Example {
     SyntheticsGlobalVariable body =
         new SyntheticsGlobalVariable()
             .description("")
-            .name("GLOBAL_VARIABLE_PAYLOAD_EXAMPLECREATEAGLOBALVARIABLEFROMTESTRETURNSOKRESPONSE")
+            .name("GLOBAL_VARIABLE_PAYLOAD_EXAMPLESYNTHETIC")
             .value(
                 new SyntheticsGlobalVariableValue()
                     .secure(false)

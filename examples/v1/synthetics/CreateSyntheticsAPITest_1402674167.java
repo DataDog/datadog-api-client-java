@@ -43,15 +43,13 @@ public class Example {
                             .metadata(Map.ofEntries())))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_grpc_test_payload.json")
-            .name(
-                "Example-Create_an_API_GRPC_test_returns_OK_Returns_the_created_test_details_response")
+            .name("Example-Synthetic")
             .options(
                 new SyntheticsTestOptions()
                     .minFailureDuration(0L)
                     .minLocationFailed(1L)
                     .monitorOptions(new SyntheticsTestOptionsMonitorOptions().renotifyInterval(0L))
-                    .monitorName(
-                        "Example-Create_an_API_GRPC_test_returns_OK_Returns_the_created_test_details_response")
+                    .monitorName("Example-Synthetic")
                     .tickEvery(60L))
             .subtype(SyntheticsTestDetailsSubType.GRPC)
             .tags(Collections.singletonList("testing:api"))

@@ -36,9 +36,7 @@ public class Example {
 
     Dashboard body =
         new Dashboard()
-            .title(
-                "Example-Create_a_new_timeseries_widget_with_ci_pipelines_data_source with"
-                    + " ci_pipelines datasource")
+            .title("Example-Dashboard with ci_pipelines datasource")
             .widgets(
                 Collections.singletonList(
                     new Widget()

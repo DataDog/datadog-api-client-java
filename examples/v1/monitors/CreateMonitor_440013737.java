@@ -16,16 +16,14 @@ public class Example {
 
     Monitor body =
         new Monitor()
-            .name("Example-Create_an_Error_Tracking_monitor_returns_OK_response")
+            .name("Example-Monitor")
             .type(MonitorType.ERROR_TRACKING_ALERT)
             .query(
                 """
 error-tracking-rum("service:foo AND @error.source:source").rollup("count").by("@issue.id").last("1h") >= 1
 """)
             .message("some message")
-            .tags(
-                Arrays.asList(
-                    "test:examplecreateanerrortrackingmonitorreturnsokresponse", "env:ci"))
+            .tags(Arrays.asList("test:examplemonitor", "env:ci"))
             .priority(3L)
             .options(new MonitorOptions().thresholds(new MonitorThresholds().critical(1.0)));
 

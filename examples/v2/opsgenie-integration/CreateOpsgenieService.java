@@ -21,7 +21,7 @@ public class Example {
                 new OpsgenieServiceCreateData()
                     .attributes(
                         new OpsgenieServiceCreateAttributes()
-                            .name("Example-Create_a_new_service_object_returns_CREATED_response")
+                            .name("Example-Opsgenie-Integration")
                             .opsgenieApiKey("00000000-0000-0000-0000-000000000000")
                             .region(OpsgenieServiceRegionType.US))
                     .type(OpsgenieServiceType.OPSGENIE_SERVICE));

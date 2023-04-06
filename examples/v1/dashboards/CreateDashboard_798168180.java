@@ -26,7 +26,7 @@ public class Example {
 
     Dashboard body =
         new Dashboard()
-            .title("Example-Create_a_new_dashboard_with_apm_dependency_stats_widget")
+            .title("Example-Dashboard")
             .widgets(
                 Collections.singletonList(
                     new Widget()

@@ -38,7 +38,7 @@ public class Example {
                     .type(SensitiveDataScannerGroupType.SENSITIVE_DATA_SCANNER_GROUP)
                     .attributes(
                         new SensitiveDataScannerGroupAttributes()
-                            .name("Example-Update_Scanning_Group_returns_OK_response")
+                            .name("Example-Sensitive-Data-Scanner")
                             .isEnabled(false)
                             .productList(
                                 Collections.singletonList(SensitiveDataScannerProduct.LOGS))

@@ -32,9 +32,7 @@ public class Example {
     Dashboard body =
         new Dashboard()
             .layoutType(DashboardLayoutType.ORDERED)
-            .title(
-                "Example-Create_a_new_dashboard_with_a_query_value_widget_using_timeseries_background"
-                    + " with QVW Timeseries Background")
+            .title("Example-Dashboard with QVW Timeseries Background")
             .widgets(
                 Collections.singletonList(
                     new Widget()

@@ -27,8 +27,8 @@ public class Example {
                 new AuthNMappingCreateData()
                     .attributes(
                         new AuthNMappingCreateAttributes()
-                            .attributeKey("examplecreateanauthnmappingreturnsokresponse")
-                            .attributeValue("Example-Create_an_AuthN_Mapping_returns_OK_response"))
+                            .attributeKey("exampleauthnmapping")
+                            .attributeValue("Example-AuthN-Mapping"))
                     .relationships(
                         new AuthNMappingCreateRelationships()
                             .role(

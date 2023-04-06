@@ -35,8 +35,7 @@ public class Example {
                                 .contact("contact@datadoghq.com")
                                 .name("Team Email")
                                 .type(ServiceDefinitionV2Dot1EmailType.EMAIL))))
-                .ddService(
-                    "service-examplecreateorupdateservicedefinitionusingschemav21returnscreatedresponse")
+                .ddService("service-exampleservicedefinition")
                 .extensions(Map.ofEntries(Map.entry("myorgextension", "extensionvalue")))
                 .integrations(
                     new ServiceDefinitionV2Dot1Integrations()

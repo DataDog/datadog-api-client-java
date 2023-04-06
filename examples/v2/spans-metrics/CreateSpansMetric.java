@@ -38,7 +38,7 @@ public class Example {
                                     new SpansMetricGroupBy()
                                         .path("resource_name")
                                         .tagName("resource_name"))))
-                    .id("ExampleCreateaspanbasedmetricreturnsOKresponse")
+                    .id("ExampleSpansMetric")
                     .type(SpansMetricType.SPANS_METRICS));
 
     try {

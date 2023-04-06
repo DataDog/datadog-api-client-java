@@ -23,7 +23,7 @@ public class Example {
     Dashboard body =
         new Dashboard()
             .layoutType(DashboardLayoutType.ORDERED)
-            .title("Example-Create_a_new_dashboard_with_funnel_widget with funnel widget")
+            .title("Example-Dashboard with funnel widget")
             .widgets(
                 Collections.singletonList(
                     new Widget()

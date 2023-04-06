@@ -23,15 +23,13 @@ public class Example {
 
     Monitor body =
         new Monitor()
-            .name("Example-Create_a_RUM_formula_and_functions_monitor_returns_OK_response")
+            .name("Example-Monitor")
             .type(MonitorType.RUM_ALERT)
             .query("""
 formula("query2 / query1 * 100").last("15m") >= 0.8
 """)
             .message("some message Notify: @hipchat-channel")
-            .tags(
-                Arrays.asList(
-                    "test:examplecreatearumformulaandfunctionsmonitorreturnsokresponse", "env:ci"))
+            .tags(Arrays.asList("test:examplemonitor", "env:ci"))
             .priority(3L)
             .options(
                 new MonitorOptions()

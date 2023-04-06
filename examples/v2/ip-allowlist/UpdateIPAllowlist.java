@@ -32,8 +32,7 @@ public class Example {
                                             new IPAllowlistEntryData()
                                                 .attributes(
                                                     new IPAllowlistEntryAttributes()
-                                                        .note(
-                                                            "Example-Update_IP_Allowlist_returns_OK_response")
+                                                        .note("Example-IP-Allowlist")
                                                         .cidrBlock("127.0.0.1"))
                                                 .type(IPAllowlistEntryType.IP_ALLOWLIST_ENTRY))))
                             .enabled(false))
