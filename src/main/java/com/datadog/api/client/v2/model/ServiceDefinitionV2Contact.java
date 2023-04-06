@@ -170,51 +170,6 @@ public class ServiceDefinitionV2Contact extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'ServiceDefinitionV2Slack'", e);
       }
 
-      // deserialize ServiceDefinitionV2MSTeams
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ServiceDefinitionV2MSTeams.class.equals(Integer.class)
-            || ServiceDefinitionV2MSTeams.class.equals(Long.class)
-            || ServiceDefinitionV2MSTeams.class.equals(Float.class)
-            || ServiceDefinitionV2MSTeams.class.equals(Double.class)
-            || ServiceDefinitionV2MSTeams.class.equals(Boolean.class)
-            || ServiceDefinitionV2MSTeams.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ServiceDefinitionV2MSTeams.class.equals(Integer.class)
-                        || ServiceDefinitionV2MSTeams.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ServiceDefinitionV2MSTeams.class.equals(Float.class)
-                        || ServiceDefinitionV2MSTeams.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ServiceDefinitionV2MSTeams.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ServiceDefinitionV2MSTeams.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(ServiceDefinitionV2MSTeams.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ServiceDefinitionV2MSTeams) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'ServiceDefinitionV2MSTeams'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'ServiceDefinitionV2MSTeams'", e);
-      }
-
       ServiceDefinitionV2Contact ret = new ServiceDefinitionV2Contact();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -254,15 +209,9 @@ public class ServiceDefinitionV2Contact extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public ServiceDefinitionV2Contact(ServiceDefinitionV2MSTeams o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   static {
     schemas.put("ServiceDefinitionV2Email", new GenericType<ServiceDefinitionV2Email>() {});
     schemas.put("ServiceDefinitionV2Slack", new GenericType<ServiceDefinitionV2Slack>() {});
-    schemas.put("ServiceDefinitionV2MSTeams", new GenericType<ServiceDefinitionV2MSTeams>() {});
     JSON.registerDescendants(
         ServiceDefinitionV2Contact.class, Collections.unmodifiableMap(schemas));
   }
@@ -274,8 +223,7 @@ public class ServiceDefinitionV2Contact extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: ServiceDefinitionV2Email, ServiceDefinitionV2Slack,
-   * ServiceDefinitionV2MSTeams
+   * against the oneOf child schemas: ServiceDefinitionV2Email, ServiceDefinitionV2Slack
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -290,26 +238,20 @@ public class ServiceDefinitionV2Contact extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(ServiceDefinitionV2MSTeams.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be ServiceDefinitionV2Email, ServiceDefinitionV2Slack,"
-            + " ServiceDefinitionV2MSTeams");
+        "Invalid instance type. Must be ServiceDefinitionV2Email, ServiceDefinitionV2Slack");
   }
 
   /**
    * Get the actual instance, which can be the following: ServiceDefinitionV2Email,
-   * ServiceDefinitionV2Slack, ServiceDefinitionV2MSTeams
+   * ServiceDefinitionV2Slack
    *
-   * @return The actual instance (ServiceDefinitionV2Email, ServiceDefinitionV2Slack,
-   *     ServiceDefinitionV2MSTeams)
+   * @return The actual instance (ServiceDefinitionV2Email, ServiceDefinitionV2Slack)
    */
   @Override
   public Object getActualInstance() {
@@ -336,16 +278,5 @@ public class ServiceDefinitionV2Contact extends AbstractOpenApiSchema {
    */
   public ServiceDefinitionV2Slack getServiceDefinitionV2Slack() throws ClassCastException {
     return (ServiceDefinitionV2Slack) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ServiceDefinitionV2MSTeams`. If the actual instance is not
-   * `ServiceDefinitionV2MSTeams`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `ServiceDefinitionV2MSTeams`
-   * @throws ClassCastException if the instance is not `ServiceDefinitionV2MSTeams`
-   */
-  public ServiceDefinitionV2MSTeams getServiceDefinitionV2MSTeams() throws ClassCastException {
-    return (ServiceDefinitionV2MSTeams) super.getActualInstance();
   }
 }
