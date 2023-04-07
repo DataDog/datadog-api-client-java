@@ -3,10 +3,8 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
-import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ServiceDefinitionCreateResponse;
-import com.datadog.api.client.v2.model.ServiceDefinitionData;
 import com.datadog.api.client.v2.model.ServiceDefinitionGetResponse;
 import com.datadog.api.client.v2.model.ServiceDefinitionsCreateRequest;
 import com.datadog.api.client.v2.model.ServiceDefinitionsListResponse;
@@ -14,8 +12,6 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -470,35 +466,6 @@ public class ServiceDefinitionApi {
         new GenericType<ServiceDefinitionGetResponse>() {});
   }
 
-  /** Manage optional parameters to listServiceDefinitions. */
-  public static class ListServiceDefinitionsOptionalParameters {
-    private Long pageSize;
-    private Long pageNumber;
-
-    /**
-     * Set pageSize.
-     *
-     * @param pageSize Size for a given page. The maximum allowed value is 5000. (optional, default
-     *     to 10)
-     * @return ListServiceDefinitionsOptionalParameters
-     */
-    public ListServiceDefinitionsOptionalParameters pageSize(Long pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    /**
-     * Set pageNumber.
-     *
-     * @param pageNumber Specific page number to return. (optional, default to 0)
-     * @return ListServiceDefinitionsOptionalParameters
-     */
-    public ListServiceDefinitionsOptionalParameters pageNumber(Long pageNumber) {
-      this.pageNumber = pageNumber;
-      return this;
-    }
-  }
-
   /**
    * Get all service definitions.
    *
@@ -508,8 +475,7 @@ public class ServiceDefinitionApi {
    * @throws ApiException if fails to make API call
    */
   public ServiceDefinitionsListResponse listServiceDefinitions() throws ApiException {
-    return listServiceDefinitionsWithHttpInfo(new ListServiceDefinitionsOptionalParameters())
-        .getData();
+    return listServiceDefinitionsWithHttpInfo().getData();
   }
 
   /**
@@ -520,100 +486,16 @@ public class ServiceDefinitionApi {
    * @return CompletableFuture&lt;ServiceDefinitionsListResponse&gt;
    */
   public CompletableFuture<ServiceDefinitionsListResponse> listServiceDefinitionsAsync() {
-    return listServiceDefinitionsWithHttpInfoAsync(new ListServiceDefinitionsOptionalParameters())
+    return listServiceDefinitionsWithHttpInfoAsync()
         .thenApply(
             response -> {
               return response.getData();
             });
-  }
-
-  /**
-   * Get all service definitions.
-   *
-   * <p>See {@link #listServiceDefinitionsWithHttpInfo}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return ServiceDefinitionsListResponse
-   * @throws ApiException if fails to make API call
-   */
-  public ServiceDefinitionsListResponse listServiceDefinitions(
-      ListServiceDefinitionsOptionalParameters parameters) throws ApiException {
-    return listServiceDefinitionsWithHttpInfo(parameters).getData();
-  }
-
-  /**
-   * Get all service definitions.
-   *
-   * <p>See {@link #listServiceDefinitionsWithHttpInfoAsync}.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ServiceDefinitionsListResponse&gt;
-   */
-  public CompletableFuture<ServiceDefinitionsListResponse> listServiceDefinitionsAsync(
-      ListServiceDefinitionsOptionalParameters parameters) {
-    return listServiceDefinitionsWithHttpInfoAsync(parameters)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Get all service definitions.
-   *
-   * <p>See {@link #listServiceDefinitionsWithHttpInfo}.
-   *
-   * @return PaginationIterable&lt;ServiceDefinitionData&gt;
-   */
-  public PaginationIterable<ServiceDefinitionData> listServiceDefinitionsWithPagination() {
-    ListServiceDefinitionsOptionalParameters parameters =
-        new ListServiceDefinitionsOptionalParameters();
-    return listServiceDefinitionsWithPagination(parameters);
-  }
-
-  /**
-   * Get all service definitions.
-   *
-   * <p>See {@link #listServiceDefinitionsWithHttpInfo}.
-   *
-   * @return ServiceDefinitionsListResponse
-   */
-  public PaginationIterable<ServiceDefinitionData> listServiceDefinitionsWithPagination(
-      ListServiceDefinitionsOptionalParameters parameters) {
-    String resultsPath = "getData";
-    String valueGetterPath = "";
-    String valueSetterPath = "pageNumber";
-    Boolean valueSetterParamOptional = true;
-    Long limit;
-
-    if (parameters.pageSize == null) {
-      limit = 10l;
-      parameters.pageSize(limit);
-    } else {
-      limit = parameters.pageSize;
-    }
-
-    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
-    args.put("optionalParams", parameters);
-
-    PaginationIterable iterator =
-        new PaginationIterable(
-            this,
-            "listServiceDefinitions",
-            resultsPath,
-            valueGetterPath,
-            valueSetterPath,
-            valueSetterParamOptional,
-            limit,
-            args);
-
-    return iterator;
   }
 
   /**
    * Get a list of all service definitions from the Datadog Service Catalog.
    *
-   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ServiceDefinitionsListResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -625,25 +507,19 @@ public class ServiceDefinitionApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ServiceDefinitionsListResponse> listServiceDefinitionsWithHttpInfo(
-      ListServiceDefinitionsOptionalParameters parameters) throws ApiException {
+  public ApiResponse<ServiceDefinitionsListResponse> listServiceDefinitionsWithHttpInfo()
+      throws ApiException {
     Object localVarPostBody = null;
-    Long pageSize = parameters.pageSize;
-    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v2/services/definitions";
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.ServiceDefinitionApi.listServiceDefinitions",
             localVarPath,
-            localVarQueryParams,
+            new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -664,22 +540,15 @@ public class ServiceDefinitionApi {
    *
    * <p>See {@link #listServiceDefinitionsWithHttpInfo}.
    *
-   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ServiceDefinitionsListResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ServiceDefinitionsListResponse>>
-      listServiceDefinitionsWithHttpInfoAsync(ListServiceDefinitionsOptionalParameters parameters) {
+      listServiceDefinitionsWithHttpInfoAsync() {
     Object localVarPostBody = null;
-    Long pageSize = parameters.pageSize;
-    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v2/services/definitions";
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
 
     Invocation.Builder builder;
     try {
@@ -687,7 +556,7 @@ public class ServiceDefinitionApi {
           apiClient.createBuilder(
               "v2.ServiceDefinitionApi.listServiceDefinitions",
               localVarPath,
-              localVarQueryParams,
+              new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
