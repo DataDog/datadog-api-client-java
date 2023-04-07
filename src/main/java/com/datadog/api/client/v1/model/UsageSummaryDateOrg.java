@@ -52,6 +52,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_DBM_QUERIES_AVG_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
+  UsageSummaryDateOrg.JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_GCP_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_HEROKU_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_ID,
@@ -223,6 +224,10 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM = "fargate_tasks_count_hwm";
   private Long fargateTasksCountHwm;
+
+  public static final String JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM =
+      "forwarding_events_bytes_sum";
+  private Long forwardingEventsBytesSum;
 
   public static final String JSON_PROPERTY_GCP_HOST_TOP99P = "gcp_host_top99p";
   private Long gcpHostTop99p;
@@ -1201,6 +1206,27 @@ public class UsageSummaryDateOrg {
 
   public void setFargateTasksCountHwm(Long fargateTasksCountHwm) {
     this.fargateTasksCountHwm = fargateTasksCountHwm;
+  }
+
+  public UsageSummaryDateOrg forwardingEventsBytesSum(Long forwardingEventsBytesSum) {
+    this.forwardingEventsBytesSum = forwardingEventsBytesSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all log bytes forwarded over all hours in the current date for the given org.
+   *
+   * @return forwardingEventsBytesSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getForwardingEventsBytesSum() {
+    return forwardingEventsBytesSum;
+  }
+
+  public void setForwardingEventsBytesSum(Long forwardingEventsBytesSum) {
+    this.forwardingEventsBytesSum = forwardingEventsBytesSum;
   }
 
   public UsageSummaryDateOrg gcpHostTop99p(Long gcpHostTop99p) {
@@ -2184,6 +2210,8 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.dbmQueriesAvgSum, usageSummaryDateOrg.dbmQueriesAvgSum)
         && Objects.equals(this.fargateTasksCountAvg, usageSummaryDateOrg.fargateTasksCountAvg)
         && Objects.equals(this.fargateTasksCountHwm, usageSummaryDateOrg.fargateTasksCountHwm)
+        && Objects.equals(
+            this.forwardingEventsBytesSum, usageSummaryDateOrg.forwardingEventsBytesSum)
         && Objects.equals(this.gcpHostTop99p, usageSummaryDateOrg.gcpHostTop99p)
         && Objects.equals(this.herokuHostTop99p, usageSummaryDateOrg.herokuHostTop99p)
         && Objects.equals(this.id, usageSummaryDateOrg.id)
@@ -2298,6 +2326,7 @@ public class UsageSummaryDateOrg {
         dbmQueriesAvgSum,
         fargateTasksCountAvg,
         fargateTasksCountHwm,
+        forwardingEventsBytesSum,
         gcpHostTop99p,
         herokuHostTop99p,
         id,
@@ -2423,6 +2452,9 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    fargateTasksCountHwm: ")
         .append(toIndentedString(fargateTasksCountHwm))
+        .append("\n");
+    sb.append("    forwardingEventsBytesSum: ")
+        .append(toIndentedString(forwardingEventsBytesSum))
         .append("\n");
     sb.append("    gcpHostTop99p: ").append(toIndentedString(gcpHostTop99p)).append("\n");
     sb.append("    herokuHostTop99p: ").append(toIndentedString(herokuHostTop99p)).append("\n");
