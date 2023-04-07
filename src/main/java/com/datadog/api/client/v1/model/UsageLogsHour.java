@@ -21,6 +21,7 @@ import java.util.Objects;
   UsageLogsHour.JSON_PROPERTY_HOUR,
   UsageLogsHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT,
   UsageLogsHour.JSON_PROPERTY_INGESTED_EVENTS_BYTES,
+  UsageLogsHour.JSON_PROPERTY_LOGS_FORWARDING_EVENTS_BYTES,
   UsageLogsHour.JSON_PROPERTY_LOGS_LIVE_INDEXED_COUNT,
   UsageLogsHour.JSON_PROPERTY_LOGS_LIVE_INGESTED_BYTES,
   UsageLogsHour.JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_COUNT,
@@ -45,6 +46,10 @@ public class UsageLogsHour {
 
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES = "ingested_events_bytes";
   private Long ingestedEventsBytes;
+
+  public static final String JSON_PROPERTY_LOGS_FORWARDING_EVENTS_BYTES =
+      "logs_forwarding_events_bytes";
+  private Long logsForwardingEventsBytes;
 
   public static final String JSON_PROPERTY_LOGS_LIVE_INDEXED_COUNT = "logs_live_indexed_count";
   private Long logsLiveIndexedCount;
@@ -148,6 +153,27 @@ public class UsageLogsHour {
 
   public void setIngestedEventsBytes(Long ingestedEventsBytes) {
     this.ingestedEventsBytes = ingestedEventsBytes;
+  }
+
+  public UsageLogsHour logsForwardingEventsBytes(Long logsForwardingEventsBytes) {
+    this.logsForwardingEventsBytes = logsForwardingEventsBytes;
+    return this;
+  }
+
+  /**
+   * Contains the number of logs forwarded bytes (data available as of April 1st 2023)
+   *
+   * @return logsForwardingEventsBytes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_FORWARDING_EVENTS_BYTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLogsForwardingEventsBytes() {
+    return logsForwardingEventsBytes;
+  }
+
+  public void setLogsForwardingEventsBytes(Long logsForwardingEventsBytes) {
+    this.logsForwardingEventsBytes = logsForwardingEventsBytes;
   }
 
   public UsageLogsHour logsLiveIndexedCount(Long logsLiveIndexedCount) {
@@ -290,6 +316,7 @@ public class UsageLogsHour {
         && Objects.equals(this.hour, usageLogsHour.hour)
         && Objects.equals(this.indexedEventsCount, usageLogsHour.indexedEventsCount)
         && Objects.equals(this.ingestedEventsBytes, usageLogsHour.ingestedEventsBytes)
+        && Objects.equals(this.logsForwardingEventsBytes, usageLogsHour.logsForwardingEventsBytes)
         && Objects.equals(this.logsLiveIndexedCount, usageLogsHour.logsLiveIndexedCount)
         && Objects.equals(this.logsLiveIngestedBytes, usageLogsHour.logsLiveIngestedBytes)
         && Objects.equals(this.logsRehydratedIndexedCount, usageLogsHour.logsRehydratedIndexedCount)
@@ -306,6 +333,7 @@ public class UsageLogsHour {
         hour,
         indexedEventsCount,
         ingestedEventsBytes,
+        logsForwardingEventsBytes,
         logsLiveIndexedCount,
         logsLiveIngestedBytes,
         logsRehydratedIndexedCount,
@@ -325,6 +353,9 @@ public class UsageLogsHour {
     sb.append("    indexedEventsCount: ").append(toIndentedString(indexedEventsCount)).append("\n");
     sb.append("    ingestedEventsBytes: ")
         .append(toIndentedString(ingestedEventsBytes))
+        .append("\n");
+    sb.append("    logsForwardingEventsBytes: ")
+        .append(toIndentedString(logsForwardingEventsBytes))
         .append("\n");
     sb.append("    logsLiveIndexedCount: ")
         .append(toIndentedString(logsLiveIndexedCount))
