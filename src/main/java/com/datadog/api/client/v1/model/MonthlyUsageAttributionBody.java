@@ -23,6 +23,7 @@ import java.util.Objects;
   MonthlyUsageAttributionBody.JSON_PROPERTY_MONTH,
   MonthlyUsageAttributionBody.JSON_PROPERTY_ORG_NAME,
   MonthlyUsageAttributionBody.JSON_PROPERTY_PUBLIC_ID,
+  MonthlyUsageAttributionBody.JSON_PROPERTY_REGION,
   MonthlyUsageAttributionBody.JSON_PROPERTY_TAG_CONFIG_SOURCE,
   MonthlyUsageAttributionBody.JSON_PROPERTY_TAGS,
   MonthlyUsageAttributionBody.JSON_PROPERTY_UPDATED_AT,
@@ -42,6 +43,9 @@ public class MonthlyUsageAttributionBody {
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
+
+  public static final String JSON_PROPERTY_REGION = "region";
+  private String region;
 
   public static final String JSON_PROPERTY_TAG_CONFIG_SOURCE = "tag_config_source";
   private String tagConfigSource;
@@ -118,6 +122,27 @@ public class MonthlyUsageAttributionBody {
 
   public void setPublicId(String publicId) {
     this.publicId = publicId;
+  }
+
+  public MonthlyUsageAttributionBody region(String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * The region of the Datadog instance that the organization belongs to.
+   *
+   * @return region
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
   }
 
   public MonthlyUsageAttributionBody tagConfigSource(String tagConfigSource) {
@@ -235,6 +260,7 @@ public class MonthlyUsageAttributionBody {
     return Objects.equals(this.month, monthlyUsageAttributionBody.month)
         && Objects.equals(this.orgName, monthlyUsageAttributionBody.orgName)
         && Objects.equals(this.publicId, monthlyUsageAttributionBody.publicId)
+        && Objects.equals(this.region, monthlyUsageAttributionBody.region)
         && Objects.equals(this.tagConfigSource, monthlyUsageAttributionBody.tagConfigSource)
         && Objects.equals(this.tags, monthlyUsageAttributionBody.tags)
         && Objects.equals(this.updatedAt, monthlyUsageAttributionBody.updatedAt)
@@ -243,7 +269,7 @@ public class MonthlyUsageAttributionBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(month, orgName, publicId, tagConfigSource, tags, updatedAt, values);
+    return Objects.hash(month, orgName, publicId, region, tagConfigSource, tags, updatedAt, values);
   }
 
   @Override
@@ -253,6 +279,7 @@ public class MonthlyUsageAttributionBody {
     sb.append("    month: ").append(toIndentedString(month)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    tagConfigSource: ").append(toIndentedString(tagConfigSource)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
