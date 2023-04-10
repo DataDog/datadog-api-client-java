@@ -443,7 +443,8 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <p><strong>NOTE</strong> Only available on US1-FED and in closed beta on US1, EU, US3, and US5.
+   * <p><strong>NOTE</strong> Only available on US1-FED and in closed beta on US1, EU, AP1, US3, and
+   * US5.
    *
    * <p><strong>CI Pipelines Alert Query</strong>
    *
@@ -463,7 +464,7 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <p><strong>NOTE</strong> CI Pipeline monitors are in alpha on US1, EU, US3 and US5.
+   * <p><strong>NOTE</strong> CI Pipeline monitors are in alpha on US1, EU, AP1, US3, and US5.
    *
    * <p><strong>CI Tests Alert Query</strong>
    *
@@ -483,8 +484,8 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <p><strong>NOTE</strong> CI Test monitors are available only in closed beta on US1, EU, US3 and
-   * US5.
+   * <p><strong>NOTE</strong> CI Test monitors are available only in closed beta on US1, EU, AP1,
+   * US3, and US5.
    *
    * <p><strong>Error Tracking Alert Query</strong>
    *
