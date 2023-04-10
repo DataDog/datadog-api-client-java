@@ -23,6 +23,7 @@ import java.util.Objects;
   HourlyUsageAttributionBody.JSON_PROPERTY_HOUR,
   HourlyUsageAttributionBody.JSON_PROPERTY_ORG_NAME,
   HourlyUsageAttributionBody.JSON_PROPERTY_PUBLIC_ID,
+  HourlyUsageAttributionBody.JSON_PROPERTY_REGION,
   HourlyUsageAttributionBody.JSON_PROPERTY_TAG_CONFIG_SOURCE,
   HourlyUsageAttributionBody.JSON_PROPERTY_TAGS,
   HourlyUsageAttributionBody.JSON_PROPERTY_TOTAL_USAGE_SUM,
@@ -43,6 +44,9 @@ public class HourlyUsageAttributionBody {
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
+
+  public static final String JSON_PROPERTY_REGION = "region";
+  private String region;
 
   public static final String JSON_PROPERTY_TAG_CONFIG_SOURCE = "tag_config_source";
   private String tagConfigSource;
@@ -120,6 +124,27 @@ public class HourlyUsageAttributionBody {
 
   public void setPublicId(String publicId) {
     this.publicId = publicId;
+  }
+
+  public HourlyUsageAttributionBody region(String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * The region of the Datadog instance that the organization belongs to.
+   *
+   * @return region
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
   }
 
   public HourlyUsageAttributionBody tagConfigSource(String tagConfigSource) {
@@ -262,6 +287,7 @@ public class HourlyUsageAttributionBody {
     return Objects.equals(this.hour, hourlyUsageAttributionBody.hour)
         && Objects.equals(this.orgName, hourlyUsageAttributionBody.orgName)
         && Objects.equals(this.publicId, hourlyUsageAttributionBody.publicId)
+        && Objects.equals(this.region, hourlyUsageAttributionBody.region)
         && Objects.equals(this.tagConfigSource, hourlyUsageAttributionBody.tagConfigSource)
         && Objects.equals(this.tags, hourlyUsageAttributionBody.tags)
         && Objects.equals(this.totalUsageSum, hourlyUsageAttributionBody.totalUsageSum)
@@ -272,7 +298,15 @@ public class HourlyUsageAttributionBody {
   @Override
   public int hashCode() {
     return Objects.hash(
-        hour, orgName, publicId, tagConfigSource, tags, totalUsageSum, updatedAt, usageType);
+        hour,
+        orgName,
+        publicId,
+        region,
+        tagConfigSource,
+        tags,
+        totalUsageSum,
+        updatedAt,
+        usageType);
   }
 
   @Override
@@ -282,6 +316,7 @@ public class HourlyUsageAttributionBody {
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    tagConfigSource: ").append(toIndentedString(tagConfigSource)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalUsageSum: ").append(toIndentedString(totalUsageSum)).append("\n");
