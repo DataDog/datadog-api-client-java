@@ -23,7 +23,7 @@ public class Example {
                 new CloudflareAccountUpdateRequestData()
                     .attributes(
                         new CloudflareAccountUpdateRequestAttributes()
-                            .apiKey("6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu")
+                            .apiKey("fakekey")
                             .email("new@email"))
                     .type(CloudflareAccountType.CLOUDFLARE_ACCOUNTS));
 
