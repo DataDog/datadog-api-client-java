@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu\",\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetomissingrequiredemail1674809954\"},\"type\":\"cloudflare-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetomissingrequiredemail1674809954\"},\"type\":\"cloudflare-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6ef5f5b9-22a1-2e11-26b5-6ef3b03c32f3"
+    "id": "2c3d2f10-dd9a-880d-e25a-25dc05fcbaf6"
   },
   {
     "httpRequest": {

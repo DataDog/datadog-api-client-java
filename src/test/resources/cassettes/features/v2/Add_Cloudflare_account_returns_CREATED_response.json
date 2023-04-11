@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu\",\"email\":\"new@email\",\"name\":\"testaddcloudflareaccountreturnscreatedresponse1674730464\"},\"type\":\"cloudflare-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"new@email\",\"name\":\"testaddcloudflareaccountreturnscreatedresponse1674730464\"},\"type\":\"cloudflare-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "22df3209-7051-46bf-b716-6813c17e3c3f"
+    "id": "41fa1fbc-9532-0f1a-52e8-1782dc9bc009"
   },
   {
     "httpRequest": {

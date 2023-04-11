@@ -20,7 +20,7 @@ public class Example {
                 new CloudflareAccountCreateRequestData()
                     .attributes(
                         new CloudflareAccountCreateRequestAttributes()
-                            .apiKey("6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu")
+                            .apiKey("fakekey")
                             .email("new@email")
                             .name("examplecloudflareintegration"))
                     .type(CloudflareAccountType.CLOUDFLARE_ACCOUNTS));
