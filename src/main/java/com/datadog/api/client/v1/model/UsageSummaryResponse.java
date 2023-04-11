@@ -557,7 +557,9 @@ public class UsageSummaryResponse {
    * organizations.
    *
    * @return auditLogsLinesIndexedAggSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -565,6 +567,7 @@ public class UsageSummaryResponse {
     return auditLogsLinesIndexedAggSum;
   }
 
+  @Deprecated
   public void setAuditLogsLinesIndexedAggSum(Long auditLogsLinesIndexedAggSum) {
     this.auditLogsLinesIndexedAggSum = auditLogsLinesIndexedAggSum;
   }

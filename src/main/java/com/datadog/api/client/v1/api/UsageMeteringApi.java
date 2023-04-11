@@ -2537,7 +2537,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @return UsageAuditLogsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageAuditLogsResponse getUsageAuditLogs(OffsetDateTime startHr) throws ApiException {
     return getUsageAuditLogsWithHttpInfo(startHr, new GetUsageAuditLogsOptionalParameters())
         .getData();
@@ -2551,7 +2553,9 @@ public class UsageMeteringApi {
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageAuditLogsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageAuditLogsResponse> getUsageAuditLogsAsync(OffsetDateTime startHr) {
     return getUsageAuditLogsWithHttpInfoAsync(startHr, new GetUsageAuditLogsOptionalParameters())
         .thenApply(
@@ -2570,7 +2574,9 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return UsageAuditLogsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageAuditLogsResponse getUsageAuditLogs(
       OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) throws ApiException {
     return getUsageAuditLogsWithHttpInfo(startHr, parameters).getData();
@@ -2585,7 +2591,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageAuditLogsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageAuditLogsResponse> getUsageAuditLogsAsync(
       OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) {
     return getUsageAuditLogsWithHttpInfoAsync(startHr, parameters)
@@ -2596,12 +2604,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs. <strong>Note:</strong> hourly usage data for all products is
-   * now available in the <a
-   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * Get hourly usage for audit logs. <strong>Note:</strong> This endpoint has been deprecated.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -2617,7 +2620,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageAuditLogsResponse> getUsageAuditLogsWithHttpInfo(
       OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
@@ -2666,7 +2672,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageAuditLogsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageAuditLogsResponse>> getUsageAuditLogsWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) {
     Object localVarPostBody = null;

@@ -496,7 +496,9 @@ public class UsageSummaryDate {
    * organizations.
    *
    * @return auditLogsLinesIndexedSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -504,6 +506,7 @@ public class UsageSummaryDate {
     return auditLogsLinesIndexedSum;
   }
 
+  @Deprecated
   public void setAuditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
     this.auditLogsLinesIndexedSum = auditLogsLinesIndexedSum;
   }
