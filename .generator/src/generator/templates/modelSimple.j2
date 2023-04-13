@@ -161,7 +161,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   }
   {%- endif %}
 
-  {%- if schema.additionalProperties is defined %}
+  {%- if schema.additionalProperties is defined and schema.additionalProperties is not false %}
   public {{ name }} put{{ variableName|upperfirst }}Item(String key, {{ get_type(schema.additionalProperties) }} {{ variableName }}Item) {
     {%- if not isRequired and isNullable %}
     if (this.{{ variableName }} == null || !this.{{ variableName }}.isPresent()) {
