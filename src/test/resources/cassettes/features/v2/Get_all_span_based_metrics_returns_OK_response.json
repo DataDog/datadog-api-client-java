@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1680015328\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Get_all_span_based_metrics_returns_OK_response-1680015328\",\"type\":\"spans_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1681502132\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Get_all_span_based_metrics_returns_OK_response-1681502132\",\"type\":\"spans_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Get_all_span_based_metrics_returns_OK_response_1680015328\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1680015328\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
+      "body": "{\"data\":{\"id\":\"Test_Get_all_span_based_metrics_returns_OK_response_1681502132\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1681502132\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "11613ee2-a818-9555-9fe1-97614130d480"
+    "id": "82334f16-fecb-b1e3-ebd3-38c2ac0cc6b4"
   },
   {
     "httpRequest": {
@@ -38,7 +38,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"id\":\"Test_Get_all_span_based_metrics_returns_OK_response_1680015328\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1680015328\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}]}\n",
+      "body": "{\"data\":[{\"id\":\"Test_Get_all_span_based_metrics_returns_OK_response_1681502132\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1681502132\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -59,7 +59,7 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/apm/config/metrics/Test_Get_all_span_based_metrics_returns_OK_response_1680015328",
+      "path": "/api/v2/apm/config/metrics/Test_Get_all_span_based_metrics_returns_OK_response_1681502132",
       "keepAlive": false,
       "secure": true
     },
@@ -79,6 +79,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "57fe563d-c5d8-c911-90f2-72199213f16c"
+    "id": "1e9f169e-1b40-ee4e-b6d0-eb4c593868b3"
   }
 ]

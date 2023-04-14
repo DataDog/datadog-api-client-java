@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"TestCreateaspanbasedmetricreturnsOKresponse1680015324\",\"type\":\"spans_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"TestCreateaspanbasedmetricreturnsOKresponse1681502128\",\"type\":\"spans_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"TestCreateaspanbasedmetricreturnsOKresponse1680015324\",\"attributes\":{\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
+      "body": "{\"data\":{\"id\":\"TestCreateaspanbasedmetricreturnsOKresponse1681502128\",\"attributes\":{\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d8d17e9a-71ea-2913-da2e-d502c39588e4"
+    "id": "efa46987-36aa-588d-2eea-47dfea58ec9f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/apm/config/metrics/TestCreateaspanbasedmetricreturnsOKresponse1680015324",
+      "path": "/api/v2/apm/config/metrics/TestCreateaspanbasedmetricreturnsOKresponse1681502128",
       "keepAlive": false,
       "secure": true
     },
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0034064f-78a5-3405-c074-e39f47bc8166"
+    "id": "842fb305-f6b9-395c-860f-0c78ef19866d"
   }
 ]

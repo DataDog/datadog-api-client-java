@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Get_a_span_based_metric_returns_OK_response-1680015326\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Get_a_span_based_metric_returns_OK_response-1680015326\",\"type\":\"spans_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Get_a_span_based_metric_returns_OK_response-1681502131\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Get_a_span_based_metric_returns_OK_response-1681502131\",\"type\":\"spans_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Get_a_span_based_metric_returns_OK_response_1680015326\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_a_span_based_metric_returns_OK_response-1680015326\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
+      "body": "{\"data\":{\"id\":\"Test_Get_a_span_based_metric_returns_OK_response_1681502131\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_a_span_based_metric_returns_OK_response-1681502131\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0b963c08-a602-3d50-71f3-d5781d10b92c"
+    "id": "46bad35f-2380-cc45-be5b-b3eb49e510a8"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/apm/config/metrics/Test_Get_a_span_based_metric_returns_OK_response_1680015326",
+      "path": "/api/v2/apm/config/metrics/Test_Get_a_span_based_metric_returns_OK_response_1681502131",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Get_a_span_based_metric_returns_OK_response_1680015326\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_a_span_based_metric_returns_OK_response-1680015326\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
+      "body": "{\"data\":{\"id\":\"Test_Get_a_span_based_metric_returns_OK_response_1681502131\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_a_span_based_metric_returns_OK_response-1681502131\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1cd8eb19-3b37-d28f-f1fe-8b8c4d772175"
+    "id": "37b05899-5c75-2d8e-af39-8c4f4fbbd63b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/apm/config/metrics/Test_Get_a_span_based_metric_returns_OK_response_1680015326",
+      "path": "/api/v2/apm/config/metrics/Test_Get_a_span_based_metric_returns_OK_response_1681502131",
       "keepAlive": false,
       "secure": true
     },
@@ -79,6 +79,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2164ea7c-24cb-a22d-80b7-4518bb734810"
+    "id": "bbf427eb-b775-32d9-7274-d3b1eb194108"
   }
 ]

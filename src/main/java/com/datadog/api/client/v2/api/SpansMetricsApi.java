@@ -186,10 +186,11 @@ public class SpansMetricsApi {
    * <p>See {@link #deleteSpansMetricWithHttpInfo}.
    *
    * @param metricId The name of the span-based metric. (required)
+   * @return Object
    * @throws ApiException if fails to make API call
    */
-  public void deleteSpansMetric(String metricId) throws ApiException {
-    deleteSpansMetricWithHttpInfo(metricId);
+  public Object deleteSpansMetric(String metricId) throws ApiException {
+    return deleteSpansMetricWithHttpInfo(metricId).getData();
   }
 
   /**
@@ -198,9 +199,9 @@ public class SpansMetricsApi {
    * <p>See {@link #deleteSpansMetricWithHttpInfoAsync}.
    *
    * @param metricId The name of the span-based metric. (required)
-   * @return CompletableFuture
+   * @return CompletableFuture&lt;Object&gt;
    */
-  public CompletableFuture<Void> deleteSpansMetricAsync(String metricId) {
+  public CompletableFuture<Object> deleteSpansMetricAsync(String metricId) {
     return deleteSpansMetricWithHttpInfoAsync(metricId)
         .thenApply(
             response -> {
@@ -212,7 +213,7 @@ public class SpansMetricsApi {
    * Delete a specific span-based metric from your organization.
    *
    * @param metricId The name of the span-based metric. (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -224,7 +225,7 @@ public class SpansMetricsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteSpansMetricWithHttpInfo(String metricId) throws ApiException {
+  public ApiResponse<Object> deleteSpansMetricWithHttpInfo(String metricId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricId' is set
@@ -246,7 +247,7 @@ public class SpansMetricsApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"*/*"},
+            new String[] {"application/json"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -256,7 +257,7 @@ public class SpansMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        null);
+        new GenericType<Object>() {});
   }
 
   /**
@@ -265,14 +266,15 @@ public class SpansMetricsApi {
    * <p>See {@link #deleteSpansMetricWithHttpInfo}.
    *
    * @param metricId The name of the span-based metric. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteSpansMetricWithHttpInfoAsync(String metricId) {
+  public CompletableFuture<ApiResponse<Object>> deleteSpansMetricWithHttpInfoAsync(
+      String metricId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricId' is set
     if (metricId == null) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'metricId' when calling deleteSpansMetric"));
@@ -294,10 +296,10 @@ public class SpansMetricsApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"*/*"},
+              new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -309,7 +311,7 @@ public class SpansMetricsApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        null);
+        new GenericType<Object>() {});
   }
 
   /**

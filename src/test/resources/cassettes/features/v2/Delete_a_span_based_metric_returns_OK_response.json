@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Delete_a_span_based_metric_returns_OK_response-1680015325\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Delete_a_span_based_metric_returns_OK_response-1680015325\",\"type\":\"spans_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Delete_a_span_based_metric_returns_OK_response-1681502130\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Delete_a_span_based_metric_returns_OK_response-1681502130\",\"type\":\"spans_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Delete_a_span_based_metric_returns_OK_response_1680015325\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Delete_a_span_based_metric_returns_OK_response-1680015325\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
+      "body": "{\"data\":{\"id\":\"Test_Delete_a_span_based_metric_returns_OK_response_1681502130\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Delete_a_span_based_metric_returns_OK_response-1681502130\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3cbb3815-f6e0-7de4-b0ae-7bfa2b3acbbe"
+    "id": "2925f38d-a387-3907-da13-06f496c3201f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/apm/config/metrics/Test_Delete_a_span_based_metric_returns_OK_response_1680015325",
+      "path": "/api/v2/apm/config/metrics/Test_Delete_a_span_based_metric_returns_OK_response_1681502130",
       "keepAlive": false,
       "secure": true
     },
@@ -53,18 +53,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "42dcd81b-5868-9091-5d89-cbab9977880d"
+    "id": "602516b0-1a94-f661-8dfe-9e1c9d541b73"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/apm/config/metrics/Test_Delete_a_span_based_metric_returns_OK_response_1680015325",
+      "path": "/api/v2/apm/config/metrics/Test_Delete_a_span_based_metric_returns_OK_response_1681502130",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Metric with name 'Test_Delete_a_span_based_metric_returns_OK_response_1680015325' not found)\"]}\n",
+      "body": "{\"errors\":[\"not_found(Metric with name 'Test_Delete_a_span_based_metric_returns_OK_response_1681502130' not found)\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -79,6 +79,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "42dcd81b-5868-9091-5d89-cbab9977880e"
+    "id": "602516b0-1a94-f661-8dfe-9e1c9d541b74"
   }
 ]
