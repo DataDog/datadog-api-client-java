@@ -1406,7 +1406,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the last 50 test results summaries for a given Synthetics API test.
+   * Get the last 150 test results summaries for a given Synthetics API test.
    *
    * @param publicId The public ID of the test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -1939,7 +1939,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the last 50 test results summaries for a given Synthetics Browser test.
+   * Get the last 150 test results summaries for a given Synthetics Browser test.
    *
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
