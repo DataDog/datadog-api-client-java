@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The number of profiled hosts for each hour for a given organization. */
 @JsonPropertyOrder({
@@ -28,10 +29,10 @@ import java.util.Objects;
 public class UsageProfilingHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVG_CONTAINER_AGENT_COUNT = "avg_container_agent_count";
-  private Long avgContainerAgentCount;
+  private JsonNullable<Long> avgContainerAgentCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOST_COUNT = "host_count";
-  private Long hostCount;
+  private JsonNullable<Long> hostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
@@ -45,7 +46,7 @@ public class UsageProfilingHour {
   private String publicId;
 
   public UsageProfilingHour avgContainerAgentCount(Long avgContainerAgentCount) {
-    this.avgContainerAgentCount = avgContainerAgentCount;
+    this.avgContainerAgentCount = JsonNullable.<Long>of(avgContainerAgentCount);
     return this;
   }
 
@@ -55,18 +56,28 @@ public class UsageProfilingHour {
    * @return avgContainerAgentCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getAvgContainerAgentCount() {
+    return avgContainerAgentCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_AVG_CONTAINER_AGENT_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAvgContainerAgentCount() {
+  public JsonNullable<Long> getAvgContainerAgentCount_JsonNullable() {
     return avgContainerAgentCount;
   }
 
-  public void setAvgContainerAgentCount(Long avgContainerAgentCount) {
+  @JsonProperty(JSON_PROPERTY_AVG_CONTAINER_AGENT_COUNT)
+  public void setAvgContainerAgentCount_JsonNullable(JsonNullable<Long> avgContainerAgentCount) {
     this.avgContainerAgentCount = avgContainerAgentCount;
   }
 
+  public void setAvgContainerAgentCount(Long avgContainerAgentCount) {
+    this.avgContainerAgentCount = JsonNullable.<Long>of(avgContainerAgentCount);
+  }
+
   public UsageProfilingHour hostCount(Long hostCount) {
-    this.hostCount = hostCount;
+    this.hostCount = JsonNullable.<Long>of(hostCount);
     return this;
   }
 
@@ -76,14 +87,24 @@ public class UsageProfilingHour {
    * @return hostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getHostCount() {
+    return hostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getHostCount() {
+  public JsonNullable<Long> getHostCount_JsonNullable() {
     return hostCount;
   }
 
-  public void setHostCount(Long hostCount) {
+  @JsonProperty(JSON_PROPERTY_HOST_COUNT)
+  public void setHostCount_JsonNullable(JsonNullable<Long> hostCount) {
     this.hostCount = hostCount;
+  }
+
+  public void setHostCount(Long hostCount) {
+    this.hostCount = JsonNullable.<Long>of(hostCount);
   }
 
   public UsageProfilingHour hour(OffsetDateTime hour) {

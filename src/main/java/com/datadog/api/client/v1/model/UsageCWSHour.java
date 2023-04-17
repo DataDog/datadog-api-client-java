@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Cloud Workload Security usage for a given organization for a given hour. */
 @JsonPropertyOrder({
@@ -28,10 +29,10 @@ import java.util.Objects;
 public class UsageCWSHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CWS_CONTAINER_COUNT = "cws_container_count";
-  private Long cwsContainerCount;
+  private JsonNullable<Long> cwsContainerCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_CWS_HOST_COUNT = "cws_host_count";
-  private Long cwsHostCount;
+  private JsonNullable<Long> cwsHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
@@ -45,7 +46,7 @@ public class UsageCWSHour {
   private String publicId;
 
   public UsageCWSHour cwsContainerCount(Long cwsContainerCount) {
-    this.cwsContainerCount = cwsContainerCount;
+    this.cwsContainerCount = JsonNullable.<Long>of(cwsContainerCount);
     return this;
   }
 
@@ -56,18 +57,28 @@ public class UsageCWSHour {
    * @return cwsContainerCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getCwsContainerCount() {
+    return cwsContainerCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCwsContainerCount() {
+  public JsonNullable<Long> getCwsContainerCount_JsonNullable() {
     return cwsContainerCount;
   }
 
-  public void setCwsContainerCount(Long cwsContainerCount) {
+  @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_COUNT)
+  public void setCwsContainerCount_JsonNullable(JsonNullable<Long> cwsContainerCount) {
     this.cwsContainerCount = cwsContainerCount;
   }
 
+  public void setCwsContainerCount(Long cwsContainerCount) {
+    this.cwsContainerCount = JsonNullable.<Long>of(cwsContainerCount);
+  }
+
   public UsageCWSHour cwsHostCount(Long cwsHostCount) {
-    this.cwsHostCount = cwsHostCount;
+    this.cwsHostCount = JsonNullable.<Long>of(cwsHostCount);
     return this;
   }
 
@@ -78,14 +89,24 @@ public class UsageCWSHour {
    * @return cwsHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getCwsHostCount() {
+    return cwsHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CWS_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCwsHostCount() {
+  public JsonNullable<Long> getCwsHostCount_JsonNullable() {
     return cwsHostCount;
   }
 
-  public void setCwsHostCount(Long cwsHostCount) {
+  @JsonProperty(JSON_PROPERTY_CWS_HOST_COUNT)
+  public void setCwsHostCount_JsonNullable(JsonNullable<Long> cwsHostCount) {
     this.cwsHostCount = cwsHostCount;
+  }
+
+  public void setCwsHostCount(Long cwsHostCount) {
+    this.cwsHostCount = JsonNullable.<Long>of(cwsHostCount);
   }
 
   public UsageCWSHour hour(OffsetDateTime hour) {

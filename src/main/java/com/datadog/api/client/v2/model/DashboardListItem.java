@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A dashboard within a list. */
 @JsonPropertyOrder({
@@ -44,7 +45,7 @@ public class DashboardListItem {
   private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_ICON = "icon";
-  private String icon;
+  private JsonNullable<String> icon = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -126,10 +127,24 @@ public class DashboardListItem {
    * @return icon
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getIcon() {
+
+    if (icon == null) {
+      icon = JsonNullable.<String>undefined();
+    }
+    return icon.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIcon() {
+  public JsonNullable<String> getIcon_JsonNullable() {
     return icon;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ICON)
+  private void setIcon_JsonNullable(JsonNullable<String> icon) {
+    this.icon = icon;
   }
 
   public DashboardListItem id(String id) {

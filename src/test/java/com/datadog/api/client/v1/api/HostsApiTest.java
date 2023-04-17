@@ -388,7 +388,7 @@ public class HostsApiTest extends V1ApiTest {
             .willReturn(okJson(fixtureData)));
 
     ObjectMapper mapper =
-        new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true); 
+        new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
     mapper.registerModule(new JsonNullableModule());
 
     HostListResponse response =
