@@ -281,7 +281,8 @@ public class ClientSteps {
     try {
       responseList = (List) World.lookup(responseData, responsePath);
     } catch (java.lang.ClassCastException e) {
-      AbstractOpenApiSchema responseObject = (AbstractOpenApiSchema) World.lookup(responseData, responsePath);
+      AbstractOpenApiSchema responseObject =
+          (AbstractOpenApiSchema) World.lookup(responseData, responsePath);
       responseList = (List) responseObject.getActualInstance();
     }
     assertEquals(size, Long.valueOf(responseList.size()));
