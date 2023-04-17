@@ -64,7 +64,7 @@ public class DowntimeChild {
   private Long id;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
+  private JsonNullable<String> message = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
   private JsonNullable<Long> monitorId = JsonNullable.<Long>undefined();
@@ -225,7 +225,7 @@ public class DowntimeChild {
   }
 
   public DowntimeChild message(String message) {
-    this.message = message;
+    this.message = JsonNullable.<String>of(message);
     return this;
   }
 
@@ -236,14 +236,24 @@ public class DowntimeChild {
    * @return message
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getMessage() {
+    return message.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMessage() {
+  public JsonNullable<String> getMessage_JsonNullable() {
     return message;
   }
 
-  public void setMessage(String message) {
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  public void setMessage_JsonNullable(JsonNullable<String> message) {
     this.message = message;
+  }
+
+  public void setMessage(String message) {
+    this.message = JsonNullable.<String>of(message);
   }
 
   public DowntimeChild monitorId(Long monitorId) {

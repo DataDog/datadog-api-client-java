@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Database Monitoring usage for a given organization for a given hour. */
 @JsonPropertyOrder({
@@ -28,10 +29,10 @@ import java.util.Objects;
 public class UsageDBMHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DBM_HOST_COUNT = "dbm_host_count";
-  private Long dbmHostCount;
+  private JsonNullable<Long> dbmHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_DBM_QUERIES_COUNT = "dbm_queries_count";
-  private Long dbmQueriesCount;
+  private JsonNullable<Long> dbmQueriesCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
@@ -45,7 +46,7 @@ public class UsageDBMHour {
   private String publicId;
 
   public UsageDBMHour dbmHostCount(Long dbmHostCount) {
-    this.dbmHostCount = dbmHostCount;
+    this.dbmHostCount = JsonNullable.<Long>of(dbmHostCount);
     return this;
   }
 
@@ -56,18 +57,28 @@ public class UsageDBMHour {
    * @return dbmHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getDbmHostCount() {
+    return dbmHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DBM_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDbmHostCount() {
+  public JsonNullable<Long> getDbmHostCount_JsonNullable() {
     return dbmHostCount;
   }
 
-  public void setDbmHostCount(Long dbmHostCount) {
+  @JsonProperty(JSON_PROPERTY_DBM_HOST_COUNT)
+  public void setDbmHostCount_JsonNullable(JsonNullable<Long> dbmHostCount) {
     this.dbmHostCount = dbmHostCount;
   }
 
+  public void setDbmHostCount(Long dbmHostCount) {
+    this.dbmHostCount = JsonNullable.<Long>of(dbmHostCount);
+  }
+
   public UsageDBMHour dbmQueriesCount(Long dbmQueriesCount) {
-    this.dbmQueriesCount = dbmQueriesCount;
+    this.dbmQueriesCount = JsonNullable.<Long>of(dbmQueriesCount);
     return this;
   }
 
@@ -78,14 +89,24 @@ public class UsageDBMHour {
    * @return dbmQueriesCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getDbmQueriesCount() {
+    return dbmQueriesCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DBM_QUERIES_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDbmQueriesCount() {
+  public JsonNullable<Long> getDbmQueriesCount_JsonNullable() {
     return dbmQueriesCount;
   }
 
-  public void setDbmQueriesCount(Long dbmQueriesCount) {
+  @JsonProperty(JSON_PROPERTY_DBM_QUERIES_COUNT)
+  public void setDbmQueriesCount_JsonNullable(JsonNullable<Long> dbmQueriesCount) {
     this.dbmQueriesCount = dbmQueriesCount;
+  }
+
+  public void setDbmQueriesCount(Long dbmQueriesCount) {
+    this.dbmQueriesCount = JsonNullable.<Long>of(dbmQueriesCount);
   }
 
   public UsageDBMHour hour(OffsetDateTime hour) {

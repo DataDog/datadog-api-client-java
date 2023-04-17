@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Hour usage for logs. */
 @JsonPropertyOrder({
@@ -34,7 +35,7 @@ import java.util.Objects;
 public class UsageLogsHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES = "billable_ingested_bytes";
-  private Long billableIngestedBytes;
+  private JsonNullable<Long> billableIngestedBytes = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
@@ -42,28 +43,28 @@ public class UsageLogsHour {
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT = "indexed_events_count";
-  private Long indexedEventsCount;
+  private JsonNullable<Long> indexedEventsCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES = "ingested_events_bytes";
-  private Long ingestedEventsBytes;
+  private JsonNullable<Long> ingestedEventsBytes = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_LOGS_FORWARDING_EVENTS_BYTES =
       "logs_forwarding_events_bytes";
-  private Long logsForwardingEventsBytes;
+  private JsonNullable<Long> logsForwardingEventsBytes = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_LOGS_LIVE_INDEXED_COUNT = "logs_live_indexed_count";
-  private Long logsLiveIndexedCount;
+  private JsonNullable<Long> logsLiveIndexedCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_LOGS_LIVE_INGESTED_BYTES = "logs_live_ingested_bytes";
-  private Long logsLiveIngestedBytes;
+  private JsonNullable<Long> logsLiveIngestedBytes = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_COUNT =
       "logs_rehydrated_indexed_count";
-  private Long logsRehydratedIndexedCount;
+  private JsonNullable<Long> logsRehydratedIndexedCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_LOGS_REHYDRATED_INGESTED_BYTES =
       "logs_rehydrated_ingested_bytes";
-  private Long logsRehydratedIngestedBytes;
+  private JsonNullable<Long> logsRehydratedIngestedBytes = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -72,7 +73,7 @@ public class UsageLogsHour {
   private String publicId;
 
   public UsageLogsHour billableIngestedBytes(Long billableIngestedBytes) {
-    this.billableIngestedBytes = billableIngestedBytes;
+    this.billableIngestedBytes = JsonNullable.<Long>of(billableIngestedBytes);
     return this;
   }
 
@@ -82,14 +83,24 @@ public class UsageLogsHour {
    * @return billableIngestedBytes
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getBillableIngestedBytes() {
+    return billableIngestedBytes.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getBillableIngestedBytes() {
+  public JsonNullable<Long> getBillableIngestedBytes_JsonNullable() {
     return billableIngestedBytes;
   }
 
-  public void setBillableIngestedBytes(Long billableIngestedBytes) {
+  @JsonProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES)
+  public void setBillableIngestedBytes_JsonNullable(JsonNullable<Long> billableIngestedBytes) {
     this.billableIngestedBytes = billableIngestedBytes;
+  }
+
+  public void setBillableIngestedBytes(Long billableIngestedBytes) {
+    this.billableIngestedBytes = JsonNullable.<Long>of(billableIngestedBytes);
   }
 
   public UsageLogsHour hour(OffsetDateTime hour) {
@@ -114,7 +125,7 @@ public class UsageLogsHour {
   }
 
   public UsageLogsHour indexedEventsCount(Long indexedEventsCount) {
-    this.indexedEventsCount = indexedEventsCount;
+    this.indexedEventsCount = JsonNullable.<Long>of(indexedEventsCount);
     return this;
   }
 
@@ -124,18 +135,28 @@ public class UsageLogsHour {
    * @return indexedEventsCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getIndexedEventsCount() {
+    return indexedEventsCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIndexedEventsCount() {
+  public JsonNullable<Long> getIndexedEventsCount_JsonNullable() {
     return indexedEventsCount;
   }
 
-  public void setIndexedEventsCount(Long indexedEventsCount) {
+  @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
+  public void setIndexedEventsCount_JsonNullable(JsonNullable<Long> indexedEventsCount) {
     this.indexedEventsCount = indexedEventsCount;
   }
 
+  public void setIndexedEventsCount(Long indexedEventsCount) {
+    this.indexedEventsCount = JsonNullable.<Long>of(indexedEventsCount);
+  }
+
   public UsageLogsHour ingestedEventsBytes(Long ingestedEventsBytes) {
-    this.ingestedEventsBytes = ingestedEventsBytes;
+    this.ingestedEventsBytes = JsonNullable.<Long>of(ingestedEventsBytes);
     return this;
   }
 
@@ -145,18 +166,28 @@ public class UsageLogsHour {
    * @return ingestedEventsBytes
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getIngestedEventsBytes() {
+    return ingestedEventsBytes.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIngestedEventsBytes() {
+  public JsonNullable<Long> getIngestedEventsBytes_JsonNullable() {
     return ingestedEventsBytes;
   }
 
-  public void setIngestedEventsBytes(Long ingestedEventsBytes) {
+  @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES)
+  public void setIngestedEventsBytes_JsonNullable(JsonNullable<Long> ingestedEventsBytes) {
     this.ingestedEventsBytes = ingestedEventsBytes;
   }
 
+  public void setIngestedEventsBytes(Long ingestedEventsBytes) {
+    this.ingestedEventsBytes = JsonNullable.<Long>of(ingestedEventsBytes);
+  }
+
   public UsageLogsHour logsForwardingEventsBytes(Long logsForwardingEventsBytes) {
-    this.logsForwardingEventsBytes = logsForwardingEventsBytes;
+    this.logsForwardingEventsBytes = JsonNullable.<Long>of(logsForwardingEventsBytes);
     return this;
   }
 
@@ -166,18 +197,29 @@ public class UsageLogsHour {
    * @return logsForwardingEventsBytes
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLogsForwardingEventsBytes() {
+    return logsForwardingEventsBytes.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LOGS_FORWARDING_EVENTS_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLogsForwardingEventsBytes() {
+  public JsonNullable<Long> getLogsForwardingEventsBytes_JsonNullable() {
     return logsForwardingEventsBytes;
   }
 
-  public void setLogsForwardingEventsBytes(Long logsForwardingEventsBytes) {
+  @JsonProperty(JSON_PROPERTY_LOGS_FORWARDING_EVENTS_BYTES)
+  public void setLogsForwardingEventsBytes_JsonNullable(
+      JsonNullable<Long> logsForwardingEventsBytes) {
     this.logsForwardingEventsBytes = logsForwardingEventsBytes;
   }
 
+  public void setLogsForwardingEventsBytes(Long logsForwardingEventsBytes) {
+    this.logsForwardingEventsBytes = JsonNullable.<Long>of(logsForwardingEventsBytes);
+  }
+
   public UsageLogsHour logsLiveIndexedCount(Long logsLiveIndexedCount) {
-    this.logsLiveIndexedCount = logsLiveIndexedCount;
+    this.logsLiveIndexedCount = JsonNullable.<Long>of(logsLiveIndexedCount);
     return this;
   }
 
@@ -187,18 +229,28 @@ public class UsageLogsHour {
    * @return logsLiveIndexedCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLogsLiveIndexedCount() {
+    return logsLiveIndexedCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLogsLiveIndexedCount() {
+  public JsonNullable<Long> getLogsLiveIndexedCount_JsonNullable() {
     return logsLiveIndexedCount;
   }
 
-  public void setLogsLiveIndexedCount(Long logsLiveIndexedCount) {
+  @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_COUNT)
+  public void setLogsLiveIndexedCount_JsonNullable(JsonNullable<Long> logsLiveIndexedCount) {
     this.logsLiveIndexedCount = logsLiveIndexedCount;
   }
 
+  public void setLogsLiveIndexedCount(Long logsLiveIndexedCount) {
+    this.logsLiveIndexedCount = JsonNullable.<Long>of(logsLiveIndexedCount);
+  }
+
   public UsageLogsHour logsLiveIngestedBytes(Long logsLiveIngestedBytes) {
-    this.logsLiveIngestedBytes = logsLiveIngestedBytes;
+    this.logsLiveIngestedBytes = JsonNullable.<Long>of(logsLiveIngestedBytes);
     return this;
   }
 
@@ -208,18 +260,28 @@ public class UsageLogsHour {
    * @return logsLiveIngestedBytes
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLogsLiveIngestedBytes() {
+    return logsLiveIngestedBytes.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INGESTED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLogsLiveIngestedBytes() {
+  public JsonNullable<Long> getLogsLiveIngestedBytes_JsonNullable() {
     return logsLiveIngestedBytes;
   }
 
-  public void setLogsLiveIngestedBytes(Long logsLiveIngestedBytes) {
+  @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INGESTED_BYTES)
+  public void setLogsLiveIngestedBytes_JsonNullable(JsonNullable<Long> logsLiveIngestedBytes) {
     this.logsLiveIngestedBytes = logsLiveIngestedBytes;
   }
 
+  public void setLogsLiveIngestedBytes(Long logsLiveIngestedBytes) {
+    this.logsLiveIngestedBytes = JsonNullable.<Long>of(logsLiveIngestedBytes);
+  }
+
   public UsageLogsHour logsRehydratedIndexedCount(Long logsRehydratedIndexedCount) {
-    this.logsRehydratedIndexedCount = logsRehydratedIndexedCount;
+    this.logsRehydratedIndexedCount = JsonNullable.<Long>of(logsRehydratedIndexedCount);
     return this;
   }
 
@@ -229,18 +291,29 @@ public class UsageLogsHour {
    * @return logsRehydratedIndexedCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLogsRehydratedIndexedCount() {
+    return logsRehydratedIndexedCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLogsRehydratedIndexedCount() {
+  public JsonNullable<Long> getLogsRehydratedIndexedCount_JsonNullable() {
     return logsRehydratedIndexedCount;
   }
 
-  public void setLogsRehydratedIndexedCount(Long logsRehydratedIndexedCount) {
+  @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_COUNT)
+  public void setLogsRehydratedIndexedCount_JsonNullable(
+      JsonNullable<Long> logsRehydratedIndexedCount) {
     this.logsRehydratedIndexedCount = logsRehydratedIndexedCount;
   }
 
+  public void setLogsRehydratedIndexedCount(Long logsRehydratedIndexedCount) {
+    this.logsRehydratedIndexedCount = JsonNullable.<Long>of(logsRehydratedIndexedCount);
+  }
+
   public UsageLogsHour logsRehydratedIngestedBytes(Long logsRehydratedIngestedBytes) {
-    this.logsRehydratedIngestedBytes = logsRehydratedIngestedBytes;
+    this.logsRehydratedIngestedBytes = JsonNullable.<Long>of(logsRehydratedIngestedBytes);
     return this;
   }
 
@@ -250,14 +323,25 @@ public class UsageLogsHour {
    * @return logsRehydratedIngestedBytes
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLogsRehydratedIngestedBytes() {
+    return logsRehydratedIngestedBytes.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INGESTED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLogsRehydratedIngestedBytes() {
+  public JsonNullable<Long> getLogsRehydratedIngestedBytes_JsonNullable() {
     return logsRehydratedIngestedBytes;
   }
 
-  public void setLogsRehydratedIngestedBytes(Long logsRehydratedIngestedBytes) {
+  @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INGESTED_BYTES)
+  public void setLogsRehydratedIngestedBytes_JsonNullable(
+      JsonNullable<Long> logsRehydratedIngestedBytes) {
     this.logsRehydratedIngestedBytes = logsRehydratedIngestedBytes;
+  }
+
+  public void setLogsRehydratedIngestedBytes(Long logsRehydratedIngestedBytes) {
+    this.logsRehydratedIngestedBytes = JsonNullable.<Long>of(logsRehydratedIngestedBytes);
   }
 
   public UsageLogsHour orgName(String orgName) {
