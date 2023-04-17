@@ -461,7 +461,10 @@ def format_data_with_schema_list(
             except (KeyError, ValueError):
                 continue
 
-            if default_name:
+            if name:
+                one_of_imports.add(f"{default_name}")
+                value = f"new {default_name}({value})"
+            elif default_name:
                 one_of_imports.add(f"{default_name}Item")
                 value = f"new {default_name}Item({value})"
 
@@ -513,7 +516,7 @@ def format_data_with_schema_dict(
                 v,
                 schema["properties"][k],
                 replace_values=replace_values,
-                default_name=name + camel_case(k) if name else None,
+                default_name=name + upperfirst(k) if name else None,
             )
             if value:
                 parameters += f"\n.{escape_reserved_keyword(untitle_case(camel_case(k)))}({value})"
