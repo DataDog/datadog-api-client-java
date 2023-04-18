@@ -208,9 +208,10 @@ public class ProxyExample {
 ### Using alternative artifacts
 
 Outside of the regular JAR file we also release 2 artifacts that can be useful for development, namely:
- - `jar-with-dependencies`, which contains all the dependencies of the client in a single JAR
- - `shaded-jar`, which includes and renames the core dependencies of the client, allowing you to use different versions of those
-    libraries in your project.
+
+- `jar-with-dependencies`, which contains all the dependencies of the client in a single JAR
+- `shaded-jar`, which includes and renames the core dependencies of the client, allowing you to use different versions of those
+  libraries in your project.
 
 To use them in Maven, just add the `classifier` keyword in the dependency definition. For example:
 
