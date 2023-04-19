@@ -5,6 +5,10 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.FindingEvaluation;
+import com.datadog.api.client.v2.model.FindingStatus;
+import com.datadog.api.client.v2.model.GetFindingResponse;
+import com.datadog.api.client.v2.model.ListFindingsResponse;
 import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
 import com.datadog.api.client.v2.model.SecurityFilterUpdateRequest;
@@ -1130,6 +1134,159 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get a finding.
+   *
+   * <p>See {@link #getFindingWithHttpInfo}.
+   *
+   * @param findingId The ID of the finding. (required)
+   * @return GetFindingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetFindingResponse getFinding(String findingId) throws ApiException {
+    return getFindingWithHttpInfo(findingId).getData();
+  }
+
+  /**
+   * Get a finding.
+   *
+   * <p>See {@link #getFindingWithHttpInfoAsync}.
+   *
+   * @param findingId The ID of the finding. (required)
+   * @return CompletableFuture&lt;GetFindingResponse&gt;
+   */
+  public CompletableFuture<GetFindingResponse> getFindingAsync(String findingId) {
+    return getFindingWithHttpInfoAsync(findingId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns a single finding with message and resource configuration.
+   *
+   * @param findingId The ID of the finding. (required)
+   * @return ApiResponse&lt;GetFindingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetFindingResponse> getFindingWithHttpInfo(String findingId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getFinding";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'findingId' is set
+    if (findingId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'findingId' when calling getFinding");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/posture_management/findings/{finding_id}"
+            .replaceAll("\\{" + "finding_id" + "\\}", apiClient.escapeString(findingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getFinding",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetFindingResponse>() {});
+  }
+
+  /**
+   * Get a finding.
+   *
+   * <p>See {@link #getFindingWithHttpInfo}.
+   *
+   * @param findingId The ID of the finding. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GetFindingResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetFindingResponse>> getFindingWithHttpInfoAsync(
+      String findingId) {
+    // Check if unstable operation is enabled
+    String operationId = "getFinding";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<GetFindingResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'findingId' is set
+    if (findingId == null) {
+      CompletableFuture<ApiResponse<GetFindingResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'findingId' when calling getFinding"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/posture_management/findings/{finding_id}"
+            .replaceAll("\\{" + "finding_id" + "\\}", apiClient.escapeString(findingId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getFinding",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetFindingResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetFindingResponse>() {});
+  }
+
+  /**
    * Get a security filter.
    *
    * <p>See {@link #getSecurityFilterWithHttpInfo}.
@@ -1548,6 +1705,386 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSignal>() {});
+  }
+
+  /** Manage optional parameters to listFindings. */
+  public static class ListFindingsOptionalParameters {
+    private Long limit;
+    private Long snapshotTimestamp;
+    private String pageCursor;
+    private String filterTags;
+    private String filterEvaluationChangedAt;
+    private Boolean filterMuted;
+    private String filterRuleId;
+    private String filterRuleName;
+    private String filterResourceType;
+    private String filterDiscoveryTimestamp;
+    private FindingEvaluation filterEvaluation;
+    private FindingStatus filterStatus;
+
+    /**
+     * Set limit.
+     *
+     * @param limit Limit the number of findings returned. (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /**
+     * Set snapshotTimestamp.
+     *
+     * @param snapshotTimestamp Return findings for a given snapshot of time (Unix ms). (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters snapshotTimestamp(Long snapshotTimestamp) {
+      this.snapshotTimestamp = snapshotTimestamp;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor Return the next page of findings pointed to by the cursor. (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+
+    /**
+     * Set filterTags.
+     *
+     * @param filterTags Return findings that have these associated tags (repeatable). (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters filterTags(String filterTags) {
+      this.filterTags = filterTags;
+      return this;
+    }
+
+    /**
+     * Set filterEvaluationChangedAt.
+     *
+     * @param filterEvaluationChangedAt Return findings that have changed from pass to fail or vice
+     *     versa on a specified date (Unix ms) or date range (using comparison operators).
+     *     (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters filterEvaluationChangedAt(
+        String filterEvaluationChangedAt) {
+      this.filterEvaluationChangedAt = filterEvaluationChangedAt;
+      return this;
+    }
+
+    /**
+     * Set filterMuted.
+     *
+     * @param filterMuted Set to <code>true</code> to return findings that are muted. Set to <code>
+     *     false</code> to return unmuted findings. (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters filterMuted(Boolean filterMuted) {
+      this.filterMuted = filterMuted;
+      return this;
+    }
+
+    /**
+     * Set filterRuleId.
+     *
+     * @param filterRuleId Return findings for the specified rule ID. (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters filterRuleId(String filterRuleId) {
+      this.filterRuleId = filterRuleId;
+      return this;
+    }
+
+    /**
+     * Set filterRuleName.
+     *
+     * @param filterRuleName Return findings for the specified rule. (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters filterRuleName(String filterRuleName) {
+      this.filterRuleName = filterRuleName;
+      return this;
+    }
+
+    /**
+     * Set filterResourceType.
+     *
+     * @param filterResourceType Return only findings for the specified resource type. (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters filterResourceType(String filterResourceType) {
+      this.filterResourceType = filterResourceType;
+      return this;
+    }
+
+    /**
+     * Set filterDiscoveryTimestamp.
+     *
+     * @param filterDiscoveryTimestamp Return findings that were found on a specified date (Unix ms)
+     *     or date range (using comparison operators). (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters filterDiscoveryTimestamp(
+        String filterDiscoveryTimestamp) {
+      this.filterDiscoveryTimestamp = filterDiscoveryTimestamp;
+      return this;
+    }
+
+    /**
+     * Set filterEvaluation.
+     *
+     * @param filterEvaluation Return only <code>pass</code> or <code>fail</code> findings.
+     *     (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters filterEvaluation(FindingEvaluation filterEvaluation) {
+      this.filterEvaluation = filterEvaluation;
+      return this;
+    }
+
+    /**
+     * Set filterStatus.
+     *
+     * @param filterStatus Return only findings with the specified status. (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters filterStatus(FindingStatus filterStatus) {
+      this.filterStatus = filterStatus;
+      return this;
+    }
+  }
+
+  /**
+   * List findings.
+   *
+   * <p>See {@link #listFindingsWithHttpInfo}.
+   *
+   * @return ListFindingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListFindingsResponse listFindings() throws ApiException {
+    return listFindingsWithHttpInfo(new ListFindingsOptionalParameters()).getData();
+  }
+
+  /**
+   * List findings.
+   *
+   * <p>See {@link #listFindingsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListFindingsResponse&gt;
+   */
+  public CompletableFuture<ListFindingsResponse> listFindingsAsync() {
+    return listFindingsWithHttpInfoAsync(new ListFindingsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List findings.
+   *
+   * <p>See {@link #listFindingsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListFindingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListFindingsResponse listFindings(ListFindingsOptionalParameters parameters)
+      throws ApiException {
+    return listFindingsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List findings.
+   *
+   * <p>See {@link #listFindingsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListFindingsResponse&gt;
+   */
+  public CompletableFuture<ListFindingsResponse> listFindingsAsync(
+      ListFindingsOptionalParameters parameters) {
+    return listFindingsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of CSPM findings.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListFindingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListFindingsResponse> listFindingsWithHttpInfo(
+      ListFindingsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long limit = parameters.limit;
+    Long snapshotTimestamp = parameters.snapshotTimestamp;
+    String pageCursor = parameters.pageCursor;
+    String filterTags = parameters.filterTags;
+    String filterEvaluationChangedAt = parameters.filterEvaluationChangedAt;
+    Boolean filterMuted = parameters.filterMuted;
+    String filterRuleId = parameters.filterRuleId;
+    String filterRuleName = parameters.filterRuleName;
+    String filterResourceType = parameters.filterResourceType;
+    String filterDiscoveryTimestamp = parameters.filterDiscoveryTimestamp;
+    FindingEvaluation filterEvaluation = parameters.filterEvaluation;
+    FindingStatus filterStatus = parameters.filterStatus;
+    // create path and map variables
+    String localVarPath = "/api/v2/posture_management/findings";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "snapshot_timestamp", snapshotTimestamp));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[evaluation_changed_at]", filterEvaluationChangedAt));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[muted]", filterMuted));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[rule_id]", filterRuleId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[rule_name]", filterRuleName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[resource_type]", filterResourceType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[discovery_timestamp]", filterDiscoveryTimestamp));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[evaluation]", filterEvaluation));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listFindings",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListFindingsResponse>() {});
+  }
+
+  /**
+   * List findings.
+   *
+   * <p>See {@link #listFindingsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListFindingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListFindingsResponse>> listFindingsWithHttpInfoAsync(
+      ListFindingsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListFindingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long limit = parameters.limit;
+    Long snapshotTimestamp = parameters.snapshotTimestamp;
+    String pageCursor = parameters.pageCursor;
+    String filterTags = parameters.filterTags;
+    String filterEvaluationChangedAt = parameters.filterEvaluationChangedAt;
+    Boolean filterMuted = parameters.filterMuted;
+    String filterRuleId = parameters.filterRuleId;
+    String filterRuleName = parameters.filterRuleName;
+    String filterResourceType = parameters.filterResourceType;
+    String filterDiscoveryTimestamp = parameters.filterDiscoveryTimestamp;
+    FindingEvaluation filterEvaluation = parameters.filterEvaluation;
+    FindingStatus filterStatus = parameters.filterStatus;
+    // create path and map variables
+    String localVarPath = "/api/v2/posture_management/findings";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "snapshot_timestamp", snapshotTimestamp));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[evaluation_changed_at]", filterEvaluationChangedAt));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[muted]", filterMuted));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[rule_id]", filterRuleId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[rule_name]", filterRuleName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[resource_type]", filterResourceType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[discovery_timestamp]", filterDiscoveryTimestamp));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[evaluation]", filterEvaluation));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listFindings",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListFindingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListFindingsResponse>() {});
   }
 
   /**
