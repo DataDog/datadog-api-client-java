@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI
@@ -67,13 +68,13 @@ public class SLOHistorySLIData {
   private Boolean preview;
 
   public static final String JSON_PROPERTY_SLI_VALUE = "sli_value";
-  private Double sliValue;
+  private JsonNullable<Double> sliValue = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_SPAN_PRECISION = "span_precision";
   private Double spanPrecision;
 
   public static final String JSON_PROPERTY_UPTIME = "uptime";
-  private Double uptime;
+  private JsonNullable<Double> uptime = JsonNullable.<Double>undefined();
 
   public SLOHistorySLIData errorBudgetRemaining(Map<String, Double> errorBudgetRemaining) {
     this.errorBudgetRemaining = errorBudgetRemaining;
@@ -309,7 +310,7 @@ public class SLOHistorySLIData {
   }
 
   public SLOHistorySLIData sliValue(Double sliValue) {
-    this.sliValue = sliValue;
+    this.sliValue = JsonNullable.<Double>of(sliValue);
     return this;
   }
 
@@ -319,14 +320,24 @@ public class SLOHistorySLIData {
    * @return sliValue
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getSliValue() {
+    return sliValue.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SLI_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getSliValue() {
+  public JsonNullable<Double> getSliValue_JsonNullable() {
     return sliValue;
   }
 
-  public void setSliValue(Double sliValue) {
+  @JsonProperty(JSON_PROPERTY_SLI_VALUE)
+  public void setSliValue_JsonNullable(JsonNullable<Double> sliValue) {
     this.sliValue = sliValue;
+  }
+
+  public void setSliValue(Double sliValue) {
+    this.sliValue = JsonNullable.<Double>of(sliValue);
   }
 
   public SLOHistorySLIData spanPrecision(Double spanPrecision) {
@@ -352,7 +363,7 @@ public class SLOHistorySLIData {
   }
 
   public SLOHistorySLIData uptime(Double uptime) {
-    this.uptime = uptime;
+    this.uptime = JsonNullable.<Double>of(uptime);
     return this;
   }
 
@@ -364,15 +375,25 @@ public class SLOHistorySLIData {
    */
   @Deprecated
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UPTIME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
   public Double getUptime() {
-    return uptime;
+    return uptime.orElse(null);
   }
 
   @Deprecated
-  public void setUptime(Double uptime) {
+  @JsonProperty(JSON_PROPERTY_UPTIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getUptime_JsonNullable() {
+    return uptime;
+  }
+
+  @JsonProperty(JSON_PROPERTY_UPTIME)
+  public void setUptime_JsonNullable(JsonNullable<Double> uptime) {
     this.uptime = uptime;
+  }
+
+  public void setUptime(Double uptime) {
+    this.uptime = JsonNullable.<Double>of(uptime);
   }
 
   /** Return true if this SLOHistorySLIData object is equal to o. */

@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.datadoghq</groupId>
   <artifactId>datadog-api-client</artifactId>
-  <version>2.0.0</version>
+  <version>2.10.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -203,6 +203,26 @@ public class ProxyExample {
     }
   }
 }
+```
+
+### Using alternative artifacts
+
+Outside of the regular JAR file we also release 2 artifacts that can be useful for development, namely:
+
+- `jar-with-dependencies`, which contains all the dependencies of the client in a single JAR
+- `shaded-jar`, which includes and renames the core dependencies of the client, allowing you to use different versions of those
+  libraries in your project.
+
+To use them in Maven, just add the `classifier` keyword in the dependency definition. For example:
+
+```xml
+<dependency>
+  <groupId>com.datadoghq</groupId>
+  <artifactId>datadog-api-client</artifactId>
+  <version>2.10.0</version>
+  <classifier>shaded-jar</classifier>
+  <scope>compile</scope>
+</dependency>
 ```
 
 ## Documentation for API Endpoints and Models

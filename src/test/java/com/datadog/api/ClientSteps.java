@@ -2,6 +2,7 @@ package com.datadog.api;
 
 import static org.junit.Assert.*;
 
+import com.datadog.api.client.AbstractOpenApiSchema;
 import com.google.gson.Gson;
 import datadog.trace.api.interceptor.MutableSpan;
 import io.cucumber.java.After;
@@ -276,8 +277,15 @@ public class ClientSteps {
           java.lang.ClassNotFoundException,
           java.lang.NoSuchFieldException {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
-    List value = (List) World.lookup(responseData, responsePath);
-    assertEquals(size, Long.valueOf(value.size()));
+    List responseList;
+    try {
+      responseList = (List) World.lookup(responseData, responsePath);
+    } catch (java.lang.ClassCastException e) {
+      AbstractOpenApiSchema responseObject =
+          (AbstractOpenApiSchema) World.lookup(responseData, responsePath);
+      responseList = (List) responseObject.getActualInstance();
+    }
+    assertEquals(size, Long.valueOf(responseList.size()));
   }
 
   @Then("the response has {int} items")

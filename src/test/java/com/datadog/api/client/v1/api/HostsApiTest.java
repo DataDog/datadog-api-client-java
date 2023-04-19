@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openapitools.jackson.nullable.JsonNullableModule;
 
 /** API tests for HostsApi */
 public class HostsApiTest extends V1ApiTest {
@@ -192,6 +193,7 @@ public class HostsApiTest extends V1ApiTest {
 
     ObjectMapper mapper =
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+    mapper.registerModule(new JsonNullableModule());
 
     HostListResponse response =
         unitAPI.listHosts(
@@ -320,6 +322,7 @@ public class HostsApiTest extends V1ApiTest {
 
     ObjectMapper mapper =
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+    mapper.registerModule(new JsonNullableModule());
 
     HostListResponse response =
         unitAPI.listHosts(
@@ -353,6 +356,7 @@ public class HostsApiTest extends V1ApiTest {
 
     ObjectMapper mapper =
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+    mapper.registerModule(new JsonNullableModule());
 
     HostListResponse response =
         unitAPI.listHosts(
@@ -385,6 +389,7 @@ public class HostsApiTest extends V1ApiTest {
 
     ObjectMapper mapper =
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+    mapper.registerModule(new JsonNullableModule());
 
     HostListResponse response =
         unitAPI.listHosts(
@@ -416,6 +421,7 @@ public class HostsApiTest extends V1ApiTest {
 
     ObjectMapper mapper =
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+    mapper.registerModule(new JsonNullableModule());
 
     HostListResponse response =
         unitAPI.listHosts(
@@ -449,6 +455,7 @@ public class HostsApiTest extends V1ApiTest {
 
     ObjectMapper mapper =
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+    mapper.registerModule(new JsonNullableModule());
 
     HostListResponse response =
         unitAPI.listHosts(
@@ -481,6 +488,7 @@ public class HostsApiTest extends V1ApiTest {
 
     ObjectMapper mapper =
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+    mapper.registerModule(new JsonNullableModule());
 
     HostListResponse response =
         unitAPI.listHosts(

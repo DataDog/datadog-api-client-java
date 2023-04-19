@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object representing a host. */
 @JsonPropertyOrder({
@@ -65,7 +66,7 @@ public class Host {
   private HostMetrics metrics;
 
   public static final String JSON_PROPERTY_MUTE_TIMEOUT = "mute_timeout";
-  private Long muteTimeout;
+  private JsonNullable<Long> muteTimeout = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -287,7 +288,7 @@ public class Host {
   }
 
   public Host muteTimeout(Long muteTimeout) {
-    this.muteTimeout = muteTimeout;
+    this.muteTimeout = JsonNullable.<Long>of(muteTimeout);
     return this;
   }
 
@@ -297,14 +298,24 @@ public class Host {
    * @return muteTimeout
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getMuteTimeout() {
+    return muteTimeout.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MUTE_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMuteTimeout() {
+  public JsonNullable<Long> getMuteTimeout_JsonNullable() {
     return muteTimeout;
   }
 
-  public void setMuteTimeout(Long muteTimeout) {
+  @JsonProperty(JSON_PROPERTY_MUTE_TIMEOUT)
+  public void setMuteTimeout_JsonNullable(JsonNullable<Long> muteTimeout) {
     this.muteTimeout = muteTimeout;
+  }
+
+  public void setMuteTimeout(Long muteTimeout) {
+    this.muteTimeout = JsonNullable.<Long>of(muteTimeout);
   }
 
   public Host name(String name) {

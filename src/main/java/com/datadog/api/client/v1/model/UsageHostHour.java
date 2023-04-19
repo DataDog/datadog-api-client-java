@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Number of hosts/containers recorded for each hour for a given organization. */
 @JsonPropertyOrder({
@@ -40,50 +41,50 @@ import java.util.Objects;
 public class UsageHostHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENT_HOST_COUNT = "agent_host_count";
-  private Long agentHostCount;
+  private JsonNullable<Long> agentHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_ALIBABA_HOST_COUNT = "alibaba_host_count";
-  private Long alibabaHostCount;
+  private JsonNullable<Long> alibabaHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_COUNT =
       "apm_azure_app_service_host_count";
-  private Long apmAzureAppServiceHostCount;
+  private JsonNullable<Long> apmAzureAppServiceHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_APM_HOST_COUNT = "apm_host_count";
-  private Long apmHostCount;
+  private JsonNullable<Long> apmHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_AWS_HOST_COUNT = "aws_host_count";
-  private Long awsHostCount;
+  private JsonNullable<Long> awsHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_AZURE_HOST_COUNT = "azure_host_count";
-  private Long azureHostCount;
+  private JsonNullable<Long> azureHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_CONTAINER_COUNT = "container_count";
-  private Long containerCount;
+  private JsonNullable<Long> containerCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_GCP_HOST_COUNT = "gcp_host_count";
-  private Long gcpHostCount;
+  private JsonNullable<Long> gcpHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HEROKU_HOST_COUNT = "heroku_host_count";
-  private Long herokuHostCount;
+  private JsonNullable<Long> herokuHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOST_COUNT = "host_count";
-  private Long hostCount;
+  private JsonNullable<Long> hostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
   @JsonSerialize(using = JsonTimeSerializer.class)
-  private OffsetDateTime hour;
+  private JsonNullable<OffsetDateTime> hour = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_INFRA_AZURE_APP_SERVICE = "infra_azure_app_service";
-  private Long infraAzureAppService;
+  private JsonNullable<Long> infraAzureAppService = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_APM_HOST_COUNT =
       "opentelemetry_apm_host_count";
-  private Long opentelemetryApmHostCount;
+  private JsonNullable<Long> opentelemetryApmHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT = "opentelemetry_host_count";
-  private Long opentelemetryHostCount;
+  private JsonNullable<Long> opentelemetryHostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -92,10 +93,10 @@ public class UsageHostHour {
   private String publicId;
 
   public static final String JSON_PROPERTY_VSPHERE_HOST_COUNT = "vsphere_host_count";
-  private Long vsphereHostCount;
+  private JsonNullable<Long> vsphereHostCount = JsonNullable.<Long>undefined();
 
   public UsageHostHour agentHostCount(Long agentHostCount) {
-    this.agentHostCount = agentHostCount;
+    this.agentHostCount = JsonNullable.<Long>of(agentHostCount);
     return this;
   }
 
@@ -106,18 +107,28 @@ public class UsageHostHour {
    * @return agentHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getAgentHostCount() {
+    return agentHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_AGENT_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAgentHostCount() {
+  public JsonNullable<Long> getAgentHostCount_JsonNullable() {
     return agentHostCount;
   }
 
-  public void setAgentHostCount(Long agentHostCount) {
+  @JsonProperty(JSON_PROPERTY_AGENT_HOST_COUNT)
+  public void setAgentHostCount_JsonNullable(JsonNullable<Long> agentHostCount) {
     this.agentHostCount = agentHostCount;
   }
 
+  public void setAgentHostCount(Long agentHostCount) {
+    this.agentHostCount = JsonNullable.<Long>of(agentHostCount);
+  }
+
   public UsageHostHour alibabaHostCount(Long alibabaHostCount) {
-    this.alibabaHostCount = alibabaHostCount;
+    this.alibabaHostCount = JsonNullable.<Long>of(alibabaHostCount);
     return this;
   }
 
@@ -128,18 +139,28 @@ public class UsageHostHour {
    * @return alibabaHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getAlibabaHostCount() {
+    return alibabaHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ALIBABA_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAlibabaHostCount() {
+  public JsonNullable<Long> getAlibabaHostCount_JsonNullable() {
     return alibabaHostCount;
   }
 
-  public void setAlibabaHostCount(Long alibabaHostCount) {
+  @JsonProperty(JSON_PROPERTY_ALIBABA_HOST_COUNT)
+  public void setAlibabaHostCount_JsonNullable(JsonNullable<Long> alibabaHostCount) {
     this.alibabaHostCount = alibabaHostCount;
   }
 
+  public void setAlibabaHostCount(Long alibabaHostCount) {
+    this.alibabaHostCount = JsonNullable.<Long>of(alibabaHostCount);
+  }
+
   public UsageHostHour apmAzureAppServiceHostCount(Long apmAzureAppServiceHostCount) {
-    this.apmAzureAppServiceHostCount = apmAzureAppServiceHostCount;
+    this.apmAzureAppServiceHostCount = JsonNullable.<Long>of(apmAzureAppServiceHostCount);
     return this;
   }
 
@@ -149,18 +170,29 @@ public class UsageHostHour {
    * @return apmAzureAppServiceHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getApmAzureAppServiceHostCount() {
+    return apmAzureAppServiceHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getApmAzureAppServiceHostCount() {
+  public JsonNullable<Long> getApmAzureAppServiceHostCount_JsonNullable() {
     return apmAzureAppServiceHostCount;
   }
 
-  public void setApmAzureAppServiceHostCount(Long apmAzureAppServiceHostCount) {
+  @JsonProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_COUNT)
+  public void setApmAzureAppServiceHostCount_JsonNullable(
+      JsonNullable<Long> apmAzureAppServiceHostCount) {
     this.apmAzureAppServiceHostCount = apmAzureAppServiceHostCount;
   }
 
+  public void setApmAzureAppServiceHostCount(Long apmAzureAppServiceHostCount) {
+    this.apmAzureAppServiceHostCount = JsonNullable.<Long>of(apmAzureAppServiceHostCount);
+  }
+
   public UsageHostHour apmHostCount(Long apmHostCount) {
-    this.apmHostCount = apmHostCount;
+    this.apmHostCount = JsonNullable.<Long>of(apmHostCount);
     return this;
   }
 
@@ -171,18 +203,28 @@ public class UsageHostHour {
    * @return apmHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getApmHostCount() {
+    return apmHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_APM_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getApmHostCount() {
+  public JsonNullable<Long> getApmHostCount_JsonNullable() {
     return apmHostCount;
   }
 
-  public void setApmHostCount(Long apmHostCount) {
+  @JsonProperty(JSON_PROPERTY_APM_HOST_COUNT)
+  public void setApmHostCount_JsonNullable(JsonNullable<Long> apmHostCount) {
     this.apmHostCount = apmHostCount;
   }
 
+  public void setApmHostCount(Long apmHostCount) {
+    this.apmHostCount = JsonNullable.<Long>of(apmHostCount);
+  }
+
   public UsageHostHour awsHostCount(Long awsHostCount) {
-    this.awsHostCount = awsHostCount;
+    this.awsHostCount = JsonNullable.<Long>of(awsHostCount);
     return this;
   }
 
@@ -193,18 +235,28 @@ public class UsageHostHour {
    * @return awsHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getAwsHostCount() {
+    return awsHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_AWS_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAwsHostCount() {
+  public JsonNullable<Long> getAwsHostCount_JsonNullable() {
     return awsHostCount;
   }
 
-  public void setAwsHostCount(Long awsHostCount) {
+  @JsonProperty(JSON_PROPERTY_AWS_HOST_COUNT)
+  public void setAwsHostCount_JsonNullable(JsonNullable<Long> awsHostCount) {
     this.awsHostCount = awsHostCount;
   }
 
+  public void setAwsHostCount(Long awsHostCount) {
+    this.awsHostCount = JsonNullable.<Long>of(awsHostCount);
+  }
+
   public UsageHostHour azureHostCount(Long azureHostCount) {
-    this.azureHostCount = azureHostCount;
+    this.azureHostCount = JsonNullable.<Long>of(azureHostCount);
     return this;
   }
 
@@ -215,18 +267,28 @@ public class UsageHostHour {
    * @return azureHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getAzureHostCount() {
+    return azureHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_AZURE_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAzureHostCount() {
+  public JsonNullable<Long> getAzureHostCount_JsonNullable() {
     return azureHostCount;
   }
 
-  public void setAzureHostCount(Long azureHostCount) {
+  @JsonProperty(JSON_PROPERTY_AZURE_HOST_COUNT)
+  public void setAzureHostCount_JsonNullable(JsonNullable<Long> azureHostCount) {
     this.azureHostCount = azureHostCount;
   }
 
+  public void setAzureHostCount(Long azureHostCount) {
+    this.azureHostCount = JsonNullable.<Long>of(azureHostCount);
+  }
+
   public UsageHostHour containerCount(Long containerCount) {
-    this.containerCount = containerCount;
+    this.containerCount = JsonNullable.<Long>of(containerCount);
     return this;
   }
 
@@ -236,18 +298,28 @@ public class UsageHostHour {
    * @return containerCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getContainerCount() {
+    return containerCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getContainerCount() {
+  public JsonNullable<Long> getContainerCount_JsonNullable() {
     return containerCount;
   }
 
-  public void setContainerCount(Long containerCount) {
+  @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
+  public void setContainerCount_JsonNullable(JsonNullable<Long> containerCount) {
     this.containerCount = containerCount;
   }
 
+  public void setContainerCount(Long containerCount) {
+    this.containerCount = JsonNullable.<Long>of(containerCount);
+  }
+
   public UsageHostHour gcpHostCount(Long gcpHostCount) {
-    this.gcpHostCount = gcpHostCount;
+    this.gcpHostCount = JsonNullable.<Long>of(gcpHostCount);
     return this;
   }
 
@@ -258,18 +330,28 @@ public class UsageHostHour {
    * @return gcpHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getGcpHostCount() {
+    return gcpHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_GCP_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getGcpHostCount() {
+  public JsonNullable<Long> getGcpHostCount_JsonNullable() {
     return gcpHostCount;
   }
 
-  public void setGcpHostCount(Long gcpHostCount) {
+  @JsonProperty(JSON_PROPERTY_GCP_HOST_COUNT)
+  public void setGcpHostCount_JsonNullable(JsonNullable<Long> gcpHostCount) {
     this.gcpHostCount = gcpHostCount;
   }
 
+  public void setGcpHostCount(Long gcpHostCount) {
+    this.gcpHostCount = JsonNullable.<Long>of(gcpHostCount);
+  }
+
   public UsageHostHour herokuHostCount(Long herokuHostCount) {
-    this.herokuHostCount = herokuHostCount;
+    this.herokuHostCount = JsonNullable.<Long>of(herokuHostCount);
     return this;
   }
 
@@ -279,18 +361,28 @@ public class UsageHostHour {
    * @return herokuHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getHerokuHostCount() {
+    return herokuHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_HEROKU_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getHerokuHostCount() {
+  public JsonNullable<Long> getHerokuHostCount_JsonNullable() {
     return herokuHostCount;
   }
 
-  public void setHerokuHostCount(Long herokuHostCount) {
+  @JsonProperty(JSON_PROPERTY_HEROKU_HOST_COUNT)
+  public void setHerokuHostCount_JsonNullable(JsonNullable<Long> herokuHostCount) {
     this.herokuHostCount = herokuHostCount;
   }
 
+  public void setHerokuHostCount(Long herokuHostCount) {
+    this.herokuHostCount = JsonNullable.<Long>of(herokuHostCount);
+  }
+
   public UsageHostHour hostCount(Long hostCount) {
-    this.hostCount = hostCount;
+    this.hostCount = JsonNullable.<Long>of(hostCount);
     return this;
   }
 
@@ -302,18 +394,28 @@ public class UsageHostHour {
    * @return hostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getHostCount() {
+    return hostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getHostCount() {
+  public JsonNullable<Long> getHostCount_JsonNullable() {
     return hostCount;
   }
 
-  public void setHostCount(Long hostCount) {
+  @JsonProperty(JSON_PROPERTY_HOST_COUNT)
+  public void setHostCount_JsonNullable(JsonNullable<Long> hostCount) {
     this.hostCount = hostCount;
   }
 
+  public void setHostCount(Long hostCount) {
+    this.hostCount = JsonNullable.<Long>of(hostCount);
+  }
+
   public UsageHostHour hour(OffsetDateTime hour) {
-    this.hour = hour;
+    this.hour = JsonNullable.<OffsetDateTime>of(hour);
     return this;
   }
 
@@ -323,18 +425,28 @@ public class UsageHostHour {
    * @return hour
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getHour() {
+    return hour.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getHour() {
+  public JsonNullable<OffsetDateTime> getHour_JsonNullable() {
     return hour;
   }
 
-  public void setHour(OffsetDateTime hour) {
+  @JsonProperty(JSON_PROPERTY_HOUR)
+  public void setHour_JsonNullable(JsonNullable<OffsetDateTime> hour) {
     this.hour = hour;
   }
 
+  public void setHour(OffsetDateTime hour) {
+    this.hour = JsonNullable.<OffsetDateTime>of(hour);
+  }
+
   public UsageHostHour infraAzureAppService(Long infraAzureAppService) {
-    this.infraAzureAppService = infraAzureAppService;
+    this.infraAzureAppService = JsonNullable.<Long>of(infraAzureAppService);
     return this;
   }
 
@@ -345,18 +457,28 @@ public class UsageHostHour {
    * @return infraAzureAppService
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getInfraAzureAppService() {
+    return infraAzureAppService.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_INFRA_AZURE_APP_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getInfraAzureAppService() {
+  public JsonNullable<Long> getInfraAzureAppService_JsonNullable() {
     return infraAzureAppService;
   }
 
-  public void setInfraAzureAppService(Long infraAzureAppService) {
+  @JsonProperty(JSON_PROPERTY_INFRA_AZURE_APP_SERVICE)
+  public void setInfraAzureAppService_JsonNullable(JsonNullable<Long> infraAzureAppService) {
     this.infraAzureAppService = infraAzureAppService;
   }
 
+  public void setInfraAzureAppService(Long infraAzureAppService) {
+    this.infraAzureAppService = JsonNullable.<Long>of(infraAzureAppService);
+  }
+
   public UsageHostHour opentelemetryApmHostCount(Long opentelemetryApmHostCount) {
-    this.opentelemetryApmHostCount = opentelemetryApmHostCount;
+    this.opentelemetryApmHostCount = JsonNullable.<Long>of(opentelemetryApmHostCount);
     return this;
   }
 
@@ -367,18 +489,29 @@ public class UsageHostHour {
    * @return opentelemetryApmHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getOpentelemetryApmHostCount() {
+    return opentelemetryApmHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_APM_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOpentelemetryApmHostCount() {
+  public JsonNullable<Long> getOpentelemetryApmHostCount_JsonNullable() {
     return opentelemetryApmHostCount;
   }
 
-  public void setOpentelemetryApmHostCount(Long opentelemetryApmHostCount) {
+  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_APM_HOST_COUNT)
+  public void setOpentelemetryApmHostCount_JsonNullable(
+      JsonNullable<Long> opentelemetryApmHostCount) {
     this.opentelemetryApmHostCount = opentelemetryApmHostCount;
   }
 
+  public void setOpentelemetryApmHostCount(Long opentelemetryApmHostCount) {
+    this.opentelemetryApmHostCount = JsonNullable.<Long>of(opentelemetryApmHostCount);
+  }
+
   public UsageHostHour opentelemetryHostCount(Long opentelemetryHostCount) {
-    this.opentelemetryHostCount = opentelemetryHostCount;
+    this.opentelemetryHostCount = JsonNullable.<Long>of(opentelemetryHostCount);
     return this;
   }
 
@@ -389,14 +522,24 @@ public class UsageHostHour {
    * @return opentelemetryHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getOpentelemetryHostCount() {
+    return opentelemetryHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOpentelemetryHostCount() {
+  public JsonNullable<Long> getOpentelemetryHostCount_JsonNullable() {
     return opentelemetryHostCount;
   }
 
-  public void setOpentelemetryHostCount(Long opentelemetryHostCount) {
+  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT)
+  public void setOpentelemetryHostCount_JsonNullable(JsonNullable<Long> opentelemetryHostCount) {
     this.opentelemetryHostCount = opentelemetryHostCount;
+  }
+
+  public void setOpentelemetryHostCount(Long opentelemetryHostCount) {
+    this.opentelemetryHostCount = JsonNullable.<Long>of(opentelemetryHostCount);
   }
 
   public UsageHostHour orgName(String orgName) {
@@ -442,7 +585,7 @@ public class UsageHostHour {
   }
 
   public UsageHostHour vsphereHostCount(Long vsphereHostCount) {
-    this.vsphereHostCount = vsphereHostCount;
+    this.vsphereHostCount = JsonNullable.<Long>of(vsphereHostCount);
     return this;
   }
 
@@ -453,14 +596,24 @@ public class UsageHostHour {
    * @return vsphereHostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getVsphereHostCount() {
+    return vsphereHostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getVsphereHostCount() {
+  public JsonNullable<Long> getVsphereHostCount_JsonNullable() {
     return vsphereHostCount;
   }
 
-  public void setVsphereHostCount(Long vsphereHostCount) {
+  @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_COUNT)
+  public void setVsphereHostCount_JsonNullable(JsonNullable<Long> vsphereHostCount) {
     this.vsphereHostCount = vsphereHostCount;
+  }
+
+  public void setVsphereHostCount(Long vsphereHostCount) {
+    this.vsphereHostCount = JsonNullable.<Long>of(vsphereHostCount);
   }
 
   /** Return true if this UsageHostHour object is equal to o. */
