@@ -455,6 +455,8 @@ public class ApiClient {
           put("v2.updateIncidentTodo", false);
           put("v2.queryScalarData", false);
           put("v2.queryTimeseriesData", false);
+          put("v2.getFinding", false);
+          put("v2.listFindings", false);
           put("v2.createIncidentService", false);
           put("v2.deleteIncidentService", false);
           put("v2.getIncidentService", false);
