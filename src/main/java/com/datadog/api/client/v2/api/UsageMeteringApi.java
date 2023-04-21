@@ -739,6 +739,7 @@ public class UsageMeteringApi {
   public static class GetHourlyUsageOptionalParameters {
     private OffsetDateTime filterTimestampEnd;
     private Boolean filterIncludeDescendants;
+    private Boolean filterIncludeBreakdown;
     private String filterVersions;
     private Integer pageLimit;
     private String pageNextRecordId;
@@ -765,6 +766,18 @@ public class UsageMeteringApi {
     public GetHourlyUsageOptionalParameters filterIncludeDescendants(
         Boolean filterIncludeDescendants) {
       this.filterIncludeDescendants = filterIncludeDescendants;
+      return this;
+    }
+
+    /**
+     * Set filterIncludeBreakdown.
+     *
+     * @param filterIncludeBreakdown Include breakdown of usage by subcategories where applicable
+     *     (for product family logs only). Defaults to false. (optional, default to false)
+     * @return GetHourlyUsageOptionalParameters
+     */
+    public GetHourlyUsageOptionalParameters filterIncludeBreakdown(Boolean filterIncludeBreakdown) {
+      this.filterIncludeBreakdown = filterIncludeBreakdown;
       return this;
     }
 
@@ -988,6 +1001,7 @@ public class UsageMeteringApi {
     }
     OffsetDateTime filterTimestampEnd = parameters.filterTimestampEnd;
     Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    Boolean filterIncludeBreakdown = parameters.filterIncludeBreakdown;
     String filterVersions = parameters.filterVersions;
     Integer pageLimit = parameters.pageLimit;
     String pageNextRecordId = parameters.pageNextRecordId;
@@ -1005,6 +1019,8 @@ public class UsageMeteringApi {
         apiClient.parameterToPairs("", "filter[timestamp][end]", filterTimestampEnd));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_breakdown]", filterIncludeBreakdown));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[versions]", filterVersions));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(
@@ -1081,6 +1097,7 @@ public class UsageMeteringApi {
     }
     OffsetDateTime filterTimestampEnd = parameters.filterTimestampEnd;
     Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    Boolean filterIncludeBreakdown = parameters.filterIncludeBreakdown;
     String filterVersions = parameters.filterVersions;
     Integer pageLimit = parameters.pageLimit;
     String pageNextRecordId = parameters.pageNextRecordId;
@@ -1098,6 +1115,8 @@ public class UsageMeteringApi {
         apiClient.parameterToPairs("", "filter[timestamp][end]", filterTimestampEnd));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_breakdown]", filterIncludeBreakdown));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[versions]", filterVersions));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(
