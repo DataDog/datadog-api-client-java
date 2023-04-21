@@ -28,11 +28,18 @@ public class SignalArchiveReason {
       new SignalArchiveReason("false_positive");
   public static final SignalArchiveReason TESTING_OR_MAINTENANCE =
       new SignalArchiveReason("testing_or_maintenance");
+  public static final SignalArchiveReason INVESTIGATED_CASE_OPENED =
+      new SignalArchiveReason("investigated_case_opened");
   public static final SignalArchiveReason OTHER = new SignalArchiveReason("other");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("none", "false_positive", "testing_or_maintenance", "other"));
+          Arrays.asList(
+              "none",
+              "false_positive",
+              "testing_or_maintenance",
+              "investigated_case_opened",
+              "other"));
 
   private String value;
 
