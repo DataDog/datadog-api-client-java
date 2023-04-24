@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.Finding;
 import com.datadog.api.client.v2.model.FindingEvaluation;
 import com.datadog.api.client.v2.model.FindingStatus;
 import com.datadog.api.client.v2.model.GetFindingResponse;
@@ -1709,7 +1710,7 @@ public class SecurityMonitoringApi {
 
   /** Manage optional parameters to listFindings. */
   public static class ListFindingsOptionalParameters {
-    private Long limit;
+    private Long pageLimit;
     private Long snapshotTimestamp;
     private String pageCursor;
     private String filterTags;
@@ -1723,13 +1724,14 @@ public class SecurityMonitoringApi {
     private FindingStatus filterStatus;
 
     /**
-     * Set limit.
+     * Set pageLimit.
      *
-     * @param limit Limit the number of findings returned. (optional)
+     * @param pageLimit Limit the number of findings returned. Must be &lt;= 1000. (optional,
+     *     default to 100)
      * @return ListFindingsOptionalParameters
      */
-    public ListFindingsOptionalParameters limit(Long limit) {
-      this.limit = limit;
+    public ListFindingsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
       return this;
     }
 
@@ -1921,7 +1923,102 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * List findings.
+   *
+   * <p>See {@link #listFindingsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;Finding&gt;
+   */
+  public PaginationIterable<Finding> listFindingsWithPagination() {
+    ListFindingsOptionalParameters parameters = new ListFindingsOptionalParameters();
+    return listFindingsWithPagination(parameters);
+  }
+
+  /**
+   * List findings.
+   *
+   * <p>See {@link #listFindingsWithHttpInfo}.
+   *
+   * @return ListFindingsResponse
+   */
+  public PaginationIterable<Finding> listFindingsWithPagination(
+      ListFindingsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPage.getCursor";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 100l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listFindings",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
    * Get a list of CSPM findings.
+   *
+   * <h3>Filtering</h3>
+   *
+   * <p>Filters can be applied by appending query parameters to the URL.
+   *
+   * <ul>
+   *   <li>Using a single filter: <code>?filter[attribute_key]=attribute_value</code>
+   *   <li>Chaining filters: <code>
+   *       ?filter[attribute_key]=attribute_value&amp;filter[attribute_key]=attribute_value...
+   *       </code>
+   *   <li>Filtering on tags: <code>
+   *       ?filter[tags]=tag_key:tag_value&amp;filter[tags]=tag_key_2:tag_value_2</code>
+   * </ul>
+   *
+   * <p>Here, <code>attribute_key</code> can be any of the filter keys described further below.
+   *
+   * <p>Query parameters of type <code>integer</code> support comparison operators (<code>&gt;
+   * </code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>). This is particularly
+   * useful when filtering by <code>evaluation_changed_at</code> or <code>
+   * resource_discovery_timestamp</code>. For example: <code>
+   * ?filter[evaluation_changed_at]=&gt;20123123121</code>.
+   *
+   * <p>You can also use the negation operator on strings. For example, use <code>
+   * filter[resource_type]=-aws*</code> to filter for any non-AWS resources.
+   *
+   * <p>The operator must come after the equal sign. For example, to filter with the <code>&gt;=
+   * </code> operator, add the operator after the equal sign: <code>
+   * filter[evaluation_changed_at]=&gt;=1678809373257</code>.
+   *
+   * <h3>Response</h3>
+   *
+   * <p>The response includes an array of finding objects, pagination metadata, and a count of items
+   * that match the query.
+   *
+   * <p>Each finding object contains the following:
+   *
+   * <ul>
+   *   <li>The finding ID that can be used in a <code>GetFinding</code> request to retrieve the full
+   *       finding details.
+   *   <li>Core attributes, including status, evaluation, high-level resource details, muted state,
+   *       and rule details.
+   *   <li><code>evaluation_changed_at</code> and <code>resource_discovery_date</code> time stamps.
+   *   <li>An array of associated tags.
+   * </ul>
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListFindingsResponse&gt;
@@ -1947,7 +2044,7 @@ public class SecurityMonitoringApi {
       throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
     }
     Object localVarPostBody = null;
-    Long limit = parameters.limit;
+    Long pageLimit = parameters.pageLimit;
     Long snapshotTimestamp = parameters.snapshotTimestamp;
     String pageCursor = parameters.pageCursor;
     String filterTags = parameters.filterTags;
@@ -1965,7 +2062,7 @@ public class SecurityMonitoringApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "snapshot_timestamp", snapshotTimestamp));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
@@ -2024,7 +2121,7 @@ public class SecurityMonitoringApi {
       return result;
     }
     Object localVarPostBody = null;
-    Long limit = parameters.limit;
+    Long pageLimit = parameters.pageLimit;
     Long snapshotTimestamp = parameters.snapshotTimestamp;
     String pageCursor = parameters.pageCursor;
     String filterTags = parameters.filterTags;
@@ -2042,7 +2139,7 @@ public class SecurityMonitoringApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "snapshot_timestamp", snapshotTimestamp));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
