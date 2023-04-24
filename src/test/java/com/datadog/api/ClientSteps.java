@@ -301,6 +301,35 @@ public class ClientSteps {
     }
   }
 
+  @Then("the response {string} has item with field {string} with value {string}")
+  public void theResponseHasItemWithField(String responsePath, String keyPath, String value)
+      throws java.lang.reflect.InvocationTargetException,
+          java.lang.IllegalAccessException,
+          java.lang.InstantiationException,
+          java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException,
+          java.lang.NoSuchFieldException {
+    Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
+    List responseList;
+    try {
+      responseList = (List) World.lookup(responseData, responsePath);
+    } catch (java.lang.ClassCastException e) {
+      AbstractOpenApiSchema responseObject =
+          (AbstractOpenApiSchema) World.lookup(responseData, responsePath);
+      responseList = (List) responseObject.getActualInstance();
+    }
+    for (Object responseItem : responseList) {
+      Object itemValue = World.lookup(responseItem, keyPath);
+      try {
+        assertEquals(itemValue, value);
+        return;
+      } catch (AssertionError e) {
+        continue;
+      }
+    }
+    fail(String.format("could not find key value pair in object array: \"%s\": \"%s\"", keyPath, value));
+  }
+
   public String getTracingEndpoint() {
     return "features";
   }
