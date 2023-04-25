@@ -330,6 +330,44 @@ public class ClientSteps {
     fail(String.format("could not find key value pair in object array: \"%s\": \"%s\"", keyPath, value));
   }
 
+  @Then("the response {string} contains value {}")
+  public void theResponseContainsValue(String responsePath, String value)
+      throws java.lang.IllegalAccessException,
+      java.lang.NoSuchFieldException,
+      java.lang.reflect.InvocationTargetException,
+      java.lang.IllegalAccessException,
+      java.lang.InstantiationException,
+      java.lang.NoSuchMethodException,
+      java.lang.ClassNotFoundException,
+      com.fasterxml.jackson.core.JsonProcessingException {
+    Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
+    List responseList;
+    try {
+      responseList = (List) World.lookup(responseData, responsePath);
+    } catch (java.lang.ClassCastException e) {
+      AbstractOpenApiSchema responseObject = (AbstractOpenApiSchema) World.lookup(responseData, responsePath);
+      responseList = (List) responseObject.getActualInstance();
+    }
+    for (Object responseItem : responseList) {
+      try {
+        if (responseItem != null) {
+          assertEquals(
+              World.fromJSON(
+                  world.getObjectMapper(),
+                  responseItem.getClass(),
+                  World.templated(value, world.context)),
+              responseItem);
+        } else {
+          assertEquals("null", World.templated(value, world.context));
+        }
+        return;
+      } catch (AssertionError e) {
+        continue;
+      }
+    }
+    fail(String.format("could not find value in array: %s", value));
+  }
+
   public String getTracingEndpoint() {
     return "features";
   }
