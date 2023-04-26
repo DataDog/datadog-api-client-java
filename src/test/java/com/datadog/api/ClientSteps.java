@@ -301,27 +301,30 @@ public class ClientSteps {
     }
   }
 
-  @Then("the response {string} has item with field {string} with value {string}")
+  @Then("the response {string} has item with field {string} with value {}")
   public void theResponseHasItemWithField(String responsePath, String keyPath, String value)
       throws java.lang.reflect.InvocationTargetException,
-          java.lang.IllegalAccessException,
-          java.lang.InstantiationException,
-          java.lang.NoSuchMethodException,
-          java.lang.ClassNotFoundException,
-          java.lang.NoSuchFieldException {
+      java.lang.IllegalAccessException,
+      java.lang.InstantiationException,
+      java.lang.NoSuchMethodException,
+      java.lang.ClassNotFoundException,
+      java.lang.NoSuchFieldException,
+      com.fasterxml.jackson.core.JsonProcessingException {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
     List responseList;
     try {
       responseList = (List) World.lookup(responseData, responsePath);
     } catch (java.lang.ClassCastException e) {
-      AbstractOpenApiSchema responseObject =
-          (AbstractOpenApiSchema) World.lookup(responseData, responsePath);
+      AbstractOpenApiSchema responseObject = (AbstractOpenApiSchema) World.lookup(responseData, responsePath);
       responseList = (List) responseObject.getActualInstance();
     }
     for (Object responseItem : responseList) {
       Object itemValue = World.lookup(responseItem, keyPath);
       try {
-        assertEquals(itemValue, value);
+        assertEquals(itemValue, World.fromJSON(
+            world.getObjectMapper(),
+            responseItem.getClass(),
+            World.templated(value, world.context)));
         return;
       } catch (AssertionError e) {
         continue;
