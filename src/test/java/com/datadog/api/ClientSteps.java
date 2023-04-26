@@ -321,10 +321,12 @@ public class ClientSteps {
     for (Object responseItem : responseList) {
       Object itemValue = World.lookup(responseItem, keyPath);
       try {
-        assertEquals(itemValue, World.fromJSON(
-            world.getObjectMapper(),
-            responseItem.getClass(),
-            World.templated(value, world.context)));
+        assertEquals(
+          World.fromJSON(
+              world.getObjectMapper(),
+              itemValue.getClass(),
+              World.templated(value, world.context)),
+          itemValue);
         return;
       } catch (AssertionError e) {
         continue;
