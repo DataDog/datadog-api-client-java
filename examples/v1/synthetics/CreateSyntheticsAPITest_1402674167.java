@@ -14,6 +14,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsMonitorOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
 
@@ -27,12 +28,23 @@ public class Example {
             .config(
                 new SyntheticsAPITestConfig()
                     .assertions(
-                        Collections.singletonList(
+                        Arrays.asList(
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.IS)
                                     .target(1)
-                                    .type(SyntheticsAssertionType.GRPC_HEALTHCHECK_STATUS))))
+                                    .type(SyntheticsAssertionType.GRPC_HEALTHCHECK_STATUS)),
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionTarget()
+                                    .operator(SyntheticsAssertionOperator.IS)
+                                    .target("proto target")
+                                    .type(SyntheticsAssertionType.GRPC_PROTO)),
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionTarget()
+                                    .operator(SyntheticsAssertionOperator.IS)
+                                    .target("123")
+                                    .property("property")
+                                    .type(SyntheticsAssertionType.GRPC_METADATA))))
                     .request(
                         new SyntheticsTestRequest()
                             .host("localhost")
