@@ -31,8 +31,8 @@ public class Example {
                             .policy(
                                 new MonitorConfigPolicyPolicy(
                                     new MonitorConfigPolicyTagPolicy()
-                                        .tagKey("datacenter")
-                                        .tagKeyRequired(true)
+                                        .tagKey("examplemonitor")
+                                        .tagKeyRequired(false)
                                         .validTagValues(Arrays.asList("prod", "staging"))))
                             .policyType(MonitorConfigPolicyType.TAG))
                     .id(MONITOR_CONFIGURATION_POLICY_DATA_ID)

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"datacenter\",\"tag_key_required\":true,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"id\":\"00000000-0000-1234-0000-000000000000\",\"type\":\"monitor-config-policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"datacenter\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"id\":\"00000000-0000-1234-0000-000000000000\",\"type\":\"monitor-config-policy\"}}"
       },
       "headers": {},
       "method": "PATCH",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d49cbbf8-2f98-abf6-7551-438cfe5f4ea1"
+    "id": "df9772f7-e181-dd11-d6c5-4dd609d56d40"
   }
 ]
