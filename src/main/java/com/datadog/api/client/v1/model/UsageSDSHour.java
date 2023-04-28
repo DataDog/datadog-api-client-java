@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Sensitive Data Scanner usage for a given organization for a given hour. */
 @JsonPropertyOrder({
@@ -31,10 +32,10 @@ import java.util.Objects;
 public class UsageSDSHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_SCANNED_BYTES = "apm_scanned_bytes";
-  private Long apmScannedBytes;
+  private JsonNullable<Long> apmScannedBytes = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_EVENTS_SCANNED_BYTES = "events_scanned_bytes";
-  private Long eventsScannedBytes;
+  private JsonNullable<Long> eventsScannedBytes = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
@@ -42,7 +43,7 @@ public class UsageSDSHour {
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_LOGS_SCANNED_BYTES = "logs_scanned_bytes";
-  private Long logsScannedBytes;
+  private JsonNullable<Long> logsScannedBytes = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -51,13 +52,13 @@ public class UsageSDSHour {
   private String publicId;
 
   public static final String JSON_PROPERTY_RUM_SCANNED_BYTES = "rum_scanned_bytes";
-  private Long rumScannedBytes;
+  private JsonNullable<Long> rumScannedBytes = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_TOTAL_SCANNED_BYTES = "total_scanned_bytes";
-  private Long totalScannedBytes;
+  private JsonNullable<Long> totalScannedBytes = JsonNullable.<Long>undefined();
 
   public UsageSDSHour apmScannedBytes(Long apmScannedBytes) {
-    this.apmScannedBytes = apmScannedBytes;
+    this.apmScannedBytes = JsonNullable.<Long>of(apmScannedBytes);
     return this;
   }
 
@@ -68,18 +69,28 @@ public class UsageSDSHour {
    * @return apmScannedBytes
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getApmScannedBytes() {
+    return apmScannedBytes.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_APM_SCANNED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getApmScannedBytes() {
+  public JsonNullable<Long> getApmScannedBytes_JsonNullable() {
     return apmScannedBytes;
   }
 
-  public void setApmScannedBytes(Long apmScannedBytes) {
+  @JsonProperty(JSON_PROPERTY_APM_SCANNED_BYTES)
+  public void setApmScannedBytes_JsonNullable(JsonNullable<Long> apmScannedBytes) {
     this.apmScannedBytes = apmScannedBytes;
   }
 
+  public void setApmScannedBytes(Long apmScannedBytes) {
+    this.apmScannedBytes = JsonNullable.<Long>of(apmScannedBytes);
+  }
+
   public UsageSDSHour eventsScannedBytes(Long eventsScannedBytes) {
-    this.eventsScannedBytes = eventsScannedBytes;
+    this.eventsScannedBytes = JsonNullable.<Long>of(eventsScannedBytes);
     return this;
   }
 
@@ -90,14 +101,24 @@ public class UsageSDSHour {
    * @return eventsScannedBytes
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getEventsScannedBytes() {
+    return eventsScannedBytes.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_EVENTS_SCANNED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEventsScannedBytes() {
+  public JsonNullable<Long> getEventsScannedBytes_JsonNullable() {
     return eventsScannedBytes;
   }
 
-  public void setEventsScannedBytes(Long eventsScannedBytes) {
+  @JsonProperty(JSON_PROPERTY_EVENTS_SCANNED_BYTES)
+  public void setEventsScannedBytes_JsonNullable(JsonNullable<Long> eventsScannedBytes) {
     this.eventsScannedBytes = eventsScannedBytes;
+  }
+
+  public void setEventsScannedBytes(Long eventsScannedBytes) {
+    this.eventsScannedBytes = JsonNullable.<Long>of(eventsScannedBytes);
   }
 
   public UsageSDSHour hour(OffsetDateTime hour) {
@@ -122,7 +143,7 @@ public class UsageSDSHour {
   }
 
   public UsageSDSHour logsScannedBytes(Long logsScannedBytes) {
-    this.logsScannedBytes = logsScannedBytes;
+    this.logsScannedBytes = JsonNullable.<Long>of(logsScannedBytes);
     return this;
   }
 
@@ -133,14 +154,24 @@ public class UsageSDSHour {
    * @return logsScannedBytes
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLogsScannedBytes() {
+    return logsScannedBytes.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LOGS_SCANNED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLogsScannedBytes() {
+  public JsonNullable<Long> getLogsScannedBytes_JsonNullable() {
     return logsScannedBytes;
   }
 
-  public void setLogsScannedBytes(Long logsScannedBytes) {
+  @JsonProperty(JSON_PROPERTY_LOGS_SCANNED_BYTES)
+  public void setLogsScannedBytes_JsonNullable(JsonNullable<Long> logsScannedBytes) {
     this.logsScannedBytes = logsScannedBytes;
+  }
+
+  public void setLogsScannedBytes(Long logsScannedBytes) {
+    this.logsScannedBytes = JsonNullable.<Long>of(logsScannedBytes);
   }
 
   public UsageSDSHour orgName(String orgName) {
@@ -186,7 +217,7 @@ public class UsageSDSHour {
   }
 
   public UsageSDSHour rumScannedBytes(Long rumScannedBytes) {
-    this.rumScannedBytes = rumScannedBytes;
+    this.rumScannedBytes = JsonNullable.<Long>of(rumScannedBytes);
     return this;
   }
 
@@ -197,18 +228,28 @@ public class UsageSDSHour {
    * @return rumScannedBytes
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getRumScannedBytes() {
+    return rumScannedBytes.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_RUM_SCANNED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRumScannedBytes() {
+  public JsonNullable<Long> getRumScannedBytes_JsonNullable() {
     return rumScannedBytes;
   }
 
-  public void setRumScannedBytes(Long rumScannedBytes) {
+  @JsonProperty(JSON_PROPERTY_RUM_SCANNED_BYTES)
+  public void setRumScannedBytes_JsonNullable(JsonNullable<Long> rumScannedBytes) {
     this.rumScannedBytes = rumScannedBytes;
   }
 
+  public void setRumScannedBytes(Long rumScannedBytes) {
+    this.rumScannedBytes = JsonNullable.<Long>of(rumScannedBytes);
+  }
+
   public UsageSDSHour totalScannedBytes(Long totalScannedBytes) {
-    this.totalScannedBytes = totalScannedBytes;
+    this.totalScannedBytes = JsonNullable.<Long>of(totalScannedBytes);
     return this;
   }
 
@@ -219,14 +260,24 @@ public class UsageSDSHour {
    * @return totalScannedBytes
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getTotalScannedBytes() {
+    return totalScannedBytes.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TOTAL_SCANNED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTotalScannedBytes() {
+  public JsonNullable<Long> getTotalScannedBytes_JsonNullable() {
     return totalScannedBytes;
   }
 
-  public void setTotalScannedBytes(Long totalScannedBytes) {
+  @JsonProperty(JSON_PROPERTY_TOTAL_SCANNED_BYTES)
+  public void setTotalScannedBytes_JsonNullable(JsonNullable<Long> totalScannedBytes) {
     this.totalScannedBytes = totalScannedBytes;
+  }
+
+  public void setTotalScannedBytes(Long totalScannedBytes) {
+    this.totalScannedBytes = JsonNullable.<Long>of(totalScannedBytes);
   }
 
   /** Return true if this UsageSDSHour object is equal to o. */
