@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"dc\",\"tag_key_required\":true,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"type\":\"monitor-config-policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"testdeleteamonitorconfigurationpolicyreturnsokresponse1682627700\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"type\":\"monitor-config-policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"monitor-config-policy\",\"id\":\"cf5108e4-9833-11ed-8bf8-da7ad0900002\",\"attributes\":{\"policy\":{\"tag_key\":\"dc\",\"tag_key_required\":true,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"}}}\n",
+      "body": "{\"data\":{\"type\":\"monitor-config-policy\",\"attributes\":{\"policy_type\":\"tag\",\"policy\":{\"tag_key_required\":false,\"tag_key\":\"testdeleteamonitorconfigurationpolicyreturnsokresponse1682627700\",\"valid_tag_values\":[\"prod\",\"staging\"]}},\"id\":\"fb4a2490-e53a-11ed-a5db-da7ad0900002\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "13b530fd-8b91-17a8-9930-69a27759db44"
+    "id": "fb8ec162-e8fb-b64b-b79d-4edeed6b11a0"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/monitor/policy/cf5108e4-9833-11ed-8bf8-da7ad0900002",
+      "path": "/api/v2/monitor/policy/fb4a2490-e53a-11ed-a5db-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -52,13 +52,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "478284e5-3f42-7135-bc87-bc08c56bfd40"
+    "id": "bf072b76-37e1-84fa-1d62-7e9bb9ca4f44"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/monitor/policy/cf5108e4-9833-11ed-8bf8-da7ad0900002",
+      "path": "/api/v2/monitor/policy/fb4a2490-e53a-11ed-a5db-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "478284e5-3f42-7135-bc87-bc08c56bfd41"
+    "id": "bf072b76-37e1-84fa-1d62-7e9bb9ca4f45"
   }
 ]
