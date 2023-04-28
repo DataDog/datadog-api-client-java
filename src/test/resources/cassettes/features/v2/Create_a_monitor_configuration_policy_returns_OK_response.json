@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"testcreateamonitorconfigurationpolicyreturnsokresponse1682627699\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"type\":\"monitor-config-policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"datacenter\",\"tag_key_required\":true,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"type\":\"monitor-config-policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"monitor-config-policy\",\"id\":\"fabd0b6e-e53a-11ed-a07b-da7ad0900002\",\"attributes\":{\"policy\":{\"valid_tag_values\":[\"prod\",\"staging\"],\"tag_key_required\":false,\"tag_key\":\"testcreateamonitorconfigurationpolicyreturnsokresponse1682627699\"},\"policy_type\":\"tag\"}}}\n",
+      "body": "{\"data\":{\"type\":\"monitor-config-policy\",\"id\":\"cedaaafa-9833-11ed-81a5-da7ad0900002\",\"attributes\":{\"policy\":{\"tag_key\":\"datacenter\",\"tag_key_required\":true,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "34ccf19e-84f9-5ca9-a5ce-9abc55740131"
+    "id": "9e33b552-c97f-3cf2-fd32-b8dd1d13009c"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/monitor/policy/fabd0b6e-e53a-11ed-a07b-da7ad0900002",
+      "path": "/api/v2/monitor/policy/cedaaafa-9833-11ed-81a5-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "851156f6-1954-b2f7-ef5a-3aca57b00d80"
+    "id": "dba5779a-3be5-4e61-47ad-f394e297556a"
   }
 ]
