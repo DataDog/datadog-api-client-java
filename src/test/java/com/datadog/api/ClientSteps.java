@@ -335,7 +335,7 @@ public class ClientSteps {
     fail(String.format("could not find key value pair in object array: \"%s\": \"%s\"", keyPath, value));
   }
 
-  @Then("the response {string} contains value {}")
+  @Then("the response {string} array contains value {}")
   public void theResponseContainsValue(String responsePath, String value)
       throws java.lang.IllegalAccessException,
       java.lang.NoSuchFieldException,
