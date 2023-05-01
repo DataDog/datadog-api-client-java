@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** The incident's attributes for a create request. */
 @JsonPropertyOrder({
+  IncidentCreateAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE,
   IncidentCreateAttributes.JSON_PROPERTY_CUSTOMER_IMPACTED,
   IncidentCreateAttributes.JSON_PROPERTY_FIELDS,
   IncidentCreateAttributes.JSON_PROPERTY_INITIAL_CELLS,
@@ -29,6 +30,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE = "customer_impact_scope";
+  private String customerImpactScope;
+
   public static final String JSON_PROPERTY_CUSTOMER_IMPACTED = "customer_impacted";
   private Boolean customerImpacted;
 
@@ -53,6 +57,28 @@ public class IncidentCreateAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
     this.customerImpacted = customerImpacted;
     this.title = title;
+  }
+
+  public IncidentCreateAttributes customerImpactScope(String customerImpactScope) {
+    this.customerImpactScope = customerImpactScope;
+    return this;
+  }
+
+  /**
+   * Required if <code>customer_impacted:"true"</code>. A summary of the impact customers
+   * experienced during the incident.
+   *
+   * @return customerImpactScope
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomerImpactScope() {
+    return customerImpactScope;
+  }
+
+  public void setCustomerImpactScope(String customerImpactScope) {
+    this.customerImpactScope = customerImpactScope;
   }
 
   public IncidentCreateAttributes customerImpacted(Boolean customerImpacted) {
@@ -204,7 +230,8 @@ public class IncidentCreateAttributes {
       return false;
     }
     IncidentCreateAttributes incidentCreateAttributes = (IncidentCreateAttributes) o;
-    return Objects.equals(this.customerImpacted, incidentCreateAttributes.customerImpacted)
+    return Objects.equals(this.customerImpactScope, incidentCreateAttributes.customerImpactScope)
+        && Objects.equals(this.customerImpacted, incidentCreateAttributes.customerImpacted)
         && Objects.equals(this.fields, incidentCreateAttributes.fields)
         && Objects.equals(this.initialCells, incidentCreateAttributes.initialCells)
         && Objects.equals(this.notificationHandles, incidentCreateAttributes.notificationHandles)
@@ -213,13 +240,17 @@ public class IncidentCreateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerImpacted, fields, initialCells, notificationHandles, title);
+    return Objects.hash(
+        customerImpactScope, customerImpacted, fields, initialCells, notificationHandles, title);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentCreateAttributes {\n");
+    sb.append("    customerImpactScope: ")
+        .append(toIndentedString(customerImpactScope))
+        .append("\n");
     sb.append("    customerImpacted: ").append(toIndentedString(customerImpacted)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    initialCells: ").append(toIndentedString(initialCells)).append("\n");
