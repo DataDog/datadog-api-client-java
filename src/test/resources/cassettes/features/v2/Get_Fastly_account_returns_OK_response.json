@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestGetFastlyaccountreturnsOKresponse1678702274\",\"name\":\"Test-Get_Fastly_account_returns_OK_response-1678702274\",\"services\":[]},\"type\":\"fastly-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/fastly/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"fastly-accounts\",\"id\":\"6d8f2860f9f3e953fb46d554b9a19627\",\"attributes\":{\"services\":[],\"name\":\"Test-Get_Fastly_account_returns_OK_response-1678702274\"}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "26bebde2-a12f-259c-5394-ea549b070d36"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/integrations/fastly/accounts/6d8f2860f9f3e953fb46d554b9a19627",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"fastly-accounts\",\"id\":\"6d8f2860f9f3e953fb46d554b9a19627\",\"attributes\":{\"name\":\"Test-Get_Fastly_account_returns_OK_response-1678702274\",\"services\":[]}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "95c0b036-d810-198e-a16c-89997a1f7018"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/fastly/accounts/6d8f2860f9f3e953fb46d554b9a19627",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "547c7cab-6527-346c-189d-408af92bc5e0"
+  }
+]

@@ -25,7 +25,7 @@ public class Example {
 
     Dashboard body =
         new Dashboard()
-            .title("Example-Create_a_new_dashboard_with_slo_widget")
+            .title("Example-Dashboard")
             .description("")
             .widgets(
                 Collections.singletonList(
@@ -43,7 +43,8 @@ public class Example {
                                     .sloId(SLO_DATA_0_ID)
                                     .showErrorBudget(true)
                                     .viewMode(WidgetViewMode.OVERALL)
-                                    .globalTimeTarget("0")))))
+                                    .globalTimeTarget("0")
+                                    .additionalQueryFilters("!host:excluded_host")))))
             .layoutType(DashboardLayoutType.FREE)
             .isReadOnly(false);
 

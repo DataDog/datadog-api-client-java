@@ -20,13 +20,15 @@ public class Example {
         new LogsMetricCreateRequest()
             .data(
                 new LogsMetricCreateData()
-                    .id("Example-Create_a_log_based_metric_returns_OK_response")
+                    .id("ExampleLogsMetric")
                     .type(LogsMetricType.LOGS_METRICS)
                     .attributes(
                         new LogsMetricCreateAttributes()
                             .compute(
                                 new LogsMetricCompute()
-                                    .aggregationType(LogsMetricComputeAggregationType.COUNT))));
+                                    .aggregationType(LogsMetricComputeAggregationType.DISTRIBUTION)
+                                    .includePercentiles(true)
+                                    .path("@duration"))));
 
     try {
       LogsMetricResponse result = apiInstance.createLogsMetric(body);

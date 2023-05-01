@@ -1,4 +1,5 @@
-// Get the list of all tests returns "OK - Returns the list of all Synthetic tests." response
+// Get the list of all Synthetic tests returns "OK - Returns the list of all Synthetic tests."
+// response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

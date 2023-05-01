@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"cases\":[{\"notifications\":[\"channel\"],\"status\":\"info\"}],\"complianceSignalOptions\":{\"userActivationStatus\":true,\"userGroupByFields\":[\"@account_id\"]},\"isEnabled\":false,\"message\":\"ddd\",\"name\":\"Test-Create_a_cloud_configuration_rule_returns_OK_response-1671216833_cloud\",\"options\":{\"complianceRuleOptions\":{\"complexRule\":false,\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"resourceType\":\"gcp_compute_disk\"}},\"tags\":[\"my:tag\"],\"type\":\"cloud_configuration\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[\"my:tag\"],\"type\":\"cloud_configuration\",\"isEnabled\":false,\"hasExtendedTitle\":true,\"message\":\"ddd\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":7200,\"maxSignalDuration\":86400,\"complianceRuleOptions\":{\"resourceType\":\"gcp_compute_disk\",\"regoRule\":{\"policy\":\"package datadog\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"complexRule\":false},\"keepAlive\":21600},\"version\":1,\"createdAt\":1671216834196,\"filters\":[],\"queries\":[{\"query\":\"resource_type:gcp_compute_disk\",\"groupByFields\":[\"resource_type\",\"resource_id\"],\"aggregation\":\"count\",\"name\":\"a\",\"distinctFields\":[]}],\"isDeleted\":false,\"complianceSignalOptions\":{\"defaultActivationStatus\":null,\"userActivationStatus\":true,\"defaultGroupByFields\":null,\"userGroupByFields\":[\"@account_id\"]},\"cases\":[{\"status\":\"info\",\"notifications\":[\"channel\"],\"name\":\"\",\"condition\":\"a > 0\"}],\"id\":\"fat-bma-9yo\",\"isDefault\":false,\"name\":\"Test-Create_a_cloud_configuration_rule_returns_OK_response-1671216833_cloud\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d06540ca-e8aa-cb41-1cd0-62b8c1919a24"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/rules/fat-bma-9yo",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "578b9528-6605-978c-f0b8-3aad6a998b79"
+  }
+]

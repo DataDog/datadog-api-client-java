@@ -173,7 +173,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.createGlobalVariable",
+              "v1.SyntheticsApi.createGlobalVariable",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -307,7 +307,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.createPrivateLocation",
+              "v1.SyntheticsApi.createPrivateLocation",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -440,7 +440,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.createSyntheticsAPITest",
+              "v1.SyntheticsApi.createSyntheticsAPITest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -575,7 +575,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.createSyntheticsBrowserTest",
+              "v1.SyntheticsApi.createSyntheticsBrowserTest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -712,7 +712,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.deleteGlobalVariable",
+              "v1.SyntheticsApi.deleteGlobalVariable",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -848,7 +848,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.deletePrivateLocation",
+              "v1.SyntheticsApi.deletePrivateLocation",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -981,7 +981,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.deleteTests",
+              "v1.SyntheticsApi.deleteTests",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1140,7 +1140,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.editGlobalVariable",
+              "v1.SyntheticsApi.editGlobalVariable",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1275,7 +1275,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getAPITest",
+              "v1.SyntheticsApi.getAPITest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1406,7 +1406,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the last 50 test results summaries for a given Synthetics API test.
+   * Get the last 150 test results summaries for a given Synthetics API test.
    *
    * @param publicId The public ID of the test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -1509,7 +1509,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getAPITestLatestResults",
+              "v1.SyntheticsApi.getAPITestLatestResults",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1670,7 +1670,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getAPITestResult",
+              "v1.SyntheticsApi.getAPITestResult",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1806,7 +1806,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getBrowserTest",
+              "v1.SyntheticsApi.getBrowserTest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1939,7 +1939,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the last 50 test results summaries for a given Synthetics Browser test.
+   * Get the last 150 test results summaries for a given Synthetics Browser test.
    *
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -2047,7 +2047,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getBrowserTestLatestResults",
+              "v1.SyntheticsApi.getBrowserTestLatestResults",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -2212,7 +2212,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getBrowserTestResult",
+              "v1.SyntheticsApi.getBrowserTestResult",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2350,7 +2350,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getGlobalVariable",
+              "v1.SyntheticsApi.getGlobalVariable",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2486,7 +2486,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getPrivateLocation",
+              "v1.SyntheticsApi.getPrivateLocation",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2620,7 +2620,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getSyntheticsCIBatch",
+              "v1.SyntheticsApi.getSyntheticsCIBatch",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2753,7 +2753,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.getTest",
+              "v1.SyntheticsApi.getTest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2864,7 +2864,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.listGlobalVariables",
+              "v1.SyntheticsApi.listGlobalVariables",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2974,7 +2974,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.listLocations",
+              "v1.SyntheticsApi.listLocations",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2997,8 +2997,37 @@ public class SyntheticsApi {
         new GenericType<SyntheticsLocations>() {});
   }
 
+  /** Manage optional parameters to listTests. */
+  public static class ListTestsOptionalParameters {
+    private String pageSize;
+    private String pageNumber;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Used for pagination. The number of tests returned in the page. (optional)
+     * @return ListTestsOptionalParameters
+     */
+    public ListTestsOptionalParameters pageSize(String pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Used for pagination. Which page you want to retrieve. Starts at zero.
+     *     (optional)
+     * @return ListTestsOptionalParameters
+     */
+    public ListTestsOptionalParameters pageNumber(String pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+  }
+
   /**
-   * Get the list of all tests.
+   * Get the list of all Synthetic tests.
    *
    * <p>See {@link #listTestsWithHttpInfo}.
    *
@@ -3006,18 +3035,18 @@ public class SyntheticsApi {
    * @throws ApiException if fails to make API call
    */
   public SyntheticsListTestsResponse listTests() throws ApiException {
-    return listTestsWithHttpInfo().getData();
+    return listTestsWithHttpInfo(new ListTestsOptionalParameters()).getData();
   }
 
   /**
-   * Get the list of all tests.
+   * Get the list of all Synthetic tests.
    *
    * <p>See {@link #listTestsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;SyntheticsListTestsResponse&gt;
    */
   public CompletableFuture<SyntheticsListTestsResponse> listTestsAsync() {
-    return listTestsWithHttpInfoAsync()
+    return listTestsWithHttpInfoAsync(new ListTestsOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -3027,6 +3056,38 @@ public class SyntheticsApi {
   /**
    * Get the list of all Synthetic tests.
    *
+   * <p>See {@link #listTestsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SyntheticsListTestsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsListTestsResponse listTests(ListTestsOptionalParameters parameters)
+      throws ApiException {
+    return listTestsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get the list of all Synthetic tests.
+   *
+   * <p>See {@link #listTestsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;SyntheticsListTestsResponse&gt;
+   */
+  public CompletableFuture<SyntheticsListTestsResponse> listTestsAsync(
+      ListTestsOptionalParameters parameters) {
+    return listTestsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of all Synthetic tests.
+   *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SyntheticsListTestsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -3039,18 +3100,25 @@ public class SyntheticsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo() throws ApiException {
+  public ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(
+      ListTestsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    String pageSize = parameters.pageSize;
+    String pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/tests";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v1.SyntheticsApi.listTests",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -3067,26 +3135,34 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the list of all tests.
+   * Get the list of all Synthetic tests.
    *
    * <p>See {@link #listTestsWithHttpInfo}.
    *
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsListTestsResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SyntheticsListTestsResponse>> listTestsWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<SyntheticsListTestsResponse>> listTestsWithHttpInfoAsync(
+      ListTestsOptionalParameters parameters) {
     Object localVarPostBody = null;
+    String pageSize = parameters.pageSize;
+    String pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/tests";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_number", pageNumber));
 
     Invocation.Builder builder;
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.listTests",
+              "v1.SyntheticsApi.listTests",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
@@ -3218,7 +3294,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.triggerCITests",
+              "v1.SyntheticsApi.triggerCITests",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3351,7 +3427,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.triggerTests",
+              "v1.SyntheticsApi.triggerTests",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3509,7 +3585,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.updateAPITest",
+              "v1.SyntheticsApi.updateAPITest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3666,7 +3742,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.updateBrowserTest",
+              "v1.SyntheticsApi.updateBrowserTest",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3824,7 +3900,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.updatePrivateLocation",
+              "v1.SyntheticsApi.updatePrivateLocation",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3981,7 +4057,7 @@ public class SyntheticsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SyntheticsApi.updateTestPauseStatus",
+              "v1.SyntheticsApi.updateTestPauseStatus",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"1679941998\",\"name\":\"1679941998\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"d8648c52-cccd-11ed-a275-da7ad0900002\",\"attributes\":{\"name\":\"1679941998\",\"handle\":\"1679941998\",\"summary\":null,\"description\":null,\"color\":3,\"created_at\":\"2023-03-27T18:33:18.917793+00:00\",\"modified_at\":\"2023-03-27T18:33:18.917799+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/d8648c52-cccd-11ed-a275-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/d8648c52-cccd-11ed-a275-da7ad0900002/permission-settings\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c2805196-d59c-d0fa-2dab-f8ee5363f1ea"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/d8648c52-cccd-11ed-a275-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0bc54bb3-e3b6-a318-26f0-bfc8ca1c847f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/d8648c52-cccd-11ed-a275-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Team for ID d8648c52-cccd-11ed-a275-da7ad0900002 not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0bc54bb3-e3b6-a318-26f0-bfc8ca1c8480"
+  }
+]

@@ -15,13 +15,11 @@ public class Example {
     EventCreateRequest body =
         new EventCreateRequest()
             .title(
-                "Example-Post_an_event_with_a_long_title_returns_OK_response very very very"
-                    + " looooooooong looooooooooooong loooooooooooooooooooooong"
-                    + " looooooooooooooooooooooooooong title with 100+ characters")
+                "Example-Event very very very looooooooong looooooooooooong"
+                    + " loooooooooooooooooooooong looooooooooooooooooooooooooong title with 100+"
+                    + " characters")
             .text("A text message.")
-            .tags(
-                Collections.singletonList(
-                    "test:ExamplePostaneventwithalongtitlereturnsOKresponse"));
+            .tags(Collections.singletonList("test:ExampleEvent"));
 
     try {
       EventCreateResponse result = apiInstance.createEvent(body);

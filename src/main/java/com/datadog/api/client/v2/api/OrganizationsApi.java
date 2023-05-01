@@ -188,7 +188,7 @@ public class OrganizationsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "OrganizationsApi.uploadIdPMetadata",
+              "v2.OrganizationsApi.uploadIdPMetadata",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

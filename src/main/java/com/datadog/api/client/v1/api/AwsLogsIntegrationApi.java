@@ -168,7 +168,7 @@ public class AwsLogsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsLogsIntegrationApi.checkAWSLogsLambdaAsync",
+              "v1.AwsLogsIntegrationApi.checkAWSLogsLambdaAsync",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -311,7 +311,7 @@ public class AwsLogsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsLogsIntegrationApi.checkAWSLogsServicesAsync",
+              "v1.AwsLogsIntegrationApi.checkAWSLogsServicesAsync",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -443,7 +443,7 @@ public class AwsLogsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsLogsIntegrationApi.createAWSLambdaARN",
+              "v1.AwsLogsIntegrationApi.createAWSLambdaARN",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -575,7 +575,7 @@ public class AwsLogsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsLogsIntegrationApi.deleteAWSLambdaARN",
+              "v1.AwsLogsIntegrationApi.deleteAWSLambdaARN",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -707,7 +707,7 @@ public class AwsLogsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsLogsIntegrationApi.enableAWSLogServices",
+              "v1.AwsLogsIntegrationApi.enableAWSLogServices",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -819,7 +819,7 @@ public class AwsLogsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsLogsIntegrationApi.listAWSLogsIntegrations",
+              "v1.AwsLogsIntegrationApi.listAWSLogsIntegrations",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -932,7 +932,7 @@ public class AwsLogsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsLogsIntegrationApi.listAWSLogsServices",
+              "v1.AwsLogsIntegrationApi.listAWSLogsServices",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

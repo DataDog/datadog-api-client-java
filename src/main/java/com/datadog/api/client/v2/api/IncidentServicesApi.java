@@ -177,7 +177,7 @@ public class IncidentServicesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentServicesApi.createIncidentService",
+              "v2.IncidentServicesApi.createIncidentService",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -330,7 +330,7 @@ public class IncidentServicesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentServicesApi.deleteIncidentService",
+              "v2.IncidentServicesApi.deleteIncidentService",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -548,7 +548,7 @@ public class IncidentServicesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentServicesApi.getIncidentService",
+              "v2.IncidentServicesApi.getIncidentService",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -593,7 +593,8 @@ public class IncidentServicesApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. (optional, default to 10)
+     * @param pageSize Size for a given page. The maximum allowed value is 5000. (optional, default
+     *     to 10)
      * @return ListIncidentServicesOptionalParameters
      */
     public ListIncidentServicesOptionalParameters pageSize(Long pageSize) {
@@ -788,7 +789,7 @@ public class IncidentServicesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentServicesApi.listIncidentServices",
+              "v2.IncidentServicesApi.listIncidentServices",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -965,7 +966,7 @@ public class IncidentServicesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentServicesApi.updateIncidentService",
+              "v2.IncidentServicesApi.updateIncidentService",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

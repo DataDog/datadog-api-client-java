@@ -169,7 +169,7 @@ public class OrganizationsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "OrganizationsApi.createChildOrg",
+              "v1.OrganizationsApi.createChildOrg",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -309,7 +309,7 @@ public class OrganizationsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "OrganizationsApi.downgradeOrg",
+              "v1.OrganizationsApi.downgradeOrg",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -445,7 +445,7 @@ public class OrganizationsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "OrganizationsApi.getOrg",
+              "v1.OrganizationsApi.getOrg",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -554,7 +554,7 @@ public class OrganizationsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "OrganizationsApi.listOrgs",
+              "v1.OrganizationsApi.listOrgs",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -711,7 +711,7 @@ public class OrganizationsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "OrganizationsApi.updateOrg",
+              "v1.OrganizationsApi.updateOrg",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -884,7 +884,7 @@ public class OrganizationsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "OrganizationsApi.uploadIdPForOrg",
+              "v1.OrganizationsApi.uploadIdPForOrg",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

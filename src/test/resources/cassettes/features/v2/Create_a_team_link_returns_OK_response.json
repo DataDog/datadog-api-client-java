@@ -1,0 +1,104 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"1679941979\",\"name\":\"1679941979\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"cceda3d6-cccd-11ed-aae5-da7ad0900002\",\"attributes\":{\"name\":\"1679941979\",\"handle\":\"1679941979\",\"summary\":null,\"description\":null,\"color\":0,\"created_at\":\"2023-03-27T18:32:59.683291+00:00\",\"modified_at\":\"2023-03-27T18:32:59.683295+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/cceda3d6-cccd-11ed-aae5-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/cceda3d6-cccd-11ed-aae5-da7ad0900002/permission-settings\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bac88302-52b6-297b-e40f-a92ac223c9f1"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"label\":\"Link label\",\"position\":0,\"url\":\"https://example.com\"},\"type\":\"team_links\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team/cceda3d6-cccd-11ed-aae5-da7ad0900002/links",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"team_links\",\"id\":\"cd25c6bc-cccd-11ed-830b-da7ad0900002\",\"attributes\":{\"team_id\":\"cceda3d6-cccd-11ed-aae5-da7ad0900002\",\"label\":\"Link label\",\"url\":\"https://example.com\",\"position\":0}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8ca86d71-31e3-819d-fffa-a61a11a104a3"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/cceda3d6-cccd-11ed-aae5-da7ad0900002/links/cd25c6bc-cccd-11ed-830b-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "df706bbc-7770-a42b-d4d8-a99552129850"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/cceda3d6-cccd-11ed-aae5-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "be28b64e-b7c6-6423-b207-3053768ec738"
+  }
+]

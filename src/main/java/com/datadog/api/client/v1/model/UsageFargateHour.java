@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Number of Fargate tasks run and hourly usage. */
 @JsonPropertyOrder({
@@ -30,14 +31,14 @@ import java.util.Objects;
 public class UsageFargateHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_FARGATE_COUNT = "apm_fargate_count";
-  private Long apmFargateCount;
+  private JsonNullable<Long> apmFargateCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_APPSEC_FARGATE_COUNT = "appsec_fargate_count";
-  private Long appsecFargateCount;
+  private JsonNullable<Long> appsecFargateCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS =
       "avg_profiled_fargate_tasks";
-  private Long avgProfiledFargateTasks;
+  private JsonNullable<Long> avgProfiledFargateTasks = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
@@ -51,10 +52,10 @@ public class UsageFargateHour {
   private String publicId;
 
   public static final String JSON_PROPERTY_TASKS_COUNT = "tasks_count";
-  private Long tasksCount;
+  private JsonNullable<Long> tasksCount = JsonNullable.<Long>undefined();
 
   public UsageFargateHour apmFargateCount(Long apmFargateCount) {
-    this.apmFargateCount = apmFargateCount;
+    this.apmFargateCount = JsonNullable.<Long>of(apmFargateCount);
     return this;
   }
 
@@ -64,18 +65,28 @@ public class UsageFargateHour {
    * @return apmFargateCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getApmFargateCount() {
+    return apmFargateCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_APM_FARGATE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getApmFargateCount() {
+  public JsonNullable<Long> getApmFargateCount_JsonNullable() {
     return apmFargateCount;
   }
 
-  public void setApmFargateCount(Long apmFargateCount) {
+  @JsonProperty(JSON_PROPERTY_APM_FARGATE_COUNT)
+  public void setApmFargateCount_JsonNullable(JsonNullable<Long> apmFargateCount) {
     this.apmFargateCount = apmFargateCount;
   }
 
+  public void setApmFargateCount(Long apmFargateCount) {
+    this.apmFargateCount = JsonNullable.<Long>of(apmFargateCount);
+  }
+
   public UsageFargateHour appsecFargateCount(Long appsecFargateCount) {
-    this.appsecFargateCount = appsecFargateCount;
+    this.appsecFargateCount = JsonNullable.<Long>of(appsecFargateCount);
     return this;
   }
 
@@ -85,18 +96,28 @@ public class UsageFargateHour {
    * @return appsecFargateCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getAppsecFargateCount() {
+    return appsecFargateCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_APPSEC_FARGATE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAppsecFargateCount() {
+  public JsonNullable<Long> getAppsecFargateCount_JsonNullable() {
     return appsecFargateCount;
   }
 
-  public void setAppsecFargateCount(Long appsecFargateCount) {
+  @JsonProperty(JSON_PROPERTY_APPSEC_FARGATE_COUNT)
+  public void setAppsecFargateCount_JsonNullable(JsonNullable<Long> appsecFargateCount) {
     this.appsecFargateCount = appsecFargateCount;
   }
 
+  public void setAppsecFargateCount(Long appsecFargateCount) {
+    this.appsecFargateCount = JsonNullable.<Long>of(appsecFargateCount);
+  }
+
   public UsageFargateHour avgProfiledFargateTasks(Long avgProfiledFargateTasks) {
-    this.avgProfiledFargateTasks = avgProfiledFargateTasks;
+    this.avgProfiledFargateTasks = JsonNullable.<Long>of(avgProfiledFargateTasks);
     return this;
   }
 
@@ -106,14 +127,24 @@ public class UsageFargateHour {
    * @return avgProfiledFargateTasks
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getAvgProfiledFargateTasks() {
+    return avgProfiledFargateTasks.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAvgProfiledFargateTasks() {
+  public JsonNullable<Long> getAvgProfiledFargateTasks_JsonNullable() {
     return avgProfiledFargateTasks;
   }
 
-  public void setAvgProfiledFargateTasks(Long avgProfiledFargateTasks) {
+  @JsonProperty(JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS)
+  public void setAvgProfiledFargateTasks_JsonNullable(JsonNullable<Long> avgProfiledFargateTasks) {
     this.avgProfiledFargateTasks = avgProfiledFargateTasks;
+  }
+
+  public void setAvgProfiledFargateTasks(Long avgProfiledFargateTasks) {
+    this.avgProfiledFargateTasks = JsonNullable.<Long>of(avgProfiledFargateTasks);
   }
 
   public UsageFargateHour hour(OffsetDateTime hour) {
@@ -180,7 +211,7 @@ public class UsageFargateHour {
   }
 
   public UsageFargateHour tasksCount(Long tasksCount) {
-    this.tasksCount = tasksCount;
+    this.tasksCount = JsonNullable.<Long>of(tasksCount);
     return this;
   }
 
@@ -190,14 +221,24 @@ public class UsageFargateHour {
    * @return tasksCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getTasksCount() {
+    return tasksCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TASKS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTasksCount() {
+  public JsonNullable<Long> getTasksCount_JsonNullable() {
     return tasksCount;
   }
 
-  public void setTasksCount(Long tasksCount) {
+  @JsonProperty(JSON_PROPERTY_TASKS_COUNT)
+  public void setTasksCount_JsonNullable(JsonNullable<Long> tasksCount) {
     this.tasksCount = tasksCount;
+  }
+
+  public void setTasksCount(Long tasksCount) {
+    this.tasksCount = JsonNullable.<Long>of(tasksCount);
   }
 
   /** Return true if this UsageFargateHour object is equal to o. */

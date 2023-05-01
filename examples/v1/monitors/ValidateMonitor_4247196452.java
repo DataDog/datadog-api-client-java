@@ -18,15 +18,14 @@ public class Example {
 
     Monitor body =
         new Monitor()
-            .name("Example-Validate_a_multi_alert_monitor_returns_OK_response")
+            .name("Example-Monitor")
             .type(MonitorType.LOG_ALERT)
             .query(
                 """
 logs("service:foo AND type:error").index("main").rollup("count").by("source,status").last("5m") > 2
 """)
             .message("some message Notify: @hipchat-channel")
-            .tags(
-                Arrays.asList("test:examplevalidateamultialertmonitorreturnsokresponse", "env:ci"))
+            .tags(Arrays.asList("test:examplemonitor", "env:ci"))
             .priority(3L)
             .options(
                 new MonitorOptions()

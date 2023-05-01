@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Number of Synthetics Browser tests run for each hour for a given organization. */
 @JsonPropertyOrder({
@@ -27,7 +28,7 @@ import java.util.Objects;
 public class UsageSyntheticsBrowserHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BROWSER_CHECK_CALLS_COUNT = "browser_check_calls_count";
-  private Long browserCheckCallsCount;
+  private JsonNullable<Long> browserCheckCallsCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
@@ -41,7 +42,7 @@ public class UsageSyntheticsBrowserHour {
   private String publicId;
 
   public UsageSyntheticsBrowserHour browserCheckCallsCount(Long browserCheckCallsCount) {
-    this.browserCheckCallsCount = browserCheckCallsCount;
+    this.browserCheckCallsCount = JsonNullable.<Long>of(browserCheckCallsCount);
     return this;
   }
 
@@ -51,14 +52,24 @@ public class UsageSyntheticsBrowserHour {
    * @return browserCheckCallsCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getBrowserCheckCallsCount() {
+    return browserCheckCallsCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_BROWSER_CHECK_CALLS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getBrowserCheckCallsCount() {
+  public JsonNullable<Long> getBrowserCheckCallsCount_JsonNullable() {
     return browserCheckCallsCount;
   }
 
-  public void setBrowserCheckCallsCount(Long browserCheckCallsCount) {
+  @JsonProperty(JSON_PROPERTY_BROWSER_CHECK_CALLS_COUNT)
+  public void setBrowserCheckCallsCount_JsonNullable(JsonNullable<Long> browserCheckCallsCount) {
     this.browserCheckCallsCount = browserCheckCallsCount;
+  }
+
+  public void setBrowserCheckCallsCount(Long browserCheckCallsCount) {
+    this.browserCheckCallsCount = JsonNullable.<Long>of(browserCheckCallsCount);
   }
 
   public UsageSyntheticsBrowserHour hour(OffsetDateTime hour) {

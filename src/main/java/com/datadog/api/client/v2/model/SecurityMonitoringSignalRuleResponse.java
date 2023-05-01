@@ -19,6 +19,7 @@ import java.util.Objects;
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CASES,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_DEPRECATION_DATE,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_FILTERS,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_HAS_EXTENDED_TITLE,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_ID,
@@ -46,6 +47,9 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public static final String JSON_PROPERTY_CREATION_AUTHOR_ID = "creationAuthorId";
   private Long creationAuthorId;
+
+  public static final String JSON_PROPERTY_DEPRECATION_DATE = "deprecationDate";
+  private Long deprecationDate;
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<SecurityMonitoringFilter> filters = null;
@@ -162,6 +166,27 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public void setCreationAuthorId(Long creationAuthorId) {
     this.creationAuthorId = creationAuthorId;
+  }
+
+  public SecurityMonitoringSignalRuleResponse deprecationDate(Long deprecationDate) {
+    this.deprecationDate = deprecationDate;
+    return this;
+  }
+
+  /**
+   * When the rule will be deprecated, timestamp in milliseconds.
+   *
+   * @return deprecationDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEPRECATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDeprecationDate() {
+    return deprecationDate;
+  }
+
+  public void setDeprecationDate(Long deprecationDate) {
+    this.deprecationDate = deprecationDate;
   }
 
   public SecurityMonitoringSignalRuleResponse filters(List<SecurityMonitoringFilter> filters) {
@@ -512,6 +537,8 @@ public class SecurityMonitoringSignalRuleResponse {
         && Objects.equals(this.createdAt, securityMonitoringSignalRuleResponse.createdAt)
         && Objects.equals(
             this.creationAuthorId, securityMonitoringSignalRuleResponse.creationAuthorId)
+        && Objects.equals(
+            this.deprecationDate, securityMonitoringSignalRuleResponse.deprecationDate)
         && Objects.equals(this.filters, securityMonitoringSignalRuleResponse.filters)
         && Objects.equals(
             this.hasExtendedTitle, securityMonitoringSignalRuleResponse.hasExtendedTitle)
@@ -535,6 +562,7 @@ public class SecurityMonitoringSignalRuleResponse {
         cases,
         createdAt,
         creationAuthorId,
+        deprecationDate,
         filters,
         hasExtendedTitle,
         id,
@@ -558,6 +586,7 @@ public class SecurityMonitoringSignalRuleResponse {
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
+    sb.append("    deprecationDate: ").append(toIndentedString(deprecationDate)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

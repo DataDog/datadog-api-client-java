@@ -540,7 +540,7 @@ public class TestClient implements Client {
           break;
         }
       }
-      if (contentType.contains("application/json") || contentType.contains("text/json")) {
+      if (contentType.contains("json")) {
         try {
           return this.mapper.readValue(this.body, this.mapper.constructType(genericType.getType()));
         } catch (IOException e) {

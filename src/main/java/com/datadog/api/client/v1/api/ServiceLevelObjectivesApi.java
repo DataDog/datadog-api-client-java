@@ -174,7 +174,7 @@ public class ServiceLevelObjectivesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectivesApi.checkCanDeleteSLO",
+              "v1.ServiceLevelObjectivesApi.checkCanDeleteSLO",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -303,7 +303,7 @@ public class ServiceLevelObjectivesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectivesApi.createSLO",
+              "v1.ServiceLevelObjectivesApi.createSLO",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -500,7 +500,7 @@ public class ServiceLevelObjectivesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectivesApi.deleteSLO",
+              "v1.ServiceLevelObjectivesApi.deleteSLO",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -637,7 +637,7 @@ public class ServiceLevelObjectivesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk",
+              "v1.ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -830,7 +830,7 @@ public class ServiceLevelObjectivesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectivesApi.getSLO",
+              "v1.ServiceLevelObjectivesApi.getSLO",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -966,7 +966,7 @@ public class ServiceLevelObjectivesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectivesApi.getSLOCorrections",
+              "v1.ServiceLevelObjectivesApi.getSLOCorrections",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1239,7 +1239,7 @@ public class ServiceLevelObjectivesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectivesApi.getSLOHistory",
+              "v1.ServiceLevelObjectivesApi.getSLOHistory",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1490,7 +1490,7 @@ public class ServiceLevelObjectivesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectivesApi.listSLOs",
+              "v1.ServiceLevelObjectivesApi.listSLOs",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1645,13 +1645,6 @@ public class ServiceLevelObjectivesApi {
    */
   public ApiResponse<SearchSLOResponse> searchSLOWithHttpInfo(
       SearchSLOOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "searchSLO";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     String query = parameters.query;
     Long pageSize = parameters.pageSize;
@@ -1698,16 +1691,6 @@ public class ServiceLevelObjectivesApi {
    */
   public CompletableFuture<ApiResponse<SearchSLOResponse>> searchSLOWithHttpInfoAsync(
       SearchSLOOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "searchSLO";
-    if (apiClient.isUnstableOperationEnabled("v1." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<SearchSLOResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     String query = parameters.query;
     Long pageSize = parameters.pageSize;
@@ -1728,7 +1711,7 @@ public class ServiceLevelObjectivesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectivesApi.searchSLO",
+              "v1.ServiceLevelObjectivesApi.searchSLO",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1880,7 +1863,7 @@ public class ServiceLevelObjectivesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "ServiceLevelObjectivesApi.updateSLO",
+              "v1.ServiceLevelObjectivesApi.updateSLO",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

@@ -8,7 +8,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Application Not Found not found\"]}\n",
+      "body": "{\"errors\":[\"Application Not Found not found\"]}",
       "headers": {
         "Content-Type": [
           "application/json"

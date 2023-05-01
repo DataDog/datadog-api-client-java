@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"1679941981\",\"name\":\"1679941981\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"cddc7ff6-cccd-11ed-9329-da7ad0900002\",\"attributes\":{\"name\":\"1679941981\",\"handle\":\"1679941981\",\"summary\":null,\"description\":null,\"color\":11,\"created_at\":\"2023-03-27T18:33:01.249180+00:00\",\"modified_at\":\"2023-03-27T18:33:01.249185+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/cddc7ff6-cccd-11ed-9329-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/cddc7ff6-cccd-11ed-9329-da7ad0900002/permission-settings\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "52639f5d-062d-eb81-2bbb-efb6b98d2b82"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"1679941981\",\"name\":\"Example Team\"},\"relationships\":{\"users\":{\"data\":[]}},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Team name and handle must be unique\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 409,
+      "reasonPhrase": "Conflict"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "57616193-b5c4-2817-6297-89d470bba3cc"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/cddc7ff6-cccd-11ed-9329-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "aad14632-6308-a1b2-cf5f-ea71a9bbede2"
+  }
+]

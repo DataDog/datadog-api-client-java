@@ -28,7 +28,7 @@ public class Example {
     Dashboard body =
         new Dashboard()
             .layoutType(DashboardLayoutType.ORDERED)
-            .title("Example-Create_a_new_dashboard_with_an_audit_logs_query with Audit Logs Query")
+            .title("Example-Dashboard with Audit Logs Query")
             .widgets(
                 Collections.singletonList(
                     new Widget()

@@ -15,7 +15,7 @@ public class Example {
       CIAppPipelineEventsResponse result =
           apiInstance.listCIAppPipelineEvents(
               new ListCIAppPipelineEventsOptionalParameters()
-                  .filterQuery("@ci.provider.instance:circleci")
+                  .filterQuery("@ci.provider.name:circleci")
                   .filterFrom(OffsetDateTime.now().plusMinutes(-30))
                   .filterTo(OffsetDateTime.now())
                   .pageLimit(5));

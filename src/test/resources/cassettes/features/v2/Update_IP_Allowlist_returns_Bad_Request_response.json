@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"entries\":[]},\"type\":\"ip_allowlist\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/ip_allowlist",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Cannot enable or keep enabled an IP Allowlist without the current IP address in it\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c9e94d91-677b-3d14-5989-bf72fab6873a"
+  }
+]

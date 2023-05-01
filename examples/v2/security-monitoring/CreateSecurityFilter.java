@@ -30,8 +30,8 @@ public class Example {
                                         .query("source:staging")))
                             .filteredDataType(SecurityFilterFilteredDataType.LOGS)
                             .isEnabled(true)
-                            .name("Example-Create_a_security_filter_returns_OK_response")
-                            .query("service:ExampleCreateasecurityfilterreturnsOKresponse"))
+                            .name("Example-Security-Monitoring")
+                            .query("service:ExampleSecurityMonitoring"))
                     .type(SecurityFilterType.SECURITY_FILTERS));
 
     try {

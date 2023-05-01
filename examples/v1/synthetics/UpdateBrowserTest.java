@@ -3,7 +3,6 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
-import com.datadog.api.client.v1.model.HTTPMethod;
 import com.datadog.api.client.v1.model.SyntheticsBasicAuth;
 import com.datadog.api.client.v1.model.SyntheticsBasicAuthWeb;
 import com.datadog.api.client.v1.model.SyntheticsBasicAuthWebType;
@@ -18,17 +17,22 @@ import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
 import com.datadog.api.client.v1.model.SyntheticsDeviceID;
 import com.datadog.api.client.v1.model.SyntheticsStep;
 import com.datadog.api.client.v1.model.SyntheticsStepType;
+import com.datadog.api.client.v1.model.SyntheticsTestCallType;
 import com.datadog.api.client.v1.model.SyntheticsTestCiOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestExecutionRule;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsHTTPVersion;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsMonitorOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsScheduling;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsSchedulingTimeframe;
 import com.datadog.api.client.v1.model.SyntheticsTestPauseStatus;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestBodyType;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificate;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificateItem;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestProxy;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -44,6 +48,7 @@ public class Example {
                         Collections.singletonList(
                             new SyntheticsConfigVariable()
                                 .name("VARIABLE_NAME")
+                                .secure(false)
                                 .type(SyntheticsConfigVariableType.TEXT)))
                     .request(
                         new SyntheticsTestRequest()
@@ -54,12 +59,13 @@ public class Example {
                                         .type(SyntheticsBasicAuthWebType.WEB)
                                         .username("my_username")))
                             .bodyType(SyntheticsTestRequestBodyType.TEXT_PLAIN)
+                            .callType(SyntheticsTestCallType.UNARY)
                             .certificate(
                                 new SyntheticsTestRequestCertificate()
                                     .cert(new SyntheticsTestRequestCertificateItem())
                                     .key(new SyntheticsTestRequestCertificateItem()))
-                            .method(HTTPMethod.GET)
                             .proxy(new SyntheticsTestRequestProxy().url("https://example.com"))
+                            .service("Greeter")
                             .url("https://example.com"))
                     .variables(
                         Collections.singletonList(
@@ -75,6 +81,7 @@ public class Example {
                         new SyntheticsTestCiOptions()
                             .executionRule(SyntheticsTestExecutionRule.BLOCKING))
                     .deviceIds(Collections.singletonList(SyntheticsDeviceID.LAPTOP_LARGE))
+                    .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP1)
                     .monitorOptions(new SyntheticsTestOptionsMonitorOptions())
                     .restrictedRoles(
                         Collections.singletonList("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"))
@@ -83,7 +90,20 @@ public class Example {
                         new SyntheticsBrowserTestRumSettings()
                             .applicationId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
                             .clientTokenId(12345L)
-                            .isEnabled(true)))
+                            .isEnabled(true))
+                    .scheduling(
+                        new SyntheticsTestOptionsScheduling()
+                            .timeframes(
+                                Arrays.asList(
+                                    new SyntheticsTestOptionsSchedulingTimeframe()
+                                        .day(1)
+                                        .from("07:00")
+                                        .to("16:00"),
+                                    new SyntheticsTestOptionsSchedulingTimeframe()
+                                        .day(3)
+                                        .from("07:00")
+                                        .to("16:00")))
+                            .timezone("America/New_York")))
             .status(SyntheticsTestPauseStatus.LIVE)
             .steps(
                 Collections.singletonList(

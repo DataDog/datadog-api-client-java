@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"datacenter\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"id\":\"00000000-0000-1234-0000-000000000000\",\"type\":\"monitor-config-policy\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/monitor/policy/00000000-0000-1234-0000-000000000000",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Monitor configuration policy not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "df9772f7-e181-dd11-d6c5-4dd609d56d40"
+  }
+]

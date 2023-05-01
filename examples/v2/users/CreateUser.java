@@ -22,7 +22,7 @@ public class Example {
                     .attributes(
                         new UserCreateAttributes()
                             .name("Datadog API Client Python")
-                            .email("Example-Create_a_user_returns_OK_response@datadoghq.com")));
+                            .email("Example-User@datadoghq.com")));
 
     try {
       UserResponse result = apiInstance.createUser(body);

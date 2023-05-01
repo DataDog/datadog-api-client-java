@@ -26,7 +26,7 @@ public class Example {
 
     SecurityMonitoringRuleUpdatePayload body =
         new SecurityMonitoringRuleUpdatePayload()
-            .name("Example-Update_an_existing_rule_returns_OK_response-Updated")
+            .name("Example-Security-Monitoring-Updated")
             .queries(
                 Collections.singletonList(
                     new SecurityMonitoringRuleQuery(

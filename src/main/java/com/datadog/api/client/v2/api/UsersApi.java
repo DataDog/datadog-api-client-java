@@ -6,7 +6,6 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.PermissionsResponse;
 import com.datadog.api.client.v2.model.QuerySortOrder;
-import com.datadog.api.client.v2.model.ServiceAccountCreateRequest;
 import com.datadog.api.client.v2.model.UserCreateRequest;
 import com.datadog.api.client.v2.model.UserInvitationResponse;
 import com.datadog.api.client.v2.model.UserInvitationsRequest;
@@ -51,138 +50,6 @@ public class UsersApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
-  }
-
-  /**
-   * Create a service account.
-   *
-   * <p>See {@link #createServiceAccountWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return UserResponse
-   * @throws ApiException if fails to make API call
-   */
-  public UserResponse createServiceAccount(ServiceAccountCreateRequest body) throws ApiException {
-    return createServiceAccountWithHttpInfo(body).getData();
-  }
-
-  /**
-   * Create a service account.
-   *
-   * <p>See {@link #createServiceAccountWithHttpInfoAsync}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;UserResponse&gt;
-   */
-  public CompletableFuture<UserResponse> createServiceAccountAsync(
-      ServiceAccountCreateRequest body) {
-    return createServiceAccountWithHttpInfoAsync(body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Create a service account for your organization.
-   *
-   * @param body (required)
-   * @return ApiResponse&lt;UserResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<UserResponse> createServiceAccountWithHttpInfo(
-      ServiceAccountCreateRequest body) throws ApiException {
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createServiceAccount");
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/service_accounts";
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.UsersApi.createServiceAccount",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<UserResponse>() {});
-  }
-
-  /**
-   * Create a service account.
-   *
-   * <p>See {@link #createServiceAccountWithHttpInfo}.
-   *
-   * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;UserResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<UserResponse>> createServiceAccountWithHttpInfoAsync(
-      ServiceAccountCreateRequest body) {
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      CompletableFuture<ApiResponse<UserResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling createServiceAccount"));
-      return result;
-    }
-    // create path and map variables
-    String localVarPath = "/api/v2/service_accounts";
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "UsersApi.createServiceAccount",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<UserResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<UserResponse>() {});
   }
 
   /**
@@ -291,7 +158,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.createUser",
+              "v2.UsersApi.createUser",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -423,7 +290,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.disableUser",
+              "v2.UsersApi.disableUser",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -563,7 +430,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.getInvitation",
+              "v2.UsersApi.getInvitation",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -694,7 +561,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.getUser",
+              "v2.UsersApi.getUser",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -830,7 +697,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.listUserOrganizations",
+              "v2.UsersApi.listUserOrganizations",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -966,7 +833,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.listUserPermissions",
+              "v2.UsersApi.listUserPermissions",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1001,7 +868,8 @@ public class UsersApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. (optional, default to 10)
+     * @param pageSize Size for a given page. The maximum allowed value is 5000. (optional, default
+     *     to 10)
      * @return ListUsersOptionalParameters
      */
     public ListUsersOptionalParameters pageSize(Long pageSize) {
@@ -1220,7 +1088,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.listUsers",
+              "v2.UsersApi.listUsers",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1352,7 +1220,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.sendInvitations",
+              "v2.UsersApi.sendInvitations",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1505,7 +1373,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.updateUser",
+              "v2.UsersApi.updateUser",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

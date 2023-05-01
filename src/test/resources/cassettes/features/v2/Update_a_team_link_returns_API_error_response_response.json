@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"1679942001\",\"name\":\"1679942001\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"d9f9633a-cccd-11ed-b011-da7ad0900002\",\"attributes\":{\"name\":\"1679942001\",\"handle\":\"1679942001\",\"summary\":null,\"description\":null,\"color\":9,\"created_at\":\"2023-03-27T18:33:21.571325+00:00\",\"modified_at\":\"2023-03-27T18:33:21.571330+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/d9f9633a-cccd-11ed-b011-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/d9f9633a-cccd-11ed-b011-da7ad0900002/permission-settings\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "36393aac-1b5a-f645-ffe8-1bc43b3aabec"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"label\":\"Link label\",\"url\":\"https://example.com\"},\"type\":\"team_links\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/team/d9f9633a-cccd-11ed-b011-da7ad0900002/links/REPLACE.ME",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"REPLACE.ME is not a valid UUID not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "681ebe3b-e473-7e97-0e3e-1f018c4214f9"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/d9f9633a-cccd-11ed-b011-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bc29ed09-5987-1906-43af-72e2cc76d6bc"
+  }
+]

@@ -31,12 +31,19 @@ public class SecurityMonitoringSignalArchiveReason {
       new SecurityMonitoringSignalArchiveReason("false_positive");
   public static final SecurityMonitoringSignalArchiveReason TESTING_OR_MAINTENANCE =
       new SecurityMonitoringSignalArchiveReason("testing_or_maintenance");
+  public static final SecurityMonitoringSignalArchiveReason INVESTIGATED_CASE_OPENED =
+      new SecurityMonitoringSignalArchiveReason("investigated_case_opened");
   public static final SecurityMonitoringSignalArchiveReason OTHER =
       new SecurityMonitoringSignalArchiveReason("other");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("none", "false_positive", "testing_or_maintenance", "other"));
+          Arrays.asList(
+              "none",
+              "false_positive",
+              "testing_or_maintenance",
+              "investigated_case_opened",
+              "other"));
 
   private String value;
 

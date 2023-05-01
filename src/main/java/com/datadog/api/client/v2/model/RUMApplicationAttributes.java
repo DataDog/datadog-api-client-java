@@ -16,9 +16,11 @@ import java.util.Objects;
 /** RUM application attributes. */
 @JsonPropertyOrder({
   RUMApplicationAttributes.JSON_PROPERTY_APPLICATION_ID,
+  RUMApplicationAttributes.JSON_PROPERTY_CLIENT_TOKEN,
   RUMApplicationAttributes.JSON_PROPERTY_CREATED_AT,
   RUMApplicationAttributes.JSON_PROPERTY_CREATED_BY_HANDLE,
   RUMApplicationAttributes.JSON_PROPERTY_HASH,
+  RUMApplicationAttributes.JSON_PROPERTY_IS_ACTIVE,
   RUMApplicationAttributes.JSON_PROPERTY_NAME,
   RUMApplicationAttributes.JSON_PROPERTY_ORG_ID,
   RUMApplicationAttributes.JSON_PROPERTY_TYPE,
@@ -32,6 +34,9 @@ public class RUMApplicationAttributes {
   public static final String JSON_PROPERTY_APPLICATION_ID = "application_id";
   private String applicationId;
 
+  public static final String JSON_PROPERTY_CLIENT_TOKEN = "client_token";
+  private String clientToken;
+
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private Long createdAt;
 
@@ -40,6 +45,9 @@ public class RUMApplicationAttributes {
 
   public static final String JSON_PROPERTY_HASH = "hash";
   private String hash;
+
+  public static final String JSON_PROPERTY_IS_ACTIVE = "is_active";
+  private Boolean isActive;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -61,6 +69,7 @@ public class RUMApplicationAttributes {
   @JsonCreator
   public RUMApplicationAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) String applicationId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_TOKEN) String clientToken,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_AT) Long createdAt,
       @JsonProperty(required = true, value = JSON_PROPERTY_CREATED_BY_HANDLE)
           String createdByHandle,
@@ -71,6 +80,7 @@ public class RUMApplicationAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_UPDATED_BY_HANDLE)
           String updatedByHandle) {
     this.applicationId = applicationId;
+    this.clientToken = clientToken;
     this.createdAt = createdAt;
     this.createdByHandle = createdByHandle;
     this.name = name;
@@ -98,6 +108,26 @@ public class RUMApplicationAttributes {
 
   public void setApplicationId(String applicationId) {
     this.applicationId = applicationId;
+  }
+
+  public RUMApplicationAttributes clientToken(String clientToken) {
+    this.clientToken = clientToken;
+    return this;
+  }
+
+  /**
+   * Client token of the RUM application.
+   *
+   * @return clientToken
+   */
+  @JsonProperty(JSON_PROPERTY_CLIENT_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getClientToken() {
+    return clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
   }
 
   public RUMApplicationAttributes createdAt(Long createdAt) {
@@ -146,7 +176,7 @@ public class RUMApplicationAttributes {
   }
 
   /**
-   * Client token of the RUM application.
+   * Hash of the RUM application. Optional.
    *
    * @return hash
    */
@@ -159,6 +189,27 @@ public class RUMApplicationAttributes {
 
   public void setHash(String hash) {
     this.hash = hash;
+  }
+
+  public RUMApplicationAttributes isActive(Boolean isActive) {
+    this.isActive = isActive;
+    return this;
+  }
+
+  /**
+   * Indicates if the RUM application is active.
+   *
+   * @return isActive
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_ACTIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsActive() {
+    return isActive;
+  }
+
+  public void setIsActive(Boolean isActive) {
+    this.isActive = isActive;
   }
 
   public RUMApplicationAttributes name(String name) {
@@ -273,9 +324,11 @@ public class RUMApplicationAttributes {
     }
     RUMApplicationAttributes rumApplicationAttributes = (RUMApplicationAttributes) o;
     return Objects.equals(this.applicationId, rumApplicationAttributes.applicationId)
+        && Objects.equals(this.clientToken, rumApplicationAttributes.clientToken)
         && Objects.equals(this.createdAt, rumApplicationAttributes.createdAt)
         && Objects.equals(this.createdByHandle, rumApplicationAttributes.createdByHandle)
         && Objects.equals(this.hash, rumApplicationAttributes.hash)
+        && Objects.equals(this.isActive, rumApplicationAttributes.isActive)
         && Objects.equals(this.name, rumApplicationAttributes.name)
         && Objects.equals(this.orgId, rumApplicationAttributes.orgId)
         && Objects.equals(this.type, rumApplicationAttributes.type)
@@ -287,9 +340,11 @@ public class RUMApplicationAttributes {
   public int hashCode() {
     return Objects.hash(
         applicationId,
+        clientToken,
         createdAt,
         createdByHandle,
         hash,
+        isActive,
         name,
         orgId,
         type,
@@ -302,9 +357,11 @@ public class RUMApplicationAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class RUMApplicationAttributes {\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
+    sb.append("    clientToken: ").append(toIndentedString(clientToken)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    createdByHandle: ").append(toIndentedString(createdByHandle)).append("\n");
     sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
+    sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

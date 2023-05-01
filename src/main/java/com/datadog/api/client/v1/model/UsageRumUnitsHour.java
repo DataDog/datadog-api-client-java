@@ -29,10 +29,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class UsageRumUnitsHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BROWSER_RUM_UNITS = "browser_rum_units";
-  private Long browserRumUnits;
+  private JsonNullable<Long> browserRumUnits = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_MOBILE_RUM_UNITS = "mobile_rum_units";
-  private Long mobileRumUnits;
+  private JsonNullable<Long> mobileRumUnits = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -44,7 +44,7 @@ public class UsageRumUnitsHour {
   private JsonNullable<Long> rumUnits = JsonNullable.<Long>undefined();
 
   public UsageRumUnitsHour browserRumUnits(Long browserRumUnits) {
-    this.browserRumUnits = browserRumUnits;
+    this.browserRumUnits = JsonNullable.<Long>of(browserRumUnits);
     return this;
   }
 
@@ -54,18 +54,28 @@ public class UsageRumUnitsHour {
    * @return browserRumUnits
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getBrowserRumUnits() {
+    return browserRumUnits.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getBrowserRumUnits() {
+  public JsonNullable<Long> getBrowserRumUnits_JsonNullable() {
     return browserRumUnits;
   }
 
-  public void setBrowserRumUnits(Long browserRumUnits) {
+  @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS)
+  public void setBrowserRumUnits_JsonNullable(JsonNullable<Long> browserRumUnits) {
     this.browserRumUnits = browserRumUnits;
   }
 
+  public void setBrowserRumUnits(Long browserRumUnits) {
+    this.browserRumUnits = JsonNullable.<Long>of(browserRumUnits);
+  }
+
   public UsageRumUnitsHour mobileRumUnits(Long mobileRumUnits) {
-    this.mobileRumUnits = mobileRumUnits;
+    this.mobileRumUnits = JsonNullable.<Long>of(mobileRumUnits);
     return this;
   }
 
@@ -75,14 +85,24 @@ public class UsageRumUnitsHour {
    * @return mobileRumUnits
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getMobileRumUnits() {
+    return mobileRumUnits.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMobileRumUnits() {
+  public JsonNullable<Long> getMobileRumUnits_JsonNullable() {
     return mobileRumUnits;
   }
 
-  public void setMobileRumUnits(Long mobileRumUnits) {
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS)
+  public void setMobileRumUnits_JsonNullable(JsonNullable<Long> mobileRumUnits) {
     this.mobileRumUnits = mobileRumUnits;
+  }
+
+  public void setMobileRumUnits(Long mobileRumUnits) {
+    this.mobileRumUnits = JsonNullable.<Long>of(mobileRumUnits);
   }
 
   public UsageRumUnitsHour orgName(String orgName) {

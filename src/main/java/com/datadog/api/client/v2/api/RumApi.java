@@ -168,7 +168,7 @@ public class RumApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RumApi.aggregateRUMEvents",
+              "v2.RumApi.aggregateRUMEvents",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -301,7 +301,7 @@ public class RumApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RumApi.createRUMApplication",
+              "v2.RumApi.createRUMApplication",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -432,7 +432,7 @@ public class RumApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RumApi.deleteRUMApplication",
+              "v2.RumApi.deleteRUMApplication",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -566,7 +566,7 @@ public class RumApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RumApi.getRUMApplication",
+              "v2.RumApi.getRUMApplication",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -676,7 +676,7 @@ public class RumApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RumApi.getRUMApplications",
+              "v2.RumApi.getRUMApplications",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -981,7 +981,7 @@ public class RumApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RumApi.listRUMEvents",
+              "v2.RumApi.listRUMEvents",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1159,7 +1159,7 @@ public class RumApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RumApi.searchRUMEvents",
+              "v2.RumApi.searchRUMEvents",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1316,7 +1316,7 @@ public class RumApi {
     try {
       builder =
           apiClient.createBuilder(
-              "RumApi.updateRUMApplication",
+              "v2.RumApi.updateRUMApplication",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

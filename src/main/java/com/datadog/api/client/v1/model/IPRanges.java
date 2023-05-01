@@ -19,6 +19,7 @@ import java.util.Objects;
   IPRanges.JSON_PROPERTY_APM,
   IPRanges.JSON_PROPERTY_LOGS,
   IPRanges.JSON_PROPERTY_MODIFIED,
+  IPRanges.JSON_PROPERTY_ORCHESTRATOR,
   IPRanges.JSON_PROPERTY_PROCESS,
   IPRanges.JSON_PROPERTY_SYNTHETICS,
   IPRanges.JSON_PROPERTY_SYNTHETICS_PRIVATE_LOCATIONS,
@@ -43,6 +44,9 @@ public class IPRanges {
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
   private String modified;
+
+  public static final String JSON_PROPERTY_ORCHESTRATOR = "orchestrator";
+  private IPPrefixesOrchestrator orchestrator;
 
   public static final String JSON_PROPERTY_PROCESS = "process";
   private IPPrefixesProcess process;
@@ -167,6 +171,28 @@ public class IPRanges {
 
   public void setModified(String modified) {
     this.modified = modified;
+  }
+
+  public IPRanges orchestrator(IPPrefixesOrchestrator orchestrator) {
+    this.orchestrator = orchestrator;
+    this.unparsed |= orchestrator.unparsed;
+    return this;
+  }
+
+  /**
+   * Available prefix information for the Orchestrator endpoints.
+   *
+   * @return orchestrator
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORCHESTRATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IPPrefixesOrchestrator getOrchestrator() {
+    return orchestrator;
+  }
+
+  public void setOrchestrator(IPPrefixesOrchestrator orchestrator) {
+    this.orchestrator = orchestrator;
   }
 
   public IPRanges process(IPPrefixesProcess process) {
@@ -295,6 +321,7 @@ public class IPRanges {
         && Objects.equals(this.apm, ipRanges.apm)
         && Objects.equals(this.logs, ipRanges.logs)
         && Objects.equals(this.modified, ipRanges.modified)
+        && Objects.equals(this.orchestrator, ipRanges.orchestrator)
         && Objects.equals(this.process, ipRanges.process)
         && Objects.equals(this.synthetics, ipRanges.synthetics)
         && Objects.equals(this.syntheticsPrivateLocations, ipRanges.syntheticsPrivateLocations)
@@ -310,6 +337,7 @@ public class IPRanges {
         apm,
         logs,
         modified,
+        orchestrator,
         process,
         synthetics,
         syntheticsPrivateLocations,
@@ -326,6 +354,7 @@ public class IPRanges {
     sb.append("    apm: ").append(toIndentedString(apm)).append("\n");
     sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
+    sb.append("    orchestrator: ").append(toIndentedString(orchestrator)).append("\n");
     sb.append("    process: ").append(toIndentedString(process)).append("\n");
     sb.append("    synthetics: ").append(toIndentedString(synthetics)).append("\n");
     sb.append("    syntheticsPrivateLocations: ")

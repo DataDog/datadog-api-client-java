@@ -75,7 +75,7 @@ public class IncidentUpdateData {
   }
 
   /**
-   * The team's ID.
+   * The incident's ID.
    *
    * @return id
    */

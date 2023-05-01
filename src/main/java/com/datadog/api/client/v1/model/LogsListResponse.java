@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Response object with all logs matching the request and pagination information. */
 @JsonPropertyOrder({
@@ -28,7 +29,7 @@ public class LogsListResponse {
   private List<Log> logs = null;
 
   public static final String JSON_PROPERTY_NEXT_LOG_ID = "nextLogId";
-  private String nextLogId;
+  private JsonNullable<String> nextLogId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -67,7 +68,7 @@ public class LogsListResponse {
   }
 
   public LogsListResponse nextLogId(String nextLogId) {
-    this.nextLogId = nextLogId;
+    this.nextLogId = JsonNullable.<String>of(nextLogId);
     return this;
   }
 
@@ -78,14 +79,24 @@ public class LogsListResponse {
    * @return nextLogId
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getNextLogId() {
+    return nextLogId.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NEXT_LOG_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getNextLogId() {
+  public JsonNullable<String> getNextLogId_JsonNullable() {
     return nextLogId;
   }
 
-  public void setNextLogId(String nextLogId) {
+  @JsonProperty(JSON_PROPERTY_NEXT_LOG_ID)
+  public void setNextLogId_JsonNullable(JsonNullable<String> nextLogId) {
     this.nextLogId = nextLogId;
+  }
+
+  public void setNextLogId(String nextLogId) {
+    this.nextLogId = JsonNullable.<String>of(nextLogId);
   }
 
   public LogsListResponse status(String status) {

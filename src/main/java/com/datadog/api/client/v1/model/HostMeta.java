@@ -46,7 +46,7 @@ public class HostMeta {
   private Long cpuCores;
 
   public static final String JSON_PROPERTY_FBSD_V = "fbsdV";
-  private List<String> fbsdV = null;
+  private List<Object> fbsdV = null;
 
   public static final String JSON_PROPERTY_GOHAI = "gohai";
   private String gohai;
@@ -55,13 +55,13 @@ public class HostMeta {
   private HostMetaInstallMethod installMethod;
 
   public static final String JSON_PROPERTY_MAC_V = "macV";
-  private List<String> macV = null;
+  private List<Object> macV = null;
 
   public static final String JSON_PROPERTY_MACHINE = "machine";
   private String machine;
 
   public static final String JSON_PROPERTY_NIX_V = "nixV";
-  private List<String> nixV = null;
+  private List<Object> nixV = null;
 
   public static final String JSON_PROPERTY_PLATFORM = "platform";
   private String platform;
@@ -79,7 +79,7 @@ public class HostMeta {
   private String socketHostname;
 
   public static final String JSON_PROPERTY_WIN_V = "winV";
-  private List<String> winV = null;
+  private List<Object> winV = null;
 
   public HostMeta agentChecks(List<List<Object>> agentChecks) {
     this.agentChecks = agentChecks;
@@ -152,12 +152,12 @@ public class HostMeta {
     this.cpuCores = cpuCores;
   }
 
-  public HostMeta fbsdV(List<String> fbsdV) {
+  public HostMeta fbsdV(List<Object> fbsdV) {
     this.fbsdV = fbsdV;
     return this;
   }
 
-  public HostMeta addFbsdVItem(String fbsdVItem) {
+  public HostMeta addFbsdVItem(Object fbsdVItem) {
     if (this.fbsdV == null) {
       this.fbsdV = new ArrayList<>();
     }
@@ -173,11 +173,11 @@ public class HostMeta {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FBSD_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getFbsdV() {
+  public List<Object> getFbsdV() {
     return fbsdV;
   }
 
-  public void setFbsdV(List<String> fbsdV) {
+  public void setFbsdV(List<Object> fbsdV) {
     this.fbsdV = fbsdV;
   }
 
@@ -224,12 +224,12 @@ public class HostMeta {
     this.installMethod = installMethod;
   }
 
-  public HostMeta macV(List<String> macV) {
+  public HostMeta macV(List<Object> macV) {
     this.macV = macV;
     return this;
   }
 
-  public HostMeta addMacVItem(String macVItem) {
+  public HostMeta addMacVItem(Object macVItem) {
     if (this.macV == null) {
       this.macV = new ArrayList<>();
     }
@@ -245,11 +245,11 @@ public class HostMeta {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAC_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getMacV() {
+  public List<Object> getMacV() {
     return macV;
   }
 
-  public void setMacV(List<String> macV) {
+  public void setMacV(List<Object> macV) {
     this.macV = macV;
   }
 
@@ -274,12 +274,12 @@ public class HostMeta {
     this.machine = machine;
   }
 
-  public HostMeta nixV(List<String> nixV) {
+  public HostMeta nixV(List<Object> nixV) {
     this.nixV = nixV;
     return this;
   }
 
-  public HostMeta addNixVItem(String nixVItem) {
+  public HostMeta addNixVItem(Object nixVItem) {
     if (this.nixV == null) {
       this.nixV = new ArrayList<>();
     }
@@ -295,11 +295,11 @@ public class HostMeta {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NIX_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getNixV() {
+  public List<Object> getNixV() {
     return nixV;
   }
 
-  public void setNixV(List<String> nixV) {
+  public void setNixV(List<Object> nixV) {
     this.nixV = nixV;
   }
 
@@ -408,12 +408,12 @@ public class HostMeta {
     this.socketHostname = socketHostname;
   }
 
-  public HostMeta winV(List<String> winV) {
+  public HostMeta winV(List<Object> winV) {
     this.winV = winV;
     return this;
   }
 
-  public HostMeta addWinVItem(String winVItem) {
+  public HostMeta addWinVItem(Object winVItem) {
     if (this.winV == null) {
       this.winV = new ArrayList<>();
     }
@@ -429,11 +429,11 @@ public class HostMeta {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WIN_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getWinV() {
+  public List<Object> getWinV() {
     return winV;
   }
 
-  public void setWinV(List<String> winV) {
+  public void setWinV(List<Object> winV) {
     this.winV = winV;
   }
 

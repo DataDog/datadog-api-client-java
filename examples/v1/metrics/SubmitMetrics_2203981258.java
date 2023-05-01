@@ -29,9 +29,7 @@ public class Example {
                                     Long.valueOf(OffsetDateTime.now().toInstant().getEpochSecond())
                                         .doubleValue(),
                                     1.1)))
-                        .tags(
-                            Collections.singletonList(
-                                "test:ExampleSubmitdeflatemetricsreturnsPayloadacceptedresponse"))));
+                        .tags(Collections.singletonList("test:ExampleMetric"))));
 
     try {
       IntakePayloadAccepted result =

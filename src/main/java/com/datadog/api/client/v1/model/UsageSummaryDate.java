@@ -25,6 +25,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_APM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM,
+  UsageSummaryDate.JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM,
   UsageSummaryDate.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
   UsageSummaryDate.JSON_PROPERTY_AWS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT,
@@ -38,13 +39,16 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM,
   UsageSummaryDate.JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM,
   UsageSummaryDate.JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM,
+  UsageSummaryDate.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_AVG,
+  UsageSummaryDate.JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_HWM,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AWS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_CONTAINER_AVG,
   UsageSummaryDate.JSON_PROPERTY_CSPM_CONTAINER_HWM,
+  UsageSummaryDate.JSON_PROPERTY_CSPM_GCP_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CUSTOM_TS_AVG,
   UsageSummaryDate.JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG,
@@ -54,6 +58,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_DBM_QUERIES_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
+  UsageSummaryDate.JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_GCP_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_HEROKU_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM,
@@ -64,6 +69,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_IOT_DEVICE_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM,
+  UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
@@ -72,6 +78,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_NPM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM,
   UsageSummaryDate.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_ORGS,
   UsageSummaryDate.JSON_PROPERTY_PROFILING_HOST_TOP99P,
@@ -86,8 +93,10 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM,
   UsageSummaryDate.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM,
+  UsageSummaryDate.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_VSPHERE_HOST_TOP99P
 })
 @jakarta.annotation.Generated(
@@ -113,6 +122,9 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM =
       "audit_logs_lines_indexed_sum";
   private Long auditLogsLinesIndexedSum;
+
+  public static final String JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM = "audit_trail_enabled_hwm";
+  private Long auditTrailEnabledHwm;
 
   public static final String JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS =
       "avg_profiled_fargate_tasks";
@@ -161,8 +173,15 @@ public class UsageSummaryDate {
       "ci_visibility_test_committers_hwm";
   private Long ciVisibilityTestCommittersHwm;
 
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG =
+      "cloud_cost_management_host_count_avg";
+  private Long cloudCostManagementHostCountAvg;
+
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
+
+  public static final String JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG = "container_excl_agent_avg";
+  private Long containerExclAgentAvg;
 
   public static final String JSON_PROPERTY_CONTAINER_HWM = "container_hwm";
   private Long containerHwm;
@@ -181,6 +200,9 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_CSPM_CONTAINER_HWM = "cspm_container_hwm";
   private Long cspmContainerHwm;
+
+  public static final String JSON_PROPERTY_CSPM_GCP_HOST_TOP99P = "cspm_gcp_host_top99p";
+  private Long cspmGcpHostTop99p;
 
   public static final String JSON_PROPERTY_CSPM_HOST_TOP99P = "cspm_host_top99p";
   private Long cspmHostTop99p;
@@ -210,6 +232,10 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM = "fargate_tasks_count_hwm";
   private Long fargateTasksCountHwm;
+
+  public static final String JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM =
+      "forwarding_events_bytes_sum";
+  private Long forwardingEventsBytesSum;
 
   public static final String JSON_PROPERTY_GCP_HOST_TOP99P = "gcp_host_top99p";
   private Long gcpHostTop99p;
@@ -244,6 +270,10 @@ public class UsageSummaryDate {
       "mobile_rum_session_count_android_sum";
   private Long mobileRumSessionCountAndroidSum;
 
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM =
+      "mobile_rum_session_count_flutter_sum";
+  private Long mobileRumSessionCountFlutterSum;
+
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM =
       "mobile_rum_session_count_ios_sum";
   private Long mobileRumSessionCountIosSum;
@@ -273,6 +303,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM =
       "online_archive_events_count_sum";
   private Long onlineArchiveEventsCountSum;
+
+  public static final String JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P =
+      "opentelemetry_apm_host_top99p";
+  private Long opentelemetryApmHostTop99p;
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P = "opentelemetry_host_top99p";
   private Long opentelemetryHostTop99p;
@@ -323,6 +357,10 @@ public class UsageSummaryDate {
       "synthetics_check_calls_count_sum";
   private Long syntheticsCheckCallsCountSum;
 
+  public static final String JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM =
+      "synthetics_parallel_testing_max_slots_hwm";
+  private Long syntheticsParallelTestingMaxSlotsHwm;
+
   public static final String JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM =
       "trace_search_indexed_events_count_sum";
   private Long traceSearchIndexedEventsCountSum;
@@ -330,6 +368,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM =
       "twol_ingested_events_bytes_sum";
   private Long twolIngestedEventsBytesSum;
+
+  public static final String JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P =
+      "universal_service_monitoring_host_top99p";
+  private Long universalServiceMonitoringHostTop99p;
 
   public static final String JSON_PROPERTY_VSPHERE_HOST_TOP99P = "vsphere_host_top99p";
   private Long vsphereHostTop99p;
@@ -454,7 +496,9 @@ public class UsageSummaryDate {
    * organizations.
    *
    * @return auditLogsLinesIndexedSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -462,8 +506,30 @@ public class UsageSummaryDate {
     return auditLogsLinesIndexedSum;
   }
 
+  @Deprecated
   public void setAuditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
     this.auditLogsLinesIndexedSum = auditLogsLinesIndexedSum;
+  }
+
+  public UsageSummaryDate auditTrailEnabledHwm(Long auditTrailEnabledHwm) {
+    this.auditTrailEnabledHwm = auditTrailEnabledHwm;
+    return this;
+  }
+
+  /**
+   * Shows the number of organizations that had Audit Trail enabled in the current date.
+   *
+   * @return auditTrailEnabledHwm
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAuditTrailEnabledHwm() {
+    return auditTrailEnabledHwm;
+  }
+
+  public void setAuditTrailEnabledHwm(Long auditTrailEnabledHwm) {
+    this.auditTrailEnabledHwm = auditTrailEnabledHwm;
   }
 
   public UsageSummaryDate avgProfiledFargateTasks(Long avgProfiledFargateTasks) {
@@ -752,6 +818,27 @@ public class UsageSummaryDate {
     this.ciVisibilityTestCommittersHwm = ciVisibilityTestCommittersHwm;
   }
 
+  public UsageSummaryDate cloudCostManagementHostCountAvg(Long cloudCostManagementHostCountAvg) {
+    this.cloudCostManagementHostCountAvg = cloudCostManagementHostCountAvg;
+    return this;
+  }
+
+  /**
+   * Host count average of Cloud Cost Management for the given date and given organization.
+   *
+   * @return cloudCostManagementHostCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCloudCostManagementHostCountAvg() {
+    return cloudCostManagementHostCountAvg;
+  }
+
+  public void setCloudCostManagementHostCountAvg(Long cloudCostManagementHostCountAvg) {
+    this.cloudCostManagementHostCountAvg = cloudCostManagementHostCountAvg;
+  }
+
   public UsageSummaryDate containerAvg(Long containerAvg) {
     this.containerAvg = containerAvg;
     return this;
@@ -772,6 +859,28 @@ public class UsageSummaryDate {
 
   public void setContainerAvg(Long containerAvg) {
     this.containerAvg = containerAvg;
+  }
+
+  public UsageSummaryDate containerExclAgentAvg(Long containerExclAgentAvg) {
+    this.containerExclAgentAvg = containerExclAgentAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of containers without the Datadog Agent over all hours in the current date
+   * for all organizations.
+   *
+   * @return containerExclAgentAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getContainerExclAgentAvg() {
+    return containerExclAgentAvg;
+  }
+
+  public void setContainerExclAgentAvg(Long containerExclAgentAvg) {
+    this.containerExclAgentAvg = containerExclAgentAvg;
   }
 
   public UsageSummaryDate containerHwm(Long containerHwm) {
@@ -904,6 +1013,28 @@ public class UsageSummaryDate {
 
   public void setCspmContainerHwm(Long cspmContainerHwm) {
     this.cspmContainerHwm = cspmContainerHwm;
+  }
+
+  public UsageSummaryDate cspmGcpHostTop99p(Long cspmGcpHostTop99p) {
+    this.cspmGcpHostTop99p = cspmGcpHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in
+   * the current date for all organizations.
+   *
+   * @return cspmGcpHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSPM_GCP_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmGcpHostTop99p() {
+    return cspmGcpHostTop99p;
+  }
+
+  public void setCspmGcpHostTop99p(Long cspmGcpHostTop99p) {
+    this.cspmGcpHostTop99p = cspmGcpHostTop99p;
   }
 
   public UsageSummaryDate cspmHostTop99p(Long cspmHostTop99p) {
@@ -1101,6 +1232,28 @@ public class UsageSummaryDate {
 
   public void setFargateTasksCountHwm(Long fargateTasksCountHwm) {
     this.fargateTasksCountHwm = fargateTasksCountHwm;
+  }
+
+  public UsageSummaryDate forwardingEventsBytesSum(Long forwardingEventsBytesSum) {
+    this.forwardingEventsBytesSum = forwardingEventsBytesSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all log bytes forwarded over all hours in the current date for all
+   * organizations.
+   *
+   * @return forwardingEventsBytesSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORWARDING_EVENTS_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getForwardingEventsBytesSum() {
+    return forwardingEventsBytesSum;
+  }
+
+  public void setForwardingEventsBytesSum(Long forwardingEventsBytesSum) {
+    this.forwardingEventsBytesSum = forwardingEventsBytesSum;
   }
 
   public UsageSummaryDate gcpHostTop99p(Long gcpHostTop99p) {
@@ -1324,6 +1477,28 @@ public class UsageSummaryDate {
     this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
   }
 
+  public UsageSummaryDate mobileRumSessionCountFlutterSum(Long mobileRumSessionCountFlutterSum) {
+    this.mobileRumSessionCountFlutterSum = mobileRumSessionCountFlutterSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM Sessions on Flutter over all hours in the current date for all
+   * organizations.
+   *
+   * @return mobileRumSessionCountFlutterSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMobileRumSessionCountFlutterSum() {
+    return mobileRumSessionCountFlutterSum;
+  }
+
+  public void setMobileRumSessionCountFlutterSum(Long mobileRumSessionCountFlutterSum) {
+    this.mobileRumSessionCountFlutterSum = mobileRumSessionCountFlutterSum;
+  }
+
   public UsageSummaryDate mobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
     this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
     return this;
@@ -1499,6 +1674,28 @@ public class UsageSummaryDate {
 
   public void setOnlineArchiveEventsCountSum(Long onlineArchiveEventsCountSum) {
     this.onlineArchiveEventsCountSum = onlineArchiveEventsCountSum;
+  }
+
+  public UsageSummaryDate opentelemetryApmHostTop99p(Long opentelemetryApmHostTop99p) {
+    this.opentelemetryApmHostTop99p = opentelemetryApmHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry
+   * Collector over all hours in the current date for all organizations.
+   *
+   * @return opentelemetryApmHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOpentelemetryApmHostTop99p() {
+    return opentelemetryApmHostTop99p;
+  }
+
+  public void setOpentelemetryApmHostTop99p(Long opentelemetryApmHostTop99p) {
+    this.opentelemetryApmHostTop99p = opentelemetryApmHostTop99p;
   }
 
   public UsageSummaryDate opentelemetryHostTop99p(Long opentelemetryHostTop99p) {
@@ -1821,6 +2018,29 @@ public class UsageSummaryDate {
     this.syntheticsCheckCallsCountSum = syntheticsCheckCallsCountSum;
   }
 
+  public UsageSummaryDate syntheticsParallelTestingMaxSlotsHwm(
+      Long syntheticsParallelTestingMaxSlotsHwm) {
+    this.syntheticsParallelTestingMaxSlotsHwm = syntheticsParallelTestingMaxSlotsHwm;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of used synthetics parallel testing slots over all hours in the
+   * current date for all organizations.
+   *
+   * @return syntheticsParallelTestingMaxSlotsHwm
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSyntheticsParallelTestingMaxSlotsHwm() {
+    return syntheticsParallelTestingMaxSlotsHwm;
+  }
+
+  public void setSyntheticsParallelTestingMaxSlotsHwm(Long syntheticsParallelTestingMaxSlotsHwm) {
+    this.syntheticsParallelTestingMaxSlotsHwm = syntheticsParallelTestingMaxSlotsHwm;
+  }
+
   public UsageSummaryDate traceSearchIndexedEventsCountSum(Long traceSearchIndexedEventsCountSum) {
     this.traceSearchIndexedEventsCountSum = traceSearchIndexedEventsCountSum;
     return this;
@@ -1865,6 +2085,29 @@ public class UsageSummaryDate {
     this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
   }
 
+  public UsageSummaryDate universalServiceMonitoringHostTop99p(
+      Long universalServiceMonitoringHostTop99p) {
+    this.universalServiceMonitoringHostTop99p = universalServiceMonitoringHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all universal service management hosts over all hours in the
+   * current date for the given org.
+   *
+   * @return universalServiceMonitoringHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUniversalServiceMonitoringHostTop99p() {
+    return universalServiceMonitoringHostTop99p;
+  }
+
+  public void setUniversalServiceMonitoringHostTop99p(Long universalServiceMonitoringHostTop99p) {
+    this.universalServiceMonitoringHostTop99p = universalServiceMonitoringHostTop99p;
+  }
+
   public UsageSummaryDate vsphereHostTop99p(Long vsphereHostTop99p) {
     this.vsphereHostTop99p = vsphereHostTop99p;
     return this;
@@ -1904,6 +2147,7 @@ public class UsageSummaryDate {
         && Objects.equals(this.apmHostTop99p, usageSummaryDate.apmHostTop99p)
         && Objects.equals(this.appsecFargateCountAvg, usageSummaryDate.appsecFargateCountAvg)
         && Objects.equals(this.auditLogsLinesIndexedSum, usageSummaryDate.auditLogsLinesIndexedSum)
+        && Objects.equals(this.auditTrailEnabledHwm, usageSummaryDate.auditTrailEnabledHwm)
         && Objects.equals(this.avgProfiledFargateTasks, usageSummaryDate.avgProfiledFargateTasks)
         && Objects.equals(this.awsHostTop99p, usageSummaryDate.awsHostTop99p)
         && Objects.equals(this.awsLambdaFuncCount, usageSummaryDate.awsLambdaFuncCount)
@@ -1923,13 +2167,17 @@ public class UsageSummaryDate {
             usageSummaryDate.ciVisibilityPipelineCommittersHwm)
         && Objects.equals(
             this.ciVisibilityTestCommittersHwm, usageSummaryDate.ciVisibilityTestCommittersHwm)
+        && Objects.equals(
+            this.cloudCostManagementHostCountAvg, usageSummaryDate.cloudCostManagementHostCountAvg)
         && Objects.equals(this.containerAvg, usageSummaryDate.containerAvg)
+        && Objects.equals(this.containerExclAgentAvg, usageSummaryDate.containerExclAgentAvg)
         && Objects.equals(this.containerHwm, usageSummaryDate.containerHwm)
         && Objects.equals(this.cspmAasHostTop99p, usageSummaryDate.cspmAasHostTop99p)
         && Objects.equals(this.cspmAwsHostTop99p, usageSummaryDate.cspmAwsHostTop99p)
         && Objects.equals(this.cspmAzureHostTop99p, usageSummaryDate.cspmAzureHostTop99p)
         && Objects.equals(this.cspmContainerAvg, usageSummaryDate.cspmContainerAvg)
         && Objects.equals(this.cspmContainerHwm, usageSummaryDate.cspmContainerHwm)
+        && Objects.equals(this.cspmGcpHostTop99p, usageSummaryDate.cspmGcpHostTop99p)
         && Objects.equals(this.cspmHostTop99p, usageSummaryDate.cspmHostTop99p)
         && Objects.equals(this.customTsAvg, usageSummaryDate.customTsAvg)
         && Objects.equals(this.cwsContainerCountAvg, usageSummaryDate.cwsContainerCountAvg)
@@ -1939,6 +2187,7 @@ public class UsageSummaryDate {
         && Objects.equals(this.dbmQueriesCountAvg, usageSummaryDate.dbmQueriesCountAvg)
         && Objects.equals(this.fargateTasksCountAvg, usageSummaryDate.fargateTasksCountAvg)
         && Objects.equals(this.fargateTasksCountHwm, usageSummaryDate.fargateTasksCountHwm)
+        && Objects.equals(this.forwardingEventsBytesSum, usageSummaryDate.forwardingEventsBytesSum)
         && Objects.equals(this.gcpHostTop99p, usageSummaryDate.gcpHostTop99p)
         && Objects.equals(this.herokuHostTop99p, usageSummaryDate.herokuHostTop99p)
         && Objects.equals(
@@ -1954,6 +2203,8 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.mobileRumSessionCountAndroidSum, usageSummaryDate.mobileRumSessionCountAndroidSum)
         && Objects.equals(
+            this.mobileRumSessionCountFlutterSum, usageSummaryDate.mobileRumSessionCountFlutterSum)
+        && Objects.equals(
             this.mobileRumSessionCountIosSum, usageSummaryDate.mobileRumSessionCountIosSum)
         && Objects.equals(
             this.mobileRumSessionCountReactnativeSum,
@@ -1968,6 +2219,8 @@ public class UsageSummaryDate {
             usageSummaryDate.observabilityPipelinesBytesProcessedSum)
         && Objects.equals(
             this.onlineArchiveEventsCountSum, usageSummaryDate.onlineArchiveEventsCountSum)
+        && Objects.equals(
+            this.opentelemetryApmHostTop99p, usageSummaryDate.opentelemetryApmHostTop99p)
         && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDate.opentelemetryHostTop99p)
         && Objects.equals(this.orgs, usageSummaryDate.orgs)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p)
@@ -1987,10 +2240,16 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.syntheticsCheckCallsCountSum, usageSummaryDate.syntheticsCheckCallsCountSum)
         && Objects.equals(
+            this.syntheticsParallelTestingMaxSlotsHwm,
+            usageSummaryDate.syntheticsParallelTestingMaxSlotsHwm)
+        && Objects.equals(
             this.traceSearchIndexedEventsCountSum,
             usageSummaryDate.traceSearchIndexedEventsCountSum)
         && Objects.equals(
             this.twolIngestedEventsBytesSum, usageSummaryDate.twolIngestedEventsBytesSum)
+        && Objects.equals(
+            this.universalServiceMonitoringHostTop99p,
+            usageSummaryDate.universalServiceMonitoringHostTop99p)
         && Objects.equals(this.vsphereHostTop99p, usageSummaryDate.vsphereHostTop99p);
   }
 
@@ -2003,6 +2262,7 @@ public class UsageSummaryDate {
         apmHostTop99p,
         appsecFargateCountAvg,
         auditLogsLinesIndexedSum,
+        auditTrailEnabledHwm,
         avgProfiledFargateTasks,
         awsHostTop99p,
         awsLambdaFuncCount,
@@ -2016,13 +2276,16 @@ public class UsageSummaryDate {
         ciTestIndexedSpansSum,
         ciVisibilityPipelineCommittersHwm,
         ciVisibilityTestCommittersHwm,
+        cloudCostManagementHostCountAvg,
         containerAvg,
+        containerExclAgentAvg,
         containerHwm,
         cspmAasHostTop99p,
         cspmAwsHostTop99p,
         cspmAzureHostTop99p,
         cspmContainerAvg,
         cspmContainerHwm,
+        cspmGcpHostTop99p,
         cspmHostTop99p,
         customTsAvg,
         cwsContainerCountAvg,
@@ -2032,6 +2295,7 @@ public class UsageSummaryDate {
         dbmQueriesCountAvg,
         fargateTasksCountAvg,
         fargateTasksCountHwm,
+        forwardingEventsBytesSum,
         gcpHostTop99p,
         herokuHostTop99p,
         incidentManagementMonthlyActiveUsersHwm,
@@ -2042,6 +2306,7 @@ public class UsageSummaryDate {
         iotDeviceTop99p,
         mobileRumLiteSessionCountSum,
         mobileRumSessionCountAndroidSum,
+        mobileRumSessionCountFlutterSum,
         mobileRumSessionCountIosSum,
         mobileRumSessionCountReactnativeSum,
         mobileRumSessionCountSum,
@@ -2050,6 +2315,7 @@ public class UsageSummaryDate {
         npmHostTop99p,
         observabilityPipelinesBytesProcessedSum,
         onlineArchiveEventsCountSum,
+        opentelemetryApmHostTop99p,
         opentelemetryHostTop99p,
         orgs,
         profilingHostTop99p,
@@ -2064,8 +2330,10 @@ public class UsageSummaryDate {
         sdsTotalScannedBytesSum,
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
+        syntheticsParallelTestingMaxSlotsHwm,
         traceSearchIndexedEventsCountSum,
         twolIngestedEventsBytesSum,
+        universalServiceMonitoringHostTop99p,
         vsphereHostTop99p);
   }
 
@@ -2084,6 +2352,9 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    auditLogsLinesIndexedSum: ")
         .append(toIndentedString(auditLogsLinesIndexedSum))
+        .append("\n");
+    sb.append("    auditTrailEnabledHwm: ")
+        .append(toIndentedString(auditTrailEnabledHwm))
         .append("\n");
     sb.append("    avgProfiledFargateTasks: ")
         .append(toIndentedString(avgProfiledFargateTasks))
@@ -2118,7 +2389,13 @@ public class UsageSummaryDate {
     sb.append("    ciVisibilityTestCommittersHwm: ")
         .append(toIndentedString(ciVisibilityTestCommittersHwm))
         .append("\n");
+    sb.append("    cloudCostManagementHostCountAvg: ")
+        .append(toIndentedString(cloudCostManagementHostCountAvg))
+        .append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
+    sb.append("    containerExclAgentAvg: ")
+        .append(toIndentedString(containerExclAgentAvg))
+        .append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
     sb.append("    cspmAasHostTop99p: ").append(toIndentedString(cspmAasHostTop99p)).append("\n");
     sb.append("    cspmAwsHostTop99p: ").append(toIndentedString(cspmAwsHostTop99p)).append("\n");
@@ -2127,6 +2404,7 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    cspmContainerAvg: ").append(toIndentedString(cspmContainerAvg)).append("\n");
     sb.append("    cspmContainerHwm: ").append(toIndentedString(cspmContainerHwm)).append("\n");
+    sb.append("    cspmGcpHostTop99p: ").append(toIndentedString(cspmGcpHostTop99p)).append("\n");
     sb.append("    cspmHostTop99p: ").append(toIndentedString(cspmHostTop99p)).append("\n");
     sb.append("    customTsAvg: ").append(toIndentedString(customTsAvg)).append("\n");
     sb.append("    cwsContainerCountAvg: ")
@@ -2141,6 +2419,9 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    fargateTasksCountHwm: ")
         .append(toIndentedString(fargateTasksCountHwm))
+        .append("\n");
+    sb.append("    forwardingEventsBytesSum: ")
+        .append(toIndentedString(forwardingEventsBytesSum))
         .append("\n");
     sb.append("    gcpHostTop99p: ").append(toIndentedString(gcpHostTop99p)).append("\n");
     sb.append("    herokuHostTop99p: ").append(toIndentedString(herokuHostTop99p)).append("\n");
@@ -2162,6 +2443,9 @@ public class UsageSummaryDate {
     sb.append("    mobileRumSessionCountAndroidSum: ")
         .append(toIndentedString(mobileRumSessionCountAndroidSum))
         .append("\n");
+    sb.append("    mobileRumSessionCountFlutterSum: ")
+        .append(toIndentedString(mobileRumSessionCountFlutterSum))
+        .append("\n");
     sb.append("    mobileRumSessionCountIosSum: ")
         .append(toIndentedString(mobileRumSessionCountIosSum))
         .append("\n");
@@ -2181,6 +2465,9 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    onlineArchiveEventsCountSum: ")
         .append(toIndentedString(onlineArchiveEventsCountSum))
+        .append("\n");
+    sb.append("    opentelemetryApmHostTop99p: ")
+        .append(toIndentedString(opentelemetryApmHostTop99p))
         .append("\n");
     sb.append("    opentelemetryHostTop99p: ")
         .append(toIndentedString(opentelemetryHostTop99p))
@@ -2218,11 +2505,17 @@ public class UsageSummaryDate {
     sb.append("    syntheticsCheckCallsCountSum: ")
         .append(toIndentedString(syntheticsCheckCallsCountSum))
         .append("\n");
+    sb.append("    syntheticsParallelTestingMaxSlotsHwm: ")
+        .append(toIndentedString(syntheticsParallelTestingMaxSlotsHwm))
+        .append("\n");
     sb.append("    traceSearchIndexedEventsCountSum: ")
         .append(toIndentedString(traceSearchIndexedEventsCountSum))
         .append("\n");
     sb.append("    twolIngestedEventsBytesSum: ")
         .append(toIndentedString(twolIngestedEventsBytesSum))
+        .append("\n");
+    sb.append("    universalServiceMonitoringHostTop99p: ")
+        .append(toIndentedString(universalServiceMonitoringHostTop99p))
         .append("\n");
     sb.append("    vsphereHostTop99p: ").append(toIndentedString(vsphereHostTop99p)).append("\n");
     sb.append("}");

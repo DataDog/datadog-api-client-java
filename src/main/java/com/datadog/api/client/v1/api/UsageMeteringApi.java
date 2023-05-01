@@ -300,7 +300,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getDailyCustomReports",
+              "v1.UsageMeteringApi.getDailyCustomReports",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -462,7 +462,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage attribution.
+   * Get hourly usage attribution. Multi-region data is available starting March 1, 2023.
    *
    * <p>This API endpoint is paginated. To make sure you receive all records, check if the value of
    * <code>next_record_id</code> is set in the response. If it is, make another request and pass
@@ -610,7 +610,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getHourlyUsageAttribution",
+              "v1.UsageMeteringApi.getHourlyUsageAttribution",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -823,7 +823,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getIncidentManagement",
+              "v1.UsageMeteringApi.getIncidentManagement",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1031,7 +1031,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getIngestedSpans",
+              "v1.UsageMeteringApi.getIngestedSpans",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1269,7 +1269,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getMonthlyCustomReports",
+              "v1.UsageMeteringApi.getMonthlyCustomReports",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1463,7 +1463,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get monthly usage attribution.
+   * Get monthly usage attribution. Multi-region data is available starting March 1, 2023.
    *
    * <p>This API endpoint is paginated. To make sure you receive all records, check if the value of
    * <code>next_record_id</code> is set in the response. If it is, make another request and pass
@@ -1623,7 +1623,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getMonthlyUsageAttribution",
+              "v1.UsageMeteringApi.getMonthlyUsageAttribution",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1777,7 +1777,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getSpecifiedDailyCustomReports",
+              "v1.UsageMeteringApi.getSpecifiedDailyCustomReports",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1933,7 +1933,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getSpecifiedMonthlyCustomReports",
+              "v1.UsageMeteringApi.getSpecifiedMonthlyCustomReports",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2145,7 +2145,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageAnalyzedLogs",
+              "v1.UsageMeteringApi.getUsageAnalyzedLogs",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -2488,7 +2488,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageAttribution",
+              "v1.UsageMeteringApi.getUsageAttribution",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -2537,7 +2537,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @return UsageAuditLogsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageAuditLogsResponse getUsageAuditLogs(OffsetDateTime startHr) throws ApiException {
     return getUsageAuditLogsWithHttpInfo(startHr, new GetUsageAuditLogsOptionalParameters())
         .getData();
@@ -2551,7 +2553,9 @@ public class UsageMeteringApi {
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageAuditLogsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageAuditLogsResponse> getUsageAuditLogsAsync(OffsetDateTime startHr) {
     return getUsageAuditLogsWithHttpInfoAsync(startHr, new GetUsageAuditLogsOptionalParameters())
         .thenApply(
@@ -2570,7 +2574,9 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return UsageAuditLogsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageAuditLogsResponse getUsageAuditLogs(
       OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) throws ApiException {
     return getUsageAuditLogsWithHttpInfo(startHr, parameters).getData();
@@ -2585,7 +2591,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageAuditLogsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageAuditLogsResponse> getUsageAuditLogsAsync(
       OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) {
     return getUsageAuditLogsWithHttpInfoAsync(startHr, parameters)
@@ -2596,12 +2604,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for audit logs. <strong>Note:</strong> hourly usage data for all products is
-   * now available in the <a
-   * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
-   * hourly usage by product family API</a>. Refer to <a
-   * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
-   * from the V1 Hourly Usage APIs to V2</a> for the associated migration guide.
+   * Get hourly usage for audit logs. <strong>Note:</strong> This endpoint has been deprecated.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
@@ -2617,7 +2620,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageAuditLogsResponse> getUsageAuditLogsWithHttpInfo(
       OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
@@ -2666,7 +2672,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageAuditLogsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageAuditLogsResponse>> getUsageAuditLogsWithHttpInfoAsync(
       OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) {
     Object localVarPostBody = null;
@@ -2693,7 +2701,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageAuditLogs",
+              "v1.UsageMeteringApi.getUsageAuditLogs",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -2865,7 +2873,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageBillableSummary",
+              "v1.UsageMeteringApi.getUsageBillableSummary",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -3070,7 +3078,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageCIApp",
+              "v1.UsageMeteringApi.getUsageCIApp",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -3292,7 +3300,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageCloudSecurityPostureManagement",
+              "v1.UsageMeteringApi.getUsageCloudSecurityPostureManagement",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -3497,7 +3505,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageCWS",
+              "v1.UsageMeteringApi.getUsageCWS",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -3701,7 +3709,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageDBM",
+              "v1.UsageMeteringApi.getUsageDBM",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -3906,7 +3914,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageFargate",
+              "v1.UsageMeteringApi.getUsageFargate",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -4110,7 +4118,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageHosts",
+              "v1.UsageMeteringApi.getUsageHosts",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -4321,7 +4329,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageIndexedSpans",
+              "v1.UsageMeteringApi.getUsageIndexedSpans",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -4531,7 +4539,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageInternetOfThings",
+              "v1.UsageMeteringApi.getUsageInternetOfThings",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -4735,7 +4743,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageLambda",
+              "v1.UsageMeteringApi.getUsageLambda",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -4939,7 +4947,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageLogs",
+              "v1.UsageMeteringApi.getUsageLogs",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -5160,7 +5168,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageLogsByIndex",
+              "v1.UsageMeteringApi.getUsageLogsByIndex",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -5374,7 +5382,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageLogsByRetention",
+              "v1.UsageMeteringApi.getUsageLogsByRetention",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -5586,7 +5594,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageNetworkFlows",
+              "v1.UsageMeteringApi.getUsageNetworkFlows",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -5797,7 +5805,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageNetworkHosts",
+              "v1.UsageMeteringApi.getUsageNetworkHosts",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -6008,7 +6016,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageOnlineArchive",
+              "v1.UsageMeteringApi.getUsageOnlineArchive",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -6213,7 +6221,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageProfiling",
+              "v1.UsageMeteringApi.getUsageProfiling",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -6440,7 +6448,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageRumSessions",
+              "v1.UsageMeteringApi.getUsageRumSessions",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -6645,7 +6653,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageRumUnits",
+              "v1.UsageMeteringApi.getUsageRumUnits",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -6849,7 +6857,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageSDS",
+              "v1.UsageMeteringApi.getUsageSDS",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -7053,7 +7061,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageSNMP",
+              "v1.UsageMeteringApi.getUsageSNMP",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -7271,7 +7279,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageSummary",
+              "v1.UsageMeteringApi.getUsageSummary",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -7491,7 +7499,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageSynthetics",
+              "v1.UsageMeteringApi.getUsageSynthetics",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -7703,7 +7711,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageSyntheticsAPI",
+              "v1.UsageMeteringApi.getUsageSyntheticsAPI",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -7917,7 +7925,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageSyntheticsBrowser",
+              "v1.UsageMeteringApi.getUsageSyntheticsBrowser",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -8126,7 +8134,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageTimeseries",
+              "v1.UsageMeteringApi.getUsageTimeseries",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -8368,7 +8376,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageTopAvgMetrics",
+              "v1.UsageMeteringApi.getUsageTopAvgMetrics",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,

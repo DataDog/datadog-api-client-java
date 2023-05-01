@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"test-api-key\",\"name\":\"testaddcloudflareaccountreturnsbadrequestresponseduetomissingemail1674730504\"},\"type\":\"cloudflare-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/cloudflare/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"{u'_schema': ['Email address is required if providing an api key and not an api token.']}\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "13c7d145-8bac-4a16-202b-30a082c2a497"
+  }
+]

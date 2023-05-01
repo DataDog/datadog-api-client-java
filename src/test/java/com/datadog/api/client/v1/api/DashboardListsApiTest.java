@@ -8,6 +8,8 @@ package com.datadog.api.client.v1.api;
 
 import static org.junit.Assert.*;
 
+import com.datadog.api.RecordingMode;
+import com.datadog.api.TestUtils;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.model.APIErrorResponse;
 import com.datadog.api.client.v1.model.DashboardList;
@@ -17,6 +19,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 import org.junit.*;
 
 /** API tests for DashboardListsApi */
@@ -98,6 +101,50 @@ public class DashboardListsApiTest extends V1ApiTest {
 
     // Delete the dashboard list
     DashboardListDeleteResponse res = api.deleteDashboardList(dashboardList.getId());
+    assertEquals(res.getDeletedDashboardListId(), dashboardList.getId());
+  }
+
+  @Test
+  public void dashboardListCreateModifyDeleteTestAsync()
+      throws ApiException, InterruptedException, ExecutionException {
+    Assume.assumeTrue(
+        "This test does not support replay from recording",
+        TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE));
+
+    long start = now.toInstant().toEpochMilli();
+    DashboardList testDashboardList = new DashboardList().name(getUniqueEntityName());
+
+    // Create dashboard list
+    DashboardList dashboardList = api.createDashboardListAsync(testDashboardList).get();
+    dashboardListsToDelete.add(dashboardList.getId());
+    assertEquals(testDashboardList.getName(), dashboardList.getName());
+    assertNotNull(dashboardList.getAuthor());
+    assertNotNull(dashboardList.getCreated());
+    assertEquals(new Long(0), dashboardList.getDashboardCount());
+    assertNotNull(dashboardList.getModified());
+    assertFalse(dashboardList.getIsFavorite());
+    assertEquals("manual_dashboard_list", dashboardList.getType());
+
+    // Get the dashboard list
+    dashboardList = api.getDashboardListAsync(dashboardList.getId()).get();
+    assertEquals(dashboardList.getName(), testDashboardList.getName());
+
+    // Edit the dashboard list
+    DashboardList editedDashboardList =
+        new DashboardList().name(getUniqueEntityName() + "-updated");
+    dashboardList = api.updateDashboardListAsync(dashboardList.getId(), editedDashboardList).get();
+    assertEquals(dashboardList.getName(), editedDashboardList.getName());
+
+    // Get all dashboard lists
+    DashboardListListResponse allDashboardLists = api.listDashboardListsAsync().get();
+    assertTrue(allDashboardLists.getDashboardLists().size() > 0);
+    // The actual dashboardList model is asserted when we create and get, so just ensure the get all
+    // is
+    // returning the right object
+    assertTrue(allDashboardLists.getDashboardLists().get(0) instanceof DashboardList);
+
+    // Delete the dashboard list
+    DashboardListDeleteResponse res = api.deleteDashboardListAsync(dashboardList.getId()).get();
     assertEquals(res.getDeletedDashboardListId(), dashboardList.getId());
   }
 

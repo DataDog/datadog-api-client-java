@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI
@@ -67,7 +68,7 @@ public class SLOHistoryMonitor {
   private Boolean preview;
 
   public static final String JSON_PROPERTY_SLI_VALUE = "sli_value";
-  private Double sliValue;
+  private JsonNullable<Double> sliValue = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_SPAN_PRECISION = "span_precision";
   private Double spanPrecision;
@@ -304,7 +305,7 @@ public class SLOHistoryMonitor {
   }
 
   public SLOHistoryMonitor sliValue(Double sliValue) {
-    this.sliValue = sliValue;
+    this.sliValue = JsonNullable.<Double>of(sliValue);
     return this;
   }
 
@@ -314,14 +315,24 @@ public class SLOHistoryMonitor {
    * @return sliValue
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getSliValue() {
+    return sliValue.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SLI_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getSliValue() {
+  public JsonNullable<Double> getSliValue_JsonNullable() {
     return sliValue;
   }
 
-  public void setSliValue(Double sliValue) {
+  @JsonProperty(JSON_PROPERTY_SLI_VALUE)
+  public void setSliValue_JsonNullable(JsonNullable<Double> sliValue) {
     this.sliValue = sliValue;
+  }
+
+  public void setSliValue(Double sliValue) {
+    this.sliValue = JsonNullable.<Double>of(sliValue);
   }
 
   public SLOHistoryMonitor spanPrecision(Double spanPrecision) {

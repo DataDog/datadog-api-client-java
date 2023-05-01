@@ -24,8 +24,7 @@ public class Example {
                 new ApplicationKeyCreateData()
                     .attributes(
                         new ApplicationKeyCreateAttributes()
-                            .name(
-                                "Example-Create_an_application_key_with_scopes_for_this_service_account_returns_Created_response")
+                            .name("Example-Service-Account")
                             .scopes(
                                 Arrays.asList(
                                     "dashboards_read",

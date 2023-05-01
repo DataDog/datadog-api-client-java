@@ -165,7 +165,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule",
+              "v2.CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -306,7 +306,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule",
+              "v2.CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -417,7 +417,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile",
+              "v2.CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -561,7 +561,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule",
+              "v2.CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -675,7 +675,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules",
+              "v2.CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -850,7 +850,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule",
+              "v2.CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

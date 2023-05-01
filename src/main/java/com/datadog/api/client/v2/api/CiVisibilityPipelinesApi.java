@@ -124,7 +124,7 @@ public class CiVisibilityPipelinesApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -167,13 +167,13 @@ public class CiVisibilityPipelinesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CiVisibilityPipelinesApi.aggregateCIAppPipelineEvents",
+              "v2.CiVisibilityPipelinesApi.aggregateCIAppPipelineEvents",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CIAppPipelinesAnalyticsAggregateResponse>> result =
           new CompletableFuture<>();
@@ -429,7 +429,7 @@ public class CiVisibilityPipelinesApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -476,13 +476,13 @@ public class CiVisibilityPipelinesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CiVisibilityPipelinesApi.listCIAppPipelineEvents",
+              "v2.CiVisibilityPipelinesApi.listCIAppPipelineEvents",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CIAppPipelineEventsResponse>> result =
           new CompletableFuture<>();
@@ -672,7 +672,7 @@ public class CiVisibilityPipelinesApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -705,13 +705,13 @@ public class CiVisibilityPipelinesApi {
     try {
       builder =
           apiClient.createBuilder(
-              "CiVisibilityPipelinesApi.searchCIAppPipelineEvents",
+              "v2.CiVisibilityPipelinesApi.searchCIAppPipelineEvents",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CIAppPipelineEventsResponse>> result =
           new CompletableFuture<>();

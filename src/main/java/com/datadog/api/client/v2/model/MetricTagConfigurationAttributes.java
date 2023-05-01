@@ -131,8 +131,8 @@ public class MetricTagConfigurationAttributes {
   }
 
   /**
-   * Toggle to turn on/off percentile aggregations for distribution metrics. Only present when the
-   * <code>metric_type</code> is <code>distribution</code>.
+   * Toggle to include or exclude percentile aggregations for distribution metrics. Only present
+   * when the <code>metric_type</code> is <code>distribution</code>.
    *
    * @return includePercentiles
    */

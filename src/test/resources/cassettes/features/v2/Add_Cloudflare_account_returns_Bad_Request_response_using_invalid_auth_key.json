@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"name\":\"testaddcloudflareaccountreturnsbadrequestresponseusinginvalidauthkey1674730487\"},\"type\":\"cloudflare-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/cloudflare/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid account. Your Cloudflare configuration is invalid. Impossible to get zones for the account testaddcloudflareaccountreturnsbadrequestresponseusinginvalidauthkey1674730487: API key or email is unknown.\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5a41a6ae-4376-a7f6-721a-a5390c12341c"
+  }
+]

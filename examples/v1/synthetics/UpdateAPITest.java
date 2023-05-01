@@ -3,7 +3,6 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
-import com.datadog.api.client.v1.model.HTTPMethod;
 import com.datadog.api.client.v1.model.SyntheticsAPITest;
 import com.datadog.api.client.v1.model.SyntheticsAPITestConfig;
 import com.datadog.api.client.v1.model.SyntheticsAPITestType;
@@ -81,15 +80,13 @@ public class Example {
                                         new SyntheticsTestRequestCertificateItem()
                                             .filename("key-filename")
                                             .updatedAt("2020-10-16T09:23:24.857Z")))
-                            .headers(
-                                Map.ofEntries(
-                                    Map.entry("unique", "exampleeditanapitestreturnsokresponse")))
-                            .method(HTTPMethod.GET)
+                            .headers(Map.ofEntries(Map.entry("unique", "examplesynthetic")))
+                            .method("GET")
                             .timeout(10.0)
                             .url("https://datadoghq.com")))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_test_payload.json")
-            .name("Example-Edit_an_API_test_returns_OK_response-updated")
+            .name("Example-Synthetic-updated")
             .options(
                 new SyntheticsTestOptions()
                     .acceptSelfSigned(false)

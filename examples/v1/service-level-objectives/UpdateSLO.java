@@ -30,6 +30,9 @@ public class Example {
                         .target(97.0)
                         .timeframe(SLOTimeframe.SEVEN_DAYS)
                         .warning(98.0)))
+            .timeframe(SLOTimeframe.SEVEN_DAYS)
+            .targetThreshold(97.0)
+            .warningThreshold(98.0)
             .query(
                 new ServiceLevelObjectiveQuery()
                     .numerator("sum:httpservice.hits{code:2xx}.as_count()")

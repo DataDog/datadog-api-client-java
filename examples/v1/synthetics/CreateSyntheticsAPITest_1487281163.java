@@ -3,7 +3,6 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
-import com.datadog.api.client.v1.model.HTTPMethod;
 import com.datadog.api.client.v1.model.SyntheticsAPITest;
 import com.datadog.api.client.v1.model.SyntheticsAPITestConfig;
 import com.datadog.api.client.v1.model.SyntheticsAPITestType;
@@ -17,10 +16,15 @@ import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsAssertionXPathOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionXPathTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionXPathTargetTarget;
+import com.datadog.api.client.v1.model.SyntheticsBasicAuth;
+import com.datadog.api.client.v1.model.SyntheticsBasicAuthOauthClient;
+import com.datadog.api.client.v1.model.SyntheticsBasicAuthOauthClientType;
+import com.datadog.api.client.v1.model.SyntheticsBasicAuthOauthTokenApiAuthentication;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsHTTPVersion;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificate;
@@ -92,22 +96,29 @@ public class Example {
                                             .content("key-content")
                                             .filename("key-filename")
                                             .updatedAt("2020-10-16T09:23:24.857Z")))
-                            .headers(
-                                Map.ofEntries(
-                                    Map.entry(
-                                        "unique",
-                                        "examplecreateanapihttptestreturnsokreturnsthecreatedtestdetailsresponse")))
-                            .method(HTTPMethod.GET)
+                            .headers(Map.ofEntries(Map.entry("unique", "examplesynthetic")))
+                            .method("GET")
                             .timeout(10.0)
                             .url("https://datadoghq.com")
                             .proxy(
                                 new SyntheticsTestRequestProxy()
                                     .url("https://datadoghq.com")
-                                    .headers(Map.ofEntries()))))
+                                    .headers(Map.ofEntries()))
+                            .basicAuth(
+                                new SyntheticsBasicAuth(
+                                    new SyntheticsBasicAuthOauthClient()
+                                        .accessTokenUrl("https://datadog-token.com")
+                                        .audience("audience")
+                                        .clientId("client-id")
+                                        .clientSecret("client-secret")
+                                        .resource("resource")
+                                        .scope("yoyo")
+                                        .tokenApiAuthentication(
+                                            SyntheticsBasicAuthOauthTokenApiAuthentication.HEADER)
+                                        .type(SyntheticsBasicAuthOauthClientType.OAUTH_CLIENT)))))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_http_test_payload.json")
-            .name(
-                "Example-Create_an_API_HTTP_test_returns_OK_Returns_the_created_test_details_response")
+            .name("Example-Synthetic")
             .options(
                 new SyntheticsTestOptions()
                     .acceptSelfSigned(false)
@@ -115,11 +126,11 @@ public class Example {
                     .followRedirects(true)
                     .minFailureDuration(10L)
                     .minLocationFailed(1L)
-                    .monitorName(
-                        "Example-Create_an_API_HTTP_test_returns_OK_Returns_the_created_test_details_response")
+                    .monitorName("Example-Synthetic")
                     .monitorPriority(5)
                     .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
-                    .tickEvery(60L))
+                    .tickEvery(60L)
+                    .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP2))
             .subtype(SyntheticsTestDetailsSubType.HTTP)
             .tags(Collections.singletonList("testing:api"))
             .type(SyntheticsAPITestType.API);

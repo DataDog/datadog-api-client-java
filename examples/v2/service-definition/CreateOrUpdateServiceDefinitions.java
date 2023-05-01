@@ -4,18 +4,17 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ServiceDefinitionApi;
 import com.datadog.api.client.v2.model.ServiceDefinitionCreateResponse;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Contact;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Doc;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Email;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2EmailType;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Integrations;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Link;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2LinkType;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Opsgenie;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2OpsgenieRegion;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Repo;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Version;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Contact;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Email;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1EmailType;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Integrations;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Link;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1LinkType;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Opsgenie;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1OpsgenieRegion;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Pagerduty;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Version;
 import com.datadog.api.client.v2.model.ServiceDefinitionsCreateRequest;
 import java.util.Arrays;
 import java.util.Collections;
@@ -28,47 +27,41 @@ public class Example {
 
     ServiceDefinitionsCreateRequest body =
         new ServiceDefinitionsCreateRequest(
-            new ServiceDefinitionV2()
+            new ServiceDefinitionV2Dot1()
+                .application("my-app")
                 .contacts(
                     Collections.singletonList(
-                        new ServiceDefinitionV2Contact(
-                            new ServiceDefinitionV2Email()
+                        new ServiceDefinitionV2Dot1Contact(
+                            new ServiceDefinitionV2Dot1Email()
                                 .contact("contact@datadoghq.com")
                                 .name("Team Email")
-                                .type(ServiceDefinitionV2EmailType.EMAIL))))
-                .ddService(
-                    "service-Example-Create_or_update_service_definition_returns_CREATED_response")
-                .ddTeam("my-team")
-                .docs(
-                    Collections.singletonList(
-                        new ServiceDefinitionV2Doc()
-                            .name("Architecture")
-                            .provider("google drive")
-                            .url("https://gdrive/mydoc")))
-                .extensions(Map.ofEntries(Map.entry("myorgextension", "extensionvalue")))
+                                .type(ServiceDefinitionV2Dot1EmailType.EMAIL))))
+                .ddService("my-service")
+                .description("My service description")
+                .extensions(Map.ofEntries(Map.entry("myorg/extension", "extensionValue")))
                 .integrations(
-                    new ServiceDefinitionV2Integrations()
+                    new ServiceDefinitionV2Dot1Integrations()
                         .opsgenie(
-                            new ServiceDefinitionV2Opsgenie()
-                                .region(ServiceDefinitionV2OpsgenieRegion.US)
+                            new ServiceDefinitionV2Dot1Opsgenie()
+                                .region(ServiceDefinitionV2Dot1OpsgenieRegion.US)
                                 .serviceUrl(
                                     "https://my-org.opsgenie.com/service/123e4567-e89b-12d3-a456-426614174000"))
-                        .pagerduty("https://my-org.pagerduty.com/service-directory/PMyService"))
+                        .pagerduty(
+                            new ServiceDefinitionV2Dot1Pagerduty()
+                                .serviceUrl(
+                                    "https://my-org.pagerduty.com/service-directory/PMyService")))
+                .lifecycle("sandbox")
                 .links(
                     Collections.singletonList(
-                        new ServiceDefinitionV2Link()
+                        new ServiceDefinitionV2Dot1Link()
                             .name("Runbook")
-                            .type(ServiceDefinitionV2LinkType.RUNBOOK)
+                            .provider("Github")
+                            .type(ServiceDefinitionV2Dot1LinkType.RUNBOOK)
                             .url("https://my-runbook")))
-                .repos(
-                    Collections.singletonList(
-                        new ServiceDefinitionV2Repo()
-                            .name("Source Code")
-                            .provider("GitHub")
-                            .url("https://github.com/DataDog/schema")))
-                .schemaVersion(ServiceDefinitionV2Version.V2)
+                .schemaVersion(ServiceDefinitionV2Dot1Version.V2_1)
                 .tags(Arrays.asList("my:tag", "service:tag"))
-                .team("my-team"));
+                .team("my-team")
+                .tier("High"));
 
     try {
       ServiceDefinitionCreateResponse result = apiInstance.createOrUpdateServiceDefinitions(body);

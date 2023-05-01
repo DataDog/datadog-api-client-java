@@ -22,6 +22,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_AGGREGATION,
   MonitorOptions.JSON_PROPERTY_DEVICE_IDS,
   MonitorOptions.JSON_PROPERTY_ENABLE_LOGS_SAMPLE,
+  MonitorOptions.JSON_PROPERTY_ENABLE_SAMPLES,
   MonitorOptions.JSON_PROPERTY_ESCALATION_MESSAGE,
   MonitorOptions.JSON_PROPERTY_EVALUATION_DELAY,
   MonitorOptions.JSON_PROPERTY_GROUP_RETENTION_DURATION,
@@ -33,6 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_NEW_GROUP_DELAY,
   MonitorOptions.JSON_PROPERTY_NEW_HOST_DELAY,
   MonitorOptions.JSON_PROPERTY_NO_DATA_TIMEFRAME,
+  MonitorOptions.JSON_PROPERTY_NOTIFICATION_PRESET_NAME,
   MonitorOptions.JSON_PROPERTY_NOTIFY_AUDIT,
   MonitorOptions.JSON_PROPERTY_NOTIFY_BY,
   MonitorOptions.JSON_PROPERTY_NOTIFY_NO_DATA,
@@ -61,6 +63,9 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_ENABLE_LOGS_SAMPLE = "enable_logs_sample";
   private Boolean enableLogsSample;
+
+  public static final String JSON_PROPERTY_ENABLE_SAMPLES = "enable_samples";
+  private Boolean enableSamples;
 
   public static final String JSON_PROPERTY_ESCALATION_MESSAGE = "escalation_message";
   private String escalationMessage = "none";
@@ -94,6 +99,10 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_NO_DATA_TIMEFRAME = "no_data_timeframe";
   private JsonNullable<Long> noDataTimeframe = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_NOTIFICATION_PRESET_NAME = "notification_preset_name";
+  private MonitorOptionsNotificationPresets notificationPresetName =
+      MonitorOptionsNotificationPresets.SHOW_ALL;
 
   public static final String JSON_PROPERTY_NOTIFY_AUDIT = "notify_audit";
   private Boolean notifyAudit = false;
@@ -187,6 +196,28 @@ public class MonitorOptions {
 
   public void setEnableLogsSample(Boolean enableLogsSample) {
     this.enableLogsSample = enableLogsSample;
+  }
+
+  public MonitorOptions enableSamples(Boolean enableSamples) {
+    this.enableSamples = enableSamples;
+    return this;
+  }
+
+  /**
+   * Whether or not to send a list of samples when the monitor triggers. This is only used by CI
+   * Test and Pipeline monitors.
+   *
+   * @return enableSamples
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_SAMPLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnableSamples() {
+    return enableSamples;
+  }
+
+  public void setEnableSamples(Boolean enableSamples) {
+    this.enableSamples = enableSamples;
   }
 
   public MonitorOptions escalationMessage(String escalationMessage) {
@@ -514,6 +545,32 @@ public class MonitorOptions {
 
   public void setNoDataTimeframe(Long noDataTimeframe) {
     this.noDataTimeframe = JsonNullable.<Long>of(noDataTimeframe);
+  }
+
+  public MonitorOptions notificationPresetName(
+      MonitorOptionsNotificationPresets notificationPresetName) {
+    this.notificationPresetName = notificationPresetName;
+    this.unparsed |= !notificationPresetName.isValid();
+    return this;
+  }
+
+  /**
+   * Toggles the display of additional content sent in the monitor notification.
+   *
+   * @return notificationPresetName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION_PRESET_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorOptionsNotificationPresets getNotificationPresetName() {
+    return notificationPresetName;
+  }
+
+  public void setNotificationPresetName(MonitorOptionsNotificationPresets notificationPresetName) {
+    if (!notificationPresetName.isValid()) {
+      this.unparsed = true;
+    }
+    this.notificationPresetName = notificationPresetName;
   }
 
   public MonitorOptions notifyAudit(Boolean notifyAudit) {
@@ -966,6 +1023,7 @@ public class MonitorOptions {
     return Objects.equals(this.aggregation, monitorOptions.aggregation)
         && Objects.equals(this.deviceIds, monitorOptions.deviceIds)
         && Objects.equals(this.enableLogsSample, monitorOptions.enableLogsSample)
+        && Objects.equals(this.enableSamples, monitorOptions.enableSamples)
         && Objects.equals(this.escalationMessage, monitorOptions.escalationMessage)
         && Objects.equals(this.evaluationDelay, monitorOptions.evaluationDelay)
         && Objects.equals(this.groupRetentionDuration, monitorOptions.groupRetentionDuration)
@@ -977,6 +1035,7 @@ public class MonitorOptions {
         && Objects.equals(this.newGroupDelay, monitorOptions.newGroupDelay)
         && Objects.equals(this.newHostDelay, monitorOptions.newHostDelay)
         && Objects.equals(this.noDataTimeframe, monitorOptions.noDataTimeframe)
+        && Objects.equals(this.notificationPresetName, monitorOptions.notificationPresetName)
         && Objects.equals(this.notifyAudit, monitorOptions.notifyAudit)
         && Objects.equals(this.notifyBy, monitorOptions.notifyBy)
         && Objects.equals(this.notifyNoData, monitorOptions.notifyNoData)
@@ -1000,6 +1059,7 @@ public class MonitorOptions {
         aggregation,
         deviceIds,
         enableLogsSample,
+        enableSamples,
         escalationMessage,
         evaluationDelay,
         groupRetentionDuration,
@@ -1011,6 +1071,7 @@ public class MonitorOptions {
         newGroupDelay,
         newHostDelay,
         noDataTimeframe,
+        notificationPresetName,
         notifyAudit,
         notifyBy,
         notifyNoData,
@@ -1035,6 +1096,7 @@ public class MonitorOptions {
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    deviceIds: ").append(toIndentedString(deviceIds)).append("\n");
     sb.append("    enableLogsSample: ").append(toIndentedString(enableLogsSample)).append("\n");
+    sb.append("    enableSamples: ").append(toIndentedString(enableSamples)).append("\n");
     sb.append("    escalationMessage: ").append(toIndentedString(escalationMessage)).append("\n");
     sb.append("    evaluationDelay: ").append(toIndentedString(evaluationDelay)).append("\n");
     sb.append("    groupRetentionDuration: ")
@@ -1050,6 +1112,9 @@ public class MonitorOptions {
     sb.append("    newGroupDelay: ").append(toIndentedString(newGroupDelay)).append("\n");
     sb.append("    newHostDelay: ").append(toIndentedString(newHostDelay)).append("\n");
     sb.append("    noDataTimeframe: ").append(toIndentedString(noDataTimeframe)).append("\n");
+    sb.append("    notificationPresetName: ")
+        .append(toIndentedString(notificationPresetName))
+        .append("\n");
     sb.append("    notifyAudit: ").append(toIndentedString(notifyAudit)).append("\n");
     sb.append("    notifyBy: ").append(toIndentedString(notifyBy)).append("\n");
     sb.append("    notifyNoData: ").append(toIndentedString(notifyNoData)).append("\n");

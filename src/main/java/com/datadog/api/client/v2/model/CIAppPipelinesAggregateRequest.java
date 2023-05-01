@@ -22,8 +22,7 @@ import java.util.Objects;
   CIAppPipelinesAggregateRequest.JSON_PROPERTY_COMPUTE,
   CIAppPipelinesAggregateRequest.JSON_PROPERTY_FILTER,
   CIAppPipelinesAggregateRequest.JSON_PROPERTY_GROUP_BY,
-  CIAppPipelinesAggregateRequest.JSON_PROPERTY_OPTIONS,
-  CIAppPipelinesAggregateRequest.JSON_PROPERTY_PAGE
+  CIAppPipelinesAggregateRequest.JSON_PROPERTY_OPTIONS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -40,9 +39,6 @@ public class CIAppPipelinesAggregateRequest {
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
   private CIAppQueryOptions options;
-
-  public static final String JSON_PROPERTY_PAGE = "page";
-  private CIAppQueryPageOptions page;
 
   public CIAppPipelinesAggregateRequest compute(List<CIAppCompute> compute) {
     this.compute = compute;
@@ -155,28 +151,6 @@ public class CIAppPipelinesAggregateRequest {
     this.options = options;
   }
 
-  public CIAppPipelinesAggregateRequest page(CIAppQueryPageOptions page) {
-    this.page = page;
-    this.unparsed |= page.unparsed;
-    return this;
-  }
-
-  /**
-   * Paging attributes for listing events.
-   *
-   * @return page
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CIAppQueryPageOptions getPage() {
-    return page;
-  }
-
-  public void setPage(CIAppQueryPageOptions page) {
-    this.page = page;
-  }
-
   /** Return true if this CIAppPipelinesAggregateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -191,13 +165,12 @@ public class CIAppPipelinesAggregateRequest {
     return Objects.equals(this.compute, ciAppPipelinesAggregateRequest.compute)
         && Objects.equals(this.filter, ciAppPipelinesAggregateRequest.filter)
         && Objects.equals(this.groupBy, ciAppPipelinesAggregateRequest.groupBy)
-        && Objects.equals(this.options, ciAppPipelinesAggregateRequest.options)
-        && Objects.equals(this.page, ciAppPipelinesAggregateRequest.page);
+        && Objects.equals(this.options, ciAppPipelinesAggregateRequest.options);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute, filter, groupBy, options, page);
+    return Objects.hash(compute, filter, groupBy, options);
   }
 
   @Override
@@ -208,7 +181,6 @@ public class CIAppPipelinesAggregateRequest {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("}");
     return sb.toString();
   }

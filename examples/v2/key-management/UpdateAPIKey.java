@@ -23,9 +23,7 @@ public class Example {
                 new APIKeyUpdateData()
                     .type(APIKeysType.API_KEYS)
                     .id(API_KEY_DATA_ID)
-                    .attributes(
-                        new APIKeyUpdateAttributes()
-                            .name("Example-Edit_an_API_key_returns_OK_response")));
+                    .attributes(new APIKeyUpdateAttributes().name("Example-Key-Management")));
 
     try {
       APIKeyResponse result = apiInstance.updateAPIKey(API_KEY_DATA_ID, body);

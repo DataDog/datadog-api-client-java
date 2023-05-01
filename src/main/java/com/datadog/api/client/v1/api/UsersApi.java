@@ -154,7 +154,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.createUser",
+              "v1.UsersApi.createUser",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -295,7 +295,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.disableUser",
+              "v1.UsersApi.disableUser",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -430,7 +430,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.getUser",
+              "v1.UsersApi.getUser",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -539,7 +539,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.listUsers",
+              "v1.UsersApi.listUsers",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -697,7 +697,7 @@ public class UsersApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsersApi.updateUser",
+              "v1.UsersApi.updateUser",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

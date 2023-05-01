@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"dev@datadog.com\",\"name\":\"testlistcloudflareaccountsreturnsokresponse1674810001\"},\"type\":\"cloudflare-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/cloudflare/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testlistcloudflareaccountsreturnsokresponse1674810001\"},\"type\":\"cloudflare-accounts\",\"id\":\"1458cfdd2c5679bdc8693a9c5a32bf45\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8be9daab-e8d6-5a6c-c2b9-695d88608159"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/integrations/cloudflare/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testlistcloudflareaccountsreturnsokresponse1674810001\"},\"type\":\"cloudflare-accounts\",\"id\":\"1458cfdd2c5679bdc8693a9c5a32bf45\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6397e046-6299-a2a3-9ebd-2c1cfcdd846d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/cloudflare/accounts/1458cfdd2c5679bdc8693a9c5a32bf45",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "47f20943-6945-7e0c-ce5f-a938846d1e5d"
+  }
+]

@@ -9,7 +9,6 @@ import com.datadog.api.client.v2.model.CIAppCompute;
 import com.datadog.api.client.v2.model.CIAppComputeType;
 import com.datadog.api.client.v2.model.CIAppGroupByTotal;
 import com.datadog.api.client.v2.model.CIAppQueryOptions;
-import com.datadog.api.client.v2.model.CIAppQueryPageOptions;
 import com.datadog.api.client.v2.model.CIAppSortOrder;
 import com.datadog.api.client.v2.model.CIAppTestsAggregateRequest;
 import com.datadog.api.client.v2.model.CIAppTestsAnalyticsAggregateResponse;
@@ -42,8 +41,7 @@ public class Example {
                         .limit(10L)
                         .sort(new CIAppAggregateSort().order(CIAppSortOrder.ASCENDING))
                         .total(new CIAppGroupByTotal(false))))
-            .options(new CIAppQueryOptions().timezone("GMT"))
-            .page(new CIAppQueryPageOptions().limit(25));
+            .options(new CIAppQueryOptions().timezone("GMT"));
 
     try {
       CIAppTestsAnalyticsAggregateResponse result = apiInstance.aggregateCIAppTestEvents(body);

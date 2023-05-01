@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Incident management usage for a given organization for a given hour. */
 @JsonPropertyOrder({
@@ -32,7 +33,7 @@ public class UsageIncidentManagementHour {
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_MONTHLY_ACTIVE_USERS = "monthly_active_users";
-  private Long monthlyActiveUsers;
+  private JsonNullable<Long> monthlyActiveUsers = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -62,7 +63,7 @@ public class UsageIncidentManagementHour {
   }
 
   public UsageIncidentManagementHour monthlyActiveUsers(Long monthlyActiveUsers) {
-    this.monthlyActiveUsers = monthlyActiveUsers;
+    this.monthlyActiveUsers = JsonNullable.<Long>of(monthlyActiveUsers);
     return this;
   }
 
@@ -73,14 +74,24 @@ public class UsageIncidentManagementHour {
    * @return monthlyActiveUsers
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getMonthlyActiveUsers() {
+    return monthlyActiveUsers.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MONTHLY_ACTIVE_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMonthlyActiveUsers() {
+  public JsonNullable<Long> getMonthlyActiveUsers_JsonNullable() {
     return monthlyActiveUsers;
   }
 
-  public void setMonthlyActiveUsers(Long monthlyActiveUsers) {
+  @JsonProperty(JSON_PROPERTY_MONTHLY_ACTIVE_USERS)
+  public void setMonthlyActiveUsers_JsonNullable(JsonNullable<Long> monthlyActiveUsers) {
     this.monthlyActiveUsers = monthlyActiveUsers;
+  }
+
+  public void setMonthlyActiveUsers(Long monthlyActiveUsers) {
+    this.monthlyActiveUsers = JsonNullable.<Long>of(monthlyActiveUsers);
   }
 
   public UsageIncidentManagementHour orgName(String orgName) {

@@ -24,6 +24,7 @@ import java.util.Objects;
   GCPAccount.JSON_PROPERTY_CLIENT_X509_CERT_URL,
   GCPAccount.JSON_PROPERTY_ERRORS,
   GCPAccount.JSON_PROPERTY_HOST_FILTERS,
+  GCPAccount.JSON_PROPERTY_IS_CSPM_ENABLED,
   GCPAccount.JSON_PROPERTY_PRIVATE_KEY,
   GCPAccount.JSON_PROPERTY_PRIVATE_KEY_ID,
   GCPAccount.JSON_PROPERTY_PROJECT_ID,
@@ -58,6 +59,9 @@ public class GCPAccount {
 
   public static final String JSON_PROPERTY_HOST_FILTERS = "host_filters";
   private String hostFilters;
+
+  public static final String JSON_PROPERTY_IS_CSPM_ENABLED = "is_cspm_enabled";
+  private Boolean isCspmEnabled = false;
 
   public static final String JSON_PROPERTY_PRIVATE_KEY = "private_key";
   private String privateKey;
@@ -252,6 +256,28 @@ public class GCPAccount {
     this.hostFilters = hostFilters;
   }
 
+  public GCPAccount isCspmEnabled(Boolean isCspmEnabled) {
+    this.isCspmEnabled = isCspmEnabled;
+    return this;
+  }
+
+  /**
+   * When enabled, Datadog performs configuration checks across your Google Cloud environment by
+   * continuously scanning every resource.
+   *
+   * @return isCspmEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_CSPM_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsCspmEnabled() {
+    return isCspmEnabled;
+  }
+
+  public void setIsCspmEnabled(Boolean isCspmEnabled) {
+    this.isCspmEnabled = isCspmEnabled;
+  }
+
   public GCPAccount privateKey(String privateKey) {
     this.privateKey = privateKey;
     return this;
@@ -375,6 +401,7 @@ public class GCPAccount {
         && Objects.equals(this.clientX509CertUrl, gcpAccount.clientX509CertUrl)
         && Objects.equals(this.errors, gcpAccount.errors)
         && Objects.equals(this.hostFilters, gcpAccount.hostFilters)
+        && Objects.equals(this.isCspmEnabled, gcpAccount.isCspmEnabled)
         && Objects.equals(this.privateKey, gcpAccount.privateKey)
         && Objects.equals(this.privateKeyId, gcpAccount.privateKeyId)
         && Objects.equals(this.projectId, gcpAccount.projectId)
@@ -393,6 +420,7 @@ public class GCPAccount {
         clientX509CertUrl,
         errors,
         hostFilters,
+        isCspmEnabled,
         privateKey,
         privateKeyId,
         projectId,
@@ -414,6 +442,7 @@ public class GCPAccount {
     sb.append("    clientX509CertUrl: ").append(toIndentedString(clientX509CertUrl)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
+    sb.append("    isCspmEnabled: ").append(toIndentedString(isCspmEnabled)).append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    privateKeyId: ").append(toIndentedString(privateKeyId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");

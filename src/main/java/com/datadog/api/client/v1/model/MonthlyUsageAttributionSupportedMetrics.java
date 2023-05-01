@@ -50,6 +50,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("browser_usage");
   public static final MonthlyUsageAttributionSupportedMetrics BROWSER_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("browser_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_EXCL_AGENT_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("container_excl_agent_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_EXCL_AGENT_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("container_excl_agent_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("container_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_PERCENTAGE =
@@ -66,6 +70,11 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("custom_timeseries_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CUSTOM_TIMESERIES_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("custom_timeseries_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CUSTOM_INGESTED_TIMESERIES_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("custom_ingested_timeseries_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics
+      CUSTOM_INGESTED_TIMESERIES_PERCENTAGE =
+          new MonthlyUsageAttributionSupportedMetrics("custom_ingested_timeseries_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics CWS_CONTAINERS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("cws_containers_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics CWS_CONTAINERS_USAGE =
@@ -106,10 +115,6 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("functions_usage");
   public static final MonthlyUsageAttributionSupportedMetrics FUNCTIONS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("functions_percentage");
-  public static final MonthlyUsageAttributionSupportedMetrics INDEXED_LOGS_USAGE =
-      new MonthlyUsageAttributionSupportedMetrics("indexed_logs_usage");
-  public static final MonthlyUsageAttributionSupportedMetrics INDEXED_LOGS_PERCENTAGE =
-      new MonthlyUsageAttributionSupportedMetrics("indexed_logs_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics INFRA_HOST_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("infra_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics INFRA_HOST_PERCENTAGE =
@@ -126,6 +131,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("profiled_container_usage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_CONTAINER_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("profiled_container_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics PROFILED_FARGATE_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("profiled_fargate_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics PROFILED_FARGATE_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("profiled_fargate_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_HOST_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("profiled_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_HOST_PERCENTAGE =
@@ -134,6 +143,15 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("snmp_usage");
   public static final MonthlyUsageAttributionSupportedMetrics SNMP_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("snmp_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_RUM_SESSIONS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("estimated_rum_sessions_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_RUM_SESSIONS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("estimated_rum_sessions_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics UNIVERSAL_SERVICE_MONITORING_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("universal_service_monitoring_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics
+      UNIVERSAL_SERVICE_MONITORING_PERCENTAGE =
+          new MonthlyUsageAttributionSupportedMetrics("universal_service_monitoring_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics ALL =
       new MonthlyUsageAttributionSupportedMetrics("*");
 
@@ -152,6 +170,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "appsec_percentage",
               "browser_usage",
               "browser_percentage",
+              "container_excl_agent_usage",
+              "container_excl_agent_percentage",
               "container_usage",
               "container_percentage",
               "cspm_containers_percentage",
@@ -160,6 +180,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "cspm_hosts_usage",
               "custom_timeseries_usage",
               "custom_timeseries_percentage",
+              "custom_ingested_timeseries_usage",
+              "custom_ingested_timeseries_percentage",
               "cws_containers_percentage",
               "cws_containers_usage",
               "cws_hosts_percentage",
@@ -180,8 +202,6 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "fargate_percentage",
               "functions_usage",
               "functions_percentage",
-              "indexed_logs_usage",
-              "indexed_logs_percentage",
               "infra_host_usage",
               "infra_host_percentage",
               "invocations_usage",
@@ -190,10 +210,16 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "npm_host_percentage",
               "profiled_container_usage",
               "profiled_container_percentage",
+              "profiled_fargate_usage",
+              "profiled_fargate_percentage",
               "profiled_host_usage",
               "profiled_host_percentage",
               "snmp_usage",
               "snmp_percentage",
+              "estimated_rum_sessions_usage",
+              "estimated_rum_sessions_percentage",
+              "universal_service_monitoring_usage",
+              "universal_service_monitoring_percentage",
               "*"));
 
   private String value;

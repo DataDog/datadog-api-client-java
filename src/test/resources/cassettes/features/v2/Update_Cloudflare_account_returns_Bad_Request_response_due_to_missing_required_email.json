@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetomissingrequiredemail1674809954\"},\"type\":\"cloudflare-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/cloudflare/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetomissingrequiredemail1674809954\"},\"type\":\"cloudflare-accounts\",\"id\":\"c588ce074fe908f56db516f007afd3fd\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2c3d2f10-dd9a-880d-e25a-25dc05fcbaf6"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"abcdefghijklmnopqrstuvwxyz\"},\"type\":\"cloudflare-accounts\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/integrations/cloudflare/accounts/c588ce074fe908f56db516f007afd3fd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"{u'_schema': ['Email address is required if providing an api key and not an api token.']}\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6f36c198-f9b0-71b7-27fd-45c67e626c7f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/cloudflare/accounts/c588ce074fe908f56db516f007afd3fd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c0463276-2b26-1558-b6f1-53519709ae8d"
+  }
+]

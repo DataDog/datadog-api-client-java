@@ -21,11 +21,7 @@ public class Example {
         new RoleCloneRequest()
             .data(
                 new RoleClone()
-                    .attributes(
-                        new RoleCloneAttributes()
-                            .name(
-                                "Example-Create_a_new_role_by_cloning_an_existing_role_returns_OK_response"
-                                    + " clone"))
+                    .attributes(new RoleCloneAttributes().name("Example-Role clone"))
                     .type(RolesType.ROLES));
 
     try {

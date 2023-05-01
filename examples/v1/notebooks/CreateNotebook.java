@@ -97,7 +97,7 @@ y = 6;
                                                     .splitBy(new NotebookSplitBy())
                                                     .time(null)))
                                         .type(NotebookCellResourceType.NOTEBOOK_CELLS)))
-                            .name("Example-Create_a_notebook_returns_OK_response")
+                            .name("Example-Notebook")
                             .status(NotebookStatus.PUBLISHED)
                             .time(
                                 new NotebookGlobalTime(

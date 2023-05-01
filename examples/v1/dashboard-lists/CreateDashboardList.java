@@ -10,8 +10,7 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
 
-    DashboardList body =
-        new DashboardList().name("Example-Create_a_dashboard_list_returns_OK_response");
+    DashboardList body = new DashboardList().name("Example-Dashboard-List");
 
     try {
       DashboardList result = apiInstance.createDashboardList(body);

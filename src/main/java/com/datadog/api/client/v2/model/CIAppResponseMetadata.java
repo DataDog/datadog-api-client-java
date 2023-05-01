@@ -17,7 +17,6 @@ import java.util.Objects;
 /** The metadata associated with a request. */
 @JsonPropertyOrder({
   CIAppResponseMetadata.JSON_PROPERTY_ELAPSED,
-  CIAppResponseMetadata.JSON_PROPERTY_PAGE,
   CIAppResponseMetadata.JSON_PROPERTY_REQUEST_ID,
   CIAppResponseMetadata.JSON_PROPERTY_STATUS,
   CIAppResponseMetadata.JSON_PROPERTY_WARNINGS
@@ -28,9 +27,6 @@ public class CIAppResponseMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ELAPSED = "elapsed";
   private Long elapsed;
-
-  public static final String JSON_PROPERTY_PAGE = "page";
-  private CIAppResponsePage page;
 
   public static final String JSON_PROPERTY_REQUEST_ID = "request_id";
   private String requestId;
@@ -60,28 +56,6 @@ public class CIAppResponseMetadata {
 
   public void setElapsed(Long elapsed) {
     this.elapsed = elapsed;
-  }
-
-  public CIAppResponseMetadata page(CIAppResponsePage page) {
-    this.page = page;
-    this.unparsed |= page.unparsed;
-    return this;
-  }
-
-  /**
-   * Paging attributes.
-   *
-   * @return page
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CIAppResponsePage getPage() {
-    return page;
-  }
-
-  public void setPage(CIAppResponsePage page) {
-    this.page = page;
   }
 
   public CIAppResponseMetadata requestId(String requestId) {
@@ -175,7 +149,6 @@ public class CIAppResponseMetadata {
     }
     CIAppResponseMetadata ciAppResponseMetadata = (CIAppResponseMetadata) o;
     return Objects.equals(this.elapsed, ciAppResponseMetadata.elapsed)
-        && Objects.equals(this.page, ciAppResponseMetadata.page)
         && Objects.equals(this.requestId, ciAppResponseMetadata.requestId)
         && Objects.equals(this.status, ciAppResponseMetadata.status)
         && Objects.equals(this.warnings, ciAppResponseMetadata.warnings);
@@ -183,7 +156,7 @@ public class CIAppResponseMetadata {
 
   @Override
   public int hashCode() {
-    return Objects.hash(elapsed, page, requestId, status, warnings);
+    return Objects.hash(elapsed, requestId, status, warnings);
   }
 
   @Override
@@ -191,7 +164,6 @@ public class CIAppResponseMetadata {
     StringBuilder sb = new StringBuilder();
     sb.append("class CIAppResponseMetadata {\n");
     sb.append("    elapsed: ").append(toIndentedString(elapsed)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");

@@ -349,7 +349,7 @@ public class EventsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "EventsApi.listEvents",
+              "v2.EventsApi.listEvents",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -590,7 +590,7 @@ public class EventsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "EventsApi.searchEvents",
+              "v2.EventsApi.searchEvents",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

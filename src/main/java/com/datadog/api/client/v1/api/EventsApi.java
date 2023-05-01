@@ -154,7 +154,7 @@ public class EventsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "EventsApi.createEvent",
+              "v1.EventsApi.createEvent",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -289,7 +289,7 @@ public class EventsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "EventsApi.getEvent",
+              "v1.EventsApi.getEvent",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -348,7 +348,7 @@ public class EventsApi {
      * Set tags.
      *
      * @param tags A comma separated list indicating what tags, if any, should be used to filter the
-     *     list of monitors by scope. (optional)
+     *     list of events. (optional)
      * @return ListEventsOptionalParameters
      */
     public ListEventsOptionalParameters tags(String tags) {
@@ -606,7 +606,7 @@ public class EventsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "EventsApi.listEvents",
+              "v1.EventsApi.listEvents",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,

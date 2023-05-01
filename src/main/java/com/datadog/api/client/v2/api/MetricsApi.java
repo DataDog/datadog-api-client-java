@@ -19,6 +19,10 @@ import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
 import com.datadog.api.client.v2.model.MetricTagConfigurationUpdateRequest;
 import com.datadog.api.client.v2.model.MetricVolumesResponse;
 import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurationsResponse;
+import com.datadog.api.client.v2.model.ScalarFormulaQueryRequest;
+import com.datadog.api.client.v2.model.ScalarFormulaQueryResponse;
+import com.datadog.api.client.v2.model.TimeseriesFormulaQueryRequest;
+import com.datadog.api.client.v2.model.TimeseriesFormulaQueryResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -179,7 +183,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.createBulkTagsMetricsConfiguration",
+              "v2.MetricsApi.createBulkTagsMetricsConfiguration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -346,7 +350,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.createTagConfiguration",
+              "v2.MetricsApi.createTagConfiguration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -489,7 +493,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.deleteBulkTagsMetricsConfiguration",
+              "v2.MetricsApi.deleteBulkTagsMetricsConfiguration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -628,7 +632,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.deleteTagConfiguration",
+              "v2.MetricsApi.deleteTagConfiguration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -910,7 +914,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.estimateMetricsOutputSeries",
+              "v2.MetricsApi.estimateMetricsOutputSeries",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1125,7 +1129,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.listActiveMetricConfigurations",
+              "v2.MetricsApi.listActiveMetricConfigurations",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1269,7 +1273,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.listTagConfigurationByName",
+              "v2.MetricsApi.listTagConfigurationByName",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1555,7 +1559,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.listTagConfigurations",
+              "v2.MetricsApi.listTagConfigurations",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1695,7 +1699,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.listTagsByMetricName",
+              "v2.MetricsApi.listTagsByMetricName",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1837,7 +1841,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.listVolumesByMetricName",
+              "v2.MetricsApi.listVolumesByMetricName",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1858,6 +1862,313 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricVolumesResponse>() {});
+  }
+
+  /**
+   * Query scalar data across multiple products.
+   *
+   * <p>See {@link #queryScalarDataWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ScalarFormulaQueryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ScalarFormulaQueryResponse queryScalarData(ScalarFormulaQueryRequest body)
+      throws ApiException {
+    return queryScalarDataWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Query scalar data across multiple products.
+   *
+   * <p>See {@link #queryScalarDataWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ScalarFormulaQueryResponse&gt;
+   */
+  public CompletableFuture<ScalarFormulaQueryResponse> queryScalarDataAsync(
+      ScalarFormulaQueryRequest body) {
+    return queryScalarDataWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Query scalar values (as seen on Query Value, Table and Toplist widgets). Multiple data sources
+   * are supported with the ability to process the data using formulas and functions.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ScalarFormulaQueryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ScalarFormulaQueryResponse> queryScalarDataWithHttpInfo(
+      ScalarFormulaQueryRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "queryScalarData";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling queryScalarData");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/query/scalar";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.queryScalarData",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ScalarFormulaQueryResponse>() {});
+  }
+
+  /**
+   * Query scalar data across multiple products.
+   *
+   * <p>See {@link #queryScalarDataWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ScalarFormulaQueryResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ScalarFormulaQueryResponse>>
+      queryScalarDataWithHttpInfoAsync(ScalarFormulaQueryRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "queryScalarData";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ScalarFormulaQueryResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ScalarFormulaQueryResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling queryScalarData"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/query/scalar";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.queryScalarData",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ScalarFormulaQueryResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ScalarFormulaQueryResponse>() {});
+  }
+
+  /**
+   * Query timeseries data across multiple products.
+   *
+   * <p>See {@link #queryTimeseriesDataWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return TimeseriesFormulaQueryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TimeseriesFormulaQueryResponse queryTimeseriesData(TimeseriesFormulaQueryRequest body)
+      throws ApiException {
+    return queryTimeseriesDataWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Query timeseries data across multiple products.
+   *
+   * <p>See {@link #queryTimeseriesDataWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;TimeseriesFormulaQueryResponse&gt;
+   */
+  public CompletableFuture<TimeseriesFormulaQueryResponse> queryTimeseriesDataAsync(
+      TimeseriesFormulaQueryRequest body) {
+    return queryTimeseriesDataWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Query timeseries data across various data sources and process the data by applying formulas and
+   * functions.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;TimeseriesFormulaQueryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TimeseriesFormulaQueryResponse> queryTimeseriesDataWithHttpInfo(
+      TimeseriesFormulaQueryRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "queryTimeseriesData";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling queryTimeseriesData");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/query/timeseries";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.queryTimeseriesData",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TimeseriesFormulaQueryResponse>() {});
+  }
+
+  /**
+   * Query timeseries data across multiple products.
+   *
+   * <p>See {@link #queryTimeseriesDataWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;TimeseriesFormulaQueryResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>>
+      queryTimeseriesDataWithHttpInfoAsync(TimeseriesFormulaQueryRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "queryTimeseriesData";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling queryTimeseriesData"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/query/timeseries";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.queryTimeseriesData",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TimeseriesFormulaQueryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TimeseriesFormulaQueryResponse>() {});
   }
 
   /** Manage optional parameters to submitMetrics. */
@@ -2044,7 +2355,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.submitMetrics",
+              "v2.MetricsApi.submitMetrics",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2209,7 +2520,7 @@ public class MetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MetricsApi.updateTagConfiguration",
+              "v2.MetricsApi.updateTagConfiguration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

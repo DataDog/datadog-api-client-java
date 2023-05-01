@@ -96,6 +96,7 @@ public class ApiClient {
                                       "datadoghq.com",
                                       "us3.datadoghq.com",
                                       "us5.datadoghq.com",
+                                      "ap1.datadoghq.com",
                                       "datadoghq.eu",
                                       "ddog-gov.com"))));
                       put(
@@ -164,6 +165,7 @@ public class ApiClient {
                                               "datadoghq.com",
                                               "us3.datadoghq.com",
                                               "us5.datadoghq.com",
+                                              "ap1.datadoghq.com",
                                               "datadoghq.eu",
                                               "ddog-gov.com"))));
                               put(
@@ -226,6 +228,7 @@ public class ApiClient {
                                               "datadoghq.eu",
                                               "us3.datadoghq.com",
                                               "us5.datadoghq.com",
+                                              "ap1.datadoghq.com",
                                               "ddog-gov.com"))));
                               put(
                                   "subdomain",
@@ -292,6 +295,7 @@ public class ApiClient {
                                               "datadoghq.com",
                                               "us3.datadoghq.com",
                                               "us5.datadoghq.com",
+                                              "ap1.datadoghq.com",
                                               "datadoghq.eu",
                                               "ddog-gov.com"))));
                               put(
@@ -359,6 +363,7 @@ public class ApiClient {
                                               "datadoghq.com",
                                               "us3.datadoghq.com",
                                               "us5.datadoghq.com",
+                                              "ap1.datadoghq.com",
                                               "datadoghq.eu",
                                               "ddog-gov.com"))));
                               put(
@@ -428,16 +433,30 @@ public class ApiClient {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
-          put("v1.searchSLO", false);
           put("v2.listEvents", false);
           put("v2.searchEvents", false);
           put("v2.createIncident", false);
+          put("v2.createIncidentIntegration", false);
+          put("v2.createIncidentTodo", false);
           put("v2.deleteIncident", false);
+          put("v2.deleteIncidentIntegration", false);
+          put("v2.deleteIncidentTodo", false);
           put("v2.getIncident", false);
+          put("v2.getIncidentIntegration", false);
+          put("v2.getIncidentTodo", false);
           put("v2.listIncidentAttachments", false);
+          put("v2.listIncidentIntegrations", false);
           put("v2.listIncidents", false);
+          put("v2.listIncidentTodos", false);
+          put("v2.searchIncidents", false);
           put("v2.updateIncident", false);
           put("v2.updateIncidentAttachments", false);
+          put("v2.updateIncidentIntegration", false);
+          put("v2.updateIncidentTodo", false);
+          put("v2.queryScalarData", false);
+          put("v2.queryTimeseriesData", false);
+          put("v2.getFinding", false);
+          put("v2.listFindings", false);
           put("v2.createIncidentService", false);
           put("v2.deleteIncidentService", false);
           put("v2.getIncidentService", false);

@@ -14,6 +14,7 @@ import java.util.Objects;
 
 /** Value of the global variable. */
 @JsonPropertyOrder({
+  SyntheticsGlobalVariableValue.JSON_PROPERTY_OPTIONS,
   SyntheticsGlobalVariableValue.JSON_PROPERTY_SECURE,
   SyntheticsGlobalVariableValue.JSON_PROPERTY_VALUE
 })
@@ -21,11 +22,36 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsGlobalVariableValue {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_OPTIONS = "options";
+  private SyntheticsGlobalVariableOptions options;
+
   public static final String JSON_PROPERTY_SECURE = "secure";
   private Boolean secure;
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
+
+  public SyntheticsGlobalVariableValue options(SyntheticsGlobalVariableOptions options) {
+    this.options = options;
+    this.unparsed |= options.unparsed;
+    return this;
+  }
+
+  /**
+   * Options for the Global Variable for MFA.
+   *
+   * @return options
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsGlobalVariableOptions getOptions() {
+    return options;
+  }
+
+  public void setOptions(SyntheticsGlobalVariableOptions options) {
+    this.options = options;
+  }
 
   public SyntheticsGlobalVariableValue secure(Boolean secure) {
     this.secure = secure;
@@ -80,19 +106,21 @@ public class SyntheticsGlobalVariableValue {
       return false;
     }
     SyntheticsGlobalVariableValue syntheticsGlobalVariableValue = (SyntheticsGlobalVariableValue) o;
-    return Objects.equals(this.secure, syntheticsGlobalVariableValue.secure)
+    return Objects.equals(this.options, syntheticsGlobalVariableValue.options)
+        && Objects.equals(this.secure, syntheticsGlobalVariableValue.secure)
         && Objects.equals(this.value, syntheticsGlobalVariableValue.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(secure, value);
+    return Objects.hash(options, secure, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsGlobalVariableValue {\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    secure: ").append(toIndentedString(secure)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");

@@ -168,7 +168,7 @@ public class MonitorsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MonitorsApi.checkCanDeleteMonitor",
+              "v1.MonitorsApi.checkCanDeleteMonitor",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -251,9 +251,13 @@ public class MonitorsApi {
    *   <li>error-tracking: <code>error-tracking alert</code>
    * </ul>
    *
+   * <p><strong>Note</strong>: Synthetic monitors are created through the Synthetics API. See the
+   * [Synthetics API] (https://docs.datadoghq.com/api/latest/synthetics/) documentation for more
+   * information.
+   *
    * <h3>Query Types</h3>
    *
-   * <p><strong>Metric Alert Query</strong>
+   * <h4>Metric Alert Query</h4>
    *
    * <p>Example: <code>time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #</code>
    *
@@ -288,7 +292,7 @@ public class MonitorsApi {
    * avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, 'dbscan', 7) &gt; 0
    * </code>
    *
-   * <p><strong>Service Check Query</strong>
+   * <h4>Service Check Query</h4>
    *
    * <p>Example: <code>"check".over(tags).last(count).by(group).count_by_status()</code>
    *
@@ -307,7 +311,7 @@ public class MonitorsApi {
    *       documentation for more information.
    * </ul>
    *
-   * <p><strong>Event Alert Query</strong>
+   * <h4>Event Alert Query</h4>
    *
    * <p>Example: <code>
    * events('sources:nagios status:error,warning priority:normal tags: "string query"').rollup("count").last("1h")"
@@ -335,7 +339,7 @@ public class MonitorsApi {
    * href="https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/">Event
    * Migration guide</a>.
    *
-   * <p><strong>Event V2 Alert Query</strong>
+   * <h4>Event V2 Alert Query</h4>
    *
    * <p>Example: <code>events(query).rollup(rollup_method[, measure]).last(time_window) operator #
    * </code>
@@ -353,7 +357,7 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <p><strong>Process Alert Query</strong>
+   * <h4>Process Alert Query</h4>
    *
    * <p>Example: <code>processes(search).over(tags).rollup('count').last(timeframe) operator #
    * </code>
@@ -391,7 +395,7 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <p><strong>Composite Query</strong>
+   * <h4>Composite Query</h4>
    *
    * <p>Example: <code>12345 &amp;&amp; 67890</code>, where <code>12345</code> and <code>67890
    * </code> are the IDs of non-composite monitors
@@ -409,7 +413,7 @@ public class MonitorsApi {
    *       only available via the API and isn't visible or editable in the Datadog UI.
    * </ul>
    *
-   * <p><strong>SLO Alert Query</strong>
+   * <h4>SLO Alert Query</h4>
    *
    * <p>Example: <code>error_budget("slo_id").over("time_window") operator #</code>
    *
@@ -421,7 +425,7 @@ public class MonitorsApi {
    *   <li><code>operator</code>: <code>&gt;=</code> or <code>&gt;</code>
    * </ul>
    *
-   * <p><strong>Audit Alert Query</strong>
+   * <h4>Audit Alert Query</h4>
    *
    * <p>Example: <code>audits(query).rollup(rollup_method[, measure]).last(time_window) operator #
    * </code>
@@ -439,9 +443,10 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <p><strong>NOTE</strong> Only available on US1-FED and in closed beta on US1, EU, US3, and US5.
+   * <p><strong>NOTE</strong> Only available on US1-FED and in closed beta on US1, EU, AP1, US3, and
+   * US5.
    *
-   * <p><strong>CI Pipelines Alert Query</strong>
+   * <h4>CI Pipelines Alert Query</h4>
    *
    * <p>Example: <code>
    * ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #</code>
@@ -459,9 +464,9 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <p><strong>NOTE</strong> CI Pipeline monitors are in alpha on US1, EU, US3 and US5.
+   * <p><strong>NOTE</strong> CI Pipeline monitors are in alpha on US1, EU, AP1, US3, and US5.
    *
-   * <p><strong>CI Tests Alert Query</strong>
+   * <h4>CI Tests Alert Query</h4>
    *
    * <p>Example: <code>ci-tests(query).rollup(rollup_method[, measure]).last(time_window) operator #
    * </code>
@@ -479,10 +484,10 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <p><strong>NOTE</strong> CI Test monitors are available only in closed beta on US1, EU, US3 and
-   * US5.
+   * <p><strong>NOTE</strong> CI Test monitors are available only in closed beta on US1, EU, AP1,
+   * US3, and US5.
    *
-   * <p><strong>Error Tracking Alert Query</strong>
+   * <h4>Error Tracking Alert Query</h4>
    *
    * <p>Example(RUM): <code>
    * error-tracking-rum(query).rollup(rollup_method[, measure]).last(time_window) operator #</code>
@@ -577,7 +582,7 @@ public class MonitorsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MonitorsApi.createMonitor",
+              "v1.MonitorsApi.createMonitor",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -774,7 +779,7 @@ public class MonitorsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MonitorsApi.deleteMonitor",
+              "v1.MonitorsApi.deleteMonitor",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -971,7 +976,7 @@ public class MonitorsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MonitorsApi.getMonitor",
+              "v1.MonitorsApi.getMonitor",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1264,7 +1269,7 @@ public class MonitorsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MonitorsApi.listMonitors",
+              "v1.MonitorsApi.listMonitors",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1494,7 +1499,7 @@ public class MonitorsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MonitorsApi.searchMonitorGroups",
+              "v1.MonitorsApi.searchMonitorGroups",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1724,7 +1729,7 @@ public class MonitorsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MonitorsApi.searchMonitors",
+              "v1.MonitorsApi.searchMonitors",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1880,7 +1885,7 @@ public class MonitorsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MonitorsApi.updateMonitor",
+              "v1.MonitorsApi.updateMonitor",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2035,7 +2040,7 @@ public class MonitorsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MonitorsApi.validateExistingMonitor",
+              "v1.MonitorsApi.validateExistingMonitor",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -2164,7 +2169,7 @@ public class MonitorsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "MonitorsApi.validateMonitor",
+              "v1.MonitorsApi.validateMonitor",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

@@ -17,6 +17,7 @@ import java.util.Objects;
 /** Update an existing rule. */
 @JsonPropertyOrder({
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_CASES,
+  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_FILTERS,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_HAS_EXTENDED_TITLE,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_IS_ENABLED,
@@ -33,6 +34,9 @@ public class SecurityMonitoringRuleUpdatePayload {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCase> cases = null;
+
+  public static final String JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS = "complianceSignalOptions";
+  private CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions;
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<SecurityMonitoringFilter> filters = null;
@@ -92,6 +96,30 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public void setCases(List<SecurityMonitoringRuleCase> cases) {
     this.cases = cases;
+  }
+
+  public SecurityMonitoringRuleUpdatePayload complianceSignalOptions(
+      CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
+    this.complianceSignalOptions = complianceSignalOptions;
+    this.unparsed |= complianceSignalOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * How to generate compliance signals. Useful for cloud_configuration rules only.
+   *
+   * @return complianceSignalOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudConfigurationRuleComplianceSignalOptions getComplianceSignalOptions() {
+    return complianceSignalOptions;
+  }
+
+  public void setComplianceSignalOptions(
+      CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
+    this.complianceSignalOptions = complianceSignalOptions;
   }
 
   public SecurityMonitoringRuleUpdatePayload filters(List<SecurityMonitoringFilter> filters) {
@@ -329,6 +357,9 @@ public class SecurityMonitoringRuleUpdatePayload {
     SecurityMonitoringRuleUpdatePayload securityMonitoringRuleUpdatePayload =
         (SecurityMonitoringRuleUpdatePayload) o;
     return Objects.equals(this.cases, securityMonitoringRuleUpdatePayload.cases)
+        && Objects.equals(
+            this.complianceSignalOptions,
+            securityMonitoringRuleUpdatePayload.complianceSignalOptions)
         && Objects.equals(this.filters, securityMonitoringRuleUpdatePayload.filters)
         && Objects.equals(
             this.hasExtendedTitle, securityMonitoringRuleUpdatePayload.hasExtendedTitle)
@@ -345,6 +376,7 @@ public class SecurityMonitoringRuleUpdatePayload {
   public int hashCode() {
     return Objects.hash(
         cases,
+        complianceSignalOptions,
         filters,
         hasExtendedTitle,
         isEnabled,
@@ -361,6 +393,9 @@ public class SecurityMonitoringRuleUpdatePayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleUpdatePayload {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
+    sb.append("    complianceSignalOptions: ")
+        .append(toIndentedString(complianceSignalOptions))
+        .append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");

@@ -23,6 +23,7 @@ public class Undo {
       public String template;
     }
 
+    public String tag;
     public String type;
     public String operationId;
     public List<Parameter> parameters;
@@ -79,6 +80,7 @@ public class Undo {
   }
 
   public String getAPIName() {
+    if (undo.tag != null) return Pattern.compile(" ").matcher(undo.tag).replaceAll("");
     return Pattern.compile(" ").matcher(tag).replaceAll("");
   }
 

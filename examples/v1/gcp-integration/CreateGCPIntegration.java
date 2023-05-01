@@ -20,6 +20,7 @@ public class Example {
             .clientX509CertUrl("https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL")
             .errors(Collections.singletonList("*"))
             .hostFilters("key:value,filter:example")
+            .isCspmEnabled(true)
             .privateKey("private_key")
             .privateKeyId("123456789abcdefghi123456789abcdefghijklm")
             .projectId("datadog-apitest")

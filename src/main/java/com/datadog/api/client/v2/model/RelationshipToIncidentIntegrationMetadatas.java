@@ -50,7 +50,7 @@ public class RelationshipToIncidentIntegrationMetadatas {
   }
 
   /**
-   * The integration metadata relationship array
+   * Integration metadata relationship array
    *
    * @return data
    */

@@ -161,14 +161,14 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   }
   {%- endif %}
 
-  {%- if schema.additionalProperties is defined %}
+  {%- if schema.additionalProperties is defined and schema.additionalProperties is not false %}
   public {{ name }} put{{ variableName|upperfirst }}Item(String key, {{ get_type(schema.additionalProperties) }} {{ variableName }}Item) {
     {%- if not isRequired and isNullable %}
     if (this.{{ variableName }} == null || !this.{{ variableName }}.isPresent()) {
       this.{{ variableName }} = JsonNullable.<{{ dataType }}>of(new HashMap<>());
     }
     try {
-      this.{{ variableName }}.get().put(key, {{ variableName|upperfirst }}Item);
+      this.{{ variableName }}.get().put(key, {{ variableName }}Item);
     } catch (java.util.NoSuchElementException e) {
       // this can never happen, as we make sure above that the value is present
     }

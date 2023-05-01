@@ -129,7 +129,8 @@ public class ServiceCheck {
   }
 
   /**
-   * The status of a service check.
+   * The status of a service check. Set to <code>0</code> for OK, <code>1</code> for warning, <code>
+   * 2</code> for critical, and <code>3</code> for unknown.
    *
    * @return status
    */

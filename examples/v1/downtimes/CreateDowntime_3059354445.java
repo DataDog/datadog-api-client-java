@@ -14,7 +14,7 @@ public class Example {
 
     Downtime body =
         new Downtime()
-            .message("Example-Schedule_a_downtime_once_a_year")
+            .message("Example-Downtime")
             .recurrence(new DowntimeRecurrence().period(1).type("years"))
             .scope(Collections.singletonList("*"))
             .start(OffsetDateTime.now().toInstant().getEpochSecond())

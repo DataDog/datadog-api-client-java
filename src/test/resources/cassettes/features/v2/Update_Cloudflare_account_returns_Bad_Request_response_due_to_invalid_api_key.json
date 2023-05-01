@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971\"},\"type\":\"cloudflare-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/cloudflare/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971\"},\"type\":\"cloudflare-accounts\",\"id\":\"56a7295bd711e0aea34906a3bea8a2b3\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "60bf0c4f-3644-7526-0030-3a8e5feed022"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"},\"type\":\"cloudflare-accounts\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/integrations/cloudflare/accounts/56a7295bd711e0aea34906a3bea8a2b3",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid account. Your Cloudflare configuration is invalid. Impossible to get zones for the account testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971: API key or email is unknown.\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3f23d00e-3a64-a6fa-757f-56c5364ca6d5"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/cloudflare/accounts/56a7295bd711e0aea34906a3bea8a2b3",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ef4708ff-e201-db20-f8d5-b432046e803e"
+  }
+]

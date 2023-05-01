@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A service level objective history response. */
 @JsonPropertyOrder({SLOHistoryResponse.JSON_PROPERTY_DATA, SLOHistoryResponse.JSON_PROPERTY_ERRORS})
@@ -24,7 +25,8 @@ public class SLOHistoryResponse {
   private SLOHistoryResponseData data;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<SLOHistoryResponseError> errors = null;
+  private JsonNullable<List<SLOHistoryResponseError>> errors =
+      JsonNullable.<List<SLOHistoryResponseError>>undefined();
 
   public SLOHistoryResponse data(SLOHistoryResponseData data) {
     this.data = data;
@@ -49,19 +51,19 @@ public class SLOHistoryResponse {
   }
 
   public SLOHistoryResponse errors(List<SLOHistoryResponseError> errors) {
-    this.errors = errors;
-    for (SLOHistoryResponseError item : errors) {
-      this.unparsed |= item.unparsed;
-    }
+    this.errors = JsonNullable.<List<SLOHistoryResponseError>>of(errors);
     return this;
   }
 
   public SLOHistoryResponse addErrorsItem(SLOHistoryResponseError errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<>();
+    if (this.errors == null || !this.errors.isPresent()) {
+      this.errors = JsonNullable.<List<SLOHistoryResponseError>>of(new ArrayList<>());
     }
-    this.errors.add(errorsItem);
-    this.unparsed |= errorsItem.unparsed;
+    try {
+      this.errors.get().add(errorsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -71,14 +73,24 @@ public class SLOHistoryResponse {
    * @return errors
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<SLOHistoryResponseError> getErrors() {
+    return errors.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SLOHistoryResponseError> getErrors() {
+  public JsonNullable<List<SLOHistoryResponseError>> getErrors_JsonNullable() {
     return errors;
   }
 
-  public void setErrors(List<SLOHistoryResponseError> errors) {
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  public void setErrors_JsonNullable(JsonNullable<List<SLOHistoryResponseError>> errors) {
     this.errors = errors;
+  }
+
+  public void setErrors(List<SLOHistoryResponseError> errors) {
+    this.errors = JsonNullable.<List<SLOHistoryResponseError>>of(errors);
   }
 
   /** Return true if this SLOHistoryResponse object is equal to o. */

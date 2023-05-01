@@ -14,9 +14,7 @@ public class Example {
     Long DOWNTIME_ID = Long.parseLong(System.getenv("DOWNTIME_ID"));
 
     Downtime body =
-        new Downtime()
-            .message("Example-Update_a_downtime_returns_OK_response-updated")
-            .muteFirstRecoveryNotification(true);
+        new Downtime().message("Example-Downtime-updated").muteFirstRecoveryNotification(true);
 
     try {
       Downtime result = apiInstance.updateDowntime(DOWNTIME_ID, body);

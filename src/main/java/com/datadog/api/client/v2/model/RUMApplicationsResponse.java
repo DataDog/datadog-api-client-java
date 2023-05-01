@@ -21,17 +21,17 @@ import java.util.Objects;
 public class RUMApplicationsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<RUMApplication> data = null;
+  private List<RUMApplicationList> data = null;
 
-  public RUMApplicationsResponse data(List<RUMApplication> data) {
+  public RUMApplicationsResponse data(List<RUMApplicationList> data) {
     this.data = data;
-    for (RUMApplication item : data) {
+    for (RUMApplicationList item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public RUMApplicationsResponse addDataItem(RUMApplication dataItem) {
+  public RUMApplicationsResponse addDataItem(RUMApplicationList dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -48,11 +48,11 @@ public class RUMApplicationsResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<RUMApplication> getData() {
+  public List<RUMApplicationList> getData() {
     return data;
   }
 
-  public void setData(List<RUMApplication> data) {
+  public void setData(List<RUMApplicationList> data) {
     this.data = data;
   }
 

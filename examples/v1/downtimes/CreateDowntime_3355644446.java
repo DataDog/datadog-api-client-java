@@ -16,11 +16,10 @@ public class Example {
 
     Downtime body =
         new Downtime()
-            .message("Example-Schedule_a_monitor_downtime_returns_OK_response")
+            .message("Example-Downtime")
             .start(OffsetDateTime.now().toInstant().getEpochSecond())
             .timezone("Etc/UTC")
-            .scope(
-                Collections.singletonList("test:examplescheduleamonitordowntimereturnsokresponse"))
+            .scope(Collections.singletonList("test:exampledowntime"))
             .monitorId(MONITOR_ID);
 
     try {

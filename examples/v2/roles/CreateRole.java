@@ -19,9 +19,7 @@ public class Example {
             .data(
                 new RoleCreateData()
                     .type(RolesType.ROLES)
-                    .attributes(
-                        new RoleCreateAttributes()
-                            .name("Example-Create_role_returns_OK_response")));
+                    .attributes(new RoleCreateAttributes().name("Example-Role")));
 
     try {
       RoleCreateResponse result = apiInstance.createRole(body);

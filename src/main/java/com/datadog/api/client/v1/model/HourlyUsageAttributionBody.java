@@ -17,12 +17,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The usage for one set of tags for one hour. */
 @JsonPropertyOrder({
   HourlyUsageAttributionBody.JSON_PROPERTY_HOUR,
   HourlyUsageAttributionBody.JSON_PROPERTY_ORG_NAME,
   HourlyUsageAttributionBody.JSON_PROPERTY_PUBLIC_ID,
+  HourlyUsageAttributionBody.JSON_PROPERTY_REGION,
   HourlyUsageAttributionBody.JSON_PROPERTY_TAG_CONFIG_SOURCE,
   HourlyUsageAttributionBody.JSON_PROPERTY_TAGS,
   HourlyUsageAttributionBody.JSON_PROPERTY_TOTAL_USAGE_SUM,
@@ -44,11 +46,15 @@ public class HourlyUsageAttributionBody {
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
 
+  public static final String JSON_PROPERTY_REGION = "region";
+  private String region;
+
   public static final String JSON_PROPERTY_TAG_CONFIG_SOURCE = "tag_config_source";
   private String tagConfigSource;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private Map<String, List<String>> tags = null;
+  private JsonNullable<Map<String, List<String>>> tags =
+      JsonNullable.<Map<String, List<String>>>undefined();
 
   public static final String JSON_PROPERTY_TOTAL_USAGE_SUM = "total_usage_sum";
   private Double totalUsageSum;
@@ -122,6 +128,27 @@ public class HourlyUsageAttributionBody {
     this.publicId = publicId;
   }
 
+  public HourlyUsageAttributionBody region(String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * The region of the Datadog instance that the organization belongs to.
+   *
+   * @return region
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
   public HourlyUsageAttributionBody tagConfigSource(String tagConfigSource) {
     this.tagConfigSource = tagConfigSource;
     return this;
@@ -147,15 +174,19 @@ public class HourlyUsageAttributionBody {
   }
 
   public HourlyUsageAttributionBody tags(Map<String, List<String>> tags) {
-    this.tags = tags;
+    this.tags = JsonNullable.<Map<String, List<String>>>of(tags);
     return this;
   }
 
   public HourlyUsageAttributionBody putTagsItem(String key, List<String> tagsItem) {
-    if (this.tags == null) {
-      this.tags = new HashMap<>();
+    if (this.tags == null || !this.tags.isPresent()) {
+      this.tags = JsonNullable.<Map<String, List<String>>>of(new HashMap<>());
     }
-    this.tags.put(key, tagsItem);
+    try {
+      this.tags.get().put(key, tagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -171,14 +202,24 @@ public class HourlyUsageAttributionBody {
    * @return tags
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Map<String, List<String>> getTags() {
+    return tags.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, List<String>> getTags() {
+  public JsonNullable<Map<String, List<String>>> getTags_JsonNullable() {
     return tags;
   }
 
-  public void setTags(Map<String, List<String>> tags) {
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  public void setTags_JsonNullable(JsonNullable<Map<String, List<String>>> tags) {
     this.tags = tags;
+  }
+
+  public void setTags(Map<String, List<String>> tags) {
+    this.tags = JsonNullable.<Map<String, List<String>>>of(tags);
   }
 
   public HourlyUsageAttributionBody totalUsageSum(Double totalUsageSum) {
@@ -262,6 +303,7 @@ public class HourlyUsageAttributionBody {
     return Objects.equals(this.hour, hourlyUsageAttributionBody.hour)
         && Objects.equals(this.orgName, hourlyUsageAttributionBody.orgName)
         && Objects.equals(this.publicId, hourlyUsageAttributionBody.publicId)
+        && Objects.equals(this.region, hourlyUsageAttributionBody.region)
         && Objects.equals(this.tagConfigSource, hourlyUsageAttributionBody.tagConfigSource)
         && Objects.equals(this.tags, hourlyUsageAttributionBody.tags)
         && Objects.equals(this.totalUsageSum, hourlyUsageAttributionBody.totalUsageSum)
@@ -272,7 +314,15 @@ public class HourlyUsageAttributionBody {
   @Override
   public int hashCode() {
     return Objects.hash(
-        hour, orgName, publicId, tagConfigSource, tags, totalUsageSum, updatedAt, usageType);
+        hour,
+        orgName,
+        publicId,
+        region,
+        tagConfigSource,
+        tags,
+        totalUsageSum,
+        updatedAt,
+        usageType);
   }
 
   @Override
@@ -282,6 +332,7 @@ public class HourlyUsageAttributionBody {
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    tagConfigSource: ").append(toIndentedString(tagConfigSource)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totalUsageSum: ").append(toIndentedString(totalUsageSum)).append("\n");

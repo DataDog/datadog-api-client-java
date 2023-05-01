@@ -32,8 +32,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOResponseData.JSON_PROPERTY_NAME,
   SLOResponseData.JSON_PROPERTY_QUERY,
   SLOResponseData.JSON_PROPERTY_TAGS,
+  SLOResponseData.JSON_PROPERTY_TARGET_THRESHOLD,
   SLOResponseData.JSON_PROPERTY_THRESHOLDS,
-  SLOResponseData.JSON_PROPERTY_TYPE
+  SLOResponseData.JSON_PROPERTY_TIMEFRAME,
+  SLOResponseData.JSON_PROPERTY_TYPE,
+  SLOResponseData.JSON_PROPERTY_WARNING_THRESHOLD
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -75,11 +78,20 @@ public class SLOResponseData {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
+  public static final String JSON_PROPERTY_TARGET_THRESHOLD = "target_threshold";
+  private Double targetThreshold;
+
   public static final String JSON_PROPERTY_THRESHOLDS = "thresholds";
   private List<SLOThreshold> thresholds = null;
 
+  public static final String JSON_PROPERTY_TIMEFRAME = "timeframe";
+  private SLOTimeframe timeframe;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private SLOType type;
+
+  public static final String JSON_PROPERTY_WARNING_THRESHOLD = "warning_threshold";
+  private Double warningThreshold;
 
   public SLOResponseData configuredAlertIds(List<Long> configuredAlertIds) {
     this.configuredAlertIds = configuredAlertIds;
@@ -370,6 +382,28 @@ public class SLOResponseData {
     this.tags = tags;
   }
 
+  public SLOResponseData targetThreshold(Double targetThreshold) {
+    this.targetThreshold = targetThreshold;
+    return this;
+  }
+
+  /**
+   * The target threshold such that when the service level indicator is above this threshold over
+   * the given timeframe, the objective is being met.
+   *
+   * @return targetThreshold
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TARGET_THRESHOLD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getTargetThreshold() {
+    return targetThreshold;
+  }
+
+  public void setTargetThreshold(Double targetThreshold) {
+    this.targetThreshold = targetThreshold;
+  }
+
   public SLOResponseData thresholds(List<SLOThreshold> thresholds) {
     this.thresholds = thresholds;
     for (SLOThreshold item : thresholds) {
@@ -403,6 +437,31 @@ public class SLOResponseData {
     this.thresholds = thresholds;
   }
 
+  public SLOResponseData timeframe(SLOTimeframe timeframe) {
+    this.timeframe = timeframe;
+    this.unparsed |= !timeframe.isValid();
+    return this;
+  }
+
+  /**
+   * The SLO time window options.
+   *
+   * @return timeframe
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMEFRAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOTimeframe getTimeframe() {
+    return timeframe;
+  }
+
+  public void setTimeframe(SLOTimeframe timeframe) {
+    if (!timeframe.isValid()) {
+      this.unparsed = true;
+    }
+    this.timeframe = timeframe;
+  }
+
   public SLOResponseData type(SLOType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -428,6 +487,29 @@ public class SLOResponseData {
     this.type = type;
   }
 
+  public SLOResponseData warningThreshold(Double warningThreshold) {
+    this.warningThreshold = warningThreshold;
+    return this;
+  }
+
+  /**
+   * The optional warning threshold such that when the service level indicator is below this value
+   * for the given threshold, but above the target threshold, the objective appears in a "warning"
+   * state. This value must be greater than the target threshold.
+   *
+   * @return warningThreshold
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WARNING_THRESHOLD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getWarningThreshold() {
+    return warningThreshold;
+  }
+
+  public void setWarningThreshold(Double warningThreshold) {
+    this.warningThreshold = warningThreshold;
+  }
+
   /** Return true if this SLOResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -450,8 +532,11 @@ public class SLOResponseData {
         && Objects.equals(this.name, sloResponseData.name)
         && Objects.equals(this.query, sloResponseData.query)
         && Objects.equals(this.tags, sloResponseData.tags)
+        && Objects.equals(this.targetThreshold, sloResponseData.targetThreshold)
         && Objects.equals(this.thresholds, sloResponseData.thresholds)
-        && Objects.equals(this.type, sloResponseData.type);
+        && Objects.equals(this.timeframe, sloResponseData.timeframe)
+        && Objects.equals(this.type, sloResponseData.type)
+        && Objects.equals(this.warningThreshold, sloResponseData.warningThreshold);
   }
 
   @Override
@@ -469,8 +554,11 @@ public class SLOResponseData {
         name,
         query,
         tags,
+        targetThreshold,
         thresholds,
-        type);
+        timeframe,
+        type,
+        warningThreshold);
   }
 
   @Override
@@ -489,8 +577,11 @@ public class SLOResponseData {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    targetThreshold: ").append(toIndentedString(targetThreshold)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
+    sb.append("    timeframe: ").append(toIndentedString(timeframe)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    warningThreshold: ").append(toIndentedString(warningThreshold)).append("\n");
     sb.append("}");
     return sb.toString();
   }

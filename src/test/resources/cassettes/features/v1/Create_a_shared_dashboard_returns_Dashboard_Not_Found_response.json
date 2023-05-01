@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"dashboard_id\":\"abc-123-def\",\"dashboard_type\":\"custom_timeboard\",\"global_time\":{\"live_span\":\"1h\"},\"share_type\":\"open\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard/public",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"custom_timeboard abc-123-def not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e2da164f-1ac8-c685-5e0c-45f057d1fc0e"
+  }
+]

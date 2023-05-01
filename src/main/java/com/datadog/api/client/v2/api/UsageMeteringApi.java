@@ -242,7 +242,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getCostByOrg",
+              "v2.UsageMeteringApi.getCostByOrg",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -487,7 +487,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getEstimatedCostByOrg",
+              "v2.UsageMeteringApi.getEstimatedCostByOrg",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -712,7 +712,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getHistoricalCostByOrg",
+              "v2.UsageMeteringApi.getHistoricalCostByOrg",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -739,6 +739,7 @@ public class UsageMeteringApi {
   public static class GetHourlyUsageOptionalParameters {
     private OffsetDateTime filterTimestampEnd;
     private Boolean filterIncludeDescendants;
+    private Boolean filterIncludeBreakdown;
     private String filterVersions;
     private Integer pageLimit;
     private String pageNextRecordId;
@@ -765,6 +766,18 @@ public class UsageMeteringApi {
     public GetHourlyUsageOptionalParameters filterIncludeDescendants(
         Boolean filterIncludeDescendants) {
       this.filterIncludeDescendants = filterIncludeDescendants;
+      return this;
+    }
+
+    /**
+     * Set filterIncludeBreakdown.
+     *
+     * @param filterIncludeBreakdown Include breakdown of usage by subcategories where applicable
+     *     (for product family logs only). Defaults to false. (optional, default to false)
+     * @return GetHourlyUsageOptionalParameters
+     */
+    public GetHourlyUsageOptionalParameters filterIncludeBreakdown(Boolean filterIncludeBreakdown) {
+      this.filterIncludeBreakdown = filterIncludeBreakdown;
       return this;
     }
 
@@ -816,15 +829,17 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
-   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
-   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
-   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
-   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
-   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
-   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
-   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
+   *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
+   *     cloud_cost_management</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws
+   *     </code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
+   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
+   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
+   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     <code>synthetics_parallel_testing</code>, and <code>timeseries</code>. The following
+   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @return HourlyUsageResponse
    * @throws ApiException if fails to make API call
    */
@@ -844,15 +859,17 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
-   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
-   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
-   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
-   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
-   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
-   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
-   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
+   *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
+   *     cloud_cost_management</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws
+   *     </code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
+   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
+   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
+   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     <code>synthetics_parallel_testing</code>, and <code>timeseries</code>. The following
+   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @return CompletableFuture&lt;HourlyUsageResponse&gt;
    */
   public CompletableFuture<HourlyUsageResponse> getHourlyUsageAsync(
@@ -874,15 +891,17 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
-   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
-   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
-   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
-   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
-   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
-   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
-   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
+   *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
+   *     cloud_cost_management</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws
+   *     </code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
+   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
+   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
+   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     <code>synthetics_parallel_testing</code>, and <code>timeseries</code>. The following
+   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return HourlyUsageResponse
    * @throws ApiException if fails to make API call
@@ -905,15 +924,17 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
-   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
-   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
-   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
-   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
-   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
-   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
-   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
+   *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
+   *     cloud_cost_management</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws
+   *     </code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
+   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
+   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
+   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     <code>synthetics_parallel_testing</code>, and <code>timeseries</code>. The following
+   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;HourlyUsageResponse&gt;
    */
@@ -935,15 +956,17 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
-   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
-   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
-   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
-   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
-   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
-   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
-   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
+   *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
+   *     cloud_cost_management</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws
+   *     </code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
+   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
+   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
+   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     <code>synthetics_parallel_testing</code>, and <code>timeseries</code>. The following
+   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HourlyUsageResponse&gt;
    * @throws ApiException if fails to make API call
@@ -978,6 +1001,7 @@ public class UsageMeteringApi {
     }
     OffsetDateTime filterTimestampEnd = parameters.filterTimestampEnd;
     Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    Boolean filterIncludeBreakdown = parameters.filterIncludeBreakdown;
     String filterVersions = parameters.filterVersions;
     Integer pageLimit = parameters.pageLimit;
     String pageNextRecordId = parameters.pageNextRecordId;
@@ -995,6 +1019,8 @@ public class UsageMeteringApi {
         apiClient.parameterToPairs("", "filter[timestamp][end]", filterTimestampEnd));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_breakdown]", filterIncludeBreakdown));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[versions]", filterVersions));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(
@@ -1029,15 +1055,17 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param filterProductFamilies Comma separated list of product families to retrieve. Available
    *     families are <code>all</code>, <code>analyzed_logs</code>, <code>application_security
-   *     </code>, <code>audit_logs</code>, <code>serverless</code>, <code>ci_app</code>, <code>cspm
-   *     </code>, <code>custom_events</code>, <code>cws</code>, <code>dbm</code>, <code>fargate
-   *     </code>, <code>infra_hosts</code>, <code>incident_management</code>, <code>indexed_logs
-   *     </code>, <code>indexed_spans</code>, <code>ingested_spans</code>, <code>iot</code>, <code>
-   *     lambda_traced_invocations</code>, <code>logs</code>, <code>network_flows</code>, <code>
-   *     network_hosts</code>, <code>observability_pipelines</code>, <code>online_archive</code>,
-   *     <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>
-   *     rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
-   *     </code>, <code>synthetics_browser</code>, and <code>timeseries</code>. (required)
+   *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
+   *     cloud_cost_management</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws
+   *     </code>, <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
+   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
+   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
+   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     observability_pipelines</code>, <code>online_archive</code>, <code>profiling</code>, <code>
+   *     rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds
+   *     </code>, <code>snmp</code>, <code>synthetics_api</code>, <code>synthetics_browser</code>,
+   *     <code>synthetics_parallel_testing</code>, and <code>timeseries</code>. The following
+   *     product family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;HourlyUsageResponse&gt;&gt;
    */
@@ -1069,6 +1097,7 @@ public class UsageMeteringApi {
     }
     OffsetDateTime filterTimestampEnd = parameters.filterTimestampEnd;
     Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    Boolean filterIncludeBreakdown = parameters.filterIncludeBreakdown;
     String filterVersions = parameters.filterVersions;
     Integer pageLimit = parameters.pageLimit;
     String pageNextRecordId = parameters.pageNextRecordId;
@@ -1086,6 +1115,8 @@ public class UsageMeteringApi {
         apiClient.parameterToPairs("", "filter[timestamp][end]", filterTimestampEnd));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_breakdown]", filterIncludeBreakdown));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[versions]", filterVersions));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
     localVarQueryParams.addAll(
@@ -1095,7 +1126,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getHourlyUsage",
+              "v2.UsageMeteringApi.getHourlyUsage",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1315,7 +1346,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageApplicationSecurityMonitoring",
+              "v2.UsageMeteringApi.getUsageApplicationSecurityMonitoring",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1532,7 +1563,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageLambdaTracedInvocations",
+              "v2.UsageMeteringApi.getUsageLambdaTracedInvocations",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1748,7 +1779,7 @@ public class UsageMeteringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "UsageMeteringApi.getUsageObservabilityPipelines",
+              "v2.UsageMeteringApi.getUsageObservabilityPipelines",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,

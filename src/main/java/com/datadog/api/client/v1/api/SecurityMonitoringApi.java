@@ -193,7 +193,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.addSecurityMonitoringSignalToIncident",
+              "v1.SecurityMonitoringApi.addSecurityMonitoringSignalToIncident",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -363,7 +363,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.editSecurityMonitoringSignalAssignee",
+              "v1.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -531,7 +531,7 @@ public class SecurityMonitoringApi {
     try {
       builder =
           apiClient.createBuilder(
-              "SecurityMonitoringApi.editSecurityMonitoringSignalState",
+              "v1.SecurityMonitoringApi.editSecurityMonitoringSignalState",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

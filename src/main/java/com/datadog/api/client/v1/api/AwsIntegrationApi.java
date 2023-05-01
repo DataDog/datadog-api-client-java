@@ -161,7 +161,7 @@ public class AwsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsIntegrationApi.createAWSAccount",
+              "v1.AwsIntegrationApi.createAWSAccount",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -304,7 +304,7 @@ public class AwsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsIntegrationApi.createAWSTagFilter",
+              "v1.AwsIntegrationApi.createAWSTagFilter",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -447,7 +447,7 @@ public class AwsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsIntegrationApi.createNewAWSExternalID",
+              "v1.AwsIntegrationApi.createNewAWSExternalID",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -580,7 +580,7 @@ public class AwsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsIntegrationApi.deleteAWSAccount",
+              "v1.AwsIntegrationApi.deleteAWSAccount",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -715,7 +715,7 @@ public class AwsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsIntegrationApi.deleteAWSTagFilter",
+              "v1.AwsIntegrationApi.deleteAWSTagFilter",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -825,7 +825,7 @@ public class AwsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsIntegrationApi.listAvailableAWSNamespaces",
+              "v1.AwsIntegrationApi.listAvailableAWSNamespaces",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1028,7 +1028,7 @@ public class AwsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsIntegrationApi.listAWSAccounts",
+              "v1.AwsIntegrationApi.listAWSAccounts",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1165,7 +1165,7 @@ public class AwsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsIntegrationApi.listAWSTagFilters",
+              "v1.AwsIntegrationApi.listAWSTagFilters",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -1391,7 +1391,7 @@ public class AwsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AwsIntegrationApi.updateAWSAccount",
+              "v1.AwsIntegrationApi.updateAWSAccount",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,

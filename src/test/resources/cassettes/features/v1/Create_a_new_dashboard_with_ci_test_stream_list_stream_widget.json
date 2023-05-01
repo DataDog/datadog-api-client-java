@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_ci_test_stream_list_stream_widget-1677789434 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"ci_test_stream\",\"query_string\":\"test_level:suite\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"mdr-2je-u6x\",\"title\":\"Test-Create_a_new_dashboard_with_ci_test_stream_list_stream_widget-1677789434 with list_stream widget\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/mdr-2je-u6x/test-createanewdashboardwithciteststreamliststreamwidget-1677789434-with-liststr\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"ci_test_stream\",\"query_string\":\"test_level:suite\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":1680451278463569}],\"notify_list\":null,\"created_at\":\"2023-03-02T20:37:14.537234+00:00\",\"modified_at\":\"2023-03-02T20:37:14.537234+00:00\",\"restricted_roles\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a5e67a9d-1b76-1348-3cb5-83ba7d90f85b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/mdr-2je-u6x",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"mdr-2je-u6x\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fa10355c-f95a-9720-2214-aa807ed3f9a8"
+  }
+]

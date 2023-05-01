@@ -35,8 +35,7 @@ public class Example {
                                     .attachment(
                                         new IncidentAttachmentLinkAttributesAttachmentObject()
                                             .documentUrl("https://www.example.com/doc")
-                                            .title(
-                                                "Example-Create_an_incident_attachment_returns_OK_response"))))));
+                                            .title("Example-Incident"))))));
 
     try {
       IncidentAttachmentUpdateResponse result =

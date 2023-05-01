@@ -26,8 +26,8 @@ public class Example {
                         new SecurityFilterUpdateAttributes()
                             .filteredDataType(SecurityFilterFilteredDataType.LOGS)
                             .isEnabled(true)
-                            .name("Example-Update_a_security_filter_returns_OK_response")
-                            .query("service:ExampleUpdateasecurityfilterreturnsOKresponse")
+                            .name("Example-Security-Monitoring")
+                            .query("service:ExampleSecurityMonitoring")
                             .version(1))
                     .type(SecurityFilterType.SECURITY_FILTERS));
 

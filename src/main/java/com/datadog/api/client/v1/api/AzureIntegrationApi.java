@@ -162,7 +162,7 @@ public class AzureIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AzureIntegrationApi.createAzureIntegration",
+              "v1.AzureIntegrationApi.createAzureIntegration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -293,7 +293,7 @@ public class AzureIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AzureIntegrationApi.deleteAzureIntegration",
+              "v1.AzureIntegrationApi.deleteAzureIntegration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -404,7 +404,7 @@ public class AzureIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AzureIntegrationApi.listAzureIntegration",
+              "v1.AzureIntegrationApi.listAzureIntegration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -535,7 +535,7 @@ public class AzureIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AzureIntegrationApi.updateAzureHostFilters",
+              "v1.AzureIntegrationApi.updateAzureHostFilters",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -669,7 +669,7 @@ public class AzureIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "AzureIntegrationApi.updateAzureIntegration",
+              "v1.AzureIntegrationApi.updateAzureIntegration",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

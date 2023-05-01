@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestAddFastlyaccountreturnsCREATEDresponse1674141356\",\"name\":\"Test-Add_Fastly_account_returns_CREATED_response-1674141356\",\"services\":[]},\"type\":\"fastly-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/fastly/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"services\":[],\"name\":\"Test-Add_Fastly_account_returns_CREATED_response-1674141356\"},\"type\":\"fastly-accounts\",\"id\":\"0427b05b6f56f454ca1477aa8df5e75d\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2dac0345-4d90-0c6d-d4c0-208de97748fc"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/fastly/accounts/0427b05b6f56f454ca1477aa8df5e75d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8aa893a8-6079-24a7-ce2b-6f908ec946f0"
+  }
+]

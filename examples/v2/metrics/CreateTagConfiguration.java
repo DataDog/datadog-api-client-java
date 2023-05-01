@@ -21,7 +21,7 @@ public class Example {
             .data(
                 new MetricTagConfigurationCreateData()
                     .type(MetricTagConfigurationType.MANAGE_TAGS)
-                    .id("ExampleCreateatagconfigurationreturnsCreatedresponse")
+                    .id("ExampleMetric")
                     .attributes(
                         new MetricTagConfigurationCreateAttributes()
                             .tags(Arrays.asList("app", "datacenter"))
@@ -29,8 +29,7 @@ public class Example {
 
     try {
       MetricTagConfigurationResponse result =
-          apiInstance.createTagConfiguration(
-              "ExampleCreateatagconfigurationreturnsCreatedresponse", body);
+          apiInstance.createTagConfiguration("ExampleMetric", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#createTagConfiguration");

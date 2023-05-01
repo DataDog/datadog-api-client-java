@@ -156,7 +156,7 @@ public class LogsMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsMetricsApi.createLogsMetric",
+              "v2.LogsMetricsApi.createLogsMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -217,7 +217,7 @@ public class LogsMetricsApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -288,7 +288,7 @@ public class LogsMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsMetricsApi.deleteLogsMetric",
+              "v2.LogsMetricsApi.deleteLogsMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -423,7 +423,7 @@ public class LogsMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsMetricsApi.getLogsMetric",
+              "v2.LogsMetricsApi.getLogsMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -532,7 +532,7 @@ public class LogsMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsMetricsApi.listLogsMetrics",
+              "v2.LogsMetricsApi.listLogsMetrics",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -690,7 +690,7 @@ public class LogsMetricsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsMetricsApi.updateLogsMetric",
+              "v2.LogsMetricsApi.updateLogsMetric",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

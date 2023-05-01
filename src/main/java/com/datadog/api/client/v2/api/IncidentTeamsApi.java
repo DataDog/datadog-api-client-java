@@ -177,7 +177,7 @@ public class IncidentTeamsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentTeamsApi.createIncidentTeam",
+              "v2.IncidentTeamsApi.createIncidentTeam",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -328,7 +328,7 @@ public class IncidentTeamsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentTeamsApi.deleteIncidentTeam",
+              "v2.IncidentTeamsApi.deleteIncidentTeam",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -543,7 +543,7 @@ public class IncidentTeamsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentTeamsApi.getIncidentTeam",
+              "v2.IncidentTeamsApi.getIncidentTeam",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -588,7 +588,8 @@ public class IncidentTeamsApi {
     /**
      * Set pageSize.
      *
-     * @param pageSize Size for a given page. (optional, default to 10)
+     * @param pageSize Size for a given page. The maximum allowed value is 5000. (optional, default
+     *     to 10)
      * @return ListIncidentTeamsOptionalParameters
      */
     public ListIncidentTeamsOptionalParameters pageSize(Long pageSize) {
@@ -783,7 +784,7 @@ public class IncidentTeamsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentTeamsApi.listIncidentTeams",
+              "v2.IncidentTeamsApi.listIncidentTeams",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -959,7 +960,7 @@ public class IncidentTeamsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "IncidentTeamsApi.updateIncidentTeam",
+              "v2.IncidentTeamsApi.updateIncidentTeam",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

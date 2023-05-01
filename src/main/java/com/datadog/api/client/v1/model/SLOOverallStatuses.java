@@ -16,9 +16,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Overall status of the SLO by timeframes. */
 @JsonPropertyOrder({
   SLOOverallStatuses.JSON_PROPERTY_ERROR,
+  SLOOverallStatuses.JSON_PROPERTY_ERROR_BUDGET_REMAINING,
   SLOOverallStatuses.JSON_PROPERTY_INDEXED_AT,
   SLOOverallStatuses.JSON_PROPERTY_RAW_ERROR_BUDGET_REMAINING,
   SLOOverallStatuses.JSON_PROPERTY_SPAN_PRECISION,
+  SLOOverallStatuses.JSON_PROPERTY_STATE,
   SLOOverallStatuses.JSON_PROPERTY_STATUS,
   SLOOverallStatuses.JSON_PROPERTY_TARGET,
   SLOOverallStatuses.JSON_PROPERTY_TIMEFRAME
@@ -30,15 +32,22 @@ public class SLOOverallStatuses {
   public static final String JSON_PROPERTY_ERROR = "error";
   private JsonNullable<String> error = JsonNullable.<String>undefined();
 
+  public static final String JSON_PROPERTY_ERROR_BUDGET_REMAINING = "error_budget_remaining";
+  private JsonNullable<Double> errorBudgetRemaining = JsonNullable.<Double>undefined();
+
   public static final String JSON_PROPERTY_INDEXED_AT = "indexed_at";
   private Long indexedAt;
 
   public static final String JSON_PROPERTY_RAW_ERROR_BUDGET_REMAINING =
       "raw_error_budget_remaining";
-  private SLORawErrorBudgetRemaining rawErrorBudgetRemaining;
+  private JsonNullable<SLORawErrorBudgetRemaining> rawErrorBudgetRemaining =
+      JsonNullable.<SLORawErrorBudgetRemaining>undefined();
 
   public static final String JSON_PROPERTY_SPAN_PRECISION = "span_precision";
-  private Long spanPrecision;
+  private JsonNullable<Long> spanPrecision = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_STATE = "state";
+  private SLOState state;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private JsonNullable<Double> status = JsonNullable.<Double>undefined();
@@ -80,6 +89,37 @@ public class SLOOverallStatuses {
     this.error = JsonNullable.<String>of(error);
   }
 
+  public SLOOverallStatuses errorBudgetRemaining(Double errorBudgetRemaining) {
+    this.errorBudgetRemaining = JsonNullable.<Double>of(errorBudgetRemaining);
+    return this;
+  }
+
+  /**
+   * Remaining error budget of the SLO in percentage.
+   *
+   * @return errorBudgetRemaining
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getErrorBudgetRemaining() {
+    return errorBudgetRemaining.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ERROR_BUDGET_REMAINING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getErrorBudgetRemaining_JsonNullable() {
+    return errorBudgetRemaining;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ERROR_BUDGET_REMAINING)
+  public void setErrorBudgetRemaining_JsonNullable(JsonNullable<Double> errorBudgetRemaining) {
+    this.errorBudgetRemaining = errorBudgetRemaining;
+  }
+
+  public void setErrorBudgetRemaining(Double errorBudgetRemaining) {
+    this.errorBudgetRemaining = JsonNullable.<Double>of(errorBudgetRemaining);
+  }
+
   public SLOOverallStatuses indexedAt(Long indexedAt) {
     this.indexedAt = indexedAt;
     return this;
@@ -103,8 +143,8 @@ public class SLOOverallStatuses {
 
   public SLOOverallStatuses rawErrorBudgetRemaining(
       SLORawErrorBudgetRemaining rawErrorBudgetRemaining) {
-    this.rawErrorBudgetRemaining = rawErrorBudgetRemaining;
-    this.unparsed |= rawErrorBudgetRemaining.unparsed;
+    this.rawErrorBudgetRemaining =
+        JsonNullable.<SLORawErrorBudgetRemaining>of(rawErrorBudgetRemaining);
     return this;
   }
 
@@ -114,18 +154,30 @@ public class SLOOverallStatuses {
    * @return rawErrorBudgetRemaining
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public SLORawErrorBudgetRemaining getRawErrorBudgetRemaining() {
+    return rawErrorBudgetRemaining.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_RAW_ERROR_BUDGET_REMAINING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SLORawErrorBudgetRemaining getRawErrorBudgetRemaining() {
+  public JsonNullable<SLORawErrorBudgetRemaining> getRawErrorBudgetRemaining_JsonNullable() {
     return rawErrorBudgetRemaining;
   }
 
-  public void setRawErrorBudgetRemaining(SLORawErrorBudgetRemaining rawErrorBudgetRemaining) {
+  @JsonProperty(JSON_PROPERTY_RAW_ERROR_BUDGET_REMAINING)
+  public void setRawErrorBudgetRemaining_JsonNullable(
+      JsonNullable<SLORawErrorBudgetRemaining> rawErrorBudgetRemaining) {
     this.rawErrorBudgetRemaining = rawErrorBudgetRemaining;
   }
 
+  public void setRawErrorBudgetRemaining(SLORawErrorBudgetRemaining rawErrorBudgetRemaining) {
+    this.rawErrorBudgetRemaining =
+        JsonNullable.<SLORawErrorBudgetRemaining>of(rawErrorBudgetRemaining);
+  }
+
   public SLOOverallStatuses spanPrecision(Long spanPrecision) {
-    this.spanPrecision = spanPrecision;
+    this.spanPrecision = JsonNullable.<Long>of(spanPrecision);
     return this;
   }
 
@@ -135,14 +187,49 @@ public class SLOOverallStatuses {
    * @return spanPrecision
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getSpanPrecision() {
+    return spanPrecision.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SPAN_PRECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSpanPrecision() {
+  public JsonNullable<Long> getSpanPrecision_JsonNullable() {
     return spanPrecision;
   }
 
-  public void setSpanPrecision(Long spanPrecision) {
+  @JsonProperty(JSON_PROPERTY_SPAN_PRECISION)
+  public void setSpanPrecision_JsonNullable(JsonNullable<Long> spanPrecision) {
     this.spanPrecision = spanPrecision;
+  }
+
+  public void setSpanPrecision(Long spanPrecision) {
+    this.spanPrecision = JsonNullable.<Long>of(spanPrecision);
+  }
+
+  public SLOOverallStatuses state(SLOState state) {
+    this.state = state;
+    this.unparsed |= !state.isValid();
+    return this;
+  }
+
+  /**
+   * State of the SLO.
+   *
+   * @return state
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOState getState() {
+    return state;
+  }
+
+  public void setState(SLOState state) {
+    if (!state.isValid()) {
+      this.unparsed = true;
+    }
+    this.state = state;
   }
 
   public SLOOverallStatuses status(Double status) {
@@ -233,9 +320,11 @@ public class SLOOverallStatuses {
     }
     SLOOverallStatuses sloOverallStatuses = (SLOOverallStatuses) o;
     return Objects.equals(this.error, sloOverallStatuses.error)
+        && Objects.equals(this.errorBudgetRemaining, sloOverallStatuses.errorBudgetRemaining)
         && Objects.equals(this.indexedAt, sloOverallStatuses.indexedAt)
         && Objects.equals(this.rawErrorBudgetRemaining, sloOverallStatuses.rawErrorBudgetRemaining)
         && Objects.equals(this.spanPrecision, sloOverallStatuses.spanPrecision)
+        && Objects.equals(this.state, sloOverallStatuses.state)
         && Objects.equals(this.status, sloOverallStatuses.status)
         && Objects.equals(this.target, sloOverallStatuses.target)
         && Objects.equals(this.timeframe, sloOverallStatuses.timeframe);
@@ -244,7 +333,15 @@ public class SLOOverallStatuses {
   @Override
   public int hashCode() {
     return Objects.hash(
-        error, indexedAt, rawErrorBudgetRemaining, spanPrecision, status, target, timeframe);
+        error,
+        errorBudgetRemaining,
+        indexedAt,
+        rawErrorBudgetRemaining,
+        spanPrecision,
+        state,
+        status,
+        target,
+        timeframe);
   }
 
   @Override
@@ -252,11 +349,15 @@ public class SLOOverallStatuses {
     StringBuilder sb = new StringBuilder();
     sb.append("class SLOOverallStatuses {\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    errorBudgetRemaining: ")
+        .append(toIndentedString(errorBudgetRemaining))
+        .append("\n");
     sb.append("    indexedAt: ").append(toIndentedString(indexedAt)).append("\n");
     sb.append("    rawErrorBudgetRemaining: ")
         .append(toIndentedString(rawErrorBudgetRemaining))
         .append("\n");
     sb.append("    spanPrecision: ").append(toIndentedString(spanPrecision)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    timeframe: ").append(toIndentedString(timeframe)).append("\n");

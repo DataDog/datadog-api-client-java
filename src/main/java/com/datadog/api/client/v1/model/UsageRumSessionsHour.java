@@ -24,6 +24,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageRumSessionsHour.JSON_PROPERTY_REPLAY_SESSION_COUNT,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_ANDROID,
+  UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_FLUTTER,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_IOS,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_REACTNATIVE
 })
@@ -50,6 +51,9 @@ public class UsageRumSessionsHour {
 
   public static final String JSON_PROPERTY_SESSION_COUNT_ANDROID = "session_count_android";
   private JsonNullable<Long> sessionCountAndroid = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_SESSION_COUNT_FLUTTER = "session_count_flutter";
+  private JsonNullable<Long> sessionCountFlutter = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_SESSION_COUNT_IOS = "session_count_ios";
   private JsonNullable<Long> sessionCountIos = JsonNullable.<Long>undefined();
@@ -204,6 +208,37 @@ public class UsageRumSessionsHour {
     this.sessionCountAndroid = JsonNullable.<Long>of(sessionCountAndroid);
   }
 
+  public UsageRumSessionsHour sessionCountFlutter(Long sessionCountFlutter) {
+    this.sessionCountFlutter = JsonNullable.<Long>of(sessionCountFlutter);
+    return this;
+  }
+
+  /**
+   * Contains the number of mobile RUM Sessions on Flutter (data available beginning March 1, 2023).
+   *
+   * @return sessionCountFlutter
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getSessionCountFlutter() {
+    return sessionCountFlutter.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SESSION_COUNT_FLUTTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getSessionCountFlutter_JsonNullable() {
+    return sessionCountFlutter;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SESSION_COUNT_FLUTTER)
+  public void setSessionCountFlutter_JsonNullable(JsonNullable<Long> sessionCountFlutter) {
+    this.sessionCountFlutter = sessionCountFlutter;
+  }
+
+  public void setSessionCountFlutter(Long sessionCountFlutter) {
+    this.sessionCountFlutter = JsonNullable.<Long>of(sessionCountFlutter);
+  }
+
   public UsageRumSessionsHour sessionCountIos(Long sessionCountIos) {
     this.sessionCountIos = JsonNullable.<Long>of(sessionCountIos);
     return this;
@@ -283,6 +318,7 @@ public class UsageRumSessionsHour {
         && Objects.equals(this.replaySessionCount, usageRumSessionsHour.replaySessionCount)
         && Objects.equals(this.sessionCount, usageRumSessionsHour.sessionCount)
         && Objects.equals(this.sessionCountAndroid, usageRumSessionsHour.sessionCountAndroid)
+        && Objects.equals(this.sessionCountFlutter, usageRumSessionsHour.sessionCountFlutter)
         && Objects.equals(this.sessionCountIos, usageRumSessionsHour.sessionCountIos)
         && Objects.equals(
             this.sessionCountReactnative, usageRumSessionsHour.sessionCountReactnative);
@@ -297,6 +333,7 @@ public class UsageRumSessionsHour {
         replaySessionCount,
         sessionCount,
         sessionCountAndroid,
+        sessionCountFlutter,
         sessionCountIos,
         sessionCountReactnative);
   }
@@ -312,6 +349,9 @@ public class UsageRumSessionsHour {
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
     sb.append("    sessionCountAndroid: ")
         .append(toIndentedString(sessionCountAndroid))
+        .append("\n");
+    sb.append("    sessionCountFlutter: ")
+        .append(toIndentedString(sessionCountFlutter))
         .append("\n");
     sb.append("    sessionCountIos: ").append(toIndentedString(sessionCountIos)).append("\n");
     sb.append("    sessionCountReactnative: ")

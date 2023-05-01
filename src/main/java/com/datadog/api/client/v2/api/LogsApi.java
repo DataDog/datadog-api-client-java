@@ -164,7 +164,7 @@ public class LogsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsApi.aggregateLogs",
+              "v2.LogsApi.aggregateLogs",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -389,7 +389,7 @@ public class LogsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsApi.listLogs",
+              "v2.LogsApi.listLogs",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -734,7 +734,7 @@ public class LogsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsApi.listLogsGet",
+              "v2.LogsApi.listLogsGet",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -862,7 +862,8 @@ public class LogsApi {
    * all logs, truncates only logs larger than 1MB, and returns a 2xx.
    *
    * <p>Datadog recommends sending your logs compressed. Add the <code>Content-Encoding: gzip</code>
-   * header to the request when sending compressed logs.
+   * header to the request when sending compressed logs. Log events can be submitted up to 18 hours
+   * in the past and 2 hours in the future.
    *
    * <p>The status codes answered by the HTTP API are: - 202: Accepted: the request has been
    * accepted for processing - 400: Bad request (likely an issue in the payload formatting) - 401:
@@ -969,7 +970,7 @@ public class LogsApi {
     try {
       builder =
           apiClient.createBuilder(
-              "LogsApi.submitLog",
+              "v2.LogsApi.submitLog",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,

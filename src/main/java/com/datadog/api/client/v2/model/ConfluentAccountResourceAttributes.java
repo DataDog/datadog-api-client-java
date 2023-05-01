@@ -6,6 +6,7 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -32,6 +33,14 @@ public class ConfluentAccountResourceAttributes {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public ConfluentAccountResourceAttributes() {}
+
+  @JsonCreator
+  public ConfluentAccountResourceAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_TYPE) String resourceType) {
+    this.resourceType = resourceType;
+  }
 
   public ConfluentAccountResourceAttributes id(String id) {
     this.id = id;
@@ -65,9 +74,8 @@ public class ConfluentAccountResourceAttributes {
    *
    * @return resourceType
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOURCE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getResourceType() {
     return resourceType;
   }

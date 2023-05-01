@@ -16,14 +16,14 @@ public class Example {
 
     Monitor body =
         new Monitor()
-            .name("Example-Create_a_ci_tests_monitor_returns_OK_response")
+            .name("Example-Monitor")
             .type(MonitorType.CI_TESTS_ALERT)
             .query(
                 """
 ci-tests("type:test @git.branch:staging* @test.status:fail").rollup("count").by("@test.name").last("5m") >= 1
 """)
             .message("some message Notify: @hipchat-channel")
-            .tags(Arrays.asList("test:examplecreateacitestsmonitorreturnsokresponse", "env:ci"))
+            .tags(Arrays.asList("test:examplemonitor", "env:ci"))
             .priority(3L)
             .options(new MonitorOptions().thresholds(new MonitorThresholds().critical(1.0)));
 

@@ -21,9 +21,7 @@ public class Example {
                 new IncidentServiceCreateData()
                     .type(IncidentServiceType.SERVICES)
                     .attributes(
-                        new IncidentServiceCreateAttributes()
-                            .name(
-                                "Example-Create_a_new_incident_service_returns_CREATED_response")));
+                        new IncidentServiceCreateAttributes().name("Example-Incident-Service")));
 
     try {
       IncidentServiceResponse result = apiInstance.createIncidentService(body);
