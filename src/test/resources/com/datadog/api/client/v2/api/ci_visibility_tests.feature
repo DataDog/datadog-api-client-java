@@ -20,6 +20,7 @@ Feature: CI Visibility Tests
     And body with value {"compute": [{"aggregation": "count", "metric": "@test.is_flaky", "type": "total"}], "filter": {"from": "now-15m", "query": "@language:(python OR go)", "to": "now"}, "group_by": [{"facet": "@git.branch", "limit": 10, "sort": {"order": "asc"}, "total": false}], "options": {"timezone": "GMT"}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "meta.status" is equal to "done"
 
   @generated @skip @team:Datadog/ci-app-backend @team:Datadog/integrations-tools-and-libraries
   Scenario: Get a list of tests events returns "Bad Request" response
@@ -37,7 +38,7 @@ Feature: CI Visibility Tests
     When the request is sent
     Then the response status is 200 OK
 
-  @replay-only @team:Datadog/ci-app-backend @team:Datadog/integrations-tools-and-libraries @with-pagination
+  @replay-only @skip-validation @team:Datadog/ci-app-backend @team:Datadog/integrations-tools-and-libraries @with-pagination
   Scenario: Get a list of tests events returns "OK" response with pagination
     Given new "ListCIAppTestEvents" request
     And request contains "filter[from]" parameter with value "{{ timeISO('now - 30s') }}"
@@ -61,7 +62,7 @@ Feature: CI Visibility Tests
     When the request is sent
     Then the response status is 200 OK
 
-  @replay-only @team:Datadog/ci-app-backend @team:Datadog/integrations-tools-and-libraries @with-pagination
+  @replay-only @skip-validation @team:Datadog/ci-app-backend @team:Datadog/integrations-tools-and-libraries @with-pagination
   Scenario: Search tests events returns "OK" response with pagination
     Given new "SearchCIAppTestEvents" request
     And body with value {"filter": {"from": "now-15m", "query": "@test.status:pass AND -@language:python", "to": "now"}, "page": {"limit": 2}, "sort": "timestamp"}

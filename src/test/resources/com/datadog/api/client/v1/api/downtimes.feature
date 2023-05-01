@@ -87,9 +87,10 @@ Feature: Downtimes
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/monitor-app
+  @team:DataDog/monitor-app
   Scenario: Get all downtimes returns "OK" response
     Given new "ListDowntimes" request
+    And request contains "with_creator" parameter with value true
     When the request is sent
     Then the response status is 200 OK
 
@@ -99,6 +100,10 @@ Feature: Downtimes
     And body from file "downtime_recurrence_payload_once_a_year.json"
     When the request is sent
     Then the response status is 200 OK
+    And the response "message" is equal to "{{ unique }}"
+    And the response "monitor_tags[0]" is equal to "tag0"
+    And the response "recurrence.period" is equal to 1
+    And the response "recurrence.type" is equal to "years"
 
   @team:DataDog/monitor-app
   Scenario: Schedule a downtime returns "Bad Request" response
@@ -122,6 +127,9 @@ Feature: Downtimes
     And body from file "downtime_recurrence_payload_until_date.json"
     When the request is sent
     Then the response status is 200 OK
+    And the response "message" is equal to "{{ unique }}"
+    And the response "recurrence.period" is equal to 1
+    And the response "recurrence.until_date" is equal to {{ timestamp("now + 21d") }}
 
   @team:DataDog/monitor-app
   Scenario: Schedule a downtime with invalid type hours
@@ -150,6 +158,9 @@ Feature: Downtimes
     And body from file "downtime_recurrence_payload_until_occurrences.json"
     When the request is sent
     Then the response status is 200 OK
+    And the response "message" is equal to "{{ unique }}"
+    And the response "recurrence.period" is equal to 1
+    And the response "recurrence.until_occurrences" is equal to 3
 
   @team:DataDog/monitor-app
   Scenario: Schedule a monitor downtime returns "OK" response
@@ -164,7 +175,7 @@ Feature: Downtimes
   Scenario: Update a downtime returns "Bad Request" response
     Given new "UpdateDowntime" request
     And request contains "downtime_id" parameter from "REPLACE.ME"
-    And body with value {"disabled": false, "end": 1412793983, "message": "Message on the downtime", "monitor_id": 123456, "monitor_tags": ["*"], "mute_first_recovery_notification": false, "parent_id": 123, "recurrence": {"period": 1, "rrule": "FREQ=MONTHLY;BYSETPOS=3;BYDAY=WE;INTERVAL=1", "type": "weeks", "until_date": 1447786293, "until_occurrences": 2, "week_days": ["Mon", "Tue"]}, "scope": ["env:staging"], "start": 1412792983, "timezone": "America/New_York"}
+    And body with value {"disabled": false, "end": 1412793983, "message": "Message on the downtime", "monitor_id": 123456, "monitor_tags": ["*"], "mute_first_recovery_notification": false, "notify_end_states": ["alert", "noedata", "warn"], "notify_end_types": ["canceled", "expired"], "parent_id": 123, "recurrence": {"period": 1, "rrule": "FREQ=MONTHLY;BYSETPOS=3;BYDAY=WE;INTERVAL=1", "type": "weeks", "until_date": 1447786293, "until_occurrences": 2, "week_days": ["Mon", "Tue"]}, "scope": ["env:staging"], "start": 1412792983, "timezone": "America/New_York"}
     When the request is sent
     Then the response status is 400 Bad Request
 
@@ -172,7 +183,7 @@ Feature: Downtimes
   Scenario: Update a downtime returns "Downtime not found" response
     Given new "UpdateDowntime" request
     And request contains "downtime_id" parameter from "REPLACE.ME"
-    And body with value {"disabled": false, "end": 1412793983, "message": "Message on the downtime", "monitor_id": 123456, "monitor_tags": ["*"], "mute_first_recovery_notification": false, "parent_id": 123, "recurrence": {"period": 1, "rrule": "FREQ=MONTHLY;BYSETPOS=3;BYDAY=WE;INTERVAL=1", "type": "weeks", "until_date": 1447786293, "until_occurrences": 2, "week_days": ["Mon", "Tue"]}, "scope": ["env:staging"], "start": 1412792983, "timezone": "America/New_York"}
+    And body with value {"disabled": false, "end": 1412793983, "message": "Message on the downtime", "monitor_id": 123456, "monitor_tags": ["*"], "mute_first_recovery_notification": false, "notify_end_states": ["alert", "noedata", "warn"], "notify_end_types": ["canceled", "expired"], "parent_id": 123, "recurrence": {"period": 1, "rrule": "FREQ=MONTHLY;BYSETPOS=3;BYDAY=WE;INTERVAL=1", "type": "weeks", "until_date": 1447786293, "until_occurrences": 2, "week_days": ["Mon", "Tue"]}, "scope": ["env:staging"], "start": 1412792983, "timezone": "America/New_York"}
     When the request is sent
     Then the response status is 404 Downtime not found
 

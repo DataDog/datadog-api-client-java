@@ -20,6 +20,7 @@ Feature: CI Visibility Pipelines
     And body with value {"compute": [{"aggregation": "pc90", "metric": "@duration", "type": "total"}], "filter": {"from": "now-15m", "query": "@ci.provider.name:(gitlab OR github)", "to": "now"}, "group_by": [{ "facet": "@ci.status", "limit": 10, "total": false}], "options": {"timezone": "GMT"}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "meta.status" is equal to "done"
 
   @generated @skip @team:Datadog/ci-app-backend @team:Datadog/integrations-tools-and-libraries
   Scenario: Get a list of pipelines events returns "Bad Request" response
@@ -37,7 +38,7 @@ Feature: CI Visibility Pipelines
     When the request is sent
     Then the response status is 200 OK
 
-  @replay-only @team:Datadog/ci-app-backend @team:Datadog/integrations-tools-and-libraries @with-pagination
+  @replay-only @skip-validation @team:Datadog/ci-app-backend @team:Datadog/integrations-tools-and-libraries @with-pagination
   Scenario: Get a list of pipelines events returns "OK" response with pagination
     Given new "ListCIAppPipelineEvents" request
     And request contains "filter[from]" parameter with value "{{ timeISO('now - 30s') }}"
@@ -61,7 +62,7 @@ Feature: CI Visibility Pipelines
     When the request is sent
     Then the response status is 200 OK
 
-  @replay-only @team:Datadog/ci-app-backend @team:Datadog/integrations-tools-and-libraries @with-pagination
+  @replay-only @skip-validation @team:Datadog/ci-app-backend @team:Datadog/integrations-tools-and-libraries @with-pagination
   Scenario: Search pipelines events returns "OK" response with pagination
     Given new "SearchCIAppPipelineEvents" request
     And body with value {"filter": {"from": "now-30s", "to": "now"}, "options": {"timezone": "GMT"}, "page": {"limit": 2}, "sort": "timestamp"}
