@@ -862,8 +862,8 @@ public class LogsApi {
    * all logs, truncates only logs larger than 1MB, and returns a 2xx.
    *
    * <p>Datadog recommends sending your logs compressed. Add the <code>Content-Encoding: gzip</code>
-   * header to the request when sending compressed logs. Log events can be submitted up to 18 hours
-   * in the past and 2 hours in the future.
+   * header to the request when sending compressed logs. Log events can be submitted with a
+   * timestamp that is up to 18 hours in the past.
    *
    * <p>The status codes answered by the HTTP API are: - 202: Accepted: the request has been
    * accepted for processing - 400: Bad request (likely an issue in the payload formatting) - 401:
