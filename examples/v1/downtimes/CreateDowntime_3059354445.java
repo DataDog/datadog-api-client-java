@@ -4,7 +4,10 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.DowntimesApi;
 import com.datadog.api.client.v1.model.Downtime;
 import com.datadog.api.client.v1.model.DowntimeRecurrence;
+import com.datadog.api.client.v1.model.NotifyEndState;
+import com.datadog.api.client.v1.model.NotifyEndType;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -21,7 +24,9 @@ public class Example {
             .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
             .timezone("Etc/UTC")
             .muteFirstRecoveryNotification(true)
-            .monitorTags(Collections.singletonList("tag0"));
+            .monitorTags(Collections.singletonList("tag0"))
+            .notifyEndStates(Arrays.asList(NotifyEndState.ALERT, NotifyEndState.WARN))
+            .notifyEndTypes(Collections.singletonList(NotifyEndType.EXPIRED));
 
     try {
       Downtime result = apiInstance.createDowntime(body);

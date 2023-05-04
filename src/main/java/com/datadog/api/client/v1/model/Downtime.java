@@ -33,6 +33,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Downtime.JSON_PROPERTY_MONITOR_ID,
   Downtime.JSON_PROPERTY_MONITOR_TAGS,
   Downtime.JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION,
+  Downtime.JSON_PROPERTY_NOTIFY_END_STATES,
+  Downtime.JSON_PROPERTY_NOTIFY_END_TYPES,
   Downtime.JSON_PROPERTY_PARENT_ID,
   Downtime.JSON_PROPERTY_RECURRENCE,
   Downtime.JSON_PROPERTY_SCOPE,
@@ -80,6 +82,12 @@ public class Downtime {
   public static final String JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION =
       "mute_first_recovery_notification";
   private Boolean muteFirstRecoveryNotification;
+
+  public static final String JSON_PROPERTY_NOTIFY_END_STATES = "notify_end_states";
+  private List<NotifyEndState> notifyEndStates = null;
+
+  public static final String JSON_PROPERTY_NOTIFY_END_TYPES = "notify_end_types";
+  private List<NotifyEndType> notifyEndTypes = null;
 
   public static final String JSON_PROPERTY_PARENT_ID = "parent_id";
   private JsonNullable<Long> parentId = JsonNullable.<Long>undefined();
@@ -374,6 +382,70 @@ public class Downtime {
     this.muteFirstRecoveryNotification = muteFirstRecoveryNotification;
   }
 
+  public Downtime notifyEndStates(List<NotifyEndState> notifyEndStates) {
+    this.notifyEndStates = notifyEndStates;
+    return this;
+  }
+
+  public Downtime addNotifyEndStatesItem(NotifyEndState notifyEndStatesItem) {
+    if (this.notifyEndStates == null) {
+      this.notifyEndStates = new ArrayList<>();
+    }
+    this.notifyEndStates.add(notifyEndStatesItem);
+    this.unparsed |= !notifyEndStatesItem.isValid();
+    return this;
+  }
+
+  /**
+   * States for which <code>notify_end_types</code> sends out notifications for.
+   *
+   * @return notifyEndStates
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NOTIFY_END_STATES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<NotifyEndState> getNotifyEndStates() {
+    return notifyEndStates;
+  }
+
+  public void setNotifyEndStates(List<NotifyEndState> notifyEndStates) {
+    this.notifyEndStates = notifyEndStates;
+  }
+
+  public Downtime notifyEndTypes(List<NotifyEndType> notifyEndTypes) {
+    this.notifyEndTypes = notifyEndTypes;
+    return this;
+  }
+
+  public Downtime addNotifyEndTypesItem(NotifyEndType notifyEndTypesItem) {
+    if (this.notifyEndTypes == null) {
+      this.notifyEndTypes = new ArrayList<>();
+    }
+    this.notifyEndTypes.add(notifyEndTypesItem);
+    this.unparsed |= !notifyEndTypesItem.isValid();
+    return this;
+  }
+
+  /**
+   * If set, notifies if a monitor is in an alert-worthy state (<code>ALERT</code>, <code>WARNING
+   * </code>, or <code>NO DATA</code>) when this downtime expires or is canceled. Applied to
+   * monitors that change states during the downtime (such as from <code>OK</code> to <code>ALERT
+   * </code>, <code>WARNING</code>, or <code>NO DATA</code>), and to monitors that already have an
+   * alert-worthy state when downtime begins.
+   *
+   * @return notifyEndTypes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NOTIFY_END_TYPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<NotifyEndType> getNotifyEndTypes() {
+    return notifyEndTypes;
+  }
+
+  public void setNotifyEndTypes(List<NotifyEndType> notifyEndTypes) {
+    this.notifyEndTypes = notifyEndTypes;
+  }
+
   public Downtime parentId(Long parentId) {
     this.parentId = JsonNullable.<Long>of(parentId);
     return this;
@@ -560,6 +632,8 @@ public class Downtime {
         && Objects.equals(this.monitorTags, downtime.monitorTags)
         && Objects.equals(
             this.muteFirstRecoveryNotification, downtime.muteFirstRecoveryNotification)
+        && Objects.equals(this.notifyEndStates, downtime.notifyEndStates)
+        && Objects.equals(this.notifyEndTypes, downtime.notifyEndTypes)
         && Objects.equals(this.parentId, downtime.parentId)
         && Objects.equals(this.recurrence, downtime.recurrence)
         && Objects.equals(this.scope, downtime.scope)
@@ -583,6 +657,8 @@ public class Downtime {
         monitorId,
         monitorTags,
         muteFirstRecoveryNotification,
+        notifyEndStates,
+        notifyEndTypes,
         parentId,
         recurrence,
         scope,
@@ -609,6 +685,8 @@ public class Downtime {
     sb.append("    muteFirstRecoveryNotification: ")
         .append(toIndentedString(muteFirstRecoveryNotification))
         .append("\n");
+    sb.append("    notifyEndStates: ").append(toIndentedString(notifyEndStates)).append("\n");
+    sb.append("    notifyEndTypes: ").append(toIndentedString(notifyEndTypes)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    recurrence: ").append(toIndentedString(recurrence)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");

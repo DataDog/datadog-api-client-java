@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"end\":1657667264,\"message\":\"Test-Schedule_a_downtime_once_a_year-1657663664\",\"monitor_tags\":[\"tag0\"],\"mute_first_recovery_notification\":true,\"recurrence\":{\"period\":1,\"type\":\"years\"},\"scope\":[\"*\"],\"start\":1657663664,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"end\":1683227857,\"message\":\"Test-Schedule_a_downtime_once_a_year-1683224257\",\"monitor_tags\":[\"tag0\"],\"mute_first_recovery_notification\":true,\"notify_end_states\":[\"alert\",\"warn\"],\"notify_end_types\":[\"expired\"],\"recurrence\":{\"period\":1,\"type\":\"years\"},\"scope\":[\"*\"],\"start\":1683224257,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":null,\"week_days\":null,\"type\":\"years\",\"period\":1},\"end\":1657667264,\"monitor_tags\":[\"tag0\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":true,\"created\":1657663664,\"org_id\":321813,\"modified\":1657663664,\"disabled\":false,\"start\":1657663664,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"*\"],\"message\":\"Test-Schedule_a_downtime_once_a_year-1657663664\",\"downtime_type\":0,\"id\":2082107265,\"updater_id\":null}",
+      "body": "{\"id\":2890657808,\"monitor_id\":null,\"org_id\":321813,\"start\":1683224257,\"end\":1683227857,\"canceled\":null,\"created\":1683224258,\"modified\":1683224258,\"message\":\"Test-Schedule_a_downtime_once_a_year-1683224257\",\"active\":true,\"disabled\":false,\"recurrence\":{\"type\":\"years\",\"period\":1,\"week_days\":null,\"until_occurrences\":null,\"until_date\":null},\"timezone\":\"Etc/UTC\",\"parent_id\":null,\"child_id\":null,\"creator_id\":1445416,\"updater_id\":null,\"downtime_type\":0,\"status\":\"active\",\"monitor_tags\":[\"tag0\"],\"mute_first_recovery_notification\":true,\"notify_end_types\":[\"expired\"],\"notify_end_states\":[\"alert\",\"warn\"],\"uuid\":\"f3d207ba-eaa7-11ed-8667-da7ad0900002\",\"scope\":[\"*\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "30aaec19-23a8-99ea-e116-6631aca74d2a"
+    "id": "5e64524d-b39a-a3bf-4d78-57d27caec5ac"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/downtime/2082107265",
+      "path": "/api/v1/downtime/2890657808",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -48,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "afad726b-3db6-3119-27a3-b5c4da7a1b57"
+    "id": "12770b59-a1db-f4b4-7693-e0adc60e8c5b"
   }
 ]
