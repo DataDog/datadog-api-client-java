@@ -56,7 +56,9 @@ public class IncidentTeamsApi {
    * @param body Incident Team Payload. (required)
    * @return IncidentTeamResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentTeamResponse createIncidentTeam(IncidentTeamCreateRequest body)
       throws ApiException {
     return createIncidentTeamWithHttpInfo(body).getData();
@@ -69,7 +71,9 @@ public class IncidentTeamsApi {
    *
    * @param body Incident Team Payload. (required)
    * @return CompletableFuture&lt;IncidentTeamResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentTeamResponse> createIncidentTeamAsync(
       IncidentTeamCreateRequest body) {
     return createIncidentTeamWithHttpInfoAsync(body)
@@ -96,7 +100,10 @@ public class IncidentTeamsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentTeamResponse> createIncidentTeamWithHttpInfo(
       IncidentTeamCreateRequest body) throws ApiException {
     // Check if unstable operation is enabled
@@ -145,7 +152,9 @@ public class IncidentTeamsApi {
    *
    * @param body Incident Team Payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentTeamResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentTeamResponse>> createIncidentTeamWithHttpInfoAsync(
       IncidentTeamCreateRequest body) {
     // Check if unstable operation is enabled
@@ -207,7 +216,9 @@ public class IncidentTeamsApi {
    *
    * @param teamId The ID of the incident team. (required)
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public void deleteIncidentTeam(String teamId) throws ApiException {
     deleteIncidentTeamWithHttpInfo(teamId);
   }
@@ -219,7 +230,9 @@ public class IncidentTeamsApi {
    *
    * @param teamId The ID of the incident team. (required)
    * @return CompletableFuture
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Void> deleteIncidentTeamAsync(String teamId) {
     return deleteIncidentTeamWithHttpInfoAsync(teamId)
         .thenApply(
@@ -245,7 +258,10 @@ public class IncidentTeamsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Void> deleteIncidentTeamWithHttpInfo(String teamId) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "deleteIncidentTeam";
@@ -295,7 +311,9 @@ public class IncidentTeamsApi {
    *
    * @param teamId The ID of the incident team. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Void>> deleteIncidentTeamWithHttpInfoAsync(String teamId) {
     // Check if unstable operation is enabled
     String operationId = "deleteIncidentTeam";
@@ -376,7 +394,9 @@ public class IncidentTeamsApi {
    * @param teamId The ID of the incident team. (required)
    * @return IncidentTeamResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentTeamResponse getIncidentTeam(String teamId) throws ApiException {
     return getIncidentTeamWithHttpInfo(teamId, new GetIncidentTeamOptionalParameters()).getData();
   }
@@ -388,7 +408,9 @@ public class IncidentTeamsApi {
    *
    * @param teamId The ID of the incident team. (required)
    * @return CompletableFuture&lt;IncidentTeamResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentTeamResponse> getIncidentTeamAsync(String teamId) {
     return getIncidentTeamWithHttpInfoAsync(teamId, new GetIncidentTeamOptionalParameters())
         .thenApply(
@@ -406,7 +428,9 @@ public class IncidentTeamsApi {
    * @param parameters Optional parameters for the request.
    * @return IncidentTeamResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentTeamResponse getIncidentTeam(
       String teamId, GetIncidentTeamOptionalParameters parameters) throws ApiException {
     return getIncidentTeamWithHttpInfo(teamId, parameters).getData();
@@ -420,7 +444,9 @@ public class IncidentTeamsApi {
    * @param teamId The ID of the incident team. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;IncidentTeamResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentTeamResponse> getIncidentTeamAsync(
       String teamId, GetIncidentTeamOptionalParameters parameters) {
     return getIncidentTeamWithHttpInfoAsync(teamId, parameters)
@@ -449,7 +475,10 @@ public class IncidentTeamsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentTeamResponse> getIncidentTeamWithHttpInfo(
       String teamId, GetIncidentTeamOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
@@ -505,7 +534,9 @@ public class IncidentTeamsApi {
    * @param teamId The ID of the incident team. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentTeamResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentTeamResponse>> getIncidentTeamWithHttpInfoAsync(
       String teamId, GetIncidentTeamOptionalParameters parameters) {
     // Check if unstable operation is enabled
@@ -628,7 +659,9 @@ public class IncidentTeamsApi {
    *
    * @return IncidentTeamsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentTeamsResponse listIncidentTeams() throws ApiException {
     return listIncidentTeamsWithHttpInfo(new ListIncidentTeamsOptionalParameters()).getData();
   }
@@ -639,7 +672,9 @@ public class IncidentTeamsApi {
    * <p>See {@link #listIncidentTeamsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;IncidentTeamsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentTeamsResponse> listIncidentTeamsAsync() {
     return listIncidentTeamsWithHttpInfoAsync(new ListIncidentTeamsOptionalParameters())
         .thenApply(
@@ -656,7 +691,9 @@ public class IncidentTeamsApi {
    * @param parameters Optional parameters for the request.
    * @return IncidentTeamsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentTeamsResponse listIncidentTeams(ListIncidentTeamsOptionalParameters parameters)
       throws ApiException {
     return listIncidentTeamsWithHttpInfo(parameters).getData();
@@ -669,7 +706,9 @@ public class IncidentTeamsApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;IncidentTeamsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentTeamsResponse> listIncidentTeamsAsync(
       ListIncidentTeamsOptionalParameters parameters) {
     return listIncidentTeamsWithHttpInfoAsync(parameters)
@@ -698,7 +737,10 @@ public class IncidentTeamsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentTeamsResponse> listIncidentTeamsWithHttpInfo(
       ListIncidentTeamsOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
@@ -751,7 +793,9 @@ public class IncidentTeamsApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentTeamsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentTeamsResponse>> listIncidentTeamsWithHttpInfoAsync(
       ListIncidentTeamsOptionalParameters parameters) {
     // Check if unstable operation is enabled
@@ -816,7 +860,9 @@ public class IncidentTeamsApi {
    * @param body Incident Team Payload. (required)
    * @return IncidentTeamResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentTeamResponse updateIncidentTeam(String teamId, IncidentTeamUpdateRequest body)
       throws ApiException {
     return updateIncidentTeamWithHttpInfo(teamId, body).getData();
@@ -830,7 +876,9 @@ public class IncidentTeamsApi {
    * @param teamId The ID of the incident team. (required)
    * @param body Incident Team Payload. (required)
    * @return CompletableFuture&lt;IncidentTeamResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentTeamResponse> updateIncidentTeamAsync(
       String teamId, IncidentTeamUpdateRequest body) {
     return updateIncidentTeamWithHttpInfoAsync(teamId, body)
@@ -859,7 +907,10 @@ public class IncidentTeamsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentTeamResponse> updateIncidentTeamWithHttpInfo(
       String teamId, IncidentTeamUpdateRequest body) throws ApiException {
     // Check if unstable operation is enabled
@@ -917,7 +968,9 @@ public class IncidentTeamsApi {
    * @param teamId The ID of the incident team. (required)
    * @param body Incident Team Payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentTeamResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentTeamResponse>> updateIncidentTeamWithHttpInfoAsync(
       String teamId, IncidentTeamUpdateRequest body) {
     // Check if unstable operation is enabled
