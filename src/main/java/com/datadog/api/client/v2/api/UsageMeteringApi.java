@@ -291,7 +291,8 @@ public class UsageMeteringApi {
      *
      * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
      *     for cost beginning this month. Either start_month or start_date should be specified, but
-     *     not both. (start_month cannot go beyond two months in the past) (optional)
+     *     not both. (start_month cannot go beyond two months in the past). Provide an <code>
+     *     end_month</code> to view month-over-month cost. (optional)
      * @return GetEstimatedCostByOrgOptionalParameters
      */
     public GetEstimatedCostByOrgOptionalParameters startMonth(OffsetDateTime startMonth) {
@@ -316,7 +317,8 @@ public class UsageMeteringApi {
      *
      * @param startDate Datetime in ISO-8601 format, UTC, precise to day: <code>[YYYY-MM-DD]</code>
      *     for cost beginning this day. Either start_month or start_date should be specified, but
-     *     not both. (start_date cannot go beyond two months in the past) (optional)
+     *     not both. (start_date cannot go beyond two months in the past). Provide an <code>end_date
+     *     </code> to view day-over-day cumulative cost. (optional)
      * @return GetEstimatedCostByOrgOptionalParameters
      */
     public GetEstimatedCostByOrgOptionalParameters startDate(OffsetDateTime startDate) {

@@ -374,7 +374,7 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold
    * </ul>
    *
-   * <p><strong>Logs Alert Query</strong>
+   * <h4>Logs Alert Query</h4>
    *
    * <p>Example: <code>
    * logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #
