@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The number of analyzed logs for each hour for a given organization. */
 @JsonPropertyOrder({
@@ -27,7 +28,7 @@ import java.util.Objects;
 public class UsageAnalyzedLogsHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ANALYZED_LOGS = "analyzed_logs";
-  private Long analyzedLogs;
+  private JsonNullable<Long> analyzedLogs = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
@@ -41,7 +42,7 @@ public class UsageAnalyzedLogsHour {
   private String publicId;
 
   public UsageAnalyzedLogsHour analyzedLogs(Long analyzedLogs) {
-    this.analyzedLogs = analyzedLogs;
+    this.analyzedLogs = JsonNullable.<Long>of(analyzedLogs);
     return this;
   }
 
@@ -51,14 +52,24 @@ public class UsageAnalyzedLogsHour {
    * @return analyzedLogs
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getAnalyzedLogs() {
+    return analyzedLogs.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ANALYZED_LOGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAnalyzedLogs() {
+  public JsonNullable<Long> getAnalyzedLogs_JsonNullable() {
     return analyzedLogs;
   }
 
-  public void setAnalyzedLogs(Long analyzedLogs) {
+  @JsonProperty(JSON_PROPERTY_ANALYZED_LOGS)
+  public void setAnalyzedLogs_JsonNullable(JsonNullable<Long> analyzedLogs) {
     this.analyzedLogs = analyzedLogs;
+  }
+
+  public void setAnalyzedLogs(Long analyzedLogs) {
+    this.analyzedLogs = JsonNullable.<Long>of(analyzedLogs);
   }
 
   public UsageAnalyzedLogsHour hour(OffsetDateTime hour) {
