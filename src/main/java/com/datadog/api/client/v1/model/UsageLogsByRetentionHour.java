@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * The number of indexed logs for each hour for a given organization broken down by retention
@@ -29,10 +30,10 @@ import java.util.Objects;
 public class UsageLogsByRetentionHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT = "indexed_events_count";
-  private Long indexedEventsCount;
+  private JsonNullable<Long> indexedEventsCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_LIVE_INDEXED_EVENTS_COUNT = "live_indexed_events_count";
-  private Long liveIndexedEventsCount;
+  private JsonNullable<Long> liveIndexedEventsCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -42,13 +43,13 @@ public class UsageLogsByRetentionHour {
 
   public static final String JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT =
       "rehydrated_indexed_events_count";
-  private Long rehydratedIndexedEventsCount;
+  private JsonNullable<Long> rehydratedIndexedEventsCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_RETENTION = "retention";
   private String retention;
 
   public UsageLogsByRetentionHour indexedEventsCount(Long indexedEventsCount) {
-    this.indexedEventsCount = indexedEventsCount;
+    this.indexedEventsCount = JsonNullable.<Long>of(indexedEventsCount);
     return this;
   }
 
@@ -58,18 +59,28 @@ public class UsageLogsByRetentionHour {
    * @return indexedEventsCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getIndexedEventsCount() {
+    return indexedEventsCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIndexedEventsCount() {
+  public JsonNullable<Long> getIndexedEventsCount_JsonNullable() {
     return indexedEventsCount;
   }
 
-  public void setIndexedEventsCount(Long indexedEventsCount) {
+  @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
+  public void setIndexedEventsCount_JsonNullable(JsonNullable<Long> indexedEventsCount) {
     this.indexedEventsCount = indexedEventsCount;
   }
 
+  public void setIndexedEventsCount(Long indexedEventsCount) {
+    this.indexedEventsCount = JsonNullable.<Long>of(indexedEventsCount);
+  }
+
   public UsageLogsByRetentionHour liveIndexedEventsCount(Long liveIndexedEventsCount) {
-    this.liveIndexedEventsCount = liveIndexedEventsCount;
+    this.liveIndexedEventsCount = JsonNullable.<Long>of(liveIndexedEventsCount);
     return this;
   }
 
@@ -79,14 +90,24 @@ public class UsageLogsByRetentionHour {
    * @return liveIndexedEventsCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLiveIndexedEventsCount() {
+    return liveIndexedEventsCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LIVE_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLiveIndexedEventsCount() {
+  public JsonNullable<Long> getLiveIndexedEventsCount_JsonNullable() {
     return liveIndexedEventsCount;
   }
 
-  public void setLiveIndexedEventsCount(Long liveIndexedEventsCount) {
+  @JsonProperty(JSON_PROPERTY_LIVE_INDEXED_EVENTS_COUNT)
+  public void setLiveIndexedEventsCount_JsonNullable(JsonNullable<Long> liveIndexedEventsCount) {
     this.liveIndexedEventsCount = liveIndexedEventsCount;
+  }
+
+  public void setLiveIndexedEventsCount(Long liveIndexedEventsCount) {
+    this.liveIndexedEventsCount = JsonNullable.<Long>of(liveIndexedEventsCount);
   }
 
   public UsageLogsByRetentionHour orgName(String orgName) {
@@ -132,7 +153,7 @@ public class UsageLogsByRetentionHour {
   }
 
   public UsageLogsByRetentionHour rehydratedIndexedEventsCount(Long rehydratedIndexedEventsCount) {
-    this.rehydratedIndexedEventsCount = rehydratedIndexedEventsCount;
+    this.rehydratedIndexedEventsCount = JsonNullable.<Long>of(rehydratedIndexedEventsCount);
     return this;
   }
 
@@ -142,14 +163,25 @@ public class UsageLogsByRetentionHour {
    * @return rehydratedIndexedEventsCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getRehydratedIndexedEventsCount() {
+    return rehydratedIndexedEventsCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRehydratedIndexedEventsCount() {
+  public JsonNullable<Long> getRehydratedIndexedEventsCount_JsonNullable() {
     return rehydratedIndexedEventsCount;
   }
 
-  public void setRehydratedIndexedEventsCount(Long rehydratedIndexedEventsCount) {
+  @JsonProperty(JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT)
+  public void setRehydratedIndexedEventsCount_JsonNullable(
+      JsonNullable<Long> rehydratedIndexedEventsCount) {
     this.rehydratedIndexedEventsCount = rehydratedIndexedEventsCount;
+  }
+
+  public void setRehydratedIndexedEventsCount(Long rehydratedIndexedEventsCount) {
+    this.rehydratedIndexedEventsCount = JsonNullable.<Long>of(rehydratedIndexedEventsCount);
   }
 
   public UsageLogsByRetentionHour retention(String retention) {
