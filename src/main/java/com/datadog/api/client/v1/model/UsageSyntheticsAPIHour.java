@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Number of Synthetics API tests run for each hour for a given organization. */
 @JsonPropertyOrder({
@@ -28,7 +27,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class UsageSyntheticsAPIHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHECK_CALLS_COUNT = "check_calls_count";
-  private JsonNullable<Long> checkCallsCount = JsonNullable.<Long>undefined();
+  private Long checkCallsCount;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
@@ -42,7 +41,7 @@ public class UsageSyntheticsAPIHour {
   private String publicId;
 
   public UsageSyntheticsAPIHour checkCallsCount(Long checkCallsCount) {
-    this.checkCallsCount = JsonNullable.<Long>of(checkCallsCount);
+    this.checkCallsCount = checkCallsCount;
     return this;
   }
 
@@ -52,24 +51,14 @@ public class UsageSyntheticsAPIHour {
    * @return checkCallsCount
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getCheckCallsCount() {
-    return checkCallsCount.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CHECK_CALLS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getCheckCallsCount_JsonNullable() {
+  public Long getCheckCallsCount() {
     return checkCallsCount;
   }
 
-  @JsonProperty(JSON_PROPERTY_CHECK_CALLS_COUNT)
-  public void setCheckCallsCount_JsonNullable(JsonNullable<Long> checkCallsCount) {
-    this.checkCallsCount = checkCallsCount;
-  }
-
   public void setCheckCallsCount(Long checkCallsCount) {
-    this.checkCallsCount = JsonNullable.<Long>of(checkCallsCount);
+    this.checkCallsCount = checkCallsCount;
   }
 
   public UsageSyntheticsAPIHour hour(OffsetDateTime hour) {

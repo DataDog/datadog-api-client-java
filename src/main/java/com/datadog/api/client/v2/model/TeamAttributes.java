@@ -15,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Team attributes */
 @JsonPropertyOrder({
@@ -38,7 +37,7 @@ public class TeamAttributes {
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<String> description = JsonNullable.<String>undefined();
+  private String description;
 
   public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
@@ -55,7 +54,7 @@ public class TeamAttributes {
   private String name;
 
   public static final String JSON_PROPERTY_SUMMARY = "summary";
-  private JsonNullable<String> summary = JsonNullable.<String>undefined();
+  private String summary;
 
   public static final String JSON_PROPERTY_USER_COUNT = "user_count";
   private Integer userCount;
@@ -92,7 +91,7 @@ public class TeamAttributes {
   }
 
   public TeamAttributes description(String description) {
-    this.description = JsonNullable.<String>of(description);
+    this.description = description;
     return this;
   }
 
@@ -102,24 +101,14 @@ public class TeamAttributes {
    * @return description
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getDescription() {
-    return description.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getDescription_JsonNullable() {
+  public String getDescription() {
     return description;
   }
 
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<String> description) {
-    this.description = description;
-  }
-
   public void setDescription(String description) {
-    this.description = JsonNullable.<String>of(description);
+    this.description = description;
   }
 
   public TeamAttributes handle(String handle) {
@@ -196,7 +185,7 @@ public class TeamAttributes {
   }
 
   public TeamAttributes summary(String summary) {
-    this.summary = JsonNullable.<String>of(summary);
+    this.summary = summary;
     return this;
   }
 
@@ -206,24 +195,14 @@ public class TeamAttributes {
    * @return summary
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getSummary() {
-    return summary.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getSummary_JsonNullable() {
+  public String getSummary() {
     return summary;
   }
 
-  @JsonProperty(JSON_PROPERTY_SUMMARY)
-  public void setSummary_JsonNullable(JsonNullable<String> summary) {
-    this.summary = summary;
-  }
-
   public void setSummary(String summary) {
-    this.summary = JsonNullable.<String>of(summary);
+    this.summary = summary;
   }
 
   /**

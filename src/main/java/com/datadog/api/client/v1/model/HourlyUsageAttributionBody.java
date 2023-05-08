@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The usage for one set of tags for one hour. */
 @JsonPropertyOrder({
@@ -53,8 +52,7 @@ public class HourlyUsageAttributionBody {
   private String tagConfigSource;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private JsonNullable<Map<String, List<String>>> tags =
-      JsonNullable.<Map<String, List<String>>>undefined();
+  private Map<String, List<String>> tags = null;
 
   public static final String JSON_PROPERTY_TOTAL_USAGE_SUM = "total_usage_sum";
   private Double totalUsageSum;
@@ -174,19 +172,15 @@ public class HourlyUsageAttributionBody {
   }
 
   public HourlyUsageAttributionBody tags(Map<String, List<String>> tags) {
-    this.tags = JsonNullable.<Map<String, List<String>>>of(tags);
+    this.tags = tags;
     return this;
   }
 
   public HourlyUsageAttributionBody putTagsItem(String key, List<String> tagsItem) {
-    if (this.tags == null || !this.tags.isPresent()) {
-      this.tags = JsonNullable.<Map<String, List<String>>>of(new HashMap<>());
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
     }
-    try {
-      this.tags.get().put(key, tagsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.tags.put(key, tagsItem);
     return this;
   }
 
@@ -202,24 +196,14 @@ public class HourlyUsageAttributionBody {
    * @return tags
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Map<String, List<String>> getTags() {
-    return tags.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, List<String>>> getTags_JsonNullable() {
+  public Map<String, List<String>> getTags() {
     return tags;
   }
 
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  public void setTags_JsonNullable(JsonNullable<Map<String, List<String>>> tags) {
-    this.tags = tags;
-  }
-
   public void setTags(Map<String, List<String>> tags) {
-    this.tags = JsonNullable.<Map<String, List<String>>>of(tags);
+    this.tags = tags;
   }
 
   public HourlyUsageAttributionBody totalUsageSum(Double totalUsageSum) {

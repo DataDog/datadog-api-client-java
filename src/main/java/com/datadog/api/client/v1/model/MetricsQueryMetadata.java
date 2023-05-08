@@ -136,7 +136,7 @@ public class MetricsQueryMetadata {
   }
 
   /**
-   * Number of milliseconds between data samples.
+   * Number of seconds between data samples.
    *
    * @return interval
    */
@@ -172,7 +172,7 @@ public class MetricsQueryMetadata {
   }
 
   /**
-   * List of points of the time series in milliseconds.
+   * List of points of the time series.
    *
    * @return pointlist
    */

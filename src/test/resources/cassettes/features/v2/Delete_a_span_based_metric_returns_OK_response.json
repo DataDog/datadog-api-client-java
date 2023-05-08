@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Delete_a_span_based_metric_returns_OK_response-1681838888\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Delete_a_span_based_metric_returns_OK_response-1681838888\",\"type\":\"spans_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Delete_a_span_based_metric_returns_OK_response-1680015325\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Delete_a_span_based_metric_returns_OK_response-1680015325\",\"type\":\"spans_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Delete_a_span_based_metric_returns_OK_response_1681838888\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Delete_a_span_based_metric_returns_OK_response-1681838888\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
+      "body": "{\"data\":{\"id\":\"Test_Delete_a_span_based_metric_returns_OK_response_1680015325\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Delete_a_span_based_metric_returns_OK_response-1680015325\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,24 +27,25 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a0db5bd1-6c23-5f55-945b-7e2ecec0ec45"
+    "id": "3cbb3815-f6e0-7de4-b0ae-7bfa2b3acbbe"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/apm/config/metrics/Test_Delete_a_span_based_metric_returns_OK_response_1681838888",
+      "path": "/api/v2/apm/config/metrics/Test_Delete_a_span_based_metric_returns_OK_response_1680015325",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
+      "body": "{}\n",
       "headers": {
         "Content-Type": [
-          "text/html; charset=utf-8"
+          "application/json"
         ]
       },
-      "statusCode": 204,
-      "reasonPhrase": "No Content"
+      "statusCode": 200,
+      "reasonPhrase": "OK"
     },
     "times": {
       "remainingTimes": 1
@@ -52,18 +53,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "688ed938-a130-04c6-9b17-4871ce9ddaa8"
+    "id": "42dcd81b-5868-9091-5d89-cbab9977880d"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/apm/config/metrics/Test_Delete_a_span_based_metric_returns_OK_response_1681838888",
+      "path": "/api/v2/apm/config/metrics/Test_Delete_a_span_based_metric_returns_OK_response_1680015325",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Metric with name 'Test_Delete_a_span_based_metric_returns_OK_response_1681838888' not found)\"]}\n",
+      "body": "{\"errors\":[\"not_found(Metric with name 'Test_Delete_a_span_based_metric_returns_OK_response_1680015325' not found)\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -78,6 +79,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "688ed938-a130-04c6-9b17-4871ce9ddaa9"
+    "id": "42dcd81b-5868-9091-5d89-cbab9977880e"
   }
 ]

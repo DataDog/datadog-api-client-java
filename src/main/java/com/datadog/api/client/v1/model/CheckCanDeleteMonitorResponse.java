@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Response of monitor IDs that can or can't be safely deleted. */
 @JsonPropertyOrder({
@@ -30,8 +29,7 @@ public class CheckCanDeleteMonitorResponse {
   private CheckCanDeleteMonitorResponseData data;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private JsonNullable<Map<String, List<String>>> errors =
-      JsonNullable.<Map<String, List<String>>>undefined();
+  private Map<String, List<String>> errors = null;
 
   public CheckCanDeleteMonitorResponse() {}
 
@@ -65,19 +63,15 @@ public class CheckCanDeleteMonitorResponse {
   }
 
   public CheckCanDeleteMonitorResponse errors(Map<String, List<String>> errors) {
-    this.errors = JsonNullable.<Map<String, List<String>>>of(errors);
+    this.errors = errors;
     return this;
   }
 
   public CheckCanDeleteMonitorResponse putErrorsItem(String key, List<String> errorsItem) {
-    if (this.errors == null || !this.errors.isPresent()) {
-      this.errors = JsonNullable.<Map<String, List<String>>>of(new HashMap<>());
+    if (this.errors == null) {
+      this.errors = new HashMap<>();
     }
-    try {
-      this.errors.get().put(key, errorsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.errors.put(key, errorsItem);
     return this;
   }
 
@@ -87,24 +81,14 @@ public class CheckCanDeleteMonitorResponse {
    * @return errors
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Map<String, List<String>> getErrors() {
-    return errors.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, List<String>>> getErrors_JsonNullable() {
+  public Map<String, List<String>> getErrors() {
     return errors;
   }
 
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  public void setErrors_JsonNullable(JsonNullable<Map<String, List<String>>> errors) {
-    this.errors = errors;
-  }
-
   public void setErrors(Map<String, List<String>> errors) {
-    this.errors = JsonNullable.<Map<String, List<String>>>of(errors);
+    this.errors = errors;
   }
 
   /** Return true if this CheckCanDeleteMonitorResponse object is equal to o. */

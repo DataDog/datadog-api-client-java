@@ -30,7 +30,7 @@ public class UsageTopAvgMetricsPagination {
   private JsonNullable<String> nextRecordId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS = "total_number_of_records";
-  private JsonNullable<Long> totalNumberOfRecords = JsonNullable.<Long>undefined();
+  private Long totalNumberOfRecords;
 
   public UsageTopAvgMetricsPagination limit(Long limit) {
     this.limit = limit;
@@ -86,7 +86,7 @@ public class UsageTopAvgMetricsPagination {
   }
 
   public UsageTopAvgMetricsPagination totalNumberOfRecords(Long totalNumberOfRecords) {
-    this.totalNumberOfRecords = JsonNullable.<Long>of(totalNumberOfRecords);
+    this.totalNumberOfRecords = totalNumberOfRecords;
     return this;
   }
 
@@ -96,24 +96,14 @@ public class UsageTopAvgMetricsPagination {
    * @return totalNumberOfRecords
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getTotalNumberOfRecords() {
-    return totalNumberOfRecords.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getTotalNumberOfRecords_JsonNullable() {
+  public Long getTotalNumberOfRecords() {
     return totalNumberOfRecords;
   }
 
-  @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS)
-  public void setTotalNumberOfRecords_JsonNullable(JsonNullable<Long> totalNumberOfRecords) {
-    this.totalNumberOfRecords = totalNumberOfRecords;
-  }
-
   public void setTotalNumberOfRecords(Long totalNumberOfRecords) {
-    this.totalNumberOfRecords = JsonNullable.<Long>of(totalNumberOfRecords);
+    this.totalNumberOfRecords = totalNumberOfRecords;
   }
 
   /** Return true if this UsageTopAvgMetricsPagination object is equal to o. */

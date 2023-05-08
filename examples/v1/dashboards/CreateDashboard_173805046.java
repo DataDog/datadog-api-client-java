@@ -43,8 +43,7 @@ public class Example {
                                     .sloId(SLO_DATA_0_ID)
                                     .showErrorBudget(true)
                                     .viewMode(WidgetViewMode.OVERALL)
-                                    .globalTimeTarget("0")
-                                    .additionalQueryFilters("!host:excluded_host")))))
+                                    .globalTimeTarget("0")))))
             .layoutType(DashboardLayoutType.FREE)
             .isReadOnly(false);
 

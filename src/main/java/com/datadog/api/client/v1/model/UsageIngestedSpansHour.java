@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Ingested spans usage for a given organization for a given hour. */
 @JsonPropertyOrder({
@@ -33,7 +32,7 @@ public class UsageIngestedSpansHour {
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES = "ingested_events_bytes";
-  private JsonNullable<Long> ingestedEventsBytes = JsonNullable.<Long>undefined();
+  private Long ingestedEventsBytes;
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -63,7 +62,7 @@ public class UsageIngestedSpansHour {
   }
 
   public UsageIngestedSpansHour ingestedEventsBytes(Long ingestedEventsBytes) {
-    this.ingestedEventsBytes = JsonNullable.<Long>of(ingestedEventsBytes);
+    this.ingestedEventsBytes = ingestedEventsBytes;
     return this;
   }
 
@@ -73,24 +72,14 @@ public class UsageIngestedSpansHour {
    * @return ingestedEventsBytes
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getIngestedEventsBytes() {
-    return ingestedEventsBytes.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getIngestedEventsBytes_JsonNullable() {
+  public Long getIngestedEventsBytes() {
     return ingestedEventsBytes;
   }
 
-  @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES)
-  public void setIngestedEventsBytes_JsonNullable(JsonNullable<Long> ingestedEventsBytes) {
-    this.ingestedEventsBytes = ingestedEventsBytes;
-  }
-
   public void setIngestedEventsBytes(Long ingestedEventsBytes) {
-    this.ingestedEventsBytes = JsonNullable.<Long>of(ingestedEventsBytes);
+    this.ingestedEventsBytes = ingestedEventsBytes;
   }
 
   public UsageIngestedSpansHour orgName(String orgName) {

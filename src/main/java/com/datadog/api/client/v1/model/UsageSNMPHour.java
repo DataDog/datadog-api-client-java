@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The number of SNMP devices for each hour for a given organization. */
 @JsonPropertyOrder({
@@ -39,7 +38,7 @@ public class UsageSNMPHour {
   private String publicId;
 
   public static final String JSON_PROPERTY_SNMP_DEVICES = "snmp_devices";
-  private JsonNullable<Long> snmpDevices = JsonNullable.<Long>undefined();
+  private Long snmpDevices;
 
   public UsageSNMPHour hour(OffsetDateTime hour) {
     this.hour = hour;
@@ -105,7 +104,7 @@ public class UsageSNMPHour {
   }
 
   public UsageSNMPHour snmpDevices(Long snmpDevices) {
-    this.snmpDevices = JsonNullable.<Long>of(snmpDevices);
+    this.snmpDevices = snmpDevices;
     return this;
   }
 
@@ -115,24 +114,14 @@ public class UsageSNMPHour {
    * @return snmpDevices
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getSnmpDevices() {
-    return snmpDevices.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_SNMP_DEVICES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getSnmpDevices_JsonNullable() {
+  public Long getSnmpDevices() {
     return snmpDevices;
   }
 
-  @JsonProperty(JSON_PROPERTY_SNMP_DEVICES)
-  public void setSnmpDevices_JsonNullable(JsonNullable<Long> snmpDevices) {
-    this.snmpDevices = snmpDevices;
-  }
-
   public void setSnmpDevices(Long snmpDevices) {
-    this.snmpDevices = JsonNullable.<Long>of(snmpDevices);
+    this.snmpDevices = snmpDevices;
   }
 
   /** Return true if this UsageSNMPHour object is equal to o. */

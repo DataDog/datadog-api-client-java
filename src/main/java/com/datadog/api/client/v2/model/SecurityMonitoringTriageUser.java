@@ -12,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object representing a given user entity. */
 @JsonPropertyOrder({
@@ -32,7 +31,7 @@ public class SecurityMonitoringTriageUser {
   private Long id;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  private String name;
 
   public static final String JSON_PROPERTY_UUID = "uuid";
   private String uuid;
@@ -88,7 +87,7 @@ public class SecurityMonitoringTriageUser {
   }
 
   public SecurityMonitoringTriageUser name(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
     return this;
   }
 
@@ -98,24 +97,14 @@ public class SecurityMonitoringTriageUser {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getName() {
-    return name.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getName_JsonNullable() {
+  public String getName() {
     return name;
   }
 
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
-  }
-
   public void setName(String name) {
-    this.name = JsonNullable.<String>of(name);
+    this.name = name;
   }
 
   public SecurityMonitoringTriageUser uuid(String uuid) {

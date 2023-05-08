@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"end\":1683227859,\"message\":\"Test-Schedule_a_downtime_until_date-1683224259\",\"monitor_tags\":[\"tag0\"],\"mute_first_recovery_notification\":true,\"notify_end_states\":[\"alert\"],\"notify_end_types\":[\"canceled\"],\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1685038659,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"*\"],\"start\":1683224259,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"end\":1657667265,\"message\":\"Test-Schedule_a_downtime_until_date-1657663665\",\"monitor_tags\":[\"tag0\"],\"mute_first_recovery_notification\":true,\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1659478065,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"*\"],\"start\":1657663665,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":2890657859,\"monitor_id\":null,\"org_id\":321813,\"start\":1683224259,\"end\":1683227859,\"canceled\":null,\"created\":1683224259,\"modified\":1683224259,\"message\":\"Test-Schedule_a_downtime_until_date-1683224259\",\"active\":true,\"disabled\":false,\"recurrence\":{\"type\":\"weeks\",\"period\":1,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"until_occurrences\":null,\"until_date\":1685038659},\"timezone\":\"Etc/UTC\",\"parent_id\":null,\"child_id\":null,\"creator_id\":1445416,\"updater_id\":null,\"downtime_type\":0,\"status\":\"active\",\"monitor_tags\":[\"tag0\"],\"mute_first_recovery_notification\":true,\"notify_end_types\":[\"canceled\"],\"notify_end_states\":[\"alert\"],\"uuid\":\"f441cca8-eaa7-11ed-8c83-da7ad0900002\",\"scope\":[\"*\"]}\n",
+      "body": "{\"recurrence\":{\"until_date\":1659478065,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":1657667265,\"monitor_tags\":[\"tag0\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":true,\"created\":1657663665,\"org_id\":321813,\"modified\":1657663665,\"disabled\":false,\"start\":1657663665,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"*\"],\"message\":\"Test-Schedule_a_downtime_until_date-1657663665\",\"downtime_type\":0,\"id\":2082107326,\"updater_id\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1dc7c720-93e1-bb9f-e5bc-c134c2490a0f"
+    "id": "12b7245e-c3be-818e-1c61-6283e42ced84"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/downtime/2890657859",
+      "path": "/api/v1/downtime/2082107326",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Content-Type": [
-          "text/html; charset=utf-8"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -52,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "14de950b-93c3-8dc2-be91-42d4ed317fdd"
+    "id": "bba9256a-5216-06f6-03f5-c10857934d6a"
   }
 ]

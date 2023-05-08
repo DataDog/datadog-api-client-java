@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Number of netflow events indexed for each hour for a given organization. */
 @JsonPropertyOrder({
@@ -33,7 +32,7 @@ public class UsageNetworkFlowsHour {
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT = "indexed_events_count";
-  private JsonNullable<Long> indexedEventsCount = JsonNullable.<Long>undefined();
+  private Long indexedEventsCount;
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -63,7 +62,7 @@ public class UsageNetworkFlowsHour {
   }
 
   public UsageNetworkFlowsHour indexedEventsCount(Long indexedEventsCount) {
-    this.indexedEventsCount = JsonNullable.<Long>of(indexedEventsCount);
+    this.indexedEventsCount = indexedEventsCount;
     return this;
   }
 
@@ -73,24 +72,14 @@ public class UsageNetworkFlowsHour {
    * @return indexedEventsCount
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getIndexedEventsCount() {
-    return indexedEventsCount.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getIndexedEventsCount_JsonNullable() {
+  public Long getIndexedEventsCount() {
     return indexedEventsCount;
   }
 
-  @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
-  public void setIndexedEventsCount_JsonNullable(JsonNullable<Long> indexedEventsCount) {
-    this.indexedEventsCount = indexedEventsCount;
-  }
-
   public void setIndexedEventsCount(Long indexedEventsCount) {
-    this.indexedEventsCount = JsonNullable.<Long>of(indexedEventsCount);
+    this.indexedEventsCount = indexedEventsCount;
   }
 
   public UsageNetworkFlowsHour orgName(String orgName) {

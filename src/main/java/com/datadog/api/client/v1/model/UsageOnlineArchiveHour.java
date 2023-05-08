@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Online Archive usage in a given hour. */
 @JsonPropertyOrder({
@@ -34,7 +33,7 @@ public class UsageOnlineArchiveHour {
 
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT =
       "online_archive_events_count";
-  private JsonNullable<Long> onlineArchiveEventsCount = JsonNullable.<Long>undefined();
+  private Long onlineArchiveEventsCount;
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -64,7 +63,7 @@ public class UsageOnlineArchiveHour {
   }
 
   public UsageOnlineArchiveHour onlineArchiveEventsCount(Long onlineArchiveEventsCount) {
-    this.onlineArchiveEventsCount = JsonNullable.<Long>of(onlineArchiveEventsCount);
+    this.onlineArchiveEventsCount = onlineArchiveEventsCount;
     return this;
   }
 
@@ -74,25 +73,14 @@ public class UsageOnlineArchiveHour {
    * @return onlineArchiveEventsCount
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getOnlineArchiveEventsCount() {
-    return onlineArchiveEventsCount.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getOnlineArchiveEventsCount_JsonNullable() {
+  public Long getOnlineArchiveEventsCount() {
     return onlineArchiveEventsCount;
   }
 
-  @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT)
-  public void setOnlineArchiveEventsCount_JsonNullable(
-      JsonNullable<Long> onlineArchiveEventsCount) {
-    this.onlineArchiveEventsCount = onlineArchiveEventsCount;
-  }
-
   public void setOnlineArchiveEventsCount(Long onlineArchiveEventsCount) {
-    this.onlineArchiveEventsCount = JsonNullable.<Long>of(onlineArchiveEventsCount);
+    this.onlineArchiveEventsCount = onlineArchiveEventsCount;
   }
 
   public UsageOnlineArchiveHour orgName(String orgName) {

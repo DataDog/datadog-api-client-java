@@ -36,7 +36,7 @@ public class SLOCorrectionResponseAttributes {
   private SLOCorrectionCategory category;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private JsonNullable<Long> createdAt = JsonNullable.<Long>undefined();
+  private Long createdAt;
 
   public static final String JSON_PROPERTY_CREATOR = "creator";
   private Creator creator;
@@ -48,10 +48,10 @@ public class SLOCorrectionResponseAttributes {
   private JsonNullable<Long> duration = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_END = "end";
-  private JsonNullable<Long> end = JsonNullable.<Long>undefined();
+  private Long end;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
-  private JsonNullable<Long> modifiedAt = JsonNullable.<Long>undefined();
+  private Long modifiedAt;
 
   public static final String JSON_PROPERTY_MODIFIER = "modifier";
   private JsonNullable<SLOCorrectionResponseAttributesModifier> modifier =
@@ -95,7 +95,7 @@ public class SLOCorrectionResponseAttributes {
   }
 
   public SLOCorrectionResponseAttributes createdAt(Long createdAt) {
-    this.createdAt = JsonNullable.<Long>of(createdAt);
+    this.createdAt = createdAt;
     return this;
   }
 
@@ -105,24 +105,14 @@ public class SLOCorrectionResponseAttributes {
    * @return createdAt
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getCreatedAt() {
-    return createdAt.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getCreatedAt_JsonNullable() {
+  public Long getCreatedAt() {
     return createdAt;
   }
 
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  public void setCreatedAt_JsonNullable(JsonNullable<Long> createdAt) {
-    this.createdAt = createdAt;
-  }
-
   public void setCreatedAt(Long createdAt) {
-    this.createdAt = JsonNullable.<Long>of(createdAt);
+    this.createdAt = createdAt;
   }
 
   /**
@@ -190,7 +180,7 @@ public class SLOCorrectionResponseAttributes {
   }
 
   public SLOCorrectionResponseAttributes end(Long end) {
-    this.end = JsonNullable.<Long>of(end);
+    this.end = end;
     return this;
   }
 
@@ -200,28 +190,18 @@ public class SLOCorrectionResponseAttributes {
    * @return end
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getEnd() {
-    return end.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getEnd_JsonNullable() {
+  public Long getEnd() {
     return end;
   }
 
-  @JsonProperty(JSON_PROPERTY_END)
-  public void setEnd_JsonNullable(JsonNullable<Long> end) {
+  public void setEnd(Long end) {
     this.end = end;
   }
 
-  public void setEnd(Long end) {
-    this.end = JsonNullable.<Long>of(end);
-  }
-
   public SLOCorrectionResponseAttributes modifiedAt(Long modifiedAt) {
-    this.modifiedAt = JsonNullable.<Long>of(modifiedAt);
+    this.modifiedAt = modifiedAt;
     return this;
   }
 
@@ -231,24 +211,14 @@ public class SLOCorrectionResponseAttributes {
    * @return modifiedAt
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getModifiedAt() {
-    return modifiedAt.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getModifiedAt_JsonNullable() {
+  public Long getModifiedAt() {
     return modifiedAt;
   }
 
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  public void setModifiedAt_JsonNullable(JsonNullable<Long> modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
-
   public void setModifiedAt(Long modifiedAt) {
-    this.modifiedAt = JsonNullable.<Long>of(modifiedAt);
+    this.modifiedAt = modifiedAt;
   }
 
   public SLOCorrectionResponseAttributes modifier(

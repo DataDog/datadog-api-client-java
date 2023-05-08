@@ -4,9 +4,6 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.DowntimesApi;
 import com.datadog.api.client.v1.model.Downtime;
-import com.datadog.api.client.v1.model.NotifyEndState;
-import com.datadog.api.client.v1.model.NotifyEndType;
-import java.util.Arrays;
 
 public class Example {
   public static void main(String[] args) {
@@ -17,12 +14,7 @@ public class Example {
     Long DOWNTIME_ID = Long.parseLong(System.getenv("DOWNTIME_ID"));
 
     Downtime body =
-        new Downtime()
-            .message("Example-Downtime-updated")
-            .muteFirstRecoveryNotification(true)
-            .notifyEndStates(
-                Arrays.asList(NotifyEndState.ALERT, NotifyEndState.NO_DATA, NotifyEndState.WARN))
-            .notifyEndTypes(Arrays.asList(NotifyEndType.CANCELED, NotifyEndType.EXPIRED));
+        new Downtime().message("Example-Downtime-updated").muteFirstRecoveryNotification(true);
 
     try {
       Downtime result = apiInstance.updateDowntime(DOWNTIME_ID, body);

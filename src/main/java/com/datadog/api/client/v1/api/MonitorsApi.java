@@ -257,7 +257,7 @@ public class MonitorsApi {
    *
    * <h3>Query Types</h3>
    *
-   * <h4>Metric Alert Query</h4>
+   * <p><strong>Metric Alert Query</strong>
    *
    * <p>Example: <code>time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #</code>
    *
@@ -292,7 +292,7 @@ public class MonitorsApi {
    * avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, 'dbscan', 7) &gt; 0
    * </code>
    *
-   * <h4>Service Check Query</h4>
+   * <p><strong>Service Check Query</strong>
    *
    * <p>Example: <code>"check".over(tags).last(count).by(group).count_by_status()</code>
    *
@@ -311,7 +311,7 @@ public class MonitorsApi {
    *       documentation for more information.
    * </ul>
    *
-   * <h4>Event Alert Query</h4>
+   * <p><strong>Event Alert Query</strong>
    *
    * <p>Example: <code>
    * events('sources:nagios status:error,warning priority:normal tags: "string query"').rollup("count").last("1h")"
@@ -339,7 +339,7 @@ public class MonitorsApi {
    * href="https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/">Event
    * Migration guide</a>.
    *
-   * <h4>Event V2 Alert Query</h4>
+   * <p><strong>Event V2 Alert Query</strong>
    *
    * <p>Example: <code>events(query).rollup(rollup_method[, measure]).last(time_window) operator #
    * </code>
@@ -357,7 +357,7 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <h4>Process Alert Query</h4>
+   * <p><strong>Process Alert Query</strong>
    *
    * <p>Example: <code>processes(search).over(tags).rollup('count').last(timeframe) operator #
    * </code>
@@ -374,7 +374,7 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold
    * </ul>
    *
-   * <h4>Logs Alert Query</h4>
+   * <p><strong>Logs Alert Query</strong>
    *
    * <p>Example: <code>
    * logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #
@@ -395,7 +395,7 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <h4>Composite Query</h4>
+   * <p><strong>Composite Query</strong>
    *
    * <p>Example: <code>12345 &amp;&amp; 67890</code>, where <code>12345</code> and <code>67890
    * </code> are the IDs of non-composite monitors
@@ -413,7 +413,7 @@ public class MonitorsApi {
    *       only available via the API and isn't visible or editable in the Datadog UI.
    * </ul>
    *
-   * <h4>SLO Alert Query</h4>
+   * <p><strong>SLO Alert Query</strong>
    *
    * <p>Example: <code>error_budget("slo_id").over("time_window") operator #</code>
    *
@@ -425,7 +425,7 @@ public class MonitorsApi {
    *   <li><code>operator</code>: <code>&gt;=</code> or <code>&gt;</code>
    * </ul>
    *
-   * <h4>Audit Alert Query</h4>
+   * <p><strong>Audit Alert Query</strong>
    *
    * <p>Example: <code>audits(query).rollup(rollup_method[, measure]).last(time_window) operator #
    * </code>
@@ -446,7 +446,7 @@ public class MonitorsApi {
    * <p><strong>NOTE</strong> Only available on US1-FED and in closed beta on US1, EU, AP1, US3, and
    * US5.
    *
-   * <h4>CI Pipelines Alert Query</h4>
+   * <p><strong>CI Pipelines Alert Query</strong>
    *
    * <p>Example: <code>
    * ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #</code>
@@ -466,7 +466,7 @@ public class MonitorsApi {
    *
    * <p><strong>NOTE</strong> CI Pipeline monitors are in alpha on US1, EU, AP1, US3, and US5.
    *
-   * <h4>CI Tests Alert Query</h4>
+   * <p><strong>CI Tests Alert Query</strong>
    *
    * <p>Example: <code>ci-tests(query).rollup(rollup_method[, measure]).last(time_window) operator #
    * </code>
@@ -487,7 +487,7 @@ public class MonitorsApi {
    * <p><strong>NOTE</strong> CI Test monitors are available only in closed beta on US1, EU, AP1,
    * US3, and US5.
    *
-   * <h4>Error Tracking Alert Query</h4>
+   * <p><strong>Error Tracking Alert Query</strong>
    *
    * <p>Example(RUM): <code>
    * error-tracking-rum(query).rollup(rollup_method[, measure]).last(time_window) operator #</code>

@@ -28,8 +28,8 @@ public class Example {
                             .policy(
                                 new MonitorConfigPolicyPolicyCreateRequest(
                                     new MonitorConfigPolicyTagPolicyCreateRequest()
-                                        .tagKey("examplemonitor")
-                                        .tagKeyRequired(false)
+                                        .tagKey("datacenter")
+                                        .tagKeyRequired(true)
                                         .validTagValues(Arrays.asList("prod", "staging")))))
                     .type(MonitorConfigPolicyResourceType.MONITOR_CONFIG_POLICY));
 

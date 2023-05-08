@@ -13,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** How to generate compliance signals. Useful for cloud_configuration rules only. */
 @JsonPropertyOrder({
@@ -25,14 +24,14 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class CloudConfigurationRuleComplianceSignalOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USER_ACTIVATION_STATUS = "userActivationStatus";
-  private JsonNullable<Boolean> userActivationStatus = JsonNullable.<Boolean>undefined();
+  private Boolean userActivationStatus;
 
   public static final String JSON_PROPERTY_USER_GROUP_BY_FIELDS = "userGroupByFields";
-  private JsonNullable<List<String>> userGroupByFields = JsonNullable.<List<String>>undefined();
+  private List<String> userGroupByFields = null;
 
   public CloudConfigurationRuleComplianceSignalOptions userActivationStatus(
       Boolean userActivationStatus) {
-    this.userActivationStatus = JsonNullable.<Boolean>of(userActivationStatus);
+    this.userActivationStatus = userActivationStatus;
     return this;
   }
 
@@ -42,42 +41,28 @@ public class CloudConfigurationRuleComplianceSignalOptions {
    * @return userActivationStatus
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Boolean getUserActivationStatus() {
-    return userActivationStatus.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_USER_ACTIVATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Boolean> getUserActivationStatus_JsonNullable() {
+  public Boolean getUserActivationStatus() {
     return userActivationStatus;
   }
 
-  @JsonProperty(JSON_PROPERTY_USER_ACTIVATION_STATUS)
-  public void setUserActivationStatus_JsonNullable(JsonNullable<Boolean> userActivationStatus) {
-    this.userActivationStatus = userActivationStatus;
-  }
-
   public void setUserActivationStatus(Boolean userActivationStatus) {
-    this.userActivationStatus = JsonNullable.<Boolean>of(userActivationStatus);
+    this.userActivationStatus = userActivationStatus;
   }
 
   public CloudConfigurationRuleComplianceSignalOptions userGroupByFields(
       List<String> userGroupByFields) {
-    this.userGroupByFields = JsonNullable.<List<String>>of(userGroupByFields);
+    this.userGroupByFields = userGroupByFields;
     return this;
   }
 
   public CloudConfigurationRuleComplianceSignalOptions addUserGroupByFieldsItem(
       String userGroupByFieldsItem) {
-    if (this.userGroupByFields == null || !this.userGroupByFields.isPresent()) {
-      this.userGroupByFields = JsonNullable.<List<String>>of(new ArrayList<>());
+    if (this.userGroupByFields == null) {
+      this.userGroupByFields = new ArrayList<>();
     }
-    try {
-      this.userGroupByFields.get().add(userGroupByFieldsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.userGroupByFields.add(userGroupByFieldsItem);
     return this;
   }
 
@@ -87,24 +72,14 @@ public class CloudConfigurationRuleComplianceSignalOptions {
    * @return userGroupByFields
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public List<String> getUserGroupByFields() {
-    return userGroupByFields.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_USER_GROUP_BY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<List<String>> getUserGroupByFields_JsonNullable() {
+  public List<String> getUserGroupByFields() {
     return userGroupByFields;
   }
 
-  @JsonProperty(JSON_PROPERTY_USER_GROUP_BY_FIELDS)
-  public void setUserGroupByFields_JsonNullable(JsonNullable<List<String>> userGroupByFields) {
-    this.userGroupByFields = userGroupByFields;
-  }
-
   public void setUserGroupByFields(List<String> userGroupByFields) {
-    this.userGroupByFields = JsonNullable.<List<String>>of(userGroupByFields);
+    this.userGroupByFields = userGroupByFields;
   }
 
   /** Return true if this CloudConfigurationRuleComplianceSignalOptions object is equal to o. */

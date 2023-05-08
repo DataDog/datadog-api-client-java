@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Number of lambda functions and sum of the invocations of all lambda functions for each hour for a
@@ -32,7 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class UsageLambdaHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FUNC_COUNT = "func_count";
-  private JsonNullable<Long> funcCount = JsonNullable.<Long>undefined();
+  private Long funcCount;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
@@ -40,7 +39,7 @@ public class UsageLambdaHour {
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_INVOCATIONS_SUM = "invocations_sum";
-  private JsonNullable<Long> invocationsSum = JsonNullable.<Long>undefined();
+  private Long invocationsSum;
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -49,7 +48,7 @@ public class UsageLambdaHour {
   private String publicId;
 
   public UsageLambdaHour funcCount(Long funcCount) {
-    this.funcCount = JsonNullable.<Long>of(funcCount);
+    this.funcCount = funcCount;
     return this;
   }
 
@@ -59,24 +58,14 @@ public class UsageLambdaHour {
    * @return funcCount
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getFuncCount() {
-    return funcCount.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_FUNC_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getFuncCount_JsonNullable() {
+  public Long getFuncCount() {
     return funcCount;
   }
 
-  @JsonProperty(JSON_PROPERTY_FUNC_COUNT)
-  public void setFuncCount_JsonNullable(JsonNullable<Long> funcCount) {
-    this.funcCount = funcCount;
-  }
-
   public void setFuncCount(Long funcCount) {
-    this.funcCount = JsonNullable.<Long>of(funcCount);
+    this.funcCount = funcCount;
   }
 
   public UsageLambdaHour hour(OffsetDateTime hour) {
@@ -101,7 +90,7 @@ public class UsageLambdaHour {
   }
 
   public UsageLambdaHour invocationsSum(Long invocationsSum) {
-    this.invocationsSum = JsonNullable.<Long>of(invocationsSum);
+    this.invocationsSum = invocationsSum;
     return this;
   }
 
@@ -111,24 +100,14 @@ public class UsageLambdaHour {
    * @return invocationsSum
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getInvocationsSum() {
-    return invocationsSum.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_INVOCATIONS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getInvocationsSum_JsonNullable() {
+  public Long getInvocationsSum() {
     return invocationsSum;
   }
 
-  @JsonProperty(JSON_PROPERTY_INVOCATIONS_SUM)
-  public void setInvocationsSum_JsonNullable(JsonNullable<Long> invocationsSum) {
-    this.invocationsSum = invocationsSum;
-  }
-
   public void setInvocationsSum(Long invocationsSum) {
-    this.invocationsSum = JsonNullable.<Long>of(invocationsSum);
+    this.invocationsSum = invocationsSum;
   }
 
   public UsageLambdaHour orgName(String orgName) {

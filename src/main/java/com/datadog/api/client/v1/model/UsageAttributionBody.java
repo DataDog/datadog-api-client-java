@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Usage Summary by tag for a given organization. */
 @JsonPropertyOrder({
@@ -48,8 +47,7 @@ public class UsageAttributionBody {
   private String tagConfigSource;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private JsonNullable<Map<String, List<String>>> tags =
-      JsonNullable.<Map<String, List<String>>>undefined();
+  private Map<String, List<String>> tags = null;
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private String updatedAt;
@@ -145,19 +143,15 @@ public class UsageAttributionBody {
   }
 
   public UsageAttributionBody tags(Map<String, List<String>> tags) {
-    this.tags = JsonNullable.<Map<String, List<String>>>of(tags);
+    this.tags = tags;
     return this;
   }
 
   public UsageAttributionBody putTagsItem(String key, List<String> tagsItem) {
-    if (this.tags == null || !this.tags.isPresent()) {
-      this.tags = JsonNullable.<Map<String, List<String>>>of(new HashMap<>());
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
     }
-    try {
-      this.tags.get().put(key, tagsItem);
-    } catch (java.util.NoSuchElementException e) {
-      // this can never happen, as we make sure above that the value is present
-    }
+    this.tags.put(key, tagsItem);
     return this;
   }
 
@@ -173,24 +167,14 @@ public class UsageAttributionBody {
    * @return tags
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Map<String, List<String>> getTags() {
-    return tags.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Map<String, List<String>>> getTags_JsonNullable() {
+  public Map<String, List<String>> getTags() {
     return tags;
   }
 
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  public void setTags_JsonNullable(JsonNullable<Map<String, List<String>>> tags) {
-    this.tags = tags;
-  }
-
   public void setTags(Map<String, List<String>> tags) {
-    this.tags = JsonNullable.<Map<String, List<String>>>of(tags);
+    this.tags = tags;
   }
 
   public UsageAttributionBody updatedAt(String updatedAt) {

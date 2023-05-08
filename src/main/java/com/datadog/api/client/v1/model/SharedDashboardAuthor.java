@@ -11,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** User who shared the dashboard. */
 @JsonPropertyOrder({
@@ -26,7 +25,7 @@ public class SharedDashboardAuthor {
   private String handle;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<String> name = JsonNullable.<String>undefined();
+  private String name;
 
   /**
    * Identifier of the user who shared the dashboard.
@@ -46,24 +45,10 @@ public class SharedDashboardAuthor {
    * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getName() {
-
-    if (name == null) {
-      name = JsonNullable.<String>undefined();
-    }
-    return name.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getName_JsonNullable() {
+  public String getName() {
     return name;
-  }
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  private void setName_JsonNullable(JsonNullable<String> name) {
-    this.name = name;
   }
 
   /** Return true if this SharedDashboardAuthor object is equal to o. */

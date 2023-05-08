@@ -31,8 +31,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DowntimeChild.JSON_PROPERTY_MONITOR_ID,
   DowntimeChild.JSON_PROPERTY_MONITOR_TAGS,
   DowntimeChild.JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION,
-  DowntimeChild.JSON_PROPERTY_NOTIFY_END_STATES,
-  DowntimeChild.JSON_PROPERTY_NOTIFY_END_TYPES,
   DowntimeChild.JSON_PROPERTY_PARENT_ID,
   DowntimeChild.JSON_PROPERTY_RECURRENCE,
   DowntimeChild.JSON_PROPERTY_SCOPE,
@@ -66,7 +64,7 @@ public class DowntimeChild {
   private Long id;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  private JsonNullable<String> message = JsonNullable.<String>undefined();
+  private String message;
 
   public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
   private JsonNullable<Long> monitorId = JsonNullable.<Long>undefined();
@@ -77,12 +75,6 @@ public class DowntimeChild {
   public static final String JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION =
       "mute_first_recovery_notification";
   private Boolean muteFirstRecoveryNotification;
-
-  public static final String JSON_PROPERTY_NOTIFY_END_STATES = "notify_end_states";
-  private List<NotifyEndState> notifyEndStates = null;
-
-  public static final String JSON_PROPERTY_NOTIFY_END_TYPES = "notify_end_types";
-  private List<NotifyEndType> notifyEndTypes = null;
 
   public static final String JSON_PROPERTY_PARENT_ID = "parent_id";
   private JsonNullable<Long> parentId = JsonNullable.<Long>undefined();
@@ -233,7 +225,7 @@ public class DowntimeChild {
   }
 
   public DowntimeChild message(String message) {
-    this.message = JsonNullable.<String>of(message);
+    this.message = message;
     return this;
   }
 
@@ -244,24 +236,14 @@ public class DowntimeChild {
    * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getMessage() {
-    return message.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getMessage_JsonNullable() {
+  public String getMessage() {
     return message;
   }
 
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  public void setMessage_JsonNullable(JsonNullable<String> message) {
-    this.message = message;
-  }
-
   public void setMessage(String message) {
-    this.message = JsonNullable.<String>of(message);
+    this.message = message;
   }
 
   public DowntimeChild monitorId(Long monitorId) {
@@ -348,70 +330,6 @@ public class DowntimeChild {
 
   public void setMuteFirstRecoveryNotification(Boolean muteFirstRecoveryNotification) {
     this.muteFirstRecoveryNotification = muteFirstRecoveryNotification;
-  }
-
-  public DowntimeChild notifyEndStates(List<NotifyEndState> notifyEndStates) {
-    this.notifyEndStates = notifyEndStates;
-    return this;
-  }
-
-  public DowntimeChild addNotifyEndStatesItem(NotifyEndState notifyEndStatesItem) {
-    if (this.notifyEndStates == null) {
-      this.notifyEndStates = new ArrayList<>();
-    }
-    this.notifyEndStates.add(notifyEndStatesItem);
-    this.unparsed |= !notifyEndStatesItem.isValid();
-    return this;
-  }
-
-  /**
-   * States for which <code>notify_end_types</code> sends out notifications for.
-   *
-   * @return notifyEndStates
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NOTIFY_END_STATES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<NotifyEndState> getNotifyEndStates() {
-    return notifyEndStates;
-  }
-
-  public void setNotifyEndStates(List<NotifyEndState> notifyEndStates) {
-    this.notifyEndStates = notifyEndStates;
-  }
-
-  public DowntimeChild notifyEndTypes(List<NotifyEndType> notifyEndTypes) {
-    this.notifyEndTypes = notifyEndTypes;
-    return this;
-  }
-
-  public DowntimeChild addNotifyEndTypesItem(NotifyEndType notifyEndTypesItem) {
-    if (this.notifyEndTypes == null) {
-      this.notifyEndTypes = new ArrayList<>();
-    }
-    this.notifyEndTypes.add(notifyEndTypesItem);
-    this.unparsed |= !notifyEndTypesItem.isValid();
-    return this;
-  }
-
-  /**
-   * If set, notifies if a monitor is in an alert-worthy state (<code>ALERT</code>, <code>WARNING
-   * </code>, or <code>NO DATA</code>) when this downtime expires or is canceled. Applied to
-   * monitors that change states during the downtime (such as from <code>OK</code> to <code>ALERT
-   * </code>, <code>WARNING</code>, or <code>NO DATA</code>), and to monitors that already have an
-   * alert-worthy state when downtime begins.
-   *
-   * @return notifyEndTypes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NOTIFY_END_TYPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<NotifyEndType> getNotifyEndTypes() {
-    return notifyEndTypes;
-  }
-
-  public void setNotifyEndTypes(List<NotifyEndType> notifyEndTypes) {
-    this.notifyEndTypes = notifyEndTypes;
   }
 
   public DowntimeChild parentId(Long parentId) {
@@ -599,8 +517,6 @@ public class DowntimeChild {
         && Objects.equals(this.monitorTags, downtimeChild.monitorTags)
         && Objects.equals(
             this.muteFirstRecoveryNotification, downtimeChild.muteFirstRecoveryNotification)
-        && Objects.equals(this.notifyEndStates, downtimeChild.notifyEndStates)
-        && Objects.equals(this.notifyEndTypes, downtimeChild.notifyEndTypes)
         && Objects.equals(this.parentId, downtimeChild.parentId)
         && Objects.equals(this.recurrence, downtimeChild.recurrence)
         && Objects.equals(this.scope, downtimeChild.scope)
@@ -623,8 +539,6 @@ public class DowntimeChild {
         monitorId,
         monitorTags,
         muteFirstRecoveryNotification,
-        notifyEndStates,
-        notifyEndTypes,
         parentId,
         recurrence,
         scope,
@@ -650,8 +564,6 @@ public class DowntimeChild {
     sb.append("    muteFirstRecoveryNotification: ")
         .append(toIndentedString(muteFirstRecoveryNotification))
         .append("\n");
-    sb.append("    notifyEndStates: ").append(toIndentedString(notifyEndStates)).append("\n");
-    sb.append("    notifyEndTypes: ").append(toIndentedString(notifyEndTypes)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    recurrence: ").append(toIndentedString(recurrence)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
