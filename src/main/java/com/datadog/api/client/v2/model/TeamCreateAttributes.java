@@ -17,7 +17,6 @@ import java.util.Objects;
 @JsonPropertyOrder({
   TeamCreateAttributes.JSON_PROPERTY_DESCRIPTION,
   TeamCreateAttributes.JSON_PROPERTY_HANDLE,
-  TeamCreateAttributes.JSON_PROPERTY_LINK_COUNT,
   TeamCreateAttributes.JSON_PROPERTY_NAME
 })
 @jakarta.annotation.Generated(
@@ -29,9 +28,6 @@ public class TeamCreateAttributes {
 
   public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
-
-  public static final String JSON_PROPERTY_LINK_COUNT = "link_count";
-  private Integer linkCount;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -87,18 +83,6 @@ public class TeamCreateAttributes {
     this.handle = handle;
   }
 
-  /**
-   * The number of links belonging to the team maximum: 2147483647
-   *
-   * @return linkCount
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINK_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getLinkCount() {
-    return linkCount;
-  }
-
   public TeamCreateAttributes name(String name) {
     this.name = name;
     return this;
@@ -131,13 +115,12 @@ public class TeamCreateAttributes {
     TeamCreateAttributes teamCreateAttributes = (TeamCreateAttributes) o;
     return Objects.equals(this.description, teamCreateAttributes.description)
         && Objects.equals(this.handle, teamCreateAttributes.handle)
-        && Objects.equals(this.linkCount, teamCreateAttributes.linkCount)
         && Objects.equals(this.name, teamCreateAttributes.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, handle, linkCount, name);
+    return Objects.hash(description, handle, name);
   }
 
   @Override
@@ -146,7 +129,6 @@ public class TeamCreateAttributes {
     sb.append("class TeamCreateAttributes {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
-    sb.append("    linkCount: ").append(toIndentedString(linkCount)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
