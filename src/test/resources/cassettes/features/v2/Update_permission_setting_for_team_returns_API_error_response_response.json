@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"1679942006\",\"name\":\"1679942006\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-5fc4017c72fce64f\",\"name\":\"name-5fc4017c72fce64f\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"dd3c1916-cccd-11ed-b35c-da7ad0900002\",\"attributes\":{\"name\":\"1679942006\",\"handle\":\"1679942006\",\"summary\":null,\"description\":null,\"color\":11,\"created_at\":\"2023-03-27T18:33:27.041313+00:00\",\"modified_at\":\"2023-03-27T18:33:27.041316+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/dd3c1916-cccd-11ed-b35c-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/dd3c1916-cccd-11ed-b35c-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"5b163526-ef4f-11ed-a5d4-da7ad0900002\",\"attributes\":{\"name\":\"name-5fc4017c72fce64f\",\"handle\":\"handle-5fc4017c72fce64f\",\"summary\":null,\"description\":null,\"color\":12,\"created_at\":\"2023-05-10T16:26:02.799664+00:00\",\"modified_at\":\"2023-05-10T16:26:02.799668+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/5b163526-ef4f-11ed-a5d4-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/5b163526-ef4f-11ed-a5d4-da7ad0900002/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "743bffe0-c652-d5ff-de4d-01801d3cb5af"
+    "id": "b2616daa-301e-619e-77e6-c2b60367608f"
   },
   {
     "httpRequest": {
@@ -37,7 +37,7 @@
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/team/dd3c1916-cccd-11ed-b35c-da7ad0900002/permission-settings/REPLACE.ME",
+      "path": "/api/v2/team/5b163526-ef4f-11ed-a5d4-da7ad0900002/permission-settings/REPLACE.ME",
       "keepAlive": false,
       "secure": true
     },
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "bb614e3f-ad51-e844-8bdf-a1bb6b0b47e4"
+    "id": "c6b2cc2a-2d08-d51a-f632-bf7ec013165c"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/dd3c1916-cccd-11ed-b35c-da7ad0900002",
+      "path": "/api/v2/team/5b163526-ef4f-11ed-a5d4-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "39eb9f6a-e289-1d45-38c1-3a1aa4697024"
+    "id": "f67ef25e-5c0c-297d-bc0e-7338ba6bb9b2"
   }
 ]

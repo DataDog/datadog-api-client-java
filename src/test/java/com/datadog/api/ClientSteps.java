@@ -1,7 +1,7 @@
 package com.datadog.api;
 
-import static org.junit.Assert.*;
 import static org.apache.commons.codec.digest.DigestUtils.sha256Hex;
+import static org.junit.Assert.*;
 
 import com.datadog.api.client.AbstractOpenApiSchema;
 import com.google.gson.Gson;

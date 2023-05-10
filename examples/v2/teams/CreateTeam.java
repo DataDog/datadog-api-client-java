@@ -20,7 +20,10 @@ public class Example {
         new TeamCreateRequest()
             .data(
                 new TeamCreate()
-                    .attributes(new TeamCreateAttributes().handle("1636629071").name("1636629071"))
+                    .attributes(
+                        new TeamCreateAttributes()
+                            .handle("handle-a0fc0297eb519635")
+                            .name("name-a0fc0297eb519635"))
                     .relationships(new TeamCreateRelationships().users(new RelationshipToUsers()))
                     .type(TeamType.TEAM));
 
