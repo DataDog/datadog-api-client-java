@@ -85,7 +85,7 @@ public class ClientSteps {
     world.context.put(
         "unique_upper_alnum", world.context.get("unique_alnum").toString().toUpperCase());
     world.context.put(
-        "unique_hash", "test-" + sha256Hex(world.context.get("unique").toString()).substring(0, 16));
+        "unique_hash", sha256Hex(world.context.get("unique").toString()).substring(0, 16));
     world.context.put("now", world.now);
   }
 
