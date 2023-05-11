@@ -1134,6 +1134,23 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityMonitoringSignalTriageUpdateResponse>() {});
   }
 
+  /** Manage optional parameters to getFinding. */
+  public static class GetFindingOptionalParameters {
+    private Long snapshotTimestamp;
+
+    /**
+     * Set snapshotTimestamp.
+     *
+     * @param snapshotTimestamp Return the finding for a given snapshot of time (Unix ms).
+     *     (optional)
+     * @return GetFindingOptionalParameters
+     */
+    public GetFindingOptionalParameters snapshotTimestamp(Long snapshotTimestamp) {
+      this.snapshotTimestamp = snapshotTimestamp;
+      return this;
+    }
+  }
+
   /**
    * Get a finding.
    *
@@ -1144,7 +1161,7 @@ public class SecurityMonitoringApi {
    * @throws ApiException if fails to make API call
    */
   public GetFindingResponse getFinding(String findingId) throws ApiException {
-    return getFindingWithHttpInfo(findingId).getData();
+    return getFindingWithHttpInfo(findingId, new GetFindingOptionalParameters()).getData();
   }
 
   /**
@@ -1156,7 +1173,40 @@ public class SecurityMonitoringApi {
    * @return CompletableFuture&lt;GetFindingResponse&gt;
    */
   public CompletableFuture<GetFindingResponse> getFindingAsync(String findingId) {
-    return getFindingWithHttpInfoAsync(findingId)
+    return getFindingWithHttpInfoAsync(findingId, new GetFindingOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a finding.
+   *
+   * <p>See {@link #getFindingWithHttpInfo}.
+   *
+   * @param findingId The ID of the finding. (required)
+   * @param parameters Optional parameters for the request.
+   * @return GetFindingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetFindingResponse getFinding(String findingId, GetFindingOptionalParameters parameters)
+      throws ApiException {
+    return getFindingWithHttpInfo(findingId, parameters).getData();
+  }
+
+  /**
+   * Get a finding.
+   *
+   * <p>See {@link #getFindingWithHttpInfoAsync}.
+   *
+   * @param findingId The ID of the finding. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;GetFindingResponse&gt;
+   */
+  public CompletableFuture<GetFindingResponse> getFindingAsync(
+      String findingId, GetFindingOptionalParameters parameters) {
+    return getFindingWithHttpInfoAsync(findingId, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -1167,6 +1217,7 @@ public class SecurityMonitoringApi {
    * Returns a single finding with message and resource configuration.
    *
    * @param findingId The ID of the finding. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;GetFindingResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1180,8 +1231,8 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<GetFindingResponse> getFindingWithHttpInfo(String findingId)
-      throws ApiException {
+  public ApiResponse<GetFindingResponse> getFindingWithHttpInfo(
+      String findingId, GetFindingOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getFinding";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1196,18 +1247,23 @@ public class SecurityMonitoringApi {
       throw new ApiException(
           400, "Missing the required parameter 'findingId' when calling getFinding");
     }
+    Long snapshotTimestamp = parameters.snapshotTimestamp;
     // create path and map variables
     String localVarPath =
         "/api/v2/posture_management/findings/{finding_id}"
             .replaceAll("\\{" + "finding_id" + "\\}", apiClient.escapeString(findingId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "snapshot_timestamp", snapshotTimestamp));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.SecurityMonitoringApi.getFinding",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -1229,10 +1285,11 @@ public class SecurityMonitoringApi {
    * <p>See {@link #getFindingWithHttpInfo}.
    *
    * @param findingId The ID of the finding. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;GetFindingResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<GetFindingResponse>> getFindingWithHttpInfoAsync(
-      String findingId) {
+      String findingId, GetFindingOptionalParameters parameters) {
     // Check if unstable operation is enabled
     String operationId = "getFinding";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -1253,12 +1310,17 @@ public class SecurityMonitoringApi {
               400, "Missing the required parameter 'findingId' when calling getFinding"));
       return result;
     }
+    Long snapshotTimestamp = parameters.snapshotTimestamp;
     // create path and map variables
     String localVarPath =
         "/api/v2/posture_management/findings/{finding_id}"
             .replaceAll("\\{" + "finding_id" + "\\}", apiClient.escapeString(findingId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "snapshot_timestamp", snapshotTimestamp));
 
     Invocation.Builder builder;
     try {
@@ -1266,7 +1328,7 @@ public class SecurityMonitoringApi {
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.getFinding",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
