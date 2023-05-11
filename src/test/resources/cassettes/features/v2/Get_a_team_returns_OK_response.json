@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"1679941987\",\"name\":\"1679941987\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-e0e86339571d8748\",\"name\":\"name-e0e86339571d8748\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"d1a59ae6-cccd-11ed-9cff-da7ad0900002\",\"attributes\":{\"name\":\"1679941987\",\"handle\":\"1679941987\",\"summary\":null,\"description\":null,\"color\":11,\"created_at\":\"2023-03-27T18:33:07.600350+00:00\",\"modified_at\":\"2023-03-27T18:33:07.600354+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/d1a59ae6-cccd-11ed-9cff-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/d1a59ae6-cccd-11ed-9cff-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"55f7da86-ef4f-11ed-a7ea-da7ad0900002\",\"attributes\":{\"name\":\"name-e0e86339571d8748\",\"handle\":\"handle-e0e86339571d8748\",\"summary\":null,\"description\":null,\"color\":12,\"created_at\":\"2023-05-10T16:25:54.211532+00:00\",\"modified_at\":\"2023-05-10T16:25:54.211539+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9454f226-1b91-7c00-7ec2-ad092fd2d373"
+    "id": "88d393b0-2f13-1491-a190-fca51efecd77"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/team/d1a59ae6-cccd-11ed-9cff-da7ad0900002",
+      "path": "/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"d1a59ae6-cccd-11ed-9cff-da7ad0900002\",\"attributes\":{\"name\":\"1679941987\",\"handle\":\"1679941987\",\"summary\":null,\"description\":null,\"color\":11,\"created_at\":\"2023-03-27T18:33:07.600350+00:00\",\"modified_at\":\"2023-03-27T18:33:07.600354+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/d1a59ae6-cccd-11ed-9cff-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/d1a59ae6-cccd-11ed-9cff-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"55f7da86-ef4f-11ed-a7ea-da7ad0900002\",\"attributes\":{\"name\":\"name-e0e86339571d8748\",\"handle\":\"handle-e0e86339571d8748\",\"summary\":null,\"description\":null,\"color\":12,\"created_at\":\"2023-05-10T16:25:54.211532+00:00\",\"modified_at\":\"2023-05-10T16:25:54.211539+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "92d4057e-4404-dd79-387f-2690942ee2b3"
+    "id": "b1b1bc0b-f1b3-8b21-eafe-3c0440556c3a"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/d1a59ae6-cccd-11ed-9cff-da7ad0900002",
+      "path": "/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "86f84240-7312-3a69-1c95-8546a38af7b9"
+    "id": "991e8228-c587-76f3-8fa5-fdae7185710f"
   }
 ]

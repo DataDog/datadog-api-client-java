@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"1679941982\",\"name\":\"1679941982\"},\"relationships\":{\"users\":{\"data\":[]}},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-2c82e5be19369e37\",\"name\":\"name-2c82e5be19369e37\"},\"relationships\":{\"users\":{\"data\":[]}},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"cebec38e-cccd-11ed-a1a8-da7ad0900002\",\"attributes\":{\"name\":\"1679941982\",\"handle\":\"1679941982\",\"summary\":null,\"description\":null,\"color\":10,\"created_at\":\"2023-03-27T18:33:02.731559+00:00\",\"modified_at\":\"2023-03-27T18:33:02.731566+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/cebec38e-cccd-11ed-a1a8-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/cebec38e-cccd-11ed-a1a8-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"fe99024c-ef4e-11ed-8f26-da7ad0900002\",\"attributes\":{\"name\":\"name-2c82e5be19369e37\",\"handle\":\"handle-2c82e5be19369e37\",\"summary\":null,\"description\":null,\"color\":4,\"created_at\":\"2023-05-10T16:23:27.625735+00:00\",\"modified_at\":\"2023-05-10T16:23:27.625740+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/fe99024c-ef4e-11ed-8f26-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/fe99024c-ef4e-11ed-8f26-da7ad0900002/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b9a8ca94-f5aa-05fd-8f24-0892fda135e7"
+    "id": "c2045ef1-0a3d-f9a3-a31c-d6a855bcc449"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/cebec38e-cccd-11ed-a1a8-da7ad0900002",
+      "path": "/api/v2/team/fe99024c-ef4e-11ed-8f26-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -48,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "55aafb2a-f6f8-0207-c468-e6264ecf3a40"
+    "id": "4016f510-c394-e66a-b0a0-9531d9a01ac4"
   }
 ]

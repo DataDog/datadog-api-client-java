@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"1679941989\",\"name\":\"1679941989\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-0d2d6ca6aa883570\",\"name\":\"name-0d2d6ca6aa883570\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"d3141588-cccd-11ed-93f1-da7ad0900002\",\"attributes\":{\"name\":\"1679941989\",\"handle\":\"1679941989\",\"summary\":null,\"description\":null,\"color\":6,\"created_at\":\"2023-03-27T18:33:10.001530+00:00\",\"modified_at\":\"2023-03-27T18:33:10.001534+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/d3141588-cccd-11ed-93f1-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/d3141588-cccd-11ed-93f1-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"56bc6f22-ef4f-11ed-9378-da7ad0900002\",\"attributes\":{\"name\":\"name-0d2d6ca6aa883570\",\"handle\":\"handle-0d2d6ca6aa883570\",\"summary\":null,\"description\":null,\"color\":7,\"created_at\":\"2023-05-10T16:25:55.499796+00:00\",\"modified_at\":\"2023-05-10T16:25:55.499801+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/56bc6f22-ef4f-11ed-9378-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/56bc6f22-ef4f-11ed-9378-da7ad0900002/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b9be0f75-0b9f-5979-8035-d87aef234f41"
+    "id": "ba61c8e9-88c0-72c5-95fd-9b4b83626e3c"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/team/d3141588-cccd-11ed-93f1-da7ad0900002/links",
+      "path": "/api/v2/team/56bc6f22-ef4f-11ed-9378-da7ad0900002/links",
       "keepAlive": false,
       "secure": true
     },
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "20dff176-b536-9e4b-c437-27235477a80a"
+    "id": "11540419-ac61-bdbe-d6ae-a0076d08f927"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/d3141588-cccd-11ed-93f1-da7ad0900002",
+      "path": "/api/v2/team/56bc6f22-ef4f-11ed-9378-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "735b2841-7a55-b8aa-8dbb-97e09106c3d3"
+    "id": "2f0dbe0c-e724-65d9-bd29-712f15e5cb54"
   }
 ]

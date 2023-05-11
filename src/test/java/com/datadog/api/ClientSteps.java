@@ -1,5 +1,6 @@
 package com.datadog.api;
 
+import static org.apache.commons.codec.digest.DigestUtils.sha256Hex;
 import static org.junit.Assert.*;
 
 import com.datadog.api.client.AbstractOpenApiSchema;
@@ -83,7 +84,8 @@ public class ClientSteps {
         "unique_lower_alnum", world.context.get("unique_alnum").toString().toLowerCase());
     world.context.put(
         "unique_upper_alnum", world.context.get("unique_alnum").toString().toUpperCase());
-
+    world.context.put(
+        "unique_hash", sha256Hex(world.context.get("unique").toString()).substring(0, 16));
     world.context.put("now", world.now);
   }
 
