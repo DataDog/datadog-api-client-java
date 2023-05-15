@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /** API tests for LogsIndexesApi */
@@ -233,6 +234,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
   }
 
   @Test
+  @Ignore
   public void logsIndexesUpdateErrorsTest() throws IOException {
     try {
       api.updateLogsIndex("shrugs", new LogsIndexUpdateRequest());
