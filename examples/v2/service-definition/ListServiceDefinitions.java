@@ -3,6 +3,8 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ServiceDefinitionApi;
+import com.datadog.api.client.v2.api.ServiceDefinitionApi.ListServiceDefinitionsOptionalParameters;
+import com.datadog.api.client.v2.model.ServiceDefinitionSchemaVersions;
 import com.datadog.api.client.v2.model.ServiceDefinitionsListResponse;
 
 public class Example {
@@ -11,7 +13,10 @@ public class Example {
     ServiceDefinitionApi apiInstance = new ServiceDefinitionApi(defaultClient);
 
     try {
-      ServiceDefinitionsListResponse result = apiInstance.listServiceDefinitions();
+      ServiceDefinitionsListResponse result =
+          apiInstance.listServiceDefinitions(
+              new ListServiceDefinitionsOptionalParameters()
+                  .schemaVersion(ServiceDefinitionSchemaVersions.V2_1));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceDefinitionApi#listServiceDefinitions");

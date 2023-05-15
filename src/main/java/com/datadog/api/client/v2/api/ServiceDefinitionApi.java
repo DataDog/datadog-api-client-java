@@ -8,6 +8,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ServiceDefinitionCreateResponse;
 import com.datadog.api.client.v2.model.ServiceDefinitionData;
 import com.datadog.api.client.v2.model.ServiceDefinitionGetResponse;
+import com.datadog.api.client.v2.model.ServiceDefinitionSchemaVersions;
 import com.datadog.api.client.v2.model.ServiceDefinitionsCreateRequest;
 import com.datadog.api.client.v2.model.ServiceDefinitionsListResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -327,6 +328,23 @@ public class ServiceDefinitionApi {
         null);
   }
 
+  /** Manage optional parameters to getServiceDefinition. */
+  public static class GetServiceDefinitionOptionalParameters {
+    private ServiceDefinitionSchemaVersions schemaVersion;
+
+    /**
+     * Set schemaVersion.
+     *
+     * @param schemaVersion The schema version desired in the response. (optional)
+     * @return GetServiceDefinitionOptionalParameters
+     */
+    public GetServiceDefinitionOptionalParameters schemaVersion(
+        ServiceDefinitionSchemaVersions schemaVersion) {
+      this.schemaVersion = schemaVersion;
+      return this;
+    }
+  }
+
   /**
    * Get a single service definition.
    *
@@ -337,7 +355,9 @@ public class ServiceDefinitionApi {
    * @throws ApiException if fails to make API call
    */
   public ServiceDefinitionGetResponse getServiceDefinition(String serviceName) throws ApiException {
-    return getServiceDefinitionWithHttpInfo(serviceName).getData();
+    return getServiceDefinitionWithHttpInfo(
+            serviceName, new GetServiceDefinitionOptionalParameters())
+        .getData();
   }
 
   /**
@@ -350,7 +370,41 @@ public class ServiceDefinitionApi {
    */
   public CompletableFuture<ServiceDefinitionGetResponse> getServiceDefinitionAsync(
       String serviceName) {
-    return getServiceDefinitionWithHttpInfoAsync(serviceName)
+    return getServiceDefinitionWithHttpInfoAsync(
+            serviceName, new GetServiceDefinitionOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a single service definition.
+   *
+   * <p>See {@link #getServiceDefinitionWithHttpInfo}.
+   *
+   * @param serviceName The name of the service. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ServiceDefinitionGetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ServiceDefinitionGetResponse getServiceDefinition(
+      String serviceName, GetServiceDefinitionOptionalParameters parameters) throws ApiException {
+    return getServiceDefinitionWithHttpInfo(serviceName, parameters).getData();
+  }
+
+  /**
+   * Get a single service definition.
+   *
+   * <p>See {@link #getServiceDefinitionWithHttpInfoAsync}.
+   *
+   * @param serviceName The name of the service. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ServiceDefinitionGetResponse&gt;
+   */
+  public CompletableFuture<ServiceDefinitionGetResponse> getServiceDefinitionAsync(
+      String serviceName, GetServiceDefinitionOptionalParameters parameters) {
+    return getServiceDefinitionWithHttpInfoAsync(serviceName, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -361,6 +415,7 @@ public class ServiceDefinitionApi {
    * Get a single service definition from the Datadog Service Catalog.
    *
    * @param serviceName The name of the service. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ServiceDefinitionGetResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -376,7 +431,7 @@ public class ServiceDefinitionApi {
    *     </table>
    */
   public ApiResponse<ServiceDefinitionGetResponse> getServiceDefinitionWithHttpInfo(
-      String serviceName) throws ApiException {
+      String serviceName, GetServiceDefinitionOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'serviceName' is set
@@ -384,19 +439,23 @@ public class ServiceDefinitionApi {
       throw new ApiException(
           400, "Missing the required parameter 'serviceName' when calling getServiceDefinition");
     }
+    ServiceDefinitionSchemaVersions schemaVersion = parameters.schemaVersion;
     // create path and map variables
     String localVarPath =
         "/api/v2/services/definitions/{service_name}"
             .replaceAll(
                 "\\{" + "service_name" + "\\}", apiClient.escapeString(serviceName.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "schema_version", schemaVersion));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.ServiceDefinitionApi.getServiceDefinition",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -418,10 +477,12 @@ public class ServiceDefinitionApi {
    * <p>See {@link #getServiceDefinitionWithHttpInfo}.
    *
    * @param serviceName The name of the service. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ServiceDefinitionGetResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ServiceDefinitionGetResponse>>
-      getServiceDefinitionWithHttpInfoAsync(String serviceName) {
+      getServiceDefinitionWithHttpInfoAsync(
+          String serviceName, GetServiceDefinitionOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'serviceName' is set
@@ -434,13 +495,17 @@ public class ServiceDefinitionApi {
               "Missing the required parameter 'serviceName' when calling getServiceDefinition"));
       return result;
     }
+    ServiceDefinitionSchemaVersions schemaVersion = parameters.schemaVersion;
     // create path and map variables
     String localVarPath =
         "/api/v2/services/definitions/{service_name}"
             .replaceAll(
                 "\\{" + "service_name" + "\\}", apiClient.escapeString(serviceName.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "schema_version", schemaVersion));
 
     Invocation.Builder builder;
     try {
@@ -448,7 +513,7 @@ public class ServiceDefinitionApi {
           apiClient.createBuilder(
               "v2.ServiceDefinitionApi.getServiceDefinition",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
@@ -474,6 +539,7 @@ public class ServiceDefinitionApi {
   public static class ListServiceDefinitionsOptionalParameters {
     private Long pageSize;
     private Long pageNumber;
+    private ServiceDefinitionSchemaVersions schemaVersion;
 
     /**
      * Set pageSize.
@@ -495,6 +561,18 @@ public class ServiceDefinitionApi {
      */
     public ListServiceDefinitionsOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set schemaVersion.
+     *
+     * @param schemaVersion The schema version desired in the response. (optional)
+     * @return ListServiceDefinitionsOptionalParameters
+     */
+    public ListServiceDefinitionsOptionalParameters schemaVersion(
+        ServiceDefinitionSchemaVersions schemaVersion) {
+      this.schemaVersion = schemaVersion;
       return this;
     }
   }
@@ -630,6 +708,7 @@ public class ServiceDefinitionApi {
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
+    ServiceDefinitionSchemaVersions schemaVersion = parameters.schemaVersion;
     // create path and map variables
     String localVarPath = "/api/v2/services/definitions";
 
@@ -638,6 +717,7 @@ public class ServiceDefinitionApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "schema_version", schemaVersion));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -672,6 +752,7 @@ public class ServiceDefinitionApi {
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
+    ServiceDefinitionSchemaVersions schemaVersion = parameters.schemaVersion;
     // create path and map variables
     String localVarPath = "/api/v2/services/definitions";
 
@@ -680,6 +761,7 @@ public class ServiceDefinitionApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "schema_version", schemaVersion));
 
     Invocation.Builder builder;
     try {
