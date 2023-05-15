@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Number of indexed logs for each hour and index for a given organization. */
 @JsonPropertyOrder({
@@ -30,7 +31,7 @@ import java.util.Objects;
 public class UsageLogsByIndexHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EVENT_COUNT = "event_count";
-  private Long eventCount;
+  private JsonNullable<Long> eventCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
 
@@ -53,7 +54,7 @@ public class UsageLogsByIndexHour {
   private Long retention;
 
   public UsageLogsByIndexHour eventCount(Long eventCount) {
-    this.eventCount = eventCount;
+    this.eventCount = JsonNullable.<Long>of(eventCount);
     return this;
   }
 
@@ -63,14 +64,24 @@ public class UsageLogsByIndexHour {
    * @return eventCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getEventCount() {
+    return eventCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_EVENT_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getEventCount() {
+  public JsonNullable<Long> getEventCount_JsonNullable() {
     return eventCount;
   }
 
-  public void setEventCount(Long eventCount) {
+  @JsonProperty(JSON_PROPERTY_EVENT_COUNT)
+  public void setEventCount_JsonNullable(JsonNullable<Long> eventCount) {
     this.eventCount = eventCount;
+  }
+
+  public void setEventCount(Long eventCount) {
+    this.eventCount = JsonNullable.<Long>of(eventCount);
   }
 
   public UsageLogsByIndexHour hour(OffsetDateTime hour) {

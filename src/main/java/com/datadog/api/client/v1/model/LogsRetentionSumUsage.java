@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object containing indexed logs usage grouped by retention period and summed. */
 @JsonPropertyOrder({
@@ -25,21 +26,21 @@ public class LogsRetentionSumUsage {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_SUM =
       "logs_indexed_logs_usage_sum";
-  private Long logsIndexedLogsUsageSum;
+  private JsonNullable<Long> logsIndexedLogsUsageSum = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_SUM =
       "logs_live_indexed_logs_usage_sum";
-  private Long logsLiveIndexedLogsUsageSum;
+  private JsonNullable<Long> logsLiveIndexedLogsUsageSum = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_SUM =
       "logs_rehydrated_indexed_logs_usage_sum";
-  private Long logsRehydratedIndexedLogsUsageSum;
+  private JsonNullable<Long> logsRehydratedIndexedLogsUsageSum = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_RETENTION = "retention";
-  private String retention;
+  private JsonNullable<String> retention = JsonNullable.<String>undefined();
 
   public LogsRetentionSumUsage logsIndexedLogsUsageSum(Long logsIndexedLogsUsageSum) {
-    this.logsIndexedLogsUsageSum = logsIndexedLogsUsageSum;
+    this.logsIndexedLogsUsageSum = JsonNullable.<Long>of(logsIndexedLogsUsageSum);
     return this;
   }
 
@@ -49,18 +50,28 @@ public class LogsRetentionSumUsage {
    * @return logsIndexedLogsUsageSum
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLogsIndexedLogsUsageSum() {
+    return logsIndexedLogsUsageSum.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLogsIndexedLogsUsageSum() {
+  public JsonNullable<Long> getLogsIndexedLogsUsageSum_JsonNullable() {
     return logsIndexedLogsUsageSum;
   }
 
-  public void setLogsIndexedLogsUsageSum(Long logsIndexedLogsUsageSum) {
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_SUM)
+  public void setLogsIndexedLogsUsageSum_JsonNullable(JsonNullable<Long> logsIndexedLogsUsageSum) {
     this.logsIndexedLogsUsageSum = logsIndexedLogsUsageSum;
   }
 
+  public void setLogsIndexedLogsUsageSum(Long logsIndexedLogsUsageSum) {
+    this.logsIndexedLogsUsageSum = JsonNullable.<Long>of(logsIndexedLogsUsageSum);
+  }
+
   public LogsRetentionSumUsage logsLiveIndexedLogsUsageSum(Long logsLiveIndexedLogsUsageSum) {
-    this.logsLiveIndexedLogsUsageSum = logsLiveIndexedLogsUsageSum;
+    this.logsLiveIndexedLogsUsageSum = JsonNullable.<Long>of(logsLiveIndexedLogsUsageSum);
     return this;
   }
 
@@ -70,19 +81,31 @@ public class LogsRetentionSumUsage {
    * @return logsLiveIndexedLogsUsageSum
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLogsLiveIndexedLogsUsageSum() {
+    return logsLiveIndexedLogsUsageSum.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLogsLiveIndexedLogsUsageSum() {
+  public JsonNullable<Long> getLogsLiveIndexedLogsUsageSum_JsonNullable() {
     return logsLiveIndexedLogsUsageSum;
   }
 
-  public void setLogsLiveIndexedLogsUsageSum(Long logsLiveIndexedLogsUsageSum) {
+  @JsonProperty(JSON_PROPERTY_LOGS_LIVE_INDEXED_LOGS_USAGE_SUM)
+  public void setLogsLiveIndexedLogsUsageSum_JsonNullable(
+      JsonNullable<Long> logsLiveIndexedLogsUsageSum) {
     this.logsLiveIndexedLogsUsageSum = logsLiveIndexedLogsUsageSum;
+  }
+
+  public void setLogsLiveIndexedLogsUsageSum(Long logsLiveIndexedLogsUsageSum) {
+    this.logsLiveIndexedLogsUsageSum = JsonNullable.<Long>of(logsLiveIndexedLogsUsageSum);
   }
 
   public LogsRetentionSumUsage logsRehydratedIndexedLogsUsageSum(
       Long logsRehydratedIndexedLogsUsageSum) {
-    this.logsRehydratedIndexedLogsUsageSum = logsRehydratedIndexedLogsUsageSum;
+    this.logsRehydratedIndexedLogsUsageSum =
+        JsonNullable.<Long>of(logsRehydratedIndexedLogsUsageSum);
     return this;
   }
 
@@ -92,18 +115,30 @@ public class LogsRetentionSumUsage {
    * @return logsRehydratedIndexedLogsUsageSum
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLogsRehydratedIndexedLogsUsageSum() {
+    return logsRehydratedIndexedLogsUsageSum.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLogsRehydratedIndexedLogsUsageSum() {
+  public JsonNullable<Long> getLogsRehydratedIndexedLogsUsageSum_JsonNullable() {
     return logsRehydratedIndexedLogsUsageSum;
   }
 
-  public void setLogsRehydratedIndexedLogsUsageSum(Long logsRehydratedIndexedLogsUsageSum) {
+  @JsonProperty(JSON_PROPERTY_LOGS_REHYDRATED_INDEXED_LOGS_USAGE_SUM)
+  public void setLogsRehydratedIndexedLogsUsageSum_JsonNullable(
+      JsonNullable<Long> logsRehydratedIndexedLogsUsageSum) {
     this.logsRehydratedIndexedLogsUsageSum = logsRehydratedIndexedLogsUsageSum;
   }
 
+  public void setLogsRehydratedIndexedLogsUsageSum(Long logsRehydratedIndexedLogsUsageSum) {
+    this.logsRehydratedIndexedLogsUsageSum =
+        JsonNullable.<Long>of(logsRehydratedIndexedLogsUsageSum);
+  }
+
   public LogsRetentionSumUsage retention(String retention) {
-    this.retention = retention;
+    this.retention = JsonNullable.<String>of(retention);
     return this;
   }
 
@@ -113,14 +148,24 @@ public class LogsRetentionSumUsage {
    * @return retention
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getRetention() {
+    return retention.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_RETENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRetention() {
+  public JsonNullable<String> getRetention_JsonNullable() {
     return retention;
   }
 
-  public void setRetention(String retention) {
+  @JsonProperty(JSON_PROPERTY_RETENTION)
+  public void setRetention_JsonNullable(JsonNullable<String> retention) {
     this.retention = retention;
+  }
+
+  public void setRetention(String retention) {
+    this.retention = JsonNullable.<String>of(retention);
   }
 
   /** Return true if this LogsRetentionSumUsage object is equal to o. */

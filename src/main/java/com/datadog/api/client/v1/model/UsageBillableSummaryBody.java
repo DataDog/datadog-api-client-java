@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Response with properties for each aggregated usage type. */
 @JsonPropertyOrder({
@@ -30,10 +31,10 @@ import java.util.Objects;
 public class UsageBillableSummaryBody {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE = "account_billable_usage";
-  private Long accountBillableUsage;
+  private JsonNullable<Long> accountBillableUsage = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_ELAPSED_USAGE_HOURS = "elapsed_usage_hours";
-  private Long elapsedUsageHours;
+  private JsonNullable<Long> elapsedUsageHours = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_FIRST_BILLABLE_USAGE_HOUR = "first_billable_usage_hour";
 
@@ -46,16 +47,16 @@ public class UsageBillableSummaryBody {
   private OffsetDateTime lastBillableUsageHour;
 
   public static final String JSON_PROPERTY_ORG_BILLABLE_USAGE = "org_billable_usage";
-  private Long orgBillableUsage;
+  private JsonNullable<Long> orgBillableUsage = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_PERCENTAGE_IN_ACCOUNT = "percentage_in_account";
-  private Double percentageInAccount;
+  private JsonNullable<Double> percentageInAccount = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_USAGE_UNIT = "usage_unit";
   private String usageUnit;
 
   public UsageBillableSummaryBody accountBillableUsage(Long accountBillableUsage) {
-    this.accountBillableUsage = accountBillableUsage;
+    this.accountBillableUsage = JsonNullable.<Long>of(accountBillableUsage);
     return this;
   }
 
@@ -65,18 +66,28 @@ public class UsageBillableSummaryBody {
    * @return accountBillableUsage
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getAccountBillableUsage() {
+    return accountBillableUsage.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getAccountBillableUsage() {
+  public JsonNullable<Long> getAccountBillableUsage_JsonNullable() {
     return accountBillableUsage;
   }
 
-  public void setAccountBillableUsage(Long accountBillableUsage) {
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE)
+  public void setAccountBillableUsage_JsonNullable(JsonNullable<Long> accountBillableUsage) {
     this.accountBillableUsage = accountBillableUsage;
   }
 
+  public void setAccountBillableUsage(Long accountBillableUsage) {
+    this.accountBillableUsage = JsonNullable.<Long>of(accountBillableUsage);
+  }
+
   public UsageBillableSummaryBody elapsedUsageHours(Long elapsedUsageHours) {
-    this.elapsedUsageHours = elapsedUsageHours;
+    this.elapsedUsageHours = JsonNullable.<Long>of(elapsedUsageHours);
     return this;
   }
 
@@ -86,14 +97,24 @@ public class UsageBillableSummaryBody {
    * @return elapsedUsageHours
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getElapsedUsageHours() {
+    return elapsedUsageHours.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ELAPSED_USAGE_HOURS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getElapsedUsageHours() {
+  public JsonNullable<Long> getElapsedUsageHours_JsonNullable() {
     return elapsedUsageHours;
   }
 
-  public void setElapsedUsageHours(Long elapsedUsageHours) {
+  @JsonProperty(JSON_PROPERTY_ELAPSED_USAGE_HOURS)
+  public void setElapsedUsageHours_JsonNullable(JsonNullable<Long> elapsedUsageHours) {
     this.elapsedUsageHours = elapsedUsageHours;
+  }
+
+  public void setElapsedUsageHours(Long elapsedUsageHours) {
+    this.elapsedUsageHours = JsonNullable.<Long>of(elapsedUsageHours);
   }
 
   public UsageBillableSummaryBody firstBillableUsageHour(OffsetDateTime firstBillableUsageHour) {
@@ -139,7 +160,7 @@ public class UsageBillableSummaryBody {
   }
 
   public UsageBillableSummaryBody orgBillableUsage(Long orgBillableUsage) {
-    this.orgBillableUsage = orgBillableUsage;
+    this.orgBillableUsage = JsonNullable.<Long>of(orgBillableUsage);
     return this;
   }
 
@@ -149,18 +170,28 @@ public class UsageBillableSummaryBody {
    * @return orgBillableUsage
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getOrgBillableUsage() {
+    return orgBillableUsage.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ORG_BILLABLE_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOrgBillableUsage() {
+  public JsonNullable<Long> getOrgBillableUsage_JsonNullable() {
     return orgBillableUsage;
   }
 
-  public void setOrgBillableUsage(Long orgBillableUsage) {
+  @JsonProperty(JSON_PROPERTY_ORG_BILLABLE_USAGE)
+  public void setOrgBillableUsage_JsonNullable(JsonNullable<Long> orgBillableUsage) {
     this.orgBillableUsage = orgBillableUsage;
   }
 
+  public void setOrgBillableUsage(Long orgBillableUsage) {
+    this.orgBillableUsage = JsonNullable.<Long>of(orgBillableUsage);
+  }
+
   public UsageBillableSummaryBody percentageInAccount(Double percentageInAccount) {
-    this.percentageInAccount = percentageInAccount;
+    this.percentageInAccount = JsonNullable.<Double>of(percentageInAccount);
     return this;
   }
 
@@ -170,14 +201,24 @@ public class UsageBillableSummaryBody {
    * @return percentageInAccount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getPercentageInAccount() {
+    return percentageInAccount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_PERCENTAGE_IN_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getPercentageInAccount() {
+  public JsonNullable<Double> getPercentageInAccount_JsonNullable() {
     return percentageInAccount;
   }
 
-  public void setPercentageInAccount(Double percentageInAccount) {
+  @JsonProperty(JSON_PROPERTY_PERCENTAGE_IN_ACCOUNT)
+  public void setPercentageInAccount_JsonNullable(JsonNullable<Double> percentageInAccount) {
     this.percentageInAccount = percentageInAccount;
+  }
+
+  public void setPercentageInAccount(Double percentageInAccount) {
+    this.percentageInAccount = JsonNullable.<Double>of(percentageInAccount);
   }
 
   public UsageBillableSummaryBody usageUnit(String usageUnit) {

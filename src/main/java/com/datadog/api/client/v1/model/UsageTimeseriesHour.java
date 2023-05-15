@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The hourly usage of timeseries. */
 @JsonPropertyOrder({
@@ -35,14 +36,14 @@ public class UsageTimeseriesHour {
 
   public static final String JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES =
       "num_custom_input_timeseries";
-  private Long numCustomInputTimeseries;
+  private JsonNullable<Long> numCustomInputTimeseries = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES =
       "num_custom_output_timeseries";
-  private Long numCustomOutputTimeseries;
+  private JsonNullable<Long> numCustomOutputTimeseries = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NUM_CUSTOM_TIMESERIES = "num_custom_timeseries";
-  private Long numCustomTimeseries;
+  private JsonNullable<Long> numCustomTimeseries = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -72,7 +73,7 @@ public class UsageTimeseriesHour {
   }
 
   public UsageTimeseriesHour numCustomInputTimeseries(Long numCustomInputTimeseries) {
-    this.numCustomInputTimeseries = numCustomInputTimeseries;
+    this.numCustomInputTimeseries = JsonNullable.<Long>of(numCustomInputTimeseries);
     return this;
   }
 
@@ -83,18 +84,29 @@ public class UsageTimeseriesHour {
    * @return numCustomInputTimeseries
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getNumCustomInputTimeseries() {
+    return numCustomInputTimeseries.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNumCustomInputTimeseries() {
+  public JsonNullable<Long> getNumCustomInputTimeseries_JsonNullable() {
     return numCustomInputTimeseries;
   }
 
-  public void setNumCustomInputTimeseries(Long numCustomInputTimeseries) {
+  @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES)
+  public void setNumCustomInputTimeseries_JsonNullable(
+      JsonNullable<Long> numCustomInputTimeseries) {
     this.numCustomInputTimeseries = numCustomInputTimeseries;
   }
 
+  public void setNumCustomInputTimeseries(Long numCustomInputTimeseries) {
+    this.numCustomInputTimeseries = JsonNullable.<Long>of(numCustomInputTimeseries);
+  }
+
   public UsageTimeseriesHour numCustomOutputTimeseries(Long numCustomOutputTimeseries) {
-    this.numCustomOutputTimeseries = numCustomOutputTimeseries;
+    this.numCustomOutputTimeseries = JsonNullable.<Long>of(numCustomOutputTimeseries);
     return this;
   }
 
@@ -105,18 +117,29 @@ public class UsageTimeseriesHour {
    * @return numCustomOutputTimeseries
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getNumCustomOutputTimeseries() {
+    return numCustomOutputTimeseries.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNumCustomOutputTimeseries() {
+  public JsonNullable<Long> getNumCustomOutputTimeseries_JsonNullable() {
     return numCustomOutputTimeseries;
   }
 
-  public void setNumCustomOutputTimeseries(Long numCustomOutputTimeseries) {
+  @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES)
+  public void setNumCustomOutputTimeseries_JsonNullable(
+      JsonNullable<Long> numCustomOutputTimeseries) {
     this.numCustomOutputTimeseries = numCustomOutputTimeseries;
   }
 
+  public void setNumCustomOutputTimeseries(Long numCustomOutputTimeseries) {
+    this.numCustomOutputTimeseries = JsonNullable.<Long>of(numCustomOutputTimeseries);
+  }
+
   public UsageTimeseriesHour numCustomTimeseries(Long numCustomTimeseries) {
-    this.numCustomTimeseries = numCustomTimeseries;
+    this.numCustomTimeseries = JsonNullable.<Long>of(numCustomTimeseries);
     return this;
   }
 
@@ -127,14 +150,24 @@ public class UsageTimeseriesHour {
    * @return numCustomTimeseries
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getNumCustomTimeseries() {
+    return numCustomTimeseries.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getNumCustomTimeseries() {
+  public JsonNullable<Long> getNumCustomTimeseries_JsonNullable() {
     return numCustomTimeseries;
   }
 
-  public void setNumCustomTimeseries(Long numCustomTimeseries) {
+  @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_TIMESERIES)
+  public void setNumCustomTimeseries_JsonNullable(JsonNullable<Long> numCustomTimeseries) {
     this.numCustomTimeseries = numCustomTimeseries;
+  }
+
+  public void setNumCustomTimeseries(Long numCustomTimeseries) {
+    this.numCustomTimeseries = JsonNullable.<Long>of(numCustomTimeseries);
   }
 
   public UsageTimeseriesHour orgName(String orgName) {

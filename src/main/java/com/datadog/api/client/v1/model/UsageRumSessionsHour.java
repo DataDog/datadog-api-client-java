@@ -44,7 +44,7 @@ public class UsageRumSessionsHour {
   private String publicId;
 
   public static final String JSON_PROPERTY_REPLAY_SESSION_COUNT = "replay_session_count";
-  private Long replaySessionCount;
+  private JsonNullable<Long> replaySessionCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_SESSION_COUNT = "session_count";
   private JsonNullable<Long> sessionCount = JsonNullable.<Long>undefined();
@@ -125,7 +125,7 @@ public class UsageRumSessionsHour {
   }
 
   public UsageRumSessionsHour replaySessionCount(Long replaySessionCount) {
-    this.replaySessionCount = replaySessionCount;
+    this.replaySessionCount = JsonNullable.<Long>of(replaySessionCount);
     return this;
   }
 
@@ -135,14 +135,24 @@ public class UsageRumSessionsHour {
    * @return replaySessionCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getReplaySessionCount() {
+    return replaySessionCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_REPLAY_SESSION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getReplaySessionCount() {
+  public JsonNullable<Long> getReplaySessionCount_JsonNullable() {
     return replaySessionCount;
   }
 
-  public void setReplaySessionCount(Long replaySessionCount) {
+  @JsonProperty(JSON_PROPERTY_REPLAY_SESSION_COUNT)
+  public void setReplaySessionCount_JsonNullable(JsonNullable<Long> replaySessionCount) {
     this.replaySessionCount = replaySessionCount;
+  }
+
+  public void setReplaySessionCount(Long replaySessionCount) {
+    this.replaySessionCount = JsonNullable.<Long>of(replaySessionCount);
   }
 
   public UsageRumSessionsHour sessionCount(Long sessionCount) {

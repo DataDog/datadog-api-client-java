@@ -57,7 +57,7 @@ public class HourlyUsageAttributionBody {
       JsonNullable.<Map<String, List<String>>>undefined();
 
   public static final String JSON_PROPERTY_TOTAL_USAGE_SUM = "total_usage_sum";
-  private Double totalUsageSum;
+  private JsonNullable<Double> totalUsageSum = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
   private String updatedAt;
@@ -223,7 +223,7 @@ public class HourlyUsageAttributionBody {
   }
 
   public HourlyUsageAttributionBody totalUsageSum(Double totalUsageSum) {
-    this.totalUsageSum = totalUsageSum;
+    this.totalUsageSum = JsonNullable.<Double>of(totalUsageSum);
     return this;
   }
 
@@ -233,14 +233,24 @@ public class HourlyUsageAttributionBody {
    * @return totalUsageSum
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Double getTotalUsageSum() {
+    return totalUsageSum.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TOTAL_USAGE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getTotalUsageSum() {
+  public JsonNullable<Double> getTotalUsageSum_JsonNullable() {
     return totalUsageSum;
   }
 
-  public void setTotalUsageSum(Double totalUsageSum) {
+  @JsonProperty(JSON_PROPERTY_TOTAL_USAGE_SUM)
+  public void setTotalUsageSum_JsonNullable(JsonNullable<Double> totalUsageSum) {
     this.totalUsageSum = totalUsageSum;
+  }
+
+  public void setTotalUsageSum(Double totalUsageSum) {
+    this.totalUsageSum = JsonNullable.<Double>of(totalUsageSum);
   }
 
   public HourlyUsageAttributionBody updatedAt(String updatedAt) {
