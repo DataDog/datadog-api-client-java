@@ -152,6 +152,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
   public static final MonthlyUsageAttributionSupportedMetrics
       UNIVERSAL_SERVICE_MONITORING_PERCENTAGE =
           new MonthlyUsageAttributionSupportedMetrics("universal_service_monitoring_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics VULN_MANAGEMENT_HOSTS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("vuln_management_hosts_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics VULN_MANAGEMENT_HOSTS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("vuln_management_hosts_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics ALL =
       new MonthlyUsageAttributionSupportedMetrics("*");
 
@@ -220,6 +224,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "estimated_rum_sessions_percentage",
               "universal_service_monitoring_usage",
               "universal_service_monitoring_percentage",
+              "vuln_management_hosts_usage",
+              "vuln_management_hosts_percentage",
               "*"));
 
   private String value;

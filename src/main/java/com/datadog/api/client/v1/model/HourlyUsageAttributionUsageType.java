@@ -86,6 +86,8 @@ public class HourlyUsageAttributionUsageType {
       new HourlyUsageAttributionUsageType("estimated_rum_sessions_usage");
   public static final HourlyUsageAttributionUsageType UNIVERSAL_SERVICE_MONITORING_USAGE =
       new HourlyUsageAttributionUsageType("universal_service_monitoring_usage");
+  public static final HourlyUsageAttributionUsageType VULN_MANAGEMENT_HOSTS_USAGE =
+      new HourlyUsageAttributionUsageType("vuln_management_hosts_usage");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -120,7 +122,8 @@ public class HourlyUsageAttributionUsageType {
               "profiled_host_usage",
               "snmp_usage",
               "estimated_rum_sessions_usage",
-              "universal_service_monitoring_usage"));
+              "universal_service_monitoring_usage",
+              "vuln_management_hosts_usage"));
 
   private String value;
 

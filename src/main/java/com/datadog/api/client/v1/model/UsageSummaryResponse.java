@@ -109,7 +109,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_USAGE,
-  UsageSummaryResponse.JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM
+  UsageSummaryResponse.JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P_SUM
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -435,6 +436,10 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM = "vsphere_host_top99p_sum";
   private Long vsphereHostTop99pSum;
+
+  public static final String JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P_SUM =
+      "vuln_management_host_count_top99p_sum";
+  private Long vulnManagementHostCountTop99pSum;
 
   public UsageSummaryResponse agentHostTop99pSum(Long agentHostTop99pSum) {
     this.agentHostTop99pSum = agentHostTop99pSum;
@@ -2407,6 +2412,29 @@ public class UsageSummaryResponse {
     this.vsphereHostTop99pSum = vsphereHostTop99pSum;
   }
 
+  public UsageSummaryResponse vulnManagementHostCountTop99pSum(
+      Long vulnManagementHostCountTop99pSum) {
+    this.vulnManagementHostCountTop99pSum = vulnManagementHostCountTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in
+   * the current months for all organizations.
+   *
+   * @return vulnManagementHostCountTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getVulnManagementHostCountTop99pSum() {
+    return vulnManagementHostCountTop99pSum;
+  }
+
+  public void setVulnManagementHostCountTop99pSum(Long vulnManagementHostCountTop99pSum) {
+    this.vulnManagementHostCountTop99pSum = vulnManagementHostCountTop99pSum;
+  }
+
   /** Return true if this UsageSummaryResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -2575,7 +2603,10 @@ public class UsageSummaryResponse {
             this.universalServiceMonitoringHostTop99pSum,
             usageSummaryResponse.universalServiceMonitoringHostTop99pSum)
         && Objects.equals(this.usage, usageSummaryResponse.usage)
-        && Objects.equals(this.vsphereHostTop99pSum, usageSummaryResponse.vsphereHostTop99pSum);
+        && Objects.equals(this.vsphereHostTop99pSum, usageSummaryResponse.vsphereHostTop99pSum)
+        && Objects.equals(
+            this.vulnManagementHostCountTop99pSum,
+            usageSummaryResponse.vulnManagementHostCountTop99pSum);
   }
 
   @Override
@@ -2668,7 +2699,8 @@ public class UsageSummaryResponse {
         twolIngestedEventsBytesAggSum,
         universalServiceMonitoringHostTop99pSum,
         usage,
-        vsphereHostTop99pSum);
+        vsphereHostTop99pSum,
+        vulnManagementHostCountTop99pSum);
   }
 
   @Override
@@ -2892,6 +2924,9 @@ public class UsageSummaryResponse {
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("    vsphereHostTop99pSum: ")
         .append(toIndentedString(vsphereHostTop99pSum))
+        .append("\n");
+    sb.append("    vulnManagementHostCountTop99pSum: ")
+        .append(toIndentedString(vulnManagementHostCountTop99pSum))
         .append("\n");
     sb.append("}");
     return sb.toString();
