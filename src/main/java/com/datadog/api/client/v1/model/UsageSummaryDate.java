@@ -97,7 +97,8 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P,
-  UsageSummaryDate.JSON_PROPERTY_VSPHERE_HOST_TOP99P
+  UsageSummaryDate.JSON_PROPERTY_VSPHERE_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -375,6 +376,10 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_VSPHERE_HOST_TOP99P = "vsphere_host_top99p";
   private Long vsphereHostTop99p;
+
+  public static final String JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P =
+      "vuln_management_host_count_top99p";
+  private Long vulnManagementHostCountTop99p;
 
   public UsageSummaryDate agentHostTop99p(Long agentHostTop99p) {
     this.agentHostTop99p = agentHostTop99p;
@@ -2130,6 +2135,28 @@ public class UsageSummaryDate {
     this.vsphereHostTop99p = vsphereHostTop99p;
   }
 
+  public UsageSummaryDate vulnManagementHostCountTop99p(Long vulnManagementHostCountTop99p) {
+    this.vulnManagementHostCountTop99p = vulnManagementHostCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in
+   * the current date for the given org.
+   *
+   * @return vulnManagementHostCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getVulnManagementHostCountTop99p() {
+    return vulnManagementHostCountTop99p;
+  }
+
+  public void setVulnManagementHostCountTop99p(Long vulnManagementHostCountTop99p) {
+    this.vulnManagementHostCountTop99p = vulnManagementHostCountTop99p;
+  }
+
   /** Return true if this UsageSummaryDate object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -2250,7 +2277,9 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.universalServiceMonitoringHostTop99p,
             usageSummaryDate.universalServiceMonitoringHostTop99p)
-        && Objects.equals(this.vsphereHostTop99p, usageSummaryDate.vsphereHostTop99p);
+        && Objects.equals(this.vsphereHostTop99p, usageSummaryDate.vsphereHostTop99p)
+        && Objects.equals(
+            this.vulnManagementHostCountTop99p, usageSummaryDate.vulnManagementHostCountTop99p);
   }
 
   @Override
@@ -2334,7 +2363,8 @@ public class UsageSummaryDate {
         traceSearchIndexedEventsCountSum,
         twolIngestedEventsBytesSum,
         universalServiceMonitoringHostTop99p,
-        vsphereHostTop99p);
+        vsphereHostTop99p,
+        vulnManagementHostCountTop99p);
   }
 
   @Override
@@ -2518,6 +2548,9 @@ public class UsageSummaryDate {
         .append(toIndentedString(universalServiceMonitoringHostTop99p))
         .append("\n");
     sb.append("    vsphereHostTop99p: ").append(toIndentedString(vsphereHostTop99p)).append("\n");
+    sb.append("    vulnManagementHostCountTop99p: ")
+        .append(toIndentedString(vulnManagementHostCountTop99p))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }

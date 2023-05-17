@@ -75,7 +75,9 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_PERCENTAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_USAGE
+  MonthlyUsageAttributionValues.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_VULN_MANAGEMENT_HOSTS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_VULN_MANAGEMENT_HOSTS_USAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -286,6 +288,14 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_USAGE =
       "universal_service_monitoring_usage";
   private Double universalServiceMonitoringUsage;
+
+  public static final String JSON_PROPERTY_VULN_MANAGEMENT_HOSTS_PERCENTAGE =
+      "vuln_management_hosts_percentage";
+  private Double vulnManagementHostsPercentage;
+
+  public static final String JSON_PROPERTY_VULN_MANAGEMENT_HOSTS_USAGE =
+      "vuln_management_hosts_usage";
+  private Double vulnManagementHostsUsage;
 
   public MonthlyUsageAttributionValues apiPercentage(Double apiPercentage) {
     this.apiPercentage = apiPercentage;
@@ -1604,6 +1614,49 @@ public class MonthlyUsageAttributionValues {
     this.universalServiceMonitoringUsage = universalServiceMonitoringUsage;
   }
 
+  public MonthlyUsageAttributionValues vulnManagementHostsPercentage(
+      Double vulnManagementHostsPercentage) {
+    this.vulnManagementHostsPercentage = vulnManagementHostsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Application Vulnerability Management usage by tag(s).
+   *
+   * @return vulnManagementHostsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VULN_MANAGEMENT_HOSTS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getVulnManagementHostsPercentage() {
+    return vulnManagementHostsPercentage;
+  }
+
+  public void setVulnManagementHostsPercentage(Double vulnManagementHostsPercentage) {
+    this.vulnManagementHostsPercentage = vulnManagementHostsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues vulnManagementHostsUsage(Double vulnManagementHostsUsage) {
+    this.vulnManagementHostsUsage = vulnManagementHostsUsage;
+    return this;
+  }
+
+  /**
+   * The Application Vulnerability Management usage by tag(s).
+   *
+   * @return vulnManagementHostsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VULN_MANAGEMENT_HOSTS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getVulnManagementHostsUsage() {
+    return vulnManagementHostsUsage;
+  }
+
+  public void setVulnManagementHostsUsage(Double vulnManagementHostsUsage) {
+    this.vulnManagementHostsUsage = vulnManagementHostsUsage;
+  }
+
   /** Return true if this MonthlyUsageAttributionValues object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -1724,7 +1777,12 @@ public class MonthlyUsageAttributionValues {
             monthlyUsageAttributionValues.universalServiceMonitoringPercentage)
         && Objects.equals(
             this.universalServiceMonitoringUsage,
-            monthlyUsageAttributionValues.universalServiceMonitoringUsage);
+            monthlyUsageAttributionValues.universalServiceMonitoringUsage)
+        && Objects.equals(
+            this.vulnManagementHostsPercentage,
+            monthlyUsageAttributionValues.vulnManagementHostsPercentage)
+        && Objects.equals(
+            this.vulnManagementHostsUsage, monthlyUsageAttributionValues.vulnManagementHostsUsage);
   }
 
   @Override
@@ -1791,7 +1849,9 @@ public class MonthlyUsageAttributionValues {
         snmpPercentage,
         snmpUsage,
         universalServiceMonitoringPercentage,
-        universalServiceMonitoringUsage);
+        universalServiceMonitoringUsage,
+        vulnManagementHostsPercentage,
+        vulnManagementHostsUsage);
   }
 
   @Override
@@ -1927,6 +1987,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    universalServiceMonitoringUsage: ")
         .append(toIndentedString(universalServiceMonitoringUsage))
+        .append("\n");
+    sb.append("    vulnManagementHostsPercentage: ")
+        .append(toIndentedString(vulnManagementHostsPercentage))
+        .append("\n");
+    sb.append("    vulnManagementHostsUsage: ")
+        .append(toIndentedString(vulnManagementHostsUsage))
         .append("\n");
     sb.append("}");
     return sb.toString();
