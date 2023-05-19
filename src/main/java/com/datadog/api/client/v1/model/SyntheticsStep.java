@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** The steps used in a Synthetics browser test. */
+/** The steps used in a Synthetic browser test. */
 @JsonPropertyOrder({
   SyntheticsStep.JSON_PROPERTY_ALLOW_FAILURE,
   SyntheticsStep.JSON_PROPERTY_IS_CRITICAL,

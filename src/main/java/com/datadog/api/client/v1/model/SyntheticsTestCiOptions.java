@@ -28,7 +28,7 @@ public class SyntheticsTestCiOptions {
   }
 
   /**
-   * Execution rule for a Synthetics test.
+   * Execution rule for a Synthetic test.
    *
    * @return executionRule
    */

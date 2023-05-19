@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Execution rule for a Synthetics test. */
+/** Execution rule for a Synthetic test. */
 @JsonSerialize(using = SyntheticsTestExecutionRule.SyntheticsTestExecutionRuleSerializer.class)
 public class SyntheticsTestExecutionRule {
 

@@ -6,6 +6,8 @@ import com.datadog.api.client.v1.api.SyntheticsApi;
 import com.datadog.api.client.v1.model.SyntheticsBrowserTest;
 import com.datadog.api.client.v1.model.SyntheticsBrowserTestConfig;
 import com.datadog.api.client.v1.model.SyntheticsBrowserTestType;
+import com.datadog.api.client.v1.model.SyntheticsBrowserVariable;
+import com.datadog.api.client.v1.model.SyntheticsBrowserVariableType;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
 import com.datadog.api.client.v1.model.SyntheticsDeviceID;
@@ -25,6 +27,14 @@ public class Example {
         new SyntheticsBrowserTest()
             .config(
                 new SyntheticsBrowserTestConfig()
+                    .variables(
+                        Collections.singletonList(
+                            new SyntheticsBrowserVariable()
+                                .type(SyntheticsBrowserVariableType.TEXT)
+                                .name("TEST_VARIABLE")
+                                .pattern("secret")
+                                .secure(true)
+                                .example("secret")))
                     .configVariables(
                         Collections.singletonList(
                             new SyntheticsConfigVariable()

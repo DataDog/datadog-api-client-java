@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Type of parser for a Synthetics global variable from a synthetics test. */
+/** Type of parser for a Synthetic global variable from a synthetics test. */
 @JsonSerialize(
     using = SyntheticsGlobalVariableParserType.SyntheticsGlobalVariableParserTypeSerializer.class)
 public class SyntheticsGlobalVariableParserType {

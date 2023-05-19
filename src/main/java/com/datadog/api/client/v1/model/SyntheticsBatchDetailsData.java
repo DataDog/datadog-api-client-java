@@ -40,7 +40,7 @@ public class SyntheticsBatchDetailsData {
   }
 
   /**
-   * Metadata for the Synthetics tests run.
+   * Metadata for the Synthetic tests run.
    *
    * @return metadata
    */

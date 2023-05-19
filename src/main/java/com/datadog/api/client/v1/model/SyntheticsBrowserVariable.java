@@ -14,15 +14,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /**
- * Object defining a variable that can be used in your browser test. Learn more in the <a
- * href="https://docs.datadoghq.com/synthetics/browser_tests/actions#variable">Browser test Actions
- * documentation</a>.
+ * Object defining a variable that can be used in your browser test. See the <a
+ * href="https://docs.datadoghq.com/synthetics/browser_tests/actions/?tab=testanelementontheactivepage#variables">Recording
+ * Steps documentation</a>.
  */
 @JsonPropertyOrder({
   SyntheticsBrowserVariable.JSON_PROPERTY_EXAMPLE,
   SyntheticsBrowserVariable.JSON_PROPERTY_ID,
   SyntheticsBrowserVariable.JSON_PROPERTY_NAME,
   SyntheticsBrowserVariable.JSON_PROPERTY_PATTERN,
+  SyntheticsBrowserVariable.JSON_PROPERTY_SECURE,
   SyntheticsBrowserVariable.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -40,6 +41,9 @@ public class SyntheticsBrowserVariable {
 
   public static final String JSON_PROPERTY_PATTERN = "pattern";
   private String pattern;
+
+  public static final String JSON_PROPERTY_SECURE = "secure";
+  private Boolean secure;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsBrowserVariableType type;
@@ -139,6 +143,28 @@ public class SyntheticsBrowserVariable {
     this.pattern = pattern;
   }
 
+  public SyntheticsBrowserVariable secure(Boolean secure) {
+    this.secure = secure;
+    return this;
+  }
+
+  /**
+   * Determines whether or not the browser test variable is obfuscated. Can only be used with
+   * browser variables of type <code>text</code>.
+   *
+   * @return secure
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSecure() {
+    return secure;
+  }
+
+  public void setSecure(Boolean secure) {
+    this.secure = secure;
+  }
+
   public SyntheticsBrowserVariable type(SyntheticsBrowserVariableType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -177,12 +203,13 @@ public class SyntheticsBrowserVariable {
         && Objects.equals(this.id, syntheticsBrowserVariable.id)
         && Objects.equals(this.name, syntheticsBrowserVariable.name)
         && Objects.equals(this.pattern, syntheticsBrowserVariable.pattern)
+        && Objects.equals(this.secure, syntheticsBrowserVariable.secure)
         && Objects.equals(this.type, syntheticsBrowserVariable.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(example, id, name, pattern, type);
+    return Objects.hash(example, id, name, pattern, secure, type);
   }
 
   @Override
@@ -193,6 +220,7 @@ public class SyntheticsBrowserVariable {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
+    sb.append("    secure: ").append(toIndentedString(secure)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

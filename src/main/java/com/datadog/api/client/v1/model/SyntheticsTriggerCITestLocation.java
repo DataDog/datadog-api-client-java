@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Synthetics location. */
+/** Synthetic location. */
 @JsonPropertyOrder({
   SyntheticsTriggerCITestLocation.JSON_PROPERTY_ID,
   SyntheticsTriggerCITestLocation.JSON_PROPERTY_NAME

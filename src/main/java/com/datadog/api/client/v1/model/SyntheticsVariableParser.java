@@ -45,7 +45,7 @@ public class SyntheticsVariableParser {
   }
 
   /**
-   * Type of parser for a Synthetics global variable from a synthetics test.
+   * Type of parser for a Synthetic global variable from a synthetics test.
    *
    * @return type
    */

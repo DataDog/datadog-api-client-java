@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Object describing the synthetics tests to trigger. */
+/** Object describing the Synthetic tests to trigger. */
 @JsonPropertyOrder({SyntheticsTriggerBody.JSON_PROPERTY_TESTS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -48,7 +48,7 @@ public class SyntheticsTriggerBody {
   }
 
   /**
-   * Individual synthetics test.
+   * Individual Synthetic test.
    *
    * @return tests
    */

@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Property of the Synthetics Test Response to use for a Synthetics global variable. */
+/** Property of the Synthetic Test Response to use for a Synthetic global variable. */
 @JsonSerialize(
     using =
         SyntheticsGlobalVariableParseTestOptionsType

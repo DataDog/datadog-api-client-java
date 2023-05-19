@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** The steps used in a Synthetics multistep API test. */
+/** The steps used in a Synthetic multistep API test. */
 @JsonPropertyOrder({
   SyntheticsAPIStep.JSON_PROPERTY_ALLOW_FAILURE,
   SyntheticsAPIStep.JSON_PROPERTY_ASSERTIONS,

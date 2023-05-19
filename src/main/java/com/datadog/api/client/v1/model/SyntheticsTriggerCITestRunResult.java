@@ -87,7 +87,7 @@ public class SyntheticsTriggerCITestRunResult {
   }
 
   /**
-   * The public ID of the Synthetics test.
+   * The public ID of the Synthetic test.
    *
    * @return publicId
    */
