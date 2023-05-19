@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Object with the results of a Synthetics batch. */
+/** Object with the results of a Synthetic batch. */
 @JsonPropertyOrder({
   SyntheticsBatchResult.JSON_PROPERTY_DEVICE,
   SyntheticsBatchResult.JSON_PROPERTY_DURATION,
@@ -112,7 +112,7 @@ public class SyntheticsBatchResult {
   }
 
   /**
-   * Execution rule for a Synthetics test.
+   * Execution rule for a Synthetic test.
    *
    * @return executionRule
    */

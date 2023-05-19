@@ -95,7 +95,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a Synthetics global variable.
+   * Create a Synthetic global variable.
    *
    * @param body Details of the global variable to create. (required)
    * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
@@ -228,7 +228,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Create a new Synthetics private location.
+   * Create a new Synthetic private location.
    *
    * @param body Details of the private location to create. (required)
    * @return ApiResponse&lt;SyntheticsPrivateLocationCreationResponse&gt;
@@ -627,7 +627,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete a Synthetics global variable.
+   * Delete a Synthetic global variable.
    *
    * @param variableId The ID of the global variable. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -764,7 +764,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Delete a Synthetics private location.
+   * Delete a Synthetic private location.
    *
    * @param locationId The ID of the private location. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -915,7 +915,7 @@ public class SyntheticsApi {
    *       <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a sub-test or in an uptime widget) - Some IDs are not owned by the user </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Tests to be deleted can&#39;t be found - Synthetic is not activated for the user </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -1039,7 +1039,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a Synthetics global variable.
+   * Edit a Synthetic global variable.
    *
    * @param variableId The ID of the global variable. (required)
    * @param body Details of the global variable to update. (required)
@@ -1406,7 +1406,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the last 150 test results summaries for a given Synthetics API test.
+   * Get the last 150 test results summaries for a given Synthetic API test.
    *
    * @param publicId The public ID of the test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -1567,7 +1567,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a specific full result from a given (API) Synthetic test.
+   * Get a specific full result from a given Synthetic API test.
    *
    * @param publicId The public ID of the API test to which the target result belongs. (required)
    * @param resultId The ID of the result to get. (required)
@@ -1579,7 +1579,7 @@ public class SyntheticsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -1735,7 +1735,7 @@ public class SyntheticsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -1939,7 +1939,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the last 150 test results summaries for a given Synthetics Browser test.
+   * Get the last 150 test results summaries for a given Synthetic browser test.
    *
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -1951,7 +1951,7 @@ public class SyntheticsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -2107,7 +2107,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a specific full result from a given (browser) Synthetic test.
+   * Get a specific full result from a given Synthetic browser test.
    *
    * @param publicId The public ID of the browser test to which the target result belongs.
    *     (required)
@@ -2120,7 +2120,7 @@ public class SyntheticsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -2403,7 +2403,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a Synthetics private location.
+   * Get a Synthetic private location.
    *
    * @param locationId The ID of the private location. (required)
    * @return ApiResponse&lt;SyntheticsPrivateLocation&gt;
@@ -2673,7 +2673,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the detailed configuration associated with a Synthetics test.
+   * Get the detailed configuration associated with a Synthetic test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @return ApiResponse&lt;SyntheticsTestDetails&gt;
@@ -2804,7 +2804,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the list of all Synthetics global variables.
+   * Get the list of all Synthetic global variables.
    *
    * @return ApiResponse&lt;SyntheticsListGlobalVariablesResponse&gt;
    * @throws ApiException if fails to make API call
@@ -3096,7 +3096,7 @@ public class SyntheticsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK - Returns the list of all Synthetic tests. </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Synthetic Monitoring is not activated for the user. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -3216,7 +3216,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger a set of Synthetics tests for continuous integration.
+   * Trigger a set of Synthetic tests for continuous integration.
    *
    * @param body Details of the test to trigger. (required)
    * @return ApiResponse&lt;SyntheticsTriggerCITestsResponse&gt;
@@ -3319,7 +3319,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger Synthetics tests.
+   * Trigger Synthetic tests.
    *
    * <p>See {@link #triggerTestsWithHttpInfo}.
    *
@@ -3333,7 +3333,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger Synthetics tests.
+   * Trigger Synthetic tests.
    *
    * <p>See {@link #triggerTestsWithHttpInfoAsync}.
    *
@@ -3350,7 +3350,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger a set of Synthetics tests.
+   * Trigger a set of Synthetic tests.
    *
    * @param body The identifiers of the tests to trigger. (required)
    * @return ApiResponse&lt;SyntheticsTriggerCITestsResponse&gt;
@@ -3399,7 +3399,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger Synthetics tests.
+   * Trigger Synthetic tests.
    *
    * <p>See {@link #triggerTestsWithHttpInfo}.
    *
@@ -3799,7 +3799,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Edit a Synthetics private location.
+   * Edit a Synthetic private location.
    *
    * @param locationId The ID of the private location. (required)
    * @param body Details of the private location to be updated. (required)
@@ -3957,7 +3957,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Pause or start a Synthetics test by changing the status.
+   * Pause or start a Synthetic test by changing the status.
    *
    * @param publicId The public ID of the Synthetic test to update. (required)
    * @param body Status to set the given Synthetic test to. (required)
@@ -3970,7 +3970,7 @@ public class SyntheticsApi {
    *       <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> JSON format is wrong. </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */

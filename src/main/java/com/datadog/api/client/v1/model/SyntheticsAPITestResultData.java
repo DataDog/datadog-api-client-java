@@ -255,8 +255,8 @@ public class SyntheticsAPITestResultData {
   }
 
   /**
-   * Object containing all metrics and their values collected for a Synthetic API test. Learn more
-   * about those metrics in <a href="https://docs.datadoghq.com/synthetics/#metrics">Synthetics
+   * Object containing all metrics and their values collected for a Synthetic API test. See the <a
+   * href="https://docs.datadoghq.com/synthetics/metrics/">Synthetic Monitoring Metrics
    * documentation</a>.
    *
    * @return timings

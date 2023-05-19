@@ -338,7 +338,7 @@ public class SyntheticsStepDetail {
   }
 
   /**
-   * If this steps include a sub-test. <a
+   * If this step includes a sub-test. <a
    * href="https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests">Subtests
    * documentation</a>.
    *

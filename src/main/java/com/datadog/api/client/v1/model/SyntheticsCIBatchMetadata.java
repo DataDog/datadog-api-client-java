@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Metadata for the Synthetics tests run. */
+/** Metadata for the Synthetic tests run. */
 @JsonPropertyOrder({
   SyntheticsCIBatchMetadata.JSON_PROPERTY_CI,
   SyntheticsCIBatchMetadata.JSON_PROPERTY_GIT

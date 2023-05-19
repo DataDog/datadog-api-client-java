@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /**
- * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in
+ * Parser options to use for retrieving a Synthetic global variable from a Synthetic test. Used in
  * conjunction with <code>parse_test_public_id</code>.
  */
 @JsonPropertyOrder({
@@ -122,7 +122,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
   }
 
   /**
-   * Property of the Synthetics Test Response to use for a Synthetics global variable.
+   * Property of the Synthetic Test Response to use for a Synthetic global variable.
    *
    * @return type
    */

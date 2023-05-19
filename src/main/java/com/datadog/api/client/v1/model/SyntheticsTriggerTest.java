@@ -43,7 +43,7 @@ public class SyntheticsTriggerTest {
   }
 
   /**
-   * Metadata for the Synthetics tests run.
+   * Metadata for the Synthetic tests run.
    *
    * @return metadata
    */
@@ -64,7 +64,7 @@ public class SyntheticsTriggerTest {
   }
 
   /**
-   * The public ID of the Synthetics test to trigger.
+   * The public ID of the Synthetic test to trigger.
    *
    * @return publicId
    */

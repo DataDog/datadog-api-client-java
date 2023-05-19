@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** List of Synthetics locations. */
+/** List of Synthetic locations. */
 @JsonPropertyOrder({SyntheticsLocations.JSON_PROPERTY_LOCATIONS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -41,7 +41,7 @@ public class SyntheticsLocations {
   }
 
   /**
-   * List of Synthetics locations.
+   * List of Synthetic locations.
    *
    * @return locations
    */

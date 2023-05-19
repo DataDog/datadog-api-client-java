@@ -89,7 +89,7 @@ public class SyntheticsTriggerCITestsResponse {
   }
 
   /**
-   * List of Synthetics locations.
+   * List of Synthetic locations.
    *
    * @return locations
    */
@@ -152,7 +152,7 @@ public class SyntheticsTriggerCITestsResponse {
   }
 
   /**
-   * The public IDs of the Synthetics test triggered.
+   * The public IDs of the Synthetic test triggered.
    *
    * @return triggeredCheckIds
    */

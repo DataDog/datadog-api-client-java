@@ -1,4 +1,4 @@
-// Trigger Synthetics tests returns "OK" response
+// Trigger Synthetic tests returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

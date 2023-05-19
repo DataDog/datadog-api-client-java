@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Test configuration for Synthetics CI */
+/** Configuration for Continuous Testing. */
 @JsonPropertyOrder({
   SyntheticsCITest.JSON_PROPERTY_ALLOW_INSECURE_CERTIFICATES,
   SyntheticsCITest.JSON_PROPERTY_BASIC_AUTH,
@@ -159,7 +159,7 @@ public class SyntheticsCITest {
   }
 
   /**
-   * Type of the data sent in a synthetics API test.
+   * Type of the data sent in a Synthetic API test.
    *
    * @return bodyType
    */
@@ -311,7 +311,7 @@ public class SyntheticsCITest {
   }
 
   /**
-   * Metadata for the Synthetics tests run.
+   * Metadata for the Synthetic tests run.
    *
    * @return metadata
    */
@@ -332,7 +332,7 @@ public class SyntheticsCITest {
   }
 
   /**
-   * The public ID of the Synthetics test to trigger.
+   * The public ID of the Synthetic test to trigger.
    *
    * @return publicId
    */
