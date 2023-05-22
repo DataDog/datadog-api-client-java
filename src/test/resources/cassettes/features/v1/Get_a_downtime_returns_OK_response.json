@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\":\"Test-Get_a_downtime_returns_OK_response-1652348996\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1654163396,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testgetadowntimereturnsokresponse1652348996\"],\"start\":1652348996,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"end\":1684769410,\"message\":\"Test-Get_a_downtime_returns_OK_response-1684765810\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1686580210,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testgetadowntimereturnsokresponse1684765810\"],\"start\":1684765810,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":1654163396,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1652348997,\"org_id\":321813,\"modified\":1652348997,\"disabled\":false,\"start\":1652348996,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testgetadowntimereturnsokresponse1652348996\"],\"message\":\"Test-Get_a_downtime_returns_OK_response-1652348996\",\"downtime_type\":2,\"id\":1944162261,\"updater_id\":null}",
+      "body": "{\"id\":2941966869,\"monitor_id\":null,\"org_id\":321813,\"start\":1684765810,\"end\":1684769410,\"canceled\":null,\"created\":1684765810,\"modified\":1684765810,\"message\":\"Test-Get_a_downtime_returns_OK_response-1684765810\",\"active\":true,\"disabled\":false,\"recurrence\":{\"type\":\"weeks\",\"period\":1,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"until_occurrences\":null,\"until_date\":1686580210},\"timezone\":\"Etc/UTC\",\"parent_id\":null,\"child_id\":null,\"creator_id\":1445416,\"updater_id\":null,\"downtime_type\":2,\"status\":\"active\",\"monitor_tags\":[\"*\"],\"mute_first_recovery_notification\":false,\"notify_end_types\":[\"expired\"],\"notify_end_states\":[\"alert\",\"no data\",\"warn\"],\"uuid\":\"286629f8-f8ad-11ed-9901-da7ad0900002\",\"scope\":[\"test:testgetadowntimereturnsokresponse1684765810\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b55ad18c-6b5b-7498-10fb-571504ef68fd"
+    "id": "ec134e0d-11e3-99e2-2610-cd3c3a0bae26"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v1/downtime/1944162261",
+      "path": "/api/v1/downtime/2941966869",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":1654163396,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1652348997,\"org_id\":321813,\"modified\":1652348997,\"disabled\":false,\"start\":1652348996,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testgetadowntimereturnsokresponse1652348996\"],\"message\":\"Test-Get_a_downtime_returns_OK_response-1652348996\",\"downtime_type\":2,\"id\":1944162261,\"updater_id\":null}",
+      "body": "{\"id\":2941966869,\"monitor_id\":null,\"org_id\":321813,\"start\":1684765810,\"end\":1684769410,\"canceled\":null,\"created\":1684765810,\"modified\":1684765810,\"message\":\"Test-Get_a_downtime_returns_OK_response-1684765810\",\"active\":true,\"disabled\":false,\"recurrence\":{\"type\":\"weeks\",\"period\":1,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"until_occurrences\":null,\"until_date\":1686580210},\"timezone\":\"Etc/UTC\",\"parent_id\":null,\"child_id\":null,\"creator_id\":1445416,\"updater_id\":null,\"downtime_type\":2,\"status\":\"active\",\"monitor_tags\":[\"*\"],\"mute_first_recovery_notification\":false,\"notify_end_types\":[\"expired\"],\"notify_end_states\":[\"alert\",\"no data\",\"warn\"],\"uuid\":\"286629f8-f8ad-11ed-9901-da7ad0900002\",\"scope\":[\"test:testgetadowntimereturnsokresponse1684765810\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,18 +53,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "41c3f901-2669-6d8b-8699-201d3560c44c"
+    "id": "438243aa-5ac5-1f16-0395-05ec5cb18a8f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/downtime/1944162261",
+      "path": "/api/v1/downtime/2941966869",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -74,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9486ed6c-1d28-523f-26cb-7f5478cd236e"
+    "id": "c6bf39ec-f1fb-2ccd-6a41-604cfb5c93cb"
   }
 ]

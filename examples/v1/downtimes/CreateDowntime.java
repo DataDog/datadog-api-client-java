@@ -19,6 +19,7 @@ public class Example {
         new Downtime()
             .message("Example-Downtime")
             .start(OffsetDateTime.now().toInstant().getEpochSecond())
+            .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
             .timezone("Etc/UTC")
             .scope(Collections.singletonList("test:exampledowntime"))
             .recurrence(

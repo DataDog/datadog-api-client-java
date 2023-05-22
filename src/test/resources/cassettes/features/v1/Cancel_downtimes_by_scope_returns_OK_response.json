@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\":\"Test-Cancel_downtimes_by_scope_returns_OK_response-1652348995\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1654163395,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testcanceldowntimesbyscopereturnsokresponse1652348995\"],\"start\":1652348995,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"end\":1684769382,\"message\":\"Test-Cancel_downtimes_by_scope_returns_OK_response-1684765782\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1686580182,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testcanceldowntimesbyscopereturnsokresponse1684765782\"],\"start\":1684765782,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":1654163395,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1652348995,\"org_id\":321813,\"modified\":1652348995,\"disabled\":false,\"start\":1652348995,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testcanceldowntimesbyscopereturnsokresponse1652348995\"],\"message\":\"Test-Cancel_downtimes_by_scope_returns_OK_response-1652348995\",\"downtime_type\":2,\"id\":1944162243,\"updater_id\":null}",
+      "body": "{\"id\":2941965647,\"monitor_id\":null,\"org_id\":321813,\"start\":1684765782,\"end\":1684769382,\"canceled\":null,\"created\":1684765783,\"modified\":1684765783,\"message\":\"Test-Cancel_downtimes_by_scope_returns_OK_response-1684765782\",\"active\":true,\"disabled\":false,\"recurrence\":{\"type\":\"weeks\",\"period\":1,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"until_occurrences\":null,\"until_date\":1686580182},\"timezone\":\"Etc/UTC\",\"parent_id\":null,\"child_id\":null,\"creator_id\":1445416,\"updater_id\":null,\"downtime_type\":2,\"status\":\"active\",\"monitor_tags\":[\"*\"],\"mute_first_recovery_notification\":false,\"notify_end_types\":[\"expired\"],\"notify_end_states\":[\"alert\",\"no data\",\"warn\"],\"uuid\":\"17fac312-f8ad-11ed-9ae8-da7ad0900002\",\"scope\":[\"test:testcanceldowntimesbyscopereturnsokresponse1684765782\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "00345907-7783-3721-fba6-0477f8d51005"
+    "id": "a1a42708-1543-c43a-3b95-54684c2d8d65"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"scope\":\"test:testcanceldowntimesbyscopereturnsokresponse1652348995\"}"
+        "json": "{\"scope\":\"test:testcanceldowntimesbyscopereturnsokresponse1684765782\"}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"cancelled_ids\":[1944162243]}",
+      "body": "{\"cancelled_ids\":[2941965647]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,18 +57,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "16aef51d-d3aa-3b8f-a6e5-1008da84330b"
+    "id": "8cecfe7f-5a7a-1856-9efc-2bfc039b99b3"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/downtime/1944162243",
+      "path": "/api/v1/downtime/2941965647",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -78,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3ed9cb4d-5e9e-90e7-bdce-573cde140a5f"
+    "id": "52dc9f57-87be-a775-a672-904ce40172f8"
   }
 ]
