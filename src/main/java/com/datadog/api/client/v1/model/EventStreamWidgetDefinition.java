@@ -20,7 +20,6 @@ import java.util.Objects;
 @JsonPropertyOrder({
   EventStreamWidgetDefinition.JSON_PROPERTY_EVENT_SIZE,
   EventStreamWidgetDefinition.JSON_PROPERTY_QUERY,
-  EventStreamWidgetDefinition.JSON_PROPERTY_SHOW_YEAR,
   EventStreamWidgetDefinition.JSON_PROPERTY_TAGS_EXECUTION,
   EventStreamWidgetDefinition.JSON_PROPERTY_TIME,
   EventStreamWidgetDefinition.JSON_PROPERTY_TITLE,
@@ -37,9 +36,6 @@ public class EventStreamWidgetDefinition {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
-
-  public static final String JSON_PROPERTY_SHOW_YEAR = "show_year";
-  private Boolean showYear;
 
   public static final String JSON_PROPERTY_TAGS_EXECUTION = "tags_execution";
   private String tagsExecution;
@@ -114,27 +110,6 @@ public class EventStreamWidgetDefinition {
 
   public void setQuery(String query) {
     this.query = query;
-  }
-
-  public EventStreamWidgetDefinition showYear(Boolean showYear) {
-    this.showYear = showYear;
-    return this;
-  }
-
-  /**
-   * Option to display the year in the date column.
-   *
-   * @return showYear
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHOW_YEAR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getShowYear() {
-    return showYear;
-  }
-
-  public void setShowYear(Boolean showYear) {
-    this.showYear = showYear;
   }
 
   public EventStreamWidgetDefinition tagsExecution(String tagsExecution) {
@@ -283,7 +258,6 @@ public class EventStreamWidgetDefinition {
     EventStreamWidgetDefinition eventStreamWidgetDefinition = (EventStreamWidgetDefinition) o;
     return Objects.equals(this.eventSize, eventStreamWidgetDefinition.eventSize)
         && Objects.equals(this.query, eventStreamWidgetDefinition.query)
-        && Objects.equals(this.showYear, eventStreamWidgetDefinition.showYear)
         && Objects.equals(this.tagsExecution, eventStreamWidgetDefinition.tagsExecution)
         && Objects.equals(this.time, eventStreamWidgetDefinition.time)
         && Objects.equals(this.title, eventStreamWidgetDefinition.title)
@@ -294,8 +268,7 @@ public class EventStreamWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        eventSize, query, showYear, tagsExecution, time, title, titleAlign, titleSize, type);
+    return Objects.hash(eventSize, query, tagsExecution, time, title, titleAlign, titleSize, type);
   }
 
   @Override
@@ -304,7 +277,6 @@ public class EventStreamWidgetDefinition {
     sb.append("class EventStreamWidgetDefinition {\n");
     sb.append("    eventSize: ").append(toIndentedString(eventSize)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
-    sb.append("    showYear: ").append(toIndentedString(showYear)).append("\n");
     sb.append("    tagsExecution: ").append(toIndentedString(tagsExecution)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
