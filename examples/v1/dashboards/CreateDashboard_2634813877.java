@@ -36,8 +36,7 @@ public class Example {
                                     .type(EventStreamWidgetDefinitionType.EVENT_STREAM)
                                     .query("example-query")
                                     .tagsExecution("and")
-                                    .eventSize(WidgetEventSize.SMALL)
-                                    .showYear(true)))))
+                                    .eventSize(WidgetEventSize.SMALL)))))
             .layoutType(DashboardLayoutType.FREE)
             .isReadOnly(false);
 
