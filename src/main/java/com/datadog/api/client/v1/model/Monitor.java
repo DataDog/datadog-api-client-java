@@ -25,6 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Monitor.JSON_PROPERTY_CREATOR,
   Monitor.JSON_PROPERTY_DELETED,
   Monitor.JSON_PROPERTY_ID,
+  Monitor.JSON_PROPERTY_MATCHING_DOWNTIMES,
   Monitor.JSON_PROPERTY_MESSAGE,
   Monitor.JSON_PROPERTY_MODIFIED,
   Monitor.JSON_PROPERTY_MULTI,
@@ -57,6 +58,9 @@ public class Monitor {
 
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
+
+  public static final String JSON_PROPERTY_MATCHING_DOWNTIMES = "matching_downtimes";
+  private List<MatchingDowntime> matchingDowntimes = null;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -167,6 +171,39 @@ public class Monitor {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
     return id;
+  }
+
+  public Monitor matchingDowntimes(List<MatchingDowntime> matchingDowntimes) {
+    this.matchingDowntimes = matchingDowntimes;
+    for (MatchingDowntime item : matchingDowntimes) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public Monitor addMatchingDowntimesItem(MatchingDowntime matchingDowntimesItem) {
+    if (this.matchingDowntimes == null) {
+      this.matchingDowntimes = new ArrayList<>();
+    }
+    this.matchingDowntimes.add(matchingDowntimesItem);
+    this.unparsed |= matchingDowntimesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * A list of active downtimes that match this monitor.
+   *
+   * @return matchingDowntimes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MATCHING_DOWNTIMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MatchingDowntime> getMatchingDowntimes() {
+    return matchingDowntimes;
+  }
+
+  public void setMatchingDowntimes(List<MatchingDowntime> matchingDowntimes) {
+    this.matchingDowntimes = matchingDowntimes;
   }
 
   public Monitor message(String message) {
@@ -451,6 +488,7 @@ public class Monitor {
         && Objects.equals(this.creator, monitor.creator)
         && Objects.equals(this.deleted, monitor.deleted)
         && Objects.equals(this.id, monitor.id)
+        && Objects.equals(this.matchingDowntimes, monitor.matchingDowntimes)
         && Objects.equals(this.message, monitor.message)
         && Objects.equals(this.modified, monitor.modified)
         && Objects.equals(this.multi, monitor.multi)
@@ -472,6 +510,7 @@ public class Monitor {
         creator,
         deleted,
         id,
+        matchingDowntimes,
         message,
         modified,
         multi,
@@ -494,6 +533,7 @@ public class Monitor {
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    matchingDowntimes: ").append(toIndentedString(matchingDowntimes)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    multi: ").append(toIndentedString(multi)).append("\n");

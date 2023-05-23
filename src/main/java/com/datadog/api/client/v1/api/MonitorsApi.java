@@ -805,6 +805,7 @@ public class MonitorsApi {
   /** Manage optional parameters to getMonitor. */
   public static class GetMonitorOptionalParameters {
     private String groupStates;
+    private Boolean withDowntimes;
 
     /**
      * Set groupStates.
@@ -816,6 +817,18 @@ public class MonitorsApi {
      */
     public GetMonitorOptionalParameters groupStates(String groupStates) {
       this.groupStates = groupStates;
+      return this;
+    }
+
+    /**
+     * Set withDowntimes.
+     *
+     * @param withDowntimes If this argument is set to true, then the returned data includes all
+     *     current active downtimes for the monitor. (optional)
+     * @return GetMonitorOptionalParameters
+     */
+    public GetMonitorOptionalParameters withDowntimes(Boolean withDowntimes) {
+      this.withDowntimes = withDowntimes;
       return this;
     }
   }
@@ -910,6 +923,7 @@ public class MonitorsApi {
           400, "Missing the required parameter 'monitorId' when calling getMonitor");
     }
     String groupStates = parameters.groupStates;
+    Boolean withDowntimes = parameters.withDowntimes;
     // create path and map variables
     String localVarPath =
         "/api/v1/monitor/{monitor_id}"
@@ -919,6 +933,7 @@ public class MonitorsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", groupStates));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_downtimes", withDowntimes));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -962,6 +977,7 @@ public class MonitorsApi {
       return result;
     }
     String groupStates = parameters.groupStates;
+    Boolean withDowntimes = parameters.withDowntimes;
     // create path and map variables
     String localVarPath =
         "/api/v1/monitor/{monitor_id}"
@@ -971,6 +987,7 @@ public class MonitorsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "group_states", groupStates));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_downtimes", withDowntimes));
 
     Invocation.Builder builder;
     try {
