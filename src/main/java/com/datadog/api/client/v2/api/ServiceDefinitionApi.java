@@ -122,7 +122,7 @@ public class ServiceDefinitionApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -172,7 +172,7 @@ public class ServiceDefinitionApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ServiceDefinitionCreateResponse>> result =
           new CompletableFuture<>();
@@ -260,7 +260,7 @@ public class ServiceDefinitionApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -311,7 +311,7 @@ public class ServiceDefinitionApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -459,7 +459,7 @@ public class ServiceDefinitionApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -517,7 +517,7 @@ public class ServiceDefinitionApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ServiceDefinitionGetResponse>> result =
           new CompletableFuture<>();
@@ -727,7 +727,7 @@ public class ServiceDefinitionApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -773,7 +773,7 @@ public class ServiceDefinitionApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ServiceDefinitionsListResponse>> result =
           new CompletableFuture<>();
