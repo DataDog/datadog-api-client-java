@@ -23,6 +23,7 @@ import java.util.Objects;
   ListStreamQuery.JSON_PROPERTY_GROUP_BY,
   ListStreamQuery.JSON_PROPERTY_INDEXES,
   ListStreamQuery.JSON_PROPERTY_QUERY_STRING,
+  ListStreamQuery.JSON_PROPERTY_SHOW_YEAR,
   ListStreamQuery.JSON_PROPERTY_STORAGE
 })
 @jakarta.annotation.Generated(
@@ -46,6 +47,9 @@ public class ListStreamQuery {
 
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString;
+
+  public static final String JSON_PROPERTY_SHOW_YEAR = "show_year";
+  private Boolean showYear;
 
   public static final String JSON_PROPERTY_STORAGE = "storage";
   private String storage;
@@ -228,6 +232,27 @@ public class ListStreamQuery {
     this.queryString = queryString;
   }
 
+  public ListStreamQuery showYear(Boolean showYear) {
+    this.showYear = showYear;
+    return this;
+  }
+
+  /**
+   * Option to display the year in the date column. To be used with the <code>event_stream</code>.
+   *
+   * @return showYear
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHOW_YEAR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowYear() {
+    return showYear;
+  }
+
+  public void setShowYear(Boolean showYear) {
+    this.showYear = showYear;
+  }
+
   public ListStreamQuery storage(String storage) {
     this.storage = storage;
     return this;
@@ -265,12 +290,14 @@ public class ListStreamQuery {
         && Objects.equals(this.groupBy, listStreamQuery.groupBy)
         && Objects.equals(this.indexes, listStreamQuery.indexes)
         && Objects.equals(this.queryString, listStreamQuery.queryString)
+        && Objects.equals(this.showYear, listStreamQuery.showYear)
         && Objects.equals(this.storage, listStreamQuery.storage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute, dataSource, eventSize, groupBy, indexes, queryString, storage);
+    return Objects.hash(
+        compute, dataSource, eventSize, groupBy, indexes, queryString, showYear, storage);
   }
 
   @Override
@@ -283,6 +310,7 @@ public class ListStreamQuery {
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
+    sb.append("    showYear: ").append(toIndentedString(showYear)).append("\n");
     sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
     sb.append("}");
     return sb.toString();

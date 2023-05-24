@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_event_stream_list_stream_widget-1675873086 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"event_stream\",\"event_size\":\"l\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_event_stream_list_stream_widget-1684858761 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"event_stream\",\"event_size\":\"l\",\"query_string\":\"\",\"show_year\":true},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"zmh-rud-g4b\",\"title\":\"Test-Create_a_new_dashboard_with_event_stream_list_stream_widget-1675873086 with list_stream widget\",\"url\":\"/dashboard/zmh-rud-g4b/test-createanewdashboardwitheventstreamliststreamwidget-1675873086-with-liststre\",\"created_at\":\"2023-02-08T16:18:06.512655+00:00\",\"modified_at\":\"2023-02-08T16:18:06.512655+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"query_string\":\"\",\"data_source\":\"event_stream\",\"event_size\":\"l\"},\"response_format\":\"event_list\",\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}]}],\"type\":\"list_stream\"},\"id\":3303593204363469}],\"layout_type\":\"ordered\"}\n",
+      "body": "{\"id\":\"s56-ph7-gmi\",\"title\":\"Test-Create_a_new_dashboard_with_event_stream_list_stream_widget-1684858761 with list_stream widget\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/s56-ph7-gmi/test-createanewdashboardwitheventstreamliststreamwidget-1684858761-with-liststre\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"event_stream\",\"event_size\":\"l\",\"query_string\":\"\",\"show_year\":true},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":3197043212239739}],\"notify_list\":null,\"created_at\":\"2023-05-23T16:19:21.576643+00:00\",\"modified_at\":\"2023-05-23T16:19:21.576643+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e13a56fb-8e7e-cc8f-cccd-1dc11cfaf098"
+    "id": "3b2bfad3-f58d-6875-c744-251ff9e36f51"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/zmh-rud-g4b",
+      "path": "/api/v1/dashboard/s56-ph7-gmi",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"zmh-rud-g4b\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"s56-ph7-gmi\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ee1b2016-b8d9-3d3f-4959-f703304bf7c6"
+    "id": "a9385047-8692-fdce-320f-ae4670782faa"
   }
 ]
