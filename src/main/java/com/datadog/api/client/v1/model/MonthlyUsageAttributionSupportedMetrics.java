@@ -127,6 +127,10 @@ public class MonthlyUsageAttributionSupportedMetrics {
       new MonthlyUsageAttributionSupportedMetrics("npm_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics NPM_HOST_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("npm_host_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics OBS_PIPELINE_BYTES_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("obs_pipeline_bytes_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics OBS_PIPELINE_BYTES_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("obs_pipeline_bytes_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_CONTAINER_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("profiled_container_usage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_CONTAINER_PERCENTAGE =
@@ -212,6 +216,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "invocations_percentage",
               "npm_host_usage",
               "npm_host_percentage",
+              "obs_pipeline_bytes_usage",
+              "obs_pipeline_bytes_percentage",
               "profiled_container_usage",
               "profiled_container_percentage",
               "profiled_fargate_usage",
