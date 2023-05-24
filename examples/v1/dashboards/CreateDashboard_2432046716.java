@@ -46,7 +46,8 @@ public class Example {
                                                     new ListStreamQuery()
                                                         .dataSource(ListStreamSource.EVENT_STREAM)
                                                         .queryString("")
-                                                        .eventSize(WidgetEventSize.LARGE))
+                                                        .eventSize(WidgetEventSize.LARGE)
+                                                        .showYear(true))
                                                 .responseFormat(
                                                     ListStreamResponseFormat.EVENT_LIST)))))));
 
