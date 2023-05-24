@@ -66,6 +66,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_INVOCATIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINE_BYTES_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINE_BYTES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_PERCENTAGE,
@@ -254,6 +256,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_NPM_HOST_USAGE = "npm_host_usage";
   private Double npmHostUsage;
+
+  public static final String JSON_PROPERTY_OBS_PIPELINE_BYTES_PERCENTAGE =
+      "obs_pipeline_bytes_percentage";
+  private Double obsPipelineBytesPercentage;
+
+  public static final String JSON_PROPERTY_OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
+  private Double obsPipelineBytesUsage;
 
   public static final String JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE =
       "profiled_container_percentage";
@@ -1401,6 +1410,49 @@ public class MonthlyUsageAttributionValues {
     this.npmHostUsage = npmHostUsage;
   }
 
+  public MonthlyUsageAttributionValues obsPipelineBytesPercentage(
+      Double obsPipelineBytesPercentage) {
+    this.obsPipelineBytesPercentage = obsPipelineBytesPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of observability pipeline bytes usage by tag(s).
+   *
+   * @return obsPipelineBytesPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OBS_PIPELINE_BYTES_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getObsPipelineBytesPercentage() {
+    return obsPipelineBytesPercentage;
+  }
+
+  public void setObsPipelineBytesPercentage(Double obsPipelineBytesPercentage) {
+    this.obsPipelineBytesPercentage = obsPipelineBytesPercentage;
+  }
+
+  public MonthlyUsageAttributionValues obsPipelineBytesUsage(Double obsPipelineBytesUsage) {
+    this.obsPipelineBytesUsage = obsPipelineBytesUsage;
+    return this;
+  }
+
+  /**
+   * The observability pipeline bytes usage by tag(s).
+   *
+   * @return obsPipelineBytesUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OBS_PIPELINE_BYTES_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getObsPipelineBytesUsage() {
+    return obsPipelineBytesUsage;
+  }
+
+  public void setObsPipelineBytesUsage(Double obsPipelineBytesUsage) {
+    this.obsPipelineBytesUsage = obsPipelineBytesUsage;
+  }
+
   public MonthlyUsageAttributionValues profiledContainerPercentage(
       Double profiledContainerPercentage) {
     this.profiledContainerPercentage = profiledContainerPercentage;
@@ -1759,6 +1811,11 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(this.npmHostPercentage, monthlyUsageAttributionValues.npmHostPercentage)
         && Objects.equals(this.npmHostUsage, monthlyUsageAttributionValues.npmHostUsage)
         && Objects.equals(
+            this.obsPipelineBytesPercentage,
+            monthlyUsageAttributionValues.obsPipelineBytesPercentage)
+        && Objects.equals(
+            this.obsPipelineBytesUsage, monthlyUsageAttributionValues.obsPipelineBytesUsage)
+        && Objects.equals(
             this.profiledContainerPercentage,
             monthlyUsageAttributionValues.profiledContainerPercentage)
         && Objects.equals(
@@ -1840,6 +1897,8 @@ public class MonthlyUsageAttributionValues {
         invocationsUsage,
         npmHostPercentage,
         npmHostUsage,
+        obsPipelineBytesPercentage,
+        obsPipelineBytesUsage,
         profiledContainerPercentage,
         profiledContainerUsage,
         profiledFargatePercentage,
@@ -1964,6 +2023,12 @@ public class MonthlyUsageAttributionValues {
     sb.append("    invocationsUsage: ").append(toIndentedString(invocationsUsage)).append("\n");
     sb.append("    npmHostPercentage: ").append(toIndentedString(npmHostPercentage)).append("\n");
     sb.append("    npmHostUsage: ").append(toIndentedString(npmHostUsage)).append("\n");
+    sb.append("    obsPipelineBytesPercentage: ")
+        .append(toIndentedString(obsPipelineBytesPercentage))
+        .append("\n");
+    sb.append("    obsPipelineBytesUsage: ")
+        .append(toIndentedString(obsPipelineBytesUsage))
+        .append("\n");
     sb.append("    profiledContainerPercentage: ")
         .append(toIndentedString(profiledContainerPercentage))
         .append("\n");
