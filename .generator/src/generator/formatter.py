@@ -598,7 +598,7 @@ def format_data_with_schema_dict(
 
     # NOTE this is a special case for unnamed objects that should be avoided in the future
     if schema.get("type") == "object" and not data:
-        return None, "new Object()", set()
+        return "Object", "new Object()", set()
 
     if schema.get("type") == "object" and "properties" not in schema and schema.get("additionalProperties") == {}:
         parameters = ""

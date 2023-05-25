@@ -25,6 +25,7 @@ hs_err_pid*
 target
 .gradle
 build
+examples/**/*.bak
 
 # IDE files
 .classpath
