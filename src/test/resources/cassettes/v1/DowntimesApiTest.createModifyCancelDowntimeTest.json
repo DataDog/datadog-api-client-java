@@ -1,310 +1,496 @@
 [{
-  "id" : "2f9b470b-cb75-41b4-82f5-01d69210bb08",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/downtime",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "createModifyCancelDowntimeTest" ],
+      "x-datadog-trace-id" : [ "7787564131649671938" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "213" ],
       "Content-Type" : [ "application/json" ],
       "Content-Language" : [ "" ],
-      "x-datadog-origin" : [ "ciapp-test" ],
-      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ]
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
+      "contentType" : "application/json",
       "type" : "JSON",
-      "json" : "{\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"]},\"scope\":[\"env:prod\"],\"start\":1649545544}"
+      "json" : {
+        "end" : 1685419275,
+        "message" : "java-createModifyCancelDowntimeTest-local-1685019275",
+        "recurrence" : {
+          "period" : 1,
+          "type" : "weeks",
+          "until_occurrences" : 10,
+          "week_days" : [ "Mon", "Tue" ]
+        },
+        "scope" : [ "env:prod" ],
+        "start" : 1685219275
+      }
     }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Thu, 07 Apr 2022 15:32:25 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-ratelimit-remaining" : [ "11984" ],
-      "x-ratelimit-limit" : [ "12000" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "36" ],
-      "vary" : [ "Accept-Encoding" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "535" ]
+      "x-content-type-options" : [ "nosniff" ],
+      "vary" : [ "Accept-Encoding" ],
+      "strict-transport-security" : [ "max-age=31536000; includeSubDomains; preload" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "Date" : [ "Thu, 25 May 2023 12:54:37 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":false,\"start\":1649545544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":null}"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "id" : 2951540193,
+        "monitor_id" : null,
+        "org_id" : 321813,
+        "start" : 1685219275,
+        "end" : 1685419275,
+        "canceled" : null,
+        "created" : 1685019277,
+        "modified" : 1685019277,
+        "message" : "java-createModifyCancelDowntimeTest-local-1685019275",
+        "active" : false,
+        "disabled" : false,
+        "recurrence" : {
+          "type" : "weeks",
+          "period" : 1,
+          "week_days" : [ "Mon", "Tue" ],
+          "until_occurrences" : 10,
+          "until_date" : null
+        },
+        "timezone" : "UTC",
+        "parent_id" : null,
+        "child_id" : null,
+        "creator_id" : 1445416,
+        "updater_id" : null,
+        "downtime_type" : 2,
+        "status" : "scheduled",
+        "monitor_tags" : [ "*" ],
+        "mute_first_recovery_notification" : false,
+        "notify_end_types" : [ "expired" ],
+        "notify_end_states" : [ "alert", "no data", "warn" ],
+        "uuid" : "4e176e78-fafb-11ed-9d9f-da7ad0900002",
+        "scope" : [ "env:prod" ]
+      }
+    }
+  },
+  "id" : "43d9808a-d659-4d53-bc3b-fe3046962d8c",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }, {
-  "id" : "198fd835-188c-49f2-a5eb-23bb0fbcc69d",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/downtime/1862378557",
+    "path" : "/api/v1/downtime/2951540193",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "createModifyCancelDowntimeTest" ],
+      "x-datadog-trace-id" : [ "7063456547282305519" ],
       "x-datadog-origin" : [ "ciapp-test" ],
-      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ],
-      "content-length" : [ "0" ]
+      "content-length" : [ "0" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true
   },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
   "httpResponse" : {
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Thu, 07 Apr 2022 15:32:25 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-ratelimit-remaining" : [ "11983" ],
-      "x-ratelimit-limit" : [ "12000" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "35" ],
-      "vary" : [ "Accept-Encoding" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "x-ratelimit-reset" : [ "23" ],
+      "x-ratelimit-remaining" : [ "749" ],
+      "x-ratelimit-period" : [ "30" ],
+      "x-ratelimit-name" : [ "get_downtime" ],
+      "x-ratelimit-limit" : [ "750" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "535" ]
+      "x-content-type-options" : [ "nosniff" ],
+      "vary" : [ "Accept-Encoding" ],
+      "strict-transport-security" : [ "max-age=31536000; includeSubDomains; preload" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "Date" : [ "Thu, 25 May 2023 12:54:37 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":false,\"start\":1649545544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":null}"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "id" : 2951540193,
+        "monitor_id" : null,
+        "org_id" : 321813,
+        "start" : 1685219275,
+        "end" : 1685419275,
+        "canceled" : null,
+        "created" : 1685019277,
+        "modified" : 1685019277,
+        "message" : "java-createModifyCancelDowntimeTest-local-1685019275",
+        "active" : false,
+        "disabled" : false,
+        "recurrence" : {
+          "type" : "weeks",
+          "period" : 1,
+          "week_days" : [ "Mon", "Tue" ],
+          "until_occurrences" : 10,
+          "until_date" : null
+        },
+        "timezone" : "UTC",
+        "parent_id" : null,
+        "child_id" : null,
+        "creator_id" : 1445416,
+        "updater_id" : null,
+        "downtime_type" : 2,
+        "status" : "scheduled",
+        "monitor_tags" : [ "*" ],
+        "mute_first_recovery_notification" : false,
+        "notify_end_types" : [ "expired" ],
+        "notify_end_states" : [ "alert", "no data", "warn" ],
+        "uuid" : "4e176e78-fafb-11ed-9d9f-da7ad0900002",
+        "scope" : [ "env:prod" ]
+      }
+    }
+  },
+  "id" : "8a8efee9-349e-4005-a252-7d7c440ad547",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }, {
-  "id" : "045fb94f-f78f-4a11-8af9-21706c505c1c",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/downtime/1862378557",
+    "path" : "/api/v1/downtime/2951540193",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "createModifyCancelDowntimeTest" ],
+      "x-datadog-trace-id" : [ "5894406742408688617" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "221" ],
       "Content-Type" : [ "application/json" ],
       "Content-Language" : [ "" ],
-      "x-datadog-origin" : [ "ciapp-test" ],
-      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ]
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
+      "contentType" : "application/json",
       "type" : "JSON",
-      "json" : "{\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"]},\"scope\":[\"env:prod\"],\"start\":1649545544}"
+      "json" : {
+        "end" : 1685419275,
+        "message" : "java-createModifyCancelDowntimeTest-local-1685019275-updated",
+        "recurrence" : {
+          "period" : 1,
+          "type" : "weeks",
+          "until_occurrences" : 10,
+          "week_days" : [ "Mon", "Tue" ]
+        },
+        "scope" : [ "env:prod" ],
+        "start" : 1685219275
+      }
     }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Thu, 07 Apr 2022 15:32:25 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-ratelimit-remaining" : [ "11982" ],
-      "x-ratelimit-limit" : [ "12000" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "35" ],
-      "vary" : [ "Accept-Encoding" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "546" ]
+      "x-content-type-options" : [ "nosniff" ],
+      "vary" : [ "Accept-Encoding" ],
+      "strict-transport-security" : [ "max-age=31536000; includeSubDomains; preload" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "Date" : [ "Thu, 25 May 2023 12:54:38 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":false,\"start\":1649545544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":1445416}"
-  }
-}, {
-  "id" : "afbce33f-7474-447b-840b-1673d4236adc",
-  "httpRequest" : {
-    "method" : "DELETE",
-    "path" : "/api/v1/downtime/1862378557",
-    "headers" : {
-      "Accept" : [ "*/*" ],
-      "JAVA-TEST-NAME" : [ "createModifyCancelDowntimeTest" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Language" : [ "" ],
-      "x-datadog-origin" : [ "ciapp-test" ],
-      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ]
-    },
-    "keepAlive" : false,
-    "secure" : true
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "id" : 2951540193,
+        "monitor_id" : null,
+        "org_id" : 321813,
+        "start" : 1685219275,
+        "end" : 1685419275,
+        "canceled" : null,
+        "created" : 1685019277,
+        "modified" : 1685019278,
+        "message" : "java-createModifyCancelDowntimeTest-local-1685019275-updated",
+        "active" : false,
+        "disabled" : false,
+        "recurrence" : {
+          "type" : "weeks",
+          "period" : 1,
+          "week_days" : [ "Mon", "Tue" ],
+          "until_occurrences" : 10,
+          "until_date" : null
+        },
+        "timezone" : "UTC",
+        "parent_id" : null,
+        "child_id" : null,
+        "creator_id" : 1445416,
+        "updater_id" : 1445416,
+        "downtime_type" : 2,
+        "status" : "scheduled",
+        "monitor_tags" : [ "*" ],
+        "mute_first_recovery_notification" : false,
+        "notify_end_types" : [ "expired" ],
+        "notify_end_states" : [ "alert", "no data", "warn" ],
+        "uuid" : null,
+        "scope" : [ "env:prod" ]
+      }
+    }
+  },
+  "id" : "bfa176a6-f1ec-4e72-97b3-e9f013f7c5d9",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
   },
   "times" : {
     "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
+  }
+}, {
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/downtime/2951540193",
+    "headers" : {
+      "x-datadog-trace-id" : [ "8895305215839094147" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "0" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Language" : [ "" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "*/*" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
   },
   "httpResponse" : {
     "statusCode" : 204,
     "reasonPhrase" : "No Content",
     "headers" : {
-      "Date" : [ "Thu, 07 Apr 2022 15:32:25 GMT" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-ratelimit-remaining" : [ "11981" ],
-      "x-ratelimit-limit" : [ "12000" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "35" ],
-      "vary" : [ "Accept-Encoding" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "x-ratelimit-reset" : [ "22" ],
+      "x-ratelimit-remaining" : [ "499" ],
+      "x-ratelimit-period" : [ "30" ],
+      "x-ratelimit-name" : [ "cancel_downtime" ],
+      "x-ratelimit-limit" : [ "500" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "0" ]
+      "x-content-type-options" : [ "nosniff" ],
+      "vary" : [ "Accept-Encoding" ],
+      "strict-transport-security" : [ "max-age=31536000; includeSubDomains; preload" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "Date" : [ "Thu, 25 May 2023 12:54:39 GMT" ],
+      "Content-Type" : [ "text/html; charset=utf-8" ]
     }
-  }
-}, {
-  "id" : "58eaca73-7a67-451b-9354-5b0b1e86b5b7",
-  "httpRequest" : {
-    "method" : "GET",
-    "path" : "/api/v1/downtime/1862378557",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "createModifyCancelDowntimeTest" ],
-      "x-datadog-origin" : [ "ciapp-test" ],
-      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ],
-      "content-length" : [ "0" ]
-    },
-    "keepAlive" : false,
-    "secure" : true
+  },
+  "id" : "50f55578-fb53-4cfb-b82f-af35ec9c463e",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
   },
   "times" : {
     "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
+  }
+}, {
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/downtime/2951540193",
+    "headers" : {
+      "x-datadog-trace-id" : [ "5095250240599397059" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "0" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
   },
   "httpResponse" : {
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Thu, 07 Apr 2022 15:32:25 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-ratelimit-remaining" : [ "11980" ],
-      "x-ratelimit-limit" : [ "12000" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "35" ],
-      "vary" : [ "Accept-Encoding" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "x-ratelimit-reset" : [ "21" ],
+      "x-ratelimit-remaining" : [ "748" ],
+      "x-ratelimit-period" : [ "30" ],
+      "x-ratelimit-name" : [ "get_downtime" ],
+      "x-ratelimit-limit" : [ "750" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "551" ]
+      "x-content-type-options" : [ "nosniff" ],
+      "vary" : [ "Accept-Encoding" ],
+      "strict-transport-security" : [ "max-age=31536000; includeSubDomains; preload" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "Date" : [ "Thu, 25 May 2023 12:54:39 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":1649345545,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":true,\"start\":1649545544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":1445416}"
-  }
-}, {
-  "id" : "eda99cec-8d04-4275-8e63-7df2a565dcb6",
-  "httpRequest" : {
-    "method" : "GET",
-    "path" : "/api/v1/downtime/1862378557",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "createModifyCancelDowntimeTest" ],
-      "x-datadog-origin" : [ "ciapp-test" ],
-      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ],
-      "content-length" : [ "0" ]
-    },
-    "keepAlive" : false,
-    "secure" : true
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "id" : 2951540193,
+        "monitor_id" : null,
+        "org_id" : 321813,
+        "start" : 1685219275,
+        "end" : 1685419275,
+        "canceled" : 1685019278,
+        "created" : 1685019277,
+        "modified" : 1685019278,
+        "message" : "java-createModifyCancelDowntimeTest-local-1685019275-updated",
+        "active" : false,
+        "disabled" : true,
+        "recurrence" : {
+          "type" : "weeks",
+          "period" : 1,
+          "week_days" : [ "Mon", "Tue" ],
+          "until_occurrences" : 10,
+          "until_date" : null
+        },
+        "timezone" : "UTC",
+        "parent_id" : null,
+        "child_id" : null,
+        "creator_id" : 1445416,
+        "updater_id" : 1445416,
+        "downtime_type" : 2,
+        "status" : "canceled",
+        "monitor_tags" : [ "*" ],
+        "mute_first_recovery_notification" : false,
+        "notify_end_types" : [ "expired" ],
+        "notify_end_states" : [ "alert", "no data", "warn" ],
+        "uuid" : "4e176e78-fafb-11ed-9d9f-da7ad0900002",
+        "scope" : [ "env:prod" ]
+      }
+    }
+  },
+  "id" : "6b63e840-2280-4de3-8a94-bb13537264f9",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
   },
   "times" : {
     "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
+  }
+}, {
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/downtime/2951540193",
+    "headers" : {
+      "x-datadog-trace-id" : [ "4558363621888719810" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "0" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
   },
   "httpResponse" : {
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Thu, 07 Apr 2022 15:32:26 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-ratelimit-remaining" : [ "11979" ],
-      "x-ratelimit-limit" : [ "12000" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "34" ],
-      "vary" : [ "Accept-Encoding" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "x-ratelimit-reset" : [ "20" ],
+      "x-ratelimit-remaining" : [ "747" ],
+      "x-ratelimit-period" : [ "30" ],
+      "x-ratelimit-name" : [ "get_downtime" ],
+      "x-ratelimit-limit" : [ "750" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "551" ]
+      "x-content-type-options" : [ "nosniff" ],
+      "vary" : [ "Accept-Encoding" ],
+      "strict-transport-security" : [ "max-age=31536000; includeSubDomains; preload" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "Date" : [ "Thu, 25 May 2023 12:54:40 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":1649345545,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":true,\"start\":1649545544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":1445416}"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "id" : 2951540193,
+        "monitor_id" : null,
+        "org_id" : 321813,
+        "start" : 1685219275,
+        "end" : 1685419275,
+        "canceled" : 1685019278,
+        "created" : 1685019277,
+        "modified" : 1685019278,
+        "message" : "java-createModifyCancelDowntimeTest-local-1685019275-updated",
+        "active" : false,
+        "disabled" : true,
+        "recurrence" : {
+          "type" : "weeks",
+          "period" : 1,
+          "week_days" : [ "Mon", "Tue" ],
+          "until_occurrences" : 10,
+          "until_date" : null
+        },
+        "timezone" : "UTC",
+        "parent_id" : null,
+        "child_id" : null,
+        "creator_id" : 1445416,
+        "updater_id" : 1445416,
+        "downtime_type" : 2,
+        "status" : "canceled",
+        "monitor_tags" : [ "*" ],
+        "mute_first_recovery_notification" : false,
+        "notify_end_types" : [ "expired" ],
+        "notify_end_states" : [ "alert", "no data", "warn" ],
+        "uuid" : "4e176e78-fafb-11ed-9d9f-da7ad0900002",
+        "scope" : [ "env:prod" ]
+      }
+    }
+  },
+  "id" : "413ff3f7-efc1-4269-808d-1aeecae5a148",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }, {
-  "id" : "142dbbcb-f7b9-4aff-bef4-d250e28d35b9",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v1/downtime/1862378557",
+    "path" : "/api/v1/downtime/2951540193",
     "headers" : {
-      "Accept" : [ "*/*" ],
-      "JAVA-TEST-NAME" : [ "createModifyCancelDowntimeTest" ],
+      "x-datadog-trace-id" : [ "8150745668697528896" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "0" ],
       "Content-Type" : [ "application/json" ],
       "Content-Language" : [ "" ],
-      "x-datadog-origin" : [ "ciapp-test" ],
-      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ]
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "*/*" ]
     },
     "keepAlive" : false,
     "secure" : true
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 204,
     "reasonPhrase" : "No Content",
     "headers" : {
-      "Date" : [ "Thu, 07 Apr 2022 15:32:26 GMT" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-ratelimit-remaining" : [ "11978" ],
-      "x-ratelimit-limit" : [ "12000" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "34" ],
-      "vary" : [ "Accept-Encoding" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "x-ratelimit-reset" : [ "20" ],
+      "x-ratelimit-remaining" : [ "498" ],
+      "x-ratelimit-period" : [ "30" ],
+      "x-ratelimit-name" : [ "cancel_downtime" ],
+      "x-ratelimit-limit" : [ "500" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "0" ]
+      "x-content-type-options" : [ "nosniff" ],
+      "vary" : [ "Accept-Encoding" ],
+      "strict-transport-security" : [ "max-age=31536000; includeSubDomains; preload" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+      "Date" : [ "Thu, 25 May 2023 12:54:40 GMT" ],
+      "Content-Type" : [ "text/html; charset=utf-8" ]
     }
+  },
+  "id" : "311078d4-0808-4917-a257-6d93652e7399",
+  "priority" : 0,
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
   }
 }]
