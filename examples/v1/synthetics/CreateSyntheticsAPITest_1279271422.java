@@ -61,7 +61,8 @@ public class Example {
                                                     .type(SyntheticsGlobalVariableParserType.RAW))
                                             .type(
                                                 SyntheticsGlobalVariableParseTestOptionsType
-                                                    .HTTP_HEADER)))
+                                                    .HTTP_HEADER)
+                                            .secure(true)))
                                 .isCritical(true)
                                 .name("request is sent")
                                 .request(
