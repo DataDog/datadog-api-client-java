@@ -15,7 +15,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"]},\"scope\":[\"env:prod\"],\"start\":1649545544}"
+      "json" : "{\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"]},\"scope\":[\"env:prod\"],\"start\":1649545544,\"end\":1649745544}"
     }
   },
   "times" : {
@@ -44,7 +44,7 @@
       "x-frame-options" : [ "SAMEORIGIN" ],
       "content-length" : [ "535" ]
     },
-    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":false,\"start\":1649545544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":null}"
+    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":false,\"start\":1649545544,\"end\":1649745544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":null}"
   }
 }, {
   "id" : "198fd835-188c-49f2-a5eb-23bb0fbcc69d",
@@ -87,7 +87,7 @@
       "x-frame-options" : [ "SAMEORIGIN" ],
       "content-length" : [ "535" ]
     },
-    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":false,\"start\":1649545544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":null}"
+    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":false,\"start\":1649545544,\"end\":1649745544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":null}"
   }
 }, {
   "id" : "045fb94f-f78f-4a11-8af9-21706c505c1c",
@@ -106,7 +106,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"]},\"scope\":[\"env:prod\"],\"start\":1649545544}"
+      "json" : "{\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"]},\"scope\":[\"env:prod\"],\"start\":1649545544,\"end\":1649745544}"
     }
   },
   "times" : {
@@ -135,7 +135,7 @@
       "x-frame-options" : [ "SAMEORIGIN" ],
       "content-length" : [ "546" ]
     },
-    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":false,\"start\":1649545544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":1445416}"
+    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":false,\"start\":1649545544,\"end\":1649745544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":1445416}"
   }
 }, {
   "id" : "afbce33f-7474-447b-840b-1673d4236adc",
@@ -220,7 +220,7 @@
       "x-frame-options" : [ "SAMEORIGIN" ],
       "content-length" : [ "551" ]
     },
-    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":1649345545,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":true,\"start\":1649545544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":1445416}"
+    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":1649345545,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":true,\"start\":1649545544,\"end\":1649745544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":1445416}"
   }
 }, {
   "id" : "eda99cec-8d04-4275-8e63-7df2a565dcb6",
@@ -263,7 +263,7 @@
       "x-frame-options" : [ "SAMEORIGIN" ],
       "content-length" : [ "551" ]
     },
-    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":1649345545,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":true,\"start\":1649545544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":1445416}"
+    "body" : "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":10,\"week_days\":[\"Mon\",\"Tue\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":1649345545,\"monitor_id\":null,\"mute_first_recovery_notification\":false,\"created\":1649345545,\"org_id\":321813,\"modified\":1649345545,\"disabled\":true,\"start\":1649545544,\"end\":1649745544,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"UTC\",\"active\":false,\"scope\":[\"env:prod\"],\"message\":\"java-createModifyCancelDowntimeTest-local-1649345544-updated\",\"downtime_type\":2,\"id\":1862378557,\"updater_id\":1445416}"
   }
 }, {
   "id" : "142dbbcb-f7b9-4aff-bef4-d250e28d35b9",

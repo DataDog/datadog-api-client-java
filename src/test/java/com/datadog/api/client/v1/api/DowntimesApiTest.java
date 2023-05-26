@@ -36,6 +36,7 @@ public class DowntimesApiTest extends V1ApiTest {
 
   private ArrayList<Long> deleteDowntimes = null;
   private Long testingDowntimeStart;
+  private Long testingDowntimeEnd;
 
   private final List<String> testingDowntimeScope = Arrays.asList("env:prod");
   private final String testingDowntimeRecurrenceType = "weeks";
@@ -52,6 +53,7 @@ public class DowntimesApiTest extends V1ApiTest {
   public void resetTest() {
     deleteDowntimes = new ArrayList<>();
     testingDowntimeStart = now.toInstant().toEpochMilli() / 1000L + 200000;
+    testingDowntimeEnd = now.toInstant().toEpochMilli() / 1000L + 400000;
   }
 
   @BeforeClass
@@ -91,6 +93,7 @@ public class DowntimesApiTest extends V1ApiTest {
             .scope(testingDowntimeScope)
             .message(testingDowntimeMessage)
             .start(testingDowntimeStart)
+            .end(testingDowntimeEnd)
             .recurrence(recurrence);
 
     // test creating downtime
