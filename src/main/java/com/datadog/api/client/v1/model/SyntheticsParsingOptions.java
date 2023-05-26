@@ -17,6 +17,7 @@ import java.util.Objects;
   SyntheticsParsingOptions.JSON_PROPERTY_FIELD,
   SyntheticsParsingOptions.JSON_PROPERTY_NAME,
   SyntheticsParsingOptions.JSON_PROPERTY_PARSER,
+  SyntheticsParsingOptions.JSON_PROPERTY_SECURE,
   SyntheticsParsingOptions.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -31,6 +32,9 @@ public class SyntheticsParsingOptions {
 
   public static final String JSON_PROPERTY_PARSER = "parser";
   private SyntheticsVariableParser parser;
+
+  public static final String JSON_PROPERTY_SECURE = "secure";
+  private Boolean secure;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsGlobalVariableParseTestOptionsType type;
@@ -99,6 +103,27 @@ public class SyntheticsParsingOptions {
     this.parser = parser;
   }
 
+  public SyntheticsParsingOptions secure(Boolean secure) {
+    this.secure = secure;
+    return this;
+  }
+
+  /**
+   * Determines whether or not the extracted value will be obfuscated.
+   *
+   * @return secure
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getSecure() {
+    return secure;
+  }
+
+  public void setSecure(Boolean secure) {
+    this.secure = secure;
+  }
+
   public SyntheticsParsingOptions type(SyntheticsGlobalVariableParseTestOptionsType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -137,12 +162,13 @@ public class SyntheticsParsingOptions {
     return Objects.equals(this.field, syntheticsParsingOptions.field)
         && Objects.equals(this.name, syntheticsParsingOptions.name)
         && Objects.equals(this.parser, syntheticsParsingOptions.parser)
+        && Objects.equals(this.secure, syntheticsParsingOptions.secure)
         && Objects.equals(this.type, syntheticsParsingOptions.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, name, parser, type);
+    return Objects.hash(field, name, parser, secure, type);
   }
 
   @Override
@@ -152,6 +178,7 @@ public class SyntheticsParsingOptions {
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parser: ").append(toIndentedString(parser)).append("\n");
+    sb.append("    secure: ").append(toIndentedString(secure)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
