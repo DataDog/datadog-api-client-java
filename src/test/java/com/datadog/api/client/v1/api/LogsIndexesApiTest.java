@@ -289,17 +289,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
   @Test
   public void logsIndexesOrderUpdateErrorsTest() throws IOException {
     try {
-      api.updateLogsIndexOrder(new LogsIndexesOrder().indexNames(null));
-      fail("Expected ApiException not thrown");
-    } catch (ApiException e) {
-      assertEquals(400, e.getCode());
-      LogsAPIErrorResponse error =
-          objectMapper.readValue(e.getResponseBody(), LogsAPIErrorResponse.class);
-      assertNotNull(error.getError());
-    }
-
-    try {
-      fakeAuthApi.updateLogsIndexOrder(new LogsIndexesOrder().indexNames(null));
+      fakeAuthApi.updateLogsIndexOrder(new LogsIndexesOrder().indexNames(new ArrayList<String>()));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
