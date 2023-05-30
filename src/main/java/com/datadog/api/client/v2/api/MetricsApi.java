@@ -208,7 +208,7 @@ public class MetricsApi {
   }
 
   /**
-   * Create a tag configuration.
+   * Get a monitor configuration policy.
    *
    * <p>See {@link #createTagConfigurationWithHttpInfo}.
    *
@@ -223,7 +223,7 @@ public class MetricsApi {
   }
 
   /**
-   * Create a tag configuration.
+   * Get a monitor configuration policy.
    *
    * <p>See {@link #createTagConfigurationWithHttpInfoAsync}.
    *
@@ -305,7 +305,7 @@ public class MetricsApi {
   }
 
   /**
-   * Create a tag configuration.
+   * Get a monitor configuration policy.
    *
    * <p>See {@link #createTagConfigurationWithHttpInfo}.
    *

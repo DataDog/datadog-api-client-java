@@ -1,4 +1,4 @@
-// Get a monitor configuration policy returns "Created" response
+// Create a tag configuration returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -20,17 +20,16 @@ public class Example {
         new MetricTagConfigurationCreateRequest()
             .data(
                 new MetricTagConfigurationCreateData()
+                    .type(MetricTagConfigurationType.MANAGE_TAGS)
+                    .id("ExampleMetric")
                     .attributes(
                         new MetricTagConfigurationCreateAttributes()
-                            .includePercentiles(false)
-                            .metricType(MetricTagConfigurationMetricTypes.DISTRIBUTION)
-                            .tags(Arrays.asList("app", "datacenter")))
-                    .id("http.endpoint.request")
-                    .type(MetricTagConfigurationType.MANAGE_TAGS));
+                            .tags(Arrays.asList("app", "datacenter"))
+                            .metricType(MetricTagConfigurationMetricTypes.GAUGE)));
 
     try {
       MetricTagConfigurationResponse result =
-          apiInstance.createTagConfiguration("metric_name", body);
+          apiInstance.createTagConfiguration("ExampleMetric", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#createTagConfiguration");

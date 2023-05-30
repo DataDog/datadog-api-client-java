@@ -569,7 +569,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Edit a monitor configuration policy.
+   * Delete a monitor configuration policy.
    *
    * <p>See {@link #updateMonitorConfigPolicyWithHttpInfo}.
    *
@@ -584,7 +584,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Edit a monitor configuration policy.
+   * Delete a monitor configuration policy.
    *
    * <p>See {@link #updateMonitorConfigPolicyWithHttpInfoAsync}.
    *
@@ -662,7 +662,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Edit a monitor configuration policy.
+   * Delete a monitor configuration policy.
    *
    * <p>See {@link #updateMonitorConfigPolicyWithHttpInfo}.
    *
