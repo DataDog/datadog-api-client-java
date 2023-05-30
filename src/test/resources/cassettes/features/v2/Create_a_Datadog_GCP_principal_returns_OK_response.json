@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/gcp/sts_delegate",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"gcp_sts_delegate\",\"attributes\":{\"delegate_account_email\":\"ddgci-b5ee8760a0ff148b3056@datadog-cloud-ints-staging.iam.gserviceaccount.com\"},\"id\":\"ddgci-b5ee8760a0ff148b3056@datadog-cloud-ints-staging.iam.gserviceaccount.com\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "50dfed7f-66d5-c971-c029-801605985747"
+  }
+]
