@@ -375,7 +375,7 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics.
+   * Delete tags for multiple metrics.
    *
    * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfo}.
    *
@@ -389,7 +389,7 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics.
+   * Delete tags for multiple metrics.
    *
    * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfoAsync}.
    *
@@ -462,7 +462,7 @@ public class MetricsApi {
   }
 
   /**
-   * Configure tags for multiple metrics.
+   * Delete tags for multiple metrics.
    *
    * <p>See {@link #deleteBulkTagsMetricsConfigurationWithHttpInfo}.
    *
