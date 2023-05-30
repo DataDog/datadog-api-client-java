@@ -1,52 +1,4 @@
 [{
-  "id" : "f3810cd8-2983-4437-9aa7-65c44e6996e6",
-  "httpRequest" : {
-    "method" : "PUT",
-    "path" : "/api/v1/logs/config/index-order",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "logsIndexesOrderUpdateErrorsTest" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "20" ]
-    },
-    "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"index_names\":null}"
-    }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 400,
-    "reasonPhrase" : "Bad Request",
-    "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:14:36 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "75" ],
-      "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-RateLimit-Limit" : [ "100" ],
-      "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "2724" ],
-      "X-RateLimit-Remaining" : [ "84" ],
-      "X-DD-VERSION" : [ "35.2563169" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
-    },
-    "body" : "{\"error\":{\"code\":\"InvalidArgument\",\"message\":\"Missing field: index_names\"}}"
-  }
-}, {
   "id" : "c4fe4a77-24b2-42cd-ab7e-977a03fce6a2",
   "httpRequest" : {
     "method" : "PUT",
@@ -62,7 +14,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"index_names\":null}"
+      "json" : "{\"index_names\":[]}"
     }
   },
   "times" : {
