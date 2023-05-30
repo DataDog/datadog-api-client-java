@@ -543,7 +543,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     // Give the async call time to finish, only run assertions once we know we have an error state
     // This should only require a small amount of time to be complete
     TestUtils.retry(
-        5,
+        10,
         20,
         () -> {
           AWSLogsAsyncResponse retryResponse;
