@@ -234,7 +234,6 @@ public class LogsIndexesApiTest extends V1ApiTest {
   }
 
   @Test
-  @Ignore
   public void logsIndexesUpdateErrorsTest() throws IOException {
     try {
       api.updateLogsIndex("shrugs", new LogsIndexUpdateRequest());
