@@ -23,6 +23,7 @@ import java.util.Objects;
   ListStreamQuery.JSON_PROPERTY_GROUP_BY,
   ListStreamQuery.JSON_PROPERTY_INDEXES,
   ListStreamQuery.JSON_PROPERTY_QUERY_STRING,
+  ListStreamQuery.JSON_PROPERTY_SORT,
   ListStreamQuery.JSON_PROPERTY_STORAGE
 })
 @jakarta.annotation.Generated(
@@ -46,6 +47,9 @@ public class ListStreamQuery {
 
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString;
+
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private WidgetFieldSort sort;
 
   public static final String JSON_PROPERTY_STORAGE = "storage";
   private String storage;
@@ -228,6 +232,28 @@ public class ListStreamQuery {
     this.queryString = queryString;
   }
 
+  public ListStreamQuery sort(WidgetFieldSort sort) {
+    this.sort = sort;
+    this.unparsed |= sort.unparsed;
+    return this;
+  }
+
+  /**
+   * Which column and order to sort by
+   *
+   * @return sort
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetFieldSort getSort() {
+    return sort;
+  }
+
+  public void setSort(WidgetFieldSort sort) {
+    this.sort = sort;
+  }
+
   public ListStreamQuery storage(String storage) {
     this.storage = storage;
     return this;
@@ -265,12 +291,14 @@ public class ListStreamQuery {
         && Objects.equals(this.groupBy, listStreamQuery.groupBy)
         && Objects.equals(this.indexes, listStreamQuery.indexes)
         && Objects.equals(this.queryString, listStreamQuery.queryString)
+        && Objects.equals(this.sort, listStreamQuery.sort)
         && Objects.equals(this.storage, listStreamQuery.storage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(compute, dataSource, eventSize, groupBy, indexes, queryString, storage);
+    return Objects.hash(
+        compute, dataSource, eventSize, groupBy, indexes, queryString, sort, storage);
   }
 
   @Override
@@ -283,6 +311,7 @@ public class ListStreamQuery {
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
     sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
     sb.append("}");
     return sb.toString();
