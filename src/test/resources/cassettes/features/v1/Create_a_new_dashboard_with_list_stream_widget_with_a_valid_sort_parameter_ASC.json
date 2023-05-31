@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_list_stream_widget_with_a_valid_sort_parameter_ASC-1685553144 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"event_stream\",\"event_size\":\"l\",\"query_string\":\"\",\"sort\":{\"column\":\"timestamp\",\"order\":\"asc\"}},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"td2-he3-3vj\",\"title\":\"Test-Create_a_new_dashboard_with_list_stream_widget_with_a_valid_sort_parameter_ASC-1685553144 with list_stream widget\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/td2-he3-3vj/test-createanewdashboardwithliststreamwidgetwithavalidsortparameterasc-168555314\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"event_stream\",\"event_size\":\"l\",\"query_string\":\"\",\"sort\":{\"column\":\"timestamp\",\"order\":\"asc\"}},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":4579982797049164}],\"notify_list\":null,\"created_at\":\"2023-05-31T17:12:24.700217+00:00\",\"modified_at\":\"2023-05-31T17:12:24.700217+00:00\",\"restricted_roles\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "262beabe-444a-04ec-c32e-92679e01c03d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/td2-he3-3vj",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"td2-he3-3vj\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "df6728de-39f0-d9a8-232b-235100fbe048"
+  }
+]
