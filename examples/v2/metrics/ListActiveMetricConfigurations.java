@@ -12,7 +12,7 @@ public class Example {
 
     try {
       MetricSuggestedTagsAndAggregationsResponse result =
-          apiInstance.listActiveMetricConfigurations("ExampleMetric");
+          apiInstance.listActiveMetricConfigurations("static_test_metric_donotdelete");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#listActiveMetricConfigurations");
