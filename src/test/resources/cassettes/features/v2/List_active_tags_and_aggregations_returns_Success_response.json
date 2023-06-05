@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"series\": [{\"metric\": \"TestListactivetagsandaggregationsreturnsSuccessresponse1662033627\", \"points\": [[1662033627.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
+        "json": "{\"series\": [{\"metric\": \"static_test_metric_donotdelete\", \"points\": [[1685976245.0, 1.1]], \"tags\": [\"test:static_test_metric_donotdelete\"], \"type\": \"gauge\"}]}"
       },
       "headers": {},
       "method": "POST",
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c82655d4-212a-549a-6179-48c07bf872be"
+    "id": "fbf9a437-a12d-36a2-ef4e-c3694fa33067"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/metrics/TestListactivetagsandaggregationsreturnsSuccessresponse1662033627/active-configurations",
+      "path": "/api/v2/metrics/static_test_metric_donotdelete/active-configurations",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"actively_queried_configurations\",\"id\":\"TestListactivetagsandaggregationsreturnsSuccessresponse1662033627\",\"attributes\":{\"active_tags\":[],\"active_aggregations\":[]}}}\n",
+      "body": "{\"data\":{\"type\":\"actively_queried_configurations\",\"id\":\"static_test_metric_donotdelete\",\"attributes\":{\"active_tags\":[],\"active_aggregations\":[]}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c1548ccf-8c41-122e-ee7a-7ebae9840749"
+    "id": "6bf5c151-8a3f-7ffa-faa3-c8213980766a"
   }
 ]
