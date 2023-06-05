@@ -12,18 +12,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** A single finding without the message and resource configuration. */
+/** Data object containing the updated finding. */
 @JsonPropertyOrder({
-  Finding.JSON_PROPERTY_ATTRIBUTES,
-  Finding.JSON_PROPERTY_ID,
-  Finding.JSON_PROPERTY_TYPE
+  MuteFindingResponseData.JSON_PROPERTY_ATTRIBUTES,
+  MuteFindingResponseData.JSON_PROPERTY_ID,
+  MuteFindingResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Finding {
+public class MuteFindingResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private FindingAttributes attributes;
+  private MuteFindingResponseAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -31,7 +31,7 @@ public class Finding {
   public static final String JSON_PROPERTY_TYPE = "type";
   private FindingType type = FindingType.FINDING;
 
-  public Finding attributes(FindingAttributes attributes) {
+  public MuteFindingResponseData attributes(MuteFindingResponseAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
@@ -45,15 +45,15 @@ public class Finding {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FindingAttributes getAttributes() {
+  public MuteFindingResponseAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(FindingAttributes attributes) {
+  public void setAttributes(MuteFindingResponseAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public Finding id(String id) {
+  public MuteFindingResponseData id(String id) {
     this.id = id;
     return this;
   }
@@ -74,7 +74,7 @@ public class Finding {
     this.id = id;
   }
 
-  public Finding type(FindingType type) {
+  public MuteFindingResponseData type(FindingType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -99,7 +99,7 @@ public class Finding {
     this.type = type;
   }
 
-  /** Return true if this Finding object is equal to o. */
+  /** Return true if this MuteFindingResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -108,10 +108,10 @@ public class Finding {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Finding finding = (Finding) o;
-    return Objects.equals(this.attributes, finding.attributes)
-        && Objects.equals(this.id, finding.id)
-        && Objects.equals(this.type, finding.type);
+    MuteFindingResponseData muteFindingResponseData = (MuteFindingResponseData) o;
+    return Objects.equals(this.attributes, muteFindingResponseData.attributes)
+        && Objects.equals(this.id, muteFindingResponseData.id)
+        && Objects.equals(this.type, muteFindingResponseData.type);
   }
 
   @Override
@@ -122,7 +122,7 @@ public class Finding {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Finding {\n");
+    sb.append("class MuteFindingResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

@@ -14,16 +14,14 @@ import java.util.Objects;
 
 /** Information about the mute status of this finding. */
 @JsonPropertyOrder({
-  FindingMute.JSON_PROPERTY_DESCRIPTION,
-  FindingMute.JSON_PROPERTY_EXPIRATION_DATE,
-  FindingMute.JSON_PROPERTY_MUTED,
-  FindingMute.JSON_PROPERTY_REASON,
-  FindingMute.JSON_PROPERTY_START_DATE,
-  FindingMute.JSON_PROPERTY_UUID
+  MuteFindingResponseProperties.JSON_PROPERTY_DESCRIPTION,
+  MuteFindingResponseProperties.JSON_PROPERTY_EXPIRATION_DATE,
+  MuteFindingResponseProperties.JSON_PROPERTY_MUTED,
+  MuteFindingResponseProperties.JSON_PROPERTY_REASON
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FindingMute {
+public class MuteFindingResponseProperties {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -37,19 +35,14 @@ public class FindingMute {
   public static final String JSON_PROPERTY_REASON = "reason";
   private FindingMuteReason reason;
 
-  public static final String JSON_PROPERTY_START_DATE = "start_date";
-  private Long startDate;
-
-  public static final String JSON_PROPERTY_UUID = "uuid";
-  private String uuid;
-
-  public FindingMute description(String description) {
+  public MuteFindingResponseProperties description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Additional information about the reason why this finding is muted or unmuted.
+   * Additional information about the reason why this finding is muted or unmuted. This attribute
+   * will not be included in the response if the description is not provided in the request body.
    *
    * @return description
    */
@@ -64,13 +57,15 @@ public class FindingMute {
     this.description = description;
   }
 
-  public FindingMute expirationDate(Long expirationDate) {
+  public MuteFindingResponseProperties expirationDate(Long expirationDate) {
     this.expirationDate = expirationDate;
     return this;
   }
 
   /**
-   * The expiration date of the mute or unmute action (Unix ms).
+   * The expiration date of the mute or unmute action. If the expiration date is not provided in the
+   * request body, this attribute will not be included in the response and the finding will be muted
+   * or unmuted indefinitely.
    *
    * @return expirationDate
    */
@@ -85,7 +80,7 @@ public class FindingMute {
     this.expirationDate = expirationDate;
   }
 
-  public FindingMute muted(Boolean muted) {
+  public MuteFindingResponseProperties muted(Boolean muted) {
     this.muted = muted;
     return this;
   }
@@ -106,7 +101,7 @@ public class FindingMute {
     this.muted = muted;
   }
 
-  public FindingMute reason(FindingMuteReason reason) {
+  public MuteFindingResponseProperties reason(FindingMuteReason reason) {
     this.reason = reason;
     this.unparsed |= !reason.isValid();
     return this;
@@ -131,49 +126,7 @@ public class FindingMute {
     this.reason = reason;
   }
 
-  public FindingMute startDate(Long startDate) {
-    this.startDate = startDate;
-    return this;
-  }
-
-  /**
-   * The start of the mute period.
-   *
-   * @return startDate
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getStartDate() {
-    return startDate;
-  }
-
-  public void setStartDate(Long startDate) {
-    this.startDate = startDate;
-  }
-
-  public FindingMute uuid(String uuid) {
-    this.uuid = uuid;
-    return this;
-  }
-
-  /**
-   * The ID of the user who muted or unmuted this finding.
-   *
-   * @return uuid
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUuid() {
-    return uuid;
-  }
-
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
-
-  /** Return true if this FindingMute object is equal to o. */
+  /** Return true if this MuteFindingResponseProperties object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -182,30 +135,26 @@ public class FindingMute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FindingMute findingMute = (FindingMute) o;
-    return Objects.equals(this.description, findingMute.description)
-        && Objects.equals(this.expirationDate, findingMute.expirationDate)
-        && Objects.equals(this.muted, findingMute.muted)
-        && Objects.equals(this.reason, findingMute.reason)
-        && Objects.equals(this.startDate, findingMute.startDate)
-        && Objects.equals(this.uuid, findingMute.uuid);
+    MuteFindingResponseProperties muteFindingResponseProperties = (MuteFindingResponseProperties) o;
+    return Objects.equals(this.description, muteFindingResponseProperties.description)
+        && Objects.equals(this.expirationDate, muteFindingResponseProperties.expirationDate)
+        && Objects.equals(this.muted, muteFindingResponseProperties.muted)
+        && Objects.equals(this.reason, muteFindingResponseProperties.reason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, expirationDate, muted, reason, startDate, uuid);
+    return Objects.hash(description, expirationDate, muted, reason);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FindingMute {\n");
+    sb.append("class MuteFindingResponseProperties {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    muted: ").append(toIndentedString(muted)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

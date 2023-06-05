@@ -6,24 +6,25 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** A single finding without the message and resource configuration. */
+/** Data object containing the new mute properties of the finding. */
 @JsonPropertyOrder({
-  Finding.JSON_PROPERTY_ATTRIBUTES,
-  Finding.JSON_PROPERTY_ID,
-  Finding.JSON_PROPERTY_TYPE
+  MuteFindingRequestData.JSON_PROPERTY_ATTRIBUTES,
+  MuteFindingRequestData.JSON_PROPERTY_ID,
+  MuteFindingRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Finding {
+public class MuteFindingRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private FindingAttributes attributes;
+  private MuteFindingRequestAttributes attributes = new MuteFindingRequestAttributes();
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -31,29 +32,43 @@ public class Finding {
   public static final String JSON_PROPERTY_TYPE = "type";
   private FindingType type = FindingType.FINDING;
 
-  public Finding attributes(FindingAttributes attributes) {
+  public MuteFindingRequestData() {}
+
+  @JsonCreator
+  public MuteFindingRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          MuteFindingRequestAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FindingType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public MuteFindingRequestData attributes(MuteFindingRequestAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * The JSON:API attributes of the finding.
+   * The mute properties to be updated.
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FindingAttributes getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public MuteFindingRequestAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(FindingAttributes attributes) {
+  public void setAttributes(MuteFindingRequestAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public Finding id(String id) {
+  public MuteFindingRequestData id(String id) {
     this.id = id;
     return this;
   }
@@ -63,9 +78,8 @@ public class Finding {
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
@@ -74,7 +88,7 @@ public class Finding {
     this.id = id;
   }
 
-  public Finding type(FindingType type) {
+  public MuteFindingRequestData type(FindingType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
@@ -85,9 +99,8 @@ public class Finding {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FindingType getType() {
     return type;
   }
@@ -99,7 +112,7 @@ public class Finding {
     this.type = type;
   }
 
-  /** Return true if this Finding object is equal to o. */
+  /** Return true if this MuteFindingRequestData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -108,10 +121,10 @@ public class Finding {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Finding finding = (Finding) o;
-    return Objects.equals(this.attributes, finding.attributes)
-        && Objects.equals(this.id, finding.id)
-        && Objects.equals(this.type, finding.type);
+    MuteFindingRequestData muteFindingRequestData = (MuteFindingRequestData) o;
+    return Objects.equals(this.attributes, muteFindingRequestData.attributes)
+        && Objects.equals(this.id, muteFindingRequestData.id)
+        && Objects.equals(this.type, muteFindingRequestData.type);
   }
 
   @Override
@@ -122,7 +135,7 @@ public class Finding {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Finding {\n");
+    sb.append("class MuteFindingRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

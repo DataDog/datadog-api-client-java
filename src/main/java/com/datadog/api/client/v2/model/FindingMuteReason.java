@@ -19,17 +19,29 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The reason why this finding is muted. */
+/** The reason why this finding is muted or unmuted. */
 @JsonSerialize(using = FindingMuteReason.FindingMuteReasonSerializer.class)
 public class FindingMuteReason {
 
-  public static final FindingMuteReason ACCEPTED_RISK = new FindingMuteReason("ACCEPTED_RISK");
   public static final FindingMuteReason PENDING_FIX = new FindingMuteReason("PENDING_FIX");
   public static final FindingMuteReason FALSE_POSITIVE = new FindingMuteReason("FALSE_POSITIVE");
+  public static final FindingMuteReason ACCEPTED_RISK = new FindingMuteReason("ACCEPTED_RISK");
+  public static final FindingMuteReason NO_PENDING_FIX = new FindingMuteReason("NO_PENDING_FIX");
+  public static final FindingMuteReason HUMAN_ERROR = new FindingMuteReason("HUMAN_ERROR");
+  public static final FindingMuteReason NO_LONGER_ACCEPTED_RISK =
+      new FindingMuteReason("NO_LONGER_ACCEPTED_RISK");
   public static final FindingMuteReason OTHER = new FindingMuteReason("OTHER");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("ACCEPTED_RISK", "PENDING_FIX", "FALSE_POSITIVE", "OTHER"));
+      new HashSet<String>(
+          Arrays.asList(
+              "PENDING_FIX",
+              "FALSE_POSITIVE",
+              "ACCEPTED_RISK",
+              "NO_PENDING_FIX",
+              "HUMAN_ERROR",
+              "NO_LONGER_ACCEPTED_RISK",
+              "OTHER"));
 
   private String value;
 
