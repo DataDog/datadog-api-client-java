@@ -6,12 +6,10 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -35,8 +33,6 @@ public class UsageBillableSummaryHour {
   private String billingPlan;
 
   public static final String JSON_PROPERTY_END_DATE = "end_date";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime endDate;
 
   public static final String JSON_PROPERTY_NUM_ORGS = "num_orgs";
@@ -55,8 +51,6 @@ public class UsageBillableSummaryHour {
   private String region;
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime startDate;
 
   public static final String JSON_PROPERTY_USAGE = "usage";

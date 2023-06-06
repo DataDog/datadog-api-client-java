@@ -6,13 +6,11 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,16 +38,12 @@ public class NotebooksResponseDataAttributes {
   private List<NotebookCellResponse> cells = null;
 
   public static final String JSON_PROPERTY_CREATED = "created";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private NotebookMetadata metadata;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_NAME = "name";

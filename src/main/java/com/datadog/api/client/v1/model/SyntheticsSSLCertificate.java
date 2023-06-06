@@ -6,12 +6,10 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,13 +65,9 @@ public class SyntheticsSSLCertificate {
   private SyntheticsSSLCertificateSubject subject;
 
   public static final String JSON_PROPERTY_VALID_FROM = "validFrom";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime validFrom;
 
   public static final String JSON_PROPERTY_VALID_TO = "validTo";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime validTo;
 
   public SyntheticsSSLCertificate cipher(String cipher) {
