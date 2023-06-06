@@ -629,7 +629,7 @@
         <jakarta-annotation-version>2.1.0</jakarta-annotation-version>
         <scribejava-version>8.3.1</scribejava-version>
         <junit-version>4.13.2</junit-version>
-        <dd-java-agent-version>0.113.0</dd-java-agent-version>
+        <dd-java-agent-version>1.15.3</dd-java-agent-version>
         <cucumber-version>7.2.3</cucumber-version>
         <project.scm.id>github</project.scm.id>
     </properties>
