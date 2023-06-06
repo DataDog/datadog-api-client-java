@@ -8,10 +8,12 @@ package com.datadog.api.client;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.ext.ContextResolver;
 import java.text.DateFormat;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -34,6 +36,11 @@ public class JSON implements ContextResolver<ObjectMapper> {
     mapper.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
     mapper.setDateFormat(new RFC3339DateFormat());
     mapper.registerModule(new JavaTimeModule());
+
+    SimpleModule module = new SimpleModule();
+    module.addSerializer(OffsetDateTime.class, new JsonTimeSerializer());
+    mapper.registerModule(module);
+
     JsonNullableModule jnm = new JsonNullableModule();
     mapper.registerModule(jnm);
   }

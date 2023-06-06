@@ -6,12 +6,10 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -35,8 +33,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class MonthlyUsageAttributionBody {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MONTH = "month";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime month;
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
@@ -56,8 +52,6 @@ public class MonthlyUsageAttributionBody {
       JsonNullable.<Map<String, List<String>>>undefined();
 
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime updatedAt;
 
   public static final String JSON_PROPERTY_VALUES = "values";

@@ -6,12 +6,10 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +44,6 @@ public class HourlyUsageAttributes {
   private String region;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime timestamp;
 
   public HourlyUsageAttributes measurements(List<HourlyUsageMeasurement> measurements) {

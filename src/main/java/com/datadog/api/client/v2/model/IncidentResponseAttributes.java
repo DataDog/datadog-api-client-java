@@ -6,13 +6,11 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,24 +44,18 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class IncidentResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED = "created";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_DURATION = "customer_impact_duration";
   private Long customerImpactDuration;
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_END = "customer_impact_end";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private JsonNullable<OffsetDateTime> customerImpactEnd = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE = "customer_impact_scope";
   private JsonNullable<String> customerImpactScope = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_START = "customer_impact_start";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private JsonNullable<OffsetDateTime> customerImpactStart =
       JsonNullable.<OffsetDateTime>undefined();
 
@@ -71,16 +63,12 @@ public class IncidentResponseAttributes {
   private Boolean customerImpacted;
 
   public static final String JSON_PROPERTY_DETECTED = "detected";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private JsonNullable<OffsetDateTime> detected = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private Map<String, IncidentFieldAttributes> fields = null;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_NOTIFICATION_HANDLES = "notification_handles";
@@ -91,8 +79,6 @@ public class IncidentResponseAttributes {
   private Long publicId;
 
   public static final String JSON_PROPERTY_RESOLVED = "resolved";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private JsonNullable<OffsetDateTime> resolved = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_TIME_TO_DETECT = "time_to_detect";

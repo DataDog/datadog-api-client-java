@@ -6,12 +6,10 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -29,8 +27,6 @@ import java.util.Objects;
 public class UsageTimeseriesHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES =

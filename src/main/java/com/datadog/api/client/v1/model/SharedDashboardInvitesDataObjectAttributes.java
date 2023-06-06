@@ -6,12 +6,10 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.datadog.api.client.JsonTimeSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -30,8 +28,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class SharedDashboardInvitesDataObjectAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
@@ -41,13 +37,9 @@ public class SharedDashboardInvitesDataObjectAttributes {
   private Boolean hasSession;
 
   public static final String JSON_PROPERTY_INVITATION_EXPIRY = "invitation_expiry";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private OffsetDateTime invitationExpiry;
 
   public static final String JSON_PROPERTY_SESSION_EXPIRY = "session_expiry";
-
-  @JsonSerialize(using = JsonTimeSerializer.class)
   private JsonNullable<OffsetDateTime> sessionExpiry = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_SHARE_TOKEN = "share_token";
