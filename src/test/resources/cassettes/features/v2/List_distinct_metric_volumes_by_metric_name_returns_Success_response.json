@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"series\": [{\"metric\": \"static_test_metric_donotdelete\", \"points\": [[1685718947.0, 1.1]], \"tags\": [\"test:static_test_metric_donotdelete\"], \"type\": \"gauge\"}]}"
+        "json": "{\"series\": [{\"metric\": \"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912\", \"points\": [[1652354912.0, 1.1]], \"tags\": [\"test:ExampleSubmitmetricsreturnsPayloadacceptedresponse\"], \"type\": \"gauge\"}]}"
       },
       "headers": {},
       "method": "POST",
@@ -27,18 +27,48 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cf92ac8a-efac-6f02-1bd8-3b24cb918b69"
+    "id": "110b97eb-af50-edb2-de53-d37388054dd5"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912\"]},\"id\":\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912\",\"type\":\"manage_tags\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912\",\"attributes\":{\"tags\":[\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912\",\"app\",\"datacenter\"],\"created_at\":\"2022-05-12T11:28:37.078639+00:00\",\"modified_at\":\"2022-05-12T11:28:37.078639+00:00\",\"metric_type\":\"gauge\",\"aggregations\":[{\"space\":\"avg\",\"time\":\"avg\"}]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1cbfd0d8-01c1-899c-ded4-e5a1e89f283e"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/metrics/static_test_metric_donotdelete/volumes",
+      "path": "/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912/volumes",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"metric_volumes\",\"id\":\"static_test_metric_donotdelete\",\"attributes\":{\"indexed_volume\":1,\"ingested_volume\":1}}}\n",
+      "body": "{\"data\":{\"type\":\"metric_volumes\",\"id\":\"TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912\",\"attributes\":{\"indexed_volume\":1,\"ingested_volume\":1}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +83,27 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e97c6115-10c2-d55c-ff6e-61471c65890c"
+    "id": "3fb84551-bec0-1b67-276d-ea5663d9f9c9"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/metrics/TestListdistinctmetricvolumesbymetricnamereturnsSuccessresponse1652354912/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "14a79ea4-099f-6c15-0051-d7d4cb94c5e1"
   }
 ]

@@ -49,7 +49,7 @@ public class FindingMute {
   }
 
   /**
-   * Additional information about the reason why this finding is muted or unmuted.
+   * Additional information about the reason why this finding is muted.
    *
    * @return description
    */
@@ -70,7 +70,7 @@ public class FindingMute {
   }
 
   /**
-   * The expiration date of the mute or unmute action (Unix ms).
+   * The end of the mute period.
    *
    * @return expirationDate
    */
@@ -91,7 +91,7 @@ public class FindingMute {
   }
 
   /**
-   * Whether this finding is muted or unmuted.
+   * Whether this finding is muted.
    *
    * @return muted
    */
@@ -113,7 +113,7 @@ public class FindingMute {
   }
 
   /**
-   * The reason why this finding is muted or unmuted.
+   * The reason why this finding is muted.
    *
    * @return reason
    */
@@ -158,7 +158,7 @@ public class FindingMute {
   }
 
   /**
-   * The ID of the user who muted or unmuted this finding.
+   * The ID of the user who muted this finding.
    *
    * @return uuid
    */

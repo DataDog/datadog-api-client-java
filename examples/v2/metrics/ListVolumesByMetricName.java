@@ -11,8 +11,7 @@ public class Example {
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {
-      MetricVolumesResponse result =
-          apiInstance.listVolumesByMetricName("static_test_metric_donotdelete");
+      MetricVolumesResponse result = apiInstance.listVolumesByMetricName("ExampleMetric");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#listVolumesByMetricName");

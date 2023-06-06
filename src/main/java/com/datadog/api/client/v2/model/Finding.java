@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** A single finding without the message and resource configuration. */
+/** A single finding without message and resource configuration. */
 @JsonPropertyOrder({
   Finding.JSON_PROPERTY_ATTRIBUTES,
   Finding.JSON_PROPERTY_ID,
