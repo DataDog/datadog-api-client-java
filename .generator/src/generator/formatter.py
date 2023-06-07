@@ -505,6 +505,11 @@ def format_data_with_schema_dict(
     if "properties" in schema:
         assert "oneOf" not in schema
 
+        required_properties = set(schema.get("required", []))
+        missing = required_properties - set(data.keys())
+        if missing:
+            raise ValueError(f"missing required properties: {missing}")
+
         if name is None:
             name = default_name
         parameters = f"new {name}()"
