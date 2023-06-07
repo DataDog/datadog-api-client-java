@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"}},\"id\":\"TestCreatealogbasedmetricreturnsOKresponse1677265321\",\"type\":\"logs_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"}},\"id\":\"TestCreatealogbasedmetricreturnsOKresponse1686138855\",\"type\":\"logs_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"TestCreatealogbasedmetricreturnsOKresponse1677265321\",\"attributes\":{\"filter\":{\"query\":\"*\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":true}},\"type\":\"logs_metrics\"}}\n",
+      "body": "{\"data\":{\"id\":\"TestCreatealogbasedmetricreturnsOKresponse1686138855\",\"attributes\":{\"filter\":{\"query\":\"*\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":true}},\"type\":\"logs_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,25 +27,24 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ac3bc540-9b20-2360-5878-ba38f943df2e"
+    "id": "1dd7c81d-bbf4-8331-a500-c78c11f7018d"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/logs/config/metrics/TestCreatealogbasedmetricreturnsOKresponse1677265321",
+      "path": "/api/v2/logs/config/metrics/TestCreatealogbasedmetricreturnsOKresponse1686138855",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{}\n",
       "headers": {
         "Content-Type": [
-          "application/json"
+          "text/html; charset=utf-8"
         ]
       },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
     },
     "times": {
       "remainingTimes": 1
@@ -53,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4f554b9a-a008-3e95-d132-404e1b4748b1"
+    "id": "8e26765d-0505-c31d-4176-1ff233033091"
   }
 ]

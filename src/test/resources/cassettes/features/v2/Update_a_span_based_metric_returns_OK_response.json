@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Update_a_span_based_metric_returns_OK_response-1680015329\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Update_a_span_based_metric_returns_OK_response-1680015329\",\"type\":\"spans_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Update_a_span_based_metric_returns_OK_response-1686139559\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Update_a_span_based_metric_returns_OK_response-1686139559\",\"type\":\"spans_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Update_a_span_based_metric_returns_OK_response_1680015329\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Update_a_span_based_metric_returns_OK_response-1680015329\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
+      "body": "{\"data\":{\"id\":\"Test_Update_a_span_based_metric_returns_OK_response_1686139559\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Update_a_span_based_metric_returns_OK_response-1686139559\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "416dda28-e173-7688-7ee1-edf6e4133573"
+    "id": "93746c4f-badc-5e38-8f39-892f70fe13c3"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"include_percentiles\":false},\"filter\":{\"query\":\"source:Test-Update_a_span_based_metric_returns_OK_response-1680015329-updated\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"type\":\"spans_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"include_percentiles\":false},\"filter\":{\"query\":\"source:Test-Update_a_span_based_metric_returns_OK_response-1686139559-updated\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"type\":\"spans_metrics\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/apm/config/metrics/Test_Update_a_span_based_metric_returns_OK_response_1680015329",
+      "path": "/api/v2/apm/config/metrics/Test_Update_a_span_based_metric_returns_OK_response_1686139559",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Update_a_span_based_metric_returns_OK_response_1680015329\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Update_a_span_based_metric_returns_OK_response-1680015329-updated\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
+      "body": "{\"data\":{\"id\":\"Test_Update_a_span_based_metric_returns_OK_response_1686139559\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Update_a_span_based_metric_returns_OK_response-1686139559-updated\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,25 +57,24 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b4b0ae9d-6681-8ca9-4699-72bda82e2c9d"
+    "id": "d85dbb7c-884a-fbb8-7898-23a21c4fa649"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/apm/config/metrics/Test_Update_a_span_based_metric_returns_OK_response_1680015329",
+      "path": "/api/v2/apm/config/metrics/Test_Update_a_span_based_metric_returns_OK_response_1686139559",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{}\n",
       "headers": {
         "Content-Type": [
-          "application/json"
+          "text/html; charset=utf-8"
         ]
       },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
     },
     "times": {
       "remainingTimes": 1
@@ -83,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8ec9ba06-d5df-bb01-6f18-8283f52647b5"
+    "id": "0549a291-68d4-9c67-4d59-181054c30082"
   }
 ]

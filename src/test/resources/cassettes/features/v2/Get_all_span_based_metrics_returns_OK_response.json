@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1680015328\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Get_all_span_based_metrics_returns_OK_response-1680015328\",\"type\":\"spans_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1686139550\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"Test-Get_all_span_based_metrics_returns_OK_response-1686139550\",\"type\":\"spans_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Get_all_span_based_metrics_returns_OK_response_1680015328\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1680015328\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
+      "body": "{\"data\":{\"id\":\"Test_Get_all_span_based_metrics_returns_OK_response_1686139550\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1686139550\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "11613ee2-a818-9555-9fe1-97614130d480"
+    "id": "ea152cd8-772f-0cd1-e95e-563a7d18ee8d"
   },
   {
     "httpRequest": {
@@ -38,7 +38,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"id\":\"Test_Get_all_span_based_metrics_returns_OK_response_1680015328\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1680015328\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}]}\n",
+      "body": "{\"data\":[{\"id\":\"tf_TestAccSpansMetric_import_local_1681996306\",\"attributes\":{\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"},{\"id\":\"Test_Get_all_span_based_metrics_returns_OK_response_1686139550\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Get_all_span_based_metrics_returns_OK_response-1686139550\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -59,19 +59,18 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/apm/config/metrics/Test_Get_all_span_based_metrics_returns_OK_response_1680015328",
+      "path": "/api/v2/apm/config/metrics/Test_Get_all_span_based_metrics_returns_OK_response_1686139550",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{}\n",
       "headers": {
         "Content-Type": [
-          "application/json"
+          "text/html; charset=utf-8"
         ]
       },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
     },
     "times": {
       "remainingTimes": 1
@@ -79,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "57fe563d-c5d8-c911-90f2-72199213f16c"
+    "id": "1005b7a0-c99d-2e5d-7baf-68c9dddef127"
   }
 ]
