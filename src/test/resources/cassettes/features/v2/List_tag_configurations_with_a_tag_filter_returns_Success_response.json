@@ -1,0 +1,33 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/metrics",
+      "queryStringParameters": {
+        "filter[tags]": [
+          "TestListtagconfigurationswithatagfilterreturnsSuccessresponse1648572657"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "704e5269-b3c4-442d-206c-54f565f69909"
+  }
+]

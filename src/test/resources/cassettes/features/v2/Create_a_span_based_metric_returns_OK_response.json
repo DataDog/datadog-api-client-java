@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"TestCreateaspanbasedmetricreturnsOKresponse1686139498\",\"type\":\"spans_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":false,\"path\":\"@duration\"},\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}]},\"id\":\"TestCreateaspanbasedmetricreturnsOKresponse1680015324\",\"type\":\"spans_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"TestCreateaspanbasedmetricreturnsOKresponse1686139498\",\"attributes\":{\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
+      "body": "{\"data\":{\"id\":\"TestCreateaspanbasedmetricreturnsOKresponse1680015324\",\"attributes\":{\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"group_by\":[{\"path\":\"resource_name\",\"tag_name\":\"resource_name\"}],\"compute\":{\"aggregation_type\":\"distribution\",\"path\":\"@duration\",\"include_percentiles\":false}},\"type\":\"spans_metrics\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,24 +27,25 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b6185421-f49e-fdd0-0e2d-c006fa4628f9"
+    "id": "d8d17e9a-71ea-2913-da2e-d502c39588e4"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/apm/config/metrics/TestCreateaspanbasedmetricreturnsOKresponse1686139498",
+      "path": "/api/v2/apm/config/metrics/TestCreateaspanbasedmetricreturnsOKresponse1680015324",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
+      "body": "{}\n",
       "headers": {
         "Content-Type": [
-          "text/html; charset=utf-8"
+          "application/json"
         ]
       },
-      "statusCode": 204,
-      "reasonPhrase": "No Content"
+      "statusCode": 200,
+      "reasonPhrase": "OK"
     },
     "times": {
       "remainingTimes": 1
@@ -52,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "92200ec2-1f37-2d92-73d5-8b2632ca5503"
+    "id": "0034064f-78a5-3405-c074-e39f47bc8166"
   }
 ]

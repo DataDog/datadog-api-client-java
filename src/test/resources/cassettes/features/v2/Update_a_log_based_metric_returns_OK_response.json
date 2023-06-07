@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"filter\":{\"query\":\"source:Test-Update_a_log_based_metric_returns_OK_response-1686138930\"}},\"id\":\"Test-Update_a_log_based_metric_returns_OK_response-1686138930\",\"type\":\"logs_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"filter\":{\"query\":\"source:Test-Update_a_log_based_metric_returns_OK_response-1652349148\"}},\"id\":\"Test-Update_a_log_based_metric_returns_OK_response-1652349148\",\"type\":\"logs_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Update_a_log_based_metric_returns_OK_response_1686138930\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Update_a_log_based_metric_returns_OK_response-1686138930\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\"}}\n",
+      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"source:Test-Update_a_log_based_metric_returns_OK_response-1652349148\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Update_a_log_based_metric_returns_OK_response_1652349148\"}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0888c047-ffb7-12a3-fe61-7f506807738f"
+    "id": "37843ad5-c97e-ab19-dced-87c3b7fcb022"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"source:Test-Update_a_log_based_metric_returns_OK_response-1686138930-updated\"}},\"type\":\"logs_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"source:Test-Update_a_log_based_metric_returns_OK_response-1652349148-updated\"}},\"type\":\"logs_metrics\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1686138930",
+      "path": "/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1652349148",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Update_a_log_based_metric_returns_OK_response_1686138930\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Update_a_log_based_metric_returns_OK_response-1686138930-updated\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\"}}\n",
+      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"source:Test-Update_a_log_based_metric_returns_OK_response-1652349148-updated\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Update_a_log_based_metric_returns_OK_response_1652349148\"}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,24 +57,25 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "217f4588-5799-ad49-36f8-152f6261b0f3"
+    "id": "06a513e6-f69d-ef6d-2495-2fb9b4057134"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1686138930",
+      "path": "/api/v2/logs/config/metrics/Test_Update_a_log_based_metric_returns_OK_response_1652349148",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
+      "body": "{}",
       "headers": {
         "Content-Type": [
-          "text/html; charset=utf-8"
+          "application/json"
         ]
       },
-      "statusCode": 204,
-      "reasonPhrase": "No Content"
+      "statusCode": 200,
+      "reasonPhrase": "OK"
     },
     "times": {
       "remainingTimes": 1
@@ -82,6 +83,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0786a08f-a2fc-a294-4052-f371d0810f43"
+    "id": "17b8c54a-900b-d2c4-fdf9-895f032be104"
   }
 ]

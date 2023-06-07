@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"gauge\",\"tags\":[\"app\",\"datacenter\",\"TestListtagconfigurationsreturnsSuccessresponse1648477792\"]},\"id\":\"test.metric.1\",\"type\":\"manage_tags\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/metrics/test.metric.1/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"New gauge/count/rate conflicts with existing tag configuration, use PATCH to update\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 409,
+      "reasonPhrase": "Conflict"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1c15086b-a054-9fea-6bfd-82ebcb425c89"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/metrics",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"status\":\"error\",\"code\":502,\"errors\":[\"Bad Gateway\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 502,
+      "reasonPhrase": "Bad Gateway"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fe688e59-3d41-0b65-c953-5abea628895c"
+  }
+]
