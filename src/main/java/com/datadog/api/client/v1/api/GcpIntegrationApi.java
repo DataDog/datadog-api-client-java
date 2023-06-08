@@ -52,9 +52,7 @@ public class GcpIntegrationApi {
    * @param body Create a Datadog-GCP integration. (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @deprecated
    */
-  @Deprecated
   public Object createGCPIntegration(GCPAccount body) throws ApiException {
     return createGCPIntegrationWithHttpInfo(body).getData();
   }
@@ -66,9 +64,7 @@ public class GcpIntegrationApi {
    *
    * @param body Create a Datadog-GCP integration. (required)
    * @return CompletableFuture&lt;Object&gt;
-   * @deprecated
    */
-  @Deprecated
   public CompletableFuture<Object> createGCPIntegrationAsync(GCPAccount body) {
     return createGCPIntegrationWithHttpInfoAsync(body)
         .thenApply(
@@ -78,7 +74,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * This endpoint is deprecated. Create a Datadog-GCP integration.
+   * Create a Datadog-GCP integration.
    *
    * @param body Create a Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -92,10 +88,7 @@ public class GcpIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
-   *
-   * @deprecated
    */
-  @Deprecated
   public ApiResponse<Object> createGCPIntegrationWithHttpInfo(GCPAccount body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -136,9 +129,7 @@ public class GcpIntegrationApi {
    *
    * @param body Create a Datadog-GCP integration. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
-   * @deprecated
    */
-  @Deprecated
   public CompletableFuture<ApiResponse<Object>> createGCPIntegrationWithHttpInfoAsync(
       GCPAccount body) {
     Object localVarPostBody = body;
@@ -191,9 +182,7 @@ public class GcpIntegrationApi {
    * @param body Delete a given Datadog-GCP integration. (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @deprecated
    */
-  @Deprecated
   public Object deleteGCPIntegration(GCPAccount body) throws ApiException {
     return deleteGCPIntegrationWithHttpInfo(body).getData();
   }
@@ -205,9 +194,7 @@ public class GcpIntegrationApi {
    *
    * @param body Delete a given Datadog-GCP integration. (required)
    * @return CompletableFuture&lt;Object&gt;
-   * @deprecated
    */
-  @Deprecated
   public CompletableFuture<Object> deleteGCPIntegrationAsync(GCPAccount body) {
     return deleteGCPIntegrationWithHttpInfoAsync(body)
         .thenApply(
@@ -217,7 +204,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * This endpoint is deprecated. Delete a given Datadog-GCP integration.
+   * Delete a given Datadog-GCP integration.
    *
    * @param body Delete a given Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -231,10 +218,7 @@ public class GcpIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
-   *
-   * @deprecated
    */
-  @Deprecated
   public ApiResponse<Object> deleteGCPIntegrationWithHttpInfo(GCPAccount body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -275,9 +259,7 @@ public class GcpIntegrationApi {
    *
    * @param body Delete a given Datadog-GCP integration. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
-   * @deprecated
    */
-  @Deprecated
   public CompletableFuture<ApiResponse<Object>> deleteGCPIntegrationWithHttpInfoAsync(
       GCPAccount body) {
     Object localVarPostBody = body;
@@ -329,9 +311,7 @@ public class GcpIntegrationApi {
    *
    * @return List&lt;GCPAccount&gt;
    * @throws ApiException if fails to make API call
-   * @deprecated
    */
-  @Deprecated
   public List<GCPAccount> listGCPIntegration() throws ApiException {
     return listGCPIntegrationWithHttpInfo().getData();
   }
@@ -342,9 +322,7 @@ public class GcpIntegrationApi {
    * <p>See {@link #listGCPIntegrationWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;List&lt;GCPAccount&gt;&gt;
-   * @deprecated
    */
-  @Deprecated
   public CompletableFuture<List<GCPAccount>> listGCPIntegrationAsync() {
     return listGCPIntegrationWithHttpInfoAsync()
         .thenApply(
@@ -354,8 +332,7 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * This endpoint is deprecated. List all Datadog-GCP integrations configured in your Datadog
-   * account.
+   * List all Datadog-GCP integrations configured in your Datadog account.
    *
    * @return ApiResponse&lt;List&lt;GCPAccount&gt;&gt;
    * @throws ApiException if fails to make API call
@@ -368,10 +345,7 @@ public class GcpIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
-   *
-   * @deprecated
    */
-  @Deprecated
   public ApiResponse<List<GCPAccount>> listGCPIntegrationWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
     // create path and map variables
@@ -405,9 +379,7 @@ public class GcpIntegrationApi {
    * <p>See {@link #listGCPIntegrationWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;List&lt;GCPAccount&gt;&gt;&gt;
-   * @deprecated
    */
-  @Deprecated
   public CompletableFuture<ApiResponse<List<GCPAccount>>> listGCPIntegrationWithHttpInfoAsync() {
     Object localVarPostBody = null;
     // create path and map variables
@@ -450,9 +422,7 @@ public class GcpIntegrationApi {
    * @param body Update a Datadog-GCP integration. (required)
    * @return Object
    * @throws ApiException if fails to make API call
-   * @deprecated
    */
-  @Deprecated
   public Object updateGCPIntegration(GCPAccount body) throws ApiException {
     return updateGCPIntegrationWithHttpInfo(body).getData();
   }
@@ -464,9 +434,7 @@ public class GcpIntegrationApi {
    *
    * @param body Update a Datadog-GCP integration. (required)
    * @return CompletableFuture&lt;Object&gt;
-   * @deprecated
    */
-  @Deprecated
   public CompletableFuture<Object> updateGCPIntegrationAsync(GCPAccount body) {
     return updateGCPIntegrationWithHttpInfoAsync(body)
         .thenApply(
@@ -476,10 +444,10 @@ public class GcpIntegrationApi {
   }
 
   /**
-   * This endpoint is deprecated. Update a Datadog-GCP integrations host_filters and/or auto-mute.
-   * Requires a <code>project_id</code> and <code>client_email</code>, however these fields cannot
-   * be updated. If you need to update these fields, delete and use the create (<code>POST</code>)
-   * endpoint. The unspecified fields will keep their original values.
+   * Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a <code>project_id
+   * </code> and <code>client_email</code>, however these fields cannot be updated. If you need to
+   * update these fields, delete and use the create (<code>POST</code>) endpoint. The unspecified
+   * fields will keep their original values.
    *
    * @param body Update a Datadog-GCP integration. (required)
    * @return ApiResponse&lt;Object&gt;
@@ -493,10 +461,7 @@ public class GcpIntegrationApi {
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
-   *
-   * @deprecated
    */
-  @Deprecated
   public ApiResponse<Object> updateGCPIntegrationWithHttpInfo(GCPAccount body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -537,9 +502,7 @@ public class GcpIntegrationApi {
    *
    * @param body Update a Datadog-GCP integration. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
-   * @deprecated
    */
-  @Deprecated
   public CompletableFuture<ApiResponse<Object>> updateGCPIntegrationWithHttpInfoAsync(
       GCPAccount body) {
     Object localVarPostBody = body;
