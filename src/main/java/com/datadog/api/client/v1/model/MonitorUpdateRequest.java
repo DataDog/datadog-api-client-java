@@ -76,7 +76,7 @@ public class MonitorUpdateRequest {
   private String query;
 
   public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
-  private List<String> restrictedRoles = null;
+  private JsonNullable<List<String>> restrictedRoles = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_STATE = "state";
   private MonitorState state;
@@ -292,15 +292,19 @@ public class MonitorUpdateRequest {
   }
 
   public MonitorUpdateRequest restrictedRoles(List<String> restrictedRoles) {
-    this.restrictedRoles = restrictedRoles;
+    this.restrictedRoles = JsonNullable.<List<String>>of(restrictedRoles);
     return this;
   }
 
   public MonitorUpdateRequest addRestrictedRolesItem(String restrictedRolesItem) {
-    if (this.restrictedRoles == null) {
-      this.restrictedRoles = new ArrayList<>();
+    if (this.restrictedRoles == null || !this.restrictedRoles.isPresent()) {
+      this.restrictedRoles = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.restrictedRoles.add(restrictedRolesItem);
+    try {
+      this.restrictedRoles.get().add(restrictedRolesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -318,14 +322,24 @@ public class MonitorUpdateRequest {
    * @return restrictedRoles
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getRestrictedRoles() {
+    return restrictedRoles.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getRestrictedRoles() {
+  public JsonNullable<List<String>> getRestrictedRoles_JsonNullable() {
     return restrictedRoles;
   }
 
-  public void setRestrictedRoles(List<String> restrictedRoles) {
+  @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
+  public void setRestrictedRoles_JsonNullable(JsonNullable<List<String>> restrictedRoles) {
     this.restrictedRoles = restrictedRoles;
+  }
+
+  public void setRestrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = JsonNullable.<List<String>>of(restrictedRoles);
   }
 
   /**
