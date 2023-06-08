@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Response with a list of Opsgenie services. */
+/** Response with a list of Opsgenie services. Test coverage. */
 @JsonPropertyOrder({OpsgenieServicesResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
