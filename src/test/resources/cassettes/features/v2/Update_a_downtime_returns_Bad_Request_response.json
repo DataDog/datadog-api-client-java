@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"message\":\"test message\",\"monitor_identifier\":{\"monitor_tags\":[\"cat:hat\"]},\"schedule\":{\"start\":null},\"scope\":\"test:testupdateadowntimereturnsbadrequestresponse1685739206\"},\"type\":\"downtime\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/downtime",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"downtime\",\"attributes\":{\"schedule\":{\"start\":\"2023-06-02T20:53:26.854449+00:00\",\"end\":null},\"canceled\":null,\"modified\":\"2023-06-02T20:53:26.869296+00:00\",\"created\":\"2023-06-02T20:53:26.869296+00:00\",\"status\":\"active\",\"monitor_identifier\":{\"monitor_tags\":[\"cat:hat\"]},\"scope\":\"test:testupdateadowntimereturnsbadrequestresponse1685739206\",\"message\":\"test message\",\"display_timezone\":\"UTC\",\"mute_first_recovery_notification\":false,\"notify_end_states\":[\"no data\",\"warn\",\"alert\"],\"notify_end_types\":[\"expired\"]},\"relationships\":{\"monitor\":{\"data\":null},\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}},\"id\":\"85997dfe-0187-11ee-a1c1-da7ad0900002\"},\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"created_at\":\"2019-10-02T08:15:39.795051+00:00\",\"modified_at\":\"2020-06-15T12:33:12.884459+00:00\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Active\"}}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c8e639c2-df31-d4c2-a2f9-c916cb22951e"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"invalid_field\":\"sophon\"},\"id\":\"85997dfe-0187-11ee-a1c1-da7ad0900002\",\"type\":\"downtime\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/downtime/85997dfe-0187-11ee-a1c1-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Additional properties are not allowed ('invalid_field' was unexpected)\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9ba97ebb-2c39-5ae7-5c9d-9f8cbd7344d5"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/downtime/85997dfe-0187-11ee-a1c1-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7a579640-4431-3d02-459f-91a959c6a6e5"
+  }
+]

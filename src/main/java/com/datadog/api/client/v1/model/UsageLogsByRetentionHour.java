@@ -46,7 +46,7 @@ public class UsageLogsByRetentionHour {
   private JsonNullable<Long> rehydratedIndexedEventsCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_RETENTION = "retention";
-  private JsonNullable<String> retention = JsonNullable.<String>undefined();
+  private String retention;
 
   public UsageLogsByRetentionHour indexedEventsCount(Long indexedEventsCount) {
     this.indexedEventsCount = JsonNullable.<Long>of(indexedEventsCount);
@@ -185,7 +185,7 @@ public class UsageLogsByRetentionHour {
   }
 
   public UsageLogsByRetentionHour retention(String retention) {
-    this.retention = JsonNullable.<String>of(retention);
+    this.retention = retention;
     return this;
   }
 
@@ -195,24 +195,14 @@ public class UsageLogsByRetentionHour {
    * @return retention
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public String getRetention() {
-    return retention.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_RETENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<String> getRetention_JsonNullable() {
+  public String getRetention() {
     return retention;
   }
 
-  @JsonProperty(JSON_PROPERTY_RETENTION)
-  public void setRetention_JsonNullable(JsonNullable<String> retention) {
-    this.retention = retention;
-  }
-
   public void setRetention(String retention) {
-    this.retention = JsonNullable.<String>of(retention);
+    this.retention = retention;
   }
 
   /** Return true if this UsageLogsByRetentionHour object is equal to o. */

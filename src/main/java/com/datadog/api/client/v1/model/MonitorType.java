@@ -42,8 +42,6 @@ public class MonitorType {
   public static final MonitorType CI_PIPELINES_ALERT = new MonitorType("ci-pipelines alert");
   public static final MonitorType CI_TESTS_ALERT = new MonitorType("ci-tests alert");
   public static final MonitorType ERROR_TRACKING_ALERT = new MonitorType("error-tracking alert");
-  public static final MonitorType DATABASE_MONITORING_ALERT =
-      new MonitorType("database-monitoring alert");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -63,8 +61,7 @@ public class MonitorType {
               "audit alert",
               "ci-pipelines alert",
               "ci-tests alert",
-              "error-tracking alert",
-              "database-monitoring alert"));
+              "error-tracking alert"));
 
   private String value;
 
