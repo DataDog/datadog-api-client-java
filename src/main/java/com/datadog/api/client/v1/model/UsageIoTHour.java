@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** IoT usage for a given organization for a given hour. */
 @JsonPropertyOrder({
@@ -28,7 +29,7 @@ public class UsageIoTHour {
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_IOT_DEVICE_COUNT = "iot_device_count";
-  private Long iotDeviceCount;
+  private JsonNullable<Long> iotDeviceCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -58,7 +59,7 @@ public class UsageIoTHour {
   }
 
   public UsageIoTHour iotDeviceCount(Long iotDeviceCount) {
-    this.iotDeviceCount = iotDeviceCount;
+    this.iotDeviceCount = JsonNullable.<Long>of(iotDeviceCount);
     return this;
   }
 
@@ -68,14 +69,24 @@ public class UsageIoTHour {
    * @return iotDeviceCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getIotDeviceCount() {
+    return iotDeviceCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_IOT_DEVICE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIotDeviceCount() {
+  public JsonNullable<Long> getIotDeviceCount_JsonNullable() {
     return iotDeviceCount;
   }
 
-  public void setIotDeviceCount(Long iotDeviceCount) {
+  @JsonProperty(JSON_PROPERTY_IOT_DEVICE_COUNT)
+  public void setIotDeviceCount_JsonNullable(JsonNullable<Long> iotDeviceCount) {
     this.iotDeviceCount = iotDeviceCount;
+  }
+
+  public void setIotDeviceCount(Long iotDeviceCount) {
+    this.iotDeviceCount = JsonNullable.<Long>of(iotDeviceCount);
   }
 
   public UsageIoTHour orgName(String orgName) {
