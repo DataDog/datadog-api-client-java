@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Number of active NPM hosts for each hour for a given organization. */
 @JsonPropertyOrder({
@@ -25,7 +26,7 @@ import java.util.Objects;
 public class UsageNetworkHostsHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOST_COUNT = "host_count";
-  private Long hostCount;
+  private JsonNullable<Long> hostCount = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
@@ -37,7 +38,7 @@ public class UsageNetworkHostsHour {
   private String publicId;
 
   public UsageNetworkHostsHour hostCount(Long hostCount) {
-    this.hostCount = hostCount;
+    this.hostCount = JsonNullable.<Long>of(hostCount);
     return this;
   }
 
@@ -47,14 +48,24 @@ public class UsageNetworkHostsHour {
    * @return hostCount
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getHostCount() {
+    return hostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getHostCount() {
+  public JsonNullable<Long> getHostCount_JsonNullable() {
     return hostCount;
   }
 
-  public void setHostCount(Long hostCount) {
+  @JsonProperty(JSON_PROPERTY_HOST_COUNT)
+  public void setHostCount_JsonNullable(JsonNullable<Long> hostCount) {
     this.hostCount = hostCount;
+  }
+
+  public void setHostCount(Long hostCount) {
+    this.hostCount = JsonNullable.<Long>of(hostCount);
   }
 
   public UsageNetworkHostsHour hour(OffsetDateTime hour) {
