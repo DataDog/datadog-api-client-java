@@ -1,4 +1,4 @@
-// Get all downtimes for a monitor returns "OK" response
+// Get active downtimes for a monitor returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

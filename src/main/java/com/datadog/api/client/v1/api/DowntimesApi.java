@@ -763,7 +763,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor.
+   * Get active downtimes for a monitor.
    *
    * <p>See {@link #listMonitorDowntimesWithHttpInfo}.
    *
@@ -776,7 +776,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor.
+   * Get active downtimes for a monitor.
    *
    * <p>See {@link #listMonitorDowntimesWithHttpInfoAsync}.
    *
@@ -844,7 +844,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor.
+   * Get active downtimes for a monitor.
    *
    * <p>See {@link #listMonitorDowntimesWithHttpInfo}.
    *
