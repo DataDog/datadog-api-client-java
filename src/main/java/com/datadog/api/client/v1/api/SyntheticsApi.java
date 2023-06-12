@@ -2644,6 +2644,115 @@ public class SyntheticsApi {
   }
 
   /**
+   * Get the default locations.
+   *
+   * <p>See {@link #getSyntheticsDefaultLocationsWithHttpInfo}.
+   *
+   * @return List&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<String> getSyntheticsDefaultLocations() throws ApiException {
+    return getSyntheticsDefaultLocationsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get the default locations.
+   *
+   * <p>See {@link #getSyntheticsDefaultLocationsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;List&lt;String&gt;&gt;
+   */
+  public CompletableFuture<List<String>> getSyntheticsDefaultLocationsAsync() {
+    return getSyntheticsDefaultLocationsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the default locations settings.
+   *
+   * @return ApiResponse&lt;List&lt;String&gt;&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<List<String>> getSyntheticsDefaultLocationsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/settings/default_locations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.SyntheticsApi.getSyntheticsDefaultLocations",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<String>>() {});
+  }
+
+  /**
+   * Get the default locations.
+   *
+   * <p>See {@link #getSyntheticsDefaultLocationsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;String&gt;&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<List<String>>>
+      getSyntheticsDefaultLocationsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/settings/default_locations";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.SyntheticsApi.getSyntheticsDefaultLocations",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<List<String>>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<String>>() {});
+  }
+
+  /**
    * Get a test configuration.
    *
    * <p>See {@link #getTestWithHttpInfo}.
