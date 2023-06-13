@@ -79,6 +79,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_UNITS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NPM_HOST_TOP99P_SUM,
@@ -321,6 +322,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_AGG_SUM =
       "mobile_rum_session_count_reactnative_agg_sum";
   private Long mobileRumSessionCountReactnativeAggSum;
+
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_AGG_SUM =
+      "mobile_rum_session_count_roku_agg_sum";
+  private Long mobileRumSessionCountRokuAggSum;
 
   public static final String JSON_PROPERTY_MOBILE_RUM_UNITS_AGG_SUM = "mobile_rum_units_agg_sum";
   private Long mobileRumUnitsAggSum;
@@ -1744,6 +1749,29 @@ public class UsageSummaryResponse {
     this.mobileRumSessionCountReactnativeAggSum = mobileRumSessionCountReactnativeAggSum;
   }
 
+  public UsageSummaryResponse mobileRumSessionCountRokuAggSum(
+      Long mobileRumSessionCountRokuAggSum) {
+    this.mobileRumSessionCountRokuAggSum = mobileRumSessionCountRokuAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM Sessions on Roku over all hours in the current months for all
+   * organizations.
+   *
+   * @return mobileRumSessionCountRokuAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMobileRumSessionCountRokuAggSum() {
+    return mobileRumSessionCountRokuAggSum;
+  }
+
+  public void setMobileRumSessionCountRokuAggSum(Long mobileRumSessionCountRokuAggSum) {
+    this.mobileRumSessionCountRokuAggSum = mobileRumSessionCountRokuAggSum;
+  }
+
   public UsageSummaryResponse mobileRumUnitsAggSum(Long mobileRumUnitsAggSum) {
     this.mobileRumUnitsAggSum = mobileRumUnitsAggSum;
     return this;
@@ -2538,6 +2566,9 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.mobileRumSessionCountReactnativeAggSum,
             usageSummaryResponse.mobileRumSessionCountReactnativeAggSum)
+        && Objects.equals(
+            this.mobileRumSessionCountRokuAggSum,
+            usageSummaryResponse.mobileRumSessionCountRokuAggSum)
         && Objects.equals(this.mobileRumUnitsAggSum, usageSummaryResponse.mobileRumUnitsAggSum)
         && Objects.equals(
             this.netflowIndexedEventsCountAggSum,
@@ -2663,6 +2694,7 @@ public class UsageSummaryResponse {
         mobileRumSessionCountFlutterAggSum,
         mobileRumSessionCountIosAggSum,
         mobileRumSessionCountReactnativeAggSum,
+        mobileRumSessionCountRokuAggSum,
         mobileRumUnitsAggSum,
         netflowIndexedEventsCountAggSum,
         npmHostTop99pSum,
@@ -2837,6 +2869,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    mobileRumSessionCountReactnativeAggSum: ")
         .append(toIndentedString(mobileRumSessionCountReactnativeAggSum))
+        .append("\n");
+    sb.append("    mobileRumSessionCountRokuAggSum: ")
+        .append(toIndentedString(mobileRumSessionCountRokuAggSum))
         .append("\n");
     sb.append("    mobileRumUnitsAggSum: ")
         .append(toIndentedString(mobileRumUnitsAggSum))
