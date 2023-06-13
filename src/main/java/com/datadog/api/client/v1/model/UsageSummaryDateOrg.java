@@ -67,6 +67,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_UNITS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_NAME,
@@ -277,6 +278,10 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM =
       "mobile_rum_session_count_reactnative_sum";
   private Long mobileRumSessionCountReactnativeSum;
+
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM =
+      "mobile_rum_session_count_roku_sum";
+  private Long mobileRumSessionCountRokuSum;
 
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM =
       "mobile_rum_session_count_sum";
@@ -1543,6 +1548,28 @@ public class UsageSummaryDateOrg {
     this.mobileRumSessionCountReactnativeSum = mobileRumSessionCountReactnativeSum;
   }
 
+  public UsageSummaryDateOrg mobileRumSessionCountRokuSum(Long mobileRumSessionCountRokuSum) {
+    this.mobileRumSessionCountRokuSum = mobileRumSessionCountRokuSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM Sessions on Roku over all hours in the current date for the
+   * given org.
+   *
+   * @return mobileRumSessionCountRokuSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMobileRumSessionCountRokuSum() {
+    return mobileRumSessionCountRokuSum;
+  }
+
+  public void setMobileRumSessionCountRokuSum(Long mobileRumSessionCountRokuSum) {
+    this.mobileRumSessionCountRokuSum = mobileRumSessionCountRokuSum;
+  }
+
   public UsageSummaryDateOrg mobileRumSessionCountSum(Long mobileRumSessionCountSum) {
     this.mobileRumSessionCountSum = mobileRumSessionCountSum;
     return this;
@@ -2267,6 +2294,8 @@ public class UsageSummaryDateOrg {
             this.mobileRumSessionCountReactnativeSum,
             usageSummaryDateOrg.mobileRumSessionCountReactnativeSum)
         && Objects.equals(
+            this.mobileRumSessionCountRokuSum, usageSummaryDateOrg.mobileRumSessionCountRokuSum)
+        && Objects.equals(
             this.mobileRumSessionCountSum, usageSummaryDateOrg.mobileRumSessionCountSum)
         && Objects.equals(this.mobileRumUnitsSum, usageSummaryDateOrg.mobileRumUnitsSum)
         && Objects.equals(this.name, usageSummaryDateOrg.name)
@@ -2373,6 +2402,7 @@ public class UsageSummaryDateOrg {
         mobileRumSessionCountFlutterSum,
         mobileRumSessionCountIosSum,
         mobileRumSessionCountReactnativeSum,
+        mobileRumSessionCountRokuSum,
         mobileRumSessionCountSum,
         mobileRumUnitsSum,
         name,
@@ -2518,6 +2548,9 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    mobileRumSessionCountReactnativeSum: ")
         .append(toIndentedString(mobileRumSessionCountReactnativeSum))
+        .append("\n");
+    sb.append("    mobileRumSessionCountRokuSum: ")
+        .append(toIndentedString(mobileRumSessionCountRokuSum))
         .append("\n");
     sb.append("    mobileRumSessionCountSum: ")
         .append(toIndentedString(mobileRumSessionCountSum))
