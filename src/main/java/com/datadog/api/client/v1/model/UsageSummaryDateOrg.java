@@ -34,6 +34,8 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG,
@@ -171,6 +173,14 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM =
       "ci_visibility_test_committers_hwm";
   private Long ciVisibilityTestCommittersHwm;
+
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG =
+      "cloud_cost_management_aws_host_count_avg";
+  private Long cloudCostManagementAwsHostCountAvg;
+
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG =
+      "cloud_cost_management_azure_host_count_avg";
+  private Long cloudCostManagementAzureHostCountAvg;
 
   public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG =
       "cloud_cost_management_host_count_avg";
@@ -827,13 +837,58 @@ public class UsageSummaryDateOrg {
     this.ciVisibilityTestCommittersHwm = ciVisibilityTestCommittersHwm;
   }
 
+  public UsageSummaryDateOrg cloudCostManagementAwsHostCountAvg(
+      Long cloudCostManagementAwsHostCountAvg) {
+    this.cloudCostManagementAwsHostCountAvg = cloudCostManagementAwsHostCountAvg;
+    return this;
+  }
+
+  /**
+   * Host count average of Cloud Cost Management for AWS for the given date and given org.
+   *
+   * @return cloudCostManagementAwsHostCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCloudCostManagementAwsHostCountAvg() {
+    return cloudCostManagementAwsHostCountAvg;
+  }
+
+  public void setCloudCostManagementAwsHostCountAvg(Long cloudCostManagementAwsHostCountAvg) {
+    this.cloudCostManagementAwsHostCountAvg = cloudCostManagementAwsHostCountAvg;
+  }
+
+  public UsageSummaryDateOrg cloudCostManagementAzureHostCountAvg(
+      Long cloudCostManagementAzureHostCountAvg) {
+    this.cloudCostManagementAzureHostCountAvg = cloudCostManagementAzureHostCountAvg;
+    return this;
+  }
+
+  /**
+   * Host count average of Cloud Cost Management for Azure for the given date and given org.
+   *
+   * @return cloudCostManagementAzureHostCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCloudCostManagementAzureHostCountAvg() {
+    return cloudCostManagementAzureHostCountAvg;
+  }
+
+  public void setCloudCostManagementAzureHostCountAvg(Long cloudCostManagementAzureHostCountAvg) {
+    this.cloudCostManagementAzureHostCountAvg = cloudCostManagementAzureHostCountAvg;
+  }
+
   public UsageSummaryDateOrg cloudCostManagementHostCountAvg(Long cloudCostManagementHostCountAvg) {
     this.cloudCostManagementHostCountAvg = cloudCostManagementHostCountAvg;
     return this;
   }
 
   /**
-   * Host count average of Cloud Cost Management for the given date and given org.
+   * Host count average of Cloud Cost Management for all cloud providers for the given date and
+   * given org.
    *
    * @return cloudCostManagementHostCountAvg
    */
@@ -2248,6 +2303,12 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.ciVisibilityTestCommittersHwm, usageSummaryDateOrg.ciVisibilityTestCommittersHwm)
         && Objects.equals(
+            this.cloudCostManagementAwsHostCountAvg,
+            usageSummaryDateOrg.cloudCostManagementAwsHostCountAvg)
+        && Objects.equals(
+            this.cloudCostManagementAzureHostCountAvg,
+            usageSummaryDateOrg.cloudCostManagementAzureHostCountAvg)
+        && Objects.equals(
             this.cloudCostManagementHostCountAvg,
             usageSummaryDateOrg.cloudCostManagementHostCountAvg)
         && Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg)
@@ -2369,6 +2430,8 @@ public class UsageSummaryDateOrg {
         ciTestIndexedSpansSum,
         ciVisibilityPipelineCommittersHwm,
         ciVisibilityTestCommittersHwm,
+        cloudCostManagementAwsHostCountAvg,
+        cloudCostManagementAzureHostCountAvg,
         cloudCostManagementHostCountAvg,
         containerAvg,
         containerExclAgentAvg,
@@ -2485,6 +2548,12 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    ciVisibilityTestCommittersHwm: ")
         .append(toIndentedString(ciVisibilityTestCommittersHwm))
+        .append("\n");
+    sb.append("    cloudCostManagementAwsHostCountAvg: ")
+        .append(toIndentedString(cloudCostManagementAwsHostCountAvg))
+        .append("\n");
+    sb.append("    cloudCostManagementAzureHostCountAvg: ")
+        .append(toIndentedString(cloudCostManagementAzureHostCountAvg))
         .append("\n");
     sb.append("    cloudCostManagementHostCountAvg: ")
         .append(toIndentedString(cloudCostManagementHostCountAvg))
