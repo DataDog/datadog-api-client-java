@@ -14,13 +14,13 @@ import java.util.Objects;
 
 /** API error response body */
 @JsonPropertyOrder({
-  FindingsErrorItem.JSON_PROPERTY_DETAIL,
-  FindingsErrorItem.JSON_PROPERTY_STATUS,
-  FindingsErrorItem.JSON_PROPERTY_TITLE
+  JSONAPIErrorItem.JSON_PROPERTY_DETAIL,
+  JSONAPIErrorItem.JSON_PROPERTY_STATUS,
+  JSONAPIErrorItem.JSON_PROPERTY_TITLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FindingsErrorItem {
+public class JSONAPIErrorItem {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DETAIL = "detail";
   private String detail;
@@ -31,7 +31,7 @@ public class FindingsErrorItem {
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
-  public FindingsErrorItem detail(String detail) {
+  public JSONAPIErrorItem detail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -52,7 +52,7 @@ public class FindingsErrorItem {
     this.detail = detail;
   }
 
-  public FindingsErrorItem status(String status) {
+  public JSONAPIErrorItem status(String status) {
     this.status = status;
     return this;
   }
@@ -73,7 +73,7 @@ public class FindingsErrorItem {
     this.status = status;
   }
 
-  public FindingsErrorItem title(String title) {
+  public JSONAPIErrorItem title(String title) {
     this.title = title;
     return this;
   }
@@ -94,7 +94,7 @@ public class FindingsErrorItem {
     this.title = title;
   }
 
-  /** Return true if this FindingsErrorItem object is equal to o. */
+  /** Return true if this JSONAPIErrorItem object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,10 +103,10 @@ public class FindingsErrorItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FindingsErrorItem findingsErrorItem = (FindingsErrorItem) o;
-    return Objects.equals(this.detail, findingsErrorItem.detail)
-        && Objects.equals(this.status, findingsErrorItem.status)
-        && Objects.equals(this.title, findingsErrorItem.title);
+    JSONAPIErrorItem jsonapiErrorItem = (JSONAPIErrorItem) o;
+    return Objects.equals(this.detail, jsonapiErrorItem.detail)
+        && Objects.equals(this.status, jsonapiErrorItem.status)
+        && Objects.equals(this.title, jsonapiErrorItem.title);
   }
 
   @Override
@@ -117,7 +117,7 @@ public class FindingsErrorItem {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FindingsErrorItem {\n");
+    sb.append("class JSONAPIErrorItem {\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
