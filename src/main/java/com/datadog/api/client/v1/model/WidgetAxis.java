@@ -45,7 +45,7 @@ public class WidgetAxis {
   }
 
   /**
-   * True includes zero.
+   * Set to <code>true</code> to include zero.
    *
    * @return includeZero
    */
@@ -66,7 +66,7 @@ public class WidgetAxis {
   }
 
   /**
-   * The label of the axis to display on the graph.
+   * The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
    *
    * @return label
    */
@@ -87,8 +87,7 @@ public class WidgetAxis {
   }
 
   /**
-   * Specifies the maximum value to show on the y-axis. It takes a number, or auto for default
-   * behavior.
+   * Specifies maximum numeric value to show on the axis. Defaults to <code>auto</code>.
    *
    * @return max
    */
@@ -109,7 +108,7 @@ public class WidgetAxis {
   }
 
   /**
-   * Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
+   * Specifies minimum numeric value to show on the axis. Defaults to <code>auto</code>.
    *
    * @return min
    */
@@ -131,7 +130,7 @@ public class WidgetAxis {
 
   /**
    * Specifies the scale type. Possible values are <code>linear</code>, <code>log</code>, <code>sqrt
-   * </code>, <code>pow##</code> (for example <code>pow2</code>, <code>pow0.5</code> etc.).
+   * </code>, and <code>pow##</code> (for example <code>pow2</code> or <code>pow0.5</code>).
    *
    * @return scale
    */
