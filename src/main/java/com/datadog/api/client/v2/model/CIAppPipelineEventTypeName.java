@@ -23,7 +23,7 @@ import java.util.Set;
 @JsonSerialize(using = CIAppPipelineEventTypeName.CIAppPipelineEventTypeNameSerializer.class)
 public class CIAppPipelineEventTypeName {
 
-  public static final CIAppPipelineEventTypeName cipipeline =
+  public static final CIAppPipelineEventTypeName CIPIPELINE =
       new CIAppPipelineEventTypeName("cipipeline");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("cipipeline"));

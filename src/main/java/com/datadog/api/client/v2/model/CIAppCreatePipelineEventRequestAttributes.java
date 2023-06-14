@@ -1,0 +1,150 @@
+/*
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2019-Present Datadog, Inc.
+ */
+
+package com.datadog.api.client.v2.model;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.Objects;
+
+/** Attributes of the pipeline event to create. */
+@JsonPropertyOrder({
+  CIAppCreatePipelineEventRequestAttributes.JSON_PROPERTY_ENV,
+  CIAppCreatePipelineEventRequestAttributes.JSON_PROPERTY_RESOURCE,
+  CIAppCreatePipelineEventRequestAttributes.JSON_PROPERTY_SERVICE
+})
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class CIAppCreatePipelineEventRequestAttributes {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENV = "env";
+  private String env;
+
+  public static final String JSON_PROPERTY_RESOURCE = "resource";
+  private CIAppCreatePipelineEventRequestAttributesResource resource;
+
+  public static final String JSON_PROPERTY_SERVICE = "service";
+  private String service;
+
+  public CIAppCreatePipelineEventRequestAttributes() {}
+
+  @JsonCreator
+  public CIAppCreatePipelineEventRequestAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE)
+          CIAppCreatePipelineEventRequestAttributesResource resource) {
+    this.resource = resource;
+    this.unparsed |= resource.unparsed;
+  }
+
+  public CIAppCreatePipelineEventRequestAttributes env(String env) {
+    this.env = env;
+    return this;
+  }
+
+  /**
+   * The Datadog environment.
+   *
+   * @return env
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEnv() {
+    return env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
+  }
+
+  public CIAppCreatePipelineEventRequestAttributes resource(
+      CIAppCreatePipelineEventRequestAttributesResource resource) {
+    this.resource = resource;
+    this.unparsed |= resource.unparsed;
+    return this;
+  }
+
+  /**
+   * Details of the CI pipeline event.
+   *
+   * @return resource
+   */
+  @JsonProperty(JSON_PROPERTY_RESOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CIAppCreatePipelineEventRequestAttributesResource getResource() {
+    return resource;
+  }
+
+  public void setResource(CIAppCreatePipelineEventRequestAttributesResource resource) {
+    this.resource = resource;
+  }
+
+  public CIAppCreatePipelineEventRequestAttributes service(String service) {
+    this.service = service;
+    return this;
+  }
+
+  /**
+   * If the CI provider is SaaS, use this to differentiate between instances.
+   *
+   * @return service
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getService() {
+    return service;
+  }
+
+  public void setService(String service) {
+    this.service = service;
+  }
+
+  /** Return true if this CIAppCreatePipelineEventRequestAttributes object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CIAppCreatePipelineEventRequestAttributes ciAppCreatePipelineEventRequestAttributes =
+        (CIAppCreatePipelineEventRequestAttributes) o;
+    return Objects.equals(this.env, ciAppCreatePipelineEventRequestAttributes.env)
+        && Objects.equals(this.resource, ciAppCreatePipelineEventRequestAttributes.resource)
+        && Objects.equals(this.service, ciAppCreatePipelineEventRequestAttributes.service);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(env, resource, service);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CIAppCreatePipelineEventRequestAttributes {\n");
+    sb.append("    env: ").append(toIndentedString(env)).append("\n");
+    sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
+    sb.append("    service: ").append(toIndentedString(service)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
