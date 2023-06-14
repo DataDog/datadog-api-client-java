@@ -23,7 +23,7 @@ import java.util.Set;
 @JsonSerialize(using = CIAppTestEventTypeName.CIAppTestEventTypeNameSerializer.class)
 public class CIAppTestEventTypeName {
 
-  public static final CIAppTestEventTypeName citest = new CIAppTestEventTypeName("citest");
+  public static final CIAppTestEventTypeName CITEST = new CIAppTestEventTypeName("citest");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("citest"));
 

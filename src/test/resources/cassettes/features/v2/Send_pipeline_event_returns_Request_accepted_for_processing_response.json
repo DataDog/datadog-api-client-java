@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"resource\":{\"end\":\"2023-06-13T14:47:25.155Z\",\"level\":\"pipeline\",\"name\":\"Deploy to AWS\",\"partial_retry\":false,\"start\":\"2023-06-13T14:45:55.155Z\",\"status\":\"success\",\"unique_id\":\"3eacb6f3-ff04-4e10-8a9c-46e6d054024a\",\"url\":\"https://my-ci-provider.example/pipelines/my-pipeline/run/1\"}},\"type\":\"cipipeline_resource_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/ci/pipeline",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":null}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 202,
+      "reasonPhrase": "Accepted"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "95bb8791-4356-aa68-f40d-e38f8d8b9b22"
+  }
+]
