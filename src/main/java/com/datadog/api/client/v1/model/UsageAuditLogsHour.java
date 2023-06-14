@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Audit logs usage for a given organization for a given hour. */
 @JsonPropertyOrder({
@@ -28,7 +29,7 @@ public class UsageAuditLogsHour {
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_LINES_INDEXED = "lines_indexed";
-  private Long linesIndexed;
+  private JsonNullable<Long> linesIndexed = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_ORG_NAME = "org_name";
   private String orgName;
@@ -58,7 +59,7 @@ public class UsageAuditLogsHour {
   }
 
   public UsageAuditLogsHour linesIndexed(Long linesIndexed) {
-    this.linesIndexed = linesIndexed;
+    this.linesIndexed = JsonNullable.<Long>of(linesIndexed);
     return this;
   }
 
@@ -68,14 +69,24 @@ public class UsageAuditLogsHour {
    * @return linesIndexed
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLinesIndexed() {
+    return linesIndexed.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LINES_INDEXED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLinesIndexed() {
+  public JsonNullable<Long> getLinesIndexed_JsonNullable() {
     return linesIndexed;
   }
 
-  public void setLinesIndexed(Long linesIndexed) {
+  @JsonProperty(JSON_PROPERTY_LINES_INDEXED)
+  public void setLinesIndexed_JsonNullable(JsonNullable<Long> linesIndexed) {
     this.linesIndexed = linesIndexed;
+  }
+
+  public void setLinesIndexed(Long linesIndexed) {
+    this.linesIndexed = JsonNullable.<Long>of(linesIndexed);
   }
 
   public UsageAuditLogsHour orgName(String orgName) {
