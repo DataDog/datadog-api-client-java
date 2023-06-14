@@ -16,31 +16,31 @@ import java.util.List;
 import java.util.Objects;
 
 /** API error response. */
-@JsonPropertyOrder({FindingsErrorResponse.JSON_PROPERTY_ERRORS})
+@JsonPropertyOrder({JSONAPIErrorResponse.JSON_PROPERTY_ERRORS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class FindingsErrorResponse {
+public class JSONAPIErrorResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<FindingsErrorItem> errors = new ArrayList<>();
+  private List<JSONAPIErrorItem> errors = new ArrayList<>();
 
-  public FindingsErrorResponse() {}
+  public JSONAPIErrorResponse() {}
 
   @JsonCreator
-  public FindingsErrorResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ERRORS) List<FindingsErrorItem> errors) {
+  public JSONAPIErrorResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ERRORS) List<JSONAPIErrorItem> errors) {
     this.errors = errors;
   }
 
-  public FindingsErrorResponse errors(List<FindingsErrorItem> errors) {
+  public JSONAPIErrorResponse errors(List<JSONAPIErrorItem> errors) {
     this.errors = errors;
-    for (FindingsErrorItem item : errors) {
+    for (JSONAPIErrorItem item : errors) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public FindingsErrorResponse addErrorsItem(FindingsErrorItem errorsItem) {
+  public JSONAPIErrorResponse addErrorsItem(JSONAPIErrorItem errorsItem) {
     this.errors.add(errorsItem);
     this.unparsed |= errorsItem.unparsed;
     return this;
@@ -53,15 +53,15 @@ public class FindingsErrorResponse {
    */
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<FindingsErrorItem> getErrors() {
+  public List<JSONAPIErrorItem> getErrors() {
     return errors;
   }
 
-  public void setErrors(List<FindingsErrorItem> errors) {
+  public void setErrors(List<JSONAPIErrorItem> errors) {
     this.errors = errors;
   }
 
-  /** Return true if this FindingsErrorResponse object is equal to o. */
+  /** Return true if this JSONAPIErrorResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -70,8 +70,8 @@ public class FindingsErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FindingsErrorResponse findingsErrorResponse = (FindingsErrorResponse) o;
-    return Objects.equals(this.errors, findingsErrorResponse.errors);
+    JSONAPIErrorResponse jsonapiErrorResponse = (JSONAPIErrorResponse) o;
+    return Objects.equals(this.errors, jsonapiErrorResponse.errors);
   }
 
   @Override
@@ -82,7 +82,7 @@ public class FindingsErrorResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FindingsErrorResponse {\n");
+    sb.append("class JSONAPIErrorResponse {\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();

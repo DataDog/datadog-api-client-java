@@ -1227,10 +1227,10 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found: The requested finding cannot be found. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests: The rate limit set by the API has been exceeded. </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<GetFindingResponse> getFindingWithHttpInfo(
@@ -2068,6 +2068,10 @@ public class SecurityMonitoringApi {
    * </code> operator, add the operator after the equal sign: <code>
    * filter[evaluation_changed_at]=&gt;=1678809373257</code>.
    *
+   * <p>Query parameters must be only among the documented ones and with values of correct types.
+   * Duplicated query parameters (e.g. <code>filter[status]=low&amp;filter[status]=info</code>) are
+   * not allowed.
+   *
    * <h3>Response</h3>
    *
    * <p>The response includes an array of finding objects, pagination metadata, and a count of items
@@ -2092,10 +2096,10 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found: The requested finding cannot be found. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests: The rate limit set by the API has been exceeded. </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<ListFindingsResponse> listFindingsWithHttpInfo(
@@ -3158,6 +3162,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found: The requested finding cannot be found. </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Resource Conflict: The finding has already been muted or unmuted within the last 60 seconds. </td><td>  -  </td></tr>
    *       <tr><td> 422 </td><td> Invalid Request: The server understands the request syntax but cannot process it due to invalid data. </td><td>  -  </td></tr>
