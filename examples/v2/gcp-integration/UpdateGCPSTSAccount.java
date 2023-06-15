@@ -8,11 +8,15 @@ import com.datadog.api.client.v2.model.GCPSTSServiceAccountResponse;
 import com.datadog.api.client.v2.model.GCPSTSServiceAccountUpdateRequest;
 import com.datadog.api.client.v2.model.GCPSTSServiceAccountUpdateRequestData;
 import com.datadog.api.client.v2.model.GCPServiceAccountType;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
+
+    // there is a valid "gcp_sts_account" in the system
+    String GCP_STS_ACCOUNT_DATA_ID = System.getenv("GCP_STS_ACCOUNT_DATA_ID");
 
     GCPSTSServiceAccountUpdateRequest body =
         new GCPSTSServiceAccountUpdateRequest()
@@ -20,13 +24,14 @@ public class Example {
                 new GCPSTSServiceAccountUpdateRequestData()
                     .attributes(
                         new GCPSTSServiceAccountAttributes()
-                            .clientEmail(
-                                "datadog-service-account@test-project.iam.gserviceaccount.com"))
-                    .id("d291291f-12c2-22g4-j290-123456678897")
+                            .clientEmail("252bf553ef04b351@example.com")
+                            .hostFilters(Collections.singletonList("foo:bar")))
+                    .id(GCP_STS_ACCOUNT_DATA_ID)
                     .type(GCPServiceAccountType.GCP_SERVICE_ACCOUNT));
 
     try {
-      GCPSTSServiceAccountResponse result = apiInstance.updateGCPSTSAccount("account_id", body);
+      GCPSTSServiceAccountResponse result =
+          apiInstance.updateGCPSTSAccount(GCP_STS_ACCOUNT_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GcpIntegrationApi#updateGCPSTSAccount");
