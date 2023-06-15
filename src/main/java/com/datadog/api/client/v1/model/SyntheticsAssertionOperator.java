@@ -49,6 +49,8 @@ public class SyntheticsAssertionOperator {
       new SyntheticsAssertionOperator("isInLessThan");
   public static final SyntheticsAssertionOperator DOES_NOT_EXIST =
       new SyntheticsAssertionOperator("doesNotExist");
+  public static final SyntheticsAssertionOperator IS_UNDEFINED =
+      new SyntheticsAssertionOperator("isUndefined");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -66,7 +68,8 @@ public class SyntheticsAssertionOperator {
               "validates",
               "isInMoreThan",
               "isInLessThan",
-              "doesNotExist"));
+              "doesNotExist",
+              "isUndefined"));
 
   private String value;
 
