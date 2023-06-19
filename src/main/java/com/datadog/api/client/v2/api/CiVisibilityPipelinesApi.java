@@ -225,6 +225,8 @@ public class CiVisibilityPipelinesApi {
   /**
    * Send your pipeline event to your Datadog platform over HTTP.
    *
+   * <p>This API endpoint is in private beta.
+   *
    * @param body (required)
    * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
@@ -518,7 +520,8 @@ public class CiVisibilityPipelinesApi {
   }
 
   /**
-   * List endpoint returns CI Visibility pipeline events that match a log search query. <a
+   * List endpoint returns CI Visibility pipeline events that match a <a
+   * href="https://docs.datadoghq.com/logs/explorer/search_syntax/">log search query</a>. <a
    * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
    * paginated similarly to logs</a>.
    *
@@ -775,7 +778,8 @@ public class CiVisibilityPipelinesApi {
   }
 
   /**
-   * List endpoint returns CI Visibility pipeline events that match a log search query. <a
+   * List endpoint returns CI Visibility pipeline events that match a <a
+   * href="https://docs.datadoghq.com/logs/explorer/search_syntax/">log search query</a>. <a
    * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
    * paginated similarly to logs</a>.
    *

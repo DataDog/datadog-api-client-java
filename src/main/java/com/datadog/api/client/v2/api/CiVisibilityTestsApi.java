@@ -376,7 +376,8 @@ public class CiVisibilityTestsApi {
   }
 
   /**
-   * List endpoint returns CI Visibility test events that match a log search query. <a
+   * List endpoint returns CI Visibility test events that match a <a
+   * href="https://docs.datadoghq.com/logs/explorer/search_syntax/">log search query</a>. <a
    * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
    * paginated similarly to logs</a>.
    *
@@ -630,7 +631,8 @@ public class CiVisibilityTestsApi {
   }
 
   /**
-   * List endpoint returns CI Visibility test events that match a log search query. <a
+   * List endpoint returns CI Visibility test events that match a <a
+   * href="https://docs.datadoghq.com/logs/explorer/search_syntax/">log search query</a>. <a
    * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
    * paginated similarly to logs</a>.
    *
