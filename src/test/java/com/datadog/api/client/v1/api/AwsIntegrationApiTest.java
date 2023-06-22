@@ -7,8 +7,8 @@
 package com.datadog.api.client.v1.api;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.junit.Assert.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.*;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.client.ApiException;
@@ -339,7 +339,10 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     // API
     awsAccount.setAccountSpecificNamespaceRules(new HashMap<String, Boolean>());
     awsAccount.setFilterTags(new ArrayList<String>());
-    assertThat(awsAccount).usingRecursiveComparison().ignoringFields("additionalProperties").isEqualTo(newAccount);
+    assertThat(awsAccount)
+        .usingRecursiveComparison()
+        .ignoringFields("additionalProperties")
+        .isEqualTo(newAccount);
   }
 
   @Test

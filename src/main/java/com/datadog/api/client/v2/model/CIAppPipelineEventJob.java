@@ -6,6 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -679,6 +681,52 @@ public class CIAppPipelineEventJob {
     this.url = url;
   }
 
+  /**
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return CIAppPipelineEventJob
+   */
+  @JsonAnySetter
+  public CIAppPipelineEventJob putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return The additional properties
+   */
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+      return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
   /** Return true if this CIAppPipelineEventJob object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -707,7 +755,8 @@ public class CIAppPipelineEventJob {
         && Objects.equals(this.start, ciAppPipelineEventJob.start)
         && Objects.equals(this.status, ciAppPipelineEventJob.status)
         && Objects.equals(this.tags, ciAppPipelineEventJob.tags)
-        && Objects.equals(this.url, ciAppPipelineEventJob.url);
+        && Objects.equals(this.url, ciAppPipelineEventJob.url)
+        && Objects.equals(this.additionalProperties, ciAppPipelineEventJob.additionalProperties);
   }
 
   @Override
@@ -731,7 +780,8 @@ public class CIAppPipelineEventJob {
         start,
         status,
         tags,
-        url);
+        url,
+        additionalProperties);
   }
 
   @Override
@@ -757,6 +807,9 @@ public class CIAppPipelineEventJob {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    additionalProperties: ")
+        .append(toIndentedString(additionalProperties))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
