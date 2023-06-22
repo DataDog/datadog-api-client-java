@@ -39,8 +39,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   CIAppPipelineEventStep.JSON_PROPERTY_START,
   CIAppPipelineEventStep.JSON_PROPERTY_STATUS,
   CIAppPipelineEventStep.JSON_PROPERTY_TAGS,
-  CIAppPipelineEventStep.JSON_PROPERTY_URL,
-  CIAppPipelineEventStep.JSON_PROPERTY_USER
+  CIAppPipelineEventStep.JSON_PROPERTY_URL
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -53,7 +52,7 @@ public class CIAppPipelineEventStep {
   private JsonNullable<CIAppCIError> error = JsonNullable.<CIAppCIError>undefined();
 
   public static final String JSON_PROPERTY_GIT = "git";
-  private JsonNullable<CIAppGitInfo> git = JsonNullable.<CIAppGitInfo>undefined();
+  private CIAppGitInfo git;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -104,14 +103,12 @@ public class CIAppPipelineEventStep {
   public static final String JSON_PROPERTY_URL = "url";
   private JsonNullable<String> url = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_USER = "user";
-  private JsonNullable<CIAppUserInfo> user = JsonNullable.<CIAppUserInfo>undefined();
-
   public CIAppPipelineEventStep() {}
 
   @JsonCreator
   public CIAppPipelineEventStep(
       @JsonProperty(required = true, value = JSON_PROPERTY_END) OffsetDateTime end,
+      @JsonProperty(required = true, value = JSON_PROPERTY_GIT) CIAppGitInfo git,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_LEVEL) CIAppPipelineEventStepLevel level,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
@@ -122,6 +119,10 @@ public class CIAppPipelineEventStep {
       @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
           CIAppPipelineEventStepStatus status) {
     this.end = end;
+    this.git = git;
+    if (git != null) {
+      this.unparsed |= git.unparsed;
+    }
     this.id = id;
     this.level = level;
     this.unparsed |= !level.isValid();
@@ -185,7 +186,10 @@ public class CIAppPipelineEventStep {
   }
 
   public CIAppPipelineEventStep git(CIAppGitInfo git) {
-    this.git = JsonNullable.<CIAppGitInfo>of(git);
+    this.git = git;
+    if (git != null) {
+      this.unparsed |= git.unparsed;
+    }
     return this;
   }
 
@@ -197,24 +201,14 @@ public class CIAppPipelineEventStep {
    * @return git
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public CIAppGitInfo getGit() {
-    return git.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_GIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<CIAppGitInfo> getGit_JsonNullable() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CIAppGitInfo getGit() {
     return git;
   }
 
-  @JsonProperty(JSON_PROPERTY_GIT)
-  public void setGit_JsonNullable(JsonNullable<CIAppGitInfo> git) {
-    this.git = git;
-  }
-
   public void setGit(CIAppGitInfo git) {
-    this.git = JsonNullable.<CIAppGitInfo>of(git);
+    this.git = git;
   }
 
   public CIAppPipelineEventStep id(String id) {
@@ -681,39 +675,6 @@ public class CIAppPipelineEventStep {
     this.url = JsonNullable.<String>of(url);
   }
 
-  public CIAppPipelineEventStep user(CIAppUserInfo user) {
-    this.user = JsonNullable.<CIAppUserInfo>of(user);
-    return this;
-  }
-
-  /**
-   * Used to specify user-related information when the payload does not have Git information. For
-   * example, if Git information is missing for manually triggered pipelines, this field can be used
-   * instead.
-   *
-   * @return user
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public CIAppUserInfo getUser() {
-    return user.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<CIAppUserInfo> getUser_JsonNullable() {
-    return user;
-  }
-
-  @JsonProperty(JSON_PROPERTY_USER)
-  public void setUser_JsonNullable(JsonNullable<CIAppUserInfo> user) {
-    this.user = user;
-  }
-
-  public void setUser(CIAppUserInfo user) {
-    this.user = JsonNullable.<CIAppUserInfo>of(user);
-  }
-
   /** Return true if this CIAppPipelineEventStep object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -742,8 +703,7 @@ public class CIAppPipelineEventStep {
         && Objects.equals(this.start, ciAppPipelineEventStep.start)
         && Objects.equals(this.status, ciAppPipelineEventStep.status)
         && Objects.equals(this.tags, ciAppPipelineEventStep.tags)
-        && Objects.equals(this.url, ciAppPipelineEventStep.url)
-        && Objects.equals(this.user, ciAppPipelineEventStep.user);
+        && Objects.equals(this.url, ciAppPipelineEventStep.url);
   }
 
   @Override
@@ -767,8 +727,7 @@ public class CIAppPipelineEventStep {
         start,
         status,
         tags,
-        url,
-        user);
+        url);
   }
 
   @Override
@@ -794,7 +753,6 @@ public class CIAppPipelineEventStep {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
   }
