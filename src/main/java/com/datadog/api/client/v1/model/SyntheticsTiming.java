@@ -6,10 +6,14 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -248,6 +252,52 @@ public class SyntheticsTiming {
     this.wait = wait;
   }
 
+  /**
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return SyntheticsTiming
+   */
+  @JsonAnySetter
+  public SyntheticsTiming putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return The additional properties
+   */
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+      return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
   /** Return true if this SyntheticsTiming object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -266,12 +316,14 @@ public class SyntheticsTiming {
         && Objects.equals(this.ssl, syntheticsTiming.ssl)
         && Objects.equals(this.tcp, syntheticsTiming.tcp)
         && Objects.equals(this.total, syntheticsTiming.total)
-        && Objects.equals(this.wait, syntheticsTiming.wait);
+        && Objects.equals(this.wait, syntheticsTiming.wait)
+        && Objects.equals(this.additionalProperties, syntheticsTiming.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dns, download, firstByte, handshake, redirect, ssl, tcp, total, wait);
+    return Objects.hash(
+        dns, download, firstByte, handshake, redirect, ssl, tcp, total, wait, additionalProperties);
   }
 
   @Override
@@ -287,6 +339,9 @@ public class SyntheticsTiming {
     sb.append("    tcp: ").append(toIndentedString(tcp)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    wait: ").append(toIndentedString(wait)).append("\n");
+    sb.append("    additionalProperties: ")
+        .append(toIndentedString(additionalProperties))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
