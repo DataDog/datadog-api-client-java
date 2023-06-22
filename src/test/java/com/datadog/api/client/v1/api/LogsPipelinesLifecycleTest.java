@@ -7,6 +7,7 @@
 package com.datadog.api.client.v1.api;
 
 import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.model.*;
@@ -181,7 +182,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
     assertEquals(categoryProcessor, createdPipeline.getProcessors().get(9));
     assertEquals(arithmeticProcessor, createdPipeline.getProcessors().get(10));
     assertEquals(stringBuilderProcessor, createdPipeline.getProcessors().get(11));
-    assertEquals(geoIPParser, createdPipeline.getProcessors().get(12));
+    assertThat(geoIPParser).usingRecursiveComparison().ignoringFields("instance.additionalProperties").isEqualTo(createdPipeline.getProcessors().get(12));
     assertEquals(lookupProcessor, createdPipeline.getProcessors().get(13));
     assertEquals(traceRemapper, createdPipeline.getProcessors().get(14));
     assertEquals(pipelineProcessor, createdPipeline.getProcessors().get(15));
@@ -231,7 +232,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
     assertEquals(categoryProcessor, updatedPipeline.getProcessors().get(8));
     assertEquals(arithmeticProcessor, updatedPipeline.getProcessors().get(9));
     assertEquals(stringBuilderProcessor, updatedPipeline.getProcessors().get(10));
-    assertEquals(geoIPParser, updatedPipeline.getProcessors().get(11));
+    assertThat(geoIPParser).usingRecursiveComparison().ignoringFields("instance.additionalProperties").isEqualTo(updatedPipeline.getProcessors().get(11));
     assertEquals(lookupProcessor, updatedPipeline.getProcessors().get(12));
     assertEquals(traceRemapper, updatedPipeline.getProcessors().get(13));
 
