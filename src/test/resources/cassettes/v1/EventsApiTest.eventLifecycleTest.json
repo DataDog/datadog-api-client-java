@@ -214,6 +214,6 @@
     "cookies" : {
       "DD-PSHARD" : "233"
     },
-    "body" : "{\"events\":[{\"date_happened\":1596011200,\"alert_type\":\"info\",\"is_aggregate\":false,\"title\":\"java-eventLifecycleTest-local-1596011200\",\"url\":\"/event/event?id=5565813470611825502\",\"text\":\"example text\",\"tags\":[\"client:java\",\"test\"],\"comments\":[],\"device_name\":null,\"priority\":\"normal\",\"source\":\"My Apps\",\"host\":null,\"resource\":\"/api/v1/events/5565813470611825502\",\"id\":5565813470611825502}]}"
+    "body" : "{\"events\":[{\"date_happened\":1596011200,\"alert_type\":\"info\",\"title\":\"java-eventLifecycleTest-local-1596011200\",\"url\":\"/event/event?id=5565813470611825502\",\"text\":\"example text\",\"tags\":[\"client:java\",\"test\"],\"device_name\":null,\"priority\":\"normal\",\"host\":null,\"resource\":\"/api/v1/events/5565813470611825502\",\"id\":5565813470611825502}]}"
   }
 }]
