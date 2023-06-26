@@ -223,7 +223,9 @@ public class CiVisibilityPipelinesApi {
   }
 
   /**
-   * Send your pipeline event to your Datadog platform over HTTP.
+   * Send your pipeline event to your Datadog platform over HTTP. For details about how pipeline
+   * executions are modeled and what execution types we support, see the <a
+   * href="https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/">guide</a>.
    *
    * <p>This API endpoint is in private beta.
    *
