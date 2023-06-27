@@ -259,14 +259,15 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   }
   {%- endif %}
   {%- endfor %}
-  {%- if model.get("additionalProperties") %}
+  {%- if model.get("additionalProperties", True) %}
+  {%- set additionalPropertiesDataType = model.get("additionalProperties", {})|simple_type or "Object" %}
 
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
    * the 'additionalProperties' keyword in the OAS document.
    */
-  private Map<String, {{ model.additionalProperties|simple_type }}> additionalProperties;
+  private Map<String, {{ additionalPropertiesDataType }}> additionalProperties;
 
   /**
    * Set the additional (undeclared) property with the specified name and value.
@@ -277,9 +278,9 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
    * @return {{ name }}
    */
   @JsonAnySetter
-  public {{ name }} putAdditionalProperty(String key, {{ model.additionalProperties|simple_type }} value) {
+  public {{ name }} putAdditionalProperty(String key, {{ additionalPropertiesDataType }} value) {
     if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, {{ model.additionalProperties|simple_type }}>();
+        this.additionalProperties = new HashMap<String, {{ additionalPropertiesDataType }}>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -291,7 +292,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
    * @return The additional properties
    */
   @JsonAnyGetter
-  public Map<String, {{ model.additionalProperties|simple_type }}> getAdditionalProperties() {
+  public Map<String, {{ additionalPropertiesDataType }}> getAdditionalProperties() {
     return additionalProperties;
   }
 
@@ -301,7 +302,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
    * @param key The arbitrary key to get
    * @return The specific additional property for the given key
    */
-  public {{ model.additionalProperties|simple_type }} getAdditionalProperty(String key) {
+  public {{ additionalPropertiesDataType }} getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
         return null;
     }
@@ -322,7 +323,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     }
     {%- if model.properties is defined %}
     {{ name }} {{ name|variable_name }} = ({{ name }}) o;
-    return {%- for attr, schema in model.get("properties").items() %} Objects.equals(this.{{ attr|variable_name }}, {{ name|variable_name }}.{{ attr|variable_name }}){%- if loop.nextitem or model.get("additionalProperties") %} &&{%- endif %}{%- endfor %}{% if model.get("additionalProperties") %} Objects.equals(this.additionalProperties, {{ name|variable_name }}.additionalProperties){% endif %}
+    return {%- for attr, schema in model.get("properties").items() %} Objects.equals(this.{{ attr|variable_name }}, {{ name|variable_name }}.{{ attr|variable_name }}){%- if loop.nextitem or model.get("additionalProperties", True) %} &&{%- endif %}{%- endfor %}{% if model.get("additionalProperties", True) %} Objects.equals(this.additionalProperties, {{ name|variable_name }}.additionalProperties){% endif %}
     {%- if model.get("x-generate-alias-as-model") %} &&
         super.equals(o){%- endif %};
     {%- else %}
@@ -334,8 +335,8 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   @Override
   public int hashCode() {
     return Objects.hash({%- for attr, schema in model.get("properties", {}).items() %}{{ attr|variable_name }}{%- if loop.nextitem %}, {%- endif %}{%-endfor %}
-    {%- if model.get("additionalProperties") %}, additionalProperties{%- endif %}
-    {%- if model.get("x-generate-alias-as-model") %}{%- if model.properties is defined %}, {%- endif %}super.hashCode(){%- endif %});
+    {%- if model.get("additionalProperties", True) %}{%- if model.properties is defined %}, {%- endif %} additionalProperties{%- endif %}
+    {%- if model.get("x-generate-alias-as-model") %}{%- if model.properties is defined or model.get("additionalProperties", True) %}, {%- endif %}super.hashCode(){%- endif %});
   }
 
   @Override
@@ -348,7 +349,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- for attr, schema in model.get("properties", {}).items() %}
     sb.append("    {{ attr|variable_name }}: ").append(toIndentedString({{ attr|variable_name }})).append("\n");
     {%- endfor %}
-    {%- if model.get("additionalProperties") %}
+    {%- if model.get("additionalProperties", True) %}
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

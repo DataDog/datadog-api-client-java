@@ -170,7 +170,7 @@ public class {{ name }} {
   {%- if loop.nextitem %}
 
   if({%- if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i+1]) }}() == null) {
-      {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i]) }}{{ limitParamSetters[i] }}(new {{ get_container_type(operation, ".".join(limitParamParts[:i+1])) }}());
+      {% if limitParamOptional %}parameters.{%- endif %}{{ limitParamGetters[0] }}.{{ "().".join(limitParamGetters[1:i]) }}{%- if i > 1 %}().{%- endif %}{{ limitParamSetters[i] }}(new {{ get_container_type(operation, ".".join(limitParamParts[:i+1])) }}());
   }
   {%- endif %}
 

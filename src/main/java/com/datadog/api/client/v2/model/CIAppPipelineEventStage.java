@@ -6,6 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -36,8 +38,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   CIAppPipelineEventStage.JSON_PROPERTY_QUEUE_TIME,
   CIAppPipelineEventStage.JSON_PROPERTY_START,
   CIAppPipelineEventStage.JSON_PROPERTY_STATUS,
-  CIAppPipelineEventStage.JSON_PROPERTY_TAGS,
-  CIAppPipelineEventStage.JSON_PROPERTY_USER
+  CIAppPipelineEventStage.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -53,7 +54,7 @@ public class CIAppPipelineEventStage {
   private JsonNullable<CIAppCIError> error = JsonNullable.<CIAppCIError>undefined();
 
   public static final String JSON_PROPERTY_GIT = "git";
-  private JsonNullable<CIAppGitInfo> git = JsonNullable.<CIAppGitInfo>undefined();
+  private CIAppGitInfo git;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -92,14 +93,12 @@ public class CIAppPipelineEventStage {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
-  public static final String JSON_PROPERTY_USER = "user";
-  private JsonNullable<CIAppUserInfo> user = JsonNullable.<CIAppUserInfo>undefined();
-
   public CIAppPipelineEventStage() {}
 
   @JsonCreator
   public CIAppPipelineEventStage(
       @JsonProperty(required = true, value = JSON_PROPERTY_END) OffsetDateTime end,
+      @JsonProperty(required = true, value = JSON_PROPERTY_GIT) CIAppGitInfo git,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_LEVEL)
           CIAppPipelineEventStageLevel level,
@@ -111,6 +110,10 @@ public class CIAppPipelineEventStage {
       @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
           CIAppPipelineEventStageStatus status) {
     this.end = end;
+    this.git = git;
+    if (git != null) {
+      this.unparsed |= git.unparsed;
+    }
     this.id = id;
     this.level = level;
     this.unparsed |= !level.isValid();
@@ -217,7 +220,10 @@ public class CIAppPipelineEventStage {
   }
 
   public CIAppPipelineEventStage git(CIAppGitInfo git) {
-    this.git = JsonNullable.<CIAppGitInfo>of(git);
+    this.git = git;
+    if (git != null) {
+      this.unparsed |= git.unparsed;
+    }
     return this;
   }
 
@@ -229,24 +235,14 @@ public class CIAppPipelineEventStage {
    * @return git
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public CIAppGitInfo getGit() {
-    return git.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_GIT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<CIAppGitInfo> getGit_JsonNullable() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CIAppGitInfo getGit() {
     return git;
   }
 
-  @JsonProperty(JSON_PROPERTY_GIT)
-  public void setGit_JsonNullable(JsonNullable<CIAppGitInfo> git) {
-    this.git = git;
-  }
-
   public void setGit(CIAppGitInfo git) {
-    this.git = JsonNullable.<CIAppGitInfo>of(git);
+    this.git = git;
   }
 
   public CIAppPipelineEventStage id(String id) {
@@ -590,37 +586,50 @@ public class CIAppPipelineEventStage {
     this.tags = JsonNullable.<List<String>>of(tags);
   }
 
-  public CIAppPipelineEventStage user(CIAppUserInfo user) {
-    this.user = JsonNullable.<CIAppUserInfo>of(user);
+  /**
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return CIAppPipelineEventStage
+   */
+  @JsonAnySetter
+  public CIAppPipelineEventStage putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
     return this;
   }
 
   /**
-   * Used to specify user-related information when the payload does not have Git information. For
-   * example, if Git information is missing for manually triggered pipelines, this field can be used
-   * instead.
+   * Return the additional (undeclared) property.
    *
-   * @return user
+   * @return The additional properties
    */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-  public CIAppUserInfo getUser() {
-    return user.orElse(null);
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
   }
 
-  @JsonProperty(JSON_PROPERTY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<CIAppUserInfo> getUser_JsonNullable() {
-    return user;
-  }
-
-  @JsonProperty(JSON_PROPERTY_USER)
-  public void setUser_JsonNullable(JsonNullable<CIAppUserInfo> user) {
-    this.user = user;
-  }
-
-  public void setUser(CIAppUserInfo user) {
-    this.user = JsonNullable.<CIAppUserInfo>of(user);
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+      return null;
+    }
+    return this.additionalProperties.get(key);
   }
 
   /** Return true if this CIAppPipelineEventStage object is equal to o. */
@@ -649,7 +658,7 @@ public class CIAppPipelineEventStage {
         && Objects.equals(this.start, ciAppPipelineEventStage.start)
         && Objects.equals(this.status, ciAppPipelineEventStage.status)
         && Objects.equals(this.tags, ciAppPipelineEventStage.tags)
-        && Objects.equals(this.user, ciAppPipelineEventStage.user);
+        && Objects.equals(this.additionalProperties, ciAppPipelineEventStage.additionalProperties);
   }
 
   @Override
@@ -671,7 +680,7 @@ public class CIAppPipelineEventStage {
         start,
         status,
         tags,
-        user);
+        additionalProperties);
   }
 
   @Override
@@ -694,7 +703,9 @@ public class CIAppPipelineEventStage {
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("    additionalProperties: ")
+        .append(toIndentedString(additionalProperties))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,5 +1,36 @@
 # CHANGELOG
 
+## 2.13.0 / 2023-06-27
+
+### Fixed
+* Fix null date-time serialization by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1829
+* Mark `restricted_roles` as nullable in monitor update request by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1827
+* Mark additional usage fields as `nullable` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1836
+* Updated findings api error responses by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1813
+* Mark usage metering field `lines_indexed` as `nullable` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1841
+* Update dashboard widget axis field descriptions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1826
+* Fix `CreateGCPSTSAccount` return code and update tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1848
+* Fix `CreateGCPSTSAccount` response status code by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1851
+* Add missing descriptions for authorization scopes in public docs  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1849
+* Update CI Visibility pipelines write API endpoint fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1857
+### Added
+* Add support for mute findings endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1797
+* Expose `database-monitoring` monitor type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1686
+* Add endpoint to get Synthetics default locations by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1835
+* Add usage metering RUM Roku fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1842
+* Add usage metering fields for AWS and Azure cloud cost management by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1845
+* Add support for CI Visibility create pipeline events endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1843
+* Add isUndefined synthetics assertion operator by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1847
+* Add missing Synthetics and Metrics Scope descriptions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1850
+* Enable `additionalProperties` by default by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1858
+### Changed
+* Team name and handle length updates by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1822
+### Deprecated
+* mark v1 GCP APIs as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1838
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.12.0...datadog-api-client-2.13.0
+
 ## 2.12.0 / 2023-05-31
 
 ### Fixed
