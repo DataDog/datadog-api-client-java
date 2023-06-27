@@ -31,7 +31,10 @@ The release process is controlled and run by GitHub Actions.
 1. Review the generated pull-request for `release/<New version number>` branch.
 1. If everything is fine, merge the pull-request.
 1. Check that the [release](https://github.com/DataDog/datadog-api-client-java/actions/workflows/release.yml) action created new release on GitHub.
-    - This will kick off a gitlab pipeline that will build and upload the JAR to sonatype.
+    - This will kick off a GitLab pipeline that will build and upload the JAR to sonatype.
+      - This pipeline requires a GPG Key that expires after 13 months. 
+      - If this job fails due to an expired key, refresh the key using the `create_key` job, which uses the [agent-key-management-tools](https://github.com/DataDog/agent-key-management-tools/blob/master/gpg/README.md) image.
+        - Make sure to set `EXPORT_TO_KEYSERVER: true` when manually starting the job to upload the public keys to the relevant keyservers.
     - Sign into sonatype and find the uploaded project [here](https://oss.sonatype.org/#stagingRepositories)
     - Check this project and click `Release`. Once confirmed this will start the sync and finalize the release.
       - Note the full sync may take some time but confirm the version is available [here](https://repo1.maven.org/maven2/com/datadoghq/datadog-api-client/)
