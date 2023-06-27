@@ -6,10 +6,14 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /** The objects used to set an AWS tag filter. */
@@ -98,6 +102,52 @@ public class AWSTagFilterCreateRequest {
     this.tagFilterStr = tagFilterStr;
   }
 
+  /**
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return AWSTagFilterCreateRequest
+   */
+  @JsonAnySetter
+  public AWSTagFilterCreateRequest putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return The additional properties
+   */
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+      return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
   /** Return true if this AWSTagFilterCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -110,12 +160,14 @@ public class AWSTagFilterCreateRequest {
     AWSTagFilterCreateRequest awsTagFilterCreateRequest = (AWSTagFilterCreateRequest) o;
     return Objects.equals(this.accountId, awsTagFilterCreateRequest.accountId)
         && Objects.equals(this.namespace, awsTagFilterCreateRequest.namespace)
-        && Objects.equals(this.tagFilterStr, awsTagFilterCreateRequest.tagFilterStr);
+        && Objects.equals(this.tagFilterStr, awsTagFilterCreateRequest.tagFilterStr)
+        && Objects.equals(
+            this.additionalProperties, awsTagFilterCreateRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, namespace, tagFilterStr);
+    return Objects.hash(accountId, namespace, tagFilterStr, additionalProperties);
   }
 
   @Override
@@ -125,6 +177,9 @@ public class AWSTagFilterCreateRequest {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    tagFilterStr: ").append(toIndentedString(tagFilterStr)).append("\n");
+    sb.append("    additionalProperties: ")
+        .append(toIndentedString(additionalProperties))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }

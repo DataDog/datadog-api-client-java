@@ -6,11 +6,15 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -298,6 +302,52 @@ public class UsageRumSessionsHour {
     this.sessionCountReactnative = JsonNullable.<Long>of(sessionCountReactnative);
   }
 
+  /**
+   * A container for additional, undeclared properties. This is a holder for any undeclared
+   * properties as specified with the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value. If the property
+   * does not already exist, create it otherwise replace it.
+   *
+   * @param key The arbitrary key to set
+   * @param value The associated value
+   * @return UsageRumSessionsHour
+   */
+  @JsonAnySetter
+  public UsageRumSessionsHour putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+      this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return The additional properties
+   */
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key The arbitrary key to get
+   * @return The specific additional property for the given key
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+      return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
   /** Return true if this UsageRumSessionsHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -317,7 +367,8 @@ public class UsageRumSessionsHour {
         && Objects.equals(this.sessionCountFlutter, usageRumSessionsHour.sessionCountFlutter)
         && Objects.equals(this.sessionCountIos, usageRumSessionsHour.sessionCountIos)
         && Objects.equals(
-            this.sessionCountReactnative, usageRumSessionsHour.sessionCountReactnative);
+            this.sessionCountReactnative, usageRumSessionsHour.sessionCountReactnative)
+        && Objects.equals(this.additionalProperties, usageRumSessionsHour.additionalProperties);
   }
 
   @Override
@@ -331,7 +382,8 @@ public class UsageRumSessionsHour {
         sessionCountAndroid,
         sessionCountFlutter,
         sessionCountIos,
-        sessionCountReactnative);
+        sessionCountReactnative,
+        additionalProperties);
   }
 
   @Override
@@ -352,6 +404,9 @@ public class UsageRumSessionsHour {
     sb.append("    sessionCountIos: ").append(toIndentedString(sessionCountIos)).append("\n");
     sb.append("    sessionCountReactnative: ")
         .append(toIndentedString(sessionCountReactnative))
+        .append("\n");
+    sb.append("    additionalProperties: ")
+        .append(toIndentedString(additionalProperties))
         .append("\n");
     sb.append("}");
     return sb.toString();

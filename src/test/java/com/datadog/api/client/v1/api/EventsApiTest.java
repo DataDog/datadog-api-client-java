@@ -6,6 +6,7 @@
 
 package com.datadog.api.client.v1.api;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
 import com.datadog.api.TestUtils;
@@ -19,6 +20,7 @@ import jakarta.ws.rs.core.GenericType;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
+import org.assertj.core.api.recursive.comparison.RecursiveComparisonConfiguration;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -100,6 +102,9 @@ public class EventsApiTest extends V1ApiTest {
 
     // Confirm the event is in the list of events returned from the API
     // Will fail with a retryException if we can't get the event in this timeframe
+    final RecursiveComparisonConfiguration recursiveComparisonConfiguration =
+        new RecursiveComparisonConfiguration();
+    recursiveComparisonConfiguration.ignoreFields("additionalProperties");
     TestUtils.retry(
         10,
         20,
@@ -116,15 +121,12 @@ public class EventsApiTest extends V1ApiTest {
                         .tags(tags)
                         .unaggregated(unaggregated));
             events = eventListResponse.getEvents();
-            if (!events.isEmpty() && events.contains(fetchedEvent)) {
-              return true;
-            } else {
-              System.out.printf(
-                  "Error: Event %s not in event list: %s", fetchedEvent, eventListResponse);
-              return false;
-            }
+            assertThat(events)
+                .usingRecursiveFieldByFieldElementComparator(recursiveComparisonConfiguration)
+                .contains(fetchedEvent);
+            return true;
           } catch (ApiException e) {
-            System.out.println(String.format("Error getting list of events: %s", e));
+            System.out.println(String.format("Error getting/matching list of events: %s", e));
             return false;
           }
         });
