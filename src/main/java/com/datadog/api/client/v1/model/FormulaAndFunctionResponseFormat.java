@@ -19,7 +19,10 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Timeseries or Scalar response. */
+/**
+ * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap
+ * widgets.
+ */
 @JsonSerialize(
     using = FormulaAndFunctionResponseFormat.FormulaAndFunctionResponseFormatSerializer.class)
 public class FormulaAndFunctionResponseFormat {
@@ -28,9 +31,11 @@ public class FormulaAndFunctionResponseFormat {
       new FormulaAndFunctionResponseFormat("timeseries");
   public static final FormulaAndFunctionResponseFormat SCALAR =
       new FormulaAndFunctionResponseFormat("scalar");
+  public static final FormulaAndFunctionResponseFormat EVENT_LIST =
+      new FormulaAndFunctionResponseFormat("event_list");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("timeseries", "scalar"));
+      new HashSet<String>(Arrays.asList("timeseries", "scalar", "event_list"));
 
   private String value;
 

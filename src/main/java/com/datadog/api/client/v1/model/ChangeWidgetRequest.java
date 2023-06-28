@@ -444,7 +444,8 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Timeseries or Scalar response.
+   * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap
+   * widgets.
    *
    * @return responseFormat
    */
