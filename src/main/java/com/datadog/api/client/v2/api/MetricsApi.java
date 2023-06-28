@@ -1896,7 +1896,7 @@ public class MetricsApi {
   }
 
   /**
-   * Query scalar values (as seen on Query Value, Table and Toplist widgets). Multiple data sources
+   * Query scalar values (as seen on Query Value, Table, and Toplist widgets). Multiple data sources
    * are supported with the ability to process the data using formulas and functions.
    *
    * @param body (required)
