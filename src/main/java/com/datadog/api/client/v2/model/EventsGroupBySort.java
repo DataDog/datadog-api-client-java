@@ -80,7 +80,8 @@ public class EventsGroupBySort {
   }
 
   /**
-   * Metric whose calculated value should be used to define the sort order of a query's results.
+   * The metric's calculated value which should be used to define the sort order of a query's
+   * results.
    *
    * @return metric
    */

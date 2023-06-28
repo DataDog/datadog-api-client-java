@@ -62,7 +62,7 @@ public class MetricsScalarQuery {
   }
 
   /**
-   * The type of aggregation that can be performed on metrics queries.
+   * The type of aggregation that can be performed on metrics-based queries.
    *
    * @return aggregator
    */

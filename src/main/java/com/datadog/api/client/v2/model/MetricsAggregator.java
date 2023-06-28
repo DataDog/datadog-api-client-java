@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** The type of aggregation that can be performed on metrics queries. */
+/** The type of aggregation that can be performed on metrics-based queries. */
 @JsonSerialize(using = MetricsAggregator.MetricsAggregatorSerializer.class)
 public class MetricsAggregator {
 
