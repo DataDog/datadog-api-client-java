@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,11 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Metadata type of the notebook. */
 @JsonSerialize(using = NotebookMetadataType.NotebookMetadataTypeSerializer.class)
-public class NotebookMetadataType {
+public class NotebookMetadataType extends ModelEnum<String> {
 
   public static final NotebookMetadataType POSTMORTEM = new NotebookMetadataType("postmortem");
   public static final NotebookMetadataType RUNBOOK = new NotebookMetadataType("runbook");
@@ -35,14 +34,9 @@ public class NotebookMetadataType {
       new HashSet<String>(
           Arrays.asList("postmortem", "runbook", "investigation", "documentation", "report"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   NotebookMetadataType(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class NotebookMetadataTypeSerializer extends StdSerializer<NotebookMetadataType> {
@@ -60,37 +54,6 @@ public class NotebookMetadataType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this NotebookMetadataType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((NotebookMetadataType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

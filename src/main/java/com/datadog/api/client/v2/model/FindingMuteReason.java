@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,11 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The reason why this finding is muted or unmuted. */
 @JsonSerialize(using = FindingMuteReason.FindingMuteReasonSerializer.class)
-public class FindingMuteReason {
+public class FindingMuteReason extends ModelEnum<String> {
 
   public static final FindingMuteReason PENDING_FIX = new FindingMuteReason("PENDING_FIX");
   public static final FindingMuteReason FALSE_POSITIVE = new FindingMuteReason("FALSE_POSITIVE");
@@ -43,14 +42,9 @@ public class FindingMuteReason {
               "NO_LONGER_ACCEPTED_RISK",
               "OTHER"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   FindingMuteReason(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class FindingMuteReasonSerializer extends StdSerializer<FindingMuteReason> {
@@ -67,37 +61,6 @@ public class FindingMuteReason {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this FindingMuteReason object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((FindingMuteReason) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

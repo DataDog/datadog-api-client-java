@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,11 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The type of the resource. The value should always be <code>security_filters</code>. */
 @JsonSerialize(using = SecurityFilterType.SecurityFilterTypeSerializer.class)
-public class SecurityFilterType {
+public class SecurityFilterType extends ModelEnum<String> {
 
   public static final SecurityFilterType SECURITY_FILTERS =
       new SecurityFilterType("security_filters");
@@ -29,14 +28,9 @@ public class SecurityFilterType {
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("security_filters"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SecurityFilterType(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class SecurityFilterTypeSerializer extends StdSerializer<SecurityFilterType> {
@@ -53,37 +47,6 @@ public class SecurityFilterType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SecurityFilterType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SecurityFilterType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

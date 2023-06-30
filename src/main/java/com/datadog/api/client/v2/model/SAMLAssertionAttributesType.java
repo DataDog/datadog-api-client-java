@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,11 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** SAML assertion attributes resource type. */
 @JsonSerialize(using = SAMLAssertionAttributesType.SAMLAssertionAttributesTypeSerializer.class)
-public class SAMLAssertionAttributesType {
+public class SAMLAssertionAttributesType extends ModelEnum<String> {
 
   public static final SAMLAssertionAttributesType SAML_ASSERTION_ATTRIBUTES =
       new SAMLAssertionAttributesType("saml_assertion_attributes");
@@ -29,14 +28,9 @@ public class SAMLAssertionAttributesType {
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("saml_assertion_attributes"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SAMLAssertionAttributesType(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class SAMLAssertionAttributesTypeSerializer
@@ -55,37 +49,6 @@ public class SAMLAssertionAttributesType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SAMLAssertionAttributesType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SAMLAssertionAttributesType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

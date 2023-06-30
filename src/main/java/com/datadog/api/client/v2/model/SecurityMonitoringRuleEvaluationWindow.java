@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -27,7 +26,7 @@ import java.util.Set;
     using =
         SecurityMonitoringRuleEvaluationWindow.SecurityMonitoringRuleEvaluationWindowSerializer
             .class)
-public class SecurityMonitoringRuleEvaluationWindow {
+public class SecurityMonitoringRuleEvaluationWindow extends ModelEnum<Integer> {
 
   public static final SecurityMonitoringRuleEvaluationWindow ZERO_MINUTES =
       new SecurityMonitoringRuleEvaluationWindow(0);
@@ -49,14 +48,9 @@ public class SecurityMonitoringRuleEvaluationWindow {
   private static final Set<Integer> allowedValues =
       new HashSet<Integer>(Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200));
 
-  private Integer value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SecurityMonitoringRuleEvaluationWindow(Integer value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class SecurityMonitoringRuleEvaluationWindowSerializer
@@ -78,37 +72,6 @@ public class SecurityMonitoringRuleEvaluationWindow {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public Integer getValue() {
-    return this.value;
-  }
-
-  public void setValue(Integer value) {
-    this.value = value;
-  }
-
-  /** Return true if this SecurityMonitoringRuleEvaluationWindow object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SecurityMonitoringRuleEvaluationWindow) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

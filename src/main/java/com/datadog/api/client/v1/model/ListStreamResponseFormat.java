@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,26 +16,20 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Widget response format. */
 @JsonSerialize(using = ListStreamResponseFormat.ListStreamResponseFormatSerializer.class)
-public class ListStreamResponseFormat {
+public class ListStreamResponseFormat extends ModelEnum<String> {
 
   public static final ListStreamResponseFormat EVENT_LIST =
       new ListStreamResponseFormat("event_list");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("event_list"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   ListStreamResponseFormat(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class ListStreamResponseFormatSerializer
@@ -54,37 +48,6 @@ public class ListStreamResponseFormat {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this ListStreamResponseFormat object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((ListStreamResponseFormat) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

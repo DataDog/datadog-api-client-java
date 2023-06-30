@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -24,7 +23,7 @@ import java.util.Set;
  * affected.
  */
 @JsonSerialize(using = SLOErrorTimeframe.SLOErrorTimeframeSerializer.class)
-public class SLOErrorTimeframe {
+public class SLOErrorTimeframe extends ModelEnum<String> {
 
   public static final SLOErrorTimeframe SEVEN_DAYS = new SLOErrorTimeframe("7d");
   public static final SLOErrorTimeframe THIRTY_DAYS = new SLOErrorTimeframe("30d");
@@ -34,14 +33,9 @@ public class SLOErrorTimeframe {
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("7d", "30d", "90d", "all"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SLOErrorTimeframe(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class SLOErrorTimeframeSerializer extends StdSerializer<SLOErrorTimeframe> {
@@ -58,37 +52,6 @@ public class SLOErrorTimeframe {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SLOErrorTimeframe object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SLOErrorTimeframe) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

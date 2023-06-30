@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,11 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Timeframe used for the change comparison. */
 @JsonSerialize(using = WidgetCompareTo.WidgetCompareToSerializer.class)
-public class WidgetCompareTo {
+public class WidgetCompareTo extends ModelEnum<String> {
 
   public static final WidgetCompareTo HOUR_BEFORE = new WidgetCompareTo("hour_before");
   public static final WidgetCompareTo DAY_BEFORE = new WidgetCompareTo("day_before");
@@ -32,14 +31,9 @@ public class WidgetCompareTo {
       new HashSet<String>(
           Arrays.asList("hour_before", "day_before", "week_before", "month_before"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   WidgetCompareTo(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class WidgetCompareToSerializer extends StdSerializer<WidgetCompareTo> {
@@ -56,37 +50,6 @@ public class WidgetCompareTo {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this WidgetCompareTo object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((WidgetCompareTo) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

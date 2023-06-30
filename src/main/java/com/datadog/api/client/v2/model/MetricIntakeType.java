@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -24,7 +23,7 @@ import java.util.Set;
  * <code>2</code> (rate), and <code>3</code> (gauge).
  */
 @JsonSerialize(using = MetricIntakeType.MetricIntakeTypeSerializer.class)
-public class MetricIntakeType {
+public class MetricIntakeType extends ModelEnum<Integer> {
 
   public static final MetricIntakeType UNSPECIFIED = new MetricIntakeType(0);
   public static final MetricIntakeType COUNT = new MetricIntakeType(1);
@@ -33,14 +32,9 @@ public class MetricIntakeType {
 
   private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 2, 3));
 
-  private Integer value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   MetricIntakeType(Integer value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class MetricIntakeTypeSerializer extends StdSerializer<MetricIntakeType> {
@@ -57,37 +51,6 @@ public class MetricIntakeType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public Integer getValue() {
-    return this.value;
-  }
-
-  public void setValue(Integer value) {
-    this.value = value;
-  }
-
-  /** Return true if this MetricIntakeType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((MetricIntakeType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

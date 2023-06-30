@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,11 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Controls the display of the search bar. */
 @JsonSerialize(using = TableWidgetHasSearchBar.TableWidgetHasSearchBarSerializer.class)
-public class TableWidgetHasSearchBar {
+public class TableWidgetHasSearchBar extends ModelEnum<String> {
 
   public static final TableWidgetHasSearchBar ALWAYS = new TableWidgetHasSearchBar("always");
   public static final TableWidgetHasSearchBar NEVER = new TableWidgetHasSearchBar("never");
@@ -30,14 +29,9 @@ public class TableWidgetHasSearchBar {
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("always", "never", "auto"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   TableWidgetHasSearchBar(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class TableWidgetHasSearchBarSerializer
@@ -56,37 +50,6 @@ public class TableWidgetHasSearchBar {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this TableWidgetHasSearchBar object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((TableWidgetHasSearchBar) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

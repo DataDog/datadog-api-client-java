@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Supported metrics for monthly usage attribution requests. */
@@ -24,7 +23,7 @@ import java.util.Set;
     using =
         MonthlyUsageAttributionSupportedMetrics.MonthlyUsageAttributionSupportedMetricsSerializer
             .class)
-public class MonthlyUsageAttributionSupportedMetrics {
+public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
 
   public static final MonthlyUsageAttributionSupportedMetrics API_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("api_usage");
@@ -234,14 +233,9 @@ public class MonthlyUsageAttributionSupportedMetrics {
               "vuln_management_hosts_percentage",
               "*"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   MonthlyUsageAttributionSupportedMetrics(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class MonthlyUsageAttributionSupportedMetricsSerializer
@@ -263,37 +257,6 @@ public class MonthlyUsageAttributionSupportedMetrics {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this MonthlyUsageAttributionSupportedMetrics object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((MonthlyUsageAttributionSupportedMetrics) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

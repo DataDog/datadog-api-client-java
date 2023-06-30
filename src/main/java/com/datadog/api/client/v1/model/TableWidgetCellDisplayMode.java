@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,11 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Define a display mode for the table cell. */
 @JsonSerialize(using = TableWidgetCellDisplayMode.TableWidgetCellDisplayModeSerializer.class)
-public class TableWidgetCellDisplayMode {
+public class TableWidgetCellDisplayMode extends ModelEnum<String> {
 
   public static final TableWidgetCellDisplayMode NUMBER = new TableWidgetCellDisplayMode("number");
   public static final TableWidgetCellDisplayMode BAR = new TableWidgetCellDisplayMode("bar");
@@ -29,14 +28,9 @@ public class TableWidgetCellDisplayMode {
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("number", "bar"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   TableWidgetCellDisplayMode(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class TableWidgetCellDisplayModeSerializer
@@ -55,37 +49,6 @@ public class TableWidgetCellDisplayMode {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this TableWidgetCellDisplayMode object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((TableWidgetCellDisplayMode) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

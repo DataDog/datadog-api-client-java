@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,14 +16,13 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The identifier for the action */
 @JsonSerialize(
     using =
         TeamPermissionSettingSerializerAction.TeamPermissionSettingSerializerActionSerializer.class)
-public class TeamPermissionSettingSerializerAction {
+public class TeamPermissionSettingSerializerAction extends ModelEnum<String> {
 
   public static final TeamPermissionSettingSerializerAction MANAGE_MEMBERSHIP =
       new TeamPermissionSettingSerializerAction("manage_membership");
@@ -33,14 +32,9 @@ public class TeamPermissionSettingSerializerAction {
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("manage_membership", "edit"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   TeamPermissionSettingSerializerAction(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class TeamPermissionSettingSerializerActionSerializer
@@ -62,37 +56,6 @@ public class TeamPermissionSettingSerializerAction {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this TeamPermissionSettingSerializerAction object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((TeamPermissionSettingSerializerAction) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

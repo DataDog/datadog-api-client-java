@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,13 +16,12 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The type of filtering action. */
 @JsonSerialize(
     using = SecurityMonitoringFilterAction.SecurityMonitoringFilterActionSerializer.class)
-public class SecurityMonitoringFilterAction {
+public class SecurityMonitoringFilterAction extends ModelEnum<String> {
 
   public static final SecurityMonitoringFilterAction REQUIRE =
       new SecurityMonitoringFilterAction("require");
@@ -32,14 +31,9 @@ public class SecurityMonitoringFilterAction {
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("require", "suppress"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SecurityMonitoringFilterAction(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class SecurityMonitoringFilterActionSerializer
@@ -58,37 +52,6 @@ public class SecurityMonitoringFilterAction {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SecurityMonitoringFilterAction object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SecurityMonitoringFilterAction) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

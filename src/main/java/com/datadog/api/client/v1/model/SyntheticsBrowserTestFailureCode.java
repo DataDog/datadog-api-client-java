@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,13 +16,12 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Error code that can be returned by a Synthetic test. */
 @JsonSerialize(
     using = SyntheticsBrowserTestFailureCode.SyntheticsBrowserTestFailureCodeSerializer.class)
-public class SyntheticsBrowserTestFailureCode {
+public class SyntheticsBrowserTestFailureCode extends ModelEnum<String> {
 
   public static final SyntheticsBrowserTestFailureCode API_REQUEST_FAILURE =
       new SyntheticsBrowserTestFailureCode("API_REQUEST_FAILURE");
@@ -128,14 +127,9 @@ public class SyntheticsBrowserTestFailureCode {
               "UPLOAD_FILES_DYNAMIC_ELEMENT",
               "UPLOAD_FILES_NAME"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SyntheticsBrowserTestFailureCode(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class SyntheticsBrowserTestFailureCodeSerializer
@@ -154,37 +148,6 @@ public class SyntheticsBrowserTestFailureCode {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SyntheticsBrowserTestFailureCode object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SyntheticsBrowserTestFailureCode) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

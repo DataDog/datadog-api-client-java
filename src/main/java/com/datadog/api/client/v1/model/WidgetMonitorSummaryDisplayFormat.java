@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,13 +16,12 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** What to display on the widget. */
 @JsonSerialize(
     using = WidgetMonitorSummaryDisplayFormat.WidgetMonitorSummaryDisplayFormatSerializer.class)
-public class WidgetMonitorSummaryDisplayFormat {
+public class WidgetMonitorSummaryDisplayFormat extends ModelEnum<String> {
 
   public static final WidgetMonitorSummaryDisplayFormat COUNTS =
       new WidgetMonitorSummaryDisplayFormat("counts");
@@ -34,14 +33,9 @@ public class WidgetMonitorSummaryDisplayFormat {
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("counts", "countsAndList", "list"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   WidgetMonitorSummaryDisplayFormat(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class WidgetMonitorSummaryDisplayFormatSerializer
@@ -60,37 +54,6 @@ public class WidgetMonitorSummaryDisplayFormat {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this WidgetMonitorSummaryDisplayFormat object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((WidgetMonitorSummaryDisplayFormat) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

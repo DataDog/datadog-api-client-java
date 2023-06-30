@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,11 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Aggregator used for the request. */
 @JsonSerialize(using = ScatterplotWidgetAggregator.ScatterplotWidgetAggregatorSerializer.class)
-public class ScatterplotWidgetAggregator {
+public class ScatterplotWidgetAggregator extends ModelEnum<String> {
 
   public static final ScatterplotWidgetAggregator AVERAGE = new ScatterplotWidgetAggregator("avg");
   public static final ScatterplotWidgetAggregator LAST = new ScatterplotWidgetAggregator("last");
@@ -32,14 +31,9 @@ public class ScatterplotWidgetAggregator {
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("avg", "last", "max", "min", "sum"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   ScatterplotWidgetAggregator(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class ScatterplotWidgetAggregatorSerializer
@@ -58,37 +52,6 @@ public class ScatterplotWidgetAggregator {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this ScatterplotWidgetAggregator object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((ScatterplotWidgetAggregator) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

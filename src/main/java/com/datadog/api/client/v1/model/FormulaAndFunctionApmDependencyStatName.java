@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** APM statistic. */
@@ -24,7 +23,7 @@ import java.util.Set;
     using =
         FormulaAndFunctionApmDependencyStatName.FormulaAndFunctionApmDependencyStatNameSerializer
             .class)
-public class FormulaAndFunctionApmDependencyStatName {
+public class FormulaAndFunctionApmDependencyStatName extends ModelEnum<String> {
 
   public static final FormulaAndFunctionApmDependencyStatName AVG_DURATION =
       new FormulaAndFunctionApmDependencyStatName("avg_duration");
@@ -52,14 +51,9 @@ public class FormulaAndFunctionApmDependencyStatName {
               "pct_of_traces",
               "total_traces_count"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   FormulaAndFunctionApmDependencyStatName(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class FormulaAndFunctionApmDependencyStatNameSerializer
@@ -81,37 +75,6 @@ public class FormulaAndFunctionApmDependencyStatName {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this FormulaAndFunctionApmDependencyStatName object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((FormulaAndFunctionApmDependencyStatName) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,11 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Source from which to query items to display in the stream. */
 @JsonSerialize(using = ListStreamSource.ListStreamSourceSerializer.class)
-public class ListStreamSource {
+public class ListStreamSource extends ModelEnum<String> {
 
   public static final ListStreamSource LOGS_STREAM = new ListStreamSource("logs_stream");
   public static final ListStreamSource AUDIT_STREAM = new ListStreamSource("audit_stream");
@@ -52,14 +51,9 @@ public class ListStreamSource {
               "logs_transaction_stream",
               "event_stream"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   ListStreamSource(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class ListStreamSourceSerializer extends StdSerializer<ListStreamSource> {
@@ -76,37 +70,6 @@ public class ListStreamSource {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this ListStreamSource object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((ListStreamSource) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

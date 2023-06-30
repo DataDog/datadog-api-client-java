@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,11 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Define how you want to align the text on the widget. */
 @JsonSerialize(using = WidgetTickEdge.WidgetTickEdgeSerializer.class)
-public class WidgetTickEdge {
+public class WidgetTickEdge extends ModelEnum<String> {
 
   public static final WidgetTickEdge BOTTOM = new WidgetTickEdge("bottom");
   public static final WidgetTickEdge LEFT = new WidgetTickEdge("left");
@@ -31,14 +30,9 @@ public class WidgetTickEdge {
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("bottom", "left", "right", "top"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   WidgetTickEdge(String value) {
     this.value = value;
+    this.localAllowedValues = allowedValues;
   }
 
   public static class WidgetTickEdgeSerializer extends StdSerializer<WidgetTickEdge> {
@@ -55,37 +49,6 @@ public class WidgetTickEdge {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this WidgetTickEdge object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((WidgetTickEdge) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator
