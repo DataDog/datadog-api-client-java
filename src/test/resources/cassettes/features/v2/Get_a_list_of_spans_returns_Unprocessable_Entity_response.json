@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/spans/events",
+      "queryStringParameters": {
+        "filter[from]": [
+          "now"
+        ],
+        "filter[to]": [
+          "now-1m"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"invalid_argument(Field 'filter.from,to' is invalid: 'from' should be anterior to 'to')\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 422,
+      "reasonPhrase": "Unprocessable Entity"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "81cc481e-85eb-fc3e-f692-fb566e07a4f5"
+  }
+]

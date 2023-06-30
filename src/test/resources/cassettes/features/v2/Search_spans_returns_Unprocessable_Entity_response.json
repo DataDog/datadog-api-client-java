@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"from\":\"now\",\"query\":\"service:web* AND @http.status_code:[200 TO 299]\",\"to\":\"now-15m\"},\"options\":{\"timezone\":\"GMT\"},\"page\":{\"limit\":10},\"sort\":\"timestamp\"},\"type\":\"search_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/spans/events/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"invalid_argument(Field 'filter.from,to' is invalid: 'from' should be anterior to 'to')\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 422,
+      "reasonPhrase": "Unprocessable Entity"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "065549fb-a5fa-b624-2175-afccf85cc068"
+  }
+]
