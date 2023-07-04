@@ -227,6 +227,8 @@ public class CiVisibilityPipelinesApi {
    * executions are modeled and what execution types we support, see the <a
    * href="https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/">guide</a>.
    *
+   * <p>Pipeline events can be submitted with a timestamp that is up to 18 hours in the past.
+   *
    * <p>This API endpoint is in private beta.
    *
    * @param body (required)
