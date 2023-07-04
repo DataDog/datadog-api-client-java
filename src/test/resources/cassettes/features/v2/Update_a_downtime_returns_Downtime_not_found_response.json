@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"message\":\"test msg\"},\"id\":\"00000000-0000-1234-0000-000000000000\",\"type\":\"downtime\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/downtime/00000000-0000-1234-0000-000000000000",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Downtime not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "aff714ec-f657-3a9d-cd32-612c038d5cce"
+  }
+]
