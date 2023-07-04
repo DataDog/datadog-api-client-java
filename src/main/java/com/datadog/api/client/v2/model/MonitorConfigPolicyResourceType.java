@@ -23,15 +23,14 @@ import java.util.Set;
     using = MonitorConfigPolicyResourceType.MonitorConfigPolicyResourceTypeSerializer.class)
 public class MonitorConfigPolicyResourceType extends ModelEnum<String> {
 
-  public static final MonitorConfigPolicyResourceType MONITOR_CONFIG_POLICY =
-      new MonitorConfigPolicyResourceType("monitor-config-policy");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("monitor-config-policy"));
 
+  public static final MonitorConfigPolicyResourceType MONITOR_CONFIG_POLICY =
+      new MonitorConfigPolicyResourceType("monitor-config-policy");
+
   MonitorConfigPolicyResourceType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MonitorConfigPolicyResourceTypeSerializer

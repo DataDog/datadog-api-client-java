@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = SecurityFilterType.SecurityFilterTypeSerializer.class)
 public class SecurityFilterType extends ModelEnum<String> {
 
-  public static final SecurityFilterType SECURITY_FILTERS =
-      new SecurityFilterType("security_filters");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("security_filters"));
 
+  public static final SecurityFilterType SECURITY_FILTERS =
+      new SecurityFilterType("security_filters");
+
   SecurityFilterType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityFilterTypeSerializer extends StdSerializer<SecurityFilterType> {

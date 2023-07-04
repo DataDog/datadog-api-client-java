@@ -23,14 +23,13 @@ import java.util.Set;
     using = IncidentAttachmentRelatedObject.IncidentAttachmentRelatedObjectSerializer.class)
 public class IncidentAttachmentRelatedObject extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("users"));
+
   public static final IncidentAttachmentRelatedObject USERS =
       new IncidentAttachmentRelatedObject("users");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("users"));
-
   IncidentAttachmentRelatedObject(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentAttachmentRelatedObjectSerializer

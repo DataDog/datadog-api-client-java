@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = CIAppResponseStatus.CIAppResponseStatusSerializer.class)
 public class CIAppResponseStatus extends ModelEnum<String> {
 
-  public static final CIAppResponseStatus DONE = new CIAppResponseStatus("done");
-  public static final CIAppResponseStatus TIMEOUT = new CIAppResponseStatus("timeout");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("done", "timeout"));
 
+  public static final CIAppResponseStatus DONE = new CIAppResponseStatus("done");
+  public static final CIAppResponseStatus TIMEOUT = new CIAppResponseStatus("timeout");
+
   CIAppResponseStatus(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppResponseStatusSerializer extends StdSerializer<CIAppResponseStatus> {

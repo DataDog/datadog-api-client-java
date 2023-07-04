@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = WidgetChangeType.WidgetChangeTypeSerializer.class)
 public class WidgetChangeType extends ModelEnum<String> {
 
-  public static final WidgetChangeType ABSOLUTE = new WidgetChangeType("absolute");
-  public static final WidgetChangeType RELATIVE = new WidgetChangeType("relative");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("absolute", "relative"));
 
+  public static final WidgetChangeType ABSOLUTE = new WidgetChangeType("absolute");
+  public static final WidgetChangeType RELATIVE = new WidgetChangeType("relative");
+
   WidgetChangeType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetChangeTypeSerializer extends StdSerializer<WidgetChangeType> {

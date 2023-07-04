@@ -22,6 +22,46 @@ import java.util.Set;
 @JsonSerialize(using = UsageAttributionSort.UsageAttributionSortSerializer.class)
 public class UsageAttributionSort extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "api_percentage",
+              "snmp_usage",
+              "apm_host_usage",
+              "api_usage",
+              "appsec_usage",
+              "appsec_percentage",
+              "container_usage",
+              "custom_timeseries_percentage",
+              "container_percentage",
+              "apm_host_percentage",
+              "npm_host_percentage",
+              "browser_percentage",
+              "browser_usage",
+              "infra_host_percentage",
+              "snmp_percentage",
+              "npm_host_usage",
+              "infra_host_usage",
+              "custom_timeseries_usage",
+              "lambda_functions_usage",
+              "lambda_functions_percentage",
+              "lambda_invocations_usage",
+              "lambda_invocations_percentage",
+              "estimated_indexed_logs_usage",
+              "estimated_indexed_logs_percentage",
+              "estimated_ingested_logs_usage",
+              "estimated_ingested_logs_percentage",
+              "estimated_indexed_spans_usage",
+              "estimated_indexed_spans_percentage",
+              "estimated_ingested_spans_usage",
+              "estimated_ingested_spans_percentage",
+              "apm_fargate_usage",
+              "apm_fargate_percentage",
+              "appsec_fargate_usage",
+              "appsec_fargate_percentage",
+              "estimated_rum_usage_attribution_usage",
+              "estimated_rum_usage_attribution_percentage"));
+
   public static final UsageAttributionSort API_PERCENTAGE =
       new UsageAttributionSort("api_percentage");
   public static final UsageAttributionSort SNMP_USAGE = new UsageAttributionSort("snmp_usage");
@@ -92,49 +132,8 @@ public class UsageAttributionSort extends ModelEnum<String> {
   public static final UsageAttributionSort ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE =
       new UsageAttributionSort("estimated_rum_usage_attribution_percentage");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "api_percentage",
-              "snmp_usage",
-              "apm_host_usage",
-              "api_usage",
-              "appsec_usage",
-              "appsec_percentage",
-              "container_usage",
-              "custom_timeseries_percentage",
-              "container_percentage",
-              "apm_host_percentage",
-              "npm_host_percentage",
-              "browser_percentage",
-              "browser_usage",
-              "infra_host_percentage",
-              "snmp_percentage",
-              "npm_host_usage",
-              "infra_host_usage",
-              "custom_timeseries_usage",
-              "lambda_functions_usage",
-              "lambda_functions_percentage",
-              "lambda_invocations_usage",
-              "lambda_invocations_percentage",
-              "estimated_indexed_logs_usage",
-              "estimated_indexed_logs_percentage",
-              "estimated_ingested_logs_usage",
-              "estimated_ingested_logs_percentage",
-              "estimated_indexed_spans_usage",
-              "estimated_indexed_spans_percentage",
-              "estimated_ingested_spans_usage",
-              "estimated_ingested_spans_percentage",
-              "apm_fargate_usage",
-              "apm_fargate_percentage",
-              "appsec_fargate_usage",
-              "appsec_fargate_percentage",
-              "estimated_rum_usage_attribution_usage",
-              "estimated_rum_usage_attribution_percentage"));
-
   UsageAttributionSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class UsageAttributionSortSerializer extends StdSerializer<UsageAttributionSort> {

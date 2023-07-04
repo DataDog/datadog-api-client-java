@@ -22,6 +22,29 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsAssertionType.SyntheticsAssertionTypeSerializer.class)
 public class SyntheticsAssertionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "body",
+              "header",
+              "statusCode",
+              "certificate",
+              "responseTime",
+              "property",
+              "recordEvery",
+              "recordSome",
+              "tlsVersion",
+              "minTlsVersion",
+              "latency",
+              "packetLossPercentage",
+              "packetsReceived",
+              "networkHop",
+              "receivedMessage",
+              "grpcHealthcheckStatus",
+              "grpcMetadata",
+              "grpcProto",
+              "connection"));
+
   public static final SyntheticsAssertionType BODY = new SyntheticsAssertionType("body");
   public static final SyntheticsAssertionType HEADER = new SyntheticsAssertionType("header");
   public static final SyntheticsAssertionType STATUS_CODE =
@@ -56,32 +79,8 @@ public class SyntheticsAssertionType extends ModelEnum<String> {
   public static final SyntheticsAssertionType CONNECTION =
       new SyntheticsAssertionType("connection");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "body",
-              "header",
-              "statusCode",
-              "certificate",
-              "responseTime",
-              "property",
-              "recordEvery",
-              "recordSome",
-              "tlsVersion",
-              "minTlsVersion",
-              "latency",
-              "packetLossPercentage",
-              "packetsReceived",
-              "networkHop",
-              "receivedMessage",
-              "grpcHealthcheckStatus",
-              "grpcMetadata",
-              "grpcProto",
-              "connection"));
-
   SyntheticsAssertionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsAssertionTypeSerializer

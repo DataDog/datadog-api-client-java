@@ -22,6 +22,9 @@ import java.util.Set;
 @JsonSerialize(using = DashboardGlobalTimeLiveSpan.DashboardGlobalTimeLiveSpanSerializer.class)
 public class DashboardGlobalTimeLiveSpan extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("15m", "1h", "4h", "1d", "2d", "1w", "1mo", "3mo"));
+
   public static final DashboardGlobalTimeLiveSpan PAST_FIFTEEN_MINUTES =
       new DashboardGlobalTimeLiveSpan("15m");
   public static final DashboardGlobalTimeLiveSpan PAST_ONE_HOUR =
@@ -39,12 +42,8 @@ public class DashboardGlobalTimeLiveSpan extends ModelEnum<String> {
   public static final DashboardGlobalTimeLiveSpan PAST_THREE_MONTHS =
       new DashboardGlobalTimeLiveSpan("3mo");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("15m", "1h", "4h", "1d", "2d", "1w", "1mo", "3mo"));
-
   DashboardGlobalTimeLiveSpan(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DashboardGlobalTimeLiveSpanSerializer

@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = ApmStatsQueryRowType.ApmStatsQueryRowTypeSerializer.class)
 public class ApmStatsQueryRowType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("service", "resource", "span"));
+
   public static final ApmStatsQueryRowType SERVICE = new ApmStatsQueryRowType("service");
   public static final ApmStatsQueryRowType RESOURCE = new ApmStatsQueryRowType("resource");
   public static final ApmStatsQueryRowType SPAN = new ApmStatsQueryRowType("span");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("service", "resource", "span"));
-
   ApmStatsQueryRowType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ApmStatsQueryRowTypeSerializer extends StdSerializer<ApmStatsQueryRowType> {

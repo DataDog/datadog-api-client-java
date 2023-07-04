@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = UsageSort.UsageSortSerializer.class)
 public class UsageSort extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("computed_on", "size", "start_date", "end_date"));
+
   public static final UsageSort COMPUTED_ON = new UsageSort("computed_on");
   public static final UsageSort SIZE = new UsageSort("size");
   public static final UsageSort START_DATE = new UsageSort("start_date");
   public static final UsageSort END_DATE = new UsageSort("end_date");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("computed_on", "size", "start_date", "end_date"));
-
   UsageSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class UsageSortSerializer extends StdSerializer<UsageSort> {

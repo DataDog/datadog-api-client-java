@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = SLOCorrectionType.SLOCorrectionTypeSerializer.class)
 public class SLOCorrectionType extends ModelEnum<String> {
 
-  public static final SLOCorrectionType CORRECTION = new SLOCorrectionType("correction");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("correction"));
 
+  public static final SLOCorrectionType CORRECTION = new SLOCorrectionType("correction");
+
   SLOCorrectionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SLOCorrectionTypeSerializer extends StdSerializer<SLOCorrectionType> {

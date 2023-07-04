@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsBasicAuthDigestType.SyntheticsBasicAuthDigestTypeSerializer.class)
 public class SyntheticsBasicAuthDigestType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("digest"));
+
   public static final SyntheticsBasicAuthDigestType DIGEST =
       new SyntheticsBasicAuthDigestType("digest");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("digest"));
-
   SyntheticsBasicAuthDigestType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBasicAuthDigestTypeSerializer

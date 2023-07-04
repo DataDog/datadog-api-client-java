@@ -22,15 +22,6 @@ import java.util.Set;
 @JsonSerialize(using = WidgetTimeWindows.WidgetTimeWindowsSerializer.class)
 public class WidgetTimeWindows extends ModelEnum<String> {
 
-  public static final WidgetTimeWindows SEVEN_DAYS = new WidgetTimeWindows("7d");
-  public static final WidgetTimeWindows THIRTY_DAYS = new WidgetTimeWindows("30d");
-  public static final WidgetTimeWindows NINETY_DAYS = new WidgetTimeWindows("90d");
-  public static final WidgetTimeWindows WEEK_TO_DATE = new WidgetTimeWindows("week_to_date");
-  public static final WidgetTimeWindows PREVIOUS_WEEK = new WidgetTimeWindows("previous_week");
-  public static final WidgetTimeWindows MONTH_TO_DATE = new WidgetTimeWindows("month_to_date");
-  public static final WidgetTimeWindows PREVIOUS_MONTH = new WidgetTimeWindows("previous_month");
-  public static final WidgetTimeWindows GLOBAL_TIME = new WidgetTimeWindows("global_time");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -43,9 +34,17 @@ public class WidgetTimeWindows extends ModelEnum<String> {
               "previous_month",
               "global_time"));
 
+  public static final WidgetTimeWindows SEVEN_DAYS = new WidgetTimeWindows("7d");
+  public static final WidgetTimeWindows THIRTY_DAYS = new WidgetTimeWindows("30d");
+  public static final WidgetTimeWindows NINETY_DAYS = new WidgetTimeWindows("90d");
+  public static final WidgetTimeWindows WEEK_TO_DATE = new WidgetTimeWindows("week_to_date");
+  public static final WidgetTimeWindows PREVIOUS_WEEK = new WidgetTimeWindows("previous_week");
+  public static final WidgetTimeWindows MONTH_TO_DATE = new WidgetTimeWindows("month_to_date");
+  public static final WidgetTimeWindows PREVIOUS_MONTH = new WidgetTimeWindows("previous_month");
+  public static final WidgetTimeWindows GLOBAL_TIME = new WidgetTimeWindows("global_time");
+
   WidgetTimeWindows(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetTimeWindowsSerializer extends StdSerializer<WidgetTimeWindows> {

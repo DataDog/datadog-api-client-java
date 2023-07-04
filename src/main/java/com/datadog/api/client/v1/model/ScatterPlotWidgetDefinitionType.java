@@ -23,15 +23,14 @@ import java.util.Set;
     using = ScatterPlotWidgetDefinitionType.ScatterPlotWidgetDefinitionTypeSerializer.class)
 public class ScatterPlotWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final ScatterPlotWidgetDefinitionType SCATTERPLOT =
-      new ScatterPlotWidgetDefinitionType("scatterplot");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("scatterplot"));
 
+  public static final ScatterPlotWidgetDefinitionType SCATTERPLOT =
+      new ScatterPlotWidgetDefinitionType("scatterplot");
+
   ScatterPlotWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ScatterPlotWidgetDefinitionTypeSerializer

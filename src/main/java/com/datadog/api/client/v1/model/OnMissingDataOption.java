@@ -29,19 +29,18 @@ import java.util.Set;
 @JsonSerialize(using = OnMissingDataOption.OnMissingDataOptionSerializer.class)
 public class OnMissingDataOption extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("default", "show_no_data", "show_and_notify_no_data", "resolve"));
+
   public static final OnMissingDataOption DEFAULT = new OnMissingDataOption("default");
   public static final OnMissingDataOption SHOW_NO_DATA = new OnMissingDataOption("show_no_data");
   public static final OnMissingDataOption SHOW_AND_NOTIFY_NO_DATA =
       new OnMissingDataOption("show_and_notify_no_data");
   public static final OnMissingDataOption RESOLVE = new OnMissingDataOption("resolve");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("default", "show_no_data", "show_and_notify_no_data", "resolve"));
-
   OnMissingDataOption(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class OnMissingDataOptionSerializer extends StdSerializer<OnMissingDataOption> {

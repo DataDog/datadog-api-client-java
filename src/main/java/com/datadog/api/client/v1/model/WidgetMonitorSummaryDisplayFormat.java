@@ -23,6 +23,9 @@ import java.util.Set;
     using = WidgetMonitorSummaryDisplayFormat.WidgetMonitorSummaryDisplayFormatSerializer.class)
 public class WidgetMonitorSummaryDisplayFormat extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("counts", "countsAndList", "list"));
+
   public static final WidgetMonitorSummaryDisplayFormat COUNTS =
       new WidgetMonitorSummaryDisplayFormat("counts");
   public static final WidgetMonitorSummaryDisplayFormat COUNTS_AND_LIST =
@@ -30,12 +33,8 @@ public class WidgetMonitorSummaryDisplayFormat extends ModelEnum<String> {
   public static final WidgetMonitorSummaryDisplayFormat LIST =
       new WidgetMonitorSummaryDisplayFormat("list");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("counts", "countsAndList", "list"));
-
   WidgetMonitorSummaryDisplayFormat(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetMonitorSummaryDisplayFormatSerializer

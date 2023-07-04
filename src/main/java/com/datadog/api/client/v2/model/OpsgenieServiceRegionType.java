@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = OpsgenieServiceRegionType.OpsgenieServiceRegionTypeSerializer.class)
 public class OpsgenieServiceRegionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("us", "eu", "custom"));
+
   public static final OpsgenieServiceRegionType US = new OpsgenieServiceRegionType("us");
   public static final OpsgenieServiceRegionType EU = new OpsgenieServiceRegionType("eu");
   public static final OpsgenieServiceRegionType CUSTOM = new OpsgenieServiceRegionType("custom");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("us", "eu", "custom"));
-
   OpsgenieServiceRegionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class OpsgenieServiceRegionTypeSerializer

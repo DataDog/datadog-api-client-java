@@ -31,6 +31,15 @@ import java.util.Set;
             .class)
 public class SensitiveDataScannerTextReplacementType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "none",
+              "hash",
+              "replacement_string",
+              "partial_replacement_from_beginning",
+              "partial_replacement_from_end"));
+
   public static final SensitiveDataScannerTextReplacementType NONE =
       new SensitiveDataScannerTextReplacementType("none");
   public static final SensitiveDataScannerTextReplacementType HASH =
@@ -42,18 +51,8 @@ public class SensitiveDataScannerTextReplacementType extends ModelEnum<String> {
   public static final SensitiveDataScannerTextReplacementType PARTIAL_REPLACEMENT_FROM_END =
       new SensitiveDataScannerTextReplacementType("partial_replacement_from_end");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "none",
-              "hash",
-              "replacement_string",
-              "partial_replacement_from_beginning",
-              "partial_replacement_from_end"));
-
   SensitiveDataScannerTextReplacementType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SensitiveDataScannerTextReplacementTypeSerializer

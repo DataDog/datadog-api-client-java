@@ -23,15 +23,14 @@ import java.util.Set;
     using = EventTimelineWidgetDefinitionType.EventTimelineWidgetDefinitionTypeSerializer.class)
 public class EventTimelineWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final EventTimelineWidgetDefinitionType EVENT_TIMELINE =
-      new EventTimelineWidgetDefinitionType("event_timeline");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("event_timeline"));
 
+  public static final EventTimelineWidgetDefinitionType EVENT_TIMELINE =
+      new EventTimelineWidgetDefinitionType("event_timeline");
+
   EventTimelineWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class EventTimelineWidgetDefinitionTypeSerializer

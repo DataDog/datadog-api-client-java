@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = GeomapWidgetDefinitionType.GeomapWidgetDefinitionTypeSerializer.class)
 public class GeomapWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final GeomapWidgetDefinitionType GEOMAP = new GeomapWidgetDefinitionType("geomap");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("geomap"));
 
+  public static final GeomapWidgetDefinitionType GEOMAP = new GeomapWidgetDefinitionType("geomap");
+
   GeomapWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class GeomapWidgetDefinitionTypeSerializer

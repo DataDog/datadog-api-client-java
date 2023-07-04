@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = UsageMetricCategory.UsageMetricCategorySerializer.class)
 public class UsageMetricCategory extends ModelEnum<String> {
 
-  public static final UsageMetricCategory STANDARD = new UsageMetricCategory("standard");
-  public static final UsageMetricCategory CUSTOM = new UsageMetricCategory("custom");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("standard", "custom"));
 
+  public static final UsageMetricCategory STANDARD = new UsageMetricCategory("standard");
+  public static final UsageMetricCategory CUSTOM = new UsageMetricCategory("custom");
+
   UsageMetricCategory(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class UsageMetricCategorySerializer extends StdSerializer<UsageMetricCategory> {

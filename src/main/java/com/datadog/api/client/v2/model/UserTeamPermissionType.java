@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = UserTeamPermissionType.UserTeamPermissionTypeSerializer.class)
 public class UserTeamPermissionType extends ModelEnum<String> {
 
-  public static final UserTeamPermissionType USER_TEAM_PERMISSIONS =
-      new UserTeamPermissionType("user_team_permissions");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("user_team_permissions"));
 
+  public static final UserTeamPermissionType USER_TEAM_PERMISSIONS =
+      new UserTeamPermissionType("user_team_permissions");
+
   UserTeamPermissionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class UserTeamPermissionTypeSerializer

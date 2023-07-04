@@ -22,6 +22,9 @@ import java.util.Set;
 @JsonSerialize(using = TimeseriesWidgetLegendColumn.TimeseriesWidgetLegendColumnSerializer.class)
 public class TimeseriesWidgetLegendColumn extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("value", "avg", "sum", "min", "max"));
+
   public static final TimeseriesWidgetLegendColumn VALUE =
       new TimeseriesWidgetLegendColumn("value");
   public static final TimeseriesWidgetLegendColumn AVG = new TimeseriesWidgetLegendColumn("avg");
@@ -29,12 +32,8 @@ public class TimeseriesWidgetLegendColumn extends ModelEnum<String> {
   public static final TimeseriesWidgetLegendColumn MIN = new TimeseriesWidgetLegendColumn("min");
   public static final TimeseriesWidgetLegendColumn MAX = new TimeseriesWidgetLegendColumn("max");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("value", "avg", "sum", "min", "max"));
-
   TimeseriesWidgetLegendColumn(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TimeseriesWidgetLegendColumnSerializer

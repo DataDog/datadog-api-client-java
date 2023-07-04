@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = SensitiveDataScannerRuleType.SensitiveDataScannerRuleTypeSerializer.class)
 public class SensitiveDataScannerRuleType extends ModelEnum<String> {
 
-  public static final SensitiveDataScannerRuleType SENSITIVE_DATA_SCANNER_RULE =
-      new SensitiveDataScannerRuleType("sensitive_data_scanner_rule");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("sensitive_data_scanner_rule"));
 
+  public static final SensitiveDataScannerRuleType SENSITIVE_DATA_SCANNER_RULE =
+      new SensitiveDataScannerRuleType("sensitive_data_scanner_rule");
+
   SensitiveDataScannerRuleType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SensitiveDataScannerRuleTypeSerializer

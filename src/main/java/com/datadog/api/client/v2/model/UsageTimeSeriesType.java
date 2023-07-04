@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = UsageTimeSeriesType.UsageTimeSeriesTypeSerializer.class)
 public class UsageTimeSeriesType extends ModelEnum<String> {
 
-  public static final UsageTimeSeriesType USAGE_TIMESERIES =
-      new UsageTimeSeriesType("usage_timeseries");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("usage_timeseries"));
 
+  public static final UsageTimeSeriesType USAGE_TIMESERIES =
+      new UsageTimeSeriesType("usage_timeseries");
+
   UsageTimeSeriesType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class UsageTimeSeriesTypeSerializer extends StdSerializer<UsageTimeSeriesType> {

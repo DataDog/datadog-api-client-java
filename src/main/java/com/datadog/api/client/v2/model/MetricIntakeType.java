@@ -25,16 +25,15 @@ import java.util.Set;
 @JsonSerialize(using = MetricIntakeType.MetricIntakeTypeSerializer.class)
 public class MetricIntakeType extends ModelEnum<Integer> {
 
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 2, 3));
+
   public static final MetricIntakeType UNSPECIFIED = new MetricIntakeType(0);
   public static final MetricIntakeType COUNT = new MetricIntakeType(1);
   public static final MetricIntakeType RATE = new MetricIntakeType(2);
   public static final MetricIntakeType GAUGE = new MetricIntakeType(3);
 
-  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 2, 3));
-
   MetricIntakeType(Integer value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricIntakeTypeSerializer extends StdSerializer<MetricIntakeType> {

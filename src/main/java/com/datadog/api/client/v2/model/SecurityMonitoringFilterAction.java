@@ -23,17 +23,16 @@ import java.util.Set;
     using = SecurityMonitoringFilterAction.SecurityMonitoringFilterActionSerializer.class)
 public class SecurityMonitoringFilterAction extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("require", "suppress"));
+
   public static final SecurityMonitoringFilterAction REQUIRE =
       new SecurityMonitoringFilterAction("require");
   public static final SecurityMonitoringFilterAction SUPPRESS =
       new SecurityMonitoringFilterAction("suppress");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("require", "suppress"));
-
   SecurityMonitoringFilterAction(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringFilterActionSerializer

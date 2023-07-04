@@ -25,14 +25,13 @@ import java.util.Set;
             .SecurityMonitoringRuleHardcodedEvaluatorTypeSerializer.class)
 public class SecurityMonitoringRuleHardcodedEvaluatorType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("log4shell"));
+
   public static final SecurityMonitoringRuleHardcodedEvaluatorType LOG4SHELL =
       new SecurityMonitoringRuleHardcodedEvaluatorType("log4shell");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("log4shell"));
-
   SecurityMonitoringRuleHardcodedEvaluatorType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleHardcodedEvaluatorTypeSerializer

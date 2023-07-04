@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = DetailedFindingType.DetailedFindingTypeSerializer.class)
 public class DetailedFindingType extends ModelEnum<String> {
 
-  public static final DetailedFindingType DETAILED_FINDING =
-      new DetailedFindingType("detailed_finding");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("detailed_finding"));
 
+  public static final DetailedFindingType DETAILED_FINDING =
+      new DetailedFindingType("detailed_finding");
+
   DetailedFindingType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DetailedFindingTypeSerializer extends StdSerializer<DetailedFindingType> {

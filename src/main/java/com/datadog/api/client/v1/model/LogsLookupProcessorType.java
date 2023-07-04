@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = LogsLookupProcessorType.LogsLookupProcessorTypeSerializer.class)
 public class LogsLookupProcessorType extends ModelEnum<String> {
 
-  public static final LogsLookupProcessorType LOOKUP_PROCESSOR =
-      new LogsLookupProcessorType("lookup-processor");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("lookup-processor"));
 
+  public static final LogsLookupProcessorType LOOKUP_PROCESSOR =
+      new LogsLookupProcessorType("lookup-processor");
+
   LogsLookupProcessorType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsLookupProcessorTypeSerializer

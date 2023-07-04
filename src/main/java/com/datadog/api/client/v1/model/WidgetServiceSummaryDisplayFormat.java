@@ -23,6 +23,9 @@ import java.util.Set;
     using = WidgetServiceSummaryDisplayFormat.WidgetServiceSummaryDisplayFormatSerializer.class)
 public class WidgetServiceSummaryDisplayFormat extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("one_column", "two_column", "three_column"));
+
   public static final WidgetServiceSummaryDisplayFormat ONE_COLUMN =
       new WidgetServiceSummaryDisplayFormat("one_column");
   public static final WidgetServiceSummaryDisplayFormat TWO_COLUMN =
@@ -30,12 +33,8 @@ public class WidgetServiceSummaryDisplayFormat extends ModelEnum<String> {
   public static final WidgetServiceSummaryDisplayFormat THREE_COLUMN =
       new WidgetServiceSummaryDisplayFormat("three_column");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("one_column", "two_column", "three_column"));
-
   WidgetServiceSummaryDisplayFormat(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetServiceSummaryDisplayFormatSerializer

@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = IncidentTodoType.IncidentTodoTypeSerializer.class)
 public class IncidentTodoType extends ModelEnum<String> {
 
-  public static final IncidentTodoType INCIDENT_TODOS = new IncidentTodoType("incident_todos");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("incident_todos"));
 
+  public static final IncidentTodoType INCIDENT_TODOS = new IncidentTodoType("incident_todos");
+
   IncidentTodoType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentTodoTypeSerializer extends StdSerializer<IncidentTodoType> {

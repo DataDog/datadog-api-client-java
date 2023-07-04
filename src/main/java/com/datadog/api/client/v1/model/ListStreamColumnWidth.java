@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = ListStreamColumnWidth.ListStreamColumnWidthSerializer.class)
 public class ListStreamColumnWidth extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("auto", "compact", "full"));
+
   public static final ListStreamColumnWidth AUTO = new ListStreamColumnWidth("auto");
   public static final ListStreamColumnWidth COMPACT = new ListStreamColumnWidth("compact");
   public static final ListStreamColumnWidth FULL = new ListStreamColumnWidth("full");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("auto", "compact", "full"));
-
   ListStreamColumnWidth(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ListStreamColumnWidthSerializer extends StdSerializer<ListStreamColumnWidth> {

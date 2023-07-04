@@ -22,6 +22,35 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsStepType.SyntheticsStepTypeSerializer.class)
 public class SyntheticsStepType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "assertCurrentUrl",
+              "assertElementAttribute",
+              "assertElementContent",
+              "assertElementPresent",
+              "assertEmail",
+              "assertFileDownload",
+              "assertFromJavascript",
+              "assertPageContains",
+              "assertPageLacks",
+              "click",
+              "extractFromJavascript",
+              "extractVariable",
+              "goToEmailLink",
+              "goToUrl",
+              "goToUrlAndMeasureTti",
+              "hover",
+              "playSubTest",
+              "pressKey",
+              "refresh",
+              "runApiTest",
+              "scroll",
+              "selectOption",
+              "typeText",
+              "uploadFiles",
+              "wait"));
+
   public static final SyntheticsStepType ASSERT_CURRENT_URL =
       new SyntheticsStepType("assertCurrentUrl");
   public static final SyntheticsStepType ASSERT_ELEMENT_ATTRIBUTE =
@@ -59,38 +88,8 @@ public class SyntheticsStepType extends ModelEnum<String> {
   public static final SyntheticsStepType UPLOAD_FILES = new SyntheticsStepType("uploadFiles");
   public static final SyntheticsStepType WAIT = new SyntheticsStepType("wait");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "assertCurrentUrl",
-              "assertElementAttribute",
-              "assertElementContent",
-              "assertElementPresent",
-              "assertEmail",
-              "assertFileDownload",
-              "assertFromJavascript",
-              "assertPageContains",
-              "assertPageLacks",
-              "click",
-              "extractFromJavascript",
-              "extractVariable",
-              "goToEmailLink",
-              "goToUrl",
-              "goToUrlAndMeasureTti",
-              "hover",
-              "playSubTest",
-              "pressKey",
-              "refresh",
-              "runApiTest",
-              "scroll",
-              "selectOption",
-              "typeText",
-              "uploadFiles",
-              "wait"));
-
   SyntheticsStepType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsStepTypeSerializer extends StdSerializer<SyntheticsStepType> {

@@ -22,18 +22,17 @@ import java.util.Set;
 @JsonSerialize(using = SensitiveDataScannerProduct.SensitiveDataScannerProductSerializer.class)
 public class SensitiveDataScannerProduct extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("logs", "rum", "events", "apm"));
+
   public static final SensitiveDataScannerProduct LOGS = new SensitiveDataScannerProduct("logs");
   public static final SensitiveDataScannerProduct RUM = new SensitiveDataScannerProduct("rum");
   public static final SensitiveDataScannerProduct EVENTS =
       new SensitiveDataScannerProduct("events");
   public static final SensitiveDataScannerProduct APM = new SensitiveDataScannerProduct("apm");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("logs", "rum", "events", "apm"));
-
   SensitiveDataScannerProduct(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SensitiveDataScannerProductSerializer

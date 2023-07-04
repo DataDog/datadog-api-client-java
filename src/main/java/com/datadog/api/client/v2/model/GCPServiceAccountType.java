@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = GCPServiceAccountType.GCPServiceAccountTypeSerializer.class)
 public class GCPServiceAccountType extends ModelEnum<String> {
 
-  public static final GCPServiceAccountType GCP_SERVICE_ACCOUNT =
-      new GCPServiceAccountType("gcp_service_account");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("gcp_service_account"));
 
+  public static final GCPServiceAccountType GCP_SERVICE_ACCOUNT =
+      new GCPServiceAccountType("gcp_service_account");
+
   GCPServiceAccountType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class GCPServiceAccountTypeSerializer extends StdSerializer<GCPServiceAccountType> {

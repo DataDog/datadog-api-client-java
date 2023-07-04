@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = ListStreamResponseFormat.ListStreamResponseFormatSerializer.class)
 public class ListStreamResponseFormat extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("event_list"));
+
   public static final ListStreamResponseFormat EVENT_LIST =
       new ListStreamResponseFormat("event_list");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("event_list"));
-
   ListStreamResponseFormat(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ListStreamResponseFormatSerializer

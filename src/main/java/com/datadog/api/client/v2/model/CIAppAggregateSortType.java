@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = CIAppAggregateSortType.CIAppAggregateSortTypeSerializer.class)
 public class CIAppAggregateSortType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("alphabetical", "measure"));
+
   public static final CIAppAggregateSortType ALPHABETICAL =
       new CIAppAggregateSortType("alphabetical");
   public static final CIAppAggregateSortType MEASURE = new CIAppAggregateSortType("measure");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("alphabetical", "measure"));
-
   CIAppAggregateSortType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppAggregateSortTypeSerializer

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = WidgetNodeType.WidgetNodeTypeSerializer.class)
 public class WidgetNodeType extends ModelEnum<String> {
 
-  public static final WidgetNodeType HOST = new WidgetNodeType("host");
-  public static final WidgetNodeType CONTAINER = new WidgetNodeType("container");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("host", "container"));
 
+  public static final WidgetNodeType HOST = new WidgetNodeType("host");
+  public static final WidgetNodeType CONTAINER = new WidgetNodeType("container");
+
   WidgetNodeType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetNodeTypeSerializer extends StdSerializer<WidgetNodeType> {

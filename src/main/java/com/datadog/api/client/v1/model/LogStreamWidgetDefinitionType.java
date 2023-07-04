@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = LogStreamWidgetDefinitionType.LogStreamWidgetDefinitionTypeSerializer.class)
 public class LogStreamWidgetDefinitionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("log_stream"));
+
   public static final LogStreamWidgetDefinitionType LOG_STREAM =
       new LogStreamWidgetDefinitionType("log_stream");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("log_stream"));
-
   LogStreamWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogStreamWidgetDefinitionTypeSerializer

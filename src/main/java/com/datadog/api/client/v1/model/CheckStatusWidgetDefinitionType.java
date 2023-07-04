@@ -23,15 +23,14 @@ import java.util.Set;
     using = CheckStatusWidgetDefinitionType.CheckStatusWidgetDefinitionTypeSerializer.class)
 public class CheckStatusWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final CheckStatusWidgetDefinitionType CHECK_STATUS =
-      new CheckStatusWidgetDefinitionType("check_status");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("check_status"));
 
+  public static final CheckStatusWidgetDefinitionType CHECK_STATUS =
+      new CheckStatusWidgetDefinitionType("check_status");
+
   CheckStatusWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CheckStatusWidgetDefinitionTypeSerializer

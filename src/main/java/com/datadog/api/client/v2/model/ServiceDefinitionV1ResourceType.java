@@ -23,6 +23,11 @@ import java.util.Set;
     using = ServiceDefinitionV1ResourceType.ServiceDefinitionV1ResourceTypeSerializer.class)
 public class ServiceDefinitionV1ResourceType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "doc", "wiki", "runbook", "url", "repo", "dashboard", "oncall", "code", "link"));
+
   public static final ServiceDefinitionV1ResourceType DOC =
       new ServiceDefinitionV1ResourceType("doc");
   public static final ServiceDefinitionV1ResourceType WIKI =
@@ -42,14 +47,8 @@ public class ServiceDefinitionV1ResourceType extends ModelEnum<String> {
   public static final ServiceDefinitionV1ResourceType LINK =
       new ServiceDefinitionV1ResourceType("link");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "doc", "wiki", "runbook", "url", "repo", "dashboard", "oncall", "code", "link"));
-
   ServiceDefinitionV1ResourceType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionV1ResourceTypeSerializer

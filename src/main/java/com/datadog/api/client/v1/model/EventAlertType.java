@@ -26,6 +26,11 @@ import java.util.Set;
 @JsonSerialize(using = EventAlertType.EventAlertTypeSerializer.class)
 public class EventAlertType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "error", "warning", "info", "success", "user_update", "recommendation", "snapshot"));
+
   public static final EventAlertType ERROR = new EventAlertType("error");
   public static final EventAlertType WARNING = new EventAlertType("warning");
   public static final EventAlertType INFO = new EventAlertType("info");
@@ -34,14 +39,8 @@ public class EventAlertType extends ModelEnum<String> {
   public static final EventAlertType RECOMMENDATION = new EventAlertType("recommendation");
   public static final EventAlertType SNAPSHOT = new EventAlertType("snapshot");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "error", "warning", "info", "success", "user_update", "recommendation", "snapshot"));
-
   EventAlertType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class EventAlertTypeSerializer extends StdSerializer<EventAlertType> {

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = EventPriority.EventPrioritySerializer.class)
 public class EventPriority extends ModelEnum<String> {
 
-  public static final EventPriority NORMAL = new EventPriority("normal");
-  public static final EventPriority LOW = new EventPriority("low");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("normal", "low"));
 
+  public static final EventPriority NORMAL = new EventPriority("normal");
+  public static final EventPriority LOW = new EventPriority("low");
+
   EventPriority(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class EventPrioritySerializer extends StdSerializer<EventPriority> {

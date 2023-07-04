@@ -23,15 +23,14 @@ import java.util.Set;
     using = ServiceSummaryWidgetDefinitionType.ServiceSummaryWidgetDefinitionTypeSerializer.class)
 public class ServiceSummaryWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final ServiceSummaryWidgetDefinitionType TRACE_SERVICE =
-      new ServiceSummaryWidgetDefinitionType("trace_service");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("trace_service"));
 
+  public static final ServiceSummaryWidgetDefinitionType TRACE_SERVICE =
+      new ServiceSummaryWidgetDefinitionType("trace_service");
+
   ServiceSummaryWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceSummaryWidgetDefinitionTypeSerializer

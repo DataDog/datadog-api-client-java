@@ -25,14 +25,13 @@ import java.util.Set;
             .IncidentAttachmentPostmortemAttachmentTypeSerializer.class)
 public class IncidentAttachmentPostmortemAttachmentType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("postmortem"));
+
   public static final IncidentAttachmentPostmortemAttachmentType POSTMORTEM =
       new IncidentAttachmentPostmortemAttachmentType("postmortem");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("postmortem"));
-
   IncidentAttachmentPostmortemAttachmentType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentAttachmentPostmortemAttachmentTypeSerializer

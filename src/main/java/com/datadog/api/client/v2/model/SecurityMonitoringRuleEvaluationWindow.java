@@ -28,6 +28,9 @@ import java.util.Set;
             .class)
 public class SecurityMonitoringRuleEvaluationWindow extends ModelEnum<Integer> {
 
+  private static final Set<Integer> allowedValues =
+      new HashSet<Integer>(Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200));
+
   public static final SecurityMonitoringRuleEvaluationWindow ZERO_MINUTES =
       new SecurityMonitoringRuleEvaluationWindow(0);
   public static final SecurityMonitoringRuleEvaluationWindow ONE_MINUTE =
@@ -45,12 +48,8 @@ public class SecurityMonitoringRuleEvaluationWindow extends ModelEnum<Integer> {
   public static final SecurityMonitoringRuleEvaluationWindow TWO_HOURS =
       new SecurityMonitoringRuleEvaluationWindow(7200);
 
-  private static final Set<Integer> allowedValues =
-      new HashSet<Integer>(Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200));
-
   SecurityMonitoringRuleEvaluationWindow(Integer value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleEvaluationWindowSerializer

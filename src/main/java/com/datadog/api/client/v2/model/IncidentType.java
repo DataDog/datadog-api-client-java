@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = IncidentType.IncidentTypeSerializer.class)
 public class IncidentType extends ModelEnum<String> {
 
-  public static final IncidentType INCIDENTS = new IncidentType("incidents");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("incidents"));
 
+  public static final IncidentType INCIDENTS = new IncidentType("incidents");
+
   IncidentType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentTypeSerializer extends StdSerializer<IncidentType> {

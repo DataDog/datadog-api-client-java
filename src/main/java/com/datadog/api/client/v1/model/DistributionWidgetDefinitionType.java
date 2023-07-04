@@ -23,15 +23,14 @@ import java.util.Set;
     using = DistributionWidgetDefinitionType.DistributionWidgetDefinitionTypeSerializer.class)
 public class DistributionWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final DistributionWidgetDefinitionType DISTRIBUTION =
-      new DistributionWidgetDefinitionType("distribution");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("distribution"));
 
+  public static final DistributionWidgetDefinitionType DISTRIBUTION =
+      new DistributionWidgetDefinitionType("distribution");
+
   DistributionWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DistributionWidgetDefinitionTypeSerializer

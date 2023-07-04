@@ -24,6 +24,16 @@ import java.util.Set;
         SecurityMonitoringRuleDetectionMethod.SecurityMonitoringRuleDetectionMethodSerializer.class)
 public class SecurityMonitoringRuleDetectionMethod extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "threshold",
+              "new_value",
+              "anomaly_detection",
+              "impossible_travel",
+              "hardcoded",
+              "third_party"));
+
   public static final SecurityMonitoringRuleDetectionMethod THRESHOLD =
       new SecurityMonitoringRuleDetectionMethod("threshold");
   public static final SecurityMonitoringRuleDetectionMethod NEW_VALUE =
@@ -37,19 +47,8 @@ public class SecurityMonitoringRuleDetectionMethod extends ModelEnum<String> {
   public static final SecurityMonitoringRuleDetectionMethod THIRD_PARTY =
       new SecurityMonitoringRuleDetectionMethod("third_party");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "threshold",
-              "new_value",
-              "anomaly_detection",
-              "impossible_travel",
-              "hardcoded",
-              "third_party"));
-
   SecurityMonitoringRuleDetectionMethod(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleDetectionMethodSerializer

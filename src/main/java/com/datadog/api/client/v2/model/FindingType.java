@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = FindingType.FindingTypeSerializer.class)
 public class FindingType extends ModelEnum<String> {
 
-  public static final FindingType FINDING = new FindingType("finding");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("finding"));
 
+  public static final FindingType FINDING = new FindingType("finding");
+
   FindingType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FindingTypeSerializer extends StdSerializer<FindingType> {

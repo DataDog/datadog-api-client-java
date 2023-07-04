@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = TableWidgetCellDisplayMode.TableWidgetCellDisplayModeSerializer.class)
 public class TableWidgetCellDisplayMode extends ModelEnum<String> {
 
-  public static final TableWidgetCellDisplayMode NUMBER = new TableWidgetCellDisplayMode("number");
-  public static final TableWidgetCellDisplayMode BAR = new TableWidgetCellDisplayMode("bar");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("number", "bar"));
 
+  public static final TableWidgetCellDisplayMode NUMBER = new TableWidgetCellDisplayMode("number");
+  public static final TableWidgetCellDisplayMode BAR = new TableWidgetCellDisplayMode("bar");
+
   TableWidgetCellDisplayMode(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TableWidgetCellDisplayModeSerializer

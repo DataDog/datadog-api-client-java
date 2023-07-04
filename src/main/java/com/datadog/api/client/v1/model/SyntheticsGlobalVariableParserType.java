@@ -23,6 +23,9 @@ import java.util.Set;
     using = SyntheticsGlobalVariableParserType.SyntheticsGlobalVariableParserTypeSerializer.class)
 public class SyntheticsGlobalVariableParserType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("raw", "json_path", "regex", "x_path"));
+
   public static final SyntheticsGlobalVariableParserType RAW =
       new SyntheticsGlobalVariableParserType("raw");
   public static final SyntheticsGlobalVariableParserType JSON_PATH =
@@ -32,12 +35,8 @@ public class SyntheticsGlobalVariableParserType extends ModelEnum<String> {
   public static final SyntheticsGlobalVariableParserType X_PATH =
       new SyntheticsGlobalVariableParserType("x_path");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("raw", "json_path", "regex", "x_path"));
-
   SyntheticsGlobalVariableParserType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsGlobalVariableParserTypeSerializer

@@ -23,6 +23,9 @@ import java.util.Set;
     using = IncidentFieldAttributesValueType.IncidentFieldAttributesValueTypeSerializer.class)
 public class IncidentFieldAttributesValueType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("multiselect", "textarray", "metrictag", "autocomplete"));
+
   public static final IncidentFieldAttributesValueType MULTISELECT =
       new IncidentFieldAttributesValueType("multiselect");
   public static final IncidentFieldAttributesValueType TEXTARRAY =
@@ -32,12 +35,8 @@ public class IncidentFieldAttributesValueType extends ModelEnum<String> {
   public static final IncidentFieldAttributesValueType AUTOCOMPLETE =
       new IncidentFieldAttributesValueType("autocomplete");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("multiselect", "textarray", "metrictag", "autocomplete"));
-
   IncidentFieldAttributesValueType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentFieldAttributesValueTypeSerializer

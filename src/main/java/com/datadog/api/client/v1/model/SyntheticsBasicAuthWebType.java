@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsBasicAuthWebType.SyntheticsBasicAuthWebTypeSerializer.class)
 public class SyntheticsBasicAuthWebType extends ModelEnum<String> {
 
-  public static final SyntheticsBasicAuthWebType WEB = new SyntheticsBasicAuthWebType("web");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("web"));
 
+  public static final SyntheticsBasicAuthWebType WEB = new SyntheticsBasicAuthWebType("web");
+
   SyntheticsBasicAuthWebType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBasicAuthWebTypeSerializer

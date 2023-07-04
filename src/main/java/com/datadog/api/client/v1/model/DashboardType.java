@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = DashboardType.DashboardTypeSerializer.class)
 public class DashboardType extends ModelEnum<String> {
 
-  public static final DashboardType CUSTOM_TIMEBOARD = new DashboardType("custom_timeboard");
-  public static final DashboardType CUSTOM_SCREENBOARD = new DashboardType("custom_screenboard");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("custom_timeboard", "custom_screenboard"));
 
+  public static final DashboardType CUSTOM_TIMEBOARD = new DashboardType("custom_timeboard");
+  public static final DashboardType CUSTOM_SCREENBOARD = new DashboardType("custom_screenboard");
+
   DashboardType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DashboardTypeSerializer extends StdSerializer<DashboardType> {

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = MetricsDataSource.MetricsDataSourceSerializer.class)
 public class MetricsDataSource extends ModelEnum<String> {
 
-  public static final MetricsDataSource METRICS = new MetricsDataSource("metrics");
-  public static final MetricsDataSource CLOUD_COST = new MetricsDataSource("cloud_cost");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("metrics", "cloud_cost"));
 
+  public static final MetricsDataSource METRICS = new MetricsDataSource("metrics");
+  public static final MetricsDataSource CLOUD_COST = new MetricsDataSource("cloud_cost");
+
   MetricsDataSource(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricsDataSourceSerializer extends StdSerializer<MetricsDataSource> {

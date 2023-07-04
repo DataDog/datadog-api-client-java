@@ -23,14 +23,13 @@ import java.util.Set;
     using = FormulaAndFunctionSLODataSource.FormulaAndFunctionSLODataSourceSerializer.class)
 public class FormulaAndFunctionSLODataSource extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("slo"));
+
   public static final FormulaAndFunctionSLODataSource SLO =
       new FormulaAndFunctionSLODataSource("slo");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("slo"));
-
   FormulaAndFunctionSLODataSource(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FormulaAndFunctionSLODataSourceSerializer

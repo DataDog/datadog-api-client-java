@@ -22,6 +22,36 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsApiTestFailureCode.SyntheticsApiTestFailureCodeSerializer.class)
 public class SyntheticsApiTestFailureCode extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "BODY_TOO_LARGE",
+              "DENIED",
+              "TOO_MANY_REDIRECTS",
+              "AUTHENTICATION_ERROR",
+              "DECRYPTION",
+              "INVALID_CHAR_IN_HEADER",
+              "HEADER_TOO_LARGE",
+              "HEADERS_INCOMPATIBLE_CONTENT_LENGTH",
+              "INVALID_REQUEST",
+              "REQUIRES_UPDATE",
+              "UNESCAPED_CHARACTERS_IN_REQUEST_PATH",
+              "MALFORMED_RESPONSE",
+              "INCORRECT_ASSERTION",
+              "CONNREFUSED",
+              "CONNRESET",
+              "DNS",
+              "HOSTUNREACH",
+              "NETUNREACH",
+              "TIMEOUT",
+              "SSL",
+              "OCSP",
+              "INVALID_TEST",
+              "TUNNEL",
+              "WEBSOCKET",
+              "UNKNOWN",
+              "INTERNAL_ERROR"));
+
   public static final SyntheticsApiTestFailureCode BODY_TOO_LARGE =
       new SyntheticsApiTestFailureCode("BODY_TOO_LARGE");
   public static final SyntheticsApiTestFailureCode DENIED =
@@ -72,39 +102,8 @@ public class SyntheticsApiTestFailureCode extends ModelEnum<String> {
   public static final SyntheticsApiTestFailureCode INTERNAL_ERROR =
       new SyntheticsApiTestFailureCode("INTERNAL_ERROR");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "BODY_TOO_LARGE",
-              "DENIED",
-              "TOO_MANY_REDIRECTS",
-              "AUTHENTICATION_ERROR",
-              "DECRYPTION",
-              "INVALID_CHAR_IN_HEADER",
-              "HEADER_TOO_LARGE",
-              "HEADERS_INCOMPATIBLE_CONTENT_LENGTH",
-              "INVALID_REQUEST",
-              "REQUIRES_UPDATE",
-              "UNESCAPED_CHARACTERS_IN_REQUEST_PATH",
-              "MALFORMED_RESPONSE",
-              "INCORRECT_ASSERTION",
-              "CONNREFUSED",
-              "CONNRESET",
-              "DNS",
-              "HOSTUNREACH",
-              "NETUNREACH",
-              "TIMEOUT",
-              "SSL",
-              "OCSP",
-              "INVALID_TEST",
-              "TUNNEL",
-              "WEBSOCKET",
-              "UNKNOWN",
-              "INTERNAL_ERROR"));
-
   SyntheticsApiTestFailureCode(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsApiTestFailureCodeSerializer

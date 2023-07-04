@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = TreeMapColorBy.TreeMapColorBySerializer.class)
 public class TreeMapColorBy extends ModelEnum<String> {
 
-  public static final TreeMapColorBy USER = new TreeMapColorBy("user");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("user"));
 
+  public static final TreeMapColorBy USER = new TreeMapColorBy("user");
+
   TreeMapColorBy(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TreeMapColorBySerializer extends StdSerializer<TreeMapColorBy> {

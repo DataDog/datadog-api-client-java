@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = MonitorRenotifyStatusType.MonitorRenotifyStatusTypeSerializer.class)
 public class MonitorRenotifyStatusType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("alert", "warn", "no data"));
+
   public static final MonitorRenotifyStatusType ALERT = new MonitorRenotifyStatusType("alert");
   public static final MonitorRenotifyStatusType WARN = new MonitorRenotifyStatusType("warn");
   public static final MonitorRenotifyStatusType NO_DATA = new MonitorRenotifyStatusType("no data");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("alert", "warn", "no data"));
-
   MonitorRenotifyStatusType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MonitorRenotifyStatusTypeSerializer

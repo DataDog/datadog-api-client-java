@@ -25,17 +25,16 @@ import java.util.Set;
             .class)
 public class IncidentFieldAttributesSingleValueType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("dropdown", "textbox"));
+
   public static final IncidentFieldAttributesSingleValueType DROPDOWN =
       new IncidentFieldAttributesSingleValueType("dropdown");
   public static final IncidentFieldAttributesSingleValueType TEXTBOX =
       new IncidentFieldAttributesSingleValueType("textbox");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("dropdown", "textbox"));
-
   IncidentFieldAttributesSingleValueType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentFieldAttributesSingleValueTypeSerializer

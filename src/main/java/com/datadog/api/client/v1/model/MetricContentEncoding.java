@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = MetricContentEncoding.MetricContentEncodingSerializer.class)
 public class MetricContentEncoding extends ModelEnum<String> {
 
-  public static final MetricContentEncoding DEFLATE = new MetricContentEncoding("deflate");
-  public static final MetricContentEncoding GZIP = new MetricContentEncoding("gzip");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("deflate", "gzip"));
 
+  public static final MetricContentEncoding DEFLATE = new MetricContentEncoding("deflate");
+  public static final MetricContentEncoding GZIP = new MetricContentEncoding("gzip");
+
   MetricContentEncoding(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricContentEncodingSerializer extends StdSerializer<MetricContentEncoding> {

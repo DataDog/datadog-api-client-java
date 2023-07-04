@@ -22,18 +22,17 @@ import java.util.Set;
 @JsonSerialize(using = FindingStatus.FindingStatusSerializer.class)
 public class FindingStatus extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("critical", "high", "medium", "low", "info"));
+
   public static final FindingStatus CRITICAL = new FindingStatus("critical");
   public static final FindingStatus HIGH = new FindingStatus("high");
   public static final FindingStatus MEDIUM = new FindingStatus("medium");
   public static final FindingStatus LOW = new FindingStatus("low");
   public static final FindingStatus INFO = new FindingStatus("info");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("critical", "high", "medium", "low", "info"));
-
   FindingStatus(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FindingStatusSerializer extends StdSerializer<FindingStatus> {

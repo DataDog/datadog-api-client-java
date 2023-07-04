@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = NoteWidgetDefinitionType.NoteWidgetDefinitionTypeSerializer.class)
 public class NoteWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final NoteWidgetDefinitionType NOTE = new NoteWidgetDefinitionType("note");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("note"));
 
+  public static final NoteWidgetDefinitionType NOTE = new NoteWidgetDefinitionType("note");
+
   NoteWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class NoteWidgetDefinitionTypeSerializer

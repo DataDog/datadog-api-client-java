@@ -23,6 +23,9 @@ import java.util.Set;
     using = MetricTagConfigurationMetricTypes.MetricTagConfigurationMetricTypesSerializer.class)
 public class MetricTagConfigurationMetricTypes extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("gauge", "count", "rate", "distribution"));
+
   public static final MetricTagConfigurationMetricTypes GAUGE =
       new MetricTagConfigurationMetricTypes("gauge");
   public static final MetricTagConfigurationMetricTypes COUNT =
@@ -32,12 +35,8 @@ public class MetricTagConfigurationMetricTypes extends ModelEnum<String> {
   public static final MetricTagConfigurationMetricTypes DISTRIBUTION =
       new MetricTagConfigurationMetricTypes("distribution");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("gauge", "count", "rate", "distribution"));
-
   MetricTagConfigurationMetricTypes(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricTagConfigurationMetricTypesSerializer

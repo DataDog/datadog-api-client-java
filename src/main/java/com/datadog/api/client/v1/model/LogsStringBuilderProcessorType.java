@@ -23,15 +23,14 @@ import java.util.Set;
     using = LogsStringBuilderProcessorType.LogsStringBuilderProcessorTypeSerializer.class)
 public class LogsStringBuilderProcessorType extends ModelEnum<String> {
 
-  public static final LogsStringBuilderProcessorType STRING_BUILDER_PROCESSOR =
-      new LogsStringBuilderProcessorType("string-builder-processor");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("string-builder-processor"));
 
+  public static final LogsStringBuilderProcessorType STRING_BUILDER_PROCESSOR =
+      new LogsStringBuilderProcessorType("string-builder-processor");
+
   LogsStringBuilderProcessorType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsStringBuilderProcessorTypeSerializer

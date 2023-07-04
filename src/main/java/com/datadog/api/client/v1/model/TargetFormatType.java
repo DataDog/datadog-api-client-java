@@ -27,17 +27,16 @@ import java.util.Set;
 @JsonSerialize(using = TargetFormatType.TargetFormatTypeSerializer.class)
 public class TargetFormatType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("auto", "string", "integer", "double"));
+
   public static final TargetFormatType AUTO = new TargetFormatType("auto");
   public static final TargetFormatType STRING = new TargetFormatType("string");
   public static final TargetFormatType INTEGER = new TargetFormatType("integer");
   public static final TargetFormatType DOUBLE = new TargetFormatType("double");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("auto", "string", "integer", "double"));
-
   TargetFormatType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TargetFormatTypeSerializer extends StdSerializer<TargetFormatType> {

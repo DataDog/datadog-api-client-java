@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = WidgetTickEdge.WidgetTickEdgeSerializer.class)
 public class WidgetTickEdge extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("bottom", "left", "right", "top"));
+
   public static final WidgetTickEdge BOTTOM = new WidgetTickEdge("bottom");
   public static final WidgetTickEdge LEFT = new WidgetTickEdge("left");
   public static final WidgetTickEdge RIGHT = new WidgetTickEdge("right");
   public static final WidgetTickEdge TOP = new WidgetTickEdge("top");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("bottom", "left", "right", "top"));
-
   WidgetTickEdge(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetTickEdgeSerializer extends StdSerializer<WidgetTickEdge> {

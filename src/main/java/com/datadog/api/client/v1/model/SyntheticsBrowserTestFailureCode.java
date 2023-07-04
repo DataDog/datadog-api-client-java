@@ -23,6 +23,43 @@ import java.util.Set;
     using = SyntheticsBrowserTestFailureCode.SyntheticsBrowserTestFailureCodeSerializer.class)
 public class SyntheticsBrowserTestFailureCode extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "API_REQUEST_FAILURE",
+              "ASSERTION_FAILURE",
+              "DOWNLOAD_FILE_TOO_LARGE",
+              "ELEMENT_NOT_INTERACTABLE",
+              "EMAIL_VARIABLE_NOT_DEFINED",
+              "EVALUATE_JAVASCRIPT",
+              "EVALUATE_JAVASCRIPT_CONTEXT",
+              "EXTRACT_VARIABLE",
+              "FORBIDDEN_URL",
+              "FRAME_DETACHED",
+              "INCONSISTENCIES",
+              "INTERNAL_ERROR",
+              "INVALID_TYPE_TEXT_DELAY",
+              "INVALID_URL",
+              "INVALID_VARIABLE_PATTERN",
+              "INVISIBLE_ELEMENT",
+              "LOCATE_ELEMENT",
+              "NAVIGATE_TO_LINK",
+              "OPEN_URL",
+              "PRESS_KEY",
+              "SERVER_CERTIFICATE",
+              "SELECT_OPTION",
+              "STEP_TIMEOUT",
+              "SUB_TEST_NOT_PASSED",
+              "TEST_TIMEOUT",
+              "TOO_MANY_HTTP_REQUESTS",
+              "UNAVAILABLE_BROWSER",
+              "UNKNOWN",
+              "UNSUPPORTED_AUTH_SCHEMA",
+              "UPLOAD_FILES_ELEMENT_TYPE",
+              "UPLOAD_FILES_DIALOG",
+              "UPLOAD_FILES_DYNAMIC_ELEMENT",
+              "UPLOAD_FILES_NAME"));
+
   public static final SyntheticsBrowserTestFailureCode API_REQUEST_FAILURE =
       new SyntheticsBrowserTestFailureCode("API_REQUEST_FAILURE");
   public static final SyntheticsBrowserTestFailureCode ASSERTION_FAILURE =
@@ -90,46 +127,8 @@ public class SyntheticsBrowserTestFailureCode extends ModelEnum<String> {
   public static final SyntheticsBrowserTestFailureCode UPLOAD_FILES_NAME =
       new SyntheticsBrowserTestFailureCode("UPLOAD_FILES_NAME");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "API_REQUEST_FAILURE",
-              "ASSERTION_FAILURE",
-              "DOWNLOAD_FILE_TOO_LARGE",
-              "ELEMENT_NOT_INTERACTABLE",
-              "EMAIL_VARIABLE_NOT_DEFINED",
-              "EVALUATE_JAVASCRIPT",
-              "EVALUATE_JAVASCRIPT_CONTEXT",
-              "EXTRACT_VARIABLE",
-              "FORBIDDEN_URL",
-              "FRAME_DETACHED",
-              "INCONSISTENCIES",
-              "INTERNAL_ERROR",
-              "INVALID_TYPE_TEXT_DELAY",
-              "INVALID_URL",
-              "INVALID_VARIABLE_PATTERN",
-              "INVISIBLE_ELEMENT",
-              "LOCATE_ELEMENT",
-              "NAVIGATE_TO_LINK",
-              "OPEN_URL",
-              "PRESS_KEY",
-              "SERVER_CERTIFICATE",
-              "SELECT_OPTION",
-              "STEP_TIMEOUT",
-              "SUB_TEST_NOT_PASSED",
-              "TEST_TIMEOUT",
-              "TOO_MANY_HTTP_REQUESTS",
-              "UNAVAILABLE_BROWSER",
-              "UNKNOWN",
-              "UNSUPPORTED_AUTH_SCHEMA",
-              "UPLOAD_FILES_ELEMENT_TYPE",
-              "UPLOAD_FILES_DIALOG",
-              "UPLOAD_FILES_DYNAMIC_ELEMENT",
-              "UPLOAD_FILES_NAME"));
-
   SyntheticsBrowserTestFailureCode(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBrowserTestFailureCodeSerializer

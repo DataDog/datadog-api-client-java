@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsTestCallType.SyntheticsTestCallTypeSerializer.class)
 public class SyntheticsTestCallType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("healthcheck", "unary"));
+
   public static final SyntheticsTestCallType HEALTHCHECK =
       new SyntheticsTestCallType("healthcheck");
   public static final SyntheticsTestCallType UNARY = new SyntheticsTestCallType("unary");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("healthcheck", "unary"));
-
   SyntheticsTestCallType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsTestCallTypeSerializer

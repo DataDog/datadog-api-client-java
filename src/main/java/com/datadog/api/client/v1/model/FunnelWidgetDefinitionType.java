@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = FunnelWidgetDefinitionType.FunnelWidgetDefinitionTypeSerializer.class)
 public class FunnelWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final FunnelWidgetDefinitionType FUNNEL = new FunnelWidgetDefinitionType("funnel");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("funnel"));
 
+  public static final FunnelWidgetDefinitionType FUNNEL = new FunnelWidgetDefinitionType("funnel");
+
   FunnelWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FunnelWidgetDefinitionTypeSerializer

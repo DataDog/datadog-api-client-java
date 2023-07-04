@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = AuditLogsSort.AuditLogsSortSerializer.class)
 public class AuditLogsSort extends ModelEnum<String> {
 
-  public static final AuditLogsSort TIMESTAMP_ASCENDING = new AuditLogsSort("timestamp");
-  public static final AuditLogsSort TIMESTAMP_DESCENDING = new AuditLogsSort("-timestamp");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("timestamp", "-timestamp"));
 
+  public static final AuditLogsSort TIMESTAMP_ASCENDING = new AuditLogsSort("timestamp");
+  public static final AuditLogsSort TIMESTAMP_DESCENDING = new AuditLogsSort("-timestamp");
+
   AuditLogsSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class AuditLogsSortSerializer extends StdSerializer<AuditLogsSort> {

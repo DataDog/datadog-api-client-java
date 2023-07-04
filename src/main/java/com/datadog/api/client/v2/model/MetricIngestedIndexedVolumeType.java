@@ -23,15 +23,14 @@ import java.util.Set;
     using = MetricIngestedIndexedVolumeType.MetricIngestedIndexedVolumeTypeSerializer.class)
 public class MetricIngestedIndexedVolumeType extends ModelEnum<String> {
 
-  public static final MetricIngestedIndexedVolumeType METRIC_VOLUMES =
-      new MetricIngestedIndexedVolumeType("metric_volumes");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("metric_volumes"));
 
+  public static final MetricIngestedIndexedVolumeType METRIC_VOLUMES =
+      new MetricIngestedIndexedVolumeType("metric_volumes");
+
   MetricIngestedIndexedVolumeType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricIngestedIndexedVolumeTypeSerializer

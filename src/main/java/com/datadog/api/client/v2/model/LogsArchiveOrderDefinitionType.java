@@ -23,15 +23,14 @@ import java.util.Set;
     using = LogsArchiveOrderDefinitionType.LogsArchiveOrderDefinitionTypeSerializer.class)
 public class LogsArchiveOrderDefinitionType extends ModelEnum<String> {
 
-  public static final LogsArchiveOrderDefinitionType ARCHIVE_ORDER =
-      new LogsArchiveOrderDefinitionType("archive_order");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("archive_order"));
 
+  public static final LogsArchiveOrderDefinitionType ARCHIVE_ORDER =
+      new LogsArchiveOrderDefinitionType("archive_order");
+
   LogsArchiveOrderDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsArchiveOrderDefinitionTypeSerializer

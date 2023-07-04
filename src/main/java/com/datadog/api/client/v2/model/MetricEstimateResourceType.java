@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = MetricEstimateResourceType.MetricEstimateResourceTypeSerializer.class)
 public class MetricEstimateResourceType extends ModelEnum<String> {
 
-  public static final MetricEstimateResourceType METRIC_CARDINALITY_ESTIMATE =
-      new MetricEstimateResourceType("metric_cardinality_estimate");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("metric_cardinality_estimate"));
 
+  public static final MetricEstimateResourceType METRIC_CARDINALITY_ESTIMATE =
+      new MetricEstimateResourceType("metric_cardinality_estimate");
+
   MetricEstimateResourceType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricEstimateResourceTypeSerializer

@@ -26,6 +26,10 @@ import java.util.Set;
 @JsonSerialize(using = WidgetImageSizing.WidgetImageSizingSerializer.class)
 public class WidgetImageSizing extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("fill", "contain", "cover", "none", "scale-down", "zoom", "fit", "center"));
+
   public static final WidgetImageSizing FILL = new WidgetImageSizing("fill");
   public static final WidgetImageSizing CONTAIN = new WidgetImageSizing("contain");
   public static final WidgetImageSizing COVER = new WidgetImageSizing("cover");
@@ -35,13 +39,8 @@ public class WidgetImageSizing extends ModelEnum<String> {
   public static final WidgetImageSizing FIT = new WidgetImageSizing("fit");
   public static final WidgetImageSizing CENTER = new WidgetImageSizing("center");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("fill", "contain", "cover", "none", "scale-down", "zoom", "fit", "center"));
-
   WidgetImageSizing(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetImageSizingSerializer extends StdSerializer<WidgetImageSizing> {

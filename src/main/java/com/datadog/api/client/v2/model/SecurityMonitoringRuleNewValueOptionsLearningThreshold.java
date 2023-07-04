@@ -27,16 +27,15 @@ import java.util.Set;
             .SecurityMonitoringRuleNewValueOptionsLearningThresholdSerializer.class)
 public class SecurityMonitoringRuleNewValueOptionsLearningThreshold extends ModelEnum<Integer> {
 
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1));
+
   public static final SecurityMonitoringRuleNewValueOptionsLearningThreshold ZERO_OCCURRENCES =
       new SecurityMonitoringRuleNewValueOptionsLearningThreshold(0);
   public static final SecurityMonitoringRuleNewValueOptionsLearningThreshold ONE_OCCURRENCE =
       new SecurityMonitoringRuleNewValueOptionsLearningThreshold(1);
 
-  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1));
-
   SecurityMonitoringRuleNewValueOptionsLearningThreshold(Integer value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleNewValueOptionsLearningThresholdSerializer

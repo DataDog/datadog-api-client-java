@@ -22,6 +22,10 @@ import java.util.Set;
 @JsonSerialize(using = AWSNamespace.AWSNamespaceSerializer.class)
 public class AWSNamespace extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("elb", "application_elb", "sqs", "rds", "custom", "network_elb", "lambda"));
+
   public static final AWSNamespace ELB = new AWSNamespace("elb");
   public static final AWSNamespace APPLICATION_ELB = new AWSNamespace("application_elb");
   public static final AWSNamespace SQS = new AWSNamespace("sqs");
@@ -30,13 +34,8 @@ public class AWSNamespace extends ModelEnum<String> {
   public static final AWSNamespace NETWORK_ELB = new AWSNamespace("network_elb");
   public static final AWSNamespace LAMBDA = new AWSNamespace("lambda");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("elb", "application_elb", "sqs", "rds", "custom", "network_elb", "lambda"));
-
   AWSNamespace(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class AWSNamespaceSerializer extends StdSerializer<AWSNamespace> {

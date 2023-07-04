@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = RUMResponseStatus.RUMResponseStatusSerializer.class)
 public class RUMResponseStatus extends ModelEnum<String> {
 
-  public static final RUMResponseStatus DONE = new RUMResponseStatus("done");
-  public static final RUMResponseStatus TIMEOUT = new RUMResponseStatus("timeout");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("done", "timeout"));
 
+  public static final RUMResponseStatus DONE = new RUMResponseStatus("done");
+  public static final RUMResponseStatus TIMEOUT = new RUMResponseStatus("timeout");
+
   RUMResponseStatus(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class RUMResponseStatusSerializer extends StdSerializer<RUMResponseStatus> {

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = TimeseriesBackgroundType.TimeseriesBackgroundTypeSerializer.class)
 public class TimeseriesBackgroundType extends ModelEnum<String> {
 
-  public static final TimeseriesBackgroundType BARS = new TimeseriesBackgroundType("bars");
-  public static final TimeseriesBackgroundType AREA = new TimeseriesBackgroundType("area");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("bars", "area"));
 
+  public static final TimeseriesBackgroundType BARS = new TimeseriesBackgroundType("bars");
+  public static final TimeseriesBackgroundType AREA = new TimeseriesBackgroundType("area");
+
   TimeseriesBackgroundType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TimeseriesBackgroundTypeSerializer

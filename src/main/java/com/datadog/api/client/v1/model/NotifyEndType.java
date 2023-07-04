@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = NotifyEndType.NotifyEndTypeSerializer.class)
 public class NotifyEndType extends ModelEnum<String> {
 
-  public static final NotifyEndType CANCELED = new NotifyEndType("canceled");
-  public static final NotifyEndType EXPIRED = new NotifyEndType("expired");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("canceled", "expired"));
 
+  public static final NotifyEndType CANCELED = new NotifyEndType("canceled");
+  public static final NotifyEndType EXPIRED = new NotifyEndType("expired");
+
   NotifyEndType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class NotifyEndTypeSerializer extends StdSerializer<NotifyEndType> {

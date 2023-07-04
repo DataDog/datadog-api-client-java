@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = NotebookStatus.NotebookStatusSerializer.class)
 public class NotebookStatus extends ModelEnum<String> {
 
-  public static final NotebookStatus PUBLISHED = new NotebookStatus("published");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("published"));
 
+  public static final NotebookStatus PUBLISHED = new NotebookStatus("published");
+
   NotebookStatus(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class NotebookStatusSerializer extends StdSerializer<NotebookStatus> {

@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = HeatMapWidgetDefinitionType.HeatMapWidgetDefinitionTypeSerializer.class)
 public class HeatMapWidgetDefinitionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("heatmap"));
+
   public static final HeatMapWidgetDefinitionType HEATMAP =
       new HeatMapWidgetDefinitionType("heatmap");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("heatmap"));
-
   HeatMapWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class HeatMapWidgetDefinitionTypeSerializer

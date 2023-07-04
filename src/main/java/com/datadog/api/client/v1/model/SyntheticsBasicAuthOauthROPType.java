@@ -23,14 +23,13 @@ import java.util.Set;
     using = SyntheticsBasicAuthOauthROPType.SyntheticsBasicAuthOauthROPTypeSerializer.class)
 public class SyntheticsBasicAuthOauthROPType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("oauth-rop"));
+
   public static final SyntheticsBasicAuthOauthROPType OAUTH_ROP =
       new SyntheticsBasicAuthOauthROPType("oauth-rop");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("oauth-rop"));
-
   SyntheticsBasicAuthOauthROPType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBasicAuthOauthROPTypeSerializer

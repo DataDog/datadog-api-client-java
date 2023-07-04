@@ -22,28 +22,6 @@ import java.util.Set;
 @JsonSerialize(using = WidgetPalette.WidgetPaletteSerializer.class)
 public class WidgetPalette extends ModelEnum<String> {
 
-  public static final WidgetPalette BLUE = new WidgetPalette("blue");
-  public static final WidgetPalette CUSTOM_BACKGROUND = new WidgetPalette("custom_bg");
-  public static final WidgetPalette CUSTOM_IMAGE = new WidgetPalette("custom_image");
-  public static final WidgetPalette CUSTOM_TEXT = new WidgetPalette("custom_text");
-  public static final WidgetPalette GRAY_ON_WHITE = new WidgetPalette("gray_on_white");
-  public static final WidgetPalette GREY = new WidgetPalette("grey");
-  public static final WidgetPalette GREEN = new WidgetPalette("green");
-  public static final WidgetPalette ORANGE = new WidgetPalette("orange");
-  public static final WidgetPalette RED = new WidgetPalette("red");
-  public static final WidgetPalette RED_ON_WHITE = new WidgetPalette("red_on_white");
-  public static final WidgetPalette WHITE_ON_GRAY = new WidgetPalette("white_on_gray");
-  public static final WidgetPalette WHITE_ON_GREEN = new WidgetPalette("white_on_green");
-  public static final WidgetPalette GREEN_ON_WHITE = new WidgetPalette("green_on_white");
-  public static final WidgetPalette WHITE_ON_RED = new WidgetPalette("white_on_red");
-  public static final WidgetPalette WHITE_ON_YELLOW = new WidgetPalette("white_on_yellow");
-  public static final WidgetPalette YELLOW_ON_WHITE = new WidgetPalette("yellow_on_white");
-  public static final WidgetPalette BLACK_ON_LIGHT_YELLOW =
-      new WidgetPalette("black_on_light_yellow");
-  public static final WidgetPalette BLACK_ON_LIGHT_GREEN =
-      new WidgetPalette("black_on_light_green");
-  public static final WidgetPalette BLACK_ON_LIGHT_RED = new WidgetPalette("black_on_light_red");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -67,9 +45,30 @@ public class WidgetPalette extends ModelEnum<String> {
               "black_on_light_green",
               "black_on_light_red"));
 
+  public static final WidgetPalette BLUE = new WidgetPalette("blue");
+  public static final WidgetPalette CUSTOM_BACKGROUND = new WidgetPalette("custom_bg");
+  public static final WidgetPalette CUSTOM_IMAGE = new WidgetPalette("custom_image");
+  public static final WidgetPalette CUSTOM_TEXT = new WidgetPalette("custom_text");
+  public static final WidgetPalette GRAY_ON_WHITE = new WidgetPalette("gray_on_white");
+  public static final WidgetPalette GREY = new WidgetPalette("grey");
+  public static final WidgetPalette GREEN = new WidgetPalette("green");
+  public static final WidgetPalette ORANGE = new WidgetPalette("orange");
+  public static final WidgetPalette RED = new WidgetPalette("red");
+  public static final WidgetPalette RED_ON_WHITE = new WidgetPalette("red_on_white");
+  public static final WidgetPalette WHITE_ON_GRAY = new WidgetPalette("white_on_gray");
+  public static final WidgetPalette WHITE_ON_GREEN = new WidgetPalette("white_on_green");
+  public static final WidgetPalette GREEN_ON_WHITE = new WidgetPalette("green_on_white");
+  public static final WidgetPalette WHITE_ON_RED = new WidgetPalette("white_on_red");
+  public static final WidgetPalette WHITE_ON_YELLOW = new WidgetPalette("white_on_yellow");
+  public static final WidgetPalette YELLOW_ON_WHITE = new WidgetPalette("yellow_on_white");
+  public static final WidgetPalette BLACK_ON_LIGHT_YELLOW =
+      new WidgetPalette("black_on_light_yellow");
+  public static final WidgetPalette BLACK_ON_LIGHT_GREEN =
+      new WidgetPalette("black_on_light_green");
+  public static final WidgetPalette BLACK_ON_LIGHT_RED = new WidgetPalette("black_on_light_red");
+
   WidgetPalette(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetPaletteSerializer extends StdSerializer<WidgetPalette> {

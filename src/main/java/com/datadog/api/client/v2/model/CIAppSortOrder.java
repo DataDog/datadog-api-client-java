@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = CIAppSortOrder.CIAppSortOrderSerializer.class)
 public class CIAppSortOrder extends ModelEnum<String> {
 
-  public static final CIAppSortOrder ASCENDING = new CIAppSortOrder("asc");
-  public static final CIAppSortOrder DESCENDING = new CIAppSortOrder("desc");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("asc", "desc"));
 
+  public static final CIAppSortOrder ASCENDING = new CIAppSortOrder("asc");
+  public static final CIAppSortOrder DESCENDING = new CIAppSortOrder("desc");
+
   CIAppSortOrder(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppSortOrderSerializer extends StdSerializer<CIAppSortOrder> {

@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = FunnelSource.FunnelSourceSerializer.class)
 public class FunnelSource extends ModelEnum<String> {
 
-  public static final FunnelSource RUM = new FunnelSource("rum");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("rum"));
 
+  public static final FunnelSource RUM = new FunnelSource("rum");
+
   FunnelSource(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FunnelSourceSerializer extends StdSerializer<FunnelSource> {

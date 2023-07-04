@@ -23,15 +23,14 @@ import java.util.Set;
     using = TopologyMapWidgetDefinitionType.TopologyMapWidgetDefinitionTypeSerializer.class)
 public class TopologyMapWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final TopologyMapWidgetDefinitionType TOPOLOGY_MAP =
-      new TopologyMapWidgetDefinitionType("topology_map");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("topology_map"));
 
+  public static final TopologyMapWidgetDefinitionType TOPOLOGY_MAP =
+      new TopologyMapWidgetDefinitionType("topology_map");
+
   TopologyMapWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TopologyMapWidgetDefinitionTypeSerializer

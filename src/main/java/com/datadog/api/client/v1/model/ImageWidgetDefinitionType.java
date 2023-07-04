@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = ImageWidgetDefinitionType.ImageWidgetDefinitionTypeSerializer.class)
 public class ImageWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final ImageWidgetDefinitionType IMAGE = new ImageWidgetDefinitionType("image");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("image"));
 
+  public static final ImageWidgetDefinitionType IMAGE = new ImageWidgetDefinitionType("image");
+
   ImageWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ImageWidgetDefinitionTypeSerializer

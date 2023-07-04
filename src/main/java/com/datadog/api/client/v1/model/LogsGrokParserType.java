@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = LogsGrokParserType.LogsGrokParserTypeSerializer.class)
 public class LogsGrokParserType extends ModelEnum<String> {
 
-  public static final LogsGrokParserType GROK_PARSER = new LogsGrokParserType("grok-parser");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("grok-parser"));
 
+  public static final LogsGrokParserType GROK_PARSER = new LogsGrokParserType("grok-parser");
+
   LogsGrokParserType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsGrokParserTypeSerializer extends StdSerializer<LogsGrokParserType> {

@@ -28,6 +28,10 @@ import java.util.Set;
             .class)
 public class SecurityMonitoringRuleMaxSignalDuration extends ModelEnum<Integer> {
 
+  private static final Set<Integer> allowedValues =
+      new HashSet<Integer>(
+          Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400));
+
   public static final SecurityMonitoringRuleMaxSignalDuration ZERO_MINUTES =
       new SecurityMonitoringRuleMaxSignalDuration(0);
   public static final SecurityMonitoringRuleMaxSignalDuration ONE_MINUTE =
@@ -53,13 +57,8 @@ public class SecurityMonitoringRuleMaxSignalDuration extends ModelEnum<Integer> 
   public static final SecurityMonitoringRuleMaxSignalDuration ONE_DAY =
       new SecurityMonitoringRuleMaxSignalDuration(86400);
 
-  private static final Set<Integer> allowedValues =
-      new HashSet<Integer>(
-          Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400));
-
   SecurityMonitoringRuleMaxSignalDuration(Integer value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleMaxSignalDurationSerializer

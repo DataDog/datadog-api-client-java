@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = WidgetColorPreference.WidgetColorPreferenceSerializer.class)
 public class WidgetColorPreference extends ModelEnum<String> {
 
-  public static final WidgetColorPreference BACKGROUND = new WidgetColorPreference("background");
-  public static final WidgetColorPreference TEXT = new WidgetColorPreference("text");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("background", "text"));
 
+  public static final WidgetColorPreference BACKGROUND = new WidgetColorPreference("background");
+  public static final WidgetColorPreference TEXT = new WidgetColorPreference("text");
+
   WidgetColorPreference(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetColorPreferenceSerializer extends StdSerializer<WidgetColorPreference> {

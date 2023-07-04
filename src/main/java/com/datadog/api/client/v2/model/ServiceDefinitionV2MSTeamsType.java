@@ -23,15 +23,14 @@ import java.util.Set;
     using = ServiceDefinitionV2MSTeamsType.ServiceDefinitionV2MSTeamsTypeSerializer.class)
 public class ServiceDefinitionV2MSTeamsType extends ModelEnum<String> {
 
-  public static final ServiceDefinitionV2MSTeamsType MICROSOFT_TEAMS =
-      new ServiceDefinitionV2MSTeamsType("microsoft-teams");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("microsoft-teams"));
 
+  public static final ServiceDefinitionV2MSTeamsType MICROSOFT_TEAMS =
+      new ServiceDefinitionV2MSTeamsType("microsoft-teams");
+
   ServiceDefinitionV2MSTeamsType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionV2MSTeamsTypeSerializer

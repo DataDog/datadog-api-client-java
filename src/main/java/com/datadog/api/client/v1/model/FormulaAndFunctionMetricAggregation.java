@@ -23,6 +23,10 @@ import java.util.Set;
     using = FormulaAndFunctionMetricAggregation.FormulaAndFunctionMetricAggregationSerializer.class)
 public class FormulaAndFunctionMetricAggregation extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("avg", "min", "max", "sum", "last", "area", "l2norm", "percentile"));
+
   public static final FormulaAndFunctionMetricAggregation AVG =
       new FormulaAndFunctionMetricAggregation("avg");
   public static final FormulaAndFunctionMetricAggregation MIN =
@@ -40,13 +44,8 @@ public class FormulaAndFunctionMetricAggregation extends ModelEnum<String> {
   public static final FormulaAndFunctionMetricAggregation PERCENTILE =
       new FormulaAndFunctionMetricAggregation("percentile");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("avg", "min", "max", "sum", "last", "area", "l2norm", "percentile"));
-
   FormulaAndFunctionMetricAggregation(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FormulaAndFunctionMetricAggregationSerializer

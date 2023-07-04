@@ -23,6 +23,22 @@ import java.util.Set;
     using = FormulaAndFunctionEventAggregation.FormulaAndFunctionEventAggregationSerializer.class)
 public class FormulaAndFunctionEventAggregation extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "count",
+              "cardinality",
+              "median",
+              "pc75",
+              "pc90",
+              "pc95",
+              "pc98",
+              "pc99",
+              "sum",
+              "min",
+              "max",
+              "avg"));
+
   public static final FormulaAndFunctionEventAggregation COUNT =
       new FormulaAndFunctionEventAggregation("count");
   public static final FormulaAndFunctionEventAggregation CARDINALITY =
@@ -48,25 +64,8 @@ public class FormulaAndFunctionEventAggregation extends ModelEnum<String> {
   public static final FormulaAndFunctionEventAggregation AVG =
       new FormulaAndFunctionEventAggregation("avg");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "count",
-              "cardinality",
-              "median",
-              "pc75",
-              "pc90",
-              "pc95",
-              "pc98",
-              "pc99",
-              "sum",
-              "min",
-              "max",
-              "avg"));
-
   FormulaAndFunctionEventAggregation(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FormulaAndFunctionEventAggregationSerializer

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = UsageSortDirection.UsageSortDirectionSerializer.class)
 public class UsageSortDirection extends ModelEnum<String> {
 
-  public static final UsageSortDirection DESC = new UsageSortDirection("desc");
-  public static final UsageSortDirection ASC = new UsageSortDirection("asc");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("desc", "asc"));
 
+  public static final UsageSortDirection DESC = new UsageSortDirection("desc");
+  public static final UsageSortDirection ASC = new UsageSortDirection("asc");
+
   UsageSortDirection(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class UsageSortDirectionSerializer extends StdSerializer<UsageSortDirection> {

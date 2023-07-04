@@ -24,16 +24,15 @@ import java.util.Set;
         ServiceDefinitionV2Dot1OpsgenieRegion.ServiceDefinitionV2Dot1OpsgenieRegionSerializer.class)
 public class ServiceDefinitionV2Dot1OpsgenieRegion extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("US", "EU"));
+
   public static final ServiceDefinitionV2Dot1OpsgenieRegion US =
       new ServiceDefinitionV2Dot1OpsgenieRegion("US");
   public static final ServiceDefinitionV2Dot1OpsgenieRegion EU =
       new ServiceDefinitionV2Dot1OpsgenieRegion("EU");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("US", "EU"));
-
   ServiceDefinitionV2Dot1OpsgenieRegion(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionV2Dot1OpsgenieRegionSerializer

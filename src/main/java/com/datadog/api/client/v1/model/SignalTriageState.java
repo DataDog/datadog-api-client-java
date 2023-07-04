@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = SignalTriageState.SignalTriageStateSerializer.class)
 public class SignalTriageState extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("open", "archived", "under_review"));
+
   public static final SignalTriageState OPEN = new SignalTriageState("open");
   public static final SignalTriageState ARCHIVED = new SignalTriageState("archived");
   public static final SignalTriageState UNDER_REVIEW = new SignalTriageState("under_review");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("open", "archived", "under_review"));
-
   SignalTriageState(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SignalTriageStateSerializer extends StdSerializer<SignalTriageState> {

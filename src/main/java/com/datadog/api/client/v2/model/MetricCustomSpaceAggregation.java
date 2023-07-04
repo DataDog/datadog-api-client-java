@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = MetricCustomSpaceAggregation.MetricCustomSpaceAggregationSerializer.class)
 public class MetricCustomSpaceAggregation extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("avg", "max", "min", "sum"));
+
   public static final MetricCustomSpaceAggregation AVG = new MetricCustomSpaceAggregation("avg");
   public static final MetricCustomSpaceAggregation MAX = new MetricCustomSpaceAggregation("max");
   public static final MetricCustomSpaceAggregation MIN = new MetricCustomSpaceAggregation("min");
   public static final MetricCustomSpaceAggregation SUM = new MetricCustomSpaceAggregation("sum");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("avg", "max", "min", "sum"));
-
   MetricCustomSpaceAggregation(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricCustomSpaceAggregationSerializer

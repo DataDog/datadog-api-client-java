@@ -22,6 +22,25 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsAssertionOperator.SyntheticsAssertionOperatorSerializer.class)
 public class SyntheticsAssertionOperator extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "contains",
+              "doesNotContain",
+              "is",
+              "isNot",
+              "lessThan",
+              "lessThanOrEqual",
+              "moreThan",
+              "moreThanOrEqual",
+              "matches",
+              "doesNotMatch",
+              "validates",
+              "isInMoreThan",
+              "isInLessThan",
+              "doesNotExist",
+              "isUndefined"));
+
   public static final SyntheticsAssertionOperator CONTAINS =
       new SyntheticsAssertionOperator("contains");
   public static final SyntheticsAssertionOperator DOES_NOT_CONTAIN =
@@ -51,28 +70,8 @@ public class SyntheticsAssertionOperator extends ModelEnum<String> {
   public static final SyntheticsAssertionOperator IS_UNDEFINED =
       new SyntheticsAssertionOperator("isUndefined");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "contains",
-              "doesNotContain",
-              "is",
-              "isNot",
-              "lessThan",
-              "lessThanOrEqual",
-              "moreThan",
-              "moreThanOrEqual",
-              "matches",
-              "doesNotMatch",
-              "validates",
-              "isInMoreThan",
-              "isInLessThan",
-              "doesNotExist",
-              "isUndefined"));
-
   SyntheticsAssertionOperator(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsAssertionOperatorSerializer

@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = TableWidgetHasSearchBar.TableWidgetHasSearchBarSerializer.class)
 public class TableWidgetHasSearchBar extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("always", "never", "auto"));
+
   public static final TableWidgetHasSearchBar ALWAYS = new TableWidgetHasSearchBar("always");
   public static final TableWidgetHasSearchBar NEVER = new TableWidgetHasSearchBar("never");
   public static final TableWidgetHasSearchBar AUTO = new TableWidgetHasSearchBar("auto");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("always", "never", "auto"));
-
   TableWidgetHasSearchBar(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TableWidgetHasSearchBarSerializer

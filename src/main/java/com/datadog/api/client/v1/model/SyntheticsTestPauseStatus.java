@@ -25,15 +25,14 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsTestPauseStatus.SyntheticsTestPauseStatusSerializer.class)
 public class SyntheticsTestPauseStatus extends ModelEnum<String> {
 
-  public static final SyntheticsTestPauseStatus LIVE = new SyntheticsTestPauseStatus("live");
-  public static final SyntheticsTestPauseStatus PAUSED = new SyntheticsTestPauseStatus("paused");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("live", "paused"));
 
+  public static final SyntheticsTestPauseStatus LIVE = new SyntheticsTestPauseStatus("live");
+  public static final SyntheticsTestPauseStatus PAUSED = new SyntheticsTestPauseStatus("paused");
+
   SyntheticsTestPauseStatus(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsTestPauseStatusSerializer

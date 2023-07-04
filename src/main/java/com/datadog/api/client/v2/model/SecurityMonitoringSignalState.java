@@ -22,6 +22,9 @@ import java.util.Set;
 @JsonSerialize(using = SecurityMonitoringSignalState.SecurityMonitoringSignalStateSerializer.class)
 public class SecurityMonitoringSignalState extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("open", "archived", "under_review"));
+
   public static final SecurityMonitoringSignalState OPEN =
       new SecurityMonitoringSignalState("open");
   public static final SecurityMonitoringSignalState ARCHIVED =
@@ -29,12 +32,8 @@ public class SecurityMonitoringSignalState extends ModelEnum<String> {
   public static final SecurityMonitoringSignalState UNDER_REVIEW =
       new SecurityMonitoringSignalState("under_review");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("open", "archived", "under_review"));
-
   SecurityMonitoringSignalState(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringSignalStateSerializer

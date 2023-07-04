@@ -22,6 +22,11 @@ import java.util.Set;
 @JsonSerialize(using = RolesSort.RolesSortSerializer.class)
 public class RolesSort extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "name", "-name", "modified_at", "-modified_at", "user_count", "-user_count"));
+
   public static final RolesSort NAME_ASCENDING = new RolesSort("name");
   public static final RolesSort NAME_DESCENDING = new RolesSort("-name");
   public static final RolesSort MODIFIED_AT_ASCENDING = new RolesSort("modified_at");
@@ -29,14 +34,8 @@ public class RolesSort extends ModelEnum<String> {
   public static final RolesSort USER_COUNT_ASCENDING = new RolesSort("user_count");
   public static final RolesSort USER_COUNT_DESCENDING = new RolesSort("-user_count");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "name", "-name", "modified_at", "-modified_at", "user_count", "-user_count"));
-
   RolesSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class RolesSortSerializer extends StdSerializer<RolesSort> {

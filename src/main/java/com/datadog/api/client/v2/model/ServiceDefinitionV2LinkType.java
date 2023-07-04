@@ -22,6 +22,11 @@ import java.util.Set;
 @JsonSerialize(using = ServiceDefinitionV2LinkType.ServiceDefinitionV2LinkTypeSerializer.class)
 public class ServiceDefinitionV2LinkType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "doc", "wiki", "runbook", "url", "repo", "dashboard", "oncall", "code", "link"));
+
   public static final ServiceDefinitionV2LinkType DOC = new ServiceDefinitionV2LinkType("doc");
   public static final ServiceDefinitionV2LinkType WIKI = new ServiceDefinitionV2LinkType("wiki");
   public static final ServiceDefinitionV2LinkType RUNBOOK =
@@ -35,14 +40,8 @@ public class ServiceDefinitionV2LinkType extends ModelEnum<String> {
   public static final ServiceDefinitionV2LinkType CODE = new ServiceDefinitionV2LinkType("code");
   public static final ServiceDefinitionV2LinkType LINK = new ServiceDefinitionV2LinkType("link");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "doc", "wiki", "runbook", "url", "repo", "dashboard", "oncall", "code", "link"));
-
   ServiceDefinitionV2LinkType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionV2LinkTypeSerializer

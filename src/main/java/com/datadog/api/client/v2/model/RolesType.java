@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = RolesType.RolesTypeSerializer.class)
 public class RolesType extends ModelEnum<String> {
 
-  public static final RolesType ROLES = new RolesType("roles");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("roles"));
 
+  public static final RolesType ROLES = new RolesType("roles");
+
   RolesType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class RolesTypeSerializer extends StdSerializer<RolesType> {

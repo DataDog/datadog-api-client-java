@@ -22,6 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = WidgetLiveSpan.WidgetLiveSpanSerializer.class)
 public class WidgetLiveSpan extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "1m", "5m", "10m", "15m", "30m", "1h", "4h", "1d", "2d", "1w", "1mo", "3mo", "6mo",
+              "1y", "alert"));
+
   public static final WidgetLiveSpan PAST_ONE_MINUTE = new WidgetLiveSpan("1m");
   public static final WidgetLiveSpan PAST_FIVE_MINUTES = new WidgetLiveSpan("5m");
   public static final WidgetLiveSpan PAST_TEN_MINUTES = new WidgetLiveSpan("10m");
@@ -38,15 +44,8 @@ public class WidgetLiveSpan extends ModelEnum<String> {
   public static final WidgetLiveSpan PAST_ONE_YEAR = new WidgetLiveSpan("1y");
   public static final WidgetLiveSpan ALERT = new WidgetLiveSpan("alert");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "1m", "5m", "10m", "15m", "30m", "1h", "4h", "1d", "2d", "1w", "1mo", "3mo", "6mo",
-              "1y", "alert"));
-
   WidgetLiveSpan(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetLiveSpanSerializer extends StdSerializer<WidgetLiveSpan> {

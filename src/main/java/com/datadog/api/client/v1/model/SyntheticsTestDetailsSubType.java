@@ -26,6 +26,10 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsTestDetailsSubType.SyntheticsTestDetailsSubTypeSerializer.class)
 public class SyntheticsTestDetailsSubType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("http", "ssl", "tcp", "dns", "multi", "icmp", "udp", "websocket", "grpc"));
+
   public static final SyntheticsTestDetailsSubType HTTP = new SyntheticsTestDetailsSubType("http");
   public static final SyntheticsTestDetailsSubType SSL = new SyntheticsTestDetailsSubType("ssl");
   public static final SyntheticsTestDetailsSubType TCP = new SyntheticsTestDetailsSubType("tcp");
@@ -38,13 +42,8 @@ public class SyntheticsTestDetailsSubType extends ModelEnum<String> {
       new SyntheticsTestDetailsSubType("websocket");
   public static final SyntheticsTestDetailsSubType GRPC = new SyntheticsTestDetailsSubType("grpc");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("http", "ssl", "tcp", "dns", "multi", "icmp", "udp", "websocket", "grpc"));
-
   SyntheticsTestDetailsSubType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsTestDetailsSubTypeSerializer

@@ -25,17 +25,16 @@ import java.util.Set;
             .SyntheticsBasicAuthOauthTokenApiAuthenticationSerializer.class)
 public class SyntheticsBasicAuthOauthTokenApiAuthentication extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("header", "body"));
+
   public static final SyntheticsBasicAuthOauthTokenApiAuthentication HEADER =
       new SyntheticsBasicAuthOauthTokenApiAuthentication("header");
   public static final SyntheticsBasicAuthOauthTokenApiAuthentication BODY =
       new SyntheticsBasicAuthOauthTokenApiAuthentication("body");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("header", "body"));
-
   SyntheticsBasicAuthOauthTokenApiAuthentication(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBasicAuthOauthTokenApiAuthenticationSerializer

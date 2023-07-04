@@ -23,15 +23,14 @@ import java.util.Set;
     using = IncidentIntegrationMetadataType.IncidentIntegrationMetadataTypeSerializer.class)
 public class IncidentIntegrationMetadataType extends ModelEnum<String> {
 
-  public static final IncidentIntegrationMetadataType INCIDENT_INTEGRATIONS =
-      new IncidentIntegrationMetadataType("incident_integrations");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("incident_integrations"));
 
+  public static final IncidentIntegrationMetadataType INCIDENT_INTEGRATIONS =
+      new IncidentIntegrationMetadataType("incident_integrations");
+
   IncidentIntegrationMetadataType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentIntegrationMetadataTypeSerializer

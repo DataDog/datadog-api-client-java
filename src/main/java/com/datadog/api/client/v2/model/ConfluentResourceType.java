@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = ConfluentResourceType.ConfluentResourceTypeSerializer.class)
 public class ConfluentResourceType extends ModelEnum<String> {
 
-  public static final ConfluentResourceType CONFLUENT_CLOUD_RESOURCES =
-      new ConfluentResourceType("confluent-cloud-resources");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("confluent-cloud-resources"));
 
+  public static final ConfluentResourceType CONFLUENT_CLOUD_RESOURCES =
+      new ConfluentResourceType("confluent-cloud-resources");
+
   ConfluentResourceType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ConfluentResourceTypeSerializer extends StdSerializer<ConfluentResourceType> {

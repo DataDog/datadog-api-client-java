@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = WidgetGrouping.WidgetGroupingSerializer.class)
 public class WidgetGrouping extends ModelEnum<String> {
 
-  public static final WidgetGrouping CHECK = new WidgetGrouping("check");
-  public static final WidgetGrouping CLUSTER = new WidgetGrouping("cluster");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("check", "cluster"));
 
+  public static final WidgetGrouping CHECK = new WidgetGrouping("check");
+  public static final WidgetGrouping CLUSTER = new WidgetGrouping("cluster");
+
   WidgetGrouping(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetGroupingSerializer extends StdSerializer<WidgetGrouping> {

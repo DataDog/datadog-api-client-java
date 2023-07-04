@@ -22,18 +22,17 @@ import java.util.Set;
 @JsonSerialize(using = TimeseriesWidgetLegendLayout.TimeseriesWidgetLegendLayoutSerializer.class)
 public class TimeseriesWidgetLegendLayout extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("auto", "horizontal", "vertical"));
+
   public static final TimeseriesWidgetLegendLayout AUTO = new TimeseriesWidgetLegendLayout("auto");
   public static final TimeseriesWidgetLegendLayout HORIZONTAL =
       new TimeseriesWidgetLegendLayout("horizontal");
   public static final TimeseriesWidgetLegendLayout VERTICAL =
       new TimeseriesWidgetLegendLayout("vertical");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("auto", "horizontal", "vertical"));
-
   TimeseriesWidgetLegendLayout(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TimeseriesWidgetLegendLayoutSerializer

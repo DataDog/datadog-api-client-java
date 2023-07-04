@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = CloudflareAccountType.CloudflareAccountTypeSerializer.class)
 public class CloudflareAccountType extends ModelEnum<String> {
 
-  public static final CloudflareAccountType CLOUDFLARE_ACCOUNTS =
-      new CloudflareAccountType("cloudflare-accounts");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("cloudflare-accounts"));
 
+  public static final CloudflareAccountType CLOUDFLARE_ACCOUNTS =
+      new CloudflareAccountType("cloudflare-accounts");
+
   CloudflareAccountType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CloudflareAccountTypeSerializer extends StdSerializer<CloudflareAccountType> {

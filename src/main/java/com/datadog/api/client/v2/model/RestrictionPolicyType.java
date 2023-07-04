@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = RestrictionPolicyType.RestrictionPolicyTypeSerializer.class)
 public class RestrictionPolicyType extends ModelEnum<String> {
 
-  public static final RestrictionPolicyType RESTRICTION_POLICY =
-      new RestrictionPolicyType("restriction_policy");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("restriction_policy"));
 
+  public static final RestrictionPolicyType RESTRICTION_POLICY =
+      new RestrictionPolicyType("restriction_policy");
+
   RestrictionPolicyType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class RestrictionPolicyTypeSerializer extends StdSerializer<RestrictionPolicyType> {

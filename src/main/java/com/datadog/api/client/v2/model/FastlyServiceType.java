@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = FastlyServiceType.FastlyServiceTypeSerializer.class)
 public class FastlyServiceType extends ModelEnum<String> {
 
-  public static final FastlyServiceType FASTLY_SERVICES = new FastlyServiceType("fastly-services");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("fastly-services"));
 
+  public static final FastlyServiceType FASTLY_SERVICES = new FastlyServiceType("fastly-services");
+
   FastlyServiceType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FastlyServiceTypeSerializer extends StdSerializer<FastlyServiceType> {

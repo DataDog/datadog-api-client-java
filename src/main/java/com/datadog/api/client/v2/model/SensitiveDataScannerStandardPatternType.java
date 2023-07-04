@@ -25,16 +25,15 @@ import java.util.Set;
             .class)
 public class SensitiveDataScannerStandardPatternType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("sensitive_data_scanner_standard_pattern"));
+
   public static final SensitiveDataScannerStandardPatternType
       SENSITIVE_DATA_SCANNER_STANDARD_PATTERN =
           new SensitiveDataScannerStandardPatternType("sensitive_data_scanner_standard_pattern");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("sensitive_data_scanner_standard_pattern"));
-
   SensitiveDataScannerStandardPatternType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SensitiveDataScannerStandardPatternTypeSerializer

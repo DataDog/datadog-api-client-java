@@ -22,17 +22,6 @@ import java.util.Set;
 @JsonSerialize(using = GetTeamMembershipsSort.GetTeamMembershipsSortSerializer.class)
 public class GetTeamMembershipsSort extends ModelEnum<String> {
 
-  public static final GetTeamMembershipsSort MANAGER_NAME =
-      new GetTeamMembershipsSort("manager_name");
-  public static final GetTeamMembershipsSort _MANAGER_NAME =
-      new GetTeamMembershipsSort("-manager_name");
-  public static final GetTeamMembershipsSort NAME = new GetTeamMembershipsSort("name");
-  public static final GetTeamMembershipsSort _NAME = new GetTeamMembershipsSort("-name");
-  public static final GetTeamMembershipsSort HANDLE = new GetTeamMembershipsSort("handle");
-  public static final GetTeamMembershipsSort _HANDLE = new GetTeamMembershipsSort("-handle");
-  public static final GetTeamMembershipsSort EMAIL = new GetTeamMembershipsSort("email");
-  public static final GetTeamMembershipsSort _EMAIL = new GetTeamMembershipsSort("-email");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -45,9 +34,19 @@ public class GetTeamMembershipsSort extends ModelEnum<String> {
               "email",
               "-email"));
 
+  public static final GetTeamMembershipsSort MANAGER_NAME =
+      new GetTeamMembershipsSort("manager_name");
+  public static final GetTeamMembershipsSort _MANAGER_NAME =
+      new GetTeamMembershipsSort("-manager_name");
+  public static final GetTeamMembershipsSort NAME = new GetTeamMembershipsSort("name");
+  public static final GetTeamMembershipsSort _NAME = new GetTeamMembershipsSort("-name");
+  public static final GetTeamMembershipsSort HANDLE = new GetTeamMembershipsSort("handle");
+  public static final GetTeamMembershipsSort _HANDLE = new GetTeamMembershipsSort("-handle");
+  public static final GetTeamMembershipsSort EMAIL = new GetTeamMembershipsSort("email");
+  public static final GetTeamMembershipsSort _EMAIL = new GetTeamMembershipsSort("-email");
+
   GetTeamMembershipsSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class GetTeamMembershipsSortSerializer

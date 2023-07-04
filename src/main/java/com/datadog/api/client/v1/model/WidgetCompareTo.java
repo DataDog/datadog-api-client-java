@@ -22,18 +22,17 @@ import java.util.Set;
 @JsonSerialize(using = WidgetCompareTo.WidgetCompareToSerializer.class)
 public class WidgetCompareTo extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("hour_before", "day_before", "week_before", "month_before"));
+
   public static final WidgetCompareTo HOUR_BEFORE = new WidgetCompareTo("hour_before");
   public static final WidgetCompareTo DAY_BEFORE = new WidgetCompareTo("day_before");
   public static final WidgetCompareTo WEEK_BEFORE = new WidgetCompareTo("week_before");
   public static final WidgetCompareTo MONTH_BEFORE = new WidgetCompareTo("month_before");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("hour_before", "day_before", "week_before", "month_before"));
-
   WidgetCompareTo(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetCompareToSerializer extends StdSerializer<WidgetCompareTo> {

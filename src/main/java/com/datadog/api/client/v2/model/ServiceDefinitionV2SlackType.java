@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = ServiceDefinitionV2SlackType.ServiceDefinitionV2SlackTypeSerializer.class)
 public class ServiceDefinitionV2SlackType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("slack"));
+
   public static final ServiceDefinitionV2SlackType SLACK =
       new ServiceDefinitionV2SlackType("slack");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("slack"));
-
   ServiceDefinitionV2SlackType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionV2SlackTypeSerializer

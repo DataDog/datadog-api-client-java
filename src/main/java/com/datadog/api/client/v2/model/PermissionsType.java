@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = PermissionsType.PermissionsTypeSerializer.class)
 public class PermissionsType extends ModelEnum<String> {
 
-  public static final PermissionsType PERMISSIONS = new PermissionsType("permissions");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("permissions"));
 
+  public static final PermissionsType PERMISSIONS = new PermissionsType("permissions");
+
   PermissionsType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class PermissionsTypeSerializer extends StdSerializer<PermissionsType> {

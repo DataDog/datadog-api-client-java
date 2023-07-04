@@ -25,17 +25,16 @@ import java.util.Set;
 @JsonSerialize(using = AccessRole.AccessRoleSerializer.class)
 public class AccessRole extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("st", "adm", "ro", "ERROR"));
+
   public static final AccessRole STANDARD = new AccessRole("st");
   public static final AccessRole ADMIN = new AccessRole("adm");
   public static final AccessRole READ_ONLY = new AccessRole("ro");
   public static final AccessRole ERROR = new AccessRole("ERROR");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("st", "adm", "ro", "ERROR"));
-
   AccessRole(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class AccessRoleSerializer extends StdSerializer<AccessRole> {

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = ContentEncoding.ContentEncodingSerializer.class)
 public class ContentEncoding extends ModelEnum<String> {
 
-  public static final ContentEncoding GZIP = new ContentEncoding("gzip");
-  public static final ContentEncoding DEFLATE = new ContentEncoding("deflate");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("gzip", "deflate"));
 
+  public static final ContentEncoding GZIP = new ContentEncoding("gzip");
+  public static final ContentEncoding DEFLATE = new ContentEncoding("deflate");
+
   ContentEncoding(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ContentEncodingSerializer extends StdSerializer<ContentEncoding> {

@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = ListTeamsSort.ListTeamsSortSerializer.class)
 public class ListTeamsSort extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("name", "-name", "user_count", "-user_count"));
+
   public static final ListTeamsSort NAME = new ListTeamsSort("name");
   public static final ListTeamsSort _NAME = new ListTeamsSort("-name");
   public static final ListTeamsSort USER_COUNT = new ListTeamsSort("user_count");
   public static final ListTeamsSort _USER_COUNT = new ListTeamsSort("-user_count");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("name", "-name", "user_count", "-user_count"));
-
   ListTeamsSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ListTeamsSortSerializer extends StdSerializer<ListTeamsSort> {

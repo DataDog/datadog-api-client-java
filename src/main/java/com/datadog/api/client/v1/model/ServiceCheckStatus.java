@@ -25,16 +25,15 @@ import java.util.Set;
 @JsonSerialize(using = ServiceCheckStatus.ServiceCheckStatusSerializer.class)
 public class ServiceCheckStatus extends ModelEnum<Integer> {
 
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 2, 3));
+
   public static final ServiceCheckStatus OK = new ServiceCheckStatus(0);
   public static final ServiceCheckStatus WARNING = new ServiceCheckStatus(1);
   public static final ServiceCheckStatus CRITICAL = new ServiceCheckStatus(2);
   public static final ServiceCheckStatus UNKNOWN = new ServiceCheckStatus(3);
 
-  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 2, 3));
-
   ServiceCheckStatus(Integer value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceCheckStatusSerializer extends StdSerializer<ServiceCheckStatus> {

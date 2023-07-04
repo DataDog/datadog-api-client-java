@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = WidgetDisplayType.WidgetDisplayTypeSerializer.class)
 public class WidgetDisplayType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("area", "bars", "line"));
+
   public static final WidgetDisplayType AREA = new WidgetDisplayType("area");
   public static final WidgetDisplayType BARS = new WidgetDisplayType("bars");
   public static final WidgetDisplayType LINE = new WidgetDisplayType("line");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("area", "bars", "line"));
-
   WidgetDisplayType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetDisplayTypeSerializer extends StdSerializer<WidgetDisplayType> {

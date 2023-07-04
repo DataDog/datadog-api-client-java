@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = WidgetOrderBy.WidgetOrderBySerializer.class)
 public class WidgetOrderBy extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("change", "name", "present", "past"));
+
   public static final WidgetOrderBy CHANGE = new WidgetOrderBy("change");
   public static final WidgetOrderBy NAME = new WidgetOrderBy("name");
   public static final WidgetOrderBy PRESENT = new WidgetOrderBy("present");
   public static final WidgetOrderBy PAST = new WidgetOrderBy("past");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("change", "name", "present", "past"));
-
   WidgetOrderBy(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetOrderBySerializer extends StdSerializer<WidgetOrderBy> {

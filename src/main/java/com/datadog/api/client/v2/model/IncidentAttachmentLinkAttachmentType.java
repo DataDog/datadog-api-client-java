@@ -24,14 +24,13 @@ import java.util.Set;
         IncidentAttachmentLinkAttachmentType.IncidentAttachmentLinkAttachmentTypeSerializer.class)
 public class IncidentAttachmentLinkAttachmentType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("link"));
+
   public static final IncidentAttachmentLinkAttachmentType LINK =
       new IncidentAttachmentLinkAttachmentType("link");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("link"));
-
   IncidentAttachmentLinkAttachmentType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentAttachmentLinkAttachmentTypeSerializer

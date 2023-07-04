@@ -24,6 +24,15 @@ import java.util.Set;
         SecurityMonitoringSignalArchiveReason.SecurityMonitoringSignalArchiveReasonSerializer.class)
 public class SecurityMonitoringSignalArchiveReason extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "none",
+              "false_positive",
+              "testing_or_maintenance",
+              "investigated_case_opened",
+              "other"));
+
   public static final SecurityMonitoringSignalArchiveReason NONE =
       new SecurityMonitoringSignalArchiveReason("none");
   public static final SecurityMonitoringSignalArchiveReason FALSE_POSITIVE =
@@ -35,18 +44,8 @@ public class SecurityMonitoringSignalArchiveReason extends ModelEnum<String> {
   public static final SecurityMonitoringSignalArchiveReason OTHER =
       new SecurityMonitoringSignalArchiveReason("other");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "none",
-              "false_positive",
-              "testing_or_maintenance",
-              "investigated_case_opened",
-              "other"));
-
   SecurityMonitoringSignalArchiveReason(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringSignalArchiveReasonSerializer

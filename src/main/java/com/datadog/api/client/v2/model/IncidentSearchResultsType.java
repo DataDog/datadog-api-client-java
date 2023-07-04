@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = IncidentSearchResultsType.IncidentSearchResultsTypeSerializer.class)
 public class IncidentSearchResultsType extends ModelEnum<String> {
 
-  public static final IncidentSearchResultsType INCIDENTS_SEARCH_RESULTS =
-      new IncidentSearchResultsType("incidents_search_results");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("incidents_search_results"));
 
+  public static final IncidentSearchResultsType INCIDENTS_SEARCH_RESULTS =
+      new IncidentSearchResultsType("incidents_search_results");
+
   IncidentSearchResultsType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentSearchResultsTypeSerializer

@@ -23,14 +23,13 @@ import java.util.Set;
     using = ServiceDefinitionV2Dot1Version.ServiceDefinitionV2Dot1VersionSerializer.class)
 public class ServiceDefinitionV2Dot1Version extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("v2.1"));
+
   public static final ServiceDefinitionV2Dot1Version V2_1 =
       new ServiceDefinitionV2Dot1Version("v2.1");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("v2.1"));
-
   ServiceDefinitionV2Dot1Version(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionV2Dot1VersionSerializer

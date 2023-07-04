@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = LogsMetricType.LogsMetricTypeSerializer.class)
 public class LogsMetricType extends ModelEnum<String> {
 
-  public static final LogsMetricType LOGS_METRICS = new LogsMetricType("logs_metrics");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("logs_metrics"));
 
+  public static final LogsMetricType LOGS_METRICS = new LogsMetricType("logs_metrics");
+
   LogsMetricType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsMetricTypeSerializer extends StdSerializer<LogsMetricType> {

@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = WidgetComparator.WidgetComparatorSerializer.class)
 public class WidgetComparator extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList(">", ">=", "<", "<="));
+
   public static final WidgetComparator GREATER_THAN = new WidgetComparator(">");
   public static final WidgetComparator GREATER_THAN_OR_EQUAL_TO = new WidgetComparator(">=");
   public static final WidgetComparator LESS_THAN = new WidgetComparator("<");
   public static final WidgetComparator LESS_THAN_OR_EQUAL_TO = new WidgetComparator("<=");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList(">", ">=", "<", "<="));
-
   WidgetComparator(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetComparatorSerializer extends StdSerializer<WidgetComparator> {

@@ -25,6 +25,9 @@ import java.util.Set;
             .SecurityMonitoringRuleNewValueOptionsForgetAfterSerializer.class)
 public class SecurityMonitoringRuleNewValueOptionsForgetAfter extends ModelEnum<Integer> {
 
+  private static final Set<Integer> allowedValues =
+      new HashSet<Integer>(Arrays.asList(1, 2, 7, 14, 21, 28));
+
   public static final SecurityMonitoringRuleNewValueOptionsForgetAfter ONE_DAY =
       new SecurityMonitoringRuleNewValueOptionsForgetAfter(1);
   public static final SecurityMonitoringRuleNewValueOptionsForgetAfter TWO_DAYS =
@@ -38,12 +41,8 @@ public class SecurityMonitoringRuleNewValueOptionsForgetAfter extends ModelEnum<
   public static final SecurityMonitoringRuleNewValueOptionsForgetAfter FOUR_WEEKS =
       new SecurityMonitoringRuleNewValueOptionsForgetAfter(28);
 
-  private static final Set<Integer> allowedValues =
-      new HashSet<Integer>(Arrays.asList(1, 2, 7, 14, 21, 28));
-
   SecurityMonitoringRuleNewValueOptionsForgetAfter(Integer value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleNewValueOptionsForgetAfterSerializer

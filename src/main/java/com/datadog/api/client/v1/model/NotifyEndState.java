@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = NotifyEndState.NotifyEndStateSerializer.class)
 public class NotifyEndState extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("alert", "no data", "warn"));
+
   public static final NotifyEndState ALERT = new NotifyEndState("alert");
   public static final NotifyEndState NO_DATA = new NotifyEndState("no data");
   public static final NotifyEndState WARN = new NotifyEndState("warn");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("alert", "no data", "warn"));
-
   NotifyEndState(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class NotifyEndStateSerializer extends StdSerializer<NotifyEndState> {

@@ -22,6 +22,10 @@ import java.util.Set;
 @JsonSerialize(using = NotebookMetadataType.NotebookMetadataTypeSerializer.class)
 public class NotebookMetadataType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("postmortem", "runbook", "investigation", "documentation", "report"));
+
   public static final NotebookMetadataType POSTMORTEM = new NotebookMetadataType("postmortem");
   public static final NotebookMetadataType RUNBOOK = new NotebookMetadataType("runbook");
   public static final NotebookMetadataType INVESTIGATION =
@@ -30,13 +34,8 @@ public class NotebookMetadataType extends ModelEnum<String> {
       new NotebookMetadataType("documentation");
   public static final NotebookMetadataType REPORT = new NotebookMetadataType("report");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("postmortem", "runbook", "investigation", "documentation", "report"));
-
   NotebookMetadataType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class NotebookMetadataTypeSerializer extends StdSerializer<NotebookMetadataType> {

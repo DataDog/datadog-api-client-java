@@ -25,6 +25,9 @@ import java.util.Set;
             .SyntheticsGlobalVariableParseTestOptionsTypeSerializer.class)
 public class SyntheticsGlobalVariableParseTestOptionsType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("http_body", "http_header", "local_variable"));
+
   public static final SyntheticsGlobalVariableParseTestOptionsType HTTP_BODY =
       new SyntheticsGlobalVariableParseTestOptionsType("http_body");
   public static final SyntheticsGlobalVariableParseTestOptionsType HTTP_HEADER =
@@ -32,12 +35,8 @@ public class SyntheticsGlobalVariableParseTestOptionsType extends ModelEnum<Stri
   public static final SyntheticsGlobalVariableParseTestOptionsType LOCAL_VARIABLE =
       new SyntheticsGlobalVariableParseTestOptionsType("local_variable");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("http_body", "http_header", "local_variable"));
-
   SyntheticsGlobalVariableParseTestOptionsType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsGlobalVariableParseTestOptionsTypeSerializer

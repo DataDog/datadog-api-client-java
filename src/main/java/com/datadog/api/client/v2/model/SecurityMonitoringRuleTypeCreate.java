@@ -23,17 +23,16 @@ import java.util.Set;
     using = SecurityMonitoringRuleTypeCreate.SecurityMonitoringRuleTypeCreateSerializer.class)
 public class SecurityMonitoringRuleTypeCreate extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("log_detection", "workload_security"));
+
   public static final SecurityMonitoringRuleTypeCreate LOG_DETECTION =
       new SecurityMonitoringRuleTypeCreate("log_detection");
   public static final SecurityMonitoringRuleTypeCreate WORKLOAD_SECURITY =
       new SecurityMonitoringRuleTypeCreate("workload_security");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("log_detection", "workload_security"));
-
   SecurityMonitoringRuleTypeCreate(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleTypeCreateSerializer

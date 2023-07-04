@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = LogsDateRemapperType.LogsDateRemapperTypeSerializer.class)
 public class LogsDateRemapperType extends ModelEnum<String> {
 
-  public static final LogsDateRemapperType DATE_REMAPPER =
-      new LogsDateRemapperType("date-remapper");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("date-remapper"));
 
+  public static final LogsDateRemapperType DATE_REMAPPER =
+      new LogsDateRemapperType("date-remapper");
+
   LogsDateRemapperType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsDateRemapperTypeSerializer extends StdSerializer<LogsDateRemapperType> {

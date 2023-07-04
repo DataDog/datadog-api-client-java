@@ -23,6 +23,9 @@ import java.util.Set;
     using = SecurityMonitoringRuleSeverity.SecurityMonitoringRuleSeveritySerializer.class)
 public class SecurityMonitoringRuleSeverity extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("info", "low", "medium", "high", "critical"));
+
   public static final SecurityMonitoringRuleSeverity INFO =
       new SecurityMonitoringRuleSeverity("info");
   public static final SecurityMonitoringRuleSeverity LOW =
@@ -34,12 +37,8 @@ public class SecurityMonitoringRuleSeverity extends ModelEnum<String> {
   public static final SecurityMonitoringRuleSeverity CRITICAL =
       new SecurityMonitoringRuleSeverity("critical");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("info", "low", "medium", "high", "critical"));
-
   SecurityMonitoringRuleSeverity(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleSeveritySerializer

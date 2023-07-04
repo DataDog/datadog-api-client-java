@@ -22,6 +22,22 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsDeviceID.SyntheticsDeviceIDSerializer.class)
 public class SyntheticsDeviceID extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "laptop_large",
+              "tablet",
+              "mobile_small",
+              "chrome.laptop_large",
+              "chrome.tablet",
+              "chrome.mobile_small",
+              "firefox.laptop_large",
+              "firefox.tablet",
+              "firefox.mobile_small",
+              "edge.laptop_large",
+              "edge.tablet",
+              "edge.mobile_small"));
+
   public static final SyntheticsDeviceID LAPTOP_LARGE = new SyntheticsDeviceID("laptop_large");
   public static final SyntheticsDeviceID TABLET = new SyntheticsDeviceID("tablet");
   public static final SyntheticsDeviceID MOBILE_SMALL = new SyntheticsDeviceID("mobile_small");
@@ -41,25 +57,8 @@ public class SyntheticsDeviceID extends ModelEnum<String> {
   public static final SyntheticsDeviceID EDGE_MOBILE_SMALL =
       new SyntheticsDeviceID("edge.mobile_small");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "laptop_large",
-              "tablet",
-              "mobile_small",
-              "chrome.laptop_large",
-              "chrome.tablet",
-              "chrome.mobile_small",
-              "firefox.laptop_large",
-              "firefox.tablet",
-              "firefox.mobile_small",
-              "edge.laptop_large",
-              "edge.tablet",
-              "edge.mobile_small"));
-
   SyntheticsDeviceID(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsDeviceIDSerializer extends StdSerializer<SyntheticsDeviceID> {

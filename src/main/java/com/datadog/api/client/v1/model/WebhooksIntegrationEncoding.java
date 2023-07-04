@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = WebhooksIntegrationEncoding.WebhooksIntegrationEncodingSerializer.class)
 public class WebhooksIntegrationEncoding extends ModelEnum<String> {
 
-  public static final WebhooksIntegrationEncoding JSON = new WebhooksIntegrationEncoding("json");
-  public static final WebhooksIntegrationEncoding FORM = new WebhooksIntegrationEncoding("form");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("json", "form"));
 
+  public static final WebhooksIntegrationEncoding JSON = new WebhooksIntegrationEncoding("json");
+  public static final WebhooksIntegrationEncoding FORM = new WebhooksIntegrationEncoding("form");
+
   WebhooksIntegrationEncoding(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WebhooksIntegrationEncodingSerializer

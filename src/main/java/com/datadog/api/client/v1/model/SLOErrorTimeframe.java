@@ -25,17 +25,16 @@ import java.util.Set;
 @JsonSerialize(using = SLOErrorTimeframe.SLOErrorTimeframeSerializer.class)
 public class SLOErrorTimeframe extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("7d", "30d", "90d", "all"));
+
   public static final SLOErrorTimeframe SEVEN_DAYS = new SLOErrorTimeframe("7d");
   public static final SLOErrorTimeframe THIRTY_DAYS = new SLOErrorTimeframe("30d");
   public static final SLOErrorTimeframe NINETY_DAYS = new SLOErrorTimeframe("90d");
   public static final SLOErrorTimeframe ALL = new SLOErrorTimeframe("all");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("7d", "30d", "90d", "all"));
-
   SLOErrorTimeframe(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SLOErrorTimeframeSerializer extends StdSerializer<SLOErrorTimeframe> {

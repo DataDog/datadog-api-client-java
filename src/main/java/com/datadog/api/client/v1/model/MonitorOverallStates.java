@@ -22,6 +22,10 @@ import java.util.Set;
 @JsonSerialize(using = MonitorOverallStates.MonitorOverallStatesSerializer.class)
 public class MonitorOverallStates extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("Alert", "Ignored", "No Data", "OK", "Skipped", "Unknown", "Warn"));
+
   public static final MonitorOverallStates ALERT = new MonitorOverallStates("Alert");
   public static final MonitorOverallStates IGNORED = new MonitorOverallStates("Ignored");
   public static final MonitorOverallStates NO_DATA = new MonitorOverallStates("No Data");
@@ -30,13 +34,8 @@ public class MonitorOverallStates extends ModelEnum<String> {
   public static final MonitorOverallStates UNKNOWN = new MonitorOverallStates("Unknown");
   public static final MonitorOverallStates WARN = new MonitorOverallStates("Warn");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("Alert", "Ignored", "No Data", "OK", "Skipped", "Unknown", "Warn"));
-
   MonitorOverallStates(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MonitorOverallStatesSerializer extends StdSerializer<MonitorOverallStates> {

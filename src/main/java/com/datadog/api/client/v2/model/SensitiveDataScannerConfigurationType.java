@@ -24,15 +24,14 @@ import java.util.Set;
         SensitiveDataScannerConfigurationType.SensitiveDataScannerConfigurationTypeSerializer.class)
 public class SensitiveDataScannerConfigurationType extends ModelEnum<String> {
 
-  public static final SensitiveDataScannerConfigurationType SENSITIVE_DATA_SCANNER_CONFIGURATIONS =
-      new SensitiveDataScannerConfigurationType("sensitive_data_scanner_configuration");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("sensitive_data_scanner_configuration"));
 
+  public static final SensitiveDataScannerConfigurationType SENSITIVE_DATA_SCANNER_CONFIGURATIONS =
+      new SensitiveDataScannerConfigurationType("sensitive_data_scanner_configuration");
+
   SensitiveDataScannerConfigurationType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SensitiveDataScannerConfigurationTypeSerializer

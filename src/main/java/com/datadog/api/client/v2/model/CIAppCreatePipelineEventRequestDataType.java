@@ -25,15 +25,14 @@ import java.util.Set;
             .class)
 public class CIAppCreatePipelineEventRequestDataType extends ModelEnum<String> {
 
-  public static final CIAppCreatePipelineEventRequestDataType CIPIPELINE_RESOURCE_REQUEST =
-      new CIAppCreatePipelineEventRequestDataType("cipipeline_resource_request");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("cipipeline_resource_request"));
 
+  public static final CIAppCreatePipelineEventRequestDataType CIPIPELINE_RESOURCE_REQUEST =
+      new CIAppCreatePipelineEventRequestDataType("cipipeline_resource_request");
+
   CIAppCreatePipelineEventRequestDataType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppCreatePipelineEventRequestDataTypeSerializer

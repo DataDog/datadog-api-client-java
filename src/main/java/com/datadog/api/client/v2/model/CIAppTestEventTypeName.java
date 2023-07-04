@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = CIAppTestEventTypeName.CIAppTestEventTypeNameSerializer.class)
 public class CIAppTestEventTypeName extends ModelEnum<String> {
 
-  public static final CIAppTestEventTypeName CITEST = new CIAppTestEventTypeName("citest");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("citest"));
 
+  public static final CIAppTestEventTypeName CITEST = new CIAppTestEventTypeName("citest");
+
   CIAppTestEventTypeName(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppTestEventTypeNameSerializer

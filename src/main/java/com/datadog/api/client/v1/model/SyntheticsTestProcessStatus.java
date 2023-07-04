@@ -22,6 +22,10 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsTestProcessStatus.SyntheticsTestProcessStatusSerializer.class)
 public class SyntheticsTestProcessStatus extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("not_scheduled", "scheduled", "finished", "finished_with_error"));
+
   public static final SyntheticsTestProcessStatus NOT_SCHEDULED =
       new SyntheticsTestProcessStatus("not_scheduled");
   public static final SyntheticsTestProcessStatus SCHEDULED =
@@ -31,13 +35,8 @@ public class SyntheticsTestProcessStatus extends ModelEnum<String> {
   public static final SyntheticsTestProcessStatus FINISHED_WITH_ERROR =
       new SyntheticsTestProcessStatus("finished_with_error");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("not_scheduled", "scheduled", "finished", "finished_with_error"));
-
   SyntheticsTestProcessStatus(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsTestProcessStatusSerializer

@@ -23,15 +23,14 @@ import java.util.Set;
     using = SecurityMonitoringSignalRuleType.SecurityMonitoringSignalRuleTypeSerializer.class)
 public class SecurityMonitoringSignalRuleType extends ModelEnum<String> {
 
-  public static final SecurityMonitoringSignalRuleType SIGNAL_CORRELATION =
-      new SecurityMonitoringSignalRuleType("signal_correlation");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("signal_correlation"));
 
+  public static final SecurityMonitoringSignalRuleType SIGNAL_CORRELATION =
+      new SecurityMonitoringSignalRuleType("signal_correlation");
+
   SecurityMonitoringSignalRuleType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringSignalRuleTypeSerializer

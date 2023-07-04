@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsWarningType.SyntheticsWarningTypeSerializer.class)
 public class SyntheticsWarningType extends ModelEnum<String> {
 
-  public static final SyntheticsWarningType USER_LOCATOR =
-      new SyntheticsWarningType("user_locator");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("user_locator"));
 
+  public static final SyntheticsWarningType USER_LOCATOR =
+      new SyntheticsWarningType("user_locator");
+
   SyntheticsWarningType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsWarningTypeSerializer extends StdSerializer<SyntheticsWarningType> {

@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = AuthNMappingsType.AuthNMappingsTypeSerializer.class)
 public class AuthNMappingsType extends ModelEnum<String> {
 
-  public static final AuthNMappingsType AUTHN_MAPPINGS = new AuthNMappingsType("authn_mappings");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("authn_mappings"));
 
+  public static final AuthNMappingsType AUTHN_MAPPINGS = new AuthNMappingsType("authn_mappings");
+
   AuthNMappingsType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class AuthNMappingsTypeSerializer extends StdSerializer<AuthNMappingsType> {

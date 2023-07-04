@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = WidgetLineWidth.WidgetLineWidthSerializer.class)
 public class WidgetLineWidth extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("normal", "thick", "thin"));
+
   public static final WidgetLineWidth NORMAL = new WidgetLineWidth("normal");
   public static final WidgetLineWidth THICK = new WidgetLineWidth("thick");
   public static final WidgetLineWidth THIN = new WidgetLineWidth("thin");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("normal", "thick", "thin"));
-
   WidgetLineWidth(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetLineWidthSerializer extends StdSerializer<WidgetLineWidth> {

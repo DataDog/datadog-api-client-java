@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = TreeMapWidgetDefinitionType.TreeMapWidgetDefinitionTypeSerializer.class)
 public class TreeMapWidgetDefinitionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("treemap"));
+
   public static final TreeMapWidgetDefinitionType TREEMAP =
       new TreeMapWidgetDefinitionType("treemap");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("treemap"));
-
   TreeMapWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TreeMapWidgetDefinitionTypeSerializer

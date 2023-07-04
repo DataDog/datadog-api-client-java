@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = WidgetVizType.WidgetVizTypeSerializer.class)
 public class WidgetVizType extends ModelEnum<String> {
 
-  public static final WidgetVizType TIMESERIES = new WidgetVizType("timeseries");
-  public static final WidgetVizType TOPLIST = new WidgetVizType("toplist");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("timeseries", "toplist"));
 
+  public static final WidgetVizType TIMESERIES = new WidgetVizType("timeseries");
+  public static final WidgetVizType TOPLIST = new WidgetVizType("toplist");
+
   WidgetVizType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetVizTypeSerializer extends StdSerializer<WidgetVizType> {

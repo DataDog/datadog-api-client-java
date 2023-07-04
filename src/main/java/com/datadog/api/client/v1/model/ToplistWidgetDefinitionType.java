@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = ToplistWidgetDefinitionType.ToplistWidgetDefinitionTypeSerializer.class)
 public class ToplistWidgetDefinitionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("toplist"));
+
   public static final ToplistWidgetDefinitionType TOPLIST =
       new ToplistWidgetDefinitionType("toplist");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("toplist"));
-
   ToplistWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ToplistWidgetDefinitionTypeSerializer

@@ -24,6 +24,19 @@ import java.util.Set;
 @JsonSerialize(using = MonitorDeviceID.MonitorDeviceIDSerializer.class)
 public class MonitorDeviceID extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "laptop_large",
+              "tablet",
+              "mobile_small",
+              "chrome.laptop_large",
+              "chrome.tablet",
+              "chrome.mobile_small",
+              "firefox.laptop_large",
+              "firefox.tablet",
+              "firefox.mobile_small"));
+
   public static final MonitorDeviceID LAPTOP_LARGE = new MonitorDeviceID("laptop_large");
   public static final MonitorDeviceID TABLET = new MonitorDeviceID("tablet");
   public static final MonitorDeviceID MOBILE_SMALL = new MonitorDeviceID("mobile_small");
@@ -38,22 +51,8 @@ public class MonitorDeviceID extends ModelEnum<String> {
   public static final MonitorDeviceID FIREFOX_MOBILE_SMALL =
       new MonitorDeviceID("firefox.mobile_small");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "laptop_large",
-              "tablet",
-              "mobile_small",
-              "chrome.laptop_large",
-              "chrome.tablet",
-              "chrome.mobile_small",
-              "firefox.laptop_large",
-              "firefox.tablet",
-              "firefox.mobile_small"));
-
   MonitorDeviceID(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MonitorDeviceIDSerializer extends StdSerializer<MonitorDeviceID> {

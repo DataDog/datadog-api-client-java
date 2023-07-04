@@ -22,6 +22,9 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsBrowserVariableType.SyntheticsBrowserVariableTypeSerializer.class)
 public class SyntheticsBrowserVariableType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("element", "email", "global", "javascript", "text"));
+
   public static final SyntheticsBrowserVariableType ELEMENT =
       new SyntheticsBrowserVariableType("element");
   public static final SyntheticsBrowserVariableType EMAIL =
@@ -33,12 +36,8 @@ public class SyntheticsBrowserVariableType extends ModelEnum<String> {
   public static final SyntheticsBrowserVariableType TEXT =
       new SyntheticsBrowserVariableType("text");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("element", "email", "global", "javascript", "text"));
-
   SyntheticsBrowserVariableType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBrowserVariableTypeSerializer

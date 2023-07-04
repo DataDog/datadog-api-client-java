@@ -23,14 +23,13 @@ import java.util.Set;
     using = ServiceDefinitionV2Dot1EmailType.ServiceDefinitionV2Dot1EmailTypeSerializer.class)
 public class ServiceDefinitionV2Dot1EmailType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("email"));
+
   public static final ServiceDefinitionV2Dot1EmailType EMAIL =
       new ServiceDefinitionV2Dot1EmailType("email");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("email"));
-
   ServiceDefinitionV2Dot1EmailType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionV2Dot1EmailTypeSerializer

@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = TopologyQueryDataSource.TopologyQueryDataSourceSerializer.class)
 public class TopologyQueryDataSource extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("data_streams", "service_map"));
+
   public static final TopologyQueryDataSource DATA_STREAMS =
       new TopologyQueryDataSource("data_streams");
   public static final TopologyQueryDataSource SERVICE_MAP =
       new TopologyQueryDataSource("service_map");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("data_streams", "service_map"));
-
   TopologyQueryDataSource(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TopologyQueryDataSourceSerializer

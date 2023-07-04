@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = FreeTextWidgetDefinitionType.FreeTextWidgetDefinitionTypeSerializer.class)
 public class FreeTextWidgetDefinitionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("free_text"));
+
   public static final FreeTextWidgetDefinitionType FREE_TEXT =
       new FreeTextWidgetDefinitionType("free_text");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("free_text"));
-
   FreeTextWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FreeTextWidgetDefinitionTypeSerializer

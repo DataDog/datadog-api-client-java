@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = LogsGeoIPParserType.LogsGeoIPParserTypeSerializer.class)
 public class LogsGeoIPParserType extends ModelEnum<String> {
 
-  public static final LogsGeoIPParserType GEO_IP_PARSER = new LogsGeoIPParserType("geo-ip-parser");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("geo-ip-parser"));
 
+  public static final LogsGeoIPParserType GEO_IP_PARSER = new LogsGeoIPParserType("geo-ip-parser");
+
   LogsGeoIPParserType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsGeoIPParserTypeSerializer extends StdSerializer<LogsGeoIPParserType> {

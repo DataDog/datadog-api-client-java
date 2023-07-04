@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = WidgetSort.WidgetSortSerializer.class)
 public class WidgetSort extends ModelEnum<String> {
 
-  public static final WidgetSort ASCENDING = new WidgetSort("asc");
-  public static final WidgetSort DESCENDING = new WidgetSort("desc");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("asc", "desc"));
 
+  public static final WidgetSort ASCENDING = new WidgetSort("asc");
+  public static final WidgetSort DESCENDING = new WidgetSort("desc");
+
   WidgetSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetSortSerializer extends StdSerializer<WidgetSort> {

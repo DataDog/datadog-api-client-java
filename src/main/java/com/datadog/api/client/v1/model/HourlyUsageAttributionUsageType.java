@@ -23,6 +23,43 @@ import java.util.Set;
     using = HourlyUsageAttributionUsageType.HourlyUsageAttributionUsageTypeSerializer.class)
 public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "api_usage",
+              "apm_fargate_usage",
+              "apm_host_usage",
+              "appsec_fargate_usage",
+              "appsec_usage",
+              "browser_usage",
+              "container_excl_agent_usage",
+              "container_usage",
+              "cspm_containers_usage",
+              "cspm_hosts_usage",
+              "custom_ingested_timeseries_usage",
+              "custom_timeseries_usage",
+              "cws_containers_usage",
+              "cws_hosts_usage",
+              "dbm_hosts_usage",
+              "dbm_queries_usage",
+              "estimated_indexed_logs_usage",
+              "estimated_ingested_logs_usage",
+              "estimated_indexed_spans_usage",
+              "estimated_ingested_spans_usage",
+              "fargate_usage",
+              "functions_usage",
+              "infra_host_usage",
+              "invocations_usage",
+              "npm_host_usage",
+              "obs_pipeline_bytes_usage",
+              "profiled_container_usage",
+              "profiled_fargate_usage",
+              "profiled_host_usage",
+              "snmp_usage",
+              "estimated_rum_sessions_usage",
+              "universal_service_monitoring_usage",
+              "vuln_management_hosts_usage"));
+
   public static final HourlyUsageAttributionUsageType API_USAGE =
       new HourlyUsageAttributionUsageType("api_usage");
   public static final HourlyUsageAttributionUsageType APM_FARGATE_USAGE =
@@ -90,46 +127,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
   public static final HourlyUsageAttributionUsageType VULN_MANAGEMENT_HOSTS_USAGE =
       new HourlyUsageAttributionUsageType("vuln_management_hosts_usage");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "api_usage",
-              "apm_fargate_usage",
-              "apm_host_usage",
-              "appsec_fargate_usage",
-              "appsec_usage",
-              "browser_usage",
-              "container_excl_agent_usage",
-              "container_usage",
-              "cspm_containers_usage",
-              "cspm_hosts_usage",
-              "custom_ingested_timeseries_usage",
-              "custom_timeseries_usage",
-              "cws_containers_usage",
-              "cws_hosts_usage",
-              "dbm_hosts_usage",
-              "dbm_queries_usage",
-              "estimated_indexed_logs_usage",
-              "estimated_ingested_logs_usage",
-              "estimated_indexed_spans_usage",
-              "estimated_ingested_spans_usage",
-              "fargate_usage",
-              "functions_usage",
-              "infra_host_usage",
-              "invocations_usage",
-              "npm_host_usage",
-              "obs_pipeline_bytes_usage",
-              "profiled_container_usage",
-              "profiled_fargate_usage",
-              "profiled_host_usage",
-              "snmp_usage",
-              "estimated_rum_sessions_usage",
-              "universal_service_monitoring_usage",
-              "vuln_management_hosts_usage"));
-
   HourlyUsageAttributionUsageType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class HourlyUsageAttributionUsageTypeSerializer

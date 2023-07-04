@@ -26,6 +26,9 @@ import java.util.Set;
     using = SecurityMonitoringRuleKeepAlive.SecurityMonitoringRuleKeepAliveSerializer.class)
 public class SecurityMonitoringRuleKeepAlive extends ModelEnum<Integer> {
 
+  private static final Set<Integer> allowedValues =
+      new HashSet<Integer>(Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600));
+
   public static final SecurityMonitoringRuleKeepAlive ZERO_MINUTES =
       new SecurityMonitoringRuleKeepAlive(0);
   public static final SecurityMonitoringRuleKeepAlive ONE_MINUTE =
@@ -47,12 +50,8 @@ public class SecurityMonitoringRuleKeepAlive extends ModelEnum<Integer> {
   public static final SecurityMonitoringRuleKeepAlive SIX_HOURS =
       new SecurityMonitoringRuleKeepAlive(21600);
 
-  private static final Set<Integer> allowedValues =
-      new HashSet<Integer>(Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600));
-
   SecurityMonitoringRuleKeepAlive(Integer value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleKeepAliveSerializer

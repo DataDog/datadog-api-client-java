@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = UsageReportsType.UsageReportsTypeSerializer.class)
 public class UsageReportsType extends ModelEnum<String> {
 
-  public static final UsageReportsType REPORTS = new UsageReportsType("reports");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("reports"));
 
+  public static final UsageReportsType REPORTS = new UsageReportsType("reports");
+
   UsageReportsType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class UsageReportsTypeSerializer extends StdSerializer<UsageReportsType> {

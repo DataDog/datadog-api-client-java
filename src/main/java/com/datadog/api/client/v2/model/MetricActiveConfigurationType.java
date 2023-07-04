@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = MetricActiveConfigurationType.MetricActiveConfigurationTypeSerializer.class)
 public class MetricActiveConfigurationType extends ModelEnum<String> {
 
-  public static final MetricActiveConfigurationType ACTIVELY_QUERIED_CONFIGURATIONS =
-      new MetricActiveConfigurationType("actively_queried_configurations");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("actively_queried_configurations"));
 
+  public static final MetricActiveConfigurationType ACTIVELY_QUERIED_CONFIGURATIONS =
+      new MetricActiveConfigurationType("actively_queried_configurations");
+
   MetricActiveConfigurationType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricActiveConfigurationTypeSerializer

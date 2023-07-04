@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = LogsCategoryProcessorType.LogsCategoryProcessorTypeSerializer.class)
 public class LogsCategoryProcessorType extends ModelEnum<String> {
 
-  public static final LogsCategoryProcessorType CATEGORY_PROCESSOR =
-      new LogsCategoryProcessorType("category-processor");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("category-processor"));
 
+  public static final LogsCategoryProcessorType CATEGORY_PROCESSOR =
+      new LogsCategoryProcessorType("category-processor");
+
   LogsCategoryProcessorType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsCategoryProcessorTypeSerializer

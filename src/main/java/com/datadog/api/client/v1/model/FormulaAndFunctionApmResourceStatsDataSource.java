@@ -25,15 +25,14 @@ import java.util.Set;
             .FormulaAndFunctionApmResourceStatsDataSourceSerializer.class)
 public class FormulaAndFunctionApmResourceStatsDataSource extends ModelEnum<String> {
 
-  public static final FormulaAndFunctionApmResourceStatsDataSource APM_RESOURCE_STATS =
-      new FormulaAndFunctionApmResourceStatsDataSource("apm_resource_stats");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("apm_resource_stats"));
 
+  public static final FormulaAndFunctionApmResourceStatsDataSource APM_RESOURCE_STATS =
+      new FormulaAndFunctionApmResourceStatsDataSource("apm_resource_stats");
+
   FormulaAndFunctionApmResourceStatsDataSource(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FormulaAndFunctionApmResourceStatsDataSourceSerializer

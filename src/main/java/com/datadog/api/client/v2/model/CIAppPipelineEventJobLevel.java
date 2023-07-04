@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = CIAppPipelineEventJobLevel.CIAppPipelineEventJobLevelSerializer.class)
 public class CIAppPipelineEventJobLevel extends ModelEnum<String> {
 
-  public static final CIAppPipelineEventJobLevel JOB = new CIAppPipelineEventJobLevel("job");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("job"));
 
+  public static final CIAppPipelineEventJobLevel JOB = new CIAppPipelineEventJobLevel("job");
+
   CIAppPipelineEventJobLevel(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppPipelineEventJobLevelSerializer

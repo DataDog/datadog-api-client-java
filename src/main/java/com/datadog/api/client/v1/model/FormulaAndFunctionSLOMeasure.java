@@ -22,6 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = FormulaAndFunctionSLOMeasure.FormulaAndFunctionSLOMeasureSerializer.class)
 public class FormulaAndFunctionSLOMeasure extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "good_events",
+              "bad_events",
+              "slo_status",
+              "error_budget_remaining",
+              "burn_rate",
+              "error_budget_burndown"));
+
   public static final FormulaAndFunctionSLOMeasure GOOD_EVENTS =
       new FormulaAndFunctionSLOMeasure("good_events");
   public static final FormulaAndFunctionSLOMeasure BAD_EVENTS =
@@ -35,19 +45,8 @@ public class FormulaAndFunctionSLOMeasure extends ModelEnum<String> {
   public static final FormulaAndFunctionSLOMeasure ERROR_BUDGET_BURNDOWN =
       new FormulaAndFunctionSLOMeasure("error_budget_burndown");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "good_events",
-              "bad_events",
-              "slo_status",
-              "error_budget_remaining",
-              "burn_rate",
-              "error_budget_burndown"));
-
   FormulaAndFunctionSLOMeasure(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FormulaAndFunctionSLOMeasureSerializer

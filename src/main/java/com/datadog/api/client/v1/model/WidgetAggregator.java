@@ -22,6 +22,9 @@ import java.util.Set;
 @JsonSerialize(using = WidgetAggregator.WidgetAggregatorSerializer.class)
 public class WidgetAggregator extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("avg", "last", "max", "min", "sum", "percentile"));
+
   public static final WidgetAggregator AVERAGE = new WidgetAggregator("avg");
   public static final WidgetAggregator LAST = new WidgetAggregator("last");
   public static final WidgetAggregator MAXIMUM = new WidgetAggregator("max");
@@ -29,12 +32,8 @@ public class WidgetAggregator extends ModelEnum<String> {
   public static final WidgetAggregator SUM = new WidgetAggregator("sum");
   public static final WidgetAggregator PERCENTILE = new WidgetAggregator("percentile");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("avg", "last", "max", "min", "sum", "percentile"));
-
   WidgetAggregator(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetAggregatorSerializer extends StdSerializer<WidgetAggregator> {

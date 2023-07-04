@@ -25,17 +25,16 @@ import java.util.Set;
             .class)
 public class SunburstWidgetLegendInlineAutomaticType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("inline", "automatic"));
+
   public static final SunburstWidgetLegendInlineAutomaticType INLINE =
       new SunburstWidgetLegendInlineAutomaticType("inline");
   public static final SunburstWidgetLegendInlineAutomaticType AUTOMATIC =
       new SunburstWidgetLegendInlineAutomaticType("automatic");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("inline", "automatic"));
-
   SunburstWidgetLegendInlineAutomaticType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SunburstWidgetLegendInlineAutomaticTypeSerializer

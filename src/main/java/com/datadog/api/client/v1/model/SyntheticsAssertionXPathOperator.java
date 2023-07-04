@@ -23,15 +23,14 @@ import java.util.Set;
     using = SyntheticsAssertionXPathOperator.SyntheticsAssertionXPathOperatorSerializer.class)
 public class SyntheticsAssertionXPathOperator extends ModelEnum<String> {
 
-  public static final SyntheticsAssertionXPathOperator VALIDATES_X_PATH =
-      new SyntheticsAssertionXPathOperator("validatesXPath");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("validatesXPath"));
 
+  public static final SyntheticsAssertionXPathOperator VALIDATES_X_PATH =
+      new SyntheticsAssertionXPathOperator("validatesXPath");
+
   SyntheticsAssertionXPathOperator(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsAssertionXPathOperatorSerializer

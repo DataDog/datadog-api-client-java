@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = CIAppPipelineEventStepLevel.CIAppPipelineEventStepLevelSerializer.class)
 public class CIAppPipelineEventStepLevel extends ModelEnum<String> {
 
-  public static final CIAppPipelineEventStepLevel STEP = new CIAppPipelineEventStepLevel("step");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("step"));
 
+  public static final CIAppPipelineEventStepLevel STEP = new CIAppPipelineEventStepLevel("step");
+
   CIAppPipelineEventStepLevel(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppPipelineEventStepLevelSerializer

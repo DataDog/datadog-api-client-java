@@ -23,6 +23,9 @@ import java.util.Set;
     using = ServiceDefinitionV2Dot1LinkType.ServiceDefinitionV2Dot1LinkTypeSerializer.class)
 public class ServiceDefinitionV2Dot1LinkType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("doc", "repo", "runbook", "dashboard", "other"));
+
   public static final ServiceDefinitionV2Dot1LinkType DOC =
       new ServiceDefinitionV2Dot1LinkType("doc");
   public static final ServiceDefinitionV2Dot1LinkType REPO =
@@ -34,12 +37,8 @@ public class ServiceDefinitionV2Dot1LinkType extends ModelEnum<String> {
   public static final ServiceDefinitionV2Dot1LinkType OTHER =
       new ServiceDefinitionV2Dot1LinkType("other");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("doc", "repo", "runbook", "dashboard", "other"));
-
   ServiceDefinitionV2Dot1LinkType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionV2Dot1LinkTypeSerializer

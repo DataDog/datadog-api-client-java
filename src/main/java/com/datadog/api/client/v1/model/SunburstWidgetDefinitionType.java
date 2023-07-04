@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = SunburstWidgetDefinitionType.SunburstWidgetDefinitionTypeSerializer.class)
 public class SunburstWidgetDefinitionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("sunburst"));
+
   public static final SunburstWidgetDefinitionType SUNBURST =
       new SunburstWidgetDefinitionType("sunburst");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("sunburst"));
-
   SunburstWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SunburstWidgetDefinitionTypeSerializer

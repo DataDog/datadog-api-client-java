@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = LogsURLParserType.LogsURLParserTypeSerializer.class)
 public class LogsURLParserType extends ModelEnum<String> {
 
-  public static final LogsURLParserType URL_PARSER = new LogsURLParserType("url-parser");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("url-parser"));
 
+  public static final LogsURLParserType URL_PARSER = new LogsURLParserType("url-parser");
+
   LogsURLParserType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsURLParserTypeSerializer extends StdSerializer<LogsURLParserType> {

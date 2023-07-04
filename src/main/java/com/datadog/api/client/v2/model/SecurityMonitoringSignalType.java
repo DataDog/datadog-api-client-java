@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = SecurityMonitoringSignalType.SecurityMonitoringSignalTypeSerializer.class)
 public class SecurityMonitoringSignalType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("signal"));
+
   public static final SecurityMonitoringSignalType SIGNAL =
       new SecurityMonitoringSignalType("signal");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("signal"));
-
   SecurityMonitoringSignalType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringSignalTypeSerializer

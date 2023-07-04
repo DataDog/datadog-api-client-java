@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = LogsMessageRemapperType.LogsMessageRemapperTypeSerializer.class)
 public class LogsMessageRemapperType extends ModelEnum<String> {
 
-  public static final LogsMessageRemapperType MESSAGE_REMAPPER =
-      new LogsMessageRemapperType("message-remapper");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("message-remapper"));
 
+  public static final LogsMessageRemapperType MESSAGE_REMAPPER =
+      new LogsMessageRemapperType("message-remapper");
+
   LogsMessageRemapperType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsMessageRemapperTypeSerializer

@@ -25,6 +25,18 @@ import java.util.Set;
             .class)
 public class SecurityMonitoringRuleQueryAggregation extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "count",
+              "cardinality",
+              "sum",
+              "max",
+              "new_value",
+              "geo_data",
+              "event_count",
+              "none"));
+
   public static final SecurityMonitoringRuleQueryAggregation COUNT =
       new SecurityMonitoringRuleQueryAggregation("count");
   public static final SecurityMonitoringRuleQueryAggregation CARDINALITY =
@@ -42,21 +54,8 @@ public class SecurityMonitoringRuleQueryAggregation extends ModelEnum<String> {
   public static final SecurityMonitoringRuleQueryAggregation NONE =
       new SecurityMonitoringRuleQueryAggregation("none");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "count",
-              "cardinality",
-              "sum",
-              "max",
-              "new_value",
-              "geo_data",
-              "event_count",
-              "none"));
-
   SecurityMonitoringRuleQueryAggregation(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleQueryAggregationSerializer

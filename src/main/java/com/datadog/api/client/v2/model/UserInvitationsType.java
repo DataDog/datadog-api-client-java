@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = UserInvitationsType.UserInvitationsTypeSerializer.class)
 public class UserInvitationsType extends ModelEnum<String> {
 
-  public static final UserInvitationsType USER_INVITATIONS =
-      new UserInvitationsType("user_invitations");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("user_invitations"));
 
+  public static final UserInvitationsType USER_INVITATIONS =
+      new UserInvitationsType("user_invitations");
+
   UserInvitationsType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class UserInvitationsTypeSerializer extends StdSerializer<UserInvitationsType> {

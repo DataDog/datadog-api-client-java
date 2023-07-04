@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = TreeMapSizeBy.TreeMapSizeBySerializer.class)
 public class TreeMapSizeBy extends ModelEnum<String> {
 
-  public static final TreeMapSizeBy PCT_CPU = new TreeMapSizeBy("pct_cpu");
-  public static final TreeMapSizeBy PCT_MEM = new TreeMapSizeBy("pct_mem");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("pct_cpu", "pct_mem"));
 
+  public static final TreeMapSizeBy PCT_CPU = new TreeMapSizeBy("pct_cpu");
+  public static final TreeMapSizeBy PCT_MEM = new TreeMapSizeBy("pct_mem");
+
   TreeMapSizeBy(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TreeMapSizeBySerializer extends StdSerializer<TreeMapSizeBy> {

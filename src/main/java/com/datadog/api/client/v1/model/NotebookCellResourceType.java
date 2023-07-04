@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = NotebookCellResourceType.NotebookCellResourceTypeSerializer.class)
 public class NotebookCellResourceType extends ModelEnum<String> {
 
-  public static final NotebookCellResourceType NOTEBOOK_CELLS =
-      new NotebookCellResourceType("notebook_cells");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("notebook_cells"));
 
+  public static final NotebookCellResourceType NOTEBOOK_CELLS =
+      new NotebookCellResourceType("notebook_cells");
+
   NotebookCellResourceType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class NotebookCellResourceTypeSerializer

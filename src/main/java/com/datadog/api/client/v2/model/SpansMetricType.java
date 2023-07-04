@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = SpansMetricType.SpansMetricTypeSerializer.class)
 public class SpansMetricType extends ModelEnum<String> {
 
-  public static final SpansMetricType SPANS_METRICS = new SpansMetricType("spans_metrics");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("spans_metrics"));
 
+  public static final SpansMetricType SPANS_METRICS = new SpansMetricType("spans_metrics");
+
   SpansMetricType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SpansMetricTypeSerializer extends StdSerializer<SpansMetricType> {

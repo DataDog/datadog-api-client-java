@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = ServiceDefinitionV2Version.ServiceDefinitionV2VersionSerializer.class)
 public class ServiceDefinitionV2Version extends ModelEnum<String> {
 
-  public static final ServiceDefinitionV2Version V2 = new ServiceDefinitionV2Version("v2");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("v2"));
 
+  public static final ServiceDefinitionV2Version V2 = new ServiceDefinitionV2Version("v2");
+
   ServiceDefinitionV2Version(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionV2VersionSerializer

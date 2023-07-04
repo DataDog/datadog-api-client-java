@@ -23,17 +23,16 @@ import java.util.Set;
     using = FormulaAndFunctionSLOGroupMode.FormulaAndFunctionSLOGroupModeSerializer.class)
 public class FormulaAndFunctionSLOGroupMode extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("overall", "components"));
+
   public static final FormulaAndFunctionSLOGroupMode OVERALL =
       new FormulaAndFunctionSLOGroupMode("overall");
   public static final FormulaAndFunctionSLOGroupMode COMPONENTS =
       new FormulaAndFunctionSLOGroupMode("components");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("overall", "components"));
-
   FormulaAndFunctionSLOGroupMode(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FormulaAndFunctionSLOGroupModeSerializer

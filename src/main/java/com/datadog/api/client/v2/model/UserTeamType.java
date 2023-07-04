@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = UserTeamType.UserTeamTypeSerializer.class)
 public class UserTeamType extends ModelEnum<String> {
 
-  public static final UserTeamType TEAM_MEMBERSHIPS = new UserTeamType("team_memberships");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("team_memberships"));
 
+  public static final UserTeamType TEAM_MEMBERSHIPS = new UserTeamType("team_memberships");
+
   UserTeamType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class UserTeamTypeSerializer extends StdSerializer<UserTeamType> {

@@ -23,15 +23,14 @@ import java.util.Set;
     using = EventStreamWidgetDefinitionType.EventStreamWidgetDefinitionTypeSerializer.class)
 public class EventStreamWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final EventStreamWidgetDefinitionType EVENT_STREAM =
-      new EventStreamWidgetDefinitionType("event_stream");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("event_stream"));
 
+  public static final EventStreamWidgetDefinitionType EVENT_STREAM =
+      new EventStreamWidgetDefinitionType("event_stream");
+
   EventStreamWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class EventStreamWidgetDefinitionTypeSerializer

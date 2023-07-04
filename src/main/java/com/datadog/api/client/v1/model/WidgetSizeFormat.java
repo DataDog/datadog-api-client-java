@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = WidgetSizeFormat.WidgetSizeFormatSerializer.class)
 public class WidgetSizeFormat extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("small", "medium", "large"));
+
   public static final WidgetSizeFormat SMALL = new WidgetSizeFormat("small");
   public static final WidgetSizeFormat MEDIUM = new WidgetSizeFormat("medium");
   public static final WidgetSizeFormat LARGE = new WidgetSizeFormat("large");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("small", "medium", "large"));
-
   WidgetSizeFormat(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetSizeFormatSerializer extends StdSerializer<WidgetSizeFormat> {

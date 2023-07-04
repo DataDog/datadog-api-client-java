@@ -17,15 +17,15 @@ import java.util.HashSet;
 @JsonSerialize(using = {{ name }}.{{ name }}Serializer.class)
 public class {{ name }} extends ModelEnum<{{ model|simple_type }}> {
 {# keep line #}
+  private static final Set<{{ model|simple_type }}> allowedValues = new HashSet<{{ model|simple_type }}>(Arrays.asList({% for value in model.enum %}{{ value|format_value(schema=model) }}{% if not loop.last  %}, {% endif %}{% endfor %}));
+{# keep line #}
 {%- for index, value in enumerate(model.enum) %}
   public static final {{ name }} {{ model["x-enum-varnames"][index] or value.upper() }} = new {{ name }}({{ value|format_value(schema=model) }});
 {%- endfor %}
 
-  private static final Set<{{ model|simple_type }}> allowedValues = new HashSet<{{ model|simple_type }}>(Arrays.asList({% for value in model.enum %}{{ value|format_value(schema=model) }}{% if not loop.last  %}, {% endif %}{% endfor %}));
 
   {{ name }}({{ model|simple_type }} value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class {{ name }}Serializer extends StdSerializer<{{ name }}> {

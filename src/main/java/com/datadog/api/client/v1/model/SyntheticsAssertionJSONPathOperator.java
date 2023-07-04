@@ -23,15 +23,14 @@ import java.util.Set;
     using = SyntheticsAssertionJSONPathOperator.SyntheticsAssertionJSONPathOperatorSerializer.class)
 public class SyntheticsAssertionJSONPathOperator extends ModelEnum<String> {
 
-  public static final SyntheticsAssertionJSONPathOperator VALIDATES_JSON_PATH =
-      new SyntheticsAssertionJSONPathOperator("validatesJSONPath");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("validatesJSONPath"));
 
+  public static final SyntheticsAssertionJSONPathOperator VALIDATES_JSON_PATH =
+      new SyntheticsAssertionJSONPathOperator("validatesJSONPath");
+
   SyntheticsAssertionJSONPathOperator(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsAssertionJSONPathOperatorSerializer

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = DashboardInviteType.DashboardInviteTypeSerializer.class)
 public class DashboardInviteType extends ModelEnum<String> {
 
-  public static final DashboardInviteType PUBLIC_DASHBOARD_INVITATION =
-      new DashboardInviteType("public_dashboard_invitation");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("public_dashboard_invitation"));
 
+  public static final DashboardInviteType PUBLIC_DASHBOARD_INVITATION =
+      new DashboardInviteType("public_dashboard_invitation");
+
   DashboardInviteType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DashboardInviteTypeSerializer extends StdSerializer<DashboardInviteType> {

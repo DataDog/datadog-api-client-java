@@ -22,13 +22,6 @@ import java.util.Set;
 @JsonSerialize(using = HourlyUsageType.HourlyUsageTypeSerializer.class)
 public class HourlyUsageType extends ModelEnum<String> {
 
-  public static final HourlyUsageType APP_SEC_HOST_COUNT =
-      new HourlyUsageType("app_sec_host_count");
-  public static final HourlyUsageType OBSERVABILITY_PIPELINES_BYTES_PROCESSSED =
-      new HourlyUsageType("observability_pipelines_bytes_processed");
-  public static final HourlyUsageType LAMBDA_TRACED_INVOCATIONS_COUNT =
-      new HourlyUsageType("lambda_traced_invocations_count");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -36,9 +29,15 @@ public class HourlyUsageType extends ModelEnum<String> {
               "observability_pipelines_bytes_processed",
               "lambda_traced_invocations_count"));
 
+  public static final HourlyUsageType APP_SEC_HOST_COUNT =
+      new HourlyUsageType("app_sec_host_count");
+  public static final HourlyUsageType OBSERVABILITY_PIPELINES_BYTES_PROCESSSED =
+      new HourlyUsageType("observability_pipelines_bytes_processed");
+  public static final HourlyUsageType LAMBDA_TRACED_INVOCATIONS_COUNT =
+      new HourlyUsageType("lambda_traced_invocations_count");
+
   HourlyUsageType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class HourlyUsageTypeSerializer extends StdSerializer<HourlyUsageType> {

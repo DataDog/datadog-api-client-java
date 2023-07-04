@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = RUMSortOrder.RUMSortOrderSerializer.class)
 public class RUMSortOrder extends ModelEnum<String> {
 
-  public static final RUMSortOrder ASCENDING = new RUMSortOrder("asc");
-  public static final RUMSortOrder DESCENDING = new RUMSortOrder("desc");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("asc", "desc"));
 
+  public static final RUMSortOrder ASCENDING = new RUMSortOrder("asc");
+  public static final RUMSortOrder DESCENDING = new RUMSortOrder("desc");
+
   RUMSortOrder(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class RUMSortOrderSerializer extends StdSerializer<RUMSortOrder> {

@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = TeamType.TeamTypeSerializer.class)
 public class TeamType extends ModelEnum<String> {
 
-  public static final TeamType TEAM = new TeamType("team");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("team"));
 
+  public static final TeamType TEAM = new TeamType("team");
+
   TeamType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TeamTypeSerializer extends StdSerializer<TeamType> {

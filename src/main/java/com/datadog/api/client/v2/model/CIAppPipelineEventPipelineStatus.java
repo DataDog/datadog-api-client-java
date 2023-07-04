@@ -23,6 +23,9 @@ import java.util.Set;
     using = CIAppPipelineEventPipelineStatus.CIAppPipelineEventPipelineStatusSerializer.class)
 public class CIAppPipelineEventPipelineStatus extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("success", "error", "canceled", "skipped", "blocked"));
+
   public static final CIAppPipelineEventPipelineStatus SUCCESS =
       new CIAppPipelineEventPipelineStatus("success");
   public static final CIAppPipelineEventPipelineStatus ERROR =
@@ -34,12 +37,8 @@ public class CIAppPipelineEventPipelineStatus extends ModelEnum<String> {
   public static final CIAppPipelineEventPipelineStatus BLOCKED =
       new CIAppPipelineEventPipelineStatus("blocked");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("success", "error", "canceled", "skipped", "blocked"));
-
   CIAppPipelineEventPipelineStatus(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppPipelineEventPipelineStatusSerializer

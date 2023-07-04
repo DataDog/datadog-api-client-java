@@ -23,14 +23,13 @@ import java.util.Set;
     using = LogsArchiveDestinationAzureType.LogsArchiveDestinationAzureTypeSerializer.class)
 public class LogsArchiveDestinationAzureType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("azure"));
+
   public static final LogsArchiveDestinationAzureType AZURE =
       new LogsArchiveDestinationAzureType("azure");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("azure"));
-
   LogsArchiveDestinationAzureType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsArchiveDestinationAzureTypeSerializer

@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = GroupWidgetDefinitionType.GroupWidgetDefinitionTypeSerializer.class)
 public class GroupWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final GroupWidgetDefinitionType GROUP = new GroupWidgetDefinitionType("group");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("group"));
 
+  public static final GroupWidgetDefinitionType GROUP = new GroupWidgetDefinitionType("group");
+
   GroupWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class GroupWidgetDefinitionTypeSerializer

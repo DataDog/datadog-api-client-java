@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = ScalarFormulaResponseType.ScalarFormulaResponseTypeSerializer.class)
 public class ScalarFormulaResponseType extends ModelEnum<String> {
 
-  public static final ScalarFormulaResponseType SCALAR_RESPONSE =
-      new ScalarFormulaResponseType("scalar_response");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("scalar_response"));
 
+  public static final ScalarFormulaResponseType SCALAR_RESPONSE =
+      new ScalarFormulaResponseType("scalar_response");
+
   ScalarFormulaResponseType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ScalarFormulaResponseTypeSerializer

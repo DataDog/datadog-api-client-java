@@ -25,6 +25,10 @@ import java.util.Set;
             .MonitorFormulaAndFunctionEventsDataSourceSerializer.class)
 public class MonitorFormulaAndFunctionEventsDataSource extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("rum", "ci_pipelines", "ci_tests", "audit", "events", "logs", "spans"));
+
   public static final MonitorFormulaAndFunctionEventsDataSource RUM =
       new MonitorFormulaAndFunctionEventsDataSource("rum");
   public static final MonitorFormulaAndFunctionEventsDataSource CI_PIPELINES =
@@ -40,13 +44,8 @@ public class MonitorFormulaAndFunctionEventsDataSource extends ModelEnum<String>
   public static final MonitorFormulaAndFunctionEventsDataSource SPANS =
       new MonitorFormulaAndFunctionEventsDataSource("spans");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("rum", "ci_pipelines", "ci_tests", "audit", "events", "logs", "spans"));
-
   MonitorFormulaAndFunctionEventsDataSource(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MonitorFormulaAndFunctionEventsDataSourceSerializer

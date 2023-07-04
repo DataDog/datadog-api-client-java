@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = AuditLogsResponseStatus.AuditLogsResponseStatusSerializer.class)
 public class AuditLogsResponseStatus extends ModelEnum<String> {
 
-  public static final AuditLogsResponseStatus DONE = new AuditLogsResponseStatus("done");
-  public static final AuditLogsResponseStatus TIMEOUT = new AuditLogsResponseStatus("timeout");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("done", "timeout"));
 
+  public static final AuditLogsResponseStatus DONE = new AuditLogsResponseStatus("done");
+  public static final AuditLogsResponseStatus TIMEOUT = new AuditLogsResponseStatus("timeout");
+
   AuditLogsResponseStatus(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class AuditLogsResponseStatusSerializer

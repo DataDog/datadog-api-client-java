@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = SecurityMonitoringSignalsSort.SecurityMonitoringSignalsSortSerializer.class)
 public class SecurityMonitoringSignalsSort extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("timestamp", "-timestamp"));
+
   public static final SecurityMonitoringSignalsSort TIMESTAMP_ASCENDING =
       new SecurityMonitoringSignalsSort("timestamp");
   public static final SecurityMonitoringSignalsSort TIMESTAMP_DESCENDING =
       new SecurityMonitoringSignalsSort("-timestamp");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("timestamp", "-timestamp"));
-
   SecurityMonitoringSignalsSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringSignalsSortSerializer

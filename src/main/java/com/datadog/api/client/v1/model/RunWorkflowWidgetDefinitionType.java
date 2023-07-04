@@ -23,15 +23,14 @@ import java.util.Set;
     using = RunWorkflowWidgetDefinitionType.RunWorkflowWidgetDefinitionTypeSerializer.class)
 public class RunWorkflowWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final RunWorkflowWidgetDefinitionType RUN_WORKFLOW =
-      new RunWorkflowWidgetDefinitionType("run_workflow");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("run_workflow"));
 
+  public static final RunWorkflowWidgetDefinitionType RUN_WORKFLOW =
+      new RunWorkflowWidgetDefinitionType("run_workflow");
+
   RunWorkflowWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class RunWorkflowWidgetDefinitionTypeSerializer

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = QuerySortOrder.QuerySortOrderSerializer.class)
 public class QuerySortOrder extends ModelEnum<String> {
 
-  public static final QuerySortOrder ASC = new QuerySortOrder("asc");
-  public static final QuerySortOrder DESC = new QuerySortOrder("desc");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("asc", "desc"));
 
+  public static final QuerySortOrder ASC = new QuerySortOrder("asc");
+  public static final QuerySortOrder DESC = new QuerySortOrder("desc");
+
   QuerySortOrder(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class QuerySortOrderSerializer extends StdSerializer<QuerySortOrder> {

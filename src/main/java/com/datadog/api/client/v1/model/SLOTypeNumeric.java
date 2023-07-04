@@ -26,14 +26,13 @@ import java.util.Set;
 @JsonSerialize(using = SLOTypeNumeric.SLOTypeNumericSerializer.class)
 public class SLOTypeNumeric extends ModelEnum<Integer> {
 
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1));
+
   public static final SLOTypeNumeric MONITOR = new SLOTypeNumeric(0);
   public static final SLOTypeNumeric METRIC = new SLOTypeNumeric(1);
 
-  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1));
-
   SLOTypeNumeric(Integer value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SLOTypeNumericSerializer extends StdSerializer<SLOTypeNumeric> {

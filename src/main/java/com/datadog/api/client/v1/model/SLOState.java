@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = SLOState.SLOStateSerializer.class)
 public class SLOState extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("breached", "warning", "ok", "no_data"));
+
   public static final SLOState BREACHED = new SLOState("breached");
   public static final SLOState WARNING = new SLOState("warning");
   public static final SLOState OK = new SLOState("ok");
   public static final SLOState NO_DATA = new SLOState("no_data");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("breached", "warning", "ok", "no_data"));
-
   SLOState(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SLOStateSerializer extends StdSerializer<SLOState> {

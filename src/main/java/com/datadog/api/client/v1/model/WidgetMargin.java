@@ -25,18 +25,17 @@ import java.util.Set;
 @JsonSerialize(using = WidgetMargin.WidgetMarginSerializer.class)
 public class WidgetMargin extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("sm", "md", "lg", "small", "large"));
+
   public static final WidgetMargin SM = new WidgetMargin("sm");
   public static final WidgetMargin MD = new WidgetMargin("md");
   public static final WidgetMargin LG = new WidgetMargin("lg");
   public static final WidgetMargin SMALL = new WidgetMargin("small");
   public static final WidgetMargin LARGE = new WidgetMargin("large");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("sm", "md", "lg", "small", "large"));
-
   WidgetMargin(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetMarginSerializer extends StdSerializer<WidgetMargin> {

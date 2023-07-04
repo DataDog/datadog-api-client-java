@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = HostMapWidgetDefinitionType.HostMapWidgetDefinitionTypeSerializer.class)
 public class HostMapWidgetDefinitionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("hostmap"));
+
   public static final HostMapWidgetDefinitionType HOSTMAP =
       new HostMapWidgetDefinitionType("hostmap");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("hostmap"));
-
   HostMapWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class HostMapWidgetDefinitionTypeSerializer

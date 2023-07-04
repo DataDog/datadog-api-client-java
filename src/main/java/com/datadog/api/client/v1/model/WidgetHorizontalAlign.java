@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = WidgetHorizontalAlign.WidgetHorizontalAlignSerializer.class)
 public class WidgetHorizontalAlign extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("center", "left", "right"));
+
   public static final WidgetHorizontalAlign CENTER = new WidgetHorizontalAlign("center");
   public static final WidgetHorizontalAlign LEFT = new WidgetHorizontalAlign("left");
   public static final WidgetHorizontalAlign RIGHT = new WidgetHorizontalAlign("right");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("center", "left", "right"));
-
   WidgetHorizontalAlign(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetHorizontalAlignSerializer extends StdSerializer<WidgetHorizontalAlign> {

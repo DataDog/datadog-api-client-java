@@ -25,16 +25,15 @@ import java.util.Set;
 @JsonSerialize(using = CIAppCIErrorDomain.CIAppCIErrorDomainSerializer.class)
 public class CIAppCIErrorDomain extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("provider", "user", "unknown"));
+
   public static final CIAppCIErrorDomain PROVIDER = new CIAppCIErrorDomain("provider");
   public static final CIAppCIErrorDomain USER = new CIAppCIErrorDomain("user");
   public static final CIAppCIErrorDomain UNKNOWN = new CIAppCIErrorDomain("unknown");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("provider", "user", "unknown"));
-
   CIAppCIErrorDomain(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppCIErrorDomainSerializer extends StdSerializer<CIAppCIErrorDomain> {

@@ -22,6 +22,10 @@ import java.util.Set;
 @JsonSerialize(using = SLOCorrectionCategory.SLOCorrectionCategorySerializer.class)
 public class SLOCorrectionCategory extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("Scheduled Maintenance", "Outside Business Hours", "Deployment", "Other"));
+
   public static final SLOCorrectionCategory SCHEDULED_MAINTENANCE =
       new SLOCorrectionCategory("Scheduled Maintenance");
   public static final SLOCorrectionCategory OUTSIDE_BUSINESS_HOURS =
@@ -29,13 +33,8 @@ public class SLOCorrectionCategory extends ModelEnum<String> {
   public static final SLOCorrectionCategory DEPLOYMENT = new SLOCorrectionCategory("Deployment");
   public static final SLOCorrectionCategory OTHER = new SLOCorrectionCategory("Other");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("Scheduled Maintenance", "Outside Business Hours", "Deployment", "Other"));
-
   SLOCorrectionCategory(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SLOCorrectionCategorySerializer extends StdSerializer<SLOCorrectionCategory> {

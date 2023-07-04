@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = SunburstWidgetLegendTableType.SunburstWidgetLegendTableTypeSerializer.class)
 public class SunburstWidgetLegendTableType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("table", "none"));
+
   public static final SunburstWidgetLegendTableType TABLE =
       new SunburstWidgetLegendTableType("table");
   public static final SunburstWidgetLegendTableType NONE =
       new SunburstWidgetLegendTableType("none");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("table", "none"));
-
   SunburstWidgetLegendTableType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SunburstWidgetLegendTableTypeSerializer

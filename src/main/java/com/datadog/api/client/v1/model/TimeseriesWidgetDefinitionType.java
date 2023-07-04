@@ -23,14 +23,13 @@ import java.util.Set;
     using = TimeseriesWidgetDefinitionType.TimeseriesWidgetDefinitionTypeSerializer.class)
 public class TimeseriesWidgetDefinitionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("timeseries"));
+
   public static final TimeseriesWidgetDefinitionType TIMESERIES =
       new TimeseriesWidgetDefinitionType("timeseries");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("timeseries"));
-
   TimeseriesWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TimeseriesWidgetDefinitionTypeSerializer

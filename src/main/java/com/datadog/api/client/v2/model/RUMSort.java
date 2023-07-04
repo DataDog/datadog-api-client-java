@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = RUMSort.RUMSortSerializer.class)
 public class RUMSort extends ModelEnum<String> {
 
-  public static final RUMSort TIMESTAMP_ASCENDING = new RUMSort("timestamp");
-  public static final RUMSort TIMESTAMP_DESCENDING = new RUMSort("-timestamp");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("timestamp", "-timestamp"));
 
+  public static final RUMSort TIMESTAMP_ASCENDING = new RUMSort("timestamp");
+  public static final RUMSort TIMESTAMP_DESCENDING = new RUMSort("-timestamp");
+
   RUMSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class RUMSortSerializer extends StdSerializer<RUMSort> {

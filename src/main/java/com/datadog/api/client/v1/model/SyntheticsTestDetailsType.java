@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsTestDetailsType.SyntheticsTestDetailsTypeSerializer.class)
 public class SyntheticsTestDetailsType extends ModelEnum<String> {
 
-  public static final SyntheticsTestDetailsType API = new SyntheticsTestDetailsType("api");
-  public static final SyntheticsTestDetailsType BROWSER = new SyntheticsTestDetailsType("browser");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("api", "browser"));
 
+  public static final SyntheticsTestDetailsType API = new SyntheticsTestDetailsType("api");
+  public static final SyntheticsTestDetailsType BROWSER = new SyntheticsTestDetailsType("browser");
+
   SyntheticsTestDetailsType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsTestDetailsTypeSerializer

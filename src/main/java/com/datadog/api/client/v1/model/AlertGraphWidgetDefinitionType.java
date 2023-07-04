@@ -23,15 +23,14 @@ import java.util.Set;
     using = AlertGraphWidgetDefinitionType.AlertGraphWidgetDefinitionTypeSerializer.class)
 public class AlertGraphWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final AlertGraphWidgetDefinitionType ALERT_GRAPH =
-      new AlertGraphWidgetDefinitionType("alert_graph");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("alert_graph"));
 
+  public static final AlertGraphWidgetDefinitionType ALERT_GRAPH =
+      new AlertGraphWidgetDefinitionType("alert_graph");
+
   AlertGraphWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class AlertGraphWidgetDefinitionTypeSerializer

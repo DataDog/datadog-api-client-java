@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsAPITestType.SyntheticsAPITestTypeSerializer.class)
 public class SyntheticsAPITestType extends ModelEnum<String> {
 
-  public static final SyntheticsAPITestType API = new SyntheticsAPITestType("api");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("api"));
 
+  public static final SyntheticsAPITestType API = new SyntheticsAPITestType("api");
+
   SyntheticsAPITestType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsAPITestTypeSerializer extends StdSerializer<SyntheticsAPITestType> {

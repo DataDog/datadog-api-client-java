@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = MetricTagConfigurationType.MetricTagConfigurationTypeSerializer.class)
 public class MetricTagConfigurationType extends ModelEnum<String> {
 
-  public static final MetricTagConfigurationType MANAGE_TAGS =
-      new MetricTagConfigurationType("manage_tags");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("manage_tags"));
 
+  public static final MetricTagConfigurationType MANAGE_TAGS =
+      new MetricTagConfigurationType("manage_tags");
+
   MetricTagConfigurationType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricTagConfigurationTypeSerializer

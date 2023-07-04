@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = RUMComputeType.RUMComputeTypeSerializer.class)
 public class RUMComputeType extends ModelEnum<String> {
 
-  public static final RUMComputeType TIMESERIES = new RUMComputeType("timeseries");
-  public static final RUMComputeType TOTAL = new RUMComputeType("total");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("timeseries", "total"));
 
+  public static final RUMComputeType TIMESERIES = new RUMComputeType("timeseries");
+  public static final RUMComputeType TOTAL = new RUMComputeType("total");
+
   RUMComputeType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class RUMComputeTypeSerializer extends StdSerializer<RUMComputeType> {

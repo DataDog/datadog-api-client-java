@@ -23,15 +23,14 @@ import java.util.Set;
     using = SyntheticsBasicAuthOauthClientType.SyntheticsBasicAuthOauthClientTypeSerializer.class)
 public class SyntheticsBasicAuthOauthClientType extends ModelEnum<String> {
 
-  public static final SyntheticsBasicAuthOauthClientType OAUTH_CLIENT =
-      new SyntheticsBasicAuthOauthClientType("oauth-client");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("oauth-client"));
 
+  public static final SyntheticsBasicAuthOauthClientType OAUTH_CLIENT =
+      new SyntheticsBasicAuthOauthClientType("oauth-client");
+
   SyntheticsBasicAuthOauthClientType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBasicAuthOauthClientTypeSerializer

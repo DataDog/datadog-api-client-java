@@ -23,17 +23,16 @@ import java.util.Set;
     using = IncidentAttachmentAttachmentType.IncidentAttachmentAttachmentTypeSerializer.class)
 public class IncidentAttachmentAttachmentType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("link", "postmortem"));
+
   public static final IncidentAttachmentAttachmentType LINK =
       new IncidentAttachmentAttachmentType("link");
   public static final IncidentAttachmentAttachmentType POSTMORTEM =
       new IncidentAttachmentAttachmentType("postmortem");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("link", "postmortem"));
-
   IncidentAttachmentAttachmentType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentAttachmentAttachmentTypeSerializer

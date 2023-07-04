@@ -22,6 +22,9 @@ import java.util.Set;
 @JsonSerialize(using = CIAppPipelineEventJobStatus.CIAppPipelineEventJobStatusSerializer.class)
 public class CIAppPipelineEventJobStatus extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("success", "error", "canceled", "skipped"));
+
   public static final CIAppPipelineEventJobStatus SUCCESS =
       new CIAppPipelineEventJobStatus("success");
   public static final CIAppPipelineEventJobStatus ERROR = new CIAppPipelineEventJobStatus("error");
@@ -30,12 +33,8 @@ public class CIAppPipelineEventJobStatus extends ModelEnum<String> {
   public static final CIAppPipelineEventJobStatus SKIPPED =
       new CIAppPipelineEventJobStatus("skipped");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("success", "error", "canceled", "skipped"));
-
   CIAppPipelineEventJobStatus(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppPipelineEventJobStatusSerializer

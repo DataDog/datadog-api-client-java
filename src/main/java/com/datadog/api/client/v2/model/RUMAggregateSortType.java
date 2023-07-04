@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = RUMAggregateSortType.RUMAggregateSortTypeSerializer.class)
 public class RUMAggregateSortType extends ModelEnum<String> {
 
-  public static final RUMAggregateSortType ALPHABETICAL = new RUMAggregateSortType("alphabetical");
-  public static final RUMAggregateSortType MEASURE = new RUMAggregateSortType("measure");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("alphabetical", "measure"));
 
+  public static final RUMAggregateSortType ALPHABETICAL = new RUMAggregateSortType("alphabetical");
+  public static final RUMAggregateSortType MEASURE = new RUMAggregateSortType("measure");
+
   RUMAggregateSortType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class RUMAggregateSortTypeSerializer extends StdSerializer<RUMAggregateSortType> {

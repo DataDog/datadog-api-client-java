@@ -23,14 +23,13 @@ import java.util.Set;
     using = ServiceMapWidgetDefinitionType.ServiceMapWidgetDefinitionTypeSerializer.class)
 public class ServiceMapWidgetDefinitionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("servicemap"));
+
   public static final ServiceMapWidgetDefinitionType SERVICEMAP =
       new ServiceMapWidgetDefinitionType("servicemap");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("servicemap"));
-
   ServiceMapWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceMapWidgetDefinitionTypeSerializer

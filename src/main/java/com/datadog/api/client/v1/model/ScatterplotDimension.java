@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = ScatterplotDimension.ScatterplotDimensionSerializer.class)
 public class ScatterplotDimension extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("x", "y", "radius", "color"));
+
   public static final ScatterplotDimension X = new ScatterplotDimension("x");
   public static final ScatterplotDimension Y = new ScatterplotDimension("y");
   public static final ScatterplotDimension RADIUS = new ScatterplotDimension("radius");
   public static final ScatterplotDimension COLOR = new ScatterplotDimension("color");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("x", "y", "radius", "color"));
-
   ScatterplotDimension(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ScatterplotDimensionSerializer extends StdSerializer<ScatterplotDimension> {

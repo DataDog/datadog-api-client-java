@@ -22,25 +22,6 @@ import java.util.Set;
 @JsonSerialize(using = CIAppAggregationFunction.CIAppAggregationFunctionSerializer.class)
 public class CIAppAggregationFunction extends ModelEnum<String> {
 
-  public static final CIAppAggregationFunction COUNT = new CIAppAggregationFunction("count");
-  public static final CIAppAggregationFunction CARDINALITY =
-      new CIAppAggregationFunction("cardinality");
-  public static final CIAppAggregationFunction PERCENTILE_75 = new CIAppAggregationFunction("pc75");
-  public static final CIAppAggregationFunction PERCENTILE_90 = new CIAppAggregationFunction("pc90");
-  public static final CIAppAggregationFunction PERCENTILE_95 = new CIAppAggregationFunction("pc95");
-  public static final CIAppAggregationFunction PERCENTILE_98 = new CIAppAggregationFunction("pc98");
-  public static final CIAppAggregationFunction PERCENTILE_99 = new CIAppAggregationFunction("pc99");
-  public static final CIAppAggregationFunction SUM = new CIAppAggregationFunction("sum");
-  public static final CIAppAggregationFunction MIN = new CIAppAggregationFunction("min");
-  public static final CIAppAggregationFunction MAX = new CIAppAggregationFunction("max");
-  public static final CIAppAggregationFunction AVG = new CIAppAggregationFunction("avg");
-  public static final CIAppAggregationFunction MEDIAN = new CIAppAggregationFunction("median");
-  public static final CIAppAggregationFunction LATEST = new CIAppAggregationFunction("latest");
-  public static final CIAppAggregationFunction EARLIEST = new CIAppAggregationFunction("earliest");
-  public static final CIAppAggregationFunction MOST_FREQUENT =
-      new CIAppAggregationFunction("most_frequent");
-  public static final CIAppAggregationFunction DELTA = new CIAppAggregationFunction("delta");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -61,9 +42,27 @@ public class CIAppAggregationFunction extends ModelEnum<String> {
               "most_frequent",
               "delta"));
 
+  public static final CIAppAggregationFunction COUNT = new CIAppAggregationFunction("count");
+  public static final CIAppAggregationFunction CARDINALITY =
+      new CIAppAggregationFunction("cardinality");
+  public static final CIAppAggregationFunction PERCENTILE_75 = new CIAppAggregationFunction("pc75");
+  public static final CIAppAggregationFunction PERCENTILE_90 = new CIAppAggregationFunction("pc90");
+  public static final CIAppAggregationFunction PERCENTILE_95 = new CIAppAggregationFunction("pc95");
+  public static final CIAppAggregationFunction PERCENTILE_98 = new CIAppAggregationFunction("pc98");
+  public static final CIAppAggregationFunction PERCENTILE_99 = new CIAppAggregationFunction("pc99");
+  public static final CIAppAggregationFunction SUM = new CIAppAggregationFunction("sum");
+  public static final CIAppAggregationFunction MIN = new CIAppAggregationFunction("min");
+  public static final CIAppAggregationFunction MAX = new CIAppAggregationFunction("max");
+  public static final CIAppAggregationFunction AVG = new CIAppAggregationFunction("avg");
+  public static final CIAppAggregationFunction MEDIAN = new CIAppAggregationFunction("median");
+  public static final CIAppAggregationFunction LATEST = new CIAppAggregationFunction("latest");
+  public static final CIAppAggregationFunction EARLIEST = new CIAppAggregationFunction("earliest");
+  public static final CIAppAggregationFunction MOST_FREQUENT =
+      new CIAppAggregationFunction("most_frequent");
+  public static final CIAppAggregationFunction DELTA = new CIAppAggregationFunction("delta");
+
   CIAppAggregationFunction(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppAggregationFunctionSerializer

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = ApplicationKeysType.ApplicationKeysTypeSerializer.class)
 public class ApplicationKeysType extends ModelEnum<String> {
 
-  public static final ApplicationKeysType APPLICATION_KEYS =
-      new ApplicationKeysType("application_keys");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("application_keys"));
 
+  public static final ApplicationKeysType APPLICATION_KEYS =
+      new ApplicationKeysType("application_keys");
+
   ApplicationKeysType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ApplicationKeysTypeSerializer extends StdSerializer<ApplicationKeysType> {

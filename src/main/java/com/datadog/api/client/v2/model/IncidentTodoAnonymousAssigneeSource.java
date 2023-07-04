@@ -23,17 +23,16 @@ import java.util.Set;
     using = IncidentTodoAnonymousAssigneeSource.IncidentTodoAnonymousAssigneeSourceSerializer.class)
 public class IncidentTodoAnonymousAssigneeSource extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("slack", "microsoft_teams"));
+
   public static final IncidentTodoAnonymousAssigneeSource SLACK =
       new IncidentTodoAnonymousAssigneeSource("slack");
   public static final IncidentTodoAnonymousAssigneeSource MICROSOFT_TEAMS =
       new IncidentTodoAnonymousAssigneeSource("microsoft_teams");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("slack", "microsoft_teams"));
-
   IncidentTodoAnonymousAssigneeSource(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentTodoAnonymousAssigneeSourceSerializer

@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = IFrameWidgetDefinitionType.IFrameWidgetDefinitionTypeSerializer.class)
 public class IFrameWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final IFrameWidgetDefinitionType IFRAME = new IFrameWidgetDefinitionType("iframe");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("iframe"));
 
+  public static final IFrameWidgetDefinitionType IFRAME = new IFrameWidgetDefinitionType("iframe");
+
   IFrameWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IFrameWidgetDefinitionTypeSerializer

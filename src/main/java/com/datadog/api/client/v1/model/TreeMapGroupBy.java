@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = TreeMapGroupBy.TreeMapGroupBySerializer.class)
 public class TreeMapGroupBy extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("user", "family", "process"));
+
   public static final TreeMapGroupBy USER = new TreeMapGroupBy("user");
   public static final TreeMapGroupBy FAMILY = new TreeMapGroupBy("family");
   public static final TreeMapGroupBy PROCESS = new TreeMapGroupBy("process");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("user", "family", "process"));
-
   TreeMapGroupBy(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TreeMapGroupBySerializer extends StdSerializer<TreeMapGroupBy> {

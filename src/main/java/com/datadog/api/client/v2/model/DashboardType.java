@@ -22,14 +22,6 @@ import java.util.Set;
 @JsonSerialize(using = DashboardType.DashboardTypeSerializer.class)
 public class DashboardType extends ModelEnum<String> {
 
-  public static final DashboardType CUSTOM_TIMEBOARD = new DashboardType("custom_timeboard");
-  public static final DashboardType CUSTOM_SCREENBOARD = new DashboardType("custom_screenboard");
-  public static final DashboardType INTEGRATION_SCREENBOARD =
-      new DashboardType("integration_screenboard");
-  public static final DashboardType INTEGRATION_TIMEBOARD =
-      new DashboardType("integration_timeboard");
-  public static final DashboardType HOST_TIMEBOARD = new DashboardType("host_timeboard");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -39,9 +31,16 @@ public class DashboardType extends ModelEnum<String> {
               "integration_timeboard",
               "host_timeboard"));
 
+  public static final DashboardType CUSTOM_TIMEBOARD = new DashboardType("custom_timeboard");
+  public static final DashboardType CUSTOM_SCREENBOARD = new DashboardType("custom_screenboard");
+  public static final DashboardType INTEGRATION_SCREENBOARD =
+      new DashboardType("integration_screenboard");
+  public static final DashboardType INTEGRATION_TIMEBOARD =
+      new DashboardType("integration_timeboard");
+  public static final DashboardType HOST_TIMEBOARD = new DashboardType("host_timeboard");
+
   DashboardType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DashboardTypeSerializer extends StdSerializer<DashboardType> {

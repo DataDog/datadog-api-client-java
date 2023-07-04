@@ -22,6 +22,10 @@ import java.util.Set;
 @JsonSerialize(using = ApplicationKeysSort.ApplicationKeysSortSerializer.class)
 public class ApplicationKeysSort extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("created_at", "-created_at", "last4", "-last4", "name", "-name"));
+
   public static final ApplicationKeysSort CREATED_AT_ASCENDING =
       new ApplicationKeysSort("created_at");
   public static final ApplicationKeysSort CREATED_AT_DESCENDING =
@@ -31,13 +35,8 @@ public class ApplicationKeysSort extends ModelEnum<String> {
   public static final ApplicationKeysSort NAME_ASCENDING = new ApplicationKeysSort("name");
   public static final ApplicationKeysSort NAME_DESCENDING = new ApplicationKeysSort("-name");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("created_at", "-created_at", "last4", "-last4", "name", "-name"));
-
   ApplicationKeysSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ApplicationKeysSortSerializer extends StdSerializer<ApplicationKeysSort> {

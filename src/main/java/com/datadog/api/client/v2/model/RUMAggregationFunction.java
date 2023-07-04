@@ -22,20 +22,6 @@ import java.util.Set;
 @JsonSerialize(using = RUMAggregationFunction.RUMAggregationFunctionSerializer.class)
 public class RUMAggregationFunction extends ModelEnum<String> {
 
-  public static final RUMAggregationFunction COUNT = new RUMAggregationFunction("count");
-  public static final RUMAggregationFunction CARDINALITY =
-      new RUMAggregationFunction("cardinality");
-  public static final RUMAggregationFunction PERCENTILE_75 = new RUMAggregationFunction("pc75");
-  public static final RUMAggregationFunction PERCENTILE_90 = new RUMAggregationFunction("pc90");
-  public static final RUMAggregationFunction PERCENTILE_95 = new RUMAggregationFunction("pc95");
-  public static final RUMAggregationFunction PERCENTILE_98 = new RUMAggregationFunction("pc98");
-  public static final RUMAggregationFunction PERCENTILE_99 = new RUMAggregationFunction("pc99");
-  public static final RUMAggregationFunction SUM = new RUMAggregationFunction("sum");
-  public static final RUMAggregationFunction MIN = new RUMAggregationFunction("min");
-  public static final RUMAggregationFunction MAX = new RUMAggregationFunction("max");
-  public static final RUMAggregationFunction AVG = new RUMAggregationFunction("avg");
-  public static final RUMAggregationFunction MEDIAN = new RUMAggregationFunction("median");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -52,9 +38,22 @@ public class RUMAggregationFunction extends ModelEnum<String> {
               "avg",
               "median"));
 
+  public static final RUMAggregationFunction COUNT = new RUMAggregationFunction("count");
+  public static final RUMAggregationFunction CARDINALITY =
+      new RUMAggregationFunction("cardinality");
+  public static final RUMAggregationFunction PERCENTILE_75 = new RUMAggregationFunction("pc75");
+  public static final RUMAggregationFunction PERCENTILE_90 = new RUMAggregationFunction("pc90");
+  public static final RUMAggregationFunction PERCENTILE_95 = new RUMAggregationFunction("pc95");
+  public static final RUMAggregationFunction PERCENTILE_98 = new RUMAggregationFunction("pc98");
+  public static final RUMAggregationFunction PERCENTILE_99 = new RUMAggregationFunction("pc99");
+  public static final RUMAggregationFunction SUM = new RUMAggregationFunction("sum");
+  public static final RUMAggregationFunction MIN = new RUMAggregationFunction("min");
+  public static final RUMAggregationFunction MAX = new RUMAggregationFunction("max");
+  public static final RUMAggregationFunction AVG = new RUMAggregationFunction("avg");
+  public static final RUMAggregationFunction MEDIAN = new RUMAggregationFunction("median");
+
   RUMAggregationFunction(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class RUMAggregationFunctionSerializer

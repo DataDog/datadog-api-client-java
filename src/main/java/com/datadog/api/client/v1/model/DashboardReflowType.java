@@ -26,15 +26,14 @@ import java.util.Set;
 @JsonSerialize(using = DashboardReflowType.DashboardReflowTypeSerializer.class)
 public class DashboardReflowType extends ModelEnum<String> {
 
-  public static final DashboardReflowType AUTO = new DashboardReflowType("auto");
-  public static final DashboardReflowType FIXED = new DashboardReflowType("fixed");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("auto", "fixed"));
 
+  public static final DashboardReflowType AUTO = new DashboardReflowType("auto");
+  public static final DashboardReflowType FIXED = new DashboardReflowType("fixed");
+
   DashboardReflowType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DashboardReflowTypeSerializer extends StdSerializer<DashboardReflowType> {

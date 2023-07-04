@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = CostByOrgType.CostByOrgTypeSerializer.class)
 public class CostByOrgType extends ModelEnum<String> {
 
-  public static final CostByOrgType COST_BY_ORG = new CostByOrgType("cost_by_org");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("cost_by_org"));
 
+  public static final CostByOrgType COST_BY_ORG = new CostByOrgType("cost_by_org");
+
   CostByOrgType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CostByOrgTypeSerializer extends StdSerializer<CostByOrgType> {

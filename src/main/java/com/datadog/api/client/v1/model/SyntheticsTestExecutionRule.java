@@ -22,6 +22,9 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsTestExecutionRule.SyntheticsTestExecutionRuleSerializer.class)
 public class SyntheticsTestExecutionRule extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("blocking", "non_blocking", "skipped"));
+
   public static final SyntheticsTestExecutionRule BLOCKING =
       new SyntheticsTestExecutionRule("blocking");
   public static final SyntheticsTestExecutionRule NON_BLOCKING =
@@ -29,12 +32,8 @@ public class SyntheticsTestExecutionRule extends ModelEnum<String> {
   public static final SyntheticsTestExecutionRule SKIPPED =
       new SyntheticsTestExecutionRule("skipped");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("blocking", "non_blocking", "skipped"));
-
   SyntheticsTestExecutionRule(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsTestExecutionRuleSerializer

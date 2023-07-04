@@ -23,15 +23,14 @@ import java.util.Set;
     using = ListStreamWidgetDefinitionType.ListStreamWidgetDefinitionTypeSerializer.class)
 public class ListStreamWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final ListStreamWidgetDefinitionType LIST_STREAM =
-      new ListStreamWidgetDefinitionType("list_stream");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("list_stream"));
 
+  public static final ListStreamWidgetDefinitionType LIST_STREAM =
+      new ListStreamWidgetDefinitionType("list_stream");
+
   ListStreamWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ListStreamWidgetDefinitionTypeSerializer

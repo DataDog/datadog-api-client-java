@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = WidgetLineType.WidgetLineTypeSerializer.class)
 public class WidgetLineType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("dashed", "dotted", "solid"));
+
   public static final WidgetLineType DASHED = new WidgetLineType("dashed");
   public static final WidgetLineType DOTTED = new WidgetLineType("dotted");
   public static final WidgetLineType SOLID = new WidgetLineType("solid");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("dashed", "dotted", "solid"));
-
   WidgetLineType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetLineTypeSerializer extends StdSerializer<WidgetLineType> {

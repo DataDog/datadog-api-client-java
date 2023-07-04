@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = DashboardResourceType.DashboardResourceTypeSerializer.class)
 public class DashboardResourceType extends ModelEnum<String> {
 
-  public static final DashboardResourceType DASHBOARD = new DashboardResourceType("dashboard");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("dashboard"));
 
+  public static final DashboardResourceType DASHBOARD = new DashboardResourceType("dashboard");
+
   DashboardResourceType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DashboardResourceTypeSerializer extends StdSerializer<DashboardResourceType> {

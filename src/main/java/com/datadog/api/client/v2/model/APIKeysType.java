@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = APIKeysType.APIKeysTypeSerializer.class)
 public class APIKeysType extends ModelEnum<String> {
 
-  public static final APIKeysType API_KEYS = new APIKeysType("api_keys");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("api_keys"));
 
+  public static final APIKeysType API_KEYS = new APIKeysType("api_keys");
+
   APIKeysType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class APIKeysTypeSerializer extends StdSerializer<APIKeysType> {

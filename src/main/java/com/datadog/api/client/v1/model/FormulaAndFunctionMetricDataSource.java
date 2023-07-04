@@ -23,14 +23,13 @@ import java.util.Set;
     using = FormulaAndFunctionMetricDataSource.FormulaAndFunctionMetricDataSourceSerializer.class)
 public class FormulaAndFunctionMetricDataSource extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("metrics"));
+
   public static final FormulaAndFunctionMetricDataSource METRICS =
       new FormulaAndFunctionMetricDataSource("metrics");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("metrics"));
-
   FormulaAndFunctionMetricDataSource(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FormulaAndFunctionMetricDataSourceSerializer

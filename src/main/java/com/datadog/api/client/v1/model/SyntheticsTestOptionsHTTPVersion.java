@@ -23,6 +23,9 @@ import java.util.Set;
     using = SyntheticsTestOptionsHTTPVersion.SyntheticsTestOptionsHTTPVersionSerializer.class)
 public class SyntheticsTestOptionsHTTPVersion extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("http1", "http2", "any"));
+
   public static final SyntheticsTestOptionsHTTPVersion HTTP1 =
       new SyntheticsTestOptionsHTTPVersion("http1");
   public static final SyntheticsTestOptionsHTTPVersion HTTP2 =
@@ -30,12 +33,8 @@ public class SyntheticsTestOptionsHTTPVersion extends ModelEnum<String> {
   public static final SyntheticsTestOptionsHTTPVersion ANY =
       new SyntheticsTestOptionsHTTPVersion("any");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("http1", "http2", "any"));
-
   SyntheticsTestOptionsHTTPVersion(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsTestOptionsHTTPVersionSerializer

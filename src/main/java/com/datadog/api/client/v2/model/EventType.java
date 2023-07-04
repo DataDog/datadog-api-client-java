@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = EventType.EventTypeSerializer.class)
 public class EventType extends ModelEnum<String> {
 
-  public static final EventType EVENT = new EventType("event");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("event"));
 
+  public static final EventType EVENT = new EventType("event");
+
   EventType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class EventTypeSerializer extends StdSerializer<EventType> {

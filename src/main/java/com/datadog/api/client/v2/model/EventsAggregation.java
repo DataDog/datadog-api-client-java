@@ -22,18 +22,6 @@ import java.util.Set;
 @JsonSerialize(using = EventsAggregation.EventsAggregationSerializer.class)
 public class EventsAggregation extends ModelEnum<String> {
 
-  public static final EventsAggregation COUNT = new EventsAggregation("count");
-  public static final EventsAggregation CARDINALITY = new EventsAggregation("cardinality");
-  public static final EventsAggregation PC75 = new EventsAggregation("pc75");
-  public static final EventsAggregation PC90 = new EventsAggregation("pc90");
-  public static final EventsAggregation PC95 = new EventsAggregation("pc95");
-  public static final EventsAggregation PC98 = new EventsAggregation("pc98");
-  public static final EventsAggregation PC99 = new EventsAggregation("pc99");
-  public static final EventsAggregation SUM = new EventsAggregation("sum");
-  public static final EventsAggregation MIN = new EventsAggregation("min");
-  public static final EventsAggregation MAX = new EventsAggregation("max");
-  public static final EventsAggregation AVG = new EventsAggregation("avg");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -49,9 +37,20 @@ public class EventsAggregation extends ModelEnum<String> {
               "max",
               "avg"));
 
+  public static final EventsAggregation COUNT = new EventsAggregation("count");
+  public static final EventsAggregation CARDINALITY = new EventsAggregation("cardinality");
+  public static final EventsAggregation PC75 = new EventsAggregation("pc75");
+  public static final EventsAggregation PC90 = new EventsAggregation("pc90");
+  public static final EventsAggregation PC95 = new EventsAggregation("pc95");
+  public static final EventsAggregation PC98 = new EventsAggregation("pc98");
+  public static final EventsAggregation PC99 = new EventsAggregation("pc99");
+  public static final EventsAggregation SUM = new EventsAggregation("sum");
+  public static final EventsAggregation MIN = new EventsAggregation("min");
+  public static final EventsAggregation MAX = new EventsAggregation("max");
+  public static final EventsAggregation AVG = new EventsAggregation("avg");
+
   EventsAggregation(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class EventsAggregationSerializer extends StdSerializer<EventsAggregation> {

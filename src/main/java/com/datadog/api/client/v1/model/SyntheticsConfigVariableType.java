@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsConfigVariableType.SyntheticsConfigVariableTypeSerializer.class)
 public class SyntheticsConfigVariableType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("global", "text"));
+
   public static final SyntheticsConfigVariableType GLOBAL =
       new SyntheticsConfigVariableType("global");
   public static final SyntheticsConfigVariableType TEXT = new SyntheticsConfigVariableType("text");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("global", "text"));
-
   SyntheticsConfigVariableType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsConfigVariableTypeSerializer

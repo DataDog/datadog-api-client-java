@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsBrowserErrorType.SyntheticsBrowserErrorTypeSerializer.class)
 public class SyntheticsBrowserErrorType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("network", "js"));
+
   public static final SyntheticsBrowserErrorType NETWORK =
       new SyntheticsBrowserErrorType("network");
   public static final SyntheticsBrowserErrorType JS = new SyntheticsBrowserErrorType("js");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("network", "js"));
-
   SyntheticsBrowserErrorType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBrowserErrorTypeSerializer

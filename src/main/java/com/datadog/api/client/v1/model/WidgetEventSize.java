@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = WidgetEventSize.WidgetEventSizeSerializer.class)
 public class WidgetEventSize extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("s", "l"));
+
   public static final WidgetEventSize SMALL = new WidgetEventSize("s");
   public static final WidgetEventSize LARGE = new WidgetEventSize("l");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("s", "l"));
-
   WidgetEventSize(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetEventSizeSerializer extends StdSerializer<WidgetEventSize> {

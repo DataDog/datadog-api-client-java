@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = SLOListWidgetDefinitionType.SLOListWidgetDefinitionTypeSerializer.class)
 public class SLOListWidgetDefinitionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("slo_list"));
+
   public static final SLOListWidgetDefinitionType SLO_LIST =
       new SLOListWidgetDefinitionType("slo_list");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("slo_list"));
-
   SLOListWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SLOListWidgetDefinitionTypeSerializer

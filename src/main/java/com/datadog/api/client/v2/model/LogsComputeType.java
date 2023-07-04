@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = LogsComputeType.LogsComputeTypeSerializer.class)
 public class LogsComputeType extends ModelEnum<String> {
 
-  public static final LogsComputeType TIMESERIES = new LogsComputeType("timeseries");
-  public static final LogsComputeType TOTAL = new LogsComputeType("total");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("timeseries", "total"));
 
+  public static final LogsComputeType TIMESERIES = new LogsComputeType("timeseries");
+  public static final LogsComputeType TOTAL = new LogsComputeType("total");
+
   LogsComputeType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsComputeTypeSerializer extends StdSerializer<LogsComputeType> {

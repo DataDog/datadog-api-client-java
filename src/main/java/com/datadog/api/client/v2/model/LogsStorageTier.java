@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = LogsStorageTier.LogsStorageTierSerializer.class)
 public class LogsStorageTier extends ModelEnum<String> {
 
-  public static final LogsStorageTier INDEXES = new LogsStorageTier("indexes");
-  public static final LogsStorageTier ONLINE_ARCHIVES = new LogsStorageTier("online-archives");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("indexes", "online-archives"));
 
+  public static final LogsStorageTier INDEXES = new LogsStorageTier("indexes");
+  public static final LogsStorageTier ONLINE_ARCHIVES = new LogsStorageTier("online-archives");
+
   LogsStorageTier(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsStorageTierSerializer extends StdSerializer<LogsStorageTier> {

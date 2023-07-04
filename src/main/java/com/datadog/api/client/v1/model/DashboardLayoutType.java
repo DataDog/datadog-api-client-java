@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = DashboardLayoutType.DashboardLayoutTypeSerializer.class)
 public class DashboardLayoutType extends ModelEnum<String> {
 
-  public static final DashboardLayoutType ORDERED = new DashboardLayoutType("ordered");
-  public static final DashboardLayoutType FREE = new DashboardLayoutType("free");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("ordered", "free"));
 
+  public static final DashboardLayoutType ORDERED = new DashboardLayoutType("ordered");
+  public static final DashboardLayoutType FREE = new DashboardLayoutType("free");
+
   DashboardLayoutType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DashboardLayoutTypeSerializer extends StdSerializer<DashboardLayoutType> {

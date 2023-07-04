@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = AuditLogsEventType.AuditLogsEventTypeSerializer.class)
 public class AuditLogsEventType extends ModelEnum<String> {
 
-  public static final AuditLogsEventType Audit = new AuditLogsEventType("audit");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("audit"));
 
+  public static final AuditLogsEventType Audit = new AuditLogsEventType("audit");
+
   AuditLogsEventType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class AuditLogsEventTypeSerializer extends StdSerializer<AuditLogsEventType> {

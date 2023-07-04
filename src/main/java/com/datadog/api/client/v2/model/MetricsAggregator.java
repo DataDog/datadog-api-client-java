@@ -22,6 +22,11 @@ import java.util.Set;
 @JsonSerialize(using = MetricsAggregator.MetricsAggregatorSerializer.class)
 public class MetricsAggregator extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "avg", "min", "max", "sum", "last", "percentile", "mean", "l2norm", "area"));
+
   public static final MetricsAggregator AVG = new MetricsAggregator("avg");
   public static final MetricsAggregator MIN = new MetricsAggregator("min");
   public static final MetricsAggregator MAX = new MetricsAggregator("max");
@@ -32,14 +37,8 @@ public class MetricsAggregator extends ModelEnum<String> {
   public static final MetricsAggregator L2NORM = new MetricsAggregator("l2norm");
   public static final MetricsAggregator AREA = new MetricsAggregator("area");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "avg", "min", "max", "sum", "last", "percentile", "mean", "l2norm", "area"));
-
   MetricsAggregator(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricsAggregatorSerializer extends StdSerializer<MetricsAggregator> {

@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsBasicAuthNTLMType.SyntheticsBasicAuthNTLMTypeSerializer.class)
 public class SyntheticsBasicAuthNTLMType extends ModelEnum<String> {
 
-  public static final SyntheticsBasicAuthNTLMType NTLM = new SyntheticsBasicAuthNTLMType("ntlm");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("ntlm"));
 
+  public static final SyntheticsBasicAuthNTLMType NTLM = new SyntheticsBasicAuthNTLMType("ntlm");
+
   SyntheticsBasicAuthNTLMType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBasicAuthNTLMTypeSerializer

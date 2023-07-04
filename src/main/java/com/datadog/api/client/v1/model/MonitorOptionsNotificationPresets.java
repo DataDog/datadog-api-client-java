@@ -23,6 +23,9 @@ import java.util.Set;
     using = MonitorOptionsNotificationPresets.MonitorOptionsNotificationPresetsSerializer.class)
 public class MonitorOptionsNotificationPresets extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("show_all", "hide_query", "hide_handles", "hide_all"));
+
   public static final MonitorOptionsNotificationPresets SHOW_ALL =
       new MonitorOptionsNotificationPresets("show_all");
   public static final MonitorOptionsNotificationPresets HIDE_QUERY =
@@ -32,12 +35,8 @@ public class MonitorOptionsNotificationPresets extends ModelEnum<String> {
   public static final MonitorOptionsNotificationPresets HIDE_ALL =
       new MonitorOptionsNotificationPresets("hide_all");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("show_all", "hide_query", "hide_handles", "hide_all"));
-
   MonitorOptionsNotificationPresets(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MonitorOptionsNotificationPresetsSerializer

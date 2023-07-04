@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsBasicAuthSigv4Type.SyntheticsBasicAuthSigv4TypeSerializer.class)
 public class SyntheticsBasicAuthSigv4Type extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("sigv4"));
+
   public static final SyntheticsBasicAuthSigv4Type SIGV4 =
       new SyntheticsBasicAuthSigv4Type("sigv4");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("sigv4"));
-
   SyntheticsBasicAuthSigv4Type(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBasicAuthSigv4TypeSerializer

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = MetricBulkConfigureTagsType.MetricBulkConfigureTagsTypeSerializer.class)
 public class MetricBulkConfigureTagsType extends ModelEnum<String> {
 
-  public static final MetricBulkConfigureTagsType BULK_MANAGE_TAGS =
-      new MetricBulkConfigureTagsType("metric_bulk_configure_tags");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("metric_bulk_configure_tags"));
 
+  public static final MetricBulkConfigureTagsType BULK_MANAGE_TAGS =
+      new MetricBulkConfigureTagsType("metric_bulk_configure_tags");
+
   MetricBulkConfigureTagsType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricBulkConfigureTagsTypeSerializer

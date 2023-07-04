@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = IPAllowlistEntryType.IPAllowlistEntryTypeSerializer.class)
 public class IPAllowlistEntryType extends ModelEnum<String> {
 
-  public static final IPAllowlistEntryType IP_ALLOWLIST_ENTRY =
-      new IPAllowlistEntryType("ip_allowlist_entry");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("ip_allowlist_entry"));
 
+  public static final IPAllowlistEntryType IP_ALLOWLIST_ENTRY =
+      new IPAllowlistEntryType("ip_allowlist_entry");
+
   IPAllowlistEntryType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IPAllowlistEntryTypeSerializer extends StdSerializer<IPAllowlistEntryType> {

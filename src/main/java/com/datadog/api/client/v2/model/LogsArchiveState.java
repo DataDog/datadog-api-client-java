@@ -22,18 +22,17 @@ import java.util.Set;
 @JsonSerialize(using = LogsArchiveState.LogsArchiveStateSerializer.class)
 public class LogsArchiveState extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("UNKNOWN", "WORKING", "FAILING", "WORKING_AUTH_LEGACY"));
+
   public static final LogsArchiveState UNKNOWN = new LogsArchiveState("UNKNOWN");
   public static final LogsArchiveState WORKING = new LogsArchiveState("WORKING");
   public static final LogsArchiveState FAILING = new LogsArchiveState("FAILING");
   public static final LogsArchiveState WORKING_AUTH_LEGACY =
       new LogsArchiveState("WORKING_AUTH_LEGACY");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("UNKNOWN", "WORKING", "FAILING", "WORKING_AUTH_LEGACY"));
-
   LogsArchiveState(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsArchiveStateSerializer extends StdSerializer<LogsArchiveState> {

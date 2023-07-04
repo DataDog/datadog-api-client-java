@@ -23,14 +23,13 @@ import java.util.Set;
     using = CloudWorkloadSecurityAgentRuleType.CloudWorkloadSecurityAgentRuleTypeSerializer.class)
 public class CloudWorkloadSecurityAgentRuleType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("agent_rule"));
+
   public static final CloudWorkloadSecurityAgentRuleType AGENT_RULE =
       new CloudWorkloadSecurityAgentRuleType("agent_rule");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("agent_rule"));
-
   CloudWorkloadSecurityAgentRuleType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CloudWorkloadSecurityAgentRuleTypeSerializer

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = RUMApplicationListType.RUMApplicationListTypeSerializer.class)
 public class RUMApplicationListType extends ModelEnum<String> {
 
-  public static final RUMApplicationListType RUM_APPLICATION =
-      new RUMApplicationListType("rum_application");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("rum_application"));
 
+  public static final RUMApplicationListType RUM_APPLICATION =
+      new RUMApplicationListType("rum_application");
+
   RUMApplicationListType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class RUMApplicationListTypeSerializer

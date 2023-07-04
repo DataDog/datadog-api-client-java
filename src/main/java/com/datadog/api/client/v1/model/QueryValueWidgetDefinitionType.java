@@ -23,15 +23,14 @@ import java.util.Set;
     using = QueryValueWidgetDefinitionType.QueryValueWidgetDefinitionTypeSerializer.class)
 public class QueryValueWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final QueryValueWidgetDefinitionType QUERY_VALUE =
-      new QueryValueWidgetDefinitionType("query_value");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("query_value"));
 
+  public static final QueryValueWidgetDefinitionType QUERY_VALUE =
+      new QueryValueWidgetDefinitionType("query_value");
+
   QueryValueWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class QueryValueWidgetDefinitionTypeSerializer

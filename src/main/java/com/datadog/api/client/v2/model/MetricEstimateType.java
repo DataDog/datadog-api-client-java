@@ -27,16 +27,15 @@ import java.util.Set;
 @JsonSerialize(using = MetricEstimateType.MetricEstimateTypeSerializer.class)
 public class MetricEstimateType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("count_or_gauge", "distribution", "percentile"));
+
   public static final MetricEstimateType COUNT_OR_GAUGE = new MetricEstimateType("count_or_gauge");
   public static final MetricEstimateType DISTRIBUTION = new MetricEstimateType("distribution");
   public static final MetricEstimateType PERCENTILE = new MetricEstimateType("percentile");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("count_or_gauge", "distribution", "percentile"));
-
   MetricEstimateType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricEstimateTypeSerializer extends StdSerializer<MetricEstimateType> {

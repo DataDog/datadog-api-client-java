@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = ProcessSummaryType.ProcessSummaryTypeSerializer.class)
 public class ProcessSummaryType extends ModelEnum<String> {
 
-  public static final ProcessSummaryType PROCESS = new ProcessSummaryType("process");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("process"));
 
+  public static final ProcessSummaryType PROCESS = new ProcessSummaryType("process");
+
   ProcessSummaryType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ProcessSummaryTypeSerializer extends StdSerializer<ProcessSummaryType> {

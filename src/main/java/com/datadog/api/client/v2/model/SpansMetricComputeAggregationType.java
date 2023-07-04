@@ -23,17 +23,16 @@ import java.util.Set;
     using = SpansMetricComputeAggregationType.SpansMetricComputeAggregationTypeSerializer.class)
 public class SpansMetricComputeAggregationType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("count", "distribution"));
+
   public static final SpansMetricComputeAggregationType COUNT =
       new SpansMetricComputeAggregationType("count");
   public static final SpansMetricComputeAggregationType DISTRIBUTION =
       new SpansMetricComputeAggregationType("distribution");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("count", "distribution"));
-
   SpansMetricComputeAggregationType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SpansMetricComputeAggregationTypeSerializer

@@ -23,14 +23,13 @@ import java.util.Set;
     using = NotebookMarkdownCellDefinitionType.NotebookMarkdownCellDefinitionTypeSerializer.class)
 public class NotebookMarkdownCellDefinitionType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("markdown"));
+
   public static final NotebookMarkdownCellDefinitionType MARKDOWN =
       new NotebookMarkdownCellDefinitionType("markdown");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("markdown"));
-
   NotebookMarkdownCellDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class NotebookMarkdownCellDefinitionTypeSerializer

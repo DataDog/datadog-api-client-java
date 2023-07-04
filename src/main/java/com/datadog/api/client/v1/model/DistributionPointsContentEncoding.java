@@ -23,14 +23,13 @@ import java.util.Set;
     using = DistributionPointsContentEncoding.DistributionPointsContentEncodingSerializer.class)
 public class DistributionPointsContentEncoding extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("deflate"));
+
   public static final DistributionPointsContentEncoding DEFLATE =
       new DistributionPointsContentEncoding("deflate");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("deflate"));
-
   DistributionPointsContentEncoding(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DistributionPointsContentEncodingSerializer

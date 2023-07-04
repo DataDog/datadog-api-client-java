@@ -25,14 +25,13 @@ import java.util.Set;
             .class)
 public class IncidentTimelineCellMarkdownContentType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("markdown"));
+
   public static final IncidentTimelineCellMarkdownContentType MARKDOWN =
       new IncidentTimelineCellMarkdownContentType("markdown");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("markdown"));
-
   IncidentTimelineCellMarkdownContentType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentTimelineCellMarkdownContentTypeSerializer

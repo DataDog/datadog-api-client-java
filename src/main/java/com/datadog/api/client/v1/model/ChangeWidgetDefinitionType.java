@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = ChangeWidgetDefinitionType.ChangeWidgetDefinitionTypeSerializer.class)
 public class ChangeWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final ChangeWidgetDefinitionType CHANGE = new ChangeWidgetDefinitionType("change");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("change"));
 
+  public static final ChangeWidgetDefinitionType CHANGE = new ChangeWidgetDefinitionType("change");
+
   ChangeWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ChangeWidgetDefinitionTypeSerializer

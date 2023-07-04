@@ -22,6 +22,22 @@ import java.util.Set;
 @JsonSerialize(using = AuthNMappingsSort.AuthNMappingsSortSerializer.class)
 public class AuthNMappingsSort extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "created_at",
+              "-created_at",
+              "role_id",
+              "-role_id",
+              "saml_assertion_attribute_id",
+              "-saml_assertion_attribute_id",
+              "role.name",
+              "-role.name",
+              "saml_assertion_attribute.attribute_key",
+              "-saml_assertion_attribute.attribute_key",
+              "saml_assertion_attribute.attribute_value",
+              "-saml_assertion_attribute.attribute_value"));
+
   public static final AuthNMappingsSort CREATED_AT_ASCENDING = new AuthNMappingsSort("created_at");
   public static final AuthNMappingsSort CREATED_AT_DESCENDING =
       new AuthNMappingsSort("-created_at");
@@ -42,25 +58,8 @@ public class AuthNMappingsSort extends ModelEnum<String> {
   public static final AuthNMappingsSort SAML_ASSERTION_ATTRIBUTE_VALUE_DESCENDING =
       new AuthNMappingsSort("-saml_assertion_attribute.attribute_value");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "created_at",
-              "-created_at",
-              "role_id",
-              "-role_id",
-              "saml_assertion_attribute_id",
-              "-saml_assertion_attribute_id",
-              "role.name",
-              "-role.name",
-              "saml_assertion_attribute.attribute_key",
-              "-saml_assertion_attribute.attribute_key",
-              "saml_assertion_attribute.attribute_value",
-              "-saml_assertion_attribute.attribute_value"));
-
   AuthNMappingsSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class AuthNMappingsSortSerializer extends StdSerializer<AuthNMappingsSort> {

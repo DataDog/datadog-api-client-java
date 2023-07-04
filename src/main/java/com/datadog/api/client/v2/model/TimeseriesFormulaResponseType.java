@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = TimeseriesFormulaResponseType.TimeseriesFormulaResponseTypeSerializer.class)
 public class TimeseriesFormulaResponseType extends ModelEnum<String> {
 
-  public static final TimeseriesFormulaResponseType TIMESERIES_RESPONSE =
-      new TimeseriesFormulaResponseType("timeseries_response");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("timeseries_response"));
 
+  public static final TimeseriesFormulaResponseType TIMESERIES_RESPONSE =
+      new TimeseriesFormulaResponseType("timeseries_response");
+
   TimeseriesFormulaResponseType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TimeseriesFormulaResponseTypeSerializer

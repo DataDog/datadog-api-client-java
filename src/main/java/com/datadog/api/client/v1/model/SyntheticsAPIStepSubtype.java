@@ -25,13 +25,12 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsAPIStepSubtype.SyntheticsAPIStepSubtypeSerializer.class)
 public class SyntheticsAPIStepSubtype extends ModelEnum<String> {
 
-  public static final SyntheticsAPIStepSubtype HTTP = new SyntheticsAPIStepSubtype("http");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("http"));
 
+  public static final SyntheticsAPIStepSubtype HTTP = new SyntheticsAPIStepSubtype("http");
+
   SyntheticsAPIStepSubtype(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsAPIStepSubtypeSerializer

@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsBrowserTestType.SyntheticsBrowserTestTypeSerializer.class)
 public class SyntheticsBrowserTestType extends ModelEnum<String> {
 
-  public static final SyntheticsBrowserTestType BROWSER = new SyntheticsBrowserTestType("browser");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("browser"));
 
+  public static final SyntheticsBrowserTestType BROWSER = new SyntheticsBrowserTestType("browser");
+
   SyntheticsBrowserTestType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBrowserTestTypeSerializer

@@ -25,14 +25,13 @@ import java.util.Set;
             .class)
 public class DistributionWidgetHistogramRequestType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("histogram"));
+
   public static final DistributionWidgetHistogramRequestType HISTOGRAM =
       new DistributionWidgetHistogramRequestType("histogram");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("histogram"));
-
   DistributionWidgetHistogramRequestType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DistributionWidgetHistogramRequestTypeSerializer

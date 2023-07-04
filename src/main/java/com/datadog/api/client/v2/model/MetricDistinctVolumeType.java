@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = MetricDistinctVolumeType.MetricDistinctVolumeTypeSerializer.class)
 public class MetricDistinctVolumeType extends ModelEnum<String> {
 
-  public static final MetricDistinctVolumeType DISTINCT_METRIC_VOLUMES =
-      new MetricDistinctVolumeType("distinct_metric_volumes");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("distinct_metric_volumes"));
 
+  public static final MetricDistinctVolumeType DISTINCT_METRIC_VOLUMES =
+      new MetricDistinctVolumeType("distinct_metric_volumes");
+
   MetricDistinctVolumeType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricDistinctVolumeTypeSerializer

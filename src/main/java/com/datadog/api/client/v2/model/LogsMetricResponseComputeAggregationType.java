@@ -25,17 +25,16 @@ import java.util.Set;
             .class)
 public class LogsMetricResponseComputeAggregationType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("count", "distribution"));
+
   public static final LogsMetricResponseComputeAggregationType COUNT =
       new LogsMetricResponseComputeAggregationType("count");
   public static final LogsMetricResponseComputeAggregationType DISTRIBUTION =
       new LogsMetricResponseComputeAggregationType("distribution");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("count", "distribution"));
-
   LogsMetricResponseComputeAggregationType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsMetricResponseComputeAggregationTypeSerializer

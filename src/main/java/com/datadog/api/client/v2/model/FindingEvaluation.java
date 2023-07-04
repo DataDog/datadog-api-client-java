@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = FindingEvaluation.FindingEvaluationSerializer.class)
 public class FindingEvaluation extends ModelEnum<String> {
 
-  public static final FindingEvaluation PASS = new FindingEvaluation("pass");
-  public static final FindingEvaluation FAIL = new FindingEvaluation("fail");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("pass", "fail"));
 
+  public static final FindingEvaluation PASS = new FindingEvaluation("pass");
+  public static final FindingEvaluation FAIL = new FindingEvaluation("fail");
+
   FindingEvaluation(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FindingEvaluationSerializer extends StdSerializer<FindingEvaluation> {

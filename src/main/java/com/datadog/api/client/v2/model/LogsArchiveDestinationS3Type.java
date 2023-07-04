@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = LogsArchiveDestinationS3Type.LogsArchiveDestinationS3TypeSerializer.class)
 public class LogsArchiveDestinationS3Type extends ModelEnum<String> {
 
-  public static final LogsArchiveDestinationS3Type S3 = new LogsArchiveDestinationS3Type("s3");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("s3"));
 
+  public static final LogsArchiveDestinationS3Type S3 = new LogsArchiveDestinationS3Type("s3");
+
   LogsArchiveDestinationS3Type(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsArchiveDestinationS3TypeSerializer

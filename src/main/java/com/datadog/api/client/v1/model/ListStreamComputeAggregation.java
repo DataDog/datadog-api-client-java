@@ -22,6 +22,25 @@ import java.util.Set;
 @JsonSerialize(using = ListStreamComputeAggregation.ListStreamComputeAggregationSerializer.class)
 public class ListStreamComputeAggregation extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "count",
+              "cardinality",
+              "median",
+              "pc75",
+              "pc90",
+              "pc95",
+              "pc98",
+              "pc99",
+              "sum",
+              "min",
+              "max",
+              "avg",
+              "earliest",
+              "latest",
+              "most_frequent"));
+
   public static final ListStreamComputeAggregation COUNT =
       new ListStreamComputeAggregation("count");
   public static final ListStreamComputeAggregation CARDINALITY =
@@ -44,28 +63,8 @@ public class ListStreamComputeAggregation extends ModelEnum<String> {
   public static final ListStreamComputeAggregation MOST_FREQUENT =
       new ListStreamComputeAggregation("most_frequent");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "count",
-              "cardinality",
-              "median",
-              "pc75",
-              "pc90",
-              "pc95",
-              "pc98",
-              "pc99",
-              "sum",
-              "min",
-              "max",
-              "avg",
-              "earliest",
-              "latest",
-              "most_frequent"));
-
   ListStreamComputeAggregation(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ListStreamComputeAggregationSerializer

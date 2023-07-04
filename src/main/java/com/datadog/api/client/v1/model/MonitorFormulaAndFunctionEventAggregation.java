@@ -25,6 +25,22 @@ import java.util.Set;
             .MonitorFormulaAndFunctionEventAggregationSerializer.class)
 public class MonitorFormulaAndFunctionEventAggregation extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "count",
+              "cardinality",
+              "median",
+              "pc75",
+              "pc90",
+              "pc95",
+              "pc98",
+              "pc99",
+              "sum",
+              "min",
+              "max",
+              "avg"));
+
   public static final MonitorFormulaAndFunctionEventAggregation COUNT =
       new MonitorFormulaAndFunctionEventAggregation("count");
   public static final MonitorFormulaAndFunctionEventAggregation CARDINALITY =
@@ -50,25 +66,8 @@ public class MonitorFormulaAndFunctionEventAggregation extends ModelEnum<String>
   public static final MonitorFormulaAndFunctionEventAggregation AVG =
       new MonitorFormulaAndFunctionEventAggregation("avg");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "count",
-              "cardinality",
-              "median",
-              "pc75",
-              "pc90",
-              "pc95",
-              "pc98",
-              "pc99",
-              "sum",
-              "min",
-              "max",
-              "avg"));
-
   MonitorFormulaAndFunctionEventAggregation(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MonitorFormulaAndFunctionEventAggregationSerializer

@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = TopologyRequestType.TopologyRequestTypeSerializer.class)
 public class TopologyRequestType extends ModelEnum<String> {
 
-  public static final TopologyRequestType TOPOLOGY = new TopologyRequestType("topology");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("topology"));
 
+  public static final TopologyRequestType TOPOLOGY = new TopologyRequestType("topology");
+
   TopologyRequestType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TopologyRequestTypeSerializer extends StdSerializer<TopologyRequestType> {

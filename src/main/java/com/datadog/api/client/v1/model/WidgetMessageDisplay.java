@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = WidgetMessageDisplay.WidgetMessageDisplaySerializer.class)
 public class WidgetMessageDisplay extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("inline", "expanded-md", "expanded-lg"));
+
   public static final WidgetMessageDisplay INLINE = new WidgetMessageDisplay("inline");
   public static final WidgetMessageDisplay EXPANDED_MEDIUM =
       new WidgetMessageDisplay("expanded-md");
   public static final WidgetMessageDisplay EXPANDED_LARGE = new WidgetMessageDisplay("expanded-lg");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("inline", "expanded-md", "expanded-lg"));
-
   WidgetMessageDisplay(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetMessageDisplaySerializer extends StdSerializer<WidgetMessageDisplay> {

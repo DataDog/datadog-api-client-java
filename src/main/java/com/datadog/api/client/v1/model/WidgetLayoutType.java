@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = WidgetLayoutType.WidgetLayoutTypeSerializer.class)
 public class WidgetLayoutType extends ModelEnum<String> {
 
-  public static final WidgetLayoutType ORDERED = new WidgetLayoutType("ordered");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("ordered"));
 
+  public static final WidgetLayoutType ORDERED = new WidgetLayoutType("ordered");
+
   WidgetLayoutType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetLayoutTypeSerializer extends StdSerializer<WidgetLayoutType> {

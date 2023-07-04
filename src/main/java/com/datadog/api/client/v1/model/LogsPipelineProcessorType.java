@@ -22,14 +22,13 @@ import java.util.Set;
 @JsonSerialize(using = LogsPipelineProcessorType.LogsPipelineProcessorTypeSerializer.class)
 public class LogsPipelineProcessorType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("pipeline"));
+
   public static final LogsPipelineProcessorType PIPELINE =
       new LogsPipelineProcessorType("pipeline");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("pipeline"));
-
   LogsPipelineProcessorType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsPipelineProcessorTypeSerializer

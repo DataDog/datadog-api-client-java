@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = DashboardShareType.DashboardShareTypeSerializer.class)
 public class DashboardShareType extends ModelEnum<String> {
 
-  public static final DashboardShareType OPEN = new DashboardShareType("open");
-  public static final DashboardShareType INVITE = new DashboardShareType("invite");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("open", "invite"));
 
+  public static final DashboardShareType OPEN = new DashboardShareType("open");
+  public static final DashboardShareType INVITE = new DashboardShareType("invite");
+
   DashboardShareType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DashboardShareTypeSerializer extends StdSerializer<DashboardShareType> {

@@ -23,14 +23,13 @@ import java.util.Set;
     using = CIAppPipelineEventPipelineLevel.CIAppPipelineEventPipelineLevelSerializer.class)
 public class CIAppPipelineEventPipelineLevel extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("pipeline"));
+
   public static final CIAppPipelineEventPipelineLevel PIPELINE =
       new CIAppPipelineEventPipelineLevel("pipeline");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("pipeline"));
-
   CIAppPipelineEventPipelineLevel(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppPipelineEventPipelineLevelSerializer

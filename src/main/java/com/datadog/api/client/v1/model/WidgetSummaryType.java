@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = WidgetSummaryType.WidgetSummaryTypeSerializer.class)
 public class WidgetSummaryType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("monitors", "groups", "combined"));
+
   public static final WidgetSummaryType MONITORS = new WidgetSummaryType("monitors");
   public static final WidgetSummaryType GROUPS = new WidgetSummaryType("groups");
   public static final WidgetSummaryType COMBINED = new WidgetSummaryType("combined");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("monitors", "groups", "combined"));
-
   WidgetSummaryType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetSummaryTypeSerializer extends StdSerializer<WidgetSummaryType> {

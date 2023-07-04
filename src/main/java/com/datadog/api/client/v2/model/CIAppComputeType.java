@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = CIAppComputeType.CIAppComputeTypeSerializer.class)
 public class CIAppComputeType extends ModelEnum<String> {
 
-  public static final CIAppComputeType TIMESERIES = new CIAppComputeType("timeseries");
-  public static final CIAppComputeType TOTAL = new CIAppComputeType("total");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("timeseries", "total"));
 
+  public static final CIAppComputeType TIMESERIES = new CIAppComputeType("timeseries");
+  public static final CIAppComputeType TOTAL = new CIAppComputeType("total");
+
   CIAppComputeType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppComputeTypeSerializer extends StdSerializer<CIAppComputeType> {

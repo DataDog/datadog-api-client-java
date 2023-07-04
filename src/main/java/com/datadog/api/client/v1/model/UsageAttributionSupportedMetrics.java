@@ -26,6 +26,57 @@ import java.util.Set;
     using = UsageAttributionSupportedMetrics.UsageAttributionSupportedMetricsSerializer.class)
 public class UsageAttributionSupportedMetrics extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "custom_timeseries_usage",
+              "container_usage",
+              "snmp_percentage",
+              "apm_host_usage",
+              "browser_usage",
+              "npm_host_percentage",
+              "infra_host_usage",
+              "custom_timeseries_percentage",
+              "container_percentage",
+              "api_usage",
+              "apm_host_percentage",
+              "infra_host_percentage",
+              "snmp_usage",
+              "browser_percentage",
+              "api_percentage",
+              "npm_host_usage",
+              "lambda_functions_usage",
+              "lambda_functions_percentage",
+              "lambda_invocations_usage",
+              "lambda_invocations_percentage",
+              "fargate_usage",
+              "fargate_percentage",
+              "profiled_host_usage",
+              "profiled_host_percentage",
+              "profiled_container_usage",
+              "profiled_container_percentage",
+              "dbm_hosts_usage",
+              "dbm_hosts_percentage",
+              "dbm_queries_usage",
+              "dbm_queries_percentage",
+              "estimated_indexed_logs_usage",
+              "estimated_indexed_logs_percentage",
+              "estimated_ingested_logs_usage",
+              "estimated_ingested_logs_percentage",
+              "appsec_usage",
+              "appsec_percentage",
+              "estimated_indexed_spans_usage",
+              "estimated_indexed_spans_percentage",
+              "estimated_ingested_spans_usage",
+              "estimated_ingested_spans_percentage",
+              "apm_fargate_usage",
+              "apm_fargate_percentage",
+              "appsec_fargate_usage",
+              "appsec_fargate_percentage",
+              "estimated_rum_usage_attribution_usage",
+              "estimated_rum_usage_attribution_percentage",
+              "*"));
+
   public static final UsageAttributionSupportedMetrics CUSTOM_TIMESERIES_USAGE =
       new UsageAttributionSupportedMetrics("custom_timeseries_usage");
   public static final UsageAttributionSupportedMetrics CONTAINER_USAGE =
@@ -121,60 +172,8 @@ public class UsageAttributionSupportedMetrics extends ModelEnum<String> {
   public static final UsageAttributionSupportedMetrics ALL =
       new UsageAttributionSupportedMetrics("*");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "custom_timeseries_usage",
-              "container_usage",
-              "snmp_percentage",
-              "apm_host_usage",
-              "browser_usage",
-              "npm_host_percentage",
-              "infra_host_usage",
-              "custom_timeseries_percentage",
-              "container_percentage",
-              "api_usage",
-              "apm_host_percentage",
-              "infra_host_percentage",
-              "snmp_usage",
-              "browser_percentage",
-              "api_percentage",
-              "npm_host_usage",
-              "lambda_functions_usage",
-              "lambda_functions_percentage",
-              "lambda_invocations_usage",
-              "lambda_invocations_percentage",
-              "fargate_usage",
-              "fargate_percentage",
-              "profiled_host_usage",
-              "profiled_host_percentage",
-              "profiled_container_usage",
-              "profiled_container_percentage",
-              "dbm_hosts_usage",
-              "dbm_hosts_percentage",
-              "dbm_queries_usage",
-              "dbm_queries_percentage",
-              "estimated_indexed_logs_usage",
-              "estimated_indexed_logs_percentage",
-              "estimated_ingested_logs_usage",
-              "estimated_ingested_logs_percentage",
-              "appsec_usage",
-              "appsec_percentage",
-              "estimated_indexed_spans_usage",
-              "estimated_indexed_spans_percentage",
-              "estimated_ingested_spans_usage",
-              "estimated_ingested_spans_percentage",
-              "apm_fargate_usage",
-              "apm_fargate_percentage",
-              "appsec_fargate_usage",
-              "appsec_fargate_percentage",
-              "estimated_rum_usage_attribution_usage",
-              "estimated_rum_usage_attribution_percentage",
-              "*"));
-
   UsageAttributionSupportedMetrics(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class UsageAttributionSupportedMetricsSerializer

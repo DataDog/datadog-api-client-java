@@ -22,15 +22,6 @@ import java.util.Set;
 @JsonSerialize(using = APIKeysSort.APIKeysSortSerializer.class)
 public class APIKeysSort extends ModelEnum<String> {
 
-  public static final APIKeysSort CREATED_AT_ASCENDING = new APIKeysSort("created_at");
-  public static final APIKeysSort CREATED_AT_DESCENDING = new APIKeysSort("-created_at");
-  public static final APIKeysSort LAST4_ASCENDING = new APIKeysSort("last4");
-  public static final APIKeysSort LAST4_DESCENDING = new APIKeysSort("-last4");
-  public static final APIKeysSort MODIFIED_AT_ASCENDING = new APIKeysSort("modified_at");
-  public static final APIKeysSort MODIFIED_AT_DESCENDING = new APIKeysSort("-modified_at");
-  public static final APIKeysSort NAME_ASCENDING = new APIKeysSort("name");
-  public static final APIKeysSort NAME_DESCENDING = new APIKeysSort("-name");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -43,9 +34,17 @@ public class APIKeysSort extends ModelEnum<String> {
               "name",
               "-name"));
 
+  public static final APIKeysSort CREATED_AT_ASCENDING = new APIKeysSort("created_at");
+  public static final APIKeysSort CREATED_AT_DESCENDING = new APIKeysSort("-created_at");
+  public static final APIKeysSort LAST4_ASCENDING = new APIKeysSort("last4");
+  public static final APIKeysSort LAST4_DESCENDING = new APIKeysSort("-last4");
+  public static final APIKeysSort MODIFIED_AT_ASCENDING = new APIKeysSort("modified_at");
+  public static final APIKeysSort MODIFIED_AT_DESCENDING = new APIKeysSort("-modified_at");
+  public static final APIKeysSort NAME_ASCENDING = new APIKeysSort("name");
+  public static final APIKeysSort NAME_DESCENDING = new APIKeysSort("-name");
+
   APIKeysSort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class APIKeysSortSerializer extends StdSerializer<APIKeysSort> {

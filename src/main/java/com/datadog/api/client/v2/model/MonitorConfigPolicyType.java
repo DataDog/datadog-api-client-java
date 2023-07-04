@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = MonitorConfigPolicyType.MonitorConfigPolicyTypeSerializer.class)
 public class MonitorConfigPolicyType extends ModelEnum<String> {
 
-  public static final MonitorConfigPolicyType TAG = new MonitorConfigPolicyType("tag");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("tag"));
 
+  public static final MonitorConfigPolicyType TAG = new MonitorConfigPolicyType("tag");
+
   MonitorConfigPolicyType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MonitorConfigPolicyTypeSerializer

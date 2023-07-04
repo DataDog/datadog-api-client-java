@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = CIAppPipelineEventStepStatus.CIAppPipelineEventStepStatusSerializer.class)
 public class CIAppPipelineEventStepStatus extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("success", "error"));
+
   public static final CIAppPipelineEventStepStatus SUCCESS =
       new CIAppPipelineEventStepStatus("success");
   public static final CIAppPipelineEventStepStatus ERROR =
       new CIAppPipelineEventStepStatus("error");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("success", "error"));
-
   CIAppPipelineEventStepStatus(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CIAppPipelineEventStepStatusSerializer

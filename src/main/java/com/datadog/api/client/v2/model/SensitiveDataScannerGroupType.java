@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = SensitiveDataScannerGroupType.SensitiveDataScannerGroupTypeSerializer.class)
 public class SensitiveDataScannerGroupType extends ModelEnum<String> {
 
-  public static final SensitiveDataScannerGroupType SENSITIVE_DATA_SCANNER_GROUP =
-      new SensitiveDataScannerGroupType("sensitive_data_scanner_group");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("sensitive_data_scanner_group"));
 
+  public static final SensitiveDataScannerGroupType SENSITIVE_DATA_SCANNER_GROUP =
+      new SensitiveDataScannerGroupType("sensitive_data_scanner_group");
+
   SensitiveDataScannerGroupType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SensitiveDataScannerGroupTypeSerializer

@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = DistributionPointsType.DistributionPointsTypeSerializer.class)
 public class DistributionPointsType extends ModelEnum<String> {
 
-  public static final DistributionPointsType DISTRIBUTION =
-      new DistributionPointsType("distribution");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("distribution"));
 
+  public static final DistributionPointsType DISTRIBUTION =
+      new DistributionPointsType("distribution");
+
   DistributionPointsType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class DistributionPointsTypeSerializer

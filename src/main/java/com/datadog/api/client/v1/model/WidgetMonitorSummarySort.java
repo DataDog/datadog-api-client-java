@@ -22,6 +22,27 @@ import java.util.Set;
 @JsonSerialize(using = WidgetMonitorSummarySort.WidgetMonitorSummarySortSerializer.class)
 public class WidgetMonitorSummarySort extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "name",
+              "group",
+              "status",
+              "tags",
+              "triggered",
+              "group,asc",
+              "group,desc",
+              "name,asc",
+              "name,desc",
+              "status,asc",
+              "status,desc",
+              "tags,asc",
+              "tags,desc",
+              "triggered,asc",
+              "triggered,desc",
+              "priority,asc",
+              "priority,desc"));
+
   public static final WidgetMonitorSummarySort NAME = new WidgetMonitorSummarySort("name");
   public static final WidgetMonitorSummarySort GROUP = new WidgetMonitorSummarySort("group");
   public static final WidgetMonitorSummarySort STATUS = new WidgetMonitorSummarySort("status");
@@ -53,30 +74,8 @@ public class WidgetMonitorSummarySort extends ModelEnum<String> {
   public static final WidgetMonitorSummarySort PRIORITY_DESCENDING =
       new WidgetMonitorSummarySort("priority,desc");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "name",
-              "group",
-              "status",
-              "tags",
-              "triggered",
-              "group,asc",
-              "group,desc",
-              "name,asc",
-              "name,desc",
-              "status,asc",
-              "status,desc",
-              "tags,asc",
-              "tags,desc",
-              "triggered,asc",
-              "triggered,desc",
-              "priority,asc",
-              "priority,desc"));
-
   WidgetMonitorSummarySort(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetMonitorSummarySortSerializer

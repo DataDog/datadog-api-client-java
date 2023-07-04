@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = IncidentSearchSortOrder.IncidentSearchSortOrderSerializer.class)
 public class IncidentSearchSortOrder extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("created", "-created"));
+
   public static final IncidentSearchSortOrder CREATED_ASCENDING =
       new IncidentSearchSortOrder("created");
   public static final IncidentSearchSortOrder CREATED_DESCENDING =
       new IncidentSearchSortOrder("-created");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("created", "-created"));
-
   IncidentSearchSortOrder(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class IncidentSearchSortOrderSerializer

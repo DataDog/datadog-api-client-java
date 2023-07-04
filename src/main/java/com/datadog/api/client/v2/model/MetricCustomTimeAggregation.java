@@ -22,18 +22,17 @@ import java.util.Set;
 @JsonSerialize(using = MetricCustomTimeAggregation.MetricCustomTimeAggregationSerializer.class)
 public class MetricCustomTimeAggregation extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("avg", "count", "max", "min", "sum"));
+
   public static final MetricCustomTimeAggregation AVG = new MetricCustomTimeAggregation("avg");
   public static final MetricCustomTimeAggregation COUNT = new MetricCustomTimeAggregation("count");
   public static final MetricCustomTimeAggregation MAX = new MetricCustomTimeAggregation("max");
   public static final MetricCustomTimeAggregation MIN = new MetricCustomTimeAggregation("min");
   public static final MetricCustomTimeAggregation SUM = new MetricCustomTimeAggregation("sum");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("avg", "count", "max", "min", "sum"));
-
   MetricCustomTimeAggregation(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MetricCustomTimeAggregationSerializer

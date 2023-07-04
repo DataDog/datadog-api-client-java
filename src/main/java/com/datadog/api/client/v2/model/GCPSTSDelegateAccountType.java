@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = GCPSTSDelegateAccountType.GCPSTSDelegateAccountTypeSerializer.class)
 public class GCPSTSDelegateAccountType extends ModelEnum<String> {
 
-  public static final GCPSTSDelegateAccountType GCP_STS_DELEGATE =
-      new GCPSTSDelegateAccountType("gcp_sts_delegate");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("gcp_sts_delegate"));
 
+  public static final GCPSTSDelegateAccountType GCP_STS_DELEGATE =
+      new GCPSTSDelegateAccountType("gcp_sts_delegate");
+
   GCPSTSDelegateAccountType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class GCPSTSDelegateAccountTypeSerializer

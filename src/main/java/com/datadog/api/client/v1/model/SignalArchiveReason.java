@@ -22,15 +22,6 @@ import java.util.Set;
 @JsonSerialize(using = SignalArchiveReason.SignalArchiveReasonSerializer.class)
 public class SignalArchiveReason extends ModelEnum<String> {
 
-  public static final SignalArchiveReason NONE = new SignalArchiveReason("none");
-  public static final SignalArchiveReason FALSE_POSITIVE =
-      new SignalArchiveReason("false_positive");
-  public static final SignalArchiveReason TESTING_OR_MAINTENANCE =
-      new SignalArchiveReason("testing_or_maintenance");
-  public static final SignalArchiveReason INVESTIGATED_CASE_OPENED =
-      new SignalArchiveReason("investigated_case_opened");
-  public static final SignalArchiveReason OTHER = new SignalArchiveReason("other");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -40,9 +31,17 @@ public class SignalArchiveReason extends ModelEnum<String> {
               "investigated_case_opened",
               "other"));
 
+  public static final SignalArchiveReason NONE = new SignalArchiveReason("none");
+  public static final SignalArchiveReason FALSE_POSITIVE =
+      new SignalArchiveReason("false_positive");
+  public static final SignalArchiveReason TESTING_OR_MAINTENANCE =
+      new SignalArchiveReason("testing_or_maintenance");
+  public static final SignalArchiveReason INVESTIGATED_CASE_OPENED =
+      new SignalArchiveReason("investigated_case_opened");
+  public static final SignalArchiveReason OTHER = new SignalArchiveReason("other");
+
   SignalArchiveReason(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SignalArchiveReasonSerializer extends StdSerializer<SignalArchiveReason> {

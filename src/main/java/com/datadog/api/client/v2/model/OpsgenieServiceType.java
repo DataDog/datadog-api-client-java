@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = OpsgenieServiceType.OpsgenieServiceTypeSerializer.class)
 public class OpsgenieServiceType extends ModelEnum<String> {
 
-  public static final OpsgenieServiceType OPSGENIE_SERVICE =
-      new OpsgenieServiceType("opsgenie-service");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("opsgenie-service"));
 
+  public static final OpsgenieServiceType OPSGENIE_SERVICE =
+      new OpsgenieServiceType("opsgenie-service");
+
   OpsgenieServiceType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class OpsgenieServiceTypeSerializer extends StdSerializer<OpsgenieServiceType> {

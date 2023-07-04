@@ -25,6 +25,17 @@ import java.util.Set;
             .class)
 public class FormulaAndFunctionApmDependencyStatName extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "avg_duration",
+              "avg_root_duration",
+              "avg_spans_per_trace",
+              "error_rate",
+              "pct_exec_time",
+              "pct_of_traces",
+              "total_traces_count"));
+
   public static final FormulaAndFunctionApmDependencyStatName AVG_DURATION =
       new FormulaAndFunctionApmDependencyStatName("avg_duration");
   public static final FormulaAndFunctionApmDependencyStatName AVG_ROOT_DURATION =
@@ -40,20 +51,8 @@ public class FormulaAndFunctionApmDependencyStatName extends ModelEnum<String> {
   public static final FormulaAndFunctionApmDependencyStatName TOTAL_TRACES_COUNT =
       new FormulaAndFunctionApmDependencyStatName("total_traces_count");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "avg_duration",
-              "avg_root_duration",
-              "avg_spans_per_trace",
-              "error_rate",
-              "pct_exec_time",
-              "pct_of_traces",
-              "total_traces_count"));
-
   FormulaAndFunctionApmDependencyStatName(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FormulaAndFunctionApmDependencyStatNameSerializer

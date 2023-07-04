@@ -23,15 +23,14 @@ import java.util.Set;
     using = MonitorSummaryWidgetDefinitionType.MonitorSummaryWidgetDefinitionTypeSerializer.class)
 public class MonitorSummaryWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final MonitorSummaryWidgetDefinitionType MANAGE_STATUS =
-      new MonitorSummaryWidgetDefinitionType("manage_status");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("manage_status"));
 
+  public static final MonitorSummaryWidgetDefinitionType MANAGE_STATUS =
+      new MonitorSummaryWidgetDefinitionType("manage_status");
+
   MonitorSummaryWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class MonitorSummaryWidgetDefinitionTypeSerializer

@@ -22,18 +22,17 @@ import java.util.Set;
 @JsonSerialize(using = ScatterplotWidgetAggregator.ScatterplotWidgetAggregatorSerializer.class)
 public class ScatterplotWidgetAggregator extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("avg", "last", "max", "min", "sum"));
+
   public static final ScatterplotWidgetAggregator AVERAGE = new ScatterplotWidgetAggregator("avg");
   public static final ScatterplotWidgetAggregator LAST = new ScatterplotWidgetAggregator("last");
   public static final ScatterplotWidgetAggregator MAXIMUM = new ScatterplotWidgetAggregator("max");
   public static final ScatterplotWidgetAggregator MINIMUM = new ScatterplotWidgetAggregator("min");
   public static final ScatterplotWidgetAggregator SUM = new ScatterplotWidgetAggregator("sum");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("avg", "last", "max", "min", "sum"));
-
   ScatterplotWidgetAggregator(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ScatterplotWidgetAggregatorSerializer

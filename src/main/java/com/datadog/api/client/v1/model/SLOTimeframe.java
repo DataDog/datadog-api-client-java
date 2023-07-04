@@ -22,17 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = SLOTimeframe.SLOTimeframeSerializer.class)
 public class SLOTimeframe extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("7d", "30d", "90d", "custom"));
+
   public static final SLOTimeframe SEVEN_DAYS = new SLOTimeframe("7d");
   public static final SLOTimeframe THIRTY_DAYS = new SLOTimeframe("30d");
   public static final SLOTimeframe NINETY_DAYS = new SLOTimeframe("90d");
   public static final SLOTimeframe CUSTOM = new SLOTimeframe("custom");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("7d", "30d", "90d", "custom"));
-
   SLOTimeframe(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SLOTimeframeSerializer extends StdSerializer<SLOTimeframe> {

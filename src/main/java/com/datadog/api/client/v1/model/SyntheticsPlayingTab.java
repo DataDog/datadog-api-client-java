@@ -22,18 +22,17 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsPlayingTab.SyntheticsPlayingTabSerializer.class)
 public class SyntheticsPlayingTab extends ModelEnum<Long> {
 
+  private static final Set<Long> allowedValues =
+      new HashSet<Long>(Arrays.asList(-1l, 0l, 1l, 2l, 3l));
+
   public static final SyntheticsPlayingTab MAIN_TAB = new SyntheticsPlayingTab(-1l);
   public static final SyntheticsPlayingTab NEW_TAB = new SyntheticsPlayingTab(0l);
   public static final SyntheticsPlayingTab TAB_1 = new SyntheticsPlayingTab(1l);
   public static final SyntheticsPlayingTab TAB_2 = new SyntheticsPlayingTab(2l);
   public static final SyntheticsPlayingTab TAB_3 = new SyntheticsPlayingTab(3l);
 
-  private static final Set<Long> allowedValues =
-      new HashSet<Long>(Arrays.asList(-1l, 0l, 1l, 2l, 3l));
-
   SyntheticsPlayingTab(Long value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsPlayingTabSerializer extends StdSerializer<SyntheticsPlayingTab> {

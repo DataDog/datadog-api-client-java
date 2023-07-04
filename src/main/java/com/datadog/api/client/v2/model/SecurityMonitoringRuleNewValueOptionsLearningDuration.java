@@ -29,6 +29,8 @@ import java.util.Set;
             .SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer.class)
 public class SecurityMonitoringRuleNewValueOptionsLearningDuration extends ModelEnum<Integer> {
 
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 7));
+
   public static final SecurityMonitoringRuleNewValueOptionsLearningDuration ZERO_DAYS =
       new SecurityMonitoringRuleNewValueOptionsLearningDuration(0);
   public static final SecurityMonitoringRuleNewValueOptionsLearningDuration ONE_DAY =
@@ -36,11 +38,8 @@ public class SecurityMonitoringRuleNewValueOptionsLearningDuration extends Model
   public static final SecurityMonitoringRuleNewValueOptionsLearningDuration SEVEN_DAYS =
       new SecurityMonitoringRuleNewValueOptionsLearningDuration(7);
 
-  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 7));
-
   SecurityMonitoringRuleNewValueOptionsLearningDuration(Integer value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer

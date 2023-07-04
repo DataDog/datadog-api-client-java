@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = TeamLinkType.TeamLinkTypeSerializer.class)
 public class TeamLinkType extends ModelEnum<String> {
 
-  public static final TeamLinkType TEAM_LINKS = new TeamLinkType("team_links");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("team_links"));
 
+  public static final TeamLinkType TEAM_LINKS = new TeamLinkType("team_links");
+
   TeamLinkType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TeamLinkTypeSerializer extends StdSerializer<TeamLinkType> {

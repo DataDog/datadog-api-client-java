@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = LogsArchiveDestinationGCSType.LogsArchiveDestinationGCSTypeSerializer.class)
 public class LogsArchiveDestinationGCSType extends ModelEnum<String> {
 
-  public static final LogsArchiveDestinationGCSType GCS = new LogsArchiveDestinationGCSType("gcs");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("gcs"));
 
+  public static final LogsArchiveDestinationGCSType GCS = new LogsArchiveDestinationGCSType("gcs");
+
   LogsArchiveDestinationGCSType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsArchiveDestinationGCSTypeSerializer

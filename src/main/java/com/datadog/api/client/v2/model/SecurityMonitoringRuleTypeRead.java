@@ -23,6 +23,15 @@ import java.util.Set;
     using = SecurityMonitoringRuleTypeRead.SecurityMonitoringRuleTypeReadSerializer.class)
 public class SecurityMonitoringRuleTypeRead extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "log_detection",
+              "infrastructure_configuration",
+              "workload_security",
+              "cloud_configuration",
+              "application_security"));
+
   public static final SecurityMonitoringRuleTypeRead LOG_DETECTION =
       new SecurityMonitoringRuleTypeRead("log_detection");
   public static final SecurityMonitoringRuleTypeRead INFRASTRUCTURE_CONFIGURATION =
@@ -34,18 +43,8 @@ public class SecurityMonitoringRuleTypeRead extends ModelEnum<String> {
   public static final SecurityMonitoringRuleTypeRead APPLICATION_SECURITY =
       new SecurityMonitoringRuleTypeRead("application_security");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "log_detection",
-              "infrastructure_configuration",
-              "workload_security",
-              "cloud_configuration",
-              "application_security"));
-
   SecurityMonitoringRuleTypeRead(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleTypeReadSerializer

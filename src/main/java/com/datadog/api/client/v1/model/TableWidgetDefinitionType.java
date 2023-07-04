@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = TableWidgetDefinitionType.TableWidgetDefinitionTypeSerializer.class)
 public class TableWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final TableWidgetDefinitionType QUERY_TABLE =
-      new TableWidgetDefinitionType("query_table");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("query_table"));
 
+  public static final TableWidgetDefinitionType QUERY_TABLE =
+      new TableWidgetDefinitionType("query_table");
+
   TableWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TableWidgetDefinitionTypeSerializer

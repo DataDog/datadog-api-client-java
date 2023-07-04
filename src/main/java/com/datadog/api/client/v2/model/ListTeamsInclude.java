@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = ListTeamsInclude.ListTeamsIncludeSerializer.class)
 public class ListTeamsInclude extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("team_links", "user_team_permissions"));
+
   public static final ListTeamsInclude TEAM_LINKS = new ListTeamsInclude("team_links");
   public static final ListTeamsInclude USER_TEAM_PERMISSIONS =
       new ListTeamsInclude("user_team_permissions");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("team_links", "user_team_permissions"));
-
   ListTeamsInclude(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ListTeamsIncludeSerializer extends StdSerializer<ListTeamsInclude> {

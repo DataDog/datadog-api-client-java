@@ -22,20 +22,6 @@ import java.util.Set;
 @JsonSerialize(using = LogsAggregationFunction.LogsAggregationFunctionSerializer.class)
 public class LogsAggregationFunction extends ModelEnum<String> {
 
-  public static final LogsAggregationFunction COUNT = new LogsAggregationFunction("count");
-  public static final LogsAggregationFunction CARDINALITY =
-      new LogsAggregationFunction("cardinality");
-  public static final LogsAggregationFunction PERCENTILE_75 = new LogsAggregationFunction("pc75");
-  public static final LogsAggregationFunction PERCENTILE_90 = new LogsAggregationFunction("pc90");
-  public static final LogsAggregationFunction PERCENTILE_95 = new LogsAggregationFunction("pc95");
-  public static final LogsAggregationFunction PERCENTILE_98 = new LogsAggregationFunction("pc98");
-  public static final LogsAggregationFunction PERCENTILE_99 = new LogsAggregationFunction("pc99");
-  public static final LogsAggregationFunction SUM = new LogsAggregationFunction("sum");
-  public static final LogsAggregationFunction MIN = new LogsAggregationFunction("min");
-  public static final LogsAggregationFunction MAX = new LogsAggregationFunction("max");
-  public static final LogsAggregationFunction AVG = new LogsAggregationFunction("avg");
-  public static final LogsAggregationFunction MEDIAN = new LogsAggregationFunction("median");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -52,9 +38,22 @@ public class LogsAggregationFunction extends ModelEnum<String> {
               "avg",
               "median"));
 
+  public static final LogsAggregationFunction COUNT = new LogsAggregationFunction("count");
+  public static final LogsAggregationFunction CARDINALITY =
+      new LogsAggregationFunction("cardinality");
+  public static final LogsAggregationFunction PERCENTILE_75 = new LogsAggregationFunction("pc75");
+  public static final LogsAggregationFunction PERCENTILE_90 = new LogsAggregationFunction("pc90");
+  public static final LogsAggregationFunction PERCENTILE_95 = new LogsAggregationFunction("pc95");
+  public static final LogsAggregationFunction PERCENTILE_98 = new LogsAggregationFunction("pc98");
+  public static final LogsAggregationFunction PERCENTILE_99 = new LogsAggregationFunction("pc99");
+  public static final LogsAggregationFunction SUM = new LogsAggregationFunction("sum");
+  public static final LogsAggregationFunction MIN = new LogsAggregationFunction("min");
+  public static final LogsAggregationFunction MAX = new LogsAggregationFunction("max");
+  public static final LogsAggregationFunction AVG = new LogsAggregationFunction("avg");
+  public static final LogsAggregationFunction MEDIAN = new LogsAggregationFunction("median");
+
   LogsAggregationFunction(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsAggregationFunctionSerializer

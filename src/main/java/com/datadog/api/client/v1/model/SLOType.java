@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = SLOType.SLOTypeSerializer.class)
 public class SLOType extends ModelEnum<String> {
 
-  public static final SLOType METRIC = new SLOType("metric");
-  public static final SLOType MONITOR = new SLOType("monitor");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("metric", "monitor"));
 
+  public static final SLOType METRIC = new SLOType("metric");
+  public static final SLOType MONITOR = new SLOType("monitor");
+
   SLOType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SLOTypeSerializer extends StdSerializer<SLOType> {

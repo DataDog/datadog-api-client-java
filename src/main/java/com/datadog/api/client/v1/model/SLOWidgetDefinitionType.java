@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = SLOWidgetDefinitionType.SLOWidgetDefinitionTypeSerializer.class)
 public class SLOWidgetDefinitionType extends ModelEnum<String> {
 
-  public static final SLOWidgetDefinitionType SLO = new SLOWidgetDefinitionType("slo");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("slo"));
 
+  public static final SLOWidgetDefinitionType SLO = new SLOWidgetDefinitionType("slo");
+
   SLOWidgetDefinitionType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SLOWidgetDefinitionTypeSerializer

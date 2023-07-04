@@ -23,6 +23,20 @@ import java.util.Set;
     using = FormulaAndFunctionEventsDataSource.FormulaAndFunctionEventsDataSourceSerializer.class)
 public class FormulaAndFunctionEventsDataSource extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "logs",
+              "spans",
+              "network",
+              "rum",
+              "security_signals",
+              "profiles",
+              "audit",
+              "events",
+              "ci_tests",
+              "ci_pipelines"));
+
   public static final FormulaAndFunctionEventsDataSource LOGS =
       new FormulaAndFunctionEventsDataSource("logs");
   public static final FormulaAndFunctionEventsDataSource SPANS =
@@ -44,23 +58,8 @@ public class FormulaAndFunctionEventsDataSource extends ModelEnum<String> {
   public static final FormulaAndFunctionEventsDataSource CI_PIPELINES =
       new FormulaAndFunctionEventsDataSource("ci_pipelines");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "logs",
-              "spans",
-              "network",
-              "rum",
-              "security_signals",
-              "profiles",
-              "audit",
-              "events",
-              "ci_tests",
-              "ci_pipelines"));
-
   FormulaAndFunctionEventsDataSource(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FormulaAndFunctionEventsDataSourceSerializer

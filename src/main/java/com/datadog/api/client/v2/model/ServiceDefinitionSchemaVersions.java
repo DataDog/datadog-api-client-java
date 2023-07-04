@@ -23,6 +23,9 @@ import java.util.Set;
     using = ServiceDefinitionSchemaVersions.ServiceDefinitionSchemaVersionsSerializer.class)
 public class ServiceDefinitionSchemaVersions extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("v1", "v2", "v2.1"));
+
   public static final ServiceDefinitionSchemaVersions V1 =
       new ServiceDefinitionSchemaVersions("v1");
   public static final ServiceDefinitionSchemaVersions V2 =
@@ -30,12 +33,8 @@ public class ServiceDefinitionSchemaVersions extends ModelEnum<String> {
   public static final ServiceDefinitionSchemaVersions V2_1 =
       new ServiceDefinitionSchemaVersions("v2.1");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("v1", "v2", "v2.1"));
-
   ServiceDefinitionSchemaVersions(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionSchemaVersionsSerializer

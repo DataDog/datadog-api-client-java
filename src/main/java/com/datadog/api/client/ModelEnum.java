@@ -10,6 +10,11 @@ public abstract class ModelEnum<T> {
 
   protected T value;
 
+  public ModelEnum(T value, Set allowedValues) {
+    this.value = value;
+    this.localAllowedValues = allowedValues;
+  }
+
   public boolean isValid() {
     return this.localAllowedValues.contains(this.value);
   }

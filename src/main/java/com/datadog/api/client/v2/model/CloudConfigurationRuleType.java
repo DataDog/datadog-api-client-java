@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = CloudConfigurationRuleType.CloudConfigurationRuleTypeSerializer.class)
 public class CloudConfigurationRuleType extends ModelEnum<String> {
 
-  public static final CloudConfigurationRuleType CLOUD_CONFIGURATION =
-      new CloudConfigurationRuleType("cloud_configuration");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("cloud_configuration"));
 
+  public static final CloudConfigurationRuleType CLOUD_CONFIGURATION =
+      new CloudConfigurationRuleType("cloud_configuration");
+
   CloudConfigurationRuleType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class CloudConfigurationRuleTypeSerializer

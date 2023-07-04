@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsStatus.SyntheticsStatusSerializer.class)
 public class SyntheticsStatus extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("passed", "skipped", "failed"));
+
   public static final SyntheticsStatus PASSED = new SyntheticsStatus("passed");
   public static final SyntheticsStatus skipped = new SyntheticsStatus("skipped");
   public static final SyntheticsStatus failed = new SyntheticsStatus("failed");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("passed", "skipped", "failed"));
-
   SyntheticsStatus(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsStatusSerializer extends StdSerializer<SyntheticsStatus> {

@@ -28,17 +28,16 @@ import java.util.Set;
             .SecurityMonitoringRuleNewValueOptionsLearningMethodSerializer.class)
 public class SecurityMonitoringRuleNewValueOptionsLearningMethod extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("duration", "threshold"));
+
   public static final SecurityMonitoringRuleNewValueOptionsLearningMethod DURATION =
       new SecurityMonitoringRuleNewValueOptionsLearningMethod("duration");
   public static final SecurityMonitoringRuleNewValueOptionsLearningMethod THRESHOLD =
       new SecurityMonitoringRuleNewValueOptionsLearningMethod("threshold");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("duration", "threshold"));
-
   SecurityMonitoringRuleNewValueOptionsLearningMethod(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleNewValueOptionsLearningMethodSerializer

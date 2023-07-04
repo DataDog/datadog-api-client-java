@@ -24,17 +24,16 @@ import java.util.Set;
         TeamPermissionSettingSerializerAction.TeamPermissionSettingSerializerActionSerializer.class)
 public class TeamPermissionSettingSerializerAction extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("manage_membership", "edit"));
+
   public static final TeamPermissionSettingSerializerAction MANAGE_MEMBERSHIP =
       new TeamPermissionSettingSerializerAction("manage_membership");
   public static final TeamPermissionSettingSerializerAction EDIT =
       new TeamPermissionSettingSerializerAction("edit");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("manage_membership", "edit"));
-
   TeamPermissionSettingSerializerAction(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TeamPermissionSettingSerializerActionSerializer

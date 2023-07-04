@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = TimeseriesFormulaRequestType.TimeseriesFormulaRequestTypeSerializer.class)
 public class TimeseriesFormulaRequestType extends ModelEnum<String> {
 
-  public static final TimeseriesFormulaRequestType TIMESERIES_REQUEST =
-      new TimeseriesFormulaRequestType("timeseries_request");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("timeseries_request"));
 
+  public static final TimeseriesFormulaRequestType TIMESERIES_REQUEST =
+      new TimeseriesFormulaRequestType("timeseries_request");
+
   TimeseriesFormulaRequestType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class TimeseriesFormulaRequestTypeSerializer

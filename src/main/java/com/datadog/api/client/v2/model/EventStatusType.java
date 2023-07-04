@@ -26,15 +26,6 @@ import java.util.Set;
 @JsonSerialize(using = EventStatusType.EventStatusTypeSerializer.class)
 public class EventStatusType extends ModelEnum<String> {
 
-  public static final EventStatusType FAILURE = new EventStatusType("failure");
-  public static final EventStatusType ERROR = new EventStatusType("error");
-  public static final EventStatusType WARNING = new EventStatusType("warning");
-  public static final EventStatusType INFO = new EventStatusType("info");
-  public static final EventStatusType SUCCESS = new EventStatusType("success");
-  public static final EventStatusType USER_UPDATE = new EventStatusType("user_update");
-  public static final EventStatusType RECOMMENDATION = new EventStatusType("recommendation");
-  public static final EventStatusType SNAPSHOT = new EventStatusType("snapshot");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(
           Arrays.asList(
@@ -47,9 +38,17 @@ public class EventStatusType extends ModelEnum<String> {
               "recommendation",
               "snapshot"));
 
+  public static final EventStatusType FAILURE = new EventStatusType("failure");
+  public static final EventStatusType ERROR = new EventStatusType("error");
+  public static final EventStatusType WARNING = new EventStatusType("warning");
+  public static final EventStatusType INFO = new EventStatusType("info");
+  public static final EventStatusType SUCCESS = new EventStatusType("success");
+  public static final EventStatusType USER_UPDATE = new EventStatusType("user_update");
+  public static final EventStatusType RECOMMENDATION = new EventStatusType("recommendation");
+  public static final EventStatusType SNAPSHOT = new EventStatusType("snapshot");
+
   EventStatusType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class EventStatusTypeSerializer extends StdSerializer<EventStatusType> {

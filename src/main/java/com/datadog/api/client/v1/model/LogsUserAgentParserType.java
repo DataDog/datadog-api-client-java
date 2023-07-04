@@ -22,15 +22,14 @@ import java.util.Set;
 @JsonSerialize(using = LogsUserAgentParserType.LogsUserAgentParserTypeSerializer.class)
 public class LogsUserAgentParserType extends ModelEnum<String> {
 
-  public static final LogsUserAgentParserType USER_AGENT_PARSER =
-      new LogsUserAgentParserType("user-agent-parser");
-
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("user-agent-parser"));
 
+  public static final LogsUserAgentParserType USER_AGENT_PARSER =
+      new LogsUserAgentParserType("user-agent-parser");
+
   LogsUserAgentParserType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class LogsUserAgentParserTypeSerializer

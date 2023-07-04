@@ -22,6 +22,16 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsTestRequestBodyType.SyntheticsTestRequestBodyTypeSerializer.class)
 public class SyntheticsTestRequestBodyType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "text/plain",
+              "application/json",
+              "text/xml",
+              "text/html",
+              "application/x-www-form-urlencoded",
+              "graphql"));
+
   public static final SyntheticsTestRequestBodyType TEXT_PLAIN =
       new SyntheticsTestRequestBodyType("text/plain");
   public static final SyntheticsTestRequestBodyType APPLICATION_JSON =
@@ -35,19 +45,8 @@ public class SyntheticsTestRequestBodyType extends ModelEnum<String> {
   public static final SyntheticsTestRequestBodyType GRAPHQL =
       new SyntheticsTestRequestBodyType("graphql");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "text/plain",
-              "application/json",
-              "text/xml",
-              "text/html",
-              "application/x-www-form-urlencoded",
-              "graphql"));
-
   SyntheticsTestRequestBodyType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsTestRequestBodyTypeSerializer

@@ -22,16 +22,15 @@ import java.util.Set;
 @JsonSerialize(using = WidgetViewMode.WidgetViewModeSerializer.class)
 public class WidgetViewMode extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("overall", "component", "both"));
+
   public static final WidgetViewMode OVERALL = new WidgetViewMode("overall");
   public static final WidgetViewMode COMPONENT = new WidgetViewMode("component");
   public static final WidgetViewMode BOTH = new WidgetViewMode("both");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("overall", "component", "both"));
-
   WidgetViewMode(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class WidgetViewModeSerializer extends StdSerializer<WidgetViewMode> {

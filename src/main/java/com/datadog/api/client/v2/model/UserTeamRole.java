@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = UserTeamRole.UserTeamRoleSerializer.class)
 public class UserTeamRole extends ModelEnum<String> {
 
-  public static final UserTeamRole ADMIN = new UserTeamRole("admin");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("admin"));
 
+  public static final UserTeamRole ADMIN = new UserTeamRole("admin");
+
   UserTeamRole(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class UserTeamRoleSerializer extends StdSerializer<UserTeamRole> {

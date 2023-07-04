@@ -25,17 +25,16 @@ import java.util.Set;
             .class)
 public class FormulaAndFunctionProcessQueryDataSource extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("process", "container"));
+
   public static final FormulaAndFunctionProcessQueryDataSource PROCESS =
       new FormulaAndFunctionProcessQueryDataSource("process");
   public static final FormulaAndFunctionProcessQueryDataSource CONTAINER =
       new FormulaAndFunctionProcessQueryDataSource("container");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("process", "container"));
-
   FormulaAndFunctionProcessQueryDataSource(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FormulaAndFunctionProcessQueryDataSourceSerializer

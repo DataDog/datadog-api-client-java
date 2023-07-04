@@ -23,14 +23,13 @@ import java.util.Set;
     using = SecurityFilterFilteredDataType.SecurityFilterFilteredDataTypeSerializer.class)
 public class SecurityFilterFilteredDataType extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("logs"));
+
   public static final SecurityFilterFilteredDataType LOGS =
       new SecurityFilterFilteredDataType("logs");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("logs"));
-
   SecurityFilterFilteredDataType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class SecurityFilterFilteredDataTypeSerializer

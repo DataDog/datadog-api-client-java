@@ -24,6 +24,21 @@ import java.util.Set;
         FormulaAndFunctionApmResourceStatName.FormulaAndFunctionApmResourceStatNameSerializer.class)
 public class FormulaAndFunctionApmResourceStatName extends ModelEnum<String> {
 
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "errors",
+              "error_rate",
+              "hits",
+              "latency_avg",
+              "latency_distribution",
+              "latency_max",
+              "latency_p50",
+              "latency_p75",
+              "latency_p90",
+              "latency_p95",
+              "latency_p99"));
+
   public static final FormulaAndFunctionApmResourceStatName ERRORS =
       new FormulaAndFunctionApmResourceStatName("errors");
   public static final FormulaAndFunctionApmResourceStatName ERROR_RATE =
@@ -47,24 +62,8 @@ public class FormulaAndFunctionApmResourceStatName extends ModelEnum<String> {
   public static final FormulaAndFunctionApmResourceStatName LATENCY_P99 =
       new FormulaAndFunctionApmResourceStatName("latency_p99");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "errors",
-              "error_rate",
-              "hits",
-              "latency_avg",
-              "latency_distribution",
-              "latency_max",
-              "latency_p50",
-              "latency_p75",
-              "latency_p90",
-              "latency_p95",
-              "latency_p99"));
-
   FormulaAndFunctionApmResourceStatName(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class FormulaAndFunctionApmResourceStatNameSerializer

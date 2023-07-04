@@ -22,13 +22,12 @@ import java.util.Set;
 @JsonSerialize(using = OrganizationsType.OrganizationsTypeSerializer.class)
 public class OrganizationsType extends ModelEnum<String> {
 
-  public static final OrganizationsType ORGS = new OrganizationsType("orgs");
-
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("orgs"));
 
+  public static final OrganizationsType ORGS = new OrganizationsType("orgs");
+
   OrganizationsType(String value) {
-    this.value = value;
-    this.localAllowedValues = allowedValues;
+    super(value, allowedValues);
   }
 
   public static class OrganizationsTypeSerializer extends StdSerializer<OrganizationsType> {
