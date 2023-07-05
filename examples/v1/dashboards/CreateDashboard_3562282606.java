@@ -74,7 +74,8 @@ public class Example {
                                                                         .OVERALL)
                                                                 .sloQueryType(
                                                                     FormulaAndFunctionSLOQueryType
-                                                                        .METRIC))))
+                                                                        .METRIC)
+                                                                .additionalQueryFilters("*"))))
                                                 .responseFormat(
                                                     FormulaAndFunctionResponseFormat.SCALAR)
                                                 .orderBy(WidgetOrderBy.CHANGE)
