@@ -268,7 +268,7 @@ public class SpansApi {
 
   /**
    * List endpoint returns spans that match a span search query. <a
-   * href="/logs/guide/collect-multiple-logs-with-pagination">Results are paginated</a>.
+   * href="/logs/guide/collect-multiple-logs-with-pagination?tab=v2api">Results are paginated</a>.
    *
    * <p>Use this endpoint to build complex spans filtering and search. This endpoint is rate limited
    * to <code>300</code> requests per hour.
@@ -561,7 +561,7 @@ public class SpansApi {
 
   /**
    * List endpoint returns spans that match a span search query. <a
-   * href="/logs/guide/collect-multiple-logs-with-pagination">Results are paginated</a>.
+   * href="/logs/guide/collect-multiple-logs-with-pagination?tab=v2api">Results are paginated</a>.
    *
    * <p>Use this endpoint to see your latest spans. This endpoint is rate limited to <code>300
    * </code> requests per hour.
