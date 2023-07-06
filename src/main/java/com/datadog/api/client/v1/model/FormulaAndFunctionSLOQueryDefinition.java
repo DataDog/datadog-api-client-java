@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** A formula and functions metrics query. */
 @JsonPropertyOrder({
+  FormulaAndFunctionSLOQueryDefinition.JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS,
   FormulaAndFunctionSLOQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
   FormulaAndFunctionSLOQueryDefinition.JSON_PROPERTY_GROUP_MODE,
   FormulaAndFunctionSLOQueryDefinition.JSON_PROPERTY_MEASURE,
@@ -30,6 +31,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionSLOQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS = "additional_query_filters";
+  private String additionalQueryFilters;
+
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private FormulaAndFunctionSLODataSource dataSource;
 
@@ -62,6 +66,28 @@ public class FormulaAndFunctionSLOQueryDefinition {
     this.measure = measure;
     this.unparsed |= !measure.isValid();
     this.sloId = sloId;
+  }
+
+  public FormulaAndFunctionSLOQueryDefinition additionalQueryFilters(
+      String additionalQueryFilters) {
+    this.additionalQueryFilters = additionalQueryFilters;
+    return this;
+  }
+
+  /**
+   * Additional filters applied to the SLO query.
+   *
+   * @return additionalQueryFilters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAdditionalQueryFilters() {
+    return additionalQueryFilters;
+  }
+
+  public void setAdditionalQueryFilters(String additionalQueryFilters) {
+    this.additionalQueryFilters = additionalQueryFilters;
   }
 
   public FormulaAndFunctionSLOQueryDefinition dataSource(
@@ -262,7 +288,10 @@ public class FormulaAndFunctionSLOQueryDefinition {
     }
     FormulaAndFunctionSLOQueryDefinition formulaAndFunctionSloQueryDefinition =
         (FormulaAndFunctionSLOQueryDefinition) o;
-    return Objects.equals(this.dataSource, formulaAndFunctionSloQueryDefinition.dataSource)
+    return Objects.equals(
+            this.additionalQueryFilters,
+            formulaAndFunctionSloQueryDefinition.additionalQueryFilters)
+        && Objects.equals(this.dataSource, formulaAndFunctionSloQueryDefinition.dataSource)
         && Objects.equals(this.groupMode, formulaAndFunctionSloQueryDefinition.groupMode)
         && Objects.equals(this.measure, formulaAndFunctionSloQueryDefinition.measure)
         && Objects.equals(this.name, formulaAndFunctionSloQueryDefinition.name)
@@ -275,13 +304,23 @@ public class FormulaAndFunctionSLOQueryDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
-        dataSource, groupMode, measure, name, sloId, sloQueryType, additionalProperties);
+        additionalQueryFilters,
+        dataSource,
+        groupMode,
+        measure,
+        name,
+        sloId,
+        sloQueryType,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormulaAndFunctionSLOQueryDefinition {\n");
+    sb.append("    additionalQueryFilters: ")
+        .append(toIndentedString(additionalQueryFilters))
+        .append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    groupMode: ").append(toIndentedString(groupMode)).append("\n");
     sb.append("    measure: ").append(toIndentedString(measure)).append("\n");
