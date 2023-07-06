@@ -8,7 +8,7 @@
         "filter[query]": [
           "datadog-agent"
         ],
-        "filter[index]": [
+        "filter[indexes]": [
           "main"
         ],
         "filter[from]": [
@@ -25,7 +25,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[]}",
+      "body": "{\"data\":[],\"meta\":{\"elapsed\":0,\"request_id\":\"pddv1ChZVZjdFSUNKdlM3LVBKNXNPcjR6R1hnIiwKHP4qJC1KWavJCGIvcezlUg3AhhLxU4JfitQ_QFESDFVjhmcEEEIN8NN7KA\",\"status\":\"done\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -40,6 +40,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5f11d056-b485-3829-2ace-fd53d339fc13"
+    "id": "36d1fbfa-3821-1bcf-903d-d47f59ab3292"
   }
 ]
