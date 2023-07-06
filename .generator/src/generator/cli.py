@@ -76,6 +76,7 @@ def cli(specs, output):
         "ApiException.java": env.get_template("ApiException.j2"),
         "ApiResponse.java": env.get_template("ApiResponse.j2"),
         "JSON.java": env.get_template("JSON.j2"),
+        "ModelEnum.java": env.get_template("modelEnumBase.j2"),
         "JsonTimeSerializer.java": env.get_template("JsonTimeSerializer.j2"),
         "Pair.java": env.get_template("Pair.j2"),
         "RFC3339DateFormat.java": env.get_template("RFC3339DateFormat.j2"),

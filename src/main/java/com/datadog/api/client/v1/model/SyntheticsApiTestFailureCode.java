@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,41 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Error code that can be returned by a Synthetic test. */
 @JsonSerialize(using = SyntheticsApiTestFailureCode.SyntheticsApiTestFailureCodeSerializer.class)
-public class SyntheticsApiTestFailureCode {
+public class SyntheticsApiTestFailureCode extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "BODY_TOO_LARGE",
+              "DENIED",
+              "TOO_MANY_REDIRECTS",
+              "AUTHENTICATION_ERROR",
+              "DECRYPTION",
+              "INVALID_CHAR_IN_HEADER",
+              "HEADER_TOO_LARGE",
+              "HEADERS_INCOMPATIBLE_CONTENT_LENGTH",
+              "INVALID_REQUEST",
+              "REQUIRES_UPDATE",
+              "UNESCAPED_CHARACTERS_IN_REQUEST_PATH",
+              "MALFORMED_RESPONSE",
+              "INCORRECT_ASSERTION",
+              "CONNREFUSED",
+              "CONNRESET",
+              "DNS",
+              "HOSTUNREACH",
+              "NETUNREACH",
+              "TIMEOUT",
+              "SSL",
+              "OCSP",
+              "INVALID_TEST",
+              "TUNNEL",
+              "WEBSOCKET",
+              "UNKNOWN",
+              "INTERNAL_ERROR"));
 
   public static final SyntheticsApiTestFailureCode BODY_TOO_LARGE =
       new SyntheticsApiTestFailureCode("BODY_TOO_LARGE");
@@ -73,44 +102,8 @@ public class SyntheticsApiTestFailureCode {
   public static final SyntheticsApiTestFailureCode INTERNAL_ERROR =
       new SyntheticsApiTestFailureCode("INTERNAL_ERROR");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "BODY_TOO_LARGE",
-              "DENIED",
-              "TOO_MANY_REDIRECTS",
-              "AUTHENTICATION_ERROR",
-              "DECRYPTION",
-              "INVALID_CHAR_IN_HEADER",
-              "HEADER_TOO_LARGE",
-              "HEADERS_INCOMPATIBLE_CONTENT_LENGTH",
-              "INVALID_REQUEST",
-              "REQUIRES_UPDATE",
-              "UNESCAPED_CHARACTERS_IN_REQUEST_PATH",
-              "MALFORMED_RESPONSE",
-              "INCORRECT_ASSERTION",
-              "CONNREFUSED",
-              "CONNRESET",
-              "DNS",
-              "HOSTUNREACH",
-              "NETUNREACH",
-              "TIMEOUT",
-              "SSL",
-              "OCSP",
-              "INVALID_TEST",
-              "TUNNEL",
-              "WEBSOCKET",
-              "UNKNOWN",
-              "INTERNAL_ERROR"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SyntheticsApiTestFailureCode(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsApiTestFailureCodeSerializer
@@ -129,37 +122,6 @@ public class SyntheticsApiTestFailureCode {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SyntheticsApiTestFailureCode object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SyntheticsApiTestFailureCode) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

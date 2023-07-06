@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Supported metrics for monthly usage attribution requests. */
@@ -24,7 +23,78 @@ import java.util.Set;
     using =
         MonthlyUsageAttributionSupportedMetrics.MonthlyUsageAttributionSupportedMetricsSerializer
             .class)
-public class MonthlyUsageAttributionSupportedMetrics {
+public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "api_usage",
+              "api_percentage",
+              "apm_fargate_usage",
+              "apm_fargate_percentage",
+              "appsec_fargate_usage",
+              "appsec_fargate_percentage",
+              "apm_host_usage",
+              "apm_host_percentage",
+              "appsec_usage",
+              "appsec_percentage",
+              "browser_usage",
+              "browser_percentage",
+              "container_excl_agent_usage",
+              "container_excl_agent_percentage",
+              "container_usage",
+              "container_percentage",
+              "cspm_containers_percentage",
+              "cspm_containers_usage",
+              "cspm_hosts_percentage",
+              "cspm_hosts_usage",
+              "custom_timeseries_usage",
+              "custom_timeseries_percentage",
+              "custom_ingested_timeseries_usage",
+              "custom_ingested_timeseries_percentage",
+              "cws_containers_percentage",
+              "cws_containers_usage",
+              "cws_hosts_percentage",
+              "cws_hosts_usage",
+              "dbm_hosts_percentage",
+              "dbm_hosts_usage",
+              "dbm_queries_percentage",
+              "dbm_queries_usage",
+              "estimated_indexed_logs_usage",
+              "estimated_indexed_logs_percentage",
+              "estimated_ingested_logs_usage",
+              "estimated_ingested_logs_percentage",
+              "estimated_indexed_spans_usage",
+              "estimated_indexed_spans_percentage",
+              "estimated_ingested_spans_usage",
+              "estimated_ingested_spans_percentage",
+              "fargate_usage",
+              "fargate_percentage",
+              "functions_usage",
+              "functions_percentage",
+              "infra_host_usage",
+              "infra_host_percentage",
+              "invocations_usage",
+              "invocations_percentage",
+              "npm_host_usage",
+              "npm_host_percentage",
+              "obs_pipeline_bytes_usage",
+              "obs_pipeline_bytes_percentage",
+              "profiled_container_usage",
+              "profiled_container_percentage",
+              "profiled_fargate_usage",
+              "profiled_fargate_percentage",
+              "profiled_host_usage",
+              "profiled_host_percentage",
+              "snmp_usage",
+              "snmp_percentage",
+              "estimated_rum_sessions_usage",
+              "estimated_rum_sessions_percentage",
+              "universal_service_monitoring_usage",
+              "universal_service_monitoring_percentage",
+              "vuln_management_hosts_usage",
+              "vuln_management_hosts_percentage",
+              "*"));
 
   public static final MonthlyUsageAttributionSupportedMetrics API_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("api_usage");
@@ -163,85 +233,8 @@ public class MonthlyUsageAttributionSupportedMetrics {
   public static final MonthlyUsageAttributionSupportedMetrics ALL =
       new MonthlyUsageAttributionSupportedMetrics("*");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "api_usage",
-              "api_percentage",
-              "apm_fargate_usage",
-              "apm_fargate_percentage",
-              "appsec_fargate_usage",
-              "appsec_fargate_percentage",
-              "apm_host_usage",
-              "apm_host_percentage",
-              "appsec_usage",
-              "appsec_percentage",
-              "browser_usage",
-              "browser_percentage",
-              "container_excl_agent_usage",
-              "container_excl_agent_percentage",
-              "container_usage",
-              "container_percentage",
-              "cspm_containers_percentage",
-              "cspm_containers_usage",
-              "cspm_hosts_percentage",
-              "cspm_hosts_usage",
-              "custom_timeseries_usage",
-              "custom_timeseries_percentage",
-              "custom_ingested_timeseries_usage",
-              "custom_ingested_timeseries_percentage",
-              "cws_containers_percentage",
-              "cws_containers_usage",
-              "cws_hosts_percentage",
-              "cws_hosts_usage",
-              "dbm_hosts_percentage",
-              "dbm_hosts_usage",
-              "dbm_queries_percentage",
-              "dbm_queries_usage",
-              "estimated_indexed_logs_usage",
-              "estimated_indexed_logs_percentage",
-              "estimated_ingested_logs_usage",
-              "estimated_ingested_logs_percentage",
-              "estimated_indexed_spans_usage",
-              "estimated_indexed_spans_percentage",
-              "estimated_ingested_spans_usage",
-              "estimated_ingested_spans_percentage",
-              "fargate_usage",
-              "fargate_percentage",
-              "functions_usage",
-              "functions_percentage",
-              "infra_host_usage",
-              "infra_host_percentage",
-              "invocations_usage",
-              "invocations_percentage",
-              "npm_host_usage",
-              "npm_host_percentage",
-              "obs_pipeline_bytes_usage",
-              "obs_pipeline_bytes_percentage",
-              "profiled_container_usage",
-              "profiled_container_percentage",
-              "profiled_fargate_usage",
-              "profiled_fargate_percentage",
-              "profiled_host_usage",
-              "profiled_host_percentage",
-              "snmp_usage",
-              "snmp_percentage",
-              "estimated_rum_sessions_usage",
-              "estimated_rum_sessions_percentage",
-              "universal_service_monitoring_usage",
-              "universal_service_monitoring_percentage",
-              "vuln_management_hosts_usage",
-              "vuln_management_hosts_percentage",
-              "*"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   MonthlyUsageAttributionSupportedMetrics(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class MonthlyUsageAttributionSupportedMetricsSerializer
@@ -263,37 +256,6 @@ public class MonthlyUsageAttributionSupportedMetrics {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this MonthlyUsageAttributionSupportedMetrics object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((MonthlyUsageAttributionSupportedMetrics) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

@@ -1,5 +1,6 @@
+import com.datadog.api.client.ModelEnum;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -14,22 +15,17 @@ import java.util.HashSet;
 {{ model.description|docstring }}
  */
 @JsonSerialize(using = {{ name }}.{{ name }}Serializer.class)
-public class {{ name }} {
+public class {{ name }} extends ModelEnum<{{ model|simple_type }}> {
+{# keep line #}
+  private static final Set<{{ model|simple_type }}> allowedValues = new HashSet<{{ model|simple_type }}>(Arrays.asList({% for value in model.enum %}{{ value|format_value(schema=model) }}{% if not loop.last  %}, {% endif %}{% endfor %}));
 {# keep line #}
 {%- for index, value in enumerate(model.enum) %}
   public static final {{ name }} {{ model["x-enum-varnames"][index] or value.upper() }} = new {{ name }}({{ value|format_value(schema=model) }});
 {%- endfor %}
 
-  private static final Set<{{ model|simple_type }}> allowedValues = new HashSet<{{ model|simple_type }}>(Arrays.asList({% for value in model.enum %}{{ value|format_value(schema=model) }}{% if not loop.last  %}, {% endif %}{% endfor %}));
-
-  private {{ model|simple_type }} value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
 
   {{ name }}({{ model|simple_type }} value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class {{ name }}Serializer extends StdSerializer<{{ name }}> {
@@ -45,39 +41,6 @@ public class {{ name }} {
       public void serialize({{ name }} value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
           jgen.writeObject(value.value);
       }
-  }
-
-  @JsonValue
-  public {{ model|simple_type }} getValue() {
-    return this.value;
-  }
-
-  public void setValue({{ model|simple_type }} value) {
-    this.value = value;
-  }
-
-  /**
-   * Return true if this {{ name }} object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals((({{ name }}) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-      return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,13 +16,21 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The rule type. */
 @JsonSerialize(
     using = SecurityMonitoringRuleTypeRead.SecurityMonitoringRuleTypeReadSerializer.class)
-public class SecurityMonitoringRuleTypeRead {
+public class SecurityMonitoringRuleTypeRead extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "log_detection",
+              "infrastructure_configuration",
+              "workload_security",
+              "cloud_configuration",
+              "application_security"));
 
   public static final SecurityMonitoringRuleTypeRead LOG_DETECTION =
       new SecurityMonitoringRuleTypeRead("log_detection");
@@ -35,23 +43,8 @@ public class SecurityMonitoringRuleTypeRead {
   public static final SecurityMonitoringRuleTypeRead APPLICATION_SECURITY =
       new SecurityMonitoringRuleTypeRead("application_security");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "log_detection",
-              "infrastructure_configuration",
-              "workload_security",
-              "cloud_configuration",
-              "application_security"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SecurityMonitoringRuleTypeRead(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleTypeReadSerializer
@@ -70,37 +63,6 @@ public class SecurityMonitoringRuleTypeRead {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SecurityMonitoringRuleTypeRead object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SecurityMonitoringRuleTypeRead) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

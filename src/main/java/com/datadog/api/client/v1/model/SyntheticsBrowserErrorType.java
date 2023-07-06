@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,28 +16,21 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Error type returned by a browser test. */
 @JsonSerialize(using = SyntheticsBrowserErrorType.SyntheticsBrowserErrorTypeSerializer.class)
-public class SyntheticsBrowserErrorType {
+public class SyntheticsBrowserErrorType extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("network", "js"));
 
   public static final SyntheticsBrowserErrorType NETWORK =
       new SyntheticsBrowserErrorType("network");
   public static final SyntheticsBrowserErrorType JS = new SyntheticsBrowserErrorType("js");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("network", "js"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SyntheticsBrowserErrorType(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsBrowserErrorTypeSerializer
@@ -56,37 +49,6 @@ public class SyntheticsBrowserErrorType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SyntheticsBrowserErrorType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SyntheticsBrowserErrorType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

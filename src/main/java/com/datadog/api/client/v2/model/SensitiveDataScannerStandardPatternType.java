@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Sensitive Data Scanner standard pattern type. */
@@ -24,23 +23,17 @@ import java.util.Set;
     using =
         SensitiveDataScannerStandardPatternType.SensitiveDataScannerStandardPatternTypeSerializer
             .class)
-public class SensitiveDataScannerStandardPatternType {
+public class SensitiveDataScannerStandardPatternType extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("sensitive_data_scanner_standard_pattern"));
 
   public static final SensitiveDataScannerStandardPatternType
       SENSITIVE_DATA_SCANNER_STANDARD_PATTERN =
           new SensitiveDataScannerStandardPatternType("sensitive_data_scanner_standard_pattern");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("sensitive_data_scanner_standard_pattern"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SensitiveDataScannerStandardPatternType(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class SensitiveDataScannerStandardPatternTypeSerializer
@@ -62,37 +55,6 @@ public class SensitiveDataScannerStandardPatternType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SensitiveDataScannerStandardPatternType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SensitiveDataScannerStandardPatternType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

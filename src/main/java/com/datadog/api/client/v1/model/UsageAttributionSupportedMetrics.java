@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -25,7 +24,58 @@ import java.util.Set;
  */
 @JsonSerialize(
     using = UsageAttributionSupportedMetrics.UsageAttributionSupportedMetricsSerializer.class)
-public class UsageAttributionSupportedMetrics {
+public class UsageAttributionSupportedMetrics extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "custom_timeseries_usage",
+              "container_usage",
+              "snmp_percentage",
+              "apm_host_usage",
+              "browser_usage",
+              "npm_host_percentage",
+              "infra_host_usage",
+              "custom_timeseries_percentage",
+              "container_percentage",
+              "api_usage",
+              "apm_host_percentage",
+              "infra_host_percentage",
+              "snmp_usage",
+              "browser_percentage",
+              "api_percentage",
+              "npm_host_usage",
+              "lambda_functions_usage",
+              "lambda_functions_percentage",
+              "lambda_invocations_usage",
+              "lambda_invocations_percentage",
+              "fargate_usage",
+              "fargate_percentage",
+              "profiled_host_usage",
+              "profiled_host_percentage",
+              "profiled_container_usage",
+              "profiled_container_percentage",
+              "dbm_hosts_usage",
+              "dbm_hosts_percentage",
+              "dbm_queries_usage",
+              "dbm_queries_percentage",
+              "estimated_indexed_logs_usage",
+              "estimated_indexed_logs_percentage",
+              "estimated_ingested_logs_usage",
+              "estimated_ingested_logs_percentage",
+              "appsec_usage",
+              "appsec_percentage",
+              "estimated_indexed_spans_usage",
+              "estimated_indexed_spans_percentage",
+              "estimated_ingested_spans_usage",
+              "estimated_ingested_spans_percentage",
+              "apm_fargate_usage",
+              "apm_fargate_percentage",
+              "appsec_fargate_usage",
+              "appsec_fargate_percentage",
+              "estimated_rum_usage_attribution_usage",
+              "estimated_rum_usage_attribution_percentage",
+              "*"));
 
   public static final UsageAttributionSupportedMetrics CUSTOM_TIMESERIES_USAGE =
       new UsageAttributionSupportedMetrics("custom_timeseries_usage");
@@ -122,65 +172,8 @@ public class UsageAttributionSupportedMetrics {
   public static final UsageAttributionSupportedMetrics ALL =
       new UsageAttributionSupportedMetrics("*");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "custom_timeseries_usage",
-              "container_usage",
-              "snmp_percentage",
-              "apm_host_usage",
-              "browser_usage",
-              "npm_host_percentage",
-              "infra_host_usage",
-              "custom_timeseries_percentage",
-              "container_percentage",
-              "api_usage",
-              "apm_host_percentage",
-              "infra_host_percentage",
-              "snmp_usage",
-              "browser_percentage",
-              "api_percentage",
-              "npm_host_usage",
-              "lambda_functions_usage",
-              "lambda_functions_percentage",
-              "lambda_invocations_usage",
-              "lambda_invocations_percentage",
-              "fargate_usage",
-              "fargate_percentage",
-              "profiled_host_usage",
-              "profiled_host_percentage",
-              "profiled_container_usage",
-              "profiled_container_percentage",
-              "dbm_hosts_usage",
-              "dbm_hosts_percentage",
-              "dbm_queries_usage",
-              "dbm_queries_percentage",
-              "estimated_indexed_logs_usage",
-              "estimated_indexed_logs_percentage",
-              "estimated_ingested_logs_usage",
-              "estimated_ingested_logs_percentage",
-              "appsec_usage",
-              "appsec_percentage",
-              "estimated_indexed_spans_usage",
-              "estimated_indexed_spans_percentage",
-              "estimated_ingested_spans_usage",
-              "estimated_ingested_spans_percentage",
-              "apm_fargate_usage",
-              "apm_fargate_percentage",
-              "appsec_fargate_usage",
-              "appsec_fargate_percentage",
-              "estimated_rum_usage_attribution_usage",
-              "estimated_rum_usage_attribution_percentage",
-              "*"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   UsageAttributionSupportedMetrics(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class UsageAttributionSupportedMetricsSerializer
@@ -199,37 +192,6 @@ public class UsageAttributionSupportedMetrics {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this UsageAttributionSupportedMetrics object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((UsageAttributionSupportedMetrics) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

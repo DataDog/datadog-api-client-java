@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,25 +16,18 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Type of the group widget. */
 @JsonSerialize(using = GroupWidgetDefinitionType.GroupWidgetDefinitionTypeSerializer.class)
-public class GroupWidgetDefinitionType {
-
-  public static final GroupWidgetDefinitionType GROUP = new GroupWidgetDefinitionType("group");
+public class GroupWidgetDefinitionType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("group"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
+  public static final GroupWidgetDefinitionType GROUP = new GroupWidgetDefinitionType("group");
 
   GroupWidgetDefinitionType(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class GroupWidgetDefinitionTypeSerializer
@@ -53,37 +46,6 @@ public class GroupWidgetDefinitionType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this GroupWidgetDefinitionType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((GroupWidgetDefinitionType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

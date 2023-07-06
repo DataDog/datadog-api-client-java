@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,27 +16,20 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Application Keys resource type. */
 @JsonSerialize(using = ApplicationKeysType.ApplicationKeysTypeSerializer.class)
-public class ApplicationKeysType {
-
-  public static final ApplicationKeysType APPLICATION_KEYS =
-      new ApplicationKeysType("application_keys");
+public class ApplicationKeysType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("application_keys"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
+  public static final ApplicationKeysType APPLICATION_KEYS =
+      new ApplicationKeysType("application_keys");
 
   ApplicationKeysType(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class ApplicationKeysTypeSerializer extends StdSerializer<ApplicationKeysType> {
@@ -54,37 +47,6 @@ public class ApplicationKeysType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this ApplicationKeysType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((ApplicationKeysType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

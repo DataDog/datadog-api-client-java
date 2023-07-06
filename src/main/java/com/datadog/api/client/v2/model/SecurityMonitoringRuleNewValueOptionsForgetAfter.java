@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The duration in days after which a learned value is forgotten. */
@@ -24,7 +23,10 @@ import java.util.Set;
     using =
         SecurityMonitoringRuleNewValueOptionsForgetAfter
             .SecurityMonitoringRuleNewValueOptionsForgetAfterSerializer.class)
-public class SecurityMonitoringRuleNewValueOptionsForgetAfter {
+public class SecurityMonitoringRuleNewValueOptionsForgetAfter extends ModelEnum<Integer> {
+
+  private static final Set<Integer> allowedValues =
+      new HashSet<Integer>(Arrays.asList(1, 2, 7, 14, 21, 28));
 
   public static final SecurityMonitoringRuleNewValueOptionsForgetAfter ONE_DAY =
       new SecurityMonitoringRuleNewValueOptionsForgetAfter(1);
@@ -39,17 +41,8 @@ public class SecurityMonitoringRuleNewValueOptionsForgetAfter {
   public static final SecurityMonitoringRuleNewValueOptionsForgetAfter FOUR_WEEKS =
       new SecurityMonitoringRuleNewValueOptionsForgetAfter(28);
 
-  private static final Set<Integer> allowedValues =
-      new HashSet<Integer>(Arrays.asList(1, 2, 7, 14, 21, 28));
-
-  private Integer value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SecurityMonitoringRuleNewValueOptionsForgetAfter(Integer value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleNewValueOptionsForgetAfterSerializer
@@ -71,37 +64,6 @@ public class SecurityMonitoringRuleNewValueOptionsForgetAfter {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public Integer getValue() {
-    return this.value;
-  }
-
-  public void setValue(Integer value) {
-    this.value = value;
-  }
-
-  /** Return true if this SecurityMonitoringRuleNewValueOptionsForgetAfter object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SecurityMonitoringRuleNewValueOptionsForgetAfter) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

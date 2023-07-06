@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,13 +16,17 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Link type. */
 @JsonSerialize(
     using = ServiceDefinitionV1ResourceType.ServiceDefinitionV1ResourceTypeSerializer.class)
-public class ServiceDefinitionV1ResourceType {
+public class ServiceDefinitionV1ResourceType extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "doc", "wiki", "runbook", "url", "repo", "dashboard", "oncall", "code", "link"));
 
   public static final ServiceDefinitionV1ResourceType DOC =
       new ServiceDefinitionV1ResourceType("doc");
@@ -43,19 +47,8 @@ public class ServiceDefinitionV1ResourceType {
   public static final ServiceDefinitionV1ResourceType LINK =
       new ServiceDefinitionV1ResourceType("link");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "doc", "wiki", "runbook", "url", "repo", "dashboard", "oncall", "code", "link"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   ServiceDefinitionV1ResourceType(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionV1ResourceTypeSerializer
@@ -74,37 +67,6 @@ public class ServiceDefinitionV1ResourceType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this ServiceDefinitionV1ResourceType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((ServiceDefinitionV1ResourceType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

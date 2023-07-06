@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,28 +16,21 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** HTTP header used to compress the media-type. */
 @JsonSerialize(using = ContentEncoding.ContentEncodingSerializer.class)
-public class ContentEncoding {
+public class ContentEncoding extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("identity", "gzip", "deflate"));
 
   public static final ContentEncoding IDENTITY = new ContentEncoding("identity");
   public static final ContentEncoding GZIP = new ContentEncoding("gzip");
   public static final ContentEncoding DEFLATE = new ContentEncoding("deflate");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("identity", "gzip", "deflate"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   ContentEncoding(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class ContentEncodingSerializer extends StdSerializer<ContentEncoding> {
@@ -54,37 +47,6 @@ public class ContentEncoding {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this ContentEncoding object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((ContentEncoding) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

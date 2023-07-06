@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,51 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The field to sort by. */
 @JsonSerialize(using = UsageAttributionSort.UsageAttributionSortSerializer.class)
-public class UsageAttributionSort {
+public class UsageAttributionSort extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "api_percentage",
+              "snmp_usage",
+              "apm_host_usage",
+              "api_usage",
+              "appsec_usage",
+              "appsec_percentage",
+              "container_usage",
+              "custom_timeseries_percentage",
+              "container_percentage",
+              "apm_host_percentage",
+              "npm_host_percentage",
+              "browser_percentage",
+              "browser_usage",
+              "infra_host_percentage",
+              "snmp_percentage",
+              "npm_host_usage",
+              "infra_host_usage",
+              "custom_timeseries_usage",
+              "lambda_functions_usage",
+              "lambda_functions_percentage",
+              "lambda_invocations_usage",
+              "lambda_invocations_percentage",
+              "estimated_indexed_logs_usage",
+              "estimated_indexed_logs_percentage",
+              "estimated_ingested_logs_usage",
+              "estimated_ingested_logs_percentage",
+              "estimated_indexed_spans_usage",
+              "estimated_indexed_spans_percentage",
+              "estimated_ingested_spans_usage",
+              "estimated_ingested_spans_percentage",
+              "apm_fargate_usage",
+              "apm_fargate_percentage",
+              "appsec_fargate_usage",
+              "appsec_fargate_percentage",
+              "estimated_rum_usage_attribution_usage",
+              "estimated_rum_usage_attribution_percentage"));
 
   public static final UsageAttributionSort API_PERCENTAGE =
       new UsageAttributionSort("api_percentage");
@@ -93,54 +132,8 @@ public class UsageAttributionSort {
   public static final UsageAttributionSort ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE =
       new UsageAttributionSort("estimated_rum_usage_attribution_percentage");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "api_percentage",
-              "snmp_usage",
-              "apm_host_usage",
-              "api_usage",
-              "appsec_usage",
-              "appsec_percentage",
-              "container_usage",
-              "custom_timeseries_percentage",
-              "container_percentage",
-              "apm_host_percentage",
-              "npm_host_percentage",
-              "browser_percentage",
-              "browser_usage",
-              "infra_host_percentage",
-              "snmp_percentage",
-              "npm_host_usage",
-              "infra_host_usage",
-              "custom_timeseries_usage",
-              "lambda_functions_usage",
-              "lambda_functions_percentage",
-              "lambda_invocations_usage",
-              "lambda_invocations_percentage",
-              "estimated_indexed_logs_usage",
-              "estimated_indexed_logs_percentage",
-              "estimated_ingested_logs_usage",
-              "estimated_ingested_logs_percentage",
-              "estimated_indexed_spans_usage",
-              "estimated_indexed_spans_percentage",
-              "estimated_ingested_spans_usage",
-              "estimated_ingested_spans_percentage",
-              "apm_fargate_usage",
-              "apm_fargate_percentage",
-              "appsec_fargate_usage",
-              "appsec_fargate_percentage",
-              "estimated_rum_usage_attribution_usage",
-              "estimated_rum_usage_attribution_percentage"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   UsageAttributionSort(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class UsageAttributionSortSerializer extends StdSerializer<UsageAttributionSort> {
@@ -158,37 +151,6 @@ public class UsageAttributionSort {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this UsageAttributionSort object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((UsageAttributionSort) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,27 +16,20 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The type of resource. The value should always be aggregate_request. */
 @JsonSerialize(using = SpansAggregateRequestType.SpansAggregateRequestTypeSerializer.class)
-public class SpansAggregateRequestType {
-
-  public static final SpansAggregateRequestType AGGREGATE_REQUEST =
-      new SpansAggregateRequestType("aggregate_request");
+public class SpansAggregateRequestType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("aggregate_request"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
+  public static final SpansAggregateRequestType AGGREGATE_REQUEST =
+      new SpansAggregateRequestType("aggregate_request");
 
   SpansAggregateRequestType(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class SpansAggregateRequestTypeSerializer
@@ -55,37 +48,6 @@ public class SpansAggregateRequestType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SpansAggregateRequestType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SpansAggregateRequestType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

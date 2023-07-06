@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,29 +16,22 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Sensitive Data Scanner configuration type. */
 @JsonSerialize(
     using =
         SensitiveDataScannerConfigurationType.SensitiveDataScannerConfigurationTypeSerializer.class)
-public class SensitiveDataScannerConfigurationType {
-
-  public static final SensitiveDataScannerConfigurationType SENSITIVE_DATA_SCANNER_CONFIGURATIONS =
-      new SensitiveDataScannerConfigurationType("sensitive_data_scanner_configuration");
+public class SensitiveDataScannerConfigurationType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("sensitive_data_scanner_configuration"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
+  public static final SensitiveDataScannerConfigurationType SENSITIVE_DATA_SCANNER_CONFIGURATIONS =
+      new SensitiveDataScannerConfigurationType("sensitive_data_scanner_configuration");
 
   SensitiveDataScannerConfigurationType(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class SensitiveDataScannerConfigurationTypeSerializer
@@ -60,37 +53,6 @@ public class SensitiveDataScannerConfigurationType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SensitiveDataScannerConfigurationType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SensitiveDataScannerConfigurationType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

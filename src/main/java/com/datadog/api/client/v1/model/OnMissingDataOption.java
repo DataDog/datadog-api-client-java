@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -28,7 +27,11 @@ import java.util.Set;
  * Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
  */
 @JsonSerialize(using = OnMissingDataOption.OnMissingDataOptionSerializer.class)
-public class OnMissingDataOption {
+public class OnMissingDataOption extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList("default", "show_no_data", "show_and_notify_no_data", "resolve"));
 
   public static final OnMissingDataOption DEFAULT = new OnMissingDataOption("default");
   public static final OnMissingDataOption SHOW_NO_DATA = new OnMissingDataOption("show_no_data");
@@ -36,18 +39,8 @@ public class OnMissingDataOption {
       new OnMissingDataOption("show_and_notify_no_data");
   public static final OnMissingDataOption RESOLVE = new OnMissingDataOption("resolve");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("default", "show_no_data", "show_and_notify_no_data", "resolve"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   OnMissingDataOption(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class OnMissingDataOptionSerializer extends StdSerializer<OnMissingDataOption> {
@@ -65,37 +58,6 @@ public class OnMissingDataOption {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this OnMissingDataOption object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((OnMissingDataOption) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

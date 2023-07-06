@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,27 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The device ID. */
 @JsonSerialize(using = SyntheticsDeviceID.SyntheticsDeviceIDSerializer.class)
-public class SyntheticsDeviceID {
+public class SyntheticsDeviceID extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "laptop_large",
+              "tablet",
+              "mobile_small",
+              "chrome.laptop_large",
+              "chrome.tablet",
+              "chrome.mobile_small",
+              "firefox.laptop_large",
+              "firefox.tablet",
+              "firefox.mobile_small",
+              "edge.laptop_large",
+              "edge.tablet",
+              "edge.mobile_small"));
 
   public static final SyntheticsDeviceID LAPTOP_LARGE = new SyntheticsDeviceID("laptop_large");
   public static final SyntheticsDeviceID TABLET = new SyntheticsDeviceID("tablet");
@@ -42,30 +57,8 @@ public class SyntheticsDeviceID {
   public static final SyntheticsDeviceID EDGE_MOBILE_SMALL =
       new SyntheticsDeviceID("edge.mobile_small");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "laptop_large",
-              "tablet",
-              "mobile_small",
-              "chrome.laptop_large",
-              "chrome.tablet",
-              "chrome.mobile_small",
-              "firefox.laptop_large",
-              "firefox.tablet",
-              "firefox.mobile_small",
-              "edge.laptop_large",
-              "edge.tablet",
-              "edge.mobile_small"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SyntheticsDeviceID(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class SyntheticsDeviceIDSerializer extends StdSerializer<SyntheticsDeviceID> {
@@ -82,37 +75,6 @@ public class SyntheticsDeviceID {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SyntheticsDeviceID object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SyntheticsDeviceID) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

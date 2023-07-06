@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,29 +16,22 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The ways searched incidents can be sorted. */
 @JsonSerialize(using = IncidentSearchSortOrder.IncidentSearchSortOrderSerializer.class)
-public class IncidentSearchSortOrder {
+public class IncidentSearchSortOrder extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("created", "-created"));
 
   public static final IncidentSearchSortOrder CREATED_ASCENDING =
       new IncidentSearchSortOrder("created");
   public static final IncidentSearchSortOrder CREATED_DESCENDING =
       new IncidentSearchSortOrder("-created");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("created", "-created"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   IncidentSearchSortOrder(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class IncidentSearchSortOrderSerializer
@@ -57,37 +50,6 @@ public class IncidentSearchSortOrder {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this IncidentSearchSortOrder object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((IncidentSearchSortOrder) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

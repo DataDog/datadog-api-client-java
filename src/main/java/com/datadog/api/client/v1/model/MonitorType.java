@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -24,26 +23,7 @@ import java.util.Set;
  * href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/">monitor options</a> docs.
  */
 @JsonSerialize(using = MonitorType.MonitorTypeSerializer.class)
-public class MonitorType {
-
-  public static final MonitorType COMPOSITE = new MonitorType("composite");
-  public static final MonitorType EVENT_ALERT = new MonitorType("event alert");
-  public static final MonitorType LOG_ALERT = new MonitorType("log alert");
-  public static final MonitorType METRIC_ALERT = new MonitorType("metric alert");
-  public static final MonitorType PROCESS_ALERT = new MonitorType("process alert");
-  public static final MonitorType QUERY_ALERT = new MonitorType("query alert");
-  public static final MonitorType RUM_ALERT = new MonitorType("rum alert");
-  public static final MonitorType SERVICE_CHECK = new MonitorType("service check");
-  public static final MonitorType SYNTHETICS_ALERT = new MonitorType("synthetics alert");
-  public static final MonitorType TRACE_ANALYTICS_ALERT = new MonitorType("trace-analytics alert");
-  public static final MonitorType SLO_ALERT = new MonitorType("slo alert");
-  public static final MonitorType EVENT_V2_ALERT = new MonitorType("event-v2 alert");
-  public static final MonitorType AUDIT_ALERT = new MonitorType("audit alert");
-  public static final MonitorType CI_PIPELINES_ALERT = new MonitorType("ci-pipelines alert");
-  public static final MonitorType CI_TESTS_ALERT = new MonitorType("ci-tests alert");
-  public static final MonitorType ERROR_TRACKING_ALERT = new MonitorType("error-tracking alert");
-  public static final MonitorType DATABASE_MONITORING_ALERT =
-      new MonitorType("database-monitoring alert");
+public class MonitorType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -66,14 +46,27 @@ public class MonitorType {
               "error-tracking alert",
               "database-monitoring alert"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
+  public static final MonitorType COMPOSITE = new MonitorType("composite");
+  public static final MonitorType EVENT_ALERT = new MonitorType("event alert");
+  public static final MonitorType LOG_ALERT = new MonitorType("log alert");
+  public static final MonitorType METRIC_ALERT = new MonitorType("metric alert");
+  public static final MonitorType PROCESS_ALERT = new MonitorType("process alert");
+  public static final MonitorType QUERY_ALERT = new MonitorType("query alert");
+  public static final MonitorType RUM_ALERT = new MonitorType("rum alert");
+  public static final MonitorType SERVICE_CHECK = new MonitorType("service check");
+  public static final MonitorType SYNTHETICS_ALERT = new MonitorType("synthetics alert");
+  public static final MonitorType TRACE_ANALYTICS_ALERT = new MonitorType("trace-analytics alert");
+  public static final MonitorType SLO_ALERT = new MonitorType("slo alert");
+  public static final MonitorType EVENT_V2_ALERT = new MonitorType("event-v2 alert");
+  public static final MonitorType AUDIT_ALERT = new MonitorType("audit alert");
+  public static final MonitorType CI_PIPELINES_ALERT = new MonitorType("ci-pipelines alert");
+  public static final MonitorType CI_TESTS_ALERT = new MonitorType("ci-tests alert");
+  public static final MonitorType ERROR_TRACKING_ALERT = new MonitorType("error-tracking alert");
+  public static final MonitorType DATABASE_MONITORING_ALERT =
+      new MonitorType("database-monitoring alert");
 
   MonitorType(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class MonitorTypeSerializer extends StdSerializer<MonitorType> {
@@ -90,37 +83,6 @@ public class MonitorType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this MonitorType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((MonitorType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

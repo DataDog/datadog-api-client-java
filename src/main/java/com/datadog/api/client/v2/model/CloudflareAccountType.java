@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,27 +16,20 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The JSON:API type for this API. Should always be <code>cloudflare-accounts</code>. */
 @JsonSerialize(using = CloudflareAccountType.CloudflareAccountTypeSerializer.class)
-public class CloudflareAccountType {
-
-  public static final CloudflareAccountType CLOUDFLARE_ACCOUNTS =
-      new CloudflareAccountType("cloudflare-accounts");
+public class CloudflareAccountType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("cloudflare-accounts"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
+  public static final CloudflareAccountType CLOUDFLARE_ACCOUNTS =
+      new CloudflareAccountType("cloudflare-accounts");
 
   CloudflareAccountType(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class CloudflareAccountTypeSerializer extends StdSerializer<CloudflareAccountType> {
@@ -54,37 +47,6 @@ public class CloudflareAccountType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this CloudflareAccountType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((CloudflareAccountType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

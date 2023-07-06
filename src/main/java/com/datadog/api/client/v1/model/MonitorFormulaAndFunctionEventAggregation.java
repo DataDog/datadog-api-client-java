@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Aggregation methods for event platform queries. */
@@ -24,7 +23,23 @@ import java.util.Set;
     using =
         MonitorFormulaAndFunctionEventAggregation
             .MonitorFormulaAndFunctionEventAggregationSerializer.class)
-public class MonitorFormulaAndFunctionEventAggregation {
+public class MonitorFormulaAndFunctionEventAggregation extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "count",
+              "cardinality",
+              "median",
+              "pc75",
+              "pc90",
+              "pc95",
+              "pc98",
+              "pc99",
+              "sum",
+              "min",
+              "max",
+              "avg"));
 
   public static final MonitorFormulaAndFunctionEventAggregation COUNT =
       new MonitorFormulaAndFunctionEventAggregation("count");
@@ -51,30 +66,8 @@ public class MonitorFormulaAndFunctionEventAggregation {
   public static final MonitorFormulaAndFunctionEventAggregation AVG =
       new MonitorFormulaAndFunctionEventAggregation("avg");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "count",
-              "cardinality",
-              "median",
-              "pc75",
-              "pc90",
-              "pc95",
-              "pc98",
-              "pc99",
-              "sum",
-              "min",
-              "max",
-              "avg"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   MonitorFormulaAndFunctionEventAggregation(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class MonitorFormulaAndFunctionEventAggregationSerializer
@@ -96,37 +89,6 @@ public class MonitorFormulaAndFunctionEventAggregation {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this MonitorFormulaAndFunctionEventAggregation object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((MonitorFormulaAndFunctionEventAggregation) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

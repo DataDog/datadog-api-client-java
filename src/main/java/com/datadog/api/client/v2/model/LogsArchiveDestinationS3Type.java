@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,25 +16,18 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Type of the S3 archive destination. */
 @JsonSerialize(using = LogsArchiveDestinationS3Type.LogsArchiveDestinationS3TypeSerializer.class)
-public class LogsArchiveDestinationS3Type {
-
-  public static final LogsArchiveDestinationS3Type S3 = new LogsArchiveDestinationS3Type("s3");
+public class LogsArchiveDestinationS3Type extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("s3"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
+  public static final LogsArchiveDestinationS3Type S3 = new LogsArchiveDestinationS3Type("s3");
 
   LogsArchiveDestinationS3Type(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class LogsArchiveDestinationS3TypeSerializer
@@ -53,37 +46,6 @@ public class LogsArchiveDestinationS3Type {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this LogsArchiveDestinationS3Type object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((LogsArchiveDestinationS3Type) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,27 +16,20 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Sort parameters when querying spans. */
 @JsonSerialize(using = SpansSort.SpansSortSerializer.class)
-public class SpansSort {
-
-  public static final SpansSort TIMESTAMP_ASCENDING = new SpansSort("timestamp");
-  public static final SpansSort TIMESTAMP_DESCENDING = new SpansSort("-timestamp");
+public class SpansSort extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("timestamp", "-timestamp"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
+  public static final SpansSort TIMESTAMP_ASCENDING = new SpansSort("timestamp");
+  public static final SpansSort TIMESTAMP_DESCENDING = new SpansSort("-timestamp");
 
   SpansSort(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class SpansSortSerializer extends StdSerializer<SpansSort> {
@@ -53,37 +46,6 @@ public class SpansSort {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SpansSort object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SpansSort) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

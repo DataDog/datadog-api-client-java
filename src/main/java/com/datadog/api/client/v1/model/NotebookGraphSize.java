@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,12 +16,14 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The size of the graph. */
 @JsonSerialize(using = NotebookGraphSize.NotebookGraphSizeSerializer.class)
-public class NotebookGraphSize {
+public class NotebookGraphSize extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("xs", "s", "m", "l", "xl"));
 
   public static final NotebookGraphSize EXTRA_SMALL = new NotebookGraphSize("xs");
   public static final NotebookGraphSize SMALL = new NotebookGraphSize("s");
@@ -29,17 +31,8 @@ public class NotebookGraphSize {
   public static final NotebookGraphSize LARGE = new NotebookGraphSize("l");
   public static final NotebookGraphSize EXTRA_LARGE = new NotebookGraphSize("xl");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("xs", "s", "m", "l", "xl"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   NotebookGraphSize(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class NotebookGraphSizeSerializer extends StdSerializer<NotebookGraphSize> {
@@ -56,37 +49,6 @@ public class NotebookGraphSize {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this NotebookGraphSize object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((NotebookGraphSize) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

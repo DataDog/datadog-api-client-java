@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,30 +16,23 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Opsgenie instance region. */
 @JsonSerialize(
     using =
         ServiceDefinitionV2Dot1OpsgenieRegion.ServiceDefinitionV2Dot1OpsgenieRegionSerializer.class)
-public class ServiceDefinitionV2Dot1OpsgenieRegion {
+public class ServiceDefinitionV2Dot1OpsgenieRegion extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("US", "EU"));
 
   public static final ServiceDefinitionV2Dot1OpsgenieRegion US =
       new ServiceDefinitionV2Dot1OpsgenieRegion("US");
   public static final ServiceDefinitionV2Dot1OpsgenieRegion EU =
       new ServiceDefinitionV2Dot1OpsgenieRegion("EU");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("US", "EU"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   ServiceDefinitionV2Dot1OpsgenieRegion(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class ServiceDefinitionV2Dot1OpsgenieRegionSerializer
@@ -61,37 +54,6 @@ public class ServiceDefinitionV2Dot1OpsgenieRegion {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this ServiceDefinitionV2Dot1OpsgenieRegion object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((ServiceDefinitionV2Dot1OpsgenieRegion) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,7 +16,6 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -28,7 +27,9 @@ import java.util.Set;
     using =
         SecurityMonitoringRuleNewValueOptionsLearningDuration
             .SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer.class)
-public class SecurityMonitoringRuleNewValueOptionsLearningDuration {
+public class SecurityMonitoringRuleNewValueOptionsLearningDuration extends ModelEnum<Integer> {
+
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 7));
 
   public static final SecurityMonitoringRuleNewValueOptionsLearningDuration ZERO_DAYS =
       new SecurityMonitoringRuleNewValueOptionsLearningDuration(0);
@@ -37,16 +38,8 @@ public class SecurityMonitoringRuleNewValueOptionsLearningDuration {
   public static final SecurityMonitoringRuleNewValueOptionsLearningDuration SEVEN_DAYS =
       new SecurityMonitoringRuleNewValueOptionsLearningDuration(7);
 
-  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 7));
-
-  private Integer value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SecurityMonitoringRuleNewValueOptionsLearningDuration(Integer value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer
@@ -68,39 +61,6 @@ public class SecurityMonitoringRuleNewValueOptionsLearningDuration {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public Integer getValue() {
-    return this.value;
-  }
-
-  public void setValue(Integer value) {
-    this.value = value;
-  }
-
-  /**
-   * Return true if this SecurityMonitoringRuleNewValueOptionsLearningDuration object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SecurityMonitoringRuleNewValueOptionsLearningDuration) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

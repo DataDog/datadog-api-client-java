@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,28 +16,21 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The new triage state of the signal. */
 @JsonSerialize(using = SignalTriageState.SignalTriageStateSerializer.class)
-public class SignalTriageState {
+public class SignalTriageState extends ModelEnum<String> {
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("open", "archived", "under_review"));
 
   public static final SignalTriageState OPEN = new SignalTriageState("open");
   public static final SignalTriageState ARCHIVED = new SignalTriageState("archived");
   public static final SignalTriageState UNDER_REVIEW = new SignalTriageState("under_review");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("open", "archived", "under_review"));
-
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
   SignalTriageState(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class SignalTriageStateSerializer extends StdSerializer<SignalTriageState> {
@@ -54,37 +47,6 @@ public class SignalTriageState {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this SignalTriageState object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((SignalTriageState) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

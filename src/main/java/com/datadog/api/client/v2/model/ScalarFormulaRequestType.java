@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v2.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,27 +16,20 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** The type of the resource. The value should always be scalar_request. */
 @JsonSerialize(using = ScalarFormulaRequestType.ScalarFormulaRequestTypeSerializer.class)
-public class ScalarFormulaRequestType {
-
-  public static final ScalarFormulaRequestType SCALAR_REQUEST =
-      new ScalarFormulaRequestType("scalar_request");
+public class ScalarFormulaRequestType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("scalar_request"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
+  public static final ScalarFormulaRequestType SCALAR_REQUEST =
+      new ScalarFormulaRequestType("scalar_request");
 
   ScalarFormulaRequestType(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class ScalarFormulaRequestTypeSerializer
@@ -55,37 +48,6 @@ public class ScalarFormulaRequestType {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this ScalarFormulaRequestType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((ScalarFormulaRequestType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator

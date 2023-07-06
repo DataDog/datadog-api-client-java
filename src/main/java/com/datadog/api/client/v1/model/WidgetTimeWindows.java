@@ -6,8 +6,8 @@
 
 package com.datadog.api.client.v1.model;
 
+import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -16,21 +16,11 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /** Define a time window. */
 @JsonSerialize(using = WidgetTimeWindows.WidgetTimeWindowsSerializer.class)
-public class WidgetTimeWindows {
-
-  public static final WidgetTimeWindows SEVEN_DAYS = new WidgetTimeWindows("7d");
-  public static final WidgetTimeWindows THIRTY_DAYS = new WidgetTimeWindows("30d");
-  public static final WidgetTimeWindows NINETY_DAYS = new WidgetTimeWindows("90d");
-  public static final WidgetTimeWindows WEEK_TO_DATE = new WidgetTimeWindows("week_to_date");
-  public static final WidgetTimeWindows PREVIOUS_WEEK = new WidgetTimeWindows("previous_week");
-  public static final WidgetTimeWindows MONTH_TO_DATE = new WidgetTimeWindows("month_to_date");
-  public static final WidgetTimeWindows PREVIOUS_MONTH = new WidgetTimeWindows("previous_month");
-  public static final WidgetTimeWindows GLOBAL_TIME = new WidgetTimeWindows("global_time");
+public class WidgetTimeWindows extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -44,14 +34,17 @@ public class WidgetTimeWindows {
               "previous_month",
               "global_time"));
 
-  private String value;
-
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
+  public static final WidgetTimeWindows SEVEN_DAYS = new WidgetTimeWindows("7d");
+  public static final WidgetTimeWindows THIRTY_DAYS = new WidgetTimeWindows("30d");
+  public static final WidgetTimeWindows NINETY_DAYS = new WidgetTimeWindows("90d");
+  public static final WidgetTimeWindows WEEK_TO_DATE = new WidgetTimeWindows("week_to_date");
+  public static final WidgetTimeWindows PREVIOUS_WEEK = new WidgetTimeWindows("previous_week");
+  public static final WidgetTimeWindows MONTH_TO_DATE = new WidgetTimeWindows("month_to_date");
+  public static final WidgetTimeWindows PREVIOUS_MONTH = new WidgetTimeWindows("previous_month");
+  public static final WidgetTimeWindows GLOBAL_TIME = new WidgetTimeWindows("global_time");
 
   WidgetTimeWindows(String value) {
-    this.value = value;
+    super(value, allowedValues);
   }
 
   public static class WidgetTimeWindowsSerializer extends StdSerializer<WidgetTimeWindows> {
@@ -68,37 +61,6 @@ public class WidgetTimeWindows {
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
-  }
-
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this WidgetTimeWindows object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    return this.value.equals(((WidgetTimeWindows) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
   }
 
   @JsonCreator
