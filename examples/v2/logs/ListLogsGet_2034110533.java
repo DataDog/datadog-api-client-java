@@ -6,6 +6,7 @@ import com.datadog.api.client.v2.api.LogsApi;
 import com.datadog.api.client.v2.api.LogsApi.ListLogsGetOptionalParameters;
 import com.datadog.api.client.v2.model.LogsListResponse;
 import java.time.OffsetDateTime;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -17,7 +18,7 @@ public class Example {
           apiInstance.listLogsGet(
               new ListLogsGetOptionalParameters()
                   .filterQuery("datadog-agent")
-                  .filterIndex("main")
+                  .filterIndexes(Collections.singletonList("main"))
                   .filterFrom(OffsetDateTime.parse("2020-09-17T11:48:36+01:00"))
                   .filterTo(OffsetDateTime.parse("2020-09-17T12:48:36+01:00"))
                   .pageLimit(5));

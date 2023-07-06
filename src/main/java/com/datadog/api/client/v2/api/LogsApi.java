@@ -415,7 +415,7 @@ public class LogsApi {
   /** Manage optional parameters to listLogsGet. */
   public static class ListLogsGetOptionalParameters {
     private String filterQuery;
-    private String filterIndex;
+    private List<String> filterIndexes;
     private OffsetDateTime filterFrom;
     private OffsetDateTime filterTo;
     private LogsStorageTier filterStorageTier;
@@ -435,14 +435,14 @@ public class LogsApi {
     }
 
     /**
-     * Set filterIndex.
+     * Set filterIndexes.
      *
-     * @param filterIndex For customers with multiple indexes, the indexes to search Defaults to '*'
-     *     which means all indexes (optional)
+     * @param filterIndexes For customers with multiple indexes, the indexes to search. Defaults to
+     *     '*' which means all indexes (optional)
      * @return ListLogsGetOptionalParameters
      */
-    public ListLogsGetOptionalParameters filterIndex(String filterIndex) {
-      this.filterIndex = filterIndex;
+    public ListLogsGetOptionalParameters filterIndexes(List<String> filterIndexes) {
+      this.filterIndexes = filterIndexes;
       return this;
     }
 
@@ -652,7 +652,7 @@ public class LogsApi {
       ListLogsGetOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
-    String filterIndex = parameters.filterIndex;
+    List<String> filterIndexes = parameters.filterIndexes;
     OffsetDateTime filterFrom = parameters.filterFrom;
     OffsetDateTime filterTo = parameters.filterTo;
     LogsStorageTier filterStorageTier = parameters.filterStorageTier;
@@ -666,7 +666,7 @@ public class LogsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[index]", filterIndex));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "filter[indexes]", filterIndexes));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
     localVarQueryParams.addAll(
@@ -707,7 +707,7 @@ public class LogsApi {
       ListLogsGetOptionalParameters parameters) {
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
-    String filterIndex = parameters.filterIndex;
+    List<String> filterIndexes = parameters.filterIndexes;
     OffsetDateTime filterFrom = parameters.filterFrom;
     OffsetDateTime filterTo = parameters.filterTo;
     LogsStorageTier filterStorageTier = parameters.filterStorageTier;
@@ -721,7 +721,7 @@ public class LogsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[query]", filterQuery));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[index]", filterIndex));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "filter[indexes]", filterIndexes));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from]", filterFrom));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to]", filterTo));
     localVarQueryParams.addAll(
