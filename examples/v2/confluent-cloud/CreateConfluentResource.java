@@ -25,7 +25,8 @@ public class Example {
                     .attributes(
                         new ConfluentResourceRequestAttributes()
                             .resourceType("kafka")
-                            .tags(Arrays.asList("myTag", "myTag2:myValue")))
+                            .tags(Arrays.asList("myTag", "myTag2:myValue"))
+                            .enableCustomMetrics(false))
                     .id("exampleconfluentcloud")
                     .type(ConfluentResourceType.CONFLUENT_CLOUD_RESOURCES));
 

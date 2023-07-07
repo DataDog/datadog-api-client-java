@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestGetConfluentaccountreturnsOKresponse1665090165\",\"api_secret\":\"test-api-secret\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestGetConfluentaccountreturnsOKresponse1688395121\",\"api_secret\":\"test-api-secret\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"api_key\":\"TestGetConfluentaccountreturnsOKresponse1665090165\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\",\"id\":\"d43d474jxm\"}}\n",
+      "body": "{\"data\":{\"type\":\"confluent-cloud-accounts\",\"id\":\"8a03a240e4d322d42edf6d4f4654a624\",\"attributes\":{\"resources\":[{\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"],\"enable_custom_metrics\":false,\"id\":\"test-resource-id\"}],\"api_key\":\"TestGetConfluentaccountreturnsOKresponse1688395121\",\"tags\":[\"tag1\",\"tag2:val2\"]}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "664cac62-9cad-7cfe-0349-80ce3082a3e1"
+    "id": "8819d649-0151-9634-e602-6debce0340fc"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/integrations/confluent-cloud/accounts/d43d474jxm",
+      "path": "/api/v2/integrations/confluent-cloud/accounts/8a03a240e4d322d42edf6d4f4654a624",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"api_key\":\"TestGetConfluentaccountreturnsOKresponse1665090165\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\",\"id\":\"d43d474jxm\"}}\n",
+      "body": "{\"data\":{\"type\":\"confluent-cloud-accounts\",\"attributes\":{\"resources\":[{\"enable_custom_metrics\":false,\"id\":\"test-resource-id\",\"tags\":[\"tag1\",\"tag2:val2\"],\"resource_type\":\"kafka\"}],\"api_key\":\"TestGetConfluentaccountreturnsOKresponse1688395121\",\"tags\":[\"tag1\",\"tag2:val2\"]},\"id\":\"8a03a240e4d322d42edf6d4f4654a624\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e3672a63-9af4-9dfb-4ff6-0a8a8bf2168f"
+    "id": "ba343b3b-f024-4959-0e33-a156abe4ac50"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/confluent-cloud/accounts/d43d474jxm",
+      "path": "/api/v2/integrations/confluent-cloud/accounts/8a03a240e4d322d42edf6d4f4654a624",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "14ba4899-ea29-4f17-253b-507c5e07a486"
+    "id": "3eba4a48-96a7-0e8d-eb2d-8e8df92655a7"
   }
 ]

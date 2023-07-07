@@ -28,6 +28,7 @@ public class Example {
                             .resources(
                                 Collections.singletonList(
                                     new ConfluentAccountResourceAttributes()
+                                        .enableCustomMetrics(false)
                                         .id("resource-id-123")
                                         .resourceType("kafka")
                                         .tags(Arrays.asList("myTag", "myTag2:myValue"))))
