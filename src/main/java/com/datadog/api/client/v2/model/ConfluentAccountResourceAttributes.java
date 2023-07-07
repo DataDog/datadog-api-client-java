@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Attributes object for updating a Confluent resource. */
 @JsonPropertyOrder({
+  ConfluentAccountResourceAttributes.JSON_PROPERTY_ENABLE_CUSTOM_METRICS,
   ConfluentAccountResourceAttributes.JSON_PROPERTY_ID,
   ConfluentAccountResourceAttributes.JSON_PROPERTY_RESOURCE_TYPE,
   ConfluentAccountResourceAttributes.JSON_PROPERTY_TAGS
@@ -29,6 +30,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ConfluentAccountResourceAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLE_CUSTOM_METRICS = "enable_custom_metrics";
+  private Boolean enableCustomMetrics = false;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -44,6 +48,27 @@ public class ConfluentAccountResourceAttributes {
   public ConfluentAccountResourceAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_TYPE) String resourceType) {
     this.resourceType = resourceType;
+  }
+
+  public ConfluentAccountResourceAttributes enableCustomMetrics(Boolean enableCustomMetrics) {
+    this.enableCustomMetrics = enableCustomMetrics;
+    return this;
+  }
+
+  /**
+   * Enable the <code>custom.consumer_lag_offset</code> metric, which contains extra metric tags.
+   *
+   * @return enableCustomMetrics
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_CUSTOM_METRICS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnableCustomMetrics() {
+    return enableCustomMetrics;
+  }
+
+  public void setEnableCustomMetrics(Boolean enableCustomMetrics) {
+    this.enableCustomMetrics = enableCustomMetrics;
   }
 
   public ConfluentAccountResourceAttributes id(String id) {
@@ -175,7 +200,9 @@ public class ConfluentAccountResourceAttributes {
     }
     ConfluentAccountResourceAttributes confluentAccountResourceAttributes =
         (ConfluentAccountResourceAttributes) o;
-    return Objects.equals(this.id, confluentAccountResourceAttributes.id)
+    return Objects.equals(
+            this.enableCustomMetrics, confluentAccountResourceAttributes.enableCustomMetrics)
+        && Objects.equals(this.id, confluentAccountResourceAttributes.id)
         && Objects.equals(this.resourceType, confluentAccountResourceAttributes.resourceType)
         && Objects.equals(this.tags, confluentAccountResourceAttributes.tags)
         && Objects.equals(
@@ -184,13 +211,16 @@ public class ConfluentAccountResourceAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, resourceType, tags, additionalProperties);
+    return Objects.hash(enableCustomMetrics, id, resourceType, tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfluentAccountResourceAttributes {\n");
+    sb.append("    enableCustomMetrics: ")
+        .append(toIndentedString(enableCustomMetrics))
+        .append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
