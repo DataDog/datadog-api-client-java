@@ -36,7 +36,7 @@ public class DowntimeScheduleOneTimeCreateUpdateRequest {
 
   /**
    * ISO-8601 Datetime to end the downtime. Must include a UTC offset of zero. If not provided, the
-   * downtime starts the moment it is created.
+   * downtime continues forever.
    *
    * @return end
    */
