@@ -56,8 +56,9 @@ public class RestrictionPolicyBinding {
 
   /**
    * An array of principals. A principal is a subject or group of subjects. Each principal is
-   * formatted as <code>type:id</code>. Supported types: <code>role</code> and <code>org</code>. The
-   * org ID can be obtained through the api/v2/current_user API.
+   * formatted as <code>type:id</code>. Supported types: <code>role</code>, <code>team</code>
+   * (beta), <code>user</code> (beta), and <code>org</code>. The org ID can be obtained through the
+   * api/v2/current_user API. The user principal type accepts service account IDs.
    *
    * @return principals
    */
