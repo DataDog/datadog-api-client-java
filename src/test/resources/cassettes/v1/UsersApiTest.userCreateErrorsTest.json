@@ -14,7 +14,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"access_role\":\"st\"}"
+      "json" : "{}"
     }
   },
   "times" : {
@@ -58,7 +58,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"access_role\":\"st\"}"
+      "json" : "{}"
     }
   },
   "times" : {
