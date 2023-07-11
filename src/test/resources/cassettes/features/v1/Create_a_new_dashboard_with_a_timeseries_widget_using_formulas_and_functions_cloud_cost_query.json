@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_timeseries_widget_using_formulas_and_functions_cloud_cost_query-1689085965\",\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"cloud_cost\",\"name\":\"query1\",\"query\":\"sum:aws.cost.amortized{*} by {aws_product}.rollup(sum, monthly)\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"title\":\"Example Cloud Cost Query\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"kka-2iz-3jf\",\"title\":\"Test-Create_a_new_dashboard_with_a_timeseries_widget_using_formulas_and_functions_cloud_cost_query-1689085965\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/kka-2iz-3jf/test-createanewdashboardwithatimeserieswidgetusingformulasandfunctionscloudcostq\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"cloud_cost\",\"name\":\"query1\",\"query\":\"sum:aws.cost.amortized{*} by {aws_product}.rollup(sum, monthly)\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"title\":\"Example Cloud Cost Query\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"},\"id\":1004255439340}],\"notify_list\":null,\"created_at\":\"2023-07-11T14:32:45.564617+00:00\",\"modified_at\":\"2023-07-11T14:32:45.564617+00:00\",\"restricted_roles\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "21554e3c-bbf5-1a3f-13fd-398b7622a007"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/kka-2iz-3jf",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"kka-2iz-3jf\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7c80e62c-3821-49b2-a53a-fcb41ec2fea8"
+  }
+]
