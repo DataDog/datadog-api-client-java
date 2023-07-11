@@ -30,7 +30,7 @@ public class Example {
                 new OrganizationSettings()
                     .privateWidgetShare(false)
                     .saml(new OrganizationSettingsSaml().enabled(false))
-                    .samlAutocreateAccessRole(AccessRole.STANDARD)
+                    .samlAutocreateAccessRole(AccessRole.READ_ONLY)
                     .samlAutocreateUsersDomains(
                         new OrganizationSettingsSamlAutocreateUsersDomains()
                             .domains(Collections.singletonList("example.com"))

@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Create, edit, and disable users. */
 @JsonPropertyOrder({
@@ -31,7 +32,7 @@ import java.util.Objects;
 public class User {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCESS_ROLE = "access_role";
-  private AccessRole accessRole = AccessRole.STANDARD;
+  private JsonNullable<AccessRole> accessRole = JsonNullable.<AccessRole>undefined();
 
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
@@ -52,8 +53,7 @@ public class User {
   private Boolean verified;
 
   public User accessRole(AccessRole accessRole) {
-    this.accessRole = accessRole;
-    this.unparsed |= !accessRole.isValid();
+    this.accessRole = JsonNullable.<AccessRole>of(accessRole);
     return this;
   }
 
@@ -64,17 +64,27 @@ public class User {
    * @return accessRole
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public AccessRole getAccessRole() {
+    return accessRole.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_ACCESS_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AccessRole getAccessRole() {
+  public JsonNullable<AccessRole> getAccessRole_JsonNullable() {
     return accessRole;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ACCESS_ROLE)
+  public void setAccessRole_JsonNullable(JsonNullable<AccessRole> accessRole) {
+    this.accessRole = accessRole;
   }
 
   public void setAccessRole(AccessRole accessRole) {
     if (!accessRole.isValid()) {
       this.unparsed = true;
     }
-    this.accessRole = accessRole;
+    this.accessRole = JsonNullable.<AccessRole>of(accessRole);
   }
 
   public User disabled(Boolean disabled) {

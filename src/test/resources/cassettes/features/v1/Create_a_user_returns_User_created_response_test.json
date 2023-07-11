@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"access_role\":\"st\",\"disabled\":false,\"email\":\"test@datadoghq.com\",\"handle\":\"test@datadoghq.com\",\"name\":\"test user\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/user",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"user\":{\"handle\":\"test@datadoghq.com\",\"name\":\"test user\",\"role\":null,\"title\":null,\"email\":\"test@datadoghq.com\",\"disabled\":false,\"access_role\":null,\"is_admin\":false,\"icon\":\"https://secure.gravatar.com/avatar/f979f58720feb88e09cc3d11ce3d15da?s=48&d=retro\",\"verified\":false}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c6a38078-91b6-9d00-16b7-a45bf564a768"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/user/test%40datadoghq.com",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"message\":\"User test@datadoghq.com disabled\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "af617072-2860-ba27-e045-b00c8baf0187"
+  }
+]
