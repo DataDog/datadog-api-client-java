@@ -1,9 +1,8 @@
-// Create a user returns "User created" response
+// Create a user returns null access role
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.UsersApi;
-import com.datadog.api.client.v1.model.AccessRole;
 import com.datadog.api.client.v1.model.User;
 import com.datadog.api.client.v1.model.UserResponse;
 
@@ -14,7 +13,7 @@ public class Example {
 
     User body =
         new User()
-            .accessRole(AccessRole.READ_ONLY)
+            .accessRole(null)
             .disabled(false)
             .email("test@datadoghq.com")
             .handle("test@datadoghq.com")
