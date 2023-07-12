@@ -14,7 +14,7 @@ public class Example {
 
     User body =
         new User()
-            .accessRole(AccessRole.STANDARD)
+            .accessRole(AccessRole.READ_ONLY)
             .disabled(false)
             .email("test@datadoghq.com")
             .handle("test@datadoghq.com")

@@ -22,10 +22,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Downtime details. */
 @JsonPropertyOrder({
-  DowntimeResponseAttributes.JSON_PROPERTY_CREATED_AT,
+  DowntimeResponseAttributes.JSON_PROPERTY_CANCELED,
+  DowntimeResponseAttributes.JSON_PROPERTY_CREATED,
   DowntimeResponseAttributes.JSON_PROPERTY_DISPLAY_TIMEZONE,
   DowntimeResponseAttributes.JSON_PROPERTY_MESSAGE,
-  DowntimeResponseAttributes.JSON_PROPERTY_MODIFIED_AT,
+  DowntimeResponseAttributes.JSON_PROPERTY_MODIFIED,
   DowntimeResponseAttributes.JSON_PROPERTY_MONITOR_IDENTIFIER,
   DowntimeResponseAttributes.JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION,
   DowntimeResponseAttributes.JSON_PROPERTY_NOTIFY_END_STATES,
@@ -38,8 +39,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DowntimeResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private OffsetDateTime createdAt;
+  public static final String JSON_PROPERTY_CANCELED = "canceled";
+  private JsonNullable<OffsetDateTime> canceled = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_CREATED = "created";
+  private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_DISPLAY_TIMEZONE = "display_timezone";
   private JsonNullable<String> displayTimezone = JsonNullable.<String>of("UTC");
@@ -47,8 +51,8 @@ public class DowntimeResponseAttributes {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private JsonNullable<String> message = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
-  private OffsetDateTime modifiedAt;
+  public static final String JSON_PROPERTY_MODIFIED = "modified";
+  private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_MONITOR_IDENTIFIER = "monitor_identifier";
   private DowntimeMonitorIdentifier monitorIdentifier;
@@ -72,25 +76,56 @@ public class DowntimeResponseAttributes {
   public static final String JSON_PROPERTY_STATUS = "status";
   private DowntimeStatus status;
 
-  public DowntimeResponseAttributes createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
+  public DowntimeResponseAttributes canceled(OffsetDateTime canceled) {
+    this.canceled = JsonNullable.<OffsetDateTime>of(canceled);
+    return this;
+  }
+
+  /**
+   * Time that the downtime was canceled.
+   *
+   * @return canceled
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getCanceled() {
+    return canceled.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CANCELED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<OffsetDateTime> getCanceled_JsonNullable() {
+    return canceled;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CANCELED)
+  public void setCanceled_JsonNullable(JsonNullable<OffsetDateTime> canceled) {
+    this.canceled = canceled;
+  }
+
+  public void setCanceled(OffsetDateTime canceled) {
+    this.canceled = JsonNullable.<OffsetDateTime>of(canceled);
+  }
+
+  public DowntimeResponseAttributes created(OffsetDateTime created) {
+    this.created = created;
     return this;
   }
 
   /**
    * Creation time of the downtime.
    *
-   * @return createdAt
+   * @return created
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
+  public OffsetDateTime getCreated() {
+    return created;
   }
 
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
+  public void setCreated(OffsetDateTime created) {
+    this.created = created;
   }
 
   public DowntimeResponseAttributes displayTimezone(String displayTimezone) {
@@ -157,25 +192,25 @@ public class DowntimeResponseAttributes {
     this.message = JsonNullable.<String>of(message);
   }
 
-  public DowntimeResponseAttributes modifiedAt(OffsetDateTime modifiedAt) {
-    this.modifiedAt = modifiedAt;
+  public DowntimeResponseAttributes modified(OffsetDateTime modified) {
+    this.modified = modified;
     return this;
   }
 
   /**
    * Time that the downtime was last modified.
    *
-   * @return modifiedAt
+   * @return modified
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
+  public OffsetDateTime getModified() {
+    return modified;
   }
 
-  public void setModifiedAt(OffsetDateTime modifiedAt) {
-    this.modifiedAt = modifiedAt;
+  public void setModified(OffsetDateTime modified) {
+    this.modified = modified;
   }
 
   public DowntimeResponseAttributes monitorIdentifier(DowntimeMonitorIdentifier monitorIdentifier) {
@@ -415,10 +450,11 @@ public class DowntimeResponseAttributes {
       return false;
     }
     DowntimeResponseAttributes downtimeResponseAttributes = (DowntimeResponseAttributes) o;
-    return Objects.equals(this.createdAt, downtimeResponseAttributes.createdAt)
+    return Objects.equals(this.canceled, downtimeResponseAttributes.canceled)
+        && Objects.equals(this.created, downtimeResponseAttributes.created)
         && Objects.equals(this.displayTimezone, downtimeResponseAttributes.displayTimezone)
         && Objects.equals(this.message, downtimeResponseAttributes.message)
-        && Objects.equals(this.modifiedAt, downtimeResponseAttributes.modifiedAt)
+        && Objects.equals(this.modified, downtimeResponseAttributes.modified)
         && Objects.equals(this.monitorIdentifier, downtimeResponseAttributes.monitorIdentifier)
         && Objects.equals(
             this.muteFirstRecoveryNotification,
@@ -435,10 +471,11 @@ public class DowntimeResponseAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        createdAt,
+        canceled,
+        created,
         displayTimezone,
         message,
-        modifiedAt,
+        modified,
         monitorIdentifier,
         muteFirstRecoveryNotification,
         notifyEndStates,
@@ -453,10 +490,11 @@ public class DowntimeResponseAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DowntimeResponseAttributes {\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    canceled: ").append(toIndentedString(canceled)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    displayTimezone: ").append(toIndentedString(displayTimezone)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    monitorIdentifier: ").append(toIndentedString(monitorIdentifier)).append("\n");
     sb.append("    muteFirstRecoveryNotification: ")
         .append(toIndentedString(muteFirstRecoveryNotification))

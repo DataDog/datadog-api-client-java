@@ -21,6 +21,7 @@ public class Example {
                 new ConfluentResourceRequestData()
                     .attributes(
                         new ConfluentResourceRequestAttributes()
+                            .enableCustomMetrics(false)
                             .resourceType("kafka")
                             .tags(Arrays.asList("myTag", "myTag2:myValue")))
                     .id("resource-id-123")

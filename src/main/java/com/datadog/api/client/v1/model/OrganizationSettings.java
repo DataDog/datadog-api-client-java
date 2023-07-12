@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A JSON array of settings. */
 @JsonPropertyOrder({
@@ -41,7 +42,7 @@ public class OrganizationSettings {
 
   public static final String JSON_PROPERTY_SAML_AUTOCREATE_ACCESS_ROLE =
       "saml_autocreate_access_role";
-  private AccessRole samlAutocreateAccessRole = AccessRole.STANDARD;
+  private JsonNullable<AccessRole> samlAutocreateAccessRole = JsonNullable.<AccessRole>undefined();
 
   public static final String JSON_PROPERTY_SAML_AUTOCREATE_USERS_DOMAINS =
       "saml_autocreate_users_domains";
@@ -111,8 +112,7 @@ public class OrganizationSettings {
   }
 
   public OrganizationSettings samlAutocreateAccessRole(AccessRole samlAutocreateAccessRole) {
-    this.samlAutocreateAccessRole = samlAutocreateAccessRole;
-    this.unparsed |= !samlAutocreateAccessRole.isValid();
+    this.samlAutocreateAccessRole = JsonNullable.<AccessRole>of(samlAutocreateAccessRole);
     return this;
   }
 
@@ -123,17 +123,28 @@ public class OrganizationSettings {
    * @return samlAutocreateAccessRole
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public AccessRole getSamlAutocreateAccessRole() {
+    return samlAutocreateAccessRole.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_SAML_AUTOCREATE_ACCESS_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AccessRole getSamlAutocreateAccessRole() {
+  public JsonNullable<AccessRole> getSamlAutocreateAccessRole_JsonNullable() {
     return samlAutocreateAccessRole;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SAML_AUTOCREATE_ACCESS_ROLE)
+  public void setSamlAutocreateAccessRole_JsonNullable(
+      JsonNullable<AccessRole> samlAutocreateAccessRole) {
+    this.samlAutocreateAccessRole = samlAutocreateAccessRole;
   }
 
   public void setSamlAutocreateAccessRole(AccessRole samlAutocreateAccessRole) {
     if (!samlAutocreateAccessRole.isValid()) {
       this.unparsed = true;
     }
-    this.samlAutocreateAccessRole = samlAutocreateAccessRole;
+    this.samlAutocreateAccessRole = JsonNullable.<AccessRole>of(samlAutocreateAccessRole);
   }
 
   public OrganizationSettings samlAutocreateUsersDomains(
