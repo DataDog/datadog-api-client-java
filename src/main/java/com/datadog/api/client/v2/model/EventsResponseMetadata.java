@@ -23,6 +23,7 @@ import java.util.Objects;
   EventsResponseMetadata.JSON_PROPERTY_ELAPSED,
   EventsResponseMetadata.JSON_PROPERTY_PAGE,
   EventsResponseMetadata.JSON_PROPERTY_REQUEST_ID,
+  EventsResponseMetadata.JSON_PROPERTY_STATUS,
   EventsResponseMetadata.JSON_PROPERTY_WARNINGS
 })
 @jakarta.annotation.Generated(
@@ -37,6 +38,9 @@ public class EventsResponseMetadata {
 
   public static final String JSON_PROPERTY_REQUEST_ID = "request_id";
   private String requestId;
+
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private String status;
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private List<EventsWarning> warnings = null;
@@ -103,6 +107,27 @@ public class EventsResponseMetadata {
 
   public void setRequestId(String requestId) {
     this.requestId = requestId;
+  }
+
+  public EventsResponseMetadata status(String status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * The request status.
+   *
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   public EventsResponseMetadata warnings(List<EventsWarning> warnings) {
@@ -198,13 +223,14 @@ public class EventsResponseMetadata {
     return Objects.equals(this.elapsed, eventsResponseMetadata.elapsed)
         && Objects.equals(this.page, eventsResponseMetadata.page)
         && Objects.equals(this.requestId, eventsResponseMetadata.requestId)
+        && Objects.equals(this.status, eventsResponseMetadata.status)
         && Objects.equals(this.warnings, eventsResponseMetadata.warnings)
         && Objects.equals(this.additionalProperties, eventsResponseMetadata.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(elapsed, page, requestId, warnings, additionalProperties);
+    return Objects.hash(elapsed, page, requestId, status, warnings, additionalProperties);
   }
 
   @Override
@@ -214,6 +240,7 @@ public class EventsResponseMetadata {
     sb.append("    elapsed: ").append(toIndentedString(elapsed)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

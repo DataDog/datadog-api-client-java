@@ -22,6 +22,7 @@ import java.util.Objects;
 /** The object description of an event response attribute. */
 @JsonPropertyOrder({
   EventResponseAttributes.JSON_PROPERTY_ATTRIBUTES,
+  EventResponseAttributes.JSON_PROPERTY_MESSAGE,
   EventResponseAttributes.JSON_PROPERTY_TAGS,
   EventResponseAttributes.JSON_PROPERTY_TIMESTAMP
 })
@@ -31,6 +32,9 @@ public class EventResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private EventAttributes attributes;
+
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -58,6 +62,27 @@ public class EventResponseAttributes {
 
   public void setAttributes(EventAttributes attributes) {
     this.attributes = attributes;
+  }
+
+  public EventResponseAttributes message(String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * The message of the event.
+   *
+   * @return message
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   public EventResponseAttributes tags(List<String> tags) {
@@ -167,6 +192,7 @@ public class EventResponseAttributes {
     }
     EventResponseAttributes eventResponseAttributes = (EventResponseAttributes) o;
     return Objects.equals(this.attributes, eventResponseAttributes.attributes)
+        && Objects.equals(this.message, eventResponseAttributes.message)
         && Objects.equals(this.tags, eventResponseAttributes.tags)
         && Objects.equals(this.timestamp, eventResponseAttributes.timestamp)
         && Objects.equals(this.additionalProperties, eventResponseAttributes.additionalProperties);
@@ -174,7 +200,7 @@ public class EventResponseAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, tags, timestamp, additionalProperties);
+    return Objects.hash(attributes, message, tags, timestamp, additionalProperties);
   }
 
   @Override
@@ -182,6 +208,7 @@ public class EventResponseAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventResponseAttributes {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    additionalProperties: ")
