@@ -18,7 +18,9 @@ import java.util.Objects;
 
 /** A Cloud Workload Security Agent rule returned by the API. */
 @JsonPropertyOrder({
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_AGENT_CONSTRAINT,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CATEGORY,
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CREATION_AUTHOR_UU_ID,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CREATION_DATE,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CREATOR,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_DEFAULT_RULE,
@@ -26,6 +28,8 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_ENABLED,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_EXPRESSION,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_NAME,
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATE_AUTHOR_UU_ID,
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATE_DATE,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATED_AT,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATER,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_VERSION
@@ -34,8 +38,14 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AGENT_CONSTRAINT = "agentConstraint";
+  private String agentConstraint;
+
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
+
+  public static final String JSON_PROPERTY_CREATION_AUTHOR_UU_ID = "creationAuthorUuId";
+  private String creationAuthorUuId;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
   private Long creationDate;
@@ -58,6 +68,12 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_UPDATE_AUTHOR_UU_ID = "updateAuthorUuId";
+  private String updateAuthorUuId;
+
+  public static final String JSON_PROPERTY_UPDATE_DATE = "updateDate";
+  private Long updateDate;
+
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
   private Long updatedAt;
 
@@ -66,6 +82,27 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
+
+  public CloudWorkloadSecurityAgentRuleAttributes agentConstraint(String agentConstraint) {
+    this.agentConstraint = agentConstraint;
+    return this;
+  }
+
+  /**
+   * The version of the agent.
+   *
+   * @return agentConstraint
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AGENT_CONSTRAINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAgentConstraint() {
+    return agentConstraint;
+  }
+
+  public void setAgentConstraint(String agentConstraint) {
+    this.agentConstraint = agentConstraint;
+  }
 
   public CloudWorkloadSecurityAgentRuleAttributes category(String category) {
     this.category = category;
@@ -86,6 +123,27 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public void setCategory(String category) {
     this.category = category;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAttributes creationAuthorUuId(String creationAuthorUuId) {
+    this.creationAuthorUuId = creationAuthorUuId;
+    return this;
+  }
+
+  /**
+   * The ID of the user who created the rule.
+   *
+   * @return creationAuthorUuId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATION_AUTHOR_UU_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCreationAuthorUuId() {
+    return creationAuthorUuId;
+  }
+
+  public void setCreationAuthorUuId(String creationAuthorUuId) {
+    this.creationAuthorUuId = creationAuthorUuId;
   }
 
   public CloudWorkloadSecurityAgentRuleAttributes creationDate(Long creationDate) {
@@ -237,6 +295,48 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     this.name = name;
   }
 
+  public CloudWorkloadSecurityAgentRuleAttributes updateAuthorUuId(String updateAuthorUuId) {
+    this.updateAuthorUuId = updateAuthorUuId;
+    return this;
+  }
+
+  /**
+   * The ID of the user who updated the rule.
+   *
+   * @return updateAuthorUuId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATE_AUTHOR_UU_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUpdateAuthorUuId() {
+    return updateAuthorUuId;
+  }
+
+  public void setUpdateAuthorUuId(String updateAuthorUuId) {
+    this.updateAuthorUuId = updateAuthorUuId;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAttributes updateDate(Long updateDate) {
+    this.updateDate = updateDate;
+    return this;
+  }
+
+  /**
+   * Timestamp in milliseconds when the Agent rule was last updated.
+   *
+   * @return updateDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUpdateDate() {
+    return updateDate;
+  }
+
+  public void setUpdateDate(Long updateDate) {
+    this.updateDate = updateDate;
+  }
+
   public CloudWorkloadSecurityAgentRuleAttributes updatedAt(Long updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -359,7 +459,11 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     }
     CloudWorkloadSecurityAgentRuleAttributes cloudWorkloadSecurityAgentRuleAttributes =
         (CloudWorkloadSecurityAgentRuleAttributes) o;
-    return Objects.equals(this.category, cloudWorkloadSecurityAgentRuleAttributes.category)
+    return Objects.equals(
+            this.agentConstraint, cloudWorkloadSecurityAgentRuleAttributes.agentConstraint)
+        && Objects.equals(this.category, cloudWorkloadSecurityAgentRuleAttributes.category)
+        && Objects.equals(
+            this.creationAuthorUuId, cloudWorkloadSecurityAgentRuleAttributes.creationAuthorUuId)
         && Objects.equals(this.creationDate, cloudWorkloadSecurityAgentRuleAttributes.creationDate)
         && Objects.equals(this.creator, cloudWorkloadSecurityAgentRuleAttributes.creator)
         && Objects.equals(this.defaultRule, cloudWorkloadSecurityAgentRuleAttributes.defaultRule)
@@ -367,6 +471,9 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
         && Objects.equals(this.enabled, cloudWorkloadSecurityAgentRuleAttributes.enabled)
         && Objects.equals(this.expression, cloudWorkloadSecurityAgentRuleAttributes.expression)
         && Objects.equals(this.name, cloudWorkloadSecurityAgentRuleAttributes.name)
+        && Objects.equals(
+            this.updateAuthorUuId, cloudWorkloadSecurityAgentRuleAttributes.updateAuthorUuId)
+        && Objects.equals(this.updateDate, cloudWorkloadSecurityAgentRuleAttributes.updateDate)
         && Objects.equals(this.updatedAt, cloudWorkloadSecurityAgentRuleAttributes.updatedAt)
         && Objects.equals(this.updater, cloudWorkloadSecurityAgentRuleAttributes.updater)
         && Objects.equals(this.version, cloudWorkloadSecurityAgentRuleAttributes.version)
@@ -378,7 +485,9 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        agentConstraint,
         category,
+        creationAuthorUuId,
         creationDate,
         creator,
         defaultRule,
@@ -386,6 +495,8 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
         enabled,
         expression,
         name,
+        updateAuthorUuId,
+        updateDate,
         updatedAt,
         updater,
         version,
@@ -396,7 +507,9 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudWorkloadSecurityAgentRuleAttributes {\n");
+    sb.append("    agentConstraint: ").append(toIndentedString(agentConstraint)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    creationAuthorUuId: ").append(toIndentedString(creationAuthorUuId)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    defaultRule: ").append(toIndentedString(defaultRule)).append("\n");
@@ -404,6 +517,8 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    updateAuthorUuId: ").append(toIndentedString(updateAuthorUuId)).append("\n");
+    sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updater: ").append(toIndentedString(updater)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
