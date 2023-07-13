@@ -25,6 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DashboardListItem.JSON_PROPERTY_CREATED,
   DashboardListItem.JSON_PROPERTY_ICON,
   DashboardListItem.JSON_PROPERTY_ID,
+  DashboardListItem.JSON_PROPERTY_INTEGRATION_ID,
   DashboardListItem.JSON_PROPERTY_IS_FAVORITE,
   DashboardListItem.JSON_PROPERTY_IS_READ_ONLY,
   DashboardListItem.JSON_PROPERTY_IS_SHARED,
@@ -49,6 +50,9 @@ public class DashboardListItem {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_INTEGRATION_ID = "integration_id";
+  private JsonNullable<String> integrationId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_IS_FAVORITE = "is_favorite";
   private Boolean isFavorite;
@@ -163,6 +167,32 @@ public class DashboardListItem {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  /**
+   * The short name of the integration.
+   *
+   * @return integrationId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getIntegrationId() {
+
+    if (integrationId == null) {
+      integrationId = JsonNullable.<String>undefined();
+    }
+    return integrationId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_INTEGRATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getIntegrationId_JsonNullable() {
+    return integrationId;
+  }
+
+  @JsonProperty(JSON_PROPERTY_INTEGRATION_ID)
+  private void setIntegrationId_JsonNullable(JsonNullable<String> integrationId) {
+    this.integrationId = integrationId;
   }
 
   /**
@@ -333,6 +363,7 @@ public class DashboardListItem {
         && Objects.equals(this.created, dashboardListItem.created)
         && Objects.equals(this.icon, dashboardListItem.icon)
         && Objects.equals(this.id, dashboardListItem.id)
+        && Objects.equals(this.integrationId, dashboardListItem.integrationId)
         && Objects.equals(this.isFavorite, dashboardListItem.isFavorite)
         && Objects.equals(this.isReadOnly, dashboardListItem.isReadOnly)
         && Objects.equals(this.isShared, dashboardListItem.isShared)
@@ -351,6 +382,7 @@ public class DashboardListItem {
         created,
         icon,
         id,
+        integrationId,
         isFavorite,
         isReadOnly,
         isShared,
@@ -370,6 +402,7 @@ public class DashboardListItem {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    isFavorite: ").append(toIndentedString(isFavorite)).append("\n");
     sb.append("    isReadOnly: ").append(toIndentedString(isReadOnly)).append("\n");
     sb.append("    isShared: ").append(toIndentedString(isShared)).append("\n");
