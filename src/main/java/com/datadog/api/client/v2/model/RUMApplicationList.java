@@ -20,6 +20,7 @@ import java.util.Objects;
 /** RUM application list. */
 @JsonPropertyOrder({
   RUMApplicationList.JSON_PROPERTY_ATTRIBUTES,
+  RUMApplicationList.JSON_PROPERTY_ID,
   RUMApplicationList.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -28,6 +29,9 @@ public class RUMApplicationList {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private RUMApplicationListAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private RUMApplicationListType type = RUMApplicationListType.RUM_APPLICATION;
@@ -64,6 +68,27 @@ public class RUMApplicationList {
 
   public void setAttributes(RUMApplicationListAttributes attributes) {
     this.attributes = attributes;
+  }
+
+  public RUMApplicationList id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * RUM application ID.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public RUMApplicationList type(RUMApplicationListType type) {
@@ -147,13 +172,14 @@ public class RUMApplicationList {
     }
     RUMApplicationList rumApplicationList = (RUMApplicationList) o;
     return Objects.equals(this.attributes, rumApplicationList.attributes)
+        && Objects.equals(this.id, rumApplicationList.id)
         && Objects.equals(this.type, rumApplicationList.type)
         && Objects.equals(this.additionalProperties, rumApplicationList.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
@@ -161,6 +187,7 @@ public class RUMApplicationList {
     StringBuilder sb = new StringBuilder();
     sb.append("class RUMApplicationList {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
