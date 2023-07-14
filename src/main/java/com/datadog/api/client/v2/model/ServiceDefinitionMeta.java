@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -21,7 +23,10 @@ import java.util.Objects;
   ServiceDefinitionMeta.JSON_PROPERTY_GITHUB_HTML_URL,
   ServiceDefinitionMeta.JSON_PROPERTY_INGESTED_SCHEMA_VERSION,
   ServiceDefinitionMeta.JSON_PROPERTY_INGESTION_SOURCE,
-  ServiceDefinitionMeta.JSON_PROPERTY_LAST_MODIFIED_TIME
+  ServiceDefinitionMeta.JSON_PROPERTY_LAST_MODIFIED_TIME,
+  ServiceDefinitionMeta.JSON_PROPERTY_ORIGIN,
+  ServiceDefinitionMeta.JSON_PROPERTY_ORIGIN_DETAIL,
+  ServiceDefinitionMeta.JSON_PROPERTY_WARNINGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -38,6 +43,15 @@ public class ServiceDefinitionMeta {
 
   public static final String JSON_PROPERTY_LAST_MODIFIED_TIME = "last-modified-time";
   private String lastModifiedTime;
+
+  public static final String JSON_PROPERTY_ORIGIN = "origin";
+  private String origin;
+
+  public static final String JSON_PROPERTY_ORIGIN_DETAIL = "origin-detail";
+  private String originDetail;
+
+  public static final String JSON_PROPERTY_WARNINGS = "warnings";
+  private List<ServiceDefinitionMetaWarnings> warnings = null;
 
   public ServiceDefinitionMeta githubHtmlUrl(String githubHtmlUrl) {
     this.githubHtmlUrl = githubHtmlUrl;
@@ -123,6 +137,81 @@ public class ServiceDefinitionMeta {
     this.lastModifiedTime = lastModifiedTime;
   }
 
+  public ServiceDefinitionMeta origin(String origin) {
+    this.origin = origin;
+    return this;
+  }
+
+  /**
+   * User defined origin of the service definition.
+   *
+   * @return origin
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORIGIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrigin() {
+    return origin;
+  }
+
+  public void setOrigin(String origin) {
+    this.origin = origin;
+  }
+
+  public ServiceDefinitionMeta originDetail(String originDetail) {
+    this.originDetail = originDetail;
+    return this;
+  }
+
+  /**
+   * User defined origin's detail of the service definition.
+   *
+   * @return originDetail
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORIGIN_DETAIL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOriginDetail() {
+    return originDetail;
+  }
+
+  public void setOriginDetail(String originDetail) {
+    this.originDetail = originDetail;
+  }
+
+  public ServiceDefinitionMeta warnings(List<ServiceDefinitionMetaWarnings> warnings) {
+    this.warnings = warnings;
+    for (ServiceDefinitionMetaWarnings item : warnings) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public ServiceDefinitionMeta addWarningsItem(ServiceDefinitionMetaWarnings warningsItem) {
+    if (this.warnings == null) {
+      this.warnings = new ArrayList<>();
+    }
+    this.warnings.add(warningsItem);
+    this.unparsed |= warningsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * A list of schema validation warnings.
+   *
+   * @return warnings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WARNINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ServiceDefinitionMetaWarnings> getWarnings() {
+    return warnings;
+  }
+
+  public void setWarnings(List<ServiceDefinitionMetaWarnings> warnings) {
+    this.warnings = warnings;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -183,6 +272,9 @@ public class ServiceDefinitionMeta {
         && Objects.equals(this.ingestedSchemaVersion, serviceDefinitionMeta.ingestedSchemaVersion)
         && Objects.equals(this.ingestionSource, serviceDefinitionMeta.ingestionSource)
         && Objects.equals(this.lastModifiedTime, serviceDefinitionMeta.lastModifiedTime)
+        && Objects.equals(this.origin, serviceDefinitionMeta.origin)
+        && Objects.equals(this.originDetail, serviceDefinitionMeta.originDetail)
+        && Objects.equals(this.warnings, serviceDefinitionMeta.warnings)
         && Objects.equals(this.additionalProperties, serviceDefinitionMeta.additionalProperties);
   }
 
@@ -193,6 +285,9 @@ public class ServiceDefinitionMeta {
         ingestedSchemaVersion,
         ingestionSource,
         lastModifiedTime,
+        origin,
+        originDetail,
+        warnings,
         additionalProperties);
   }
 
@@ -206,6 +301,9 @@ public class ServiceDefinitionMeta {
         .append("\n");
     sb.append("    ingestionSource: ").append(toIndentedString(ingestionSource)).append("\n");
     sb.append("    lastModifiedTime: ").append(toIndentedString(lastModifiedTime)).append("\n");
+    sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
+    sb.append("    originDetail: ").append(toIndentedString(originDetail)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
