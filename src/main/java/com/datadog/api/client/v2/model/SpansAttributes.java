@@ -22,6 +22,7 @@ import java.util.Objects;
 /** JSON object containing all span attributes and their associated values. */
 @JsonPropertyOrder({
   SpansAttributes.JSON_PROPERTY_ATTRIBUTES,
+  SpansAttributes.JSON_PROPERTY_CUSTOM,
   SpansAttributes.JSON_PROPERTY_END_TIMESTAMP,
   SpansAttributes.JSON_PROPERTY_ENV,
   SpansAttributes.JSON_PROPERTY_HOST,
@@ -44,6 +45,9 @@ public class SpansAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private Map<String, Object> attributes = null;
+
+  public static final String JSON_PROPERTY_CUSTOM = "custom";
+  private Map<String, Object> custom = null;
 
   public static final String JSON_PROPERTY_END_TIMESTAMP = "end_timestamp";
   private OffsetDateTime endTimestamp;
@@ -117,6 +121,35 @@ public class SpansAttributes {
 
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
+  }
+
+  public SpansAttributes custom(Map<String, Object> custom) {
+    this.custom = custom;
+    return this;
+  }
+
+  public SpansAttributes putCustomItem(String key, Object customItem) {
+    if (this.custom == null) {
+      this.custom = new HashMap<>();
+    }
+    this.custom.put(key, customItem);
+    return this;
+  }
+
+  /**
+   * JSON object of custom spans data.
+   *
+   * @return custom
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getCustom() {
+    return custom;
+  }
+
+  public void setCustom(Map<String, Object> custom) {
+    this.custom = custom;
   }
 
   public SpansAttributes endTimestamp(OffsetDateTime endTimestamp) {
@@ -501,6 +534,7 @@ public class SpansAttributes {
     }
     SpansAttributes spansAttributes = (SpansAttributes) o;
     return Objects.equals(this.attributes, spansAttributes.attributes)
+        && Objects.equals(this.custom, spansAttributes.custom)
         && Objects.equals(this.endTimestamp, spansAttributes.endTimestamp)
         && Objects.equals(this.env, spansAttributes.env)
         && Objects.equals(this.host, spansAttributes.host)
@@ -523,6 +557,7 @@ public class SpansAttributes {
   public int hashCode() {
     return Objects.hash(
         attributes,
+        custom,
         endTimestamp,
         env,
         host,
@@ -546,6 +581,7 @@ public class SpansAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class SpansAttributes {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    custom: ").append(toIndentedString(custom)).append("\n");
     sb.append("    endTimestamp: ").append(toIndentedString(endTimestamp)).append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");

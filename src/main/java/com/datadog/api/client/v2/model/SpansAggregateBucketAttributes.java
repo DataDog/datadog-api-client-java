@@ -16,91 +16,103 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Spans aggregate. */
+/** A bucket values. */
 @JsonPropertyOrder({
-  SpansAggregateBucket.JSON_PROPERTY_ATTRIBUTES,
-  SpansAggregateBucket.JSON_PROPERTY_ID,
-  SpansAggregateBucket.JSON_PROPERTY_TYPE
+  SpansAggregateBucketAttributes.JSON_PROPERTY_BY,
+  SpansAggregateBucketAttributes.JSON_PROPERTY_COMPUTE,
+  SpansAggregateBucketAttributes.JSON_PROPERTY_COMPUTES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SpansAggregateBucket {
+public class SpansAggregateBucketAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private SpansAggregateBucketAttributes attributes;
+  public static final String JSON_PROPERTY_BY = "by";
+  private Map<String, Object> by = null;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_COMPUTE = "compute";
+  private Object compute;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private SpansAggregateBucketType type;
+  public static final String JSON_PROPERTY_COMPUTES = "computes";
+  private Map<String, SpansAggregateBucketValue> computes = null;
 
-  public SpansAggregateBucket attributes(SpansAggregateBucketAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public SpansAggregateBucketAttributes by(Map<String, Object> by) {
+    this.by = by;
     return this;
   }
 
-  /**
-   * A bucket values.
-   *
-   * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SpansAggregateBucketAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(SpansAggregateBucketAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public SpansAggregateBucket id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * ID of the spans aggregate.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public SpansAggregateBucket type(SpansAggregateBucketType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The spans aggregate bucket type.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SpansAggregateBucketType getType() {
-    return type;
-  }
-
-  public void setType(SpansAggregateBucketType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+  public SpansAggregateBucketAttributes putByItem(String key, Object byItem) {
+    if (this.by == null) {
+      this.by = new HashMap<>();
     }
-    this.type = type;
+    this.by.put(key, byItem);
+    return this;
+  }
+
+  /**
+   * The key, value pairs for each group by.
+   *
+   * @return by
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getBy() {
+    return by;
+  }
+
+  public void setBy(Map<String, Object> by) {
+    this.by = by;
+  }
+
+  public SpansAggregateBucketAttributes compute(Object compute) {
+    this.compute = compute;
+    return this;
+  }
+
+  /**
+   * The compute data.
+   *
+   * @return compute
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getCompute() {
+    return compute;
+  }
+
+  public void setCompute(Object compute) {
+    this.compute = compute;
+  }
+
+  public SpansAggregateBucketAttributes computes(Map<String, SpansAggregateBucketValue> computes) {
+    this.computes = computes;
+    return this;
+  }
+
+  public SpansAggregateBucketAttributes putComputesItem(
+      String key, SpansAggregateBucketValue computesItem) {
+    if (this.computes == null) {
+      this.computes = new HashMap<>();
+    }
+    this.computes.put(key, computesItem);
+    return this;
+  }
+
+  /**
+   * A map of the metric name -&gt; value for regular compute or list of values for a timeseries.
+   *
+   * @return computes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, SpansAggregateBucketValue> getComputes() {
+    return computes;
+  }
+
+  public void setComputes(Map<String, SpansAggregateBucketValue> computes) {
+    this.computes = computes;
   }
 
   /**
@@ -115,10 +127,10 @@ public class SpansAggregateBucket {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SpansAggregateBucket
+   * @return SpansAggregateBucketAttributes
    */
   @JsonAnySetter
-  public SpansAggregateBucket putAdditionalProperty(String key, Object value) {
+  public SpansAggregateBucketAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -149,7 +161,7 @@ public class SpansAggregateBucket {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SpansAggregateBucket object is equal to o. */
+  /** Return true if this SpansAggregateBucketAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,25 +170,27 @@ public class SpansAggregateBucket {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SpansAggregateBucket spansAggregateBucket = (SpansAggregateBucket) o;
-    return Objects.equals(this.attributes, spansAggregateBucket.attributes)
-        && Objects.equals(this.id, spansAggregateBucket.id)
-        && Objects.equals(this.type, spansAggregateBucket.type)
-        && Objects.equals(this.additionalProperties, spansAggregateBucket.additionalProperties);
+    SpansAggregateBucketAttributes spansAggregateBucketAttributes =
+        (SpansAggregateBucketAttributes) o;
+    return Objects.equals(this.by, spansAggregateBucketAttributes.by)
+        && Objects.equals(this.compute, spansAggregateBucketAttributes.compute)
+        && Objects.equals(this.computes, spansAggregateBucketAttributes.computes)
+        && Objects.equals(
+            this.additionalProperties, spansAggregateBucketAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(by, compute, computes, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SpansAggregateBucket {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class SpansAggregateBucketAttributes {\n");
+    sb.append("    by: ").append(toIndentedString(by)).append("\n");
+    sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
+    sb.append("    computes: ").append(toIndentedString(computes)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
