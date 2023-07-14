@@ -16,87 +16,86 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Service definition data. */
+/** Schema validation warnings. */
 @JsonPropertyOrder({
-  ServiceDefinitionData.JSON_PROPERTY_ATTRIBUTES,
-  ServiceDefinitionData.JSON_PROPERTY_ID,
-  ServiceDefinitionData.JSON_PROPERTY_TYPE
+  ServiceDefinitionMetaWarnings.JSON_PROPERTY_INSTANCE_LOCATION,
+  ServiceDefinitionMetaWarnings.JSON_PROPERTY_KEYWORD_LOCATION,
+  ServiceDefinitionMetaWarnings.JSON_PROPERTY_MESSAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ServiceDefinitionData {
+public class ServiceDefinitionMetaWarnings {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private ServiceDefinitionDataAttributes attributes;
+  public static final String JSON_PROPERTY_INSTANCE_LOCATION = "instance-location";
+  private String instanceLocation;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_KEYWORD_LOCATION = "keyword-location";
+  private String keywordLocation;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
-  public ServiceDefinitionData attributes(ServiceDefinitionDataAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public ServiceDefinitionMetaWarnings instanceLocation(String instanceLocation) {
+    this.instanceLocation = instanceLocation;
     return this;
   }
 
   /**
-   * Service definition attributes.
+   * The warning instance location.
    *
-   * @return attributes
+   * @return instanceLocation
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_INSTANCE_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ServiceDefinitionDataAttributes getAttributes() {
-    return attributes;
+  public String getInstanceLocation() {
+    return instanceLocation;
   }
 
-  public void setAttributes(ServiceDefinitionDataAttributes attributes) {
-    this.attributes = attributes;
+  public void setInstanceLocation(String instanceLocation) {
+    this.instanceLocation = instanceLocation;
   }
 
-  public ServiceDefinitionData id(String id) {
-    this.id = id;
+  public ServiceDefinitionMetaWarnings keywordLocation(String keywordLocation) {
+    this.keywordLocation = keywordLocation;
     return this;
   }
 
   /**
-   * Service definition id.
+   * The warning keyword location.
    *
-   * @return id
+   * @return keywordLocation
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_KEYWORD_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  public String getKeywordLocation() {
+    return keywordLocation;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setKeywordLocation(String keywordLocation) {
+    this.keywordLocation = keywordLocation;
   }
 
-  public ServiceDefinitionData type(String type) {
-    this.type = type;
+  public ServiceDefinitionMetaWarnings message(String message) {
+    this.message = message;
     return this;
   }
 
   /**
-   * Service definition type.
+   * The warning message.
    *
-   * @return type
+   * @return message
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
-    return type;
+  public String getMessage() {
+    return message;
   }
 
-  public void setType(String type) {
-    this.type = type;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   /**
@@ -111,10 +110,10 @@ public class ServiceDefinitionData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ServiceDefinitionData
+   * @return ServiceDefinitionMetaWarnings
    */
   @JsonAnySetter
-  public ServiceDefinitionData putAdditionalProperty(String key, Object value) {
+  public ServiceDefinitionMetaWarnings putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -145,7 +144,7 @@ public class ServiceDefinitionData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ServiceDefinitionData object is equal to o. */
+  /** Return true if this ServiceDefinitionMetaWarnings object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -154,25 +153,26 @@ public class ServiceDefinitionData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ServiceDefinitionData serviceDefinitionData = (ServiceDefinitionData) o;
-    return Objects.equals(this.attributes, serviceDefinitionData.attributes)
-        && Objects.equals(this.id, serviceDefinitionData.id)
-        && Objects.equals(this.type, serviceDefinitionData.type)
-        && Objects.equals(this.additionalProperties, serviceDefinitionData.additionalProperties);
+    ServiceDefinitionMetaWarnings serviceDefinitionMetaWarnings = (ServiceDefinitionMetaWarnings) o;
+    return Objects.equals(this.instanceLocation, serviceDefinitionMetaWarnings.instanceLocation)
+        && Objects.equals(this.keywordLocation, serviceDefinitionMetaWarnings.keywordLocation)
+        && Objects.equals(this.message, serviceDefinitionMetaWarnings.message)
+        && Objects.equals(
+            this.additionalProperties, serviceDefinitionMetaWarnings.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(instanceLocation, keywordLocation, message, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceDefinitionData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class ServiceDefinitionMetaWarnings {\n");
+    sb.append("    instanceLocation: ").append(toIndentedString(instanceLocation)).append("\n");
+    sb.append("    keywordLocation: ").append(toIndentedString(keywordLocation)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
