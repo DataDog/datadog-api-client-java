@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
 
@@ -255,6 +256,20 @@ public class ClientSteps {
           java.lang.NoSuchFieldException {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
     assertFalse((Boolean) World.lookup(responseData, responsePath));
+  }
+
+@Then("the response {string} has field {string}")
+  public void theResponseHasField(String responsePath, String field)
+      throws java.lang.reflect.InvocationTargetException,
+          java.lang.IllegalAccessException,
+          java.lang.InstantiationException,
+          java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException,
+          java.lang.NoSuchFieldException {
+    Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
+    Object lookupRes = World.lookup(responseData, responsePath);
+    Map<String, Object> mapObj = world.getObjectMapper().convertValue(lookupRes, Map.class);
+    assertTrue(mapObj.containsKey(field));
   }
 
   @Then("the response {string} has the same value as {string}")
