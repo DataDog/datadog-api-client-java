@@ -258,7 +258,7 @@ public class ClientSteps {
     assertFalse((Boolean) World.lookup(responseData, responsePath));
   }
 
-@Then("the response {string} has field {string}")
+  @Then("the response {string} has field {string}")
   public void theResponseHasField(String responsePath, String field)
       throws java.lang.reflect.InvocationTargetException,
           java.lang.IllegalAccessException,
