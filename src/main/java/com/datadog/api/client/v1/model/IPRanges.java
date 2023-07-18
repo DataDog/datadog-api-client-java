@@ -25,6 +25,7 @@ import java.util.Objects;
   IPRanges.JSON_PROPERTY_MODIFIED,
   IPRanges.JSON_PROPERTY_ORCHESTRATOR,
   IPRanges.JSON_PROPERTY_PROCESS,
+  IPRanges.JSON_PROPERTY_REMOTE_CONFIGURATION,
   IPRanges.JSON_PROPERTY_SYNTHETICS,
   IPRanges.JSON_PROPERTY_SYNTHETICS_PRIVATE_LOCATIONS,
   IPRanges.JSON_PROPERTY_VERSION,
@@ -54,6 +55,9 @@ public class IPRanges {
 
   public static final String JSON_PROPERTY_PROCESS = "process";
   private IPPrefixesProcess process;
+
+  public static final String JSON_PROPERTY_REMOTE_CONFIGURATION = "remote-configuration";
+  private IPPrefixesRemoteConfiguration remoteConfiguration;
 
   public static final String JSON_PROPERTY_SYNTHETICS = "synthetics";
   private IPPrefixesSynthetics synthetics;
@@ -221,6 +225,28 @@ public class IPRanges {
     this.process = process;
   }
 
+  public IPRanges remoteConfiguration(IPPrefixesRemoteConfiguration remoteConfiguration) {
+    this.remoteConfiguration = remoteConfiguration;
+    this.unparsed |= remoteConfiguration.unparsed;
+    return this;
+  }
+
+  /**
+   * Available prefix information for the Remote Configuration endpoints.
+   *
+   * @return remoteConfiguration
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REMOTE_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IPPrefixesRemoteConfiguration getRemoteConfiguration() {
+    return remoteConfiguration;
+  }
+
+  public void setRemoteConfiguration(IPPrefixesRemoteConfiguration remoteConfiguration) {
+    this.remoteConfiguration = remoteConfiguration;
+  }
+
   public IPRanges synthetics(IPPrefixesSynthetics synthetics) {
     this.synthetics = synthetics;
     this.unparsed |= synthetics.unparsed;
@@ -373,6 +399,7 @@ public class IPRanges {
         && Objects.equals(this.modified, ipRanges.modified)
         && Objects.equals(this.orchestrator, ipRanges.orchestrator)
         && Objects.equals(this.process, ipRanges.process)
+        && Objects.equals(this.remoteConfiguration, ipRanges.remoteConfiguration)
         && Objects.equals(this.synthetics, ipRanges.synthetics)
         && Objects.equals(this.syntheticsPrivateLocations, ipRanges.syntheticsPrivateLocations)
         && Objects.equals(this.version, ipRanges.version)
@@ -390,6 +417,7 @@ public class IPRanges {
         modified,
         orchestrator,
         process,
+        remoteConfiguration,
         synthetics,
         syntheticsPrivateLocations,
         version,
@@ -408,6 +436,9 @@ public class IPRanges {
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    orchestrator: ").append(toIndentedString(orchestrator)).append("\n");
     sb.append("    process: ").append(toIndentedString(process)).append("\n");
+    sb.append("    remoteConfiguration: ")
+        .append(toIndentedString(remoteConfiguration))
+        .append("\n");
     sb.append("    synthetics: ").append(toIndentedString(synthetics)).append("\n");
     sb.append("    syntheticsPrivateLocations: ")
         .append(toIndentedString(syntheticsPrivateLocations))
