@@ -23,11 +23,12 @@ import java.util.Set;
 public class WidgetDisplayType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("area", "bars", "line"));
+      new HashSet<String>(Arrays.asList("area", "bars", "line", "overlay"));
 
   public static final WidgetDisplayType AREA = new WidgetDisplayType("area");
   public static final WidgetDisplayType BARS = new WidgetDisplayType("bars");
   public static final WidgetDisplayType LINE = new WidgetDisplayType("line");
+  public static final WidgetDisplayType OVERLAY = new WidgetDisplayType("overlay");
 
   WidgetDisplayType(String value) {
     super(value, allowedValues);
