@@ -22,7 +22,7 @@ import java.util.Objects;
 public class ListFindingsMeta {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PAGE = "page";
-  private ListFindingsPage page = null;
+  private ListFindingsPage page;
 
   public static final String JSON_PROPERTY_SNAPSHOT_TIMESTAMP = "snapshot_timestamp";
   private Long snapshotTimestamp;
