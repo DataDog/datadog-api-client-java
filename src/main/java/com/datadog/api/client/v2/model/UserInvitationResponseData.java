@@ -20,6 +20,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UserInvitationResponseData.JSON_PROPERTY_ATTRIBUTES,
   UserInvitationResponseData.JSON_PROPERTY_ID,
+  UserInvitationResponseData.JSON_PROPERTY_RELATIONSHIPS,
   UserInvitationResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -31,6 +32,9 @@ public class UserInvitationResponseData {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private UserInvitationRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private UserInvitationsType type = UserInvitationsType.USER_INVITATIONS;
@@ -76,6 +80,28 @@ public class UserInvitationResponseData {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public UserInvitationResponseData relationships(UserInvitationRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationships data for user invitation.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UserInvitationRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(UserInvitationRelationships relationships) {
+    this.relationships = relationships;
   }
 
   public UserInvitationResponseData type(UserInvitationsType type) {
@@ -161,6 +187,7 @@ public class UserInvitationResponseData {
     UserInvitationResponseData userInvitationResponseData = (UserInvitationResponseData) o;
     return Objects.equals(this.attributes, userInvitationResponseData.attributes)
         && Objects.equals(this.id, userInvitationResponseData.id)
+        && Objects.equals(this.relationships, userInvitationResponseData.relationships)
         && Objects.equals(this.type, userInvitationResponseData.type)
         && Objects.equals(
             this.additionalProperties, userInvitationResponseData.additionalProperties);
@@ -168,7 +195,7 @@ public class UserInvitationResponseData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -177,6 +204,7 @@ public class UserInvitationResponseData {
     sb.append("class UserInvitationResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
