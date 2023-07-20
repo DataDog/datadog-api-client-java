@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 2.14.0 / 2023-07-20
+
+### Fixed
+* Spans API docs update by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1872
+* Fix filter indexes parameter in logs search by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1877
+* Fix Spans endpoint schemas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1892
+### Added
+* Add support for geomap widget using response_type `event_list` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1856
+* Add support for the spans API endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1860
+* Add a new field additional_query_filters to formula and function slo query by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1873
+* Add support for `enable_custom_metrics` in Confluent Account by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1870
+* Add missing `id` attribute for Confluent Account Response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1876
+* Fix downtimes v2 schema and add missing field `canceled` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1881
+* Add cloud_cost data source and query definition to dashboards by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1882
+* Add missing cloud workload security fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1887
+* Add `integration_id` field for dashboard list item by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1891
+* Add events response fields `message` and `status` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1888
+* Add missing `GetRUMApplications` response field `id` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1889
+* Add missing service definition fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1890
+* Add overlay type to Dashboards WidgetDisplayType by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1893
+* Update IP ranges with remote configuration section by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1895
+* Add missing `relationships` to UsersInvitations response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1897
+* Added optional field filters when creating a cloud configuration rule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1902
+### Changed
+* Add downtime v2 API in private beta by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1824
+* Mark `access_role` as nullable by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1879
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.13.0...datadog-api-client-2.14.0
+
 ## 2.13.0 / 2023-06-27
 
 ### Fixed
