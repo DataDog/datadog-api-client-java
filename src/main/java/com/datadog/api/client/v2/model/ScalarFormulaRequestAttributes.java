@@ -31,7 +31,7 @@ import java.util.Objects;
 public class ScalarFormulaRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORMULAS = "formulas";
-  private List<QueryFormula> formulas = null;
+  private List<QueryFormulaWithLimit> formulas = null;
 
   public static final String JSON_PROPERTY_FROM = "from";
   private Long from;
@@ -54,15 +54,15 @@ public class ScalarFormulaRequestAttributes {
     this.to = to;
   }
 
-  public ScalarFormulaRequestAttributes formulas(List<QueryFormula> formulas) {
+  public ScalarFormulaRequestAttributes formulas(List<QueryFormulaWithLimit> formulas) {
     this.formulas = formulas;
-    for (QueryFormula item : formulas) {
+    for (QueryFormulaWithLimit item : formulas) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public ScalarFormulaRequestAttributes addFormulasItem(QueryFormula formulasItem) {
+  public ScalarFormulaRequestAttributes addFormulasItem(QueryFormulaWithLimit formulasItem) {
     if (this.formulas == null) {
       this.formulas = new ArrayList<>();
     }
@@ -79,11 +79,11 @@ public class ScalarFormulaRequestAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<QueryFormula> getFormulas() {
+  public List<QueryFormulaWithLimit> getFormulas() {
     return formulas;
   }
 
-  public void setFormulas(List<QueryFormula> formulas) {
+  public void setFormulas(List<QueryFormulaWithLimit> formulas) {
     this.formulas = formulas;
   }
 

@@ -18,23 +18,29 @@ import java.util.Map;
 import java.util.Objects;
 
 /** A formula for calculation based on one or more queries. */
-@JsonPropertyOrder({QueryFormula.JSON_PROPERTY_FORMULA})
+@JsonPropertyOrder({
+  QueryFormulaWithLimit.JSON_PROPERTY_FORMULA,
+  QueryFormulaWithLimit.JSON_PROPERTY_LIMIT
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class QueryFormula {
+public class QueryFormulaWithLimit {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORMULA = "formula";
   private String formula;
 
-  public QueryFormula() {}
+  public static final String JSON_PROPERTY_LIMIT = "limit";
+  private FormulaLimit limit;
+
+  public QueryFormulaWithLimit() {}
 
   @JsonCreator
-  public QueryFormula(
+  public QueryFormulaWithLimit(
       @JsonProperty(required = true, value = JSON_PROPERTY_FORMULA) String formula) {
     this.formula = formula;
   }
 
-  public QueryFormula formula(String formula) {
+  public QueryFormulaWithLimit formula(String formula) {
     this.formula = formula;
     return this;
   }
@@ -54,6 +60,28 @@ public class QueryFormula {
     this.formula = formula;
   }
 
+  public QueryFormulaWithLimit limit(FormulaLimit limit) {
+    this.limit = limit;
+    this.unparsed |= limit.unparsed;
+    return this;
+  }
+
+  /**
+   * Message for specifying limits to the number of values returned by a query.
+   *
+   * @return limit
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaLimit getLimit() {
+    return limit;
+  }
+
+  public void setLimit(FormulaLimit limit) {
+    this.limit = limit;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -66,10 +94,10 @@ public class QueryFormula {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return QueryFormula
+   * @return QueryFormulaWithLimit
    */
   @JsonAnySetter
-  public QueryFormula putAdditionalProperty(String key, Object value) {
+  public QueryFormulaWithLimit putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -100,7 +128,7 @@ public class QueryFormula {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this QueryFormula object is equal to o. */
+  /** Return true if this QueryFormulaWithLimit object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -109,21 +137,23 @@ public class QueryFormula {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    QueryFormula queryFormula = (QueryFormula) o;
-    return Objects.equals(this.formula, queryFormula.formula)
-        && Objects.equals(this.additionalProperties, queryFormula.additionalProperties);
+    QueryFormulaWithLimit queryFormulaWithLimit = (QueryFormulaWithLimit) o;
+    return Objects.equals(this.formula, queryFormulaWithLimit.formula)
+        && Objects.equals(this.limit, queryFormulaWithLimit.limit)
+        && Objects.equals(this.additionalProperties, queryFormulaWithLimit.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(formula, additionalProperties);
+    return Objects.hash(formula, limit, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class QueryFormula {\n");
+    sb.append("class QueryFormulaWithLimit {\n");
     sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

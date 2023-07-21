@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a+b\",\"limit\":{\"count\":10,\"order\":\"desc\"}}],\"from\":1671617641,\"interval\":5000,\"queries\":[{\"data_source\":\"metrics\",\"query\":\"avg:system.cpu.user{*}\"}],\"to\":1671621241},\"type\":\"timeseries_rquest\"}}"
+        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a+b\"}],\"from\":1689871087,\"interval\":5000,\"queries\":[{\"data_source\":\"metrics\",\"query\":\"avg:system.cpu.user{*}\"}],\"to\":1689874687},\"type\":\"timeseries_rquest\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b35b89eb-d9b8-8473-fd2d-da93932e30b5"
+    "id": "143813cd-d50d-a18b-120f-f4413ac1f1cc"
   }
 ]

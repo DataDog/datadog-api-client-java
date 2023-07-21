@@ -3,11 +3,9 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.MetricsApi;
-import com.datadog.api.client.v2.model.FormulaLimit;
 import com.datadog.api.client.v2.model.MetricsDataSource;
 import com.datadog.api.client.v2.model.MetricsTimeseriesQuery;
 import com.datadog.api.client.v2.model.QueryFormula;
-import com.datadog.api.client.v2.model.QuerySortOrder;
 import com.datadog.api.client.v2.model.TimeseriesFormulaQueryRequest;
 import com.datadog.api.client.v2.model.TimeseriesFormulaQueryResponse;
 import com.datadog.api.client.v2.model.TimeseriesFormulaRequest;
@@ -28,14 +26,7 @@ public class Example {
                 new TimeseriesFormulaRequest()
                     .attributes(
                         new TimeseriesFormulaRequestAttributes()
-                            .formulas(
-                                Collections.singletonList(
-                                    new QueryFormula()
-                                        .formula("a+b")
-                                        .limit(
-                                            new FormulaLimit()
-                                                .count(10)
-                                                .order(QuerySortOrder.DESC))))
+                            .formulas(Collections.singletonList(new QueryFormula().formula("a+b")))
                             .from(1568899800000L)
                             .interval(5000L)
                             .queries(

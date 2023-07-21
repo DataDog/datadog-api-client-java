@@ -7,7 +7,7 @@ import com.datadog.api.client.v2.model.FormulaLimit;
 import com.datadog.api.client.v2.model.MetricsAggregator;
 import com.datadog.api.client.v2.model.MetricsDataSource;
 import com.datadog.api.client.v2.model.MetricsScalarQuery;
-import com.datadog.api.client.v2.model.QueryFormula;
+import com.datadog.api.client.v2.model.QueryFormulaWithLimit;
 import com.datadog.api.client.v2.model.QuerySortOrder;
 import com.datadog.api.client.v2.model.ScalarFormulaQueryRequest;
 import com.datadog.api.client.v2.model.ScalarFormulaQueryResponse;
@@ -31,7 +31,7 @@ public class Example {
                         new ScalarFormulaRequestAttributes()
                             .formulas(
                                 Collections.singletonList(
-                                    new QueryFormula()
+                                    new QueryFormulaWithLimit()
                                         .formula("a")
                                         .limit(
                                             new FormulaLimit()
