@@ -88,7 +88,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- set isArray = "items" in schema %}
   {%- set isRequired = attr in model.get("required", []) %}
   {%- set defaultValue = schema.get("default", None) %}
-  {%- set isAdditionalPropertiesContainer = schema.properties is not defined and schema.additionalProperties is defined and schema.additionalProperties is not false%}
+  {%- set isAdditionalPropertiesContainer = schema.properties is not defined and schema.additionalProperties is defined and schema.additionalProperties is not false %}
 
   {%- if not schema.get("readOnly", False) %}
   public {{ name }} {{ variableName }}({{ dataType }} {{ variableName }}) {
