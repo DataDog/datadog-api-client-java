@@ -23,9 +23,9 @@ import java.util.Objects;
 public class TeamResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private TeamData data;
+  private Team data;
 
-  public TeamResponse data(TeamData data) {
+  public TeamResponse data(Team data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
@@ -39,11 +39,11 @@ public class TeamResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamData getData() {
+  public Team getData() {
     return data;
   }
 
-  public void setData(TeamData data) {
+  public void setData(Team data) {
     this.data = data;
   }
 

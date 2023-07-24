@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-b71373014d00f4cf\",\"name\":\"name-b71373014d00f4cf\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-365d9943be4cbd80\",\"name\":\"name-365d9943be4cbd80\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"5b770c20-ef4f-11ed-a442-da7ad0900002\",\"attributes\":{\"name\":\"name-b71373014d00f4cf\",\"handle\":\"handle-b71373014d00f4cf\",\"summary\":null,\"description\":null,\"color\":6,\"created_at\":\"2023-05-10T16:26:03.434008+00:00\",\"modified_at\":\"2023-05-10T16:26:03.434012+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/5b770c20-ef4f-11ed-a442-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/5b770c20-ef4f-11ed-a442-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"ae81e17c-20d9-11ee-a254-da7ad0900002\",\"attributes\":{\"name\":\"name-365d9943be4cbd80\",\"handle\":\"handle-365d9943be4cbd80\",\"summary\":null,\"description\":null,\"created_at\":\"2023-07-12T17:29:40.278830+00:00\",\"modified_at\":\"2023-07-12T17:29:40.278836+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/ae81e17c-20d9-11ee-a254-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/ae81e17c-20d9-11ee-a254-da7ad0900002/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "bf7b1408-a64b-333b-1c50-bbb852b197f8"
+    "id": "dffeb863-9ae4-6bdb-3ad2-6efe5b3f1594"
   },
   {
     "httpRequest": {
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/team/5b770c20-ef4f-11ed-a442-da7ad0900002/permission-settings/manage_membership",
+      "path": "/api/v2/team/ae81e17c-20d9-11ee-a254-da7ad0900002/permission-settings/manage_membership",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team_permission_settings\",\"attributes\":{\"action\":\"manage_membership\",\"options\":[\"admins\",\"members\",\"organization\",\"user_access_manage\",\"teams_manage\"],\"value\":\"admins\"},\"id\":\"TeamPermission-5b770c20-ef4f-11ed-a442-da7ad0900002-manage_membership\"}}\n",
+      "body": "{\"data\":{\"type\":\"team_permission_settings\",\"attributes\":{\"value\":\"admins\",\"action\":\"manage_membership\",\"options\":[\"admins\",\"members\",\"organization\",\"user_access_manage\",\"teams_manage\"]},\"id\":\"TeamPermission-ae81e17c-20d9-11ee-a254-da7ad0900002-manage_membership\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6995095f-4df0-c878-0c8e-ddb52073c5c3"
+    "id": "65d9aa16-5eea-9ce9-34ee-6df304cc4cbe"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/5b770c20-ef4f-11ed-a442-da7ad0900002",
+      "path": "/api/v2/team/ae81e17c-20d9-11ee-a254-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1ace5bf3-dfe7-9855-8d7a-da6b0fd57cda"
+    "id": "23509690-6879-fa4e-388b-ceee99a264d7"
   }
 ]
