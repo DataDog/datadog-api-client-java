@@ -19,7 +19,12 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Response with multiple teams */
-@JsonPropertyOrder({TeamsResponse.JSON_PROPERTY_DATA, TeamsResponse.JSON_PROPERTY_INCLUDED})
+@JsonPropertyOrder({
+  TeamsResponse.JSON_PROPERTY_DATA,
+  TeamsResponse.JSON_PROPERTY_INCLUDED,
+  TeamsResponse.JSON_PROPERTY_LINKS,
+  TeamsResponse.JSON_PROPERTY_META
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class TeamsResponse {
@@ -29,6 +34,12 @@ public class TeamsResponse {
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<TeamIncluded> included = null;
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private TeamsResponseLinks links;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private TeamsResponseMeta meta;
 
   public TeamsResponse data(List<Team> data) {
     this.data = data;
@@ -96,6 +107,50 @@ public class TeamsResponse {
     this.included = included;
   }
 
+  public TeamsResponse links(TeamsResponseLinks links) {
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    return this;
+  }
+
+  /**
+   * Teams response links.
+   *
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamsResponseLinks getLinks() {
+    return links;
+  }
+
+  public void setLinks(TeamsResponseLinks links) {
+    this.links = links;
+  }
+
+  public TeamsResponse meta(TeamsResponseMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Teams response metadata.
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamsResponseMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(TeamsResponseMeta meta) {
+    this.meta = meta;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -154,12 +209,14 @@ public class TeamsResponse {
     TeamsResponse teamsResponse = (TeamsResponse) o;
     return Objects.equals(this.data, teamsResponse.data)
         && Objects.equals(this.included, teamsResponse.included)
+        && Objects.equals(this.links, teamsResponse.links)
+        && Objects.equals(this.meta, teamsResponse.meta)
         && Objects.equals(this.additionalProperties, teamsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(data, included, links, meta, additionalProperties);
   }
 
   @Override
@@ -168,6 +225,8 @@ public class TeamsResponse {
     sb.append("class TeamsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
