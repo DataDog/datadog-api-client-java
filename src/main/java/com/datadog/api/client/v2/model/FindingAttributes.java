@@ -41,7 +41,7 @@ public class FindingAttributes {
   private Long evaluationChangedAt;
 
   public static final String JSON_PROPERTY_MUTE = "mute";
-  private FindingMute mute = null;
+  private FindingMute mute;
 
   public static final String JSON_PROPERTY_RESOURCE = "resource";
   private String resource;
@@ -53,7 +53,7 @@ public class FindingAttributes {
   private String resourceType;
 
   public static final String JSON_PROPERTY_RULE = "rule";
-  private FindingRule rule = null;
+  private FindingRule rule;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private FindingStatus status;

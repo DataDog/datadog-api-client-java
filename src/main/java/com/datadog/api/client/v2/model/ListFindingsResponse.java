@@ -32,7 +32,7 @@ public class ListFindingsResponse {
   private List<Finding> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_META = "meta";
-  private ListFindingsMeta meta = new ListFindingsMeta();
+  private ListFindingsMeta meta;
 
   public ListFindingsResponse() {}
 
