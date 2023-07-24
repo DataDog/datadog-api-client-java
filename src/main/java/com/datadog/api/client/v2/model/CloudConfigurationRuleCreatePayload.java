@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   CloudConfigurationRuleCreatePayload.JSON_PROPERTY_CASES,
   CloudConfigurationRuleCreatePayload.JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS,
+  CloudConfigurationRuleCreatePayload.JSON_PROPERTY_FILTERS,
   CloudConfigurationRuleCreatePayload.JSON_PROPERTY_IS_ENABLED,
   CloudConfigurationRuleCreatePayload.JSON_PROPERTY_MESSAGE,
   CloudConfigurationRuleCreatePayload.JSON_PROPERTY_NAME,
@@ -39,6 +40,9 @@ public class CloudConfigurationRuleCreatePayload {
 
   public static final String JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS = "complianceSignalOptions";
   private CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions;
+
+  public static final String JSON_PROPERTY_FILTERS = "filters";
+  private List<SecurityMonitoringFilter> filters = null;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
   private Boolean isEnabled;
@@ -133,6 +137,39 @@ public class CloudConfigurationRuleCreatePayload {
   public void setComplianceSignalOptions(
       CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
     this.complianceSignalOptions = complianceSignalOptions;
+  }
+
+  public CloudConfigurationRuleCreatePayload filters(List<SecurityMonitoringFilter> filters) {
+    this.filters = filters;
+    for (SecurityMonitoringFilter item : filters) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public CloudConfigurationRuleCreatePayload addFiltersItem(SecurityMonitoringFilter filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<>();
+    }
+    this.filters.add(filtersItem);
+    this.unparsed |= filtersItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Additional queries to filter matched events before they are processed.
+   *
+   * @return filters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SecurityMonitoringFilter> getFilters() {
+    return filters;
+  }
+
+  public void setFilters(List<SecurityMonitoringFilter> filters) {
+    this.filters = filters;
   }
 
   public CloudConfigurationRuleCreatePayload isEnabled(Boolean isEnabled) {
@@ -331,6 +368,7 @@ public class CloudConfigurationRuleCreatePayload {
         && Objects.equals(
             this.complianceSignalOptions,
             cloudConfigurationRuleCreatePayload.complianceSignalOptions)
+        && Objects.equals(this.filters, cloudConfigurationRuleCreatePayload.filters)
         && Objects.equals(this.isEnabled, cloudConfigurationRuleCreatePayload.isEnabled)
         && Objects.equals(this.message, cloudConfigurationRuleCreatePayload.message)
         && Objects.equals(this.name, cloudConfigurationRuleCreatePayload.name)
@@ -346,6 +384,7 @@ public class CloudConfigurationRuleCreatePayload {
     return Objects.hash(
         cases,
         complianceSignalOptions,
+        filters,
         isEnabled,
         message,
         name,
@@ -363,6 +402,7 @@ public class CloudConfigurationRuleCreatePayload {
     sb.append("    complianceSignalOptions: ")
         .append(toIndentedString(complianceSignalOptions))
         .append("\n");
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

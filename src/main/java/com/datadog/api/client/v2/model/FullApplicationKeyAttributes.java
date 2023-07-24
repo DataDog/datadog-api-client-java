@@ -121,8 +121,7 @@ public class FullApplicationKeyAttributes {
   }
 
   /**
-   * Array of scopes to grant the application key. This feature is in private beta, please contact
-   * Datadog support to enable scopes for your application keys.
+   * Array of scopes to grant the application key.
    *
    * @return scopes
    */

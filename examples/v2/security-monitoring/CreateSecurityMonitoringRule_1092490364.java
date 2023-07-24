@@ -10,9 +10,12 @@ import com.datadog.api.client.v2.model.CloudConfigurationRuleComplianceSignalOpt
 import com.datadog.api.client.v2.model.CloudConfigurationRuleCreatePayload;
 import com.datadog.api.client.v2.model.CloudConfigurationRuleOptions;
 import com.datadog.api.client.v2.model.CloudConfigurationRuleType;
+import com.datadog.api.client.v2.model.SecurityMonitoringFilter;
+import com.datadog.api.client.v2.model.SecurityMonitoringFilterAction;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -50,7 +53,15 @@ package datadog
                 .complianceSignalOptions(
                     new CloudConfigurationRuleComplianceSignalOptions()
                         .userActivationStatus(true)
-                        .userGroupByFields(Collections.singletonList("@account_id"))));
+                        .userGroupByFields(Collections.singletonList("@account_id")))
+                .filters(
+                    Arrays.asList(
+                        new SecurityMonitoringFilter()
+                            .action(SecurityMonitoringFilterAction.REQUIRE)
+                            .query("resource_id:helo*"),
+                        new SecurityMonitoringFilter()
+                            .action(SecurityMonitoringFilterAction.SUPPRESS)
+                            .query("control:helo*"))));
 
     try {
       SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule(body);

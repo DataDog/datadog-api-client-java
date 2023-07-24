@@ -1385,8 +1385,8 @@ public class MetricsApi {
      * Set windowSeconds.
      *
      * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag]
-     *     or filter[queried] query. Defaults value is 3600 (1 hour), maximum value is 1,209,600 (2
-     *     weeks). (optional)
+     *     or filter[queried] query. Default value is 3600 (1 hour), maximum value is 2,592,000 (30
+     *     days). (optional)
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters windowSeconds(Long windowSeconds) {
