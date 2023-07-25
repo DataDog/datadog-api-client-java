@@ -345,8 +345,20 @@ def format_data_with_schema(
             parameters = "null"
         else:
 
+            def format_number(x):
+                if isinstance(x, bool):
+                    raise TypeError(f"{x} is not supported type {schema}")
+                return str(x)
+
+            def format_double(x):
+                if isinstance(x, bool):
+                    raise TypeError(f"{x} is not supported type {schema}")
+                return float(x)
+
             def format_string(x):
-                if isinstance(x, str) and ("\n" in x or '"' in x):
+                if isinstance(x, bool):
+                    raise TypeError(f"{x} is not supported type {schema}")
+                if "\n" in x or '"' in x:
                     return f'"""\n{x}\n"""'
                 return f'"{x}"' if x else '""'
 
@@ -375,10 +387,10 @@ def format_data_with_schema(
             formatter = {
                 "int32": lambda x: str(int(x)),
                 "int64": lambda x: str(int(x)) + "L",
-                "double": float,
+                "double": format_double,
                 "date-time": format_datetime,
-                "number": str,
-                "integer": str,
+                "number": format_number,
+                "integer": format_number,
                 "boolean": format_bool,
                 "string": format_string,
                 "email": format_string,
@@ -426,10 +438,8 @@ def format_data_with_schema(
             except (KeyError, ValueError, TypeError) as e:
                 print(f"{e}")
 
-        if matched == 0:
+        if matched != 1:
             raise ValueError(f"[{matched}] {data} is not valid for schema {name}")
-        elif matched > 1:
-            warnings.warn(f"[{matched}] {data} is not valid for schema {name}")
 
         imports |= extra_imports
         if name:
