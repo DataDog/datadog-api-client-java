@@ -20,7 +20,7 @@ import java.util.Objects;
 public class MuteFindingRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MUTE = "mute";
-  private MuteFindingRequestProperties mute = new MuteFindingRequestProperties();
+  private MuteFindingRequestProperties mute;
 
   public MuteFindingRequestAttributes() {}
 

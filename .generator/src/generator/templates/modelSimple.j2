@@ -23,10 +23,11 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- set isRequired = attr in model.get("required", []) %}
   {%- set isNullable = schema.nullable %}
   {%- set defaultValue = schema.get("default", None) %}
+  {%- set isAdditionalPropertiesContainer = schema.properties is not defined and schema.additionalProperties is defined and schema.additionalProperties is not false %}
   public static final String JSON_PROPERTY_{{ attr|snake_case|upper }} = "{{ attr }}";
 
   {%- if not isRequired and isNullable %}
-    {%- if "items" in schema or schema.additionalProperties is defined or (schema.type is not defined and "oneOf" not in schema) %}
+    {%- if "items" in schema or (isAdditionalPropertiesContainer) or (schema.type is not defined and "oneOf" not in schema) %}
   private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>undefined();
     {%- else %}
   private JsonNullable<{{ dataType }}> {{ variableName }} = JsonNullable.<{{ dataType }}>{%- if defaultValue != None %}of({{ defaultValue|format_value(schema=schema, default_value=True, type_=dataType) }}){%- else %}undefined(){%- endif%};
@@ -34,7 +35,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- else %}
     {%- if "items" in schema %}
   private {{ dataType }} {{ variableName }}{%- if isRequired %} = new ArrayList<>(){%- else %} = null{%- endif %};
-    {%- elif schema.additionalProperties is defined or (not schema.get("type") and "oneOf" not in schema) %}
+    {%- elif (isAdditionalPropertiesContainer) or (not schema.get("type") and "oneOf" not in schema) %}
   private {{ dataType }} {{ variableName }}{%- if isRequired %} = new {{ dataType }}(){%- else %} = null{%- endif %};
     {%- else %}
   private {{ dataType }} {{ variableName }}{%- if defaultValue != None %} = {{ defaultValue|format_value(schema=schema, default_value=True, type_=dataType) }}{%- endif %};
@@ -87,6 +88,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- set isArray = "items" in schema %}
   {%- set isRequired = attr in model.get("required", []) %}
   {%- set defaultValue = schema.get("default", None) %}
+  {%- set isAdditionalPropertiesContainer = schema.properties is not defined and schema.additionalProperties is defined and schema.additionalProperties is not false %}
 
   {%- if not schema.get("readOnly", False) %}
   public {{ name }} {{ variableName }}({{ dataType }} {{ variableName }}) {
@@ -158,7 +160,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   }
   {%- endif %}
 
-  {%- if schema.additionalProperties is defined and schema.additionalProperties is not false %}
+  {%- if isAdditionalPropertiesContainer %}
   public {{ name }} put{{ variableName|upperfirst }}Item(String key, {{ get_type(schema.additionalProperties) }} {{ variableName }}Item) {
     {%- if not isRequired and isNullable %}
     if (this.{{ variableName }} == null || !this.{{ variableName }}.isPresent()) {
@@ -211,7 +213,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- else %}
       @JsonProperty(JSON_PROPERTY_{{ attr|snake_case|upper }})
       @JsonInclude(
-        {%- if schema.additionalProperties %}{%- if schema.additionalProperties.nullable %}content = JsonInclude.Include.ALWAYS,{%- endif %}{%- endif %}
+        {%- if schema.additionalProperties is defined and schema.additionalProperties is not false %}{%- if schema.additionalProperties.nullable %}content = JsonInclude.Include.ALWAYS,{%- endif %}{%- endif %}
         value = JsonInclude.Include.{%- if isRequired %}ALWAYS{%- else %}USE_DEFAULTS{%- endif %})
     {%- endif %}
       public {{ dataType }} get{{ attr|camel_case|upperfirst }}() {
@@ -233,7 +235,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   {%- if not isRequired and isNullable %}
   @JsonProperty(JSON_PROPERTY_{{ attr|snake_case|upper }})
   @JsonInclude(
-    {%- if schema.additionalProperties %}{%- if schema.additionalProperties.nullable %}content = JsonInclude.Include.ALWAYS,{%- endif %}{%- endif %}
+    {%- if schema.additionalProperties is defined and schema.additionalProperties is not false %}{%- if schema.additionalProperties.nullable %}content = JsonInclude.Include.ALWAYS,{%- endif %}{%- endif %}
     value = JsonInclude.Include.{%- if isRequired %}ALWAYS{%- else %}USE_DEFAULTS{%- endif %})
   public JsonNullable<{{ dataType }}> get{{ attr|camel_case|upperfirst }}_JsonNullable() {
     return {{ variableName }};
@@ -259,7 +261,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   }
   {%- endif %}
   {%- endfor %}
-  {%- if model.get("additionalProperties", True) %}
+  {%- if model.additionalProperties is not false %}
   {%- set additionalPropertiesDataType = model.get("additionalProperties", {})|simple_type or "Object" %}
 
   /**
@@ -323,7 +325,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     }
     {%- if model.properties is defined %}
     {{ name }} {{ name|variable_name }} = ({{ name }}) o;
-    return {%- for attr, schema in model.get("properties").items() %} Objects.equals(this.{{ attr|variable_name }}, {{ name|variable_name }}.{{ attr|variable_name }}){%- if loop.nextitem or model.get("additionalProperties", True) %} &&{%- endif %}{%- endfor %}{% if model.get("additionalProperties", True) %} Objects.equals(this.additionalProperties, {{ name|variable_name }}.additionalProperties){% endif %}
+    return {%- for attr, schema in model.get("properties").items() %} Objects.equals(this.{{ attr|variable_name }}, {{ name|variable_name }}.{{ attr|variable_name }}){%- if loop.nextitem or model.additionalProperties is not false %} &&{%- endif %}{%- endfor %}{% if model.additionalProperties is not false %} Objects.equals(this.additionalProperties, {{ name|variable_name }}.additionalProperties){% endif %}
     {%- if model.get("x-generate-alias-as-model") %} &&
         super.equals(o){%- endif %};
     {%- else %}
@@ -335,8 +337,8 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
   @Override
   public int hashCode() {
     return Objects.hash({%- for attr, schema in model.get("properties", {}).items() %}{{ attr|variable_name }}{%- if loop.nextitem %}, {%- endif %}{%-endfor %}
-    {%- if model.get("additionalProperties", True) %}{%- if model.properties is defined %}, {%- endif %} additionalProperties{%- endif %}
-    {%- if model.get("x-generate-alias-as-model") %}{%- if model.properties is defined or model.get("additionalProperties", True) %}, {%- endif %}super.hashCode(){%- endif %});
+    {%- if model.additionalProperties is not false %}{%- if model.properties is defined %}, {%- endif %} additionalProperties{%- endif %}
+    {%- if model.get("x-generate-alias-as-model") %}{%- if model.properties is defined or model.additionalProperties is not false %}, {%- endif %}super.hashCode(){%- endif %});
   }
 
   @Override
@@ -349,7 +351,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- for attr, schema in model.get("properties", {}).items() %}
     sb.append("    {{ attr|variable_name }}: ").append(toIndentedString({{ attr|variable_name }})).append("\n");
     {%- endfor %}
-    {%- if model.get("additionalProperties", True) %}
+    {%- if model.additionalProperties is not false %}
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

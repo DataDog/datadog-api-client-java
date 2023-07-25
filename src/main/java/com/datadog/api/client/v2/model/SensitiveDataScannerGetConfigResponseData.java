@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** Response data related to the scanning groups. */
 @JsonPropertyOrder({
+  SensitiveDataScannerGetConfigResponseData.JSON_PROPERTY_ATTRIBUTES,
   SensitiveDataScannerGetConfigResponseData.JSON_PROPERTY_ID,
   SensitiveDataScannerGetConfigResponseData.JSON_PROPERTY_RELATIONSHIPS,
   SensitiveDataScannerGetConfigResponseData.JSON_PROPERTY_TYPE
@@ -26,6 +27,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SensitiveDataScannerGetConfigResponseData {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private Map<String, Object> attributes = null;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -35,6 +39,36 @@ public class SensitiveDataScannerGetConfigResponseData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private SensitiveDataScannerConfigurationType type =
       SensitiveDataScannerConfigurationType.SENSITIVE_DATA_SCANNER_CONFIGURATIONS;
+
+  public SensitiveDataScannerGetConfigResponseData attributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public SensitiveDataScannerGetConfigResponseData putAttributesItem(
+      String key, Object attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
+    this.attributes.put(key, attributesItem);
+    return this;
+  }
+
+  /**
+   * Attributes of the Sensitive Data configuration.
+   *
+   * @return attributes
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
+  }
 
   public SensitiveDataScannerGetConfigResponseData id(String id) {
     this.id = id;
@@ -163,7 +197,8 @@ public class SensitiveDataScannerGetConfigResponseData {
     }
     SensitiveDataScannerGetConfigResponseData sensitiveDataScannerGetConfigResponseData =
         (SensitiveDataScannerGetConfigResponseData) o;
-    return Objects.equals(this.id, sensitiveDataScannerGetConfigResponseData.id)
+    return Objects.equals(this.attributes, sensitiveDataScannerGetConfigResponseData.attributes)
+        && Objects.equals(this.id, sensitiveDataScannerGetConfigResponseData.id)
         && Objects.equals(
             this.relationships, sensitiveDataScannerGetConfigResponseData.relationships)
         && Objects.equals(this.type, sensitiveDataScannerGetConfigResponseData.type)
@@ -174,13 +209,14 @@ public class SensitiveDataScannerGetConfigResponseData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, relationships, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SensitiveDataScannerGetConfigResponseData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

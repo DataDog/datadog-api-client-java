@@ -21,6 +21,7 @@ import java.util.Objects;
   SensitiveDataScannerMeta.JSON_PROPERTY_COUNT_LIMIT,
   SensitiveDataScannerMeta.JSON_PROPERTY_GROUP_COUNT_LIMIT,
   SensitiveDataScannerMeta.JSON_PROPERTY_HAS_HIGHLIGHT_ENABLED,
+  SensitiveDataScannerMeta.JSON_PROPERTY_HAS_MULTI_PASS_ENABLED,
   SensitiveDataScannerMeta.JSON_PROPERTY_IS_PCI_COMPLIANT,
   SensitiveDataScannerMeta.JSON_PROPERTY_VERSION
 })
@@ -36,6 +37,9 @@ public class SensitiveDataScannerMeta {
 
   public static final String JSON_PROPERTY_HAS_HIGHLIGHT_ENABLED = "has_highlight_enabled";
   private Boolean hasHighlightEnabled;
+
+  public static final String JSON_PROPERTY_HAS_MULTI_PASS_ENABLED = "has_multi_pass_enabled";
+  private Boolean hasMultiPassEnabled;
 
   public static final String JSON_PROPERTY_IS_PCI_COMPLIANT = "is_pci_compliant";
   private Boolean isPciCompliant;
@@ -104,6 +108,27 @@ public class SensitiveDataScannerMeta {
 
   public void setHasHighlightEnabled(Boolean hasHighlightEnabled) {
     this.hasHighlightEnabled = hasHighlightEnabled;
+  }
+
+  public SensitiveDataScannerMeta hasMultiPassEnabled(Boolean hasMultiPassEnabled) {
+    this.hasMultiPassEnabled = hasMultiPassEnabled;
+    return this;
+  }
+
+  /**
+   * Whether or not scanned events have multi-pass enabled.
+   *
+   * @return hasMultiPassEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HAS_MULTI_PASS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasMultiPassEnabled() {
+    return hasMultiPassEnabled;
+  }
+
+  public void setHasMultiPassEnabled(Boolean hasMultiPassEnabled) {
+    this.hasMultiPassEnabled = hasMultiPassEnabled;
   }
 
   public SensitiveDataScannerMeta isPciCompliant(Boolean isPciCompliant) {
@@ -207,6 +232,7 @@ public class SensitiveDataScannerMeta {
     return Objects.equals(this.countLimit, sensitiveDataScannerMeta.countLimit)
         && Objects.equals(this.groupCountLimit, sensitiveDataScannerMeta.groupCountLimit)
         && Objects.equals(this.hasHighlightEnabled, sensitiveDataScannerMeta.hasHighlightEnabled)
+        && Objects.equals(this.hasMultiPassEnabled, sensitiveDataScannerMeta.hasMultiPassEnabled)
         && Objects.equals(this.isPciCompliant, sensitiveDataScannerMeta.isPciCompliant)
         && Objects.equals(this.version, sensitiveDataScannerMeta.version)
         && Objects.equals(this.additionalProperties, sensitiveDataScannerMeta.additionalProperties);
@@ -218,6 +244,7 @@ public class SensitiveDataScannerMeta {
         countLimit,
         groupCountLimit,
         hasHighlightEnabled,
+        hasMultiPassEnabled,
         isPciCompliant,
         version,
         additionalProperties);
@@ -231,6 +258,9 @@ public class SensitiveDataScannerMeta {
     sb.append("    groupCountLimit: ").append(toIndentedString(groupCountLimit)).append("\n");
     sb.append("    hasHighlightEnabled: ")
         .append(toIndentedString(hasHighlightEnabled))
+        .append("\n");
+    sb.append("    hasMultiPassEnabled: ")
+        .append(toIndentedString(hasMultiPassEnabled))
         .append("\n");
     sb.append("    isPciCompliant: ").append(toIndentedString(isPciCompliant)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
