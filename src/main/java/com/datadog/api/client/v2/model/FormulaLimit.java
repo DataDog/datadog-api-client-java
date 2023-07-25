@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Message for specifying limits to the number of values returned by a query. */
+/**
+ * Message for specifying limits to the number of values returned by a query. This limit is only for
+ * scalar queries and has no effect on timeseries queries.
+ */
 @JsonPropertyOrder({FormulaLimit.JSON_PROPERTY_COUNT, FormulaLimit.JSON_PROPERTY_ORDER})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
