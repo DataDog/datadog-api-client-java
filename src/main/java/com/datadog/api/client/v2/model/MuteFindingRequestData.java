@@ -28,7 +28,7 @@ import java.util.Objects;
 public class MuteFindingRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private MuteFindingRequestAttributes attributes = new MuteFindingRequestAttributes();
+  private MuteFindingRequestAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;

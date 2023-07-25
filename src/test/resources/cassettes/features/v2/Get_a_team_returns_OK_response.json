@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-e0e86339571d8748\",\"name\":\"name-e0e86339571d8748\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-7af7a34f5bc3a40e\",\"name\":\"name-7af7a34f5bc3a40e\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"55f7da86-ef4f-11ed-a7ea-da7ad0900002\",\"attributes\":{\"name\":\"name-e0e86339571d8748\",\"handle\":\"handle-e0e86339571d8748\",\"summary\":null,\"description\":null,\"color\":12,\"created_at\":\"2023-05-10T16:25:54.211532+00:00\",\"modified_at\":\"2023-05-10T16:25:54.211539+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"a91019b6-20d9-11ee-b538-da7ad0900002\",\"attributes\":{\"name\":\"name-7af7a34f5bc3a40e\",\"handle\":\"handle-7af7a34f5bc3a40e\",\"summary\":null,\"description\":null,\"created_at\":\"2023-07-12T17:29:31.144067+00:00\",\"modified_at\":\"2023-07-12T17:29:31.144076+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "88d393b0-2f13-1491-a190-fca51efecd77"
+    "id": "c8a4b8f9-e05c-2ac6-14ce-6eb5d424e843"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002",
+      "path": "/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"55f7da86-ef4f-11ed-a7ea-da7ad0900002\",\"attributes\":{\"name\":\"name-e0e86339571d8748\",\"handle\":\"handle-e0e86339571d8748\",\"summary\":null,\"description\":null,\"color\":12,\"created_at\":\"2023-05-10T16:25:54.211532+00:00\",\"modified_at\":\"2023-05-10T16:25:54.211539+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"a91019b6-20d9-11ee-b538-da7ad0900002\",\"attributes\":{\"name\":\"name-7af7a34f5bc3a40e\",\"handle\":\"handle-7af7a34f5bc3a40e\",\"summary\":null,\"description\":null,\"created_at\":\"2023-07-12T17:29:31.144067+00:00\",\"modified_at\":\"2023-07-12T17:29:31.144076+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b1b1bc0b-f1b3-8b21-eafe-3c0440556c3a"
+    "id": "2d3eb60b-9f2b-c940-5b06-4bc51dbbcdf6"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/55f7da86-ef4f-11ed-a7ea-da7ad0900002",
+      "path": "/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "991e8228-c587-76f3-8fa5-fdae7185710f"
+    "id": "6464681a-bf6f-36d9-f2d0-683895971f17"
   }
 ]

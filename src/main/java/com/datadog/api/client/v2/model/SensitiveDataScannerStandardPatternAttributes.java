@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** Attributes of the Sensitive Data Scanner standard pattern. */
 @JsonPropertyOrder({
+  SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_DESCRIPTION,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_NAME,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_PATTERN,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_TAGS
@@ -28,6 +29,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SensitiveDataScannerStandardPatternAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -36,6 +40,27 @@ public class SensitiveDataScannerStandardPatternAttributes {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public SensitiveDataScannerStandardPatternAttributes description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Description of the standard pattern.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
   public SensitiveDataScannerStandardPatternAttributes name(String name) {
     this.name = name;
@@ -166,7 +191,9 @@ public class SensitiveDataScannerStandardPatternAttributes {
     }
     SensitiveDataScannerStandardPatternAttributes sensitiveDataScannerStandardPatternAttributes =
         (SensitiveDataScannerStandardPatternAttributes) o;
-    return Objects.equals(this.name, sensitiveDataScannerStandardPatternAttributes.name)
+    return Objects.equals(
+            this.description, sensitiveDataScannerStandardPatternAttributes.description)
+        && Objects.equals(this.name, sensitiveDataScannerStandardPatternAttributes.name)
         && Objects.equals(this.pattern, sensitiveDataScannerStandardPatternAttributes.pattern)
         && Objects.equals(this.tags, sensitiveDataScannerStandardPatternAttributes.tags)
         && Objects.equals(
@@ -176,13 +203,14 @@ public class SensitiveDataScannerStandardPatternAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, pattern, tags, additionalProperties);
+    return Objects.hash(description, name, pattern, tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SensitiveDataScannerStandardPatternAttributes {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
