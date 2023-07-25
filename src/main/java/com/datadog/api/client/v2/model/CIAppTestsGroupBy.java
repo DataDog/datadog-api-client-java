@@ -46,7 +46,7 @@ public class CIAppTestsGroupBy {
   private CIAppAggregateSort sort;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
-  private CIAppGroupByTotal total = new CIAppGroupByTotal(false);
+  private CIAppGroupByTotal total;
 
   public CIAppTestsGroupBy() {}
 

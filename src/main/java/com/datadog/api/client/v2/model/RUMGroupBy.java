@@ -46,7 +46,7 @@ public class RUMGroupBy {
   private RUMAggregateSort sort;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
-  private RUMGroupByTotal total = new RUMGroupByTotal(false);
+  private RUMGroupByTotal total;
 
   public RUMGroupBy() {}
 
