@@ -115,7 +115,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_USAGE,
   UsageSummaryResponse.JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM,
-  UsageSummaryResponse.JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P_SUM
+  UsageSummaryResponse.JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_AGG_SUM
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -451,6 +452,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P_SUM =
       "vuln_management_host_count_top99p_sum";
   private Long vulnManagementHostCountTop99pSum;
+
+  public static final String JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_AGG_SUM =
+      "workflow_executions_usage_agg_sum";
+  private Long workflowExecutionsUsageAggSum;
 
   public UsageSummaryResponse agentHostTop99pSum(Long agentHostTop99pSum) {
     this.agentHostTop99pSum = agentHostTop99pSum;
@@ -2514,6 +2519,27 @@ public class UsageSummaryResponse {
     this.vulnManagementHostCountTop99pSum = vulnManagementHostCountTop99pSum;
   }
 
+  public UsageSummaryResponse workflowExecutionsUsageAggSum(Long workflowExecutionsUsageAggSum) {
+    this.workflowExecutionsUsageAggSum = workflowExecutionsUsageAggSum;
+    return this;
+  }
+
+  /**
+   * Sum of all workflows executed over all hours in the current months for all organizations.
+   *
+   * @return workflowExecutionsUsageAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getWorkflowExecutionsUsageAggSum() {
+    return workflowExecutionsUsageAggSum;
+  }
+
+  public void setWorkflowExecutionsUsageAggSum(Long workflowExecutionsUsageAggSum) {
+    this.workflowExecutionsUsageAggSum = workflowExecutionsUsageAggSum;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -2741,6 +2767,8 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.vulnManagementHostCountTop99pSum,
             usageSummaryResponse.vulnManagementHostCountTop99pSum)
+        && Objects.equals(
+            this.workflowExecutionsUsageAggSum, usageSummaryResponse.workflowExecutionsUsageAggSum)
         && Objects.equals(this.additionalProperties, usageSummaryResponse.additionalProperties);
   }
 
@@ -2839,6 +2867,7 @@ public class UsageSummaryResponse {
         usage,
         vsphereHostTop99pSum,
         vulnManagementHostCountTop99pSum,
+        workflowExecutionsUsageAggSum,
         additionalProperties);
   }
 
@@ -3075,6 +3104,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    vulnManagementHostCountTop99pSum: ")
         .append(toIndentedString(vulnManagementHostCountTop99pSum))
+        .append("\n");
+    sb.append("    workflowExecutionsUsageAggSum: ")
+        .append(toIndentedString(workflowExecutionsUsageAggSum))
         .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
