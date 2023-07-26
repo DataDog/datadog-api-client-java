@@ -1,7 +1,6 @@
 """Data formatter."""
 from functools import singledispatch
 import re
-import warnings
 
 import markdown
 
@@ -606,10 +605,8 @@ def format_data_with_schema_dict(
             except (KeyError, ValueError) as e:
                 print(f"{e}")
 
-        if matched == 0:
+        if matched != 1:
             raise ValueError(f"[{matched}] {data} is not valid for schema {name}")
-        elif matched > 1:
-            warnings.warn(f"[{matched}] {data} is not valid for schema {name}")
 
         imports |= extra_imports
         return name, f"new {name}(\n{parameters})", imports
