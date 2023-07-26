@@ -21,6 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Object representing a given user entity. */
 @JsonPropertyOrder({
   SecurityMonitoringTriageUser.JSON_PROPERTY_HANDLE,
+  SecurityMonitoringTriageUser.JSON_PROPERTY_ICON,
   SecurityMonitoringTriageUser.JSON_PROPERTY_ID,
   SecurityMonitoringTriageUser.JSON_PROPERTY_NAME,
   SecurityMonitoringTriageUser.JSON_PROPERTY_UUID
@@ -31,6 +32,9 @@ public class SecurityMonitoringTriageUser {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
+
+  public static final String JSON_PROPERTY_ICON = "icon";
+  private String icon;
 
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
@@ -68,6 +72,18 @@ public class SecurityMonitoringTriageUser {
 
   public void setHandle(String handle) {
     this.handle = handle;
+  }
+
+  /**
+   * Gravatar icon associated to the user.
+   *
+   * @return icon
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ICON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIcon() {
+    return icon;
   }
 
   public SecurityMonitoringTriageUser id(Long id) {
@@ -199,6 +215,7 @@ public class SecurityMonitoringTriageUser {
     }
     SecurityMonitoringTriageUser securityMonitoringTriageUser = (SecurityMonitoringTriageUser) o;
     return Objects.equals(this.handle, securityMonitoringTriageUser.handle)
+        && Objects.equals(this.icon, securityMonitoringTriageUser.icon)
         && Objects.equals(this.id, securityMonitoringTriageUser.id)
         && Objects.equals(this.name, securityMonitoringTriageUser.name)
         && Objects.equals(this.uuid, securityMonitoringTriageUser.uuid)
@@ -208,7 +225,7 @@ public class SecurityMonitoringTriageUser {
 
   @Override
   public int hashCode() {
-    return Objects.hash(handle, id, name, uuid, additionalProperties);
+    return Objects.hash(handle, icon, id, name, uuid, additionalProperties);
   }
 
   @Override
@@ -216,6 +233,7 @@ public class SecurityMonitoringTriageUser {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringTriageUser {\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
+    sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");

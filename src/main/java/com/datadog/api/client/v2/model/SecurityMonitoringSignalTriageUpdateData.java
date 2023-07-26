@@ -17,13 +17,24 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Data containing the updated triage attributes of the signal. */
-@JsonPropertyOrder({SecurityMonitoringSignalTriageUpdateData.JSON_PROPERTY_ATTRIBUTES})
+@JsonPropertyOrder({
+  SecurityMonitoringSignalTriageUpdateData.JSON_PROPERTY_ATTRIBUTES,
+  SecurityMonitoringSignalTriageUpdateData.JSON_PROPERTY_ID,
+  SecurityMonitoringSignalTriageUpdateData.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalTriageUpdateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private SecurityMonitoringSignalTriageAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SecurityMonitoringSignalMetadataType type =
+      SecurityMonitoringSignalMetadataType.SIGNAL_METADATA;
 
   public SecurityMonitoringSignalTriageUpdateData attributes(
       SecurityMonitoringSignalTriageAttributes attributes) {
@@ -46,6 +57,52 @@ public class SecurityMonitoringSignalTriageUpdateData {
 
   public void setAttributes(SecurityMonitoringSignalTriageAttributes attributes) {
     this.attributes = attributes;
+  }
+
+  public SecurityMonitoringSignalTriageUpdateData id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The unique ID of the security signal.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public SecurityMonitoringSignalTriageUpdateData type(SecurityMonitoringSignalMetadataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * The type of event.
+   *
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringSignalMetadataType getType() {
+    return type;
+  }
+
+  public void setType(SecurityMonitoringSignalMetadataType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -106,6 +163,8 @@ public class SecurityMonitoringSignalTriageUpdateData {
     SecurityMonitoringSignalTriageUpdateData securityMonitoringSignalTriageUpdateData =
         (SecurityMonitoringSignalTriageUpdateData) o;
     return Objects.equals(this.attributes, securityMonitoringSignalTriageUpdateData.attributes)
+        && Objects.equals(this.id, securityMonitoringSignalTriageUpdateData.id)
+        && Objects.equals(this.type, securityMonitoringSignalTriageUpdateData.type)
         && Objects.equals(
             this.additionalProperties,
             securityMonitoringSignalTriageUpdateData.additionalProperties);
@@ -113,7 +172,7 @@ public class SecurityMonitoringSignalTriageUpdateData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
@@ -121,6 +180,8 @@ public class SecurityMonitoringSignalTriageUpdateData {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringSignalTriageUpdateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
