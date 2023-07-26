@@ -17,13 +17,19 @@ import java.util.Map;
 import java.util.Objects;
 
 /** On-demand concurrency cap. */
-@JsonPropertyOrder({OnDemandConcurrencyCap.JSON_PROPERTY_ATTRIBUTES})
+@JsonPropertyOrder({
+  OnDemandConcurrencyCap.JSON_PROPERTY_ATTRIBUTES,
+  OnDemandConcurrencyCap.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class OnDemandConcurrencyCap {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private OnDemandConcurrencyCapAttributes attributes;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private OnDemandConcurrencyCapType type;
 
   public OnDemandConcurrencyCap attributes(OnDemandConcurrencyCapAttributes attributes) {
     this.attributes = attributes;
@@ -45,6 +51,31 @@ public class OnDemandConcurrencyCap {
 
   public void setAttributes(OnDemandConcurrencyCapAttributes attributes) {
     this.attributes = attributes;
+  }
+
+  public OnDemandConcurrencyCap type(OnDemandConcurrencyCapType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * On-demand concurrency cap type.
+   *
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OnDemandConcurrencyCapType getType() {
+    return type;
+  }
+
+  public void setType(OnDemandConcurrencyCapType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -104,12 +135,13 @@ public class OnDemandConcurrencyCap {
     }
     OnDemandConcurrencyCap onDemandConcurrencyCap = (OnDemandConcurrencyCap) o;
     return Objects.equals(this.attributes, onDemandConcurrencyCap.attributes)
+        && Objects.equals(this.type, onDemandConcurrencyCap.type)
         && Objects.equals(this.additionalProperties, onDemandConcurrencyCap.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, additionalProperties);
+    return Objects.hash(attributes, type, additionalProperties);
   }
 
   @Override
@@ -117,6 +149,7 @@ public class OnDemandConcurrencyCap {
     StringBuilder sb = new StringBuilder();
     sb.append("class OnDemandConcurrencyCap {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
