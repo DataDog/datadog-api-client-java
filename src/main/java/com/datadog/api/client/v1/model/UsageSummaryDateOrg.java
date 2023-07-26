@@ -102,7 +102,8 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_VSPHERE_HOST_TOP99P,
-  UsageSummaryDateOrg.JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P
+  UsageSummaryDateOrg.JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_SUM
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -400,6 +401,10 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_VULN_MANAGEMENT_HOST_COUNT_TOP99P =
       "vuln_management_host_count_top99p";
   private Long vulnManagementHostCountTop99p;
+
+  public static final String JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_SUM =
+      "workflow_executions_usage_sum";
+  private Long workflowExecutionsUsageSum;
 
   public UsageSummaryDateOrg agentHostTop99p(Long agentHostTop99p) {
     this.agentHostTop99p = agentHostTop99p;
@@ -2266,6 +2271,27 @@ public class UsageSummaryDateOrg {
     this.vulnManagementHostCountTop99p = vulnManagementHostCountTop99p;
   }
 
+  public UsageSummaryDateOrg workflowExecutionsUsageSum(Long workflowExecutionsUsageSum) {
+    this.workflowExecutionsUsageSum = workflowExecutionsUsageSum;
+    return this;
+  }
+
+  /**
+   * Sum of all workflows executed over all hours in the current date for the given org.
+   *
+   * @return workflowExecutionsUsageSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getWorkflowExecutionsUsageSum() {
+    return workflowExecutionsUsageSum;
+  }
+
+  public void setWorkflowExecutionsUsageSum(Long workflowExecutionsUsageSum) {
+    this.workflowExecutionsUsageSum = workflowExecutionsUsageSum;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -2455,6 +2481,8 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.vsphereHostTop99p, usageSummaryDateOrg.vsphereHostTop99p)
         && Objects.equals(
             this.vulnManagementHostCountTop99p, usageSummaryDateOrg.vulnManagementHostCountTop99p)
+        && Objects.equals(
+            this.workflowExecutionsUsageSum, usageSummaryDateOrg.workflowExecutionsUsageSum)
         && Objects.equals(this.additionalProperties, usageSummaryDateOrg.additionalProperties);
   }
 
@@ -2546,6 +2574,7 @@ public class UsageSummaryDateOrg {
         universalServiceMonitoringHostTop99p,
         vsphereHostTop99p,
         vulnManagementHostCountTop99p,
+        workflowExecutionsUsageSum,
         additionalProperties);
   }
 
@@ -2743,6 +2772,9 @@ public class UsageSummaryDateOrg {
     sb.append("    vsphereHostTop99p: ").append(toIndentedString(vsphereHostTop99p)).append("\n");
     sb.append("    vulnManagementHostCountTop99p: ")
         .append(toIndentedString(vulnManagementHostCountTop99p))
+        .append("\n");
+    sb.append("    workflowExecutionsUsageSum: ")
+        .append(toIndentedString(workflowExecutionsUsageSum))
         .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
