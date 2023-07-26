@@ -319,6 +319,45 @@ def get_name_and_imports(schema):
     return name, imports
 
 
+def _format_oneof(schema, data, name, default_name, replace_values, imports):
+    matched = 0
+    extra_imports = one_of_imports = set()
+    for sub_schema in schema["oneOf"]:
+        try:
+            if "items" in sub_schema and not isinstance(data, list):
+                continue
+            if sub_schema.get("nullable") and data is None:
+                # only one schema can be nullable
+                value = "null"
+            else:
+                sub_schema["nullable"] = False
+                named, value, one_of_imports = format_data_with_schema(
+                    data,
+                    sub_schema,
+                    default_name=default_name,
+                    replace_values=replace_values,
+                )
+            if matched == 0:
+                # NOTE we do not support mixed schemas with oneOf
+                # parameters += formatted
+                parameters = value
+                extra_imports = one_of_imports
+            matched += 1
+        except (KeyError, ValueError, TypeError) as e:
+            print(f"{e}")
+
+    if matched != 1:
+        raise ValueError(f"[{matched}] {data} is not valid for schema {name}")
+
+    imports |= extra_imports
+    if name:
+        return name, f"new {name}(\n{parameters})", imports
+    elif "oneOf" in schema and default_name:
+        imports.add(f"{default_name}Item")
+        return name, f"new {default_name}Item(\n{parameters})", imports
+    return name, parameters, imports
+
+
 @singledispatch
 def format_data_with_schema(
     data,
@@ -411,43 +450,7 @@ def format_data_with_schema(
         return name, parameters, imports
 
     if "oneOf" in schema:
-        matched = 0
-        extra_imports = one_of_imports = set()
-        for sub_schema in schema["oneOf"]:
-            try:
-                if "items" in sub_schema and not isinstance(data, list):
-                    continue
-                if sub_schema.get("nullable") and data is None:
-                    # only one schema can be nullable
-                    value = "null"
-                else:
-                    sub_schema["nullable"] = False
-                    named, value, one_of_imports = format_data_with_schema(
-                        data,
-                        sub_schema,
-                        default_name=default_name,
-                        replace_values=replace_values,
-                    )
-                if matched == 0:
-                    # NOTE we do not support mixed schemas with oneOf
-                    # parameters += formatted
-                    parameters = value
-                    extra_imports = one_of_imports
-                matched += 1
-            except (KeyError, ValueError, TypeError) as e:
-                print(f"{e}")
-
-        if matched != 1:
-            raise ValueError(f"[{matched}] {data} is not valid for schema {name}")
-
-        imports |= extra_imports
-        if name:
-            return name, f"new {name}(\n{parameters})", imports
-        elif "oneOf" in schema and default_name:
-            imports.add(f"{default_name}Item")
-            return name, f"new {default_name}Item(\n{parameters})", imports
-        else:
-            return name, parameters, imports
+        return _format_oneof(schema, data, name, default_name, replace_values, imports)
 
     return name, parameters, imports
 
@@ -581,35 +584,7 @@ def format_data_with_schema_dict(
             )
 
     if "oneOf" in schema:
-        assert name is not None
-        matched = 0
-        extra_imports = one_of_imports = set()
-        for sub_schema in schema["oneOf"]:
-            try:
-                if sub_schema.get("nullable") and data is None:
-                    # only one schema can be nullable
-                    value = "null"
-                else:
-                    sub_schema["nullable"] = False
-                    named, value, one_of_imports = format_data_with_schema(
-                        data,
-                        sub_schema,
-                        replace_values=replace_values,
-                    )
-                if matched == 0:
-                    # NOTE we do not support mixed schemas with oneOf
-                    # parameters += formatted
-                    parameters = value
-                    extra_imports = one_of_imports
-                matched += 1
-            except (KeyError, ValueError) as e:
-                print(f"{e}")
-
-        if matched != 1:
-            raise ValueError(f"[{matched}] {data} is not valid for schema {name}")
-
-        imports |= extra_imports
-        return name, f"new {name}(\n{parameters})", imports
+        return _format_oneof(schema, data, name, default_name, replace_values, imports)
 
     # NOTE this is a special case for unnamed objects that should be avoided in the future
     if schema.get("type") == "object" and not data:
