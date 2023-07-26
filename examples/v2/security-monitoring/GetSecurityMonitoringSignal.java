@@ -3,7 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
-import com.datadog.api.client.v2.model.SecurityMonitoringSignal;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalResponse;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Example {
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     try {
-      SecurityMonitoringSignal result =
+      SecurityMonitoringSignalResponse result =
           apiInstance.getSecurityMonitoringSignal(
               "AQAAAYNqUBVU4-rffwAAAABBWU5xVUJWVUFBQjJBd3ptMDdQUnF3QUE");
       System.out.println(result);
