@@ -24,6 +24,8 @@ import java.util.Objects;
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_CORRELATED_BY_FIELDS,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_CORRELATED_QUERY_INDEX,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_DEFAULT_RULE_ID,
+  SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_DISTINCT_FIELDS,
+  SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_METRICS,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_NAME,
   SecurityMonitoringSignalRuleResponseQuery.JSON_PROPERTY_RULE_ID
@@ -43,6 +45,12 @@ public class SecurityMonitoringSignalRuleResponseQuery {
 
   public static final String JSON_PROPERTY_DEFAULT_RULE_ID = "defaultRuleId";
   private String defaultRuleId;
+
+  public static final String JSON_PROPERTY_DISTINCT_FIELDS = "distinctFields";
+  private List<String> distinctFields = null;
+
+  public static final String JSON_PROPERTY_GROUP_BY_FIELDS = "groupByFields";
+  private List<String> groupByFields = null;
 
   public static final String JSON_PROPERTY_METRICS = "metrics";
   private List<String> metrics = null;
@@ -95,7 +103,7 @@ public class SecurityMonitoringSignalRuleResponseQuery {
   }
 
   /**
-   * Fields to group by.
+   * Fields to correlate by.
    *
    * @return correlatedByFields
    */
@@ -151,6 +159,65 @@ public class SecurityMonitoringSignalRuleResponseQuery {
 
   public void setDefaultRuleId(String defaultRuleId) {
     this.defaultRuleId = defaultRuleId;
+  }
+
+  public SecurityMonitoringSignalRuleResponseQuery distinctFields(List<String> distinctFields) {
+    this.distinctFields = distinctFields;
+    return this;
+  }
+
+  public SecurityMonitoringSignalRuleResponseQuery addDistinctFieldsItem(
+      String distinctFieldsItem) {
+    if (this.distinctFields == null) {
+      this.distinctFields = new ArrayList<>();
+    }
+    this.distinctFields.add(distinctFieldsItem);
+    return this;
+  }
+
+  /**
+   * Field for which the cardinality is measured. Sent as an array.
+   *
+   * @return distinctFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISTINCT_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDistinctFields() {
+    return distinctFields;
+  }
+
+  public void setDistinctFields(List<String> distinctFields) {
+    this.distinctFields = distinctFields;
+  }
+
+  public SecurityMonitoringSignalRuleResponseQuery groupByFields(List<String> groupByFields) {
+    this.groupByFields = groupByFields;
+    return this;
+  }
+
+  public SecurityMonitoringSignalRuleResponseQuery addGroupByFieldsItem(String groupByFieldsItem) {
+    if (this.groupByFields == null) {
+      this.groupByFields = new ArrayList<>();
+    }
+    this.groupByFields.add(groupByFieldsItem);
+    return this;
+  }
+
+  /**
+   * Fields to group by.
+   *
+   * @return groupByFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_BY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getGroupByFields() {
+    return groupByFields;
+  }
+
+  public void setGroupByFields(List<String> groupByFields) {
+    this.groupByFields = groupByFields;
   }
 
   public SecurityMonitoringSignalRuleResponseQuery metrics(List<String> metrics) {
@@ -289,6 +356,10 @@ public class SecurityMonitoringSignalRuleResponseQuery {
             securityMonitoringSignalRuleResponseQuery.correlatedQueryIndex)
         && Objects.equals(
             this.defaultRuleId, securityMonitoringSignalRuleResponseQuery.defaultRuleId)
+        && Objects.equals(
+            this.distinctFields, securityMonitoringSignalRuleResponseQuery.distinctFields)
+        && Objects.equals(
+            this.groupByFields, securityMonitoringSignalRuleResponseQuery.groupByFields)
         && Objects.equals(this.metrics, securityMonitoringSignalRuleResponseQuery.metrics)
         && Objects.equals(this.name, securityMonitoringSignalRuleResponseQuery.name)
         && Objects.equals(this.ruleId, securityMonitoringSignalRuleResponseQuery.ruleId)
@@ -304,6 +375,8 @@ public class SecurityMonitoringSignalRuleResponseQuery {
         correlatedByFields,
         correlatedQueryIndex,
         defaultRuleId,
+        distinctFields,
+        groupByFields,
         metrics,
         name,
         ruleId,
@@ -320,6 +393,8 @@ public class SecurityMonitoringSignalRuleResponseQuery {
         .append(toIndentedString(correlatedQueryIndex))
         .append("\n");
     sb.append("    defaultRuleId: ").append(toIndentedString(defaultRuleId)).append("\n");
+    sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
+    sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");

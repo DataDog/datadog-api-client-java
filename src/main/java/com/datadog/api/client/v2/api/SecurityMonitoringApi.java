@@ -25,6 +25,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSignalAssigneeUpdateReq
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalIncidentsUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalListRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalListRequestPage;
+import com.datadog.api.client.v2.model.SecurityMonitoringSignalResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalStateUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalTriageUpdateResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsListResponse;
@@ -1640,10 +1641,11 @@ public class SecurityMonitoringApi {
    * <p>See {@link #getSecurityMonitoringSignalWithHttpInfo}.
    *
    * @param signalId The ID of the signal. (required)
-   * @return SecurityMonitoringSignal
+   * @return SecurityMonitoringSignalResponse
    * @throws ApiException if fails to make API call
    */
-  public SecurityMonitoringSignal getSecurityMonitoringSignal(String signalId) throws ApiException {
+  public SecurityMonitoringSignalResponse getSecurityMonitoringSignal(String signalId)
+      throws ApiException {
     return getSecurityMonitoringSignalWithHttpInfo(signalId).getData();
   }
 
@@ -1653,9 +1655,9 @@ public class SecurityMonitoringApi {
    * <p>See {@link #getSecurityMonitoringSignalWithHttpInfoAsync}.
    *
    * @param signalId The ID of the signal. (required)
-   * @return CompletableFuture&lt;SecurityMonitoringSignal&gt;
+   * @return CompletableFuture&lt;SecurityMonitoringSignalResponse&gt;
    */
-  public CompletableFuture<SecurityMonitoringSignal> getSecurityMonitoringSignalAsync(
+  public CompletableFuture<SecurityMonitoringSignalResponse> getSecurityMonitoringSignalAsync(
       String signalId) {
     return getSecurityMonitoringSignalWithHttpInfoAsync(signalId)
         .thenApply(
@@ -1668,7 +1670,7 @@ public class SecurityMonitoringApi {
    * Get a signal's details.
    *
    * @param signalId The ID of the signal. (required)
-   * @return ApiResponse&lt;SecurityMonitoringSignal&gt;
+   * @return ApiResponse&lt;SecurityMonitoringSignalResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -1679,7 +1681,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SecurityMonitoringSignal> getSecurityMonitoringSignalWithHttpInfo(
+  public ApiResponse<SecurityMonitoringSignalResponse> getSecurityMonitoringSignalWithHttpInfo(
       String signalId) throws ApiException {
     Object localVarPostBody = null;
 
@@ -1713,7 +1715,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<SecurityMonitoringSignal>() {});
+        new GenericType<SecurityMonitoringSignalResponse>() {});
   }
 
   /**
@@ -1722,15 +1724,16 @@ public class SecurityMonitoringApi {
    * <p>See {@link #getSecurityMonitoringSignalWithHttpInfo}.
    *
    * @param signalId The ID of the signal. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignal&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSignalResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<SecurityMonitoringSignal>>
+  public CompletableFuture<ApiResponse<SecurityMonitoringSignalResponse>>
       getSecurityMonitoringSignalWithHttpInfoAsync(String signalId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'signalId' is set
     if (signalId == null) {
-      CompletableFuture<ApiResponse<SecurityMonitoringSignal>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400,
@@ -1757,7 +1760,8 @@ public class SecurityMonitoringApi {
               new String[] {"application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<SecurityMonitoringSignal>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<SecurityMonitoringSignalResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1769,7 +1773,7 @@ public class SecurityMonitoringApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<SecurityMonitoringSignal>() {});
+        new GenericType<SecurityMonitoringSignalResponse>() {});
   }
 
   /** Manage optional parameters to listFindings. */

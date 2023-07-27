@@ -21,6 +21,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** How to generate compliance signals. Useful for cloud_configuration rules only. */
 @JsonPropertyOrder({
+  CloudConfigurationRuleComplianceSignalOptions.JSON_PROPERTY_DEFAULT_ACTIVATION_STATUS,
+  CloudConfigurationRuleComplianceSignalOptions.JSON_PROPERTY_DEFAULT_GROUP_BY_FIELDS,
   CloudConfigurationRuleComplianceSignalOptions.JSON_PROPERTY_USER_ACTIVATION_STATUS,
   CloudConfigurationRuleComplianceSignalOptions.JSON_PROPERTY_USER_GROUP_BY_FIELDS
 })
@@ -28,11 +30,96 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudConfigurationRuleComplianceSignalOptions {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DEFAULT_ACTIVATION_STATUS = "defaultActivationStatus";
+  private JsonNullable<Boolean> defaultActivationStatus = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_DEFAULT_GROUP_BY_FIELDS = "defaultGroupByFields";
+  private JsonNullable<List<String>> defaultGroupByFields = JsonNullable.<List<String>>undefined();
+
   public static final String JSON_PROPERTY_USER_ACTIVATION_STATUS = "userActivationStatus";
   private JsonNullable<Boolean> userActivationStatus = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_USER_GROUP_BY_FIELDS = "userGroupByFields";
   private JsonNullable<List<String>> userGroupByFields = JsonNullable.<List<String>>undefined();
+
+  public CloudConfigurationRuleComplianceSignalOptions defaultActivationStatus(
+      Boolean defaultActivationStatus) {
+    this.defaultActivationStatus = JsonNullable.<Boolean>of(defaultActivationStatus);
+    return this;
+  }
+
+  /**
+   * The default activation status.
+   *
+   * @return defaultActivationStatus
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Boolean getDefaultActivationStatus() {
+    return defaultActivationStatus.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DEFAULT_ACTIVATION_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Boolean> getDefaultActivationStatus_JsonNullable() {
+    return defaultActivationStatus;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DEFAULT_ACTIVATION_STATUS)
+  public void setDefaultActivationStatus_JsonNullable(
+      JsonNullable<Boolean> defaultActivationStatus) {
+    this.defaultActivationStatus = defaultActivationStatus;
+  }
+
+  public void setDefaultActivationStatus(Boolean defaultActivationStatus) {
+    this.defaultActivationStatus = JsonNullable.<Boolean>of(defaultActivationStatus);
+  }
+
+  public CloudConfigurationRuleComplianceSignalOptions defaultGroupByFields(
+      List<String> defaultGroupByFields) {
+    this.defaultGroupByFields = JsonNullable.<List<String>>of(defaultGroupByFields);
+    return this;
+  }
+
+  public CloudConfigurationRuleComplianceSignalOptions addDefaultGroupByFieldsItem(
+      String defaultGroupByFieldsItem) {
+    if (this.defaultGroupByFields == null || !this.defaultGroupByFields.isPresent()) {
+      this.defaultGroupByFields = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.defaultGroupByFields.get().add(defaultGroupByFieldsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The default group by fields.
+   *
+   * @return defaultGroupByFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getDefaultGroupByFields() {
+    return defaultGroupByFields.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DEFAULT_GROUP_BY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getDefaultGroupByFields_JsonNullable() {
+    return defaultGroupByFields;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DEFAULT_GROUP_BY_FIELDS)
+  public void setDefaultGroupByFields_JsonNullable(
+      JsonNullable<List<String>> defaultGroupByFields) {
+    this.defaultGroupByFields = defaultGroupByFields;
+  }
+
+  public void setDefaultGroupByFields(List<String> defaultGroupByFields) {
+    this.defaultGroupByFields = JsonNullable.<List<String>>of(defaultGroupByFields);
+  }
 
   public CloudConfigurationRuleComplianceSignalOptions userActivationStatus(
       Boolean userActivationStatus) {
@@ -170,6 +257,12 @@ public class CloudConfigurationRuleComplianceSignalOptions {
     CloudConfigurationRuleComplianceSignalOptions cloudConfigurationRuleComplianceSignalOptions =
         (CloudConfigurationRuleComplianceSignalOptions) o;
     return Objects.equals(
+            this.defaultActivationStatus,
+            cloudConfigurationRuleComplianceSignalOptions.defaultActivationStatus)
+        && Objects.equals(
+            this.defaultGroupByFields,
+            cloudConfigurationRuleComplianceSignalOptions.defaultGroupByFields)
+        && Objects.equals(
             this.userActivationStatus,
             cloudConfigurationRuleComplianceSignalOptions.userActivationStatus)
         && Objects.equals(
@@ -181,13 +274,24 @@ public class CloudConfigurationRuleComplianceSignalOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(userActivationStatus, userGroupByFields, additionalProperties);
+    return Objects.hash(
+        defaultActivationStatus,
+        defaultGroupByFields,
+        userActivationStatus,
+        userGroupByFields,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudConfigurationRuleComplianceSignalOptions {\n");
+    sb.append("    defaultActivationStatus: ")
+        .append(toIndentedString(defaultActivationStatus))
+        .append("\n");
+    sb.append("    defaultGroupByFields: ")
+        .append(toIndentedString(defaultGroupByFields))
+        .append("\n");
     sb.append("    userActivationStatus: ")
         .append(toIndentedString(userActivationStatus))
         .append("\n");
