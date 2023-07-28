@@ -27,7 +27,7 @@ import java.util.Objects;
 public class CIAppPipelineEvent {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private CIAppEventAttributes attributes;
+  private CIAppPipelineEventAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -35,7 +35,7 @@ public class CIAppPipelineEvent {
   public static final String JSON_PROPERTY_TYPE = "type";
   private CIAppPipelineEventTypeName type;
 
-  public CIAppPipelineEvent attributes(CIAppEventAttributes attributes) {
+  public CIAppPipelineEvent attributes(CIAppPipelineEventAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
@@ -49,11 +49,11 @@ public class CIAppPipelineEvent {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CIAppEventAttributes getAttributes() {
+  public CIAppPipelineEventAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(CIAppEventAttributes attributes) {
+  public void setAttributes(CIAppPipelineEventAttributes attributes) {
     this.attributes = attributes;
   }
 

@@ -12,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,9 +21,8 @@ import java.util.Objects;
 /** JSON object containing all event attributes and their associated values. */
 @JsonPropertyOrder({
   CIAppEventAttributes.JSON_PROPERTY_ATTRIBUTES,
-  CIAppEventAttributes.JSON_PROPERTY_SERVICE,
   CIAppEventAttributes.JSON_PROPERTY_TAGS,
-  CIAppEventAttributes.JSON_PROPERTY_TIMESTAMP
+  CIAppEventAttributes.JSON_PROPERTY_TEST_LEVEL
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -33,14 +31,11 @@ public class CIAppEventAttributes {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private Map<String, Object> attributes = null;
 
-  public static final String JSON_PROPERTY_SERVICE = "service";
-  private String service;
-
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
-  public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
-  private OffsetDateTime timestamp;
+  public static final String JSON_PROPERTY_TEST_LEVEL = "test_level";
+  private CIAppTestLevel testLevel;
 
   public CIAppEventAttributes attributes(Map<String, Object> attributes) {
     this.attributes = attributes;
@@ -56,7 +51,7 @@ public class CIAppEventAttributes {
   }
 
   /**
-   * JSON object of attributes from CI Visibility events.
+   * JSON object of attributes from CI Visibility test events.
    *
    * @return attributes
    */
@@ -69,28 +64,6 @@ public class CIAppEventAttributes {
 
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
-  }
-
-  public CIAppEventAttributes service(String service) {
-    this.service = service;
-    return this;
-  }
-
-  /**
-   * The name of the application or service generating CI Visibility events. It is used to switch
-   * from CI Visibility to APM, so make sure you define the same value when you use both products.
-   *
-   * @return service
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getService() {
-    return service;
-  }
-
-  public void setService(String service) {
-    this.service = service;
   }
 
   public CIAppEventAttributes tags(List<String> tags) {
@@ -122,25 +95,29 @@ public class CIAppEventAttributes {
     this.tags = tags;
   }
 
-  public CIAppEventAttributes timestamp(OffsetDateTime timestamp) {
-    this.timestamp = timestamp;
+  public CIAppEventAttributes testLevel(CIAppTestLevel testLevel) {
+    this.testLevel = testLevel;
+    this.unparsed |= !testLevel.isValid();
     return this;
   }
 
   /**
-   * Timestamp of your event.
+   * Test run level.
    *
-   * @return timestamp
+   * @return testLevel
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonProperty(JSON_PROPERTY_TEST_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getTimestamp() {
-    return timestamp;
+  public CIAppTestLevel getTestLevel() {
+    return testLevel;
   }
 
-  public void setTimestamp(OffsetDateTime timestamp) {
-    this.timestamp = timestamp;
+  public void setTestLevel(CIAppTestLevel testLevel) {
+    if (!testLevel.isValid()) {
+      this.unparsed = true;
+    }
+    this.testLevel = testLevel;
   }
 
   /**
@@ -200,15 +177,14 @@ public class CIAppEventAttributes {
     }
     CIAppEventAttributes ciAppEventAttributes = (CIAppEventAttributes) o;
     return Objects.equals(this.attributes, ciAppEventAttributes.attributes)
-        && Objects.equals(this.service, ciAppEventAttributes.service)
         && Objects.equals(this.tags, ciAppEventAttributes.tags)
-        && Objects.equals(this.timestamp, ciAppEventAttributes.timestamp)
+        && Objects.equals(this.testLevel, ciAppEventAttributes.testLevel)
         && Objects.equals(this.additionalProperties, ciAppEventAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, service, tags, timestamp, additionalProperties);
+    return Objects.hash(attributes, tags, testLevel, additionalProperties);
   }
 
   @Override
@@ -216,9 +192,8 @@ public class CIAppEventAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class CIAppEventAttributes {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("    testLevel: ").append(toIndentedString(testLevel)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

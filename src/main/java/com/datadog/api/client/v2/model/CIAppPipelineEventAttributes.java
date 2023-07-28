@@ -12,93 +12,112 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The response object for the test events aggregate API endpoint. */
+/** JSON object containing all event attributes and their associated values. */
 @JsonPropertyOrder({
-  CIAppTestsAnalyticsAggregateResponse.JSON_PROPERTY_DATA,
-  CIAppTestsAnalyticsAggregateResponse.JSON_PROPERTY_LINKS,
-  CIAppTestsAnalyticsAggregateResponse.JSON_PROPERTY_META
+  CIAppPipelineEventAttributes.JSON_PROPERTY_ATTRIBUTES,
+  CIAppPipelineEventAttributes.JSON_PROPERTY_CI_LEVEL,
+  CIAppPipelineEventAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CIAppTestsAnalyticsAggregateResponse {
+public class CIAppPipelineEventAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private CIAppTestsAggregationBucketsResponse data;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private Map<String, Object> attributes = null;
 
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private CIAppResponseLinks links;
+  public static final String JSON_PROPERTY_CI_LEVEL = "ci_level";
+  private CIAppPipelineLevel ciLevel;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private CIAppResponseMetadataWithPagination meta;
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
-  public CIAppTestsAnalyticsAggregateResponse data(CIAppTestsAggregationBucketsResponse data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public CIAppPipelineEventAttributes attributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public CIAppPipelineEventAttributes putAttributesItem(String key, Object attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
+    this.attributes.put(key, attributesItem);
     return this;
   }
 
   /**
-   * The query results.
+   * JSON object of attributes from CI Visibility pipeline events.
    *
-   * @return data
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CIAppTestsAggregationBucketsResponse getData() {
-    return data;
+  public Map<String, Object> getAttributes() {
+    return attributes;
   }
 
-  public void setData(CIAppTestsAggregationBucketsResponse data) {
-    this.data = data;
+  public void setAttributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
   }
 
-  public CIAppTestsAnalyticsAggregateResponse links(CIAppResponseLinks links) {
-    this.links = links;
-    this.unparsed |= links.unparsed;
+  public CIAppPipelineEventAttributes ciLevel(CIAppPipelineLevel ciLevel) {
+    this.ciLevel = ciLevel;
+    this.unparsed |= !ciLevel.isValid();
     return this;
   }
 
   /**
-   * Links attributes.
+   * Pipeline execution level.
    *
-   * @return links
+   * @return ciLevel
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonProperty(JSON_PROPERTY_CI_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CIAppResponseLinks getLinks() {
-    return links;
+  public CIAppPipelineLevel getCiLevel() {
+    return ciLevel;
   }
 
-  public void setLinks(CIAppResponseLinks links) {
-    this.links = links;
+  public void setCiLevel(CIAppPipelineLevel ciLevel) {
+    if (!ciLevel.isValid()) {
+      this.unparsed = true;
+    }
+    this.ciLevel = ciLevel;
   }
 
-  public CIAppTestsAnalyticsAggregateResponse meta(CIAppResponseMetadataWithPagination meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
+  public CIAppPipelineEventAttributes tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CIAppPipelineEventAttributes addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
     return this;
   }
 
   /**
-   * The metadata associated with a request.
+   * Array of tags associated with your event.
    *
-   * @return meta
+   * @return tags
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
+  @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CIAppResponseMetadataWithPagination getMeta() {
-    return meta;
+  public List<String> getTags() {
+    return tags;
   }
 
-  public void setMeta(CIAppResponseMetadataWithPagination meta) {
-    this.meta = meta;
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
   /**
@@ -113,10 +132,10 @@ public class CIAppTestsAnalyticsAggregateResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return CIAppTestsAnalyticsAggregateResponse
+   * @return CIAppPipelineEventAttributes
    */
   @JsonAnySetter
-  public CIAppTestsAnalyticsAggregateResponse putAdditionalProperty(String key, Object value) {
+  public CIAppPipelineEventAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -147,7 +166,7 @@ public class CIAppTestsAnalyticsAggregateResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this CIAppTestsAnalyticsAggregateResponse object is equal to o. */
+  /** Return true if this CIAppPipelineEventAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -156,27 +175,26 @@ public class CIAppTestsAnalyticsAggregateResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CIAppTestsAnalyticsAggregateResponse ciAppTestsAnalyticsAggregateResponse =
-        (CIAppTestsAnalyticsAggregateResponse) o;
-    return Objects.equals(this.data, ciAppTestsAnalyticsAggregateResponse.data)
-        && Objects.equals(this.links, ciAppTestsAnalyticsAggregateResponse.links)
-        && Objects.equals(this.meta, ciAppTestsAnalyticsAggregateResponse.meta)
+    CIAppPipelineEventAttributes ciAppPipelineEventAttributes = (CIAppPipelineEventAttributes) o;
+    return Objects.equals(this.attributes, ciAppPipelineEventAttributes.attributes)
+        && Objects.equals(this.ciLevel, ciAppPipelineEventAttributes.ciLevel)
+        && Objects.equals(this.tags, ciAppPipelineEventAttributes.tags)
         && Objects.equals(
-            this.additionalProperties, ciAppTestsAnalyticsAggregateResponse.additionalProperties);
+            this.additionalProperties, ciAppPipelineEventAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, meta, additionalProperties);
+    return Objects.hash(attributes, ciLevel, tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CIAppTestsAnalyticsAggregateResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("class CIAppPipelineEventAttributes {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    ciLevel: ").append(toIndentedString(ciLevel)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
