@@ -30,6 +30,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CI_VISIBILITY_ITR_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CI_VISIBILITY_ITR_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_EXCL_AGENT_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_EXCL_AGENT_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_PERCENTAGE,
@@ -124,6 +126,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_BROWSER_USAGE = "browser_usage";
   private Double browserUsage;
+
+  public static final String JSON_PROPERTY_CI_VISIBILITY_ITR_PERCENTAGE =
+      "ci_visibility_itr_percentage";
+  private Double ciVisibilityItrPercentage;
+
+  public static final String JSON_PROPERTY_CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage";
+  private Double ciVisibilityItrUsage;
 
   public static final String JSON_PROPERTY_CONTAINER_EXCL_AGENT_PERCENTAGE =
       "container_excl_agent_percentage";
@@ -560,6 +569,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setBrowserUsage(Double browserUsage) {
     this.browserUsage = browserUsage;
+  }
+
+  public MonthlyUsageAttributionValues ciVisibilityItrPercentage(Double ciVisibilityItrPercentage) {
+    this.ciVisibilityItrPercentage = ciVisibilityItrPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Git committers for Intelligent Test Runner usage by tag(s).
+   *
+   * @return ciVisibilityItrPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_ITR_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCiVisibilityItrPercentage() {
+    return ciVisibilityItrPercentage;
+  }
+
+  public void setCiVisibilityItrPercentage(Double ciVisibilityItrPercentage) {
+    this.ciVisibilityItrPercentage = ciVisibilityItrPercentage;
+  }
+
+  public MonthlyUsageAttributionValues ciVisibilityItrUsage(Double ciVisibilityItrUsage) {
+    this.ciVisibilityItrUsage = ciVisibilityItrUsage;
+    return this;
+  }
+
+  /**
+   * The Git committers for Intelligent Test Runner usage by tag(s).
+   *
+   * @return ciVisibilityItrUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_ITR_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCiVisibilityItrUsage() {
+    return ciVisibilityItrUsage;
+  }
+
+  public void setCiVisibilityItrUsage(Double ciVisibilityItrUsage) {
+    this.ciVisibilityItrUsage = ciVisibilityItrUsage;
   }
 
   public MonthlyUsageAttributionValues containerExclAgentPercentage(
@@ -1784,6 +1835,10 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(this.browserPercentage, monthlyUsageAttributionValues.browserPercentage)
         && Objects.equals(this.browserUsage, monthlyUsageAttributionValues.browserUsage)
         && Objects.equals(
+            this.ciVisibilityItrPercentage, monthlyUsageAttributionValues.ciVisibilityItrPercentage)
+        && Objects.equals(
+            this.ciVisibilityItrUsage, monthlyUsageAttributionValues.ciVisibilityItrUsage)
+        && Objects.equals(
             this.containerExclAgentPercentage,
             monthlyUsageAttributionValues.containerExclAgentPercentage)
         && Objects.equals(
@@ -1909,6 +1964,8 @@ public class MonthlyUsageAttributionValues {
         appsecUsage,
         browserPercentage,
         browserUsage,
+        ciVisibilityItrPercentage,
+        ciVisibilityItrUsage,
         containerExclAgentPercentage,
         containerExclAgentUsage,
         containerPercentage,
@@ -1986,6 +2043,12 @@ public class MonthlyUsageAttributionValues {
     sb.append("    appsecUsage: ").append(toIndentedString(appsecUsage)).append("\n");
     sb.append("    browserPercentage: ").append(toIndentedString(browserPercentage)).append("\n");
     sb.append("    browserUsage: ").append(toIndentedString(browserUsage)).append("\n");
+    sb.append("    ciVisibilityItrPercentage: ")
+        .append(toIndentedString(ciVisibilityItrPercentage))
+        .append("\n");
+    sb.append("    ciVisibilityItrUsage: ")
+        .append(toIndentedString(ciVisibilityItrUsage))
+        .append("\n");
     sb.append("    containerExclAgentPercentage: ")
         .append(toIndentedString(containerExclAgentPercentage))
         .append("\n");

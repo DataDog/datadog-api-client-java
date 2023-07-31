@@ -21,6 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   UsageCIVisibilityHour.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS,
   UsageCIVisibilityHour.JSON_PROPERTY_CI_TEST_INDEXED_SPANS,
+  UsageCIVisibilityHour.JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS,
   UsageCIVisibilityHour.JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS,
   UsageCIVisibilityHour.JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS,
   UsageCIVisibilityHour.JSON_PROPERTY_ORG_NAME,
@@ -35,6 +36,10 @@ public class UsageCIVisibilityHour {
 
   public static final String JSON_PROPERTY_CI_TEST_INDEXED_SPANS = "ci_test_indexed_spans";
   private JsonNullable<Long> ciTestIndexedSpans = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS =
+      "ci_visibility_itr_committers";
+  private JsonNullable<Long> ciVisibilityItrCommitters = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS =
       "ci_visibility_pipeline_committers";
@@ -110,6 +115,39 @@ public class UsageCIVisibilityHour {
 
   public void setCiTestIndexedSpans(Long ciTestIndexedSpans) {
     this.ciTestIndexedSpans = JsonNullable.<Long>of(ciTestIndexedSpans);
+  }
+
+  public UsageCIVisibilityHour ciVisibilityItrCommitters(Long ciVisibilityItrCommitters) {
+    this.ciVisibilityItrCommitters = JsonNullable.<Long>of(ciVisibilityItrCommitters);
+    return this;
+  }
+
+  /**
+   * Shows the total count of all active Git committers for Intelligent Test Runner in the current
+   * month. A committer is active if they commit at least 3 times in a given month.
+   *
+   * @return ciVisibilityItrCommitters
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getCiVisibilityItrCommitters() {
+    return ciVisibilityItrCommitters.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getCiVisibilityItrCommitters_JsonNullable() {
+    return ciVisibilityItrCommitters;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS)
+  public void setCiVisibilityItrCommitters_JsonNullable(
+      JsonNullable<Long> ciVisibilityItrCommitters) {
+    this.ciVisibilityItrCommitters = ciVisibilityItrCommitters;
+  }
+
+  public void setCiVisibilityItrCommitters(Long ciVisibilityItrCommitters) {
+    this.ciVisibilityItrCommitters = JsonNullable.<Long>of(ciVisibilityItrCommitters);
   }
 
   public UsageCIVisibilityHour ciVisibilityPipelineCommitters(Long ciVisibilityPipelineCommitters) {
@@ -279,6 +317,8 @@ public class UsageCIVisibilityHour {
     return Objects.equals(this.ciPipelineIndexedSpans, usageCiVisibilityHour.ciPipelineIndexedSpans)
         && Objects.equals(this.ciTestIndexedSpans, usageCiVisibilityHour.ciTestIndexedSpans)
         && Objects.equals(
+            this.ciVisibilityItrCommitters, usageCiVisibilityHour.ciVisibilityItrCommitters)
+        && Objects.equals(
             this.ciVisibilityPipelineCommitters,
             usageCiVisibilityHour.ciVisibilityPipelineCommitters)
         && Objects.equals(
@@ -293,6 +333,7 @@ public class UsageCIVisibilityHour {
     return Objects.hash(
         ciPipelineIndexedSpans,
         ciTestIndexedSpans,
+        ciVisibilityItrCommitters,
         ciVisibilityPipelineCommitters,
         ciVisibilityTestCommitters,
         orgName,
@@ -308,6 +349,9 @@ public class UsageCIVisibilityHour {
         .append(toIndentedString(ciPipelineIndexedSpans))
         .append("\n");
     sb.append("    ciTestIndexedSpans: ").append(toIndentedString(ciTestIndexedSpans)).append("\n");
+    sb.append("    ciVisibilityItrCommitters: ")
+        .append(toIndentedString(ciVisibilityItrCommitters))
+        .append("\n");
     sb.append("    ciVisibilityPipelineCommitters: ")
         .append(toIndentedString(ciVisibilityPipelineCommitters))
         .append("\n");

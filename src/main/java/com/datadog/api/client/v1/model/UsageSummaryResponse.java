@@ -43,6 +43,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_BROWSER_RUM_UNITS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG_SUM,
@@ -190,6 +191,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_CI_TEST_INDEXED_SPANS_AGG_SUM =
       "ci_test_indexed_spans_agg_sum";
   private Long ciTestIndexedSpansAggSum;
+
+  public static final String JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM_SUM =
+      "ci_visibility_itr_committers_hwm_sum";
+  private Long ciVisibilityItrCommittersHwmSum;
 
   public static final String JSON_PROPERTY_CI_VISIBILITY_PIPELINE_COMMITTERS_HWM_SUM =
       "ci_visibility_pipeline_committers_hwm_sum";
@@ -879,6 +884,29 @@ public class UsageSummaryResponse {
 
   public void setCiTestIndexedSpansAggSum(Long ciTestIndexedSpansAggSum) {
     this.ciTestIndexedSpansAggSum = ciTestIndexedSpansAggSum;
+  }
+
+  public UsageSummaryResponse ciVisibilityItrCommittersHwmSum(
+      Long ciVisibilityItrCommittersHwmSum) {
+    this.ciVisibilityItrCommittersHwmSum = ciVisibilityItrCommittersHwmSum;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of all CI visibility intelligent test runner committers over all
+   * hours in the current months for all organizations.
+   *
+   * @return ciVisibilityItrCommittersHwmSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CI_VISIBILITY_ITR_COMMITTERS_HWM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCiVisibilityItrCommittersHwmSum() {
+    return ciVisibilityItrCommittersHwmSum;
+  }
+
+  public void setCiVisibilityItrCommittersHwmSum(Long ciVisibilityItrCommittersHwmSum) {
+    this.ciVisibilityItrCommittersHwmSum = ciVisibilityItrCommittersHwmSum;
   }
 
   public UsageSummaryResponse ciVisibilityPipelineCommittersHwmSum(
@@ -2631,6 +2659,9 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.ciTestIndexedSpansAggSum, usageSummaryResponse.ciTestIndexedSpansAggSum)
         && Objects.equals(
+            this.ciVisibilityItrCommittersHwmSum,
+            usageSummaryResponse.ciVisibilityItrCommittersHwmSum)
+        && Objects.equals(
             this.ciVisibilityPipelineCommittersHwmSum,
             usageSummaryResponse.ciVisibilityPipelineCommittersHwmSum)
         && Objects.equals(
@@ -2794,6 +2825,7 @@ public class UsageSummaryResponse {
         browserRumUnitsAggSum,
         ciPipelineIndexedSpansAggSum,
         ciTestIndexedSpansAggSum,
+        ciVisibilityItrCommittersHwmSum,
         ciVisibilityPipelineCommittersHwmSum,
         ciVisibilityTestCommittersHwmSum,
         cloudCostManagementAwsHostCountAvgSum,
@@ -2921,6 +2953,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    ciTestIndexedSpansAggSum: ")
         .append(toIndentedString(ciTestIndexedSpansAggSum))
+        .append("\n");
+    sb.append("    ciVisibilityItrCommittersHwmSum: ")
+        .append(toIndentedString(ciVisibilityItrCommittersHwmSum))
         .append("\n");
     sb.append("    ciVisibilityPipelineCommittersHwmSum: ")
         .append(toIndentedString(ciVisibilityPipelineCommittersHwmSum))
