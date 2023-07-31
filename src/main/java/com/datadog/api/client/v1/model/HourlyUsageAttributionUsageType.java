@@ -33,6 +33,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "appsec_usage",
               "browser_usage",
               "container_excl_agent_usage",
+              "ci_visibility_itr_usage",
               "container_usage",
               "cspm_containers_usage",
               "cspm_hosts_usage",
@@ -74,6 +75,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("browser_usage");
   public static final HourlyUsageAttributionUsageType CONTAINER_EXCL_AGENT_USAGE =
       new HourlyUsageAttributionUsageType("container_excl_agent_usage");
+  public static final HourlyUsageAttributionUsageType CI_VISIBILITY_ITR_USAGE =
+      new HourlyUsageAttributionUsageType("ci_visibility_itr_usage");
   public static final HourlyUsageAttributionUsageType CONTAINER_USAGE =
       new HourlyUsageAttributionUsageType("container_usage");
   public static final HourlyUsageAttributionUsageType CSPM_CONTAINERS_USAGE =
