@@ -365,6 +365,7 @@ public class ApiClient {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
+          put("v2.createCIAppPipelineEvent", false);
           put("v2.cancelDowntime", false);
           put("v2.createDowntime", false);
           put("v2.getDowntime", false);
