@@ -86,8 +86,8 @@ public class CiVisibilityPipelinesApi {
   }
 
   /**
-   * The API endpoint to aggregate CI Visibility pipeline events into buckets of computed metrics
-   * and timeseries.
+   * Use this API endpoint to aggregate CI Visibility pipeline events into buckets of computed
+   * metrics and timeseries.
    *
    * @param body (required)
    * @return ApiResponse&lt;CIAppPipelinesAnalyticsAggregateResponse&gt;
@@ -224,12 +224,11 @@ public class CiVisibilityPipelinesApi {
 
   /**
    * Send your pipeline event to your Datadog platform over HTTP. For details about how pipeline
-   * executions are modeled and what execution types we support, see the <a
-   * href="https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/">guide</a>.
+   * executions are modeled and what execution types we support, see <a
+   * href="https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/">Pipeline
+   * Data Model And Execution Types</a>.
    *
    * <p>Pipeline events can be submitted with a timestamp that is up to 18 hours in the past.
-   *
-   * <p>This API endpoint is in private beta.
    *
    * @param body (required)
    * @return ApiResponse&lt;Object&gt;
@@ -251,6 +250,13 @@ public class CiVisibilityPipelinesApi {
    */
   public ApiResponse<Object> createCIAppPipelineEventWithHttpInfo(
       CIAppCreatePipelineEventRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createCIAppPipelineEvent";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -293,6 +299,16 @@ public class CiVisibilityPipelinesApi {
    */
   public CompletableFuture<ApiResponse<Object>> createCIAppPipelineEventWithHttpInfoAsync(
       CIAppCreatePipelineEventRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createCIAppPipelineEvent";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -525,7 +541,8 @@ public class CiVisibilityPipelinesApi {
 
   /**
    * List endpoint returns CI Visibility pipeline events that match a <a
-   * href="https://docs.datadoghq.com/logs/explorer/search_syntax/">log search query</a>. <a
+   * href="https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/">search
+   * query</a>. <a
    * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
    * paginated similarly to logs</a>.
    *
@@ -783,7 +800,8 @@ public class CiVisibilityPipelinesApi {
 
   /**
    * List endpoint returns CI Visibility pipeline events that match a <a
-   * href="https://docs.datadoghq.com/logs/explorer/search_syntax/">log search query</a>. <a
+   * href="https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/">search
+   * query</a>. <a
    * href="https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination">Results are
    * paginated similarly to logs</a>.
    *
