@@ -25,6 +25,7 @@ import java.util.Objects;
  * time.
  */
 @JsonPropertyOrder({
+  DistributionWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   DistributionWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   DistributionWidgetDefinition.JSON_PROPERTY_MARKERS,
   DistributionWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -41,6 +42,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DistributionWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
+
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private String legendSize;
 
@@ -85,6 +89,39 @@ public class DistributionWidgetDefinition {
     this.requests = requests;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  public DistributionWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    for (WidgetCustomLink item : customLinks) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public DistributionWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
+    }
+    this.customLinks.add(customLinksItem);
+    this.unparsed |= customLinksItem.unparsed;
+    return this;
+  }
+
+  /**
+   * A list of custom links.
+   *
+   * @return customLinks
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
+
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
   }
 
   public DistributionWidgetDefinition legendSize(String legendSize) {
@@ -414,7 +451,8 @@ public class DistributionWidgetDefinition {
       return false;
     }
     DistributionWidgetDefinition distributionWidgetDefinition = (DistributionWidgetDefinition) o;
-    return Objects.equals(this.legendSize, distributionWidgetDefinition.legendSize)
+    return Objects.equals(this.customLinks, distributionWidgetDefinition.customLinks)
+        && Objects.equals(this.legendSize, distributionWidgetDefinition.legendSize)
         && Objects.equals(this.markers, distributionWidgetDefinition.markers)
         && Objects.equals(this.requests, distributionWidgetDefinition.requests)
         && Objects.equals(this.showLegend, distributionWidgetDefinition.showLegend)
@@ -432,6 +470,7 @@ public class DistributionWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
+        customLinks,
         legendSize,
         markers,
         requests,
@@ -450,6 +489,7 @@ public class DistributionWidgetDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DistributionWidgetDefinition {\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
     sb.append("    markers: ").append(toIndentedString(markers)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");

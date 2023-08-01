@@ -16,6 +16,7 @@ import com.datadog.api.client.v1.model.DistributionWidgetYAxis;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricQueryDefinition;
 import com.datadog.api.client.v1.model.Widget;
+import com.datadog.api.client.v1.model.WidgetCustomLink;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetLayout;
 import com.datadog.api.client.v1.model.WidgetStyle;
@@ -41,6 +42,11 @@ public class Example {
                                     .titleAlign(WidgetTextAlign.LEFT)
                                     .showLegend(false)
                                     .type(DistributionWidgetDefinitionType.DISTRIBUTION)
+                                    .customLinks(
+                                        Collections.singletonList(
+                                            new WidgetCustomLink()
+                                                .label("Example")
+                                                .link("https://example.org/")))
                                     .xaxis(
                                         new DistributionWidgetXAxis()
                                             .max("auto")
