@@ -23,6 +23,7 @@ import java.util.Objects;
   UsageAttributesObject.JSON_PROPERTY_ORG_NAME,
   UsageAttributesObject.JSON_PROPERTY_PRODUCT_FAMILY,
   UsageAttributesObject.JSON_PROPERTY_PUBLIC_ID,
+  UsageAttributesObject.JSON_PROPERTY_REGION,
   UsageAttributesObject.JSON_PROPERTY_TIMESERIES,
   UsageAttributesObject.JSON_PROPERTY_USAGE_TYPE
 })
@@ -38,6 +39,9 @@ public class UsageAttributesObject {
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
+
+  public static final String JSON_PROPERTY_REGION = "region";
+  private String region;
 
   public static final String JSON_PROPERTY_TIMESERIES = "timeseries";
   private List<UsageTimeSeriesObject> timeseries = null;
@@ -106,6 +110,27 @@ public class UsageAttributesObject {
 
   public void setPublicId(String publicId) {
     this.publicId = publicId;
+  }
+
+  public UsageAttributesObject region(String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * The region of the Datadog instance that the organization belongs to.
+   *
+   * @return region
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(String region) {
+    this.region = region;
   }
 
   public UsageAttributesObject timeseries(List<UsageTimeSeriesObject> timeseries) {
@@ -225,6 +250,7 @@ public class UsageAttributesObject {
     return Objects.equals(this.orgName, usageAttributesObject.orgName)
         && Objects.equals(this.productFamily, usageAttributesObject.productFamily)
         && Objects.equals(this.publicId, usageAttributesObject.publicId)
+        && Objects.equals(this.region, usageAttributesObject.region)
         && Objects.equals(this.timeseries, usageAttributesObject.timeseries)
         && Objects.equals(this.usageType, usageAttributesObject.usageType)
         && Objects.equals(this.additionalProperties, usageAttributesObject.additionalProperties);
@@ -233,7 +259,7 @@ public class UsageAttributesObject {
   @Override
   public int hashCode() {
     return Objects.hash(
-        orgName, productFamily, publicId, timeseries, usageType, additionalProperties);
+        orgName, productFamily, publicId, region, timeseries, usageType, additionalProperties);
   }
 
   @Override
@@ -243,6 +269,7 @@ public class UsageAttributesObject {
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    productFamily: ").append(toIndentedString(productFamily)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    timeseries: ").append(toIndentedString(timeseries)).append("\n");
     sb.append("    usageType: ").append(toIndentedString(usageType)).append("\n");
     sb.append("    additionalProperties: ")
