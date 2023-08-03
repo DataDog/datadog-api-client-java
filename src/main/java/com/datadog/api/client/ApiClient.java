@@ -350,6 +350,7 @@ public class ApiClient {
   protected Map<String, Map<String, String>> operationServerVariables =
       new HashMap<String, Map<String, String>>();
   protected boolean debugging = false;
+  protected RetryConfig retry ; 
   protected boolean compress = true;
   protected ClientConfig clientConfig;
   protected int connectionTimeout = 0;
@@ -445,6 +446,10 @@ public class ApiClient {
     }
     defaultApiClient.configureApiKeys(secrets);
 
+    //Configure default retry behavior
+    RetryConfig retry = new RetryConfig(false,2,2,3);
+    defaultApiClient.setRetry(retry);
+
     return defaultApiClient;
   }
 
@@ -516,6 +521,15 @@ public class ApiClient {
   public DateTimeFormatter getOffsetDateTimeFormatter() {
     return offsetDateTimeFormatter;
   }
+
+  /** 
+   * Add custom retry object in the client
+   * @param retry retry object
+   * */
+  public void setRetry(RetryConfig retry) {
+    this.retry = retry;
+  }
+  
 
   /**
    * Set the date format used to parse/format {@code OffsetDateTime} parameters.
