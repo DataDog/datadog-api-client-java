@@ -22,6 +22,7 @@ import java.util.Objects;
 /** JSON object containing all event attributes and their associated values. */
 @JsonPropertyOrder({
   AuditLogsEventAttributes.JSON_PROPERTY_ATTRIBUTES,
+  AuditLogsEventAttributes.JSON_PROPERTY_MESSAGE,
   AuditLogsEventAttributes.JSON_PROPERTY_SERVICE,
   AuditLogsEventAttributes.JSON_PROPERTY_TAGS,
   AuditLogsEventAttributes.JSON_PROPERTY_TIMESTAMP
@@ -32,6 +33,9 @@ public class AuditLogsEventAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private Map<String, Object> attributes = null;
+
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
@@ -69,6 +73,27 @@ public class AuditLogsEventAttributes {
 
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
+  }
+
+  public AuditLogsEventAttributes message(String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Message of the event.
+   *
+   * @return message
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   public AuditLogsEventAttributes service(String service) {
@@ -200,6 +225,7 @@ public class AuditLogsEventAttributes {
     }
     AuditLogsEventAttributes auditLogsEventAttributes = (AuditLogsEventAttributes) o;
     return Objects.equals(this.attributes, auditLogsEventAttributes.attributes)
+        && Objects.equals(this.message, auditLogsEventAttributes.message)
         && Objects.equals(this.service, auditLogsEventAttributes.service)
         && Objects.equals(this.tags, auditLogsEventAttributes.tags)
         && Objects.equals(this.timestamp, auditLogsEventAttributes.timestamp)
@@ -208,7 +234,7 @@ public class AuditLogsEventAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, service, tags, timestamp, additionalProperties);
+    return Objects.hash(attributes, message, service, tags, timestamp, additionalProperties);
   }
 
   @Override
@@ -216,6 +242,7 @@ public class AuditLogsEventAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuditLogsEventAttributes {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
