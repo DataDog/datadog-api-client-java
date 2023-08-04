@@ -1539,40 +1539,70 @@ public class ApiClient {
     Response response = null;
 
     try {
-      response = sendRequest(method, invocationBuilder, entity);
-
-      int statusCode = response.getStatusInfo().getStatusCode();
-      Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
-
-      if (response.getStatusInfo() == Status.NO_CONTENT) {
-        return new ApiResponse<T>(statusCode, responseHeaders);
-      } else if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
-        if (returnType == null) {
+      int currentRetry = 0;
+      while (true){
+        response = sendRequest(method, invocationBuilder, entity);
+        int statusCode = response.getStatusInfo().getStatusCode();
+        Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
+        if (response.getStatusInfo() == Status.NO_CONTENT) {
           return new ApiResponse<T>(statusCode, responseHeaders);
-        } else {
-          return new ApiResponse<T>(statusCode, responseHeaders, deserialize(response, returnType));
-        }
-      } else {
-        String message = "error";
-        String respBody = null;
-        if (response.hasEntity()) {
-          try {
-            respBody = String.valueOf(response.readEntity(String.class));
-            message = respBody;
-          } catch (RuntimeException e) {
-            // e.printStackTrace();
+        } else if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
+          if (returnType == null) {
+            return new ApiResponse<T>(statusCode, responseHeaders);
+          } else {
+            return new ApiResponse<T>(statusCode, responseHeaders, deserialize(response, returnType));
           }
+        } else if (shouldRetry(currentRetry, statusCode, retry)){
+          try{
+            Thread.sleep(calculateRetryIntrval(responseHeaders, retry, statusCode));
+          } catch ( InterruptedException e){
+            Thread.currentThread().interrupt();
+            e.printStackTrace();
+          }
+          currentRetry++;
+        } else {
+          String message = "error";
+          String respBody = null;
+          if (response.hasEntity()) {
+            try {
+              respBody = String.valueOf(response.readEntity(String.class));
+              message = respBody;
+            } catch (RuntimeException e) {
+              // e.printStackTrace();
+            }
+          }
+          throw new ApiException(
+              response.getStatus(), message, buildResponseHeaders(response), respBody);
         }
-        throw new ApiException(
-            response.getStatus(), message, buildResponseHeaders(response), respBody);
-      }
-    } finally {
+      } 
+  } finally {
       try {
         response.close();
       } catch (Exception e) {
         // it's not critical, since the response object is local in method invokeAPI; that's fine,
         // just continue
       }
+    }
+  }
+
+  private boolean shouldRetry(int retryCount, int statusCode, RetryConfig retryConfig){
+    boolean rightStatus = false;
+    if (statusCode == 413 || statusCode == 429 || statusCode >= 500){
+      rightStatus = true;
+    }
+    return (retryConfig.maxRetries>=retryCount && rightStatus && retryConfig.isEnableRetry());
+  }
+
+  private int calculateRetryIntrval(Map<String, List<String>> responseHeaders, RetryConfig retryConfig, int retryCount){
+    List<String> ratelimitHeader = responseHeaders.get("X-Ratelimit-Reset");
+    if (ratelimitHeader != null){
+      return Integer.parseInt(ratelimitHeader.get(0));
+    } else {
+      int retryInterval= (int) Math.pow (retry.backOffMultiplier, retryCount)*  retryConfig.backOffBase;
+      if (getConnectTimeout()!=0){
+        retryInterval = Math.min(retryInterval, getConnectTimeout());
+      }
+      return retryInterval;
     }
   }
 
