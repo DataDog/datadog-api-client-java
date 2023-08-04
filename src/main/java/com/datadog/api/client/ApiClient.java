@@ -446,10 +446,6 @@ public class ApiClient {
     }
     defaultApiClient.configureApiKeys(secrets);
 
-    //Configure default retry behavior
-    RetryConfig retry = new RetryConfig(false,2,2,3);
-    defaultApiClient.setRetry(retry);
-
     return defaultApiClient;
   }
 
@@ -1594,9 +1590,9 @@ public class ApiClient {
   }
 
   private int calculateRetryIntrval(Map<String, List<String>> responseHeaders, RetryConfig retryConfig, int retryCount){
-    List<String> ratelimitHeader = responseHeaders.get("X-Ratelimit-Reset");
-    if (ratelimitHeader != null){
-      return Integer.parseInt(ratelimitHeader.get(0));
+    if ( responseHeaders.get("x-ratelimit-reset")!=null){
+      List<String> rateLimitHeader = responseHeaders.get("x-ratelimit-reset");
+      return Integer.parseInt(rateLimitHeader.get(0));
     } else {
       int retryInterval= (int) Math.pow (retry.backOffMultiplier, retryCount)*  retryConfig.backOffBase;
       if (getConnectTimeout()!=0){
