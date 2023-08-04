@@ -350,7 +350,7 @@ public class ApiClient {
   protected Map<String, Map<String, String>> operationServerVariables =
       new HashMap<String, Map<String, String>>();
   protected boolean debugging = false;
-  protected RetryConfig retry ; 
+  protected RetryConfig retry = new RetryConfig(false, 2, 2, 3) ; 
   protected boolean compress = true;
   protected ClientConfig clientConfig;
   protected int connectionTimeout = 0;
@@ -1586,11 +1586,11 @@ public class ApiClient {
   }
 
   private boolean shouldRetry(int retryCount, int statusCode, RetryConfig retryConfig){
-    boolean rightStatus = false;
+    boolean statusToRetry = false;
     if (statusCode == 413 || statusCode == 429 || statusCode >= 500){
-      rightStatus = true;
+      statusToRetry = true;
     }
-    return (retryConfig.maxRetries>=retryCount && rightStatus && retryConfig.isEnableRetry());
+    return (retryConfig.maxRetries>=retryCount && statusToRetry && retryConfig.isEnableRetry());
   }
 
   private int calculateRetryIntrval(Map<String, List<String>> responseHeaders, RetryConfig retryConfig, int retryCount){
