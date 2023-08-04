@@ -1554,7 +1554,7 @@ public class ApiClient {
           }
         } else if (shouldRetry(currentRetry, statusCode, retry)){
           try{
-            Thread.sleep(calculateRetryIntrval(responseHeaders, retry, statusCode));
+            Thread.sleep(calculateRetryIntrval(responseHeaders, retry, statusCode)*1000);
           } catch ( InterruptedException e){
             Thread.currentThread().interrupt();
             e.printStackTrace();
