@@ -13,6 +13,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.RetryConfig;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
@@ -30,6 +31,14 @@ import org.junit.BeforeClass;
 public abstract class V2APITest extends TestUtils.APITest {
   protected static ApiClient generalApiClient;
   protected static ApiClient generalApiUnitTestClient;
+  protected static ApiClient generalApiClientWithRetry;
+
+  @BeforeClass
+  public static void initGeneralApiClientWithRetry(){
+    initGeneralApiClient();
+    generalApiClientWithRetry = generalApiClient;
+    generalApiClientWithRetry.setRetry(new RetryConfig(true,2,2,3));
+  }
 
   @BeforeClass
   public static void initGeneralApiClient() {
