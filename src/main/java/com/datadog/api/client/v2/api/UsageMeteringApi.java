@@ -7,6 +7,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CostByOrgResponse;
 import com.datadog.api.client.v2.model.HourlyUsageResponse;
 import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringResponse;
+import com.datadog.api.client.v2.model.UsageCICommittersDetailedResponse;
 import com.datadog.api.client.v2.model.UsageLambdaTracedInvocationsResponse;
 import com.datadog.api.client.v2.model.UsageObservabilityPipelinesResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -1370,6 +1371,343 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UsageApplicationSecurityMonitoringResponse>() {});
+  }
+
+  /** Manage optional parameters to getUsageCICommittersDetailed. */
+  public static class GetUsageCICommittersDetailedOptionalParameters {
+    private String usageType;
+    private OffsetDateTime filterTimestampEnd;
+    private Boolean filterIncludeDescendants;
+    private Integer pageLimit;
+    private String pageNextRecordId;
+
+    /**
+     * Set usageType.
+     *
+     * @param usageType usage type: <code>[pipeline, test]</code>. Defaults to <code>pipeline</code>
+     *     . (optional)
+     * @return GetUsageCICommittersDetailedOptionalParameters
+     */
+    public GetUsageCICommittersDetailedOptionalParameters usageType(String usageType) {
+      this.usageType = usageType;
+      return this;
+    }
+
+    /**
+     * Set filterTimestampEnd.
+     *
+     * @param filterTimestampEnd Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+     *     for usage ending <strong>before</strong> this hour. (optional)
+     * @return GetUsageCICommittersDetailedOptionalParameters
+     */
+    public GetUsageCICommittersDetailedOptionalParameters filterTimestampEnd(
+        OffsetDateTime filterTimestampEnd) {
+      this.filterTimestampEnd = filterTimestampEnd;
+      return this;
+    }
+
+    /**
+     * Set filterIncludeDescendants.
+     *
+     * @param filterIncludeDescendants Include child org usage in the response. Defaults to false.
+     *     (optional, default to false)
+     * @return GetUsageCICommittersDetailedOptionalParameters
+     */
+    public GetUsageCICommittersDetailedOptionalParameters filterIncludeDescendants(
+        Boolean filterIncludeDescendants) {
+      this.filterIncludeDescendants = filterIncludeDescendants;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of results to return (between 1 and 500) - defaults to 500 if
+     *     limit not specified. (optional, default to 500)
+     * @return GetUsageCICommittersDetailedOptionalParameters
+     */
+    public GetUsageCICommittersDetailedOptionalParameters pageLimit(Integer pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageNextRecordId.
+     *
+     * @param pageNextRecordId List following results with a next_record_id provided in the previous
+     *     query. (optional)
+     * @return GetUsageCICommittersDetailedOptionalParameters
+     */
+    public GetUsageCICommittersDetailedOptionalParameters pageNextRecordId(
+        String pageNextRecordId) {
+      this.pageNextRecordId = pageNextRecordId;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly CI Committers Detailed.
+   *
+   * <p>See {@link #getUsageCICommittersDetailedWithHttpInfo}.
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterUsageType usage type: <code>[pipeline, test]</code> (required)
+   * @return UsageCICommittersDetailedResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageCICommittersDetailedResponse getUsageCICommittersDetailed(
+      OffsetDateTime filterTimestampStart, String filterUsageType) throws ApiException {
+    return getUsageCICommittersDetailedWithHttpInfo(
+            filterTimestampStart,
+            filterUsageType,
+            new GetUsageCICommittersDetailedOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get hourly CI Committers Detailed.
+   *
+   * <p>See {@link #getUsageCICommittersDetailedWithHttpInfoAsync}.
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterUsageType usage type: <code>[pipeline, test]</code> (required)
+   * @return CompletableFuture&lt;UsageCICommittersDetailedResponse&gt;
+   */
+  public CompletableFuture<UsageCICommittersDetailedResponse> getUsageCICommittersDetailedAsync(
+      OffsetDateTime filterTimestampStart, String filterUsageType) {
+    return getUsageCICommittersDetailedWithHttpInfoAsync(
+            filterTimestampStart,
+            filterUsageType,
+            new GetUsageCICommittersDetailedOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly CI Committers Detailed.
+   *
+   * <p>See {@link #getUsageCICommittersDetailedWithHttpInfo}.
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterUsageType usage type: <code>[pipeline, test]</code> (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageCICommittersDetailedResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UsageCICommittersDetailedResponse getUsageCICommittersDetailed(
+      OffsetDateTime filterTimestampStart,
+      String filterUsageType,
+      GetUsageCICommittersDetailedOptionalParameters parameters)
+      throws ApiException {
+    return getUsageCICommittersDetailedWithHttpInfo(
+            filterTimestampStart, filterUsageType, parameters)
+        .getData();
+  }
+
+  /**
+   * Get hourly CI Committers Detailed.
+   *
+   * <p>See {@link #getUsageCICommittersDetailedWithHttpInfoAsync}.
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterUsageType usage type: <code>[pipeline, test]</code> (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;UsageCICommittersDetailedResponse&gt;
+   */
+  public CompletableFuture<UsageCICommittersDetailedResponse> getUsageCICommittersDetailedAsync(
+      OffsetDateTime filterTimestampStart,
+      String filterUsageType,
+      GetUsageCICommittersDetailedOptionalParameters parameters) {
+    return getUsageCICommittersDetailedWithHttpInfoAsync(
+            filterTimestampStart, filterUsageType, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get hourly CI Committers Detailed.
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterUsageType usage type: <code>[pipeline, test]</code> (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageCICommittersDetailedResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageCICommittersDetailedResponse> getUsageCICommittersDetailedWithHttpInfo(
+      OffsetDateTime filterTimestampStart,
+      String filterUsageType,
+      GetUsageCICommittersDetailedOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterTimestampStart' is set
+    if (filterTimestampStart == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterTimestampStart' when calling"
+              + " getUsageCICommittersDetailed");
+    }
+
+    // verify the required parameter 'filterUsageType' is set
+    if (filterUsageType == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'filterUsageType' when calling"
+              + " getUsageCICommittersDetailed");
+    }
+    String usageType = parameters.usageType;
+    OffsetDateTime filterTimestampEnd = parameters.filterTimestampEnd;
+    Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    Integer pageLimit = parameters.pageLimit;
+    String pageNextRecordId = parameters.pageNextRecordId;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/ci_committers_detailed";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[timestamp][start]", filterTimestampStart));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[usage_type]", filterUsageType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "usage_type", usageType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[timestamp][end]", filterTimestampEnd));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "page[next_record_id]", pageNextRecordId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getUsageCICommittersDetailed",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCICommittersDetailedResponse>() {});
+  }
+
+  /**
+   * Get hourly CI Committers Detailed.
+   *
+   * <p>See {@link #getUsageCICommittersDetailedWithHttpInfo}.
+   *
+   * @param filterTimestampStart Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh]
+   *     for usage beginning at this hour. (required)
+   * @param filterUsageType usage type: <code>[pipeline, test]</code> (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;UsageCICommittersDetailedResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UsageCICommittersDetailedResponse>>
+      getUsageCICommittersDetailedWithHttpInfoAsync(
+          OffsetDateTime filterTimestampStart,
+          String filterUsageType,
+          GetUsageCICommittersDetailedOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterTimestampStart' is set
+    if (filterTimestampStart == null) {
+      CompletableFuture<ApiResponse<UsageCICommittersDetailedResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterTimestampStart' when calling"
+                  + " getUsageCICommittersDetailed"));
+      return result;
+    }
+
+    // verify the required parameter 'filterUsageType' is set
+    if (filterUsageType == null) {
+      CompletableFuture<ApiResponse<UsageCICommittersDetailedResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'filterUsageType' when calling"
+                  + " getUsageCICommittersDetailed"));
+      return result;
+    }
+    String usageType = parameters.usageType;
+    OffsetDateTime filterTimestampEnd = parameters.filterTimestampEnd;
+    Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    Integer pageLimit = parameters.pageLimit;
+    String pageNextRecordId = parameters.pageNextRecordId;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/ci_committers_detailed";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[timestamp][start]", filterTimestampStart));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[usage_type]", filterUsageType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "usage_type", usageType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[timestamp][end]", filterTimestampEnd));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "page[next_record_id]", pageNextRecordId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.getUsageCICommittersDetailed",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UsageCICommittersDetailedResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UsageCICommittersDetailedResponse>() {});
   }
 
   /** Manage optional parameters to getUsageLambdaTracedInvocations. */
