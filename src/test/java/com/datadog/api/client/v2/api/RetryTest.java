@@ -3,17 +3,15 @@ package com.datadog.api.client.v2.api;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.v1.model.DashboardList;
+import com.datadog.api.client.v2.model.DashboardListItems;
 import java.security.NoSuchAlgorithmException;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v1.model.DashboardList;
-import com.datadog.api.client.v2.model.DashboardListItems;
-
-public class RetryTest extends V2APITest{
+public class RetryTest extends V2APITest {
 
     private static long dashboardListID;
     private static com.datadog.api.client.v1.api.DashboardListsApi dashboardListsApiV1;
@@ -21,9 +19,9 @@ public class RetryTest extends V2APITest{
 
     @Override
     public String getTracingEndpoint() {
-        return "dashboard-lists";
+    return "dashboard-lists";
     }
-    
+
     @After
     public void deleteDashboardList() throws ApiException {
         dashboardListsApiV1.deleteDashboardList(dashboardListID);
@@ -38,10 +36,10 @@ public class RetryTest extends V2APITest{
     }
 
     @Test
-    public void retryWithDashboardListItemGetTest() throws ApiException{
-        DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
-        assertNotNull(getResponse.getTotal());
-        assertEquals(0, (long) getResponse.getTotal());
-        assertEquals(0, getResponse.getDashboards().size());
+    public void retryWithDashboardListItemGetTest() throws ApiException {
+    DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
+    assertNotNull(getResponse.getTotal());
+    assertEquals(0, (long) getResponse.getTotal());
+    assertEquals(0, getResponse.getDashboards().size());
     }
 }

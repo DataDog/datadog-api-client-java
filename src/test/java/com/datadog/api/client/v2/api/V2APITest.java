@@ -34,10 +34,10 @@ public abstract class V2APITest extends TestUtils.APITest {
   protected static ApiClient generalApiClientWithRetry;
 
   @BeforeClass
-  public static void initGeneralApiClientWithRetry(){
+  public static void initGeneralApiClientWithRetry() {
     initGeneralApiClient();
     generalApiClientWithRetry = generalApiClient;
-    generalApiClientWithRetry.setRetry(new RetryConfig(true,2,2,3));
+    generalApiClientWithRetry.setRetry(new RetryConfig(true, 2, 2, 3));
   }
 
   @BeforeClass
