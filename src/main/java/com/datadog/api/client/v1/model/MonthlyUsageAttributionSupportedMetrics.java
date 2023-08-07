@@ -96,6 +96,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "universal_service_monitoring_percentage",
               "vuln_management_hosts_usage",
               "vuln_management_hosts_percentage",
+              "sds_evt_events",
+              "sds_log_events",
+              "sds_spans_events",
+              "sds_rum_events",
               "*"));
 
   public static final MonthlyUsageAttributionSupportedMetrics API_USAGE =
@@ -236,6 +240,14 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("vuln_management_hosts_usage");
   public static final MonthlyUsageAttributionSupportedMetrics VULN_MANAGEMENT_HOSTS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("vuln_management_hosts_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics SDS_EVT_EVENTS =
+      new MonthlyUsageAttributionSupportedMetrics("sds_evt_events");
+  public static final MonthlyUsageAttributionSupportedMetrics SDS_LOG_EVENTS =
+      new MonthlyUsageAttributionSupportedMetrics("sds_log_events");
+  public static final MonthlyUsageAttributionSupportedMetrics SDS_SPANS_EVENTS =
+      new MonthlyUsageAttributionSupportedMetrics("sds_spans_events");
+  public static final MonthlyUsageAttributionSupportedMetrics SDS_RUM_EVENTS =
+      new MonthlyUsageAttributionSupportedMetrics("sds_rum_events");
   public static final MonthlyUsageAttributionSupportedMetrics ALL =
       new MonthlyUsageAttributionSupportedMetrics("*");
 

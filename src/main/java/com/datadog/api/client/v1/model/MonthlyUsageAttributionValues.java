@@ -80,6 +80,14 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_EVT_EVENTS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_EVT_EVENTS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_LOG_EVENTS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_LOG_EVENTS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_RUM_EVENTS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_RUM_EVENTS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SPANS_EVENTS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SPANS_EVENTS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_PERCENTAGE,
@@ -296,6 +304,31 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_PROFILED_HOST_USAGE = "profiled_host_usage";
   private Double profiledHostUsage;
+
+  public static final String JSON_PROPERTY_SDS_EVT_EVENTS_PERCENTAGE = "sds_evt_events_percentage";
+  private Double sdsEvtEventsPercentage;
+
+  public static final String JSON_PROPERTY_SDS_EVT_EVENTS_USAGE = "sds_evt_events_usage";
+  private Double sdsEvtEventsUsage;
+
+  public static final String JSON_PROPERTY_SDS_LOG_EVENTS_PERCENTAGE = "sds_log_events_percentage";
+  private Double sdsLogEventsPercentage;
+
+  public static final String JSON_PROPERTY_SDS_LOG_EVENTS_USAGE = "sds_log_events_usage";
+  private Double sdsLogEventsUsage;
+
+  public static final String JSON_PROPERTY_SDS_RUM_EVENTS_PERCENTAGE = "sds_rum_events_percentage";
+  private Double sdsRumEventsPercentage;
+
+  public static final String JSON_PROPERTY_SDS_RUM_EVENTS_USAGE = "sds_rum_events_usage";
+  private Double sdsRumEventsUsage;
+
+  public static final String JSON_PROPERTY_SDS_SPANS_EVENTS_PERCENTAGE =
+      "sds_spans_events_percentage";
+  private Double sdsSpansEventsPercentage;
+
+  public static final String JSON_PROPERTY_SDS_SPANS_EVENTS_USAGE = "sds_spans_events_usage";
+  private Double sdsSpansEventsUsage;
 
   public static final String JSON_PROPERTY_SNMP_PERCENTAGE = "snmp_percentage";
   private Double snmpPercentage;
@@ -1635,6 +1668,174 @@ public class MonthlyUsageAttributionValues {
     this.profiledHostUsage = profiledHostUsage;
   }
 
+  public MonthlyUsageAttributionValues sdsEvtEventsPercentage(Double sdsEvtEventsPercentage) {
+    this.sdsEvtEventsPercentage = sdsEvtEventsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Sensitive Data Scanner events usage by tag(s).
+   *
+   * @return sdsEvtEventsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_EVT_EVENTS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSdsEvtEventsPercentage() {
+    return sdsEvtEventsPercentage;
+  }
+
+  public void setSdsEvtEventsPercentage(Double sdsEvtEventsPercentage) {
+    this.sdsEvtEventsPercentage = sdsEvtEventsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues sdsEvtEventsUsage(Double sdsEvtEventsUsage) {
+    this.sdsEvtEventsUsage = sdsEvtEventsUsage;
+    return this;
+  }
+
+  /**
+   * The Sensitive Data Scanner events usage by tag(s).
+   *
+   * @return sdsEvtEventsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_EVT_EVENTS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSdsEvtEventsUsage() {
+    return sdsEvtEventsUsage;
+  }
+
+  public void setSdsEvtEventsUsage(Double sdsEvtEventsUsage) {
+    this.sdsEvtEventsUsage = sdsEvtEventsUsage;
+  }
+
+  public MonthlyUsageAttributionValues sdsLogEventsPercentage(Double sdsLogEventsPercentage) {
+    this.sdsLogEventsPercentage = sdsLogEventsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Sensitive Data Scanner logs usage by tag(s).
+   *
+   * @return sdsLogEventsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_LOG_EVENTS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSdsLogEventsPercentage() {
+    return sdsLogEventsPercentage;
+  }
+
+  public void setSdsLogEventsPercentage(Double sdsLogEventsPercentage) {
+    this.sdsLogEventsPercentage = sdsLogEventsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues sdsLogEventsUsage(Double sdsLogEventsUsage) {
+    this.sdsLogEventsUsage = sdsLogEventsUsage;
+    return this;
+  }
+
+  /**
+   * The Sensitive Data Scanner logs usage by tag(s).
+   *
+   * @return sdsLogEventsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_LOG_EVENTS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSdsLogEventsUsage() {
+    return sdsLogEventsUsage;
+  }
+
+  public void setSdsLogEventsUsage(Double sdsLogEventsUsage) {
+    this.sdsLogEventsUsage = sdsLogEventsUsage;
+  }
+
+  public MonthlyUsageAttributionValues sdsRumEventsPercentage(Double sdsRumEventsPercentage) {
+    this.sdsRumEventsPercentage = sdsRumEventsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Sensitive Data Scanner RUM usage by tag(s).
+   *
+   * @return sdsRumEventsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_RUM_EVENTS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSdsRumEventsPercentage() {
+    return sdsRumEventsPercentage;
+  }
+
+  public void setSdsRumEventsPercentage(Double sdsRumEventsPercentage) {
+    this.sdsRumEventsPercentage = sdsRumEventsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues sdsRumEventsUsage(Double sdsRumEventsUsage) {
+    this.sdsRumEventsUsage = sdsRumEventsUsage;
+    return this;
+  }
+
+  /**
+   * The Sensitive Data Scanner RUM usage by tag(s).
+   *
+   * @return sdsRumEventsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_RUM_EVENTS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSdsRumEventsUsage() {
+    return sdsRumEventsUsage;
+  }
+
+  public void setSdsRumEventsUsage(Double sdsRumEventsUsage) {
+    this.sdsRumEventsUsage = sdsRumEventsUsage;
+  }
+
+  public MonthlyUsageAttributionValues sdsSpansEventsPercentage(Double sdsSpansEventsPercentage) {
+    this.sdsSpansEventsPercentage = sdsSpansEventsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Sensitive Data Scanner spans usage by tag(s).
+   *
+   * @return sdsSpansEventsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_SPANS_EVENTS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSdsSpansEventsPercentage() {
+    return sdsSpansEventsPercentage;
+  }
+
+  public void setSdsSpansEventsPercentage(Double sdsSpansEventsPercentage) {
+    this.sdsSpansEventsPercentage = sdsSpansEventsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues sdsSpansEventsUsage(Double sdsSpansEventsUsage) {
+    this.sdsSpansEventsUsage = sdsSpansEventsUsage;
+    return this;
+  }
+
+  /**
+   * The Sensitive Data Scanner spans usage by tag(s).
+   *
+   * @return sdsSpansEventsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_SPANS_EVENTS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSdsSpansEventsUsage() {
+    return sdsSpansEventsUsage;
+  }
+
+  public void setSdsSpansEventsUsage(Double sdsSpansEventsUsage) {
+    this.sdsSpansEventsUsage = sdsSpansEventsUsage;
+  }
+
   public MonthlyUsageAttributionValues snmpPercentage(Double snmpPercentage) {
     this.snmpPercentage = snmpPercentage;
     return this;
@@ -1932,6 +2133,19 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.profiledHostPercentage, monthlyUsageAttributionValues.profiledHostPercentage)
         && Objects.equals(this.profiledHostUsage, monthlyUsageAttributionValues.profiledHostUsage)
+        && Objects.equals(
+            this.sdsEvtEventsPercentage, monthlyUsageAttributionValues.sdsEvtEventsPercentage)
+        && Objects.equals(this.sdsEvtEventsUsage, monthlyUsageAttributionValues.sdsEvtEventsUsage)
+        && Objects.equals(
+            this.sdsLogEventsPercentage, monthlyUsageAttributionValues.sdsLogEventsPercentage)
+        && Objects.equals(this.sdsLogEventsUsage, monthlyUsageAttributionValues.sdsLogEventsUsage)
+        && Objects.equals(
+            this.sdsRumEventsPercentage, monthlyUsageAttributionValues.sdsRumEventsPercentage)
+        && Objects.equals(this.sdsRumEventsUsage, monthlyUsageAttributionValues.sdsRumEventsUsage)
+        && Objects.equals(
+            this.sdsSpansEventsPercentage, monthlyUsageAttributionValues.sdsSpansEventsPercentage)
+        && Objects.equals(
+            this.sdsSpansEventsUsage, monthlyUsageAttributionValues.sdsSpansEventsUsage)
         && Objects.equals(this.snmpPercentage, monthlyUsageAttributionValues.snmpPercentage)
         && Objects.equals(this.snmpUsage, monthlyUsageAttributionValues.snmpUsage)
         && Objects.equals(
@@ -2014,6 +2228,14 @@ public class MonthlyUsageAttributionValues {
         profiledFargateUsage,
         profiledHostPercentage,
         profiledHostUsage,
+        sdsEvtEventsPercentage,
+        sdsEvtEventsUsage,
+        sdsLogEventsPercentage,
+        sdsLogEventsUsage,
+        sdsRumEventsPercentage,
+        sdsRumEventsUsage,
+        sdsSpansEventsPercentage,
+        sdsSpansEventsUsage,
         snmpPercentage,
         snmpUsage,
         universalServiceMonitoringPercentage,
@@ -2161,6 +2383,24 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(profiledHostPercentage))
         .append("\n");
     sb.append("    profiledHostUsage: ").append(toIndentedString(profiledHostUsage)).append("\n");
+    sb.append("    sdsEvtEventsPercentage: ")
+        .append(toIndentedString(sdsEvtEventsPercentage))
+        .append("\n");
+    sb.append("    sdsEvtEventsUsage: ").append(toIndentedString(sdsEvtEventsUsage)).append("\n");
+    sb.append("    sdsLogEventsPercentage: ")
+        .append(toIndentedString(sdsLogEventsPercentage))
+        .append("\n");
+    sb.append("    sdsLogEventsUsage: ").append(toIndentedString(sdsLogEventsUsage)).append("\n");
+    sb.append("    sdsRumEventsPercentage: ")
+        .append(toIndentedString(sdsRumEventsPercentage))
+        .append("\n");
+    sb.append("    sdsRumEventsUsage: ").append(toIndentedString(sdsRumEventsUsage)).append("\n");
+    sb.append("    sdsSpansEventsPercentage: ")
+        .append(toIndentedString(sdsSpansEventsPercentage))
+        .append("\n");
+    sb.append("    sdsSpansEventsUsage: ")
+        .append(toIndentedString(sdsSpansEventsUsage))
+        .append("\n");
     sb.append("    snmpPercentage: ").append(toIndentedString(snmpPercentage)).append("\n");
     sb.append("    snmpUsage: ").append(toIndentedString(snmpUsage)).append("\n");
     sb.append("    universalServiceMonitoringPercentage: ")
