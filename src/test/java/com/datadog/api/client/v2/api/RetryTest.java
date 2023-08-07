@@ -25,17 +25,17 @@ public class RetryTest extends V2APITest{
     }
     
     @After
-  public void deleteDashboardList() throws ApiException {
-    dashboardListsApiV1.deleteDashboardList(dashboardListID);
-  }
+    public void deleteDashboardList() throws ApiException {
+        dashboardListsApiV1.deleteDashboardList(dashboardListID);
+    }
 
-  @Before
-  public void createDashboardList() throws ApiException, NoSuchAlgorithmException {
-    dashboardListsApiV1 = new com.datadog.api.client.v1.api.DashboardListsApi(generalApiClient);
-    DashboardList res =
-        dashboardListsApiV1.createDashboardList(new DashboardList().name(getUniqueEntityName()));
-    dashboardListID = res.getId();
-  }
+    @Before
+    public void createDashboardList() throws ApiException, NoSuchAlgorithmException {
+        dashboardListsApiV1 = new com.datadog.api.client.v1.api.DashboardListsApi(generalApiClientWithRetry);
+        DashboardList res =
+            dashboardListsApiV1.createDashboardList(new DashboardList().name(getUniqueEntityName()));
+        dashboardListID = res.getId();
+    }
 
     @Test
     public void retryWithDashboardListItemGetTest() throws ApiException{
