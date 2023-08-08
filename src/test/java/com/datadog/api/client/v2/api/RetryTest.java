@@ -5,8 +5,9 @@ import static org.junit.Assert.assertNotNull;
 
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.model.DashboardList;
-import com.datadog.api.client.v2.model.DashboardListItems;
+import com.datadog.api.client.v2.model.*;
 import java.security.NoSuchAlgorithmException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,12 +20,7 @@ public class RetryTest extends V2APITest {
 
   @Override
   public String getTracingEndpoint() {
-    return "dashboard-lists";
-  }
-
-  @After
-  public void deleteDashboardList() throws ApiException {
-    dashboardListsApiV1.deleteDashboardList(dashboardListID);
+    return "dashboard-lists-retry-tests";
   }
 
   @Before

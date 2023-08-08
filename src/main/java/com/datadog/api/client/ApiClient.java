@@ -1550,12 +1550,12 @@ public class ApiClient {
           }
         } else if (shouldRetry(currentRetry, statusCode, retry)){
           try{
-            Thread.sleep(calculateRetryIntrval(responseHeaders, retry, statusCode)*1000);
+            Thread.sleep(calculateRetryIntrval(responseHeaders, retry, currentRetry)*1000);
+            currentRetry++;
           } catch ( InterruptedException e){
             Thread.currentThread().interrupt();
             e.printStackTrace();
           }
-          currentRetry++;
         } else {
           String message = "error";
           String respBody = null;
@@ -1583,7 +1583,7 @@ public class ApiClient {
 
   private boolean shouldRetry(int retryCount, int statusCode, RetryConfig retryConfig){
     boolean statusToRetry = false;
-    if (statusCode == 413 || statusCode == 429 || statusCode >= 500){
+    if (statusCode == 429 || statusCode >= 500){
       statusToRetry = true;
     }
     return (retryConfig.maxRetries>=retryCount && statusToRetry && retryConfig.isEnableRetry());
@@ -1592,10 +1592,12 @@ public class ApiClient {
   private int calculateRetryIntrval(Map<String, List<String>> responseHeaders, RetryConfig retryConfig, int retryCount){
     if ( responseHeaders.get("x-ratelimit-reset")!=null){
       List<String> rateLimitHeader = responseHeaders.get("x-ratelimit-reset");
-      return Integer.parseInt(rateLimitHeader.get(0));
+      String ratelimitString= rateLimitHeader.get(0);
+      String ratelimitStringTrimmed = ratelimitString.replaceAll("\\D","");
+      return Integer.parseInt(ratelimitStringTrimmed);
     } else {
       int retryInterval= (int) Math.pow (retry.backOffMultiplier, retryCount)*  retryConfig.backOffBase;
-      if (getConnectTimeout()!=0){
+      if (getConnectTimeout()>0){
         retryInterval = Math.min(retryInterval, getConnectTimeout());
       }
       return retryInterval;
