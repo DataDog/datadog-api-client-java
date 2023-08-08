@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -31,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   DashboardListItem.JSON_PROPERTY_IS_SHARED,
   DashboardListItem.JSON_PROPERTY_MODIFIED,
   DashboardListItem.JSON_PROPERTY_POPULARITY,
+  DashboardListItem.JSON_PROPERTY_TAGS,
   DashboardListItem.JSON_PROPERTY_TITLE,
   DashboardListItem.JSON_PROPERTY_TYPE,
   DashboardListItem.JSON_PROPERTY_URL
@@ -68,6 +70,9 @@ public class DashboardListItem {
 
   public static final String JSON_PROPERTY_POPULARITY = "popularity";
   private Integer popularity;
+
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private JsonNullable<List<String>> tags = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -256,6 +261,32 @@ public class DashboardListItem {
   }
 
   /**
+   * List of team names representing ownership of a dashboard.
+   *
+   * @return tags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getTags() {
+
+    if (tags == null) {
+      tags = JsonNullable.<List<String>>undefined();
+    }
+    return tags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getTags_JsonNullable() {
+    return tags;
+  }
+
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  private void setTags_JsonNullable(JsonNullable<List<String>> tags) {
+    this.tags = tags;
+  }
+
+  /**
    * Title of the dashboard.
    *
    * @return title
@@ -369,6 +400,7 @@ public class DashboardListItem {
         && Objects.equals(this.isShared, dashboardListItem.isShared)
         && Objects.equals(this.modified, dashboardListItem.modified)
         && Objects.equals(this.popularity, dashboardListItem.popularity)
+        && Objects.equals(this.tags, dashboardListItem.tags)
         && Objects.equals(this.title, dashboardListItem.title)
         && Objects.equals(this.type, dashboardListItem.type)
         && Objects.equals(this.url, dashboardListItem.url)
@@ -388,6 +420,7 @@ public class DashboardListItem {
         isShared,
         modified,
         popularity,
+        tags,
         title,
         type,
         url,
@@ -408,6 +441,7 @@ public class DashboardListItem {
     sb.append("    isShared: ").append(toIndentedString(isShared)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    popularity: ").append(toIndentedString(popularity)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
