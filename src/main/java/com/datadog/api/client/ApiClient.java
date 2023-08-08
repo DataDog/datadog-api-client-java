@@ -350,7 +350,7 @@ public class ApiClient {
   protected Map<String, Map<String, String>> operationServerVariables =
       new HashMap<String, Map<String, String>>();
   protected boolean debugging = false;
-  protected RetryConfig retry = new RetryConfig(false, 2, 2, 3); 
+  protected RetryConfig retry = new RetryConfig(false, 2, 2, 3);
   protected boolean compress = true;
   protected ClientConfig clientConfig;
   protected int connectionTimeout = 0;
@@ -518,14 +518,14 @@ public class ApiClient {
     return offsetDateTimeFormatter;
   }
 
-  /** 
+  /**
    * Add custom retry object in the client
+   *
    * @param retry retry object
-   * */
+   */
   public void setRetry(RetryConfig retry) {
     this.retry = retry;
   }
-  
 
   /**
    * Set the date format used to parse/format {@code OffsetDateTime} parameters.
@@ -1536,7 +1536,7 @@ public class ApiClient {
 
     try {
       int currentRetry = 0;
-      while (true){
+      while (true) {
         response = sendRequest(method, invocationBuilder, entity);
         int statusCode = response.getStatusInfo().getStatusCode();
         Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
@@ -1546,13 +1546,14 @@ public class ApiClient {
           if (returnType == null) {
             return new ApiResponse<T>(statusCode, responseHeaders);
           } else {
-            return new ApiResponse<T>(statusCode, responseHeaders, deserialize(response, returnType));
+            return new ApiResponse<T>(
+                statusCode, responseHeaders, deserialize(response, returnType));
           }
-        } else if (shouldRetry(currentRetry, statusCode, retry)){
-          try{
-            Thread.sleep(calculateRetryIntrval(responseHeaders, retry, currentRetry)*1000);
+        } else if (shouldRetry(currentRetry, statusCode, retry)) {
+          try {
+            Thread.sleep(calculateRetryIntrval(responseHeaders, retry, currentRetry) * 1000);
             currentRetry++;
-          } catch ( InterruptedException e){
+          } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             e.printStackTrace();
           }
@@ -1569,35 +1570,37 @@ public class ApiClient {
           }
           throw new ApiException(
               response.getStatus(), message, buildResponseHeaders(response), respBody);
-          }
-      } 
-    } finally {
-        try {
-          response.close();
-        } catch (Exception e) {
-          // it's not critical, since the response object is local in method invokeAPI; that's fine,
-          // just continue
-          }
+        }
       }
+    } finally {
+      try {
+        response.close();
+      } catch (Exception e) {
+        // it's not critical, since the response object is local in method invokeAPI; that's fine,
+        // just continue
+      }
+    }
   }
 
-  private boolean shouldRetry(int retryCount, int statusCode, RetryConfig retryConfig){
+  private boolean shouldRetry(int retryCount, int statusCode, RetryConfig retryConfig) {
     boolean statusToRetry = false;
-    if (statusCode == 429 || statusCode >= 500){
+    if (statusCode == 429 || statusCode >= 500) {
       statusToRetry = true;
     }
-    return (retryConfig.maxRetries>=retryCount && statusToRetry && retryConfig.isEnableRetry());
+    return (retryConfig.maxRetries >= retryCount && statusToRetry && retryConfig.isEnableRetry());
   }
 
-  private int calculateRetryIntrval(Map<String, List<String>> responseHeaders, RetryConfig retryConfig, int retryCount){
-    if ( responseHeaders.get("x-ratelimit-reset")!=null){
+  private int calculateRetryIntrval(
+      Map<String, List<String>> responseHeaders, RetryConfig retryConfig, int retryCount) {
+    if (responseHeaders.get("x-ratelimit-reset") != null) {
       List<String> rateLimitHeader = responseHeaders.get("x-ratelimit-reset");
-      String ratelimitString= rateLimitHeader.get(0);
-      String ratelimitStringTrimmed = ratelimitString.replaceAll("\\D","");
+      String ratelimitString = rateLimitHeader.get(0);
+      String ratelimitStringTrimmed = ratelimitString.replaceAll("\\D", "");
       return Integer.parseInt(ratelimitStringTrimmed);
     } else {
-      int retryInterval= (int) Math.pow (retry.backOffMultiplier, retryCount)*  retryConfig.backOffBase;
-      if (getConnectTimeout()>0){
+      int retryInterval =
+          (int) Math.pow(retry.backOffMultiplier, retryCount) * retryConfig.backOffBase;
+      if (getConnectTimeout() > 0) {
         retryInterval = Math.min(retryInterval, getConnectTimeout());
       }
       return retryInterval;
