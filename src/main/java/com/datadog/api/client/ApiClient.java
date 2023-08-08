@@ -350,7 +350,7 @@ public class ApiClient {
   protected Map<String, Map<String, String>> operationServerVariables =
       new HashMap<String, Map<String, String>>();
   protected boolean debugging = false;
-  protected RetryConfig retry = new RetryConfig(false, 2, 2, 3) ; 
+  protected RetryConfig retry = new RetryConfig(false, 2, 2, 3); 
   protected boolean compress = true;
   protected ClientConfig clientConfig;
   protected int connectionTimeout = 0;
@@ -1569,16 +1569,16 @@ public class ApiClient {
           }
           throw new ApiException(
               response.getStatus(), message, buildResponseHeaders(response), respBody);
-        }
+          }
       } 
-  } finally {
-      try {
-        response.close();
-      } catch (Exception e) {
-        // it's not critical, since the response object is local in method invokeAPI; that's fine,
-        // just continue
+    } finally {
+        try {
+          response.close();
+        } catch (Exception e) {
+          // it's not critical, since the response object is local in method invokeAPI; that's fine,
+          // just continue
+          }
       }
-    }
   }
 
   private boolean shouldRetry(int retryCount, int statusCode, RetryConfig retryConfig){
