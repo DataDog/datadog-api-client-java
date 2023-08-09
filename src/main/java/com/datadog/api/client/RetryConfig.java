@@ -11,18 +11,21 @@ public class RetryConfig {
   public int backOffMultiplier;
   public int backOffBase;
   public int maxRetries;
+  public int calculatedInterval;
 
   /**
    * @param enableRetry Enable retry when rate limited
    * @param backOffMultiplier Multiplier for retry backoff
    * @param backOffBase Base for retry backoff
    * @param maxRetries Maximum number of retries
+   * @param calculatedInterval Calculated sleep interval
    */
   public RetryConfig(boolean enableRetry, int backOffMultiplier, int backOffBase, int maxRetries) {
     this.enableRetry = enableRetry;
     this.backOffMultiplier = backOffMultiplier;
     this.backOffBase = backOffBase;
     this.maxRetries = maxRetries;
+    this.calculatedInterval = 0;
   }
 
   public boolean isEnableRetry() {
@@ -41,6 +44,10 @@ public class RetryConfig {
     return maxRetries;
   }
 
+  public int getCalculatedInterval() {
+    return calculatedInterval;
+  }
+
   public void setEnableRetry(boolean enableRetry) {
     this.enableRetry = enableRetry;
   }
@@ -55,5 +62,18 @@ public class RetryConfig {
 
   public void setMaxRetries(int maxRetries) {
     this.maxRetries = maxRetries;
+  }
+
+  public void setCalculatedInterval(int calculatedInterval) {
+    this.calculatedInterval = calculatedInterval;
+  }
+
+  public void sleepInterval() throws InterruptedException {
+    try {
+      Thread.sleep(calculatedInterval * 1000);
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      e.printStackTrace();
+    }
   }
 }

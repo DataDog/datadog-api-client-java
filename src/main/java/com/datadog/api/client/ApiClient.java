@@ -528,7 +528,8 @@ public class ApiClient {
   }
 
   /**
-   * Return the retryConfig object 
+   * Return the retryConfig object
+   *
    * @return retryConfig
    */
   public RetryConfig getRetry() {

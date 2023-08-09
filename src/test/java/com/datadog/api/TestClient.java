@@ -658,8 +658,8 @@ public class TestClient implements Client {
     public MultivaluedMap<String, Object> getHeaders() {
       MultivaluedMap<String, Object> newHeaders = new MultivaluedHashMap<String, Object>();
       for (Map.Entry<String, List<String>> entry : this.headers.entrySet()) {
-        for (Object o: entry.getValue()){
-          newHeaders.add(entry.getKey(),o);
+        for (Object o : entry.getValue()) {
+          newHeaders.add(entry.getKey(), o);
         }
       }
       return newHeaders;
