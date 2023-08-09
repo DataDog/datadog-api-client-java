@@ -528,6 +528,14 @@ public class ApiClient {
   }
 
   /**
+   * Return the retryConfig object 
+   * @return retryConfig
+   */
+  public RetryConfig getRetry() {
+    return retry;
+  }
+
+  /**
    * Enable retry directly on the client instead of creating a new retry object
    *
    * @param enableRetry bool, enable retry or not
@@ -1603,9 +1611,7 @@ public class ApiClient {
       Map<String, List<String>> responseHeaders, RetryConfig retryConfig, int retryCount) {
     if (responseHeaders.get("x-ratelimit-reset") != null) {
       List<String> rateLimitHeader = responseHeaders.get("x-ratelimit-reset");
-      String ratelimitString = rateLimitHeader.get(0);
-      String ratelimitStringTrimmed = ratelimitString.replaceAll("\\D", "");
-      return Integer.parseInt(ratelimitStringTrimmed);
+      return Integer.parseInt(rateLimitHeader.get(0));
     } else {
       int retryInterval =
           (int) Math.pow(retry.backOffMultiplier, retryCount) * retryConfig.backOffBase;
