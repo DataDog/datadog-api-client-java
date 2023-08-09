@@ -19,7 +19,6 @@ public class RetryConfig {
    * @param backOffBase Base for retry backoff
    * @param maxRetries Maximum number of retries
    */
-  
   public RetryConfig(boolean enableRetry, int backOffMultiplier, int backOffBase, int maxRetries) {
     this.enableRetry = enableRetry;
     this.backOffMultiplier = backOffMultiplier;
