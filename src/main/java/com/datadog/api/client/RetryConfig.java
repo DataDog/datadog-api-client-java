@@ -18,8 +18,8 @@ public class RetryConfig {
    * @param backOffMultiplier Multiplier for retry backoff
    * @param backOffBase Base for retry backoff
    * @param maxRetries Maximum number of retries
-   * @param calculatedInterval Calculated sleep interval
    */
+  
   public RetryConfig(boolean enableRetry, int backOffMultiplier, int backOffBase, int maxRetries) {
     this.enableRetry = enableRetry;
     this.backOffMultiplier = backOffMultiplier;
