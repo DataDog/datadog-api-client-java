@@ -529,10 +529,10 @@ public class ApiClient {
 
   /**
    * Enable retry directly on the client instead of creating a new retry object
+   *
    * @param enableRetry bool, enable retry or not
    */
-
-  public void enableRetry(boolean enableRetry){
+  public void enableRetry(boolean enableRetry) {
     this.retry.setEnableRetry(enableRetry);
   }
 
