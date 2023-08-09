@@ -12,6 +12,7 @@ public class RetryConfig {
   public int backOffBase;
   public int maxRetries;
   public int calculatedInterval;
+  
 
   /**
    * @param enableRetry Enable retry when rate limited
