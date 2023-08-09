@@ -1551,7 +1551,7 @@ public class ApiClient {
           }
         } else if (shouldRetry(currentRetry, statusCode, retry)) {
           try {
-            Thread.sleep(calculateRetryIntrval(responseHeaders, retry, currentRetry) * 1000);
+            Thread.sleep(calculateRetryInterval(responseHeaders, retry, currentRetry) * 1000);
             currentRetry++;
           } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -1590,7 +1590,7 @@ public class ApiClient {
     return (retryConfig.maxRetries >= retryCount && statusToRetry && retryConfig.isEnableRetry());
   }
 
-  private int calculateRetryIntrval(
+  private int calculateRetryInterval(
       Map<String, List<String>> responseHeaders, RetryConfig retryConfig, int retryCount) {
     if (responseHeaders.get("x-ratelimit-reset") != null) {
       List<String> rateLimitHeader = responseHeaders.get("x-ratelimit-reset");
