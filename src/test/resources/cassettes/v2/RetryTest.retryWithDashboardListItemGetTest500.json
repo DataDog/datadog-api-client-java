@@ -17,7 +17,7 @@
         "contentType" : "application/json",
         "type" : "JSON",
         "json" : {
-          "name" : "java-retryWithDashboardListItemGetTest-local-1691492289"
+          "name" : "java-retryWithDashboardListItemGetTest500-local-1691492349"
         }
       }
     },
@@ -38,7 +38,7 @@
         "type" : "JSON",
         "json" : {
           "is_favorite" : false,
-          "name" : "java-retryWithDashboardListItemGetTest-local-1691492289",
+          "name" : "java-retryWithDashboardListItemGetTest500-local-1691492349",
           "dashboard_count" : 0,
           "author" : {
             "handle" : "frog@datadoghq.com",
@@ -75,8 +75,8 @@
       "secure" : true
     },
     "httpResponse" : {
-      "statusCode" : 429,
-      "reasonPhrase" : "Too many requests",
+      "statusCode" : 500,
+      "reasonPhrase" : "Internal Server Error",
       "headers" : {
         "x-frame-options" : [ "SAMEORIGIN" ],
         "x-content-type-options" : [ "nosniff" ],
@@ -118,8 +118,8 @@
       "secure" : true
     },
     "httpResponse" : {
-      "statusCode" : 429,
-      "reasonPhrase" : "Too many requests",
+      "statusCode" : 500,
+      "reasonPhrase" : "Internal Server Error",
       "headers" : {
         "x-frame-options" : [ "SAMEORIGIN" ],
         "x-content-type-options" : [ "nosniff" ],
@@ -161,8 +161,8 @@
       "secure" : true
     },
     "httpResponse" : {
-      "statusCode" : 429,
-      "reasonPhrase" : "Too many requests",
+      "statusCode" : 500,
+      "reasonPhrase" : "Internal Server Error",
       "headers" : {
         "x-frame-options" : [ "SAMEORIGIN" ],
         "x-content-type-options" : [ "nosniff" ],
@@ -207,8 +207,8 @@
       "secure" : true
     },
     "httpResponse" : {
-      "statusCode" : 429,
-      "reasonPhrase" : "Too many requests",
+      "statusCode" : 500,
+      "reasonPhrase" : "Internal Server Error",
       "headers" : {
         "x-frame-options" : [ "SAMEORIGIN" ],
         "x-content-type-options" : [ "nosniff" ],

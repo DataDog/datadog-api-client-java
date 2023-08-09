@@ -1,0 +1,279 @@
+[{
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/api/v1/dashboard/lists/manual",
+      "headers" : {
+        "x-datadog-trace-id" : [ "7753420519099277221" ],
+        "x-datadog-origin" : [ "ciapp-test" ],
+        "content-length" : [ "58" ],
+        "Content-Type" : [ "application/json" ],
+        "Content-Language" : [ "" ],
+        "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+        "Accept" : [ "application/json" ]
+      },
+      "keepAlive" : false,
+      "secure" : true,
+      "body" : {
+        "contentType" : "application/json",
+        "type" : "JSON",
+        "json" : {
+          "name" : "java-retryWithDashboardListItemGetTest429-local-1691492289"
+        }
+      }
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "reasonPhrase" : "OK",
+      "headers" : {
+        "x-frame-options" : [ "SAMEORIGIN" ],
+        "x-content-type-options" : [ "nosniff" ],
+        "vary" : [ "Accept-Encoding" ],
+        "strict-transport-security" : [ "max-age=15724800;" ],
+        "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+        "Date" : [ "Mon, 17 Oct 2022 07:00:49 GMT" ],
+        "Content-Type" : [ "application/json" ]
+      },
+      "body" : {
+        "contentType" : "application/json",
+        "type" : "JSON",
+        "json" : {
+          "is_favorite" : false,
+          "name" : "java-retryWithDashboardListItemGetTest429-local-1691492289",
+          "dashboard_count" : 0,
+          "author" : {
+            "handle" : "frog@datadoghq.com",
+            "name" : null
+          },
+          "created" : "2022-10-17T07:00:49.090621+00:00",
+          "type" : "manual_dashboard_list",
+          "dashboards" : null,
+          "modified" : "2022-10-17T07:00:49.090633+00:00",
+          "id" : 334687
+        }
+      }
+    },
+    "id" : "c012f980-4ed1-4d58-8e99-fe28876ebf8a",
+    "priority" : 0,
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "times" : {
+      "remainingTimes" : 1
+    }
+  },{
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/api/v2/dashboard/lists/manual/334687/dashboards",
+      "headers" : {
+        "x-datadog-trace-id" : [ "3402781242333921307" ],
+        "x-datadog-origin" : [ "ciapp-test" ],
+        "content-length" : [ "0" ],
+        "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+        "Accept" : [ "application/json" ]
+      },
+      "keepAlive" : false,
+      "secure" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 429,
+      "reasonPhrase" : "Too many requests",
+      "headers" : {
+        "x-frame-options" : [ "SAMEORIGIN" ],
+        "x-content-type-options" : [ "nosniff" ],
+        "x-ratelimit-reset" : [ "1" ],
+        "strict-transport-security" : [ "max-age=15724800;" ],
+        "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+        "Date" : [ "Mon, 17 Oct 2022 07:00:50 GMT" ],
+        "Content-Type" : [ "application/json" ]
+      },
+      "body" : {
+        "contentType" : "application/json",
+        "type" : "JSON",
+        "json" : {
+          "total" : 0,
+          "dashboards" : [ ]
+        }
+      }
+    },
+    "id" : "58cb9fa4-e67d-4fab-9466-4acf4c9a37a1",
+    "priority" : 0,
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "times" : {
+      "remainingTimes" : 1
+    }
+  },{
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/api/v2/dashboard/lists/manual/334687/dashboards",
+      "headers" : {
+        "x-datadog-trace-id" : [ "3402781242333921307" ],
+        "x-datadog-origin" : [ "ciapp-test" ],
+        "content-length" : [ "0" ],
+        "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+        "Accept" : [ "application/json" ]
+      },
+      "keepAlive" : false,
+      "secure" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 429,
+      "reasonPhrase" : "Too many requests",
+      "headers" : {
+        "x-frame-options" : [ "SAMEORIGIN" ],
+        "x-content-type-options" : [ "nosniff" ],
+        "x-ratelimit-reset" : [ "1" ],
+        "strict-transport-security" : [ "max-age=15724800;" ],
+        "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+        "Date" : [ "Mon, 17 Oct 2022 07:00:50 GMT" ],
+        "Content-Type" : [ "application/json" ]
+      },
+      "body" : {
+        "contentType" : "application/json",
+        "type" : "JSON",
+        "json" : {
+          "total" : 0,
+          "dashboards" : [ ]
+        }
+      }
+    },
+    "id" : "58cb9fa4-e67d-4fab-9466-4acf4c9a37a1",
+    "priority" : 0,
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "times" : {
+      "remainingTimes" : 1
+    }
+  },{
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/api/v2/dashboard/lists/manual/334687/dashboards",
+      "headers" : {
+        "x-datadog-trace-id" : [ "3402781242333921307" ],
+        "x-datadog-origin" : [ "ciapp-test" ],
+        "content-length" : [ "0" ],
+        "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+        "Accept" : [ "application/json" ]
+      },
+      "keepAlive" : false,
+      "secure" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 429,
+      "reasonPhrase" : "Too many requests",
+      "headers" : {
+        "x-frame-options" : [ "SAMEORIGIN" ],
+        "x-content-type-options" : [ "nosniff" ],
+        "x-ratelimit-reset" : [ "1" ],
+        "strict-transport-security" : [ "max-age=15724800;" ],
+        "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+        "Date" : [ "Mon, 17 Oct 2022 07:00:50 GMT" ],
+        "Content-Type" : [ "application/json" ]
+      },
+      "body" : {
+        "contentType" : "application/json",
+        "type" : "JSON",
+        "json" : {
+          "total" : 0,
+          "dashboards" : [ ]
+        }
+      }
+    },
+    "id" : "58cb9fa4-e67d-4fab-9466-4acf4c9a37a1",
+    "priority" : 0,
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "times" : {
+      "remainingTimes" : 1
+    }
+  }
+  
+  
+  ,{
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/api/v2/dashboard/lists/manual/334687/dashboards",
+      "headers" : {
+        "x-datadog-trace-id" : [ "3402781242333921307" ],
+        "x-datadog-origin" : [ "ciapp-test" ],
+        "content-length" : [ "0" ],
+        "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+        "Accept" : [ "application/json" ]
+      },
+      "keepAlive" : false,
+      "secure" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 429,
+      "reasonPhrase" : "Too many requests",
+      "headers" : {
+        "x-frame-options" : [ "SAMEORIGIN" ],
+        "x-content-type-options" : [ "nosniff" ],
+        "strict-transport-security" : [ "max-age=15724800;" ],
+        "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+        "Date" : [ "Mon, 17 Oct 2022 07:00:50 GMT" ],
+        "Content-Type" : [ "application/json" ]
+      },
+      "body" : {
+        "contentType" : "application/json",
+        "type" : "JSON",
+        "json" : {
+          "total" : 0,
+          "dashboards" : [ ]
+        }
+      }
+    },
+    "id" : "58cb9fa4-e67d-4fab-9466-4acf4c9a39a1",
+    "priority" : 0,
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "times" : {
+      "remainingTimes" : 1
+    }
+  },{
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/api/v2/dashboard/lists/manual/334687/dashboards",
+      "headers" : {
+        "x-datadog-trace-id" : [ "3402781242333921307" ],
+        "x-datadog-origin" : [ "ciapp-test" ],
+        "content-length" : [ "0" ],
+        "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+        "Accept" : [ "application/json" ]
+      },
+      "keepAlive" : false,
+      "secure" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "reasonPhrase" : "OK",
+      "headers" : {
+        "x-frame-options" : [ "SAMEORIGIN" ],
+        "x-content-type-options" : [ "nosniff" ],
+        "strict-transport-security" : [ "max-age=15724800;" ],
+        "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com" ],
+        "Date" : [ "Mon, 17 Oct 2022 07:00:50 GMT" ],
+        "Content-Type" : [ "application/json" ]
+      },
+      "body" : {
+        "contentType" : "application/json",
+        "type" : "JSON",
+        "json" : {
+          "total" : 0,
+          "dashboards" : [ ]
+        }
+      }
+    },
+    "id" : "58cb9fa4-e67d-4fab-9466-4acf4c9a47a1",
+    "priority" : 0,
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "times" : {
+      "remainingTimes" : 1
+    }
+  }]
