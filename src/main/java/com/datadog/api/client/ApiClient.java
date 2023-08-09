@@ -1560,7 +1560,8 @@ public class ApiClient {
           }
         } else if (shouldRetry(currentRetry, statusCode, retry)) {
           try {
-            Thread.sleep(calculateRetryInterval(responseHeaders, retry, currentRetry) * 1000);
+            retry.setCalculatedInterval(calculateRetryInterval(responseHeaders, retry, currentRetry));
+            retry.sleepInterval();
             currentRetry++;
           } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -1596,7 +1597,7 @@ public class ApiClient {
     if (statusCode == 429 || statusCode >= 500) {
       statusToRetry = true;
     }
-    return (retryConfig.maxRetries >= retryCount && statusToRetry && retryConfig.isEnableRetry());
+    return (retryConfig.maxRetries > retryCount && statusToRetry && retryConfig.isEnableRetry());
   }
 
   private int calculateRetryInterval(
