@@ -1740,6 +1740,140 @@ public class TeamsApi {
         new GenericType<TeamPermissionSettingsResponse>() {});
   }
 
+  /**
+   * Get user memberships.
+   *
+   * <p>See {@link #getUserMembershipsWithHttpInfo}.
+   *
+   * @param userUuid None (required)
+   * @return UserTeamsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UserTeamsResponse getUserMemberships(String userUuid) throws ApiException {
+    return getUserMembershipsWithHttpInfo(userUuid).getData();
+  }
+
+  /**
+   * Get user memberships.
+   *
+   * <p>See {@link #getUserMembershipsWithHttpInfoAsync}.
+   *
+   * @param userUuid None (required)
+   * @return CompletableFuture&lt;UserTeamsResponse&gt;
+   */
+  public CompletableFuture<UserTeamsResponse> getUserMembershipsAsync(String userUuid) {
+    return getUserMembershipsWithHttpInfoAsync(userUuid)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of memberships for a user
+   *
+   * @param userUuid None (required)
+   * @return ApiResponse&lt;UserTeamsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Represents a user&#39;s association to a team </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UserTeamsResponse> getUserMembershipsWithHttpInfo(String userUuid)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userUuid' is set
+    if (userUuid == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'userUuid' when calling getUserMemberships");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/users/{user_uuid}/memberships"
+            .replaceAll("\\{" + "user_uuid" + "\\}", apiClient.escapeString(userUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.getUserMemberships",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UserTeamsResponse>() {});
+  }
+
+  /**
+   * Get user memberships.
+   *
+   * <p>See {@link #getUserMembershipsWithHttpInfo}.
+   *
+   * @param userUuid None (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UserTeamsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UserTeamsResponse>> getUserMembershipsWithHttpInfoAsync(
+      String userUuid) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userUuid' is set
+    if (userUuid == null) {
+      CompletableFuture<ApiResponse<UserTeamsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userUuid' when calling getUserMemberships"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/users/{user_uuid}/memberships"
+            .replaceAll("\\{" + "user_uuid" + "\\}", apiClient.escapeString(userUuid.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.getUserMemberships",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UserTeamsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UserTeamsResponse>() {});
+  }
+
   /** Manage optional parameters to listTeams. */
   public static class ListTeamsOptionalParameters {
     private Long pageNumber;
