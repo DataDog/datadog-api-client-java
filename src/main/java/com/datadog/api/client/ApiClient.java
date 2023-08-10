@@ -1569,9 +1569,7 @@ public class ApiClient {
           }
         } else if (shouldRetry(currentRetry, statusCode, retry)) {
           try {
-            retry.setCalculatedInterval(
-                calculateRetryInterval(responseHeaders, retry, currentRetry));
-            retry.sleepInterval();
+            retry.sleepInterval(calculateRetryInterval(responseHeaders, retry, currentRetry));
             currentRetry++;
           } catch (InterruptedException e) {
             Thread.currentThread().interrupt();

@@ -67,9 +67,10 @@ public class RetryConfig {
     this.calculatedInterval = calculatedInterval;
   }
 
-  public void sleepInterval() throws InterruptedException {
+  public void sleepInterval(int sleepInterval) throws InterruptedException {
     try {
-      Thread.sleep(calculatedInterval * 1000);
+      setCalculatedInterval(sleepInterval);
+      Thread.sleep(sleepInterval * 1000);
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();
       e.printStackTrace();
