@@ -33,7 +33,9 @@ public class RetryTest extends V2APITest {
   @Test
   public void retryWithDashboardListItemGetTest429() throws ApiException {
     DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
-    assertEquals(1, generalApiClientWithRetry.getRetry().getCalculatedInterval());
+    assertEquals(1, generalApiClientWithRetry.getRetry().getIntervalList().get(0).intValue());
+    assertEquals(1, generalApiClientWithRetry.getRetry().getIntervalList().get(1).intValue());
+    assertEquals(1, generalApiClientWithRetry.getRetry().getIntervalList().get(2).intValue());
     assertNotNull(getResponse.getTotal());
     assertEquals(0, (long) getResponse.getTotal());
     assertEquals(0, getResponse.getDashboards().size());
@@ -42,7 +44,9 @@ public class RetryTest extends V2APITest {
   @Test
   public void retryWithDashboardListItemGetTest500() throws ApiException {
     DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
-    assertEquals(8, generalApiClientWithRetry.getRetry().getCalculatedInterval());
+    assertEquals(2, generalApiClientWithRetry.getRetry().getIntervalList().get(3).intValue());
+    assertEquals(4, generalApiClientWithRetry.getRetry().getIntervalList().get(4).intValue());
+    assertEquals(8, generalApiClientWithRetry.getRetry().getIntervalList().get(5).intValue());
     assertNotNull(getResponse.getTotal());
     assertEquals(0, (long) getResponse.getTotal());
     assertEquals(0, getResponse.getDashboards().size());

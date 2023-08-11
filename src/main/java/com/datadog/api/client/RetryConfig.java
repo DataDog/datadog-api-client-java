@@ -6,12 +6,15 @@
 
 package com.datadog.api.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RetryConfig {
   public boolean enableRetry;
   public int backOffMultiplier;
   public int backOffBase;
   public int maxRetries;
-  public int calculatedInterval;
+  public List<Integer> intervalList = new ArrayList<Integer>();
 
   /**
    * @param enableRetry Enable retry when rate limited
@@ -24,7 +27,6 @@ public class RetryConfig {
     this.backOffMultiplier = backOffMultiplier;
     this.backOffBase = backOffBase;
     this.maxRetries = maxRetries;
-    this.calculatedInterval = 0;
   }
 
   public boolean isEnableRetry() {
@@ -43,8 +45,8 @@ public class RetryConfig {
     return maxRetries;
   }
 
-  public int getCalculatedInterval() {
-    return calculatedInterval;
+  public List<Integer> getIntervalList() {
+    return intervalList;
   }
 
   public void setEnableRetry(boolean enableRetry) {
@@ -63,13 +65,8 @@ public class RetryConfig {
     this.maxRetries = maxRetries;
   }
 
-  public void setCalculatedInterval(int calculatedInterval) {
-    this.calculatedInterval = calculatedInterval;
-  }
-
-  public void sleepInterval(int sleepInterval) throws InterruptedException {
+  public void sleepInterval(int sleepInterval) {
     try {
-      setCalculatedInterval(sleepInterval);
       Thread.sleep(sleepInterval * 1000);
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();
