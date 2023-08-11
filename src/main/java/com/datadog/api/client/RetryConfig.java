@@ -63,9 +63,13 @@ public class RetryConfig {
     this.maxRetries = maxRetries;
   }
 
-  public void sleepInterval(int sleepInterval) {
+  public void setCalculatedInterval(int calculatedInterval) {
+    this.calculatedInterval = calculatedInterval;
+  }
+
+  public void sleepInterval(int sleepInterval) throws InterruptedException {
     try {
-      this.calculatedInterval = sleepInterval;
+      setCalculatedInterval(sleepInterval);
       Thread.sleep(sleepInterval * 1000);
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();

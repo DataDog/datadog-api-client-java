@@ -1568,8 +1568,8 @@ public class ApiClient {
                 statusCode, responseHeaders, deserialize(response, returnType));
           }
         } else if (shouldRetry(currentRetry, statusCode, retry)) {
-            retry.sleepInterval(calculateRetryInterval(responseHeaders, retry, currentRetry));
-            currentRetry++;
+          retry.sleepInterval(calculateRetryInterval(responseHeaders, retry, currentRetry));
+          currentRetry++;
         } else {
           String message = "error";
           String respBody = null;
