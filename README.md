@@ -173,9 +173,8 @@ defaultClient.setDebugging(true)
 To enable the client to retry when rate limited (status 429) or status 500 and above:
 
 ```java
-defaultClient.setRetry(new RetryConfig(true, int <multiplier_for_retry_backoff>, int <base_for_retry_backoff>,int <max_retry_attemps>))
+defaultClient.enableRetry(true)
 ```
-
 The interval between 2 retry attempts will be the value of the `x-ratelimit-reset` response header when available. If not, it will be :
 `Math.pow (multiplier_for_retry_backoff, current_retry_count)*base_for_retry_backoff`.
 

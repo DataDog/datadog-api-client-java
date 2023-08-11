@@ -1568,13 +1568,8 @@ public class ApiClient {
                 statusCode, responseHeaders, deserialize(response, returnType));
           }
         } else if (shouldRetry(currentRetry, statusCode, retry)) {
-          try {
             retry.sleepInterval(calculateRetryInterval(responseHeaders, retry, currentRetry));
             currentRetry++;
-          } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            e.printStackTrace();
-          }
         } else {
           String message = "error";
           String respBody = null;
@@ -1605,7 +1600,7 @@ public class ApiClient {
     if (statusCode == 429 || statusCode >= 500) {
       statusToRetry = true;
     }
-    return (retryConfig.maxRetries >= retryCount && statusToRetry && retryConfig.isEnableRetry());
+    return (retryConfig.maxRetries > retryCount && statusToRetry && retryConfig.isEnableRetry());
   }
 
   private int calculateRetryInterval(

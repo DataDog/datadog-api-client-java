@@ -10,9 +10,9 @@ public class MockRetryConfig extends RetryConfig {
   }
 
   @Override
-  public void sleepInterval(int sleepInterval) throws InterruptedException {
+  public void sleepInterval(int sleepInterval) {
     try {
-      setCalculatedInterval(sleepInterval);
+      this.calculatedInterval = sleepInterval;
       Thread.sleep(1);
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();
