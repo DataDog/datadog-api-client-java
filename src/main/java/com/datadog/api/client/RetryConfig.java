@@ -6,16 +6,12 @@
 
 package com.datadog.api.client;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class RetryConfig {
   public boolean enableRetry;
   public int backOffMultiplier;
   public int backOffBase;
   public int maxRetries;
-  public List<Integer> intervalList = new ArrayList<Integer>();
-
+  
   /**
    * @param enableRetry Enable retry when rate limited
    * @param backOffMultiplier Multiplier for retry backoff
@@ -43,10 +39,6 @@ public class RetryConfig {
 
   public int getMaxRetries() {
     return maxRetries;
-  }
-
-  public List<Integer> getIntervalList() {
-    return intervalList;
   }
 
   public void setEnableRetry(boolean enableRetry) {
