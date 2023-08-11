@@ -1,13 +1,14 @@
 package com.datadog.api;
 
+import com.datadog.api.client.RetryConfig;
 import java.util.ArrayList;
 import java.util.List;
-import com.datadog.api.client.RetryConfig;
 
 public class MockRetryConfig extends RetryConfig {
   public List<Integer> intervalList = new ArrayList<Integer>();
 
-  public MockRetryConfig(boolean enableRetry, int backOffMultiplier, int backOffBase, int maxRetries) {
+  public MockRetryConfig(
+      boolean enableRetry, int backOffMultiplier, int backOffBase, int maxRetries) {
     super(enableRetry, backOffMultiplier, backOffBase, maxRetries);
   }
 

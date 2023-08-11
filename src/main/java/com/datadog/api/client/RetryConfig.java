@@ -11,7 +11,7 @@ public class RetryConfig {
   public int backOffMultiplier;
   public int backOffBase;
   public int maxRetries;
-  
+
   /**
    * @param enableRetry Enable retry when rate limited
    * @param backOffMultiplier Multiplier for retry backoff

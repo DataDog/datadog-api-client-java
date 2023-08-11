@@ -3,9 +3,8 @@ package com.datadog.api.client.v2.api;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import com.datadog.api.client.RetryConfig;
-import com.datadog.api.client.ApiException;
 import com.datadog.api.MockRetryConfig;
+import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.model.DashboardList;
 import com.datadog.api.client.v2.model.*;
 import java.security.NoSuchAlgorithmException;
@@ -35,7 +34,7 @@ public class RetryTest extends V2APITest {
   @Test
   public void retryWithDashboardListItemGetTest429() throws ApiException {
     DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
-    MockRetryConfig retryConfig= (MockRetryConfig)generalApiClientWithRetry.getRetry();
+    MockRetryConfig retryConfig = (MockRetryConfig) generalApiClientWithRetry.getRetry();
     assertEquals(1, retryConfig.getIntervalList().get(0).intValue());
     assertEquals(1, retryConfig.getIntervalList().get(1).intValue());
     assertEquals(1, retryConfig.getIntervalList().get(2).intValue());
@@ -47,7 +46,7 @@ public class RetryTest extends V2APITest {
   @Test
   public void retryWithDashboardListItemGetTest500() throws ApiException {
     DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
-    MockRetryConfig mockRetryConfig = (MockRetryConfig)generalApiClientWithRetry.getRetry();
+    MockRetryConfig mockRetryConfig = (MockRetryConfig) generalApiClientWithRetry.getRetry();
     assertEquals(2, mockRetryConfig.getIntervalList().get(3).intValue());
     assertEquals(4, mockRetryConfig.getIntervalList().get(4).intValue());
     assertEquals(8, mockRetryConfig.getIntervalList().get(5).intValue());
