@@ -38,6 +38,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_METHOD,
   SyntheticsTestRequest.JSON_PROPERTY_NO_SAVING_RESPONSE_BODY,
   SyntheticsTestRequest.JSON_PROPERTY_NUMBER_OF_PACKETS,
+  SyntheticsTestRequest.JSON_PROPERTY_PERSIST_COOKIES,
   SyntheticsTestRequest.JSON_PROPERTY_PORT,
   SyntheticsTestRequest.JSON_PROPERTY_PROXY,
   SyntheticsTestRequest.JSON_PROPERTY_QUERY,
@@ -104,6 +105,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_NUMBER_OF_PACKETS = "numberOfPackets";
   private Integer numberOfPackets;
+
+  public static final String JSON_PROPERTY_PERSIST_COOKIES = "persistCookies";
+  private Boolean persistCookies;
 
   public static final String JSON_PROPERTY_PORT = "port";
   private Long port;
@@ -545,6 +549,27 @@ public class SyntheticsTestRequest {
     this.numberOfPackets = numberOfPackets;
   }
 
+  public SyntheticsTestRequest persistCookies(Boolean persistCookies) {
+    this.persistCookies = persistCookies;
+    return this;
+  }
+
+  /**
+   * Persist cookies across redirects.
+   *
+   * @return persistCookies
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PERSIST_COOKIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getPersistCookies() {
+    return persistCookies;
+  }
+
+  public void setPersistCookies(Boolean persistCookies) {
+    this.persistCookies = persistCookies;
+  }
+
   public SyntheticsTestRequest port(Long port) {
     this.port = port;
     return this;
@@ -791,6 +816,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.method, syntheticsTestRequest.method)
         && Objects.equals(this.noSavingResponseBody, syntheticsTestRequest.noSavingResponseBody)
         && Objects.equals(this.numberOfPackets, syntheticsTestRequest.numberOfPackets)
+        && Objects.equals(this.persistCookies, syntheticsTestRequest.persistCookies)
         && Objects.equals(this.port, syntheticsTestRequest.port)
         && Objects.equals(this.proxy, syntheticsTestRequest.proxy)
         && Objects.equals(this.query, syntheticsTestRequest.query)
@@ -823,6 +849,7 @@ public class SyntheticsTestRequest {
         method,
         noSavingResponseBody,
         numberOfPackets,
+        persistCookies,
         port,
         proxy,
         query,
@@ -860,6 +887,7 @@ public class SyntheticsTestRequest {
         .append(toIndentedString(noSavingResponseBody))
         .append("\n");
     sb.append("    numberOfPackets: ").append(toIndentedString(numberOfPackets)).append("\n");
+    sb.append("    persistCookies: ").append(toIndentedString(persistCookies)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    proxy: ").append(toIndentedString(proxy)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");

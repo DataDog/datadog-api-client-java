@@ -115,7 +115,8 @@ public class Example {
                                         .scope("yoyo")
                                         .tokenApiAuthentication(
                                             SyntheticsBasicAuthOauthTokenApiAuthentication.HEADER)
-                                        .type(SyntheticsBasicAuthOauthClientType.OAUTH_CLIENT)))))
+                                        .type(SyntheticsBasicAuthOauthClientType.OAUTH_CLIENT)))
+                            .persistCookies(true)))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_http_test_payload.json")
             .name("Example-Synthetic")
