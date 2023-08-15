@@ -59,7 +59,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "snmp_usage",
               "estimated_rum_sessions_usage",
               "universal_service_monitoring_usage",
-              "vuln_management_hosts_usage"));
+              "vuln_management_hosts_usage",
+              "sds_scanned_bytes_usage"));
 
   public static final HourlyUsageAttributionUsageType API_USAGE =
       new HourlyUsageAttributionUsageType("api_usage");
@@ -129,6 +130,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("universal_service_monitoring_usage");
   public static final HourlyUsageAttributionUsageType VULN_MANAGEMENT_HOSTS_USAGE =
       new HourlyUsageAttributionUsageType("vuln_management_hosts_usage");
+  public static final HourlyUsageAttributionUsageType SDS_SCANNED_BYTES_USAGE =
+      new HourlyUsageAttributionUsageType("sds_scanned_bytes_usage");
 
   HourlyUsageAttributionUsageType(String value) {
     super(value, allowedValues);

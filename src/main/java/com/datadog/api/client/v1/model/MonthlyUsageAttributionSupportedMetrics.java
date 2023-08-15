@@ -96,6 +96,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "universal_service_monitoring_percentage",
               "vuln_management_hosts_usage",
               "vuln_management_hosts_percentage",
+              "sds_scanned_bytes_usage",
+              "sds_scanned_bytes_percentage",
               "*"));
 
   public static final MonthlyUsageAttributionSupportedMetrics API_USAGE =
@@ -236,6 +238,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("vuln_management_hosts_usage");
   public static final MonthlyUsageAttributionSupportedMetrics VULN_MANAGEMENT_HOSTS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("vuln_management_hosts_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics SDS_SCANNED_BYTES_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("sds_scanned_bytes_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics SDS_SCANNED_BYTES_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("sds_scanned_bytes_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics ALL =
       new MonthlyUsageAttributionSupportedMetrics("*");
 
