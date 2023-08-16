@@ -13,9 +13,12 @@ public class Example {
 
     AzureAccount body =
         new AzureAccount()
+            .appServicePlanFilters("key:value,filter:example")
             .automute(true)
             .clientId("testc7f6-1234-5678-9101-3fcbf464test")
             .clientSecret("testingx./Sw*g/Y33t..R1cH+hScMDt")
+            .cspmEnabled(true)
+            .customMetricsEnabled(true)
             .errors(Collections.singletonList("*"))
             .hostFilters("key:value,filter:example")
             .newClientId("new1c7f6-1234-5678-9101-3fcbf464test")
