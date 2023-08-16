@@ -23,8 +23,9 @@ import java.util.Set;
 public class WidgetComparator extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList(">", ">=", "<", "<="));
+      new HashSet<String>(Arrays.asList("=", ">", ">=", "<", "<="));
 
+  public static final WidgetComparator EQUAL_TO = new WidgetComparator("=");
   public static final WidgetComparator GREATER_THAN = new WidgetComparator(">");
   public static final WidgetComparator GREATER_THAN_OR_EQUAL_TO = new WidgetComparator(">=");
   public static final WidgetComparator LESS_THAN = new WidgetComparator("<");

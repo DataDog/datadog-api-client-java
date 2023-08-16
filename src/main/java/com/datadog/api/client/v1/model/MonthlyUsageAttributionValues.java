@@ -80,6 +80,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_PERCENTAGE,
@@ -296,6 +298,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_PROFILED_HOST_USAGE = "profiled_host_usage";
   private Double profiledHostUsage;
+
+  public static final String JSON_PROPERTY_SDS_SCANNED_BYTES_PERCENTAGE =
+      "sds_scanned_bytes_percentage";
+  private Double sdsScannedBytesPercentage;
+
+  public static final String JSON_PROPERTY_SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage";
+  private Double sdsScannedBytesUsage;
 
   public static final String JSON_PROPERTY_SNMP_PERCENTAGE = "snmp_percentage";
   private Double snmpPercentage;
@@ -1635,6 +1644,48 @@ public class MonthlyUsageAttributionValues {
     this.profiledHostUsage = profiledHostUsage;
   }
 
+  public MonthlyUsageAttributionValues sdsScannedBytesPercentage(Double sdsScannedBytesPercentage) {
+    this.sdsScannedBytesPercentage = sdsScannedBytesPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Sensitive Data Scanner usage by tag(s).
+   *
+   * @return sdsScannedBytesPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_SCANNED_BYTES_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSdsScannedBytesPercentage() {
+    return sdsScannedBytesPercentage;
+  }
+
+  public void setSdsScannedBytesPercentage(Double sdsScannedBytesPercentage) {
+    this.sdsScannedBytesPercentage = sdsScannedBytesPercentage;
+  }
+
+  public MonthlyUsageAttributionValues sdsScannedBytesUsage(Double sdsScannedBytesUsage) {
+    this.sdsScannedBytesUsage = sdsScannedBytesUsage;
+    return this;
+  }
+
+  /**
+   * The total Sensitive Data Scanner usage by tag(s).
+   *
+   * @return sdsScannedBytesUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SDS_SCANNED_BYTES_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSdsScannedBytesUsage() {
+    return sdsScannedBytesUsage;
+  }
+
+  public void setSdsScannedBytesUsage(Double sdsScannedBytesUsage) {
+    this.sdsScannedBytesUsage = sdsScannedBytesUsage;
+  }
+
   public MonthlyUsageAttributionValues snmpPercentage(Double snmpPercentage) {
     this.snmpPercentage = snmpPercentage;
     return this;
@@ -1932,6 +1983,10 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.profiledHostPercentage, monthlyUsageAttributionValues.profiledHostPercentage)
         && Objects.equals(this.profiledHostUsage, monthlyUsageAttributionValues.profiledHostUsage)
+        && Objects.equals(
+            this.sdsScannedBytesPercentage, monthlyUsageAttributionValues.sdsScannedBytesPercentage)
+        && Objects.equals(
+            this.sdsScannedBytesUsage, monthlyUsageAttributionValues.sdsScannedBytesUsage)
         && Objects.equals(this.snmpPercentage, monthlyUsageAttributionValues.snmpPercentage)
         && Objects.equals(this.snmpUsage, monthlyUsageAttributionValues.snmpUsage)
         && Objects.equals(
@@ -2014,6 +2069,8 @@ public class MonthlyUsageAttributionValues {
         profiledFargateUsage,
         profiledHostPercentage,
         profiledHostUsage,
+        sdsScannedBytesPercentage,
+        sdsScannedBytesUsage,
         snmpPercentage,
         snmpUsage,
         universalServiceMonitoringPercentage,
@@ -2161,6 +2218,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(profiledHostPercentage))
         .append("\n");
     sb.append("    profiledHostUsage: ").append(toIndentedString(profiledHostUsage)).append("\n");
+    sb.append("    sdsScannedBytesPercentage: ")
+        .append(toIndentedString(sdsScannedBytesPercentage))
+        .append("\n");
+    sb.append("    sdsScannedBytesUsage: ")
+        .append(toIndentedString(sdsScannedBytesUsage))
+        .append("\n");
     sb.append("    snmpPercentage: ").append(toIndentedString(snmpPercentage)).append("\n");
     sb.append("    snmpUsage: ").append(toIndentedString(snmpUsage)).append("\n");
     sb.append("    universalServiceMonitoringPercentage: ")
