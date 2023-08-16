@@ -87,6 +87,7 @@ def cli(specs, output):
         "PaginationIterator.java": env.get_template("PaginationIterator.j2"),
         "UnparsedObject.java": env.get_template("UnparsedObject.j2"),
         "ZstdEncoder.java": env.get_template("ZstdEncoder.j2"),
+        "RetryConfig.java": env.get_template("RetryConfig.j2"),
     }
 
     auth_files = {

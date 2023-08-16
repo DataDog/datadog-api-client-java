@@ -350,6 +350,7 @@ public class ApiClient {
   protected Map<String, Map<String, String>> operationServerVariables =
       new HashMap<String, Map<String, String>>();
   protected boolean debugging = false;
+  protected RetryConfig retry = new RetryConfig(false, 2, 2, 3);
   protected boolean compress = true;
   protected ClientConfig clientConfig;
   protected int connectionTimeout = 0;
@@ -515,6 +516,33 @@ public class ApiClient {
    */
   public DateTimeFormatter getOffsetDateTimeFormatter() {
     return offsetDateTimeFormatter;
+  }
+
+  /**
+   * Add custom retry object in the client
+   *
+   * @param retry retry object
+   */
+  public void setRetry(RetryConfig retry) {
+    this.retry = retry;
+  }
+
+  /**
+   * Return the retryConfig object
+   *
+   * @return retryConfig
+   */
+  public RetryConfig getRetry() {
+    return retry;
+  }
+
+  /**
+   * Enable retry directly on the client instead of creating a new retry object
+   *
+   * @param enableRetry bool, enable retry or not
+   */
+  public void enableRetry(boolean enableRetry) {
+    this.retry.setEnableRetry(enableRetry);
   }
 
   /**
@@ -1525,32 +1553,37 @@ public class ApiClient {
     Response response = null;
 
     try {
-      response = sendRequest(method, invocationBuilder, entity);
-
-      int statusCode = response.getStatusInfo().getStatusCode();
-      Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
-
-      if (response.getStatusInfo() == Status.NO_CONTENT) {
-        return new ApiResponse<T>(statusCode, responseHeaders);
-      } else if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
-        if (returnType == null) {
+      int currentRetry = 0;
+      while (true) {
+        response = sendRequest(method, invocationBuilder, entity);
+        int statusCode = response.getStatusInfo().getStatusCode();
+        Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
+        if (response.getStatusInfo() == Status.NO_CONTENT) {
           return new ApiResponse<T>(statusCode, responseHeaders);
-        } else {
-          return new ApiResponse<T>(statusCode, responseHeaders, deserialize(response, returnType));
-        }
-      } else {
-        String message = "error";
-        String respBody = null;
-        if (response.hasEntity()) {
-          try {
-            respBody = String.valueOf(response.readEntity(String.class));
-            message = respBody;
-          } catch (RuntimeException e) {
-            // e.printStackTrace();
+        } else if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
+          if (returnType == null) {
+            return new ApiResponse<T>(statusCode, responseHeaders);
+          } else {
+            return new ApiResponse<T>(
+                statusCode, responseHeaders, deserialize(response, returnType));
           }
+        } else if (shouldRetry(currentRetry, statusCode, retry)) {
+          retry.sleepInterval(calculateRetryInterval(responseHeaders, retry, currentRetry));
+          currentRetry++;
+        } else {
+          String message = "error";
+          String respBody = null;
+          if (response.hasEntity()) {
+            try {
+              respBody = String.valueOf(response.readEntity(String.class));
+              message = respBody;
+            } catch (RuntimeException e) {
+              // e.printStackTrace();
+            }
+          }
+          throw new ApiException(
+              response.getStatus(), message, buildResponseHeaders(response), respBody);
         }
-        throw new ApiException(
-            response.getStatus(), message, buildResponseHeaders(response), respBody);
       }
     } finally {
       try {
@@ -1559,6 +1592,29 @@ public class ApiClient {
         // it's not critical, since the response object is local in method invokeAPI; that's fine,
         // just continue
       }
+    }
+  }
+
+  private boolean shouldRetry(int retryCount, int statusCode, RetryConfig retryConfig) {
+    boolean statusToRetry = false;
+    if (statusCode == 429 || statusCode >= 500) {
+      statusToRetry = true;
+    }
+    return (retryConfig.maxRetries > retryCount && statusToRetry && retryConfig.isEnableRetry());
+  }
+
+  private int calculateRetryInterval(
+      Map<String, List<String>> responseHeaders, RetryConfig retryConfig, int retryCount) {
+    if (responseHeaders.get("x-ratelimit-reset") != null) {
+      List<String> rateLimitHeader = responseHeaders.get("x-ratelimit-reset");
+      return Integer.parseInt(rateLimitHeader.get(0));
+    } else {
+      int retryInterval =
+          (int) Math.pow(retry.backOffMultiplier, retryCount) * retryConfig.backOffBase;
+      if (getConnectTimeout() > 0) {
+        retryInterval = Math.min(retryInterval, getConnectTimeout());
+      }
+      return retryInterval;
     }
   }
 

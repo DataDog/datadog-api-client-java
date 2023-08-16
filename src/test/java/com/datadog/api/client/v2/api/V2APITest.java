@@ -6,6 +6,7 @@
 
 package com.datadog.api.client.v2.api;
 
+import com.datadog.api.MockRetryConfig;
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestClient;
 import com.datadog.api.TestUtils;
@@ -30,6 +31,14 @@ import org.junit.BeforeClass;
 public abstract class V2APITest extends TestUtils.APITest {
   protected static ApiClient generalApiClient;
   protected static ApiClient generalApiUnitTestClient;
+  protected static ApiClient generalApiClientWithRetry;
+
+  @BeforeClass
+  public static void initGeneralApiClientWithMockRetry() {
+    initGeneralApiClient();
+    generalApiClientWithRetry = generalApiClient;
+    generalApiClientWithRetry.setRetry(new MockRetryConfig(true, 2, 2, 3));
+  }
 
   @BeforeClass
   public static void initGeneralApiClient() {
