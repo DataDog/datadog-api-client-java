@@ -4,10 +4,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import com.datadog.api.MockRetryConfig;
+import com.datadog.api.RecordingMode;
+import com.datadog.api.TestUtils;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.model.DashboardList;
 import com.datadog.api.client.v2.model.*;
 import java.security.NoSuchAlgorithmException;
+import org.junit.AssumptionViolatedException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,6 +36,9 @@ public class RetryTest extends V2APITest {
 
   @Test
   public void retryWithDashboardListItemGetTest429() throws ApiException {
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+      throw new AssumptionViolatedException("Skipping in non-recording mode");
+    }
     DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
     MockRetryConfig retryConfig = (MockRetryConfig) generalApiClientWithRetry.getRetry();
     assertEquals(1, retryConfig.getIntervalList().get(0).intValue());
@@ -45,6 +51,9 @@ public class RetryTest extends V2APITest {
 
   @Test
   public void retryWithDashboardListItemGetTest500() throws ApiException {
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+      throw new AssumptionViolatedException("Skipping in non-recording mode");
+    }
     DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
     MockRetryConfig mockRetryConfig = (MockRetryConfig) generalApiClientWithRetry.getRetry();
     assertEquals(2, mockRetryConfig.getIntervalList().get(3).intValue());
