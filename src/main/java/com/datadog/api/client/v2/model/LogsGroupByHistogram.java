@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets are
+ * Used to perform a histogram computation (only for measure facets). Note: at most 100 buckets are
  * allowed, the number of buckets is (max - min)/interval.
  */
 @JsonPropertyOrder({
