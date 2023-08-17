@@ -10,8 +10,6 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.model.DashboardList;
 import com.datadog.api.client.v2.model.*;
 import java.security.NoSuchAlgorithmException;
-
-import org.assertj.core.api.AssumptionExceptionFactory;
 import org.junit.AssumptionViolatedException;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,7 +36,7 @@ public class RetryTest extends V2APITest {
 
   @Test
   public void retryWithDashboardListItemGetTest429() throws ApiException {
-    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)){
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
       throw new AssumptionViolatedException("Skipping in non-recording mode");
     }
     DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
