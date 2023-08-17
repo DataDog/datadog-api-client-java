@@ -24,6 +24,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_APM_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APM_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APM_HOST_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_APM_USM_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_APM_USM_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_FARGATE_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_PERCENTAGE,
@@ -110,6 +112,12 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_APM_HOST_USAGE = "apm_host_usage";
   private Double apmHostUsage;
+
+  public static final String JSON_PROPERTY_APM_USM_PERCENTAGE = "apm_usm_percentage";
+  private Double apmUsmPercentage;
+
+  public static final String JSON_PROPERTY_APM_USM_USAGE = "apm_usm_usage";
+  private Double apmUsmUsage;
 
   public static final String JSON_PROPERTY_APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage";
   private Double appsecFargatePercentage;
@@ -452,6 +460,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setApmHostUsage(Double apmHostUsage) {
     this.apmHostUsage = apmHostUsage;
+  }
+
+  public MonthlyUsageAttributionValues apmUsmPercentage(Double apmUsmPercentage) {
+    this.apmUsmPercentage = apmUsmPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of APM and Universal Service Monitoring host usage by tag(s).
+   *
+   * @return apmUsmPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_USM_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getApmUsmPercentage() {
+    return apmUsmPercentage;
+  }
+
+  public void setApmUsmPercentage(Double apmUsmPercentage) {
+    this.apmUsmPercentage = apmUsmPercentage;
+  }
+
+  public MonthlyUsageAttributionValues apmUsmUsage(Double apmUsmUsage) {
+    this.apmUsmUsage = apmUsmUsage;
+    return this;
+  }
+
+  /**
+   * The APM and Universal Service Monitoring host usage by tag(s).
+   *
+   * @return apmUsmUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_USM_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getApmUsmUsage() {
+    return apmUsmUsage;
+  }
+
+  public void setApmUsmUsage(Double apmUsmUsage) {
+    this.apmUsmUsage = apmUsmUsage;
   }
 
   public MonthlyUsageAttributionValues appsecFargatePercentage(Double appsecFargatePercentage) {
@@ -1878,6 +1928,8 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(this.apmFargateUsage, monthlyUsageAttributionValues.apmFargateUsage)
         && Objects.equals(this.apmHostPercentage, monthlyUsageAttributionValues.apmHostPercentage)
         && Objects.equals(this.apmHostUsage, monthlyUsageAttributionValues.apmHostUsage)
+        && Objects.equals(this.apmUsmPercentage, monthlyUsageAttributionValues.apmUsmPercentage)
+        && Objects.equals(this.apmUsmUsage, monthlyUsageAttributionValues.apmUsmUsage)
         && Objects.equals(
             this.appsecFargatePercentage, monthlyUsageAttributionValues.appsecFargatePercentage)
         && Objects.equals(this.appsecFargateUsage, monthlyUsageAttributionValues.appsecFargateUsage)
@@ -2013,6 +2065,8 @@ public class MonthlyUsageAttributionValues {
         apmFargateUsage,
         apmHostPercentage,
         apmHostUsage,
+        apmUsmPercentage,
+        apmUsmUsage,
         appsecFargatePercentage,
         appsecFargateUsage,
         appsecPercentage,
@@ -2092,6 +2146,8 @@ public class MonthlyUsageAttributionValues {
     sb.append("    apmFargateUsage: ").append(toIndentedString(apmFargateUsage)).append("\n");
     sb.append("    apmHostPercentage: ").append(toIndentedString(apmHostPercentage)).append("\n");
     sb.append("    apmHostUsage: ").append(toIndentedString(apmHostUsage)).append("\n");
+    sb.append("    apmUsmPercentage: ").append(toIndentedString(apmUsmPercentage)).append("\n");
+    sb.append("    apmUsmUsage: ").append(toIndentedString(apmUsmUsage)).append("\n");
     sb.append("    appsecFargatePercentage: ")
         .append(toIndentedString(appsecFargatePercentage))
         .append("\n");
