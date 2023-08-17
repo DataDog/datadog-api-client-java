@@ -36,6 +36,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "appsec_fargate_percentage",
               "apm_host_usage",
               "apm_host_percentage",
+              "apm_usm_usage",
+              "apm_usm_percentage",
               "appsec_usage",
               "appsec_percentage",
               "browser_usage",
@@ -116,6 +118,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("apm_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics APM_HOST_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("apm_host_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics APM_USM_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("apm_usm_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics APM_USM_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("apm_usm_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics APPSEC_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("appsec_usage");
   public static final MonthlyUsageAttributionSupportedMetrics APPSEC_PERCENTAGE =

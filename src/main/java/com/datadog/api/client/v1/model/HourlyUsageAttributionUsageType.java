@@ -29,6 +29,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "api_usage",
               "apm_fargate_usage",
               "apm_host_usage",
+              "apm_usm_usage",
               "appsec_fargate_usage",
               "appsec_usage",
               "browser_usage",
@@ -68,6 +69,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("apm_fargate_usage");
   public static final HourlyUsageAttributionUsageType APM_HOST_USAGE =
       new HourlyUsageAttributionUsageType("apm_host_usage");
+  public static final HourlyUsageAttributionUsageType APM_USM_USAGE =
+      new HourlyUsageAttributionUsageType("apm_usm_usage");
   public static final HourlyUsageAttributionUsageType APPSEC_FARGATE_USAGE =
       new HourlyUsageAttributionUsageType("appsec_fargate_usage");
   public static final HourlyUsageAttributionUsageType APPSEC_USAGE =
