@@ -31,7 +31,7 @@ public class LogsResponseMetadataPage {
   }
 
   /**
-   * The cursor to use to get the next results, if any. To make the next request, use the same.
+   * The cursor to use to get the next results, if any. To make the next request, use the same
    * parameters with the addition of the <code>page[cursor]</code>.
    *
    * @return after
