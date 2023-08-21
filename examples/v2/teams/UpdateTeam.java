@@ -8,6 +8,8 @@ import com.datadog.api.client.v2.model.TeamType;
 import com.datadog.api.client.v2.model.TeamUpdate;
 import com.datadog.api.client.v2.model.TeamUpdateAttributes;
 import com.datadog.api.client.v2.model.TeamUpdateRequest;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -26,7 +28,11 @@ public class Example {
                     .attributes(
                         new TeamUpdateAttributes()
                             .handle(DD_TEAM_DATA_ATTRIBUTES_HANDLE)
-                            .name("Example Team updated"))
+                            .name("Example Team updated")
+                            .avatar("🥑")
+                            .banner(7L)
+                            .hiddenModules(Collections.singletonList("m3"))
+                            .visibleModules(Arrays.asList("m1", "m2")))
                     .type(TeamType.TEAM));
 
     try {
