@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"avatar\":\"\ud83e\udd51\",\"banner\":7,\"handle\":\"handle-29fddb97704028c4\",\"hidden_modules\":[\"m3\"],\"name\":\"name-29fddb97704028c4\",\"visible_modules\":[\"m1\",\"m2\"]},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"94ba28ea-3e15-11ee-8d97-da7ad0900002\",\"attributes\":{\"name\":\"name-29fddb97704028c4\",\"handle\":\"handle-29fddb97704028c4\",\"summary\":null,\"description\":null,\"avatar\":\"\\ud83e\\udd51\",\"banner\":7,\"visible_modules\":[\"m1\",\"m2\"],\"hidden_modules\":[\"m3\"],\"created_at\":\"2023-08-18T22:21:30.549604+00:00\",\"modified_at\":\"2023-08-18T22:21:30.549611+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/94ba28ea-3e15-11ee-8d97-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/94ba28ea-3e15-11ee-8d97-da7ad0900002/permission-settings\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "656622ab-0fcf-d497-d012-a67e6296cde5"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/94ba28ea-3e15-11ee-8d97-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6bdbbfe4-57de-ee8a-c666-f8bc0d442891"
+  }
+]
