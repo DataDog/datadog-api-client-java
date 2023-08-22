@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-7af7a34f5bc3a40e\",\"name\":\"name-7af7a34f5bc3a40e\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-df7035850d3d2bf3\",\"name\":\"test-name-df7035850d3d2bf3\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"a91019b6-20d9-11ee-b538-da7ad0900002\",\"attributes\":{\"name\":\"name-7af7a34f5bc3a40e\",\"handle\":\"handle-7af7a34f5bc3a40e\",\"summary\":null,\"description\":null,\"created_at\":\"2023-07-12T17:29:31.144067+00:00\",\"modified_at\":\"2023-07-12T17:29:31.144076+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"2f0a0aae-405b-11ee-8fd8-da7ad0900002\",\"attributes\":{\"name\":\"test-name-df7035850d3d2bf3\",\"handle\":\"test-handle-df7035850d3d2bf3\",\"summary\":null,\"description\":null,\"avatar\":null,\"banner\":null,\"visible_modules\":[],\"hidden_modules\":[],\"created_at\":\"2023-08-21T19:44:47.044918+00:00\",\"modified_at\":\"2023-08-21T19:44:47.044924+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/2f0a0aae-405b-11ee-8fd8-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/2f0a0aae-405b-11ee-8fd8-da7ad0900002/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c8a4b8f9-e05c-2ac6-14ce-6eb5d424e843"
+    "id": "079057ab-6d5b-f183-e08a-6a7459312bc2"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002",
+      "path": "/api/v2/team/2f0a0aae-405b-11ee-8fd8-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"a91019b6-20d9-11ee-b538-da7ad0900002\",\"attributes\":{\"name\":\"name-7af7a34f5bc3a40e\",\"handle\":\"handle-7af7a34f5bc3a40e\",\"summary\":null,\"description\":null,\"created_at\":\"2023-07-12T17:29:31.144067+00:00\",\"modified_at\":\"2023-07-12T17:29:31.144076+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"attributes\":{\"handle\":\"test-handle-df7035850d3d2bf3\",\"description\":null,\"name\":\"test-name-df7035850d3d2bf3\",\"summary\":null,\"user_count\":0,\"created_at\":\"2023-08-21T19:44:47.044918+00:00\",\"modified_at\":\"2023-08-21T19:44:47.044924+00:00\",\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/2f0a0aae-405b-11ee-8fd8-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/2f0a0aae-405b-11ee-8fd8-da7ad0900002/permission-settings\"}}},\"id\":\"2f0a0aae-405b-11ee-8fd8-da7ad0900002\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2d3eb60b-9f2b-c940-5b06-4bc51dbbcdf6"
+    "id": "231ca4d1-50f1-9a2e-ca93-606e210860c0"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/a91019b6-20d9-11ee-b538-da7ad0900002",
+      "path": "/api/v2/team/2f0a0aae-405b-11ee-8fd8-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6464681a-bf6f-36d9-f2d0-683895971f17"
+    "id": "c9cb81ef-ffe6-85fe-e13a-89cc8b5e8e42"
   }
 ]

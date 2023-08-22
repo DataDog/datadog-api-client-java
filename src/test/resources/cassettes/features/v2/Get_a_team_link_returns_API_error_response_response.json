@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-62e1a70bb6b304ee\",\"name\":\"name-62e1a70bb6b304ee\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-87a259270e6183b1\",\"name\":\"test-name-87a259270e6183b1\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"a7c4e9c4-20d9-11ee-99df-da7ad0900002\",\"attributes\":{\"name\":\"name-62e1a70bb6b304ee\",\"handle\":\"handle-62e1a70bb6b304ee\",\"summary\":null,\"description\":null,\"created_at\":\"2023-07-12T17:29:28.973645+00:00\",\"modified_at\":\"2023-07-12T17:29:28.973651+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/a7c4e9c4-20d9-11ee-99df-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/a7c4e9c4-20d9-11ee-99df-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"2e28b978-405b-11ee-9792-da7ad0900002\",\"attributes\":{\"name\":\"test-name-87a259270e6183b1\",\"handle\":\"test-handle-87a259270e6183b1\",\"summary\":null,\"description\":null,\"avatar\":null,\"banner\":null,\"visible_modules\":[],\"hidden_modules\":[],\"created_at\":\"2023-08-21T19:44:45.568097+00:00\",\"modified_at\":\"2023-08-21T19:44:45.568104+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/2e28b978-405b-11ee-9792-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/2e28b978-405b-11ee-9792-da7ad0900002/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e3805b49-eecc-cdac-e7ea-759fdb61825b"
+    "id": "5c317580-ff57-730a-16f5-8a752da20262"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/team/a7c4e9c4-20d9-11ee-99df-da7ad0900002/links/REPLACE.ME",
+      "path": "/api/v2/team/2e28b978-405b-11ee-9792-da7ad0900002/links/REPLACE.ME",
       "keepAlive": false,
       "secure": true
     },
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0fbc07a0-c20d-101b-1a91-87fa0c9862b9"
+    "id": "f506c410-a273-0661-b04d-2c77f4c4784a"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/a7c4e9c4-20d9-11ee-99df-da7ad0900002",
+      "path": "/api/v2/team/2e28b978-405b-11ee-9792-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "58ac27d7-b680-0d5e-50da-a1d8440d8e63"
+    "id": "b95eab4d-a2dc-25ca-cbb0-2038ca3ffdd7"
   }
 ]

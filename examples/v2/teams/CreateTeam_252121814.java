@@ -22,8 +22,8 @@ public class Example {
                 new TeamCreate()
                     .attributes(
                         new TeamCreateAttributes()
-                            .handle("handle-a0fc0297eb519635")
-                            .name("name-a0fc0297eb519635")
+                            .handle("test-handle-a0fc0297eb519635")
+                            .name("test-name-a0fc0297eb519635")
                             .avatar("🥑")
                             .banner(7L)
                             .visibleModules(Arrays.asList("m1", "m2"))
