@@ -40,7 +40,7 @@ import java.util.Objects;
 public class ServiceDefinitionV1 {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONTACT = "contact";
-  private ServiceDefinitionV1Contact contact = null;
+  private ServiceDefinitionV1Contact contact;
 
   public static final String JSON_PROPERTY_EXTENSIONS = "extensions";
   private Map<String, Object> extensions = null;
