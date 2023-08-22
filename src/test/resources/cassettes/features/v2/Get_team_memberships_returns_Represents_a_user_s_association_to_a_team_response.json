@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-9b9ce79372b8d6b6\",\"name\":\"name-9b9ce79372b8d6b6\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-f05d3606dace17e6\",\"name\":\"test-name-f05d3606dace17e6\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"aa8f7156-20d9-11ee-9f9f-da7ad0900002\",\"attributes\":{\"name\":\"name-9b9ce79372b8d6b6\",\"handle\":\"handle-9b9ce79372b8d6b6\",\"summary\":null,\"description\":null,\"created_at\":\"2023-07-12T17:29:33.656262+00:00\",\"modified_at\":\"2023-07-12T17:29:33.656267+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/aa8f7156-20d9-11ee-9f9f-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/aa8f7156-20d9-11ee-9f9f-da7ad0900002/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"308b9b7c-405b-11ee-b8bb-da7ad0900002\",\"attributes\":{\"name\":\"test-name-f05d3606dace17e6\",\"handle\":\"test-handle-f05d3606dace17e6\",\"summary\":null,\"description\":null,\"avatar\":null,\"banner\":null,\"visible_modules\":[],\"hidden_modules\":[],\"created_at\":\"2023-08-21T19:44:49.571050+00:00\",\"modified_at\":\"2023-08-21T19:44:49.571056+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/308b9b7c-405b-11ee-b8bb-da7ad0900002/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/308b9b7c-405b-11ee-b8bb-da7ad0900002/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "adbdba3e-cf46-a7d5-ab93-f4c9b404629b"
+    "id": "143f1e3a-d741-69b8-15c9-c0d0adcd3e23"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/team/aa8f7156-20d9-11ee-9f9f-da7ad0900002/memberships",
+      "path": "/api/v2/team/308b9b7c-405b-11ee-b8bb-da7ad0900002/memberships",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[],\"meta\":{\"pagination\":{\"offset\":0,\"first_offset\":0,\"prev_offset\":0,\"next_offset\":100,\"last_offset\":0,\"limit\":100,\"type\":\"offset_limit\",\"total\":0}},\"links\":{\"self\":\"https://api.datadoghq.com/api/v2/team/aa8f7156-20d9-11ee-9f9f-da7ad0900002/memberships\",\"last\":null,\"next\":\"https://api.datadoghq.com/api/v2/team/aa8f7156-20d9-11ee-9f9f-da7ad0900002/memberships?page[offset]=100&page[limit]=100\",\"prev\":null,\"first\":\"https://api.datadoghq.com/api/v2/team/aa8f7156-20d9-11ee-9f9f-da7ad0900002/memberships?page[offset]=0&page[limit]=100\"}}\n",
+      "body": "{\"data\":[],\"meta\":{\"pagination\":{\"offset\":0,\"first_offset\":0,\"prev_offset\":0,\"next_offset\":100,\"last_offset\":0,\"limit\":100,\"type\":\"offset_limit\",\"total\":0}},\"links\":{\"self\":\"https://api.datadoghq.com/api/v2/team/308b9b7c-405b-11ee-b8bb-da7ad0900002/memberships\",\"last\":null,\"next\":\"https://api.datadoghq.com/api/v2/team/308b9b7c-405b-11ee-b8bb-da7ad0900002/memberships?page[offset]=100&page[limit]=100\",\"prev\":null,\"first\":\"https://api.datadoghq.com/api/v2/team/308b9b7c-405b-11ee-b8bb-da7ad0900002/memberships?page[offset]=0&page[limit]=100\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3d930bfd-7ea0-dc81-c093-de46204b96a6"
+    "id": "b8848224-6885-275c-b68c-196e9091022f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/aa8f7156-20d9-11ee-9f9f-da7ad0900002",
+      "path": "/api/v2/team/308b9b7c-405b-11ee-b8bb-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f15a9b57-1b37-67fe-7216-a0d80a5d54ed"
+    "id": "a9f6215c-d00c-28ce-b3e2-9d9eae4303c8"
   }
 ]
