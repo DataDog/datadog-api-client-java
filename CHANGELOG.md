@@ -1,5 +1,38 @@
 # CHANGELOG
 
+## 2.15.0 / 2023-08-23
+
+### Fixed
+* Handle {} and bool value for `additionalProperties` by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1901
+* Update team schemas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1900
+* Fix handling of `additionalProperties` only containers by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/1910
+* Mark downtime v2 start response as required by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1916
+* Document new properties and fix security monitoring schemas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1899
+* Add missing CI App fields `page` and `test_level` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1878
+### Added
+* Update stated limit for api/v2/metrics from 14 days to 30 days by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1907
+* Add missing sensitive data scanner fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1896
+* Add Workflow Executions to usage metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1911
+* Add missing `type` field for OnDemandConcurrencyCap response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1898
+* Add CI Visibility Intelligent Test Runner to usage metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1908
+* Add custom_links to distribution widget schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1918
+* Add usage field `region` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1919
+* Add `message` field to audit logs response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1921
+* Add `tags` field to dashboard list response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1920
+* API specs for user team memberships by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1929
+* Document `EQUAL` comparator by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1932
+* Add persistCookies option synthetics test request by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1931
+* Expose sds_scanned_bytes_usage in usage attribution API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1935
+* Add support in azure integration endpoint for app service plan filters/cspm/custom metrics by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1930
+* Add retry support by @HantingZhang2 in https://github.com/DataDog/datadog-api-client-java/pull/1925
+* Add APM and USM usage attribution type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1928
+* Document new attributes for team models by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/1926
+
+## New Contributors
+* @HantingZhang2 made their first contribution in https://github.com/DataDog/datadog-api-client-java/pull/1925
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.14.0...datadog-api-client-2.15.0
+
 ## 2.14.0 / 2023-07-20
 
 ### Fixed
