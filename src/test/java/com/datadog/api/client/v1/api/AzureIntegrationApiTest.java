@@ -50,7 +50,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
 
   @Before
   public void setupAzureAccounts() {
-    String uniqueTenantName = getUniqueEntityName();
+    String uniqueTenantName = String.format("aaaaaaaa-bbbb-cccc-dddd-%dee", now.toEpochSecond());
 
     uniqueAzureAccount.setClientId("javatest-1234-5678-9101-3fcbf464test");
     uniqueAzureAccount.setClientSecret("testingx./Sw*g/Y33t..R1cH+hScMDt");
@@ -59,7 +59,8 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     uniqueUpdatedAzureAccount.setClientId(uniqueAzureAccount.getClientId());
     uniqueUpdatedAzureAccount.setTenantName(uniqueTenantName);
     uniqueUpdatedAzureAccount.setNewClientId("javatest-1234-5678-9101-3fcbf4update");
-    uniqueUpdatedAzureAccount.setNewTenantName("javatest-1234-5678-9101-cc0073update");
+    uniqueUpdatedAzureAccount.setNewTenantName(
+        String.format("aaaaaaaa-bbbb-cccc-dddd-%dff", now.toEpochSecond()));
     uniqueUpdatedAzureAccount.setHostFilters("filter:foo,test:bar");
 
     uniqueUpdatedHostFilters.setClientId(uniqueUpdatedAzureAccount.getNewClientId());
