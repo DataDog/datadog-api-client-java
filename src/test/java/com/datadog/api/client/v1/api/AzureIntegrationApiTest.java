@@ -59,7 +59,8 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     uniqueUpdatedAzureAccount.setClientId(uniqueAzureAccount.getClientId());
     uniqueUpdatedAzureAccount.setTenantName(uniqueTenantName);
     uniqueUpdatedAzureAccount.setNewClientId("javatest-1234-5678-9101-3fcbf4update");
-    uniqueUpdatedAzureAccount.setNewTenantName(String.format("aaaaaaaa-bbbb-cccc-dddd-%dff", now.toEpochSecond()));
+    uniqueUpdatedAzureAccount.setNewTenantName(
+        String.format("aaaaaaaa-bbbb-cccc-dddd-%dff", now.toEpochSecond()));
     uniqueUpdatedAzureAccount.setHostFilters("filter:foo,test:bar");
 
     uniqueUpdatedHostFilters.setClientId(uniqueUpdatedAzureAccount.getNewClientId());
