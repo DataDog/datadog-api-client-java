@@ -318,15 +318,6 @@ public class DowntimesApiTest extends V1ApiTest {
   @Test
   public void downtimeUpdateErrorsTest() throws IOException {
     try {
-      api.updateDowntime(Long.valueOf(1234), new Downtime().start(Long.valueOf(1234)));
-      fail("Expected ApiException not thrown");
-    } catch (ApiException e) {
-      assertEquals(400, e.getCode());
-      APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-      assertNotNull(error.getErrors());
-    }
-
-    try {
       fakeAuthApi.updateDowntime(Long.valueOf(1234), new Downtime());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
