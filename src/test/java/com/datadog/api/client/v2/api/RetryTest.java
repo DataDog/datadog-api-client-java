@@ -13,7 +13,6 @@ import com.datadog.api.client.v1.model.DashboardList;
 import com.datadog.api.client.v2.model.*;
 import java.security.NoSuchAlgorithmException;
 import org.junit.AssumptionViolatedException;
-import org.junit.Before;
 import org.junit.Test;
 
 public class RetryTest extends V2APITest {
