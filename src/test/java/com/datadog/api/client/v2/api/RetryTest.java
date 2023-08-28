@@ -27,7 +27,6 @@ public class RetryTest extends V2APITest {
     return "dashboard-lists-retry-tests";
   }
 
-  @Before
   public void createDashboardList() throws ApiException, NoSuchAlgorithmException {
     dashboardListsApiV1 =
         new com.datadog.api.client.v1.api.DashboardListsApi(generalApiClientWithRetry);
@@ -37,10 +36,11 @@ public class RetryTest extends V2APITest {
   }
 
   @Test
-  public void retryWithDashboardListItemGetTest429() throws ApiException {
+  public void retryWithDashboardListItemGetTest429() throws ApiException, NoSuchAlgorithmException {
     if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
       throw new AssumptionViolatedException("Skipping in non-recording mode");
     }
+    createDashboardList();
     DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
     MockRetryConfig retryConfig = (MockRetryConfig) generalApiClientWithRetry.getRetry();
     assertEquals(1, retryConfig.getIntervalList().get(0).intValue());
@@ -52,10 +52,11 @@ public class RetryTest extends V2APITest {
   }
 
   @Test
-  public void retryWithDashboardListItemGetTest500() throws ApiException {
+  public void retryWithDashboardListItemGetTest500() throws ApiException, NoSuchAlgorithmException {
     if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
       throw new AssumptionViolatedException("Skipping in non-recording mode");
     }
+    createDashboardList();
     DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
     MockRetryConfig mockRetryConfig = (MockRetryConfig) generalApiClientWithRetry.getRetry();
     assertEquals(2, mockRetryConfig.getIntervalList().get(3).intValue());
