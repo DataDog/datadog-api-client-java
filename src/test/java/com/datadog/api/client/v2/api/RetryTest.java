@@ -2,11 +2,13 @@ package com.datadog.api.client.v2.api;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 
 import com.datadog.api.MockRetryConfig;
 import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.RetryConfig;
 import com.datadog.api.client.v1.model.DashboardList;
 import com.datadog.api.client.v2.model.*;
 import java.security.NoSuchAlgorithmException;
@@ -62,5 +64,15 @@ public class RetryTest extends V2APITest {
     assertNotNull(getResponse.getTotal());
     assertEquals(0, (long) getResponse.getTotal());
     assertEquals(0, getResponse.getDashboards().size());
+  }
+
+  @Test
+  public void backoffBaseCannotBeSmallerThanTwo() {
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+      throw new AssumptionViolatedException("Skipping in non-recording mode");
+    }
+    assertThrows(IllegalArgumentException.class,  () -> {
+      new RetryConfig(true,2,1,3);
+    });
   }
 }
