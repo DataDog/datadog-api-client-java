@@ -71,8 +71,10 @@ public class RetryTest extends V2APITest {
     if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
       throw new AssumptionViolatedException("Skipping in non-recording mode");
     }
-    assertThrows(IllegalArgumentException.class,  () -> {
-      new RetryConfig(true,2,1,3);
-    });
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> {
+          new RetryConfig(true, 2, 1, 3);
+        });
   }
 }
