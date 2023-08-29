@@ -84,6 +84,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_PUBLIC_ID,
   UsageSummaryDateOrg.JSON_PROPERTY_REGION,
@@ -334,6 +335,10 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P = "opentelemetry_host_top99p";
   private Long opentelemetryHostTop99p;
+
+  public static final String JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P =
+      "profiling_aas_count_top99p";
+  private Long profilingAasCountTop99p;
 
   public static final String JSON_PROPERTY_PROFILING_HOST_TOP99P = "profiling_host_top99p";
   private Long profilingHostTop99p;
@@ -1857,6 +1862,28 @@ public class UsageSummaryDateOrg {
     this.opentelemetryHostTop99p = opentelemetryHostTop99p;
   }
 
+  public UsageSummaryDateOrg profilingAasCountTop99p(Long profilingAasCountTop99p) {
+    this.profilingAasCountTop99p = profilingAasCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all profiled Azure app services over all hours in the current date
+   * for all organizations.
+   *
+   * @return profilingAasCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getProfilingAasCountTop99p() {
+    return profilingAasCountTop99p;
+  }
+
+  public void setProfilingAasCountTop99p(Long profilingAasCountTop99p) {
+    this.profilingAasCountTop99p = profilingAasCountTop99p;
+  }
+
   public UsageSummaryDateOrg profilingHostTop99p(Long profilingHostTop99p) {
     this.profilingHostTop99p = profilingHostTop99p;
     return this;
@@ -2476,6 +2503,7 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.opentelemetryApmHostTop99p, usageSummaryDateOrg.opentelemetryApmHostTop99p)
         && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDateOrg.opentelemetryHostTop99p)
+        && Objects.equals(this.profilingAasCountTop99p, usageSummaryDateOrg.profilingAasCountTop99p)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDateOrg.profilingHostTop99p)
         && Objects.equals(this.publicId, usageSummaryDateOrg.publicId)
         && Objects.equals(this.region, usageSummaryDateOrg.region)
@@ -2584,6 +2612,7 @@ public class UsageSummaryDateOrg {
         onlineArchiveEventsCountSum,
         opentelemetryApmHostTop99p,
         opentelemetryHostTop99p,
+        profilingAasCountTop99p,
         profilingHostTop99p,
         publicId,
         region,
@@ -2755,6 +2784,9 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    opentelemetryHostTop99p: ")
         .append(toIndentedString(opentelemetryHostTop99p))
+        .append("\n");
+    sb.append("    profilingAasCountTop99p: ")
+        .append(toIndentedString(profilingAasCountTop99p))
         .append("\n");
     sb.append("    profilingHostTop99p: ")
         .append(toIndentedString(profilingHostTop99p))
