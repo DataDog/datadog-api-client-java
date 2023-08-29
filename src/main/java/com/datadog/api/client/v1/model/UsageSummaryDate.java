@@ -87,6 +87,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_ORGS,
+  UsageSummaryDate.JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT,
   UsageSummaryDate.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
@@ -335,6 +336,10 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private List<UsageSummaryDateOrg> orgs = null;
+
+  public static final String JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P =
+      "profiling_aas_count_top99p";
+  private Long profilingAasCountTop99p;
 
   public static final String JSON_PROPERTY_PROFILING_HOST_TOP99P = "profiling_host_top99p";
   private Long profilingHostTop99p;
@@ -1873,6 +1878,28 @@ public class UsageSummaryDate {
     this.orgs = orgs;
   }
 
+  public UsageSummaryDate profilingAasCountTop99p(Long profilingAasCountTop99p) {
+    this.profilingAasCountTop99p = profilingAasCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all profiled Azure app services over all hours in the current date
+   * for all organizations.
+   *
+   * @return profilingAasCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getProfilingAasCountTop99p() {
+    return profilingAasCountTop99p;
+  }
+
+  public void setProfilingAasCountTop99p(Long profilingAasCountTop99p) {
+    this.profilingAasCountTop99p = profilingAasCountTop99p;
+  }
+
   public UsageSummaryDate profilingHostTop99p(Long profilingHostTop99p) {
     this.profilingHostTop99p = profilingHostTop99p;
     return this;
@@ -2442,6 +2469,7 @@ public class UsageSummaryDate {
             this.opentelemetryApmHostTop99p, usageSummaryDate.opentelemetryApmHostTop99p)
         && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDate.opentelemetryHostTop99p)
         && Objects.equals(this.orgs, usageSummaryDate.orgs)
+        && Objects.equals(this.profilingAasCountTop99p, usageSummaryDate.profilingAasCountTop99p)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p)
         && Objects.equals(
             this.rumBrowserAndMobileSessionCount, usageSummaryDate.rumBrowserAndMobileSessionCount)
@@ -2546,6 +2574,7 @@ public class UsageSummaryDate {
         opentelemetryApmHostTop99p,
         opentelemetryHostTop99p,
         orgs,
+        profilingAasCountTop99p,
         profilingHostTop99p,
         rumBrowserAndMobileSessionCount,
         rumSessionCountSum,
@@ -2716,6 +2745,9 @@ public class UsageSummaryDate {
         .append(toIndentedString(opentelemetryHostTop99p))
         .append("\n");
     sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
+    sb.append("    profilingAasCountTop99p: ")
+        .append(toIndentedString(profilingAasCountTop99p))
+        .append("\n");
     sb.append("    profilingHostTop99p: ")
         .append(toIndentedString(profilingHostTop99p))
         .append("\n");

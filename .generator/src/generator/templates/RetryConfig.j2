@@ -15,6 +15,9 @@ public class RetryConfig {
    * @param maxRetries Maximum number of retries
    */
   public RetryConfig(boolean enableRetry, int backOffMultiplier, int backOffBase, int maxRetries) {
+    if (backOffBase < 2) {
+      throw new IllegalArgumentException("backOffBase cannot be smaller than 2");
+    }
     this.enableRetry = enableRetry;
     this.backOffMultiplier = backOffMultiplier;
     this.backOffBase = backOffBase;
