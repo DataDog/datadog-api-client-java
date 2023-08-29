@@ -102,8 +102,10 @@ public class PaginationIterator<T> implements Iterator<T> {
       response = this.requestMethod.invoke(iterable.requestClass, iterable.args.values().toArray());
       Object resultData = response;
 
-      for (String path : this.iterable.resultsPath) {
-        resultData = resultData.getClass().getMethod(path).invoke(resultData);
+      if (this.iterable.resultsPath != null) {
+        for (String path : this.iterable.resultsPath) {
+          resultData = resultData.getClass().getMethod(path).invoke(resultData);
+        }
       }
 
       this.data = ((ArrayList) resultData);

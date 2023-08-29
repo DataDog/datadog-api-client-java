@@ -7,7 +7,7 @@ import java.util.LinkedHashMap;
 public class PaginationIterable<T> implements Iterable<T> {
   Object requestClass;
   String requestName;
-  String[] resultsPath;
+  String[] resultsPath = null;
   String[] valueGetterPath;
   String[] valueSetterPath;
   Boolean valueSetterParamOptional;
@@ -28,7 +28,9 @@ public class PaginationIterable<T> implements Iterable<T> {
 
     this.requestClass = requestClass;
     this.requestName = requestName;
-    this.resultsPath = resultsPath.split("\\.");
+    if (resultsPath != "") {
+      this.resultsPath = resultsPath.split("\\.");
+    }
     if (!valueGetterPath.isEmpty()) {
       this.valueGetterPath = valueGetterPath.split("\\.");
     } else {
