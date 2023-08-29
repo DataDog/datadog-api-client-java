@@ -20,6 +20,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The number of profiled hosts for each hour for a given organization. */
 @JsonPropertyOrder({
+  UsageProfilingHour.JSON_PROPERTY_AAS_COUNT,
   UsageProfilingHour.JSON_PROPERTY_AVG_CONTAINER_AGENT_COUNT,
   UsageProfilingHour.JSON_PROPERTY_HOST_COUNT,
   UsageProfilingHour.JSON_PROPERTY_HOUR,
@@ -30,6 +31,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageProfilingHour {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AAS_COUNT = "aas_count";
+  private JsonNullable<Long> aasCount = JsonNullable.<Long>undefined();
+
   public static final String JSON_PROPERTY_AVG_CONTAINER_AGENT_COUNT = "avg_container_agent_count";
   private JsonNullable<Long> avgContainerAgentCount = JsonNullable.<Long>undefined();
 
@@ -44,6 +48,37 @@ public class UsageProfilingHour {
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
+
+  public UsageProfilingHour aasCount(Long aasCount) {
+    this.aasCount = JsonNullable.<Long>of(aasCount);
+    return this;
+  }
+
+  /**
+   * Contains the total number of profiled Azure app services reporting during a given hour.
+   *
+   * @return aasCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getAasCount() {
+    return aasCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AAS_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getAasCount_JsonNullable() {
+    return aasCount;
+  }
+
+  @JsonProperty(JSON_PROPERTY_AAS_COUNT)
+  public void setAasCount_JsonNullable(JsonNullable<Long> aasCount) {
+    this.aasCount = aasCount;
+  }
+
+  public void setAasCount(Long aasCount) {
+    this.aasCount = JsonNullable.<Long>of(aasCount);
+  }
 
   public UsageProfilingHour avgContainerAgentCount(Long avgContainerAgentCount) {
     this.avgContainerAgentCount = JsonNullable.<Long>of(avgContainerAgentCount);
@@ -226,7 +261,8 @@ public class UsageProfilingHour {
       return false;
     }
     UsageProfilingHour usageProfilingHour = (UsageProfilingHour) o;
-    return Objects.equals(this.avgContainerAgentCount, usageProfilingHour.avgContainerAgentCount)
+    return Objects.equals(this.aasCount, usageProfilingHour.aasCount)
+        && Objects.equals(this.avgContainerAgentCount, usageProfilingHour.avgContainerAgentCount)
         && Objects.equals(this.hostCount, usageProfilingHour.hostCount)
         && Objects.equals(this.hour, usageProfilingHour.hour)
         && Objects.equals(this.orgName, usageProfilingHour.orgName)
@@ -237,13 +273,14 @@ public class UsageProfilingHour {
   @Override
   public int hashCode() {
     return Objects.hash(
-        avgContainerAgentCount, hostCount, hour, orgName, publicId, additionalProperties);
+        aasCount, avgContainerAgentCount, hostCount, hour, orgName, publicId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageProfilingHour {\n");
+    sb.append("    aasCount: ").append(toIndentedString(aasCount)).append("\n");
     sb.append("    avgContainerAgentCount: ")
         .append(toIndentedString(avgContainerAgentCount))
         .append("\n");

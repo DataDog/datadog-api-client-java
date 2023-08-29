@@ -94,6 +94,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_CONTAINER_AGENT_COUNT_AVG,
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_AGG_SUM,
@@ -372,6 +373,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM =
       "opentelemetry_host_top99p_sum";
   private Long opentelemetryHostTop99pSum;
+
+  public static final String JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P_SUM =
+      "profiling_aas_count_top99p_sum";
+  private Long profilingAasCountTop99pSum;
 
   public static final String JSON_PROPERTY_PROFILING_CONTAINER_AGENT_COUNT_AVG =
       "profiling_container_agent_count_avg";
@@ -2020,6 +2025,28 @@ public class UsageSummaryResponse {
     this.opentelemetryHostTop99pSum = opentelemetryHostTop99pSum;
   }
 
+  public UsageSummaryResponse profilingAasCountTop99pSum(Long profilingAasCountTop99pSum) {
+    this.profilingAasCountTop99pSum = profilingAasCountTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all profiled Azure app services over all hours in the current
+   * months for all organizations.
+   *
+   * @return profilingAasCountTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getProfilingAasCountTop99pSum() {
+    return profilingAasCountTop99pSum;
+  }
+
+  public void setProfilingAasCountTop99pSum(Long profilingAasCountTop99pSum) {
+    this.profilingAasCountTop99pSum = profilingAasCountTop99pSum;
+  }
+
   public UsageSummaryResponse profilingContainerAgentCountAvg(
       Long profilingContainerAgentCountAvg) {
     this.profilingContainerAgentCountAvg = profilingContainerAgentCountAvg;
@@ -2753,6 +2780,8 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.opentelemetryHostTop99pSum, usageSummaryResponse.opentelemetryHostTop99pSum)
         && Objects.equals(
+            this.profilingAasCountTop99pSum, usageSummaryResponse.profilingAasCountTop99pSum)
+        && Objects.equals(
             this.profilingContainerAgentCountAvg,
             usageSummaryResponse.profilingContainerAgentCountAvg)
         && Objects.equals(
@@ -2876,6 +2905,7 @@ public class UsageSummaryResponse {
         onlineArchiveEventsCountAggSum,
         opentelemetryApmHostTop99pSum,
         opentelemetryHostTop99pSum,
+        profilingAasCountTop99pSum,
         profilingContainerAgentCountAvg,
         profilingHostCountTop99pSum,
         rehydratedIndexedEventsAggSum,
@@ -3076,6 +3106,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    opentelemetryHostTop99pSum: ")
         .append(toIndentedString(opentelemetryHostTop99pSum))
+        .append("\n");
+    sb.append("    profilingAasCountTop99pSum: ")
+        .append(toIndentedString(profilingAasCountTop99pSum))
         .append("\n");
     sb.append("    profilingContainerAgentCountAvg: ")
         .append(toIndentedString(profilingContainerAgentCountAvg))
