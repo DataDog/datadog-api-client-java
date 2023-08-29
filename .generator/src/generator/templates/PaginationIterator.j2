@@ -107,7 +107,11 @@ public class PaginationIterator<T> implements Iterator<T> {
       }
 
       this.data = ((ArrayList) resultData);
-      this.totalCount += this.data.size();
+      if (this.iterable.offsetPageIncrement) {
+        this.totalCount += this.data.size();
+      } else {
+        this.totalCount += 1;
+      }
       // Reset the index back to zero
       this.currentIndex = 0;
     } catch (Exception e) {

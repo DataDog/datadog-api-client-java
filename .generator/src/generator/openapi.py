@@ -185,18 +185,22 @@ def get_parameter_schema_from_name(name, all_params):
             return parameter
 
 
-def get_pagination_return_item_type(operation, resultsPath):
-    resultsPath = resultsPath.split(".")
-    for response in operation.get("responses", {}).values():
+def get_type_at_path(operation, attribute_path):
+    content = None
+    for code, response in operation.get("responses", {}).items():
+        if int(code) >= 300:
+            continue
         for content in response.get("content", {}).values():
             if "schema" in content:
-                properties = content["schema"].get("properties")
-                i = 0
-                while len(resultsPath) > 1:
-                    properties = properties.get(resultsPath[0]).get("properties")
-                    resultsPath.pop(0)
-                    i += 1
-                return type_to_java(properties.get(resultsPath[0]).get("items"))
+                break
+    if content is None:
+        raise RuntimeError("Default response not found")
+    content = content["schema"]
+    if not attribute_path:
+        return type_to_java(content["items"])
+    for attr in attribute_path.split("."):
+        content = content["properties"][attr]
+    return type_to_java(content["items"])
 
 
 def child_models(schema, alternative_name=None, seen=None, parent=None):
@@ -527,6 +531,8 @@ class Schema:
 
 
 def get_accessors(param_path, schema={}):
+    if not param_path:
+        return False, [], []
     param_path = param_path.split(".")
     optional = False
     getter, setter = [], []

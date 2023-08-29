@@ -23,7 +23,7 @@ import {{ api_reponse_type_import}};
 {%- endif %}
 {%- if context.pagination %}
 {%- set pagination = operation_spec["x-pagination"] %}
-{%- set paginationReturnType = get_pagination_return_item_type(operation_spec, pagination["resultsPath"]) %}
+{%- set paginationReturnType = get_type_at_path(operation_spec, pagination["resultsPath"]) %}
 import com.datadog.api.client.{{ version }}.model.{{ paginationReturnType }};
 import com.datadog.api.client.PaginationIterable;
 {%- endif %}
@@ -69,7 +69,7 @@ public class Example {
 
 {%- if context.pagination %}
 {%- set pagination = operation_spec["x-pagination"] %}
-{%- set paginationReturnType = get_pagination_return_item_type(operation_spec, pagination["resultsPath"]) %}
+{%- set paginationReturnType = get_type_at_path(operation_spec, pagination["resultsPath"]) %}
 
     try {
       PaginationIterable<{{ paginationReturnType }}> iterable = apiInstance.{{ context.api_request.operation_id|untitle_case }}WithPagination({% if required_parameters %}{{ required_parameters }}{% endif %}{% if optional_parameters %}{% if required_parameters %}{{ "," }}{% endif %}{{ optional_parameters }}{% endif %});
