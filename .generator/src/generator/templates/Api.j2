@@ -26,7 +26,7 @@ import {{ package_name }}.model.{{ model }};
 {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
 {%- if operation["x-pagination"] %}
 {%- set pagination = operation["x-pagination"] %}
-import {{ package_name }}.model.{{ get_pagination_return_item_type(operation, pagination["resultsPath"]) }};
+import {{ package_name }}.model.{{ get_type_at_path(operation, pagination["resultsPath"]) }};
 
 {%- set limitParamParts = pagination.limitParam.split(".") %}
 {%- for i in range(1, limitParamParts|length) %}
@@ -119,7 +119,7 @@ public class {{ name }} {
 {%- endmacro %}
 
 {%- macro paginatedEndpointMacro(pagination) -%}
-  {%- set _, getters, _ = get_accessors(pagination.resultsPath) %}
+  {%- set _, getters, _ = get_accessors(pagination.resultsPath|default('')) %}
   String resultsPath = "{{ ".".join(getters) }}";
 
 {#- Pagination cursor param fields #}
@@ -139,6 +139,15 @@ public class {{ name }} {
   String valueGetterPath = "";
   String valueSetterPath = "{%- if getters|length > 1 %}{{ ".".join(getters[:getters|length-1]) }}.{%- endif %}{{ setters[getters|length-1] }}";
   Boolean valueSetterParamOptional = {{ optional|lower }};
+  {%- endif %}
+
+  {%- if pagination.pageParam %}
+  {%- set paramSchema = get_parameter_schema_from_name(pagination.pageParam.split(".")[0], allParams) %}
+  {%- set optional, getters, setters = get_accessors(pagination.pageParam, schema=paramSchema) %}
+  String valueGetterPath = "";
+  String valueSetterPath = "{%- if getters|length > 1 %}{{ ".".join(getters[:getters|length-1]) }}.{%- endif %}{{ setters[getters|length-1] }}";
+  Boolean valueSetterParamOptional = {{ optional|lower }};
+  parameters.{% if getters|length > 1 %}{{ ".".join(getters[:getters|length-1]) }}.{%- endif %}{{ setters[getters|length-1] }}({{ 0|format_value(schema=paramSchema['schema']) }});
   {%- endif %}
 
 {#- Limit param field #}
@@ -195,7 +204,7 @@ public class {{ name }} {
   args.put("optionalParams", parameters);
   {%- endif  %}
 
-  PaginationIterable iterator = new PaginationIterable(this, "{{ operationId }}", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, limit, args);
+  PaginationIterable iterator = new PaginationIterable(this, "{{ operationId }}", resultsPath, valueGetterPath, valueSetterPath, valueSetterParamOptional, {% if pagination.pageParam %}false{% else %}true{% endif %}, limit, args);
 
   return iterator;
 {%- endmacro %}
@@ -265,7 +274,7 @@ public class {{ name }} {
 
   {%- if operation["x-pagination"] %}
   {%- set pagination = operation["x-pagination"] %}
-  {%- set paginationReturnType = "PaginationIterable<" ~  get_pagination_return_item_type(operation, pagination["resultsPath"]) ~ ">" %}
+  {%- set paginationReturnType = "PaginationIterable<" ~ get_type_at_path(operation, pagination["resultsPath"]) ~ ">" %}
 
   {{ endpointDocAndAnnotation(throwsApiException=False, overrideReturn=paginationReturnType) }}
   public {{ paginationReturnType }} {{ operationId }}WithPagination({% for name, parameter in requiredParams %}{{ get_type_for_parameter(parameter) }} {{ name|variable_name }}{% if loop.nextitem %}, {% endif %}{% endfor %}) {

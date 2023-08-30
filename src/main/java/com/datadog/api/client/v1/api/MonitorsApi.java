@@ -3,6 +3,7 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.CheckCanDeleteMonitorResponse;
 import com.datadog.api.client.v1.model.DeletedMonitor;
@@ -14,6 +15,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -1141,7 +1143,7 @@ public class MonitorsApi {
      * @param pageSize The number of monitors to return per page. If the page argument is not
      *     specified, the default behavior returns all monitors without a <code>page_size</code>
      *     limit. However, if page is specified and <code>page_size</code> is not, the argument
-     *     defaults to 100. (optional)
+     *     defaults to 100. (optional, default to 100)
      * @return ListMonitorsOptionalParameters
      */
     public ListMonitorsOptionalParameters pageSize(Integer pageSize) {
@@ -1205,6 +1207,59 @@ public class MonitorsApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * Get all monitor details.
+   *
+   * <p>See {@link #listMonitorsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;Monitor&gt;
+   */
+  public PaginationIterable<Monitor> listMonitorsWithPagination() {
+    ListMonitorsOptionalParameters parameters = new ListMonitorsOptionalParameters();
+    return listMonitorsWithPagination(parameters);
+  }
+
+  /**
+   * Get all monitor details.
+   *
+   * <p>See {@link #listMonitorsWithHttpInfo}.
+   *
+   * @return List&lt;Monitor&gt;
+   */
+  public PaginationIterable<Monitor> listMonitorsWithPagination(
+      ListMonitorsOptionalParameters parameters) {
+    String resultsPath = "";
+    String valueGetterPath = "";
+    String valueSetterPath = "page";
+    Boolean valueSetterParamOptional = true;
+    parameters.page(0l);
+    Integer limit;
+
+    if (parameters.pageSize == null) {
+      limit = 100;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listMonitors",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**

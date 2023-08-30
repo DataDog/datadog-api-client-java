@@ -74,7 +74,7 @@ JINJA_ENV.filters["upperfirst"] = upperfirst
 JINJA_ENV.globals["format_data_with_schema"] = format_data_with_schema
 JINJA_ENV.globals["format_parameters"] = format_parameters
 JINJA_ENV.globals["get_response_type"] = get_response_type
-JINJA_ENV.globals["get_pagination_return_item_type"] = openapi.get_pagination_return_item_type
+JINJA_ENV.globals["get_type_at_path"] = openapi.get_type_at_path
 
 JAVA_EXAMPLE_J2 = JINJA_ENV.get_template("example.j2")
 

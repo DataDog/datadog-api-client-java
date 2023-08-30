@@ -58,7 +58,8 @@ def cli(specs, output):
     env.globals["get_type_for_attribute"] = openapi.get_type_for_attribute
     env.globals["get_type_for_parameter"] = openapi.get_type_for_parameter
     env.globals["get_parameter_schema_from_name"] = openapi.get_parameter_schema_from_name
-    env.globals["get_pagination_return_item_type"] = openapi.get_pagination_return_item_type
+    env.globals["get_type_at_path"] = openapi.get_type_at_path
+
     env.globals["get_type"] = openapi.type_to_java
     env.globals["get_api_models"] = openapi.get_api_models
     env.globals["common_package_name"] = COMMON_PACKAGE_NAME

@@ -260,6 +260,7 @@ public class SpansApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             limit,
             args);
 
@@ -553,6 +554,7 @@ public class SpansApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             limit,
             args);
 
