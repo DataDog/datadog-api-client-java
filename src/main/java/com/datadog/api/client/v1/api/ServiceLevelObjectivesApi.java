@@ -3,6 +3,7 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.CheckCanDeleteSLOResponse;
 import com.datadog.api.client.v1.model.SLOBulkDeleteResponse;
@@ -19,6 +20,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -1320,7 +1322,7 @@ public class ServiceLevelObjectivesApi {
     /**
      * Set limit.
      *
-     * @param limit The number of SLOs to return in the response. (optional)
+     * @param limit The number of SLOs to return in the response. (optional, default to 1000)
      * @return ListSLOsOptionalParameters
      */
     public ListSLOsOptionalParameters limit(Long limit) {
@@ -1395,6 +1397,57 @@ public class ServiceLevelObjectivesApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * Get all SLOs.
+   *
+   * <p>See {@link #listSLOsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;ServiceLevelObjective&gt;
+   */
+  public PaginationIterable<ServiceLevelObjective> listSLOsWithPagination() {
+    ListSLOsOptionalParameters parameters = new ListSLOsOptionalParameters();
+    return listSLOsWithPagination(parameters);
+  }
+
+  /**
+   * Get all SLOs.
+   *
+   * <p>See {@link #listSLOsWithHttpInfo}.
+   *
+   * @return SLOListResponse
+   */
+  public PaginationIterable<ServiceLevelObjective> listSLOsWithPagination(
+      ListSLOsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "offset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.limit == null) {
+      limit = 1000l;
+      parameters.limit(limit);
+    } else {
+      limit = parameters.limit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listSLOs",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**
