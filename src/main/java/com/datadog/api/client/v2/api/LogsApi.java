@@ -311,6 +311,7 @@ public class LogsApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             limit,
             args);
 
@@ -618,6 +619,7 @@ public class LogsApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             limit,
             args);
 

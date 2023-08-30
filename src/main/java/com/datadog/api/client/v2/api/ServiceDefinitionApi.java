@@ -682,6 +682,7 @@ public class ServiceDefinitionApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             limit,
             args);
 

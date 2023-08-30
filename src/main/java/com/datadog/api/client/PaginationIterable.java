@@ -11,10 +11,11 @@ import java.util.LinkedHashMap;
 public class PaginationIterable<T> implements Iterable<T> {
   Object requestClass;
   String requestName;
-  String[] resultsPath;
+  String[] resultsPath = null;
   String[] valueGetterPath;
   String[] valueSetterPath;
   Boolean valueSetterParamOptional;
+  Boolean offsetPageIncrement;
   Object limit;
   LinkedHashMap<String, Object> args;
 
@@ -25,12 +26,15 @@ public class PaginationIterable<T> implements Iterable<T> {
       String valueGetterPath,
       String valueSetterPath,
       Boolean valueSetterParamOptional,
+      Boolean offsetPageIncrement,
       Object limit,
       LinkedHashMap<String, Object> args) {
 
     this.requestClass = requestClass;
     this.requestName = requestName;
-    this.resultsPath = resultsPath.split("\\.");
+    if (resultsPath != "") {
+      this.resultsPath = resultsPath.split("\\.");
+    }
     if (!valueGetterPath.isEmpty()) {
       this.valueGetterPath = valueGetterPath.split("\\.");
     } else {
@@ -38,6 +42,7 @@ public class PaginationIterable<T> implements Iterable<T> {
     }
     this.valueSetterPath = valueSetterPath.split("\\.");
     this.valueSetterParamOptional = valueSetterParamOptional;
+    this.offsetPageIncrement = offsetPageIncrement;
     this.limit = limit;
     this.args = args;
   }

@@ -2035,6 +2035,7 @@ public class SecurityMonitoringApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             limit,
             args);
 
@@ -2746,6 +2747,7 @@ public class SecurityMonitoringApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             limit,
             args);
 
@@ -3007,6 +3009,7 @@ public class SecurityMonitoringApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
+            true,
             limit,
             args);
 
