@@ -32,7 +32,8 @@ import java.util.Objects;
   SunburstWidgetRequest.JSON_PROPERTY_QUERIES,
   SunburstWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   SunburstWidgetRequest.JSON_PROPERTY_RUM_QUERY,
-  SunburstWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
+  SunburstWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
+  SunburstWidgetRequest.JSON_PROPERTY_STYLE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -76,6 +77,9 @@ public class SunburstWidgetRequest {
 
   public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
   private LogQueryDefinition securityQuery;
+
+  public static final String JSON_PROPERTY_STYLE = "style";
+  private WidgetStyle style;
 
   public SunburstWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
@@ -388,6 +392,28 @@ public class SunburstWidgetRequest {
     this.securityQuery = securityQuery;
   }
 
+  public SunburstWidgetRequest style(WidgetStyle style) {
+    this.style = style;
+    this.unparsed |= style.unparsed;
+    return this;
+  }
+
+  /**
+   * Widget style definition.
+   *
+   * @return style
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STYLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetStyle getStyle() {
+    return style;
+  }
+
+  public void setStyle(WidgetStyle style) {
+    this.style = style;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -457,6 +483,7 @@ public class SunburstWidgetRequest {
         && Objects.equals(this.responseFormat, sunburstWidgetRequest.responseFormat)
         && Objects.equals(this.rumQuery, sunburstWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, sunburstWidgetRequest.securityQuery)
+        && Objects.equals(this.style, sunburstWidgetRequest.style)
         && Objects.equals(this.additionalProperties, sunburstWidgetRequest.additionalProperties);
   }
 
@@ -476,6 +503,7 @@ public class SunburstWidgetRequest {
         responseFormat,
         rumQuery,
         securityQuery,
+        style,
         additionalProperties);
   }
 
@@ -498,6 +526,7 @@ public class SunburstWidgetRequest {
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
+    sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
