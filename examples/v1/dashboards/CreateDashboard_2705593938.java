@@ -17,6 +17,7 @@ import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetFormula;
 import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetStyle;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import java.util.Collections;
 
@@ -59,7 +60,8 @@ public class Example {
                                                                 .name("query1")
                                                                 .aggregator(
                                                                     FormulaAndFunctionMetricAggregation
-                                                                        .SUM))))))))
+                                                                        .SUM))))
+                                                .style(new WidgetStyle().palette("dog_classic"))))))
                         .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L))))
             .layoutType(DashboardLayoutType.ORDERED);
 

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_sunburst_widget_and_metrics_data-1641430241\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"sum\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"sum:system.mem.used{*} by {service}\"}],\"response_format\":\"scalar\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"sunburst\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_sunburst_widget_and_metrics_data-1693352020\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"sum\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"sum:system.mem.used{*} by {service}\"}],\"response_format\":\"scalar\",\"style\":{\"palette\":\"dog_classic\"}}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"sunburst\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"sgm-ici-pnu\",\"title\":\"Test-Create_a_new_dashboard_with_sunburst_widget_and_metrics_data-1641430241\",\"url\":\"/dashboard/sgm-ici-pnu/test-createanewdashboardwithsunburstwidgetandmetricsdata-1641430241\",\"created_at\":\"2022-01-06T00:50:41.250923+00:00\",\"modified_at\":\"2022-01-06T00:50:41.250923+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"type\":\"sunburst\",\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"response_format\":\"scalar\",\"queries\":[{\"aggregator\":\"sum\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"sum:system.mem.used{*} by {service}\"}]}],\"title_align\":\"left\",\"title_size\":\"16\",\"title\":\"\"},\"layout\":{\"y\":0,\"width\":4,\"x\":0,\"height\":4},\"id\":1079694148435475}],\"layout_type\":\"ordered\"}",
+      "body": "{\"id\":\"p9p-tab-wa7\",\"title\":\"Test-Create_a_new_dashboard_with_sunburst_widget_and_metrics_data-1693352020\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/p9p-tab-wa7/test-createanewdashboardwithsunburstwidgetandmetricsdata-1693352020\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"sum\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"sum:system.mem.used{*} by {service}\"}],\"response_format\":\"scalar\",\"style\":{\"palette\":\"dog_classic\"}}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"sunburst\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0},\"id\":4956604535424180}],\"notify_list\":null,\"created_at\":\"2023-08-29T23:33:41.087237+00:00\",\"modified_at\":\"2023-08-29T23:33:41.087237+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d791c0c8-f65f-7381-d709-730ec8b15f09"
+    "id": "e1a5528e-e87d-7bbc-08b5-97553ee72255"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/sgm-ici-pnu",
+      "path": "/api/v1/dashboard/p9p-tab-wa7",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"sgm-ici-pnu\"}",
+      "body": "{\"deleted_dashboard_id\":\"p9p-tab-wa7\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "aa1df354-da30-c460-815c-a2d022f1588b"
+    "id": "a33fa573-a9be-255f-d7d1-81f47fd79dd9"
   }
 ]
