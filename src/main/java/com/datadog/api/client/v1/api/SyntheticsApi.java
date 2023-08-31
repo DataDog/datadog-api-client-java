@@ -3,6 +3,7 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.SyntheticsAPITest;
 import com.datadog.api.client.v1.model.SyntheticsAPITestResultFull;
@@ -28,6 +29,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -3108,16 +3110,17 @@ public class SyntheticsApi {
 
   /** Manage optional parameters to listTests. */
   public static class ListTestsOptionalParameters {
-    private String pageSize;
-    private String pageNumber;
+    private Long pageSize;
+    private Long pageNumber;
 
     /**
      * Set pageSize.
      *
-     * @param pageSize Used for pagination. The number of tests returned in the page. (optional)
+     * @param pageSize Used for pagination. The number of tests returned in the page. (optional,
+     *     default to 100)
      * @return ListTestsOptionalParameters
      */
-    public ListTestsOptionalParameters pageSize(String pageSize) {
+    public ListTestsOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -3129,7 +3132,7 @@ public class SyntheticsApi {
      *     (optional)
      * @return ListTestsOptionalParameters
      */
-    public ListTestsOptionalParameters pageNumber(String pageNumber) {
+    public ListTestsOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -3196,6 +3199,59 @@ public class SyntheticsApi {
   /**
    * Get the list of all Synthetic tests.
    *
+   * <p>See {@link #listTestsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;SyntheticsTestDetails&gt;
+   */
+  public PaginationIterable<SyntheticsTestDetails> listTestsWithPagination() {
+    ListTestsOptionalParameters parameters = new ListTestsOptionalParameters();
+    return listTestsWithPagination(parameters);
+  }
+
+  /**
+   * Get the list of all Synthetic tests.
+   *
+   * <p>See {@link #listTestsWithHttpInfo}.
+   *
+   * @return SyntheticsListTestsResponse
+   */
+  public PaginationIterable<SyntheticsTestDetails> listTestsWithPagination(
+      ListTestsOptionalParameters parameters) {
+    String resultsPath = "getTests";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 100l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listTests",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
+   * Get the list of all Synthetic tests.
+   *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SyntheticsListTestsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -3212,8 +3268,8 @@ public class SyntheticsApi {
   public ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo(
       ListTestsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
-    String pageSize = parameters.pageSize;
-    String pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/tests";
 
@@ -3254,8 +3310,8 @@ public class SyntheticsApi {
   public CompletableFuture<ApiResponse<SyntheticsListTestsResponse>> listTestsWithHttpInfoAsync(
       ListTestsOptionalParameters parameters) {
     Object localVarPostBody = null;
-    String pageSize = parameters.pageSize;
-    String pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/tests";
 
