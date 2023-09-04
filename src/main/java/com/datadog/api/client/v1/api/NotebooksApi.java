@@ -3,15 +3,18 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.NotebookCreateRequest;
 import com.datadog.api.client.v1.model.NotebookResponse;
 import com.datadog.api.client.v1.model.NotebookUpdateRequest;
 import com.datadog.api.client.v1.model.NotebooksResponse;
+import com.datadog.api.client.v1.model.NotebooksResponseData;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -502,7 +505,7 @@ public class NotebooksApi {
     /**
      * Set count.
      *
-     * @param count The number of notebooks to be returned. (optional)
+     * @param count The number of notebooks to be returned. (optional, default to 100)
      * @return ListNotebooksOptionalParameters
      */
     public ListNotebooksOptionalParameters count(Long count) {
@@ -639,6 +642,58 @@ public class NotebooksApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * Get all notebooks.
+   *
+   * <p>See {@link #listNotebooksWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;NotebooksResponseData&gt;
+   */
+  public PaginationIterable<NotebooksResponseData> listNotebooksWithPagination() {
+    ListNotebooksOptionalParameters parameters = new ListNotebooksOptionalParameters();
+    return listNotebooksWithPagination(parameters);
+  }
+
+  /**
+   * Get all notebooks.
+   *
+   * <p>See {@link #listNotebooksWithHttpInfo}.
+   *
+   * @return NotebooksResponse
+   */
+  public PaginationIterable<NotebooksResponseData> listNotebooksWithPagination(
+      ListNotebooksOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "start";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.count == null) {
+      limit = 100l;
+      parameters.count(limit);
+    } else {
+      limit = parameters.count;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listNotebooks",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**
