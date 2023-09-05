@@ -26,12 +26,12 @@ import java.util.Objects;
 public class DowntimeRelationshipsMonitorData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
-  private Long id;
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private DowntimeIncludedMonitorType type = DowntimeIncludedMonitorType.MONITORS;
 
-  public DowntimeRelationshipsMonitorData id(Long id) {
+  public DowntimeRelationshipsMonitorData id(String id) {
     this.id = id;
     return this;
   }
@@ -44,11 +44,11 @@ public class DowntimeRelationshipsMonitorData {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
