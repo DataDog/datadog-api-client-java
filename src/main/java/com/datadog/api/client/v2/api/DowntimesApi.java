@@ -3,9 +3,11 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.DowntimeCreateRequest;
 import com.datadog.api.client.v2.model.DowntimeResponse;
+import com.datadog.api.client.v2.model.DowntimeResponseData;
 import com.datadog.api.client.v2.model.DowntimeUpdateRequest;
 import com.datadog.api.client.v2.model.ListDowntimesResponse;
 import com.datadog.api.client.v2.model.MonitorDowntimeMatchResponse;
@@ -13,6 +15,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -567,6 +570,8 @@ public class DowntimesApi {
   public static class ListDowntimesOptionalParameters {
     private Boolean currentOnly;
     private String include;
+    private Long pageOffset;
+    private Long pageLimit;
 
     /**
      * Set currentOnly.
@@ -589,6 +594,29 @@ public class DowntimesApi {
      */
     public ListDowntimesOptionalParameters include(String include) {
       this.include = include;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
+     *     default to 0)
+     * @return ListDowntimesOptionalParameters
+     */
+    public ListDowntimesOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of downtimes in the response. (optional, default to 30)
+     * @return ListDowntimesOptionalParameters
+     */
+    public ListDowntimesOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
       return this;
     }
   }
@@ -652,6 +680,58 @@ public class DowntimesApi {
   }
 
   /**
+   * Get all downtimes.
+   *
+   * <p>See {@link #listDowntimesWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;DowntimeResponseData&gt;
+   */
+  public PaginationIterable<DowntimeResponseData> listDowntimesWithPagination() {
+    ListDowntimesOptionalParameters parameters = new ListDowntimesOptionalParameters();
+    return listDowntimesWithPagination(parameters);
+  }
+
+  /**
+   * Get all downtimes.
+   *
+   * <p>See {@link #listDowntimesWithHttpInfo}.
+   *
+   * @return ListDowntimesResponse
+   */
+  public PaginationIterable<DowntimeResponseData> listDowntimesWithPagination(
+      ListDowntimesOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageOffset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 30l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listDowntimes",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
    * Get all scheduled downtimes.
    *
    * @param parameters Optional parameters for the request.
@@ -678,6 +758,8 @@ public class DowntimesApi {
     Object localVarPostBody = null;
     Boolean currentOnly = parameters.currentOnly;
     String include = parameters.include;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath = "/api/v2/downtime";
 
@@ -686,6 +768,8 @@ public class DowntimesApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "current_only", currentOnly));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -730,6 +814,8 @@ public class DowntimesApi {
     Object localVarPostBody = null;
     Boolean currentOnly = parameters.currentOnly;
     String include = parameters.include;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath = "/api/v2/downtime";
 
@@ -738,6 +824,8 @@ public class DowntimesApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "current_only", currentOnly));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
     Invocation.Builder builder;
     try {
