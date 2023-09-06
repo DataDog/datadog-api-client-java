@@ -3,12 +3,14 @@ package com.datadog.api.client.v1.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v1.model.Dashboard;
 import com.datadog.api.client.v1.model.DashboardBulkDeleteRequest;
 import com.datadog.api.client.v1.model.DashboardDeleteResponse;
 import com.datadog.api.client.v1.model.DashboardRestoreRequest;
 import com.datadog.api.client.v1.model.DashboardSummary;
+import com.datadog.api.client.v1.model.DashboardSummaryDefinition;
 import com.datadog.api.client.v1.model.DeleteSharedDashboardResponse;
 import com.datadog.api.client.v1.model.SharedDashboard;
 import com.datadog.api.client.v1.model.SharedDashboardInvites;
@@ -17,6 +19,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -1384,6 +1387,8 @@ public class DashboardsApi {
   public static class ListDashboardsOptionalParameters {
     private Boolean filterShared;
     private Boolean filterDeleted;
+    private Long count;
+    private Long start;
 
     /**
      * Set filterShared.
@@ -1407,6 +1412,29 @@ public class DashboardsApi {
      */
     public ListDashboardsOptionalParameters filterDeleted(Boolean filterDeleted) {
       this.filterDeleted = filterDeleted;
+      return this;
+    }
+
+    /**
+     * Set count.
+     *
+     * @param count The maximum number of dashboards returned in the list. (optional, default to
+     *     100)
+     * @return ListDashboardsOptionalParameters
+     */
+    public ListDashboardsOptionalParameters count(Long count) {
+      this.count = count;
+      return this;
+    }
+
+    /**
+     * Set start.
+     *
+     * @param start The specific offset to use as the beginning of the returned response. (optional)
+     * @return ListDashboardsOptionalParameters
+     */
+    public ListDashboardsOptionalParameters start(Long start) {
+      this.start = start;
       return this;
     }
   }
@@ -1472,6 +1500,58 @@ public class DashboardsApi {
   /**
    * Get all dashboards.
    *
+   * <p>See {@link #listDashboardsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;DashboardSummaryDefinition&gt;
+   */
+  public PaginationIterable<DashboardSummaryDefinition> listDashboardsWithPagination() {
+    ListDashboardsOptionalParameters parameters = new ListDashboardsOptionalParameters();
+    return listDashboardsWithPagination(parameters);
+  }
+
+  /**
+   * Get all dashboards.
+   *
+   * <p>See {@link #listDashboardsWithHttpInfo}.
+   *
+   * @return DashboardSummary
+   */
+  public PaginationIterable<DashboardSummaryDefinition> listDashboardsWithPagination(
+      ListDashboardsOptionalParameters parameters) {
+    String resultsPath = "getDashboards";
+    String valueGetterPath = "";
+    String valueSetterPath = "start";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.count == null) {
+      limit = 100l;
+      parameters.count(limit);
+    } else {
+      limit = parameters.count;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listDashboards",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
+   * Get all dashboards.
+   *
    * <p><strong>Note</strong>: This query will only return custom created or cloned dashboards. This
    * query will not return preset dashboards.
    *
@@ -1492,6 +1572,8 @@ public class DashboardsApi {
     Object localVarPostBody = null;
     Boolean filterShared = parameters.filterShared;
     Boolean filterDeleted = parameters.filterDeleted;
+    Long count = parameters.count;
+    Long start = parameters.start;
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
@@ -1500,6 +1582,8 @@ public class DashboardsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[shared]", filterShared));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[deleted]", filterDeleted));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1534,6 +1618,8 @@ public class DashboardsApi {
     Object localVarPostBody = null;
     Boolean filterShared = parameters.filterShared;
     Boolean filterDeleted = parameters.filterDeleted;
+    Long count = parameters.count;
+    Long start = parameters.start;
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
@@ -1542,6 +1628,8 @@ public class DashboardsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[shared]", filterShared));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[deleted]", filterDeleted));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
 
     Invocation.Builder builder;
     try {
