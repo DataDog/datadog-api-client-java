@@ -3,10 +3,12 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.GetTeamMembershipsSort;
 import com.datadog.api.client.v2.model.ListTeamsInclude;
 import com.datadog.api.client.v2.model.ListTeamsSort;
+import com.datadog.api.client.v2.model.Team;
 import com.datadog.api.client.v2.model.TeamCreateRequest;
 import com.datadog.api.client.v2.model.TeamLinkCreateRequest;
 import com.datadog.api.client.v2.model.TeamLinkResponse;
@@ -25,6 +27,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -2007,6 +2010,58 @@ public class TeamsApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * Get all teams.
+   *
+   * <p>See {@link #listTeamsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;Team&gt;
+   */
+  public PaginationIterable<Team> listTeamsWithPagination() {
+    ListTeamsOptionalParameters parameters = new ListTeamsOptionalParameters();
+    return listTeamsWithPagination(parameters);
+  }
+
+  /**
+   * Get all teams.
+   *
+   * <p>See {@link #listTeamsWithHttpInfo}.
+   *
+   * @return TeamsResponse
+   */
+  public PaginationIterable<Team> listTeamsWithPagination(ListTeamsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listTeams",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**
