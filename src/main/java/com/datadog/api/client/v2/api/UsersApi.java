@@ -3,9 +3,11 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.PermissionsResponse;
 import com.datadog.api.client.v2.model.QuerySortOrder;
+import com.datadog.api.client.v2.model.User;
 import com.datadog.api.client.v2.model.UserCreateRequest;
 import com.datadog.api.client.v2.model.UserInvitationResponse;
 import com.datadog.api.client.v2.model.UserInvitationsRequest;
@@ -17,6 +19,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -993,6 +996,58 @@ public class UsersApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * List all users.
+   *
+   * <p>See {@link #listUsersWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;User&gt;
+   */
+  public PaginationIterable<User> listUsersWithPagination() {
+    ListUsersOptionalParameters parameters = new ListUsersOptionalParameters();
+    return listUsersWithPagination(parameters);
+  }
+
+  /**
+   * List all users.
+   *
+   * <p>See {@link #listUsersWithHttpInfo}.
+   *
+   * @return UsersResponse
+   */
+  public PaginationIterable<User> listUsersWithPagination(ListUsersOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listUsers",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**
