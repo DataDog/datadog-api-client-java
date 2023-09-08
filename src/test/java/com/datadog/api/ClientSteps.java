@@ -235,12 +235,11 @@ public class ClientSteps {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
     Object responseValue = World.lookup(responseData, responsePath);
     if (responseValue != null) {
-      assertEquals(
-          World.fromJSON(
-              world.getObjectMapper(),
-              responseValue.getClass(),
-              World.templated(value, world.context)),
-          responseValue);
+      Object jsonData = World.fromJSON(
+        world.getObjectMapper(),
+        responseValue.getClass(),
+        World.templated(value, world.context));
+      assertEquals(jsonData, world.getObjectMapper().convertValue(responseValue, jsonData.getClass()));
     } else {
       assertEquals("null", World.templated(value, world.context));
     }
