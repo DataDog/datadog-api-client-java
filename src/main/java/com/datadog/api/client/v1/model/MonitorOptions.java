@@ -850,7 +850,7 @@ public class MonitorOptions {
   }
 
   /**
-   * Information about the downtime applied to the monitor.
+   * Information about the downtime applied to the monitor. Only shows v1 downtimes.
    *
    * @return silenced
    * @deprecated
