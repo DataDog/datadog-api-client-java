@@ -367,12 +367,6 @@ public class ApiClient {
       new HashMap<String, Boolean>() {
         {
           put("v2.createCIAppPipelineEvent", false);
-          put("v2.cancelDowntime", false);
-          put("v2.createDowntime", false);
-          put("v2.getDowntime", false);
-          put("v2.listDowntimes", false);
-          put("v2.listMonitorDowntimes", false);
-          put("v2.updateDowntime", false);
           put("v2.listEvents", false);
           put("v2.searchEvents", false);
           put("v2.createIncident", false);
