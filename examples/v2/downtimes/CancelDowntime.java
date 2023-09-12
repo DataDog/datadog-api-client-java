@@ -7,7 +7,6 @@ import com.datadog.api.client.v2.api.DowntimesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.cancelDowntime", true);
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);
 
     // there is a valid "downtime_v2" in the system
