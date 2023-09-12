@@ -1,0 +1,88 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"forwarderDestination\":{\"auth\":{\"password\":\"password\",\"type\":\"basic\",\"username\":\"username\"},\"endpoint\":\"https://example.org/my-intake\",\"type\":\"http\"},\"name\":\"destination-Test-Update_a_custom_destination_returns_Bad_Request_response-1694511526\",\"version\":0},\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/custom_destinations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ad523946-93ce-4a96-9030-d75911b5907a\",\"attributes\":{\"version\":0,\"name\":\"destination-Test-Update_a_custom_destination_returns_Bad_Request_response-1694511526\",\"query\":\"\",\"enabled\":true,\"bufferMaxBytes\":5242880,\"bufferTimeoutSeconds\":60,\"maxRetryDurationSeconds\":300,\"compression\":\"GZIP\",\"forwarderDestination\":{\"type\":\"http\",\"endpoint\":\"https://example.org/my-intake\",\"auth\":{\"type\":\"basic\",\"username\":\"__REDACTED_SECRET__\",\"password\":\"__REDACTED_SECRET__\"}}},\"type\":\"custom_destination\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "90049c21-c53d-d373-d85a-2d800c91e431"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"forwarderDestination\":{\"auth\":{\"password\":\"password\",\"type\":\"basic\",\"username\":\"username\"},\"endpoint\":\"https://example.org/my-intake\",\"type\":\"http\"},\"name\":\"\",\"version\":0},\"id\":\"ad523946-93ce-4a96-9030-d75911b5907a\",\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/logs/config/custom_destinations/ad523946-93ce-4a96-9030-d75911b5907a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid custom destination configuration\",\"Custom destination name must not be empty\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7dd43b01-162b-2f0d-be5d-e2b1aef642d3"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/custom_destinations/ad523946-93ce-4a96-9030-d75911b5907a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bcda8f8d-c254-30c7-2e1c-542496417291"
+  }
+]

@@ -393,6 +393,11 @@ public class ApiClient {
           put("v2.updateIncidentAttachments", false);
           put("v2.updateIncidentIntegration", false);
           put("v2.updateIncidentTodo", false);
+          put("v2.createLogsCustomDestination", false);
+          put("v2.deleteLogsCustomDestination", false);
+          put("v2.getLogsCustomDestination", false);
+          put("v2.listLogsCustomDestinations", false);
+          put("v2.updateLogsCustomDestination", false);
           put("v2.queryScalarData", false);
           put("v2.queryTimeseriesData", false);
           put("v2.getFinding", false);

@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"forwarderDestination\":{\"auth\":{\"password\":\"password\",\"type\":\"basic\",\"username\":\"username\"},\"endpoint\":\"https://example.org/my-intake\",\"type\":\"http\"},\"name\":\"my-destination\",\"version\":0},\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/custom_destinations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"911a594f-0c17-4fd4-ae3b-d395b57d9bc2\",\"attributes\":{\"version\":0,\"name\":\"my-destination\",\"query\":\"\",\"enabled\":true,\"bufferMaxBytes\":5242880,\"bufferTimeoutSeconds\":60,\"maxRetryDurationSeconds\":300,\"compression\":\"GZIP\",\"forwarderDestination\":{\"type\":\"http\",\"endpoint\":\"https://example.org/my-intake\",\"auth\":{\"type\":\"basic\",\"username\":\"__REDACTED_SECRET__\",\"password\":\"__REDACTED_SECRET__\"}}},\"type\":\"custom_destination\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3328bb1e-d32d-a62e-747a-67706f8130e3"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/custom_destinations/911a594f-0c17-4fd4-ae3b-d395b57d9bc2",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e4139587-2f43-6036-e932-47f6369e5de0"
+  }
+]

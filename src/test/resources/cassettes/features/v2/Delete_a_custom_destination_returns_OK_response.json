@@ -1,0 +1,84 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"forwarderDestination\":{\"auth\":{\"password\":\"password\",\"type\":\"basic\",\"username\":\"username\"},\"endpoint\":\"https://example.org/my-intake\",\"type\":\"http\"},\"name\":\"destination-Test-Delete_a_custom_destination_returns_OK_response-1694511521\",\"version\":0},\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/custom_destinations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"447075ef-0a39-47d5-bfa7-2d0787d27e70\",\"attributes\":{\"version\":0,\"name\":\"destination-Test-Delete_a_custom_destination_returns_OK_response-1694511521\",\"query\":\"\",\"enabled\":true,\"bufferMaxBytes\":5242880,\"bufferTimeoutSeconds\":60,\"maxRetryDurationSeconds\":300,\"compression\":\"GZIP\",\"forwarderDestination\":{\"type\":\"http\",\"endpoint\":\"https://example.org/my-intake\",\"auth\":{\"type\":\"basic\",\"username\":\"__REDACTED_SECRET__\",\"password\":\"__REDACTED_SECRET__\"}}},\"type\":\"custom_destination\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0897bf8e-be80-3a62-4d69-6331335eb11c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/custom_destinations/447075ef-0a39-47d5-bfa7-2d0787d27e70",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"meta\":{}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ea287a8a-c2fb-7e1c-21a3-7b70f0b66bfd"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/custom_destinations/447075ef-0a39-47d5-bfa7-2d0787d27e70",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"NotFound\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ea287a8a-c2fb-7e1c-21a3-7b70f0b66bfe"
+  }
+]
