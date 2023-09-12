@@ -12,6 +12,7 @@ import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathTargetTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionTimingsScope;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsAssertionXPathOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionXPathTarget;
@@ -55,7 +56,8 @@ public class Example {
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.LESS_THAN)
                                     .target(2000)
-                                    .type(SyntheticsAssertionType.RESPONSE_TIME)),
+                                    .type(SyntheticsAssertionType.RESPONSE_TIME)
+                                    .timingsScope(SyntheticsAssertionTimingsScope.WITHOUT_DNS)),
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionJSONPathTarget()
                                     .operator(
