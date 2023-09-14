@@ -100,6 +100,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM,
   UsageSummaryDate.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM,
@@ -383,6 +384,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM =
       "synthetics_check_calls_count_sum";
   private Long syntheticsCheckCallsCountSum;
+
+  public static final String JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM =
+      "synthetics_mobile_test_runs_sum";
+  private Long syntheticsMobileTestRunsSum;
 
   public static final String JSON_PROPERTY_SYNTHETICS_PARALLEL_TESTING_MAX_SLOTS_HWM =
       "synthetics_parallel_testing_max_slots_hwm";
@@ -2165,6 +2170,28 @@ public class UsageSummaryDate {
     this.syntheticsCheckCallsCountSum = syntheticsCheckCallsCountSum;
   }
 
+  public UsageSummaryDate syntheticsMobileTestRunsSum(Long syntheticsMobileTestRunsSum) {
+    this.syntheticsMobileTestRunsSum = syntheticsMobileTestRunsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Synthetic mobile application tests over all hours in the current date for
+   * all organizations.
+   *
+   * @return syntheticsMobileTestRunsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSyntheticsMobileTestRunsSum() {
+    return syntheticsMobileTestRunsSum;
+  }
+
+  public void setSyntheticsMobileTestRunsSum(Long syntheticsMobileTestRunsSum) {
+    this.syntheticsMobileTestRunsSum = syntheticsMobileTestRunsSum;
+  }
+
   public UsageSummaryDate syntheticsParallelTestingMaxSlotsHwm(
       Long syntheticsParallelTestingMaxSlotsHwm) {
     this.syntheticsParallelTestingMaxSlotsHwm = syntheticsParallelTestingMaxSlotsHwm;
@@ -2487,6 +2514,8 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.syntheticsCheckCallsCountSum, usageSummaryDate.syntheticsCheckCallsCountSum)
         && Objects.equals(
+            this.syntheticsMobileTestRunsSum, usageSummaryDate.syntheticsMobileTestRunsSum)
+        && Objects.equals(
             this.syntheticsParallelTestingMaxSlotsHwm,
             usageSummaryDate.syntheticsParallelTestingMaxSlotsHwm)
         && Objects.equals(
@@ -2587,6 +2616,7 @@ public class UsageSummaryDate {
         sdsTotalScannedBytesSum,
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
+        syntheticsMobileTestRunsSum,
         syntheticsParallelTestingMaxSlotsHwm,
         traceSearchIndexedEventsCountSum,
         twolIngestedEventsBytesSum,
@@ -2779,6 +2809,9 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    syntheticsCheckCallsCountSum: ")
         .append(toIndentedString(syntheticsCheckCallsCountSum))
+        .append("\n");
+    sb.append("    syntheticsMobileTestRunsSum: ")
+        .append(toIndentedString(syntheticsMobileTestRunsSum))
         .append("\n");
     sb.append("    syntheticsParallelTestingMaxSlotsHwm: ")
         .append(toIndentedString(syntheticsParallelTestingMaxSlotsHwm))

@@ -72,6 +72,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INVOCATIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INVOCATIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_MOBILE_APP_TESTING_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_MOBILE_APP_TESTING_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINE_BYTES_PERCENTAGE,
@@ -273,6 +275,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_INVOCATIONS_USAGE = "invocations_usage";
   private Double invocationsUsage;
+
+  public static final String JSON_PROPERTY_MOBILE_APP_TESTING_PERCENTAGE =
+      "mobile_app_testing_percentage";
+  private Double mobileAppTestingPercentage;
+
+  public static final String JSON_PROPERTY_MOBILE_APP_TESTING_USAGE = "mobile_app_testing_usage";
+  private Double mobileAppTestingUsage;
 
   public static final String JSON_PROPERTY_NPM_HOST_PERCENTAGE = "npm_host_percentage";
   private Double npmHostPercentage;
@@ -1482,6 +1491,49 @@ public class MonthlyUsageAttributionValues {
     this.invocationsUsage = invocationsUsage;
   }
 
+  public MonthlyUsageAttributionValues mobileAppTestingPercentage(
+      Double mobileAppTestingPercentage) {
+    this.mobileAppTestingPercentage = mobileAppTestingPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Synthetic mobile application test usage by tag(s).
+   *
+   * @return mobileAppTestingPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MOBILE_APP_TESTING_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getMobileAppTestingPercentage() {
+    return mobileAppTestingPercentage;
+  }
+
+  public void setMobileAppTestingPercentage(Double mobileAppTestingPercentage) {
+    this.mobileAppTestingPercentage = mobileAppTestingPercentage;
+  }
+
+  public MonthlyUsageAttributionValues mobileAppTestingUsage(Double mobileAppTestingUsage) {
+    this.mobileAppTestingUsage = mobileAppTestingUsage;
+    return this;
+  }
+
+  /**
+   * The Synthetic mobile application test usage by tag(s).
+   *
+   * @return mobileAppTestingUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MOBILE_APP_TESTING_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getMobileAppTestingUsage() {
+    return mobileAppTestingUsage;
+  }
+
+  public void setMobileAppTestingUsage(Double mobileAppTestingUsage) {
+    this.mobileAppTestingUsage = mobileAppTestingUsage;
+  }
+
   public MonthlyUsageAttributionValues npmHostPercentage(Double npmHostPercentage) {
     this.npmHostPercentage = npmHostPercentage;
     return this;
@@ -2016,6 +2068,11 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.invocationsPercentage, monthlyUsageAttributionValues.invocationsPercentage)
         && Objects.equals(this.invocationsUsage, monthlyUsageAttributionValues.invocationsUsage)
+        && Objects.equals(
+            this.mobileAppTestingPercentage,
+            monthlyUsageAttributionValues.mobileAppTestingPercentage)
+        && Objects.equals(
+            this.mobileAppTestingUsage, monthlyUsageAttributionValues.mobileAppTestingUsage)
         && Objects.equals(this.npmHostPercentage, monthlyUsageAttributionValues.npmHostPercentage)
         && Objects.equals(this.npmHostUsage, monthlyUsageAttributionValues.npmHostUsage)
         && Objects.equals(
@@ -2113,6 +2170,8 @@ public class MonthlyUsageAttributionValues {
         infraHostUsage,
         invocationsPercentage,
         invocationsUsage,
+        mobileAppTestingPercentage,
+        mobileAppTestingUsage,
         npmHostPercentage,
         npmHostUsage,
         obsPipelineBytesPercentage,
@@ -2250,6 +2309,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(invocationsPercentage))
         .append("\n");
     sb.append("    invocationsUsage: ").append(toIndentedString(invocationsUsage)).append("\n");
+    sb.append("    mobileAppTestingPercentage: ")
+        .append(toIndentedString(mobileAppTestingPercentage))
+        .append("\n");
+    sb.append("    mobileAppTestingUsage: ")
+        .append(toIndentedString(mobileAppTestingUsage))
+        .append("\n");
     sb.append("    npmHostPercentage: ").append(toIndentedString(npmHostPercentage)).append("\n");
     sb.append("    npmHostUsage: ").append(toIndentedString(npmHostUsage)).append("\n");
     sb.append("    obsPipelineBytesPercentage: ")
