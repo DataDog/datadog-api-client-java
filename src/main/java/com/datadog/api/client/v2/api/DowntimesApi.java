@@ -96,13 +96,6 @@ public class DowntimesApi {
    *     </table>
    */
   public ApiResponse<Void> cancelDowntimeWithHttpInfo(String downtimeId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "cancelDowntime";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'downtimeId' is set
@@ -147,16 +140,6 @@ public class DowntimesApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> cancelDowntimeWithHttpInfoAsync(String downtimeId) {
-    // Check if unstable operation is enabled
-    String operationId = "cancelDowntime";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'downtimeId' is set
@@ -249,13 +232,6 @@ public class DowntimesApi {
    */
   public ApiResponse<DowntimeResponse> createDowntimeWithHttpInfo(DowntimeCreateRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createDowntime";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -298,16 +274,6 @@ public class DowntimesApi {
    */
   public CompletableFuture<ApiResponse<DowntimeResponse>> createDowntimeWithHttpInfoAsync(
       DowntimeCreateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createDowntime";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DowntimeResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -450,13 +416,6 @@ public class DowntimesApi {
    */
   public ApiResponse<DowntimeResponse> getDowntimeWithHttpInfo(
       String downtimeId, GetDowntimeOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getDowntime";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'downtimeId' is set
@@ -507,16 +466,6 @@ public class DowntimesApi {
    */
   public CompletableFuture<ApiResponse<DowntimeResponse>> getDowntimeWithHttpInfoAsync(
       String downtimeId, GetDowntimeOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getDowntime";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DowntimeResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'downtimeId' is set
@@ -748,13 +697,6 @@ public class DowntimesApi {
    */
   public ApiResponse<ListDowntimesResponse> listDowntimesWithHttpInfo(
       ListDowntimesOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listDowntimes";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     Boolean currentOnly = parameters.currentOnly;
     String include = parameters.include;
@@ -801,16 +743,6 @@ public class DowntimesApi {
    */
   public CompletableFuture<ApiResponse<ListDowntimesResponse>> listDowntimesWithHttpInfoAsync(
       ListDowntimesOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listDowntimes";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ListDowntimesResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     Boolean currentOnly = parameters.currentOnly;
     String include = parameters.include;
@@ -900,13 +832,6 @@ public class DowntimesApi {
    */
   public ApiResponse<MonitorDowntimeMatchResponse> listMonitorDowntimesWithHttpInfo(Long monitorId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listMonitorDowntimes";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'monitorId' is set
@@ -951,17 +876,6 @@ public class DowntimesApi {
    */
   public CompletableFuture<ApiResponse<MonitorDowntimeMatchResponse>>
       listMonitorDowntimesWithHttpInfoAsync(Long monitorId) {
-    // Check if unstable operation is enabled
-    String operationId = "listMonitorDowntimes";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MonitorDowntimeMatchResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'monitorId' is set
@@ -1061,13 +975,6 @@ public class DowntimesApi {
    */
   public ApiResponse<DowntimeResponse> updateDowntimeWithHttpInfo(
       String downtimeId, DowntimeUpdateRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateDowntime";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'downtimeId' is set
@@ -1120,16 +1027,6 @@ public class DowntimesApi {
    */
   public CompletableFuture<ApiResponse<DowntimeResponse>> updateDowntimeWithHttpInfoAsync(
       String downtimeId, DowntimeUpdateRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateDowntime";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DowntimeResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'downtimeId' is set

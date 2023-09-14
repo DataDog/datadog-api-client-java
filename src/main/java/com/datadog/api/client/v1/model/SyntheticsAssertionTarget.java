@@ -22,6 +22,7 @@ import java.util.Objects;
   SyntheticsAssertionTarget.JSON_PROPERTY_OPERATOR,
   SyntheticsAssertionTarget.JSON_PROPERTY_PROPERTY,
   SyntheticsAssertionTarget.JSON_PROPERTY_TARGET,
+  SyntheticsAssertionTarget.JSON_PROPERTY_TIMINGS_SCOPE,
   SyntheticsAssertionTarget.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -36,6 +37,9 @@ public class SyntheticsAssertionTarget {
 
   public static final String JSON_PROPERTY_TARGET = "target";
   private Object target = new Object();
+
+  public static final String JSON_PROPERTY_TIMINGS_SCOPE = "timingsScope";
+  private SyntheticsAssertionTimingsScope timingsScope;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsAssertionType type;
@@ -118,6 +122,31 @@ public class SyntheticsAssertionTarget {
 
   public void setTarget(Object target) {
     this.target = target;
+  }
+
+  public SyntheticsAssertionTarget timingsScope(SyntheticsAssertionTimingsScope timingsScope) {
+    this.timingsScope = timingsScope;
+    this.unparsed |= !timingsScope.isValid();
+    return this;
+  }
+
+  /**
+   * Timings scope for response time assertions.
+   *
+   * @return timingsScope
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMINGS_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsAssertionTimingsScope getTimingsScope() {
+    return timingsScope;
+  }
+
+  public void setTimingsScope(SyntheticsAssertionTimingsScope timingsScope) {
+    if (!timingsScope.isValid()) {
+      this.unparsed = true;
+    }
+    this.timingsScope = timingsScope;
   }
 
   public SyntheticsAssertionTarget type(SyntheticsAssertionType type) {
@@ -203,6 +232,7 @@ public class SyntheticsAssertionTarget {
     return Objects.equals(this.operator, syntheticsAssertionTarget.operator)
         && Objects.equals(this.property, syntheticsAssertionTarget.property)
         && Objects.equals(this.target, syntheticsAssertionTarget.target)
+        && Objects.equals(this.timingsScope, syntheticsAssertionTarget.timingsScope)
         && Objects.equals(this.type, syntheticsAssertionTarget.type)
         && Objects.equals(
             this.additionalProperties, syntheticsAssertionTarget.additionalProperties);
@@ -210,7 +240,7 @@ public class SyntheticsAssertionTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(operator, property, target, type, additionalProperties);
+    return Objects.hash(operator, property, target, timingsScope, type, additionalProperties);
   }
 
   @Override
@@ -220,6 +250,7 @@ public class SyntheticsAssertionTarget {
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("    property: ").append(toIndentedString(property)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    timingsScope: ").append(toIndentedString(timingsScope)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

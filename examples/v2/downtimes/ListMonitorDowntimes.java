@@ -8,7 +8,6 @@ import com.datadog.api.client.v2.model.MonitorDowntimeMatchResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.listMonitorDowntimes", true);
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);
 
     try {
