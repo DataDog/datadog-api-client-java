@@ -69,10 +69,10 @@ public abstract class V1ApiTest extends TestUtils.APITest {
   public static void initGeneralFakeAuthApiClient() {
     generalFakeAuthApiClient = new ApiClient();
 
-    // Configure authorization
+    // Configure authorization with fake keys
     HashMap<String, String> secrets = new HashMap<>();
-    secrets.put("apiKeyAuth", "fake_api_key");
-    secrets.put("appKeyAuth", "fake_app_key");
+    secrets.put("apiKeyAuth", "00000000000000000000000000000000");
+    secrets.put("appKeyAuth", "0000000000000000000000000000000000000000");
     generalFakeAuthApiClient.configureApiKeys(secrets);
 
     // Set debugging based on env
