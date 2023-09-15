@@ -80,6 +80,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "infra_host_percentage",
               "invocations_usage",
               "invocations_percentage",
+              "mobile_app_testing_percentage",
+              "mobile_app_testing_usage",
               "npm_host_usage",
               "npm_host_percentage",
               "obs_pipeline_bytes_usage",
@@ -207,6 +209,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("invocations_usage");
   public static final MonthlyUsageAttributionSupportedMetrics INVOCATIONS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("invocations_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics MOBILE_APP_TESTING_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("mobile_app_testing_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics MOBILE_APP_TESTING_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("mobile_app_testing_usage");
   public static final MonthlyUsageAttributionSupportedMetrics NPM_HOST_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("npm_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics NPM_HOST_PERCENTAGE =
