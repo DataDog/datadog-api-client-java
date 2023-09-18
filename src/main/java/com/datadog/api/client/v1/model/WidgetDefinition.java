@@ -437,6 +437,51 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'FreeTextWidgetDefinition'", e);
       }
 
+      // deserialize FunnelWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (FunnelWidgetDefinition.class.equals(Integer.class)
+            || FunnelWidgetDefinition.class.equals(Long.class)
+            || FunnelWidgetDefinition.class.equals(Float.class)
+            || FunnelWidgetDefinition.class.equals(Double.class)
+            || FunnelWidgetDefinition.class.equals(Boolean.class)
+            || FunnelWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((FunnelWidgetDefinition.class.equals(Integer.class)
+                        || FunnelWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((FunnelWidgetDefinition.class.equals(Float.class)
+                        || FunnelWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (FunnelWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (FunnelWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(FunnelWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((FunnelWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'FunnelWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'FunnelWidgetDefinition'", e);
+      }
+
       // deserialize GeomapWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -707,6 +752,51 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'ImageWidgetDefinition'", e);
       }
 
+      // deserialize ListStreamWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ListStreamWidgetDefinition.class.equals(Integer.class)
+            || ListStreamWidgetDefinition.class.equals(Long.class)
+            || ListStreamWidgetDefinition.class.equals(Float.class)
+            || ListStreamWidgetDefinition.class.equals(Double.class)
+            || ListStreamWidgetDefinition.class.equals(Boolean.class)
+            || ListStreamWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ListStreamWidgetDefinition.class.equals(Integer.class)
+                        || ListStreamWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ListStreamWidgetDefinition.class.equals(Float.class)
+                        || ListStreamWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ListStreamWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ListStreamWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ListStreamWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ListStreamWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ListStreamWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ListStreamWidgetDefinition'", e);
+      }
+
       // deserialize LogStreamWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -933,49 +1023,49 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'RunWorkflowWidgetDefinition'", e);
       }
 
-      // deserialize ScatterPlotWidgetDefinition
+      // deserialize SLOListWidgetDefinition
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ScatterPlotWidgetDefinition.class.equals(Integer.class)
-            || ScatterPlotWidgetDefinition.class.equals(Long.class)
-            || ScatterPlotWidgetDefinition.class.equals(Float.class)
-            || ScatterPlotWidgetDefinition.class.equals(Double.class)
-            || ScatterPlotWidgetDefinition.class.equals(Boolean.class)
-            || ScatterPlotWidgetDefinition.class.equals(String.class)) {
+        if (SLOListWidgetDefinition.class.equals(Integer.class)
+            || SLOListWidgetDefinition.class.equals(Long.class)
+            || SLOListWidgetDefinition.class.equals(Float.class)
+            || SLOListWidgetDefinition.class.equals(Double.class)
+            || SLOListWidgetDefinition.class.equals(Boolean.class)
+            || SLOListWidgetDefinition.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((ScatterPlotWidgetDefinition.class.equals(Integer.class)
-                        || ScatterPlotWidgetDefinition.class.equals(Long.class))
+                ((SLOListWidgetDefinition.class.equals(Integer.class)
+                        || SLOListWidgetDefinition.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((ScatterPlotWidgetDefinition.class.equals(Float.class)
-                        || ScatterPlotWidgetDefinition.class.equals(Double.class))
+                ((SLOListWidgetDefinition.class.equals(Float.class)
+                        || SLOListWidgetDefinition.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (ScatterPlotWidgetDefinition.class.equals(Boolean.class)
+                (SLOListWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
             attemptParsing |=
-                (ScatterPlotWidgetDefinition.class.equals(String.class)
+                (SLOListWidgetDefinition.class.equals(String.class)
                     && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(ScatterPlotWidgetDefinition.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SLOListWidgetDefinition.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((ScatterPlotWidgetDefinition) tmp).unparsed) {
+          if (!((SLOListWidgetDefinition) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'ScatterPlotWidgetDefinition'");
+          log.log(Level.FINER, "Input data matches schema 'SLOListWidgetDefinition'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'ScatterPlotWidgetDefinition'", e);
+        log.log(Level.FINER, "Input data does not match schema 'SLOListWidgetDefinition'", e);
       }
 
       // deserialize SLOWidgetDefinition
@@ -1022,49 +1112,49 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'SLOWidgetDefinition'", e);
       }
 
-      // deserialize SLOListWidgetDefinition
+      // deserialize ScatterPlotWidgetDefinition
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (SLOListWidgetDefinition.class.equals(Integer.class)
-            || SLOListWidgetDefinition.class.equals(Long.class)
-            || SLOListWidgetDefinition.class.equals(Float.class)
-            || SLOListWidgetDefinition.class.equals(Double.class)
-            || SLOListWidgetDefinition.class.equals(Boolean.class)
-            || SLOListWidgetDefinition.class.equals(String.class)) {
+        if (ScatterPlotWidgetDefinition.class.equals(Integer.class)
+            || ScatterPlotWidgetDefinition.class.equals(Long.class)
+            || ScatterPlotWidgetDefinition.class.equals(Float.class)
+            || ScatterPlotWidgetDefinition.class.equals(Double.class)
+            || ScatterPlotWidgetDefinition.class.equals(Boolean.class)
+            || ScatterPlotWidgetDefinition.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((SLOListWidgetDefinition.class.equals(Integer.class)
-                        || SLOListWidgetDefinition.class.equals(Long.class))
+                ((ScatterPlotWidgetDefinition.class.equals(Integer.class)
+                        || ScatterPlotWidgetDefinition.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((SLOListWidgetDefinition.class.equals(Float.class)
-                        || SLOListWidgetDefinition.class.equals(Double.class))
+                ((ScatterPlotWidgetDefinition.class.equals(Float.class)
+                        || ScatterPlotWidgetDefinition.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (SLOListWidgetDefinition.class.equals(Boolean.class)
+                (ScatterPlotWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
             attemptParsing |=
-                (SLOListWidgetDefinition.class.equals(String.class)
+                (ScatterPlotWidgetDefinition.class.equals(String.class)
                     && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(SLOListWidgetDefinition.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ScatterPlotWidgetDefinition.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((SLOListWidgetDefinition) tmp).unparsed) {
+          if (!((ScatterPlotWidgetDefinition) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'SLOListWidgetDefinition'");
+          log.log(Level.FINER, "Input data matches schema 'ScatterPlotWidgetDefinition'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'SLOListWidgetDefinition'", e);
+        log.log(Level.FINER, "Input data does not match schema 'ScatterPlotWidgetDefinition'", e);
       }
 
       // deserialize ServiceMapWidgetDefinition
@@ -1156,6 +1246,51 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         // deserialization failed, continue
         log.log(
             Level.FINER, "Input data does not match schema 'ServiceSummaryWidgetDefinition'", e);
+      }
+
+      // deserialize SplitGraphWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SplitGraphWidgetDefinition.class.equals(Integer.class)
+            || SplitGraphWidgetDefinition.class.equals(Long.class)
+            || SplitGraphWidgetDefinition.class.equals(Float.class)
+            || SplitGraphWidgetDefinition.class.equals(Double.class)
+            || SplitGraphWidgetDefinition.class.equals(Boolean.class)
+            || SplitGraphWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SplitGraphWidgetDefinition.class.equals(Integer.class)
+                        || SplitGraphWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SplitGraphWidgetDefinition.class.equals(Float.class)
+                        || SplitGraphWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SplitGraphWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SplitGraphWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SplitGraphWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SplitGraphWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SplitGraphWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'SplitGraphWidgetDefinition'", e);
       }
 
       // deserialize SunburstWidgetDefinition
@@ -1338,141 +1473,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'ToplistWidgetDefinition'", e);
       }
 
-      // deserialize TreeMapWidgetDefinition
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (TreeMapWidgetDefinition.class.equals(Integer.class)
-            || TreeMapWidgetDefinition.class.equals(Long.class)
-            || TreeMapWidgetDefinition.class.equals(Float.class)
-            || TreeMapWidgetDefinition.class.equals(Double.class)
-            || TreeMapWidgetDefinition.class.equals(Boolean.class)
-            || TreeMapWidgetDefinition.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((TreeMapWidgetDefinition.class.equals(Integer.class)
-                        || TreeMapWidgetDefinition.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((TreeMapWidgetDefinition.class.equals(Float.class)
-                        || TreeMapWidgetDefinition.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (TreeMapWidgetDefinition.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (TreeMapWidgetDefinition.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(TreeMapWidgetDefinition.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((TreeMapWidgetDefinition) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'TreeMapWidgetDefinition'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'TreeMapWidgetDefinition'", e);
-      }
-
-      // deserialize ListStreamWidgetDefinition
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ListStreamWidgetDefinition.class.equals(Integer.class)
-            || ListStreamWidgetDefinition.class.equals(Long.class)
-            || ListStreamWidgetDefinition.class.equals(Float.class)
-            || ListStreamWidgetDefinition.class.equals(Double.class)
-            || ListStreamWidgetDefinition.class.equals(Boolean.class)
-            || ListStreamWidgetDefinition.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((ListStreamWidgetDefinition.class.equals(Integer.class)
-                        || ListStreamWidgetDefinition.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((ListStreamWidgetDefinition.class.equals(Float.class)
-                        || ListStreamWidgetDefinition.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (ListStreamWidgetDefinition.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (ListStreamWidgetDefinition.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(ListStreamWidgetDefinition.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((ListStreamWidgetDefinition) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'ListStreamWidgetDefinition'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'ListStreamWidgetDefinition'", e);
-      }
-
-      // deserialize FunnelWidgetDefinition
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (FunnelWidgetDefinition.class.equals(Integer.class)
-            || FunnelWidgetDefinition.class.equals(Long.class)
-            || FunnelWidgetDefinition.class.equals(Float.class)
-            || FunnelWidgetDefinition.class.equals(Double.class)
-            || FunnelWidgetDefinition.class.equals(Boolean.class)
-            || FunnelWidgetDefinition.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((FunnelWidgetDefinition.class.equals(Integer.class)
-                        || FunnelWidgetDefinition.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((FunnelWidgetDefinition.class.equals(Float.class)
-                        || FunnelWidgetDefinition.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (FunnelWidgetDefinition.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (FunnelWidgetDefinition.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(FunnelWidgetDefinition.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((FunnelWidgetDefinition) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'FunnelWidgetDefinition'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'FunnelWidgetDefinition'", e);
-      }
-
       // deserialize TopologyMapWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -1516,6 +1516,51 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       } catch (Exception e) {
         // deserialization failed, continue
         log.log(Level.FINER, "Input data does not match schema 'TopologyMapWidgetDefinition'", e);
+      }
+
+      // deserialize TreeMapWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (TreeMapWidgetDefinition.class.equals(Integer.class)
+            || TreeMapWidgetDefinition.class.equals(Long.class)
+            || TreeMapWidgetDefinition.class.equals(Float.class)
+            || TreeMapWidgetDefinition.class.equals(Double.class)
+            || TreeMapWidgetDefinition.class.equals(Boolean.class)
+            || TreeMapWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((TreeMapWidgetDefinition.class.equals(Integer.class)
+                        || TreeMapWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((TreeMapWidgetDefinition.class.equals(Float.class)
+                        || TreeMapWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (TreeMapWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (TreeMapWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(TreeMapWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((TreeMapWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'TreeMapWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'TreeMapWidgetDefinition'", e);
       }
 
       WidgetDefinition ret = new WidgetDefinition();
@@ -1586,6 +1631,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(FunnelWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public WidgetDefinition(GeomapWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1616,6 +1666,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(ListStreamWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public WidgetDefinition(LogStreamWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1641,7 +1696,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public WidgetDefinition(ScatterPlotWidgetDefinition o) {
+  public WidgetDefinition(SLOListWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -1651,7 +1706,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public WidgetDefinition(SLOListWidgetDefinition o) {
+  public WidgetDefinition(ScatterPlotWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -1662,6 +1717,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   public WidgetDefinition(ServiceSummaryWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public WidgetDefinition(SplitGraphWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -1686,22 +1746,12 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public WidgetDefinition(TreeMapWidgetDefinition o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public WidgetDefinition(ListStreamWidgetDefinition o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public WidgetDefinition(FunnelWidgetDefinition o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public WidgetDefinition(TopologyMapWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public WidgetDefinition(TreeMapWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -1716,32 +1766,33 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     schemas.put(
         "EventTimelineWidgetDefinition", new GenericType<EventTimelineWidgetDefinition>() {});
     schemas.put("FreeTextWidgetDefinition", new GenericType<FreeTextWidgetDefinition>() {});
+    schemas.put("FunnelWidgetDefinition", new GenericType<FunnelWidgetDefinition>() {});
     schemas.put("GeomapWidgetDefinition", new GenericType<GeomapWidgetDefinition>() {});
     schemas.put("GroupWidgetDefinition", new GenericType<GroupWidgetDefinition>() {});
     schemas.put("HeatMapWidgetDefinition", new GenericType<HeatMapWidgetDefinition>() {});
     schemas.put("HostMapWidgetDefinition", new GenericType<HostMapWidgetDefinition>() {});
     schemas.put("IFrameWidgetDefinition", new GenericType<IFrameWidgetDefinition>() {});
     schemas.put("ImageWidgetDefinition", new GenericType<ImageWidgetDefinition>() {});
+    schemas.put("ListStreamWidgetDefinition", new GenericType<ListStreamWidgetDefinition>() {});
     schemas.put("LogStreamWidgetDefinition", new GenericType<LogStreamWidgetDefinition>() {});
     schemas.put(
         "MonitorSummaryWidgetDefinition", new GenericType<MonitorSummaryWidgetDefinition>() {});
     schemas.put("NoteWidgetDefinition", new GenericType<NoteWidgetDefinition>() {});
     schemas.put("QueryValueWidgetDefinition", new GenericType<QueryValueWidgetDefinition>() {});
     schemas.put("RunWorkflowWidgetDefinition", new GenericType<RunWorkflowWidgetDefinition>() {});
-    schemas.put("ScatterPlotWidgetDefinition", new GenericType<ScatterPlotWidgetDefinition>() {});
-    schemas.put("SLOWidgetDefinition", new GenericType<SLOWidgetDefinition>() {});
     schemas.put("SLOListWidgetDefinition", new GenericType<SLOListWidgetDefinition>() {});
+    schemas.put("SLOWidgetDefinition", new GenericType<SLOWidgetDefinition>() {});
+    schemas.put("ScatterPlotWidgetDefinition", new GenericType<ScatterPlotWidgetDefinition>() {});
     schemas.put("ServiceMapWidgetDefinition", new GenericType<ServiceMapWidgetDefinition>() {});
     schemas.put(
         "ServiceSummaryWidgetDefinition", new GenericType<ServiceSummaryWidgetDefinition>() {});
+    schemas.put("SplitGraphWidgetDefinition", new GenericType<SplitGraphWidgetDefinition>() {});
     schemas.put("SunburstWidgetDefinition", new GenericType<SunburstWidgetDefinition>() {});
     schemas.put("TableWidgetDefinition", new GenericType<TableWidgetDefinition>() {});
     schemas.put("TimeseriesWidgetDefinition", new GenericType<TimeseriesWidgetDefinition>() {});
     schemas.put("ToplistWidgetDefinition", new GenericType<ToplistWidgetDefinition>() {});
-    schemas.put("TreeMapWidgetDefinition", new GenericType<TreeMapWidgetDefinition>() {});
-    schemas.put("ListStreamWidgetDefinition", new GenericType<ListStreamWidgetDefinition>() {});
-    schemas.put("FunnelWidgetDefinition", new GenericType<FunnelWidgetDefinition>() {});
     schemas.put("TopologyMapWidgetDefinition", new GenericType<TopologyMapWidgetDefinition>() {});
+    schemas.put("TreeMapWidgetDefinition", new GenericType<TreeMapWidgetDefinition>() {});
     JSON.registerDescendants(WidgetDefinition.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -1755,14 +1806,14 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * against the oneOf child schemas: AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    * ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,
    * EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
-   * GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
+   * FunnelWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
    * HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
-   * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   * QueryValueWidgetDefinition, RunWorkflowWidgetDefinition, ScatterPlotWidgetDefinition,
-   * SLOWidgetDefinition, SLOListWidgetDefinition, ServiceMapWidgetDefinition,
-   * ServiceSummaryWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
-   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition,
-   * ListStreamWidgetDefinition, FunnelWidgetDefinition, TopologyMapWidgetDefinition
+   * ListStreamWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
+   * NoteWidgetDefinition, QueryValueWidgetDefinition, RunWorkflowWidgetDefinition,
+   * SLOListWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
+   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition,
+   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   * ToplistWidgetDefinition, TopologyMapWidgetDefinition, TreeMapWidgetDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1801,6 +1852,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(FunnelWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(GeomapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1825,6 +1880,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(ListStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(LogStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1846,7 +1905,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(ScatterPlotWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(SLOListWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1854,7 +1913,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(SLOListWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(ScatterPlotWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1864,6 +1923,10 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     }
     if (JSON.isInstanceOf(
         ServiceSummaryWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(SplitGraphWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1883,19 +1946,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(TreeMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(ListStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(FunnelWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
     if (JSON.isInstanceOf(TopologyMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(TreeMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -1908,42 +1963,43 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         "Invalid instance type. Must be AlertGraphWidgetDefinition, AlertValueWidgetDefinition,"
             + " ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,"
             + " EventStreamWidgetDefinition, EventTimelineWidgetDefinition,"
-            + " FreeTextWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,"
-            + " HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,"
-            + " ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,"
-            + " NoteWidgetDefinition, QueryValueWidgetDefinition, RunWorkflowWidgetDefinition,"
-            + " ScatterPlotWidgetDefinition, SLOWidgetDefinition, SLOListWidgetDefinition,"
-            + " ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,"
+            + " FreeTextWidgetDefinition, FunnelWidgetDefinition, GeomapWidgetDefinition,"
+            + " GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,"
+            + " IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,"
+            + " LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,"
+            + " QueryValueWidgetDefinition, RunWorkflowWidgetDefinition, SLOListWidgetDefinition,"
+            + " SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition,"
+            + " ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition,"
             + " SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,"
-            + " ToplistWidgetDefinition, TreeMapWidgetDefinition, ListStreamWidgetDefinition,"
-            + " FunnelWidgetDefinition, TopologyMapWidgetDefinition");
+            + " ToplistWidgetDefinition, TopologyMapWidgetDefinition, TreeMapWidgetDefinition");
   }
 
   /**
    * Get the actual instance, which can be the following: AlertGraphWidgetDefinition,
    * AlertValueWidgetDefinition, ChangeWidgetDefinition, CheckStatusWidgetDefinition,
    * DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition,
-   * FreeTextWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,
-   * HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
-   * ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
-   * NoteWidgetDefinition, QueryValueWidgetDefinition, RunWorkflowWidgetDefinition,
-   * ScatterPlotWidgetDefinition, SLOWidgetDefinition, SLOListWidgetDefinition,
-   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SunburstWidgetDefinition,
+   * FreeTextWidgetDefinition, FunnelWidgetDefinition, GeomapWidgetDefinition,
+   * GroupWidgetDefinition, HeatMapWidgetDefinition, HostMapWidgetDefinition,
+   * IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
+   * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
+   * QueryValueWidgetDefinition, RunWorkflowWidgetDefinition, SLOListWidgetDefinition,
+   * SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition,
+   * ServiceSummaryWidgetDefinition, SplitGraphWidgetDefinition, SunburstWidgetDefinition,
    * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
-   * TreeMapWidgetDefinition, ListStreamWidgetDefinition, FunnelWidgetDefinition,
-   * TopologyMapWidgetDefinition
+   * TopologyMapWidgetDefinition, TreeMapWidgetDefinition
    *
    * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    *     ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,
    *     EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
-   *     GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
-   *     HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
-   *     LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   *     QueryValueWidgetDefinition, RunWorkflowWidgetDefinition, ScatterPlotWidgetDefinition,
-   *     SLOWidgetDefinition, SLOListWidgetDefinition, ServiceMapWidgetDefinition,
-   *     ServiceSummaryWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
-   *     TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition,
-   *     ListStreamWidgetDefinition, FunnelWidgetDefinition, TopologyMapWidgetDefinition)
+   *     FunnelWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,
+   *     HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
+   *     ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,
+   *     MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition,
+   *     RunWorkflowWidgetDefinition, SLOListWidgetDefinition, SLOWidgetDefinition,
+   *     ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
+   *     SplitGraphWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
+   *     TimeseriesWidgetDefinition, ToplistWidgetDefinition, TopologyMapWidgetDefinition,
+   *     TreeMapWidgetDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -2040,6 +2096,17 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
+   * Get the actual instance of `FunnelWidgetDefinition`. If the actual instance is not
+   * `FunnelWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `FunnelWidgetDefinition`
+   * @throws ClassCastException if the instance is not `FunnelWidgetDefinition`
+   */
+  public FunnelWidgetDefinition getFunnelWidgetDefinition() throws ClassCastException {
+    return (FunnelWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
    * Get the actual instance of `GeomapWidgetDefinition`. If the actual instance is not
    * `GeomapWidgetDefinition`, the ClassCastException will be thrown.
    *
@@ -2106,6 +2173,17 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
+   * Get the actual instance of `ListStreamWidgetDefinition`. If the actual instance is not
+   * `ListStreamWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ListStreamWidgetDefinition`
+   * @throws ClassCastException if the instance is not `ListStreamWidgetDefinition`
+   */
+  public ListStreamWidgetDefinition getListStreamWidgetDefinition() throws ClassCastException {
+    return (ListStreamWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
    * Get the actual instance of `LogStreamWidgetDefinition`. If the actual instance is not
    * `LogStreamWidgetDefinition`, the ClassCastException will be thrown.
    *
@@ -2162,14 +2240,14 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `ScatterPlotWidgetDefinition`. If the actual instance is not
-   * `ScatterPlotWidgetDefinition`, the ClassCastException will be thrown.
+   * Get the actual instance of `SLOListWidgetDefinition`. If the actual instance is not
+   * `SLOListWidgetDefinition`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `ScatterPlotWidgetDefinition`
-   * @throws ClassCastException if the instance is not `ScatterPlotWidgetDefinition`
+   * @return The actual instance of `SLOListWidgetDefinition`
+   * @throws ClassCastException if the instance is not `SLOListWidgetDefinition`
    */
-  public ScatterPlotWidgetDefinition getScatterPlotWidgetDefinition() throws ClassCastException {
-    return (ScatterPlotWidgetDefinition) super.getActualInstance();
+  public SLOListWidgetDefinition getSLOListWidgetDefinition() throws ClassCastException {
+    return (SLOListWidgetDefinition) super.getActualInstance();
   }
 
   /**
@@ -2184,14 +2262,14 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `SLOListWidgetDefinition`. If the actual instance is not
-   * `SLOListWidgetDefinition`, the ClassCastException will be thrown.
+   * Get the actual instance of `ScatterPlotWidgetDefinition`. If the actual instance is not
+   * `ScatterPlotWidgetDefinition`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `SLOListWidgetDefinition`
-   * @throws ClassCastException if the instance is not `SLOListWidgetDefinition`
+   * @return The actual instance of `ScatterPlotWidgetDefinition`
+   * @throws ClassCastException if the instance is not `ScatterPlotWidgetDefinition`
    */
-  public SLOListWidgetDefinition getSLOListWidgetDefinition() throws ClassCastException {
-    return (SLOListWidgetDefinition) super.getActualInstance();
+  public ScatterPlotWidgetDefinition getScatterPlotWidgetDefinition() throws ClassCastException {
+    return (ScatterPlotWidgetDefinition) super.getActualInstance();
   }
 
   /**
@@ -2215,6 +2293,17 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   public ServiceSummaryWidgetDefinition getServiceSummaryWidgetDefinition()
       throws ClassCastException {
     return (ServiceSummaryWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SplitGraphWidgetDefinition`. If the actual instance is not
+   * `SplitGraphWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SplitGraphWidgetDefinition`
+   * @throws ClassCastException if the instance is not `SplitGraphWidgetDefinition`
+   */
+  public SplitGraphWidgetDefinition getSplitGraphWidgetDefinition() throws ClassCastException {
+    return (SplitGraphWidgetDefinition) super.getActualInstance();
   }
 
   /**
@@ -2262,39 +2351,6 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `TreeMapWidgetDefinition`. If the actual instance is not
-   * `TreeMapWidgetDefinition`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `TreeMapWidgetDefinition`
-   * @throws ClassCastException if the instance is not `TreeMapWidgetDefinition`
-   */
-  public TreeMapWidgetDefinition getTreeMapWidgetDefinition() throws ClassCastException {
-    return (TreeMapWidgetDefinition) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `ListStreamWidgetDefinition`. If the actual instance is not
-   * `ListStreamWidgetDefinition`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `ListStreamWidgetDefinition`
-   * @throws ClassCastException if the instance is not `ListStreamWidgetDefinition`
-   */
-  public ListStreamWidgetDefinition getListStreamWidgetDefinition() throws ClassCastException {
-    return (ListStreamWidgetDefinition) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `FunnelWidgetDefinition`. If the actual instance is not
-   * `FunnelWidgetDefinition`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `FunnelWidgetDefinition`
-   * @throws ClassCastException if the instance is not `FunnelWidgetDefinition`
-   */
-  public FunnelWidgetDefinition getFunnelWidgetDefinition() throws ClassCastException {
-    return (FunnelWidgetDefinition) super.getActualInstance();
-  }
-
-  /**
    * Get the actual instance of `TopologyMapWidgetDefinition`. If the actual instance is not
    * `TopologyMapWidgetDefinition`, the ClassCastException will be thrown.
    *
@@ -2303,5 +2359,16 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public TopologyMapWidgetDefinition getTopologyMapWidgetDefinition() throws ClassCastException {
     return (TopologyMapWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `TreeMapWidgetDefinition`. If the actual instance is not
+   * `TreeMapWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `TreeMapWidgetDefinition`
+   * @throws ClassCastException if the instance is not `TreeMapWidgetDefinition`
+   */
+  public TreeMapWidgetDefinition getTreeMapWidgetDefinition() throws ClassCastException {
+    return (TreeMapWidgetDefinition) super.getActualInstance();
   }
 }
