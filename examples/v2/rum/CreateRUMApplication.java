@@ -20,7 +20,7 @@ public class Example {
                 new RUMApplicationCreate()
                     .attributes(
                         new RUMApplicationCreateAttributes()
-                            .name("my_new_rum_application")
+                            .name("test-rum-5c67ebb32077e1d9")
                             .type("ios"))
                     .type(RUMApplicationCreateType.RUM_APPLICATION_CREATE));
 
