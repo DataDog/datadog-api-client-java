@@ -143,9 +143,7 @@ public class World {
     clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 0);
 
     // Enable retry
-    clientClass
-        .getMethod("enableRetry", boolean.class)
-        .invoke(client, true);
+    clientClass.getMethod("enableRetry", boolean.class).invoke(client, true);
 
     // Set debugging based on env
     // client.setDebugging("true".equals(System.getenv("DEBUG")))
