@@ -48,7 +48,7 @@ public class SplitConfigSortCompute {
   }
 
   /**
-   * The metric to use for sorting graphs.
+   * How to aggregate the sort metric for the purposes of ordering.
    *
    * @return aggregation
    */
@@ -68,7 +68,7 @@ public class SplitConfigSortCompute {
   }
 
   /**
-   * How to aggregate the sort metric for the purposes of ordering.
+   * The metric to use for sorting graphs.
    *
    * @return metric
    */
