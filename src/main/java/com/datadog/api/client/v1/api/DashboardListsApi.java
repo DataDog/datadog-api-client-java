@@ -11,6 +11,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -313,6 +314,22 @@ public class DashboardListsApi {
         new GenericType<DashboardListDeleteResponse>() {});
   }
 
+  /** Manage optional parameters to getDashboardList. */
+  public static class GetDashboardListOptionalParameters {
+    private List<String> testQuery;
+
+    /**
+     * Set testQuery.
+     *
+     * @param testQuery Test query. (optional)
+     * @return GetDashboardListOptionalParameters
+     */
+    public GetDashboardListOptionalParameters testQuery(List<String> testQuery) {
+      this.testQuery = testQuery;
+      return this;
+    }
+  }
+
   /**
    * Get a dashboard list.
    *
@@ -323,7 +340,7 @@ public class DashboardListsApi {
    * @throws ApiException if fails to make API call
    */
   public DashboardList getDashboardList(Long listId) throws ApiException {
-    return getDashboardListWithHttpInfo(listId).getData();
+    return getDashboardListWithHttpInfo(listId, new GetDashboardListOptionalParameters()).getData();
   }
 
   /**
@@ -335,7 +352,40 @@ public class DashboardListsApi {
    * @return CompletableFuture&lt;DashboardList&gt;
    */
   public CompletableFuture<DashboardList> getDashboardListAsync(Long listId) {
-    return getDashboardListWithHttpInfoAsync(listId)
+    return getDashboardListWithHttpInfoAsync(listId, new GetDashboardListOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a dashboard list.
+   *
+   * <p>See {@link #getDashboardListWithHttpInfo}.
+   *
+   * @param listId ID of the dashboard list to fetch. (required)
+   * @param parameters Optional parameters for the request.
+   * @return DashboardList
+   * @throws ApiException if fails to make API call
+   */
+  public DashboardList getDashboardList(Long listId, GetDashboardListOptionalParameters parameters)
+      throws ApiException {
+    return getDashboardListWithHttpInfo(listId, parameters).getData();
+  }
+
+  /**
+   * Get a dashboard list.
+   *
+   * <p>See {@link #getDashboardListWithHttpInfoAsync}.
+   *
+   * @param listId ID of the dashboard list to fetch. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;DashboardList&gt;
+   */
+  public CompletableFuture<DashboardList> getDashboardListAsync(
+      Long listId, GetDashboardListOptionalParameters parameters) {
+    return getDashboardListWithHttpInfoAsync(listId, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -346,6 +396,7 @@ public class DashboardListsApi {
    * Fetch an existing dashboard list's definition.
    *
    * @param listId ID of the dashboard list to fetch. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DashboardList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -358,7 +409,8 @@ public class DashboardListsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DashboardList> getDashboardListWithHttpInfo(Long listId) throws ApiException {
+  public ApiResponse<DashboardList> getDashboardListWithHttpInfo(
+      Long listId, GetDashboardListOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'listId' is set
@@ -366,18 +418,22 @@ public class DashboardListsApi {
       throw new ApiException(
           400, "Missing the required parameter 'listId' when calling getDashboardList");
     }
+    List<String> testQuery = parameters.testQuery;
     // create path and map variables
     String localVarPath =
         "/api/v1/dashboard/lists/manual/{list_id}"
             .replaceAll("\\{" + "list_id" + "\\}", apiClient.escapeString(listId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "test_query", testQuery));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v1.DashboardListsApi.getDashboardList",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -399,10 +455,11 @@ public class DashboardListsApi {
    * <p>See {@link #getDashboardListWithHttpInfo}.
    *
    * @param listId ID of the dashboard list to fetch. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;DashboardList&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DashboardList>> getDashboardListWithHttpInfoAsync(
-      Long listId) {
+      Long listId, GetDashboardListOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'listId' is set
@@ -413,12 +470,16 @@ public class DashboardListsApi {
               400, "Missing the required parameter 'listId' when calling getDashboardList"));
       return result;
     }
+    List<String> testQuery = parameters.testQuery;
     // create path and map variables
     String localVarPath =
         "/api/v1/dashboard/lists/manual/{list_id}"
             .replaceAll("\\{" + "list_id" + "\\}", apiClient.escapeString(listId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "test_query", testQuery));
 
     Invocation.Builder builder;
     try {
@@ -426,7 +487,7 @@ public class DashboardListsApi {
           apiClient.createBuilder(
               "v1.DashboardListsApi.getDashboardList",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
