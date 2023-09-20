@@ -9,6 +9,7 @@ package com.datadog.api.client.v1.api;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
@@ -18,6 +19,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.ws.rs.core.GenericType;
 import java.io.IOException;
 import java.util.*;
+
+import org.junit.AssumptionViolatedException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -49,6 +52,9 @@ public class MetricsApiTest extends V1ApiTest {
 
   @Test
   public void metricsTests() throws ApiException, TestUtils.RetryException {
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+      throw new AssumptionViolatedException("Skipping in non-recording mode");
+    }
     long nowSeconds = now.toEpochSecond();
 
     // dashes in metric names get converted to underscores, so do it here to be able
