@@ -36,7 +36,7 @@ public class DataScalarColumn {
   private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private ScalarColumnTypeNumber type = ScalarColumnTypeNumber.NUMBER;
 
   public static final String JSON_PROPERTY_VALUES = "values";
   private List<Double> values = null;
@@ -84,24 +84,28 @@ public class DataScalarColumn {
     this.name = name;
   }
 
-  public DataScalarColumn type(String type) {
+  public DataScalarColumn type(ScalarColumnTypeNumber type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The type of column present.
+   * The type of column present for numbers.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
+  public ScalarColumnTypeNumber getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(ScalarColumnTypeNumber type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
