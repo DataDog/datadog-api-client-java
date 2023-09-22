@@ -1,4 +1,4 @@
-// Get hourly usage for CSPM returns "OK" response
+// Get hourly usage for CSM Pro returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.UsageMeteringApi;
