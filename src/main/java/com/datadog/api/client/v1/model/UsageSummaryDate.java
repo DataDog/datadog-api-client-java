@@ -48,6 +48,16 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_HWM,
+  UsageSummaryDate.JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_COMPLIANCE_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_CWS_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_TOTAL_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_CSM_HOST_ENTERPRISE_AAS_HOST_COUNT_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_CSM_HOST_ENTERPRISE_AWS_HOST_COUNT_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_CSM_HOST_ENTERPRISE_AZURE_HOST_COUNT_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AWS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P,
@@ -207,6 +217,46 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_CONTAINER_HWM = "container_hwm";
   private Long containerHwm;
+
+  public static final String JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_COMPLIANCE_COUNT_SUM =
+      "csm_container_enterprise_compliance_count_sum";
+  private Long csmContainerEnterpriseComplianceCountSum;
+
+  public static final String JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_CWS_COUNT_SUM =
+      "csm_container_enterprise_cws_count_sum";
+  private Long csmContainerEnterpriseCwsCountSum;
+
+  public static final String JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_TOTAL_COUNT_SUM =
+      "csm_container_enterprise_total_count_sum";
+  private Long csmContainerEnterpriseTotalCountSum;
+
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_AAS_HOST_COUNT_TOP99P =
+      "csm_host_enterprise_aas_host_count_top99p";
+  private Long csmHostEnterpriseAasHostCountTop99p;
+
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_AWS_HOST_COUNT_TOP99P =
+      "csm_host_enterprise_aws_host_count_top99p";
+  private Long csmHostEnterpriseAwsHostCountTop99p;
+
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_AZURE_HOST_COUNT_TOP99P =
+      "csm_host_enterprise_azure_host_count_top99p";
+  private Long csmHostEnterpriseAzureHostCountTop99p;
+
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P =
+      "csm_host_enterprise_compliance_host_count_top99p";
+  private Long csmHostEnterpriseComplianceHostCountTop99p;
+
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P =
+      "csm_host_enterprise_cws_host_count_top99p";
+  private Long csmHostEnterpriseCwsHostCountTop99p;
+
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P =
+      "csm_host_enterprise_gcp_host_count_top99p";
+  private Long csmHostEnterpriseGcpHostCountTop99p;
+
+  public static final String JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P =
+      "csm_host_enterprise_total_host_count_top99p";
+  private Long csmHostEnterpriseTotalHostCountTop99p;
 
   public static final String JSON_PROPERTY_CSPM_AAS_HOST_TOP99P = "cspm_aas_host_top99p";
   private Long cspmAasHostTop99p;
@@ -1013,14 +1063,246 @@ public class UsageSummaryDate {
     this.containerHwm = containerHwm;
   }
 
+  public UsageSummaryDate csmContainerEnterpriseComplianceCountSum(
+      Long csmContainerEnterpriseComplianceCountSum) {
+    this.csmContainerEnterpriseComplianceCountSum = csmContainerEnterpriseComplianceCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours
+   * in the current date for the given org.
+   *
+   * @return csmContainerEnterpriseComplianceCountSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_COMPLIANCE_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmContainerEnterpriseComplianceCountSum() {
+    return csmContainerEnterpriseComplianceCountSum;
+  }
+
+  public void setCsmContainerEnterpriseComplianceCountSum(
+      Long csmContainerEnterpriseComplianceCountSum) {
+    this.csmContainerEnterpriseComplianceCountSum = csmContainerEnterpriseComplianceCountSum;
+  }
+
+  public UsageSummaryDate csmContainerEnterpriseCwsCountSum(
+      Long csmContainerEnterpriseCwsCountSum) {
+    this.csmContainerEnterpriseCwsCountSum = csmContainerEnterpriseCwsCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers
+   * over all hours in the current date for the given org.
+   *
+   * @return csmContainerEnterpriseCwsCountSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_CWS_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmContainerEnterpriseCwsCountSum() {
+    return csmContainerEnterpriseCwsCountSum;
+  }
+
+  public void setCsmContainerEnterpriseCwsCountSum(Long csmContainerEnterpriseCwsCountSum) {
+    this.csmContainerEnterpriseCwsCountSum = csmContainerEnterpriseCwsCountSum;
+  }
+
+  public UsageSummaryDate csmContainerEnterpriseTotalCountSum(
+      Long csmContainerEnterpriseTotalCountSum) {
+    this.csmContainerEnterpriseTotalCountSum = csmContainerEnterpriseTotalCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Cloud Security Management Enterprise containers over all hours in the
+   * current date for the given org.
+   *
+   * @return csmContainerEnterpriseTotalCountSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_CONTAINER_ENTERPRISE_TOTAL_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmContainerEnterpriseTotalCountSum() {
+    return csmContainerEnterpriseTotalCountSum;
+  }
+
+  public void setCsmContainerEnterpriseTotalCountSum(Long csmContainerEnterpriseTotalCountSum) {
+    this.csmContainerEnterpriseTotalCountSum = csmContainerEnterpriseTotalCountSum;
+  }
+
+  public UsageSummaryDate csmHostEnterpriseAasHostCountTop99p(
+      Long csmHostEnterpriseAasHostCountTop99p) {
+    this.csmHostEnterpriseAasHostCountTop99p = csmHostEnterpriseAasHostCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts
+   * over all hours in the current date for the given org.
+   *
+   * @return csmHostEnterpriseAasHostCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AAS_HOST_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostEnterpriseAasHostCountTop99p() {
+    return csmHostEnterpriseAasHostCountTop99p;
+  }
+
+  public void setCsmHostEnterpriseAasHostCountTop99p(Long csmHostEnterpriseAasHostCountTop99p) {
+    this.csmHostEnterpriseAasHostCountTop99p = csmHostEnterpriseAasHostCountTop99p;
+  }
+
+  public UsageSummaryDate csmHostEnterpriseAwsHostCountTop99p(
+      Long csmHostEnterpriseAwsHostCountTop99p) {
+    this.csmHostEnterpriseAwsHostCountTop99p = csmHostEnterpriseAwsHostCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours
+   * in the current date for the given org.
+   *
+   * @return csmHostEnterpriseAwsHostCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AWS_HOST_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostEnterpriseAwsHostCountTop99p() {
+    return csmHostEnterpriseAwsHostCountTop99p;
+  }
+
+  public void setCsmHostEnterpriseAwsHostCountTop99p(Long csmHostEnterpriseAwsHostCountTop99p) {
+    this.csmHostEnterpriseAwsHostCountTop99p = csmHostEnterpriseAwsHostCountTop99p;
+  }
+
+  public UsageSummaryDate csmHostEnterpriseAzureHostCountTop99p(
+      Long csmHostEnterpriseAzureHostCountTop99p) {
+    this.csmHostEnterpriseAzureHostCountTop99p = csmHostEnterpriseAzureHostCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all
+   * hours in the current date for the given org.
+   *
+   * @return csmHostEnterpriseAzureHostCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_AZURE_HOST_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostEnterpriseAzureHostCountTop99p() {
+    return csmHostEnterpriseAzureHostCountTop99p;
+  }
+
+  public void setCsmHostEnterpriseAzureHostCountTop99p(Long csmHostEnterpriseAzureHostCountTop99p) {
+    this.csmHostEnterpriseAzureHostCountTop99p = csmHostEnterpriseAzureHostCountTop99p;
+  }
+
+  public UsageSummaryDate csmHostEnterpriseComplianceHostCountTop99p(
+      Long csmHostEnterpriseComplianceHostCountTop99p) {
+    this.csmHostEnterpriseComplianceHostCountTop99p = csmHostEnterpriseComplianceHostCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all
+   * hours in the current date for the given org.
+   *
+   * @return csmHostEnterpriseComplianceHostCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_COMPLIANCE_HOST_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostEnterpriseComplianceHostCountTop99p() {
+    return csmHostEnterpriseComplianceHostCountTop99p;
+  }
+
+  public void setCsmHostEnterpriseComplianceHostCountTop99p(
+      Long csmHostEnterpriseComplianceHostCountTop99p) {
+    this.csmHostEnterpriseComplianceHostCountTop99p = csmHostEnterpriseComplianceHostCountTop99p;
+  }
+
+  public UsageSummaryDate csmHostEnterpriseCwsHostCountTop99p(
+      Long csmHostEnterpriseCwsHostCountTop99p) {
+    this.csmHostEnterpriseCwsHostCountTop99p = csmHostEnterpriseCwsHostCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security
+   * hosts over all hours in the current date for the given org.
+   *
+   * @return csmHostEnterpriseCwsHostCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_CWS_HOST_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostEnterpriseCwsHostCountTop99p() {
+    return csmHostEnterpriseCwsHostCountTop99p;
+  }
+
+  public void setCsmHostEnterpriseCwsHostCountTop99p(Long csmHostEnterpriseCwsHostCountTop99p) {
+    this.csmHostEnterpriseCwsHostCountTop99p = csmHostEnterpriseCwsHostCountTop99p;
+  }
+
+  public UsageSummaryDate csmHostEnterpriseGcpHostCountTop99p(
+      Long csmHostEnterpriseGcpHostCountTop99p) {
+    this.csmHostEnterpriseGcpHostCountTop99p = csmHostEnterpriseGcpHostCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours
+   * in the current date for the given org.
+   *
+   * @return csmHostEnterpriseGcpHostCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_GCP_HOST_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostEnterpriseGcpHostCountTop99p() {
+    return csmHostEnterpriseGcpHostCountTop99p;
+  }
+
+  public void setCsmHostEnterpriseGcpHostCountTop99p(Long csmHostEnterpriseGcpHostCountTop99p) {
+    this.csmHostEnterpriseGcpHostCountTop99p = csmHostEnterpriseGcpHostCountTop99p;
+  }
+
+  public UsageSummaryDate csmHostEnterpriseTotalHostCountTop99p(
+      Long csmHostEnterpriseTotalHostCountTop99p) {
+    this.csmHostEnterpriseTotalHostCountTop99p = csmHostEnterpriseTotalHostCountTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in
+   * the current date for the given org.
+   *
+   * @return csmHostEnterpriseTotalHostCountTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CSM_HOST_ENTERPRISE_TOTAL_HOST_COUNT_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCsmHostEnterpriseTotalHostCountTop99p() {
+    return csmHostEnterpriseTotalHostCountTop99p;
+  }
+
+  public void setCsmHostEnterpriseTotalHostCountTop99p(Long csmHostEnterpriseTotalHostCountTop99p) {
+    this.csmHostEnterpriseTotalHostCountTop99p = csmHostEnterpriseTotalHostCountTop99p;
+  }
+
   public UsageSummaryDate cspmAasHostTop99p(Long cspmAasHostTop99p) {
     this.cspmAasHostTop99p = cspmAasHostTop99p;
     return this;
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts
-   * over all hours in the current date for all organizations.
+   * Shows the 99th percentile of all Cloud Security Management Pro Azure app services hosts over
+   * all hours in the current date for all organizations.
    *
    * @return cspmAasHostTop99p
    */
@@ -1041,8 +1323,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in
-   * the current date for all organizations.
+   * Shows the 99th percentile of all Cloud Security Management Pro AWS hosts over all hours in the
+   * current date for all organizations.
    *
    * @return cspmAwsHostTop99p
    */
@@ -1063,8 +1345,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours
-   * in the current date for all organizations.
+   * Shows the 99th percentile of all Cloud Security Management Pro Azure hosts over all hours in
+   * the current date for all organizations.
    *
    * @return cspmAzureHostTop99p
    */
@@ -1085,7 +1367,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the average number of Cloud Security Posture Management containers over all hours in the
+   * Shows the average number of Cloud Security Management Pro containers over all hours in the
    * current date for all organizations.
    *
    * @return cspmContainerAvg
@@ -1107,7 +1389,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the high-water mark of Cloud Security Posture Management containers over all hours in the
+   * Shows the high-water mark of Cloud Security Management Pro containers over all hours in the
    * current date for all organizations.
    *
    * @return cspmContainerHwm
@@ -1129,8 +1411,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in
-   * the current date for all organizations.
+   * Shows the 99th percentile of all Cloud Security Management Pro GCP hosts over all hours in the
+   * current date for all organizations.
    *
    * @return cspmGcpHostTop99p
    */
@@ -1151,7 +1433,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the
+   * Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the
    * current date for all organizations.
    *
    * @return cspmHostTop99p
@@ -2443,6 +2725,36 @@ public class UsageSummaryDate {
         && Objects.equals(this.containerAvg, usageSummaryDate.containerAvg)
         && Objects.equals(this.containerExclAgentAvg, usageSummaryDate.containerExclAgentAvg)
         && Objects.equals(this.containerHwm, usageSummaryDate.containerHwm)
+        && Objects.equals(
+            this.csmContainerEnterpriseComplianceCountSum,
+            usageSummaryDate.csmContainerEnterpriseComplianceCountSum)
+        && Objects.equals(
+            this.csmContainerEnterpriseCwsCountSum,
+            usageSummaryDate.csmContainerEnterpriseCwsCountSum)
+        && Objects.equals(
+            this.csmContainerEnterpriseTotalCountSum,
+            usageSummaryDate.csmContainerEnterpriseTotalCountSum)
+        && Objects.equals(
+            this.csmHostEnterpriseAasHostCountTop99p,
+            usageSummaryDate.csmHostEnterpriseAasHostCountTop99p)
+        && Objects.equals(
+            this.csmHostEnterpriseAwsHostCountTop99p,
+            usageSummaryDate.csmHostEnterpriseAwsHostCountTop99p)
+        && Objects.equals(
+            this.csmHostEnterpriseAzureHostCountTop99p,
+            usageSummaryDate.csmHostEnterpriseAzureHostCountTop99p)
+        && Objects.equals(
+            this.csmHostEnterpriseComplianceHostCountTop99p,
+            usageSummaryDate.csmHostEnterpriseComplianceHostCountTop99p)
+        && Objects.equals(
+            this.csmHostEnterpriseCwsHostCountTop99p,
+            usageSummaryDate.csmHostEnterpriseCwsHostCountTop99p)
+        && Objects.equals(
+            this.csmHostEnterpriseGcpHostCountTop99p,
+            usageSummaryDate.csmHostEnterpriseGcpHostCountTop99p)
+        && Objects.equals(
+            this.csmHostEnterpriseTotalHostCountTop99p,
+            usageSummaryDate.csmHostEnterpriseTotalHostCountTop99p)
         && Objects.equals(this.cspmAasHostTop99p, usageSummaryDate.cspmAasHostTop99p)
         && Objects.equals(this.cspmAwsHostTop99p, usageSummaryDate.cspmAwsHostTop99p)
         && Objects.equals(this.cspmAzureHostTop99p, usageSummaryDate.cspmAzureHostTop99p)
@@ -2564,6 +2876,16 @@ public class UsageSummaryDate {
         containerAvg,
         containerExclAgentAvg,
         containerHwm,
+        csmContainerEnterpriseComplianceCountSum,
+        csmContainerEnterpriseCwsCountSum,
+        csmContainerEnterpriseTotalCountSum,
+        csmHostEnterpriseAasHostCountTop99p,
+        csmHostEnterpriseAwsHostCountTop99p,
+        csmHostEnterpriseAzureHostCountTop99p,
+        csmHostEnterpriseComplianceHostCountTop99p,
+        csmHostEnterpriseCwsHostCountTop99p,
+        csmHostEnterpriseGcpHostCountTop99p,
+        csmHostEnterpriseTotalHostCountTop99p,
         cspmAasHostTop99p,
         cspmAwsHostTop99p,
         cspmAzureHostTop99p,
@@ -2696,6 +3018,36 @@ public class UsageSummaryDate {
         .append(toIndentedString(containerExclAgentAvg))
         .append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
+    sb.append("    csmContainerEnterpriseComplianceCountSum: ")
+        .append(toIndentedString(csmContainerEnterpriseComplianceCountSum))
+        .append("\n");
+    sb.append("    csmContainerEnterpriseCwsCountSum: ")
+        .append(toIndentedString(csmContainerEnterpriseCwsCountSum))
+        .append("\n");
+    sb.append("    csmContainerEnterpriseTotalCountSum: ")
+        .append(toIndentedString(csmContainerEnterpriseTotalCountSum))
+        .append("\n");
+    sb.append("    csmHostEnterpriseAasHostCountTop99p: ")
+        .append(toIndentedString(csmHostEnterpriseAasHostCountTop99p))
+        .append("\n");
+    sb.append("    csmHostEnterpriseAwsHostCountTop99p: ")
+        .append(toIndentedString(csmHostEnterpriseAwsHostCountTop99p))
+        .append("\n");
+    sb.append("    csmHostEnterpriseAzureHostCountTop99p: ")
+        .append(toIndentedString(csmHostEnterpriseAzureHostCountTop99p))
+        .append("\n");
+    sb.append("    csmHostEnterpriseComplianceHostCountTop99p: ")
+        .append(toIndentedString(csmHostEnterpriseComplianceHostCountTop99p))
+        .append("\n");
+    sb.append("    csmHostEnterpriseCwsHostCountTop99p: ")
+        .append(toIndentedString(csmHostEnterpriseCwsHostCountTop99p))
+        .append("\n");
+    sb.append("    csmHostEnterpriseGcpHostCountTop99p: ")
+        .append(toIndentedString(csmHostEnterpriseGcpHostCountTop99p))
+        .append("\n");
+    sb.append("    csmHostEnterpriseTotalHostCountTop99p: ")
+        .append(toIndentedString(csmHostEnterpriseTotalHostCountTop99p))
+        .append("\n");
     sb.append("    cspmAasHostTop99p: ").append(toIndentedString(cspmAasHostTop99p)).append("\n");
     sb.append("    cspmAwsHostTop99p: ").append(toIndentedString(cspmAwsHostTop99p)).append("\n");
     sb.append("    cspmAzureHostTop99p: ")
