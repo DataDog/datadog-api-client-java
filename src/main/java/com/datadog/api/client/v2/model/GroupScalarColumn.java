@@ -32,7 +32,7 @@ public class GroupScalarColumn {
   private String name;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private ScalarColumnTypeGroup type = ScalarColumnTypeGroup.GROUP;
 
   public static final String JSON_PROPERTY_VALUES = "values";
   private List<List<String>> values = null;
@@ -58,24 +58,28 @@ public class GroupScalarColumn {
     this.name = name;
   }
 
-  public GroupScalarColumn type(String type) {
+  public GroupScalarColumn type(ScalarColumnTypeGroup type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The type of column present.
+   * The type of column present for groups.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
+  public ScalarColumnTypeGroup getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(ScalarColumnTypeGroup type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
