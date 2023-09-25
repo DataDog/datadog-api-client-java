@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"id\":\"jdZrilSJQLqzb6Cu7aub9Q\",\"type\":\"apm_retention_filter\"},{\"id\":\"7RBOb7dLSYWI01yc3pIH8w\",\"type\":\"apm_retention_filter\"}]}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/apm/config/retention-filters-execution-order",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2236aa49-ea9a-2ff8-2963-6f403c67aa67"
+  }
+]
