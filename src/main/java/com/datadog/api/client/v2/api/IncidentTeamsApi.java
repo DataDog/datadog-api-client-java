@@ -601,7 +601,7 @@ public class IncidentTeamsApi {
   public static class ListIncidentTeamsOptionalParameters {
     private IncidentRelatedObject include;
     private Long pageSize;
-    private Long pageOffset;
+    private String pageOffset;
     private String filter;
 
     /**
@@ -631,11 +631,10 @@ public class IncidentTeamsApi {
     /**
      * Set pageOffset.
      *
-     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
-     *     default to 0)
+     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional)
      * @return ListIncidentTeamsOptionalParameters
      */
-    public ListIncidentTeamsOptionalParameters pageOffset(Long pageOffset) {
+    public ListIncidentTeamsOptionalParameters pageOffset(String pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
@@ -753,7 +752,7 @@ public class IncidentTeamsApi {
     Object localVarPostBody = null;
     IncidentRelatedObject include = parameters.include;
     Long pageSize = parameters.pageSize;
-    Long pageOffset = parameters.pageOffset;
+    String pageOffset = parameters.pageOffset;
     String filter = parameters.filter;
     // create path and map variables
     String localVarPath = "/api/v2/teams";
@@ -811,7 +810,7 @@ public class IncidentTeamsApi {
     Object localVarPostBody = null;
     IncidentRelatedObject include = parameters.include;
     Long pageSize = parameters.pageSize;
-    Long pageOffset = parameters.pageOffset;
+    String pageOffset = parameters.pageOffset;
     String filter = parameters.filter;
     // create path and map variables
     String localVarPath = "/api/v2/teams";

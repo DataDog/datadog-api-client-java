@@ -2097,7 +2097,7 @@ public class IncidentsApi {
   public static class ListIncidentsOptionalParameters {
     private List<IncidentRelatedObject> include;
     private Long pageSize;
-    private Long pageOffset;
+    private String pageOffset;
 
     /**
      * Set include.
@@ -2126,11 +2126,10 @@ public class IncidentsApi {
     /**
      * Set pageOffset.
      *
-     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
-     *     default to 0)
+     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional)
      * @return ListIncidentsOptionalParameters
      */
-    public ListIncidentsOptionalParameters pageOffset(Long pageOffset) {
+    public ListIncidentsOptionalParameters pageOffset(String pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
@@ -2276,7 +2275,7 @@ public class IncidentsApi {
     Object localVarPostBody = null;
     List<IncidentRelatedObject> include = parameters.include;
     Long pageSize = parameters.pageSize;
-    Long pageOffset = parameters.pageOffset;
+    String pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/incidents";
 
@@ -2330,7 +2329,7 @@ public class IncidentsApi {
     Object localVarPostBody = null;
     List<IncidentRelatedObject> include = parameters.include;
     Long pageSize = parameters.pageSize;
-    Long pageOffset = parameters.pageOffset;
+    String pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/incidents";
 
@@ -2529,7 +2528,7 @@ public class IncidentsApi {
     private IncidentRelatedObject include;
     private IncidentSearchSortOrder sort;
     private Long pageSize;
-    private Long pageOffset;
+    private String pageOffset;
 
     /**
      * Set include.
@@ -2569,11 +2568,10 @@ public class IncidentsApi {
     /**
      * Set pageOffset.
      *
-     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
-     *     default to 0)
+     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional)
      * @return SearchIncidentsOptionalParameters
      */
-    public SearchIncidentsOptionalParameters pageOffset(Long pageOffset) {
+    public SearchIncidentsOptionalParameters pageOffset(String pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
@@ -2770,7 +2768,7 @@ public class IncidentsApi {
     IncidentRelatedObject include = parameters.include;
     IncidentSearchSortOrder sort = parameters.sort;
     Long pageSize = parameters.pageSize;
-    Long pageOffset = parameters.pageOffset;
+    String pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/incidents/search";
 
@@ -2842,7 +2840,7 @@ public class IncidentsApi {
     IncidentRelatedObject include = parameters.include;
     IncidentSearchSortOrder sort = parameters.sort;
     Long pageSize = parameters.pageSize;
-    Long pageOffset = parameters.pageOffset;
+    String pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/incidents/search";
 

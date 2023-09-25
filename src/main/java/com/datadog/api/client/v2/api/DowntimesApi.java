@@ -519,7 +519,7 @@ public class DowntimesApi {
   public static class ListDowntimesOptionalParameters {
     private Boolean currentOnly;
     private String include;
-    private Long pageOffset;
+    private String pageOffset;
     private Long pageLimit;
 
     /**
@@ -549,11 +549,10 @@ public class DowntimesApi {
     /**
      * Set pageOffset.
      *
-     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
-     *     default to 0)
+     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional)
      * @return ListDowntimesOptionalParameters
      */
-    public ListDowntimesOptionalParameters pageOffset(Long pageOffset) {
+    public ListDowntimesOptionalParameters pageOffset(String pageOffset) {
       this.pageOffset = pageOffset;
       return this;
     }
@@ -700,7 +699,7 @@ public class DowntimesApi {
     Object localVarPostBody = null;
     Boolean currentOnly = parameters.currentOnly;
     String include = parameters.include;
-    Long pageOffset = parameters.pageOffset;
+    String pageOffset = parameters.pageOffset;
     Long pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath = "/api/v2/downtime";
@@ -746,7 +745,7 @@ public class DowntimesApi {
     Object localVarPostBody = null;
     Boolean currentOnly = parameters.currentOnly;
     String include = parameters.include;
-    Long pageOffset = parameters.pageOffset;
+    String pageOffset = parameters.pageOffset;
     Long pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath = "/api/v2/downtime";
