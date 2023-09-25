@@ -277,7 +277,7 @@ public class CiVisibilityPipelinesApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -334,7 +334,7 @@ public class CiVisibilityPipelinesApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
