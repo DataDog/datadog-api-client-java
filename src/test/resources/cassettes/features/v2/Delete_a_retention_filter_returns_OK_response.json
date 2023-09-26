@@ -1,0 +1,84 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"filter\":{\"query\":\"@_top_level:1 test:service-demo\"},\"filter_type\":\"spans-sampling-processor\",\"name\":\"demo retention filter\",\"rate\":0.9},\"type\":\"apm_retention_filter\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/apm/config/retention-filters",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ErO5dcpeRPmDWbmrryfpYQ\",\"attributes\":{\"name\":\"demo retention filter\",\"rate\":0.9,\"enabled\":true,\"filter_type\":\"spans-sampling-processor\",\"filter\":{\"query\":\"@_top_level:1 test:service-demo\"},\"modified_by\":\"frog@datadoghq.com\",\"modified_at\":1695118296,\"created_by\":\"frog@datadoghq.com\",\"created_at\":1695118296,\"editable\":true},\"type\":\"apm_retention_filter\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b2404278-8cc9-cba4-e3eb-03a7fdff069a"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/apm/config/retention-filters/ErO5dcpeRPmDWbmrryfpYQ",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "807306be-118d-11a7-29ee-a8d354b2b55e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/apm/config/retention-filters/ErO5dcpeRPmDWbmrryfpYQ",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"retention filter with id: 'ErO5dcpeRPmDWbmrryfpYQ' not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "807306be-118d-11a7-29ee-a8d354b2b55f"
+  }
+]

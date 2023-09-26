@@ -3119,7 +3119,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM.
+   * Get hourly usage for CSM Pro.
    *
    * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
    *
@@ -3136,7 +3136,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM.
+   * Get hourly usage for CSM Pro.
    *
    * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfoAsync}.
    *
@@ -3155,7 +3155,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM.
+   * Get hourly usage for CSM Pro.
    *
    * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
    *
@@ -3172,7 +3172,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM.
+   * Get hourly usage for CSM Pro.
    *
    * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfoAsync}.
    *
@@ -3193,8 +3193,8 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for cloud security posture management (CSPM). <strong>Note:</strong> hourly
-   * usage data for all products is now available in the <a
+   * Get hourly usage for cloud security management (CSM) pro. <strong>Note:</strong> hourly usage
+   * data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
    * hourly usage by product family API</a>. Refer to <a
    * href="https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/">Migrating
@@ -3260,7 +3260,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CSPM.
+   * Get hourly usage for CSM Pro.
    *
    * <p>See {@link #getUsageCloudSecurityPostureManagementWithHttpInfo}.
    *

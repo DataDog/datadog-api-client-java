@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"filter\":{\"query\":\"@_top_level:1 test:service-demo\"},\"filter_type\":\"spans-sampling-processor\",\"name\":\"test\",\"rate\":0.9},\"id\":\"not_found\",\"type\":\"apm_retention_filter\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/apm/config/retention-filters/not_found",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"retention filter with id: 'not_found' not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ce266f9d-5f90-251e-805b-1fa5bbd62feb"
+  }
+]
