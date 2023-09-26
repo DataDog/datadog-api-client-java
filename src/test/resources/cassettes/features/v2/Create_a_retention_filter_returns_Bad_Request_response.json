@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"filter_type\":\"spans-sampling-processor\",\"name\":\"my retention filter\",\"rate\":2},\"type\":\"apm_retention_filter\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/apm/config/retention-filters",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid Pipeline\",\"'rate' must exist and be between 0 and 1\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6ee05653-d158-563e-4c51-58adf83edfdc"
+  }
+]
