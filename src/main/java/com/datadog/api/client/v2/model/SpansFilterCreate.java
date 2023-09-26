@@ -40,7 +40,8 @@ public class SpansFilterCreate {
   }
 
   /**
-   * The search query - following the span search syntax.
+   * The search query - following the <a
+   * href="https://docs.datadoghq.com/tracing/trace_explorer/query_syntax/">span search syntax</a>.
    *
    * @return query
    */
