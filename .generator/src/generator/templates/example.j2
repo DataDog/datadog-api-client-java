@@ -62,7 +62,7 @@ public class Example {
 {%- elif schema.type == 'integer' %}
     Long {{ value }} = Long.parseLong(System.getenv("{{ value }}"));
 {%- elif schema.type == 'boolean' %}
-    Boolean {{ value }} = Boolean.parseBoolean((System.getenv("{{ value }}"));
+    Boolean {{ value }} = Boolean.parseBoolean((System.getenv("{{ value }}")));
 {%- else %}
 {{ 1/0 }}
 {%- endif %}
