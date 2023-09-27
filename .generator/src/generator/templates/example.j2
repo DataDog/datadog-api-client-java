@@ -53,6 +53,7 @@ public class Example {
 {%- if schema.type == 'string' and schema.format != 'uuid'%}
     String {{ value }} = System.getenv("{{ value }}");
 {%- elif schema.type == 'string' and schema.format == 'uuid' %}
+    UUID {{ value }} == null;
     try {
       UUID {{ value }} = UUID.fromString(System.getenv("{{ value }}"));
     } catch (IllegalArgumentException e) {
