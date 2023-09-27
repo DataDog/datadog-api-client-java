@@ -211,6 +211,7 @@ def simple_type(schema):
             "date-time": "OffsetDateTime",
             "email": "String",
             "binary": "File",
+            "uuid": "UUID",
             None: "String",
         }[type_format]
     if type_name == "boolean":
