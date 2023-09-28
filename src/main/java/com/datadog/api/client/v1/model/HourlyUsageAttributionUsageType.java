@@ -33,8 +33,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "appsec_fargate_usage",
               "appsec_usage",
               "browser_usage",
-              "container_excl_agent_usage",
               "ci_visibility_itr_usage",
+              "container_excl_agent_usage",
               "container_usage",
               "cspm_containers_usage",
               "cspm_hosts_usage",
@@ -45,9 +45,10 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "dbm_hosts_usage",
               "dbm_queries_usage",
               "estimated_indexed_logs_usage",
-              "estimated_ingested_logs_usage",
               "estimated_indexed_spans_usage",
+              "estimated_ingested_logs_usage",
               "estimated_ingested_spans_usage",
+              "estimated_rum_sessions_usage",
               "fargate_usage",
               "functions_usage",
               "infra_host_usage",
@@ -58,11 +59,11 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "profiled_container_usage",
               "profiled_fargate_usage",
               "profiled_host_usage",
+              "sds_scanned_bytes_usage",
+              "serverless_apps_usage",
               "snmp_usage",
-              "estimated_rum_sessions_usage",
               "universal_service_monitoring_usage",
-              "vuln_management_hosts_usage",
-              "sds_scanned_bytes_usage"));
+              "vuln_management_hosts_usage"));
 
   public static final HourlyUsageAttributionUsageType API_USAGE =
       new HourlyUsageAttributionUsageType("api_usage");
@@ -78,10 +79,10 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("appsec_usage");
   public static final HourlyUsageAttributionUsageType BROWSER_USAGE =
       new HourlyUsageAttributionUsageType("browser_usage");
-  public static final HourlyUsageAttributionUsageType CONTAINER_EXCL_AGENT_USAGE =
-      new HourlyUsageAttributionUsageType("container_excl_agent_usage");
   public static final HourlyUsageAttributionUsageType CI_VISIBILITY_ITR_USAGE =
       new HourlyUsageAttributionUsageType("ci_visibility_itr_usage");
+  public static final HourlyUsageAttributionUsageType CONTAINER_EXCL_AGENT_USAGE =
+      new HourlyUsageAttributionUsageType("container_excl_agent_usage");
   public static final HourlyUsageAttributionUsageType CONTAINER_USAGE =
       new HourlyUsageAttributionUsageType("container_usage");
   public static final HourlyUsageAttributionUsageType CSPM_CONTAINERS_USAGE =
@@ -102,12 +103,14 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("dbm_queries_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_LOGS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_indexed_logs_usage");
-  public static final HourlyUsageAttributionUsageType ESTIMATED_INGESTED_LOGS_USAGE =
-      new HourlyUsageAttributionUsageType("estimated_ingested_logs_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_SPANS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_indexed_spans_usage");
+  public static final HourlyUsageAttributionUsageType ESTIMATED_INGESTED_LOGS_USAGE =
+      new HourlyUsageAttributionUsageType("estimated_ingested_logs_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INGESTED_SPANS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_ingested_spans_usage");
+  public static final HourlyUsageAttributionUsageType ESTIMATED_RUM_SESSIONS_USAGE =
+      new HourlyUsageAttributionUsageType("estimated_rum_sessions_usage");
   public static final HourlyUsageAttributionUsageType FARGATE_USAGE =
       new HourlyUsageAttributionUsageType("fargate_usage");
   public static final HourlyUsageAttributionUsageType FUNCTIONS_USAGE =
@@ -128,16 +131,16 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("profiled_fargate_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_HOST_USAGE =
       new HourlyUsageAttributionUsageType("profiled_host_usage");
+  public static final HourlyUsageAttributionUsageType SDS_SCANNED_BYTES_USAGE =
+      new HourlyUsageAttributionUsageType("sds_scanned_bytes_usage");
+  public static final HourlyUsageAttributionUsageType SERVERLESS_APPS_USAGE =
+      new HourlyUsageAttributionUsageType("serverless_apps_usage");
   public static final HourlyUsageAttributionUsageType SNMP_USAGE =
       new HourlyUsageAttributionUsageType("snmp_usage");
-  public static final HourlyUsageAttributionUsageType ESTIMATED_RUM_SESSIONS_USAGE =
-      new HourlyUsageAttributionUsageType("estimated_rum_sessions_usage");
   public static final HourlyUsageAttributionUsageType UNIVERSAL_SERVICE_MONITORING_USAGE =
       new HourlyUsageAttributionUsageType("universal_service_monitoring_usage");
   public static final HourlyUsageAttributionUsageType VULN_MANAGEMENT_HOSTS_USAGE =
       new HourlyUsageAttributionUsageType("vuln_management_hosts_usage");
-  public static final HourlyUsageAttributionUsageType SDS_SCANNED_BYTES_USAGE =
-      new HourlyUsageAttributionUsageType("sds_scanned_bytes_usage");
 
   HourlyUsageAttributionUsageType(String value) {
     super(value, allowedValues);
