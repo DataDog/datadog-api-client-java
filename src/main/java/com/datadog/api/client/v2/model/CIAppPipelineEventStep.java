@@ -54,7 +54,7 @@ public class CIAppPipelineEventStep {
   private JsonNullable<CIAppCIError> error = JsonNullable.<CIAppCIError>undefined();
 
   public static final String JSON_PROPERTY_GIT = "git";
-  private CIAppGitInfo git;
+  private JsonNullable<CIAppGitInfo> git = JsonNullable.<CIAppGitInfo>undefined();
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -110,7 +110,6 @@ public class CIAppPipelineEventStep {
   @JsonCreator
   public CIAppPipelineEventStep(
       @JsonProperty(required = true, value = JSON_PROPERTY_END) OffsetDateTime end,
-      @JsonProperty(required = true, value = JSON_PROPERTY_GIT) CIAppGitInfo git,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_LEVEL) CIAppPipelineEventStepLevel level,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
@@ -121,10 +120,6 @@ public class CIAppPipelineEventStep {
       @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
           CIAppPipelineEventStepStatus status) {
     this.end = end;
-    this.git = git;
-    if (git != null) {
-      this.unparsed |= git.unparsed;
-    }
     this.id = id;
     this.level = level;
     this.unparsed |= !level.isValid();
@@ -188,10 +183,7 @@ public class CIAppPipelineEventStep {
   }
 
   public CIAppPipelineEventStep git(CIAppGitInfo git) {
-    this.git = git;
-    if (git != null) {
-      this.unparsed |= git.unparsed;
-    }
+    this.git = JsonNullable.<CIAppGitInfo>of(git);
     return this;
   }
 
@@ -203,14 +195,24 @@ public class CIAppPipelineEventStep {
    * @return git
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GIT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonIgnore
   public CIAppGitInfo getGit() {
+    return git.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_GIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<CIAppGitInfo> getGit_JsonNullable() {
     return git;
   }
 
-  public void setGit(CIAppGitInfo git) {
+  @JsonProperty(JSON_PROPERTY_GIT)
+  public void setGit_JsonNullable(JsonNullable<CIAppGitInfo> git) {
     this.git = git;
+  }
+
+  public void setGit(CIAppGitInfo git) {
+    this.git = JsonNullable.<CIAppGitInfo>of(git);
   }
 
   public CIAppPipelineEventStep id(String id) {
