@@ -92,6 +92,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "profiled_fargate_percentage",
               "profiled_host_usage",
               "profiled_host_percentage",
+              "serverless_apps_usage",
+              "serverless_apps_percentage",
               "snmp_usage",
               "snmp_percentage",
               "estimated_rum_sessions_usage",
@@ -233,6 +235,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("profiled_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_HOST_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("profiled_host_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics SERVERLESS_APPS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("serverless_apps_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics SERVERLESS_APPS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("serverless_apps_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics SNMP_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("snmp_usage");
   public static final MonthlyUsageAttributionSupportedMetrics SNMP_PERCENTAGE =
