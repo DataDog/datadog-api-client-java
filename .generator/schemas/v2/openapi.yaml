@@ -17987,6 +17987,31 @@ paths:
       summary: Delete a retention filter
       tags:
       - APM Retention Filters
+    get:
+      description: Get an APM retention filter.
+      operationId: GetApmRetentionFilter
+      parameters:
+      - $ref: '#/components/parameters/RetentionFilterIdParam'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionFilterResponse'
+          description: OK
+        '403':
+          $ref: '#/components/responses/NotAuthorizedResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      security:
+      - apiKeyAuth: []
+        appKeyAuth: []
+      - AuthZ: []
+      summary: Get a given APM retention filter
+      tags:
+      - APM Retention Filters
     put:
       description: Update a retention filter from your organization.
       operationId: UpdateApmRetentionFilter
@@ -26426,6 +26451,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamsResponse'
           description: OK
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
       security:
@@ -26458,6 +26485,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamResponse'
           description: CREATED
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '409':
           content:
             application/json:
@@ -26490,6 +26519,8 @@ paths:
       responses:
         '204':
           description: No Content
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26524,6 +26555,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamResponse'
           description: OK
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26573,6 +26606,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: API error response.
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26614,6 +26649,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamLinksResponse'
           description: OK
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26653,6 +26690,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamLinkResponse'
           description: OK
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26696,6 +26735,8 @@ paths:
       responses:
         '204':
           description: No Content
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26735,6 +26776,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamLinkResponse'
           description: OK
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26780,6 +26823,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamLinkResponse'
           description: OK
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26827,6 +26872,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserTeamsResponse'
           description: Represents a user's association to a team
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26866,6 +26913,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserTeamResponse'
           description: Represents a user's association to a team
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26909,6 +26958,8 @@ paths:
       responses:
         '204':
           description: No Content
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26954,6 +27005,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserTeamResponse'
           description: Represents a user's association to a team
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -26989,6 +27042,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamPermissionSettingsResponse'
           description: OK
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
@@ -27035,6 +27090,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/TeamPermissionSettingResponse'
           description: OK
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
         '404':
           content:
             application/json:
