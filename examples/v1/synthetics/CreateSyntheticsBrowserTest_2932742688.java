@@ -54,7 +54,7 @@ public class Example {
                     .minFailureDuration(10L)
                     .minLocationFailed(1L)
                     .noScreenshot(true)
-                    .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
+                    .retry(new SyntheticsTestOptionsRetry().count(2L).interval(10.0))
                     .rumSettings(
                         new SyntheticsBrowserTestRumSettings()
                             .isEnabled(true)
