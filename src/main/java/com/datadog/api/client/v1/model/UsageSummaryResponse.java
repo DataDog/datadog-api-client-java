@@ -98,6 +98,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_UNITS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_NDM_NETFLOW_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NPM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_AGG_SUM,
@@ -404,6 +405,10 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_MOBILE_RUM_UNITS_AGG_SUM = "mobile_rum_units_agg_sum";
   private Long mobileRumUnitsAggSum;
+
+  public static final String JSON_PROPERTY_NDM_NETFLOW_EVENTS_AGG_SUM =
+      "ndm_netflow_events_agg_sum";
+  private Long ndmNetflowEventsAggSum;
 
   public static final String JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_AGG_SUM =
       "netflow_indexed_events_count_agg_sum";
@@ -2202,6 +2207,28 @@ public class UsageSummaryResponse {
     this.mobileRumUnitsAggSum = mobileRumUnitsAggSum;
   }
 
+  public UsageSummaryResponse ndmNetflowEventsAggSum(Long ndmNetflowEventsAggSum) {
+    this.ndmNetflowEventsAggSum = ndmNetflowEventsAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current
+   * months for all organizations.
+   *
+   * @return ndmNetflowEventsAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NDM_NETFLOW_EVENTS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getNdmNetflowEventsAggSum() {
+    return ndmNetflowEventsAggSum;
+  }
+
+  public void setNdmNetflowEventsAggSum(Long ndmNetflowEventsAggSum) {
+    this.ndmNetflowEventsAggSum = ndmNetflowEventsAggSum;
+  }
+
   public UsageSummaryResponse netflowIndexedEventsCountAggSum(
       Long netflowIndexedEventsCountAggSum) {
     this.netflowIndexedEventsCountAggSum = netflowIndexedEventsCountAggSum;
@@ -3195,6 +3222,7 @@ public class UsageSummaryResponse {
             this.mobileRumSessionCountRokuAggSum,
             usageSummaryResponse.mobileRumSessionCountRokuAggSum)
         && Objects.equals(this.mobileRumUnitsAggSum, usageSummaryResponse.mobileRumUnitsAggSum)
+        && Objects.equals(this.ndmNetflowEventsAggSum, usageSummaryResponse.ndmNetflowEventsAggSum)
         && Objects.equals(
             this.netflowIndexedEventsCountAggSum,
             usageSummaryResponse.netflowIndexedEventsCountAggSum)
@@ -3351,6 +3379,7 @@ public class UsageSummaryResponse {
         mobileRumSessionCountReactnativeAggSum,
         mobileRumSessionCountRokuAggSum,
         mobileRumUnitsAggSum,
+        ndmNetflowEventsAggSum,
         netflowIndexedEventsCountAggSum,
         npmHostTop99pSum,
         observabilityPipelinesBytesProcessedAggSum,
@@ -3576,6 +3605,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    mobileRumUnitsAggSum: ")
         .append(toIndentedString(mobileRumUnitsAggSum))
+        .append("\n");
+    sb.append("    ndmNetflowEventsAggSum: ")
+        .append(toIndentedString(ndmNetflowEventsAggSum))
         .append("\n");
     sb.append("    netflowIndexedEventsCountAggSum: ")
         .append(toIndentedString(netflowIndexedEventsCountAggSum))
