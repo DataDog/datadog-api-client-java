@@ -90,6 +90,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_UNITS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NPM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM,
@@ -365,6 +366,9 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_MOBILE_RUM_UNITS_SUM = "mobile_rum_units_sum";
   private Long mobileRumUnitsSum;
+
+  public static final String JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM = "ndm_netflow_events_sum";
+  private Long ndmNetflowEventsSum;
 
   public static final String JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM =
       "netflow_indexed_events_count_sum";
@@ -2014,6 +2018,28 @@ public class UsageSummaryDate {
     this.mobileRumUnitsSum = mobileRumUnitsSum;
   }
 
+  public UsageSummaryDate ndmNetflowEventsSum(Long ndmNetflowEventsSum) {
+    this.ndmNetflowEventsSum = ndmNetflowEventsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current
+   * date for the given org.
+   *
+   * @return ndmNetflowEventsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getNdmNetflowEventsSum() {
+    return ndmNetflowEventsSum;
+  }
+
+  public void setNdmNetflowEventsSum(Long ndmNetflowEventsSum) {
+    this.ndmNetflowEventsSum = ndmNetflowEventsSum;
+  }
+
   public UsageSummaryDate netflowIndexedEventsCountSum(Long netflowIndexedEventsCountSum) {
     this.netflowIndexedEventsCountSum = netflowIndexedEventsCountSum;
     return this;
@@ -2876,6 +2902,7 @@ public class UsageSummaryDate {
             this.mobileRumSessionCountRokuSum, usageSummaryDate.mobileRumSessionCountRokuSum)
         && Objects.equals(this.mobileRumSessionCountSum, usageSummaryDate.mobileRumSessionCountSum)
         && Objects.equals(this.mobileRumUnitsSum, usageSummaryDate.mobileRumUnitsSum)
+        && Objects.equals(this.ndmNetflowEventsSum, usageSummaryDate.ndmNetflowEventsSum)
         && Objects.equals(
             this.netflowIndexedEventsCountSum, usageSummaryDate.netflowIndexedEventsCountSum)
         && Objects.equals(this.npmHostTop99p, usageSummaryDate.npmHostTop99p)
@@ -3004,6 +3031,7 @@ public class UsageSummaryDate {
         mobileRumSessionCountRokuSum,
         mobileRumSessionCountSum,
         mobileRumUnitsSum,
+        ndmNetflowEventsSum,
         netflowIndexedEventsCountSum,
         npmHostTop99p,
         observabilityPipelinesBytesProcessedSum,
@@ -3199,6 +3227,9 @@ public class UsageSummaryDate {
         .append(toIndentedString(mobileRumSessionCountSum))
         .append("\n");
     sb.append("    mobileRumUnitsSum: ").append(toIndentedString(mobileRumUnitsSum)).append("\n");
+    sb.append("    ndmNetflowEventsSum: ")
+        .append(toIndentedString(ndmNetflowEventsSum))
+        .append("\n");
     sb.append("    netflowIndexedEventsCountSum: ")
         .append(toIndentedString(netflowIndexedEventsCountSum))
         .append("\n");
