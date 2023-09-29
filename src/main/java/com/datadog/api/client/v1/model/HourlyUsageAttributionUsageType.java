@@ -54,6 +54,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "infra_host_usage",
               "invocations_usage",
               "mobile_app_testing_usage",
+              "ndm_netflow_usage",
               "npm_host_usage",
               "obs_pipeline_bytes_usage",
               "profiled_container_usage",
@@ -121,6 +122,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("invocations_usage");
   public static final HourlyUsageAttributionUsageType MOBILE_APP_TESTING_USAGE =
       new HourlyUsageAttributionUsageType("mobile_app_testing_usage");
+  public static final HourlyUsageAttributionUsageType NDM_NETFLOW_USAGE =
+      new HourlyUsageAttributionUsageType("ndm_netflow_usage");
   public static final HourlyUsageAttributionUsageType NPM_HOST_USAGE =
       new HourlyUsageAttributionUsageType("npm_host_usage");
   public static final HourlyUsageAttributionUsageType OBS_PIPELINE_BYTES_USAGE =
