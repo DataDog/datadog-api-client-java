@@ -318,6 +318,141 @@ public class ApmRetentionFiltersApi {
   }
 
   /**
+   * Get a given APM retention filter.
+   *
+   * <p>See {@link #getApmRetentionFilterWithHttpInfo}.
+   *
+   * @param filterId The ID of the retention filter. (required)
+   * @return RetentionFilterResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RetentionFilterResponse getApmRetentionFilter(String filterId) throws ApiException {
+    return getApmRetentionFilterWithHttpInfo(filterId).getData();
+  }
+
+  /**
+   * Get a given APM retention filter.
+   *
+   * <p>See {@link #getApmRetentionFilterWithHttpInfoAsync}.
+   *
+   * @param filterId The ID of the retention filter. (required)
+   * @return CompletableFuture&lt;RetentionFilterResponse&gt;
+   */
+  public CompletableFuture<RetentionFilterResponse> getApmRetentionFilterAsync(String filterId) {
+    return getApmRetentionFilterWithHttpInfoAsync(filterId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an APM retention filter.
+   *
+   * @param filterId The ID of the retention filter. (required)
+   * @return ApiResponse&lt;RetentionFilterResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RetentionFilterResponse> getApmRetentionFilterWithHttpInfo(String filterId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterId' is set
+    if (filterId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filterId' when calling getApmRetentionFilter");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/apm/config/retention-filters/{filter_id}"
+            .replaceAll("\\{" + "filter_id" + "\\}", apiClient.escapeString(filterId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ApmRetentionFiltersApi.getApmRetentionFilter",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RetentionFilterResponse>() {});
+  }
+
+  /**
+   * Get a given APM retention filter.
+   *
+   * <p>See {@link #getApmRetentionFilterWithHttpInfo}.
+   *
+   * @param filterId The ID of the retention filter. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;RetentionFilterResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<RetentionFilterResponse>>
+      getApmRetentionFilterWithHttpInfoAsync(String filterId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'filterId' is set
+    if (filterId == null) {
+      CompletableFuture<ApiResponse<RetentionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'filterId' when calling getApmRetentionFilter"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/apm/config/retention-filters/{filter_id}"
+            .replaceAll("\\{" + "filter_id" + "\\}", apiClient.escapeString(filterId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ApmRetentionFiltersApi.getApmRetentionFilter",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<RetentionFilterResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<RetentionFilterResponse>() {});
+  }
+
+  /**
    * List all APM retention filters.
    *
    * <p>See {@link #listApmRetentionFiltersWithHttpInfo}.

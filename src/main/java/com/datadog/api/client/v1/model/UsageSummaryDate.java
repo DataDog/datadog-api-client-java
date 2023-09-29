@@ -108,6 +108,9 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_SDS_RUM_SCANNED_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM,
+  UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG,
+  UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG,
+  UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM,
@@ -426,6 +429,18 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM =
       "sds_total_scanned_bytes_sum";
   private Long sdsTotalScannedBytesSum;
+
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG =
+      "serverless_apps_azure_count_avg";
+  private Long serverlessAppsAzureCountAvg;
+
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG =
+      "serverless_apps_google_count_avg";
+  private Long serverlessAppsGoogleCountAvg;
+
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG =
+      "serverless_apps_total_count_avg";
+  private Long serverlessAppsTotalCountAvg;
 
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM =
       "synthetics_browser_check_calls_count_sum";
@@ -2407,6 +2422,71 @@ public class UsageSummaryDate {
     this.sdsTotalScannedBytesSum = sdsTotalScannedBytesSum;
   }
 
+  public UsageSummaryDate serverlessAppsAzureCountAvg(Long serverlessAppsAzureCountAvg) {
+    this.serverlessAppsAzureCountAvg = serverlessAppsAzureCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of the number of Serverless Apps for Azure for the given date and given org.
+   *
+   * @return serverlessAppsAzureCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getServerlessAppsAzureCountAvg() {
+    return serverlessAppsAzureCountAvg;
+  }
+
+  public void setServerlessAppsAzureCountAvg(Long serverlessAppsAzureCountAvg) {
+    this.serverlessAppsAzureCountAvg = serverlessAppsAzureCountAvg;
+  }
+
+  public UsageSummaryDate serverlessAppsGoogleCountAvg(Long serverlessAppsGoogleCountAvg) {
+    this.serverlessAppsGoogleCountAvg = serverlessAppsGoogleCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of the number of Serverless Apps for Google Cloud for the given date and
+   * given org.
+   *
+   * @return serverlessAppsGoogleCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getServerlessAppsGoogleCountAvg() {
+    return serverlessAppsGoogleCountAvg;
+  }
+
+  public void setServerlessAppsGoogleCountAvg(Long serverlessAppsGoogleCountAvg) {
+    this.serverlessAppsGoogleCountAvg = serverlessAppsGoogleCountAvg;
+  }
+
+  public UsageSummaryDate serverlessAppsTotalCountAvg(Long serverlessAppsTotalCountAvg) {
+    this.serverlessAppsTotalCountAvg = serverlessAppsTotalCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of the number of Serverless Apps for Azure and Google Cloud for the given
+   * date and given org.
+   *
+   * @return serverlessAppsTotalCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getServerlessAppsTotalCountAvg() {
+    return serverlessAppsTotalCountAvg;
+  }
+
+  public void setServerlessAppsTotalCountAvg(Long serverlessAppsTotalCountAvg) {
+    this.serverlessAppsTotalCountAvg = serverlessAppsTotalCountAvg;
+  }
+
   public UsageSummaryDate syntheticsBrowserCheckCallsCountSum(
       Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
@@ -2821,6 +2901,12 @@ public class UsageSummaryDate {
         && Objects.equals(this.sdsRumScannedBytesSum, usageSummaryDate.sdsRumScannedBytesSum)
         && Objects.equals(this.sdsTotalScannedBytesSum, usageSummaryDate.sdsTotalScannedBytesSum)
         && Objects.equals(
+            this.serverlessAppsAzureCountAvg, usageSummaryDate.serverlessAppsAzureCountAvg)
+        && Objects.equals(
+            this.serverlessAppsGoogleCountAvg, usageSummaryDate.serverlessAppsGoogleCountAvg)
+        && Objects.equals(
+            this.serverlessAppsTotalCountAvg, usageSummaryDate.serverlessAppsTotalCountAvg)
+        && Objects.equals(
             this.syntheticsBrowserCheckCallsCountSum,
             usageSummaryDate.syntheticsBrowserCheckCallsCountSum)
         && Objects.equals(
@@ -2936,6 +3022,9 @@ public class UsageSummaryDate {
         sdsLogsScannedBytesSum,
         sdsRumScannedBytesSum,
         sdsTotalScannedBytesSum,
+        serverlessAppsAzureCountAvg,
+        serverlessAppsGoogleCountAvg,
+        serverlessAppsTotalCountAvg,
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
         syntheticsMobileTestRunsSum,
@@ -3155,6 +3244,15 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    sdsTotalScannedBytesSum: ")
         .append(toIndentedString(sdsTotalScannedBytesSum))
+        .append("\n");
+    sb.append("    serverlessAppsAzureCountAvg: ")
+        .append(toIndentedString(serverlessAppsAzureCountAvg))
+        .append("\n");
+    sb.append("    serverlessAppsGoogleCountAvg: ")
+        .append(toIndentedString(serverlessAppsGoogleCountAvg))
+        .append("\n");
+    sb.append("    serverlessAppsTotalCountAvg: ")
+        .append(toIndentedString(serverlessAppsTotalCountAvg))
         .append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountSum: ")
         .append(toIndentedString(syntheticsBrowserCheckCallsCountSum))
