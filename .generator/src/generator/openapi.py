@@ -109,7 +109,7 @@ def get_name(schema):
     return name
 
 
-def type_to_java(schema, alternative_name=None):
+def type_to_java(schema, alternative_name=None, render_new=False):
     """Return Java type name for the type."""
     prefix = ""
     if "enum" not in schema:
@@ -146,6 +146,8 @@ def type_to_java(schema, alternative_name=None):
         return "List<{}>".format(name)
     elif type_ == "object":
         if has_additional_properties(schema) and not schema.get("properties"):
+            if render_new:
+                return "HashMap<String, {}>".format(type_to_java(schema["additionalProperties"]))
             return "Map<String, {}>".format(type_to_java(schema["additionalProperties"]))
 
         if schema.get("parent") and not alternative_name:

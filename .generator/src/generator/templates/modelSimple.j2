@@ -36,7 +36,7 @@ public class {{ name }} {%- if model.get("x-generate-alias-as-model") %} extends
     {%- if "items" in schema %}
   private {{ dataType }} {{ variableName }}{%- if isRequired %} = new ArrayList<>(){%- else %} = null{%- endif %};
     {%- elif (isAdditionalPropertiesContainer) or (not schema.get("type") and "oneOf" not in schema) %}
-  private {{ dataType }} {{ variableName }}{%- if isRequired %} = new {{ dataType }}(){%- else %} = null{%- endif %};
+  private {{ dataType }} {{ variableName }}{%- if isRequired %} = new {{ get_type(schema, render_new=True) }}(){%- else %} = null{%- endif %};
     {%- else %}
   private {{ dataType }} {{ variableName }}{%- if defaultValue != None %} = {{ defaultValue|format_value(schema=schema, default_value=True, type_=dataType) }}{%- endif %};
     {%- endif %}
