@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * The response containing the Cloud Security Posture Management usage for each hour for a given
+ * The response containing the Cloud Security Management Pro usage for each hour for a given
  * organization.
  */
 @JsonPropertyOrder({UsageCloudSecurityPostureManagementResponse.JSON_PROPERTY_USAGE})
@@ -50,7 +50,7 @@ public class UsageCloudSecurityPostureManagementResponse {
   }
 
   /**
-   * Get hourly usage for Cloud Security Posture Management.
+   * Get hourly usage for Cloud Security Management Pro.
    *
    * @return usage
    */

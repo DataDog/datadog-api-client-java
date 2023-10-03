@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"}}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"name\":\"Sample Powerpack\",\"tags\":[\"tag:sample\"],\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}]},\"type\":\"powerpack\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/powerpacks",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"powerpack\",\"id\":\"e918c048-572b-11ee-8cec-da7ad0900002\",\"attributes\":{\"name\":\"Sample Powerpack\",\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"},\"id\":8519959434065727}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}],\"tags\":[\"tag:sample\"]},\"relationships\":{\"author\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}},\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"email\":\"frog@datadoghq.com\"}}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8305fb37-79a4-03a2-aa69-f085c06f0599"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/powerpacks/e918c048-572b-11ee-8cec-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "352b4a26-dcb4-64f5-0550-1550eb84fe15"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/powerpacks/e918c048-572b-11ee-8cec-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Powerpack with ID e918c048-572b-11ee-8cec-da7ad0900002 not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "352b4a26-dcb4-64f5-0550-1550eb84fe16"
+  }
+]

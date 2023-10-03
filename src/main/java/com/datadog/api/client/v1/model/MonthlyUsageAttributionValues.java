@@ -74,6 +74,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_INVOCATIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_MOBILE_APP_TESTING_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_MOBILE_APP_TESTING_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_NDM_NETFLOW_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_NDM_NETFLOW_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINE_BYTES_PERCENTAGE,
@@ -86,6 +88,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_PERCENTAGE,
@@ -283,6 +287,12 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_MOBILE_APP_TESTING_USAGE = "mobile_app_testing_usage";
   private Double mobileAppTestingUsage;
 
+  public static final String JSON_PROPERTY_NDM_NETFLOW_PERCENTAGE = "ndm_netflow_percentage";
+  private Double ndmNetflowPercentage;
+
+  public static final String JSON_PROPERTY_NDM_NETFLOW_USAGE = "ndm_netflow_usage";
+  private Double ndmNetflowUsage;
+
   public static final String JSON_PROPERTY_NPM_HOST_PERCENTAGE = "npm_host_percentage";
   private Double npmHostPercentage;
 
@@ -322,6 +332,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage";
   private Double sdsScannedBytesUsage;
+
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_PERCENTAGE =
+      "serverless_apps_percentage";
+  private Double serverlessAppsPercentage;
+
+  public static final String JSON_PROPERTY_SERVERLESS_APPS_USAGE = "serverless_apps_usage";
+  private Double serverlessAppsUsage;
 
   public static final String JSON_PROPERTY_SNMP_PERCENTAGE = "snmp_percentage";
   private Double snmpPercentage;
@@ -772,7 +789,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The percentage of CSPM container usage by tag(s).
+   * The percentage of Cloud Security Management Pro container usage by tag(s).
    *
    * @return cspmContainersPercentage
    */
@@ -793,7 +810,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The CSPM container usage by tag(s).
+   * The Cloud Security Management Pro container usage by tag(s).
    *
    * @return cspmContainersUsage
    */
@@ -814,7 +831,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The percentage of CSPM host usage by by tag(s).
+   * The percentage of Cloud Security Management Pro host usage by tag(s).
    *
    * @return cspmHostsPercentage
    */
@@ -835,7 +852,7 @@ public class MonthlyUsageAttributionValues {
   }
 
   /**
-   * The CSPM host usage by tag(s).
+   * The Cloud Security Management Pro host usage by tag(s).
    *
    * @return cspmHostsUsage
    */
@@ -1534,6 +1551,48 @@ public class MonthlyUsageAttributionValues {
     this.mobileAppTestingUsage = mobileAppTestingUsage;
   }
 
+  public MonthlyUsageAttributionValues ndmNetflowPercentage(Double ndmNetflowPercentage) {
+    this.ndmNetflowPercentage = ndmNetflowPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Network Device Monitoring NetFlow usage by tag(s).
+   *
+   * @return ndmNetflowPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NDM_NETFLOW_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getNdmNetflowPercentage() {
+    return ndmNetflowPercentage;
+  }
+
+  public void setNdmNetflowPercentage(Double ndmNetflowPercentage) {
+    this.ndmNetflowPercentage = ndmNetflowPercentage;
+  }
+
+  public MonthlyUsageAttributionValues ndmNetflowUsage(Double ndmNetflowUsage) {
+    this.ndmNetflowUsage = ndmNetflowUsage;
+    return this;
+  }
+
+  /**
+   * The Network Device Monitoring NetFlow usage by tag(s).
+   *
+   * @return ndmNetflowUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NDM_NETFLOW_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getNdmNetflowUsage() {
+    return ndmNetflowUsage;
+  }
+
+  public void setNdmNetflowUsage(Double ndmNetflowUsage) {
+    this.ndmNetflowUsage = ndmNetflowUsage;
+  }
+
   public MonthlyUsageAttributionValues npmHostPercentage(Double npmHostPercentage) {
     this.npmHostPercentage = npmHostPercentage;
     return this;
@@ -1786,6 +1845,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setSdsScannedBytesUsage(Double sdsScannedBytesUsage) {
     this.sdsScannedBytesUsage = sdsScannedBytesUsage;
+  }
+
+  public MonthlyUsageAttributionValues serverlessAppsPercentage(Double serverlessAppsPercentage) {
+    this.serverlessAppsPercentage = serverlessAppsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Serverless Apps usage by tag(s).
+   *
+   * @return serverlessAppsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getServerlessAppsPercentage() {
+    return serverlessAppsPercentage;
+  }
+
+  public void setServerlessAppsPercentage(Double serverlessAppsPercentage) {
+    this.serverlessAppsPercentage = serverlessAppsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues serverlessAppsUsage(Double serverlessAppsUsage) {
+    this.serverlessAppsUsage = serverlessAppsUsage;
+    return this;
+  }
+
+  /**
+   * The total Serverless Apps usage by tag(s).
+   *
+   * @return serverlessAppsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVERLESS_APPS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getServerlessAppsUsage() {
+    return serverlessAppsUsage;
+  }
+
+  public void setServerlessAppsUsage(Double serverlessAppsUsage) {
+    this.serverlessAppsUsage = serverlessAppsUsage;
   }
 
   public MonthlyUsageAttributionValues snmpPercentage(Double snmpPercentage) {
@@ -2073,6 +2174,9 @@ public class MonthlyUsageAttributionValues {
             monthlyUsageAttributionValues.mobileAppTestingPercentage)
         && Objects.equals(
             this.mobileAppTestingUsage, monthlyUsageAttributionValues.mobileAppTestingUsage)
+        && Objects.equals(
+            this.ndmNetflowPercentage, monthlyUsageAttributionValues.ndmNetflowPercentage)
+        && Objects.equals(this.ndmNetflowUsage, monthlyUsageAttributionValues.ndmNetflowUsage)
         && Objects.equals(this.npmHostPercentage, monthlyUsageAttributionValues.npmHostPercentage)
         && Objects.equals(this.npmHostUsage, monthlyUsageAttributionValues.npmHostUsage)
         && Objects.equals(
@@ -2096,6 +2200,10 @@ public class MonthlyUsageAttributionValues {
             this.sdsScannedBytesPercentage, monthlyUsageAttributionValues.sdsScannedBytesPercentage)
         && Objects.equals(
             this.sdsScannedBytesUsage, monthlyUsageAttributionValues.sdsScannedBytesUsage)
+        && Objects.equals(
+            this.serverlessAppsPercentage, monthlyUsageAttributionValues.serverlessAppsPercentage)
+        && Objects.equals(
+            this.serverlessAppsUsage, monthlyUsageAttributionValues.serverlessAppsUsage)
         && Objects.equals(this.snmpPercentage, monthlyUsageAttributionValues.snmpPercentage)
         && Objects.equals(this.snmpUsage, monthlyUsageAttributionValues.snmpUsage)
         && Objects.equals(
@@ -2172,6 +2280,8 @@ public class MonthlyUsageAttributionValues {
         invocationsUsage,
         mobileAppTestingPercentage,
         mobileAppTestingUsage,
+        ndmNetflowPercentage,
+        ndmNetflowUsage,
         npmHostPercentage,
         npmHostUsage,
         obsPipelineBytesPercentage,
@@ -2184,6 +2294,8 @@ public class MonthlyUsageAttributionValues {
         profiledHostUsage,
         sdsScannedBytesPercentage,
         sdsScannedBytesUsage,
+        serverlessAppsPercentage,
+        serverlessAppsUsage,
         snmpPercentage,
         snmpUsage,
         universalServiceMonitoringPercentage,
@@ -2315,6 +2427,10 @@ public class MonthlyUsageAttributionValues {
     sb.append("    mobileAppTestingUsage: ")
         .append(toIndentedString(mobileAppTestingUsage))
         .append("\n");
+    sb.append("    ndmNetflowPercentage: ")
+        .append(toIndentedString(ndmNetflowPercentage))
+        .append("\n");
+    sb.append("    ndmNetflowUsage: ").append(toIndentedString(ndmNetflowUsage)).append("\n");
     sb.append("    npmHostPercentage: ").append(toIndentedString(npmHostPercentage)).append("\n");
     sb.append("    npmHostUsage: ").append(toIndentedString(npmHostUsage)).append("\n");
     sb.append("    obsPipelineBytesPercentage: ")
@@ -2344,6 +2460,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    sdsScannedBytesUsage: ")
         .append(toIndentedString(sdsScannedBytesUsage))
+        .append("\n");
+    sb.append("    serverlessAppsPercentage: ")
+        .append(toIndentedString(serverlessAppsPercentage))
+        .append("\n");
+    sb.append("    serverlessAppsUsage: ")
+        .append(toIndentedString(serverlessAppsUsage))
         .append("\n");
     sb.append("    snmpPercentage: ").append(toIndentedString(snmpPercentage)).append("\n");
     sb.append("    snmpUsage: ").append(toIndentedString(snmpUsage)).append("\n");

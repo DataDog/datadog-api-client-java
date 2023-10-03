@@ -1,0 +1,88 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"filter\":{\"query\":\"@_top_level:1 test:service-demo\"},\"filter_type\":\"spans-sampling-processor\",\"name\":\"demo retention filter\",\"rate\":0.9},\"type\":\"apm_retention_filter\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/apm/config/retention-filters",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"WvfydouzRnOdrIHZny7nrg\",\"attributes\":{\"name\":\"demo retention filter\",\"rate\":0.9,\"enabled\":true,\"filter_type\":\"spans-sampling-processor\",\"filter\":{\"query\":\"@_top_level:1 test:service-demo\"},\"modified_by\":\"frog@datadoghq.com\",\"modified_at\":1695314343,\"created_by\":\"frog@datadoghq.com\",\"created_at\":1695314343,\"editable\":true},\"type\":\"apm_retention_filter\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b2404278-8cc9-cba4-e3eb-03a7fdff069c"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"filter\":{\"query\":\"@_top_level:1 test:service-demo\"},\"filter_type\":\"spans-sampling-processor\",\"name\":\"test\",\"rate\":1.9},\"id\":\"test-id\",\"type\":\"apm_retention_filter\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/apm/config/retention-filters/WvfydouzRnOdrIHZny7nrg",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid Pipeline\",\"'rate' must exist and be between 0 and 1\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "23f76eb1-2167-22e5-1bc2-61d235ee9444"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/apm/config/retention-filters/WvfydouzRnOdrIHZny7nrg",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "963a0bb5-85c5-b026-40dd-949ed5b433e1"
+  }
+]

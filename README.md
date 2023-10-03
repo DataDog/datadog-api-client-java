@@ -75,7 +75,7 @@ import com.datadog.api.client.v1.model.Monitor;
 import com.datadog.api.client.v1.model.MonitorType;
 import java.util.Arrays;
 
-public class MonitorCreatetExample {
+public class MonitorCreatedExample {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
@@ -90,7 +90,7 @@ logs("service:foo AND type:error").index("main").rollup("count").by("source").la
 """)
             .message("some message Notify: @hipchat-channel")
             .tags(Arrays.asList("test:example", "env:ci"))
-            .priority(3L));
+            .priority(3L);
 
     try {
       Monitor result = apiInstance.createMonitor(body);

@@ -82,6 +82,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "invocations_percentage",
               "mobile_app_testing_percentage",
               "mobile_app_testing_usage",
+              "ndm_netflow_usage",
+              "ndm_netflow_percentage",
               "npm_host_usage",
               "npm_host_percentage",
               "obs_pipeline_bytes_usage",
@@ -92,6 +94,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "profiled_fargate_percentage",
               "profiled_host_usage",
               "profiled_host_percentage",
+              "serverless_apps_usage",
+              "serverless_apps_percentage",
               "snmp_usage",
               "snmp_percentage",
               "estimated_rum_sessions_usage",
@@ -213,6 +217,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("mobile_app_testing_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics MOBILE_APP_TESTING_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("mobile_app_testing_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics NDM_NETFLOW_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ndm_netflow_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics NDM_NETFLOW_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ndm_netflow_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics NPM_HOST_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("npm_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics NPM_HOST_PERCENTAGE =
@@ -233,6 +241,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("profiled_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_HOST_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("profiled_host_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics SERVERLESS_APPS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("serverless_apps_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics SERVERLESS_APPS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("serverless_apps_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics SNMP_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("snmp_usage");
   public static final MonthlyUsageAttributionSupportedMetrics SNMP_PERCENTAGE =
