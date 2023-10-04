@@ -2584,12 +2584,10 @@ public class IncidentsApi {
    *
    * <p>See {@link #searchIncidentsWithHttpInfo}.
    *
-   * @param query Specifies which incidents should be returned. After entering a search query in
-   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
-   *     parameter value in the URL of the page as the value for this parameter. The query can
-   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
-   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
-   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param query Specifies which incidents should be returned. The query can contain any number of
+   *     incident facets joined by <code>ANDs</code>, along with multiple values for each of those
+   *     facets joined by <code>OR</code>s. For example: <code>
+   *     state:active AND severity:(SEV-2 OR SEV-1)</code>. (required)
    * @return IncidentSearchResponse
    * @throws ApiException if fails to make API call
    */
@@ -2602,12 +2600,10 @@ public class IncidentsApi {
    *
    * <p>See {@link #searchIncidentsWithHttpInfoAsync}.
    *
-   * @param query Specifies which incidents should be returned. After entering a search query in
-   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
-   *     parameter value in the URL of the page as the value for this parameter. The query can
-   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
-   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
-   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param query Specifies which incidents should be returned. The query can contain any number of
+   *     incident facets joined by <code>ANDs</code>, along with multiple values for each of those
+   *     facets joined by <code>OR</code>s. For example: <code>
+   *     state:active AND severity:(SEV-2 OR SEV-1)</code>. (required)
    * @return CompletableFuture&lt;IncidentSearchResponse&gt;
    */
   public CompletableFuture<IncidentSearchResponse> searchIncidentsAsync(String query) {
@@ -2623,12 +2619,10 @@ public class IncidentsApi {
    *
    * <p>See {@link #searchIncidentsWithHttpInfo}.
    *
-   * @param query Specifies which incidents should be returned. After entering a search query in
-   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
-   *     parameter value in the URL of the page as the value for this parameter. The query can
-   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
-   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
-   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param query Specifies which incidents should be returned. The query can contain any number of
+   *     incident facets joined by <code>ANDs</code>, along with multiple values for each of those
+   *     facets joined by <code>OR</code>s. For example: <code>
+   *     state:active AND severity:(SEV-2 OR SEV-1)</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return IncidentSearchResponse
    * @throws ApiException if fails to make API call
@@ -2643,12 +2637,10 @@ public class IncidentsApi {
    *
    * <p>See {@link #searchIncidentsWithHttpInfoAsync}.
    *
-   * @param query Specifies which incidents should be returned. After entering a search query in
-   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
-   *     parameter value in the URL of the page as the value for this parameter. The query can
-   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
-   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
-   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param query Specifies which incidents should be returned. The query can contain any number of
+   *     incident facets joined by <code>ANDs</code>, along with multiple values for each of those
+   *     facets joined by <code>OR</code>s. For example: <code>
+   *     state:active AND severity:(SEV-2 OR SEV-1)</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;IncidentSearchResponse&gt;
    */
@@ -2666,12 +2658,10 @@ public class IncidentsApi {
    *
    * <p>See {@link #searchIncidentsWithHttpInfo}.
    *
-   * @param query Specifies which incidents should be returned. After entering a search query in
-   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
-   *     parameter value in the URL of the page as the value for this parameter. The query can
-   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
-   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
-   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param query Specifies which incidents should be returned. The query can contain any number of
+   *     incident facets joined by <code>ANDs</code>, along with multiple values for each of those
+   *     facets joined by <code>OR</code>s. For example: <code>
+   *     state:active AND severity:(SEV-2 OR SEV-1)</code>. (required)
    * @return PaginationIterable&lt;IncidentSearchResponseIncidentsData&gt;
    */
   public PaginationIterable<IncidentSearchResponseIncidentsData> searchIncidentsWithPagination(
@@ -2685,12 +2675,10 @@ public class IncidentsApi {
    *
    * <p>See {@link #searchIncidentsWithHttpInfo}.
    *
-   * @param query Specifies which incidents should be returned. After entering a search query in
-   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
-   *     parameter value in the URL of the page as the value for this parameter. The query can
-   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
-   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
-   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param query Specifies which incidents should be returned. The query can contain any number of
+   *     incident facets joined by <code>ANDs</code>, along with multiple values for each of those
+   *     facets joined by <code>OR</code>s. For example: <code>
+   *     state:active AND severity:(SEV-2 OR SEV-1)</code>. (required)
    * @return IncidentSearchResponse
    */
   public PaginationIterable<IncidentSearchResponseIncidentsData> searchIncidentsWithPagination(
@@ -2730,12 +2718,10 @@ public class IncidentsApi {
   /**
    * Search for incidents matching a certain query.
    *
-   * @param query Specifies which incidents should be returned. After entering a search query in
-   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
-   *     parameter value in the URL of the page as the value for this parameter. The query can
-   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
-   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
-   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param query Specifies which incidents should be returned. The query can contain any number of
+   *     incident facets joined by <code>ANDs</code>, along with multiple values for each of those
+   *     facets joined by <code>OR</code>s. For example: <code>
+   *     state:active AND severity:(SEV-2 OR SEV-1)</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;IncidentSearchResponse&gt;
    * @throws ApiException if fails to make API call
@@ -2808,12 +2794,10 @@ public class IncidentsApi {
    *
    * <p>See {@link #searchIncidentsWithHttpInfo}.
    *
-   * @param query Specifies which incidents should be returned. After entering a search query in
-   *     your <a href="https://app.datadoghq.com/incidents">Incidents page</a>, use the query
-   *     parameter value in the URL of the page as the value for this parameter. The query can
-   *     contain any number of incident facets joined by <code>ANDs</code>, along with multiple
-   *     values for each of those facets joined by <code>OR</code>s, for instance: <code>
-   *     query="state:active AND severity:(SEV-2 OR SEV-1)"</code>. (required)
+   * @param query Specifies which incidents should be returned. The query can contain any number of
+   *     incident facets joined by <code>ANDs</code>, along with multiple values for each of those
+   *     facets joined by <code>OR</code>s. For example: <code>
+   *     state:active AND severity:(SEV-2 OR SEV-1)</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentSearchResponse&gt;&gt;
    */
