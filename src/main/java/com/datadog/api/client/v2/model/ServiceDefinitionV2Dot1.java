@@ -22,6 +22,7 @@ import java.util.Objects;
 /** Service definition v2.1 for providing service metadata and integrations. */
 @JsonPropertyOrder({
   ServiceDefinitionV2Dot1.JSON_PROPERTY_APPLICATION,
+  ServiceDefinitionV2Dot1.JSON_PROPERTY_CI_PIPELINE_FINGERPRINTS,
   ServiceDefinitionV2Dot1.JSON_PROPERTY_CONTACTS,
   ServiceDefinitionV2Dot1.JSON_PROPERTY_DD_SERVICE,
   ServiceDefinitionV2Dot1.JSON_PROPERTY_DESCRIPTION,
@@ -40,6 +41,9 @@ public class ServiceDefinitionV2Dot1 {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APPLICATION = "application";
   private String application;
+
+  public static final String JSON_PROPERTY_CI_PIPELINE_FINGERPRINTS = "ci-pipeline-fingerprints";
+  private List<String> ciPipelineFingerprints = null;
 
   public static final String JSON_PROPERTY_CONTACTS = "contacts";
   private List<ServiceDefinitionV2Dot1Contact> contacts = null;
@@ -106,6 +110,35 @@ public class ServiceDefinitionV2Dot1 {
 
   public void setApplication(String application) {
     this.application = application;
+  }
+
+  public ServiceDefinitionV2Dot1 ciPipelineFingerprints(List<String> ciPipelineFingerprints) {
+    this.ciPipelineFingerprints = ciPipelineFingerprints;
+    return this;
+  }
+
+  public ServiceDefinitionV2Dot1 addCiPipelineFingerprintsItem(String ciPipelineFingerprintsItem) {
+    if (this.ciPipelineFingerprints == null) {
+      this.ciPipelineFingerprints = new ArrayList<>();
+    }
+    this.ciPipelineFingerprints.add(ciPipelineFingerprintsItem);
+    return this;
+  }
+
+  /**
+   * A set of CI pipeline fingerprints related to the service.
+   *
+   * @return ciPipelineFingerprints
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CI_PIPELINE_FINGERPRINTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCiPipelineFingerprints() {
+    return ciPipelineFingerprints;
+  }
+
+  public void setCiPipelineFingerprints(List<String> ciPipelineFingerprints) {
+    this.ciPipelineFingerprints = ciPipelineFingerprints;
   }
 
   public ServiceDefinitionV2Dot1 contacts(List<ServiceDefinitionV2Dot1Contact> contacts) {
@@ -440,6 +473,8 @@ public class ServiceDefinitionV2Dot1 {
     }
     ServiceDefinitionV2Dot1 serviceDefinitionV2Dot1 = (ServiceDefinitionV2Dot1) o;
     return Objects.equals(this.application, serviceDefinitionV2Dot1.application)
+        && Objects.equals(
+            this.ciPipelineFingerprints, serviceDefinitionV2Dot1.ciPipelineFingerprints)
         && Objects.equals(this.contacts, serviceDefinitionV2Dot1.contacts)
         && Objects.equals(this.ddService, serviceDefinitionV2Dot1.ddService)
         && Objects.equals(this.description, serviceDefinitionV2Dot1.description)
@@ -458,6 +493,7 @@ public class ServiceDefinitionV2Dot1 {
   public int hashCode() {
     return Objects.hash(
         application,
+        ciPipelineFingerprints,
         contacts,
         ddService,
         description,
@@ -477,6 +513,9 @@ public class ServiceDefinitionV2Dot1 {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServiceDefinitionV2Dot1 {\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
+    sb.append("    ciPipelineFingerprints: ")
+        .append(toIndentedString(ciPipelineFingerprints))
+        .append("\n");
     sb.append("    contacts: ").append(toIndentedString(contacts)).append("\n");
     sb.append("    ddService: ").append(toIndentedString(ddService)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
