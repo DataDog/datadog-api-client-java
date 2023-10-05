@@ -35,7 +35,7 @@ public class PowerpackAttributes {
   private String description;
 
   public static final String JSON_PROPERTY_GROUP_WIDGET = "group_widget";
-  private Map<String, Object> groupWidget = new HashMap<String, Object>();
+  private PowerpackGroupWidget groupWidget;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -51,9 +51,10 @@ public class PowerpackAttributes {
   @JsonCreator
   public PowerpackAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_GROUP_WIDGET)
-          Map<String, Object> groupWidget,
+          PowerpackGroupWidget groupWidget,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.groupWidget = groupWidget;
+    this.unparsed |= groupWidget.unparsed;
     this.name = name;
   }
 
@@ -78,28 +79,24 @@ public class PowerpackAttributes {
     this.description = description;
   }
 
-  public PowerpackAttributes groupWidget(Map<String, Object> groupWidget) {
+  public PowerpackAttributes groupWidget(PowerpackGroupWidget groupWidget) {
     this.groupWidget = groupWidget;
-    return this;
-  }
-
-  public PowerpackAttributes putGroupWidgetItem(String key, Object groupWidgetItem) {
-    this.groupWidget.put(key, groupWidgetItem);
+    this.unparsed |= groupWidget.unparsed;
     return this;
   }
 
   /**
-   * Templated group of dashboard widgets for the powerpack.
+   * Powerpack group widget definition object.
    *
    * @return groupWidget
    */
   @JsonProperty(JSON_PROPERTY_GROUP_WIDGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Map<String, Object> getGroupWidget() {
+  public PowerpackGroupWidget getGroupWidget() {
     return groupWidget;
   }
 
-  public void setGroupWidget(Map<String, Object> groupWidget) {
+  public void setGroupWidget(PowerpackGroupWidget groupWidget) {
     this.groupWidget = groupWidget;
   }
 

@@ -4,7 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.GetAllPowerpacksResponse;
+import com.datadog.api.client.v2.model.ListPowerpacksResponse;
 import com.datadog.api.client.v2.model.Powerpack;
 import com.datadog.api.client.v2.model.PowerpackResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -309,115 +309,6 @@ public class PowerpackApi {
   }
 
   /**
-   * Get all powerpacks.
-   *
-   * <p>See {@link #getAllPowerpacksWithHttpInfo}.
-   *
-   * @return GetAllPowerpacksResponse
-   * @throws ApiException if fails to make API call
-   */
-  public GetAllPowerpacksResponse getAllPowerpacks() throws ApiException {
-    return getAllPowerpacksWithHttpInfo().getData();
-  }
-
-  /**
-   * Get all powerpacks.
-   *
-   * <p>See {@link #getAllPowerpacksWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;GetAllPowerpacksResponse&gt;
-   */
-  public CompletableFuture<GetAllPowerpacksResponse> getAllPowerpacksAsync() {
-    return getAllPowerpacksWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Get a list of all powerpacks.
-   *
-   * @return ApiResponse&lt;GetAllPowerpacksResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<GetAllPowerpacksResponse> getAllPowerpacksWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    // create path and map variables
-    String localVarPath = "/api/v2/powerpacks";
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.PowerpackApi.getAllPowerpacks",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<GetAllPowerpacksResponse>() {});
-  }
-
-  /**
-   * Get all powerpacks.
-   *
-   * <p>See {@link #getAllPowerpacksWithHttpInfo}.
-   *
-   * @return CompletableFuture&lt;ApiResponse&lt;GetAllPowerpacksResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<GetAllPowerpacksResponse>>
-      getAllPowerpacksWithHttpInfoAsync() {
-    Object localVarPostBody = null;
-    // create path and map variables
-    String localVarPath = "/api/v2/powerpacks";
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.PowerpackApi.getAllPowerpacks",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<GetAllPowerpacksResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<GetAllPowerpacksResponse>() {});
-  }
-
-  /**
    * Get a Powerpack.
    *
    * <p>See {@link #getPowerpackWithHttpInfo}.
@@ -551,6 +442,114 @@ public class PowerpackApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<PowerpackResponse>() {});
+  }
+
+  /**
+   * Get all powerpacks.
+   *
+   * <p>See {@link #listPowerpacksWithHttpInfo}.
+   *
+   * @return ListPowerpacksResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListPowerpacksResponse listPowerpacks() throws ApiException {
+    return listPowerpacksWithHttpInfo().getData();
+  }
+
+  /**
+   * Get all powerpacks.
+   *
+   * <p>See {@link #listPowerpacksWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListPowerpacksResponse&gt;
+   */
+  public CompletableFuture<ListPowerpacksResponse> listPowerpacksAsync() {
+    return listPowerpacksWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of all powerpacks.
+   *
+   * @return ApiResponse&lt;ListPowerpacksResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListPowerpacksResponse> listPowerpacksWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/powerpacks";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.PowerpackApi.listPowerpacks",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListPowerpacksResponse>() {});
+  }
+
+  /**
+   * Get all powerpacks.
+   *
+   * <p>See {@link #listPowerpacksWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;ListPowerpacksResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListPowerpacksResponse>> listPowerpacksWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/powerpacks";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.PowerpackApi.listPowerpacks",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListPowerpacksResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListPowerpacksResponse>() {});
   }
 
   /**
