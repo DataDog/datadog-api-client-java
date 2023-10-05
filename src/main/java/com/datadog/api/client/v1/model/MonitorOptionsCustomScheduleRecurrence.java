@@ -16,69 +16,86 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Configuration options for scheduling. */
+/** Configuration for a recurrence set on the monitor options for custom schedule. */
 @JsonPropertyOrder({
-  MonitorOptionsSchedulingOptions.JSON_PROPERTY_CUSTOM_SCHEDULE,
-  MonitorOptionsSchedulingOptions.JSON_PROPERTY_EVALUATION_WINDOW
+  MonitorOptionsCustomScheduleRecurrence.JSON_PROPERTY_RRULE,
+  MonitorOptionsCustomScheduleRecurrence.JSON_PROPERTY_START,
+  MonitorOptionsCustomScheduleRecurrence.JSON_PROPERTY_TIMEZONE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MonitorOptionsSchedulingOptions {
+public class MonitorOptionsCustomScheduleRecurrence {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CUSTOM_SCHEDULE = "custom_schedule";
-  private MonitorOptionsCustomSchedule customSchedule;
+  public static final String JSON_PROPERTY_RRULE = "rrule";
+  private String rrule;
 
-  public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluation_window";
-  private MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow;
+  public static final String JSON_PROPERTY_START = "start";
+  private String start;
 
-  public MonitorOptionsSchedulingOptions customSchedule(
-      MonitorOptionsCustomSchedule customSchedule) {
-    this.customSchedule = customSchedule;
-    this.unparsed |= customSchedule.unparsed;
+  public static final String JSON_PROPERTY_TIMEZONE = "timezone";
+  private String timezone;
+
+  public MonitorOptionsCustomScheduleRecurrence rrule(String rrule) {
+    this.rrule = rrule;
     return this;
   }
 
   /**
-   * Configuration options for the custom schedule. <strong>This feature is in private
-   * beta.</strong>
+   * Defines the recurrence rule (RRULE) for a given schedule.
    *
-   * @return customSchedule
+   * @return rrule
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_SCHEDULE)
+  @JsonProperty(JSON_PROPERTY_RRULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorOptionsCustomSchedule getCustomSchedule() {
-    return customSchedule;
+  public String getRrule() {
+    return rrule;
   }
 
-  public void setCustomSchedule(MonitorOptionsCustomSchedule customSchedule) {
-    this.customSchedule = customSchedule;
+  public void setRrule(String rrule) {
+    this.rrule = rrule;
   }
 
-  public MonitorOptionsSchedulingOptions evaluationWindow(
-      MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow) {
-    this.evaluationWindow = evaluationWindow;
-    this.unparsed |= evaluationWindow.unparsed;
+  public MonitorOptionsCustomScheduleRecurrence start(String start) {
+    this.start = start;
     return this;
   }
 
   /**
-   * Configuration options for the evaluation window. If <code>hour_starts</code> is set, no other
-   * fields may be set. Otherwise, <code>day_starts</code> and <code>month_starts</code> must be set
-   * together.
+   * Defines the start date and time of the recurring schedule.
    *
-   * @return evaluationWindow
+   * @return start
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVALUATION_WINDOW)
+  @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorOptionsSchedulingOptionsEvaluationWindow getEvaluationWindow() {
-    return evaluationWindow;
+  public String getStart() {
+    return start;
   }
 
-  public void setEvaluationWindow(
-      MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow) {
-    this.evaluationWindow = evaluationWindow;
+  public void setStart(String start) {
+    this.start = start;
+  }
+
+  public MonitorOptionsCustomScheduleRecurrence timezone(String timezone) {
+    this.timezone = timezone;
+    return this;
+  }
+
+  /**
+   * Defines the timezone the schedule runs on.
+   *
+   * @return timezone
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMEZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTimezone() {
+    return timezone;
+  }
+
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
   }
 
   /**
@@ -93,10 +110,10 @@ public class MonitorOptionsSchedulingOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MonitorOptionsSchedulingOptions
+   * @return MonitorOptionsCustomScheduleRecurrence
    */
   @JsonAnySetter
-  public MonitorOptionsSchedulingOptions putAdditionalProperty(String key, Object value) {
+  public MonitorOptionsCustomScheduleRecurrence putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -127,7 +144,7 @@ public class MonitorOptionsSchedulingOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MonitorOptionsSchedulingOptions object is equal to o. */
+  /** Return true if this MonitorOptionsCustomScheduleRecurrence object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -136,25 +153,27 @@ public class MonitorOptionsSchedulingOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorOptionsSchedulingOptions monitorOptionsSchedulingOptions =
-        (MonitorOptionsSchedulingOptions) o;
-    return Objects.equals(this.customSchedule, monitorOptionsSchedulingOptions.customSchedule)
-        && Objects.equals(this.evaluationWindow, monitorOptionsSchedulingOptions.evaluationWindow)
+    MonitorOptionsCustomScheduleRecurrence monitorOptionsCustomScheduleRecurrence =
+        (MonitorOptionsCustomScheduleRecurrence) o;
+    return Objects.equals(this.rrule, monitorOptionsCustomScheduleRecurrence.rrule)
+        && Objects.equals(this.start, monitorOptionsCustomScheduleRecurrence.start)
+        && Objects.equals(this.timezone, monitorOptionsCustomScheduleRecurrence.timezone)
         && Objects.equals(
-            this.additionalProperties, monitorOptionsSchedulingOptions.additionalProperties);
+            this.additionalProperties, monitorOptionsCustomScheduleRecurrence.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customSchedule, evaluationWindow, additionalProperties);
+    return Objects.hash(rrule, start, timezone, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MonitorOptionsSchedulingOptions {\n");
-    sb.append("    customSchedule: ").append(toIndentedString(customSchedule)).append("\n");
-    sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
+    sb.append("class MonitorOptionsCustomScheduleRecurrence {\n");
+    sb.append("    rrule: ").append(toIndentedString(rrule)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
+    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

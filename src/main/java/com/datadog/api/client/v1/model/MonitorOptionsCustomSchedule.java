@@ -12,73 +12,56 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Configuration options for scheduling. */
-@JsonPropertyOrder({
-  MonitorOptionsSchedulingOptions.JSON_PROPERTY_CUSTOM_SCHEDULE,
-  MonitorOptionsSchedulingOptions.JSON_PROPERTY_EVALUATION_WINDOW
-})
+/**
+ * Configuration options for the custom schedule. <strong>This feature is in private beta.</strong>
+ */
+@JsonPropertyOrder({MonitorOptionsCustomSchedule.JSON_PROPERTY_RECURRENCES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MonitorOptionsSchedulingOptions {
+public class MonitorOptionsCustomSchedule {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CUSTOM_SCHEDULE = "custom_schedule";
-  private MonitorOptionsCustomSchedule customSchedule;
+  public static final String JSON_PROPERTY_RECURRENCES = "recurrences";
+  private List<MonitorOptionsCustomScheduleRecurrence> recurrences = null;
 
-  public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluation_window";
-  private MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow;
+  public MonitorOptionsCustomSchedule recurrences(
+      List<MonitorOptionsCustomScheduleRecurrence> recurrences) {
+    this.recurrences = recurrences;
+    for (MonitorOptionsCustomScheduleRecurrence item : recurrences) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
 
-  public MonitorOptionsSchedulingOptions customSchedule(
-      MonitorOptionsCustomSchedule customSchedule) {
-    this.customSchedule = customSchedule;
-    this.unparsed |= customSchedule.unparsed;
+  public MonitorOptionsCustomSchedule addRecurrencesItem(
+      MonitorOptionsCustomScheduleRecurrence recurrencesItem) {
+    if (this.recurrences == null) {
+      this.recurrences = new ArrayList<>();
+    }
+    this.recurrences.add(recurrencesItem);
+    this.unparsed |= recurrencesItem.unparsed;
     return this;
   }
 
   /**
-   * Configuration options for the custom schedule. <strong>This feature is in private
-   * beta.</strong>
+   * Array of custom schedule recurrences.
    *
-   * @return customSchedule
+   * @return recurrences
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CUSTOM_SCHEDULE)
+  @JsonProperty(JSON_PROPERTY_RECURRENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorOptionsCustomSchedule getCustomSchedule() {
-    return customSchedule;
+  public List<MonitorOptionsCustomScheduleRecurrence> getRecurrences() {
+    return recurrences;
   }
 
-  public void setCustomSchedule(MonitorOptionsCustomSchedule customSchedule) {
-    this.customSchedule = customSchedule;
-  }
-
-  public MonitorOptionsSchedulingOptions evaluationWindow(
-      MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow) {
-    this.evaluationWindow = evaluationWindow;
-    this.unparsed |= evaluationWindow.unparsed;
-    return this;
-  }
-
-  /**
-   * Configuration options for the evaluation window. If <code>hour_starts</code> is set, no other
-   * fields may be set. Otherwise, <code>day_starts</code> and <code>month_starts</code> must be set
-   * together.
-   *
-   * @return evaluationWindow
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVALUATION_WINDOW)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorOptionsSchedulingOptionsEvaluationWindow getEvaluationWindow() {
-    return evaluationWindow;
-  }
-
-  public void setEvaluationWindow(
-      MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow) {
-    this.evaluationWindow = evaluationWindow;
+  public void setRecurrences(List<MonitorOptionsCustomScheduleRecurrence> recurrences) {
+    this.recurrences = recurrences;
   }
 
   /**
@@ -93,10 +76,10 @@ public class MonitorOptionsSchedulingOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MonitorOptionsSchedulingOptions
+   * @return MonitorOptionsCustomSchedule
    */
   @JsonAnySetter
-  public MonitorOptionsSchedulingOptions putAdditionalProperty(String key, Object value) {
+  public MonitorOptionsCustomSchedule putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -127,7 +110,7 @@ public class MonitorOptionsSchedulingOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MonitorOptionsSchedulingOptions object is equal to o. */
+  /** Return true if this MonitorOptionsCustomSchedule object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -136,25 +119,22 @@ public class MonitorOptionsSchedulingOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorOptionsSchedulingOptions monitorOptionsSchedulingOptions =
-        (MonitorOptionsSchedulingOptions) o;
-    return Objects.equals(this.customSchedule, monitorOptionsSchedulingOptions.customSchedule)
-        && Objects.equals(this.evaluationWindow, monitorOptionsSchedulingOptions.evaluationWindow)
+    MonitorOptionsCustomSchedule monitorOptionsCustomSchedule = (MonitorOptionsCustomSchedule) o;
+    return Objects.equals(this.recurrences, monitorOptionsCustomSchedule.recurrences)
         && Objects.equals(
-            this.additionalProperties, monitorOptionsSchedulingOptions.additionalProperties);
+            this.additionalProperties, monitorOptionsCustomSchedule.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customSchedule, evaluationWindow, additionalProperties);
+    return Objects.hash(recurrences, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MonitorOptionsSchedulingOptions {\n");
-    sb.append("    customSchedule: ").append(toIndentedString(customSchedule)).append("\n");
-    sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
+    sb.append("class MonitorOptionsCustomSchedule {\n");
+    sb.append("    recurrences: ").append(toIndentedString(recurrences)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
