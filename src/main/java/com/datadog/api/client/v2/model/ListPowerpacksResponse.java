@@ -20,14 +20,14 @@ import java.util.Objects;
 
 /** Response object which includes all powerpack configurations. */
 @JsonPropertyOrder({
-  GetAllPowerpacksResponse.JSON_PROPERTY_DATA,
-  GetAllPowerpacksResponse.JSON_PROPERTY_INCLUDED,
-  GetAllPowerpacksResponse.JSON_PROPERTY_LINKS,
-  GetAllPowerpacksResponse.JSON_PROPERTY_META
+  ListPowerpacksResponse.JSON_PROPERTY_DATA,
+  ListPowerpacksResponse.JSON_PROPERTY_INCLUDED,
+  ListPowerpacksResponse.JSON_PROPERTY_LINKS,
+  ListPowerpacksResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class GetAllPowerpacksResponse {
+public class ListPowerpacksResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<PowerpackData> data = null;
@@ -41,7 +41,7 @@ public class GetAllPowerpacksResponse {
   public static final String JSON_PROPERTY_META = "meta";
   private PowerpacksResponseMeta meta;
 
-  public GetAllPowerpacksResponse data(List<PowerpackData> data) {
+  public ListPowerpacksResponse data(List<PowerpackData> data) {
     this.data = data;
     for (PowerpackData item : data) {
       this.unparsed |= item.unparsed;
@@ -49,7 +49,7 @@ public class GetAllPowerpacksResponse {
     return this;
   }
 
-  public GetAllPowerpacksResponse addDataItem(PowerpackData dataItem) {
+  public ListPowerpacksResponse addDataItem(PowerpackData dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -74,7 +74,7 @@ public class GetAllPowerpacksResponse {
     this.data = data;
   }
 
-  public GetAllPowerpacksResponse included(List<User> included) {
+  public ListPowerpacksResponse included(List<User> included) {
     this.included = included;
     for (User item : included) {
       this.unparsed |= item.unparsed;
@@ -82,7 +82,7 @@ public class GetAllPowerpacksResponse {
     return this;
   }
 
-  public GetAllPowerpacksResponse addIncludedItem(User includedItem) {
+  public ListPowerpacksResponse addIncludedItem(User includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
     }
@@ -107,7 +107,7 @@ public class GetAllPowerpacksResponse {
     this.included = included;
   }
 
-  public GetAllPowerpacksResponse links(PowerpackResponseLinks links) {
+  public ListPowerpacksResponse links(PowerpackResponseLinks links) {
     this.links = links;
     this.unparsed |= links.unparsed;
     return this;
@@ -129,7 +129,7 @@ public class GetAllPowerpacksResponse {
     this.links = links;
   }
 
-  public GetAllPowerpacksResponse meta(PowerpacksResponseMeta meta) {
+  public ListPowerpacksResponse meta(PowerpacksResponseMeta meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
     return this;
@@ -163,10 +163,10 @@ public class GetAllPowerpacksResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return GetAllPowerpacksResponse
+   * @return ListPowerpacksResponse
    */
   @JsonAnySetter
-  public GetAllPowerpacksResponse putAdditionalProperty(String key, Object value) {
+  public ListPowerpacksResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -197,7 +197,7 @@ public class GetAllPowerpacksResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GetAllPowerpacksResponse object is equal to o. */
+  /** Return true if this ListPowerpacksResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -206,12 +206,12 @@ public class GetAllPowerpacksResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetAllPowerpacksResponse getAllPowerpacksResponse = (GetAllPowerpacksResponse) o;
-    return Objects.equals(this.data, getAllPowerpacksResponse.data)
-        && Objects.equals(this.included, getAllPowerpacksResponse.included)
-        && Objects.equals(this.links, getAllPowerpacksResponse.links)
-        && Objects.equals(this.meta, getAllPowerpacksResponse.meta)
-        && Objects.equals(this.additionalProperties, getAllPowerpacksResponse.additionalProperties);
+    ListPowerpacksResponse listPowerpacksResponse = (ListPowerpacksResponse) o;
+    return Objects.equals(this.data, listPowerpacksResponse.data)
+        && Objects.equals(this.included, listPowerpacksResponse.included)
+        && Objects.equals(this.links, listPowerpacksResponse.links)
+        && Objects.equals(this.meta, listPowerpacksResponse.meta)
+        && Objects.equals(this.additionalProperties, listPowerpacksResponse.additionalProperties);
   }
 
   @Override
@@ -222,7 +222,7 @@ public class GetAllPowerpacksResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetAllPowerpacksResponse {\n");
+    sb.append("class ListPowerpacksResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");

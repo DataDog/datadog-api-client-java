@@ -3,7 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.PowerpackApi;
-import com.datadog.api.client.v2.model.GetAllPowerpacksResponse;
+import com.datadog.api.client.v2.model.ListPowerpacksResponse;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,10 +11,10 @@ public class Example {
     PowerpackApi apiInstance = new PowerpackApi(defaultClient);
 
     try {
-      GetAllPowerpacksResponse result = apiInstance.getAllPowerpacks();
+      ListPowerpacksResponse result = apiInstance.listPowerpacks();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PowerpackApi#getAllPowerpacks");
+      System.err.println("Exception when calling PowerpackApi#listPowerpacks");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

@@ -6,6 +6,10 @@ import com.datadog.api.client.v2.api.PowerpackApi;
 import com.datadog.api.client.v2.model.Powerpack;
 import com.datadog.api.client.v2.model.PowerpackAttributes;
 import com.datadog.api.client.v2.model.PowerpackData;
+import com.datadog.api.client.v2.model.PowerpackGroupWidget;
+import com.datadog.api.client.v2.model.PowerpackGroupWidgetDefinition;
+import com.datadog.api.client.v2.model.PowerpackGroupWidgetLayout;
+import com.datadog.api.client.v2.model.PowerpackInnerWidgets;
 import com.datadog.api.client.v2.model.PowerpackResponse;
 import com.datadog.api.client.v2.model.PowerpackTemplateVariable;
 import java.util.Collections;
@@ -27,15 +31,26 @@ public class Example {
                         new PowerpackAttributes()
                             .description("Sample powerpack")
                             .groupWidget(
-                                Map.ofEntries(
-                                    Map.entry(
-                                        "definition",
-                                        "{'layout_type': 'ordered', 'show_title': True, 'title':"
-                                            + " 'Sample Powerpack', 'type': 'group', 'widgets':"
-                                            + " [{'definition': {'content': 'test', 'type':"
-                                            + " 'note'}}]}"),
-                                    Map.entry(
-                                        "layout", "{'height': 3, 'width': 12, 'x': 0, 'y': 0}")))
+                                new PowerpackGroupWidget()
+                                    .definition(
+                                        new PowerpackGroupWidgetDefinition()
+                                            .layoutType("ordered")
+                                            .showTitle(true)
+                                            .title("Sample Powerpack")
+                                            .type("group")
+                                            .widgets(
+                                                Collections.singletonList(
+                                                    new PowerpackInnerWidgets()
+                                                        .definition(
+                                                            Map.ofEntries(
+                                                                Map.entry("content", "test"),
+                                                                Map.entry("type", "note"))))))
+                                    .layout(
+                                        new PowerpackGroupWidgetLayout()
+                                            .height(3L)
+                                            .width(12L)
+                                            .x(0L)
+                                            .y(0L)))
                             .name("Sample Powerpack")
                             .tags(Collections.singletonList("tag:sample"))
                             .templateVariables(
