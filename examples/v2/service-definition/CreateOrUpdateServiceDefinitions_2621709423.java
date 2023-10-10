@@ -1,4 +1,4 @@
-// Create or update service definition returns "CREATED" response
+// Create or update service definition using schema v2-2 returns "CREATED" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -25,16 +25,14 @@ public class Example {
     ServiceDefinitionsCreateRequest body =
         new ServiceDefinitionsCreateRequest(
             new ServiceDefinitionV2Dot2()
-                .application("my-app")
                 .contacts(
                     Collections.singletonList(
                         new ServiceDefinitionV2Dot2Contact()
-                            .contact("https://teams.microsoft.com/myteam")
-                            .name("My team channel")
-                            .type("slack")))
-                .ddService("my-service")
-                .description("My service description")
-                .extensions(Map.ofEntries(Map.entry("myorg/extension", "extensionValue")))
+                            .contact("contact@datadoghq.com")
+                            .name("Team Email")
+                            .type("email")))
+                .ddService("service-exampleservicedefinition")
+                .extensions(Map.ofEntries(Map.entry("myorgextension", "extensionvalue")))
                 .integrations(
                     new ServiceDefinitionV2Dot2Integrations()
                         .opsgenie(
@@ -46,21 +44,25 @@ public class Example {
                             new ServiceDefinitionV2Dot2Pagerduty()
                                 .serviceUrl(
                                     "https://my-org.pagerduty.com/service-directory/PMyService")))
-                .langauges(
-                    Arrays.asList("dotnet", "go", "java", "js", "php", "python", "ruby", "c++"))
-                .lifecycle("sandbox")
                 .links(
-                    Collections.singletonList(
+                    Arrays.asList(
                         new ServiceDefinitionV2Dot2Link()
                             .name("Runbook")
-                            .provider("Github")
                             .type("runbook")
+                            .url("https://my-runbook"),
+                        new ServiceDefinitionV2Dot2Link()
+                            .name("Source Code")
+                            .type("repo")
+                            .provider("GitHub")
+                            .url("https://github.com/DataDog/schema"),
+                        new ServiceDefinitionV2Dot2Link()
+                            .name("Architecture")
+                            .type("doc")
+                            .provider("Gigoogle drivetHub")
                             .url("https://my-runbook")))
                 .schemaVersion(ServiceDefinitionV2Dot2Version.V2_2)
-                .serviceType("web")
                 .tags(Arrays.asList("my:tag", "service:tag"))
-                .team("my-team")
-                .tier("High"));
+                .team("my-team"));
 
     try {
       ServiceDefinitionCreateResponse result = apiInstance.createOrUpdateServiceDefinitions(body);
