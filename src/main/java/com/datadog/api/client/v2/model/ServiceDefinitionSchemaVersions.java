@@ -24,7 +24,7 @@ import java.util.Set;
 public class ServiceDefinitionSchemaVersions extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("v1", "v2", "v2.1"));
+      new HashSet<String>(Arrays.asList("v1", "v2", "v2.1", "v2.2"));
 
   public static final ServiceDefinitionSchemaVersions V1 =
       new ServiceDefinitionSchemaVersions("v1");
@@ -32,6 +32,8 @@ public class ServiceDefinitionSchemaVersions extends ModelEnum<String> {
       new ServiceDefinitionSchemaVersions("v2");
   public static final ServiceDefinitionSchemaVersions V2_1 =
       new ServiceDefinitionSchemaVersions("v2.1");
+  public static final ServiceDefinitionSchemaVersions V2_2 =
+      new ServiceDefinitionSchemaVersions("v2.2");
 
   ServiceDefinitionSchemaVersions(String value) {
     super(value, allowedValues);
