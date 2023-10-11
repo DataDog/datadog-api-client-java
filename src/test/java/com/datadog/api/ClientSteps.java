@@ -338,8 +338,8 @@ public class ClientSteps {
       responseList = (List) responseObject.getActualInstance();
     }
     for (Object responseItem : responseList) {
-      Object itemValue = World.lookup(responseItem, keyPath);
       try {
+        Object itemValue = World.lookup(responseItem, keyPath);
         assertEquals(
             World.fromJSON(
                 world.getObjectMapper(),
@@ -347,7 +347,7 @@ public class ClientSteps {
                 World.templated(value, world.context)),
             itemValue);
         return;
-      } catch (AssertionError e) {
+      } catch (AssertionError | NullPointerException e) {
         continue;
       }
     }
