@@ -1,5 +1,5 @@
 Component,Origin,License,Copyright
-import,com.datadoghq:dd-trace-api,Apache-2.0,2017 Datadog, Inc.
+import,com.datadoghq:dd-trace-api,Apache-2.0,2017 Datadog Inc.
 import,com.fasterxml.jackson.core:jackson-annotations,Apache-2.0,2007- Tatu Saloranta tatu.saloranta@iki.fi
 import,com.fasterxml.jackson.core:jackson-core,Apache-2.0,
 import,com.fasterxml.jackson.core:jackson-databind,Apache-2.0,
