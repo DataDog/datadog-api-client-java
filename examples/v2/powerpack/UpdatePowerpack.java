@@ -51,7 +51,7 @@ public class Example {
                                             .width(12L)
                                             .x(0L)
                                             .y(0L)))
-                            .name("Sample Powerpack")
+                            .name("Example-Powerpack")
                             .tags(Collections.singletonList("tag:sample"))
                             .templateVariables(
                                 Collections.singletonList(

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"}}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"name\":\"Sample Powerpack\",\"tags\":[\"tag:sample\"],\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}]},\"type\":\"powerpack\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"}}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"name\":\"Test-Update_a_powerpack_returns_OK_response-1697039337\",\"tags\":[\"tag:sample\"],\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}]},\"type\":\"powerpack\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"powerpack\",\"id\":\"eb863bda-572b-11ee-a120-da7ad0900002\",\"attributes\":{\"name\":\"Sample Powerpack\",\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"},\"id\":6171784362108598}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}],\"tags\":[\"tag:sample\"]},\"relationships\":{\"author\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}},\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"email\":\"frog@datadoghq.com\"}}]}\n",
+      "body": "{\"data\":{\"type\":\"powerpack\",\"id\":\"b07d6fa8-684d-11ee-ac91-da7ad0900002\",\"attributes\":{\"name\":\"Test-Update_a_powerpack_returns_OK_response-1697039337\",\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"},\"id\":8154966623549713}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}],\"tags\":[\"tag:sample\"]},\"relationships\":{\"author\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}},\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"email\":\"frog@datadoghq.com\"}}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8305fb37-79a4-03a2-aa69-f085c06f0599"
+    "id": "04c9ca47-655a-e8d5-8adc-ed3569e592aa"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"}}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"name\":\"Sample Powerpack\",\"tags\":[\"tag:sample\"],\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}]},\"type\":\"powerpack\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"}}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"name\":\"Test-Update_a_powerpack_returns_OK_response-1697039337\",\"tags\":[\"tag:sample\"],\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}]},\"type\":\"powerpack\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/powerpacks/eb863bda-572b-11ee-a120-da7ad0900002",
+      "path": "/api/v2/powerpacks/b07d6fa8-684d-11ee-ac91-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"powerpack\",\"id\":\"eb863bda-572b-11ee-a120-da7ad0900002\",\"attributes\":{\"name\":\"Sample Powerpack\",\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"},\"id\":4154924957169825}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}],\"tags\":[\"tag:sample\"]},\"relationships\":{\"author\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}},\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"email\":\"frog@datadoghq.com\"}}]}\n",
+      "body": "{\"data\":{\"type\":\"powerpack\",\"id\":\"b07d6fa8-684d-11ee-ac91-da7ad0900002\",\"attributes\":{\"name\":\"Test-Update_a_powerpack_returns_OK_response-1697039337\",\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"},\"id\":5980827967005331}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}],\"tags\":[\"tag:sample\"]},\"relationships\":{\"author\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}},\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"email\":\"frog@datadoghq.com\"}}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "91464fb8-dcce-a706-a2b0-1b8cd6903193"
+    "id": "da12a2c7-4e5f-0609-675b-8c677f966f56"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/powerpacks/eb863bda-572b-11ee-a120-da7ad0900002",
+      "path": "/api/v2/powerpacks/b07d6fa8-684d-11ee-ac91-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "109d43b5-9a67-b15f-84df-584377fff222"
+    "id": "74ee8d46-34c9-35b5-a5e1-071070edd45f"
   }
 ]

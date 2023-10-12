@@ -3,14 +3,18 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ListPowerpacksResponse;
 import com.datadog.api.client.v2.model.Powerpack;
+import com.datadog.api.client.v2.model.PowerpackData;
 import com.datadog.api.client.v2.model.PowerpackResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -444,6 +448,35 @@ public class PowerpackApi {
         new GenericType<PowerpackResponse>() {});
   }
 
+  /** Manage optional parameters to listPowerpacks. */
+  public static class ListPowerpacksOptionalParameters {
+    private Long pageLimit;
+    private Long pageOffset;
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of powerpacks in the response. (optional, default to 25)
+     * @return ListPowerpacksOptionalParameters
+     */
+    public ListPowerpacksOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
+     *     default to 0)
+     * @return ListPowerpacksOptionalParameters
+     */
+    public ListPowerpacksOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+  }
+
   /**
    * Get all powerpacks.
    *
@@ -453,7 +486,7 @@ public class PowerpackApi {
    * @throws ApiException if fails to make API call
    */
   public ListPowerpacksResponse listPowerpacks() throws ApiException {
-    return listPowerpacksWithHttpInfo().getData();
+    return listPowerpacksWithHttpInfo(new ListPowerpacksOptionalParameters()).getData();
   }
 
   /**
@@ -464,7 +497,7 @@ public class PowerpackApi {
    * @return CompletableFuture&lt;ListPowerpacksResponse&gt;
    */
   public CompletableFuture<ListPowerpacksResponse> listPowerpacksAsync() {
-    return listPowerpacksWithHttpInfoAsync()
+    return listPowerpacksWithHttpInfoAsync(new ListPowerpacksOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -472,8 +505,92 @@ public class PowerpackApi {
   }
 
   /**
+   * Get all powerpacks.
+   *
+   * <p>See {@link #listPowerpacksWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListPowerpacksResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListPowerpacksResponse listPowerpacks(ListPowerpacksOptionalParameters parameters)
+      throws ApiException {
+    return listPowerpacksWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all powerpacks.
+   *
+   * <p>See {@link #listPowerpacksWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListPowerpacksResponse&gt;
+   */
+  public CompletableFuture<ListPowerpacksResponse> listPowerpacksAsync(
+      ListPowerpacksOptionalParameters parameters) {
+    return listPowerpacksWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all powerpacks.
+   *
+   * <p>See {@link #listPowerpacksWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;PowerpackData&gt;
+   */
+  public PaginationIterable<PowerpackData> listPowerpacksWithPagination() {
+    ListPowerpacksOptionalParameters parameters = new ListPowerpacksOptionalParameters();
+    return listPowerpacksWithPagination(parameters);
+  }
+
+  /**
+   * Get all powerpacks.
+   *
+   * <p>See {@link #listPowerpacksWithHttpInfo}.
+   *
+   * @return ListPowerpacksResponse
+   */
+  public PaginationIterable<PowerpackData> listPowerpacksWithPagination(
+      ListPowerpacksOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageOffset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 25l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listPowerpacks",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
    * Get a list of all powerpacks.
    *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListPowerpacksResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -484,18 +601,25 @@ public class PowerpackApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ListPowerpacksResponse> listPowerpacksWithHttpInfo() throws ApiException {
+  public ApiResponse<ListPowerpacksResponse> listPowerpacksWithHttpInfo(
+      ListPowerpacksOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/powerpacks";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.PowerpackApi.listPowerpacks",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -516,14 +640,22 @@ public class PowerpackApi {
    *
    * <p>See {@link #listPowerpacksWithHttpInfo}.
    *
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ListPowerpacksResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ListPowerpacksResponse>> listPowerpacksWithHttpInfoAsync() {
+  public CompletableFuture<ApiResponse<ListPowerpacksResponse>> listPowerpacksWithHttpInfoAsync(
+      ListPowerpacksOptionalParameters parameters) {
     Object localVarPostBody = null;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
     // create path and map variables
     String localVarPath = "/api/v2/powerpacks";
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
 
     Invocation.Builder builder;
     try {
@@ -531,7 +663,7 @@ public class PowerpackApi {
           apiClient.createBuilder(
               "v2.PowerpackApi.listPowerpacks",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},

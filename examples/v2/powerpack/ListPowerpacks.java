@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.PowerpackApi;
+import com.datadog.api.client.v2.api.PowerpackApi.ListPowerpacksOptionalParameters;
 import com.datadog.api.client.v2.model.ListPowerpacksResponse;
 
 public class Example {
@@ -11,7 +12,8 @@ public class Example {
     PowerpackApi apiInstance = new PowerpackApi(defaultClient);
 
     try {
-      ListPowerpacksResponse result = apiInstance.listPowerpacks();
+      ListPowerpacksResponse result =
+          apiInstance.listPowerpacks(new ListPowerpacksOptionalParameters().pageLimit(1000L));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PowerpackApi#listPowerpacks");
