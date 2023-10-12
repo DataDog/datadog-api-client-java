@@ -70,7 +70,7 @@ public class MonitorOptions {
   private Boolean enableSamples;
 
   public static final String JSON_PROPERTY_ESCALATION_MESSAGE = "escalation_message";
-  private String escalationMessage = "none";
+  private String escalationMessage;
 
   public static final String JSON_PROPERTY_EVALUATION_DELAY = "evaluation_delay";
   private JsonNullable<Long> evaluationDelay = JsonNullable.<Long>undefined();
