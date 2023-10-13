@@ -37,7 +37,7 @@ public class SpansAggregateSort {
   private SpansSortOrder order;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SpansAggregateSortType type = SpansAggregateSortType.ALPHABETICAL;
+  private SpansAggregateSortType type;
 
   public SpansAggregateSort aggregation(SpansAggregationFunction aggregation) {
     this.aggregation = aggregation;

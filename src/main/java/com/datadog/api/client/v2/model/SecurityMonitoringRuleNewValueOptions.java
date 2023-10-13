@@ -31,16 +31,13 @@ public class SecurityMonitoringRuleNewValueOptions {
   private SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter;
 
   public static final String JSON_PROPERTY_LEARNING_DURATION = "learningDuration";
-  private SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration =
-      SecurityMonitoringRuleNewValueOptionsLearningDuration.ZERO_DAYS;
+  private SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration;
 
   public static final String JSON_PROPERTY_LEARNING_METHOD = "learningMethod";
-  private SecurityMonitoringRuleNewValueOptionsLearningMethod learningMethod =
-      SecurityMonitoringRuleNewValueOptionsLearningMethod.DURATION;
+  private SecurityMonitoringRuleNewValueOptionsLearningMethod learningMethod;
 
   public static final String JSON_PROPERTY_LEARNING_THRESHOLD = "learningThreshold";
-  private SecurityMonitoringRuleNewValueOptionsLearningThreshold learningThreshold =
-      SecurityMonitoringRuleNewValueOptionsLearningThreshold.ZERO_OCCURRENCES;
+  private SecurityMonitoringRuleNewValueOptionsLearningThreshold learningThreshold;
 
   public SecurityMonitoringRuleNewValueOptions forgetAfter(
       SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter) {

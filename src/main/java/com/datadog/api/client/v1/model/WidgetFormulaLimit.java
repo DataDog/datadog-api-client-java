@@ -26,7 +26,7 @@ public class WidgetFormulaLimit {
   private Long count;
 
   public static final String JSON_PROPERTY_ORDER = "order";
-  private QuerySortOrder order = QuerySortOrder.DESC;
+  private QuerySortOrder order;
 
   public WidgetFormulaLimit count(Long count) {
     this.count = count;

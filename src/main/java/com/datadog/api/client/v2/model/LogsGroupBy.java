@@ -37,7 +37,7 @@ public class LogsGroupBy {
   private LogsGroupByHistogram histogram;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private Long limit = 10l;
+  private Long limit;
 
   public static final String JSON_PROPERTY_MISSING = "missing";
   private LogsGroupByMissing missing;
@@ -46,7 +46,7 @@ public class LogsGroupBy {
   private LogsAggregateSort sort;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
-  private LogsGroupByTotal total = new LogsGroupByTotal(false);
+  private LogsGroupByTotal total;
 
   public LogsGroupBy() {}
 

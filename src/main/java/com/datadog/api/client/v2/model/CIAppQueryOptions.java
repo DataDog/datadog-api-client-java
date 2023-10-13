@@ -32,7 +32,7 @@ public class CIAppQueryOptions {
   private Long timeOffset;
 
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
-  private String timezone = "UTC";
+  private String timezone;
 
   public CIAppQueryOptions timeOffset(Long timeOffset) {
     this.timeOffset = timeOffset;

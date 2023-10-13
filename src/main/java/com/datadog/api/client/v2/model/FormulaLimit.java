@@ -29,7 +29,7 @@ public class FormulaLimit {
   private Integer count;
 
   public static final String JSON_PROPERTY_ORDER = "order";
-  private QuerySortOrder order = QuerySortOrder.DESC;
+  private QuerySortOrder order;
 
   public FormulaLimit count(Integer count) {
     this.count = count;

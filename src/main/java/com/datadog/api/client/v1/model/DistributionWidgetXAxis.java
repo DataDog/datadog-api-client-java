@@ -31,13 +31,13 @@ public class DistributionWidgetXAxis {
   private Boolean includeZero;
 
   public static final String JSON_PROPERTY_MAX = "max";
-  private String max = "auto";
+  private String max;
 
   public static final String JSON_PROPERTY_MIN = "min";
-  private String min = "auto";
+  private String min;
 
   public static final String JSON_PROPERTY_SCALE = "scale";
-  private String scale = "linear";
+  private String scale;
 
   public DistributionWidgetXAxis includeZero(Boolean includeZero) {
     this.includeZero = includeZero;

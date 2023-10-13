@@ -34,7 +34,7 @@ public class WebhooksIntegration {
   private JsonNullable<String> customHeaders = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ENCODE_AS = "encode_as";
-  private WebhooksIntegrationEncoding encodeAs = WebhooksIntegrationEncoding.JSON;
+  private WebhooksIntegrationEncoding encodeAs;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

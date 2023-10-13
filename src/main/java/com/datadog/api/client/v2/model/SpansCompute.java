@@ -38,7 +38,7 @@ public class SpansCompute {
   private String metric;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SpansComputeType type = SpansComputeType.TOTAL;
+  private SpansComputeType type;
 
   public SpansCompute() {}
 

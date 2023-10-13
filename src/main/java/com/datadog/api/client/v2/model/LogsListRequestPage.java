@@ -29,7 +29,7 @@ public class LogsListRequestPage {
   private String cursor;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private Integer limit = 10;
+  private Integer limit;
 
   public LogsListRequestPage cursor(String cursor) {
     this.cursor = cursor;

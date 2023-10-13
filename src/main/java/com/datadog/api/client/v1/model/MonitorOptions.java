@@ -82,38 +82,37 @@ public class MonitorOptions {
   private Boolean groupbySimpleMonitor;
 
   public static final String JSON_PROPERTY_INCLUDE_TAGS = "include_tags";
-  private Boolean includeTags = true;
+  private Boolean includeTags;
 
   public static final String JSON_PROPERTY_LOCKED = "locked";
   private Boolean locked;
 
   public static final String JSON_PROPERTY_MIN_FAILURE_DURATION = "min_failure_duration";
-  private JsonNullable<Long> minFailureDuration = JsonNullable.<Long>of(0l);
+  private JsonNullable<Long> minFailureDuration = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_MIN_LOCATION_FAILED = "min_location_failed";
-  private JsonNullable<Long> minLocationFailed = JsonNullable.<Long>of(1l);
+  private JsonNullable<Long> minLocationFailed = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NEW_GROUP_DELAY = "new_group_delay";
   private JsonNullable<Long> newGroupDelay = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NEW_HOST_DELAY = "new_host_delay";
-  private JsonNullable<Long> newHostDelay = JsonNullable.<Long>of(300l);
+  private JsonNullable<Long> newHostDelay = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NO_DATA_TIMEFRAME = "no_data_timeframe";
   private JsonNullable<Long> noDataTimeframe = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NOTIFICATION_PRESET_NAME = "notification_preset_name";
-  private MonitorOptionsNotificationPresets notificationPresetName =
-      MonitorOptionsNotificationPresets.SHOW_ALL;
+  private MonitorOptionsNotificationPresets notificationPresetName;
 
   public static final String JSON_PROPERTY_NOTIFY_AUDIT = "notify_audit";
-  private Boolean notifyAudit = false;
+  private Boolean notifyAudit;
 
   public static final String JSON_PROPERTY_NOTIFY_BY = "notify_by";
   private List<String> notifyBy = null;
 
   public static final String JSON_PROPERTY_NOTIFY_NO_DATA = "notify_no_data";
-  private Boolean notifyNoData = false;
+  private Boolean notifyNoData;
 
   public static final String JSON_PROPERTY_ON_MISSING_DATA = "on_missing_data";
   private OnMissingDataOption onMissingData;

@@ -44,7 +44,7 @@ public class PowerpackWidgetDefinition {
   private String powerpackId;
 
   public static final String JSON_PROPERTY_SHOW_TITLE = "show_title";
-  private Boolean showTitle = true;
+  private Boolean showTitle;
 
   public static final String JSON_PROPERTY_TEMPLATE_VARIABLES = "template_variables";
   private PowerpackTemplateVariables templateVariables;

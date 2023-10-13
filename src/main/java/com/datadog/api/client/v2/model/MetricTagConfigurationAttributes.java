@@ -42,7 +42,7 @@ public class MetricTagConfigurationAttributes {
   private Boolean includePercentiles;
 
   public static final String JSON_PROPERTY_METRIC_TYPE = "metric_type";
-  private MetricTagConfigurationMetricTypes metricType = MetricTagConfigurationMetricTypes.GAUGE;
+  private MetricTagConfigurationMetricTypes metricType;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;

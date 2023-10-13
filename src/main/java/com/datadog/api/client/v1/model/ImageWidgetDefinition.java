@@ -37,10 +37,10 @@ import java.util.Objects;
 public class ImageWidgetDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HAS_BACKGROUND = "has_background";
-  private Boolean hasBackground = true;
+  private Boolean hasBackground;
 
   public static final String JSON_PROPERTY_HAS_BORDER = "has_border";
-  private Boolean hasBorder = true;
+  private Boolean hasBorder;
 
   public static final String JSON_PROPERTY_HORIZONTAL_ALIGN = "horizontal_align";
   private WidgetHorizontalAlign horizontalAlign;

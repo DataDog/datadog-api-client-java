@@ -28,7 +28,7 @@ import java.util.Objects;
 public class EventsCompute {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
-  private EventsAggregation aggregation = EventsAggregation.COUNT;
+  private EventsAggregation aggregation;
 
   public static final String JSON_PROPERTY_INTERVAL = "interval";
   private Long interval;

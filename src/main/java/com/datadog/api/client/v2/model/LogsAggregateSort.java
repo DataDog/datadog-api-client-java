@@ -37,7 +37,7 @@ public class LogsAggregateSort {
   private LogsSortOrder order;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private LogsAggregateSortType type = LogsAggregateSortType.ALPHABETICAL;
+  private LogsAggregateSortType type;
 
   public LogsAggregateSort aggregation(LogsAggregationFunction aggregation) {
     this.aggregation = aggregation;

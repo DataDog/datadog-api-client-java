@@ -37,7 +37,7 @@ public class CIAppTestsGroupBy {
   private CIAppGroupByHistogram histogram;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private Long limit = 10l;
+  private Long limit;
 
   public static final String JSON_PROPERTY_MISSING = "missing";
   private CIAppGroupByMissing missing;
@@ -46,7 +46,7 @@ public class CIAppTestsGroupBy {
   private CIAppAggregateSort sort;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
-  private CIAppGroupByTotal total = new CIAppGroupByTotal(false);
+  private CIAppGroupByTotal total;
 
   public CIAppTestsGroupBy() {}
 

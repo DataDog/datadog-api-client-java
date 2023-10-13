@@ -35,7 +35,7 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
   private IncidentTimelineCellMarkdownCreateAttributesContent content;
 
   public static final String JSON_PROPERTY_IMPORTANT = "important";
-  private Boolean important = false;
+  private Boolean important;
 
   public IncidentTimelineCellMarkdownCreateAttributes() {}
 

@@ -32,7 +32,7 @@ public class EventsQueryOptions {
   private Long timeOffset;
 
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
-  private String timezone = "UTC";
+  private String timezone;
 
   public EventsQueryOptions timeOffset(Long timeOffset) {
     this.timeOffset = timeOffset;

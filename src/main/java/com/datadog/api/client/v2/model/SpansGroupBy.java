@@ -37,7 +37,7 @@ public class SpansGroupBy {
   private SpansGroupByHistogram histogram;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private Long limit = 10l;
+  private Long limit;
 
   public static final String JSON_PROPERTY_MISSING = "missing";
   private SpansGroupByMissing missing;
@@ -46,7 +46,7 @@ public class SpansGroupBy {
   private SpansAggregateSort sort;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
-  private SpansGroupByTotal total = new SpansGroupByTotal(false);
+  private SpansGroupByTotal total;
 
   public SpansGroupBy() {}
 

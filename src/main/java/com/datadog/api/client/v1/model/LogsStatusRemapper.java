@@ -55,7 +55,7 @@ import java.util.Objects;
 public class LogsStatusRemapper {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
+  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

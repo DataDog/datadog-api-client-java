@@ -29,10 +29,10 @@ import java.util.Objects;
 public class MetricsScalarQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
-  private MetricsAggregator aggregator = MetricsAggregator.AVG;
+  private MetricsAggregator aggregator;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
-  private MetricsDataSource dataSource = MetricsDataSource.METRICS;
+  private MetricsDataSource dataSource;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

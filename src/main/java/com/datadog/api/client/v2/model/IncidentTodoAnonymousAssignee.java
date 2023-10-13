@@ -38,7 +38,7 @@ public class IncidentTodoAnonymousAssignee {
   private String name;
 
   public static final String JSON_PROPERTY_SOURCE = "source";
-  private IncidentTodoAnonymousAssigneeSource source = IncidentTodoAnonymousAssigneeSource.SLACK;
+  private IncidentTodoAnonymousAssigneeSource source;
 
   public IncidentTodoAnonymousAssignee() {}
 

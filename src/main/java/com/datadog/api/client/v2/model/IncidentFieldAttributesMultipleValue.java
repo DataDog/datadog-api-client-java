@@ -29,7 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class IncidentFieldAttributesMultipleValue {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
-  private IncidentFieldAttributesValueType type = IncidentFieldAttributesValueType.MULTISELECT;
+  private IncidentFieldAttributesValueType type;
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private JsonNullable<List<String>> value = JsonNullable.<List<String>>undefined();

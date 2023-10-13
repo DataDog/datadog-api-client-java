@@ -37,7 +37,7 @@ public class MetricTagConfigurationCreateAttributes {
   private Boolean includePercentiles;
 
   public static final String JSON_PROPERTY_METRIC_TYPE = "metric_type";
-  private MetricTagConfigurationMetricTypes metricType = MetricTagConfigurationMetricTypes.GAUGE;
+  private MetricTagConfigurationMetricTypes metricType;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = new ArrayList<>();

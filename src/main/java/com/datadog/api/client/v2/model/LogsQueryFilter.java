@@ -31,19 +31,19 @@ import java.util.Objects;
 public class LogsQueryFilter {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM = "from";
-  private String from = "now-15m";
+  private String from;
 
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<String> indexes = null;
 
   public static final String JSON_PROPERTY_QUERY = "query";
-  private String query = "*";
+  private String query;
 
   public static final String JSON_PROPERTY_STORAGE_TIER = "storage_tier";
-  private LogsStorageTier storageTier = LogsStorageTier.INDEXES;
+  private LogsStorageTier storageTier;
 
   public static final String JSON_PROPERTY_TO = "to";
-  private String to = "now";
+  private String to;
 
   public LogsQueryFilter from(String from) {
     this.from = from;

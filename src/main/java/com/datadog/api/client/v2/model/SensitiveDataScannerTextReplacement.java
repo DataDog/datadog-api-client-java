@@ -33,8 +33,7 @@ public class SensitiveDataScannerTextReplacement {
   private String replacementString;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SensitiveDataScannerTextReplacementType type =
-      SensitiveDataScannerTextReplacementType.NONE;
+  private SensitiveDataScannerTextReplacementType type;
 
   public SensitiveDataScannerTextReplacement numberOfChars(Long numberOfChars) {
     this.numberOfChars = numberOfChars;

@@ -47,7 +47,7 @@ public class NoteWidgetDefinition {
   private String fontSize;
 
   public static final String JSON_PROPERTY_HAS_PADDING = "has_padding";
-  private Boolean hasPadding = true;
+  private Boolean hasPadding;
 
   public static final String JSON_PROPERTY_SHOW_TICK = "show_tick";
   private Boolean showTick;

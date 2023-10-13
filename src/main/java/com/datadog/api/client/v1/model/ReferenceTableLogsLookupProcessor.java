@@ -37,7 +37,7 @@ import java.util.Objects;
 public class ReferenceTableLogsLookupProcessor {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
+  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_LOOKUP_ENRICHMENT_TABLE = "lookup_enrichment_table";
   private String lookupEnrichmentTable;

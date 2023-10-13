@@ -38,7 +38,7 @@ public class LogsCompute {
   private String metric;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private LogsComputeType type = LogsComputeType.TOTAL;
+  private LogsComputeType type;
 
   public LogsCompute() {}
 

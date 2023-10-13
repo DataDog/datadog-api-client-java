@@ -38,7 +38,7 @@ public class CIAppCompute {
   private String metric;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private CIAppComputeType type = CIAppComputeType.TOTAL;
+  private CIAppComputeType type;
 
   public CIAppCompute() {}
 

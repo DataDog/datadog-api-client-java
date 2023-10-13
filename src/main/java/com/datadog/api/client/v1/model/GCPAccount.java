@@ -65,7 +65,7 @@ public class GCPAccount {
   private String hostFilters;
 
   public static final String JSON_PROPERTY_IS_CSPM_ENABLED = "is_cspm_enabled";
-  private Boolean isCspmEnabled = false;
+  private Boolean isCspmEnabled;
 
   public static final String JSON_PROPERTY_PRIVATE_KEY = "private_key";
   private String privateKey;

@@ -53,7 +53,7 @@ public class RetentionFilterAllAttributes {
   private SpansFilter filter;
 
   public static final String JSON_PROPERTY_FILTER_TYPE = "filter_type";
-  private RetentionFilterAllType filterType = RetentionFilterAllType.SPANS_SAMPLING_PROCESSOR;
+  private RetentionFilterAllType filterType;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private Long modifiedAt;

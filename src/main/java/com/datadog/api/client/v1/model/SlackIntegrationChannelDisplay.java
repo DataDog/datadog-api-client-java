@@ -28,16 +28,16 @@ import java.util.Objects;
 public class SlackIntegrationChannelDisplay {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MESSAGE = "message";
-  private Boolean message = true;
+  private Boolean message;
 
   public static final String JSON_PROPERTY_NOTIFIED = "notified";
-  private Boolean notified = true;
+  private Boolean notified;
 
   public static final String JSON_PROPERTY_SNAPSHOT = "snapshot";
-  private Boolean snapshot = true;
+  private Boolean snapshot;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private Boolean tags = true;
+  private Boolean tags;
 
   public SlackIntegrationChannelDisplay message(Boolean message) {
     this.message = message;

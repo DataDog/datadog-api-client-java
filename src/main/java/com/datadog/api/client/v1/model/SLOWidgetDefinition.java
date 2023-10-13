@@ -71,7 +71,7 @@ public class SLOWidgetDefinition {
   private WidgetViewMode viewMode;
 
   public static final String JSON_PROPERTY_VIEW_TYPE = "view_type";
-  private String viewType = "detail";
+  private String viewType;
 
   public SLOWidgetDefinition() {}
 
