@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"}}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"name\":\"Sample Powerpack\",\"tags\":[\"tag:sample\"],\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}]},\"type\":\"powerpack\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"}}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"name\":\"Test-Update_a_powerpack_returns_Bad_Request_response-1697039337\",\"tags\":[\"tag:sample\"],\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}]},\"type\":\"powerpack\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"powerpack\",\"id\":\"bc22abe4-6397-11ee-865e-da7ad0900002\",\"attributes\":{\"name\":\"Sample Powerpack\",\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"},\"id\":1043184765896296}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}],\"tags\":[\"tag:sample\"]},\"relationships\":{\"author\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}},\"included\":[{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"attributes\":{\"name\":\"CI Account\",\"email\":\"team-intg-tools-libs-spam@datadoghq.com\"}}]}\n",
+      "body": "{\"data\":{\"type\":\"powerpack\",\"id\":\"b030a42a-684d-11ee-ad9a-da7ad0900002\",\"attributes\":{\"name\":\"Test-Update_a_powerpack_returns_Bad_Request_response-1697039337\",\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"},\"id\":8452824404539211}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}],\"tags\":[\"tag:sample\"]},\"relationships\":{\"author\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}},\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"email\":\"frog@datadoghq.com\"}}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8305fb37-79a4-03a2-aa69-f085c06f059d"
+    "id": "7cd88502-8616-bc61-728d-28a195216bac"
   },
   {
     "httpRequest": {
@@ -37,7 +37,7 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/powerpacks/bc22abe4-6397-11ee-865e-da7ad0900002",
+      "path": "/api/v2/powerpacks/b030a42a-684d-11ee-ad9a-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ff233efa-3783-ff46-07e4-0cc8d5404793"
+    "id": "fe5eeecc-6925-36f5-75aa-01d8e732a976"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/powerpacks/bc22abe4-6397-11ee-865e-da7ad0900002",
+      "path": "/api/v2/powerpacks/b030a42a-684d-11ee-ad9a-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d54e920a-29c5-e713-2c88-346ac202d6fa"
+    "id": "da8999f1-2146-a405-6716-fc5f27b550be"
   }
 ]

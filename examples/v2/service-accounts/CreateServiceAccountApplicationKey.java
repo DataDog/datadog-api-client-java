@@ -8,31 +8,26 @@ import com.datadog.api.client.v2.model.ApplicationKeyCreateData;
 import com.datadog.api.client.v2.model.ApplicationKeyCreateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeyResponse;
 import com.datadog.api.client.v2.model.ApplicationKeysType;
-import java.util.Arrays;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
 
+    // there is a valid "service_account_user" in the system
+    String SERVICE_ACCOUNT_USER_DATA_ID = System.getenv("SERVICE_ACCOUNT_USER_DATA_ID");
+
     ApplicationKeyCreateRequest body =
         new ApplicationKeyCreateRequest()
             .data(
                 new ApplicationKeyCreateData()
                     .attributes(
-                        new ApplicationKeyCreateAttributes()
-                            .name("Application Key for managing dashboards")
-                            .scopes(
-                                Arrays.asList(
-                                    "dashboards_read",
-                                    "dashboards_write",
-                                    "dashboards_public_share")))
+                        new ApplicationKeyCreateAttributes().name("Example-Service-Account"))
                     .type(ApplicationKeysType.APPLICATION_KEYS));
 
     try {
       ApplicationKeyResponse result =
-          apiInstance.createServiceAccountApplicationKey(
-              "00000000-0000-1234-0000-000000000000", body);
+          apiInstance.createServiceAccountApplicationKey(SERVICE_ACCOUNT_USER_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(

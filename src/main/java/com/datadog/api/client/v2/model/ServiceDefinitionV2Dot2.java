@@ -31,10 +31,10 @@ import java.util.Objects;
   ServiceDefinitionV2Dot2.JSON_PROPERTY_LIFECYCLE,
   ServiceDefinitionV2Dot2.JSON_PROPERTY_LINKS,
   ServiceDefinitionV2Dot2.JSON_PROPERTY_SCHEMA_VERSION,
-  ServiceDefinitionV2Dot2.JSON_PROPERTY_SERVICE_TYPE,
   ServiceDefinitionV2Dot2.JSON_PROPERTY_TAGS,
   ServiceDefinitionV2Dot2.JSON_PROPERTY_TEAM,
-  ServiceDefinitionV2Dot2.JSON_PROPERTY_TIER
+  ServiceDefinitionV2Dot2.JSON_PROPERTY_TIER,
+  ServiceDefinitionV2Dot2.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -70,9 +70,6 @@ public class ServiceDefinitionV2Dot2 {
   public static final String JSON_PROPERTY_SCHEMA_VERSION = "schema-version";
   private ServiceDefinitionV2Dot2Version schemaVersion = ServiceDefinitionV2Dot2Version.V2_2;
 
-  public static final String JSON_PROPERTY_SERVICE_TYPE = "service-type";
-  private String serviceType;
-
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
@@ -81,6 +78,9 @@ public class ServiceDefinitionV2Dot2 {
 
   public static final String JSON_PROPERTY_TIER = "tier";
   private String tier;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private ServiceDefinitionV2Dot2Type type;
 
   public ServiceDefinitionV2Dot2() {}
 
@@ -351,29 +351,6 @@ public class ServiceDefinitionV2Dot2 {
     this.schemaVersion = schemaVersion;
   }
 
-  public ServiceDefinitionV2Dot2 serviceType(String serviceType) {
-    this.serviceType = serviceType;
-    return this;
-  }
-
-  /**
-   * The type of service. Datadog recognizes the following service types: <code>database</code>,
-   * <code>cache</code>, <code>function</code>, <code>web</code>, <code>browser</code>, and <code>
-   * mobile</code>.
-   *
-   * @return serviceType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getServiceType() {
-    return serviceType;
-  }
-
-  public void setServiceType(String serviceType) {
-    this.serviceType = serviceType;
-  }
-
   public ServiceDefinitionV2Dot2 tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -445,6 +422,31 @@ public class ServiceDefinitionV2Dot2 {
     this.tier = tier;
   }
 
+  public ServiceDefinitionV2Dot2 type(ServiceDefinitionV2Dot2Type type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * The type of service.
+   *
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ServiceDefinitionV2Dot2Type getType() {
+    return type;
+  }
+
+  public void setType(ServiceDefinitionV2Dot2Type type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -511,10 +513,10 @@ public class ServiceDefinitionV2Dot2 {
         && Objects.equals(this.lifecycle, serviceDefinitionV2Dot2.lifecycle)
         && Objects.equals(this.links, serviceDefinitionV2Dot2.links)
         && Objects.equals(this.schemaVersion, serviceDefinitionV2Dot2.schemaVersion)
-        && Objects.equals(this.serviceType, serviceDefinitionV2Dot2.serviceType)
         && Objects.equals(this.tags, serviceDefinitionV2Dot2.tags)
         && Objects.equals(this.team, serviceDefinitionV2Dot2.team)
         && Objects.equals(this.tier, serviceDefinitionV2Dot2.tier)
+        && Objects.equals(this.type, serviceDefinitionV2Dot2.type)
         && Objects.equals(this.additionalProperties, serviceDefinitionV2Dot2.additionalProperties);
   }
 
@@ -531,10 +533,10 @@ public class ServiceDefinitionV2Dot2 {
         lifecycle,
         links,
         schemaVersion,
-        serviceType,
         tags,
         team,
         tier,
+        type,
         additionalProperties);
   }
 
@@ -552,10 +554,10 @@ public class ServiceDefinitionV2Dot2 {
     sb.append("    lifecycle: ").append(toIndentedString(lifecycle)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    schemaVersion: ").append(toIndentedString(schemaVersion)).append("\n");
-    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    team: ").append(toIndentedString(team)).append("\n");
     sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

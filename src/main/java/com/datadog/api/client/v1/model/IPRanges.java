@@ -21,6 +21,7 @@ import java.util.Objects;
   IPRanges.JSON_PROPERTY_AGENTS,
   IPRanges.JSON_PROPERTY_API,
   IPRanges.JSON_PROPERTY_APM,
+  IPRanges.JSON_PROPERTY_GLOBAL,
   IPRanges.JSON_PROPERTY_LOGS,
   IPRanges.JSON_PROPERTY_MODIFIED,
   IPRanges.JSON_PROPERTY_ORCHESTRATOR,
@@ -43,6 +44,9 @@ public class IPRanges {
 
   public static final String JSON_PROPERTY_APM = "apm";
   private IPPrefixesAPM apm;
+
+  public static final String JSON_PROPERTY_GLOBAL = "global";
+  private IPPrefixesGlobal global;
 
   public static final String JSON_PROPERTY_LOGS = "logs";
   private IPPrefixesLogs logs;
@@ -136,6 +140,28 @@ public class IPRanges {
 
   public void setApm(IPPrefixesAPM apm) {
     this.apm = apm;
+  }
+
+  public IPRanges global(IPPrefixesGlobal global) {
+    this.global = global;
+    this.unparsed |= global.unparsed;
+    return this;
+  }
+
+  /**
+   * Available prefix information for all Datadog endpoints.
+   *
+   * @return global
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GLOBAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IPPrefixesGlobal getGlobal() {
+    return global;
+  }
+
+  public void setGlobal(IPPrefixesGlobal global) {
+    this.global = global;
   }
 
   public IPRanges logs(IPPrefixesLogs logs) {
@@ -395,6 +421,7 @@ public class IPRanges {
     return Objects.equals(this.agents, ipRanges.agents)
         && Objects.equals(this.api, ipRanges.api)
         && Objects.equals(this.apm, ipRanges.apm)
+        && Objects.equals(this.global, ipRanges.global)
         && Objects.equals(this.logs, ipRanges.logs)
         && Objects.equals(this.modified, ipRanges.modified)
         && Objects.equals(this.orchestrator, ipRanges.orchestrator)
@@ -413,6 +440,7 @@ public class IPRanges {
         agents,
         api,
         apm,
+        global,
         logs,
         modified,
         orchestrator,
@@ -432,6 +460,7 @@ public class IPRanges {
     sb.append("    agents: ").append(toIndentedString(agents)).append("\n");
     sb.append("    api: ").append(toIndentedString(api)).append("\n");
     sb.append("    apm: ").append(toIndentedString(apm)).append("\n");
+    sb.append("    global: ").append(toIndentedString(global)).append("\n");
     sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    orchestrator: ").append(toIndentedString(orchestrator)).append("\n");

@@ -8,32 +8,35 @@ import com.datadog.api.client.v2.model.ApplicationKeyUpdateData;
 import com.datadog.api.client.v2.model.ApplicationKeyUpdateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeysType;
 import com.datadog.api.client.v2.model.PartialApplicationKeyResponse;
-import java.util.Arrays;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
 
+    // there is a valid "service_account_user" in the system
+    String SERVICE_ACCOUNT_USER_DATA_ID = System.getenv("SERVICE_ACCOUNT_USER_DATA_ID");
+
+    // there is a valid "service_account_application_key" for "service_account_user"
+    String SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ATTRIBUTES_NAME =
+        System.getenv("SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ATTRIBUTES_NAME");
+    String SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID =
+        System.getenv("SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID");
+
     ApplicationKeyUpdateRequest body =
         new ApplicationKeyUpdateRequest()
             .data(
                 new ApplicationKeyUpdateData()
+                    .id(SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID)
+                    .type(ApplicationKeysType.APPLICATION_KEYS)
                     .attributes(
                         new ApplicationKeyUpdateAttributes()
-                            .name("Application Key for managing dashboards")
-                            .scopes(
-                                Arrays.asList(
-                                    "dashboards_read",
-                                    "dashboards_write",
-                                    "dashboards_public_share")))
-                    .id("00112233-4455-6677-8899-aabbccddeeff")
-                    .type(ApplicationKeysType.APPLICATION_KEYS));
+                            .name("Application Key for managing dashboards-updated")));
 
     try {
       PartialApplicationKeyResponse result =
           apiInstance.updateServiceAccountApplicationKey(
-              "00000000-0000-1234-0000-000000000000", "app_key_id", body);
+              SERVICE_ACCOUNT_USER_DATA_ID, SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
