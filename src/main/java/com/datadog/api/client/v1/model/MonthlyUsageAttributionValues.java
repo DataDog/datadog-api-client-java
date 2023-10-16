@@ -34,6 +34,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_VISIBILITY_ITR_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_VISIBILITY_ITR_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CLOUD_SIEM_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CLOUD_SIEM_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_EXCL_AGENT_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_EXCL_AGENT_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_PERCENTAGE,
@@ -149,6 +151,12 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage";
   private Double ciVisibilityItrUsage;
+
+  public static final String JSON_PROPERTY_CLOUD_SIEM_PERCENTAGE = "cloud_siem_percentage";
+  private Double cloudSiemPercentage;
+
+  public static final String JSON_PROPERTY_CLOUD_SIEM_USAGE = "cloud_siem_usage";
+  private Double cloudSiemUsage;
 
   public static final String JSON_PROPERTY_CONTAINER_EXCL_AGENT_PERCENTAGE =
       "container_excl_agent_percentage";
@@ -696,6 +704,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setCiVisibilityItrUsage(Double ciVisibilityItrUsage) {
     this.ciVisibilityItrUsage = ciVisibilityItrUsage;
+  }
+
+  public MonthlyUsageAttributionValues cloudSiemPercentage(Double cloudSiemPercentage) {
+    this.cloudSiemPercentage = cloudSiemPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Cloud Security Information and Event Management usage by tag(s).
+   *
+   * @return cloudSiemPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCloudSiemPercentage() {
+    return cloudSiemPercentage;
+  }
+
+  public void setCloudSiemPercentage(Double cloudSiemPercentage) {
+    this.cloudSiemPercentage = cloudSiemPercentage;
+  }
+
+  public MonthlyUsageAttributionValues cloudSiemUsage(Double cloudSiemUsage) {
+    this.cloudSiemUsage = cloudSiemUsage;
+    return this;
+  }
+
+  /**
+   * The Cloud Security Information and Event Management usage by tag(s).
+   *
+   * @return cloudSiemUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCloudSiemUsage() {
+    return cloudSiemUsage;
+  }
+
+  public void setCloudSiemUsage(Double cloudSiemUsage) {
+    this.cloudSiemUsage = cloudSiemUsage;
   }
 
   public MonthlyUsageAttributionValues containerExclAgentPercentage(
@@ -2095,6 +2145,9 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.ciVisibilityItrUsage, monthlyUsageAttributionValues.ciVisibilityItrUsage)
         && Objects.equals(
+            this.cloudSiemPercentage, monthlyUsageAttributionValues.cloudSiemPercentage)
+        && Objects.equals(this.cloudSiemUsage, monthlyUsageAttributionValues.cloudSiemUsage)
+        && Objects.equals(
             this.containerExclAgentPercentage,
             monthlyUsageAttributionValues.containerExclAgentPercentage)
         && Objects.equals(
@@ -2240,6 +2293,8 @@ public class MonthlyUsageAttributionValues {
         browserUsage,
         ciVisibilityItrPercentage,
         ciVisibilityItrUsage,
+        cloudSiemPercentage,
+        cloudSiemUsage,
         containerExclAgentPercentage,
         containerExclAgentUsage,
         containerPercentage,
@@ -2333,6 +2388,10 @@ public class MonthlyUsageAttributionValues {
     sb.append("    ciVisibilityItrUsage: ")
         .append(toIndentedString(ciVisibilityItrUsage))
         .append("\n");
+    sb.append("    cloudSiemPercentage: ")
+        .append(toIndentedString(cloudSiemPercentage))
+        .append("\n");
+    sb.append("    cloudSiemUsage: ").append(toIndentedString(cloudSiemUsage)).append("\n");
     sb.append("    containerExclAgentPercentage: ")
         .append(toIndentedString(containerExclAgentPercentage))
         .append("\n");

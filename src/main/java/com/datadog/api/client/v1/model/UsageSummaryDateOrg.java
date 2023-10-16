@@ -42,6 +42,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
@@ -211,6 +212,9 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG =
       "cloud_cost_management_host_count_avg";
   private Long cloudCostManagementHostCountAvg;
+
+  public static final String JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM = "cloud_siem_events_sum";
+  private Long cloudSiemEventsSum;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
@@ -1016,6 +1020,28 @@ public class UsageSummaryDateOrg {
 
   public void setCloudCostManagementHostCountAvg(Long cloudCostManagementHostCountAvg) {
     this.cloudCostManagementHostCountAvg = cloudCostManagementHostCountAvg;
+  }
+
+  public UsageSummaryDateOrg cloudSiemEventsSum(Long cloudSiemEventsSum) {
+    this.cloudSiemEventsSum = cloudSiemEventsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Cloud Security Information and Event Management events over all hours in
+   * the current date for the given org.
+   *
+   * @return cloudSiemEventsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCloudSiemEventsSum() {
+    return cloudSiemEventsSum;
+  }
+
+  public void setCloudSiemEventsSum(Long cloudSiemEventsSum) {
+    this.cloudSiemEventsSum = cloudSiemEventsSum;
   }
 
   public UsageSummaryDateOrg containerAvg(Long containerAvg) {
@@ -2858,6 +2884,7 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.cloudCostManagementHostCountAvg,
             usageSummaryDateOrg.cloudCostManagementHostCountAvg)
+        && Objects.equals(this.cloudSiemEventsSum, usageSummaryDateOrg.cloudSiemEventsSum)
         && Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg)
         && Objects.equals(this.containerExclAgentAvg, usageSummaryDateOrg.containerExclAgentAvg)
         && Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm)
@@ -3024,6 +3051,7 @@ public class UsageSummaryDateOrg {
         cloudCostManagementAwsHostCountAvg,
         cloudCostManagementAzureHostCountAvg,
         cloudCostManagementHostCountAvg,
+        cloudSiemEventsSum,
         containerAvg,
         containerExclAgentAvg,
         containerHwm,
@@ -3170,6 +3198,7 @@ public class UsageSummaryDateOrg {
     sb.append("    cloudCostManagementHostCountAvg: ")
         .append(toIndentedString(cloudCostManagementHostCountAvg))
         .append("\n");
+    sb.append("    cloudSiemEventsSum: ").append(toIndentedString(cloudSiemEventsSum)).append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerExclAgentAvg: ")
         .append(toIndentedString(containerExclAgentAvg))

@@ -44,6 +44,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "browser_percentage",
               "ci_visibility_itr_usage",
               "ci_visibility_itr_percentage",
+              "cloud_siem_usage",
+              "cloud_siem_percentage",
               "container_excl_agent_usage",
               "container_excl_agent_percentage",
               "container_usage",
@@ -140,6 +142,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("ci_visibility_itr_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CI_VISIBILITY_ITR_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("ci_visibility_itr_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CLOUD_SIEM_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cloud_siem_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics CLOUD_SIEM_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cloud_siem_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_EXCL_AGENT_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("container_excl_agent_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_EXCL_AGENT_PERCENTAGE =
