@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestDeleteresourcefromConfluentaccountreturnsOKresponse1665090164\",\"api_secret\":\"test-api-secret\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"TestDeleteConfluentaccountreturnsOKresponse1697461335\",\"api_secret\":\"test-api-secret\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"api_key\":\"TestDeleteresourcefromConfluentaccountreturnsOKresponse1665090164\",\"resources\":[{\"id\":\"test-resource-id\",\"resource_type\":\"kafka\",\"tags\":[\"tag1\",\"tag2:val2\"]}],\"tags\":[\"tag1\",\"tag2:val2\"]},\"type\":\"confluent-cloud-accounts\",\"id\":\"xxmv3lgki4\"}}\n",
+      "body": "{\"data\":{\"type\":\"confluent-cloud-accounts\",\"attributes\":{\"resources\":[{\"tags\":[\"tag1\",\"tag2:val2\"],\"id\":\"test-resource-id\",\"enable_custom_metrics\":false,\"resource_type\":\"kafka\"}],\"tags\":[\"tag1\",\"tag2:val2\"],\"api_key\":\"TestDeleteConfluentaccountreturnsOKresponse1697461335\"},\"id\":\"ed3f03aa36fdd7ba6b48381d54280e45\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "349f7144-af6f-d182-99ee-4bc55c9e7a8f"
+    "id": "ead413f0-d714-3c70-0682-8d485d50ebfe"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/confluent-cloud/accounts/xxmv3lgki4",
+      "path": "/api/v2/integrations/confluent-cloud/accounts/ed3f03aa36fdd7ba6b48381d54280e45",
       "keepAlive": false,
       "secure": true
     },
@@ -52,13 +52,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dea164b9-e961-40d0-1b5e-3a00fa14a11d"
+    "id": "4caac6ba-76c6-3cc1-be7b-dee425d39990"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/confluent-cloud/accounts/xxmv3lgki4",
+      "path": "/api/v2/integrations/confluent-cloud/accounts/ed3f03aa36fdd7ba6b48381d54280e45",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dea164b9-e961-40d0-1b5e-3a00fa14a11e"
+    "id": "4caac6ba-76c6-3cc1-be7b-dee425d39991"
   }
 ]

@@ -8,7 +8,6 @@ import com.datadog.api.client.v2.model.ApplicationKeyCreateData;
 import com.datadog.api.client.v2.model.ApplicationKeyCreateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeyResponse;
 import com.datadog.api.client.v2.model.ApplicationKeysType;
-import java.util.Arrays;
 
 public class Example {
   public static void main(String[] args) {
@@ -19,15 +18,9 @@ public class Example {
         new ApplicationKeyCreateRequest()
             .data(
                 new ApplicationKeyCreateData()
+                    .type(ApplicationKeysType.APPLICATION_KEYS)
                     .attributes(
-                        new ApplicationKeyCreateAttributes()
-                            .name("Application Key for managing dashboards")
-                            .scopes(
-                                Arrays.asList(
-                                    "dashboards_read",
-                                    "dashboards_write",
-                                    "dashboards_public_share")))
-                    .type(ApplicationKeysType.APPLICATION_KEYS));
+                        new ApplicationKeyCreateAttributes().name("Example-Key-Management")));
 
     try {
       ApplicationKeyResponse result = apiInstance.createCurrentUserApplicationKey(body);

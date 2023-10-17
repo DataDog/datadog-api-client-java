@@ -1,20 +1,18 @@
-// Get all Application keys returns "OK" response
+// Delete resource from Confluent account returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.KeyManagementApi;
-import com.datadog.api.client.v2.model.ListApplicationKeysResponse;
+import com.datadog.api.client.v2.api.ConfluentCloudApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
+    ConfluentCloudApi apiInstance = new ConfluentCloudApi(defaultClient);
 
     try {
-      ListApplicationKeysResponse result = apiInstance.listApplicationKeys();
-      System.out.println(result);
+      apiInstance.deleteConfluentResource("account_id", "resource_id");
     } catch (ApiException e) {
-      System.err.println("Exception when calling KeyManagementApi#listApplicationKeys");
+      System.err.println("Exception when calling ConfluentCloudApi#deleteConfluentResource");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

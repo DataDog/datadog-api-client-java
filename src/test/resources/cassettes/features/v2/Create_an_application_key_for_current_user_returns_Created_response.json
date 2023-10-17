@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_an_application_key_for_current_user_returns_Created_response-1697464548\"},\"type\":\"application_keys\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/current_user/application_keys",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"513684db-d430-45bd-8239-0715320c9488\",\"attributes\":{\"name\":\"Test-Create_an_application_key_for_current_user_returns_Created_response-1697464548\",\"created_at\":\"2023-10-16T13:55:49.254647+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"leak_information\":{\"data\":null}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bdb2a980-7708-9c9c-2b53-e13ec4eda286"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/current_user/application_keys/513684db-d430-45bd-8239-0715320c9488",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "066532b7-b3f1-607f-b21d-3951d573eb88"
+  }
+]

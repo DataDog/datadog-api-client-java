@@ -11,7 +11,8 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
-    OnDemandConcurrencyCapAttributes body = new OnDemandConcurrencyCapAttributes();
+    OnDemandConcurrencyCapAttributes body =
+        new OnDemandConcurrencyCapAttributes().onDemandConcurrencyCap(20.0);
 
     try {
       OnDemandConcurrencyCapResponse result = apiInstance.setOnDemandConcurrencyCap(body);

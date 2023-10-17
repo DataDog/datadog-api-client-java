@@ -11,7 +11,7 @@ public class Example {
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);
 
     try {
-      MonitorDowntimeMatchResponse result = apiInstance.listMonitorDowntimes(9223372036854775807L);
+      MonitorDowntimeMatchResponse result = apiInstance.listMonitorDowntimes(35534610L);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#listMonitorDowntimes");
