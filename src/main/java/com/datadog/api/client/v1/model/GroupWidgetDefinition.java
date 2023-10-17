@@ -59,7 +59,7 @@ public class GroupWidgetDefinition {
   private GroupWidgetDefinitionType type = GroupWidgetDefinitionType.GROUP;
 
   public static final String JSON_PROPERTY_WIDGETS = "widgets";
-  private List<Widget> widgets = new ArrayList<>();
+  private List<GroupWidgetItem> widgets = new ArrayList<>();
 
   public GroupWidgetDefinition() {}
 
@@ -67,7 +67,7 @@ public class GroupWidgetDefinition {
   public GroupWidgetDefinition(
       @JsonProperty(required = true, value = JSON_PROPERTY_LAYOUT_TYPE) WidgetLayoutType layoutType,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GroupWidgetDefinitionType type,
-      @JsonProperty(required = true, value = JSON_PROPERTY_WIDGETS) List<Widget> widgets) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_WIDGETS) List<GroupWidgetItem> widgets) {
     this.layoutType = layoutType;
     this.unparsed |= !layoutType.isValid();
     this.type = type;
@@ -232,15 +232,15 @@ public class GroupWidgetDefinition {
     this.type = type;
   }
 
-  public GroupWidgetDefinition widgets(List<Widget> widgets) {
+  public GroupWidgetDefinition widgets(List<GroupWidgetItem> widgets) {
     this.widgets = widgets;
-    for (Widget item : widgets) {
+    for (GroupWidgetItem item : widgets) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public GroupWidgetDefinition addWidgetsItem(Widget widgetsItem) {
+  public GroupWidgetDefinition addWidgetsItem(GroupWidgetItem widgetsItem) {
     this.widgets.add(widgetsItem);
     this.unparsed |= widgetsItem.unparsed;
     return this;
@@ -253,11 +253,11 @@ public class GroupWidgetDefinition {
    */
   @JsonProperty(JSON_PROPERTY_WIDGETS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<Widget> getWidgets() {
+  public List<GroupWidgetItem> getWidgets() {
     return widgets;
   }
 
-  public void setWidgets(List<Widget> widgets) {
+  public void setWidgets(List<GroupWidgetItem> widgets) {
     this.widgets = widgets;
   }
 
