@@ -244,8 +244,8 @@ public class DashboardsApiTest extends V1ApiTest {
     // Group Widget
     NoteWidgetDefinition groupNoteWidgetDefinition =
         new NoteWidgetDefinition().content("Test Note Inside Group");
-    Widget groupNoteWidget =
-        new Widget().definition(new WidgetDefinition(groupNoteWidgetDefinition));
+    GroupWidgetItem groupNoteWidget =
+        new GroupWidgetItem().definition(new GroupWidgetItemDefinition(groupNoteWidgetDefinition));
     GroupWidgetDefinition groupWidgetDefinition =
         new GroupWidgetDefinition()
             .layoutType(WidgetLayoutType.ORDERED)
@@ -864,7 +864,7 @@ public class DashboardsApiTest extends V1ApiTest {
       checkWidget.setId(null);
       // Unset the `id` from the sub widgets definitions of the group widget
       if (checkWidget.getDefinition().getActualInstance() instanceof GroupWidgetDefinition) {
-        for (Widget subWidget :
+        for (GroupWidgetItem subWidget :
             ((GroupWidgetDefinition) checkWidget.getDefinition().getActualInstance())
                 .getWidgets()) {
           subWidget.id(null);
