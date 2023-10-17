@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_an_Application_key_owned_by_current_user_returns_No_Content_response-1652349125\"},\"type\":\"application_keys\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_an_application_key_returns_No_Content_response-1697462308\"},\"type\":\"application_keys\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"c1469afb-30e6-4b63-81ab-4ba8436e5150\",\"attributes\":{\"name\":\"Test-Delete_an_Application_key_owned_by_current_user_returns_No_Content_response-1652349125\",\"created_at\":\"2022-05-12T09:52:05.932111+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"leak_information\":{\"data\":null}}}}",
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"c7a26dee-1619-4ed0-8d1a-0ae4ed94da29\",\"attributes\":{\"name\":\"Test-Delete_an_application_key_returns_No_Content_response-1697462308\",\"created_at\":\"2023-10-16T13:18:29.388862+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"leak_information\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "247f4769-744b-8d32-1161-7b9463eda5eb"
+    "id": "6c24cd2b-39d4-1b2f-5226-aad2c53010b3"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/current_user/application_keys/c1469afb-30e6-4b63-81ab-4ba8436e5150",
+      "path": "/api/v2/application_keys/c7a26dee-1619-4ed0-8d1a-0ae4ed94da29",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -48,18 +52,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "133ea7e9-4aca-9c3e-7ca7-08e4c11db523"
+    "id": "b5bbcf2d-6615-3044-3583-d7ad6398dcfb"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/current_user/application_keys/c1469afb-30e6-4b63-81ab-4ba8436e5150",
+      "path": "/api/v2/current_user/application_keys/c7a26dee-1619-4ed0-8d1a-0ae4ed94da29",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"Application key not found\"]}",
+      "body": "{\"errors\":[\"Application key not found\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -74,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "133ea7e9-4aca-9c3e-7ca7-08e4c11db524"
+    "id": "be657f29-2a04-ac65-1ca3-a79dbc37c04c"
   }
 ]
