@@ -347,7 +347,7 @@ public class ClientSteps {
                 World.templated(value, world.context)),
             itemValue);
         return;
-      } catch (AssertionError | NullPointerException e) {
+      } catch (AssertionError | Exception e) {
         continue;
       }
     }
