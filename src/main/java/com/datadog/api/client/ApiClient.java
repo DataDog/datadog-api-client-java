@@ -367,6 +367,7 @@ public class ApiClient {
       new HashMap<String, Boolean>() {
         {
           put("v2.listContainerImages", false);
+          put("v2.listContainers", false);
           put("v2.listEvents", false);
           put("v2.searchEvents", false);
           put("v2.createIncident", false);
