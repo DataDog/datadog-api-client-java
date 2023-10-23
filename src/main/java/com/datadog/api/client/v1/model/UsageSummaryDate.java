@@ -45,6 +45,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG,
+  UsageSummaryDate.JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_HWM,
@@ -90,6 +91,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_UNITS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NPM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM,
@@ -211,6 +213,9 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG =
       "cloud_cost_management_host_count_avg";
   private Long cloudCostManagementHostCountAvg;
+
+  public static final String JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM = "cloud_siem_events_sum";
+  private Long cloudSiemEventsSum;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
@@ -365,6 +370,9 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_MOBILE_RUM_UNITS_SUM = "mobile_rum_units_sum";
   private Long mobileRumUnitsSum;
+
+  public static final String JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM = "ndm_netflow_events_sum";
+  private Long ndmNetflowEventsSum;
 
   public static final String JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM =
       "netflow_indexed_events_count_sum";
@@ -1010,6 +1018,28 @@ public class UsageSummaryDate {
 
   public void setCloudCostManagementHostCountAvg(Long cloudCostManagementHostCountAvg) {
     this.cloudCostManagementHostCountAvg = cloudCostManagementHostCountAvg;
+  }
+
+  public UsageSummaryDate cloudSiemEventsSum(Long cloudSiemEventsSum) {
+    this.cloudSiemEventsSum = cloudSiemEventsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Cloud Security Information and Event Management events over all hours in
+   * the current date for the given org.
+   *
+   * @return cloudSiemEventsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCloudSiemEventsSum() {
+    return cloudSiemEventsSum;
+  }
+
+  public void setCloudSiemEventsSum(Long cloudSiemEventsSum) {
+    this.cloudSiemEventsSum = cloudSiemEventsSum;
   }
 
   public UsageSummaryDate containerAvg(Long containerAvg) {
@@ -2014,6 +2044,28 @@ public class UsageSummaryDate {
     this.mobileRumUnitsSum = mobileRumUnitsSum;
   }
 
+  public UsageSummaryDate ndmNetflowEventsSum(Long ndmNetflowEventsSum) {
+    this.ndmNetflowEventsSum = ndmNetflowEventsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current
+   * date for the given org.
+   *
+   * @return ndmNetflowEventsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NDM_NETFLOW_EVENTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getNdmNetflowEventsSum() {
+    return ndmNetflowEventsSum;
+  }
+
+  public void setNdmNetflowEventsSum(Long ndmNetflowEventsSum) {
+    this.ndmNetflowEventsSum = ndmNetflowEventsSum;
+  }
+
   public UsageSummaryDate netflowIndexedEventsCountSum(Long netflowIndexedEventsCountSum) {
     this.netflowIndexedEventsCountSum = netflowIndexedEventsCountSum;
     return this;
@@ -2802,6 +2854,7 @@ public class UsageSummaryDate {
             usageSummaryDate.cloudCostManagementAzureHostCountAvg)
         && Objects.equals(
             this.cloudCostManagementHostCountAvg, usageSummaryDate.cloudCostManagementHostCountAvg)
+        && Objects.equals(this.cloudSiemEventsSum, usageSummaryDate.cloudSiemEventsSum)
         && Objects.equals(this.containerAvg, usageSummaryDate.containerAvg)
         && Objects.equals(this.containerExclAgentAvg, usageSummaryDate.containerExclAgentAvg)
         && Objects.equals(this.containerHwm, usageSummaryDate.containerHwm)
@@ -2876,6 +2929,7 @@ public class UsageSummaryDate {
             this.mobileRumSessionCountRokuSum, usageSummaryDate.mobileRumSessionCountRokuSum)
         && Objects.equals(this.mobileRumSessionCountSum, usageSummaryDate.mobileRumSessionCountSum)
         && Objects.equals(this.mobileRumUnitsSum, usageSummaryDate.mobileRumUnitsSum)
+        && Objects.equals(this.ndmNetflowEventsSum, usageSummaryDate.ndmNetflowEventsSum)
         && Objects.equals(
             this.netflowIndexedEventsCountSum, usageSummaryDate.netflowIndexedEventsCountSum)
         && Objects.equals(this.npmHostTop99p, usageSummaryDate.npmHostTop99p)
@@ -2959,6 +3013,7 @@ public class UsageSummaryDate {
         cloudCostManagementAwsHostCountAvg,
         cloudCostManagementAzureHostCountAvg,
         cloudCostManagementHostCountAvg,
+        cloudSiemEventsSum,
         containerAvg,
         containerExclAgentAvg,
         containerHwm,
@@ -3004,6 +3059,7 @@ public class UsageSummaryDate {
         mobileRumSessionCountRokuSum,
         mobileRumSessionCountSum,
         mobileRumUnitsSum,
+        ndmNetflowEventsSum,
         netflowIndexedEventsCountSum,
         npmHostTop99p,
         observabilityPipelinesBytesProcessedSum,
@@ -3102,6 +3158,7 @@ public class UsageSummaryDate {
     sb.append("    cloudCostManagementHostCountAvg: ")
         .append(toIndentedString(cloudCostManagementHostCountAvg))
         .append("\n");
+    sb.append("    cloudSiemEventsSum: ").append(toIndentedString(cloudSiemEventsSum)).append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerExclAgentAvg: ")
         .append(toIndentedString(containerExclAgentAvg))
@@ -3199,6 +3256,9 @@ public class UsageSummaryDate {
         .append(toIndentedString(mobileRumSessionCountSum))
         .append("\n");
     sb.append("    mobileRumUnitsSum: ").append(toIndentedString(mobileRumUnitsSum)).append("\n");
+    sb.append("    ndmNetflowEventsSum: ")
+        .append(toIndentedString(ndmNetflowEventsSum))
+        .append("\n");
     sb.append("    netflowIndexedEventsCountSum: ")
         .append(toIndentedString(netflowIndexedEventsCountSum))
         .append("\n");

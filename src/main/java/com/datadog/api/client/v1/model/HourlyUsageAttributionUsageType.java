@@ -34,6 +34,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "appsec_usage",
               "browser_usage",
               "ci_visibility_itr_usage",
+              "cloud_siem_usage",
               "container_excl_agent_usage",
               "container_usage",
               "cspm_containers_usage",
@@ -54,6 +55,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "infra_host_usage",
               "invocations_usage",
               "mobile_app_testing_usage",
+              "ndm_netflow_usage",
               "npm_host_usage",
               "obs_pipeline_bytes_usage",
               "profiled_container_usage",
@@ -81,6 +83,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("browser_usage");
   public static final HourlyUsageAttributionUsageType CI_VISIBILITY_ITR_USAGE =
       new HourlyUsageAttributionUsageType("ci_visibility_itr_usage");
+  public static final HourlyUsageAttributionUsageType CLOUD_SIEM_USAGE =
+      new HourlyUsageAttributionUsageType("cloud_siem_usage");
   public static final HourlyUsageAttributionUsageType CONTAINER_EXCL_AGENT_USAGE =
       new HourlyUsageAttributionUsageType("container_excl_agent_usage");
   public static final HourlyUsageAttributionUsageType CONTAINER_USAGE =
@@ -121,6 +125,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("invocations_usage");
   public static final HourlyUsageAttributionUsageType MOBILE_APP_TESTING_USAGE =
       new HourlyUsageAttributionUsageType("mobile_app_testing_usage");
+  public static final HourlyUsageAttributionUsageType NDM_NETFLOW_USAGE =
+      new HourlyUsageAttributionUsageType("ndm_netflow_usage");
   public static final HourlyUsageAttributionUsageType NPM_HOST_USAGE =
       new HourlyUsageAttributionUsageType("npm_host_usage");
   public static final HourlyUsageAttributionUsageType OBS_PIPELINE_BYTES_USAGE =

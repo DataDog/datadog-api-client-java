@@ -316,30 +316,9 @@ public class MonitorsApi {
    *
    * <h4>Event Alert Query</h4>
    *
-   * <p>Example: <code>
-   * events('sources:nagios status:error,warning priority:normal tags: "string query"').rollup("count").last("1h")"
-   * </code>
-   *
-   * <ul>
-   *   <li><code>event</code>, the event query string:
-   *   <li><code>string_query</code> free text query to match against event title and text.
-   *   <li><code>sources</code> event sources (comma-separated).
-   *   <li><code>status</code> event statuses (comma-separated). Valid options: error, warn, and
-   *       info.
-   *   <li><code>priority</code> event priorities (comma-separated). Valid options: low, normal,
-   *       all.
-   *   <li><code>host</code> event reporting host (comma-separated).
-   *   <li><code>tags</code> event tags (comma-separated).
-   *   <li><code>excluded_tags</code> excluded event tags (comma-separated).
-   *   <li><code>rollup</code> the stats roll-up method. <code>count</code> is the only supported
-   *       method now.
-   *   <li><code>last</code> the timeframe to roll up the counts. Examples: 45m, 4h. Supported
-   *       timeframes: m, h and d. This value should not exceed 48 hours.
-   * </ul>
-   *
-   * <p><strong>NOTE</strong> The Event Alert Query is being deprecated and replaced by the Event V2
-   * Alert Query. For more information, see the <a
-   * href="https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/">Event
+   * <p><strong>Note:</strong> The Event Alert Query has been replaced by the Event V2 Alert Query.
+   * For more information, see the <a
+   * href="https://docs.datadoghq.com/service_management/events/guides/migrating_to_new_events_features/">Event
    * Migration guide</a>.
    *
    * <h4>Event V2 Alert Query</h4>
@@ -446,9 +425,6 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <p><strong>NOTE</strong> Only available on US1-FED and in closed beta on US1, EU, AP1, US3, and
-   * US5.
-   *
    * <h4>CI Pipelines Alert Query</h4>
    *
    * <p>Example: <code>
@@ -467,8 +443,6 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
-   * <p><strong>NOTE</strong> CI Pipeline monitors are in alpha on US1, EU, AP1, US3, and US5.
-   *
    * <h4>CI Tests Alert Query</h4>
    *
    * <p>Example: <code>ci-tests(query).rollup(rollup_method[, measure]).last(time_window) operator #
@@ -486,9 +460,6 @@ public class MonitorsApi {
    *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
-   *
-   * <p><strong>NOTE</strong> CI Test monitors are available only in closed beta on US1, EU, AP1,
-   * US3, and US5.
    *
    * <h4>Error Tracking Alert Query</h4>
    *

@@ -44,6 +44,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "browser_percentage",
               "ci_visibility_itr_usage",
               "ci_visibility_itr_percentage",
+              "cloud_siem_usage",
+              "cloud_siem_percentage",
               "container_excl_agent_usage",
               "container_excl_agent_percentage",
               "container_usage",
@@ -82,6 +84,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "invocations_percentage",
               "mobile_app_testing_percentage",
               "mobile_app_testing_usage",
+              "ndm_netflow_usage",
+              "ndm_netflow_percentage",
               "npm_host_usage",
               "npm_host_percentage",
               "obs_pipeline_bytes_usage",
@@ -138,6 +142,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("ci_visibility_itr_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CI_VISIBILITY_ITR_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("ci_visibility_itr_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CLOUD_SIEM_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cloud_siem_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics CLOUD_SIEM_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cloud_siem_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_EXCL_AGENT_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("container_excl_agent_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CONTAINER_EXCL_AGENT_PERCENTAGE =
@@ -215,6 +223,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("mobile_app_testing_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics MOBILE_APP_TESTING_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("mobile_app_testing_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics NDM_NETFLOW_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ndm_netflow_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics NDM_NETFLOW_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ndm_netflow_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics NPM_HOST_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("npm_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics NPM_HOST_PERCENTAGE =

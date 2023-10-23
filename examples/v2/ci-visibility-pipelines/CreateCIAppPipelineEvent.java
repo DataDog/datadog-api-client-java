@@ -16,7 +16,6 @@ import java.time.OffsetDateTime;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.createCIAppPipelineEvent", true);
     CiVisibilityPipelinesApi apiInstance = new CiVisibilityPipelinesApi(defaultClient);
 
     CIAppCreatePipelineEventRequest body =

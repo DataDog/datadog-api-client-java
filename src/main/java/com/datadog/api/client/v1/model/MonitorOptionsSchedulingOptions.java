@@ -17,13 +17,43 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Configuration options for scheduling. */
-@JsonPropertyOrder({MonitorOptionsSchedulingOptions.JSON_PROPERTY_EVALUATION_WINDOW})
+@JsonPropertyOrder({
+  MonitorOptionsSchedulingOptions.JSON_PROPERTY_CUSTOM_SCHEDULE,
+  MonitorOptionsSchedulingOptions.JSON_PROPERTY_EVALUATION_WINDOW
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MonitorOptionsSchedulingOptions {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CUSTOM_SCHEDULE = "custom_schedule";
+  private MonitorOptionsCustomSchedule customSchedule;
+
   public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluation_window";
   private MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow;
+
+  public MonitorOptionsSchedulingOptions customSchedule(
+      MonitorOptionsCustomSchedule customSchedule) {
+    this.customSchedule = customSchedule;
+    this.unparsed |= customSchedule.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration options for the custom schedule. <strong>This feature is in private
+   * beta.</strong>
+   *
+   * @return customSchedule
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_SCHEDULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorOptionsCustomSchedule getCustomSchedule() {
+    return customSchedule;
+  }
+
+  public void setCustomSchedule(MonitorOptionsCustomSchedule customSchedule) {
+    this.customSchedule = customSchedule;
+  }
 
   public MonitorOptionsSchedulingOptions evaluationWindow(
       MonitorOptionsSchedulingOptionsEvaluationWindow evaluationWindow) {
@@ -108,20 +138,22 @@ public class MonitorOptionsSchedulingOptions {
     }
     MonitorOptionsSchedulingOptions monitorOptionsSchedulingOptions =
         (MonitorOptionsSchedulingOptions) o;
-    return Objects.equals(this.evaluationWindow, monitorOptionsSchedulingOptions.evaluationWindow)
+    return Objects.equals(this.customSchedule, monitorOptionsSchedulingOptions.customSchedule)
+        && Objects.equals(this.evaluationWindow, monitorOptionsSchedulingOptions.evaluationWindow)
         && Objects.equals(
             this.additionalProperties, monitorOptionsSchedulingOptions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(evaluationWindow, additionalProperties);
+    return Objects.hash(customSchedule, evaluationWindow, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MonitorOptionsSchedulingOptions {\n");
+    sb.append("    customSchedule: ").append(toIndentedString(customSchedule)).append("\n");
     sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

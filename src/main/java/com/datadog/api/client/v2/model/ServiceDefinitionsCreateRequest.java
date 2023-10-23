@@ -83,6 +83,51 @@ public class ServiceDefinitionsCreateRequest extends AbstractOpenApiSchema {
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize ServiceDefinitionV2Dot2
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ServiceDefinitionV2Dot2.class.equals(Integer.class)
+            || ServiceDefinitionV2Dot2.class.equals(Long.class)
+            || ServiceDefinitionV2Dot2.class.equals(Float.class)
+            || ServiceDefinitionV2Dot2.class.equals(Double.class)
+            || ServiceDefinitionV2Dot2.class.equals(Boolean.class)
+            || ServiceDefinitionV2Dot2.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ServiceDefinitionV2Dot2.class.equals(Integer.class)
+                        || ServiceDefinitionV2Dot2.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ServiceDefinitionV2Dot2.class.equals(Float.class)
+                        || ServiceDefinitionV2Dot2.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ServiceDefinitionV2Dot2.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ServiceDefinitionV2Dot2.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ServiceDefinitionV2Dot2.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ServiceDefinitionV2Dot2) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ServiceDefinitionV2Dot2'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ServiceDefinitionV2Dot2'", e);
+      }
+
       // deserialize ServiceDefinitionV2Dot1
       try {
         boolean attemptParsing = true;
@@ -243,6 +288,11 @@ public class ServiceDefinitionsCreateRequest extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
+  public ServiceDefinitionsCreateRequest(ServiceDefinitionV2Dot2 o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public ServiceDefinitionsCreateRequest(ServiceDefinitionV2Dot1 o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -259,6 +309,7 @@ public class ServiceDefinitionsCreateRequest extends AbstractOpenApiSchema {
   }
 
   static {
+    schemas.put("ServiceDefinitionV2Dot2", new GenericType<ServiceDefinitionV2Dot2>() {});
     schemas.put("ServiceDefinitionV2Dot1", new GenericType<ServiceDefinitionV2Dot1>() {});
     schemas.put("ServiceDefinitionV2", new GenericType<ServiceDefinitionV2>() {});
     schemas.put("String", new GenericType<String>() {});
@@ -273,13 +324,18 @@ public class ServiceDefinitionsCreateRequest extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: ServiceDefinitionV2Dot1, ServiceDefinitionV2, String
+   * against the oneOf child schemas: ServiceDefinitionV2Dot2, ServiceDefinitionV2Dot1,
+   * ServiceDefinitionV2, String
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(ServiceDefinitionV2Dot2.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     if (JSON.isInstanceOf(ServiceDefinitionV2Dot1.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -298,18 +354,31 @@ public class ServiceDefinitionsCreateRequest extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be ServiceDefinitionV2Dot1, ServiceDefinitionV2, String");
+        "Invalid instance type. Must be ServiceDefinitionV2Dot2, ServiceDefinitionV2Dot1,"
+            + " ServiceDefinitionV2, String");
   }
 
   /**
-   * Get the actual instance, which can be the following: ServiceDefinitionV2Dot1,
-   * ServiceDefinitionV2, String
+   * Get the actual instance, which can be the following: ServiceDefinitionV2Dot2,
+   * ServiceDefinitionV2Dot1, ServiceDefinitionV2, String
    *
-   * @return The actual instance (ServiceDefinitionV2Dot1, ServiceDefinitionV2, String)
+   * @return The actual instance (ServiceDefinitionV2Dot2, ServiceDefinitionV2Dot1,
+   *     ServiceDefinitionV2, String)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ServiceDefinitionV2Dot2`. If the actual instance is not
+   * `ServiceDefinitionV2Dot2`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ServiceDefinitionV2Dot2`
+   * @throws ClassCastException if the instance is not `ServiceDefinitionV2Dot2`
+   */
+  public ServiceDefinitionV2Dot2 getServiceDefinitionV2Dot2() throws ClassCastException {
+    return (ServiceDefinitionV2Dot2) super.getActualInstance();
   }
 
   /**

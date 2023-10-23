@@ -20,6 +20,7 @@ import java.util.Objects;
 
 /** Attributes associated with your service account. */
 @JsonPropertyOrder({
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_ACCOUNT_TAGS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_AUTOMUTE,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_CLIENT_EMAIL,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_HOST_FILTERS,
@@ -29,6 +30,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class GCPSTSServiceAccountAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_TAGS = "account_tags";
+  private List<String> accountTags = null;
+
   public static final String JSON_PROPERTY_AUTOMUTE = "automute";
   private Boolean automute;
 
@@ -40,6 +44,35 @@ public class GCPSTSServiceAccountAttributes {
 
   public static final String JSON_PROPERTY_IS_CSPM_ENABLED = "is_cspm_enabled";
   private Boolean isCspmEnabled;
+
+  public GCPSTSServiceAccountAttributes accountTags(List<String> accountTags) {
+    this.accountTags = accountTags;
+    return this;
+  }
+
+  public GCPSTSServiceAccountAttributes addAccountTagsItem(String accountTagsItem) {
+    if (this.accountTags == null) {
+      this.accountTags = new ArrayList<>();
+    }
+    this.accountTags.add(accountTagsItem);
+    return this;
+  }
+
+  /**
+   * Tags to be associated with GCP metrics and service checks from your account.
+   *
+   * @return accountTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getAccountTags() {
+    return accountTags;
+  }
+
+  public void setAccountTags(List<String> accountTags) {
+    this.accountTags = accountTags;
+  }
 
   public GCPSTSServiceAccountAttributes automute(Boolean automute) {
     this.automute = automute;
@@ -191,7 +224,8 @@ public class GCPSTSServiceAccountAttributes {
     }
     GCPSTSServiceAccountAttributes gcpstsServiceAccountAttributes =
         (GCPSTSServiceAccountAttributes) o;
-    return Objects.equals(this.automute, gcpstsServiceAccountAttributes.automute)
+    return Objects.equals(this.accountTags, gcpstsServiceAccountAttributes.accountTags)
+        && Objects.equals(this.automute, gcpstsServiceAccountAttributes.automute)
         && Objects.equals(this.clientEmail, gcpstsServiceAccountAttributes.clientEmail)
         && Objects.equals(this.hostFilters, gcpstsServiceAccountAttributes.hostFilters)
         && Objects.equals(this.isCspmEnabled, gcpstsServiceAccountAttributes.isCspmEnabled)
@@ -201,13 +235,15 @@ public class GCPSTSServiceAccountAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(automute, clientEmail, hostFilters, isCspmEnabled, additionalProperties);
+    return Objects.hash(
+        accountTags, automute, clientEmail, hostFilters, isCspmEnabled, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GCPSTSServiceAccountAttributes {\n");
+    sb.append("    accountTags: ").append(toIndentedString(accountTags)).append("\n");
     sb.append("    automute: ").append(toIndentedString(automute)).append("\n");
     sb.append("    clientEmail: ").append(toIndentedString(clientEmail)).append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");

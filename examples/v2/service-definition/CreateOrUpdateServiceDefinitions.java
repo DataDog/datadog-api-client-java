@@ -4,17 +4,15 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ServiceDefinitionApi;
 import com.datadog.api.client.v2.model.ServiceDefinitionCreateResponse;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Contact;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Email;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1EmailType;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Integrations;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Link;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1LinkType;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Opsgenie;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1OpsgenieRegion;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Pagerduty;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot1Version;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Contact;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Integrations;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Link;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Opsgenie;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2OpsgenieRegion;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Pagerduty;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Type;
+import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Version;
 import com.datadog.api.client.v2.model.ServiceDefinitionsCreateRequest;
 import java.util.Arrays;
 import java.util.Collections;
@@ -27,41 +25,43 @@ public class Example {
 
     ServiceDefinitionsCreateRequest body =
         new ServiceDefinitionsCreateRequest(
-            new ServiceDefinitionV2Dot1()
+            new ServiceDefinitionV2Dot2()
                 .application("my-app")
                 .contacts(
                     Collections.singletonList(
-                        new ServiceDefinitionV2Dot1Contact(
-                            new ServiceDefinitionV2Dot1Email()
-                                .contact("contact@datadoghq.com")
-                                .name("Team Email")
-                                .type(ServiceDefinitionV2Dot1EmailType.EMAIL))))
+                        new ServiceDefinitionV2Dot2Contact()
+                            .contact("https://teams.microsoft.com/myteam")
+                            .name("My team channel")
+                            .type("slack")))
                 .ddService("my-service")
                 .description("My service description")
                 .extensions(Map.ofEntries(Map.entry("myorg/extension", "extensionValue")))
                 .integrations(
-                    new ServiceDefinitionV2Dot1Integrations()
+                    new ServiceDefinitionV2Dot2Integrations()
                         .opsgenie(
-                            new ServiceDefinitionV2Dot1Opsgenie()
-                                .region(ServiceDefinitionV2Dot1OpsgenieRegion.US)
+                            new ServiceDefinitionV2Dot2Opsgenie()
+                                .region(ServiceDefinitionV2Dot2OpsgenieRegion.US)
                                 .serviceUrl(
                                     "https://my-org.opsgenie.com/service/123e4567-e89b-12d3-a456-426614174000"))
                         .pagerduty(
-                            new ServiceDefinitionV2Dot1Pagerduty()
+                            new ServiceDefinitionV2Dot2Pagerduty()
                                 .serviceUrl(
                                     "https://my-org.pagerduty.com/service-directory/PMyService")))
+                .langauges(
+                    Arrays.asList("dotnet", "go", "java", "js", "php", "python", "ruby", "c++"))
                 .lifecycle("sandbox")
                 .links(
                     Collections.singletonList(
-                        new ServiceDefinitionV2Dot1Link()
+                        new ServiceDefinitionV2Dot2Link()
                             .name("Runbook")
                             .provider("Github")
-                            .type(ServiceDefinitionV2Dot1LinkType.RUNBOOK)
+                            .type("runbook")
                             .url("https://my-runbook")))
-                .schemaVersion(ServiceDefinitionV2Dot1Version.V2_1)
+                .schemaVersion(ServiceDefinitionV2Dot2Version.V2_2)
                 .tags(Arrays.asList("my:tag", "service:tag"))
                 .team("my-team")
-                .tier("High"));
+                .tier("High")
+                .type(ServiceDefinitionV2Dot2Type.WEB));
 
     try {
       ServiceDefinitionCreateResponse result = apiInstance.createOrUpdateServiceDefinitions(body);

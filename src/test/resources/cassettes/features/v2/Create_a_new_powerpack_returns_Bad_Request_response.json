@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Powerpack for ABC\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"type\":\"group1\",\"widgets\":[]}},\"name\":\"Sample Powerpack\",\"tags\":[\"tag:foo1\"],\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"test\"}]},\"type\":\"powerpack\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/powerpacks",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid group widget for powerpack. Error: 'group1' is not one of ['group']\\n\\nFailed validating 'enum' in schema['properties']['type']:\\n    {'enum': ['group']}\\n\\nOn instance['type']:\\n    'group1'.\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0011486f-1e30-c652-72fb-909e4c526536"
+  }
+]

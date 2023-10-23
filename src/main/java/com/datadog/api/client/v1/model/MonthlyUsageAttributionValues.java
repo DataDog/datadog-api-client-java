@@ -34,6 +34,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_VISIBILITY_ITR_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_VISIBILITY_ITR_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CLOUD_SIEM_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CLOUD_SIEM_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_EXCL_AGENT_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_EXCL_AGENT_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_PERCENTAGE,
@@ -74,6 +76,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_INVOCATIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_MOBILE_APP_TESTING_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_MOBILE_APP_TESTING_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_NDM_NETFLOW_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_NDM_NETFLOW_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINE_BYTES_PERCENTAGE,
@@ -147,6 +151,12 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage";
   private Double ciVisibilityItrUsage;
+
+  public static final String JSON_PROPERTY_CLOUD_SIEM_PERCENTAGE = "cloud_siem_percentage";
+  private Double cloudSiemPercentage;
+
+  public static final String JSON_PROPERTY_CLOUD_SIEM_USAGE = "cloud_siem_usage";
+  private Double cloudSiemUsage;
 
   public static final String JSON_PROPERTY_CONTAINER_EXCL_AGENT_PERCENTAGE =
       "container_excl_agent_percentage";
@@ -284,6 +294,12 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_MOBILE_APP_TESTING_USAGE = "mobile_app_testing_usage";
   private Double mobileAppTestingUsage;
+
+  public static final String JSON_PROPERTY_NDM_NETFLOW_PERCENTAGE = "ndm_netflow_percentage";
+  private Double ndmNetflowPercentage;
+
+  public static final String JSON_PROPERTY_NDM_NETFLOW_USAGE = "ndm_netflow_usage";
+  private Double ndmNetflowUsage;
 
   public static final String JSON_PROPERTY_NPM_HOST_PERCENTAGE = "npm_host_percentage";
   private Double npmHostPercentage;
@@ -688,6 +704,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setCiVisibilityItrUsage(Double ciVisibilityItrUsage) {
     this.ciVisibilityItrUsage = ciVisibilityItrUsage;
+  }
+
+  public MonthlyUsageAttributionValues cloudSiemPercentage(Double cloudSiemPercentage) {
+    this.cloudSiemPercentage = cloudSiemPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Cloud Security Information and Event Management usage by tag(s).
+   *
+   * @return cloudSiemPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCloudSiemPercentage() {
+    return cloudSiemPercentage;
+  }
+
+  public void setCloudSiemPercentage(Double cloudSiemPercentage) {
+    this.cloudSiemPercentage = cloudSiemPercentage;
+  }
+
+  public MonthlyUsageAttributionValues cloudSiemUsage(Double cloudSiemUsage) {
+    this.cloudSiemUsage = cloudSiemUsage;
+    return this;
+  }
+
+  /**
+   * The Cloud Security Information and Event Management usage by tag(s).
+   *
+   * @return cloudSiemUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_SIEM_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCloudSiemUsage() {
+    return cloudSiemUsage;
+  }
+
+  public void setCloudSiemUsage(Double cloudSiemUsage) {
+    this.cloudSiemUsage = cloudSiemUsage;
   }
 
   public MonthlyUsageAttributionValues containerExclAgentPercentage(
@@ -1543,6 +1601,48 @@ public class MonthlyUsageAttributionValues {
     this.mobileAppTestingUsage = mobileAppTestingUsage;
   }
 
+  public MonthlyUsageAttributionValues ndmNetflowPercentage(Double ndmNetflowPercentage) {
+    this.ndmNetflowPercentage = ndmNetflowPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Network Device Monitoring NetFlow usage by tag(s).
+   *
+   * @return ndmNetflowPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NDM_NETFLOW_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getNdmNetflowPercentage() {
+    return ndmNetflowPercentage;
+  }
+
+  public void setNdmNetflowPercentage(Double ndmNetflowPercentage) {
+    this.ndmNetflowPercentage = ndmNetflowPercentage;
+  }
+
+  public MonthlyUsageAttributionValues ndmNetflowUsage(Double ndmNetflowUsage) {
+    this.ndmNetflowUsage = ndmNetflowUsage;
+    return this;
+  }
+
+  /**
+   * The Network Device Monitoring NetFlow usage by tag(s).
+   *
+   * @return ndmNetflowUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NDM_NETFLOW_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getNdmNetflowUsage() {
+    return ndmNetflowUsage;
+  }
+
+  public void setNdmNetflowUsage(Double ndmNetflowUsage) {
+    this.ndmNetflowUsage = ndmNetflowUsage;
+  }
+
   public MonthlyUsageAttributionValues npmHostPercentage(Double npmHostPercentage) {
     this.npmHostPercentage = npmHostPercentage;
     return this;
@@ -2045,6 +2145,9 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.ciVisibilityItrUsage, monthlyUsageAttributionValues.ciVisibilityItrUsage)
         && Objects.equals(
+            this.cloudSiemPercentage, monthlyUsageAttributionValues.cloudSiemPercentage)
+        && Objects.equals(this.cloudSiemUsage, monthlyUsageAttributionValues.cloudSiemUsage)
+        && Objects.equals(
             this.containerExclAgentPercentage,
             monthlyUsageAttributionValues.containerExclAgentPercentage)
         && Objects.equals(
@@ -2124,6 +2227,9 @@ public class MonthlyUsageAttributionValues {
             monthlyUsageAttributionValues.mobileAppTestingPercentage)
         && Objects.equals(
             this.mobileAppTestingUsage, monthlyUsageAttributionValues.mobileAppTestingUsage)
+        && Objects.equals(
+            this.ndmNetflowPercentage, monthlyUsageAttributionValues.ndmNetflowPercentage)
+        && Objects.equals(this.ndmNetflowUsage, monthlyUsageAttributionValues.ndmNetflowUsage)
         && Objects.equals(this.npmHostPercentage, monthlyUsageAttributionValues.npmHostPercentage)
         && Objects.equals(this.npmHostUsage, monthlyUsageAttributionValues.npmHostUsage)
         && Objects.equals(
@@ -2187,6 +2293,8 @@ public class MonthlyUsageAttributionValues {
         browserUsage,
         ciVisibilityItrPercentage,
         ciVisibilityItrUsage,
+        cloudSiemPercentage,
+        cloudSiemUsage,
         containerExclAgentPercentage,
         containerExclAgentUsage,
         containerPercentage,
@@ -2227,6 +2335,8 @@ public class MonthlyUsageAttributionValues {
         invocationsUsage,
         mobileAppTestingPercentage,
         mobileAppTestingUsage,
+        ndmNetflowPercentage,
+        ndmNetflowUsage,
         npmHostPercentage,
         npmHostUsage,
         obsPipelineBytesPercentage,
@@ -2278,6 +2388,10 @@ public class MonthlyUsageAttributionValues {
     sb.append("    ciVisibilityItrUsage: ")
         .append(toIndentedString(ciVisibilityItrUsage))
         .append("\n");
+    sb.append("    cloudSiemPercentage: ")
+        .append(toIndentedString(cloudSiemPercentage))
+        .append("\n");
+    sb.append("    cloudSiemUsage: ").append(toIndentedString(cloudSiemUsage)).append("\n");
     sb.append("    containerExclAgentPercentage: ")
         .append(toIndentedString(containerExclAgentPercentage))
         .append("\n");
@@ -2372,6 +2486,10 @@ public class MonthlyUsageAttributionValues {
     sb.append("    mobileAppTestingUsage: ")
         .append(toIndentedString(mobileAppTestingUsage))
         .append("\n");
+    sb.append("    ndmNetflowPercentage: ")
+        .append(toIndentedString(ndmNetflowPercentage))
+        .append("\n");
+    sb.append("    ndmNetflowUsage: ").append(toIndentedString(ndmNetflowUsage)).append("\n");
     sb.append("    npmHostPercentage: ").append(toIndentedString(npmHostPercentage)).append("\n");
     sb.append("    npmHostUsage: ").append(toIndentedString(npmHostUsage)).append("\n");
     sb.append("    obsPipelineBytesPercentage: ")
