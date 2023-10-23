@@ -74,6 +74,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INVOCATIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INVOCATIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_MOBILE_APP_TESTING_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_MOBILE_APP_TESTING_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NDM_NETFLOW_PERCENTAGE,
@@ -287,6 +289,14 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_INVOCATIONS_USAGE = "invocations_usage";
   private Double invocationsUsage;
+
+  public static final String JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_PERCENTAGE =
+      "lambda_traced_invocations_percentage";
+  private Double lambdaTracedInvocationsPercentage;
+
+  public static final String JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_USAGE =
+      "lambda_traced_invocations_usage";
+  private Double lambdaTracedInvocationsUsage;
 
   public static final String JSON_PROPERTY_MOBILE_APP_TESTING_PERCENTAGE =
       "mobile_app_testing_percentage";
@@ -1558,6 +1568,50 @@ public class MonthlyUsageAttributionValues {
     this.invocationsUsage = invocationsUsage;
   }
 
+  public MonthlyUsageAttributionValues lambdaTracedInvocationsPercentage(
+      Double lambdaTracedInvocationsPercentage) {
+    this.lambdaTracedInvocationsPercentage = lambdaTracedInvocationsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Serverless APM usage by tag(s).
+   *
+   * @return lambdaTracedInvocationsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLambdaTracedInvocationsPercentage() {
+    return lambdaTracedInvocationsPercentage;
+  }
+
+  public void setLambdaTracedInvocationsPercentage(Double lambdaTracedInvocationsPercentage) {
+    this.lambdaTracedInvocationsPercentage = lambdaTracedInvocationsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues lambdaTracedInvocationsUsage(
+      Double lambdaTracedInvocationsUsage) {
+    this.lambdaTracedInvocationsUsage = lambdaTracedInvocationsUsage;
+    return this;
+  }
+
+  /**
+   * The Serverless APM usage by tag(s).
+   *
+   * @return lambdaTracedInvocationsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLambdaTracedInvocationsUsage() {
+    return lambdaTracedInvocationsUsage;
+  }
+
+  public void setLambdaTracedInvocationsUsage(Double lambdaTracedInvocationsUsage) {
+    this.lambdaTracedInvocationsUsage = lambdaTracedInvocationsUsage;
+  }
+
   public MonthlyUsageAttributionValues mobileAppTestingPercentage(
       Double mobileAppTestingPercentage) {
     this.mobileAppTestingPercentage = mobileAppTestingPercentage;
@@ -2223,6 +2277,12 @@ public class MonthlyUsageAttributionValues {
             this.invocationsPercentage, monthlyUsageAttributionValues.invocationsPercentage)
         && Objects.equals(this.invocationsUsage, monthlyUsageAttributionValues.invocationsUsage)
         && Objects.equals(
+            this.lambdaTracedInvocationsPercentage,
+            monthlyUsageAttributionValues.lambdaTracedInvocationsPercentage)
+        && Objects.equals(
+            this.lambdaTracedInvocationsUsage,
+            monthlyUsageAttributionValues.lambdaTracedInvocationsUsage)
+        && Objects.equals(
             this.mobileAppTestingPercentage,
             monthlyUsageAttributionValues.mobileAppTestingPercentage)
         && Objects.equals(
@@ -2333,6 +2393,8 @@ public class MonthlyUsageAttributionValues {
         infraHostUsage,
         invocationsPercentage,
         invocationsUsage,
+        lambdaTracedInvocationsPercentage,
+        lambdaTracedInvocationsUsage,
         mobileAppTestingPercentage,
         mobileAppTestingUsage,
         ndmNetflowPercentage,
@@ -2480,6 +2542,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(invocationsPercentage))
         .append("\n");
     sb.append("    invocationsUsage: ").append(toIndentedString(invocationsUsage)).append("\n");
+    sb.append("    lambdaTracedInvocationsPercentage: ")
+        .append(toIndentedString(lambdaTracedInvocationsPercentage))
+        .append("\n");
+    sb.append("    lambdaTracedInvocationsUsage: ")
+        .append(toIndentedString(lambdaTracedInvocationsUsage))
+        .append("\n");
     sb.append("    mobileAppTestingPercentage: ")
         .append(toIndentedString(mobileAppTestingPercentage))
         .append("\n");
