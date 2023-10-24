@@ -26,8 +26,8 @@ public class UserTeamPermissionAttributes {
   private Object permissions;
 
   /**
-   * Object of team permission actions and boolean values indicating of the currently logged in user
-   * can perform them on this team
+   * Object of team permission actions and boolean values that a logged in user can perform on this
+   * team.
    *
    * @return permissions
    */
