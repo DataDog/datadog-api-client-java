@@ -18,6 +18,7 @@ import com.datadog.api.client.v2.model.TeamPermissionSettingUpdateRequest;
 import com.datadog.api.client.v2.model.TeamPermissionSettingsResponse;
 import com.datadog.api.client.v2.model.TeamResponse;
 import com.datadog.api.client.v2.model.TeamUpdateRequest;
+import com.datadog.api.client.v2.model.TeamsField;
 import com.datadog.api.client.v2.model.TeamsResponse;
 import com.datadog.api.client.v2.model.UserTeamRequest;
 import com.datadog.api.client.v2.model.UserTeamResponse;
@@ -1896,6 +1897,7 @@ public class TeamsApi {
     private List<ListTeamsInclude> include;
     private String filterKeyword;
     private Boolean filterMe;
+    private List<TeamsField> fieldsTeam;
 
     /**
      * Set pageNumber.
@@ -1963,6 +1965,17 @@ public class TeamsApi {
      */
     public ListTeamsOptionalParameters filterMe(Boolean filterMe) {
       this.filterMe = filterMe;
+      return this;
+    }
+
+    /**
+     * Set fieldsTeam.
+     *
+     * @param fieldsTeam List of fields that need to be fetched. (optional)
+     * @return ListTeamsOptionalParameters
+     */
+    public ListTeamsOptionalParameters fieldsTeam(List<TeamsField> fieldsTeam) {
+      this.fieldsTeam = fieldsTeam;
       return this;
     }
   }
@@ -2100,6 +2113,7 @@ public class TeamsApi {
     List<ListTeamsInclude> include = parameters.include;
     String filterKeyword = parameters.filterKeyword;
     Boolean filterMe = parameters.filterMe;
+    List<TeamsField> fieldsTeam = parameters.fieldsTeam;
     // create path and map variables
     String localVarPath = "/api/v2/team";
 
@@ -2112,6 +2126,7 @@ public class TeamsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[keyword]", filterKeyword));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[me]", filterMe));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "fields[team]", fieldsTeam));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2150,6 +2165,7 @@ public class TeamsApi {
     List<ListTeamsInclude> include = parameters.include;
     String filterKeyword = parameters.filterKeyword;
     Boolean filterMe = parameters.filterMe;
+    List<TeamsField> fieldsTeam = parameters.fieldsTeam;
     // create path and map variables
     String localVarPath = "/api/v2/team";
 
@@ -2162,6 +2178,7 @@ public class TeamsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[keyword]", filterKeyword));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[me]", filterMe));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "fields[team]", fieldsTeam));
 
     Invocation.Builder builder;
     try {

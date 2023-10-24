@@ -1264,6 +1264,8 @@ public class KeyManagementApi {
     private String filterModifiedAtStart;
     private String filterModifiedAtEnd;
     private String include;
+    private Boolean filterRemoteConfigReadEnabled;
+    private String filterCategory;
 
     /**
      * Set pageSize.
@@ -1372,6 +1374,30 @@ public class KeyManagementApi {
       this.include = include;
       return this;
     }
+
+    /**
+     * Set filterRemoteConfigReadEnabled.
+     *
+     * @param filterRemoteConfigReadEnabled Filter API keys by remote config read enabled status.
+     *     (optional)
+     * @return ListAPIKeysOptionalParameters
+     */
+    public ListAPIKeysOptionalParameters filterRemoteConfigReadEnabled(
+        Boolean filterRemoteConfigReadEnabled) {
+      this.filterRemoteConfigReadEnabled = filterRemoteConfigReadEnabled;
+      return this;
+    }
+
+    /**
+     * Set filterCategory.
+     *
+     * @param filterCategory Filter API keys by category. (optional)
+     * @return ListAPIKeysOptionalParameters
+     */
+    public ListAPIKeysOptionalParameters filterCategory(String filterCategory) {
+      this.filterCategory = filterCategory;
+      return this;
+    }
   }
 
   /**
@@ -1459,6 +1485,8 @@ public class KeyManagementApi {
     String filterModifiedAtStart = parameters.filterModifiedAtStart;
     String filterModifiedAtEnd = parameters.filterModifiedAtEnd;
     String include = parameters.include;
+    Boolean filterRemoteConfigReadEnabled = parameters.filterRemoteConfigReadEnabled;
+    String filterCategory = parameters.filterCategory;
     // create path and map variables
     String localVarPath = "/api/v2/api_keys";
 
@@ -1478,6 +1506,10 @@ public class KeyManagementApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[modified_at][end]", filterModifiedAtEnd));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[remote_config_read_enabled]", filterRemoteConfigReadEnabled));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[category]", filterCategory));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1519,6 +1551,8 @@ public class KeyManagementApi {
     String filterModifiedAtStart = parameters.filterModifiedAtStart;
     String filterModifiedAtEnd = parameters.filterModifiedAtEnd;
     String include = parameters.include;
+    Boolean filterRemoteConfigReadEnabled = parameters.filterRemoteConfigReadEnabled;
+    String filterCategory = parameters.filterCategory;
     // create path and map variables
     String localVarPath = "/api/v2/api_keys";
 
@@ -1538,6 +1572,10 @@ public class KeyManagementApi {
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[modified_at][end]", filterModifiedAtEnd));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[remote_config_read_enabled]", filterRemoteConfigReadEnabled));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[category]", filterCategory));
 
     Invocation.Builder builder;
     try {
@@ -1574,6 +1612,7 @@ public class KeyManagementApi {
     private String filter;
     private String filterCreatedAtStart;
     private String filterCreatedAtEnd;
+    private String include;
 
     /**
      * Set pageSize.
@@ -1643,6 +1682,18 @@ public class KeyManagementApi {
      */
     public ListApplicationKeysOptionalParameters filterCreatedAtEnd(String filterCreatedAtEnd) {
       this.filterCreatedAtEnd = filterCreatedAtEnd;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Resource path for related resources to include in the response. Only <code>
+     *     owned_by</code> is supported. (optional)
+     * @return ListApplicationKeysOptionalParameters
+     */
+    public ListApplicationKeysOptionalParameters include(String include) {
+      this.include = include;
       return this;
     }
   }
@@ -1731,6 +1782,7 @@ public class KeyManagementApi {
     String filter = parameters.filter;
     String filterCreatedAtStart = parameters.filterCreatedAtStart;
     String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/application_keys";
 
@@ -1745,6 +1797,7 @@ public class KeyManagementApi {
         apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1783,6 +1836,7 @@ public class KeyManagementApi {
     String filter = parameters.filter;
     String filterCreatedAtStart = parameters.filterCreatedAtStart;
     String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/application_keys";
 
@@ -1797,6 +1851,7 @@ public class KeyManagementApi {
         apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
     try {
@@ -1834,6 +1889,7 @@ public class KeyManagementApi {
     private String filter;
     private String filterCreatedAtStart;
     private String filterCreatedAtEnd;
+    private String include;
 
     /**
      * Set pageSize.
@@ -1905,6 +1961,18 @@ public class KeyManagementApi {
     public ListCurrentUserApplicationKeysOptionalParameters filterCreatedAtEnd(
         String filterCreatedAtEnd) {
       this.filterCreatedAtEnd = filterCreatedAtEnd;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Resource path for related resources to include in the response. Only <code>
+     *     owned_by</code> is supported. (optional)
+     * @return ListCurrentUserApplicationKeysOptionalParameters
+     */
+    public ListCurrentUserApplicationKeysOptionalParameters include(String include) {
+      this.include = include;
       return this;
     }
   }
@@ -1996,6 +2064,7 @@ public class KeyManagementApi {
     String filter = parameters.filter;
     String filterCreatedAtStart = parameters.filterCreatedAtStart;
     String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/current_user/application_keys";
 
@@ -2010,6 +2079,7 @@ public class KeyManagementApi {
         apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2049,6 +2119,7 @@ public class KeyManagementApi {
     String filter = parameters.filter;
     String filterCreatedAtStart = parameters.filterCreatedAtStart;
     String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/current_user/application_keys";
 
@@ -2063,6 +2134,7 @@ public class KeyManagementApi {
         apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
     try {
