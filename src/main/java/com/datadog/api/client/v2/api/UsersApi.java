@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -325,7 +326,7 @@ public class UsersApi {
    * @return UserInvitationResponse
    * @throws ApiException if fails to make API call
    */
-  public UserInvitationResponse getInvitation(String userInvitationUuid) throws ApiException {
+  public UserInvitationResponse getInvitation(UUID userInvitationUuid) throws ApiException {
     return getInvitationWithHttpInfo(userInvitationUuid).getData();
   }
 
@@ -337,7 +338,7 @@ public class UsersApi {
    * @param userInvitationUuid The UUID of the user invitation. (required)
    * @return CompletableFuture&lt;UserInvitationResponse&gt;
    */
-  public CompletableFuture<UserInvitationResponse> getInvitationAsync(String userInvitationUuid) {
+  public CompletableFuture<UserInvitationResponse> getInvitationAsync(UUID userInvitationUuid) {
     return getInvitationWithHttpInfoAsync(userInvitationUuid)
         .thenApply(
             response -> {
@@ -361,7 +362,7 @@ public class UsersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<UserInvitationResponse> getInvitationWithHttpInfo(String userInvitationUuid)
+  public ApiResponse<UserInvitationResponse> getInvitationWithHttpInfo(UUID userInvitationUuid)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -408,7 +409,7 @@ public class UsersApi {
    * @return CompletableFuture&lt;ApiResponse&lt;UserInvitationResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UserInvitationResponse>> getInvitationWithHttpInfoAsync(
-      String userInvitationUuid) {
+      UUID userInvitationUuid) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'userInvitationUuid' is set

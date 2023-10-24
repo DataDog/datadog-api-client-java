@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** Object of a user invitation returned by the API. */
 @JsonPropertyOrder({
@@ -31,7 +32,7 @@ public class UserInvitationResponseData {
   private UserInvitationDataAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
   private UserInvitationRelationships relationships;
@@ -61,7 +62,7 @@ public class UserInvitationResponseData {
     this.attributes = attributes;
   }
 
-  public UserInvitationResponseData id(String id) {
+  public UserInvitationResponseData id(UUID id) {
     this.id = id;
     return this;
   }
@@ -74,11 +75,11 @@ public class UserInvitationResponseData {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

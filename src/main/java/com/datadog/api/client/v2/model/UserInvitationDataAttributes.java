@@ -16,6 +16,7 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** Attributes of a user invitation. */
 @JsonPropertyOrder({
@@ -38,7 +39,7 @@ public class UserInvitationDataAttributes {
   private String inviteType;
 
   public static final String JSON_PROPERTY_UUID = "uuid";
-  private String uuid;
+  private UUID uuid;
 
   public UserInvitationDataAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
@@ -103,7 +104,7 @@ public class UserInvitationDataAttributes {
     this.inviteType = inviteType;
   }
 
-  public UserInvitationDataAttributes uuid(String uuid) {
+  public UserInvitationDataAttributes uuid(UUID uuid) {
     this.uuid = uuid;
     return this;
   }
@@ -116,11 +117,11 @@ public class UserInvitationDataAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UUID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUuid() {
+  public UUID getUuid() {
     return uuid;
   }
 
-  public void setUuid(String uuid) {
+  public void setUuid(UUID uuid) {
     this.uuid = uuid;
   }
 

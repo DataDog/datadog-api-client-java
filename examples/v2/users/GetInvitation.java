@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.UsersApi;
 import com.datadog.api.client.v2.model.UserInvitationResponse;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,7 +12,12 @@ public class Example {
     UsersApi apiInstance = new UsersApi(defaultClient);
 
     // the "user" has a "user_invitation"
-    String USER_INVITATION_ID = System.getenv("USER_INVITATION_ID");
+    UUID USER_INVITATION_ID = null;
+    try {
+      USER_INVITATION_ID = UUID.fromString(System.getenv("USER_INVITATION_ID"));
+    } catch (IllegalArgumentException e) {
+      System.err.println("Error parsing UUID: " + e.getMessage());
+    }
 
     try {
       UserInvitationResponse result = apiInstance.getInvitation(USER_INVITATION_ID);
