@@ -8,6 +8,11 @@ import com.datadog.api.client.v1.model.AWSAccount;
 import com.datadog.api.client.v1.model.AWSAccountCreateResponse;
 import com.datadog.api.client.v1.model.AWSAccountDeleteRequest;
 import com.datadog.api.client.v1.model.AWSAccountListResponse;
+import com.datadog.api.client.v1.model.AWSEventBridgeCreateRequest;
+import com.datadog.api.client.v1.model.AWSEventBridgeCreateResponse;
+import com.datadog.api.client.v1.model.AWSEventBridgeDeleteRequest;
+import com.datadog.api.client.v1.model.AWSEventBridgeDeleteResponse;
+import com.datadog.api.client.v1.model.AWSEventBridgeListResponse;
 import com.datadog.api.client.v1.model.AWSTagFilterCreateRequest;
 import com.datadog.api.client.v1.model.AWSTagFilterDeleteRequest;
 import com.datadog.api.client.v1.model.AWSTagFilterListResponse;
@@ -182,6 +187,146 @@ public class AwsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AWSAccountCreateResponse>() {});
+  }
+
+  /**
+   * Create an Amazon EventBridge source.
+   *
+   * <p>See {@link #createAWSEventBridgeSourceWithHttpInfo}.
+   *
+   * @param body Create an Amazon EventBridge source for an AWS account with a given name and
+   *     region. (required)
+   * @return AWSEventBridgeCreateResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSEventBridgeCreateResponse createAWSEventBridgeSource(AWSEventBridgeCreateRequest body)
+      throws ApiException {
+    return createAWSEventBridgeSourceWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an Amazon EventBridge source.
+   *
+   * <p>See {@link #createAWSEventBridgeSourceWithHttpInfoAsync}.
+   *
+   * @param body Create an Amazon EventBridge source for an AWS account with a given name and
+   *     region. (required)
+   * @return CompletableFuture&lt;AWSEventBridgeCreateResponse&gt;
+   */
+  public CompletableFuture<AWSEventBridgeCreateResponse> createAWSEventBridgeSourceAsync(
+      AWSEventBridgeCreateRequest body) {
+    return createAWSEventBridgeSourceWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an Amazon EventBridge source.
+   *
+   * @param body Create an Amazon EventBridge source for an AWS account with a given name and
+   *     region. (required)
+   * @return ApiResponse&lt;AWSEventBridgeCreateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSEventBridgeCreateResponse> createAWSEventBridgeSourceWithHttpInfo(
+      AWSEventBridgeCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createAWSEventBridgeSource");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/event_bridge";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.AwsIntegrationApi.createAWSEventBridgeSource",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSEventBridgeCreateResponse>() {});
+  }
+
+  /**
+   * Create an Amazon EventBridge source.
+   *
+   * <p>See {@link #createAWSEventBridgeSourceWithHttpInfo}.
+   *
+   * @param body Create an Amazon EventBridge source for an AWS account with a given name and
+   *     region. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSEventBridgeCreateResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSEventBridgeCreateResponse>>
+      createAWSEventBridgeSourceWithHttpInfoAsync(AWSEventBridgeCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AWSEventBridgeCreateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createAWSEventBridgeSource"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/event_bridge";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.AwsIntegrationApi.createAWSEventBridgeSource",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSEventBridgeCreateResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSEventBridgeCreateResponse>() {});
   }
 
   /**
@@ -601,6 +746,146 @@ public class AwsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Object>() {});
+  }
+
+  /**
+   * Delete an Amazon EventBridge source.
+   *
+   * <p>See {@link #deleteAWSEventBridgeSourceWithHttpInfo}.
+   *
+   * @param body Delete the Amazon EventBridge source with the given name, region, and associated
+   *     AWS account. (required)
+   * @return AWSEventBridgeDeleteResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSEventBridgeDeleteResponse deleteAWSEventBridgeSource(AWSEventBridgeDeleteRequest body)
+      throws ApiException {
+    return deleteAWSEventBridgeSourceWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Delete an Amazon EventBridge source.
+   *
+   * <p>See {@link #deleteAWSEventBridgeSourceWithHttpInfoAsync}.
+   *
+   * @param body Delete the Amazon EventBridge source with the given name, region, and associated
+   *     AWS account. (required)
+   * @return CompletableFuture&lt;AWSEventBridgeDeleteResponse&gt;
+   */
+  public CompletableFuture<AWSEventBridgeDeleteResponse> deleteAWSEventBridgeSourceAsync(
+      AWSEventBridgeDeleteRequest body) {
+    return deleteAWSEventBridgeSourceWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an Amazon EventBridge source.
+   *
+   * @param body Delete the Amazon EventBridge source with the given name, region, and associated
+   *     AWS account. (required)
+   * @return ApiResponse&lt;AWSEventBridgeDeleteResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSEventBridgeDeleteResponse> deleteAWSEventBridgeSourceWithHttpInfo(
+      AWSEventBridgeDeleteRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling deleteAWSEventBridgeSource");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/event_bridge";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.AwsIntegrationApi.deleteAWSEventBridgeSource",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSEventBridgeDeleteResponse>() {});
+  }
+
+  /**
+   * Delete an Amazon EventBridge source.
+   *
+   * <p>See {@link #deleteAWSEventBridgeSourceWithHttpInfo}.
+   *
+   * @param body Delete the Amazon EventBridge source with the given name, region, and associated
+   *     AWS account. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSEventBridgeDeleteResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSEventBridgeDeleteResponse>>
+      deleteAWSEventBridgeSourceWithHttpInfoAsync(AWSEventBridgeDeleteRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AWSEventBridgeDeleteResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling deleteAWSEventBridgeSource"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/event_bridge";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.AwsIntegrationApi.deleteAWSEventBridgeSource",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSEventBridgeDeleteResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSEventBridgeDeleteResponse>() {});
   }
 
   /**
@@ -1049,6 +1334,118 @@ public class AwsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AWSAccountListResponse>() {});
+  }
+
+  /**
+   * Get all Amazon EventBridge sources.
+   *
+   * <p>See {@link #listAWSEventBridgeSourcesWithHttpInfo}.
+   *
+   * @return AWSEventBridgeListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AWSEventBridgeListResponse listAWSEventBridgeSources() throws ApiException {
+    return listAWSEventBridgeSourcesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get all Amazon EventBridge sources.
+   *
+   * <p>See {@link #listAWSEventBridgeSourcesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AWSEventBridgeListResponse&gt;
+   */
+  public CompletableFuture<AWSEventBridgeListResponse> listAWSEventBridgeSourcesAsync() {
+    return listAWSEventBridgeSourcesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all Amazon EventBridge sources.
+   *
+   * @return ApiResponse&lt;AWSEventBridgeListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSEventBridgeListResponse> listAWSEventBridgeSourcesWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/event_bridge";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.AwsIntegrationApi.listAWSEventBridgeSources",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSEventBridgeListResponse>() {});
+  }
+
+  /**
+   * Get all Amazon EventBridge sources.
+   *
+   * <p>See {@link #listAWSEventBridgeSourcesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;AWSEventBridgeListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AWSEventBridgeListResponse>>
+      listAWSEventBridgeSourcesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/aws/event_bridge";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.AwsIntegrationApi.listAWSEventBridgeSources",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AWSEventBridgeListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AWSEventBridgeListResponse>() {});
   }
 
   /**
