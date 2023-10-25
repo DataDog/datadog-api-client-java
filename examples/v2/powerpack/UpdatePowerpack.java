@@ -12,6 +12,7 @@ import com.datadog.api.client.v2.model.PowerpackGroupWidgetLayout;
 import com.datadog.api.client.v2.model.PowerpackInnerWidgets;
 import com.datadog.api.client.v2.model.PowerpackResponse;
 import com.datadog.api.client.v2.model.PowerpackTemplateVariable;
+import com.datadog.api.client.v2.model.WidgetLiveSpan;
 import java.util.Collections;
 import java.util.Map;
 
@@ -50,7 +51,8 @@ public class Example {
                                             .height(3L)
                                             .width(12L)
                                             .x(0L)
-                                            .y(0L)))
+                                            .y(0L))
+                                    .liveSpan(WidgetLiveSpan.PAST_ONE_HOUR))
                             .name("Example-Powerpack")
                             .tags(Collections.singletonList("tag:sample"))
                             .templateVariables(
