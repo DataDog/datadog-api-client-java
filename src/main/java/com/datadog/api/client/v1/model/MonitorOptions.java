@@ -113,7 +113,7 @@ public class MonitorOptions {
   private List<String> notifyBy = null;
 
   public static final String JSON_PROPERTY_NOTIFY_NO_DATA = "notify_no_data";
-  private Boolean notifyNoData = false;
+  private Boolean notifyNoData;
 
   public static final String JSON_PROPERTY_ON_MISSING_DATA = "on_missing_data";
   private OnMissingDataOption onMissingData;
@@ -638,7 +638,8 @@ public class MonitorOptions {
   }
 
   /**
-   * A Boolean indicating whether this monitor notifies when data stops reporting.
+   * A Boolean indicating whether this monitor notifies when data stops reporting. Defaults to
+   * <code>false</code>.
    *
    * @return notifyNoData
    */

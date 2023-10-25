@@ -1162,6 +1162,7 @@ public class RolesApi {
     private Long pageNumber;
     private RolesSort sort;
     private String filter;
+    private String filterId;
 
     /**
      * Set pageSize.
@@ -1207,6 +1208,17 @@ public class RolesApi {
      */
     public ListRolesOptionalParameters filter(String filter) {
       this.filter = filter;
+      return this;
+    }
+
+    /**
+     * Set filterId.
+     *
+     * @param filterId Filter all roles by the given list of role IDs. (optional)
+     * @return ListRolesOptionalParameters
+     */
+    public ListRolesOptionalParameters filterId(String filterId) {
+      this.filterId = filterId;
       return this;
     }
   }
@@ -1289,6 +1301,7 @@ public class RolesApi {
     Long pageNumber = parameters.pageNumber;
     RolesSort sort = parameters.sort;
     String filter = parameters.filter;
+    String filterId = parameters.filterId;
     // create path and map variables
     String localVarPath = "/api/v2/roles";
 
@@ -1299,6 +1312,7 @@ public class RolesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[id]", filterId));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1335,6 +1349,7 @@ public class RolesApi {
     Long pageNumber = parameters.pageNumber;
     RolesSort sort = parameters.sort;
     String filter = parameters.filter;
+    String filterId = parameters.filterId;
     // create path and map variables
     String localVarPath = "/api/v2/roles";
 
@@ -1345,6 +1360,7 @@ public class RolesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[id]", filterId));
 
     Invocation.Builder builder;
     try {
