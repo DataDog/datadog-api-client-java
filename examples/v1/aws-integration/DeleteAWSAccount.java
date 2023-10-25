@@ -11,7 +11,9 @@ public class Example {
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
 
     AWSAccountDeleteRequest body =
-        new AWSAccountDeleteRequest().accountId("1234567").roleName("DatadogAWSIntegrationRole");
+        new AWSAccountDeleteRequest()
+            .accountId("123456789012")
+            .roleName("DatadogAWSIntegrationRole");
 
     try {
       apiInstance.deleteAWSAccount(body);

@@ -1,26 +1,27 @@
-// Set an AWS tag filter returns "OK" response
+// Delete an Amazon EventBridge source returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.AwsIntegrationApi;
-import com.datadog.api.client.v1.model.AWSNamespace;
-import com.datadog.api.client.v1.model.AWSTagFilterCreateRequest;
+import com.datadog.api.client.v1.model.AWSEventBridgeDeleteRequest;
+import com.datadog.api.client.v1.model.AWSEventBridgeDeleteResponse;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
 
-    AWSTagFilterCreateRequest body =
-        new AWSTagFilterCreateRequest()
+    AWSEventBridgeDeleteRequest body =
+        new AWSEventBridgeDeleteRequest()
             .accountId("123456789012")
-            .namespace(AWSNamespace.ELB)
-            .tagFilterStr("prod*");
+            .eventGeneratorName("app-alerts-zyxw3210")
+            .region("us-east-1");
 
     try {
-      apiInstance.createAWSTagFilter(body);
+      AWSEventBridgeDeleteResponse result = apiInstance.deleteAWSEventBridgeSource(body);
+      System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AwsIntegrationApi#createAWSTagFilter");
+      System.err.println("Exception when calling AwsIntegrationApi#deleteAWSEventBridgeSource");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
