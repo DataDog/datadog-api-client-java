@@ -20,7 +20,8 @@ import java.util.Objects;
 /** Powerpack group widget definition object. */
 @JsonPropertyOrder({
   PowerpackGroupWidget.JSON_PROPERTY_DEFINITION,
-  PowerpackGroupWidget.JSON_PROPERTY_LAYOUT
+  PowerpackGroupWidget.JSON_PROPERTY_LAYOUT,
+  PowerpackGroupWidget.JSON_PROPERTY_LIVE_SPAN
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,6 +32,9 @@ public class PowerpackGroupWidget {
 
   public static final String JSON_PROPERTY_LAYOUT = "layout";
   private PowerpackGroupWidgetLayout layout;
+
+  public static final String JSON_PROPERTY_LIVE_SPAN = "live_span";
+  private WidgetLiveSpan liveSpan;
 
   public PowerpackGroupWidget() {}
 
@@ -83,6 +87,31 @@ public class PowerpackGroupWidget {
 
   public void setLayout(PowerpackGroupWidgetLayout layout) {
     this.layout = layout;
+  }
+
+  public PowerpackGroupWidget liveSpan(WidgetLiveSpan liveSpan) {
+    this.liveSpan = liveSpan;
+    this.unparsed |= !liveSpan.isValid();
+    return this;
+  }
+
+  /**
+   * The available timeframes depend on the widget you are using.
+   *
+   * @return liveSpan
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIVE_SPAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetLiveSpan getLiveSpan() {
+    return liveSpan;
+  }
+
+  public void setLiveSpan(WidgetLiveSpan liveSpan) {
+    if (!liveSpan.isValid()) {
+      this.unparsed = true;
+    }
+    this.liveSpan = liveSpan;
   }
 
   /**
@@ -143,12 +172,13 @@ public class PowerpackGroupWidget {
     PowerpackGroupWidget powerpackGroupWidget = (PowerpackGroupWidget) o;
     return Objects.equals(this.definition, powerpackGroupWidget.definition)
         && Objects.equals(this.layout, powerpackGroupWidget.layout)
+        && Objects.equals(this.liveSpan, powerpackGroupWidget.liveSpan)
         && Objects.equals(this.additionalProperties, powerpackGroupWidget.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(definition, layout, additionalProperties);
+    return Objects.hash(definition, layout, liveSpan, additionalProperties);
   }
 
   @Override
@@ -157,6 +187,7 @@ public class PowerpackGroupWidget {
     sb.append("class PowerpackGroupWidget {\n");
     sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
     sb.append("    layout: ").append(toIndentedString(layout)).append("\n");
+    sb.append("    liveSpan: ").append(toIndentedString(liveSpan)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

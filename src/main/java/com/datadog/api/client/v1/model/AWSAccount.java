@@ -184,7 +184,9 @@ public class AWSAccount {
   }
 
   /**
-   * An array of AWS regions to exclude from metrics collection.
+   * An array of <a
+   * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints">AWS
+   * regions</a> to exclude from metrics collection.
    *
    * @return excludedRegions
    */

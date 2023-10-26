@@ -1,36 +1,6 @@
 [
   {
     "httpRequest": {
-      "body": {
-        "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"}}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"name\":\"Test-Get_all_powerpacks_returns_OK_response_with_pagination-1697052278\",\"tags\":[\"tag:sample\"],\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}]},\"type\":\"powerpack\"}}"
-      },
-      "headers": {},
-      "method": "POST",
-      "path": "/api/v2/powerpacks",
-      "keepAlive": false,
-      "secure": true
-    },
-    "httpResponse": {
-      "body": "{\"data\":{\"type\":\"powerpack\",\"id\":\"d1938042-686b-11ee-9d56-da7ad0900002\",\"attributes\":{\"name\":\"Test-Get_all_powerpacks_returns_OK_response_with_pagination-1697052278\",\"description\":\"Sample powerpack\",\"group_widget\":{\"definition\":{\"layout_type\":\"ordered\",\"show_title\":true,\"title\":\"Sample Powerpack\",\"type\":\"group\",\"widgets\":[{\"definition\":{\"content\":\"test\",\"type\":\"note\"},\"id\":4216761608837044}]},\"layout\":{\"height\":3,\"width\":12,\"x\":0,\"y\":0}},\"template_variables\":[{\"defaults\":[\"*\"],\"name\":\"sample\"}],\"tags\":[\"tag:sample\"]},\"relationships\":{\"author\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}},\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"email\":\"frog@datadoghq.com\"}}]}\n",
-      "headers": {
-        "Content-Type": [
-          "application/json"
-        ]
-      },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
-    },
-    "times": {
-      "remainingTimes": 1
-    },
-    "timeToLive": {
-      "unlimited": true
-    },
-    "id": "466a2c39-bb9e-b6a0-f890-20532cc74b60"
-  },
-  {
-    "httpRequest": {
       "headers": {},
       "method": "GET",
       "path": "/api/v2/powerpacks",
@@ -93,30 +63,5 @@
       "unlimited": true
     },
     "id": "893187d7-9dd2-fe55-c8f9-b8e2f4446732"
-  },
-  {
-    "httpRequest": {
-      "headers": {},
-      "method": "DELETE",
-      "path": "/api/v2/powerpacks/d1938042-686b-11ee-9d56-da7ad0900002",
-      "keepAlive": false,
-      "secure": true
-    },
-    "httpResponse": {
-      "headers": {
-        "Content-Type": [
-          "text/html; charset=utf-8"
-        ]
-      },
-      "statusCode": 204,
-      "reasonPhrase": "No Content"
-    },
-    "times": {
-      "remainingTimes": 1
-    },
-    "timeToLive": {
-      "unlimited": true
-    },
-    "id": "22eddf03-a04f-be78-f806-cf77fa887f8a"
   }
 ]
