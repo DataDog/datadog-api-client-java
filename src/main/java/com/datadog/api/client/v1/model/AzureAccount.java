@@ -24,6 +24,7 @@ import java.util.Objects;
   AzureAccount.JSON_PROPERTY_AUTOMUTE,
   AzureAccount.JSON_PROPERTY_CLIENT_ID,
   AzureAccount.JSON_PROPERTY_CLIENT_SECRET,
+  AzureAccount.JSON_PROPERTY_CONTAINER_APP_FILTERS,
   AzureAccount.JSON_PROPERTY_CSPM_ENABLED,
   AzureAccount.JSON_PROPERTY_CUSTOM_METRICS_ENABLED,
   AzureAccount.JSON_PROPERTY_ERRORS,
@@ -47,6 +48,9 @@ public class AzureAccount {
 
   public static final String JSON_PROPERTY_CLIENT_SECRET = "client_secret";
   private String clientSecret;
+
+  public static final String JSON_PROPERTY_CONTAINER_APP_FILTERS = "container_app_filters";
+  private String containerAppFilters;
 
   public static final String JSON_PROPERTY_CSPM_ENABLED = "cspm_enabled";
   private Boolean cspmEnabled;
@@ -152,6 +156,28 @@ public class AzureAccount {
 
   public void setClientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
+  }
+
+  public AzureAccount containerAppFilters(String containerAppFilters) {
+    this.containerAppFilters = containerAppFilters;
+    return this;
+  }
+
+  /**
+   * Limit the Azure container apps that are pulled into Datadog using tags. Only container apps
+   * that match one of the defined tags are imported into Datadog.
+   *
+   * @return containerAppFilters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTAINER_APP_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getContainerAppFilters() {
+    return containerAppFilters;
+  }
+
+  public void setContainerAppFilters(String containerAppFilters) {
+    this.containerAppFilters = containerAppFilters;
   }
 
   public AzureAccount cspmEnabled(Boolean cspmEnabled) {
@@ -370,6 +396,7 @@ public class AzureAccount {
         && Objects.equals(this.automute, azureAccount.automute)
         && Objects.equals(this.clientId, azureAccount.clientId)
         && Objects.equals(this.clientSecret, azureAccount.clientSecret)
+        && Objects.equals(this.containerAppFilters, azureAccount.containerAppFilters)
         && Objects.equals(this.cspmEnabled, azureAccount.cspmEnabled)
         && Objects.equals(this.customMetricsEnabled, azureAccount.customMetricsEnabled)
         && Objects.equals(this.errors, azureAccount.errors)
@@ -387,6 +414,7 @@ public class AzureAccount {
         automute,
         clientId,
         clientSecret,
+        containerAppFilters,
         cspmEnabled,
         customMetricsEnabled,
         errors,
@@ -407,6 +435,9 @@ public class AzureAccount {
     sb.append("    automute: ").append(toIndentedString(automute)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    containerAppFilters: ")
+        .append(toIndentedString(containerAppFilters))
+        .append("\n");
     sb.append("    cspmEnabled: ").append(toIndentedString(cspmEnabled)).append("\n");
     sb.append("    customMetricsEnabled: ")
         .append(toIndentedString(customMetricsEnabled))
