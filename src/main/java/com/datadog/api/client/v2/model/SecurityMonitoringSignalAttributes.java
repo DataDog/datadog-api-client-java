@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** The object containing all signal attributes and their associated values. */
 @JsonPropertyOrder({
-  SecurityMonitoringSignalAttributes.JSON_PROPERTY_ATTRIBUTES,
+  SecurityMonitoringSignalAttributes.JSON_PROPERTY_CUSTOM,
   SecurityMonitoringSignalAttributes.JSON_PROPERTY_MESSAGE,
   SecurityMonitoringSignalAttributes.JSON_PROPERTY_TAGS,
   SecurityMonitoringSignalAttributes.JSON_PROPERTY_TIMESTAMP
@@ -30,8 +30,8 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSignalAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private Map<String, Object> attributes = null;
+  public static final String JSON_PROPERTY_CUSTOM = "custom";
+  private Map<String, Object> custom = null;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -42,33 +42,33 @@ public class SecurityMonitoringSignalAttributes {
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private OffsetDateTime timestamp;
 
-  public SecurityMonitoringSignalAttributes attributes(Map<String, Object> attributes) {
-    this.attributes = attributes;
+  public SecurityMonitoringSignalAttributes custom(Map<String, Object> custom) {
+    this.custom = custom;
     return this;
   }
 
-  public SecurityMonitoringSignalAttributes putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
+  public SecurityMonitoringSignalAttributes putCustomItem(String key, Object customItem) {
+    if (this.custom == null) {
+      this.custom = new HashMap<>();
     }
-    this.attributes.put(key, attributesItem);
+    this.custom.put(key, customItem);
     return this;
   }
 
   /**
    * A JSON object of attributes in the security signal.
    *
-   * @return attributes
+   * @return custom
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_CUSTOM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getAttributes() {
-    return attributes;
+  public Map<String, Object> getCustom() {
+    return custom;
   }
 
-  public void setAttributes(Map<String, Object> attributes) {
-    this.attributes = attributes;
+  public void setCustom(Map<String, Object> custom) {
+    this.custom = custom;
   }
 
   public SecurityMonitoringSignalAttributes message(String message) {
@@ -199,7 +199,7 @@ public class SecurityMonitoringSignalAttributes {
     }
     SecurityMonitoringSignalAttributes securityMonitoringSignalAttributes =
         (SecurityMonitoringSignalAttributes) o;
-    return Objects.equals(this.attributes, securityMonitoringSignalAttributes.attributes)
+    return Objects.equals(this.custom, securityMonitoringSignalAttributes.custom)
         && Objects.equals(this.message, securityMonitoringSignalAttributes.message)
         && Objects.equals(this.tags, securityMonitoringSignalAttributes.tags)
         && Objects.equals(this.timestamp, securityMonitoringSignalAttributes.timestamp)
@@ -209,14 +209,14 @@ public class SecurityMonitoringSignalAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, message, tags, timestamp, additionalProperties);
+    return Objects.hash(custom, message, tags, timestamp, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringSignalAttributes {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    custom: ").append(toIndentedString(custom)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
