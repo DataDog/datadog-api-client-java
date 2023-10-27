@@ -36,6 +36,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -49,12 +50,19 @@ public class Example {
 
     // {{ name }}
 {%- for value, schema in values.items()|sort %}
-{%- if schema.type == 'string' %}
+{%- if schema.type == 'string' and schema.format != 'uuid'%}
     String {{ value }} = System.getenv("{{ value }}");
+{%- elif schema.type == 'string' and schema.format == 'uuid' %}
+    UUID {{ value }} = null;
+    try {
+      {{ value }} = UUID.fromString(System.getenv("{{ value }}"));
+    } catch (IllegalArgumentException e) {
+        System.err.println("Error parsing UUID: " + e.getMessage());
+    }
 {%- elif schema.type == 'integer' %}
     Long {{ value }} = Long.parseLong(System.getenv("{{ value }}"));
 {%- elif schema.type == 'boolean' %}
-    Boolean {{ value }} = Boolean.parseBoolean((System.getenv("{{ value }}"));
+    Boolean {{ value }} = Boolean.parseBoolean((System.getenv("{{ value }}")));
 {%- else %}
 {{ 1/0 }}
 {%- endif %}

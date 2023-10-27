@@ -211,6 +211,7 @@ def simple_type(schema):
             "date-time": "OffsetDateTime",
             "email": "String",
             "binary": "File",
+            "uuid": "UUID",
             None: "String",
         }[type_format]
     if type_name == "boolean":
@@ -418,7 +419,10 @@ def format_data_with_schema(
                 if not isinstance(x, bool):
                     raise TypeError(f"{x} is not supported type {schema}")
                 return "true" if x else "false"
-
+            
+            def format_uuid(x):
+                return f'UUID.fromString("{x}")'
+            
             def open_file(x):
                 return f"new File({format_string(x)})"
 
@@ -433,6 +437,7 @@ def format_data_with_schema(
                 "string": format_string,
                 "email": format_string,
                 "binary": open_file,
+                "uuid": format_uuid,
                 None: format_interface,
             }[schema.get("format", schema.get("type"))]
 
