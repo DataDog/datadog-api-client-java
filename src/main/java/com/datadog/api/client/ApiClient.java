@@ -366,6 +366,7 @@ public class ApiClient {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
+          put("v2.createCIAppPipelineEvent", false);
           put("v2.listContainerImages", false);
           put("v2.listContainers", false);
           put("v2.listEvents", false);

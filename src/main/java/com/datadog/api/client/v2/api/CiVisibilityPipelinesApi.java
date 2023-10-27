@@ -250,6 +250,13 @@ public class CiVisibilityPipelinesApi {
    */
   public ApiResponse<Object> createCIAppPipelineEventWithHttpInfo(
       CIAppCreatePipelineEventRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createCIAppPipelineEvent";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -292,6 +299,16 @@ public class CiVisibilityPipelinesApi {
    */
   public CompletableFuture<ApiResponse<Object>> createCIAppPipelineEventWithHttpInfoAsync(
       CIAppCreatePipelineEventRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createCIAppPipelineEvent";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
