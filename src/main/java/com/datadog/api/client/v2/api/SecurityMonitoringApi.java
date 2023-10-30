@@ -5,13 +5,13 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.BulkMuteFindingsRequest;
+import com.datadog.api.client.v2.model.BulkMuteFindingsResponse;
 import com.datadog.api.client.v2.model.Finding;
 import com.datadog.api.client.v2.model.FindingEvaluation;
 import com.datadog.api.client.v2.model.FindingStatus;
 import com.datadog.api.client.v2.model.GetFindingResponse;
 import com.datadog.api.client.v2.model.ListFindingsResponse;
-import com.datadog.api.client.v2.model.MuteFindingRequest;
-import com.datadog.api.client.v2.model.MuteFindingResponse;
 import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
 import com.datadog.api.client.v2.model.SecurityFilterUpdateRequest;
@@ -2873,6 +2873,192 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityMonitoringSignalsListResponse>() {});
   }
 
+  /**
+   * Mute or unmute a batch of findings.
+   *
+   * <p>See {@link #muteFindingsWithHttpInfo}.
+   *
+   * @param body
+   *     <h3>Attributes</h3>
+   *     All findings are updated with the same attributes. The request body must include at least
+   *     two attributes: <code>muted</code> and <code>reason</code>. The allowed reasons depend on
+   *     whether the finding is being muted or unmuted: - To mute a finding: <code>PENDING_FIX
+   *     </code>, <code>FALSE_POSITIVE</code>, <code>ACCEPTED_RISK</code>, <code>OTHER</code>. - To
+   *     unmute a finding : <code>NO_PENDING_FIX</code>, <code>HUMAN_ERROR</code>, <code>
+   *     NO_LONGER_ACCEPTED_RISK</code>, <code>OTHER</code>.
+   *     <h3>Meta</h3>
+   *     The request body must include a list of the finding IDs to be updated. (required)
+   * @return BulkMuteFindingsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public BulkMuteFindingsResponse muteFindings(BulkMuteFindingsRequest body) throws ApiException {
+    return muteFindingsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Mute or unmute a batch of findings.
+   *
+   * <p>See {@link #muteFindingsWithHttpInfoAsync}.
+   *
+   * @param body
+   *     <h3>Attributes</h3>
+   *     All findings are updated with the same attributes. The request body must include at least
+   *     two attributes: <code>muted</code> and <code>reason</code>. The allowed reasons depend on
+   *     whether the finding is being muted or unmuted: - To mute a finding: <code>PENDING_FIX
+   *     </code>, <code>FALSE_POSITIVE</code>, <code>ACCEPTED_RISK</code>, <code>OTHER</code>. - To
+   *     unmute a finding : <code>NO_PENDING_FIX</code>, <code>HUMAN_ERROR</code>, <code>
+   *     NO_LONGER_ACCEPTED_RISK</code>, <code>OTHER</code>.
+   *     <h3>Meta</h3>
+   *     The request body must include a list of the finding IDs to be updated. (required)
+   * @return CompletableFuture&lt;BulkMuteFindingsResponse&gt;
+   */
+  public CompletableFuture<BulkMuteFindingsResponse> muteFindingsAsync(
+      BulkMuteFindingsRequest body) {
+    return muteFindingsWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Mute or unmute findings.
+   *
+   * @param body
+   *     <h3>Attributes</h3>
+   *     All findings are updated with the same attributes. The request body must include at least
+   *     two attributes: <code>muted</code> and <code>reason</code>. The allowed reasons depend on
+   *     whether the finding is being muted or unmuted: - To mute a finding: <code>PENDING_FIX
+   *     </code>, <code>FALSE_POSITIVE</code>, <code>ACCEPTED_RISK</code>, <code>OTHER</code>. - To
+   *     unmute a finding : <code>NO_PENDING_FIX</code>, <code>HUMAN_ERROR</code>, <code>
+   *     NO_LONGER_ACCEPTED_RISK</code>, <code>OTHER</code>.
+   *     <h3>Meta</h3>
+   *     The request body must include a list of the finding IDs to be updated. (required)
+   * @return ApiResponse&lt;BulkMuteFindingsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found: The requested finding cannot be found. </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Invalid Request: The server understands the request syntax but cannot process it due to invalid data. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests: The rate limit set by the API has been exceeded. </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<BulkMuteFindingsResponse> muteFindingsWithHttpInfo(
+      BulkMuteFindingsRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "muteFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling muteFindings");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/posture_management/findings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.muteFindings",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BulkMuteFindingsResponse>() {});
+  }
+
+  /**
+   * Mute or unmute a batch of findings.
+   *
+   * <p>See {@link #muteFindingsWithHttpInfo}.
+   *
+   * @param body
+   *     <h3>Attributes</h3>
+   *     All findings are updated with the same attributes. The request body must include at least
+   *     two attributes: <code>muted</code> and <code>reason</code>. The allowed reasons depend on
+   *     whether the finding is being muted or unmuted: - To mute a finding: <code>PENDING_FIX
+   *     </code>, <code>FALSE_POSITIVE</code>, <code>ACCEPTED_RISK</code>, <code>OTHER</code>. - To
+   *     unmute a finding : <code>NO_PENDING_FIX</code>, <code>HUMAN_ERROR</code>, <code>
+   *     NO_LONGER_ACCEPTED_RISK</code>, <code>OTHER</code>.
+   *     <h3>Meta</h3>
+   *     The request body must include a list of the finding IDs to be updated. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;BulkMuteFindingsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<BulkMuteFindingsResponse>> muteFindingsWithHttpInfoAsync(
+      BulkMuteFindingsRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "muteFindings";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<BulkMuteFindingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<BulkMuteFindingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling muteFindings"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/posture_management/findings";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.muteFindings",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<BulkMuteFindingsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BulkMuteFindingsResponse>() {});
+  }
+
   /** Manage optional parameters to searchSecurityMonitoringSignals. */
   public static class SearchSecurityMonitoringSignalsOptionalParameters {
     private SecurityMonitoringSignalListRequest body;
@@ -3105,203 +3291,6 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSignalsListResponse>() {});
-  }
-
-  /**
-   * Mute or unmute a finding.
-   *
-   * <p>See {@link #updateFindingWithHttpInfo}.
-   *
-   * @param findingId The ID of the finding. (required)
-   * @param body To mute or unmute a finding, the request body should include at least two
-   *     attributes: <code>muted</code> and <code>reason</code>. The allowed reasons depend on
-   *     whether the finding is being muted or unmuted: - To mute a finding: <code>PENDING_FIX
-   *     </code>, <code>FALSE_POSITIVE</code>, <code>ACCEPTED_RISK</code>, <code>OTHER</code>. - To
-   *     unmute a finding : <code>NO_PENDING_FIX</code>, <code>HUMAN_ERROR</code>, <code>
-   *     NO_LONGER_ACCEPTED_RISK</code>, <code>OTHER</code>. (required)
-   * @return MuteFindingResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MuteFindingResponse updateFinding(String findingId, MuteFindingRequest body)
-      throws ApiException {
-    return updateFindingWithHttpInfo(findingId, body).getData();
-  }
-
-  /**
-   * Mute or unmute a finding.
-   *
-   * <p>See {@link #updateFindingWithHttpInfoAsync}.
-   *
-   * @param findingId The ID of the finding. (required)
-   * @param body To mute or unmute a finding, the request body should include at least two
-   *     attributes: <code>muted</code> and <code>reason</code>. The allowed reasons depend on
-   *     whether the finding is being muted or unmuted: - To mute a finding: <code>PENDING_FIX
-   *     </code>, <code>FALSE_POSITIVE</code>, <code>ACCEPTED_RISK</code>, <code>OTHER</code>. - To
-   *     unmute a finding : <code>NO_PENDING_FIX</code>, <code>HUMAN_ERROR</code>, <code>
-   *     NO_LONGER_ACCEPTED_RISK</code>, <code>OTHER</code>. (required)
-   * @return CompletableFuture&lt;MuteFindingResponse&gt;
-   */
-  public CompletableFuture<MuteFindingResponse> updateFindingAsync(
-      String findingId, MuteFindingRequest body) {
-    return updateFindingWithHttpInfoAsync(findingId, body)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Mute or unmute a specific finding. The API returns the updated finding object when the request
-   * is successful.
-   *
-   * @param findingId The ID of the finding. (required)
-   * @param body To mute or unmute a finding, the request body should include at least two
-   *     attributes: <code>muted</code> and <code>reason</code>. The allowed reasons depend on
-   *     whether the finding is being muted or unmuted: - To mute a finding: <code>PENDING_FIX
-   *     </code>, <code>FALSE_POSITIVE</code>, <code>ACCEPTED_RISK</code>, <code>OTHER</code>. - To
-   *     unmute a finding : <code>NO_PENDING_FIX</code>, <code>HUMAN_ERROR</code>, <code>
-   *     NO_LONGER_ACCEPTED_RISK</code>, <code>OTHER</code>. (required)
-   * @return ApiResponse&lt;MuteFindingResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found: The requested finding cannot be found. </td><td>  -  </td></tr>
-   *       <tr><td> 409 </td><td> Resource Conflict: The finding has already been muted or unmuted within the last 60 seconds. </td><td>  -  </td></tr>
-   *       <tr><td> 422 </td><td> Invalid Request: The server understands the request syntax but cannot process it due to invalid data. </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests: The rate limit set by the API has been exceeded. </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<MuteFindingResponse> updateFindingWithHttpInfo(
-      String findingId, MuteFindingRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateFinding";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'findingId' is set
-    if (findingId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'findingId' when calling updateFinding");
-    }
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateFinding");
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/posture_management/findings/{finding_id}"
-            .replaceAll("\\{" + "finding_id" + "\\}", apiClient.escapeString(findingId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.SecurityMonitoringApi.updateFinding",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MuteFindingResponse>() {});
-  }
-
-  /**
-   * Mute or unmute a finding.
-   *
-   * <p>See {@link #updateFindingWithHttpInfo}.
-   *
-   * @param findingId The ID of the finding. (required)
-   * @param body To mute or unmute a finding, the request body should include at least two
-   *     attributes: <code>muted</code> and <code>reason</code>. The allowed reasons depend on
-   *     whether the finding is being muted or unmuted: - To mute a finding: <code>PENDING_FIX
-   *     </code>, <code>FALSE_POSITIVE</code>, <code>ACCEPTED_RISK</code>, <code>OTHER</code>. - To
-   *     unmute a finding : <code>NO_PENDING_FIX</code>, <code>HUMAN_ERROR</code>, <code>
-   *     NO_LONGER_ACCEPTED_RISK</code>, <code>OTHER</code>. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;MuteFindingResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<MuteFindingResponse>> updateFindingWithHttpInfoAsync(
-      String findingId, MuteFindingRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateFinding";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MuteFindingResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
-    Object localVarPostBody = body;
-
-    // verify the required parameter 'findingId' is set
-    if (findingId == null) {
-      CompletableFuture<ApiResponse<MuteFindingResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'findingId' when calling updateFinding"));
-      return result;
-    }
-
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      CompletableFuture<ApiResponse<MuteFindingResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'body' when calling updateFinding"));
-      return result;
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/posture_management/findings/{finding_id}"
-            .replaceAll("\\{" + "finding_id" + "\\}", apiClient.escapeString(findingId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.SecurityMonitoringApi.updateFinding",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MuteFindingResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "PATCH",
-        builder,
-        localVarHeaderParams,
-        new String[] {"application/json"},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MuteFindingResponse>() {});
   }
 
   /**

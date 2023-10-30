@@ -13,16 +13,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** Object containing the new mute properties of the finding. */
+/** Object containing the new mute properties of the findings. */
 @JsonPropertyOrder({
-  MuteFindingRequestProperties.JSON_PROPERTY_DESCRIPTION,
-  MuteFindingRequestProperties.JSON_PROPERTY_EXPIRATION_DATE,
-  MuteFindingRequestProperties.JSON_PROPERTY_MUTED,
-  MuteFindingRequestProperties.JSON_PROPERTY_REASON
+  BulkMuteFindingsRequestProperties.JSON_PROPERTY_DESCRIPTION,
+  BulkMuteFindingsRequestProperties.JSON_PROPERTY_EXPIRATION_DATE,
+  BulkMuteFindingsRequestProperties.JSON_PROPERTY_MUTED,
+  BulkMuteFindingsRequestProperties.JSON_PROPERTY_REASON
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MuteFindingRequestProperties {
+public class BulkMuteFindingsRequestProperties {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -36,10 +36,10 @@ public class MuteFindingRequestProperties {
   public static final String JSON_PROPERTY_REASON = "reason";
   private FindingMuteReason reason;
 
-  public MuteFindingRequestProperties() {}
+  public BulkMuteFindingsRequestProperties() {}
 
   @JsonCreator
-  public MuteFindingRequestProperties(
+  public BulkMuteFindingsRequestProperties(
       @JsonProperty(required = true, value = JSON_PROPERTY_MUTED) Boolean muted,
       @JsonProperty(required = true, value = JSON_PROPERTY_REASON) FindingMuteReason reason) {
     this.muted = muted;
@@ -47,14 +47,14 @@ public class MuteFindingRequestProperties {
     this.unparsed |= !reason.isValid();
   }
 
-  public MuteFindingRequestProperties description(String description) {
+  public BulkMuteFindingsRequestProperties description(String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Additional information about the reason why this finding is muted or unmuted. This field has a
-   * maximum limit of 280 characters.
+   * Additional information about the reason why those findings are muted or unmuted. This field has
+   * a maximum limit of 280 characters.
    *
    * @return description
    */
@@ -69,7 +69,7 @@ public class MuteFindingRequestProperties {
     this.description = description;
   }
 
-  public MuteFindingRequestProperties expirationDate(Long expirationDate) {
+  public BulkMuteFindingsRequestProperties expirationDate(Long expirationDate) {
     this.expirationDate = expirationDate;
     return this;
   }
@@ -92,13 +92,13 @@ public class MuteFindingRequestProperties {
     this.expirationDate = expirationDate;
   }
 
-  public MuteFindingRequestProperties muted(Boolean muted) {
+  public BulkMuteFindingsRequestProperties muted(Boolean muted) {
     this.muted = muted;
     return this;
   }
 
   /**
-   * Whether this finding is muted or unmuted.
+   * Whether those findings should be muted or unmuted.
    *
    * @return muted
    */
@@ -112,7 +112,7 @@ public class MuteFindingRequestProperties {
     this.muted = muted;
   }
 
-  public MuteFindingRequestProperties reason(FindingMuteReason reason) {
+  public BulkMuteFindingsRequestProperties reason(FindingMuteReason reason) {
     this.reason = reason;
     this.unparsed |= !reason.isValid();
     return this;
@@ -136,7 +136,7 @@ public class MuteFindingRequestProperties {
     this.reason = reason;
   }
 
-  /** Return true if this MuteFindingRequestProperties object is equal to o. */
+  /** Return true if this BulkMuteFindingsRequestProperties object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,11 +145,12 @@ public class MuteFindingRequestProperties {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MuteFindingRequestProperties muteFindingRequestProperties = (MuteFindingRequestProperties) o;
-    return Objects.equals(this.description, muteFindingRequestProperties.description)
-        && Objects.equals(this.expirationDate, muteFindingRequestProperties.expirationDate)
-        && Objects.equals(this.muted, muteFindingRequestProperties.muted)
-        && Objects.equals(this.reason, muteFindingRequestProperties.reason);
+    BulkMuteFindingsRequestProperties bulkMuteFindingsRequestProperties =
+        (BulkMuteFindingsRequestProperties) o;
+    return Objects.equals(this.description, bulkMuteFindingsRequestProperties.description)
+        && Objects.equals(this.expirationDate, bulkMuteFindingsRequestProperties.expirationDate)
+        && Objects.equals(this.muted, bulkMuteFindingsRequestProperties.muted)
+        && Objects.equals(this.reason, bulkMuteFindingsRequestProperties.reason);
   }
 
   @Override
@@ -160,7 +161,7 @@ public class MuteFindingRequestProperties {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MuteFindingRequestProperties {\n");
+    sb.append("class BulkMuteFindingsRequestProperties {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    muted: ").append(toIndentedString(muted)).append("\n");
