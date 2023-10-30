@@ -110,6 +110,44 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "vuln_management_hosts_percentage",
               "sds_scanned_bytes_usage",
               "sds_scanned_bytes_percentage",
+              "ci_test_indexed_spans_usage",
+              "ci_test_indexed_spans_percentage",
+              "ingested_logs_bytes_usage",
+              "ingested_logs_bytes_percentage",
+              "ci_pipeline_indexed_spans_usage",
+              "ci_pipeline_indexed_spans_percentage",
+              "indexed_spans_usage",
+              "indexed_spans_percentage",
+              "custom_event_usage",
+              "custom_event_percentage",
+              "logs_indexed_custom_retention_usage",
+              "logs_indexed_custom_retention_percentage",
+              "logs_indexed_360day_usage",
+              "logs_indexed_360day_percentage",
+              "logs_indexed_180day_usage",
+              "logs_indexed_180day_percentage",
+              "logs_indexed_90day_usage",
+              "logs_indexed_90day_percentage",
+              "logs_indexed_60day_usage",
+              "logs_indexed_60day_percentage",
+              "logs_indexed_45day_usage",
+              "logs_indexed_45day_percentage",
+              "logs_indexed_30day_usage",
+              "logs_indexed_30day_percentage",
+              "logs_indexed_15day_usage",
+              "logs_indexed_15day_percentage",
+              "logs_indexed_7day_usage",
+              "logs_indexed_7day_percentage",
+              "logs_indexed_3day_usage",
+              "logs_indexed_3day_percentage",
+              "rum_replay_sessions_usage",
+              "rum_replay_sessions_percentage",
+              "rum_browser_mobile_sessions_usage",
+              "rum_browser_mobile_sessions_percentage",
+              "ingested_spans_bytes_usage",
+              "ingested_spans_bytes_percentage",
+              "siem_ingested_bytes_usage",
+              "siem_ingested_bytes_percentage",
               "*"));
 
   public static final MonthlyUsageAttributionSupportedMetrics API_USAGE =
@@ -278,6 +316,84 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("sds_scanned_bytes_usage");
   public static final MonthlyUsageAttributionSupportedMetrics SDS_SCANNED_BYTES_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("sds_scanned_bytes_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CI_TEST_INDEXED_SPANS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ci_test_indexed_spans_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics CI_TEST_INDEXED_SPANS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ci_test_indexed_spans_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics INGESTED_LOGS_BYTES_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ingested_logs_bytes_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics INGESTED_LOGS_BYTES_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ingested_logs_bytes_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CI_PIPELINE_INDEXED_SPANS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ci_pipeline_indexed_spans_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics CI_PIPELINE_INDEXED_SPANS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ci_pipeline_indexed_spans_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics INDEXED_SPANS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("indexed_spans_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics INDEXED_SPANS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("indexed_spans_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CUSTOM_EVENT_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("custom_event_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics CUSTOM_EVENT_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("custom_event_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_CUSTOM_RETENTION_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_custom_retention_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics
+      LOGS_INDEXED_CUSTOM_RETENTION_PERCENTAGE =
+          new MonthlyUsageAttributionSupportedMetrics("logs_indexed_custom_retention_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_360DAY_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_360day_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_360DAY_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_360day_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_180DAY_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_180day_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_180DAY_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_180day_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_90DAY_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_90day_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_90DAY_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_90day_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_60DAY_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_60day_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_60DAY_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_60day_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_45DAY_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_45day_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_45DAY_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_45day_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_30DAY_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_30day_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_30DAY_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_30day_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_15DAY_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_15day_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_15DAY_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_15day_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_7DAY_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_7day_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_7DAY_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_7day_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_3DAY_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_3day_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_3DAY_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_3day_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics RUM_REPLAY_SESSIONS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("rum_replay_sessions_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics RUM_REPLAY_SESSIONS_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("rum_replay_sessions_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics RUM_BROWSER_MOBILE_SESSIONS_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("rum_browser_mobile_sessions_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics
+      RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE =
+          new MonthlyUsageAttributionSupportedMetrics("rum_browser_mobile_sessions_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics INGESTED_SPANS_BYTES_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ingested_spans_bytes_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics INGESTED_SPANS_BYTES_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("ingested_spans_bytes_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics SIEM_INGESTED_BYTES_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("siem_ingested_bytes_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics SIEM_INGESTED_BYTES_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("siem_ingested_bytes_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics ALL =
       new MonthlyUsageAttributionSupportedMetrics("*");
 
