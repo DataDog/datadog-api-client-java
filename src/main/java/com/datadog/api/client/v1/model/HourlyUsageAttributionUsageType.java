@@ -33,12 +33,15 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "appsec_fargate_usage",
               "appsec_usage",
               "browser_usage",
+              "ci_pipeline_indexed_spans_usage",
+              "ci_test_indexed_spans_usage",
               "ci_visibility_itr_usage",
               "cloud_siem_usage",
               "container_excl_agent_usage",
               "container_usage",
               "cspm_containers_usage",
               "cspm_hosts_usage",
+              "custom_event_usage",
               "custom_ingested_timeseries_usage",
               "custom_timeseries_usage",
               "cws_containers_usage",
@@ -52,9 +55,22 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "estimated_rum_sessions_usage",
               "fargate_usage",
               "functions_usage",
+              "indexed_spans_usage",
               "infra_host_usage",
+              "ingested_logs_bytes_usage",
+              "ingested_spans_bytes_usage",
               "invocations_usage",
               "lambda_traced_invocations_usage",
+              "logs_indexed_15day_usage",
+              "logs_indexed_180day_usage",
+              "logs_indexed_30day_usage",
+              "logs_indexed_360day_usage",
+              "logs_indexed_3day_usage",
+              "logs_indexed_45day_usage",
+              "logs_indexed_60day_usage",
+              "logs_indexed_7day_usage",
+              "logs_indexed_90day_usage",
+              "logs_indexed_custom_retention_usage",
               "mobile_app_testing_usage",
               "ndm_netflow_usage",
               "npm_host_usage",
@@ -62,8 +78,11 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "profiled_container_usage",
               "profiled_fargate_usage",
               "profiled_host_usage",
+              "rum_browser_mobile_sessions_usage",
+              "rum_replay_sessions_usage",
               "sds_scanned_bytes_usage",
               "serverless_apps_usage",
+              "siem_ingested_bytes_usage",
               "snmp_usage",
               "universal_service_monitoring_usage",
               "vuln_management_hosts_usage"));
@@ -82,6 +101,10 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("appsec_usage");
   public static final HourlyUsageAttributionUsageType BROWSER_USAGE =
       new HourlyUsageAttributionUsageType("browser_usage");
+  public static final HourlyUsageAttributionUsageType CI_PIPELINE_INDEXED_SPANS_USAGE =
+      new HourlyUsageAttributionUsageType("ci_pipeline_indexed_spans_usage");
+  public static final HourlyUsageAttributionUsageType CI_TEST_INDEXED_SPANS_USAGE =
+      new HourlyUsageAttributionUsageType("ci_test_indexed_spans_usage");
   public static final HourlyUsageAttributionUsageType CI_VISIBILITY_ITR_USAGE =
       new HourlyUsageAttributionUsageType("ci_visibility_itr_usage");
   public static final HourlyUsageAttributionUsageType CLOUD_SIEM_USAGE =
@@ -94,6 +117,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("cspm_containers_usage");
   public static final HourlyUsageAttributionUsageType CSPM_HOSTS_USAGE =
       new HourlyUsageAttributionUsageType("cspm_hosts_usage");
+  public static final HourlyUsageAttributionUsageType CUSTOM_EVENT_USAGE =
+      new HourlyUsageAttributionUsageType("custom_event_usage");
   public static final HourlyUsageAttributionUsageType CUSTOM_INGESTED_TIMESERIES_USAGE =
       new HourlyUsageAttributionUsageType("custom_ingested_timeseries_usage");
   public static final HourlyUsageAttributionUsageType CUSTOM_TIMESERIES_USAGE =
@@ -120,12 +145,38 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("fargate_usage");
   public static final HourlyUsageAttributionUsageType FUNCTIONS_USAGE =
       new HourlyUsageAttributionUsageType("functions_usage");
+  public static final HourlyUsageAttributionUsageType INDEXED_SPANS_USAGE =
+      new HourlyUsageAttributionUsageType("indexed_spans_usage");
   public static final HourlyUsageAttributionUsageType INFRA_HOST_USAGE =
       new HourlyUsageAttributionUsageType("infra_host_usage");
+  public static final HourlyUsageAttributionUsageType INGESTED_LOGS_BYTES_USAGE =
+      new HourlyUsageAttributionUsageType("ingested_logs_bytes_usage");
+  public static final HourlyUsageAttributionUsageType INGESTED_SPANS_BYTES_USAGE =
+      new HourlyUsageAttributionUsageType("ingested_spans_bytes_usage");
   public static final HourlyUsageAttributionUsageType INVOCATIONS_USAGE =
       new HourlyUsageAttributionUsageType("invocations_usage");
   public static final HourlyUsageAttributionUsageType LAMBDA_TRACED_INVOCATIONS_USAGE =
       new HourlyUsageAttributionUsageType("lambda_traced_invocations_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_15DAY_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_15day_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_180DAY_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_180day_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_30DAY_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_30day_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_360DAY_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_360day_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_3DAY_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_3day_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_45DAY_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_45day_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_60DAY_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_60day_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_7DAY_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_7day_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_90DAY_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_90day_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_CUSTOM_RETENTION_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_custom_retention_usage");
   public static final HourlyUsageAttributionUsageType MOBILE_APP_TESTING_USAGE =
       new HourlyUsageAttributionUsageType("mobile_app_testing_usage");
   public static final HourlyUsageAttributionUsageType NDM_NETFLOW_USAGE =
@@ -140,10 +191,16 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("profiled_fargate_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_HOST_USAGE =
       new HourlyUsageAttributionUsageType("profiled_host_usage");
+  public static final HourlyUsageAttributionUsageType RUM_BROWSER_MOBILE_SESSIONS_USAGE =
+      new HourlyUsageAttributionUsageType("rum_browser_mobile_sessions_usage");
+  public static final HourlyUsageAttributionUsageType RUM_REPLAY_SESSIONS_USAGE =
+      new HourlyUsageAttributionUsageType("rum_replay_sessions_usage");
   public static final HourlyUsageAttributionUsageType SDS_SCANNED_BYTES_USAGE =
       new HourlyUsageAttributionUsageType("sds_scanned_bytes_usage");
   public static final HourlyUsageAttributionUsageType SERVERLESS_APPS_USAGE =
       new HourlyUsageAttributionUsageType("serverless_apps_usage");
+  public static final HourlyUsageAttributionUsageType SIEM_INGESTED_BYTES_USAGE =
+      new HourlyUsageAttributionUsageType("siem_ingested_bytes_usage");
   public static final HourlyUsageAttributionUsageType SNMP_USAGE =
       new HourlyUsageAttributionUsageType("snmp_usage");
   public static final HourlyUsageAttributionUsageType UNIVERSAL_SERVICE_MONITORING_USAGE =

@@ -32,6 +32,10 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CI_TEST_INDEXED_SPANS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_VISIBILITY_ITR_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_VISIBILITY_ITR_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CLOUD_SIEM_PERCENTAGE,
@@ -44,6 +48,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_CSPM_CONTAINERS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CSPM_HOSTS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CSPM_HOSTS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_EVENT_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_EVENT_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_INGESTED_TIMESERIES_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_INGESTED_TIMESERIES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE,
@@ -70,12 +76,38 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INDEXED_SPANS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INDEXED_SPANS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INGESTED_LOGS_BYTES_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INGESTED_LOGS_BYTES_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INGESTED_SPANS_BYTES_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INGESTED_SPANS_BYTES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INVOCATIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INVOCATIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_15DAY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_15DAY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_180DAY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_180DAY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_30DAY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_30DAY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_360DAY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_360DAY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_3DAY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_3DAY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_45DAY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_45DAY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_60DAY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_60DAY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_7DAY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_7DAY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_90DAY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_90DAY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_CUSTOM_RETENTION_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_CUSTOM_RETENTION_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_MOBILE_APP_TESTING_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_MOBILE_APP_TESTING_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_NDM_NETFLOW_PERCENTAGE,
@@ -90,10 +122,16 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_BROWSER_MOBILE_SESSIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_REPLAY_SESSIONS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_REPLAY_SESSIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_INGESTED_BYTES_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_INGESTED_BYTES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_PERCENTAGE,
@@ -147,6 +185,22 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_BROWSER_USAGE = "browser_usage";
   private Double browserUsage;
 
+  public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_PERCENTAGE =
+      "ci_pipeline_indexed_spans_percentage";
+  private Double ciPipelineIndexedSpansPercentage;
+
+  public static final String JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_USAGE =
+      "ci_pipeline_indexed_spans_usage";
+  private Double ciPipelineIndexedSpansUsage;
+
+  public static final String JSON_PROPERTY_CI_TEST_INDEXED_SPANS_PERCENTAGE =
+      "ci_test_indexed_spans_percentage";
+  private Double ciTestIndexedSpansPercentage;
+
+  public static final String JSON_PROPERTY_CI_TEST_INDEXED_SPANS_USAGE =
+      "ci_test_indexed_spans_usage";
+  private Double ciTestIndexedSpansUsage;
+
   public static final String JSON_PROPERTY_CI_VISIBILITY_ITR_PERCENTAGE =
       "ci_visibility_itr_percentage";
   private Double ciVisibilityItrPercentage;
@@ -186,6 +240,12 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_CSPM_HOSTS_USAGE = "cspm_hosts_usage";
   private Double cspmHostsUsage;
+
+  public static final String JSON_PROPERTY_CUSTOM_EVENT_PERCENTAGE = "custom_event_percentage";
+  private Double customEventPercentage;
+
+  public static final String JSON_PROPERTY_CUSTOM_EVENT_USAGE = "custom_event_usage";
+  private Double customEventUsage;
 
   public static final String JSON_PROPERTY_CUSTOM_INGESTED_TIMESERIES_PERCENTAGE =
       "custom_ingested_timeseries_percentage";
@@ -278,11 +338,32 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_FUNCTIONS_USAGE = "functions_usage";
   private Double functionsUsage;
 
+  public static final String JSON_PROPERTY_INDEXED_SPANS_PERCENTAGE = "indexed_spans_percentage";
+  private Double indexedSpansPercentage;
+
+  public static final String JSON_PROPERTY_INDEXED_SPANS_USAGE = "indexed_spans_usage";
+  private Double indexedSpansUsage;
+
   public static final String JSON_PROPERTY_INFRA_HOST_PERCENTAGE = "infra_host_percentage";
   private Double infraHostPercentage;
 
   public static final String JSON_PROPERTY_INFRA_HOST_USAGE = "infra_host_usage";
   private Double infraHostUsage;
+
+  public static final String JSON_PROPERTY_INGESTED_LOGS_BYTES_PERCENTAGE =
+      "ingested_logs_bytes_percentage";
+  private Double ingestedLogsBytesPercentage;
+
+  public static final String JSON_PROPERTY_INGESTED_LOGS_BYTES_USAGE = "ingested_logs_bytes_usage";
+  private Double ingestedLogsBytesUsage;
+
+  public static final String JSON_PROPERTY_INGESTED_SPANS_BYTES_PERCENTAGE =
+      "ingested_spans_bytes_percentage";
+  private Double ingestedSpansBytesPercentage;
+
+  public static final String JSON_PROPERTY_INGESTED_SPANS_BYTES_USAGE =
+      "ingested_spans_bytes_usage";
+  private Double ingestedSpansBytesUsage;
 
   public static final String JSON_PROPERTY_INVOCATIONS_PERCENTAGE = "invocations_percentage";
   private Double invocationsPercentage;
@@ -297,6 +378,77 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_LAMBDA_TRACED_INVOCATIONS_USAGE =
       "lambda_traced_invocations_usage";
   private Double lambdaTracedInvocationsUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_15DAY_PERCENTAGE =
+      "logs_indexed_15day_percentage";
+  private Double logsIndexed15dayPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_15DAY_USAGE = "logs_indexed_15day_usage";
+  private Double logsIndexed15dayUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_180DAY_PERCENTAGE =
+      "logs_indexed_180day_percentage";
+  private Double logsIndexed180dayPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_180DAY_USAGE = "logs_indexed_180day_usage";
+  private Double logsIndexed180dayUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_30DAY_PERCENTAGE =
+      "logs_indexed_30day_percentage";
+  private Double logsIndexed30dayPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_30DAY_USAGE = "logs_indexed_30day_usage";
+  private Double logsIndexed30dayUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_360DAY_PERCENTAGE =
+      "logs_indexed_360day_percentage";
+  private Double logsIndexed360dayPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_360DAY_USAGE = "logs_indexed_360day_usage";
+  private Double logsIndexed360dayUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_3DAY_PERCENTAGE =
+      "logs_indexed_3day_percentage";
+  private Double logsIndexed3dayPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_3DAY_USAGE = "logs_indexed_3day_usage";
+  private Double logsIndexed3dayUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_45DAY_PERCENTAGE =
+      "logs_indexed_45day_percentage";
+  private Double logsIndexed45dayPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_45DAY_USAGE = "logs_indexed_45day_usage";
+  private Double logsIndexed45dayUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_60DAY_PERCENTAGE =
+      "logs_indexed_60day_percentage";
+  private Double logsIndexed60dayPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_60DAY_USAGE = "logs_indexed_60day_usage";
+  private Double logsIndexed60dayUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_7DAY_PERCENTAGE =
+      "logs_indexed_7day_percentage";
+  private Double logsIndexed7dayPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_7DAY_USAGE = "logs_indexed_7day_usage";
+  private Double logsIndexed7dayUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_90DAY_PERCENTAGE =
+      "logs_indexed_90day_percentage";
+  private Double logsIndexed90dayPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_90DAY_USAGE = "logs_indexed_90day_usage";
+  private Double logsIndexed90dayUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_CUSTOM_RETENTION_PERCENTAGE =
+      "logs_indexed_custom_retention_percentage";
+  private Double logsIndexedCustomRetentionPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_CUSTOM_RETENTION_USAGE =
+      "logs_indexed_custom_retention_usage";
+  private Double logsIndexedCustomRetentionUsage;
 
   public static final String JSON_PROPERTY_MOBILE_APP_TESTING_PERCENTAGE =
       "mobile_app_testing_percentage";
@@ -344,6 +496,21 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_PROFILED_HOST_USAGE = "profiled_host_usage";
   private Double profiledHostUsage;
 
+  public static final String JSON_PROPERTY_RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE =
+      "rum_browser_mobile_sessions_percentage";
+  private Double rumBrowserMobileSessionsPercentage;
+
+  public static final String JSON_PROPERTY_RUM_BROWSER_MOBILE_SESSIONS_USAGE =
+      "rum_browser_mobile_sessions_usage";
+  private Double rumBrowserMobileSessionsUsage;
+
+  public static final String JSON_PROPERTY_RUM_REPLAY_SESSIONS_PERCENTAGE =
+      "rum_replay_sessions_percentage";
+  private Double rumReplaySessionsPercentage;
+
+  public static final String JSON_PROPERTY_RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage";
+  private Double rumReplaySessionsUsage;
+
   public static final String JSON_PROPERTY_SDS_SCANNED_BYTES_PERCENTAGE =
       "sds_scanned_bytes_percentage";
   private Double sdsScannedBytesPercentage;
@@ -357,6 +524,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_SERVERLESS_APPS_USAGE = "serverless_apps_usage";
   private Double serverlessAppsUsage;
+
+  public static final String JSON_PROPERTY_SIEM_INGESTED_BYTES_PERCENTAGE =
+      "siem_ingested_bytes_percentage";
+  private Double siemIngestedBytesPercentage;
+
+  public static final String JSON_PROPERTY_SIEM_INGESTED_BYTES_USAGE = "siem_ingested_bytes_usage";
+  private Double siemIngestedBytesUsage;
 
   public static final String JSON_PROPERTY_SNMP_PERCENTAGE = "snmp_percentage";
   private Double snmpPercentage;
@@ -674,6 +848,93 @@ public class MonthlyUsageAttributionValues {
     this.browserUsage = browserUsage;
   }
 
+  public MonthlyUsageAttributionValues ciPipelineIndexedSpansPercentage(
+      Double ciPipelineIndexedSpansPercentage) {
+    this.ciPipelineIndexedSpansPercentage = ciPipelineIndexedSpansPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of CI Pipeline Indexed Spans usage by tag(s).
+   *
+   * @return ciPipelineIndexedSpansPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCiPipelineIndexedSpansPercentage() {
+    return ciPipelineIndexedSpansPercentage;
+  }
+
+  public void setCiPipelineIndexedSpansPercentage(Double ciPipelineIndexedSpansPercentage) {
+    this.ciPipelineIndexedSpansPercentage = ciPipelineIndexedSpansPercentage;
+  }
+
+  public MonthlyUsageAttributionValues ciPipelineIndexedSpansUsage(
+      Double ciPipelineIndexedSpansUsage) {
+    this.ciPipelineIndexedSpansUsage = ciPipelineIndexedSpansUsage;
+    return this;
+  }
+
+  /**
+   * The total CI Pipeline Indexed Spans usage by tag(s).
+   *
+   * @return ciPipelineIndexedSpansUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCiPipelineIndexedSpansUsage() {
+    return ciPipelineIndexedSpansUsage;
+  }
+
+  public void setCiPipelineIndexedSpansUsage(Double ciPipelineIndexedSpansUsage) {
+    this.ciPipelineIndexedSpansUsage = ciPipelineIndexedSpansUsage;
+  }
+
+  public MonthlyUsageAttributionValues ciTestIndexedSpansPercentage(
+      Double ciTestIndexedSpansPercentage) {
+    this.ciTestIndexedSpansPercentage = ciTestIndexedSpansPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of CI Test Indexed Spans usage by tag(s).
+   *
+   * @return ciTestIndexedSpansPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCiTestIndexedSpansPercentage() {
+    return ciTestIndexedSpansPercentage;
+  }
+
+  public void setCiTestIndexedSpansPercentage(Double ciTestIndexedSpansPercentage) {
+    this.ciTestIndexedSpansPercentage = ciTestIndexedSpansPercentage;
+  }
+
+  public MonthlyUsageAttributionValues ciTestIndexedSpansUsage(Double ciTestIndexedSpansUsage) {
+    this.ciTestIndexedSpansUsage = ciTestIndexedSpansUsage;
+    return this;
+  }
+
+  /**
+   * The total CI Test Indexed Spans usage by tag(s).
+   *
+   * @return ciTestIndexedSpansUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CI_TEST_INDEXED_SPANS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCiTestIndexedSpansUsage() {
+    return ciTestIndexedSpansUsage;
+  }
+
+  public void setCiTestIndexedSpansUsage(Double ciTestIndexedSpansUsage) {
+    this.ciTestIndexedSpansUsage = ciTestIndexedSpansUsage;
+  }
+
   public MonthlyUsageAttributionValues ciVisibilityItrPercentage(Double ciVisibilityItrPercentage) {
     this.ciVisibilityItrPercentage = ciVisibilityItrPercentage;
     return this;
@@ -925,6 +1186,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setCspmHostsUsage(Double cspmHostsUsage) {
     this.cspmHostsUsage = cspmHostsUsage;
+  }
+
+  public MonthlyUsageAttributionValues customEventPercentage(Double customEventPercentage) {
+    this.customEventPercentage = customEventPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Custom Events usage by tag(s).
+   *
+   * @return customEventPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_EVENT_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCustomEventPercentage() {
+    return customEventPercentage;
+  }
+
+  public void setCustomEventPercentage(Double customEventPercentage) {
+    this.customEventPercentage = customEventPercentage;
+  }
+
+  public MonthlyUsageAttributionValues customEventUsage(Double customEventUsage) {
+    this.customEventUsage = customEventUsage;
+    return this;
+  }
+
+  /**
+   * The total Custom Events usage by tag(s).
+   *
+   * @return customEventUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_EVENT_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCustomEventUsage() {
+    return customEventUsage;
+  }
+
+  public void setCustomEventUsage(Double customEventUsage) {
+    this.customEventUsage = customEventUsage;
   }
 
   public MonthlyUsageAttributionValues customIngestedTimeseriesPercentage(
@@ -1484,6 +1787,48 @@ public class MonthlyUsageAttributionValues {
     this.functionsUsage = functionsUsage;
   }
 
+  public MonthlyUsageAttributionValues indexedSpansPercentage(Double indexedSpansPercentage) {
+    this.indexedSpansPercentage = indexedSpansPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of APM Indexed Spans usage by tag(s).
+   *
+   * @return indexedSpansPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXED_SPANS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getIndexedSpansPercentage() {
+    return indexedSpansPercentage;
+  }
+
+  public void setIndexedSpansPercentage(Double indexedSpansPercentage) {
+    this.indexedSpansPercentage = indexedSpansPercentage;
+  }
+
+  public MonthlyUsageAttributionValues indexedSpansUsage(Double indexedSpansUsage) {
+    this.indexedSpansUsage = indexedSpansUsage;
+    return this;
+  }
+
+  /**
+   * The total APM Indexed Spans usage by tag(s).
+   *
+   * @return indexedSpansUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INDEXED_SPANS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getIndexedSpansUsage() {
+    return indexedSpansUsage;
+  }
+
+  public void setIndexedSpansUsage(Double indexedSpansUsage) {
+    this.indexedSpansUsage = indexedSpansUsage;
+  }
+
   public MonthlyUsageAttributionValues infraHostPercentage(Double infraHostPercentage) {
     this.infraHostPercentage = infraHostPercentage;
     return this;
@@ -1524,6 +1869,92 @@ public class MonthlyUsageAttributionValues {
 
   public void setInfraHostUsage(Double infraHostUsage) {
     this.infraHostUsage = infraHostUsage;
+  }
+
+  public MonthlyUsageAttributionValues ingestedLogsBytesPercentage(
+      Double ingestedLogsBytesPercentage) {
+    this.ingestedLogsBytesPercentage = ingestedLogsBytesPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Ingested Logs usage by tag(s).
+   *
+   * @return ingestedLogsBytesPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INGESTED_LOGS_BYTES_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getIngestedLogsBytesPercentage() {
+    return ingestedLogsBytesPercentage;
+  }
+
+  public void setIngestedLogsBytesPercentage(Double ingestedLogsBytesPercentage) {
+    this.ingestedLogsBytesPercentage = ingestedLogsBytesPercentage;
+  }
+
+  public MonthlyUsageAttributionValues ingestedLogsBytesUsage(Double ingestedLogsBytesUsage) {
+    this.ingestedLogsBytesUsage = ingestedLogsBytesUsage;
+    return this;
+  }
+
+  /**
+   * The total Ingested Logs usage by tag(s).
+   *
+   * @return ingestedLogsBytesUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INGESTED_LOGS_BYTES_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getIngestedLogsBytesUsage() {
+    return ingestedLogsBytesUsage;
+  }
+
+  public void setIngestedLogsBytesUsage(Double ingestedLogsBytesUsage) {
+    this.ingestedLogsBytesUsage = ingestedLogsBytesUsage;
+  }
+
+  public MonthlyUsageAttributionValues ingestedSpansBytesPercentage(
+      Double ingestedSpansBytesPercentage) {
+    this.ingestedSpansBytesPercentage = ingestedSpansBytesPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of APM Ingested Spans usage by tag(s).
+   *
+   * @return ingestedSpansBytesPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INGESTED_SPANS_BYTES_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getIngestedSpansBytesPercentage() {
+    return ingestedSpansBytesPercentage;
+  }
+
+  public void setIngestedSpansBytesPercentage(Double ingestedSpansBytesPercentage) {
+    this.ingestedSpansBytesPercentage = ingestedSpansBytesPercentage;
+  }
+
+  public MonthlyUsageAttributionValues ingestedSpansBytesUsage(Double ingestedSpansBytesUsage) {
+    this.ingestedSpansBytesUsage = ingestedSpansBytesUsage;
+    return this;
+  }
+
+  /**
+   * The total APM Ingested Spans usage by tag(s).
+   *
+   * @return ingestedSpansBytesUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INGESTED_SPANS_BYTES_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getIngestedSpansBytesUsage() {
+    return ingestedSpansBytesUsage;
+  }
+
+  public void setIngestedSpansBytesUsage(Double ingestedSpansBytesUsage) {
+    this.ingestedSpansBytesUsage = ingestedSpansBytesUsage;
   }
 
   public MonthlyUsageAttributionValues invocationsPercentage(Double invocationsPercentage) {
@@ -1610,6 +2041,435 @@ public class MonthlyUsageAttributionValues {
 
   public void setLambdaTracedInvocationsUsage(Double lambdaTracedInvocationsUsage) {
     this.lambdaTracedInvocationsUsage = lambdaTracedInvocationsUsage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed15dayPercentage(
+      Double logsIndexed15dayPercentage) {
+    this.logsIndexed15dayPercentage = logsIndexed15dayPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (15-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed15dayPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_15DAY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed15dayPercentage() {
+    return logsIndexed15dayPercentage;
+  }
+
+  public void setLogsIndexed15dayPercentage(Double logsIndexed15dayPercentage) {
+    this.logsIndexed15dayPercentage = logsIndexed15dayPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed15dayUsage(Double logsIndexed15dayUsage) {
+    this.logsIndexed15dayUsage = logsIndexed15dayUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (15-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed15dayUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_15DAY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed15dayUsage() {
+    return logsIndexed15dayUsage;
+  }
+
+  public void setLogsIndexed15dayUsage(Double logsIndexed15dayUsage) {
+    this.logsIndexed15dayUsage = logsIndexed15dayUsage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed180dayPercentage(
+      Double logsIndexed180dayPercentage) {
+    this.logsIndexed180dayPercentage = logsIndexed180dayPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (180-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed180dayPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_180DAY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed180dayPercentage() {
+    return logsIndexed180dayPercentage;
+  }
+
+  public void setLogsIndexed180dayPercentage(Double logsIndexed180dayPercentage) {
+    this.logsIndexed180dayPercentage = logsIndexed180dayPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed180dayUsage(Double logsIndexed180dayUsage) {
+    this.logsIndexed180dayUsage = logsIndexed180dayUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (180-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed180dayUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_180DAY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed180dayUsage() {
+    return logsIndexed180dayUsage;
+  }
+
+  public void setLogsIndexed180dayUsage(Double logsIndexed180dayUsage) {
+    this.logsIndexed180dayUsage = logsIndexed180dayUsage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed30dayPercentage(
+      Double logsIndexed30dayPercentage) {
+    this.logsIndexed30dayPercentage = logsIndexed30dayPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (30-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed30dayPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_30DAY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed30dayPercentage() {
+    return logsIndexed30dayPercentage;
+  }
+
+  public void setLogsIndexed30dayPercentage(Double logsIndexed30dayPercentage) {
+    this.logsIndexed30dayPercentage = logsIndexed30dayPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed30dayUsage(Double logsIndexed30dayUsage) {
+    this.logsIndexed30dayUsage = logsIndexed30dayUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (30-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed30dayUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_30DAY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed30dayUsage() {
+    return logsIndexed30dayUsage;
+  }
+
+  public void setLogsIndexed30dayUsage(Double logsIndexed30dayUsage) {
+    this.logsIndexed30dayUsage = logsIndexed30dayUsage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed360dayPercentage(
+      Double logsIndexed360dayPercentage) {
+    this.logsIndexed360dayPercentage = logsIndexed360dayPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (360-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed360dayPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_360DAY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed360dayPercentage() {
+    return logsIndexed360dayPercentage;
+  }
+
+  public void setLogsIndexed360dayPercentage(Double logsIndexed360dayPercentage) {
+    this.logsIndexed360dayPercentage = logsIndexed360dayPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed360dayUsage(Double logsIndexed360dayUsage) {
+    this.logsIndexed360dayUsage = logsIndexed360dayUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (360-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed360dayUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_360DAY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed360dayUsage() {
+    return logsIndexed360dayUsage;
+  }
+
+  public void setLogsIndexed360dayUsage(Double logsIndexed360dayUsage) {
+    this.logsIndexed360dayUsage = logsIndexed360dayUsage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed3dayPercentage(Double logsIndexed3dayPercentage) {
+    this.logsIndexed3dayPercentage = logsIndexed3dayPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (3-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed3dayPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_3DAY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed3dayPercentage() {
+    return logsIndexed3dayPercentage;
+  }
+
+  public void setLogsIndexed3dayPercentage(Double logsIndexed3dayPercentage) {
+    this.logsIndexed3dayPercentage = logsIndexed3dayPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed3dayUsage(Double logsIndexed3dayUsage) {
+    this.logsIndexed3dayUsage = logsIndexed3dayUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (3-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed3dayUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_3DAY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed3dayUsage() {
+    return logsIndexed3dayUsage;
+  }
+
+  public void setLogsIndexed3dayUsage(Double logsIndexed3dayUsage) {
+    this.logsIndexed3dayUsage = logsIndexed3dayUsage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed45dayPercentage(
+      Double logsIndexed45dayPercentage) {
+    this.logsIndexed45dayPercentage = logsIndexed45dayPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (45-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed45dayPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_45DAY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed45dayPercentage() {
+    return logsIndexed45dayPercentage;
+  }
+
+  public void setLogsIndexed45dayPercentage(Double logsIndexed45dayPercentage) {
+    this.logsIndexed45dayPercentage = logsIndexed45dayPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed45dayUsage(Double logsIndexed45dayUsage) {
+    this.logsIndexed45dayUsage = logsIndexed45dayUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (45-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed45dayUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_45DAY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed45dayUsage() {
+    return logsIndexed45dayUsage;
+  }
+
+  public void setLogsIndexed45dayUsage(Double logsIndexed45dayUsage) {
+    this.logsIndexed45dayUsage = logsIndexed45dayUsage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed60dayPercentage(
+      Double logsIndexed60dayPercentage) {
+    this.logsIndexed60dayPercentage = logsIndexed60dayPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (60-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed60dayPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_60DAY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed60dayPercentage() {
+    return logsIndexed60dayPercentage;
+  }
+
+  public void setLogsIndexed60dayPercentage(Double logsIndexed60dayPercentage) {
+    this.logsIndexed60dayPercentage = logsIndexed60dayPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed60dayUsage(Double logsIndexed60dayUsage) {
+    this.logsIndexed60dayUsage = logsIndexed60dayUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (60-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed60dayUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_60DAY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed60dayUsage() {
+    return logsIndexed60dayUsage;
+  }
+
+  public void setLogsIndexed60dayUsage(Double logsIndexed60dayUsage) {
+    this.logsIndexed60dayUsage = logsIndexed60dayUsage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed7dayPercentage(Double logsIndexed7dayPercentage) {
+    this.logsIndexed7dayPercentage = logsIndexed7dayPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (7-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed7dayPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_7DAY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed7dayPercentage() {
+    return logsIndexed7dayPercentage;
+  }
+
+  public void setLogsIndexed7dayPercentage(Double logsIndexed7dayPercentage) {
+    this.logsIndexed7dayPercentage = logsIndexed7dayPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed7dayUsage(Double logsIndexed7dayUsage) {
+    this.logsIndexed7dayUsage = logsIndexed7dayUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (7-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed7dayUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_7DAY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed7dayUsage() {
+    return logsIndexed7dayUsage;
+  }
+
+  public void setLogsIndexed7dayUsage(Double logsIndexed7dayUsage) {
+    this.logsIndexed7dayUsage = logsIndexed7dayUsage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed90dayPercentage(
+      Double logsIndexed90dayPercentage) {
+    this.logsIndexed90dayPercentage = logsIndexed90dayPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (90-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed90dayPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_90DAY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed90dayPercentage() {
+    return logsIndexed90dayPercentage;
+  }
+
+  public void setLogsIndexed90dayPercentage(Double logsIndexed90dayPercentage) {
+    this.logsIndexed90dayPercentage = logsIndexed90dayPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed90dayUsage(Double logsIndexed90dayUsage) {
+    this.logsIndexed90dayUsage = logsIndexed90dayUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (90-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed90dayUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_90DAY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed90dayUsage() {
+    return logsIndexed90dayUsage;
+  }
+
+  public void setLogsIndexed90dayUsage(Double logsIndexed90dayUsage) {
+    this.logsIndexed90dayUsage = logsIndexed90dayUsage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexedCustomRetentionPercentage(
+      Double logsIndexedCustomRetentionPercentage) {
+    this.logsIndexedCustomRetentionPercentage = logsIndexedCustomRetentionPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (Custom Retention) usage by tag(s).
+   *
+   * @return logsIndexedCustomRetentionPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_CUSTOM_RETENTION_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexedCustomRetentionPercentage() {
+    return logsIndexedCustomRetentionPercentage;
+  }
+
+  public void setLogsIndexedCustomRetentionPercentage(Double logsIndexedCustomRetentionPercentage) {
+    this.logsIndexedCustomRetentionPercentage = logsIndexedCustomRetentionPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexedCustomRetentionUsage(
+      Double logsIndexedCustomRetentionUsage) {
+    this.logsIndexedCustomRetentionUsage = logsIndexedCustomRetentionUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (Custom Retention) usage by tag(s).
+   *
+   * @return logsIndexedCustomRetentionUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_CUSTOM_RETENTION_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexedCustomRetentionUsage() {
+    return logsIndexedCustomRetentionUsage;
+  }
+
+  public void setLogsIndexedCustomRetentionUsage(Double logsIndexedCustomRetentionUsage) {
+    this.logsIndexedCustomRetentionUsage = logsIndexedCustomRetentionUsage;
   }
 
   public MonthlyUsageAttributionValues mobileAppTestingPercentage(
@@ -1909,6 +2769,93 @@ public class MonthlyUsageAttributionValues {
     this.profiledHostUsage = profiledHostUsage;
   }
 
+  public MonthlyUsageAttributionValues rumBrowserMobileSessionsPercentage(
+      Double rumBrowserMobileSessionsPercentage) {
+    this.rumBrowserMobileSessionsPercentage = rumBrowserMobileSessionsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of RUM Browser and Mobile usage by tag(s).
+   *
+   * @return rumBrowserMobileSessionsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getRumBrowserMobileSessionsPercentage() {
+    return rumBrowserMobileSessionsPercentage;
+  }
+
+  public void setRumBrowserMobileSessionsPercentage(Double rumBrowserMobileSessionsPercentage) {
+    this.rumBrowserMobileSessionsPercentage = rumBrowserMobileSessionsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues rumBrowserMobileSessionsUsage(
+      Double rumBrowserMobileSessionsUsage) {
+    this.rumBrowserMobileSessionsUsage = rumBrowserMobileSessionsUsage;
+    return this;
+  }
+
+  /**
+   * The total RUM Browser and Mobile usage by tag(s).
+   *
+   * @return rumBrowserMobileSessionsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_BROWSER_MOBILE_SESSIONS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getRumBrowserMobileSessionsUsage() {
+    return rumBrowserMobileSessionsUsage;
+  }
+
+  public void setRumBrowserMobileSessionsUsage(Double rumBrowserMobileSessionsUsage) {
+    this.rumBrowserMobileSessionsUsage = rumBrowserMobileSessionsUsage;
+  }
+
+  public MonthlyUsageAttributionValues rumReplaySessionsPercentage(
+      Double rumReplaySessionsPercentage) {
+    this.rumReplaySessionsPercentage = rumReplaySessionsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of RUM Replay Sessions usage by tag(s).
+   *
+   * @return rumReplaySessionsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_REPLAY_SESSIONS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getRumReplaySessionsPercentage() {
+    return rumReplaySessionsPercentage;
+  }
+
+  public void setRumReplaySessionsPercentage(Double rumReplaySessionsPercentage) {
+    this.rumReplaySessionsPercentage = rumReplaySessionsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues rumReplaySessionsUsage(Double rumReplaySessionsUsage) {
+    this.rumReplaySessionsUsage = rumReplaySessionsUsage;
+    return this;
+  }
+
+  /**
+   * The total RUM Replay Sessions usage by tag(s).
+   *
+   * @return rumReplaySessionsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_REPLAY_SESSIONS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getRumReplaySessionsUsage() {
+    return rumReplaySessionsUsage;
+  }
+
+  public void setRumReplaySessionsUsage(Double rumReplaySessionsUsage) {
+    this.rumReplaySessionsUsage = rumReplaySessionsUsage;
+  }
+
   public MonthlyUsageAttributionValues sdsScannedBytesPercentage(Double sdsScannedBytesPercentage) {
     this.sdsScannedBytesPercentage = sdsScannedBytesPercentage;
     return this;
@@ -1991,6 +2938,49 @@ public class MonthlyUsageAttributionValues {
 
   public void setServerlessAppsUsage(Double serverlessAppsUsage) {
     this.serverlessAppsUsage = serverlessAppsUsage;
+  }
+
+  public MonthlyUsageAttributionValues siemIngestedBytesPercentage(
+      Double siemIngestedBytesPercentage) {
+    this.siemIngestedBytesPercentage = siemIngestedBytesPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of SIEM usage by tag(s).
+   *
+   * @return siemIngestedBytesPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_INGESTED_BYTES_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSiemIngestedBytesPercentage() {
+    return siemIngestedBytesPercentage;
+  }
+
+  public void setSiemIngestedBytesPercentage(Double siemIngestedBytesPercentage) {
+    this.siemIngestedBytesPercentage = siemIngestedBytesPercentage;
+  }
+
+  public MonthlyUsageAttributionValues siemIngestedBytesUsage(Double siemIngestedBytesUsage) {
+    this.siemIngestedBytesUsage = siemIngestedBytesUsage;
+    return this;
+  }
+
+  /**
+   * The total SIEM usage by tag(s).
+   *
+   * @return siemIngestedBytesUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_INGESTED_BYTES_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSiemIngestedBytesUsage() {
+    return siemIngestedBytesUsage;
+  }
+
+  public void setSiemIngestedBytesUsage(Double siemIngestedBytesUsage) {
+    this.siemIngestedBytesUsage = siemIngestedBytesUsage;
   }
 
   public MonthlyUsageAttributionValues snmpPercentage(Double snmpPercentage) {
@@ -2195,6 +3185,17 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(this.browserPercentage, monthlyUsageAttributionValues.browserPercentage)
         && Objects.equals(this.browserUsage, monthlyUsageAttributionValues.browserUsage)
         && Objects.equals(
+            this.ciPipelineIndexedSpansPercentage,
+            monthlyUsageAttributionValues.ciPipelineIndexedSpansPercentage)
+        && Objects.equals(
+            this.ciPipelineIndexedSpansUsage,
+            monthlyUsageAttributionValues.ciPipelineIndexedSpansUsage)
+        && Objects.equals(
+            this.ciTestIndexedSpansPercentage,
+            monthlyUsageAttributionValues.ciTestIndexedSpansPercentage)
+        && Objects.equals(
+            this.ciTestIndexedSpansUsage, monthlyUsageAttributionValues.ciTestIndexedSpansUsage)
+        && Objects.equals(
             this.ciVisibilityItrPercentage, monthlyUsageAttributionValues.ciVisibilityItrPercentage)
         && Objects.equals(
             this.ciVisibilityItrUsage, monthlyUsageAttributionValues.ciVisibilityItrUsage)
@@ -2216,6 +3217,9 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.cspmHostsPercentage, monthlyUsageAttributionValues.cspmHostsPercentage)
         && Objects.equals(this.cspmHostsUsage, monthlyUsageAttributionValues.cspmHostsUsage)
+        && Objects.equals(
+            this.customEventPercentage, monthlyUsageAttributionValues.customEventPercentage)
+        && Objects.equals(this.customEventUsage, monthlyUsageAttributionValues.customEventUsage)
         && Objects.equals(
             this.customIngestedTimeseriesPercentage,
             monthlyUsageAttributionValues.customIngestedTimeseriesPercentage)
@@ -2271,8 +3275,21 @@ public class MonthlyUsageAttributionValues {
             this.functionsPercentage, monthlyUsageAttributionValues.functionsPercentage)
         && Objects.equals(this.functionsUsage, monthlyUsageAttributionValues.functionsUsage)
         && Objects.equals(
+            this.indexedSpansPercentage, monthlyUsageAttributionValues.indexedSpansPercentage)
+        && Objects.equals(this.indexedSpansUsage, monthlyUsageAttributionValues.indexedSpansUsage)
+        && Objects.equals(
             this.infraHostPercentage, monthlyUsageAttributionValues.infraHostPercentage)
         && Objects.equals(this.infraHostUsage, monthlyUsageAttributionValues.infraHostUsage)
+        && Objects.equals(
+            this.ingestedLogsBytesPercentage,
+            monthlyUsageAttributionValues.ingestedLogsBytesPercentage)
+        && Objects.equals(
+            this.ingestedLogsBytesUsage, monthlyUsageAttributionValues.ingestedLogsBytesUsage)
+        && Objects.equals(
+            this.ingestedSpansBytesPercentage,
+            monthlyUsageAttributionValues.ingestedSpansBytesPercentage)
+        && Objects.equals(
+            this.ingestedSpansBytesUsage, monthlyUsageAttributionValues.ingestedSpansBytesUsage)
         && Objects.equals(
             this.invocationsPercentage, monthlyUsageAttributionValues.invocationsPercentage)
         && Objects.equals(this.invocationsUsage, monthlyUsageAttributionValues.invocationsUsage)
@@ -2282,6 +3299,55 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.lambdaTracedInvocationsUsage,
             monthlyUsageAttributionValues.lambdaTracedInvocationsUsage)
+        && Objects.equals(
+            this.logsIndexed15dayPercentage,
+            monthlyUsageAttributionValues.logsIndexed15dayPercentage)
+        && Objects.equals(
+            this.logsIndexed15dayUsage, monthlyUsageAttributionValues.logsIndexed15dayUsage)
+        && Objects.equals(
+            this.logsIndexed180dayPercentage,
+            monthlyUsageAttributionValues.logsIndexed180dayPercentage)
+        && Objects.equals(
+            this.logsIndexed180dayUsage, monthlyUsageAttributionValues.logsIndexed180dayUsage)
+        && Objects.equals(
+            this.logsIndexed30dayPercentage,
+            monthlyUsageAttributionValues.logsIndexed30dayPercentage)
+        && Objects.equals(
+            this.logsIndexed30dayUsage, monthlyUsageAttributionValues.logsIndexed30dayUsage)
+        && Objects.equals(
+            this.logsIndexed360dayPercentage,
+            monthlyUsageAttributionValues.logsIndexed360dayPercentage)
+        && Objects.equals(
+            this.logsIndexed360dayUsage, monthlyUsageAttributionValues.logsIndexed360dayUsage)
+        && Objects.equals(
+            this.logsIndexed3dayPercentage, monthlyUsageAttributionValues.logsIndexed3dayPercentage)
+        && Objects.equals(
+            this.logsIndexed3dayUsage, monthlyUsageAttributionValues.logsIndexed3dayUsage)
+        && Objects.equals(
+            this.logsIndexed45dayPercentage,
+            monthlyUsageAttributionValues.logsIndexed45dayPercentage)
+        && Objects.equals(
+            this.logsIndexed45dayUsage, monthlyUsageAttributionValues.logsIndexed45dayUsage)
+        && Objects.equals(
+            this.logsIndexed60dayPercentage,
+            monthlyUsageAttributionValues.logsIndexed60dayPercentage)
+        && Objects.equals(
+            this.logsIndexed60dayUsage, monthlyUsageAttributionValues.logsIndexed60dayUsage)
+        && Objects.equals(
+            this.logsIndexed7dayPercentage, monthlyUsageAttributionValues.logsIndexed7dayPercentage)
+        && Objects.equals(
+            this.logsIndexed7dayUsage, monthlyUsageAttributionValues.logsIndexed7dayUsage)
+        && Objects.equals(
+            this.logsIndexed90dayPercentage,
+            monthlyUsageAttributionValues.logsIndexed90dayPercentage)
+        && Objects.equals(
+            this.logsIndexed90dayUsage, monthlyUsageAttributionValues.logsIndexed90dayUsage)
+        && Objects.equals(
+            this.logsIndexedCustomRetentionPercentage,
+            monthlyUsageAttributionValues.logsIndexedCustomRetentionPercentage)
+        && Objects.equals(
+            this.logsIndexedCustomRetentionUsage,
+            monthlyUsageAttributionValues.logsIndexedCustomRetentionUsage)
         && Objects.equals(
             this.mobileAppTestingPercentage,
             monthlyUsageAttributionValues.mobileAppTestingPercentage)
@@ -2310,6 +3376,17 @@ public class MonthlyUsageAttributionValues {
             this.profiledHostPercentage, monthlyUsageAttributionValues.profiledHostPercentage)
         && Objects.equals(this.profiledHostUsage, monthlyUsageAttributionValues.profiledHostUsage)
         && Objects.equals(
+            this.rumBrowserMobileSessionsPercentage,
+            monthlyUsageAttributionValues.rumBrowserMobileSessionsPercentage)
+        && Objects.equals(
+            this.rumBrowserMobileSessionsUsage,
+            monthlyUsageAttributionValues.rumBrowserMobileSessionsUsage)
+        && Objects.equals(
+            this.rumReplaySessionsPercentage,
+            monthlyUsageAttributionValues.rumReplaySessionsPercentage)
+        && Objects.equals(
+            this.rumReplaySessionsUsage, monthlyUsageAttributionValues.rumReplaySessionsUsage)
+        && Objects.equals(
             this.sdsScannedBytesPercentage, monthlyUsageAttributionValues.sdsScannedBytesPercentage)
         && Objects.equals(
             this.sdsScannedBytesUsage, monthlyUsageAttributionValues.sdsScannedBytesUsage)
@@ -2317,6 +3394,11 @@ public class MonthlyUsageAttributionValues {
             this.serverlessAppsPercentage, monthlyUsageAttributionValues.serverlessAppsPercentage)
         && Objects.equals(
             this.serverlessAppsUsage, monthlyUsageAttributionValues.serverlessAppsUsage)
+        && Objects.equals(
+            this.siemIngestedBytesPercentage,
+            monthlyUsageAttributionValues.siemIngestedBytesPercentage)
+        && Objects.equals(
+            this.siemIngestedBytesUsage, monthlyUsageAttributionValues.siemIngestedBytesUsage)
         && Objects.equals(this.snmpPercentage, monthlyUsageAttributionValues.snmpPercentage)
         && Objects.equals(this.snmpUsage, monthlyUsageAttributionValues.snmpUsage)
         && Objects.equals(
@@ -2351,6 +3433,10 @@ public class MonthlyUsageAttributionValues {
         appsecUsage,
         browserPercentage,
         browserUsage,
+        ciPipelineIndexedSpansPercentage,
+        ciPipelineIndexedSpansUsage,
+        ciTestIndexedSpansPercentage,
+        ciTestIndexedSpansUsage,
         ciVisibilityItrPercentage,
         ciVisibilityItrUsage,
         cloudSiemPercentage,
@@ -2363,6 +3449,8 @@ public class MonthlyUsageAttributionValues {
         cspmContainersUsage,
         cspmHostsPercentage,
         cspmHostsUsage,
+        customEventPercentage,
+        customEventUsage,
         customIngestedTimeseriesPercentage,
         customIngestedTimeseriesUsage,
         customTimeseriesPercentage,
@@ -2389,12 +3477,38 @@ public class MonthlyUsageAttributionValues {
         fargateUsage,
         functionsPercentage,
         functionsUsage,
+        indexedSpansPercentage,
+        indexedSpansUsage,
         infraHostPercentage,
         infraHostUsage,
+        ingestedLogsBytesPercentage,
+        ingestedLogsBytesUsage,
+        ingestedSpansBytesPercentage,
+        ingestedSpansBytesUsage,
         invocationsPercentage,
         invocationsUsage,
         lambdaTracedInvocationsPercentage,
         lambdaTracedInvocationsUsage,
+        logsIndexed15dayPercentage,
+        logsIndexed15dayUsage,
+        logsIndexed180dayPercentage,
+        logsIndexed180dayUsage,
+        logsIndexed30dayPercentage,
+        logsIndexed30dayUsage,
+        logsIndexed360dayPercentage,
+        logsIndexed360dayUsage,
+        logsIndexed3dayPercentage,
+        logsIndexed3dayUsage,
+        logsIndexed45dayPercentage,
+        logsIndexed45dayUsage,
+        logsIndexed60dayPercentage,
+        logsIndexed60dayUsage,
+        logsIndexed7dayPercentage,
+        logsIndexed7dayUsage,
+        logsIndexed90dayPercentage,
+        logsIndexed90dayUsage,
+        logsIndexedCustomRetentionPercentage,
+        logsIndexedCustomRetentionUsage,
         mobileAppTestingPercentage,
         mobileAppTestingUsage,
         ndmNetflowPercentage,
@@ -2409,10 +3523,16 @@ public class MonthlyUsageAttributionValues {
         profiledFargateUsage,
         profiledHostPercentage,
         profiledHostUsage,
+        rumBrowserMobileSessionsPercentage,
+        rumBrowserMobileSessionsUsage,
+        rumReplaySessionsPercentage,
+        rumReplaySessionsUsage,
         sdsScannedBytesPercentage,
         sdsScannedBytesUsage,
         serverlessAppsPercentage,
         serverlessAppsUsage,
+        siemIngestedBytesPercentage,
+        siemIngestedBytesUsage,
         snmpPercentage,
         snmpUsage,
         universalServiceMonitoringPercentage,
@@ -2444,6 +3564,18 @@ public class MonthlyUsageAttributionValues {
     sb.append("    appsecUsage: ").append(toIndentedString(appsecUsage)).append("\n");
     sb.append("    browserPercentage: ").append(toIndentedString(browserPercentage)).append("\n");
     sb.append("    browserUsage: ").append(toIndentedString(browserUsage)).append("\n");
+    sb.append("    ciPipelineIndexedSpansPercentage: ")
+        .append(toIndentedString(ciPipelineIndexedSpansPercentage))
+        .append("\n");
+    sb.append("    ciPipelineIndexedSpansUsage: ")
+        .append(toIndentedString(ciPipelineIndexedSpansUsage))
+        .append("\n");
+    sb.append("    ciTestIndexedSpansPercentage: ")
+        .append(toIndentedString(ciTestIndexedSpansPercentage))
+        .append("\n");
+    sb.append("    ciTestIndexedSpansUsage: ")
+        .append(toIndentedString(ciTestIndexedSpansUsage))
+        .append("\n");
     sb.append("    ciVisibilityItrPercentage: ")
         .append(toIndentedString(ciVisibilityItrPercentage))
         .append("\n");
@@ -2474,6 +3606,10 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(cspmHostsPercentage))
         .append("\n");
     sb.append("    cspmHostsUsage: ").append(toIndentedString(cspmHostsUsage)).append("\n");
+    sb.append("    customEventPercentage: ")
+        .append(toIndentedString(customEventPercentage))
+        .append("\n");
+    sb.append("    customEventUsage: ").append(toIndentedString(customEventUsage)).append("\n");
     sb.append("    customIngestedTimeseriesPercentage: ")
         .append(toIndentedString(customIngestedTimeseriesPercentage))
         .append("\n");
@@ -2534,10 +3670,26 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(functionsPercentage))
         .append("\n");
     sb.append("    functionsUsage: ").append(toIndentedString(functionsUsage)).append("\n");
+    sb.append("    indexedSpansPercentage: ")
+        .append(toIndentedString(indexedSpansPercentage))
+        .append("\n");
+    sb.append("    indexedSpansUsage: ").append(toIndentedString(indexedSpansUsage)).append("\n");
     sb.append("    infraHostPercentage: ")
         .append(toIndentedString(infraHostPercentage))
         .append("\n");
     sb.append("    infraHostUsage: ").append(toIndentedString(infraHostUsage)).append("\n");
+    sb.append("    ingestedLogsBytesPercentage: ")
+        .append(toIndentedString(ingestedLogsBytesPercentage))
+        .append("\n");
+    sb.append("    ingestedLogsBytesUsage: ")
+        .append(toIndentedString(ingestedLogsBytesUsage))
+        .append("\n");
+    sb.append("    ingestedSpansBytesPercentage: ")
+        .append(toIndentedString(ingestedSpansBytesPercentage))
+        .append("\n");
+    sb.append("    ingestedSpansBytesUsage: ")
+        .append(toIndentedString(ingestedSpansBytesUsage))
+        .append("\n");
     sb.append("    invocationsPercentage: ")
         .append(toIndentedString(invocationsPercentage))
         .append("\n");
@@ -2547,6 +3699,66 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    lambdaTracedInvocationsUsage: ")
         .append(toIndentedString(lambdaTracedInvocationsUsage))
+        .append("\n");
+    sb.append("    logsIndexed15dayPercentage: ")
+        .append(toIndentedString(logsIndexed15dayPercentage))
+        .append("\n");
+    sb.append("    logsIndexed15dayUsage: ")
+        .append(toIndentedString(logsIndexed15dayUsage))
+        .append("\n");
+    sb.append("    logsIndexed180dayPercentage: ")
+        .append(toIndentedString(logsIndexed180dayPercentage))
+        .append("\n");
+    sb.append("    logsIndexed180dayUsage: ")
+        .append(toIndentedString(logsIndexed180dayUsage))
+        .append("\n");
+    sb.append("    logsIndexed30dayPercentage: ")
+        .append(toIndentedString(logsIndexed30dayPercentage))
+        .append("\n");
+    sb.append("    logsIndexed30dayUsage: ")
+        .append(toIndentedString(logsIndexed30dayUsage))
+        .append("\n");
+    sb.append("    logsIndexed360dayPercentage: ")
+        .append(toIndentedString(logsIndexed360dayPercentage))
+        .append("\n");
+    sb.append("    logsIndexed360dayUsage: ")
+        .append(toIndentedString(logsIndexed360dayUsage))
+        .append("\n");
+    sb.append("    logsIndexed3dayPercentage: ")
+        .append(toIndentedString(logsIndexed3dayPercentage))
+        .append("\n");
+    sb.append("    logsIndexed3dayUsage: ")
+        .append(toIndentedString(logsIndexed3dayUsage))
+        .append("\n");
+    sb.append("    logsIndexed45dayPercentage: ")
+        .append(toIndentedString(logsIndexed45dayPercentage))
+        .append("\n");
+    sb.append("    logsIndexed45dayUsage: ")
+        .append(toIndentedString(logsIndexed45dayUsage))
+        .append("\n");
+    sb.append("    logsIndexed60dayPercentage: ")
+        .append(toIndentedString(logsIndexed60dayPercentage))
+        .append("\n");
+    sb.append("    logsIndexed60dayUsage: ")
+        .append(toIndentedString(logsIndexed60dayUsage))
+        .append("\n");
+    sb.append("    logsIndexed7dayPercentage: ")
+        .append(toIndentedString(logsIndexed7dayPercentage))
+        .append("\n");
+    sb.append("    logsIndexed7dayUsage: ")
+        .append(toIndentedString(logsIndexed7dayUsage))
+        .append("\n");
+    sb.append("    logsIndexed90dayPercentage: ")
+        .append(toIndentedString(logsIndexed90dayPercentage))
+        .append("\n");
+    sb.append("    logsIndexed90dayUsage: ")
+        .append(toIndentedString(logsIndexed90dayUsage))
+        .append("\n");
+    sb.append("    logsIndexedCustomRetentionPercentage: ")
+        .append(toIndentedString(logsIndexedCustomRetentionPercentage))
+        .append("\n");
+    sb.append("    logsIndexedCustomRetentionUsage: ")
+        .append(toIndentedString(logsIndexedCustomRetentionUsage))
         .append("\n");
     sb.append("    mobileAppTestingPercentage: ")
         .append(toIndentedString(mobileAppTestingPercentage))
@@ -2582,6 +3794,18 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(profiledHostPercentage))
         .append("\n");
     sb.append("    profiledHostUsage: ").append(toIndentedString(profiledHostUsage)).append("\n");
+    sb.append("    rumBrowserMobileSessionsPercentage: ")
+        .append(toIndentedString(rumBrowserMobileSessionsPercentage))
+        .append("\n");
+    sb.append("    rumBrowserMobileSessionsUsage: ")
+        .append(toIndentedString(rumBrowserMobileSessionsUsage))
+        .append("\n");
+    sb.append("    rumReplaySessionsPercentage: ")
+        .append(toIndentedString(rumReplaySessionsPercentage))
+        .append("\n");
+    sb.append("    rumReplaySessionsUsage: ")
+        .append(toIndentedString(rumReplaySessionsUsage))
+        .append("\n");
     sb.append("    sdsScannedBytesPercentage: ")
         .append(toIndentedString(sdsScannedBytesPercentage))
         .append("\n");
@@ -2593,6 +3817,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    serverlessAppsUsage: ")
         .append(toIndentedString(serverlessAppsUsage))
+        .append("\n");
+    sb.append("    siemIngestedBytesPercentage: ")
+        .append(toIndentedString(siemIngestedBytesPercentage))
+        .append("\n");
+    sb.append("    siemIngestedBytesUsage: ")
+        .append(toIndentedString(siemIngestedBytesUsage))
         .append("\n");
     sb.append("    snmpPercentage: ").append(toIndentedString(snmpPercentage)).append("\n");
     sb.append("    snmpUsage: ").append(toIndentedString(snmpUsage)).append("\n");
