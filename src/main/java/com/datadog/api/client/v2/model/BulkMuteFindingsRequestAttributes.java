@@ -14,46 +14,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
 /** The mute properties to be updated. */
-@JsonPropertyOrder({MuteFindingRequestAttributes.JSON_PROPERTY_MUTE})
+@JsonPropertyOrder({BulkMuteFindingsRequestAttributes.JSON_PROPERTY_MUTE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MuteFindingRequestAttributes {
+public class BulkMuteFindingsRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MUTE = "mute";
-  private MuteFindingRequestProperties mute;
+  private BulkMuteFindingsRequestProperties mute;
 
-  public MuteFindingRequestAttributes() {}
+  public BulkMuteFindingsRequestAttributes() {}
 
   @JsonCreator
-  public MuteFindingRequestAttributes(
+  public BulkMuteFindingsRequestAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_MUTE)
-          MuteFindingRequestProperties mute) {
+          BulkMuteFindingsRequestProperties mute) {
     this.mute = mute;
     this.unparsed |= mute.unparsed;
   }
 
-  public MuteFindingRequestAttributes mute(MuteFindingRequestProperties mute) {
+  public BulkMuteFindingsRequestAttributes mute(BulkMuteFindingsRequestProperties mute) {
     this.mute = mute;
     this.unparsed |= mute.unparsed;
     return this;
   }
 
   /**
-   * Object containing the new mute properties of the finding.
+   * Object containing the new mute properties of the findings.
    *
    * @return mute
    */
   @JsonProperty(JSON_PROPERTY_MUTE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MuteFindingRequestProperties getMute() {
+  public BulkMuteFindingsRequestProperties getMute() {
     return mute;
   }
 
-  public void setMute(MuteFindingRequestProperties mute) {
+  public void setMute(BulkMuteFindingsRequestProperties mute) {
     this.mute = mute;
   }
 
-  /** Return true if this MuteFindingRequestAttributes object is equal to o. */
+  /** Return true if this BulkMuteFindingsRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -62,8 +62,9 @@ public class MuteFindingRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MuteFindingRequestAttributes muteFindingRequestAttributes = (MuteFindingRequestAttributes) o;
-    return Objects.equals(this.mute, muteFindingRequestAttributes.mute);
+    BulkMuteFindingsRequestAttributes bulkMuteFindingsRequestAttributes =
+        (BulkMuteFindingsRequestAttributes) o;
+    return Objects.equals(this.mute, bulkMuteFindingsRequestAttributes.mute);
   }
 
   @Override
@@ -74,7 +75,7 @@ public class MuteFindingRequestAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MuteFindingRequestAttributes {\n");
+    sb.append("class BulkMuteFindingsRequestAttributes {\n");
     sb.append("    mute: ").append(toIndentedString(mute)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -17,42 +17,43 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The new mute finding request. */
-@JsonPropertyOrder({MuteFindingRequest.JSON_PROPERTY_DATA})
+/** The expected response schema. */
+@JsonPropertyOrder({BulkMuteFindingsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MuteFindingRequest {
+public class BulkMuteFindingsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private MuteFindingRequestData data;
+  private BulkMuteFindingsResponseData data;
 
-  public MuteFindingRequest() {}
+  public BulkMuteFindingsResponse() {}
 
   @JsonCreator
-  public MuteFindingRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) MuteFindingRequestData data) {
+  public BulkMuteFindingsResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          BulkMuteFindingsResponseData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public MuteFindingRequest data(MuteFindingRequestData data) {
+  public BulkMuteFindingsResponse data(BulkMuteFindingsResponseData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Data object containing the new mute properties of the finding.
+   * Data object containing the ID of the request that was updated.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MuteFindingRequestData getData() {
+  public BulkMuteFindingsResponseData getData() {
     return data;
   }
 
-  public void setData(MuteFindingRequestData data) {
+  public void setData(BulkMuteFindingsResponseData data) {
     this.data = data;
   }
 
@@ -68,10 +69,10 @@ public class MuteFindingRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MuteFindingRequest
+   * @return BulkMuteFindingsResponse
    */
   @JsonAnySetter
-  public MuteFindingRequest putAdditionalProperty(String key, Object value) {
+  public BulkMuteFindingsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -102,7 +103,7 @@ public class MuteFindingRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MuteFindingRequest object is equal to o. */
+  /** Return true if this BulkMuteFindingsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,9 +112,9 @@ public class MuteFindingRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MuteFindingRequest muteFindingRequest = (MuteFindingRequest) o;
-    return Objects.equals(this.data, muteFindingRequest.data)
-        && Objects.equals(this.additionalProperties, muteFindingRequest.additionalProperties);
+    BulkMuteFindingsResponse bulkMuteFindingsResponse = (BulkMuteFindingsResponse) o;
+    return Objects.equals(this.data, bulkMuteFindingsResponse.data)
+        && Objects.equals(this.additionalProperties, bulkMuteFindingsResponse.additionalProperties);
   }
 
   @Override
@@ -124,7 +125,7 @@ public class MuteFindingRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MuteFindingRequest {\n");
+    sb.append("class BulkMuteFindingsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

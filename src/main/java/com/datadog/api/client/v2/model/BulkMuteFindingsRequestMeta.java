@@ -12,95 +12,53 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data object containing the updated finding. */
-@JsonPropertyOrder({
-  MuteFindingResponseData.JSON_PROPERTY_ATTRIBUTES,
-  MuteFindingResponseData.JSON_PROPERTY_ID,
-  MuteFindingResponseData.JSON_PROPERTY_TYPE
-})
+/** Meta object containing the findings to be updated. */
+@JsonPropertyOrder({BulkMuteFindingsRequestMeta.JSON_PROPERTY_FINDINGS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MuteFindingResponseData {
+public class BulkMuteFindingsRequestMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private MuteFindingResponseAttributes attributes;
+  public static final String JSON_PROPERTY_FINDINGS = "findings";
+  private List<BulkMuteFindingsRequestMetaFindings> findings = null;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private FindingType type = FindingType.FINDING;
-
-  public MuteFindingResponseData attributes(MuteFindingResponseAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
-  }
-
-  /**
-   * The JSON:API attributes of the finding.
-   *
-   * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MuteFindingResponseAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(MuteFindingResponseAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public MuteFindingResponseData id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The unique ID for this finding.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public MuteFindingResponseData type(FindingType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The JSON:API type for findings.
-   *
-   * @return type
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public FindingType getType() {
-    return type;
-  }
-
-  public void setType(FindingType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+  public BulkMuteFindingsRequestMeta findings(List<BulkMuteFindingsRequestMetaFindings> findings) {
+    this.findings = findings;
+    for (BulkMuteFindingsRequestMetaFindings item : findings) {
+      this.unparsed |= item.unparsed;
     }
-    this.type = type;
+    return this;
+  }
+
+  public BulkMuteFindingsRequestMeta addFindingsItem(
+      BulkMuteFindingsRequestMetaFindings findingsItem) {
+    if (this.findings == null) {
+      this.findings = new ArrayList<>();
+    }
+    this.findings.add(findingsItem);
+    this.unparsed |= findingsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Array of findings.
+   *
+   * @return findings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FINDINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<BulkMuteFindingsRequestMetaFindings> getFindings() {
+    return findings;
+  }
+
+  public void setFindings(List<BulkMuteFindingsRequestMetaFindings> findings) {
+    this.findings = findings;
   }
 
   /**
@@ -115,10 +73,10 @@ public class MuteFindingResponseData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MuteFindingResponseData
+   * @return BulkMuteFindingsRequestMeta
    */
   @JsonAnySetter
-  public MuteFindingResponseData putAdditionalProperty(String key, Object value) {
+  public BulkMuteFindingsRequestMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -149,7 +107,7 @@ public class MuteFindingResponseData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MuteFindingResponseData object is equal to o. */
+  /** Return true if this BulkMuteFindingsRequestMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,25 +116,22 @@ public class MuteFindingResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MuteFindingResponseData muteFindingResponseData = (MuteFindingResponseData) o;
-    return Objects.equals(this.attributes, muteFindingResponseData.attributes)
-        && Objects.equals(this.id, muteFindingResponseData.id)
-        && Objects.equals(this.type, muteFindingResponseData.type)
-        && Objects.equals(this.additionalProperties, muteFindingResponseData.additionalProperties);
+    BulkMuteFindingsRequestMeta bulkMuteFindingsRequestMeta = (BulkMuteFindingsRequestMeta) o;
+    return Objects.equals(this.findings, bulkMuteFindingsRequestMeta.findings)
+        && Objects.equals(
+            this.additionalProperties, bulkMuteFindingsRequestMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(findings, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MuteFindingResponseData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class BulkMuteFindingsRequestMeta {\n");
+    sb.append("    findings: ").append(toIndentedString(findings)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

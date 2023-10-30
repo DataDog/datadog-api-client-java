@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,43 +16,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The expected response schema. */
-@JsonPropertyOrder({MuteFindingResponse.JSON_PROPERTY_DATA})
+/** Finding object containing the finding information. */
+@JsonPropertyOrder({BulkMuteFindingsRequestMetaFindings.JSON_PROPERTY_FINDING_ID})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MuteFindingResponse {
+public class BulkMuteFindingsRequestMetaFindings {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private MuteFindingResponseData data;
+  public static final String JSON_PROPERTY_FINDING_ID = "finding_id";
+  private String findingId;
 
-  public MuteFindingResponse() {}
-
-  @JsonCreator
-  public MuteFindingResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) MuteFindingResponseData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
-
-  public MuteFindingResponse data(MuteFindingResponseData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public BulkMuteFindingsRequestMetaFindings findingId(String findingId) {
+    this.findingId = findingId;
     return this;
   }
 
   /**
-   * Data object containing the updated finding.
+   * The unique ID for this finding.
    *
-   * @return data
+   * @return findingId
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MuteFindingResponseData getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FINDING_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFindingId() {
+    return findingId;
   }
 
-  public void setData(MuteFindingResponseData data) {
-    this.data = data;
+  public void setFindingId(String findingId) {
+    this.findingId = findingId;
   }
 
   /**
@@ -68,10 +58,10 @@ public class MuteFindingResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MuteFindingResponse
+   * @return BulkMuteFindingsRequestMetaFindings
    */
   @JsonAnySetter
-  public MuteFindingResponse putAdditionalProperty(String key, Object value) {
+  public BulkMuteFindingsRequestMetaFindings putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -102,7 +92,7 @@ public class MuteFindingResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MuteFindingResponse object is equal to o. */
+  /** Return true if this BulkMuteFindingsRequestMetaFindings object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,21 +101,23 @@ public class MuteFindingResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MuteFindingResponse muteFindingResponse = (MuteFindingResponse) o;
-    return Objects.equals(this.data, muteFindingResponse.data)
-        && Objects.equals(this.additionalProperties, muteFindingResponse.additionalProperties);
+    BulkMuteFindingsRequestMetaFindings bulkMuteFindingsRequestMetaFindings =
+        (BulkMuteFindingsRequestMetaFindings) o;
+    return Objects.equals(this.findingId, bulkMuteFindingsRequestMetaFindings.findingId)
+        && Objects.equals(
+            this.additionalProperties, bulkMuteFindingsRequestMetaFindings.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(findingId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MuteFindingResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class BulkMuteFindingsRequestMetaFindings {\n");
+    sb.append("    findingId: ").append(toIndentedString(findingId)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
