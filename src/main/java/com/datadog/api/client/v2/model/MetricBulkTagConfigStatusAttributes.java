@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Optional attributes for the status of a bulk tag configuration request. */
 @JsonPropertyOrder({
   MetricBulkTagConfigStatusAttributes.JSON_PROPERTY_EMAILS,
+  MetricBulkTagConfigStatusAttributes.JSON_PROPERTY_EXCLUDE_TAGS_MODE,
   MetricBulkTagConfigStatusAttributes.JSON_PROPERTY_STATUS,
   MetricBulkTagConfigStatusAttributes.JSON_PROPERTY_TAGS
 })
@@ -30,6 +31,9 @@ public class MetricBulkTagConfigStatusAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAILS = "emails";
   private List<String> emails = null;
+
+  public static final String JSON_PROPERTY_EXCLUDE_TAGS_MODE = "exclude_tags_mode";
+  private Boolean excludeTagsMode;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -64,6 +68,29 @@ public class MetricBulkTagConfigStatusAttributes {
 
   public void setEmails(List<String> emails) {
     this.emails = emails;
+  }
+
+  public MetricBulkTagConfigStatusAttributes excludeTagsMode(Boolean excludeTagsMode) {
+    this.excludeTagsMode = excludeTagsMode;
+    return this;
+  }
+
+  /**
+   * When set to true, the configuration will exclude the configured tags and include any other
+   * submitted tags. When set to false, the configuration will include the configured tags and
+   * exclude any other submitted tags.
+   *
+   * @return excludeTagsMode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getExcludeTagsMode() {
+    return excludeTagsMode;
+  }
+
+  public void setExcludeTagsMode(Boolean excludeTagsMode) {
+    this.excludeTagsMode = excludeTagsMode;
   }
 
   public MetricBulkTagConfigStatusAttributes status(String status) {
@@ -174,6 +201,7 @@ public class MetricBulkTagConfigStatusAttributes {
     MetricBulkTagConfigStatusAttributes metricBulkTagConfigStatusAttributes =
         (MetricBulkTagConfigStatusAttributes) o;
     return Objects.equals(this.emails, metricBulkTagConfigStatusAttributes.emails)
+        && Objects.equals(this.excludeTagsMode, metricBulkTagConfigStatusAttributes.excludeTagsMode)
         && Objects.equals(this.status, metricBulkTagConfigStatusAttributes.status)
         && Objects.equals(this.tags, metricBulkTagConfigStatusAttributes.tags)
         && Objects.equals(
@@ -182,7 +210,7 @@ public class MetricBulkTagConfigStatusAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(emails, status, tags, additionalProperties);
+    return Objects.hash(emails, excludeTagsMode, status, tags, additionalProperties);
   }
 
   @Override
@@ -190,6 +218,7 @@ public class MetricBulkTagConfigStatusAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricBulkTagConfigStatusAttributes {\n");
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
+    sb.append("    excludeTagsMode: ").append(toIndentedString(excludeTagsMode)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
