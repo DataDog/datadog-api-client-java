@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/scorecard/outcomes",
+      "queryStringParameters": {
+        "page[size]": [
+          "2"
+        ],
+        "fields[outcome]": [
+          "state"
+        ],
+        "filter[outcome][service_name]": [
+          "my-service"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"be6867b9-bd71-497f-803f-208d7361fee2\\\\my-service\",\"type\":\"outcome\",\"attributes\":{\"state\":\"pass\"}},{\"id\":\"c70e3b5f-a9f7-4ef8-8417-bf28ea153631\\\\my-service\",\"type\":\"outcome\",\"attributes\":{\"state\":\"pass\"}}],\"links\":{\"next\":\"/api/v2/scorecard/outcomes?fields%5Boutcome%5D=state\\u0026filter%5Boutcome%5D%5Bservice_name%5D=my-service\\u0026page%5Blimit%5D=2\\u0026page%5Boffset%5D=2\\u0026page%5Bsize%5D=2\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "67dcf0e1-beb4-2954-c2e4-f24c9dcaecb4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/scorecard/outcomes",
+      "queryStringParameters": {
+        "page[size]": [
+          "2"
+        ],
+        "page[offset]": [
+          "2"
+        ],
+        "fields[outcome]": [
+          "state"
+        ],
+        "filter[outcome][service_name]": [
+          "my-service"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[],\"links\":{\"next\":\"/api/v2/scorecard/outcomes?fields%5Boutcome%5D=state\\u0026filter%5Boutcome%5D%5Bservice_name%5D=my-service\\u0026page%5Blimit%5D=2\\u0026page%5Boffset%5D=4\\u0026page%5Bsize%5D=2\",\"previous\":\"/api/v2/scorecard/outcomes?fields%5Boutcome%5D=state\\u0026filter%5Boutcome%5D%5Bservice_name%5D=my-service\\u0026page%5Blimit%5D=2\\u0026page%5Boffset%5D=0\\u0026page%5Bsize%5D=2\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "890ce643-2c79-da77-d09e-29bcc4c9a5f6"
+  }
+]
