@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Create_outcomes_batch_returns_OK_response-1698877051\",\"owner\":\"Datadog\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"},\"type\":\"rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/scorecard/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"b124b446-f246-41ab-b477-99293969cc5e\",\"type\":\"rule\",\"attributes\":{\"category\":\"OpenAPI Spec Test Best Practices\",\"created_at\":\"2023-11-01T22:17:31.577258Z\",\"custom\":true,\"enabled\":true,\"modified_at\":\"2023-11-01T22:17:31.577258Z\",\"name\":\"Test-Create_outcomes_batch_returns_OK_response-1698877051\",\"owner\":\"Datadog\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"},\"relationships\":{\"scorecard\":{\"data\":{\"id\":\"qsxpoYRhU_yz\",\"type\":\"scorecard\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e0db0de8-910d-bddf-21a3-cb61f61c93b7"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"results\":[{\"remarks\":\"See: <a href=\\\"https://app.datadoghq.com/services\\\">Services</a>\",\"rule_id\":\"b124b446-f246-41ab-b477-99293969cc5e\",\"service_name\":\"my-service\",\"state\":\"pass\"}]},\"type\":\"batched-outcome\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/scorecard/outcomes/batch",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"b124b446-f246-41ab-b477-99293969cc5e\\\\my-service\",\"type\":\"outcome\",\"attributes\":{\"modified_at\":\"2023-11-01T22:17:31.68808Z\",\"remarks\":\"See: \\u003ca href=\\\"https://app.datadoghq.com/services\\\"\\u003eServices\\u003c/a\\u003e\",\"service_name\":\"my-service\",\"state\":\"pass\"},\"relationships\":{\"rule\":{\"data\":{\"id\":\"b124b446-f246-41ab-b477-99293969cc5e\",\"type\":\"rule\"}}}}],\"meta\":{\"total_received\":1,\"total_updated\":1}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b41263aa-645b-ad60-e003-bbf0f685e69f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/scorecard/rules/b124b446-f246-41ab-b477-99293969cc5e",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c308ddd4-a13f-563b-dafa-0a352e8ec27d"
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Create_a_new_rule_returns_Created_response-1698877050\",\"scorecard_name\":\"Observability Best Practices\"},\"type\":\"rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/scorecard/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"b6a60878-a110-4df5-b8aa-648d7f02dd02\",\"type\":\"rule\",\"attributes\":{\"category\":\"Observability Best Practices\",\"created_at\":\"2023-11-01T22:17:30.596814Z\",\"custom\":true,\"enabled\":true,\"modified_at\":\"2023-11-01T22:17:30.596814Z\",\"name\":\"Test-Create_a_new_rule_returns_Created_response-1698877050\",\"scorecard_name\":\"Observability Best Practices\"},\"relationships\":{\"scorecard\":{\"data\":{\"id\":\"hA5zOZJXXJ4K\",\"type\":\"scorecard\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "075f9f50-bb5f-b88f-7e55-8dc3a85e8570"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/scorecard/rules/b6a60878-a110-4df5-b8aa-648d7f02dd02",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1f01578b-f85b-2e98-103c-03833c12b406"
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Delete_a_rule_returns_OK_response-1698877051\",\"owner\":\"Datadog\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"},\"type\":\"rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/scorecard/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"74d92a4b-2242-488d-b3de-dd557eecb18b\",\"type\":\"rule\",\"attributes\":{\"category\":\"OpenAPI Spec Test Best Practices\",\"created_at\":\"2023-11-01T22:17:31.138205Z\",\"custom\":true,\"enabled\":true,\"modified_at\":\"2023-11-01T22:17:31.138205Z\",\"name\":\"Test-Delete_a_rule_returns_OK_response-1698877051\",\"owner\":\"Datadog\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"},\"relationships\":{\"scorecard\":{\"data\":{\"id\":\"qsxpoYRhU_yz\",\"type\":\"scorecard\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f276839a-40d9-c33e-376a-070809b27828"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/scorecard/rules/74d92a4b-2242-488d-b3de-dd557eecb18b",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ca792ec7-cc15-2c80-bccc-7f338877c3c4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/scorecard/rules/74d92a4b-2242-488d-b3de-dd557eecb18b",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"rule not found: 74d92a4b-2242-488d-b3de-dd557eecb18b\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ca792ec7-cc15-2c80-bccc-7f338877c3c5"
+  }
+]
