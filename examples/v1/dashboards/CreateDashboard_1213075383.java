@@ -13,7 +13,13 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
 import com.datadog.api.client.v1.model.QuerySortOrder;
 import com.datadog.api.client.v1.model.ToplistWidgetDefinition;
 import com.datadog.api.client.v1.model.ToplistWidgetDefinitionType;
+import com.datadog.api.client.v1.model.ToplistWidgetDisplay;
+import com.datadog.api.client.v1.model.ToplistWidgetLegend;
 import com.datadog.api.client.v1.model.ToplistWidgetRequest;
+import com.datadog.api.client.v1.model.ToplistWidgetScaling;
+import com.datadog.api.client.v1.model.ToplistWidgetStacked;
+import com.datadog.api.client.v1.model.ToplistWidgetStackedType;
+import com.datadog.api.client.v1.model.ToplistWidgetStyle;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetFormula;
@@ -43,6 +49,14 @@ public class Example {
                                     .titleSize("16")
                                     .titleAlign(WidgetTextAlign.LEFT)
                                     .time(new WidgetTime())
+                                    .style(
+                                        new ToplistWidgetStyle()
+                                            .display(
+                                                new ToplistWidgetDisplay(
+                                                    new ToplistWidgetStacked()
+                                                        .type(ToplistWidgetStackedType.STACKED)
+                                                        .legend(ToplistWidgetLegend.INLINE)))
+                                            .scaling(ToplistWidgetScaling.RELATIVE))
                                     .type(ToplistWidgetDefinitionType.TOPLIST)
                                     .requests(
                                         Collections.singletonList(
