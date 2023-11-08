@@ -27,7 +27,7 @@ import java.util.Objects;
   ServiceDefinitionV2Dot2.JSON_PROPERTY_DESCRIPTION,
   ServiceDefinitionV2Dot2.JSON_PROPERTY_EXTENSIONS,
   ServiceDefinitionV2Dot2.JSON_PROPERTY_INTEGRATIONS,
-  ServiceDefinitionV2Dot2.JSON_PROPERTY_LANGAUGES,
+  ServiceDefinitionV2Dot2.JSON_PROPERTY_LANGUAGES,
   ServiceDefinitionV2Dot2.JSON_PROPERTY_LIFECYCLE,
   ServiceDefinitionV2Dot2.JSON_PROPERTY_LINKS,
   ServiceDefinitionV2Dot2.JSON_PROPERTY_SCHEMA_VERSION,
@@ -58,8 +58,8 @@ public class ServiceDefinitionV2Dot2 {
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private ServiceDefinitionV2Dot2Integrations integrations;
 
-  public static final String JSON_PROPERTY_LANGAUGES = "langauges";
-  private List<String> langauges = null;
+  public static final String JSON_PROPERTY_LANGUAGES = "languages";
+  private List<String> languages = null;
 
   public static final String JSON_PROPERTY_LIFECYCLE = "lifecycle";
   private String lifecycle;
@@ -242,16 +242,16 @@ public class ServiceDefinitionV2Dot2 {
     this.integrations = integrations;
   }
 
-  public ServiceDefinitionV2Dot2 langauges(List<String> langauges) {
-    this.langauges = langauges;
+  public ServiceDefinitionV2Dot2 languages(List<String> languages) {
+    this.languages = languages;
     return this;
   }
 
-  public ServiceDefinitionV2Dot2 addLangaugesItem(String langaugesItem) {
-    if (this.langauges == null) {
-      this.langauges = new ArrayList<>();
+  public ServiceDefinitionV2Dot2 addLanguagesItem(String languagesItem) {
+    if (this.languages == null) {
+      this.languages = new ArrayList<>();
     }
-    this.langauges.add(langaugesItem);
+    this.languages.add(languagesItem);
     return this;
   }
 
@@ -260,17 +260,17 @@ public class ServiceDefinitionV2Dot2 {
    * </code>, <code>go</code>, <code>java</code>, <code>js</code>, <code>php</code>, <code>python
    * </code>, <code>ruby</code>, and <code>c++</code>.
    *
-   * @return langauges
+   * @return languages
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LANGAUGES)
+  @JsonProperty(JSON_PROPERTY_LANGUAGES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getLangauges() {
-    return langauges;
+  public List<String> getLanguages() {
+    return languages;
   }
 
-  public void setLangauges(List<String> langauges) {
-    this.langauges = langauges;
+  public void setLanguages(List<String> languages) {
+    this.languages = languages;
   }
 
   public ServiceDefinitionV2Dot2 lifecycle(String lifecycle) {
@@ -509,7 +509,7 @@ public class ServiceDefinitionV2Dot2 {
         && Objects.equals(this.description, serviceDefinitionV2Dot2.description)
         && Objects.equals(this.extensions, serviceDefinitionV2Dot2.extensions)
         && Objects.equals(this.integrations, serviceDefinitionV2Dot2.integrations)
-        && Objects.equals(this.langauges, serviceDefinitionV2Dot2.langauges)
+        && Objects.equals(this.languages, serviceDefinitionV2Dot2.languages)
         && Objects.equals(this.lifecycle, serviceDefinitionV2Dot2.lifecycle)
         && Objects.equals(this.links, serviceDefinitionV2Dot2.links)
         && Objects.equals(this.schemaVersion, serviceDefinitionV2Dot2.schemaVersion)
@@ -529,7 +529,7 @@ public class ServiceDefinitionV2Dot2 {
         description,
         extensions,
         integrations,
-        langauges,
+        languages,
         lifecycle,
         links,
         schemaVersion,
@@ -550,7 +550,7 @@ public class ServiceDefinitionV2Dot2 {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
-    sb.append("    langauges: ").append(toIndentedString(langauges)).append("\n");
+    sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
     sb.append("    lifecycle: ").append(toIndentedString(lifecycle)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    schemaVersion: ").append(toIndentedString(schemaVersion)).append("\n");

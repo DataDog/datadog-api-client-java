@@ -27,6 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ToplistWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   ToplistWidgetDefinition.JSON_PROPERTY_REQUESTS,
+  ToplistWidgetDefinition.JSON_PROPERTY_STYLE,
   ToplistWidgetDefinition.JSON_PROPERTY_TIME,
   ToplistWidgetDefinition.JSON_PROPERTY_TITLE,
   ToplistWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
@@ -42,6 +43,9 @@ public class ToplistWidgetDefinition {
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<ToplistWidgetRequest> requests = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_STYLE = "style";
+  private ToplistWidgetStyle style;
 
   public static final String JSON_PROPERTY_TIME = "time";
   private WidgetTime time;
@@ -130,6 +134,28 @@ public class ToplistWidgetDefinition {
 
   public void setRequests(List<ToplistWidgetRequest> requests) {
     this.requests = requests;
+  }
+
+  public ToplistWidgetDefinition style(ToplistWidgetStyle style) {
+    this.style = style;
+    this.unparsed |= style.unparsed;
+    return this;
+  }
+
+  /**
+   * Style customization for a top list widget.
+   *
+   * @return style
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STYLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ToplistWidgetStyle getStyle() {
+    return style;
+  }
+
+  public void setStyle(ToplistWidgetStyle style) {
+    this.style = style;
   }
 
   public ToplistWidgetDefinition time(WidgetTime time) {
@@ -303,6 +329,7 @@ public class ToplistWidgetDefinition {
     ToplistWidgetDefinition toplistWidgetDefinition = (ToplistWidgetDefinition) o;
     return Objects.equals(this.customLinks, toplistWidgetDefinition.customLinks)
         && Objects.equals(this.requests, toplistWidgetDefinition.requests)
+        && Objects.equals(this.style, toplistWidgetDefinition.style)
         && Objects.equals(this.time, toplistWidgetDefinition.time)
         && Objects.equals(this.title, toplistWidgetDefinition.title)
         && Objects.equals(this.titleAlign, toplistWidgetDefinition.titleAlign)
@@ -314,7 +341,15 @@ public class ToplistWidgetDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
-        customLinks, requests, time, title, titleAlign, titleSize, type, additionalProperties);
+        customLinks,
+        requests,
+        style,
+        time,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -323,6 +358,7 @@ public class ToplistWidgetDefinition {
     sb.append("class ToplistWidgetDefinition {\n");
     sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
+    sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");

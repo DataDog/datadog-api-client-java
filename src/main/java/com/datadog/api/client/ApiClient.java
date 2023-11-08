@@ -394,6 +394,11 @@ public class ApiClient {
           put("v2.getFinding", false);
           put("v2.listFindings", false);
           put("v2.muteFindings", false);
+          put("v2.createScorecardOutcomesBatch", false);
+          put("v2.createScorecardRule", false);
+          put("v2.deleteScorecardRule", false);
+          put("v2.listScorecardOutcomes", false);
+          put("v2.listScorecardRules", false);
           put("v2.createIncidentService", false);
           put("v2.deleteIncidentService", false);
           put("v2.getIncidentService", false);

@@ -47,7 +47,7 @@ public class Example {
                             new ServiceDefinitionV2Dot2Pagerduty()
                                 .serviceUrl(
                                     "https://my-org.pagerduty.com/service-directory/PMyService")))
-                .langauges(
+                .languages(
                     Arrays.asList("dotnet", "go", "java", "js", "php", "python", "ruby", "c++"))
                 .lifecycle("sandbox")
                 .links(

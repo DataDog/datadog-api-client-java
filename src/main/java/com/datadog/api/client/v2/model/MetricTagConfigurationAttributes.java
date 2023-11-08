@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   MetricTagConfigurationAttributes.JSON_PROPERTY_AGGREGATIONS,
   MetricTagConfigurationAttributes.JSON_PROPERTY_CREATED_AT,
+  MetricTagConfigurationAttributes.JSON_PROPERTY_EXCLUDE_TAGS_MODE,
   MetricTagConfigurationAttributes.JSON_PROPERTY_INCLUDE_PERCENTILES,
   MetricTagConfigurationAttributes.JSON_PROPERTY_METRIC_TYPE,
   MetricTagConfigurationAttributes.JSON_PROPERTY_MODIFIED_AT,
@@ -37,6 +38,9 @@ public class MetricTagConfigurationAttributes {
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_EXCLUDE_TAGS_MODE = "exclude_tags_mode";
+  private Boolean excludeTagsMode;
 
   public static final String JSON_PROPERTY_INCLUDE_PERCENTILES = "include_percentiles";
   private Boolean includePercentiles;
@@ -121,6 +125,29 @@ public class MetricTagConfigurationAttributes {
 
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public MetricTagConfigurationAttributes excludeTagsMode(Boolean excludeTagsMode) {
+    this.excludeTagsMode = excludeTagsMode;
+    return this;
+  }
+
+  /**
+   * When set to true, the configuration will exclude the configured tags and include any other
+   * submitted tags. When set to false, the configuration will include the configured tags and
+   * exclude any other submitted tags. Defaults to false. Requires <code>tags</code> property.
+   *
+   * @return excludeTagsMode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getExcludeTagsMode() {
+    return excludeTagsMode;
+  }
+
+  public void setExcludeTagsMode(Boolean excludeTagsMode) {
+    this.excludeTagsMode = excludeTagsMode;
   }
 
   public MetricTagConfigurationAttributes includePercentiles(Boolean includePercentiles) {
@@ -279,6 +306,7 @@ public class MetricTagConfigurationAttributes {
         (MetricTagConfigurationAttributes) o;
     return Objects.equals(this.aggregations, metricTagConfigurationAttributes.aggregations)
         && Objects.equals(this.createdAt, metricTagConfigurationAttributes.createdAt)
+        && Objects.equals(this.excludeTagsMode, metricTagConfigurationAttributes.excludeTagsMode)
         && Objects.equals(
             this.includePercentiles, metricTagConfigurationAttributes.includePercentiles)
         && Objects.equals(this.metricType, metricTagConfigurationAttributes.metricType)
@@ -293,6 +321,7 @@ public class MetricTagConfigurationAttributes {
     return Objects.hash(
         aggregations,
         createdAt,
+        excludeTagsMode,
         includePercentiles,
         metricType,
         modifiedAt,
@@ -306,6 +335,7 @@ public class MetricTagConfigurationAttributes {
     sb.append("class MetricTagConfigurationAttributes {\n");
     sb.append("    aggregations: ").append(toIndentedString(aggregations)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    excludeTagsMode: ").append(toIndentedString(excludeTagsMode)).append("\n");
     sb.append("    includePercentiles: ").append(toIndentedString(includePercentiles)).append("\n");
     sb.append("    metricType: ").append(toIndentedString(metricType)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
