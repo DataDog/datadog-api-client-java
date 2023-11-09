@@ -425,23 +425,23 @@ public class World {
       throw new RuntimeException(e);
     }
     Method dataMethod = givenResponseClass.getMethod("getData");
-    Object data = dataMethod.invoke(givenResponse);
+    Object responseData = dataMethod.invoke(givenResponse);
 
     Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, step.getOperationName());
     if (undoSettings != null) {
-      undo.add(getRequestUndo(apiVersion, undoSettings, data));
+      undo.add(getRequestUndo(apiVersion, undoSettings, responseData, givenParametersArray.get(0)));
     }
 
     if (step.source != null) {
-      data = World.lookup(data, step.source);
+      responseData = World.lookup(responseData, step.source);
     }
 
-    context.put(step.key, data);
+    context.put(step.key, responseData);
 
     sleepAfterRequest();
   }
 
-  public Callable<?> getRequestUndo(String apiVersion, Undo undoSettings, Object data)
+  public Callable<?> getRequestUndo(String apiVersion, Undo undoSettings, Object responseData, Object requestData)
       throws Exception {
     // find API service based on undo tag value
     Class<?> undoAPIClass =
@@ -479,7 +479,7 @@ public class World {
       }
       // Build request from undo parameters and response data
       Map<String, Object> undoRequestParams =
-          undoSettings.undo.getRequestParameters(data, undoOperation, getObjectMapper());
+          undoSettings.undo.getRequestParameters(responseData, requestData, undoOperation, getObjectMapper());
       for (Class c : undoAPIClass.getClasses()) {
         if (c.getName().endsWith(undoSettings.undo.operationId + "OptionalParameters")) {
           undoRequestParams.put("parameters", c.getConstructor().newInstance());
@@ -542,13 +542,13 @@ public class World {
 
     if (undoSettings != null) {
       Method dataMethod = responseClass.getMethod("getData");
-      Object data;
+      Object responseData;
       try {
-        data = dataMethod.invoke(response);
+        responseData = dataMethod.invoke(response);
       } catch (Exception e) {
         throw new Exception(e.getCause());
       }
-      undo.add(getRequestUndo(apiVersion, undoSettings, data));
+      undo.add(getRequestUndo(apiVersion, undoSettings, responseData, parametersArray.get(0)));
     }
   }
 

@@ -21,6 +21,7 @@ public class Undo {
       public String name;
       public String source;
       public String template;
+      public String origin;
     }
 
     public String tag;
@@ -29,10 +30,19 @@ public class Undo {
     public List<Parameter> parameters;
 
     public Map<String, Object> getRequestParameters(
-        Object data, Method requestBuilder, ObjectMapper mapper) {
+        Object responseData,Object requestData, Method requestBuilder, ObjectMapper mapper) {
       Map<String, Object> requestParams = new HashMap<String, Object>();
       for (int i = 0; i < parameters.size(); i++) {
         Undo.UndoMethod.Parameter p = parameters.get(i);
+        Object data = new Object();
+        if (p.origin == null) {
+          data = responseData;
+        } else if (p.origin.equals("request")){
+          data = requestData;
+        } else {
+          data = responseData;
+        }
+
         try {
           if (p.source != null) {
             requestParams.put(World.toPropertyName(p.name), World.lookup(data, p.source));
