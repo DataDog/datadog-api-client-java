@@ -2417,8 +2417,10 @@ public class MetricsApi {
 
   /**
    * Update the tag configuration of a metric or percentile aggregations of a distribution metric or
-   * custom aggregations of a count, rate, or gauge metric. Can only be used with application keys
-   * from users with the <code>Manage Tags for Metrics</code> permission.
+   * custom aggregations of a count, rate, or gauge metric. By setting <code>exclude_tags_mode
+   * </code> to true the behavior is changed from an allow-list to a deny-list, and tags in the
+   * defined list will not be queryable. Can only be used with application keys from users with the
+   * <code>Manage Tags for Metrics</code> permission.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)
