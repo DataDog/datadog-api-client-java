@@ -23,6 +23,7 @@ import java.util.Objects;
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_AGGREGATION,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_DISTINCT_FIELDS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_METRIC,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_METRICS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_NAME,
@@ -40,6 +41,10 @@ public class SecurityMonitoringStandardRuleQuery {
 
   public static final String JSON_PROPERTY_GROUP_BY_FIELDS = "groupByFields";
   private List<String> groupByFields = null;
+
+  public static final String JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS =
+      "hasOptionalGroupByFields";
+  private Boolean hasOptionalGroupByFields;
 
   public static final String JSON_PROPERTY_METRIC = "metric";
   private String metric;
@@ -135,6 +140,19 @@ public class SecurityMonitoringStandardRuleQuery {
 
   public void setGroupByFields(List<String> groupByFields) {
     this.groupByFields = groupByFields;
+  }
+
+  /**
+   * When false, events without a group-by value are ignored by the rule. When true, events with
+   * missing group-by fields are processed with <code>N/A</code>, replacing the missing values.
+   *
+   * @return hasOptionalGroupByFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasOptionalGroupByFields() {
+    return hasOptionalGroupByFields;
   }
 
   public SecurityMonitoringStandardRuleQuery metric(String metric) {
@@ -295,6 +313,9 @@ public class SecurityMonitoringStandardRuleQuery {
     return Objects.equals(this.aggregation, securityMonitoringStandardRuleQuery.aggregation)
         && Objects.equals(this.distinctFields, securityMonitoringStandardRuleQuery.distinctFields)
         && Objects.equals(this.groupByFields, securityMonitoringStandardRuleQuery.groupByFields)
+        && Objects.equals(
+            this.hasOptionalGroupByFields,
+            securityMonitoringStandardRuleQuery.hasOptionalGroupByFields)
         && Objects.equals(this.metric, securityMonitoringStandardRuleQuery.metric)
         && Objects.equals(this.metrics, securityMonitoringStandardRuleQuery.metrics)
         && Objects.equals(this.name, securityMonitoringStandardRuleQuery.name)
@@ -309,6 +330,7 @@ public class SecurityMonitoringStandardRuleQuery {
         aggregation,
         distinctFields,
         groupByFields,
+        hasOptionalGroupByFields,
         metric,
         metrics,
         name,
@@ -323,6 +345,9 @@ public class SecurityMonitoringStandardRuleQuery {
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
+    sb.append("    hasOptionalGroupByFields: ")
+        .append(toIndentedString(hasOptionalGroupByFields))
+        .append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

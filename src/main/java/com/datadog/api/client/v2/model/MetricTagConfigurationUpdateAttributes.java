@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Object containing the definition of a metric tag configuration to be updated. */
 @JsonPropertyOrder({
   MetricTagConfigurationUpdateAttributes.JSON_PROPERTY_AGGREGATIONS,
+  MetricTagConfigurationUpdateAttributes.JSON_PROPERTY_EXCLUDE_TAGS_MODE,
   MetricTagConfigurationUpdateAttributes.JSON_PROPERTY_INCLUDE_PERCENTILES,
   MetricTagConfigurationUpdateAttributes.JSON_PROPERTY_TAGS
 })
@@ -30,6 +31,9 @@ public class MetricTagConfigurationUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATIONS = "aggregations";
   private List<MetricCustomAggregation> aggregations = null;
+
+  public static final String JSON_PROPERTY_EXCLUDE_TAGS_MODE = "exclude_tags_mode";
+  private Boolean excludeTagsMode;
 
   public static final String JSON_PROPERTY_INCLUDE_PERCENTILES = "include_percentiles";
   private Boolean includePercentiles;
@@ -88,6 +92,29 @@ public class MetricTagConfigurationUpdateAttributes {
 
   public void setAggregations(List<MetricCustomAggregation> aggregations) {
     this.aggregations = aggregations;
+  }
+
+  public MetricTagConfigurationUpdateAttributes excludeTagsMode(Boolean excludeTagsMode) {
+    this.excludeTagsMode = excludeTagsMode;
+    return this;
+  }
+
+  /**
+   * When set to true, the configuration will exclude the configured tags and include any other
+   * submitted tags. When set to false, the configuration will include the configured tags and
+   * exclude any other submitted tags. Defaults to false. Requires <code>tags</code> property.
+   *
+   * @return excludeTagsMode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXCLUDE_TAGS_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getExcludeTagsMode() {
+    return excludeTagsMode;
+  }
+
+  public void setExcludeTagsMode(Boolean excludeTagsMode) {
+    this.excludeTagsMode = excludeTagsMode;
   }
 
   public MetricTagConfigurationUpdateAttributes includePercentiles(Boolean includePercentiles) {
@@ -200,6 +227,8 @@ public class MetricTagConfigurationUpdateAttributes {
         (MetricTagConfigurationUpdateAttributes) o;
     return Objects.equals(this.aggregations, metricTagConfigurationUpdateAttributes.aggregations)
         && Objects.equals(
+            this.excludeTagsMode, metricTagConfigurationUpdateAttributes.excludeTagsMode)
+        && Objects.equals(
             this.includePercentiles, metricTagConfigurationUpdateAttributes.includePercentiles)
         && Objects.equals(this.tags, metricTagConfigurationUpdateAttributes.tags)
         && Objects.equals(
@@ -208,7 +237,8 @@ public class MetricTagConfigurationUpdateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregations, includePercentiles, tags, additionalProperties);
+    return Objects.hash(
+        aggregations, excludeTagsMode, includePercentiles, tags, additionalProperties);
   }
 
   @Override
@@ -216,6 +246,7 @@ public class MetricTagConfigurationUpdateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricTagConfigurationUpdateAttributes {\n");
     sb.append("    aggregations: ").append(toIndentedString(aggregations)).append("\n");
+    sb.append("    excludeTagsMode: ").append(toIndentedString(excludeTagsMode)).append("\n");
     sb.append("    includePercentiles: ").append(toIndentedString(includePercentiles)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")

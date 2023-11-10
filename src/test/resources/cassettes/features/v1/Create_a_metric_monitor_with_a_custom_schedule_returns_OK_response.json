@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Create_a_metric_monitor_with_a_custom_schedule_returns_OK_response-1696444400\", \"options\": {\"include_tags\": false, \"notify_audit\": false, \"on_missing_data\": \"default\", \"scheduling_options\": {\"custom_schedule\": {\"recurrences\": [{\"rrule\": \"FREQ=DAILY;INTERVAL=1\", \"start\": \"2024-10-26T09:13:00\", \"timezone\": \"America/Los_Angeles\"}]}, \"evaluation_window\": {\"day_starts\": \"04:00\", \"month_starts\": 1}}, \"thresholds\": {\"critical\": 0.5}}, \"query\": \"avg(current_1mo):avg:system.load.5{*} > 0.5\", \"tags\": [], \"type\": \"query alert\"}"
+        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Create_a_metric_monitor_with_a_custom_schedule_returns_OK_response-1699552730\", \"options\": {\"include_tags\": false, \"notify_audit\": false, \"scheduling_options\": {\"custom_schedule\": {\"recurrences\": [{\"rrule\": \"FREQ=DAILY;INTERVAL=1\", \"start\": \"2024-10-26T09:13:00\", \"timezone\": \"America/Los_Angeles\"}]}, \"evaluation_window\": {\"day_starts\": \"04:00\", \"month_starts\": 1}}, \"thresholds\": {\"critical\": 0.5}}, \"query\": \"avg(current_1mo):avg:system.load.5{*} > 0.5\", \"tags\": [], \"type\": \"query alert\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":132537965,\"org_id\":321813,\"type\":\"query alert\",\"name\":\"Test-Create_a_metric_monitor_with_a_custom_schedule_returns_OK_response-1696444400\",\"message\":\"some message Notify: @hipchat-channel\",\"tags\":[],\"query\":\"avg(current_1mo):avg:system.load.5{*} > 0.5\",\"options\":{\"include_tags\":false,\"notify_audit\":false,\"on_missing_data\":\"default\",\"scheduling_options\":{\"custom_schedule\":{\"recurrences\":[{\"rrule\":\"FREQ=DAILY;INTERVAL=1\",\"start\":\"2024-10-26T09:13:00\",\"timezone\":\"America/Los_Angeles\"}]},\"evaluation_window\":{\"day_starts\":\"04:00\",\"month_starts\":1}},\"thresholds\":{\"critical\":0.5},\"new_host_delay\":300,\"silenced\":{}},\"multi\":false,\"created_at\":1696444400000,\"created\":\"2023-10-04T18:33:20.388003+00:00\",\"modified\":\"2023-10-04T18:33:20.388003+00:00\",\"deleted\":null,\"restricted_roles\":null,\"priority\":null,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"email\":\"team-intg-tools-libs-spam@datadoghq.com\",\"id\":2320499}}\n",
+      "body": "{\"id\":134549556,\"org_id\":321813,\"type\":\"query alert\",\"name\":\"Test-Create_a_metric_monitor_with_a_custom_schedule_returns_OK_response-1699552730\",\"message\":\"some message Notify: @hipchat-channel\",\"tags\":[],\"query\":\"avg(current_1mo):avg:system.load.5{*} > 0.5\",\"options\":{\"include_tags\":false,\"notify_audit\":false,\"scheduling_options\":{\"custom_schedule\":{\"recurrences\":[{\"rrule\":\"FREQ=DAILY;INTERVAL=1\",\"start\":\"2024-10-26T09:13:00\",\"timezone\":\"America/Los_Angeles\"}]},\"evaluation_window\":{\"day_starts\":\"04:00\",\"month_starts\":1}},\"thresholds\":{\"critical\":0.5},\"new_host_delay\":300,\"silenced\":{}},\"multi\":false,\"created_at\":1699552731000,\"created\":\"2023-11-09T17:58:51.118858+00:00\",\"modified\":\"2023-11-09T17:58:51.118858+00:00\",\"deleted\":null,\"restricted_roles\":null,\"priority\":null,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"email\":\"team-intg-tools-libs-spam@datadoghq.com\",\"id\":2320499}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "deccb002-40d6-6320-ccd7-5e55e2dcaa0e"
+    "id": "7861bfa9-b052-4b7c-54fe-1fb8ade7bec7"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/monitor/132537965",
+      "path": "/api/v1/monitor/134549556",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_monitor_id\":132537965}\n",
+      "body": "{\"deleted_monitor_id\":134549556}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c27d7286-a947-939b-7929-a8fea2792902"
+    "id": "6866c0f8-f9db-3310-0e70-17cd83eedcf3"
   }
 ]
