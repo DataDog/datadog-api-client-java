@@ -56,11 +56,11 @@ public class DowntimesApi {
    *
    * <p>See {@link #cancelDowntimeWithHttpInfo}.
    *
-   * @param downtimeId ID of the downtime to cancel. (required)
+   * @param downtimeUuid ID of the downtime to cancel. (required)
    * @throws ApiException if fails to make API call
    */
-  public void cancelDowntime(String downtimeId) throws ApiException {
-    cancelDowntimeWithHttpInfo(downtimeId);
+  public void cancelDowntime(String downtimeUuid) throws ApiException {
+    cancelDowntimeWithHttpInfo(downtimeUuid);
   }
 
   /**
@@ -68,11 +68,11 @@ public class DowntimesApi {
    *
    * <p>See {@link #cancelDowntimeWithHttpInfoAsync}.
    *
-   * @param downtimeId ID of the downtime to cancel. (required)
+   * @param downtimeUuid ID of the downtime to cancel. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> cancelDowntimeAsync(String downtimeId) {
-    return cancelDowntimeWithHttpInfoAsync(downtimeId)
+  public CompletableFuture<Void> cancelDowntimeAsync(String downtimeUuid) {
+    return cancelDowntimeWithHttpInfoAsync(downtimeUuid)
         .thenApply(
             response -> {
               return response.getData();
@@ -82,7 +82,7 @@ public class DowntimesApi {
   /**
    * Cancel a downtime.
    *
-   * @param downtimeId ID of the downtime to cancel. (required)
+   * @param downtimeUuid ID of the downtime to cancel. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -95,19 +95,19 @@ public class DowntimesApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> cancelDowntimeWithHttpInfo(String downtimeId) throws ApiException {
+  public ApiResponse<Void> cancelDowntimeWithHttpInfo(String downtimeUuid) throws ApiException {
     Object localVarPostBody = null;
 
-    // verify the required parameter 'downtimeId' is set
-    if (downtimeId == null) {
+    // verify the required parameter 'downtimeUuid' is set
+    if (downtimeUuid == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'downtimeId' when calling cancelDowntime");
+          400, "Missing the required parameter 'downtimeUuid' when calling cancelDowntime");
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/downtime/{downtime_id}"
+        "/api/v2/downtime/{downtime_uuid}"
             .replaceAll(
-                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+                "\\{" + "downtime_uuid" + "\\}", apiClient.escapeString(downtimeUuid.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -136,25 +136,25 @@ public class DowntimesApi {
    *
    * <p>See {@link #cancelDowntimeWithHttpInfo}.
    *
-   * @param downtimeId ID of the downtime to cancel. (required)
+   * @param downtimeUuid ID of the downtime to cancel. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> cancelDowntimeWithHttpInfoAsync(String downtimeId) {
+  public CompletableFuture<ApiResponse<Void>> cancelDowntimeWithHttpInfoAsync(String downtimeUuid) {
     Object localVarPostBody = null;
 
-    // verify the required parameter 'downtimeId' is set
-    if (downtimeId == null) {
+    // verify the required parameter 'downtimeUuid' is set
+    if (downtimeUuid == null) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'downtimeId' when calling cancelDowntime"));
+              400, "Missing the required parameter 'downtimeUuid' when calling cancelDowntime"));
       return result;
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/downtime/{downtime_id}"
+        "/api/v2/downtime/{downtime_uuid}"
             .replaceAll(
-                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+                "\\{" + "downtime_uuid" + "\\}", apiClient.escapeString(downtimeUuid.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -339,12 +339,12 @@ public class DowntimesApi {
    *
    * <p>See {@link #getDowntimeWithHttpInfo}.
    *
-   * @param downtimeId ID of the downtime to fetch. (required)
+   * @param downtimeUuid ID of the downtime to fetch. (required)
    * @return DowntimeResponse
    * @throws ApiException if fails to make API call
    */
-  public DowntimeResponse getDowntime(String downtimeId) throws ApiException {
-    return getDowntimeWithHttpInfo(downtimeId, new GetDowntimeOptionalParameters()).getData();
+  public DowntimeResponse getDowntime(String downtimeUuid) throws ApiException {
+    return getDowntimeWithHttpInfo(downtimeUuid, new GetDowntimeOptionalParameters()).getData();
   }
 
   /**
@@ -352,11 +352,11 @@ public class DowntimesApi {
    *
    * <p>See {@link #getDowntimeWithHttpInfoAsync}.
    *
-   * @param downtimeId ID of the downtime to fetch. (required)
+   * @param downtimeUuid ID of the downtime to fetch. (required)
    * @return CompletableFuture&lt;DowntimeResponse&gt;
    */
-  public CompletableFuture<DowntimeResponse> getDowntimeAsync(String downtimeId) {
-    return getDowntimeWithHttpInfoAsync(downtimeId, new GetDowntimeOptionalParameters())
+  public CompletableFuture<DowntimeResponse> getDowntimeAsync(String downtimeUuid) {
+    return getDowntimeWithHttpInfoAsync(downtimeUuid, new GetDowntimeOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -368,14 +368,14 @@ public class DowntimesApi {
    *
    * <p>See {@link #getDowntimeWithHttpInfo}.
    *
-   * @param downtimeId ID of the downtime to fetch. (required)
+   * @param downtimeUuid ID of the downtime to fetch. (required)
    * @param parameters Optional parameters for the request.
    * @return DowntimeResponse
    * @throws ApiException if fails to make API call
    */
-  public DowntimeResponse getDowntime(String downtimeId, GetDowntimeOptionalParameters parameters)
+  public DowntimeResponse getDowntime(String downtimeUuid, GetDowntimeOptionalParameters parameters)
       throws ApiException {
-    return getDowntimeWithHttpInfo(downtimeId, parameters).getData();
+    return getDowntimeWithHttpInfo(downtimeUuid, parameters).getData();
   }
 
   /**
@@ -383,13 +383,13 @@ public class DowntimesApi {
    *
    * <p>See {@link #getDowntimeWithHttpInfoAsync}.
    *
-   * @param downtimeId ID of the downtime to fetch. (required)
+   * @param downtimeUuid ID of the downtime to fetch. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;DowntimeResponse&gt;
    */
   public CompletableFuture<DowntimeResponse> getDowntimeAsync(
-      String downtimeId, GetDowntimeOptionalParameters parameters) {
-    return getDowntimeWithHttpInfoAsync(downtimeId, parameters)
+      String downtimeUuid, GetDowntimeOptionalParameters parameters) {
+    return getDowntimeWithHttpInfoAsync(downtimeUuid, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -397,9 +397,9 @@ public class DowntimesApi {
   }
 
   /**
-   * Get downtime detail by <code>downtime_id</code>.
+   * Get downtime detail by <code>downtime_uuid</code>.
    *
-   * @param downtimeId ID of the downtime to fetch. (required)
+   * @param downtimeUuid ID of the downtime to fetch. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DowntimeResponse&gt;
    * @throws ApiException if fails to make API call
@@ -415,20 +415,20 @@ public class DowntimesApi {
    *     </table>
    */
   public ApiResponse<DowntimeResponse> getDowntimeWithHttpInfo(
-      String downtimeId, GetDowntimeOptionalParameters parameters) throws ApiException {
+      String downtimeUuid, GetDowntimeOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
-    // verify the required parameter 'downtimeId' is set
-    if (downtimeId == null) {
+    // verify the required parameter 'downtimeUuid' is set
+    if (downtimeUuid == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'downtimeId' when calling getDowntime");
+          400, "Missing the required parameter 'downtimeUuid' when calling getDowntime");
     }
     String include = parameters.include;
     // create path and map variables
     String localVarPath =
-        "/api/v2/downtime/{downtime_id}"
+        "/api/v2/downtime/{downtime_uuid}"
             .replaceAll(
-                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+                "\\{" + "downtime_uuid" + "\\}", apiClient.escapeString(downtimeUuid.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -460,28 +460,28 @@ public class DowntimesApi {
    *
    * <p>See {@link #getDowntimeWithHttpInfo}.
    *
-   * @param downtimeId ID of the downtime to fetch. (required)
+   * @param downtimeUuid ID of the downtime to fetch. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;DowntimeResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DowntimeResponse>> getDowntimeWithHttpInfoAsync(
-      String downtimeId, GetDowntimeOptionalParameters parameters) {
+      String downtimeUuid, GetDowntimeOptionalParameters parameters) {
     Object localVarPostBody = null;
 
-    // verify the required parameter 'downtimeId' is set
-    if (downtimeId == null) {
+    // verify the required parameter 'downtimeUuid' is set
+    if (downtimeUuid == null) {
       CompletableFuture<ApiResponse<DowntimeResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'downtimeId' when calling getDowntime"));
+              400, "Missing the required parameter 'downtimeUuid' when calling getDowntime"));
       return result;
     }
     String include = parameters.include;
     // create path and map variables
     String localVarPath =
-        "/api/v2/downtime/{downtime_id}"
+        "/api/v2/downtime/{downtime_uuid}"
             .replaceAll(
-                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+                "\\{" + "downtime_uuid" + "\\}", apiClient.escapeString(downtimeUuid.toString()));
 
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -927,14 +927,14 @@ public class DowntimesApi {
    *
    * <p>See {@link #updateDowntimeWithHttpInfo}.
    *
-   * @param downtimeId ID of the downtime to update. (required)
+   * @param downtimeUuid ID of the downtime to update. (required)
    * @param body Update a downtime request body. (required)
    * @return DowntimeResponse
    * @throws ApiException if fails to make API call
    */
-  public DowntimeResponse updateDowntime(String downtimeId, DowntimeUpdateRequest body)
+  public DowntimeResponse updateDowntime(String downtimeUuid, DowntimeUpdateRequest body)
       throws ApiException {
-    return updateDowntimeWithHttpInfo(downtimeId, body).getData();
+    return updateDowntimeWithHttpInfo(downtimeUuid, body).getData();
   }
 
   /**
@@ -942,13 +942,13 @@ public class DowntimesApi {
    *
    * <p>See {@link #updateDowntimeWithHttpInfoAsync}.
    *
-   * @param downtimeId ID of the downtime to update. (required)
+   * @param downtimeUuid ID of the downtime to update. (required)
    * @param body Update a downtime request body. (required)
    * @return CompletableFuture&lt;DowntimeResponse&gt;
    */
   public CompletableFuture<DowntimeResponse> updateDowntimeAsync(
-      String downtimeId, DowntimeUpdateRequest body) {
-    return updateDowntimeWithHttpInfoAsync(downtimeId, body)
+      String downtimeUuid, DowntimeUpdateRequest body) {
+    return updateDowntimeWithHttpInfoAsync(downtimeUuid, body)
         .thenApply(
             response -> {
               return response.getData();
@@ -956,9 +956,9 @@ public class DowntimesApi {
   }
 
   /**
-   * Update a downtime by <code>downtime_id</code>.
+   * Update a downtime by <code>downtime_uuid</code>.
    *
-   * @param downtimeId ID of the downtime to update. (required)
+   * @param downtimeUuid ID of the downtime to update. (required)
    * @param body Update a downtime request body. (required)
    * @return ApiResponse&lt;DowntimeResponse&gt;
    * @throws ApiException if fails to make API call
@@ -974,13 +974,13 @@ public class DowntimesApi {
    *     </table>
    */
   public ApiResponse<DowntimeResponse> updateDowntimeWithHttpInfo(
-      String downtimeId, DowntimeUpdateRequest body) throws ApiException {
+      String downtimeUuid, DowntimeUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
-    // verify the required parameter 'downtimeId' is set
-    if (downtimeId == null) {
+    // verify the required parameter 'downtimeUuid' is set
+    if (downtimeUuid == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'downtimeId' when calling updateDowntime");
+          400, "Missing the required parameter 'downtimeUuid' when calling updateDowntime");
     }
 
     // verify the required parameter 'body' is set
@@ -990,9 +990,9 @@ public class DowntimesApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/downtime/{downtime_id}"
+        "/api/v2/downtime/{downtime_uuid}"
             .replaceAll(
-                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+                "\\{" + "downtime_uuid" + "\\}", apiClient.escapeString(downtimeUuid.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1021,20 +1021,20 @@ public class DowntimesApi {
    *
    * <p>See {@link #updateDowntimeWithHttpInfo}.
    *
-   * @param downtimeId ID of the downtime to update. (required)
+   * @param downtimeUuid ID of the downtime to update. (required)
    * @param body Update a downtime request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;DowntimeResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DowntimeResponse>> updateDowntimeWithHttpInfoAsync(
-      String downtimeId, DowntimeUpdateRequest body) {
+      String downtimeUuid, DowntimeUpdateRequest body) {
     Object localVarPostBody = body;
 
-    // verify the required parameter 'downtimeId' is set
-    if (downtimeId == null) {
+    // verify the required parameter 'downtimeUuid' is set
+    if (downtimeUuid == null) {
       CompletableFuture<ApiResponse<DowntimeResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'downtimeId' when calling updateDowntime"));
+              400, "Missing the required parameter 'downtimeUuid' when calling updateDowntime"));
       return result;
     }
 
@@ -1048,9 +1048,9 @@ public class DowntimesApi {
     }
     // create path and map variables
     String localVarPath =
-        "/api/v2/downtime/{downtime_id}"
+        "/api/v2/downtime/{downtime_uuid}"
             .replaceAll(
-                "\\{" + "downtime_id" + "\\}", apiClient.escapeString(downtimeId.toString()));
+                "\\{" + "downtime_uuid" + "\\}", apiClient.escapeString(downtimeUuid.toString()));
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
