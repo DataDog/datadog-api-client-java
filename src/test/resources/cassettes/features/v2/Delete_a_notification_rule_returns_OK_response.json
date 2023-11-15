@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Delete_a_notification_rule_returns_OK_response-1699997658\",\"selectors\":{\"attributes\":[\"fim:true\"],\"implicit_vm_rule_match\":false,\"rule_tags\":[\"fim:true\"],\"rule_types\":[\"log_detection\",\"cloud_configuration\"],\"severities\":[\"high\"],\"signal_tags\":[]},\"targets\":[\"test\"]},\"type\":\"notification_profiles\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/notification_profiles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"vlg-rz9-ita\",\"attributes\":{\"version\":1,\"name\":\"Test-Delete_a_notification_rule_returns_OK_response-1699997658\",\"targets\":[\"test\"],\"selectors\":{\"severities\":[\"high\"],\"rule_types\":[\"log_detection\",\"cloud_configuration\"],\"rule_tags\":[\"fim:true\"],\"signal_tags\":[],\"attributes\":[\"fim:true\"],\"implicit_vm_rule_match\":false},\"enabled\":true,\"creation_date\":1699997659123,\"update_date\":1699997659123,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"notification_profiles\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "97d33fb2-30af-72c5-b1c9-ff0b086bf4e8"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/notification_profiles/vlg-rz9-ita",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ba8f42c7-8722-c1f3-87a2-00138deb35ac"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/notification_profiles/vlg-rz9-ita",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"not_found(Notification profile with id 'vlg-rz9-ita' not found)\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ba8f42c7-8722-c1f3-87a2-00138deb35ad"
+  }
+]

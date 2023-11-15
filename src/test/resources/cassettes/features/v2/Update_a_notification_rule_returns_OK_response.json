@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Update_a_notification_rule_returns_OK_response-1699997664\",\"selectors\":{\"attributes\":[\"fim:true\"],\"implicit_vm_rule_match\":false,\"rule_tags\":[\"fim:true\"],\"rule_types\":[\"log_detection\",\"cloud_configuration\"],\"severities\":[\"high\"],\"signal_tags\":[]},\"targets\":[\"test\"]},\"type\":\"notification_profiles\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/notification_profiles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"iqf-mgr-mp4\",\"attributes\":{\"version\":1,\"name\":\"Test-Update_a_notification_rule_returns_OK_response-1699997664\",\"targets\":[\"test\"],\"selectors\":{\"severities\":[\"high\"],\"rule_types\":[\"log_detection\",\"cloud_configuration\"],\"rule_tags\":[\"fim:true\"],\"signal_tags\":[],\"attributes\":[\"fim:true\"],\"implicit_vm_rule_match\":false},\"enabled\":true,\"creation_date\":1699997664354,\"update_date\":1699997664354,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"notification_profiles\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c8fb4839-0987-f85e-2ce7-51db4198b447"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"name\":\"Test-Update_a_notification_rule_returns_OK_response-1699997664\",\"selectors\":{\"attributes\":[\"fim:true\"],\"implicit_vm_rule_match\":false,\"rule_tags\":[\"fim:true\"],\"rule_types\":[\"log_detection\",\"cloud_configuration\"],\"severities\":[\"high\"],\"signal_tags\":[]},\"targets\":[\"test2\"],\"version\":1},\"type\":\"notification_profiles\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security_monitoring/configuration/notification_profiles/iqf-mgr-mp4",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"iqf-mgr-mp4\",\"attributes\":{\"version\":2,\"name\":\"Test-Update_a_notification_rule_returns_OK_response-1699997664\",\"targets\":[\"test2\"],\"selectors\":{\"severities\":[\"high\"],\"rule_types\":[\"log_detection\",\"cloud_configuration\"],\"rule_tags\":[\"fim:true\"],\"signal_tags\":[],\"attributes\":[\"fim:true\"],\"implicit_vm_rule_match\":false},\"enabled\":false,\"creation_date\":1699997664354,\"update_date\":1699997664577,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"notification_profiles\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4a3c61e3-df7e-d08c-6ee8-3d521a62d5a9"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/notification_profiles/iqf-mgr-mp4",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "82503c9a-b3b5-0e52-f38e-cc447708462a"
+  }
+]
