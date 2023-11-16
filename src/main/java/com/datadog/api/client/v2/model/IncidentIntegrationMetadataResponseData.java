@@ -21,6 +21,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   IncidentIntegrationMetadataResponseData.JSON_PROPERTY_ATTRIBUTES,
   IncidentIntegrationMetadataResponseData.JSON_PROPERTY_ID,
+  IncidentIntegrationMetadataResponseData.JSON_PROPERTY_RELATIONSHIPS,
   IncidentIntegrationMetadataResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -32,6 +33,9 @@ public class IncidentIntegrationMetadataResponseData {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private IncidentIntegrationRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private IncidentIntegrationMetadataType type =
@@ -90,6 +94,29 @@ public class IncidentIntegrationMetadataResponseData {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public IncidentIntegrationMetadataResponseData relationships(
+      IncidentIntegrationRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * The incident's integration relationships from a response.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentIntegrationRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(IncidentIntegrationRelationships relationships) {
+    this.relationships = relationships;
   }
 
   public IncidentIntegrationMetadataResponseData type(IncidentIntegrationMetadataType type) {
@@ -175,6 +202,7 @@ public class IncidentIntegrationMetadataResponseData {
         (IncidentIntegrationMetadataResponseData) o;
     return Objects.equals(this.attributes, incidentIntegrationMetadataResponseData.attributes)
         && Objects.equals(this.id, incidentIntegrationMetadataResponseData.id)
+        && Objects.equals(this.relationships, incidentIntegrationMetadataResponseData.relationships)
         && Objects.equals(this.type, incidentIntegrationMetadataResponseData.type)
         && Objects.equals(
             this.additionalProperties,
@@ -183,7 +211,7 @@ public class IncidentIntegrationMetadataResponseData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -192,6 +220,7 @@ public class IncidentIntegrationMetadataResponseData {
     sb.append("class IncidentIntegrationMetadataResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

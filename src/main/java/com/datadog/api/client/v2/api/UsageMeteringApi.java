@@ -6,6 +6,7 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CostByOrgResponse;
 import com.datadog.api.client.v2.model.HourlyUsageResponse;
+import com.datadog.api.client.v2.model.ProjectedCostResponse;
 import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringResponse;
 import com.datadog.api.client.v2.model.UsageLambdaTracedInvocationsResponse;
 import com.datadog.api.client.v2.model.UsageObservabilityPipelinesResponse;
@@ -1161,6 +1162,179 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<HourlyUsageResponse>() {});
+  }
+
+  /** Manage optional parameters to getProjectedCost. */
+  public static class GetProjectedCostOptionalParameters {
+    private String view;
+
+    /**
+     * Set view.
+     *
+     * @param view String to specify whether cost is broken down at a parent-org level or at the
+     *     sub-org level. Available views are <code>summary</code> and <code>sub-org</code>.
+     *     Defaults to <code>summary</code>. (optional)
+     * @return GetProjectedCostOptionalParameters
+     */
+    public GetProjectedCostOptionalParameters view(String view) {
+      this.view = view;
+      return this;
+    }
+  }
+
+  /**
+   * Get projected cost across your account.
+   *
+   * <p>See {@link #getProjectedCostWithHttpInfo}.
+   *
+   * @return ProjectedCostResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProjectedCostResponse getProjectedCost() throws ApiException {
+    return getProjectedCostWithHttpInfo(new GetProjectedCostOptionalParameters()).getData();
+  }
+
+  /**
+   * Get projected cost across your account.
+   *
+   * <p>See {@link #getProjectedCostWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ProjectedCostResponse&gt;
+   */
+  public CompletableFuture<ProjectedCostResponse> getProjectedCostAsync() {
+    return getProjectedCostWithHttpInfoAsync(new GetProjectedCostOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get projected cost across your account.
+   *
+   * <p>See {@link #getProjectedCostWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ProjectedCostResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ProjectedCostResponse getProjectedCost(GetProjectedCostOptionalParameters parameters)
+      throws ApiException {
+    return getProjectedCostWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get projected cost across your account.
+   *
+   * <p>See {@link #getProjectedCostWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ProjectedCostResponse&gt;
+   */
+  public CompletableFuture<ProjectedCostResponse> getProjectedCostAsync(
+      GetProjectedCostOptionalParameters parameters) {
+    return getProjectedCostWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get projected cost across multi-org and single root-org accounts. Projected cost data is only
+   * available for the current month and becomes available around the 12th of the month. This
+   * endpoint requires the usage_read authorization scope.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ProjectedCostResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ProjectedCostResponse> getProjectedCostWithHttpInfo(
+      GetProjectedCostOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String view = parameters.view;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/projected_cost";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "view", view));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getProjectedCost",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProjectedCostResponse>() {});
+  }
+
+  /**
+   * Get projected cost across your account.
+   *
+   * <p>See {@link #getProjectedCostWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ProjectedCostResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ProjectedCostResponse>> getProjectedCostWithHttpInfoAsync(
+      GetProjectedCostOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String view = parameters.view;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/projected_cost";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "view", view));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.getProjectedCost",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ProjectedCostResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ProjectedCostResponse>() {});
   }
 
   /** Manage optional parameters to getUsageApplicationSecurityMonitoring. */

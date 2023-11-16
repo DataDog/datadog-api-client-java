@@ -33,12 +33,16 @@ public class IncidentCreateRelationships {
       @JsonProperty(required = true, value = JSON_PROPERTY_COMMANDER_USER)
           NullableRelationshipToUser commanderUser) {
     this.commanderUser = commanderUser;
-    this.unparsed |= commanderUser.unparsed;
+    if (commanderUser != null) {
+      this.unparsed |= commanderUser.unparsed;
+    }
   }
 
   public IncidentCreateRelationships commanderUser(NullableRelationshipToUser commanderUser) {
     this.commanderUser = commanderUser;
-    this.unparsed |= commanderUser.unparsed;
+    if (commanderUser != null) {
+      this.unparsed |= commanderUser.unparsed;
+    }
     return this;
   }
 
@@ -47,6 +51,7 @@ public class IncidentCreateRelationships {
    *
    * @return commanderUser
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public NullableRelationshipToUser getCommanderUser() {

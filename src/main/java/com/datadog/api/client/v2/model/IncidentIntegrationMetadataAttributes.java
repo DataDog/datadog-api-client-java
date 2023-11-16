@@ -13,21 +13,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 /** Incident integration metadata's attributes for a create request. */
 @JsonPropertyOrder({
+  IncidentIntegrationMetadataAttributes.JSON_PROPERTY_CREATED,
   IncidentIntegrationMetadataAttributes.JSON_PROPERTY_INCIDENT_ID,
   IncidentIntegrationMetadataAttributes.JSON_PROPERTY_INTEGRATION_TYPE,
   IncidentIntegrationMetadataAttributes.JSON_PROPERTY_METADATA,
+  IncidentIntegrationMetadataAttributes.JSON_PROPERTY_MODIFIED,
   IncidentIntegrationMetadataAttributes.JSON_PROPERTY_STATUS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentIntegrationMetadataAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CREATED = "created";
+  private OffsetDateTime created;
+
   public static final String JSON_PROPERTY_INCIDENT_ID = "incident_id";
   private String incidentId;
 
@@ -36,6 +42,9 @@ public class IncidentIntegrationMetadataAttributes {
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private IncidentIntegrationMetadataMetadata metadata;
+
+  public static final String JSON_PROPERTY_MODIFIED = "modified";
+  private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private Integer status;
@@ -51,6 +60,18 @@ public class IncidentIntegrationMetadataAttributes {
     this.integrationType = integrationType;
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
+  }
+
+  /**
+   * Timestamp when the incident todo was created.
+   *
+   * @return created
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreated() {
+    return created;
   }
 
   public IncidentIntegrationMetadataAttributes incidentId(String incidentId) {
@@ -115,6 +136,18 @@ public class IncidentIntegrationMetadataAttributes {
 
   public void setMetadata(IncidentIntegrationMetadataMetadata metadata) {
     this.metadata = metadata;
+  }
+
+  /**
+   * Timestamp when the incident todo was last modified.
+   *
+   * @return modified
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModified() {
+    return modified;
   }
 
   public IncidentIntegrationMetadataAttributes status(Integer status) {
@@ -197,10 +230,12 @@ public class IncidentIntegrationMetadataAttributes {
     }
     IncidentIntegrationMetadataAttributes incidentIntegrationMetadataAttributes =
         (IncidentIntegrationMetadataAttributes) o;
-    return Objects.equals(this.incidentId, incidentIntegrationMetadataAttributes.incidentId)
+    return Objects.equals(this.created, incidentIntegrationMetadataAttributes.created)
+        && Objects.equals(this.incidentId, incidentIntegrationMetadataAttributes.incidentId)
         && Objects.equals(
             this.integrationType, incidentIntegrationMetadataAttributes.integrationType)
         && Objects.equals(this.metadata, incidentIntegrationMetadataAttributes.metadata)
+        && Objects.equals(this.modified, incidentIntegrationMetadataAttributes.modified)
         && Objects.equals(this.status, incidentIntegrationMetadataAttributes.status)
         && Objects.equals(
             this.additionalProperties, incidentIntegrationMetadataAttributes.additionalProperties);
@@ -208,16 +243,19 @@ public class IncidentIntegrationMetadataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(incidentId, integrationType, metadata, status, additionalProperties);
+    return Objects.hash(
+        created, incidentId, integrationType, metadata, modified, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentIntegrationMetadataAttributes {\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    incidentId: ").append(toIndentedString(incidentId)).append("\n");
     sb.append("    integrationType: ").append(toIndentedString(integrationType)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

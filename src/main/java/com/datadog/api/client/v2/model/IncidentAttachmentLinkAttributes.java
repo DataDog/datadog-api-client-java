@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,7 +21,8 @@ import java.util.Objects;
 /** The attributes object for a link attachment. */
 @JsonPropertyOrder({
   IncidentAttachmentLinkAttributes.JSON_PROPERTY_ATTACHMENT,
-  IncidentAttachmentLinkAttributes.JSON_PROPERTY_ATTACHMENT_TYPE
+  IncidentAttachmentLinkAttributes.JSON_PROPERTY_ATTACHMENT_TYPE,
+  IncidentAttachmentLinkAttributes.JSON_PROPERTY_MODIFIED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,6 +34,9 @@ public class IncidentAttachmentLinkAttributes {
   public static final String JSON_PROPERTY_ATTACHMENT_TYPE = "attachment_type";
   private IncidentAttachmentLinkAttachmentType attachmentType =
       IncidentAttachmentLinkAttachmentType.LINK;
+
+  public static final String JSON_PROPERTY_MODIFIED = "modified";
+  private OffsetDateTime modified;
 
   public IncidentAttachmentLinkAttributes() {}
 
@@ -95,6 +100,18 @@ public class IncidentAttachmentLinkAttributes {
   }
 
   /**
+   * Timestamp when the incident attachment link was last modified.
+   *
+   * @return modified
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModified() {
+    return modified;
+  }
+
+  /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
@@ -153,13 +170,14 @@ public class IncidentAttachmentLinkAttributes {
         (IncidentAttachmentLinkAttributes) o;
     return Objects.equals(this.attachment, incidentAttachmentLinkAttributes.attachment)
         && Objects.equals(this.attachmentType, incidentAttachmentLinkAttributes.attachmentType)
+        && Objects.equals(this.modified, incidentAttachmentLinkAttributes.modified)
         && Objects.equals(
             this.additionalProperties, incidentAttachmentLinkAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachment, attachmentType, additionalProperties);
+    return Objects.hash(attachment, attachmentType, modified, additionalProperties);
   }
 
   @Override
@@ -168,6 +186,7 @@ public class IncidentAttachmentLinkAttributes {
     sb.append("class IncidentAttachmentLinkAttributes {\n");
     sb.append("    attachment: ").append(toIndentedString(attachment)).append("\n");
     sb.append("    attachmentType: ").append(toIndentedString(attachmentType)).append("\n");
+    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
