@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.ActiveBillingDimensionsResponse;
 import com.datadog.api.client.v2.model.CostByOrgResponse;
 import com.datadog.api.client.v2.model.HourlyUsageResponse;
 import com.datadog.api.client.v2.model.ProjectedCostResponse;
@@ -48,6 +49,138 @@ public class UsageMeteringApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Get active billing dimensions for cost attribution.
+   *
+   * <p>See {@link #getActiveBillingDimensionsWithHttpInfo}.
+   *
+   * @return ActiveBillingDimensionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ActiveBillingDimensionsResponse getActiveBillingDimensions() throws ApiException {
+    return getActiveBillingDimensionsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get active billing dimensions for cost attribution.
+   *
+   * <p>See {@link #getActiveBillingDimensionsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ActiveBillingDimensionsResponse&gt;
+   */
+  public CompletableFuture<ActiveBillingDimensionsResponse> getActiveBillingDimensionsAsync() {
+    return getActiveBillingDimensionsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get active billing dimensions for cost attribution. Cost data for a given month becomes
+   * available no later than the 17th of the following month.
+   *
+   * @return ApiResponse&lt;ActiveBillingDimensionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ActiveBillingDimensionsResponse> getActiveBillingDimensionsWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getActiveBillingDimensions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost_by_tag/active_billing_dimensions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getActiveBillingDimensions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ActiveBillingDimensionsResponse>() {});
+  }
+
+  /**
+   * Get active billing dimensions for cost attribution.
+   *
+   * <p>See {@link #getActiveBillingDimensionsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;ActiveBillingDimensionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ActiveBillingDimensionsResponse>>
+      getActiveBillingDimensionsWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getActiveBillingDimensions";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ActiveBillingDimensionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost_by_tag/active_billing_dimensions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.getActiveBillingDimensions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ActiveBillingDimensionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ActiveBillingDimensionsResponse>() {});
   }
 
   /** Manage optional parameters to getCostByOrg. */
