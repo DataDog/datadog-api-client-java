@@ -470,6 +470,8 @@ public class World {
     }
 
     return () -> {
+      System.out.printf("Beginning undo call for: %s \n",undoSettings.getOperationName());
+
       Method undoOperation = null;
       for (Method method : undoAPIClass.getMethods()) {
         if (method.getName().equals(undoOperationName + "WithHttpInfo")) {
@@ -487,12 +489,16 @@ public class World {
         }
       }
 
+      System.out.printf("Executing request for: %s \n",undoSettings.getOperationName());
+
       // Execute request
       try {
         undoOperation.invoke(undoAPI, undoRequestParams.values().toArray());
       } catch (Exception e) {
+        System.out.printf("Failed undo call for: %s ",undoSettings.getOperationName());
         throw new Exception(e.getCause());
       }
+      System.out.printf("Finished undo call for: %s ",undoSettings.getOperationName());
       return null;
     };
   }

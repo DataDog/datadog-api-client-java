@@ -1569,6 +1569,7 @@ public class ApiClient {
                 statusCode, responseHeaders, deserialize(response, returnType));
           }
         } else if (shouldRetry(currentRetry, statusCode, retry)) {
+          System.out.printf("Reqtrying request: %s -- interval: %s", currentRetry, calculateRetryInterval(responseHeaders, retry, currentRetry));
           retry.sleepInterval(calculateRetryInterval(responseHeaders, retry, currentRetry));
           currentRetry++;
         } else {
