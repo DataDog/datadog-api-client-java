@@ -470,7 +470,7 @@ public class World {
     }
 
     return () -> {
-      System.out.printf("Beginning undo call for: %s \n",undoSettings.getOperationName());
+      System.out.printf("Beginning undo call for: %s \n", undoSettings.getOperationName());
 
       Method undoOperation = null;
       for (Method method : undoAPIClass.getMethods()) {
@@ -491,14 +491,14 @@ public class World {
 
       // Execute request
       try {
-        System.out.printf("Executing request for: %s \n",undoSettings.getOperationName());
+        System.out.printf("Executing request for: %s \n", undoSettings.getOperationName());
         undoOperation.invoke(undoAPI, undoRequestParams.values().toArray());
-        System.out.printf("Done executing request for: %s \n",undoSettings.getOperationName());
+        System.out.printf("Done executing request for: %s \n", undoSettings.getOperationName());
       } catch (Exception e) {
-        System.out.printf("Failed undo call for: %s ",undoSettings.getOperationName());
+        System.out.printf("Failed undo call for: %s ", undoSettings.getOperationName());
         throw new Exception(e.getCause());
       }
-      System.out.printf("Finished undo call for: %s ",undoSettings.getOperationName());
+      System.out.printf("Finished undo call for: %s ", undoSettings.getOperationName());
       return null;
     };
   }
