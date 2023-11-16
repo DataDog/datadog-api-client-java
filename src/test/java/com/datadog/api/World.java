@@ -489,11 +489,11 @@ public class World {
         }
       }
 
-      System.out.printf("Executing request for: %s \n",undoSettings.getOperationName());
-
       // Execute request
       try {
+        System.out.printf("Executing request for: %s \n",undoSettings.getOperationName());
         undoOperation.invoke(undoAPI, undoRequestParams.values().toArray());
+        System.out.printf("Done executing request for: %s \n",undoSettings.getOperationName());
       } catch (Exception e) {
         System.out.printf("Failed undo call for: %s ",undoSettings.getOperationName());
         throw new Exception(e.getCause());
