@@ -1,0 +1,39 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/cost_by_tag/monthly_cost_attribution",
+      "queryStringParameters": {
+        "start_month": [
+          "2023-11-11T19:43:19.607Z"
+        ],
+        "end_month": [
+          "2023-11-13T19:43:19.607Z"
+        ],
+        "fields": [
+          "infra_host_total_cost"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ef93009d-163d-faed-a249-cd00d86a8695"
+  }
+]

@@ -7,7 +7,9 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ActiveBillingDimensionsResponse;
 import com.datadog.api.client.v2.model.CostByOrgResponse;
 import com.datadog.api.client.v2.model.HourlyUsageResponse;
+import com.datadog.api.client.v2.model.MonthlyCostAttributionResponse;
 import com.datadog.api.client.v2.model.ProjectedCostResponse;
+import com.datadog.api.client.v2.model.SortDirection;
 import com.datadog.api.client.v2.model.UsageApplicationSecurityMonitoringResponse;
 import com.datadog.api.client.v2.model.UsageLambdaTracedInvocationsResponse;
 import com.datadog.api.client.v2.model.UsageObservabilityPipelinesResponse;
@@ -1295,6 +1297,450 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<HourlyUsageResponse>() {});
+  }
+
+  /** Manage optional parameters to getMonthlyCostAttribution. */
+  public static class GetMonthlyCostAttributionOptionalParameters {
+    private SortDirection sortDirection;
+    private String sortName;
+    private String tagBreakdownKeys;
+    private String nextRecordId;
+    private Boolean includeDescendants;
+
+    /**
+     * Set sortDirection.
+     *
+     * @param sortDirection The direction to sort by: <code>[desc, asc]</code>. (optional, default
+     *     to "desc")
+     * @return GetMonthlyCostAttributionOptionalParameters
+     */
+    public GetMonthlyCostAttributionOptionalParameters sortDirection(SortDirection sortDirection) {
+      this.sortDirection = sortDirection;
+      return this;
+    }
+
+    /**
+     * Set sortName.
+     *
+     * @param sortName The billing dimension to sort by. Always sorted by total cost. Example:
+     *     <code>infra_host</code>. (optional)
+     * @return GetMonthlyCostAttributionOptionalParameters
+     */
+    public GetMonthlyCostAttributionOptionalParameters sortName(String sortName) {
+      this.sortName = sortName;
+      return this;
+    }
+
+    /**
+     * Set tagBreakdownKeys.
+     *
+     * @param tagBreakdownKeys Comma separated list of tag keys used to group cost. If no value is
+     *     provided the cost will not be broken down by tags. To see which tags are available, look
+     *     for the value of <code>tag_config_source</code> in the API response. (optional)
+     * @return GetMonthlyCostAttributionOptionalParameters
+     */
+    public GetMonthlyCostAttributionOptionalParameters tagBreakdownKeys(String tagBreakdownKeys) {
+      this.tagBreakdownKeys = tagBreakdownKeys;
+      return this;
+    }
+
+    /**
+     * Set nextRecordId.
+     *
+     * @param nextRecordId List following results with a next_record_id provided in the previous
+     *     query. (optional)
+     * @return GetMonthlyCostAttributionOptionalParameters
+     */
+    public GetMonthlyCostAttributionOptionalParameters nextRecordId(String nextRecordId) {
+      this.nextRecordId = nextRecordId;
+      return this;
+    }
+
+    /**
+     * Set includeDescendants.
+     *
+     * @param includeDescendants Include child org cost in the response. Defaults to <code>true
+     *     </code>. (optional, default to true)
+     * @return GetMonthlyCostAttributionOptionalParameters
+     */
+    public GetMonthlyCostAttributionOptionalParameters includeDescendants(
+        Boolean includeDescendants) {
+      this.includeDescendants = includeDescendants;
+      return this;
+    }
+  }
+
+  /**
+   * Get Monthly Cost Attribution.
+   *
+   * <p>See {@link #getMonthlyCostAttributionWithHttpInfo}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning in this month. (required)
+   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
+   *     cost ending this month. (required)
+   * @param fields Comma-separated list specifying cost types (e.g., <code>
+   *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
+   *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
+   *     </code>) and the proportions (<code>&lt;billing_dimension&gt;_percentage_in_org</code>,
+   *     <code>&lt;billing_dimension&gt;_percentage_in_account</code>). Use <code>*</code> to
+   *     retrieve all fields. Example: <code>
+   *     infra_host_on_demand_cost,infra_host_percentage_in_account</code> To obtain the complete
+   *     list of active billing dimensions that can be used to replace <code>
+   *     &lt;billing_dimension&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-active-billing-dimensions-for-cost-attribution">Get
+   *     active billing dimensions API</a>. (required)
+   * @return MonthlyCostAttributionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonthlyCostAttributionResponse getMonthlyCostAttribution(
+      OffsetDateTime startMonth, OffsetDateTime endMonth, String fields) throws ApiException {
+    return getMonthlyCostAttributionWithHttpInfo(
+            startMonth, endMonth, fields, new GetMonthlyCostAttributionOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get Monthly Cost Attribution.
+   *
+   * <p>See {@link #getMonthlyCostAttributionWithHttpInfoAsync}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning in this month. (required)
+   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
+   *     cost ending this month. (required)
+   * @param fields Comma-separated list specifying cost types (e.g., <code>
+   *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
+   *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
+   *     </code>) and the proportions (<code>&lt;billing_dimension&gt;_percentage_in_org</code>,
+   *     <code>&lt;billing_dimension&gt;_percentage_in_account</code>). Use <code>*</code> to
+   *     retrieve all fields. Example: <code>
+   *     infra_host_on_demand_cost,infra_host_percentage_in_account</code> To obtain the complete
+   *     list of active billing dimensions that can be used to replace <code>
+   *     &lt;billing_dimension&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-active-billing-dimensions-for-cost-attribution">Get
+   *     active billing dimensions API</a>. (required)
+   * @return CompletableFuture&lt;MonthlyCostAttributionResponse&gt;
+   */
+  public CompletableFuture<MonthlyCostAttributionResponse> getMonthlyCostAttributionAsync(
+      OffsetDateTime startMonth, OffsetDateTime endMonth, String fields) {
+    return getMonthlyCostAttributionWithHttpInfoAsync(
+            startMonth, endMonth, fields, new GetMonthlyCostAttributionOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get Monthly Cost Attribution.
+   *
+   * <p>See {@link #getMonthlyCostAttributionWithHttpInfo}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning in this month. (required)
+   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
+   *     cost ending this month. (required)
+   * @param fields Comma-separated list specifying cost types (e.g., <code>
+   *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
+   *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
+   *     </code>) and the proportions (<code>&lt;billing_dimension&gt;_percentage_in_org</code>,
+   *     <code>&lt;billing_dimension&gt;_percentage_in_account</code>). Use <code>*</code> to
+   *     retrieve all fields. Example: <code>
+   *     infra_host_on_demand_cost,infra_host_percentage_in_account</code> To obtain the complete
+   *     list of active billing dimensions that can be used to replace <code>
+   *     &lt;billing_dimension&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-active-billing-dimensions-for-cost-attribution">Get
+   *     active billing dimensions API</a>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return MonthlyCostAttributionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonthlyCostAttributionResponse getMonthlyCostAttribution(
+      OffsetDateTime startMonth,
+      OffsetDateTime endMonth,
+      String fields,
+      GetMonthlyCostAttributionOptionalParameters parameters)
+      throws ApiException {
+    return getMonthlyCostAttributionWithHttpInfo(startMonth, endMonth, fields, parameters)
+        .getData();
+  }
+
+  /**
+   * Get Monthly Cost Attribution.
+   *
+   * <p>See {@link #getMonthlyCostAttributionWithHttpInfoAsync}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning in this month. (required)
+   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
+   *     cost ending this month. (required)
+   * @param fields Comma-separated list specifying cost types (e.g., <code>
+   *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
+   *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
+   *     </code>) and the proportions (<code>&lt;billing_dimension&gt;_percentage_in_org</code>,
+   *     <code>&lt;billing_dimension&gt;_percentage_in_account</code>). Use <code>*</code> to
+   *     retrieve all fields. Example: <code>
+   *     infra_host_on_demand_cost,infra_host_percentage_in_account</code> To obtain the complete
+   *     list of active billing dimensions that can be used to replace <code>
+   *     &lt;billing_dimension&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-active-billing-dimensions-for-cost-attribution">Get
+   *     active billing dimensions API</a>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;MonthlyCostAttributionResponse&gt;
+   */
+  public CompletableFuture<MonthlyCostAttributionResponse> getMonthlyCostAttributionAsync(
+      OffsetDateTime startMonth,
+      OffsetDateTime endMonth,
+      String fields,
+      GetMonthlyCostAttributionOptionalParameters parameters) {
+    return getMonthlyCostAttributionWithHttpInfoAsync(startMonth, endMonth, fields, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get monthly cost attribution by tag across multi-org and single root-org accounts. Cost
+   * Attribution data for a given month becomes available no later than the 17th of the following
+   * month. This API endpoint is paginated. To make sure you receive all records, check if the value
+   * of <code>next_record_id</code> is set in the response. If it is, make another request and pass
+   * <code>next_record_id</code> as a parameter. Pseudo code example: <code>
+   * response := GetMonthlyCostAttribution(start_month, end_month)
+   * cursor := response.metadata.pagination.next_record_id
+   * WHILE cursor != null BEGIN
+   *   sleep(5 seconds)  # Avoid running into rate limit
+   *   response := GetMonthlyCostAttribution(start_month, end_month, next_record_id=cursor)
+   *   cursor := response.metadata.pagination.next_record_id
+   * END</code>
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning in this month. (required)
+   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
+   *     cost ending this month. (required)
+   * @param fields Comma-separated list specifying cost types (e.g., <code>
+   *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
+   *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
+   *     </code>) and the proportions (<code>&lt;billing_dimension&gt;_percentage_in_org</code>,
+   *     <code>&lt;billing_dimension&gt;_percentage_in_account</code>). Use <code>*</code> to
+   *     retrieve all fields. Example: <code>
+   *     infra_host_on_demand_cost,infra_host_percentage_in_account</code> To obtain the complete
+   *     list of active billing dimensions that can be used to replace <code>
+   *     &lt;billing_dimension&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-active-billing-dimensions-for-cost-attribution">Get
+   *     active billing dimensions API</a>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;MonthlyCostAttributionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonthlyCostAttributionResponse> getMonthlyCostAttributionWithHttpInfo(
+      OffsetDateTime startMonth,
+      OffsetDateTime endMonth,
+      String fields,
+      GetMonthlyCostAttributionOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getMonthlyCostAttribution";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startMonth' is set
+    if (startMonth == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'startMonth' when calling getMonthlyCostAttribution");
+    }
+
+    // verify the required parameter 'endMonth' is set
+    if (endMonth == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'endMonth' when calling getMonthlyCostAttribution");
+    }
+
+    // verify the required parameter 'fields' is set
+    if (fields == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'fields' when calling getMonthlyCostAttribution");
+    }
+    SortDirection sortDirection = parameters.sortDirection;
+    String sortName = parameters.sortName;
+    String tagBreakdownKeys = parameters.tagBreakdownKeys;
+    String nextRecordId = parameters.nextRecordId;
+    Boolean includeDescendants = parameters.includeDescendants;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost_by_tag/monthly_cost_attribution";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_direction", sortDirection));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_name", sortName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_descendants", includeDescendants));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getMonthlyCostAttribution",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonthlyCostAttributionResponse>() {});
+  }
+
+  /**
+   * Get Monthly Cost Attribution.
+   *
+   * <p>See {@link #getMonthlyCostAttributionWithHttpInfo}.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+   *     for cost beginning in this month. (required)
+   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
+   *     cost ending this month. (required)
+   * @param fields Comma-separated list specifying cost types (e.g., <code>
+   *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
+   *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
+   *     </code>) and the proportions (<code>&lt;billing_dimension&gt;_percentage_in_org</code>,
+   *     <code>&lt;billing_dimension&gt;_percentage_in_account</code>). Use <code>*</code> to
+   *     retrieve all fields. Example: <code>
+   *     infra_host_on_demand_cost,infra_host_percentage_in_account</code> To obtain the complete
+   *     list of active billing dimensions that can be used to replace <code>
+   *     &lt;billing_dimension&gt;</code> in the field names, make a request to the <a
+   *     href="https://docs.datadoghq.com/api/latest/usage-metering/#get-active-billing-dimensions-for-cost-attribution">Get
+   *     active billing dimensions API</a>. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;MonthlyCostAttributionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonthlyCostAttributionResponse>>
+      getMonthlyCostAttributionWithHttpInfoAsync(
+          OffsetDateTime startMonth,
+          OffsetDateTime endMonth,
+          String fields,
+          GetMonthlyCostAttributionOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getMonthlyCostAttribution";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonthlyCostAttributionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startMonth' is set
+    if (startMonth == null) {
+      CompletableFuture<ApiResponse<MonthlyCostAttributionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'startMonth' when calling"
+                  + " getMonthlyCostAttribution"));
+      return result;
+    }
+
+    // verify the required parameter 'endMonth' is set
+    if (endMonth == null) {
+      CompletableFuture<ApiResponse<MonthlyCostAttributionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'endMonth' when calling getMonthlyCostAttribution"));
+      return result;
+    }
+
+    // verify the required parameter 'fields' is set
+    if (fields == null) {
+      CompletableFuture<ApiResponse<MonthlyCostAttributionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'fields' when calling getMonthlyCostAttribution"));
+      return result;
+    }
+    SortDirection sortDirection = parameters.sortDirection;
+    String sortName = parameters.sortName;
+    String tagBreakdownKeys = parameters.tagBreakdownKeys;
+    String nextRecordId = parameters.nextRecordId;
+    Boolean includeDescendants = parameters.includeDescendants;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost_by_tag/monthly_cost_attribution";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_direction", sortDirection));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_name", sortName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_descendants", includeDescendants));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.getMonthlyCostAttribution",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonthlyCostAttributionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonthlyCostAttributionResponse>() {});
   }
 
   /** Manage optional parameters to getProjectedCost. */
