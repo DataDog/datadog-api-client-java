@@ -23,6 +23,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The incident's attributes from a response. */
 @JsonPropertyOrder({
+  IncidentResponseAttributes.JSON_PROPERTY_ARCHIVED,
+  IncidentResponseAttributes.JSON_PROPERTY_CASE_ID,
   IncidentResponseAttributes.JSON_PROPERTY_CREATED,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_DURATION,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_END,
@@ -32,19 +34,29 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentResponseAttributes.JSON_PROPERTY_DETECTED,
   IncidentResponseAttributes.JSON_PROPERTY_FIELDS,
   IncidentResponseAttributes.JSON_PROPERTY_MODIFIED,
+  IncidentResponseAttributes.JSON_PROPERTY_NON_DATADOG_CREATOR,
   IncidentResponseAttributes.JSON_PROPERTY_NOTIFICATION_HANDLES,
   IncidentResponseAttributes.JSON_PROPERTY_PUBLIC_ID,
   IncidentResponseAttributes.JSON_PROPERTY_RESOLVED,
+  IncidentResponseAttributes.JSON_PROPERTY_SEVERITY,
+  IncidentResponseAttributes.JSON_PROPERTY_STATE,
   IncidentResponseAttributes.JSON_PROPERTY_TIME_TO_DETECT,
   IncidentResponseAttributes.JSON_PROPERTY_TIME_TO_INTERNAL_RESPONSE,
   IncidentResponseAttributes.JSON_PROPERTY_TIME_TO_REPAIR,
   IncidentResponseAttributes.JSON_PROPERTY_TIME_TO_RESOLVE,
-  IncidentResponseAttributes.JSON_PROPERTY_TITLE
+  IncidentResponseAttributes.JSON_PROPERTY_TITLE,
+  IncidentResponseAttributes.JSON_PROPERTY_VISIBILITY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ARCHIVED = "archived";
+  private JsonNullable<OffsetDateTime> archived = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_CASE_ID = "case_id";
+  private JsonNullable<Long> caseId = JsonNullable.<Long>undefined();
+
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
 
@@ -73,6 +85,10 @@ public class IncidentResponseAttributes {
   public static final String JSON_PROPERTY_MODIFIED = "modified";
   private OffsetDateTime modified;
 
+  public static final String JSON_PROPERTY_NON_DATADOG_CREATOR = "non_datadog_creator";
+  private JsonNullable<IncidentNonDatadogCreator> nonDatadogCreator =
+      JsonNullable.<IncidentNonDatadogCreator>undefined();
+
   public static final String JSON_PROPERTY_NOTIFICATION_HANDLES = "notification_handles";
   private JsonNullable<List<IncidentNotificationHandle>> notificationHandles =
       JsonNullable.<List<IncidentNotificationHandle>>undefined();
@@ -82,6 +98,12 @@ public class IncidentResponseAttributes {
 
   public static final String JSON_PROPERTY_RESOLVED = "resolved";
   private JsonNullable<OffsetDateTime> resolved = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_SEVERITY = "severity";
+  private IncidentSeverity severity;
+
+  public static final String JSON_PROPERTY_STATE = "state";
+  private JsonNullable<String> state = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_TIME_TO_DETECT = "time_to_detect";
   private Long timeToDetect;
@@ -98,12 +120,72 @@ public class IncidentResponseAttributes {
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
+  public static final String JSON_PROPERTY_VISIBILITY = "visibility";
+  private JsonNullable<String> visibility = JsonNullable.<String>undefined();
+
   public IncidentResponseAttributes() {}
 
   @JsonCreator
   public IncidentResponseAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
     this.title = title;
+  }
+
+  /**
+   * Timestamp of when the incident was archived.
+   *
+   * @return archived
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getArchived() {
+
+    if (archived == null) {
+      archived = JsonNullable.<OffsetDateTime>undefined();
+    }
+    return archived.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ARCHIVED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<OffsetDateTime> getArchived_JsonNullable() {
+    return archived;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ARCHIVED)
+  private void setArchived_JsonNullable(JsonNullable<OffsetDateTime> archived) {
+    this.archived = archived;
+  }
+
+  public IncidentResponseAttributes caseId(Long caseId) {
+    this.caseId = JsonNullable.<Long>of(caseId);
+    return this;
+  }
+
+  /**
+   * The incident case id.
+   *
+   * @return caseId
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getCaseId() {
+    return caseId.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CASE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getCaseId_JsonNullable() {
+    return caseId;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CASE_ID)
+  public void setCaseId_JsonNullable(JsonNullable<Long> caseId) {
+    this.caseId = caseId;
+  }
+
+  public void setCaseId(Long caseId) {
+    this.caseId = JsonNullable.<Long>of(caseId);
   }
 
   /**
@@ -318,6 +400,38 @@ public class IncidentResponseAttributes {
     return modified;
   }
 
+  public IncidentResponseAttributes nonDatadogCreator(IncidentNonDatadogCreator nonDatadogCreator) {
+    this.nonDatadogCreator = JsonNullable.<IncidentNonDatadogCreator>of(nonDatadogCreator);
+    return this;
+  }
+
+  /**
+   * Incident's non Datadog creator.
+   *
+   * @return nonDatadogCreator
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public IncidentNonDatadogCreator getNonDatadogCreator() {
+    return nonDatadogCreator.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NON_DATADOG_CREATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<IncidentNonDatadogCreator> getNonDatadogCreator_JsonNullable() {
+    return nonDatadogCreator;
+  }
+
+  @JsonProperty(JSON_PROPERTY_NON_DATADOG_CREATOR)
+  public void setNonDatadogCreator_JsonNullable(
+      JsonNullable<IncidentNonDatadogCreator> nonDatadogCreator) {
+    this.nonDatadogCreator = nonDatadogCreator;
+  }
+
+  public void setNonDatadogCreator(IncidentNonDatadogCreator nonDatadogCreator) {
+    this.nonDatadogCreator = JsonNullable.<IncidentNonDatadogCreator>of(nonDatadogCreator);
+  }
+
   public IncidentResponseAttributes notificationHandles(
       List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles =
@@ -420,6 +534,62 @@ public class IncidentResponseAttributes {
     this.resolved = JsonNullable.<OffsetDateTime>of(resolved);
   }
 
+  public IncidentResponseAttributes severity(IncidentSeverity severity) {
+    this.severity = severity;
+    this.unparsed |= !severity.isValid();
+    return this;
+  }
+
+  /**
+   * The incident severity.
+   *
+   * @return severity
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEVERITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentSeverity getSeverity() {
+    return severity;
+  }
+
+  public void setSeverity(IncidentSeverity severity) {
+    if (!severity.isValid()) {
+      this.unparsed = true;
+    }
+    this.severity = severity;
+  }
+
+  public IncidentResponseAttributes state(String state) {
+    this.state = JsonNullable.<String>of(state);
+    return this;
+  }
+
+  /**
+   * The state incident.
+   *
+   * @return state
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getState() {
+    return state.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getState_JsonNullable() {
+    return state;
+  }
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  public void setState_JsonNullable(JsonNullable<String> state) {
+    this.state = state;
+  }
+
+  public void setState(String state) {
+    this.state = JsonNullable.<String>of(state);
+  }
+
   /**
    * The amount of time in seconds to detect the incident. Equals the difference between <code>
    * customer_impact_start</code> and <code>detected</code>.
@@ -492,6 +662,37 @@ public class IncidentResponseAttributes {
     this.title = title;
   }
 
+  public IncidentResponseAttributes visibility(String visibility) {
+    this.visibility = JsonNullable.<String>of(visibility);
+    return this;
+  }
+
+  /**
+   * The incident visibility status.
+   *
+   * @return visibility
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getVisibility() {
+    return visibility.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_VISIBILITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getVisibility_JsonNullable() {
+    return visibility;
+  }
+
+  @JsonProperty(JSON_PROPERTY_VISIBILITY)
+  public void setVisibility_JsonNullable(JsonNullable<String> visibility) {
+    this.visibility = visibility;
+  }
+
+  public void setVisibility(String visibility) {
+    this.visibility = JsonNullable.<String>of(visibility);
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -548,7 +749,9 @@ public class IncidentResponseAttributes {
       return false;
     }
     IncidentResponseAttributes incidentResponseAttributes = (IncidentResponseAttributes) o;
-    return Objects.equals(this.created, incidentResponseAttributes.created)
+    return Objects.equals(this.archived, incidentResponseAttributes.archived)
+        && Objects.equals(this.caseId, incidentResponseAttributes.caseId)
+        && Objects.equals(this.created, incidentResponseAttributes.created)
         && Objects.equals(
             this.customerImpactDuration, incidentResponseAttributes.customerImpactDuration)
         && Objects.equals(this.customerImpactEnd, incidentResponseAttributes.customerImpactEnd)
@@ -558,15 +761,19 @@ public class IncidentResponseAttributes {
         && Objects.equals(this.detected, incidentResponseAttributes.detected)
         && Objects.equals(this.fields, incidentResponseAttributes.fields)
         && Objects.equals(this.modified, incidentResponseAttributes.modified)
+        && Objects.equals(this.nonDatadogCreator, incidentResponseAttributes.nonDatadogCreator)
         && Objects.equals(this.notificationHandles, incidentResponseAttributes.notificationHandles)
         && Objects.equals(this.publicId, incidentResponseAttributes.publicId)
         && Objects.equals(this.resolved, incidentResponseAttributes.resolved)
+        && Objects.equals(this.severity, incidentResponseAttributes.severity)
+        && Objects.equals(this.state, incidentResponseAttributes.state)
         && Objects.equals(this.timeToDetect, incidentResponseAttributes.timeToDetect)
         && Objects.equals(
             this.timeToInternalResponse, incidentResponseAttributes.timeToInternalResponse)
         && Objects.equals(this.timeToRepair, incidentResponseAttributes.timeToRepair)
         && Objects.equals(this.timeToResolve, incidentResponseAttributes.timeToResolve)
         && Objects.equals(this.title, incidentResponseAttributes.title)
+        && Objects.equals(this.visibility, incidentResponseAttributes.visibility)
         && Objects.equals(
             this.additionalProperties, incidentResponseAttributes.additionalProperties);
   }
@@ -574,6 +781,8 @@ public class IncidentResponseAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        archived,
+        caseId,
         created,
         customerImpactDuration,
         customerImpactEnd,
@@ -583,14 +792,18 @@ public class IncidentResponseAttributes {
         detected,
         fields,
         modified,
+        nonDatadogCreator,
         notificationHandles,
         publicId,
         resolved,
+        severity,
+        state,
         timeToDetect,
         timeToInternalResponse,
         timeToRepair,
         timeToResolve,
         title,
+        visibility,
         additionalProperties);
   }
 
@@ -598,6 +811,8 @@ public class IncidentResponseAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentResponseAttributes {\n");
+    sb.append("    archived: ").append(toIndentedString(archived)).append("\n");
+    sb.append("    caseId: ").append(toIndentedString(caseId)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    customerImpactDuration: ")
         .append(toIndentedString(customerImpactDuration))
@@ -613,11 +828,14 @@ public class IncidentResponseAttributes {
     sb.append("    detected: ").append(toIndentedString(detected)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
+    sb.append("    nonDatadogCreator: ").append(toIndentedString(nonDatadogCreator)).append("\n");
     sb.append("    notificationHandles: ")
         .append(toIndentedString(notificationHandles))
         .append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    resolved: ").append(toIndentedString(resolved)).append("\n");
+    sb.append("    severity: ").append(toIndentedString(severity)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    timeToDetect: ").append(toIndentedString(timeToDetect)).append("\n");
     sb.append("    timeToInternalResponse: ")
         .append(toIndentedString(timeToInternalResponse))
@@ -625,6 +843,7 @@ public class IncidentResponseAttributes {
     sb.append("    timeToRepair: ").append(toIndentedString(timeToRepair)).append("\n");
     sb.append("    timeToResolve: ").append(toIndentedString(timeToResolve)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

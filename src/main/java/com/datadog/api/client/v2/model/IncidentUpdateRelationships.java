@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The incident's relationships for an update request. */
 @JsonPropertyOrder({
@@ -27,7 +28,8 @@ import java.util.Objects;
 public class IncidentUpdateRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
-  private NullableRelationshipToUser commanderUser;
+  private JsonNullable<NullableRelationshipToUser> commanderUser =
+      JsonNullable.<NullableRelationshipToUser>undefined();
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private RelationshipToIncidentIntegrationMetadatas integrations;
@@ -36,8 +38,7 @@ public class IncidentUpdateRelationships {
   private RelationshipToIncidentPostmortem postmortem;
 
   public IncidentUpdateRelationships commanderUser(NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
-    this.unparsed |= commanderUser.unparsed;
+    this.commanderUser = JsonNullable.<NullableRelationshipToUser>of(commanderUser);
     return this;
   }
 
@@ -47,14 +48,25 @@ public class IncidentUpdateRelationships {
    * @return commanderUser
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public NullableRelationshipToUser getCommanderUser() {
+    return commanderUser.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public NullableRelationshipToUser getCommanderUser() {
+  public JsonNullable<NullableRelationshipToUser> getCommanderUser_JsonNullable() {
     return commanderUser;
   }
 
-  public void setCommanderUser(NullableRelationshipToUser commanderUser) {
+  @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
+  public void setCommanderUser_JsonNullable(
+      JsonNullable<NullableRelationshipToUser> commanderUser) {
     this.commanderUser = commanderUser;
+  }
+
+  public void setCommanderUser(NullableRelationshipToUser commanderUser) {
+    this.commanderUser = JsonNullable.<NullableRelationshipToUser>of(commanderUser);
   }
 
   public IncidentUpdateRelationships integrations(

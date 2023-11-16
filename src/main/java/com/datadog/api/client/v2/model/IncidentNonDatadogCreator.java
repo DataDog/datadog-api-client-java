@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,49 +16,61 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The relationships the incident will have with other resources once created. */
-@JsonPropertyOrder({IncidentCreateRelationships.JSON_PROPERTY_COMMANDER_USER})
+/** Incident's non Datadog creator. */
+@JsonPropertyOrder({
+  IncidentNonDatadogCreator.JSON_PROPERTY_IMAGE_48_PX,
+  IncidentNonDatadogCreator.JSON_PROPERTY_NAME
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentCreateRelationships {
+public class IncidentNonDatadogCreator {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
-  private NullableRelationshipToUser commanderUser;
+  public static final String JSON_PROPERTY_IMAGE_48_PX = "image_48_px";
+  private String image48Px;
 
-  public IncidentCreateRelationships() {}
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  @JsonCreator
-  public IncidentCreateRelationships(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMMANDER_USER)
-          NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
-    if (commanderUser != null) {
-      this.unparsed |= commanderUser.unparsed;
-    }
-  }
-
-  public IncidentCreateRelationships commanderUser(NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
-    if (commanderUser != null) {
-      this.unparsed |= commanderUser.unparsed;
-    }
+  public IncidentNonDatadogCreator image48Px(String image48Px) {
+    this.image48Px = image48Px;
     return this;
   }
 
   /**
-   * Relationship to user.
+   * Non Datadog creator <code>48px</code> image.
    *
-   * @return commanderUser
+   * @return image48Px
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public NullableRelationshipToUser getCommanderUser() {
-    return commanderUser;
+  @JsonProperty(JSON_PROPERTY_IMAGE_48_PX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getImage48Px() {
+    return image48Px;
   }
 
-  public void setCommanderUser(NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
+  public void setImage48Px(String image48Px) {
+    this.image48Px = image48Px;
+  }
+
+  public IncidentNonDatadogCreator name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Non Datadog creator name.
+   *
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -74,10 +85,10 @@ public class IncidentCreateRelationships {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentCreateRelationships
+   * @return IncidentNonDatadogCreator
    */
   @JsonAnySetter
-  public IncidentCreateRelationships putAdditionalProperty(String key, Object value) {
+  public IncidentNonDatadogCreator putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -108,7 +119,7 @@ public class IncidentCreateRelationships {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentCreateRelationships object is equal to o. */
+  /** Return true if this IncidentNonDatadogCreator object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,22 +128,24 @@ public class IncidentCreateRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentCreateRelationships incidentCreateRelationships = (IncidentCreateRelationships) o;
-    return Objects.equals(this.commanderUser, incidentCreateRelationships.commanderUser)
+    IncidentNonDatadogCreator incidentNonDatadogCreator = (IncidentNonDatadogCreator) o;
+    return Objects.equals(this.image48Px, incidentNonDatadogCreator.image48Px)
+        && Objects.equals(this.name, incidentNonDatadogCreator.name)
         && Objects.equals(
-            this.additionalProperties, incidentCreateRelationships.additionalProperties);
+            this.additionalProperties, incidentNonDatadogCreator.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commanderUser, additionalProperties);
+    return Objects.hash(image48Px, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentCreateRelationships {\n");
-    sb.append("    commanderUser: ").append(toIndentedString(commanderUser)).append("\n");
+    sb.append("class IncidentNonDatadogCreator {\n");
+    sb.append("    image48Px: ").append(toIndentedString(image48Px)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

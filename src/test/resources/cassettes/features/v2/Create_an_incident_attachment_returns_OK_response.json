@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"customer_impacted\":false,\"title\":\"Test-Create_an_incident_attachment_returns_OK_response-1664227043\"},\"type\":\"incidents\"}}"
+        "json": "{\"data\":{\"attributes\":{\"customer_impacted\":false,\"title\":\"Test-Create_an_incident_attachment_returns_OK_response-1699302324\"},\"type\":\"incidents\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"incidents\",\"id\":\"96fe3f0e-ee19-5e91-8eb8-324c9b4af1cf\",\"attributes\":{\"public_id\":106581,\"title\":\"Test-Create_an_incident_attachment_returns_OK_response-1664227043\",\"resolved\":null,\"customer_impact_scope\":null,\"customer_impact_start\":null,\"customer_impact_end\":null,\"customer_impacted\":false,\"notification_handles\":null,\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"last_modified_by_uuid\":null,\"created\":\"2022-09-26T21:17:24.154561+00:00\",\"modified\":\"2022-09-26T21:17:24.154561+00:00\",\"commander\":null,\"detected\":\"2022-09-26T21:17:24.145418+00:00\",\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"created_by_uuid\":null,\"creation_idempotency_key\":null,\"customer_impact_duration\":0,\"time_to_detect\":0,\"time_to_repair\":0,\"time_to_internal_response\":0,\"time_to_resolve\":0,\"fields\":{\"severity\":{\"type\":\"dropdown\",\"value\":\"UNKNOWN\"},\"detection_method\":{\"type\":\"dropdown\",\"value\":\"unknown\"},\"root_cause\":{\"type\":\"textbox\",\"value\":null},\"teams\":{\"type\":\"autocomplete\",\"value\":null},\"state\":{\"type\":\"dropdown\",\"value\":\"active\"},\"services\":{\"type\":\"autocomplete\",\"value\":null},\"summary\":{\"type\":\"textbox\",\"value\":null}},\"field_analytics\":null,\"severity\":\"UNKNOWN\",\"state\":\"active\",\"non_datadog_creator\":null,\"visibility\":\"organization\"},\"relationships\":{\"created_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"last_modified_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"commander_user\":{\"data\":null},\"user_defined_fields\":{\"data\":[{\"type\":\"user_defined_field\",\"id\":\"4148ead2-da45-548e-b6be-8e319bafc425\"},{\"type\":\"user_defined_field\",\"id\":\"66b62f59-48f6-5fee-969a-0886b1db6dcd\"},{\"type\":\"user_defined_field\",\"id\":\"299616f7-8acd-5403-886b-991656d6b982\"},{\"type\":\"user_defined_field\",\"id\":\"ad2b9456-eaec-5bbd-9bae-e502d74e23f8\"},{\"type\":\"user_defined_field\",\"id\":\"d8a54f16-8b2a-5ab4-87b8-5f0fa575c83e\"},{\"type\":\"user_defined_field\",\"id\":\"623af0a5-f30c-577e-8146-09b8324bdb2d\"},{\"type\":\"user_defined_field\",\"id\":\"ccfc9e6c-f586-58e5-b502-03c466c72e6f\"}]},\"integrations\":{\"data\":[]},\"attachments\":{\"data\":[]},\"responders\":{\"data\":[]},\"impacts\":{\"data\":[]}}}}\n",
+      "body": "{\"data\":{\"type\":\"incidents\",\"id\":\"f5faf64f-c9bd-5171-8c9e-e4ce51604c97\",\"attributes\":{\"public_id\":174803,\"incident_type_uuid\":null,\"title\":\"Test-Create_an_incident_attachment_returns_OK_response-1699302324\",\"resolved\":null,\"customer_impact_scope\":null,\"customer_impact_start\":null,\"customer_impact_end\":null,\"customer_impacted\":false,\"notification_handles\":null,\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"last_modified_by_uuid\":null,\"created\":\"2023-11-06T20:25:24.903041+00:00\",\"modified\":\"2023-11-06T20:25:24.903041+00:00\",\"commander\":null,\"detected\":\"2023-11-06T20:25:24.890646+00:00\",\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"created_by_uuid\":null,\"creation_idempotency_key\":null,\"customer_impact_duration\":0,\"time_to_detect\":0,\"time_to_repair\":0,\"time_to_internal_response\":0,\"time_to_resolve\":0,\"archived\":null,\"fields\":{\"severity\":{\"type\":\"dropdown\",\"value\":\"UNKNOWN\"},\"state\":{\"type\":\"dropdown\",\"value\":\"active\"},\"root_cause\":{\"type\":\"textbox\",\"value\":null},\"detection_method\":{\"type\":\"dropdown\",\"value\":\"unknown\"},\"services\":{\"type\":\"autocomplete\",\"value\":null},\"teams\":{\"type\":\"autocomplete\",\"value\":null},\"summary\":{\"type\":\"textbox\",\"value\":null}},\"field_analytics\":null,\"severity\":\"UNKNOWN\",\"state\":\"active\",\"non_datadog_creator\":null,\"visibility\":\"organization\",\"case_id\":null},\"relationships\":{\"created_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"last_modified_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"commander_user\":{\"data\":null},\"user_defined_fields\":{\"data\":[{\"type\":\"user_defined_field\",\"id\":\"ad2b9456-eaec-5bbd-9bae-e502d74e23f8\"},{\"type\":\"user_defined_field\",\"id\":\"299616f7-8acd-5403-886b-991656d6b982\"},{\"type\":\"user_defined_field\",\"id\":\"4148ead2-da45-548e-b6be-8e319bafc425\"},{\"type\":\"user_defined_field\",\"id\":\"66b62f59-48f6-5fee-969a-0886b1db6dcd\"},{\"type\":\"user_defined_field\",\"id\":\"d8a54f16-8b2a-5ab4-87b8-5f0fa575c83e\"},{\"type\":\"user_defined_field\",\"id\":\"623af0a5-f30c-577e-8146-09b8324bdb2d\"},{\"type\":\"user_defined_field\",\"id\":\"ccfc9e6c-f586-58e5-b502-03c466c72e6f\"}]},\"integrations\":{\"data\":[]},\"attachments\":{\"data\":[]},\"responders\":{\"data\":[]},\"impacts\":{\"data\":[]}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "34e22945-93e4-6592-22a0-fd0b02378810"
+    "id": "ec47038b-baa0-1646-eec8-f69d308fc404"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":[{\"attributes\":{\"attachment\":{\"documentUrl\":\"https://www.example.com/doc\",\"title\":\"Test-Create_an_incident_attachment_returns_OK_response-1664227043\"},\"attachment_type\":\"link\"},\"type\":\"incident_attachments\"}]}"
+        "json": "{\"data\":[{\"attributes\":{\"attachment\":{\"documentUrl\":\"https://www.example.com/doc\",\"title\":\"Test-Create_an_incident_attachment_returns_OK_response-1699302324\"},\"attachment_type\":\"link\"},\"type\":\"incident_attachments\"}]}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/incidents/96fe3f0e-ee19-5e91-8eb8-324c9b4af1cf/attachments",
+      "path": "/api/v2/incidents/f5faf64f-c9bd-5171-8c9e-e4ce51604c97/attachments",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"type\":\"incident_attachments\",\"id\":\"fead2659-92bf-543d-beca-0b90fb42c5df\",\"attributes\":{\"modified\":\"2022-09-26T21:17:24.650927+00:00\",\"attachment_type\":\"link\",\"attachment\":{\"documentUrl\":\"https://www.example.com/doc\",\"title\":\"Test-Create_an_incident_attachment_returns_OK_response-1664227043\"}},\"relationships\":{\"last_modified_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}]}\n",
+      "body": "{\"data\":[{\"type\":\"incident_attachments\",\"id\":\"34749f37-7681-50cb-8cc4-709950a4bd62\",\"attributes\":{\"modified\":\"2023-11-06T20:25:25.295458+00:00\",\"attachment_type\":\"link\",\"attachment\":{\"title\":\"Test-Create_an_incident_attachment_returns_OK_response-1699302324\",\"documentUrl\":\"https://www.example.com/doc\"}},\"relationships\":{\"last_modified_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "adc9ccd0-b8ff-58ce-2895-c38b8f79ccaf"
+    "id": "ebb2637f-cbcb-1e20-e0a0-036a069006ef"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/96fe3f0e-ee19-5e91-8eb8-324c9b4af1cf",
+      "path": "/api/v2/incidents/f5faf64f-c9bd-5171-8c9e-e4ce51604c97",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e1d298d0-b55c-c078-f064-dc42b2c151d3"
+    "id": "cd21182f-c4df-3f66-1195-385f4d896888"
   }
 ]
