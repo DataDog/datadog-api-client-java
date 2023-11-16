@@ -13,53 +13,57 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The relationships the incident will have with other resources once created. */
-@JsonPropertyOrder({IncidentCreateRelationships.JSON_PROPERTY_COMMANDER_USER})
+/** Relationship to impacts. */
+@JsonPropertyOrder({RelationshipToIncidentImpacts.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentCreateRelationships {
+public class RelationshipToIncidentImpacts {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
-  private NullableRelationshipToUser commanderUser;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<RelationshipToIncidentImpactData> data = new ArrayList<>();
 
-  public IncidentCreateRelationships() {}
+  public RelationshipToIncidentImpacts() {}
 
   @JsonCreator
-  public IncidentCreateRelationships(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMMANDER_USER)
-          NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
-    if (commanderUser != null) {
-      this.unparsed |= commanderUser.unparsed;
-    }
+  public RelationshipToIncidentImpacts(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<RelationshipToIncidentImpactData> data) {
+    this.data = data;
   }
 
-  public IncidentCreateRelationships commanderUser(NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
-    if (commanderUser != null) {
-      this.unparsed |= commanderUser.unparsed;
+  public RelationshipToIncidentImpacts data(List<RelationshipToIncidentImpactData> data) {
+    this.data = data;
+    for (RelationshipToIncidentImpactData item : data) {
+      this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  /**
-   * Relationship to user.
-   *
-   * @return commanderUser
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public NullableRelationshipToUser getCommanderUser() {
-    return commanderUser;
+  public RelationshipToIncidentImpacts addDataItem(RelationshipToIncidentImpactData dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
+    return this;
   }
 
-  public void setCommanderUser(NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
+  /**
+   * An array of incident impacts.
+   *
+   * @return data
+   */
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<RelationshipToIncidentImpactData> getData() {
+    return data;
+  }
+
+  public void setData(List<RelationshipToIncidentImpactData> data) {
+    this.data = data;
   }
 
   /**
@@ -74,10 +78,10 @@ public class IncidentCreateRelationships {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentCreateRelationships
+   * @return RelationshipToIncidentImpacts
    */
   @JsonAnySetter
-  public IncidentCreateRelationships putAdditionalProperty(String key, Object value) {
+  public RelationshipToIncidentImpacts putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -108,7 +112,7 @@ public class IncidentCreateRelationships {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentCreateRelationships object is equal to o. */
+  /** Return true if this RelationshipToIncidentImpacts object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,22 +121,22 @@ public class IncidentCreateRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentCreateRelationships incidentCreateRelationships = (IncidentCreateRelationships) o;
-    return Objects.equals(this.commanderUser, incidentCreateRelationships.commanderUser)
+    RelationshipToIncidentImpacts relationshipToIncidentImpacts = (RelationshipToIncidentImpacts) o;
+    return Objects.equals(this.data, relationshipToIncidentImpacts.data)
         && Objects.equals(
-            this.additionalProperties, incidentCreateRelationships.additionalProperties);
+            this.additionalProperties, relationshipToIncidentImpacts.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commanderUser, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentCreateRelationships {\n");
-    sb.append("    commanderUser: ").append(toIndentedString(commanderUser)).append("\n");
+    sb.append("class RelationshipToIncidentImpacts {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

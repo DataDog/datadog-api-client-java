@@ -15,14 +15,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The incident's relationships from a response. */
 @JsonPropertyOrder({
   IncidentResponseRelationships.JSON_PROPERTY_ATTACHMENTS,
   IncidentResponseRelationships.JSON_PROPERTY_COMMANDER_USER,
   IncidentResponseRelationships.JSON_PROPERTY_CREATED_BY_USER,
+  IncidentResponseRelationships.JSON_PROPERTY_IMPACTS,
   IncidentResponseRelationships.JSON_PROPERTY_INTEGRATIONS,
-  IncidentResponseRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER
+  IncidentResponseRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER,
+  IncidentResponseRelationships.JSON_PROPERTY_RESPONDERS,
+  IncidentResponseRelationships.JSON_PROPERTY_USER_DEFINED_FIELDS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,16 +36,26 @@ public class IncidentResponseRelationships {
   private RelationshipToIncidentAttachment attachments;
 
   public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
-  private NullableRelationshipToUser commanderUser;
+  private JsonNullable<NullableRelationshipToUser> commanderUser =
+      JsonNullable.<NullableRelationshipToUser>undefined();
 
   public static final String JSON_PROPERTY_CREATED_BY_USER = "created_by_user";
   private RelationshipToUser createdByUser;
+
+  public static final String JSON_PROPERTY_IMPACTS = "impacts";
+  private RelationshipToIncidentImpacts impacts;
 
   public static final String JSON_PROPERTY_INTEGRATIONS = "integrations";
   private RelationshipToIncidentIntegrationMetadatas integrations;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED_BY_USER = "last_modified_by_user";
   private RelationshipToUser lastModifiedByUser;
+
+  public static final String JSON_PROPERTY_RESPONDERS = "responders";
+  private RelationshipToIncidentResponders responders;
+
+  public static final String JSON_PROPERTY_USER_DEFINED_FIELDS = "user_defined_fields";
+  private RelationshipToIncidentUserDefinedFields userDefinedFields;
 
   public IncidentResponseRelationships attachments(RelationshipToIncidentAttachment attachments) {
     this.attachments = attachments;
@@ -66,8 +80,7 @@ public class IncidentResponseRelationships {
   }
 
   public IncidentResponseRelationships commanderUser(NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
-    this.unparsed |= commanderUser.unparsed;
+    this.commanderUser = JsonNullable.<NullableRelationshipToUser>of(commanderUser);
     return this;
   }
 
@@ -77,14 +90,25 @@ public class IncidentResponseRelationships {
    * @return commanderUser
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public NullableRelationshipToUser getCommanderUser() {
+    return commanderUser.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public NullableRelationshipToUser getCommanderUser() {
+  public JsonNullable<NullableRelationshipToUser> getCommanderUser_JsonNullable() {
     return commanderUser;
   }
 
-  public void setCommanderUser(NullableRelationshipToUser commanderUser) {
+  @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
+  public void setCommanderUser_JsonNullable(
+      JsonNullable<NullableRelationshipToUser> commanderUser) {
     this.commanderUser = commanderUser;
+  }
+
+  public void setCommanderUser(NullableRelationshipToUser commanderUser) {
+    this.commanderUser = JsonNullable.<NullableRelationshipToUser>of(commanderUser);
   }
 
   public IncidentResponseRelationships createdByUser(RelationshipToUser createdByUser) {
@@ -107,6 +131,28 @@ public class IncidentResponseRelationships {
 
   public void setCreatedByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
+  }
+
+  public IncidentResponseRelationships impacts(RelationshipToIncidentImpacts impacts) {
+    this.impacts = impacts;
+    this.unparsed |= impacts.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship to impacts.
+   *
+   * @return impacts
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IMPACTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToIncidentImpacts getImpacts() {
+    return impacts;
+  }
+
+  public void setImpacts(RelationshipToIncidentImpacts impacts) {
+    this.impacts = impacts;
   }
 
   public IncidentResponseRelationships integrations(
@@ -152,6 +198,51 @@ public class IncidentResponseRelationships {
 
   public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+  }
+
+  public IncidentResponseRelationships responders(RelationshipToIncidentResponders responders) {
+    this.responders = responders;
+    this.unparsed |= responders.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship to incident responders.
+   *
+   * @return responders
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONDERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToIncidentResponders getResponders() {
+    return responders;
+  }
+
+  public void setResponders(RelationshipToIncidentResponders responders) {
+    this.responders = responders;
+  }
+
+  public IncidentResponseRelationships userDefinedFields(
+      RelationshipToIncidentUserDefinedFields userDefinedFields) {
+    this.userDefinedFields = userDefinedFields;
+    this.unparsed |= userDefinedFields.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship to incident user defined fields.
+   *
+   * @return userDefinedFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USER_DEFINED_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToIncidentUserDefinedFields getUserDefinedFields() {
+    return userDefinedFields;
+  }
+
+  public void setUserDefinedFields(RelationshipToIncidentUserDefinedFields userDefinedFields) {
+    this.userDefinedFields = userDefinedFields;
   }
 
   /**
@@ -213,8 +304,11 @@ public class IncidentResponseRelationships {
     return Objects.equals(this.attachments, incidentResponseRelationships.attachments)
         && Objects.equals(this.commanderUser, incidentResponseRelationships.commanderUser)
         && Objects.equals(this.createdByUser, incidentResponseRelationships.createdByUser)
+        && Objects.equals(this.impacts, incidentResponseRelationships.impacts)
         && Objects.equals(this.integrations, incidentResponseRelationships.integrations)
         && Objects.equals(this.lastModifiedByUser, incidentResponseRelationships.lastModifiedByUser)
+        && Objects.equals(this.responders, incidentResponseRelationships.responders)
+        && Objects.equals(this.userDefinedFields, incidentResponseRelationships.userDefinedFields)
         && Objects.equals(
             this.additionalProperties, incidentResponseRelationships.additionalProperties);
   }
@@ -225,8 +319,11 @@ public class IncidentResponseRelationships {
         attachments,
         commanderUser,
         createdByUser,
+        impacts,
         integrations,
         lastModifiedByUser,
+        responders,
+        userDefinedFields,
         additionalProperties);
   }
 
@@ -237,8 +334,11 @@ public class IncidentResponseRelationships {
     sb.append("    attachments: ").append(toIndentedString(attachments)).append("\n");
     sb.append("    commanderUser: ").append(toIndentedString(commanderUser)).append("\n");
     sb.append("    createdByUser: ").append(toIndentedString(createdByUser)).append("\n");
+    sb.append("    impacts: ").append(toIndentedString(impacts)).append("\n");
     sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
     sb.append("    lastModifiedByUser: ").append(toIndentedString(lastModifiedByUser)).append("\n");
+    sb.append("    responders: ").append(toIndentedString(responders)).append("\n");
+    sb.append("    userDefinedFields: ").append(toIndentedString(userDefinedFields)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

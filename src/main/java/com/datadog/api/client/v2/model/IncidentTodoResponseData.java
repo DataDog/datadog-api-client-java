@@ -21,6 +21,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   IncidentTodoResponseData.JSON_PROPERTY_ATTRIBUTES,
   IncidentTodoResponseData.JSON_PROPERTY_ID,
+  IncidentTodoResponseData.JSON_PROPERTY_RELATIONSHIPS,
   IncidentTodoResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -32,6 +33,9 @@ public class IncidentTodoResponseData {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
+
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private IncidentTodoRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private IncidentTodoType type = IncidentTodoType.INCIDENT_TODOS;
@@ -87,6 +91,28 @@ public class IncidentTodoResponseData {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public IncidentTodoResponseData relationships(IncidentTodoRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * The incident's relationships from a response.
+   *
+   * @return relationships
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentTodoRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(IncidentTodoRelationships relationships) {
+    this.relationships = relationships;
   }
 
   public IncidentTodoResponseData type(IncidentTodoType type) {
@@ -171,13 +197,14 @@ public class IncidentTodoResponseData {
     IncidentTodoResponseData incidentTodoResponseData = (IncidentTodoResponseData) o;
     return Objects.equals(this.attributes, incidentTodoResponseData.attributes)
         && Objects.equals(this.id, incidentTodoResponseData.id)
+        && Objects.equals(this.relationships, incidentTodoResponseData.relationships)
         && Objects.equals(this.type, incidentTodoResponseData.type)
         && Objects.equals(this.additionalProperties, incidentTodoResponseData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -186,6 +213,7 @@ public class IncidentTodoResponseData {
     sb.append("class IncidentTodoResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

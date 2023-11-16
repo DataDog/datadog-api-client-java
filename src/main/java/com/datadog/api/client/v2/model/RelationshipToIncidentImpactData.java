@@ -17,72 +17,39 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Incident integration metadata from a response. */
+/** Relationship to impact object. */
 @JsonPropertyOrder({
-  IncidentIntegrationMetadataResponseData.JSON_PROPERTY_ATTRIBUTES,
-  IncidentIntegrationMetadataResponseData.JSON_PROPERTY_ID,
-  IncidentIntegrationMetadataResponseData.JSON_PROPERTY_RELATIONSHIPS,
-  IncidentIntegrationMetadataResponseData.JSON_PROPERTY_TYPE
+  RelationshipToIncidentImpactData.JSON_PROPERTY_ID,
+  RelationshipToIncidentImpactData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentIntegrationMetadataResponseData {
+public class RelationshipToIncidentImpactData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private IncidentIntegrationMetadataAttributes attributes;
-
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private IncidentIntegrationRelationships relationships;
-
   public static final String JSON_PROPERTY_TYPE = "type";
-  private IncidentIntegrationMetadataType type =
-      IncidentIntegrationMetadataType.INCIDENT_INTEGRATIONS;
+  private IncidentImpactsType type;
 
-  public IncidentIntegrationMetadataResponseData() {}
+  public RelationshipToIncidentImpactData() {}
 
   @JsonCreator
-  public IncidentIntegrationMetadataResponseData(
+  public RelationshipToIncidentImpactData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          IncidentIntegrationMetadataType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentImpactsType type) {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public IncidentIntegrationMetadataResponseData attributes(
-      IncidentIntegrationMetadataAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
-  }
-
-  /**
-   * Incident integration metadata's attributes for a create request.
-   *
-   * @return attributes
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentIntegrationMetadataAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(IncidentIntegrationMetadataAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public IncidentIntegrationMetadataResponseData id(String id) {
+  public RelationshipToIncidentImpactData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The incident integration metadata's ID.
+   * A unique identifier that represents the impact.
    *
    * @return id
    */
@@ -96,47 +63,24 @@ public class IncidentIntegrationMetadataResponseData {
     this.id = id;
   }
 
-  public IncidentIntegrationMetadataResponseData relationships(
-      IncidentIntegrationRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
-  /**
-   * The incident's integration relationships from a response.
-   *
-   * @return relationships
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public IncidentIntegrationRelationships getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(IncidentIntegrationRelationships relationships) {
-    this.relationships = relationships;
-  }
-
-  public IncidentIntegrationMetadataResponseData type(IncidentIntegrationMetadataType type) {
+  public RelationshipToIncidentImpactData type(IncidentImpactsType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Integration metadata resource type.
+   * The incident impacts type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentIntegrationMetadataType getType() {
+  public IncidentImpactsType getType() {
     return type;
   }
 
-  public void setType(IncidentIntegrationMetadataType type) {
+  public void setType(IncidentImpactsType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -155,10 +99,10 @@ public class IncidentIntegrationMetadataResponseData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentIntegrationMetadataResponseData
+   * @return RelationshipToIncidentImpactData
    */
   @JsonAnySetter
-  public IncidentIntegrationMetadataResponseData putAdditionalProperty(String key, Object value) {
+  public RelationshipToIncidentImpactData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -189,7 +133,7 @@ public class IncidentIntegrationMetadataResponseData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentIntegrationMetadataResponseData object is equal to o. */
+  /** Return true if this RelationshipToIncidentImpactData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -198,29 +142,24 @@ public class IncidentIntegrationMetadataResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentIntegrationMetadataResponseData incidentIntegrationMetadataResponseData =
-        (IncidentIntegrationMetadataResponseData) o;
-    return Objects.equals(this.attributes, incidentIntegrationMetadataResponseData.attributes)
-        && Objects.equals(this.id, incidentIntegrationMetadataResponseData.id)
-        && Objects.equals(this.relationships, incidentIntegrationMetadataResponseData.relationships)
-        && Objects.equals(this.type, incidentIntegrationMetadataResponseData.type)
+    RelationshipToIncidentImpactData relationshipToIncidentImpactData =
+        (RelationshipToIncidentImpactData) o;
+    return Objects.equals(this.id, relationshipToIncidentImpactData.id)
+        && Objects.equals(this.type, relationshipToIncidentImpactData.type)
         && Objects.equals(
-            this.additionalProperties,
-            incidentIntegrationMetadataResponseData.additionalProperties);
+            this.additionalProperties, relationshipToIncidentImpactData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentIntegrationMetadataResponseData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class RelationshipToIncidentImpactData {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

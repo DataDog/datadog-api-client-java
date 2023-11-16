@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,8 +26,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentTodoAttributes.JSON_PROPERTY_ASSIGNEES,
   IncidentTodoAttributes.JSON_PROPERTY_COMPLETED,
   IncidentTodoAttributes.JSON_PROPERTY_CONTENT,
+  IncidentTodoAttributes.JSON_PROPERTY_CREATED,
   IncidentTodoAttributes.JSON_PROPERTY_DUE_DATE,
-  IncidentTodoAttributes.JSON_PROPERTY_INCIDENT_ID
+  IncidentTodoAttributes.JSON_PROPERTY_INCIDENT_ID,
+  IncidentTodoAttributes.JSON_PROPERTY_MODIFIED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -41,11 +44,17 @@ public class IncidentTodoAttributes {
   public static final String JSON_PROPERTY_CONTENT = "content";
   private String content;
 
+  public static final String JSON_PROPERTY_CREATED = "created";
+  private OffsetDateTime created;
+
   public static final String JSON_PROPERTY_DUE_DATE = "due_date";
   private JsonNullable<String> dueDate = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_INCIDENT_ID = "incident_id";
   private String incidentId;
+
+  public static final String JSON_PROPERTY_MODIFIED = "modified";
+  private OffsetDateTime modified;
 
   public IncidentTodoAttributes() {}
 
@@ -138,6 +147,18 @@ public class IncidentTodoAttributes {
     this.content = content;
   }
 
+  /**
+   * Timestamp when the incident todo was created.
+   *
+   * @return created
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreated() {
+    return created;
+  }
+
   public IncidentTodoAttributes dueDate(String dueDate) {
     this.dueDate = JsonNullable.<String>of(dueDate);
     return this;
@@ -188,6 +209,18 @@ public class IncidentTodoAttributes {
 
   public void setIncidentId(String incidentId) {
     this.incidentId = incidentId;
+  }
+
+  /**
+   * Timestamp when the incident todo was last modified.
+   *
+   * @return modified
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModified() {
+    return modified;
   }
 
   /**
@@ -249,14 +282,24 @@ public class IncidentTodoAttributes {
     return Objects.equals(this.assignees, incidentTodoAttributes.assignees)
         && Objects.equals(this.completed, incidentTodoAttributes.completed)
         && Objects.equals(this.content, incidentTodoAttributes.content)
+        && Objects.equals(this.created, incidentTodoAttributes.created)
         && Objects.equals(this.dueDate, incidentTodoAttributes.dueDate)
         && Objects.equals(this.incidentId, incidentTodoAttributes.incidentId)
+        && Objects.equals(this.modified, incidentTodoAttributes.modified)
         && Objects.equals(this.additionalProperties, incidentTodoAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assignees, completed, content, dueDate, incidentId, additionalProperties);
+    return Objects.hash(
+        assignees,
+        completed,
+        content,
+        created,
+        dueDate,
+        incidentId,
+        modified,
+        additionalProperties);
   }
 
   @Override
@@ -266,8 +309,10 @@ public class IncidentTodoAttributes {
     sb.append("    assignees: ").append(toIndentedString(assignees)).append("\n");
     sb.append("    completed: ").append(toIndentedString(completed)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
     sb.append("    incidentId: ").append(toIndentedString(incidentId)).append("\n");
+    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

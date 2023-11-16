@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,49 +16,64 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The relationships the incident will have with other resources once created. */
-@JsonPropertyOrder({IncidentCreateRelationships.JSON_PROPERTY_COMMANDER_USER})
+/** The incident's integration relationships from a response. */
+@JsonPropertyOrder({
+  IncidentIntegrationRelationships.JSON_PROPERTY_CREATED_BY_USER,
+  IncidentIntegrationRelationships.JSON_PROPERTY_LAST_MODIFIED_BY_USER
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentCreateRelationships {
+public class IncidentIntegrationRelationships {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
-  private NullableRelationshipToUser commanderUser;
+  public static final String JSON_PROPERTY_CREATED_BY_USER = "created_by_user";
+  private RelationshipToUser createdByUser;
 
-  public IncidentCreateRelationships() {}
+  public static final String JSON_PROPERTY_LAST_MODIFIED_BY_USER = "last_modified_by_user";
+  private RelationshipToUser lastModifiedByUser;
 
-  @JsonCreator
-  public IncidentCreateRelationships(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMMANDER_USER)
-          NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
-    if (commanderUser != null) {
-      this.unparsed |= commanderUser.unparsed;
-    }
-  }
-
-  public IncidentCreateRelationships commanderUser(NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
-    if (commanderUser != null) {
-      this.unparsed |= commanderUser.unparsed;
-    }
+  public IncidentIntegrationRelationships createdByUser(RelationshipToUser createdByUser) {
+    this.createdByUser = createdByUser;
+    this.unparsed |= createdByUser.unparsed;
     return this;
   }
 
   /**
    * Relationship to user.
    *
-   * @return commanderUser
+   * @return createdByUser
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public NullableRelationshipToUser getCommanderUser() {
-    return commanderUser;
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_USER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToUser getCreatedByUser() {
+    return createdByUser;
   }
 
-  public void setCommanderUser(NullableRelationshipToUser commanderUser) {
-    this.commanderUser = commanderUser;
+  public void setCreatedByUser(RelationshipToUser createdByUser) {
+    this.createdByUser = createdByUser;
+  }
+
+  public IncidentIntegrationRelationships lastModifiedByUser(
+      RelationshipToUser lastModifiedByUser) {
+    this.lastModifiedByUser = lastModifiedByUser;
+    this.unparsed |= lastModifiedByUser.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship to user.
+   *
+   * @return lastModifiedByUser
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToUser getLastModifiedByUser() {
+    return lastModifiedByUser;
+  }
+
+  public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
+    this.lastModifiedByUser = lastModifiedByUser;
   }
 
   /**
@@ -74,10 +88,10 @@ public class IncidentCreateRelationships {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentCreateRelationships
+   * @return IncidentIntegrationRelationships
    */
   @JsonAnySetter
-  public IncidentCreateRelationships putAdditionalProperty(String key, Object value) {
+  public IncidentIntegrationRelationships putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -108,7 +122,7 @@ public class IncidentCreateRelationships {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentCreateRelationships object is equal to o. */
+  /** Return true if this IncidentIntegrationRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,22 +131,26 @@ public class IncidentCreateRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentCreateRelationships incidentCreateRelationships = (IncidentCreateRelationships) o;
-    return Objects.equals(this.commanderUser, incidentCreateRelationships.commanderUser)
+    IncidentIntegrationRelationships incidentIntegrationRelationships =
+        (IncidentIntegrationRelationships) o;
+    return Objects.equals(this.createdByUser, incidentIntegrationRelationships.createdByUser)
         && Objects.equals(
-            this.additionalProperties, incidentCreateRelationships.additionalProperties);
+            this.lastModifiedByUser, incidentIntegrationRelationships.lastModifiedByUser)
+        && Objects.equals(
+            this.additionalProperties, incidentIntegrationRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commanderUser, additionalProperties);
+    return Objects.hash(createdByUser, lastModifiedByUser, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentCreateRelationships {\n");
-    sb.append("    commanderUser: ").append(toIndentedString(commanderUser)).append("\n");
+    sb.append("class IncidentIntegrationRelationships {\n");
+    sb.append("    createdByUser: ").append(toIndentedString(createdByUser)).append("\n");
+    sb.append("    lastModifiedByUser: ").append(toIndentedString(lastModifiedByUser)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
