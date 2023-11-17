@@ -371,6 +371,8 @@ public class ApiClient {
           put("v2.listContainers", false);
           put("v2.getActiveBillingDimensions", false);
           put("v2.getMonthlyCostAttribution", false);
+          put("v2.createDORADeployment", false);
+          put("v2.createDORAIncident", false);
           put("v2.listEvents", false);
           put("v2.searchEvents", false);
           put("v2.createIncident", false);
