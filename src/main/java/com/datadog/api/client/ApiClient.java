@@ -1573,6 +1573,14 @@ public class ApiClient {
         } else if (shouldRetry(currentRetry, statusCode, retry)) {
           retry.sleepInterval(calculateRetryInterval(responseHeaders, retry, currentRetry));
           currentRetry++;
+
+          // Close the connection to avoid leaks
+          try {
+            response.close();
+          } catch (Exception e) {
+            // it's not critical, since the response object is local in method invokeAPI; that's fine,
+            // just continue
+          }
         } else {
           String message = "error";
           String respBody = null;
