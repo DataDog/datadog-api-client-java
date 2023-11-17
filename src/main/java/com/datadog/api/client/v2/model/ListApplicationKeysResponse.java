@@ -21,7 +21,8 @@ import java.util.Objects;
 /** Response for a list of application keys. */
 @JsonPropertyOrder({
   ListApplicationKeysResponse.JSON_PROPERTY_DATA,
-  ListApplicationKeysResponse.JSON_PROPERTY_INCLUDED
+  ListApplicationKeysResponse.JSON_PROPERTY_INCLUDED,
+  ListApplicationKeysResponse.JSON_PROPERTY_META
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,6 +33,9 @@ public class ListApplicationKeysResponse {
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<ApplicationKeyResponseIncludedItem> included = null;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private ApplicationKeyResponseMeta meta;
 
   public ListApplicationKeysResponse data(List<PartialApplicationKey> data) {
     this.data = data;
@@ -100,6 +104,28 @@ public class ListApplicationKeysResponse {
     this.included = included;
   }
 
+  public ListApplicationKeysResponse meta(ApplicationKeyResponseMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Additional information related to the application key response.
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ApplicationKeyResponseMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(ApplicationKeyResponseMeta meta) {
+    this.meta = meta;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -158,13 +184,14 @@ public class ListApplicationKeysResponse {
     ListApplicationKeysResponse listApplicationKeysResponse = (ListApplicationKeysResponse) o;
     return Objects.equals(this.data, listApplicationKeysResponse.data)
         && Objects.equals(this.included, listApplicationKeysResponse.included)
+        && Objects.equals(this.meta, listApplicationKeysResponse.meta)
         && Objects.equals(
             this.additionalProperties, listApplicationKeysResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(data, included, meta, additionalProperties);
   }
 
   @Override
@@ -173,6 +200,7 @@ public class ListApplicationKeysResponse {
     sb.append("class ListApplicationKeysResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
