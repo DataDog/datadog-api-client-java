@@ -77,6 +77,9 @@ jobs:
           DD_TEST_CLIENT_APP_KEY: ${{ secrets.DD_CLIENT_APP_KEY }}
           DD_TRACE_ANALYTICS_ENABLED: "true"
           DD_CIVISIBILITY_ENABLED: "true"
+          DD_PROFILING_ENABLED: "true"
+          DD_VERSION: "2.17.0"
+          DD_PROFILING_DDPROF_CSTACK: "dwarf"
           RECORD: "none"
           SLEEP_AFTER_REQUEST: "${{ vars.SLEEP_AFTER_REQUEST }}"
       - name: Post failure status check
