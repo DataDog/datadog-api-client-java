@@ -540,7 +540,9 @@ public class HostsApi {
   }
 
   /**
-   * Mute a host.
+   * Mute a host. <strong>Note:</strong> This creates a <a
+   * href="https://docs.datadoghq.com/api/latest/downtimes/#schedule-a-downtime">Downtime V2</a> for
+   * the host.
    *
    * @param hostName Name of the host to mute. (required)
    * @param body Mute a host request body. (required)
