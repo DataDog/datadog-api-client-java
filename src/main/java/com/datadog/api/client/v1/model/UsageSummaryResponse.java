@@ -70,6 +70,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CSPM_CONTAINER_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_GCP_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CUSTOM_HISTORICAL_TS_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CUSTOM_LIVE_TS_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_TS_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CWS_HOST_TOP99P_SUM,
@@ -307,6 +309,12 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_CSPM_HOST_TOP99P_SUM = "cspm_host_top99p_sum";
   private Long cspmHostTop99pSum;
+
+  public static final String JSON_PROPERTY_CUSTOM_HISTORICAL_TS_SUM = "custom_historical_ts_sum";
+  private Long customHistoricalTsSum;
+
+  public static final String JSON_PROPERTY_CUSTOM_LIVE_TS_SUM = "custom_live_ts_sum";
+  private Long customLiveTsSum;
 
   public static final String JSON_PROPERTY_CUSTOM_TS_SUM = "custom_ts_sum";
   private Long customTsSum;
@@ -1587,6 +1595,50 @@ public class UsageSummaryResponse {
 
   public void setCspmHostTop99pSum(Long cspmHostTop99pSum) {
     this.cspmHostTop99pSum = cspmHostTop99pSum;
+  }
+
+  public UsageSummaryResponse customHistoricalTsSum(Long customHistoricalTsSum) {
+    this.customHistoricalTsSum = customHistoricalTsSum;
+    return this;
+  }
+
+  /**
+   * Shows the average number of distinct historical custom metrics over all hours in the current
+   * months for all organizations.
+   *
+   * @return customHistoricalTsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_HISTORICAL_TS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCustomHistoricalTsSum() {
+    return customHistoricalTsSum;
+  }
+
+  public void setCustomHistoricalTsSum(Long customHistoricalTsSum) {
+    this.customHistoricalTsSum = customHistoricalTsSum;
+  }
+
+  public UsageSummaryResponse customLiveTsSum(Long customLiveTsSum) {
+    this.customLiveTsSum = customLiveTsSum;
+    return this;
+  }
+
+  /**
+   * Shows the average number of distinct live custom metrics over all hours in the current months
+   * for all organizations.
+   *
+   * @return customLiveTsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LIVE_TS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCustomLiveTsSum() {
+    return customLiveTsSum;
+  }
+
+  public void setCustomLiveTsSum(Long customLiveTsSum) {
+    this.customLiveTsSum = customLiveTsSum;
   }
 
   public UsageSummaryResponse customTsSum(Long customTsSum) {
@@ -3198,6 +3250,8 @@ public class UsageSummaryResponse {
         && Objects.equals(this.cspmContainerHwmSum, usageSummaryResponse.cspmContainerHwmSum)
         && Objects.equals(this.cspmGcpHostTop99pSum, usageSummaryResponse.cspmGcpHostTop99pSum)
         && Objects.equals(this.cspmHostTop99pSum, usageSummaryResponse.cspmHostTop99pSum)
+        && Objects.equals(this.customHistoricalTsSum, usageSummaryResponse.customHistoricalTsSum)
+        && Objects.equals(this.customLiveTsSum, usageSummaryResponse.customLiveTsSum)
         && Objects.equals(this.customTsSum, usageSummaryResponse.customTsSum)
         && Objects.equals(this.cwsContainersAvgSum, usageSummaryResponse.cwsContainersAvgSum)
         && Objects.equals(this.cwsHostTop99pSum, usageSummaryResponse.cwsHostTop99pSum)
@@ -3378,6 +3432,8 @@ public class UsageSummaryResponse {
         cspmContainerHwmSum,
         cspmGcpHostTop99pSum,
         cspmHostTop99pSum,
+        customHistoricalTsSum,
+        customLiveTsSum,
         customTsSum,
         cwsContainersAvgSum,
         cwsHostTop99pSum,
@@ -3572,6 +3628,10 @@ public class UsageSummaryResponse {
         .append(toIndentedString(cspmGcpHostTop99pSum))
         .append("\n");
     sb.append("    cspmHostTop99pSum: ").append(toIndentedString(cspmHostTop99pSum)).append("\n");
+    sb.append("    customHistoricalTsSum: ")
+        .append(toIndentedString(customHistoricalTsSum))
+        .append("\n");
+    sb.append("    customLiveTsSum: ").append(toIndentedString(customLiveTsSum)).append("\n");
     sb.append("    customTsSum: ").append(toIndentedString(customTsSum)).append("\n");
     sb.append("    cwsContainersAvgSum: ")
         .append(toIndentedString(cwsContainersAvgSum))
