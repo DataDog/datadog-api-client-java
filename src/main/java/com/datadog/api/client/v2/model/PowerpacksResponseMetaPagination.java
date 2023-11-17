@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Powerpack response pagination metadata. */
 @JsonPropertyOrder({
@@ -35,7 +36,7 @@ public class PowerpacksResponseMetaPagination {
   private Long firstOffset;
 
   public static final String JSON_PROPERTY_LAST_OFFSET = "last_offset";
-  private Long lastOffset;
+  private JsonNullable<Long> lastOffset = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Long limit;
@@ -77,7 +78,7 @@ public class PowerpacksResponseMetaPagination {
   }
 
   public PowerpacksResponseMetaPagination lastOffset(Long lastOffset) {
-    this.lastOffset = lastOffset;
+    this.lastOffset = JsonNullable.<Long>of(lastOffset);
     return this;
   }
 
@@ -87,14 +88,24 @@ public class PowerpacksResponseMetaPagination {
    * @return lastOffset
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getLastOffset() {
+    return lastOffset.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLastOffset() {
+  public JsonNullable<Long> getLastOffset_JsonNullable() {
     return lastOffset;
   }
 
-  public void setLastOffset(Long lastOffset) {
+  @JsonProperty(JSON_PROPERTY_LAST_OFFSET)
+  public void setLastOffset_JsonNullable(JsonNullable<Long> lastOffset) {
     this.lastOffset = lastOffset;
+  }
+
+  public void setLastOffset(Long lastOffset) {
+    this.lastOffset = JsonNullable.<Long>of(lastOffset);
   }
 
   public PowerpacksResponseMetaPagination limit(Long limit) {

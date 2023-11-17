@@ -23,27 +23,27 @@ import java.util.Objects;
 public class PowerpackRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
-  private Creator author;
+  private RelationshipToUser author;
 
-  public PowerpackRelationships author(Creator author) {
+  public PowerpackRelationships author(RelationshipToUser author) {
     this.author = author;
     this.unparsed |= author.unparsed;
     return this;
   }
 
   /**
-   * Creator of the object.
+   * Relationship to user.
    *
    * @return author
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Creator getAuthor() {
+  public RelationshipToUser getAuthor() {
     return author;
   }
 
-  public void setAuthor(Creator author) {
+  public void setAuthor(RelationshipToUser author) {
     this.author = author;
   }
 
