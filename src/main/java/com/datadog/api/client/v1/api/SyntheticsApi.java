@@ -19,6 +19,7 @@ import com.datadog.api.client.v1.model.SyntheticsGlobalVariable;
 import com.datadog.api.client.v1.model.SyntheticsListGlobalVariablesResponse;
 import com.datadog.api.client.v1.model.SyntheticsListTestsResponse;
 import com.datadog.api.client.v1.model.SyntheticsLocations;
+import com.datadog.api.client.v1.model.SyntheticsPatchTestBody;
 import com.datadog.api.client.v1.model.SyntheticsPrivateLocation;
 import com.datadog.api.client.v1.model.SyntheticsPrivateLocationCreationResponse;
 import com.datadog.api.client.v1.model.SyntheticsTestDetails;
@@ -3350,6 +3351,165 @@ public class SyntheticsApi {
   }
 
   /**
+   * Patch a Synthetic test.
+   *
+   * <p>See {@link #patchTestWithHttpInfo}.
+   *
+   * @param publicId The public ID of the test to patch. (required)
+   * @param body <a href="https://jsonpatch.com/">JSON Patch</a> compliant list of operations
+   *     (required)
+   * @return SyntheticsTestDetails
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsTestDetails patchTest(String publicId, SyntheticsPatchTestBody body)
+      throws ApiException {
+    return patchTestWithHttpInfo(publicId, body).getData();
+  }
+
+  /**
+   * Patch a Synthetic test.
+   *
+   * <p>See {@link #patchTestWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the test to patch. (required)
+   * @param body <a href="https://jsonpatch.com/">JSON Patch</a> compliant list of operations
+   *     (required)
+   * @return CompletableFuture&lt;SyntheticsTestDetails&gt;
+   */
+  public CompletableFuture<SyntheticsTestDetails> patchTestAsync(
+      String publicId, SyntheticsPatchTestBody body) {
+    return patchTestWithHttpInfoAsync(publicId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Patch the configuration of a Synthetic test with partial data.
+   *
+   * @param publicId The public ID of the test to patch. (required)
+   * @param body <a href="https://jsonpatch.com/">JSON Patch</a> compliant list of operations
+   *     (required)
+   * @return ApiResponse&lt;SyntheticsTestDetails&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsTestDetails> patchTestWithHttpInfo(
+      String publicId, SyntheticsPatchTestBody body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling patchTest");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling patchTest");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/synthetics/tests/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.SyntheticsApi.patchTest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestDetails>() {});
+  }
+
+  /**
+   * Patch a Synthetic test.
+   *
+   * <p>See {@link #patchTestWithHttpInfo}.
+   *
+   * @param publicId The public ID of the test to patch. (required)
+   * @param body <a href="https://jsonpatch.com/">JSON Patch</a> compliant list of operations
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsTestDetails&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsTestDetails>> patchTestWithHttpInfoAsync(
+      String publicId, SyntheticsPatchTestBody body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestDetails>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'publicId' when calling patchTest"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SyntheticsTestDetails>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling patchTest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/synthetics/tests/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.SyntheticsApi.patchTest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsTestDetails>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsTestDetails>() {});
+  }
+
+  /**
    * Trigger tests from CI/CD pipelines.
    *
    * <p>See {@link #triggerCITestsWithHttpInfo}.
@@ -3778,7 +3938,7 @@ public class SyntheticsApi {
    *
    * <p>See {@link #updateBrowserTestWithHttpInfo}.
    *
-   * @param publicId The public ID of the test to get details from. (required)
+   * @param publicId The public ID of the test to edit. (required)
    * @param body New test details to be saved. (required)
    * @return SyntheticsBrowserTest
    * @throws ApiException if fails to make API call
@@ -3793,7 +3953,7 @@ public class SyntheticsApi {
    *
    * <p>See {@link #updateBrowserTestWithHttpInfoAsync}.
    *
-   * @param publicId The public ID of the test to get details from. (required)
+   * @param publicId The public ID of the test to edit. (required)
    * @param body New test details to be saved. (required)
    * @return CompletableFuture&lt;SyntheticsBrowserTest&gt;
    */
@@ -3809,7 +3969,7 @@ public class SyntheticsApi {
   /**
    * Edit the configuration of a Synthetic browser test.
    *
-   * @param publicId The public ID of the test to get details from. (required)
+   * @param publicId The public ID of the test to edit. (required)
    * @param body New test details to be saved. (required)
    * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
    * @throws ApiException if fails to make API call
@@ -3871,7 +4031,7 @@ public class SyntheticsApi {
    *
    * <p>See {@link #updateBrowserTestWithHttpInfo}.
    *
-   * @param publicId The public ID of the test to get details from. (required)
+   * @param publicId The public ID of the test to edit. (required)
    * @param body New test details to be saved. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsBrowserTest&gt;&gt;
    */
