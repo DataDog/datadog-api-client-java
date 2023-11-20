@@ -1560,6 +1560,7 @@ public class ApiClient {
     try {
       int currentRetry = 0;
       while (true) {
+
         response = sendRequest(method, invocationBuilder, entity);
         int statusCode = response.getStatusInfo().getStatusCode();
         Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
