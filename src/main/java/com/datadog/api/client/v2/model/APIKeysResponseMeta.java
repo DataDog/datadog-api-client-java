@@ -16,35 +16,62 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Powerpack relationship object. */
-@JsonPropertyOrder({PowerpackRelationships.JSON_PROPERTY_AUTHOR})
+/** Additional information related to api keys response. */
+@JsonPropertyOrder({
+  APIKeysResponseMeta.JSON_PROPERTY_MAX_ALLOWED,
+  APIKeysResponseMeta.JSON_PROPERTY_PAGE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class PowerpackRelationships {
+public class APIKeysResponseMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AUTHOR = "author";
-  private RelationshipToUser author;
+  public static final String JSON_PROPERTY_MAX_ALLOWED = "max_allowed";
+  private Long maxAllowed;
 
-  public PowerpackRelationships author(RelationshipToUser author) {
-    this.author = author;
-    this.unparsed |= author.unparsed;
+  public static final String JSON_PROPERTY_PAGE = "page";
+  private APIKeysResponseMetaPage page;
+
+  public APIKeysResponseMeta maxAllowed(Long maxAllowed) {
+    this.maxAllowed = maxAllowed;
     return this;
   }
 
   /**
-   * Relationship to user.
+   * Max allowed number of API keys.
    *
-   * @return author
+   * @return maxAllowed
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTHOR)
+  @JsonProperty(JSON_PROPERTY_MAX_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getAuthor() {
-    return author;
+  public Long getMaxAllowed() {
+    return maxAllowed;
   }
 
-  public void setAuthor(RelationshipToUser author) {
-    this.author = author;
+  public void setMaxAllowed(Long maxAllowed) {
+    this.maxAllowed = maxAllowed;
+  }
+
+  public APIKeysResponseMeta page(APIKeysResponseMetaPage page) {
+    this.page = page;
+    this.unparsed |= page.unparsed;
+    return this;
+  }
+
+  /**
+   * Additional information related to the API keys response.
+   *
+   * @return page
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public APIKeysResponseMetaPage getPage() {
+    return page;
+  }
+
+  public void setPage(APIKeysResponseMetaPage page) {
+    this.page = page;
   }
 
   /**
@@ -59,10 +86,10 @@ public class PowerpackRelationships {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return PowerpackRelationships
+   * @return APIKeysResponseMeta
    */
   @JsonAnySetter
-  public PowerpackRelationships putAdditionalProperty(String key, Object value) {
+  public APIKeysResponseMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +120,7 @@ public class PowerpackRelationships {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this PowerpackRelationships object is equal to o. */
+  /** Return true if this APIKeysResponseMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,21 +129,23 @@ public class PowerpackRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PowerpackRelationships powerpackRelationships = (PowerpackRelationships) o;
-    return Objects.equals(this.author, powerpackRelationships.author)
-        && Objects.equals(this.additionalProperties, powerpackRelationships.additionalProperties);
+    APIKeysResponseMeta apiKeysResponseMeta = (APIKeysResponseMeta) o;
+    return Objects.equals(this.maxAllowed, apiKeysResponseMeta.maxAllowed)
+        && Objects.equals(this.page, apiKeysResponseMeta.page)
+        && Objects.equals(this.additionalProperties, apiKeysResponseMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, additionalProperties);
+    return Objects.hash(maxAllowed, page, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PowerpackRelationships {\n");
-    sb.append("    author: ").append(toIndentedString(author)).append("\n");
+    sb.append("class APIKeysResponseMeta {\n");
+    sb.append("    maxAllowed: ").append(toIndentedString(maxAllowed)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

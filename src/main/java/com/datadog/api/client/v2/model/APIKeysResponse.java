@@ -19,7 +19,11 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Response for a list of API keys. */
-@JsonPropertyOrder({APIKeysResponse.JSON_PROPERTY_DATA, APIKeysResponse.JSON_PROPERTY_INCLUDED})
+@JsonPropertyOrder({
+  APIKeysResponse.JSON_PROPERTY_DATA,
+  APIKeysResponse.JSON_PROPERTY_INCLUDED,
+  APIKeysResponse.JSON_PROPERTY_META
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class APIKeysResponse {
@@ -29,6 +33,9 @@ public class APIKeysResponse {
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<APIKeyResponseIncludedItem> included = null;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private APIKeysResponseMeta meta;
 
   public APIKeysResponse data(List<PartialAPIKey> data) {
     this.data = data;
@@ -96,6 +103,28 @@ public class APIKeysResponse {
     this.included = included;
   }
 
+  public APIKeysResponse meta(APIKeysResponseMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Additional information related to api keys response.
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public APIKeysResponseMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(APIKeysResponseMeta meta) {
+    this.meta = meta;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -154,12 +183,13 @@ public class APIKeysResponse {
     APIKeysResponse apiKeysResponse = (APIKeysResponse) o;
     return Objects.equals(this.data, apiKeysResponse.data)
         && Objects.equals(this.included, apiKeysResponse.included)
+        && Objects.equals(this.meta, apiKeysResponse.meta)
         && Objects.equals(this.additionalProperties, apiKeysResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(data, included, meta, additionalProperties);
   }
 
   @Override
@@ -168,6 +198,7 @@ public class APIKeysResponse {
     sb.append("class APIKeysResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

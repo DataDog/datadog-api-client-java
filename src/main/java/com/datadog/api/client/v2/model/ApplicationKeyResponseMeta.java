@@ -16,35 +16,62 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Powerpack relationship object. */
-@JsonPropertyOrder({PowerpackRelationships.JSON_PROPERTY_AUTHOR})
+/** Additional information related to the application key response. */
+@JsonPropertyOrder({
+  ApplicationKeyResponseMeta.JSON_PROPERTY_MAX_ALLOWED_PER_USER,
+  ApplicationKeyResponseMeta.JSON_PROPERTY_PAGE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class PowerpackRelationships {
+public class ApplicationKeyResponseMeta {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AUTHOR = "author";
-  private RelationshipToUser author;
+  public static final String JSON_PROPERTY_MAX_ALLOWED_PER_USER = "max_allowed_per_user";
+  private Long maxAllowedPerUser;
 
-  public PowerpackRelationships author(RelationshipToUser author) {
-    this.author = author;
-    this.unparsed |= author.unparsed;
+  public static final String JSON_PROPERTY_PAGE = "page";
+  private ApplicationKeyResponseMetaPage page;
+
+  public ApplicationKeyResponseMeta maxAllowedPerUser(Long maxAllowedPerUser) {
+    this.maxAllowedPerUser = maxAllowedPerUser;
     return this;
   }
 
   /**
-   * Relationship to user.
+   * Max allowed number of application keys per user.
    *
-   * @return author
+   * @return maxAllowedPerUser
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTHOR)
+  @JsonProperty(JSON_PROPERTY_MAX_ALLOWED_PER_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getAuthor() {
-    return author;
+  public Long getMaxAllowedPerUser() {
+    return maxAllowedPerUser;
   }
 
-  public void setAuthor(RelationshipToUser author) {
-    this.author = author;
+  public void setMaxAllowedPerUser(Long maxAllowedPerUser) {
+    this.maxAllowedPerUser = maxAllowedPerUser;
+  }
+
+  public ApplicationKeyResponseMeta page(ApplicationKeyResponseMetaPage page) {
+    this.page = page;
+    this.unparsed |= page.unparsed;
+    return this;
+  }
+
+  /**
+   * Additional information related to the application key response.
+   *
+   * @return page
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ApplicationKeyResponseMetaPage getPage() {
+    return page;
+  }
+
+  public void setPage(ApplicationKeyResponseMetaPage page) {
+    this.page = page;
   }
 
   /**
@@ -59,10 +86,10 @@ public class PowerpackRelationships {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return PowerpackRelationships
+   * @return ApplicationKeyResponseMeta
    */
   @JsonAnySetter
-  public PowerpackRelationships putAdditionalProperty(String key, Object value) {
+  public ApplicationKeyResponseMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +120,7 @@ public class PowerpackRelationships {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this PowerpackRelationships object is equal to o. */
+  /** Return true if this ApplicationKeyResponseMeta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,21 +129,24 @@ public class PowerpackRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PowerpackRelationships powerpackRelationships = (PowerpackRelationships) o;
-    return Objects.equals(this.author, powerpackRelationships.author)
-        && Objects.equals(this.additionalProperties, powerpackRelationships.additionalProperties);
+    ApplicationKeyResponseMeta applicationKeyResponseMeta = (ApplicationKeyResponseMeta) o;
+    return Objects.equals(this.maxAllowedPerUser, applicationKeyResponseMeta.maxAllowedPerUser)
+        && Objects.equals(this.page, applicationKeyResponseMeta.page)
+        && Objects.equals(
+            this.additionalProperties, applicationKeyResponseMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, additionalProperties);
+    return Objects.hash(maxAllowedPerUser, page, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PowerpackRelationships {\n");
-    sb.append("    author: ").append(toIndentedString(author)).append("\n");
+    sb.append("class ApplicationKeyResponseMeta {\n");
+    sb.append("    maxAllowedPerUser: ").append(toIndentedString(maxAllowedPerUser)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

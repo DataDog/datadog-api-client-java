@@ -16,35 +16,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Powerpack relationship object. */
-@JsonPropertyOrder({PowerpackRelationships.JSON_PROPERTY_AUTHOR})
+/** Additional information related to the API keys response. */
+@JsonPropertyOrder({APIKeysResponseMetaPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class PowerpackRelationships {
+public class APIKeysResponseMetaPage {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AUTHOR = "author";
-  private RelationshipToUser author;
+  public static final String JSON_PROPERTY_TOTAL_FILTERED_COUNT = "total_filtered_count";
+  private Long totalFilteredCount;
 
-  public PowerpackRelationships author(RelationshipToUser author) {
-    this.author = author;
-    this.unparsed |= author.unparsed;
+  public APIKeysResponseMetaPage totalFilteredCount(Long totalFilteredCount) {
+    this.totalFilteredCount = totalFilteredCount;
     return this;
   }
 
   /**
-   * Relationship to user.
+   * Total filtered application key count.
    *
-   * @return author
+   * @return totalFilteredCount
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AUTHOR)
+  @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getAuthor() {
-    return author;
+  public Long getTotalFilteredCount() {
+    return totalFilteredCount;
   }
 
-  public void setAuthor(RelationshipToUser author) {
-    this.author = author;
+  public void setTotalFilteredCount(Long totalFilteredCount) {
+    this.totalFilteredCount = totalFilteredCount;
   }
 
   /**
@@ -59,10 +58,10 @@ public class PowerpackRelationships {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return PowerpackRelationships
+   * @return APIKeysResponseMetaPage
    */
   @JsonAnySetter
-  public PowerpackRelationships putAdditionalProperty(String key, Object value) {
+  public APIKeysResponseMetaPage putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +92,7 @@ public class PowerpackRelationships {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this PowerpackRelationships object is equal to o. */
+  /** Return true if this APIKeysResponseMetaPage object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,21 +101,21 @@ public class PowerpackRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PowerpackRelationships powerpackRelationships = (PowerpackRelationships) o;
-    return Objects.equals(this.author, powerpackRelationships.author)
-        && Objects.equals(this.additionalProperties, powerpackRelationships.additionalProperties);
+    APIKeysResponseMetaPage apiKeysResponseMetaPage = (APIKeysResponseMetaPage) o;
+    return Objects.equals(this.totalFilteredCount, apiKeysResponseMetaPage.totalFilteredCount)
+        && Objects.equals(this.additionalProperties, apiKeysResponseMetaPage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, additionalProperties);
+    return Objects.hash(totalFilteredCount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PowerpackRelationships {\n");
-    sb.append("    author: ").append(toIndentedString(author)).append("\n");
+    sb.append("class APIKeysResponseMetaPage {\n");
+    sb.append("    totalFilteredCount: ").append(toIndentedString(totalFilteredCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

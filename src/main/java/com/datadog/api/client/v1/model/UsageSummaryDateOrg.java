@@ -63,6 +63,8 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_CONTAINER_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_GCP_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_CUSTOM_HISTORICAL_TS_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_CUSTOM_LIVE_TS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CUSTOM_TS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CWS_HOST_TOP99P,
@@ -285,6 +287,12 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_CSPM_HOST_TOP99P = "cspm_host_top99p";
   private Long cspmHostTop99p;
+
+  public static final String JSON_PROPERTY_CUSTOM_HISTORICAL_TS_AVG = "custom_historical_ts_avg";
+  private Long customHistoricalTsAvg;
+
+  public static final String JSON_PROPERTY_CUSTOM_LIVE_TS_AVG = "custom_live_ts_avg";
+  private Long customLiveTsAvg;
 
   public static final String JSON_PROPERTY_CUSTOM_TS_AVG = "custom_ts_avg";
   private Long customTsAvg;
@@ -1494,6 +1502,50 @@ public class UsageSummaryDateOrg {
 
   public void setCspmHostTop99p(Long cspmHostTop99p) {
     this.cspmHostTop99p = cspmHostTop99p;
+  }
+
+  public UsageSummaryDateOrg customHistoricalTsAvg(Long customHistoricalTsAvg) {
+    this.customHistoricalTsAvg = customHistoricalTsAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average number of distinct historical custom metrics over all hours in the current
+   * date for the given org.
+   *
+   * @return customHistoricalTsAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_HISTORICAL_TS_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCustomHistoricalTsAvg() {
+    return customHistoricalTsAvg;
+  }
+
+  public void setCustomHistoricalTsAvg(Long customHistoricalTsAvg) {
+    this.customHistoricalTsAvg = customHistoricalTsAvg;
+  }
+
+  public UsageSummaryDateOrg customLiveTsAvg(Long customLiveTsAvg) {
+    this.customLiveTsAvg = customLiveTsAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average number of distinct live custom metrics over all hours in the current date for
+   * the given org.
+   *
+   * @return customLiveTsAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LIVE_TS_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCustomLiveTsAvg() {
+    return customLiveTsAvg;
+  }
+
+  public void setCustomLiveTsAvg(Long customLiveTsAvg) {
+    this.customLiveTsAvg = customLiveTsAvg;
   }
 
   public UsageSummaryDateOrg customTsAvg(Long customTsAvg) {
@@ -2925,6 +2977,8 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.cspmContainerHwm, usageSummaryDateOrg.cspmContainerHwm)
         && Objects.equals(this.cspmGcpHostTop99p, usageSummaryDateOrg.cspmGcpHostTop99p)
         && Objects.equals(this.cspmHostTop99p, usageSummaryDateOrg.cspmHostTop99p)
+        && Objects.equals(this.customHistoricalTsAvg, usageSummaryDateOrg.customHistoricalTsAvg)
+        && Objects.equals(this.customLiveTsAvg, usageSummaryDateOrg.customLiveTsAvg)
         && Objects.equals(this.customTsAvg, usageSummaryDateOrg.customTsAvg)
         && Objects.equals(this.cwsContainerCountAvg, usageSummaryDateOrg.cwsContainerCountAvg)
         && Objects.equals(this.cwsHostTop99p, usageSummaryDateOrg.cwsHostTop99p)
@@ -3072,6 +3126,8 @@ public class UsageSummaryDateOrg {
         cspmContainerHwm,
         cspmGcpHostTop99p,
         cspmHostTop99p,
+        customHistoricalTsAvg,
+        customLiveTsAvg,
         customTsAvg,
         cwsContainerCountAvg,
         cwsHostTop99p,
@@ -3243,6 +3299,10 @@ public class UsageSummaryDateOrg {
     sb.append("    cspmContainerHwm: ").append(toIndentedString(cspmContainerHwm)).append("\n");
     sb.append("    cspmGcpHostTop99p: ").append(toIndentedString(cspmGcpHostTop99p)).append("\n");
     sb.append("    cspmHostTop99p: ").append(toIndentedString(cspmHostTop99p)).append("\n");
+    sb.append("    customHistoricalTsAvg: ")
+        .append(toIndentedString(customHistoricalTsAvg))
+        .append("\n");
+    sb.append("    customLiveTsAvg: ").append(toIndentedString(customLiveTsAvg)).append("\n");
     sb.append("    customTsAvg: ").append(toIndentedString(customTsAvg)).append("\n");
     sb.append("    cwsContainerCountAvg: ")
         .append(toIndentedString(cwsContainerCountAvg))
