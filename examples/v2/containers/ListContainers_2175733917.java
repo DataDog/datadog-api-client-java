@@ -9,7 +9,6 @@ import com.datadog.api.client.v2.model.ContainersResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.listContainers", true);
     ContainersApi apiInstance = new ContainersApi(defaultClient);
 
     try {
