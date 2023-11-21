@@ -367,8 +367,6 @@ public class ApiClient {
       new HashMap<String, Boolean>() {
         {
           put("v2.createCIAppPipelineEvent", false);
-          put("v2.listContainerImages", false);
-          put("v2.listContainers", false);
           put("v2.getActiveBillingDimensions", false);
           put("v2.getMonthlyCostAttribution", false);
           put("v2.createDORADeployment", false);
