@@ -18,8 +18,10 @@ import com.datadog.api.client.v1.model.WidgetDisplayType;
 import com.datadog.api.client.v1.model.WidgetFormula;
 import com.datadog.api.client.v1.model.WidgetLineType;
 import com.datadog.api.client.v1.model.WidgetLineWidth;
+import com.datadog.api.client.v1.model.WidgetLiveSpan;
 import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
+import com.datadog.api.client.v1.model.WidgetTime;
 import java.util.Collections;
 
 public class Example {
@@ -65,7 +67,9 @@ public class Example {
                                                         .palette("dog_classic")
                                                         .lineType(WidgetLineType.SOLID)
                                                         .lineWidth(WidgetLineWidth.NORMAL))
-                                                .displayType(WidgetDisplayType.BARS)))))))
+                                                .displayType(WidgetDisplayType.BARS)))
+                                    .time(
+                                        new WidgetTime().liveSpan(WidgetLiveSpan.WEEK_TO_DATE))))))
             .layoutType(DashboardLayoutType.ORDERED);
 
     try {

@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## 2.18.0 / 2023-11-20
+
+### Fixed
+* Fix typo in service definition field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2057
+* Fix Powerpack schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2055
+* Close the response before retry by @therve in https://github.com/DataDog/datadog-api-client-java/pull/2081
+### Added
+* Add scorecards endpoints  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2050
+* Document top list widget style by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2035
+* Add optional group-bys support to security signals by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2053
+* Add support for projected-cost endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2037
+* Document missing incident fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2059
+* Add active billing dimensions to usage metering by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2076
+* Add Cost Attribution To Usage Metering Public Beta Documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2062
+* Update spec to include new DORA API endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2075
+* Add support to patch Synthetics test with partial data using JSON Patch by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2070
+* Document new api/app key schemas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2058
+* Document new field `filters` for `CloudWorkloadSecurityAgentRule` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2080
+* Live and historical custom timeseries docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2068
+* Add week_to_date and month_to_date to widget livespan by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2071
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.17.0...datadog-api-client-2.18.0
+
 ## 2.17.0 / 2023-11-02
 
 ### Fixed
