@@ -5,7 +5,7 @@ repos:
     name: Generate
     language: node
     entry: bash -c "./generate.sh"
-    files: '^(\.generator/.*|\.pre-commit-config\.yaml|\.prettierrc\.yml|Makefile|src/test/resources/com/datadog/api/v*/client/api/.*)'
+    files: '^(\.generator/.*|\.pre-commit-config\.yaml|\.prettierrc\.yml|Makefile|src/test/resources/com/datadog/api/v*/client/api/.*|src/main/.*)'
     pass_filenames: false
   - id: docs
     name: Format documentation
