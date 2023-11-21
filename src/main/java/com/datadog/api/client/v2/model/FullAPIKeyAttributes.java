@@ -18,16 +18,21 @@ import java.util.Objects;
 
 /** Attributes of a full API key. */
 @JsonPropertyOrder({
+  FullAPIKeyAttributes.JSON_PROPERTY_CATEGORY,
   FullAPIKeyAttributes.JSON_PROPERTY_CREATED_AT,
   FullAPIKeyAttributes.JSON_PROPERTY_KEY,
   FullAPIKeyAttributes.JSON_PROPERTY_LAST4,
   FullAPIKeyAttributes.JSON_PROPERTY_MODIFIED_AT,
-  FullAPIKeyAttributes.JSON_PROPERTY_NAME
+  FullAPIKeyAttributes.JSON_PROPERTY_NAME,
+  FullAPIKeyAttributes.JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FullAPIKeyAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CATEGORY = "category";
+  private String category;
+
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private String createdAt;
 
@@ -42,6 +47,31 @@ public class FullAPIKeyAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED =
+      "remote_config_read_enabled";
+  private Boolean remoteConfigReadEnabled;
+
+  public FullAPIKeyAttributes category(String category) {
+    this.category = category;
+    return this;
+  }
+
+  /**
+   * The category of the API key.
+   *
+   * @return category
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
+  }
 
   /**
    * Creation date of the API key.
@@ -112,6 +142,27 @@ public class FullAPIKeyAttributes {
     this.name = name;
   }
 
+  public FullAPIKeyAttributes remoteConfigReadEnabled(Boolean remoteConfigReadEnabled) {
+    this.remoteConfigReadEnabled = remoteConfigReadEnabled;
+    return this;
+  }
+
+  /**
+   * The remote config read enabled status.
+   *
+   * @return remoteConfigReadEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRemoteConfigReadEnabled() {
+    return remoteConfigReadEnabled;
+  }
+
+  public void setRemoteConfigReadEnabled(Boolean remoteConfigReadEnabled) {
+    this.remoteConfigReadEnabled = remoteConfigReadEnabled;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -168,28 +219,43 @@ public class FullAPIKeyAttributes {
       return false;
     }
     FullAPIKeyAttributes fullApiKeyAttributes = (FullAPIKeyAttributes) o;
-    return Objects.equals(this.createdAt, fullApiKeyAttributes.createdAt)
+    return Objects.equals(this.category, fullApiKeyAttributes.category)
+        && Objects.equals(this.createdAt, fullApiKeyAttributes.createdAt)
         && Objects.equals(this.key, fullApiKeyAttributes.key)
         && Objects.equals(this.last4, fullApiKeyAttributes.last4)
         && Objects.equals(this.modifiedAt, fullApiKeyAttributes.modifiedAt)
         && Objects.equals(this.name, fullApiKeyAttributes.name)
+        && Objects.equals(
+            this.remoteConfigReadEnabled, fullApiKeyAttributes.remoteConfigReadEnabled)
         && Objects.equals(this.additionalProperties, fullApiKeyAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, key, last4, modifiedAt, name, additionalProperties);
+    return Objects.hash(
+        category,
+        createdAt,
+        key,
+        last4,
+        modifiedAt,
+        name,
+        remoteConfigReadEnabled,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FullAPIKeyAttributes {\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    remoteConfigReadEnabled: ")
+        .append(toIndentedString(remoteConfigReadEnabled))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
