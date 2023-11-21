@@ -30,14 +30,14 @@ public class Undo {
     public List<Parameter> parameters;
 
     public Map<String, Object> getRequestParameters(
-        Object responseData,Object requestData, Method requestBuilder, ObjectMapper mapper) {
+        Object responseData, Object requestData, Method requestBuilder, ObjectMapper mapper) {
       Map<String, Object> requestParams = new HashMap<String, Object>();
       for (int i = 0; i < parameters.size(); i++) {
         Undo.UndoMethod.Parameter p = parameters.get(i);
         Object data = new Object();
         if (p.origin == null) {
           data = responseData;
-        } else if (p.origin.equals("request")){
+        } else if (p.origin.equals("request")) {
           data = requestData;
         } else {
           data = responseData;

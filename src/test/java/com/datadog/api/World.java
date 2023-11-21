@@ -441,7 +441,8 @@ public class World {
     sleepAfterRequest();
   }
 
-  public Callable<?> getRequestUndo(String apiVersion, Undo undoSettings, Object responseData, Object requestData)
+  public Callable<?> getRequestUndo(
+      String apiVersion, Undo undoSettings, Object responseData, Object requestData)
       throws Exception {
     // find API service based on undo tag value
     Class<?> undoAPIClass =
@@ -479,7 +480,8 @@ public class World {
       }
       // Build request from undo parameters and response data
       Map<String, Object> undoRequestParams =
-          undoSettings.undo.getRequestParameters(responseData, requestData, undoOperation, getObjectMapper());
+          undoSettings.undo.getRequestParameters(
+              responseData, requestData, undoOperation, getObjectMapper());
       for (Class c : undoAPIClass.getClasses()) {
         if (c.getName().endsWith(undoSettings.undo.operationId + "OptionalParameters")) {
           undoRequestParams.put("parameters", c.getConstructor().newInstance());

@@ -16,7 +16,7 @@ public class Example {
 
     AWSAccount body =
         new AWSAccount()
-            .accountId("123456789012")
+            .accountId("163662907100")
             .accountSpecificNamespaceRules(Map.ofEntries(Map.entry("auto_scaling", false)))
             .cspmResourceCollectionEnabled(true)
             .excludedRegions(Arrays.asList("us-east-1", "us-west-2"))
