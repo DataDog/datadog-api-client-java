@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Attributes of the Sensitive Data Scanner standard pattern. */
 @JsonPropertyOrder({
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_DESCRIPTION,
+  SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_INCLUDED_KEYWORDS,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_NAME,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_PATTERN,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_TAGS
@@ -31,6 +32,9 @@ public class SensitiveDataScannerStandardPatternAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_INCLUDED_KEYWORDS = "included_keywords";
+  private List<String> includedKeywords = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -60,6 +64,37 @@ public class SensitiveDataScannerStandardPatternAttributes {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public SensitiveDataScannerStandardPatternAttributes includedKeywords(
+      List<String> includedKeywords) {
+    this.includedKeywords = includedKeywords;
+    return this;
+  }
+
+  public SensitiveDataScannerStandardPatternAttributes addIncludedKeywordsItem(
+      String includedKeywordsItem) {
+    if (this.includedKeywords == null) {
+      this.includedKeywords = new ArrayList<>();
+    }
+    this.includedKeywords.add(includedKeywordsItem);
+    return this;
+  }
+
+  /**
+   * List of included keywords.
+   *
+   * @return includedKeywords
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED_KEYWORDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIncludedKeywords() {
+    return includedKeywords;
+  }
+
+  public void setIncludedKeywords(List<String> includedKeywords) {
+    this.includedKeywords = includedKeywords;
   }
 
   public SensitiveDataScannerStandardPatternAttributes name(String name) {
@@ -193,6 +228,8 @@ public class SensitiveDataScannerStandardPatternAttributes {
         (SensitiveDataScannerStandardPatternAttributes) o;
     return Objects.equals(
             this.description, sensitiveDataScannerStandardPatternAttributes.description)
+        && Objects.equals(
+            this.includedKeywords, sensitiveDataScannerStandardPatternAttributes.includedKeywords)
         && Objects.equals(this.name, sensitiveDataScannerStandardPatternAttributes.name)
         && Objects.equals(this.pattern, sensitiveDataScannerStandardPatternAttributes.pattern)
         && Objects.equals(this.tags, sensitiveDataScannerStandardPatternAttributes.tags)
@@ -203,7 +240,7 @@ public class SensitiveDataScannerStandardPatternAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, pattern, tags, additionalProperties);
+    return Objects.hash(description, includedKeywords, name, pattern, tags, additionalProperties);
   }
 
   @Override
@@ -211,6 +248,7 @@ public class SensitiveDataScannerStandardPatternAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class SensitiveDataScannerStandardPatternAttributes {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    includedKeywords: ").append(toIndentedString(includedKeywords)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
