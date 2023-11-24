@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_OK_response-1700834850\",\"query\":\"service:TestDeleteasecurityfilterreturnsOKresponse1700834850\"},\"type\":\"security_filters\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/security_filters",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"lnj-hn0-yvv\",\"attributes\":{\"version\":1,\"name\":\"Test-Delete_a_security_filter_returns_OK_response-1700834850\",\"query\":\"service:TestDeleteasecurityfilterreturnsOKresponse1700834850\",\"is_enabled\":true,\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_builtin\":false},\"type\":\"security_filters\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6736e02a-b121-6b23-2344-6f0809ab2dcc"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/lnj-hn0-yvv",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1c0cf660-87d3-bdda-46a4-8922bf20e5f6"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/lnj-hn0-yvv",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"not_found(Security filter with id 'lnj-hn0-yvv' not found)\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1c0cf660-87d3-bdda-46a4-8922bf20e5f7"
+  }
+]

@@ -4,13 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariable;
-import com.datadog.api.client.v1.model.SyntheticsGlobalVariableAttributes;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptionsType;
-import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParserType;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableValue;
-import com.datadog.api.client.v1.model.SyntheticsVariableParser;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -18,29 +14,28 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
+    // there is a valid "synthetics_global_variable" in the system
+    String SYNTHETICS_GLOBAL_VARIABLE_ID = System.getenv("SYNTHETICS_GLOBAL_VARIABLE_ID");
+
+    // there is a valid "synthetics_api_test_multi_step" in the system
+    String SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID =
+        System.getenv("SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID");
+
     SyntheticsGlobalVariable body =
         new SyntheticsGlobalVariable()
-            .attributes(
-                new SyntheticsGlobalVariableAttributes()
-                    .restrictedRoles(
-                        Collections.singletonList("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")))
-            .description("Example description")
-            .name("MY_VARIABLE")
+            .description("Updated description.")
+            .name("GLOBAL_VARIABLE_PAYLOAD_EXAMPLESYNTHETIC")
             .parseTestOptions(
                 new SyntheticsGlobalVariableParseTestOptions()
-                    .field("content-type")
-                    .localVariableName("LOCAL_VARIABLE")
-                    .parser(
-                        new SyntheticsVariableParser()
-                            .type(SyntheticsGlobalVariableParserType.REGEX)
-                            .value(".*"))
-                    .type(SyntheticsGlobalVariableParseTestOptionsType.HTTP_BODY))
-            .parseTestPublicId("abc-def-123")
-            .tags(Arrays.asList("team:front", "test:workflow-1"))
-            .value(new SyntheticsGlobalVariableValue().secure(true).value("value"));
+                    .type(SyntheticsGlobalVariableParseTestOptionsType.LOCAL_VARIABLE)
+                    .localVariableName("EXTRACTED_VALUE"))
+            .parseTestPublicId(SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID)
+            .value(new SyntheticsGlobalVariableValue().secure(false).value(""))
+            .tags(Collections.singletonList("test:mytag"));
 
     try {
-      SyntheticsGlobalVariable result = apiInstance.editGlobalVariable("variable_id", body);
+      SyntheticsGlobalVariable result =
+          apiInstance.editGlobalVariable(SYNTHETICS_GLOBAL_VARIABLE_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SyntheticsApi#editGlobalVariable");

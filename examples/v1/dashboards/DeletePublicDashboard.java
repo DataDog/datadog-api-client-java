@@ -10,8 +10,12 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
+    // there is a valid "shared_dashboard" in the system
+    String SHARED_DASHBOARD_TOKEN = System.getenv("SHARED_DASHBOARD_TOKEN");
+
     try {
-      DeleteSharedDashboardResponse result = apiInstance.deletePublicDashboard("token");
+      DeleteSharedDashboardResponse result =
+          apiInstance.deletePublicDashboard(SHARED_DASHBOARD_TOKEN);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DashboardsApi#deletePublicDashboard");

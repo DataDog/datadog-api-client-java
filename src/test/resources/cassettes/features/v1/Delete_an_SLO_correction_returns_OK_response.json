@@ -1,0 +1,139 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"name\": \"Test-Delete_an_SLO_correction_returns_OK_response-1700813077\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/slo",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"7d3d44e015b658068bdb541bfeb263e6\",\"name\":\"Test-Delete_an_SLO_correction_returns_OK_response-1700813077\",\"tags\":[],\"monitor_tags\":[],\"thresholds\":[{\"timeframe\":\"7d\",\"target\":95.0,\"target_display\":\"95.\",\"warning\":98.0,\"warning_display\":\"98.\"}],\"type\":\"metric\",\"type_id\":1,\"description\":\"\",\"timeframe\":\"7d\",\"warning_threshold\":98,\"target_threshold\":95,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\"},\"created_at\":1700813077,\"modified_at\":1700813077}],\"error\":null}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "43de29fe-3081-c1f1-7fa7-bf2815607a12"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"category\":\"Other\",\"description\":\"Test Correction\",\"end\":1700816677,\"slo_id\":\"7d3d44e015b658068bdb541bfeb263e6\",\"start\":1700813077,\"timezone\":\"UTC\"},\"type\":\"correction\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/slo/correction",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"correction\",\"id\":\"1cf876f4-8aa0-11ee-ab59-da7ad0902002\",\"attributes\":{\"slo_id\":\"7d3d44e015b658068bdb541bfeb263e6\",\"start\":1700813077,\"end\":1700816677,\"description\":\"Test Correction\",\"category\":\"Other\",\"timezone\":\"UTC\",\"created_at\":null,\"modified_at\":null,\"rrule\":null,\"duration\":null,\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"modifier\":null}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "154ceebd-8436-2271-9943-8e1141b9c28f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/slo/correction/1cf876f4-8aa0-11ee-ab59-da7ad0902002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "15d09db4-0eaa-a5fc-a959-4556e05e9fe5"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/slo/correction/1cf876f4-8aa0-11ee-ab59-da7ad0902002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"slo correction public id 1cf876f4-8aa0-11ee-ab59-da7ad0902002 not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "15d09db4-0eaa-a5fc-a959-4556e05e9fe6"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/slo/7d3d44e015b658068bdb541bfeb263e6",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[\"7d3d44e015b658068bdb541bfeb263e6\"],\"error\":null}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5b5858dc-a4ba-2ac6-bb4f-ca63d65212c3"
+  }
+]

@@ -9,8 +9,11 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
+    // there is a valid "security_filter" in the system
+    String SECURITY_FILTER_DATA_ID = System.getenv("SECURITY_FILTER_DATA_ID");
+
     try {
-      apiInstance.deleteSecurityFilter("security_filter_id");
+      apiInstance.deleteSecurityFilter(SECURITY_FILTER_DATA_ID);
     } catch (ApiException e) {
       System.err.println("Exception when calling SecurityMonitoringApi#deleteSecurityFilter");
       System.err.println("Status code: " + e.getCode());

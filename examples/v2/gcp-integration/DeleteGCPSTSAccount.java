@@ -9,8 +9,11 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
 
+    // there is a valid "gcp_sts_account" in the system
+    String GCP_STS_ACCOUNT_DATA_ID = System.getenv("GCP_STS_ACCOUNT_DATA_ID");
+
     try {
-      apiInstance.deleteGCPSTSAccount("account_id");
+      apiInstance.deleteGCPSTSAccount(GCP_STS_ACCOUNT_DATA_ID);
     } catch (ApiException e) {
       System.err.println("Exception when calling GcpIntegrationApi#deleteGCPSTSAccount");
       System.err.println("Status code: " + e.getCode());

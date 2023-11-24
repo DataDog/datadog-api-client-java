@@ -10,9 +10,12 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     WebhooksIntegrationApi apiInstance = new WebhooksIntegrationApi(defaultClient);
 
+    // there is a valid "webhook_custom_variable" in the system
+    String WEBHOOK_CUSTOM_VARIABLE_NAME = System.getenv("WEBHOOK_CUSTOM_VARIABLE_NAME");
+
     try {
       WebhooksIntegrationCustomVariableResponse result =
-          apiInstance.getWebhooksIntegrationCustomVariable("custom_variable_name");
+          apiInstance.getWebhooksIntegrationCustomVariable(WEBHOOK_CUSTOM_VARIABLE_NAME);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
