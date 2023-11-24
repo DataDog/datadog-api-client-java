@@ -21,7 +21,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   EventsCompute.JSON_PROPERTY_AGGREGATION,
   EventsCompute.JSON_PROPERTY_INTERVAL,
-  EventsCompute.JSON_PROPERTY_METRIC
+  EventsCompute.JSON_PROPERTY_METRIC,
+  EventsCompute.JSON_PROPERTY_ROLLUP
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -35,6 +36,9 @@ public class EventsCompute {
 
   public static final String JSON_PROPERTY_METRIC = "metric";
   private String metric;
+
+  public static final String JSON_PROPERTY_ROLLUP = "rollup";
+  private CalendarInterval rollup;
 
   public EventsCompute() {}
 
@@ -76,7 +80,8 @@ public class EventsCompute {
   }
 
   /**
-   * Interval for compute in milliseconds.
+   * Fixed numeric interval for compute (in milliseconds). Fields <code>interval</code> (numeric
+   * interval) and <code>rollup</code> (calendar interval) are mutually exclusive.
    *
    * @return interval
    */
@@ -110,6 +115,33 @@ public class EventsCompute {
 
   public void setMetric(String metric) {
     this.metric = metric;
+  }
+
+  public EventsCompute rollup(CalendarInterval rollup) {
+    this.rollup = rollup;
+    this.unparsed |= rollup.unparsed;
+    return this;
+  }
+
+  /**
+   * Calendar interval options for compute. Fields <code>interval</code> (numeric interval) and
+   * <code>rollup</code> (calendar interval) are mutually exclusive.
+   *
+   * <p>For instance: - { type: 'day', alignment: '1pm', timezone: 'Europe/Paris' } - { type:
+   * 'week', alignment: 'tuesday', quantity: 2 } - { type: 'month', alignment: '15th' } - { type:
+   * 'year', alignment: 'april' }
+   *
+   * @return rollup
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ROLLUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CalendarInterval getRollup() {
+    return rollup;
+  }
+
+  public void setRollup(CalendarInterval rollup) {
+    this.rollup = rollup;
   }
 
   /**
@@ -171,12 +203,13 @@ public class EventsCompute {
     return Objects.equals(this.aggregation, eventsCompute.aggregation)
         && Objects.equals(this.interval, eventsCompute.interval)
         && Objects.equals(this.metric, eventsCompute.metric)
+        && Objects.equals(this.rollup, eventsCompute.rollup)
         && Objects.equals(this.additionalProperties, eventsCompute.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, interval, metric, additionalProperties);
+    return Objects.hash(aggregation, interval, metric, rollup, additionalProperties);
   }
 
   @Override
@@ -186,6 +219,7 @@ public class EventsCompute {
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    rollup: ").append(toIndentedString(rollup)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

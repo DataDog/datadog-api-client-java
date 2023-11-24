@@ -21,7 +21,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_AGGREGATION,
   FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_INTERVAL,
-  FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_METRIC
+  FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_METRIC,
+  FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_ROLLUP
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -35,6 +36,9 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
 
   public static final String JSON_PROPERTY_METRIC = "metric";
   private String metric;
+
+  public static final String JSON_PROPERTY_ROLLUP = "rollup";
+  private CalendarInterval rollup;
 
   public FormulaAndFunctionEventQueryDefinitionCompute() {}
 
@@ -77,7 +81,8 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
   }
 
   /**
-   * A time interval in milliseconds.
+   * Fixed numeric interval for compute (in milliseconds). Fields <code>interval</code> (numeric
+   * interval) and <code>rollup</code> (calendar interval) are mutually exclusive.
    *
    * @return interval
    */
@@ -111,6 +116,33 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
 
   public void setMetric(String metric) {
     this.metric = metric;
+  }
+
+  public FormulaAndFunctionEventQueryDefinitionCompute rollup(CalendarInterval rollup) {
+    this.rollup = rollup;
+    this.unparsed |= rollup.unparsed;
+    return this;
+  }
+
+  /**
+   * Calendar interval options for compute. Fields <code>interval</code> (numeric interval) and
+   * <code>rollup</code> (calendar interval) are mutually exclusive.
+   *
+   * <p>For instance: - { type: 'day', alignment: '1pm', timezone: 'Europe/Paris' } - { type:
+   * 'week', alignment: 'tuesday', quantity: 2 } - { type: 'month', alignment: '15th' } - { type:
+   * 'year', alignment: 'april' }
+   *
+   * @return rollup
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ROLLUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CalendarInterval getRollup() {
+    return rollup;
+  }
+
+  public void setRollup(CalendarInterval rollup) {
+    this.rollup = rollup;
   }
 
   /**
@@ -175,6 +207,7 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
             this.aggregation, formulaAndFunctionEventQueryDefinitionCompute.aggregation)
         && Objects.equals(this.interval, formulaAndFunctionEventQueryDefinitionCompute.interval)
         && Objects.equals(this.metric, formulaAndFunctionEventQueryDefinitionCompute.metric)
+        && Objects.equals(this.rollup, formulaAndFunctionEventQueryDefinitionCompute.rollup)
         && Objects.equals(
             this.additionalProperties,
             formulaAndFunctionEventQueryDefinitionCompute.additionalProperties);
@@ -182,7 +215,7 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, interval, metric, additionalProperties);
+    return Objects.hash(aggregation, interval, metric, rollup, additionalProperties);
   }
 
   @Override
@@ -192,6 +225,7 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    rollup: ").append(toIndentedString(rollup)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

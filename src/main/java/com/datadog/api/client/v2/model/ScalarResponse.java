@@ -23,12 +23,12 @@ import java.util.Objects;
 public class ScalarResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private ScalarFormulaResponseAtrributes attributes;
+  private ScalarFormulaResponseAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ScalarFormulaResponseType type = ScalarFormulaResponseType.SCALAR_RESPONSE;
 
-  public ScalarResponse attributes(ScalarFormulaResponseAtrributes attributes) {
+  public ScalarResponse attributes(ScalarFormulaResponseAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
@@ -42,11 +42,11 @@ public class ScalarResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScalarFormulaResponseAtrributes getAttributes() {
+  public ScalarFormulaResponseAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(ScalarFormulaResponseAtrributes attributes) {
+  public void setAttributes(ScalarFormulaResponseAttributes attributes) {
     this.attributes = attributes;
   }
 
