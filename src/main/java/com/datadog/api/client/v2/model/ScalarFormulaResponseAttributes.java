@@ -19,15 +19,15 @@ import java.util.Map;
 import java.util.Objects;
 
 /** The object describing a scalar response. */
-@JsonPropertyOrder({ScalarFormulaResponseAtrributes.JSON_PROPERTY_COLUMNS})
+@JsonPropertyOrder({ScalarFormulaResponseAttributes.JSON_PROPERTY_COLUMNS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScalarFormulaResponseAtrributes {
+public class ScalarFormulaResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<ScalarColumn> columns = null;
 
-  public ScalarFormulaResponseAtrributes columns(List<ScalarColumn> columns) {
+  public ScalarFormulaResponseAttributes columns(List<ScalarColumn> columns) {
     this.columns = columns;
     for (ScalarColumn item : columns) {
       this.unparsed |= item.unparsed;
@@ -35,7 +35,7 @@ public class ScalarFormulaResponseAtrributes {
     return this;
   }
 
-  public ScalarFormulaResponseAtrributes addColumnsItem(ScalarColumn columnsItem) {
+  public ScalarFormulaResponseAttributes addColumnsItem(ScalarColumn columnsItem) {
     if (this.columns == null) {
       this.columns = new ArrayList<>();
     }
@@ -73,10 +73,10 @@ public class ScalarFormulaResponseAtrributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScalarFormulaResponseAtrributes
+   * @return ScalarFormulaResponseAttributes
    */
   @JsonAnySetter
-  public ScalarFormulaResponseAtrributes putAdditionalProperty(String key, Object value) {
+  public ScalarFormulaResponseAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -107,7 +107,7 @@ public class ScalarFormulaResponseAtrributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScalarFormulaResponseAtrributes object is equal to o. */
+  /** Return true if this ScalarFormulaResponseAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -116,11 +116,11 @@ public class ScalarFormulaResponseAtrributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScalarFormulaResponseAtrributes scalarFormulaResponseAtrributes =
-        (ScalarFormulaResponseAtrributes) o;
-    return Objects.equals(this.columns, scalarFormulaResponseAtrributes.columns)
+    ScalarFormulaResponseAttributes scalarFormulaResponseAttributes =
+        (ScalarFormulaResponseAttributes) o;
+    return Objects.equals(this.columns, scalarFormulaResponseAttributes.columns)
         && Objects.equals(
-            this.additionalProperties, scalarFormulaResponseAtrributes.additionalProperties);
+            this.additionalProperties, scalarFormulaResponseAttributes.additionalProperties);
   }
 
   @Override
@@ -131,7 +131,7 @@ public class ScalarFormulaResponseAtrributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScalarFormulaResponseAtrributes {\n");
+    sb.append("class ScalarFormulaResponseAttributes {\n");
     sb.append("    columns: ").append(toIndentedString(columns)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -21,7 +21,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   LogsQueryCompute.JSON_PROPERTY_AGGREGATION,
   LogsQueryCompute.JSON_PROPERTY_FACET,
-  LogsQueryCompute.JSON_PROPERTY_INTERVAL
+  LogsQueryCompute.JSON_PROPERTY_INTERVAL,
+  LogsQueryCompute.JSON_PROPERTY_ROLLUP
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -35,6 +36,9 @@ public class LogsQueryCompute {
 
   public static final String JSON_PROPERTY_INTERVAL = "interval";
   private Long interval;
+
+  public static final String JSON_PROPERTY_ROLLUP = "rollup";
+  private CalendarInterval rollup;
 
   public LogsQueryCompute() {}
 
@@ -91,7 +95,8 @@ public class LogsQueryCompute {
   }
 
   /**
-   * Define a time interval in seconds.
+   * Fixed numeric interval for compute (in milliseconds). Fields <code>interval</code> (numeric
+   * interval) and <code>rollup</code> (calendar interval) are mutually exclusive.
    *
    * @return interval
    */
@@ -104,6 +109,33 @@ public class LogsQueryCompute {
 
   public void setInterval(Long interval) {
     this.interval = interval;
+  }
+
+  public LogsQueryCompute rollup(CalendarInterval rollup) {
+    this.rollup = rollup;
+    this.unparsed |= rollup.unparsed;
+    return this;
+  }
+
+  /**
+   * Calendar interval options for compute. Fields <code>interval</code> (numeric interval) and
+   * <code>rollup</code> (calendar interval) are mutually exclusive.
+   *
+   * <p>For instance: - { type: 'day', alignment: '1pm', timezone: 'Europe/Paris' } - { type:
+   * 'week', alignment: 'tuesday', quantity: 2 } - { type: 'month', alignment: '15th' } - { type:
+   * 'year', alignment: 'april' }
+   *
+   * @return rollup
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ROLLUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CalendarInterval getRollup() {
+    return rollup;
+  }
+
+  public void setRollup(CalendarInterval rollup) {
+    this.rollup = rollup;
   }
 
   /**
@@ -165,12 +197,13 @@ public class LogsQueryCompute {
     return Objects.equals(this.aggregation, logsQueryCompute.aggregation)
         && Objects.equals(this.facet, logsQueryCompute.facet)
         && Objects.equals(this.interval, logsQueryCompute.interval)
+        && Objects.equals(this.rollup, logsQueryCompute.rollup)
         && Objects.equals(this.additionalProperties, logsQueryCompute.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregation, facet, interval, additionalProperties);
+    return Objects.hash(aggregation, facet, interval, rollup, additionalProperties);
   }
 
   @Override
@@ -180,6 +213,7 @@ public class LogsQueryCompute {
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
     sb.append("    facet: ").append(toIndentedString(facet)).append("\n");
     sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+    sb.append("    rollup: ").append(toIndentedString(rollup)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
