@@ -1,0 +1,82 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"client_email\":\"832ce4b0f6318b5e@example.com\",\"host_filters\":[]},\"type\":\"gcp_service_account\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/gcp/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"gcp_service_account\",\"attributes\":{\"is_security_command_center_enabled\":false,\"host_filters\":[],\"is_cspm_enabled\":false,\"client_email\":\"832ce4b0f6318b5e@example.com\",\"automute\":false,\"account_tags\":[],\"resource_collection_enabled\":false},\"id\":\"f9be086a-db3e-447b-a60a-956f876aa7d9\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1737645c-2a6e-5c03-c32f-e4fa8516e51e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/gcp/accounts/f9be086a-db3e-447b-a60a-956f876aa7d9",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "102fe07b-88b9-15bf-c7c4-569f2915b22f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/gcp/accounts/f9be086a-db3e-447b-a60a-956f876aa7d9",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "102fe07b-88b9-15bf-c7c4-569f2915b230"
+  }
+]

@@ -1,0 +1,84 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"is_secret\":false,\"name\":\"TESTGETACUSTOMVARIABLERETURNSOKRESPONSE1700828955\",\"value\":\"variable-value\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/integration/webhooks/configuration/custom-variables",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"name\":\"TESTGETACUSTOMVARIABLERETURNSOKRESPONSE1700828955\",\"is_secret\":false,\"value\":\"variable-value\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6bf62b5b-e514-3bfc-b51d-4dc42eca3141"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTGETACUSTOMVARIABLERETURNSOKRESPONSE1700828955",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"name\":\"TESTGETACUSTOMVARIABLERETURNSOKRESPONSE1700828955\",\"is_secret\":false,\"value\":\"variable-value\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "31751ca7-6d12-e06b-ee07-45b2caf062af"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTGETACUSTOMVARIABLERETURNSOKRESPONSE1700828955",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "da33216b-e6a7-64bb-8e6c-b6b9a31c8e54"
+  }
+]

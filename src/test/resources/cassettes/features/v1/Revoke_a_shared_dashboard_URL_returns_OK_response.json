@@ -1,0 +1,140 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Revoke_a_shared_dashboard_URL_returns_OK_response-1700812591 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"fu6-4ez-vb5\",\"title\":\"Test-Revoke_a_shared_dashboard_URL_returns_OK_response-1700812591 with Profile Metrics Query\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/fu6-4ez-vb5/test-revokeashareddashboardurlreturnsokresponse-1700812591-with-profile-metrics\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"},\"id\":5260536581947900}],\"notify_list\":null,\"created_at\":\"2023-11-24T07:56:32.427967+00:00\",\"modified_at\":\"2023-11-24T07:56:32.427967+00:00\",\"restricted_roles\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d4ebeb0e-0885-b910-f4aa-3ca5d37d0d88"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"dashboard_id\":\"fu6-4ez-vb5\",\"dashboard_type\":\"custom_timeboard\",\"global_time\":{\"live_span\":\"1h\"},\"share_list\":[\"testrevokeashareddashboardurlreturnsokresponse1700812591@datadoghq.com\"],\"share_type\":\"invite\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard/public",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"author\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"dashboard_id\":\"fu6-4ez-vb5\",\"dashboard_type\":\"custom_timeboard\",\"global_time_selectable_enabled\":false,\"global_time\":{\"live_span\":\"1h\"},\"selectable_template_vars\":null,\"token\":\"fasjyydbcgwwc2uc-1c3c27ed4a9989e71dac11ee9fe3bc7d\",\"public_url\":\"https://p.datadoghq.com/sb/fasjyydbcgwwc2uc-1c3c27ed4a9989e71dac11ee9fe3bc7d\",\"created\":\"2023-11-24T07:56:33.026485+00:00\",\"share_type\":\"invite\",\"share_list\":[\"testrevokeashareddashboardurlreturnsokresponse1700812591@datadoghq.com\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "51b3482a-be44-81b8-abb6-02a513709283"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/public/fasjyydbcgwwc2uc-1c3c27ed4a9989e71dac11ee9fe3bc7d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_public_dashboard_token\":\"fasjyydbcgwwc2uc-1c3c27ed4a9989e71dac11ee9fe3bc7d\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "93d0d410-72da-6a78-2a9a-3fa76c47b772"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/public/fasjyydbcgwwc2uc-1c3c27ed4a9989e71dac11ee9fe3bc7d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Public Dashboard with token fasjyydbcgwwc2uc-1c3c27ed4a9989e71dac11ee9fe3bc7d not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "93d0d410-72da-6a78-2a9a-3fa76c47b773"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/fu6-4ez-vb5",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"fu6-4ez-vb5\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f824a2fa-438f-491b-3e09-12bd2bd1ae52"
+  }
+]

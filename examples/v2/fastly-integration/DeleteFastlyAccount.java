@@ -9,8 +9,11 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     FastlyIntegrationApi apiInstance = new FastlyIntegrationApi(defaultClient);
 
+    // there is a valid "fastly_account" in the system
+    String FASTLY_ACCOUNT_DATA_ID = System.getenv("FASTLY_ACCOUNT_DATA_ID");
+
     try {
-      apiInstance.deleteFastlyAccount("account_id");
+      apiInstance.deleteFastlyAccount(FASTLY_ACCOUNT_DATA_ID);
     } catch (ApiException e) {
       System.err.println("Exception when calling FastlyIntegrationApi#deleteFastlyAccount");
       System.err.println("Status code: " + e.getCode());

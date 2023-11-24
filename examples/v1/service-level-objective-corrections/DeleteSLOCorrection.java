@@ -10,8 +10,11 @@ public class Example {
     ServiceLevelObjectiveCorrectionsApi apiInstance =
         new ServiceLevelObjectiveCorrectionsApi(defaultClient);
 
+    // there is a valid "correction" for "slo"
+    String CORRECTION_DATA_ID = System.getenv("CORRECTION_DATA_ID");
+
     try {
-      apiInstance.deleteSLOCorrection("slo_correction_id");
+      apiInstance.deleteSLOCorrection(CORRECTION_DATA_ID);
     } catch (ApiException e) {
       System.err.println(
           "Exception when calling ServiceLevelObjectiveCorrectionsApi#deleteSLOCorrection");

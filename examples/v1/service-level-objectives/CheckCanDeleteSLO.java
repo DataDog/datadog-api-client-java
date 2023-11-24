@@ -10,8 +10,11 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
 
+    // there is a valid "slo" in the system
+    String SLO_DATA_0_ID = System.getenv("SLO_DATA_0_ID");
+
     try {
-      CheckCanDeleteSLOResponse result = apiInstance.checkCanDeleteSLO("ids");
+      CheckCanDeleteSLOResponse result = apiInstance.checkCanDeleteSLO(SLO_DATA_0_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceLevelObjectivesApi#checkCanDeleteSLO");

@@ -9,8 +9,11 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
+    // there is a valid "synthetics_global_variable" in the system
+    String SYNTHETICS_GLOBAL_VARIABLE_ID = System.getenv("SYNTHETICS_GLOBAL_VARIABLE_ID");
+
     try {
-      apiInstance.deleteGlobalVariable("variable_id");
+      apiInstance.deleteGlobalVariable(SYNTHETICS_GLOBAL_VARIABLE_ID);
     } catch (ApiException e) {
       System.err.println("Exception when calling SyntheticsApi#deleteGlobalVariable");
       System.err.println("Status code: " + e.getCode());

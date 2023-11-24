@@ -10,8 +10,11 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
+    // there is a valid "synthetics_api_test" in the system
+    String SYNTHETICS_API_TEST_PUBLIC_ID = System.getenv("SYNTHETICS_API_TEST_PUBLIC_ID");
+
     try {
-      SyntheticsAPITest result = apiInstance.getAPITest("public_id");
+      SyntheticsAPITest result = apiInstance.getAPITest(SYNTHETICS_API_TEST_PUBLIC_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SyntheticsApi#getAPITest");
