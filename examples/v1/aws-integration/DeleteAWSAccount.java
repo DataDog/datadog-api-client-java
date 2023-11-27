@@ -12,7 +12,7 @@ public class Example {
 
     AWSAccountDeleteRequest body =
         new AWSAccountDeleteRequest()
-            .accountId("123456789012")
+            .accountId("163662907100")
             .roleName("DatadogAWSIntegrationRole");
 
     try {
