@@ -19,6 +19,7 @@ import java.util.Objects;
 /** Metric origin information. */
 @JsonPropertyOrder({
   MetricOrigin.JSON_PROPERTY_METRIC_TYPE,
+  MetricOrigin.JSON_PROPERTY_ORIGIN_PRODUCT,
   MetricOrigin.JSON_PROPERTY_PRODUCT,
   MetricOrigin.JSON_PROPERTY_SERVICE
 })
@@ -28,6 +29,9 @@ public class MetricOrigin {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_METRIC_TYPE = "metric_type";
   private Integer metricType = 0;
+
+  public static final String JSON_PROPERTY_ORIGIN_PRODUCT = "origin_product";
+  private Integer originProduct = 0;
 
   public static final String JSON_PROPERTY_PRODUCT = "product";
   private Integer product = 0;
@@ -41,7 +45,7 @@ public class MetricOrigin {
   }
 
   /**
-   * The origin metric type code maximum: 1000
+   * The origin metric type code. maximum: 1000
    *
    * @return metricType
    */
@@ -56,13 +60,34 @@ public class MetricOrigin {
     this.metricType = metricType;
   }
 
+  public MetricOrigin originProduct(Integer originProduct) {
+    this.originProduct = originProduct;
+    return this;
+  }
+
+  /**
+   * The origin product code. maximum: 1000
+   *
+   * @return originProduct
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORIGIN_PRODUCT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getOriginProduct() {
+    return originProduct;
+  }
+
+  public void setOriginProduct(Integer originProduct) {
+    this.originProduct = originProduct;
+  }
+
   public MetricOrigin product(Integer product) {
     this.product = product;
     return this;
   }
 
   /**
-   * The origin product code maximum: 1000
+   * The product code. maximum: 1000
    *
    * @return product
    */
@@ -83,7 +108,7 @@ public class MetricOrigin {
   }
 
   /**
-   * The origin service code maximum: 1000
+   * The service code. maximum: 1000
    *
    * @return service
    */
@@ -155,6 +180,7 @@ public class MetricOrigin {
     }
     MetricOrigin metricOrigin = (MetricOrigin) o;
     return Objects.equals(this.metricType, metricOrigin.metricType)
+        && Objects.equals(this.originProduct, metricOrigin.originProduct)
         && Objects.equals(this.product, metricOrigin.product)
         && Objects.equals(this.service, metricOrigin.service)
         && Objects.equals(this.additionalProperties, metricOrigin.additionalProperties);
@@ -162,7 +188,7 @@ public class MetricOrigin {
 
   @Override
   public int hashCode() {
-    return Objects.hash(metricType, product, service, additionalProperties);
+    return Objects.hash(metricType, originProduct, product, service, additionalProperties);
   }
 
   @Override
@@ -170,6 +196,7 @@ public class MetricOrigin {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricOrigin {\n");
     sb.append("    metricType: ").append(toIndentedString(metricType)).append("\n");
+    sb.append("    originProduct: ").append(toIndentedString(originProduct)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    additionalProperties: ")
