@@ -31,6 +31,7 @@ import java.util.Objects;
   AzureAccount.JSON_PROPERTY_HOST_FILTERS,
   AzureAccount.JSON_PROPERTY_NEW_CLIENT_ID,
   AzureAccount.JSON_PROPERTY_NEW_TENANT_NAME,
+  AzureAccount.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED,
   AzureAccount.JSON_PROPERTY_TENANT_NAME
 })
 @jakarta.annotation.Generated(
@@ -69,6 +70,10 @@ public class AzureAccount {
 
   public static final String JSON_PROPERTY_NEW_TENANT_NAME = "new_tenant_name";
   private String newTenantName;
+
+  public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED =
+      "resource_collection_enabled";
+  private Boolean resourceCollectionEnabled;
 
   public static final String JSON_PROPERTY_TENANT_NAME = "tenant_name";
   private String tenantName;
@@ -186,7 +191,9 @@ public class AzureAccount {
   }
 
   /**
-   * Enable Cloud Security Management Misconfigurations for your organization.
+   * When enabled, Datadog’s Cloud Security Management product will scan resource configurations
+   * monitored by this app registration. Note: This requires resource_collection_enabled to be set
+   * to true.
    *
    * @return cspmEnabled
    */
@@ -315,6 +322,28 @@ public class AzureAccount {
     this.newTenantName = newTenantName;
   }
 
+  public AzureAccount resourceCollectionEnabled(Boolean resourceCollectionEnabled) {
+    this.resourceCollectionEnabled = resourceCollectionEnabled;
+    return this;
+  }
+
+  /**
+   * When enabled, Datadog collects metadata and configuration info from cloud resources (compute
+   * instances, databases, load balancers, etc.) monitored by this app registration.
+   *
+   * @return resourceCollectionEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getResourceCollectionEnabled() {
+    return resourceCollectionEnabled;
+  }
+
+  public void setResourceCollectionEnabled(Boolean resourceCollectionEnabled) {
+    this.resourceCollectionEnabled = resourceCollectionEnabled;
+  }
+
   public AzureAccount tenantName(String tenantName) {
     this.tenantName = tenantName;
     return this;
@@ -403,6 +432,7 @@ public class AzureAccount {
         && Objects.equals(this.hostFilters, azureAccount.hostFilters)
         && Objects.equals(this.newClientId, azureAccount.newClientId)
         && Objects.equals(this.newTenantName, azureAccount.newTenantName)
+        && Objects.equals(this.resourceCollectionEnabled, azureAccount.resourceCollectionEnabled)
         && Objects.equals(this.tenantName, azureAccount.tenantName)
         && Objects.equals(this.additionalProperties, azureAccount.additionalProperties);
   }
@@ -421,6 +451,7 @@ public class AzureAccount {
         hostFilters,
         newClientId,
         newTenantName,
+        resourceCollectionEnabled,
         tenantName,
         additionalProperties);
   }
@@ -446,6 +477,9 @@ public class AzureAccount {
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
     sb.append("    newClientId: ").append(toIndentedString(newClientId)).append("\n");
     sb.append("    newTenantName: ").append(toIndentedString(newTenantName)).append("\n");
+    sb.append("    resourceCollectionEnabled: ")
+        .append(toIndentedString(resourceCollectionEnabled))
+        .append("\n");
     sb.append("    tenantName: ").append(toIndentedString(tenantName)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
