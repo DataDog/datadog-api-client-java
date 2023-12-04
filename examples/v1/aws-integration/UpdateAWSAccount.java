@@ -16,22 +16,22 @@ public class Example {
 
     AWSAccount body =
         new AWSAccount()
-            .accountId("123456789012")
+            .accountId("163662907100")
             .accountSpecificNamespaceRules(Map.ofEntries(Map.entry("auto_scaling", false)))
-            .cspmResourceCollectionEnabled(true)
+            .cspmResourceCollectionEnabled(false)
             .excludedRegions(Arrays.asList("us-east-1", "us-west-2"))
             .filterTags(Collections.singletonList("$KEY:$VALUE"))
             .hostTags(Collections.singletonList("$KEY:$VALUE"))
-            .metricsCollectionEnabled(false)
+            .metricsCollectionEnabled(true)
             .resourceCollectionEnabled(true)
-            .roleName("datadog-role");
+            .roleName("DatadogAWSIntegrationRole");
 
     try {
       apiInstance.updateAWSAccount(
           body,
           new UpdateAWSAccountOptionalParameters()
-              .accountId("123456789012")
-              .roleName("datadog-role"));
+              .accountId("163662907100")
+              .roleName("DatadogAWSIntegrationRole"));
     } catch (ApiException e) {
       System.err.println("Exception when calling AwsIntegrationApi#updateAWSAccount");
       System.err.println("Status code: " + e.getCode());

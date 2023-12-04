@@ -28,6 +28,9 @@ public class Given {
     @JsonInclude(Include.NON_NULL)
     public String value;
 
+    @JsonInclude(Include.NON_NULL)
+    public String origin;
+
     public <T> T resolve(Class<T> clazz, Object context, ObjectMapper mapper) {
       try {
         if (value != null) {
