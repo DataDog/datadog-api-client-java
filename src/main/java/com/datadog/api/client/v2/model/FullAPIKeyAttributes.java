@@ -15,16 +15,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of a full API key. */
 @JsonPropertyOrder({
   FullAPIKeyAttributes.JSON_PROPERTY_CATEGORY,
   FullAPIKeyAttributes.JSON_PROPERTY_CREATED_AT,
+  FullAPIKeyAttributes.JSON_PROPERTY_DATE_LAST_USED,
   FullAPIKeyAttributes.JSON_PROPERTY_KEY,
   FullAPIKeyAttributes.JSON_PROPERTY_LAST4,
+  FullAPIKeyAttributes.JSON_PROPERTY_LAST_USED_DATE,
   FullAPIKeyAttributes.JSON_PROPERTY_MODIFIED_AT,
   FullAPIKeyAttributes.JSON_PROPERTY_NAME,
-  FullAPIKeyAttributes.JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED
+  FullAPIKeyAttributes.JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED,
+  FullAPIKeyAttributes.JSON_PROPERTY_USED_IN_LAST_24_HOURS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -36,11 +40,17 @@ public class FullAPIKeyAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private String createdAt;
 
+  public static final String JSON_PROPERTY_DATE_LAST_USED = "date_last_used";
+  private JsonNullable<String> dateLastUsed = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
 
   public static final String JSON_PROPERTY_LAST4 = "last4";
   private String last4;
+
+  public static final String JSON_PROPERTY_LAST_USED_DATE = "last_used_date";
+  private FullAPIKeyLastUsedDate lastUsedDate;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private String modifiedAt;
@@ -51,6 +61,9 @@ public class FullAPIKeyAttributes {
   public static final String JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED =
       "remote_config_read_enabled";
   private Boolean remoteConfigReadEnabled;
+
+  public static final String JSON_PROPERTY_USED_IN_LAST_24_HOURS = "used_in_last_24_hours";
+  private Boolean usedInLast24Hours;
 
   public FullAPIKeyAttributes category(String category) {
     this.category = category;
@@ -85,6 +98,37 @@ public class FullAPIKeyAttributes {
     return createdAt;
   }
 
+  public FullAPIKeyAttributes dateLastUsed(String dateLastUsed) {
+    this.dateLastUsed = JsonNullable.<String>of(dateLastUsed);
+    return this;
+  }
+
+  /**
+   * The date and time the API key was last used.
+   *
+   * @return dateLastUsed
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getDateLastUsed() {
+    return dateLastUsed.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DATE_LAST_USED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getDateLastUsed_JsonNullable() {
+    return dateLastUsed;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DATE_LAST_USED)
+  public void setDateLastUsed_JsonNullable(JsonNullable<String> dateLastUsed) {
+    this.dateLastUsed = dateLastUsed;
+  }
+
+  public void setDateLastUsed(String dateLastUsed) {
+    this.dateLastUsed = JsonNullable.<String>of(dateLastUsed);
+  }
+
   /**
    * The API key.
    *
@@ -107,6 +151,28 @@ public class FullAPIKeyAttributes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLast4() {
     return last4;
+  }
+
+  public FullAPIKeyAttributes lastUsedDate(FullAPIKeyLastUsedDate lastUsedDate) {
+    this.lastUsedDate = lastUsedDate;
+    this.unparsed |= lastUsedDate.unparsed;
+    return this;
+  }
+
+  /**
+   * Attributes for the last time the specific API key was used.
+   *
+   * @return lastUsedDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAST_USED_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FullAPIKeyLastUsedDate getLastUsedDate() {
+    return lastUsedDate;
+  }
+
+  public void setLastUsedDate(FullAPIKeyLastUsedDate lastUsedDate) {
+    this.lastUsedDate = lastUsedDate;
   }
 
   /**
@@ -161,6 +227,27 @@ public class FullAPIKeyAttributes {
 
   public void setRemoteConfigReadEnabled(Boolean remoteConfigReadEnabled) {
     this.remoteConfigReadEnabled = remoteConfigReadEnabled;
+  }
+
+  public FullAPIKeyAttributes usedInLast24Hours(Boolean usedInLast24Hours) {
+    this.usedInLast24Hours = usedInLast24Hours;
+    return this;
+  }
+
+  /**
+   * If the API key was used within the last 24 hours.
+   *
+   * @return usedInLast24Hours
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USED_IN_LAST_24_HOURS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getUsedInLast24Hours() {
+    return usedInLast24Hours;
+  }
+
+  public void setUsedInLast24Hours(Boolean usedInLast24Hours) {
+    this.usedInLast24Hours = usedInLast24Hours;
   }
 
   /**
@@ -221,12 +308,15 @@ public class FullAPIKeyAttributes {
     FullAPIKeyAttributes fullApiKeyAttributes = (FullAPIKeyAttributes) o;
     return Objects.equals(this.category, fullApiKeyAttributes.category)
         && Objects.equals(this.createdAt, fullApiKeyAttributes.createdAt)
+        && Objects.equals(this.dateLastUsed, fullApiKeyAttributes.dateLastUsed)
         && Objects.equals(this.key, fullApiKeyAttributes.key)
         && Objects.equals(this.last4, fullApiKeyAttributes.last4)
+        && Objects.equals(this.lastUsedDate, fullApiKeyAttributes.lastUsedDate)
         && Objects.equals(this.modifiedAt, fullApiKeyAttributes.modifiedAt)
         && Objects.equals(this.name, fullApiKeyAttributes.name)
         && Objects.equals(
             this.remoteConfigReadEnabled, fullApiKeyAttributes.remoteConfigReadEnabled)
+        && Objects.equals(this.usedInLast24Hours, fullApiKeyAttributes.usedInLast24Hours)
         && Objects.equals(this.additionalProperties, fullApiKeyAttributes.additionalProperties);
   }
 
@@ -235,11 +325,14 @@ public class FullAPIKeyAttributes {
     return Objects.hash(
         category,
         createdAt,
+        dateLastUsed,
         key,
         last4,
+        lastUsedDate,
         modifiedAt,
         name,
         remoteConfigReadEnabled,
+        usedInLast24Hours,
         additionalProperties);
   }
 
@@ -249,13 +342,16 @@ public class FullAPIKeyAttributes {
     sb.append("class FullAPIKeyAttributes {\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    dateLastUsed: ").append(toIndentedString(dateLastUsed)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
+    sb.append("    lastUsedDate: ").append(toIndentedString(lastUsedDate)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    remoteConfigReadEnabled: ")
         .append(toIndentedString(remoteConfigReadEnabled))
         .append("\n");
+    sb.append("    usedInLast24Hours: ").append(toIndentedString(usedInLast24Hours)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
