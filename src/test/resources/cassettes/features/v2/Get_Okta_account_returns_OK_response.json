@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"auth_method\":\"oauth\",\"client_id\":\"fakeclientid\",\"client_secret\":\"fakeclientsecret\",\"domain\":\"https://dev-test.okta.com/\",\"name\":\"testgetoktaaccountreturnsokresponse1700585984\"},\"type\":\"okta-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/okta/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"okta-accounts\",\"attributes\":{\"client_id\":\"fakeclientid\",\"auth_method\":\"oauth\",\"domain\":\"https://dev-test.okta.com/\",\"name\":\"testgetoktaaccountreturnsokresponse1700585984\"},\"id\":\"2bf39935-f5c8-46b1-b41b-eda0b4bd2e78\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a8a2eee2-55cd-f5d3-d393-937ce4418f3e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/integrations/okta/accounts/2bf39935-f5c8-46b1-b41b-eda0b4bd2e78",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"okta-accounts\",\"attributes\":{\"client_id\":\"fakeclientid\",\"auth_method\":\"oauth\",\"domain\":\"https://dev-test.okta.com/\",\"name\":\"testgetoktaaccountreturnsokresponse1700585984\"},\"id\":\"2bf39935-f5c8-46b1-b41b-eda0b4bd2e78\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "215b51a7-6d29-2dd3-eea0-4e229a6aa859"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/okta/accounts/2bf39935-f5c8-46b1-b41b-eda0b4bd2e78",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6f5d3693-480f-6b43-98ae-2122d926186e"
+  }
+]
