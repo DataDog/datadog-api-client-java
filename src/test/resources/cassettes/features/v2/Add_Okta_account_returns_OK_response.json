@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"auth_method\":\"oauth\",\"client_id\":\"client_id\",\"client_secret\":\"client_secret\",\"domain\":\"https://example.okta.com/\",\"name\":\"Okta_Prod\"},\"id\":\"f749daaf-682e-4208-a38d-c9b43162c609\",\"type\":\"okta-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/okta/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"okta-accounts\",\"attributes\":{\"domain\":\"https://example.okta.com/\",\"client_id\":\"client_id\",\"auth_method\":\"oauth\",\"name\":\"Okta_Prod\"},\"id\":\"6330b376-d352-4a06-a169-107002bd6e6c\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1f7ad488-1024-ab95-f442-0e8ba9f41dcd"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/okta/accounts/6330b376-d352-4a06-a169-107002bd6e6c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "04f5a1b2-c6f2-e4d8-9bc5-c35c0ba0f5ba"
+  }
+]

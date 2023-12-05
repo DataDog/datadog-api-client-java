@@ -1,0 +1,88 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"auth_method\":\"oauth\",\"client_id\":\"fakeclientid\",\"client_secret\":\"fakeclientsecret\",\"domain\":\"https://dev-test.okta.com/\",\"name\":\"testupdateoktaaccountreturnsokresponse1700585987\"},\"type\":\"okta-accounts\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integrations/okta/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"okta-accounts\",\"attributes\":{\"domain\":\"https://dev-test.okta.com/\",\"auth_method\":\"oauth\",\"client_id\":\"fakeclientid\",\"name\":\"testupdateoktaaccountreturnsokresponse1700585987\"},\"id\":\"c847a349-9687-4b80-8b0f-996e0e75f73e\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e4994ca5-e1a0-7bc2-c149-c281bbbddc82"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"auth_method\":\"oauth\",\"client_id\":\"client_id\",\"client_secret\":\"client_secret\",\"domain\":\"https://example.okta.com/\"},\"type\":\"okta-accounts\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/integrations/okta/accounts/c847a349-9687-4b80-8b0f-996e0e75f73e",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"okta-accounts\",\"id\":\"7343985f-6e86-4327-8792-538b4c9b38e9\",\"attributes\":{\"auth_method\":\"oauth\",\"client_id\":\"client_id\",\"domain\":\"https://example.okta.com/\",\"name\":\"testupdateoktaaccountreturnsokresponse1700585987\"}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "caac8c2e-6846-b6ee-3e09-0a3bdcf9e5b1"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/okta/accounts/c847a349-9687-4b80-8b0f-996e0e75f73e",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Unknown error occurred: \"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4ca29646-fa0f-108e-0e63-0b9a71589d90"
+  }
+]
