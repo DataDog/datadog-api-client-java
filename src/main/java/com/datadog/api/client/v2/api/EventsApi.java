@@ -259,13 +259,6 @@ public class EventsApi {
    */
   public ApiResponse<EventsListResponse> listEventsWithHttpInfo(
       ListEventsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listEvents";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
     String filterFrom = parameters.filterFrom;
@@ -316,16 +309,6 @@ public class EventsApi {
    */
   public CompletableFuture<ApiResponse<EventsListResponse>> listEventsWithHttpInfoAsync(
       ListEventsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listEvents";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<EventsListResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     String filterQuery = parameters.filterQuery;
     String filterFrom = parameters.filterFrom;
@@ -529,13 +512,6 @@ public class EventsApi {
    */
   public ApiResponse<EventsListResponse> searchEventsWithHttpInfo(
       SearchEventsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "searchEvents";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = parameters.body;
     // create path and map variables
     String localVarPath = "/api/v2/events/search";
@@ -572,16 +548,6 @@ public class EventsApi {
    */
   public CompletableFuture<ApiResponse<EventsListResponse>> searchEventsWithHttpInfoAsync(
       SearchEventsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "searchEvents";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<EventsListResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = parameters.body;
     // create path and map variables
     String localVarPath = "/api/v2/events/search";

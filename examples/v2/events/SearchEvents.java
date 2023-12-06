@@ -13,7 +13,6 @@ import com.datadog.api.client.v2.model.EventsSort;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.searchEvents", true);
     EventsApi apiInstance = new EventsApi(defaultClient);
 
     EventsListRequest body =
