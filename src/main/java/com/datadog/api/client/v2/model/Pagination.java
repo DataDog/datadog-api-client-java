@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** Pagination object. */
 @JsonPropertyOrder({
+  Pagination.JSON_PROPERTY_MAX_PAGE_SIZE,
   Pagination.JSON_PROPERTY_TOTAL_COUNT,
   Pagination.JSON_PROPERTY_TOTAL_FILTERED_COUNT
 })
@@ -25,11 +26,35 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Pagination {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_MAX_PAGE_SIZE = "max_page_size";
+  private Long maxPageSize;
+
   public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";
   private Long totalCount;
 
   public static final String JSON_PROPERTY_TOTAL_FILTERED_COUNT = "total_filtered_count";
   private Long totalFilteredCount;
+
+  public Pagination maxPageSize(Long maxPageSize) {
+    this.maxPageSize = maxPageSize;
+    return this;
+  }
+
+  /**
+   * The maximum element count allowed per page.
+   *
+   * @return maxPageSize
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX_PAGE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMaxPageSize() {
+    return maxPageSize;
+  }
+
+  public void setMaxPageSize(Long maxPageSize) {
+    this.maxPageSize = maxPageSize;
+  }
 
   public Pagination totalCount(Long totalCount) {
     this.totalCount = totalCount;
@@ -129,20 +154,22 @@ public class Pagination {
       return false;
     }
     Pagination pagination = (Pagination) o;
-    return Objects.equals(this.totalCount, pagination.totalCount)
+    return Objects.equals(this.maxPageSize, pagination.maxPageSize)
+        && Objects.equals(this.totalCount, pagination.totalCount)
         && Objects.equals(this.totalFilteredCount, pagination.totalFilteredCount)
         && Objects.equals(this.additionalProperties, pagination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, totalFilteredCount, additionalProperties);
+    return Objects.hash(maxPageSize, totalCount, totalFilteredCount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Pagination {\n");
+    sb.append("    maxPageSize: ").append(toIndentedString(maxPageSize)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    totalFilteredCount: ").append(toIndentedString(totalFilteredCount)).append("\n");
     sb.append("    additionalProperties: ")
