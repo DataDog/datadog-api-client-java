@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Configure_tags_for_multiple_metrics_returns_Accepted_response-1652349149@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Configure_tags_for_multiple_metrics_returns_Accepted_response-1701962406@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"users\",\"id\":\"3cf23548-d1d9-11ec-ad3d-da7ad0900002\",\"attributes\":{\"name\":null,\"handle\":\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\",\"created_at\":\"2022-05-12T09:52:30.224025+00:00\",\"modified_at\":\"2022-05-12T09:52:30.279356+00:00\",\"email\":\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/37b97ed3403eaebb504eab5b74a44f2a?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}",
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"1a6aac59-9514-11ee-8d56-0adb1a638a47\",\"attributes\":{\"name\":null,\"handle\":\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com\",\"created_at\":\"2023-12-07T15:20:07.014747+00:00\",\"modified_at\":\"2023-12-07T15:20:07.014747+00:00\",\"email\":\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/0a707b27174d49cd592ec7a4fc13bc4d?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"3386799c-00cc-11ea-a77b-eb0f88a49e0f\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5e8f10c1-1e38-683f-fead-42840172698c"
+    "id": "be6890d8-6e6c-6900-5647-f8ada98d2462"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\"],\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1652349149\"]},\"id\":\"system.load.1\",\"type\":\"metric_bulk_configure_tags\"}}"
+        "json": "{\"data\":{\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com\"],\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1701962406\"]},\"id\":\"system.load.1\",\"type\":\"metric_bulk_configure_tags\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"metric_bulk_configure_tags\",\"id\":\"system.load.1\",\"attributes\":{\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1652349149\"],\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\"],\"status\":\"Accepted\"}}}",
+      "body": "{\"data\":{\"type\":\"metric_bulk_configure_tags\",\"id\":\"system.load.1\",\"attributes\":{\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1701962406\"],\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com\"],\"status\":\"Accepted\",\"exclude_tags_mode\":null}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6feeb9d2-023a-c133-5ddc-969d4b3c867c"
+    "id": "a3c3afec-d7d4-6a74-edc4-3367f9e1cf50"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\"],\"status\":\"Accepted\",\"tags\":[\"test\",\"testconfiguretagsformultiplemetricsreturnsacceptedresponse1652349149\"]},\"id\":\"system.load.1\",\"type\":\"metric_bulk_configure_tags\"}}"
+        "json": "{\"data\":{\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com\"]},\"id\":\"system.load.1\",\"type\":\"metric_bulk_configure_tags\"}}"
       },
       "headers": {},
       "method": "DELETE",
@@ -72,7 +72,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"metric_bulk_configure_tags\",\"id\":\"system.load.1\",\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1652349149@datadoghq.com\"],\"status\":\"Accepted\"}}}",
+      "body": "{\"data\":{\"type\":\"metric_bulk_configure_tags\",\"id\":\"system.load.1\",\"attributes\":{\"emails\":[\"test-configure_tags_for_multiple_metrics_returns_accepted_response-1701962406@datadoghq.com\"],\"status\":\"Accepted\"}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -87,13 +87,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3b16793a-2d9d-8f18-71ef-c3857c833d0a"
+    "id": "d3b1f9af-a93d-3567-ef07-c75863430beb"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/users/3cf23548-d1d9-11ec-ad3d-da7ad0900002",
+      "path": "/api/v2/users/1a6aac59-9514-11ee-8d56-0adb1a638a47",
       "keepAlive": false,
       "secure": true
     },
@@ -108,6 +108,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8e357689-c2f7-cbe5-5246-a4ba33c638d8"
+    "id": "b384ce69-b26d-38f7-e502-e689aaef56f4"
   }
 ]
