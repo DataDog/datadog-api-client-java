@@ -191,7 +191,7 @@ public class AzureAccount {
   }
 
   /**
-   * When enabled, Datadog’s Cloud Security Management product will scan resource configurations
+   * When enabled, Datadog’s Cloud Security Management product scans resource configurations
    * monitored by this app registration. Note: This requires resource_collection_enabled to be set
    * to true.
    *
