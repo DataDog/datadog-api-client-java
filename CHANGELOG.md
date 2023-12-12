@@ -3,7 +3,6 @@
 ## 2.19.0 / 2023-12-12
 
 ### Added
-* Use request data for undo operations in tests when response empty by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2048
 * Document `included_keywords` in `ListStandardPatterns` response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2086
 * Document fields `remote_config_read_enabled` and `category` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2082
 * Update Azure Spec to include Resource Collection by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2091
