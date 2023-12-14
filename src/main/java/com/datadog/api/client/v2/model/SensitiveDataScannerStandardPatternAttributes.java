@@ -24,6 +24,7 @@ import java.util.Objects;
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_INCLUDED_KEYWORDS,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_NAME,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_PATTERN,
+  SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_PRIORITY,
   SensitiveDataScannerStandardPatternAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
@@ -41,6 +42,9 @@ public class SensitiveDataScannerStandardPatternAttributes {
 
   public static final String JSON_PROPERTY_PATTERN = "pattern";
   private String pattern;
+
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
+  private Long priority;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -139,6 +143,28 @@ public class SensitiveDataScannerStandardPatternAttributes {
     this.pattern = pattern;
   }
 
+  public SensitiveDataScannerStandardPatternAttributes priority(Long priority) {
+    this.priority = priority;
+    return this;
+  }
+
+  /**
+   * Integer from 1 (high) to 5 (low) indicating standard pattern issue severity. minimum: 1
+   * maximum: 5
+   *
+   * @return priority
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getPriority() {
+    return priority;
+  }
+
+  public void setPriority(Long priority) {
+    this.priority = priority;
+  }
+
   public SensitiveDataScannerStandardPatternAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -232,6 +258,7 @@ public class SensitiveDataScannerStandardPatternAttributes {
             this.includedKeywords, sensitiveDataScannerStandardPatternAttributes.includedKeywords)
         && Objects.equals(this.name, sensitiveDataScannerStandardPatternAttributes.name)
         && Objects.equals(this.pattern, sensitiveDataScannerStandardPatternAttributes.pattern)
+        && Objects.equals(this.priority, sensitiveDataScannerStandardPatternAttributes.priority)
         && Objects.equals(this.tags, sensitiveDataScannerStandardPatternAttributes.tags)
         && Objects.equals(
             this.additionalProperties,
@@ -240,7 +267,8 @@ public class SensitiveDataScannerStandardPatternAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, includedKeywords, name, pattern, tags, additionalProperties);
+    return Objects.hash(
+        description, includedKeywords, name, pattern, priority, tags, additionalProperties);
   }
 
   @Override
@@ -251,6 +279,7 @@ public class SensitiveDataScannerStandardPatternAttributes {
     sb.append("    includedKeywords: ").append(toIndentedString(includedKeywords)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
