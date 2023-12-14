@@ -43,7 +43,8 @@ public class Example {
                                 new SensitiveDataScannerTextReplacement()
                                     .type(SensitiveDataScannerTextReplacementType.NONE))
                             .tags(Collections.singletonList("sensitive_data:true"))
-                            .isEnabled(true))
+                            .isEnabled(true)
+                            .priority(5L))
                     .relationships(
                         new SensitiveDataScannerRuleRelationships()
                             .group(

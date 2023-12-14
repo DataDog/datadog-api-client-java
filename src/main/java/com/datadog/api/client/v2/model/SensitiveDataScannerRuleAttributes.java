@@ -26,6 +26,7 @@ import java.util.Objects;
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_NAME,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_NAMESPACES,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_PATTERN,
+  SensitiveDataScannerRuleAttributes.JSON_PROPERTY_PRIORITY,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_TAGS,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_TEXT_REPLACEMENT
 })
@@ -50,6 +51,9 @@ public class SensitiveDataScannerRuleAttributes {
 
   public static final String JSON_PROPERTY_PATTERN = "pattern";
   private String pattern;
+
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
+  private Long priority;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -202,6 +206,27 @@ public class SensitiveDataScannerRuleAttributes {
     this.pattern = pattern;
   }
 
+  public SensitiveDataScannerRuleAttributes priority(Long priority) {
+    this.priority = priority;
+    return this;
+  }
+
+  /**
+   * Integer from 1 (high) to 5 (low) indicating rule issue severity. minimum: 1 maximum: 5
+   *
+   * @return priority
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getPriority() {
+    return priority;
+  }
+
+  public void setPriority(Long priority) {
+    this.priority = priority;
+  }
+
   public SensitiveDataScannerRuleAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -318,6 +343,7 @@ public class SensitiveDataScannerRuleAttributes {
         && Objects.equals(this.name, sensitiveDataScannerRuleAttributes.name)
         && Objects.equals(this.namespaces, sensitiveDataScannerRuleAttributes.namespaces)
         && Objects.equals(this.pattern, sensitiveDataScannerRuleAttributes.pattern)
+        && Objects.equals(this.priority, sensitiveDataScannerRuleAttributes.priority)
         && Objects.equals(this.tags, sensitiveDataScannerRuleAttributes.tags)
         && Objects.equals(this.textReplacement, sensitiveDataScannerRuleAttributes.textReplacement)
         && Objects.equals(
@@ -333,6 +359,7 @@ public class SensitiveDataScannerRuleAttributes {
         name,
         namespaces,
         pattern,
+        priority,
         tags,
         textReplacement,
         additionalProperties);
@@ -348,6 +375,7 @@ public class SensitiveDataScannerRuleAttributes {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    textReplacement: ").append(toIndentedString(textReplacement)).append("\n");
     sb.append("    additionalProperties: ")
