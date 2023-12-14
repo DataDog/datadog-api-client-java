@@ -24,7 +24,9 @@ import java.util.Objects;
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_AUTOMUTE,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_CLIENT_EMAIL,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_HOST_FILTERS,
-  GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_CSPM_ENABLED
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_CSPM_ENABLED,
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED,
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -44,6 +46,14 @@ public class GCPSTSServiceAccountAttributes {
 
   public static final String JSON_PROPERTY_IS_CSPM_ENABLED = "is_cspm_enabled";
   private Boolean isCspmEnabled;
+
+  public static final String JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED =
+      "is_security_command_center_enabled";
+  private Boolean isSecurityCommandCenterEnabled = false;
+
+  public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED =
+      "resource_collection_enabled";
+  private Boolean resourceCollectionEnabled = false;
 
   public GCPSTSServiceAccountAttributes accountTags(List<String> accountTags) {
     this.accountTags = accountTags;
@@ -151,8 +161,8 @@ public class GCPSTSServiceAccountAttributes {
   }
 
   /**
-   * When enabled, Datadog performs configuration checks across your Google Cloud environment by
-   * continuously scanning every resource.
+   * When enabled, Datadog will activate the Cloud Security Monitoring product for this service
+   * account. Note: This requires resource_collection_enabled to be set to true.
    *
    * @return isCspmEnabled
    */
@@ -165,6 +175,51 @@ public class GCPSTSServiceAccountAttributes {
 
   public void setIsCspmEnabled(Boolean isCspmEnabled) {
     this.isCspmEnabled = isCspmEnabled;
+  }
+
+  public GCPSTSServiceAccountAttributes isSecurityCommandCenterEnabled(
+      Boolean isSecurityCommandCenterEnabled) {
+    this.isSecurityCommandCenterEnabled = isSecurityCommandCenterEnabled;
+    return this;
+  }
+
+  /**
+   * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This
+   * requires additional permissions on the service account.
+   *
+   * @return isSecurityCommandCenterEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsSecurityCommandCenterEnabled() {
+    return isSecurityCommandCenterEnabled;
+  }
+
+  public void setIsSecurityCommandCenterEnabled(Boolean isSecurityCommandCenterEnabled) {
+    this.isSecurityCommandCenterEnabled = isSecurityCommandCenterEnabled;
+  }
+
+  public GCPSTSServiceAccountAttributes resourceCollectionEnabled(
+      Boolean resourceCollectionEnabled) {
+    this.resourceCollectionEnabled = resourceCollectionEnabled;
+    return this;
+  }
+
+  /**
+   * When enabled, Datadog scans for all resources in your GCP environment.
+   *
+   * @return resourceCollectionEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getResourceCollectionEnabled() {
+    return resourceCollectionEnabled;
+  }
+
+  public void setResourceCollectionEnabled(Boolean resourceCollectionEnabled) {
+    this.resourceCollectionEnabled = resourceCollectionEnabled;
   }
 
   /**
@@ -230,13 +285,26 @@ public class GCPSTSServiceAccountAttributes {
         && Objects.equals(this.hostFilters, gcpstsServiceAccountAttributes.hostFilters)
         && Objects.equals(this.isCspmEnabled, gcpstsServiceAccountAttributes.isCspmEnabled)
         && Objects.equals(
+            this.isSecurityCommandCenterEnabled,
+            gcpstsServiceAccountAttributes.isSecurityCommandCenterEnabled)
+        && Objects.equals(
+            this.resourceCollectionEnabled,
+            gcpstsServiceAccountAttributes.resourceCollectionEnabled)
+        && Objects.equals(
             this.additionalProperties, gcpstsServiceAccountAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        accountTags, automute, clientEmail, hostFilters, isCspmEnabled, additionalProperties);
+        accountTags,
+        automute,
+        clientEmail,
+        hostFilters,
+        isCspmEnabled,
+        isSecurityCommandCenterEnabled,
+        resourceCollectionEnabled,
+        additionalProperties);
   }
 
   @Override
@@ -248,6 +316,12 @@ public class GCPSTSServiceAccountAttributes {
     sb.append("    clientEmail: ").append(toIndentedString(clientEmail)).append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
     sb.append("    isCspmEnabled: ").append(toIndentedString(isCspmEnabled)).append("\n");
+    sb.append("    isSecurityCommandCenterEnabled: ")
+        .append(toIndentedString(isSecurityCommandCenterEnabled))
+        .append("\n");
+    sb.append("    resourceCollectionEnabled: ")
+        .append(toIndentedString(resourceCollectionEnabled))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
