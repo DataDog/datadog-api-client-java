@@ -29,9 +29,11 @@ import java.util.Objects;
   GCPAccount.JSON_PROPERTY_ERRORS,
   GCPAccount.JSON_PROPERTY_HOST_FILTERS,
   GCPAccount.JSON_PROPERTY_IS_CSPM_ENABLED,
+  GCPAccount.JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED,
   GCPAccount.JSON_PROPERTY_PRIVATE_KEY,
   GCPAccount.JSON_PROPERTY_PRIVATE_KEY_ID,
   GCPAccount.JSON_PROPERTY_PROJECT_ID,
+  GCPAccount.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED,
   GCPAccount.JSON_PROPERTY_TOKEN_URI,
   GCPAccount.JSON_PROPERTY_TYPE
 })
@@ -67,6 +69,10 @@ public class GCPAccount {
   public static final String JSON_PROPERTY_IS_CSPM_ENABLED = "is_cspm_enabled";
   private Boolean isCspmEnabled = false;
 
+  public static final String JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED =
+      "is_security_command_center_enabled";
+  private Boolean isSecurityCommandCenterEnabled = false;
+
   public static final String JSON_PROPERTY_PRIVATE_KEY = "private_key";
   private String privateKey;
 
@@ -75,6 +81,10 @@ public class GCPAccount {
 
   public static final String JSON_PROPERTY_PROJECT_ID = "project_id";
   private String projectId;
+
+  public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED =
+      "resource_collection_enabled";
+  private Boolean resourceCollectionEnabled = false;
 
   public static final String JSON_PROPERTY_TOKEN_URI = "token_uri";
   private String tokenUri;
@@ -266,8 +276,8 @@ public class GCPAccount {
   }
 
   /**
-   * When enabled, Datadog performs configuration checks across your Google Cloud environment by
-   * continuously scanning every resource.
+   * When enabled, Datadog will activate the Cloud Security Monitoring product for this service
+   * account. Note: This requires resource_collection_enabled to be set to true.
    *
    * @return isCspmEnabled
    */
@@ -280,6 +290,28 @@ public class GCPAccount {
 
   public void setIsCspmEnabled(Boolean isCspmEnabled) {
     this.isCspmEnabled = isCspmEnabled;
+  }
+
+  public GCPAccount isSecurityCommandCenterEnabled(Boolean isSecurityCommandCenterEnabled) {
+    this.isSecurityCommandCenterEnabled = isSecurityCommandCenterEnabled;
+    return this;
+  }
+
+  /**
+   * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This
+   * requires additional permissions on the service account.
+   *
+   * @return isSecurityCommandCenterEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsSecurityCommandCenterEnabled() {
+    return isSecurityCommandCenterEnabled;
+  }
+
+  public void setIsSecurityCommandCenterEnabled(Boolean isSecurityCommandCenterEnabled) {
+    this.isSecurityCommandCenterEnabled = isSecurityCommandCenterEnabled;
   }
 
   public GCPAccount privateKey(String privateKey) {
@@ -343,6 +375,27 @@ public class GCPAccount {
 
   public void setProjectId(String projectId) {
     this.projectId = projectId;
+  }
+
+  public GCPAccount resourceCollectionEnabled(Boolean resourceCollectionEnabled) {
+    this.resourceCollectionEnabled = resourceCollectionEnabled;
+    return this;
+  }
+
+  /**
+   * When enabled, Datadog scans for all resources in your GCP environment.
+   *
+   * @return resourceCollectionEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getResourceCollectionEnabled() {
+    return resourceCollectionEnabled;
+  }
+
+  public void setResourceCollectionEnabled(Boolean resourceCollectionEnabled) {
+    this.resourceCollectionEnabled = resourceCollectionEnabled;
   }
 
   public GCPAccount tokenUri(String tokenUri) {
@@ -452,9 +505,12 @@ public class GCPAccount {
         && Objects.equals(this.errors, gcpAccount.errors)
         && Objects.equals(this.hostFilters, gcpAccount.hostFilters)
         && Objects.equals(this.isCspmEnabled, gcpAccount.isCspmEnabled)
+        && Objects.equals(
+            this.isSecurityCommandCenterEnabled, gcpAccount.isSecurityCommandCenterEnabled)
         && Objects.equals(this.privateKey, gcpAccount.privateKey)
         && Objects.equals(this.privateKeyId, gcpAccount.privateKeyId)
         && Objects.equals(this.projectId, gcpAccount.projectId)
+        && Objects.equals(this.resourceCollectionEnabled, gcpAccount.resourceCollectionEnabled)
         && Objects.equals(this.tokenUri, gcpAccount.tokenUri)
         && Objects.equals(this.type, gcpAccount.type)
         && Objects.equals(this.additionalProperties, gcpAccount.additionalProperties);
@@ -472,9 +528,11 @@ public class GCPAccount {
         errors,
         hostFilters,
         isCspmEnabled,
+        isSecurityCommandCenterEnabled,
         privateKey,
         privateKeyId,
         projectId,
+        resourceCollectionEnabled,
         tokenUri,
         type,
         additionalProperties);
@@ -495,9 +553,15 @@ public class GCPAccount {
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
     sb.append("    isCspmEnabled: ").append(toIndentedString(isCspmEnabled)).append("\n");
+    sb.append("    isSecurityCommandCenterEnabled: ")
+        .append(toIndentedString(isSecurityCommandCenterEnabled))
+        .append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    privateKeyId: ").append(toIndentedString(privateKeyId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    resourceCollectionEnabled: ")
+        .append(toIndentedString(resourceCollectionEnabled))
+        .append("\n");
     sb.append("    tokenUri: ").append(toIndentedString(tokenUri)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
