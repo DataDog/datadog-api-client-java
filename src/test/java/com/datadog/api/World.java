@@ -66,18 +66,8 @@ public class World {
         {
           put("timeISO", relativeTime(true));
           put("timestamp", relativeTime(false));
-          put("unique_id", generateUuid());
         }
       };
-
-  public static BiFunction<Object, String, String> generateUuid() {
-    return (context, arg) -> {
-      OffsetDateTime ret = (OffsetDateTime) ((Map<String, Object>) context).get("now");
-      String timeString = String.valueOf(ret.toEpochSecond());
-      return String.format(
-          "%s-0000-0000-0000-%s00", timeString.substring(0, 8), timeString.substring(0, 10));
-    };
-  }
 
   public static BiFunction<Object, String, String> relativeTime(boolean iso) {
     final Pattern timeRE = Pattern.compile("now( *([+-]) *(\\d+)([smhdMy]))?");
