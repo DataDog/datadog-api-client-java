@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -36,6 +37,12 @@ public class ClientSteps {
 
   public ClientSteps(World world) {
     this.world = world;
+  }
+
+  public static String generateUuid(OffsetDateTime time) {
+    String timeString = String.valueOf(time.toEpochSecond());
+    return String.format(
+        "%s-0000-0000-0000-%s00", timeString.substring(0, 8), timeString.substring(0, 10));
   }
 
   @Before(order = 0)
@@ -88,6 +95,7 @@ public class ClientSteps {
     world.context.put(
         "unique_hash", sha256Hex(world.context.get("unique").toString()).substring(0, 16));
     world.context.put("now", world.now);
+    world.context.put("uuid", generateUuid(world.now));
   }
 
   @After
