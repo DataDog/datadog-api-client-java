@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17026607-0000-0000-0000-170266078300\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17026607-0000-0000-0000-170266078300\",\"new_tenant_name\":\"17026607-0000-0000-0000-170266078300\",\"resource_collection_enabled\":true,\"tenant_name\":\"17026607-0000-0000-0000-170266078300\"}"
+        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17026645-0000-0000-0000-170266451900\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17026645-0000-0000-0000-170266451900\",\"new_tenant_name\":\"17026645-0000-0000-0000-170266451900\",\"resource_collection_enabled\":true,\"tenant_name\":\"17026645-0000-0000-0000-170266451900\"}"
       },
       "headers": {},
       "method": "POST",
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3b4992ba-04f6-405c-2a43-097c986cdb63"
+    "id": "271471e8-6eb8-fd8c-7294-6683ff145119"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17026607-0000-0000-0000-170266078300\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17026607-0000-0000-0000-170266078300\",\"new_tenant_name\":\"17026607-0000-0000-0000-170266078300\",\"resource_collection_enabled\":true,\"tenant_name\":\"17026607-0000-0000-0000-170266078300\"}"
+        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17026645-0000-0000-0000-170266451900\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17026645-0000-0000-0000-170266451900\",\"new_tenant_name\":\"17026645-0000-0000-0000-170266451900\",\"resource_collection_enabled\":true,\"tenant_name\":\"17026645-0000-0000-0000-170266451900\"}"
       },
       "headers": {},
       "method": "PUT",
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "eb26ddbe-9d56-6238-f289-c835a0cd492a"
+    "id": "8538f072-e06d-8ef6-08ce-107c5e79b111"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17026607-0000-0000-0000-170266078300\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17026607-0000-0000-0000-170266078300\",\"new_tenant_name\":\"17026607-0000-0000-0000-170266078300\",\"resource_collection_enabled\":true,\"tenant_name\":\"17026607-0000-0000-0000-170266078300\"}"
+        "json": "{\"client_id\":\"17026645-0000-0000-0000-170266451900\",\"tenant_name\":\"17026645-0000-0000-0000-170266451900\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -87,6 +87,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2364e69b-f72f-5fb4-db3a-def950717de4"
+    "id": "f81fd706-a119-5bb4-13d2-ca244a018bef"
   }
 ]

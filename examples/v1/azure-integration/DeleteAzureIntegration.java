@@ -4,7 +4,6 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.AzureIntegrationApi;
 import com.datadog.api.client.v1.model.AzureAccount;
-import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -13,18 +12,7 @@ public class Example {
 
     AzureAccount body =
         new AzureAccount()
-            .appServicePlanFilters("key:value,filter:example")
-            .automute(true)
             .clientId("9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d")
-            .clientSecret("testingx./Sw*g/Y33t..R1cH+hScMDt")
-            .containerAppFilters("key:value,filter:example")
-            .cspmEnabled(true)
-            .customMetricsEnabled(true)
-            .errors(Collections.singletonList("*"))
-            .hostFilters("key:value,filter:example")
-            .newClientId("9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d")
-            .newTenantName("9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d")
-            .resourceCollectionEnabled(true)
             .tenantName("9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d");
 
     try {
