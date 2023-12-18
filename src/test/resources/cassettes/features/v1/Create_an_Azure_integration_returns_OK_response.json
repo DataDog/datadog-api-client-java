@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17020496-0000-0000-0000-170204968300\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17020496-0000-0000-0000-170204968300\",\"new_tenant_name\":\"17020496-0000-0000-0000-170204968300\",\"resource_collection_enabled\":true,\"tenant_name\":\"17020496-0000-0000-0000-170204968300\"}"
+        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17026645-0000-0000-0000-170266451500\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17026645-0000-0000-0000-170266451500\",\"new_tenant_name\":\"17026645-0000-0000-0000-170266451500\",\"resource_collection_enabled\":true,\"tenant_name\":\"17026645-0000-0000-0000-170266451500\"}"
       },
       "headers": {},
       "method": "POST",
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "522ef669-0e91-e1b9-dc5d-565fd02dab63"
+    "id": "c74c2d19-2024-43b6-fd7d-64d04102e9ee"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17020496-0000-0000-0000-170204968300\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17020496-0000-0000-0000-170204968300\",\"new_tenant_name\":\"17020496-0000-0000-0000-170204968300\",\"resource_collection_enabled\":true,\"tenant_name\":\"17020496-0000-0000-0000-170204968300\"}"
+        "json": "{\"client_id\":\"17026645-0000-0000-0000-170266451500\",\"tenant_name\":\"17026645-0000-0000-0000-170266451500\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -57,6 +57,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f315a6ac-98a9-803a-e0de-e83c14be953e"
+    "id": "a9241c65-d27d-6c4f-e73d-e2af97b0f404"
   }
 ]
