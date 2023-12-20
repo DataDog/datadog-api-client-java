@@ -128,6 +128,51 @@ public class SplitGraphSourceWidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'ChangeWidgetDefinition'", e);
       }
 
+      // deserialize DistributionWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (DistributionWidgetDefinition.class.equals(Integer.class)
+            || DistributionWidgetDefinition.class.equals(Long.class)
+            || DistributionWidgetDefinition.class.equals(Float.class)
+            || DistributionWidgetDefinition.class.equals(Double.class)
+            || DistributionWidgetDefinition.class.equals(Boolean.class)
+            || DistributionWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((DistributionWidgetDefinition.class.equals(Integer.class)
+                        || DistributionWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((DistributionWidgetDefinition.class.equals(Float.class)
+                        || DistributionWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (DistributionWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (DistributionWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(DistributionWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((DistributionWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'DistributionWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'DistributionWidgetDefinition'", e);
+      }
+
       // deserialize GeomapWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -523,6 +568,11 @@ public class SplitGraphSourceWidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public SplitGraphSourceWidgetDefinition(DistributionWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public SplitGraphSourceWidgetDefinition(GeomapWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -565,6 +615,7 @@ public class SplitGraphSourceWidgetDefinition extends AbstractOpenApiSchema {
 
   static {
     schemas.put("ChangeWidgetDefinition", new GenericType<ChangeWidgetDefinition>() {});
+    schemas.put("DistributionWidgetDefinition", new GenericType<DistributionWidgetDefinition>() {});
     schemas.put("GeomapWidgetDefinition", new GenericType<GeomapWidgetDefinition>() {});
     schemas.put("QueryValueWidgetDefinition", new GenericType<QueryValueWidgetDefinition>() {});
     schemas.put("ScatterPlotWidgetDefinition", new GenericType<ScatterPlotWidgetDefinition>() {});
@@ -584,10 +635,10 @@ public class SplitGraphSourceWidgetDefinition extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: ChangeWidgetDefinition, GeomapWidgetDefinition,
-   * QueryValueWidgetDefinition, ScatterPlotWidgetDefinition, SunburstWidgetDefinition,
-   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
-   * TreeMapWidgetDefinition
+   * against the oneOf child schemas: ChangeWidgetDefinition, DistributionWidgetDefinition,
+   * GeomapWidgetDefinition, QueryValueWidgetDefinition, ScatterPlotWidgetDefinition,
+   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   * ToplistWidgetDefinition, TreeMapWidgetDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -595,6 +646,10 @@ public class SplitGraphSourceWidgetDefinition extends AbstractOpenApiSchema {
   @Override
   public void setActualInstance(Object instance) {
     if (JSON.isInstanceOf(ChangeWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(DistributionWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -636,22 +691,22 @@ public class SplitGraphSourceWidgetDefinition extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be ChangeWidgetDefinition, GeomapWidgetDefinition,"
-            + " QueryValueWidgetDefinition, ScatterPlotWidgetDefinition, SunburstWidgetDefinition,"
-            + " TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,"
-            + " TreeMapWidgetDefinition");
+        "Invalid instance type. Must be ChangeWidgetDefinition, DistributionWidgetDefinition,"
+            + " GeomapWidgetDefinition, QueryValueWidgetDefinition, ScatterPlotWidgetDefinition,"
+            + " SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,"
+            + " ToplistWidgetDefinition, TreeMapWidgetDefinition");
   }
 
   /**
    * Get the actual instance, which can be the following: ChangeWidgetDefinition,
-   * GeomapWidgetDefinition, QueryValueWidgetDefinition, ScatterPlotWidgetDefinition,
-   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
-   * ToplistWidgetDefinition, TreeMapWidgetDefinition
+   * DistributionWidgetDefinition, GeomapWidgetDefinition, QueryValueWidgetDefinition,
+   * ScatterPlotWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
+   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition
    *
-   * @return The actual instance (ChangeWidgetDefinition, GeomapWidgetDefinition,
-   *     QueryValueWidgetDefinition, ScatterPlotWidgetDefinition, SunburstWidgetDefinition,
-   *     TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
-   *     TreeMapWidgetDefinition)
+   * @return The actual instance (ChangeWidgetDefinition, DistributionWidgetDefinition,
+   *     GeomapWidgetDefinition, QueryValueWidgetDefinition, ScatterPlotWidgetDefinition,
+   *     SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   *     ToplistWidgetDefinition, TreeMapWidgetDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -667,6 +722,17 @@ public class SplitGraphSourceWidgetDefinition extends AbstractOpenApiSchema {
    */
   public ChangeWidgetDefinition getChangeWidgetDefinition() throws ClassCastException {
     return (ChangeWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `DistributionWidgetDefinition`. If the actual instance is not
+   * `DistributionWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `DistributionWidgetDefinition`
+   * @throws ClassCastException if the instance is not `DistributionWidgetDefinition`
+   */
+  public DistributionWidgetDefinition getDistributionWidgetDefinition() throws ClassCastException {
+    return (DistributionWidgetDefinition) super.getActualInstance();
   }
 
   /**
