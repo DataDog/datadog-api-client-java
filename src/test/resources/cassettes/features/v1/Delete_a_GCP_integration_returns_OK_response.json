@@ -1,0 +1,92 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"auth_provider_x509_cert_url\":\"https://www.googleapis.com/oauth2/v1/certs\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"client_email\":\"40c7bfeef7b52e04@example.com\",\"client_id\":\"170307841817030784180\",\"client_x509_cert_url\":\"https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL\",\"host_filters\":\"key:value,filter:example\",\"is_cspm_enabled\":true,\"is_security_command_center_enabled\":true,\"private_key\":\"private_key\",\"private_key_id\":\"123456789abcdefghi123456789abcdefghijklm\",\"project_id\":\"datadog-apitest\",\"resource_collection_enabled\":true,\"token_uri\":\"https://accounts.google.com/o/oauth2/token\",\"type\":\"service_account\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/integration/gcp",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f09b693f-bd5d-642e-06d6-ae96259a14a7"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"client_email\":\"40c7bfeef7b52e04@example.com\",\"client_id\":\"170307841817030784180\",\"project_id\":\"datadog-apitest\"}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/integration/gcp",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0ae87fc3-15cb-6f68-858b-05f1eb5cdfcc"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"client_email\":\"40c7bfeef7b52e04@example.com\",\"client_id\":\"170307841817030784180\",\"project_id\":\"datadog-apitest\"}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/integration/gcp",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0ae87fc3-15cb-6f68-858b-05f1eb5cdfcd"
+  }
+]
