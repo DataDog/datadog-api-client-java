@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,63 +17,44 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Relationship between membership and a user */
-@JsonPropertyOrder({
-  UserTeamRelationships.JSON_PROPERTY_TEAM,
-  UserTeamRelationships.JSON_PROPERTY_USER
-})
+/** Relationship between team membership and team */
+@JsonPropertyOrder({RelationshipToUserTeamTeam.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class UserTeamRelationships {
+public class RelationshipToUserTeamTeam {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_TEAM = "team";
-  private RelationshipToUserTeamTeam team;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private RelationshipToUserTeamTeamData data;
 
-  public static final String JSON_PROPERTY_USER = "user";
-  private RelationshipToUserTeamUser user;
+  public RelationshipToUserTeamTeam() {}
 
-  public UserTeamRelationships team(RelationshipToUserTeamTeam team) {
-    this.team = team;
-    this.unparsed |= team.unparsed;
+  @JsonCreator
+  public RelationshipToUserTeamTeam(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          RelationshipToUserTeamTeamData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public RelationshipToUserTeamTeam data(RelationshipToUserTeamTeamData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Relationship between team membership and team
+   * The team associated with the membership
    *
-   * @return team
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUserTeamTeam getTeam() {
-    return team;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RelationshipToUserTeamTeamData getData() {
+    return data;
   }
 
-  public void setTeam(RelationshipToUserTeamTeam team) {
-    this.team = team;
-  }
-
-  public UserTeamRelationships user(RelationshipToUserTeamUser user) {
-    this.user = user;
-    this.unparsed |= user.unparsed;
-    return this;
-  }
-
-  /**
-   * Relationship between team membership and user
-   *
-   * @return user
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUserTeamUser getUser() {
-    return user;
-  }
-
-  public void setUser(RelationshipToUserTeamUser user) {
-    this.user = user;
+  public void setData(RelationshipToUserTeamTeamData data) {
+    this.data = data;
   }
 
   /**
@@ -87,10 +69,10 @@ public class UserTeamRelationships {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return UserTeamRelationships
+   * @return RelationshipToUserTeamTeam
    */
   @JsonAnySetter
-  public UserTeamRelationships putAdditionalProperty(String key, Object value) {
+  public RelationshipToUserTeamTeam putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -121,7 +103,7 @@ public class UserTeamRelationships {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this UserTeamRelationships object is equal to o. */
+  /** Return true if this RelationshipToUserTeamTeam object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,23 +112,22 @@ public class UserTeamRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserTeamRelationships userTeamRelationships = (UserTeamRelationships) o;
-    return Objects.equals(this.team, userTeamRelationships.team)
-        && Objects.equals(this.user, userTeamRelationships.user)
-        && Objects.equals(this.additionalProperties, userTeamRelationships.additionalProperties);
+    RelationshipToUserTeamTeam relationshipToUserTeamTeam = (RelationshipToUserTeamTeam) o;
+    return Objects.equals(this.data, relationshipToUserTeamTeam.data)
+        && Objects.equals(
+            this.additionalProperties, relationshipToUserTeamTeam.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(team, user, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserTeamRelationships {\n");
-    sb.append("    team: ").append(toIndentedString(team)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("class RelationshipToUserTeamTeam {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

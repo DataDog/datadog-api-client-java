@@ -3,6 +3,8 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.TeamsApi;
+import com.datadog.api.client.v2.model.RelationshipToUserTeamTeam;
+import com.datadog.api.client.v2.model.RelationshipToUserTeamTeamData;
 import com.datadog.api.client.v2.model.RelationshipToUserTeamUser;
 import com.datadog.api.client.v2.model.RelationshipToUserTeamUserData;
 import com.datadog.api.client.v2.model.UserTeamAttributes;
@@ -11,6 +13,7 @@ import com.datadog.api.client.v2.model.UserTeamRelationships;
 import com.datadog.api.client.v2.model.UserTeamRequest;
 import com.datadog.api.client.v2.model.UserTeamResponse;
 import com.datadog.api.client.v2.model.UserTeamRole;
+import com.datadog.api.client.v2.model.UserTeamTeamType;
 import com.datadog.api.client.v2.model.UserTeamType;
 import com.datadog.api.client.v2.model.UserTeamUserType;
 
@@ -26,6 +29,12 @@ public class Example {
                     .attributes(new UserTeamAttributes().role(UserTeamRole.ADMIN))
                     .relationships(
                         new UserTeamRelationships()
+                            .team(
+                                new RelationshipToUserTeamTeam()
+                                    .data(
+                                        new RelationshipToUserTeamTeamData()
+                                            .id("d7e15d9d-d346-43da-81d8-3d9e71d9a5e9")
+                                            .type(UserTeamTeamType.TEAM)))
                             .user(
                                 new RelationshipToUserTeamUser()
                                     .data(
