@@ -18,13 +18,78 @@ import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Team membership attributes */
-@JsonPropertyOrder({UserTeamAttributes.JSON_PROPERTY_ROLE})
+@JsonPropertyOrder({
+  UserTeamAttributes.JSON_PROPERTY_PROVISIONED_BY,
+  UserTeamAttributes.JSON_PROPERTY_PROVISIONED_BY_ID,
+  UserTeamAttributes.JSON_PROPERTY_ROLE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserTeamAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_PROVISIONED_BY = "provisioned_by";
+  private JsonNullable<String> provisionedBy = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_PROVISIONED_BY_ID = "provisioned_by_id";
+  private JsonNullable<String> provisionedById = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_ROLE = "role";
   private JsonNullable<UserTeamRole> role = JsonNullable.<UserTeamRole>undefined();
+
+  /**
+   * The mechanism responsible for provisioning the team relationship. Possible values: null for
+   * added by a user, "service_account" if added by a service account, and "saml_mapping" if
+   * provisioned via SAML mapping.
+   *
+   * @return provisionedBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getProvisionedBy() {
+
+    if (provisionedBy == null) {
+      provisionedBy = JsonNullable.<String>undefined();
+    }
+    return provisionedBy.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PROVISIONED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getProvisionedBy_JsonNullable() {
+    return provisionedBy;
+  }
+
+  @JsonProperty(JSON_PROPERTY_PROVISIONED_BY)
+  private void setProvisionedBy_JsonNullable(JsonNullable<String> provisionedBy) {
+    this.provisionedBy = provisionedBy;
+  }
+
+  /**
+   * UUID of the User or Service Account who provisioned this team membership, or null if
+   * provisioned via SAML mapping.
+   *
+   * @return provisionedById
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getProvisionedById() {
+
+    if (provisionedById == null) {
+      provisionedById = JsonNullable.<String>undefined();
+    }
+    return provisionedById.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_PROVISIONED_BY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getProvisionedById_JsonNullable() {
+    return provisionedById;
+  }
+
+  @JsonProperty(JSON_PROPERTY_PROVISIONED_BY_ID)
+  private void setProvisionedById_JsonNullable(JsonNullable<String> provisionedById) {
+    this.provisionedById = provisionedById;
+  }
 
   public UserTeamAttributes role(UserTeamRole role) {
     this.role = JsonNullable.<UserTeamRole>of(role);
@@ -116,19 +181,23 @@ public class UserTeamAttributes {
       return false;
     }
     UserTeamAttributes userTeamAttributes = (UserTeamAttributes) o;
-    return Objects.equals(this.role, userTeamAttributes.role)
+    return Objects.equals(this.provisionedBy, userTeamAttributes.provisionedBy)
+        && Objects.equals(this.provisionedById, userTeamAttributes.provisionedById)
+        && Objects.equals(this.role, userTeamAttributes.role)
         && Objects.equals(this.additionalProperties, userTeamAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, additionalProperties);
+    return Objects.hash(provisionedBy, provisionedById, role, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserTeamAttributes {\n");
+    sb.append("    provisionedBy: ").append(toIndentedString(provisionedBy)).append("\n");
+    sb.append("    provisionedById: ").append(toIndentedString(provisionedById)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
