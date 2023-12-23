@@ -30,7 +30,7 @@ public class LogsGrokParserRules {
   private String matchRules;
 
   public static final String JSON_PROPERTY_SUPPORT_RULES = "support_rules";
-  private String supportRules = "";
+  private String supportRules;
 
   public LogsGrokParserRules() {}
 

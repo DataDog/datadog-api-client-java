@@ -35,7 +35,7 @@ import java.util.Objects;
 public class LogsGeoIPParser {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
+  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -44,7 +44,7 @@ public class LogsGeoIPParser {
   private List<String> sources = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TARGET = "target";
-  private String target = "network.client.geoip";
+  private String target;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsGeoIPParserType type = LogsGeoIPParserType.GEO_IP_PARSER;

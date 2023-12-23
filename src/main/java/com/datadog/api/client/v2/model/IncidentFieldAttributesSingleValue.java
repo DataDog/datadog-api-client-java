@@ -27,8 +27,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class IncidentFieldAttributesSingleValue {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
-  private IncidentFieldAttributesSingleValueType type =
-      IncidentFieldAttributesSingleValueType.DROPDOWN;
+  private IncidentFieldAttributesSingleValueType type;
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private JsonNullable<String> value = JsonNullable.<String>undefined();

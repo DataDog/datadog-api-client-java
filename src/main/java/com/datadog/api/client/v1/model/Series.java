@@ -53,7 +53,7 @@ public class Series {
   private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "";
+  private String type;
 
   public Series() {}
 

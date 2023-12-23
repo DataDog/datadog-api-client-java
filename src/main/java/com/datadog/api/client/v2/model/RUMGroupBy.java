@@ -37,7 +37,7 @@ public class RUMGroupBy {
   private RUMGroupByHistogram histogram;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private Long limit = 10l;
+  private Long limit;
 
   public static final String JSON_PROPERTY_MISSING = "missing";
   private RUMGroupByMissing missing;
@@ -46,7 +46,7 @@ public class RUMGroupBy {
   private RUMAggregateSort sort;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
-  private RUMGroupByTotal total = new RUMGroupByTotal(false);
+  private RUMGroupByTotal total;
 
   public RUMGroupBy() {}
 

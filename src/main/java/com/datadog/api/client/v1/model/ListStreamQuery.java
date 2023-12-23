@@ -38,7 +38,7 @@ public class ListStreamQuery {
   private List<ListStreamComputeItems> compute = null;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
-  private ListStreamSource dataSource = ListStreamSource.APM_ISSUE_STREAM;
+  private ListStreamSource dataSource;
 
   public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";
   private WidgetEventSize eventSize;

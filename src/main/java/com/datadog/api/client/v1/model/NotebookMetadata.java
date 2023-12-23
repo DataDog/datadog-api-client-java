@@ -28,10 +28,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class NotebookMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_TEMPLATE = "is_template";
-  private Boolean isTemplate = false;
+  private Boolean isTemplate;
 
   public static final String JSON_PROPERTY_TAKE_SNAPSHOTS = "take_snapshots";
-  private Boolean takeSnapshots = false;
+  private Boolean takeSnapshots;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private JsonNullable<NotebookMetadataType> type = JsonNullable.<NotebookMetadataType>undefined();

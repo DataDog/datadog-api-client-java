@@ -30,7 +30,7 @@ public class LogsArchiveCreateRequestDefinition {
   private LogsArchiveCreateRequestAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "archives";
+  private String type;
 
   public LogsArchiveCreateRequestDefinition() {}
 

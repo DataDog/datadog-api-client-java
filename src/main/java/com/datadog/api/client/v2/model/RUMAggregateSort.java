@@ -37,7 +37,7 @@ public class RUMAggregateSort {
   private RUMSortOrder order;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private RUMAggregateSortType type = RUMAggregateSortType.ALPHABETICAL;
+  private RUMAggregateSortType type;
 
   public RUMAggregateSort aggregation(RUMAggregationFunction aggregation) {
     this.aggregation = aggregation;

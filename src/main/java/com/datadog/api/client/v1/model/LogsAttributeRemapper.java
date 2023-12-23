@@ -43,19 +43,19 @@ import java.util.Objects;
 public class LogsAttributeRemapper {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
+  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_OVERRIDE_ON_CONFLICT = "override_on_conflict";
-  private Boolean overrideOnConflict = false;
+  private Boolean overrideOnConflict;
 
   public static final String JSON_PROPERTY_PRESERVE_SOURCE = "preserve_source";
-  private Boolean preserveSource = false;
+  private Boolean preserveSource;
 
   public static final String JSON_PROPERTY_SOURCE_TYPE = "source_type";
-  private String sourceType = "attribute";
+  private String sourceType;
 
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<String> sources = new ArrayList<>();
@@ -67,7 +67,7 @@ public class LogsAttributeRemapper {
   private TargetFormatType targetFormat;
 
   public static final String JSON_PROPERTY_TARGET_TYPE = "target_type";
-  private String targetType = "attribute";
+  private String targetType;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsAttributeRemapperType type = LogsAttributeRemapperType.ATTRIBUTE_REMAPPER;

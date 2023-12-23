@@ -37,7 +37,7 @@ public class WebhooksIntegrationUpdateRequest {
   private String customHeaders;
 
   public static final String JSON_PROPERTY_ENCODE_AS = "encode_as";
-  private WebhooksIntegrationEncoding encodeAs = WebhooksIntegrationEncoding.JSON;
+  private WebhooksIntegrationEncoding encodeAs;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

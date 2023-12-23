@@ -36,10 +36,10 @@ import java.util.Objects;
 public class LogsUserAgentParser {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
+  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_IS_ENCODED = "is_encoded";
-  private Boolean isEncoded = false;
+  private Boolean isEncoded;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -48,7 +48,7 @@ public class LogsUserAgentParser {
   private List<String> sources = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TARGET = "target";
-  private String target = "http.useragent_details";
+  private String target;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsUserAgentParserType type = LogsUserAgentParserType.USER_AGENT_PARSER;

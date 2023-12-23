@@ -37,7 +37,7 @@ public class LogsArchiveCreateRequestAttributes {
   private LogsArchiveCreateRequestDestination destination;
 
   public static final String JSON_PROPERTY_INCLUDE_TAGS = "include_tags";
-  private Boolean includeTags = false;
+  private Boolean includeTags;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;

@@ -46,7 +46,7 @@ public class DowntimeResponseAttributes {
   private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_DISPLAY_TIMEZONE = "display_timezone";
-  private JsonNullable<String> displayTimezone = JsonNullable.<String>of("UTC");
+  private JsonNullable<String> displayTimezone = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private JsonNullable<String> message = JsonNullable.<String>undefined();

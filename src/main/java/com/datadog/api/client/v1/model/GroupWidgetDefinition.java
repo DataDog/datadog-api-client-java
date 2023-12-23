@@ -47,7 +47,7 @@ public class GroupWidgetDefinition {
   private WidgetLayoutType layoutType;
 
   public static final String JSON_PROPERTY_SHOW_TITLE = "show_title";
-  private Boolean showTitle = true;
+  private Boolean showTitle;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;

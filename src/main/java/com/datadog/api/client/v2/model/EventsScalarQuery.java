@@ -36,7 +36,7 @@ public class EventsScalarQuery {
   private EventsCompute compute;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
-  private EventsDataSource dataSource = EventsDataSource.LOGS;
+  private EventsDataSource dataSource;
 
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private List<EventsGroupBy> groupBy = null;

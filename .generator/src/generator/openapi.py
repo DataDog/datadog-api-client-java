@@ -205,6 +205,12 @@ def get_type_at_path(operation, attribute_path):
     return type_to_java(content["items"])
 
 
+def get_default_value(schema):
+    default = schema.get("default")
+    if default and len(schema.get("enum", [])) == 1:
+        return default
+
+
 def child_models(schema, alternative_name=None, seen=None, parent=None):
     seen = seen or set()
     current_name = get_name(schema)

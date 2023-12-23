@@ -27,13 +27,13 @@ import java.util.Objects;
 public class MetricOrigin {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_METRIC_TYPE = "metric_type";
-  private Integer metricType = 0;
+  private Integer metricType;
 
   public static final String JSON_PROPERTY_PRODUCT = "product";
-  private Integer product = 0;
+  private Integer product;
 
   public static final String JSON_PROPERTY_SERVICE = "service";
-  private Integer service = 0;
+  private Integer service;
 
   public MetricOrigin metricType(Integer metricType) {
     this.metricType = metricType;

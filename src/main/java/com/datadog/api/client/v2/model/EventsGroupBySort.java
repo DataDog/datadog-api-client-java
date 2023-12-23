@@ -29,13 +29,13 @@ import java.util.Objects;
 public class EventsGroupBySort {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
-  private EventsAggregation aggregation = EventsAggregation.COUNT;
+  private EventsAggregation aggregation;
 
   public static final String JSON_PROPERTY_METRIC = "metric";
   private String metric;
 
   public static final String JSON_PROPERTY_ORDER = "order";
-  private QuerySortOrder order = QuerySortOrder.DESC;
+  private QuerySortOrder order;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private EventsSortType type;

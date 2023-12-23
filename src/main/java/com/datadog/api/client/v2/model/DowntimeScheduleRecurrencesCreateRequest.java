@@ -32,7 +32,7 @@ public class DowntimeScheduleRecurrencesCreateRequest {
   private List<DowntimeScheduleRecurrenceCreateUpdateRequest> recurrences = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
-  private String timezone = "UTC";
+  private String timezone;
 
   public DowntimeScheduleRecurrencesCreateRequest() {}
 

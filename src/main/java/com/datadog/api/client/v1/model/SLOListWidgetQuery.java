@@ -30,7 +30,7 @@ import java.util.Objects;
 public class SLOListWidgetQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private Long limit = 100l;
+  private Long limit;
 
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString;

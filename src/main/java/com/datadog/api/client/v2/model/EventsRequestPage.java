@@ -26,7 +26,7 @@ public class EventsRequestPage {
   private String cursor;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private Integer limit = 10;
+  private Integer limit;
 
   public EventsRequestPage cursor(String cursor) {
     this.cursor = cursor;

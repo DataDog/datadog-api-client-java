@@ -34,7 +34,7 @@ public class MonitorFormulaAndFunctionEventQueryGroupBySort {
   private String metric;
 
   public static final String JSON_PROPERTY_ORDER = "order";
-  private QuerySortOrder order = QuerySortOrder.DESC;
+  private QuerySortOrder order;
 
   public MonitorFormulaAndFunctionEventQueryGroupBySort() {}
 

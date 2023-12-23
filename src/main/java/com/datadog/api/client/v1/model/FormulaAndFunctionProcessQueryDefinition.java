@@ -54,7 +54,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
   private String name;
 
   public static final String JSON_PROPERTY_SORT = "sort";
-  private QuerySortOrder sort = QuerySortOrder.DESC;
+  private QuerySortOrder sort;
 
   public static final String JSON_PROPERTY_TAG_FILTERS = "tag_filters";
   private List<String> tagFilters = null;

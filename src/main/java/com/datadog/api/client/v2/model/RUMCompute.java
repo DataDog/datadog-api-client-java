@@ -38,7 +38,7 @@ public class RUMCompute {
   private String metric;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private RUMComputeType type = RUMComputeType.TOTAL;
+  private RUMComputeType type;
 
   public RUMCompute() {}
 

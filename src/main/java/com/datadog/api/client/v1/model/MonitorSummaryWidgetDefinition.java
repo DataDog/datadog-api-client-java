@@ -60,7 +60,7 @@ public class MonitorSummaryWidgetDefinition {
   private Boolean showLastTriggered;
 
   public static final String JSON_PROPERTY_SHOW_PRIORITY = "show_priority";
-  private Boolean showPriority = false;
+  private Boolean showPriority;
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private WidgetMonitorSummarySort sort;

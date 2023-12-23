@@ -32,7 +32,7 @@ public class LogsQueryOptions {
   private Long timeOffset;
 
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
-  private String timezone = "UTC";
+  private String timezone;
 
   public LogsQueryOptions timeOffset(Long timeOffset) {
     this.timeOffset = timeOffset;

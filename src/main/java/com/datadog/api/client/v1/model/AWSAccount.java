@@ -48,7 +48,7 @@ public class AWSAccount {
 
   public static final String JSON_PROPERTY_CSPM_RESOURCE_COLLECTION_ENABLED =
       "cspm_resource_collection_enabled";
-  private Boolean cspmResourceCollectionEnabled = false;
+  private Boolean cspmResourceCollectionEnabled;
 
   public static final String JSON_PROPERTY_EXCLUDED_REGIONS = "excluded_regions";
   private List<String> excludedRegions = null;
@@ -61,11 +61,11 @@ public class AWSAccount {
 
   public static final String JSON_PROPERTY_METRICS_COLLECTION_ENABLED =
       "metrics_collection_enabled";
-  private Boolean metricsCollectionEnabled = true;
+  private Boolean metricsCollectionEnabled;
 
   public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED =
       "resource_collection_enabled";
-  private Boolean resourceCollectionEnabled = false;
+  private Boolean resourceCollectionEnabled;
 
   public static final String JSON_PROPERTY_ROLE_NAME = "role_name";
   private String roleName;

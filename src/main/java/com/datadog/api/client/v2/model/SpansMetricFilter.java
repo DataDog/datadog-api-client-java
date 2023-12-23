@@ -23,7 +23,7 @@ import java.util.Objects;
 public class SpansMetricFilter {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
-  private String query = "*";
+  private String query;
 
   public SpansMetricFilter query(String query) {
     this.query = query;

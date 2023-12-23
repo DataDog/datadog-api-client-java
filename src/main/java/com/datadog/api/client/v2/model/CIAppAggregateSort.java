@@ -37,7 +37,7 @@ public class CIAppAggregateSort {
   private CIAppSortOrder order;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private CIAppAggregateSortType type = CIAppAggregateSortType.ALPHABETICAL;
+  private CIAppAggregateSortType type;
 
   public CIAppAggregateSort aggregation(CIAppAggregationFunction aggregation) {
     this.aggregation = aggregation;

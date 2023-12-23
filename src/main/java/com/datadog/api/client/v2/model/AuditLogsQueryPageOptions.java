@@ -29,7 +29,7 @@ public class AuditLogsQueryPageOptions {
   private String cursor;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private Integer limit = 10;
+  private Integer limit;
 
   public AuditLogsQueryPageOptions cursor(String cursor) {
     this.cursor = cursor;

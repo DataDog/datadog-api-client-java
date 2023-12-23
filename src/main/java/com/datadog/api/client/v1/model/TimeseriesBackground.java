@@ -27,7 +27,7 @@ import java.util.Objects;
 public class TimeseriesBackground {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TimeseriesBackgroundType type = TimeseriesBackgroundType.AREA;
+  private TimeseriesBackgroundType type;
 
   public static final String JSON_PROPERTY_YAXIS = "yaxis";
   private WidgetAxis yaxis;

@@ -34,19 +34,19 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class LogsURLParser {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
+  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_NORMALIZE_ENDING_SLASHES = "normalize_ending_slashes";
-  private JsonNullable<Boolean> normalizeEndingSlashes = JsonNullable.<Boolean>of(false);
+  private JsonNullable<Boolean> normalizeEndingSlashes = JsonNullable.<Boolean>undefined();
 
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<String> sources = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TARGET = "target";
-  private String target = "http.url_details";
+  private String target;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsURLParserType type = LogsURLParserType.URL_PARSER;

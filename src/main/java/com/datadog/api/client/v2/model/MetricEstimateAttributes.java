@@ -28,7 +28,7 @@ import java.util.Objects;
 public class MetricEstimateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ESTIMATE_TYPE = "estimate_type";
-  private MetricEstimateType estimateType = MetricEstimateType.COUNT_OR_GAUGE;
+  private MetricEstimateType estimateType;
 
   public static final String JSON_PROPERTY_ESTIMATED_AT = "estimated_at";
   private OffsetDateTime estimatedAt;

@@ -30,7 +30,7 @@ import java.util.Objects;
 public class ConfluentResourceRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENABLE_CUSTOM_METRICS = "enable_custom_metrics";
-  private Boolean enableCustomMetrics = false;
+  private Boolean enableCustomMetrics;
 
   public static final String JSON_PROPERTY_RESOURCE_TYPE = "resource_type";
   private String resourceType;

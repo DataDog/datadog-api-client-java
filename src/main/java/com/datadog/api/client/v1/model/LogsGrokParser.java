@@ -41,7 +41,7 @@ public class LogsGrokParser {
   private LogsGrokParserRules grok;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-  private Boolean isEnabled = false;
+  private Boolean isEnabled;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -50,7 +50,7 @@ public class LogsGrokParser {
   private List<String> samples = null;
 
   public static final String JSON_PROPERTY_SOURCE = "source";
-  private String source = "message";
+  private String source;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsGrokParserType type = LogsGrokParserType.GROK_PARSER;
