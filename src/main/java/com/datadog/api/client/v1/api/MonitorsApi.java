@@ -247,7 +247,7 @@ public class MonitorsApi {
    *   <li>process: <code>service check</code>
    *   <li>rum: <code>rum alert</code>
    *   <li>SLO: <code>slo alert</code>
-   *   <li>watchdog: <code>event alert</code>
+   *   <li>watchdog: <code>event-v2 alert</code>
    *   <li>event-v2: <code>event-v2 alert</code>
    *   <li>audit: <code>audit alert</code>
    *   <li>error-tracking: <code>error-tracking alert</code>
