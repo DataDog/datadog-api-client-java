@@ -53,7 +53,9 @@ public class DowntimesApi {
    *
    * @param downtimeId ID of the downtime to cancel. (required)
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public void cancelDowntime(Long downtimeId) throws ApiException {
     cancelDowntimeWithHttpInfo(downtimeId);
   }
@@ -65,7 +67,9 @@ public class DowntimesApi {
    *
    * @param downtimeId ID of the downtime to cancel. (required)
    * @return CompletableFuture
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Void> cancelDowntimeAsync(Long downtimeId) {
     return cancelDowntimeWithHttpInfoAsync(downtimeId)
         .thenApply(
@@ -75,7 +79,8 @@ public class DowntimesApi {
   }
 
   /**
-   * Cancel a downtime.
+   * Cancel a downtime. <strong>Note:</strong> This endpoint has been deprecated. Please use v2
+   * endpoints.
    *
    * @param downtimeId ID of the downtime to cancel. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -89,7 +94,10 @@ public class DowntimesApi {
    *       <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Void> cancelDowntimeWithHttpInfo(Long downtimeId) throws ApiException {
     Object localVarPostBody = null;
 
@@ -133,7 +141,9 @@ public class DowntimesApi {
    *
    * @param downtimeId ID of the downtime to cancel. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Void>> cancelDowntimeWithHttpInfoAsync(Long downtimeId) {
     Object localVarPostBody = null;
 
@@ -188,7 +198,9 @@ public class DowntimesApi {
    * @param body Scope to cancel downtimes for. (required)
    * @return CanceledDowntimesIds
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CanceledDowntimesIds cancelDowntimesByScope(CancelDowntimesByScopeRequest body)
       throws ApiException {
     return cancelDowntimesByScopeWithHttpInfo(body).getData();
@@ -201,7 +213,9 @@ public class DowntimesApi {
    *
    * @param body Scope to cancel downtimes for. (required)
    * @return CompletableFuture&lt;CanceledDowntimesIds&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<CanceledDowntimesIds> cancelDowntimesByScopeAsync(
       CancelDowntimesByScopeRequest body) {
     return cancelDowntimesByScopeWithHttpInfoAsync(body)
@@ -212,7 +226,9 @@ public class DowntimesApi {
   }
 
   /**
-   * Delete all downtimes that match the scope of <code>X</code>.
+   * Delete all downtimes that match the scope of <code>X</code>. <strong>Note:</strong> This only
+   * interacts with Downtimes created using v1 endpoints. This endpoint has been deprecated and will
+   * not be replaced. Please use v2 endpoints to find and cancel downtimes.
    *
    * @param body Scope to cancel downtimes for. (required)
    * @return ApiResponse&lt;CanceledDowntimesIds&gt;
@@ -227,7 +243,10 @@ public class DowntimesApi {
    *       <tr><td> 404 </td><td> Downtimes not found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CanceledDowntimesIds> cancelDowntimesByScopeWithHttpInfo(
       CancelDowntimesByScopeRequest body) throws ApiException {
     Object localVarPostBody = body;
@@ -269,7 +288,9 @@ public class DowntimesApi {
    *
    * @param body Scope to cancel downtimes for. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CanceledDowntimesIds&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<CanceledDowntimesIds>>
       cancelDowntimesByScopeWithHttpInfoAsync(CancelDowntimesByScopeRequest body) {
     Object localVarPostBody = body;
@@ -322,7 +343,9 @@ public class DowntimesApi {
    * @param body Schedule a downtime request body. (required)
    * @return Downtime
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Downtime createDowntime(Downtime body) throws ApiException {
     return createDowntimeWithHttpInfo(body).getData();
   }
@@ -334,7 +357,9 @@ public class DowntimesApi {
    *
    * @param body Schedule a downtime request body. (required)
    * @return CompletableFuture&lt;Downtime&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Downtime> createDowntimeAsync(Downtime body) {
     return createDowntimeWithHttpInfoAsync(body)
         .thenApply(
@@ -344,7 +369,8 @@ public class DowntimesApi {
   }
 
   /**
-   * Schedule a downtime.
+   * Schedule a downtime. <strong>Note:</strong> This endpoint has been deprecated. Please use v2
+   * endpoints.
    *
    * @param body Schedule a downtime request body. (required)
    * @return ApiResponse&lt;Downtime&gt;
@@ -358,7 +384,10 @@ public class DowntimesApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Downtime> createDowntimeWithHttpInfo(Downtime body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -399,7 +428,9 @@ public class DowntimesApi {
    *
    * @param body Schedule a downtime request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Downtime&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Downtime>> createDowntimeWithHttpInfoAsync(Downtime body) {
     Object localVarPostBody = body;
 
@@ -451,7 +482,9 @@ public class DowntimesApi {
    * @param downtimeId ID of the downtime to fetch. (required)
    * @return Downtime
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Downtime getDowntime(Long downtimeId) throws ApiException {
     return getDowntimeWithHttpInfo(downtimeId).getData();
   }
@@ -463,7 +496,9 @@ public class DowntimesApi {
    *
    * @param downtimeId ID of the downtime to fetch. (required)
    * @return CompletableFuture&lt;Downtime&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Downtime> getDowntimeAsync(Long downtimeId) {
     return getDowntimeWithHttpInfoAsync(downtimeId)
         .thenApply(
@@ -473,7 +508,8 @@ public class DowntimesApi {
   }
 
   /**
-   * Get downtime detail by <code>downtime_id</code>.
+   * Get downtime detail by <code>downtime_id</code>. <strong>Note:</strong> This endpoint has been
+   * deprecated. Please use v2 endpoints.
    *
    * @param downtimeId ID of the downtime to fetch. (required)
    * @return ApiResponse&lt;Downtime&gt;
@@ -487,7 +523,10 @@ public class DowntimesApi {
    *       <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Downtime> getDowntimeWithHttpInfo(Long downtimeId) throws ApiException {
     Object localVarPostBody = null;
 
@@ -531,7 +570,9 @@ public class DowntimesApi {
    *
    * @param downtimeId ID of the downtime to fetch. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Downtime&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Downtime>> getDowntimeWithHttpInfoAsync(Long downtimeId) {
     Object localVarPostBody = null;
 
@@ -613,7 +654,9 @@ public class DowntimesApi {
    *
    * @return List&lt;Downtime&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public List<Downtime> listDowntimes() throws ApiException {
     return listDowntimesWithHttpInfo(new ListDowntimesOptionalParameters()).getData();
   }
@@ -624,7 +667,9 @@ public class DowntimesApi {
    * <p>See {@link #listDowntimesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;List&lt;Downtime&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<List<Downtime>> listDowntimesAsync() {
     return listDowntimesWithHttpInfoAsync(new ListDowntimesOptionalParameters())
         .thenApply(
@@ -641,7 +686,9 @@ public class DowntimesApi {
    * @param parameters Optional parameters for the request.
    * @return List&lt;Downtime&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public List<Downtime> listDowntimes(ListDowntimesOptionalParameters parameters)
       throws ApiException {
     return listDowntimesWithHttpInfo(parameters).getData();
@@ -654,7 +701,9 @@ public class DowntimesApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;List&lt;Downtime&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<List<Downtime>> listDowntimesAsync(
       ListDowntimesOptionalParameters parameters) {
     return listDowntimesWithHttpInfoAsync(parameters)
@@ -665,7 +714,8 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all scheduled downtimes.
+   * Get all scheduled downtimes. <strong>Note:</strong> This endpoint has been deprecated. Please
+   * use v2 endpoints.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
@@ -678,7 +728,10 @@ public class DowntimesApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<List<Downtime>> listDowntimesWithHttpInfo(
       ListDowntimesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
@@ -720,7 +773,9 @@ public class DowntimesApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;List&lt;Downtime&gt;&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<List<Downtime>>> listDowntimesWithHttpInfoAsync(
       ListDowntimesOptionalParameters parameters) {
     Object localVarPostBody = null;
@@ -770,7 +825,9 @@ public class DowntimesApi {
    * @param monitorId The id of the monitor (required)
    * @return List&lt;Downtime&gt;
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public List<Downtime> listMonitorDowntimes(Long monitorId) throws ApiException {
     return listMonitorDowntimesWithHttpInfo(monitorId).getData();
   }
@@ -782,7 +839,9 @@ public class DowntimesApi {
    *
    * @param monitorId The id of the monitor (required)
    * @return CompletableFuture&lt;List&lt;Downtime&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<List<Downtime>> listMonitorDowntimesAsync(Long monitorId) {
     return listMonitorDowntimesWithHttpInfoAsync(monitorId)
         .thenApply(
@@ -792,7 +851,8 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all active downtimes for the specified monitor.
+   * Get all active v1 downtimes for the specified monitor. <strong>Note:</strong> This endpoint has
+   * been deprecated. Please use v2 endpoints.
    *
    * @param monitorId The id of the monitor (required)
    * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
@@ -806,7 +866,10 @@ public class DowntimesApi {
    *       <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<List<Downtime>> listMonitorDowntimesWithHttpInfo(Long monitorId)
       throws ApiException {
     Object localVarPostBody = null;
@@ -850,7 +913,9 @@ public class DowntimesApi {
    *
    * @param monitorId The id of the monitor (required)
    * @return CompletableFuture&lt;ApiResponse&lt;List&lt;Downtime&gt;&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<List<Downtime>>> listMonitorDowntimesWithHttpInfoAsync(
       Long monitorId) {
     Object localVarPostBody = null;
@@ -906,7 +971,9 @@ public class DowntimesApi {
    * @param body Update a downtime request body. (required)
    * @return Downtime
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public Downtime updateDowntime(Long downtimeId, Downtime body) throws ApiException {
     return updateDowntimeWithHttpInfo(downtimeId, body).getData();
   }
@@ -919,7 +986,9 @@ public class DowntimesApi {
    * @param downtimeId ID of the downtime to update. (required)
    * @param body Update a downtime request body. (required)
    * @return CompletableFuture&lt;Downtime&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Downtime> updateDowntimeAsync(Long downtimeId, Downtime body) {
     return updateDowntimeWithHttpInfoAsync(downtimeId, body)
         .thenApply(
@@ -929,7 +998,8 @@ public class DowntimesApi {
   }
 
   /**
-   * Update a single downtime by <code>downtime_id</code>.
+   * Update a single downtime by <code>downtime_id</code>. <strong>Note:</strong> This endpoint has
+   * been deprecated. Please use v2 endpoints.
    *
    * @param downtimeId ID of the downtime to update. (required)
    * @param body Update a downtime request body. (required)
@@ -945,7 +1015,10 @@ public class DowntimesApi {
    *       <tr><td> 404 </td><td> Downtime not found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downtime body)
       throws ApiException {
     Object localVarPostBody = body;
@@ -997,7 +1070,9 @@ public class DowntimesApi {
    * @param downtimeId ID of the downtime to update. (required)
    * @param body Update a downtime request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Downtime&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Downtime>> updateDowntimeWithHttpInfoAsync(
       Long downtimeId, Downtime body) {
     Object localVarPostBody = body;
