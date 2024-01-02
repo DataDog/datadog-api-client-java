@@ -11,6 +11,7 @@ import com.datadog.api.client.v2.model.DowntimeResponseData;
 import com.datadog.api.client.v2.model.DowntimeUpdateRequest;
 import com.datadog.api.client.v2.model.ListDowntimesResponse;
 import com.datadog.api.client.v2.model.MonitorDowntimeMatchResponse;
+import com.datadog.api.client.v2.model.MonitorDowntimeMatchResponseData;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -786,6 +787,35 @@ public class DowntimesApi {
         new GenericType<ListDowntimesResponse>() {});
   }
 
+  /** Manage optional parameters to listMonitorDowntimes. */
+  public static class ListMonitorDowntimesOptionalParameters {
+    private Long pageOffset;
+    private Long pageLimit;
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
+     *     default to 0)
+     * @return ListMonitorDowntimesOptionalParameters
+     */
+    public ListMonitorDowntimesOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of downtimes in the response. (optional, default to 30)
+     * @return ListMonitorDowntimesOptionalParameters
+     */
+    public ListMonitorDowntimesOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+  }
+
   /**
    * Get active downtimes for a monitor.
    *
@@ -796,7 +826,8 @@ public class DowntimesApi {
    * @throws ApiException if fails to make API call
    */
   public MonitorDowntimeMatchResponse listMonitorDowntimes(Long monitorId) throws ApiException {
-    return listMonitorDowntimesWithHttpInfo(monitorId).getData();
+    return listMonitorDowntimesWithHttpInfo(monitorId, new ListMonitorDowntimesOptionalParameters())
+        .getData();
   }
 
   /**
@@ -808,7 +839,8 @@ public class DowntimesApi {
    * @return CompletableFuture&lt;MonitorDowntimeMatchResponse&gt;
    */
   public CompletableFuture<MonitorDowntimeMatchResponse> listMonitorDowntimesAsync(Long monitorId) {
-    return listMonitorDowntimesWithHttpInfoAsync(monitorId)
+    return listMonitorDowntimesWithHttpInfoAsync(
+            monitorId, new ListMonitorDowntimesOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -816,9 +848,100 @@ public class DowntimesApi {
   }
 
   /**
+   * Get active downtimes for a monitor.
+   *
+   * <p>See {@link #listMonitorDowntimesWithHttpInfo}.
+   *
+   * @param monitorId The id of the monitor. (required)
+   * @param parameters Optional parameters for the request.
+   * @return MonitorDowntimeMatchResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorDowntimeMatchResponse listMonitorDowntimes(
+      Long monitorId, ListMonitorDowntimesOptionalParameters parameters) throws ApiException {
+    return listMonitorDowntimesWithHttpInfo(monitorId, parameters).getData();
+  }
+
+  /**
+   * Get active downtimes for a monitor.
+   *
+   * <p>See {@link #listMonitorDowntimesWithHttpInfoAsync}.
+   *
+   * @param monitorId The id of the monitor. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;MonitorDowntimeMatchResponse&gt;
+   */
+  public CompletableFuture<MonitorDowntimeMatchResponse> listMonitorDowntimesAsync(
+      Long monitorId, ListMonitorDowntimesOptionalParameters parameters) {
+    return listMonitorDowntimesWithHttpInfoAsync(monitorId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get active downtimes for a monitor.
+   *
+   * <p>See {@link #listMonitorDowntimesWithHttpInfo}.
+   *
+   * @param monitorId The id of the monitor. (required)
+   * @return PaginationIterable&lt;MonitorDowntimeMatchResponseData&gt;
+   */
+  public PaginationIterable<MonitorDowntimeMatchResponseData> listMonitorDowntimesWithPagination(
+      Long monitorId) {
+    ListMonitorDowntimesOptionalParameters parameters =
+        new ListMonitorDowntimesOptionalParameters();
+    return listMonitorDowntimesWithPagination(monitorId, parameters);
+  }
+
+  /**
+   * Get active downtimes for a monitor.
+   *
+   * <p>See {@link #listMonitorDowntimesWithHttpInfo}.
+   *
+   * @param monitorId The id of the monitor. (required)
+   * @return MonitorDowntimeMatchResponse
+   */
+  public PaginationIterable<MonitorDowntimeMatchResponseData> listMonitorDowntimesWithPagination(
+      Long monitorId, ListMonitorDowntimesOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageOffset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 30l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("monitorId", monitorId);
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listMonitorDowntimes",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
    * Get all active downtimes for the specified monitor.
    *
    * @param monitorId The id of the monitor. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MonitorDowntimeMatchResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -830,8 +953,8 @@ public class DowntimesApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MonitorDowntimeMatchResponse> listMonitorDowntimesWithHttpInfo(Long monitorId)
-      throws ApiException {
+  public ApiResponse<MonitorDowntimeMatchResponse> listMonitorDowntimesWithHttpInfo(
+      Long monitorId, ListMonitorDowntimesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'monitorId' is set
@@ -839,18 +962,24 @@ public class DowntimesApi {
       throw new ApiException(
           400, "Missing the required parameter 'monitorId' when calling listMonitorDowntimes");
     }
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath =
         "/api/v2/monitor/{monitor_id}/downtime_matches"
             .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.DowntimesApi.listMonitorDowntimes",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -872,10 +1001,12 @@ public class DowntimesApi {
    * <p>See {@link #listMonitorDowntimesWithHttpInfo}.
    *
    * @param monitorId The id of the monitor. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;MonitorDowntimeMatchResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<MonitorDowntimeMatchResponse>>
-      listMonitorDowntimesWithHttpInfoAsync(Long monitorId) {
+      listMonitorDowntimesWithHttpInfoAsync(
+          Long monitorId, ListMonitorDowntimesOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'monitorId' is set
@@ -887,12 +1018,18 @@ public class DowntimesApi {
               400, "Missing the required parameter 'monitorId' when calling listMonitorDowntimes"));
       return result;
     }
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath =
         "/api/v2/monitor/{monitor_id}/downtime_matches"
             .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
 
     Invocation.Builder builder;
     try {
@@ -900,7 +1037,7 @@ public class DowntimesApi {
           apiClient.createBuilder(
               "v2.DowntimesApi.listMonitorDowntimes",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
