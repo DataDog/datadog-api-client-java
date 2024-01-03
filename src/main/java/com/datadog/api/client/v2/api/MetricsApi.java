@@ -1362,7 +1362,7 @@ public class MetricsApi {
     /**
      * Set filterQueried.
      *
-     * @param filterQueried Filter custom metrics that have or have not been queried in the
+     * @param filterQueried (Beta) Filter custom metrics that have or have not been queried in the
      *     specified window[seconds]. If no window is provided or the window is less than 2 hours, a
      *     default of 2 hours will be applied. (optional)
      * @return ListTagConfigurationsOptionalParameters
