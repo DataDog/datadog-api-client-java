@@ -204,7 +204,7 @@ public class AwsCURConfigAttributes {
   }
 
   /**
-   * (deprecated) The number of months the report has been backfilled. maximum: 36
+   * The number of months the report has been backfilled. maximum: 36
    *
    * @return months
    * @deprecated
