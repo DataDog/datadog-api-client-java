@@ -53,7 +53,7 @@ public class GCPSTSServiceAccountAttributes {
 
   public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED =
       "resource_collection_enabled";
-  private Boolean resourceCollectionEnabled = false;
+  private Boolean resourceCollectionEnabled;
 
   public GCPSTSServiceAccountAttributes accountTags(List<String> accountTags) {
     this.accountTags = accountTags;
