@@ -67,7 +67,7 @@ public class GCPAccount {
   private String hostFilters;
 
   public static final String JSON_PROPERTY_IS_CSPM_ENABLED = "is_cspm_enabled";
-  private Boolean isCspmEnabled = false;
+  private Boolean isCspmEnabled;
 
   public static final String JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED =
       "is_security_command_center_enabled";
@@ -84,7 +84,7 @@ public class GCPAccount {
 
   public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED =
       "resource_collection_enabled";
-  private Boolean resourceCollectionEnabled = false;
+  private Boolean resourceCollectionEnabled;
 
   public static final String JSON_PROPERTY_TOKEN_URI = "token_uri";
   private String tokenUri;
