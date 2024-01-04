@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"cases\":[],\"isEnabled\":true,\"message\":\"This is a third party rule\",\"name\":\"Test-Create_a_detection_rule_with_detection_method_third_party_returns_OK_response-1704294474\",\"options\":{\"detectionMethod\":\"third_party\",\"keepAlive\":0,\"maxSignalDuration\":0,\"thirdPartyRuleOptions\":{\"defaultStatus\":\"info\",\"rootQueries\":[{\"groupByFields\":[\"instance-id\"],\"query\":\"source:guardduty @details.alertType:*EC2*\"},{\"groupByFields\":[],\"query\":\"source:guardduty\"}]}},\"queries\":[],\"thirdPartyCases\":[{\"name\":\"high\",\"query\":\"status:error\",\"status\":\"high\"},{\"name\":\"low\",\"query\":\"status:info\",\"status\":\"low\"}],\"type\":\"log_detection\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"ut1-s7a-0kn\",\"version\":1,\"name\":\"Test-Create_a_detection_rule_with_detection_method_third_party_returns_OK_response-1704294474\",\"createdAt\":1704294474748,\"creationAuthorId\":1445416,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"status:error\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"none\",\"name\":\"\"},{\"query\":\"status:info\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"none\",\"name\":\"\"}],\"options\":{\"keepAlive\":0,\"maxSignalDuration\":0,\"detectionMethod\":\"third_party\",\"evaluationWindow\":0,\"thirdPartyRuleOptions\":{\"defaultStatus\":\"info\",\"defaultNotifications\":[],\"rootQueries\":[{\"query\":\"source:guardduty @details.alertType:*EC2*\",\"groupByFields\":[\"instance-id\"]},{\"query\":\"source:guardduty\",\"groupByFields\":[]}]}},\"cases\":[{\"name\":\"high\",\"status\":\"high\",\"notifications\":[]},{\"name\":\"low\",\"status\":\"low\",\"notifications\":[]}],\"message\":\"This is a third party rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[],\"thirdPartyCases\":[{\"name\":\"high\",\"status\":\"high\",\"notifications\":[],\"query\":\"status:error\"},{\"name\":\"low\",\"status\":\"low\",\"notifications\":[],\"query\":\"status:info\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4a87db9d-8ab6-a635-9a87-38ed42c5f31b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/rules/ut1-s7a-0kn",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "59d5aaa9-3676-64c7-3c23-7fc46c3e36cc"
+  }
+]

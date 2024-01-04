@@ -30,6 +30,7 @@ import java.util.Objects;
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_QUERIES,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_TAGS,
+  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_THIRD_PARTY_CASES,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
@@ -65,6 +66,9 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public static final String JSON_PROPERTY_THIRD_PARTY_CASES = "thirdPartyCases";
+  private List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases = null;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Integer version;
@@ -328,6 +332,41 @@ public class SecurityMonitoringRuleUpdatePayload {
     this.tags = tags;
   }
 
+  public SecurityMonitoringRuleUpdatePayload thirdPartyCases(
+      List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases) {
+    this.thirdPartyCases = thirdPartyCases;
+    for (SecurityMonitoringThirdPartyRuleCase item : thirdPartyCases) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SecurityMonitoringRuleUpdatePayload addThirdPartyCasesItem(
+      SecurityMonitoringThirdPartyRuleCase thirdPartyCasesItem) {
+    if (this.thirdPartyCases == null) {
+      this.thirdPartyCases = new ArrayList<>();
+    }
+    this.thirdPartyCases.add(thirdPartyCasesItem);
+    this.unparsed |= thirdPartyCasesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Cases for generating signals from third party rules. Only available for third party rules.
+   *
+   * @return thirdPartyCases
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_CASES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SecurityMonitoringThirdPartyRuleCase> getThirdPartyCases() {
+    return thirdPartyCases;
+  }
+
+  public void setThirdPartyCases(List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases) {
+    this.thirdPartyCases = thirdPartyCases;
+  }
+
   public SecurityMonitoringRuleUpdatePayload version(Integer version) {
     this.version = version;
     return this;
@@ -419,6 +458,7 @@ public class SecurityMonitoringRuleUpdatePayload {
         && Objects.equals(this.options, securityMonitoringRuleUpdatePayload.options)
         && Objects.equals(this.queries, securityMonitoringRuleUpdatePayload.queries)
         && Objects.equals(this.tags, securityMonitoringRuleUpdatePayload.tags)
+        && Objects.equals(this.thirdPartyCases, securityMonitoringRuleUpdatePayload.thirdPartyCases)
         && Objects.equals(this.version, securityMonitoringRuleUpdatePayload.version)
         && Objects.equals(
             this.additionalProperties, securityMonitoringRuleUpdatePayload.additionalProperties);
@@ -437,6 +477,7 @@ public class SecurityMonitoringRuleUpdatePayload {
         options,
         queries,
         tags,
+        thirdPartyCases,
         version,
         additionalProperties);
   }
@@ -457,6 +498,7 @@ public class SecurityMonitoringRuleUpdatePayload {
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    thirdPartyCases: ").append(toIndentedString(thirdPartyCases)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

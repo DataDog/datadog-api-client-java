@@ -26,7 +26,8 @@ import java.util.Objects;
   SecurityMonitoringRuleOptions.JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_KEEP_ALIVE,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -59,6 +60,9 @@ public class SecurityMonitoringRuleOptions {
 
   public static final String JSON_PROPERTY_NEW_VALUE_OPTIONS = "newValueOptions";
   private SecurityMonitoringRuleNewValueOptions newValueOptions;
+
+  public static final String JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS = "thirdPartyRuleOptions";
+  private SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions;
 
   public SecurityMonitoringRuleOptions complianceRuleOptions(
       CloudConfigurationComplianceRuleOptions complianceRuleOptions) {
@@ -292,6 +296,30 @@ public class SecurityMonitoringRuleOptions {
     this.newValueOptions = newValueOptions;
   }
 
+  public SecurityMonitoringRuleOptions thirdPartyRuleOptions(
+      SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions) {
+    this.thirdPartyRuleOptions = thirdPartyRuleOptions;
+    this.unparsed |= thirdPartyRuleOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Options on third party rules.
+   *
+   * @return thirdPartyRuleOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleThirdPartyOptions getThirdPartyRuleOptions() {
+    return thirdPartyRuleOptions;
+  }
+
+  public void setThirdPartyRuleOptions(
+      SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions) {
+    this.thirdPartyRuleOptions = thirdPartyRuleOptions;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -363,6 +391,8 @@ public class SecurityMonitoringRuleOptions {
         && Objects.equals(this.maxSignalDuration, securityMonitoringRuleOptions.maxSignalDuration)
         && Objects.equals(this.newValueOptions, securityMonitoringRuleOptions.newValueOptions)
         && Objects.equals(
+            this.thirdPartyRuleOptions, securityMonitoringRuleOptions.thirdPartyRuleOptions)
+        && Objects.equals(
             this.additionalProperties, securityMonitoringRuleOptions.additionalProperties);
   }
 
@@ -378,6 +408,7 @@ public class SecurityMonitoringRuleOptions {
         keepAlive,
         maxSignalDuration,
         newValueOptions,
+        thirdPartyRuleOptions,
         additionalProperties);
   }
 
@@ -402,6 +433,9 @@ public class SecurityMonitoringRuleOptions {
     sb.append("    keepAlive: ").append(toIndentedString(keepAlive)).append("\n");
     sb.append("    maxSignalDuration: ").append(toIndentedString(maxSignalDuration)).append("\n");
     sb.append("    newValueOptions: ").append(toIndentedString(newValueOptions)).append("\n");
+    sb.append("    thirdPartyRuleOptions: ")
+        .append(toIndentedString(thirdPartyRuleOptions))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
