@@ -36,6 +36,7 @@ import java.util.Objects;
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_QUERIES,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_TAGS,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_THIRD_PARTY_CASES,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_TYPE,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_UPDATE_AUTHOR_ID,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_VERSION
@@ -91,6 +92,9 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public static final String JSON_PROPERTY_THIRD_PARTY_CASES = "thirdPartyCases";
+  private List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SecurityMonitoringRuleTypeRead type;
@@ -488,6 +492,41 @@ public class SecurityMonitoringStandardRuleResponse {
     this.tags = tags;
   }
 
+  public SecurityMonitoringStandardRuleResponse thirdPartyCases(
+      List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases) {
+    this.thirdPartyCases = thirdPartyCases;
+    for (SecurityMonitoringThirdPartyRuleCase item : thirdPartyCases) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SecurityMonitoringStandardRuleResponse addThirdPartyCasesItem(
+      SecurityMonitoringThirdPartyRuleCase thirdPartyCasesItem) {
+    if (this.thirdPartyCases == null) {
+      this.thirdPartyCases = new ArrayList<>();
+    }
+    this.thirdPartyCases.add(thirdPartyCasesItem);
+    this.unparsed |= thirdPartyCasesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Cases for generating signals from third party rules. Only available for third party rules.
+   *
+   * @return thirdPartyCases
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_CASES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SecurityMonitoringThirdPartyRuleCase> getThirdPartyCases() {
+    return thirdPartyCases;
+  }
+
+  public void setThirdPartyCases(List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases) {
+    this.thirdPartyCases = thirdPartyCases;
+  }
+
   public SecurityMonitoringStandardRuleResponse type(SecurityMonitoringRuleTypeRead type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -633,6 +672,8 @@ public class SecurityMonitoringStandardRuleResponse {
         && Objects.equals(this.options, securityMonitoringStandardRuleResponse.options)
         && Objects.equals(this.queries, securityMonitoringStandardRuleResponse.queries)
         && Objects.equals(this.tags, securityMonitoringStandardRuleResponse.tags)
+        && Objects.equals(
+            this.thirdPartyCases, securityMonitoringStandardRuleResponse.thirdPartyCases)
         && Objects.equals(this.type, securityMonitoringStandardRuleResponse.type)
         && Objects.equals(
             this.updateAuthorId, securityMonitoringStandardRuleResponse.updateAuthorId)
@@ -660,6 +701,7 @@ public class SecurityMonitoringStandardRuleResponse {
         options,
         queries,
         tags,
+        thirdPartyCases,
         type,
         updateAuthorId,
         version,
@@ -688,6 +730,7 @@ public class SecurityMonitoringStandardRuleResponse {
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    thirdPartyCases: ").append(toIndentedString(thirdPartyCases)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateAuthorId: ").append(toIndentedString(updateAuthorId)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
