@@ -181,7 +181,7 @@ The interval between 2 retry attempts will be the value of the `x-ratelimit-rese
 
 ### Configure proxy
 
-You can provide custom `connectorProvider` implemtation to `clientConfig` to use proxy. See example below using `ApacheConnectorProvider`:
+You can provide custom `connectorProvider` implementation to `clientConfig` to use proxy. See example below using `ApacheConnectorProvider`:
 
 ```java
 import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
