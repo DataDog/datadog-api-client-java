@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.model.SensitiveDataScannerCreateRuleResponse;
 import com.datadog.api.client.v2.model.SensitiveDataScannerGroup;
 import com.datadog.api.client.v2.model.SensitiveDataScannerGroupData;
 import com.datadog.api.client.v2.model.SensitiveDataScannerGroupType;
+import com.datadog.api.client.v2.model.SensitiveDataScannerIncludedKeywordConfiguration;
 import com.datadog.api.client.v2.model.SensitiveDataScannerMetaVersionOnly;
 import com.datadog.api.client.v2.model.SensitiveDataScannerRuleAttributes;
 import com.datadog.api.client.v2.model.SensitiveDataScannerRuleCreate;
@@ -42,7 +43,11 @@ public class Example {
                                     .type(SensitiveDataScannerTextReplacementType.NONE))
                             .tags(Collections.singletonList("sensitive_data:true"))
                             .isEnabled(true)
-                            .priority(1L))
+                            .priority(1L)
+                            .includedKeywordConfiguration(
+                                new SensitiveDataScannerIncludedKeywordConfiguration()
+                                    .keywords(Collections.singletonList("credit card"))
+                                    .characterCount(35L)))
                     .relationships(
                         new SensitiveDataScannerRuleRelationships()
                             .group(

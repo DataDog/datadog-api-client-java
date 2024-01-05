@@ -22,6 +22,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_DESCRIPTION,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_EXCLUDED_NAMESPACES,
+  SensitiveDataScannerRuleAttributes.JSON_PROPERTY_INCLUDED_KEYWORD_CONFIGURATION,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_IS_ENABLED,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_NAME,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_NAMESPACES,
@@ -39,6 +40,10 @@ public class SensitiveDataScannerRuleAttributes {
 
   public static final String JSON_PROPERTY_EXCLUDED_NAMESPACES = "excluded_namespaces";
   private List<String> excludedNamespaces = null;
+
+  public static final String JSON_PROPERTY_INCLUDED_KEYWORD_CONFIGURATION =
+      "included_keyword_configuration";
+  private SensitiveDataScannerIncludedKeywordConfiguration includedKeywordConfiguration;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled;
@@ -111,6 +116,33 @@ public class SensitiveDataScannerRuleAttributes {
 
   public void setExcludedNamespaces(List<String> excludedNamespaces) {
     this.excludedNamespaces = excludedNamespaces;
+  }
+
+  public SensitiveDataScannerRuleAttributes includedKeywordConfiguration(
+      SensitiveDataScannerIncludedKeywordConfiguration includedKeywordConfiguration) {
+    this.includedKeywordConfiguration = includedKeywordConfiguration;
+    this.unparsed |= includedKeywordConfiguration.unparsed;
+    return this;
+  }
+
+  /**
+   * Object defining a set of keywords and a number of characters that help reduce noise. You can
+   * provide a list of keywords you would like to check within a defined proximity of the matching
+   * pattern. If any of the keywords are found within the proximity check, the match is kept. If
+   * none are found, the match is discarded.
+   *
+   * @return includedKeywordConfiguration
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED_KEYWORD_CONFIGURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SensitiveDataScannerIncludedKeywordConfiguration getIncludedKeywordConfiguration() {
+    return includedKeywordConfiguration;
+  }
+
+  public void setIncludedKeywordConfiguration(
+      SensitiveDataScannerIncludedKeywordConfiguration includedKeywordConfiguration) {
+    this.includedKeywordConfiguration = includedKeywordConfiguration;
   }
 
   public SensitiveDataScannerRuleAttributes isEnabled(Boolean isEnabled) {
@@ -339,6 +371,9 @@ public class SensitiveDataScannerRuleAttributes {
     return Objects.equals(this.description, sensitiveDataScannerRuleAttributes.description)
         && Objects.equals(
             this.excludedNamespaces, sensitiveDataScannerRuleAttributes.excludedNamespaces)
+        && Objects.equals(
+            this.includedKeywordConfiguration,
+            sensitiveDataScannerRuleAttributes.includedKeywordConfiguration)
         && Objects.equals(this.isEnabled, sensitiveDataScannerRuleAttributes.isEnabled)
         && Objects.equals(this.name, sensitiveDataScannerRuleAttributes.name)
         && Objects.equals(this.namespaces, sensitiveDataScannerRuleAttributes.namespaces)
@@ -355,6 +390,7 @@ public class SensitiveDataScannerRuleAttributes {
     return Objects.hash(
         description,
         excludedNamespaces,
+        includedKeywordConfiguration,
         isEnabled,
         name,
         namespaces,
@@ -371,6 +407,9 @@ public class SensitiveDataScannerRuleAttributes {
     sb.append("class SensitiveDataScannerRuleAttributes {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    excludedNamespaces: ").append(toIndentedString(excludedNamespaces)).append("\n");
+    sb.append("    includedKeywordConfiguration: ")
+        .append(toIndentedString(includedKeywordConfiguration))
+        .append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");

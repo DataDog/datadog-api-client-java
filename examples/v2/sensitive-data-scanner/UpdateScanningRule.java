@@ -3,18 +3,16 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SensitiveDataScannerApi;
-import com.datadog.api.client.v2.model.SensitiveDataScannerGroup;
-import com.datadog.api.client.v2.model.SensitiveDataScannerGroupData;
-import com.datadog.api.client.v2.model.SensitiveDataScannerGroupType;
+import com.datadog.api.client.v2.model.SensitiveDataScannerIncludedKeywordConfiguration;
 import com.datadog.api.client.v2.model.SensitiveDataScannerMetaVersionOnly;
 import com.datadog.api.client.v2.model.SensitiveDataScannerRuleAttributes;
-import com.datadog.api.client.v2.model.SensitiveDataScannerRuleRelationships;
 import com.datadog.api.client.v2.model.SensitiveDataScannerRuleType;
 import com.datadog.api.client.v2.model.SensitiveDataScannerRuleUpdate;
 import com.datadog.api.client.v2.model.SensitiveDataScannerRuleUpdateRequest;
 import com.datadog.api.client.v2.model.SensitiveDataScannerRuleUpdateResponse;
 import com.datadog.api.client.v2.model.SensitiveDataScannerTextReplacement;
 import com.datadog.api.client.v2.model.SensitiveDataScannerTextReplacementType;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -24,9 +22,6 @@ public class Example {
 
     // the "scanning_group" has a "scanning_rule"
     String RULE_DATA_ID = System.getenv("RULE_DATA_ID");
-
-    // there is a valid "scanning_group" in the system
-    String GROUP_DATA_ID = System.getenv("GROUP_DATA_ID");
 
     SensitiveDataScannerRuleUpdateRequest body =
         new SensitiveDataScannerRuleUpdateRequest()
@@ -44,17 +39,11 @@ public class Example {
                                     .type(SensitiveDataScannerTextReplacementType.NONE))
                             .tags(Collections.singletonList("sensitive_data:true"))
                             .isEnabled(true)
-                            .priority(5L))
-                    .relationships(
-                        new SensitiveDataScannerRuleRelationships()
-                            .group(
-                                new SensitiveDataScannerGroupData()
-                                    .data(
-                                        new SensitiveDataScannerGroup()
-                                            .type(
-                                                SensitiveDataScannerGroupType
-                                                    .SENSITIVE_DATA_SCANNER_GROUP)
-                                            .id(GROUP_DATA_ID)))));
+                            .priority(5L)
+                            .includedKeywordConfiguration(
+                                new SensitiveDataScannerIncludedKeywordConfiguration()
+                                    .keywords(Arrays.asList("credit card", "cc"))
+                                    .characterCount(35L))));
 
     try {
       SensitiveDataScannerRuleUpdateResponse result =
