@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   ServiceLevelObjectiveRequest.JSON_PROPERTY_MONITOR_IDS,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_NAME,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_QUERY,
+  ServiceLevelObjectiveRequest.JSON_PROPERTY_SLI_SPECIFICATION,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_TAGS,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_TARGET_THRESHOLD,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_THRESHOLDS,
@@ -55,6 +56,9 @@ public class ServiceLevelObjectiveRequest {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private ServiceLevelObjectiveQuery query;
+
+  public static final String JSON_PROPERTY_SLI_SPECIFICATION = "sli_specification";
+  private SLOSliSpec sliSpecification;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -228,6 +232,28 @@ public class ServiceLevelObjectiveRequest {
 
   public void setQuery(ServiceLevelObjectiveQuery query) {
     this.query = query;
+  }
+
+  public ServiceLevelObjectiveRequest sliSpecification(SLOSliSpec sliSpecification) {
+    this.sliSpecification = sliSpecification;
+    this.unparsed |= sliSpecification.unparsed;
+    return this;
+  }
+
+  /**
+   * A generic SLI specification. This is currently used for time-slice SLOs only.
+   *
+   * @return sliSpecification
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SLI_SPECIFICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOSliSpec getSliSpecification() {
+    return sliSpecification;
+  }
+
+  public void setSliSpecification(SLOSliSpec sliSpecification) {
+    this.sliSpecification = sliSpecification;
   }
 
   public ServiceLevelObjectiveRequest tags(List<String> tags) {
@@ -444,6 +470,7 @@ public class ServiceLevelObjectiveRequest {
         && Objects.equals(this.monitorIds, serviceLevelObjectiveRequest.monitorIds)
         && Objects.equals(this.name, serviceLevelObjectiveRequest.name)
         && Objects.equals(this.query, serviceLevelObjectiveRequest.query)
+        && Objects.equals(this.sliSpecification, serviceLevelObjectiveRequest.sliSpecification)
         && Objects.equals(this.tags, serviceLevelObjectiveRequest.tags)
         && Objects.equals(this.targetThreshold, serviceLevelObjectiveRequest.targetThreshold)
         && Objects.equals(this.thresholds, serviceLevelObjectiveRequest.thresholds)
@@ -462,6 +489,7 @@ public class ServiceLevelObjectiveRequest {
         monitorIds,
         name,
         query,
+        sliSpecification,
         tags,
         targetThreshold,
         thresholds,
@@ -480,6 +508,7 @@ public class ServiceLevelObjectiveRequest {
     sb.append("    monitorIds: ").append(toIndentedString(monitorIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    sliSpecification: ").append(toIndentedString(sliSpecification)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetThreshold: ").append(toIndentedString(targetThreshold)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");
