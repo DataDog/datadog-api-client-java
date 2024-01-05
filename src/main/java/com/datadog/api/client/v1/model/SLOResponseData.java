@@ -35,6 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOResponseData.JSON_PROPERTY_MONITOR_TAGS,
   SLOResponseData.JSON_PROPERTY_NAME,
   SLOResponseData.JSON_PROPERTY_QUERY,
+  SLOResponseData.JSON_PROPERTY_SLI_SPECIFICATION,
   SLOResponseData.JSON_PROPERTY_TAGS,
   SLOResponseData.JSON_PROPERTY_TARGET_THRESHOLD,
   SLOResponseData.JSON_PROPERTY_THRESHOLDS,
@@ -78,6 +79,9 @@ public class SLOResponseData {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private ServiceLevelObjectiveQuery query;
+
+  public static final String JSON_PROPERTY_SLI_SPECIFICATION = "sli_specification";
+  private SLOSliSpec sliSpecification;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -356,6 +360,28 @@ public class SLOResponseData {
     this.query = query;
   }
 
+  public SLOResponseData sliSpecification(SLOSliSpec sliSpecification) {
+    this.sliSpecification = sliSpecification;
+    this.unparsed |= sliSpecification.unparsed;
+    return this;
+  }
+
+  /**
+   * A generic SLI specification. This is currently used for time-slice SLOs only.
+   *
+   * @return sliSpecification
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SLI_SPECIFICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOSliSpec getSliSpecification() {
+    return sliSpecification;
+  }
+
+  public void setSliSpecification(SLOSliSpec sliSpecification) {
+    this.sliSpecification = sliSpecification;
+  }
+
   public SLOResponseData tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -581,6 +607,7 @@ public class SLOResponseData {
         && Objects.equals(this.monitorTags, sloResponseData.monitorTags)
         && Objects.equals(this.name, sloResponseData.name)
         && Objects.equals(this.query, sloResponseData.query)
+        && Objects.equals(this.sliSpecification, sloResponseData.sliSpecification)
         && Objects.equals(this.tags, sloResponseData.tags)
         && Objects.equals(this.targetThreshold, sloResponseData.targetThreshold)
         && Objects.equals(this.thresholds, sloResponseData.thresholds)
@@ -604,6 +631,7 @@ public class SLOResponseData {
         monitorTags,
         name,
         query,
+        sliSpecification,
         tags,
         targetThreshold,
         thresholds,
@@ -628,6 +656,7 @@ public class SLOResponseData {
     sb.append("    monitorTags: ").append(toIndentedString(monitorTags)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    sliSpecification: ").append(toIndentedString(sliSpecification)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetThreshold: ").append(toIndentedString(targetThreshold)).append("\n");
     sb.append("    thresholds: ").append(toIndentedString(thresholds)).append("\n");

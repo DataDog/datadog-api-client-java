@@ -23,10 +23,11 @@ import java.util.Set;
 public class SLOType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("metric", "monitor"));
+      new HashSet<String>(Arrays.asList("metric", "monitor", "time_slice"));
 
   public static final SLOType METRIC = new SLOType("metric");
   public static final SLOType MONITOR = new SLOType("monitor");
+  public static final SLOType TIME_SLICE = new SLOType("time_slice");
 
   SLOType(String value) {
     super(value, allowedValues);
