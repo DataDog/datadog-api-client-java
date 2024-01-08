@@ -21,7 +21,7 @@ public class Example {
                     .attributes(
                         new CloudflareAccountCreateRequestAttributes()
                             .apiKey("fakekey")
-                            .email("new@email")
+                            .email("dev@datadoghq.com")
                             .name("examplecloudflareintegration"))
                     .type(CloudflareAccountType.CLOUDFLARE_ACCOUNTS));
 

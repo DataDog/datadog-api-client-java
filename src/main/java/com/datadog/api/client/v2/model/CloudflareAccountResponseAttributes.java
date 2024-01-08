@@ -13,14 +13,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Attributes object of a Cloudflare account. */
 @JsonPropertyOrder({
   CloudflareAccountResponseAttributes.JSON_PROPERTY_EMAIL,
-  CloudflareAccountResponseAttributes.JSON_PROPERTY_NAME
+  CloudflareAccountResponseAttributes.JSON_PROPERTY_NAME,
+  CloudflareAccountResponseAttributes.JSON_PROPERTY_RESOURCES,
+  CloudflareAccountResponseAttributes.JSON_PROPERTY_ZONES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,6 +35,12 @@ public class CloudflareAccountResponseAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_RESOURCES = "resources";
+  private List<String> resources = null;
+
+  public static final String JSON_PROPERTY_ZONES = "zones";
+  private List<String> zones = null;
 
   public CloudflareAccountResponseAttributes() {}
 
@@ -79,6 +89,64 @@ public class CloudflareAccountResponseAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public CloudflareAccountResponseAttributes resources(List<String> resources) {
+    this.resources = resources;
+    return this;
+  }
+
+  public CloudflareAccountResponseAttributes addResourcesItem(String resourcesItem) {
+    if (this.resources == null) {
+      this.resources = new ArrayList<>();
+    }
+    this.resources.add(resourcesItem);
+    return this;
+  }
+
+  /**
+   * An allowlist of resources to restrict pulling metrics for.
+   *
+   * @return resources
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getResources() {
+    return resources;
+  }
+
+  public void setResources(List<String> resources) {
+    this.resources = resources;
+  }
+
+  public CloudflareAccountResponseAttributes zones(List<String> zones) {
+    this.zones = zones;
+    return this;
+  }
+
+  public CloudflareAccountResponseAttributes addZonesItem(String zonesItem) {
+    if (this.zones == null) {
+      this.zones = new ArrayList<>();
+    }
+    this.zones.add(zonesItem);
+    return this;
+  }
+
+  /**
+   * An allowlist of zones to restrict pulling metrics for.
+   *
+   * @return zones
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ZONES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getZones() {
+    return zones;
+  }
+
+  public void setZones(List<String> zones) {
+    this.zones = zones;
   }
 
   /**
@@ -140,13 +208,15 @@ public class CloudflareAccountResponseAttributes {
         (CloudflareAccountResponseAttributes) o;
     return Objects.equals(this.email, cloudflareAccountResponseAttributes.email)
         && Objects.equals(this.name, cloudflareAccountResponseAttributes.name)
+        && Objects.equals(this.resources, cloudflareAccountResponseAttributes.resources)
+        && Objects.equals(this.zones, cloudflareAccountResponseAttributes.zones)
         && Objects.equals(
             this.additionalProperties, cloudflareAccountResponseAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, name, additionalProperties);
+    return Objects.hash(email, name, resources, zones, additionalProperties);
   }
 
   @Override
@@ -155,6 +225,8 @@ public class CloudflareAccountResponseAttributes {
     sb.append("class CloudflareAccountResponseAttributes {\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
+    sb.append("    zones: ").append(toIndentedString(zones)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

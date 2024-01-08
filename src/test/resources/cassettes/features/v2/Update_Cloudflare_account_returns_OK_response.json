@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsokresponse1674809929\"},\"type\":\"cloudflare-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsokresponse1704393647\",\"resources\":[\"web\",\"dns\"],\"zones\":[\"zone-id-1\",\"zone-id-2\"]},\"type\":\"cloudflare-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsokresponse1674809929\"},\"type\":\"cloudflare-accounts\",\"id\":\"4d22579092049210a1db06b632485219\"}}\n",
+      "body": "{\"data\":{\"type\":\"cloudflare-accounts\",\"attributes\":{\"zones\":[\"zone-id-1\",\"zone-id-2\"],\"resources\":[\"web\",\"dns\"],\"name\":\"testupdatecloudflareaccountreturnsokresponse1704393647\",\"email\":\"dev@datadog.com\"},\"id\":\"6956534375b31b062c809696f3c34ee8\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2736cbd3-862c-7afb-0efb-9f25c82a909d"
+    "id": "777f1ed7-4494-467e-67f7-7c515a8a888c"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"new@email\"},\"type\":\"cloudflare-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"dev@datadoghq.com\",\"zones\":[\"zone-id-3\"]},\"type\":\"cloudflare-accounts\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/integrations/cloudflare/accounts/4d22579092049210a1db06b632485219",
+      "path": "/api/v2/integrations/cloudflare/accounts/6956534375b31b062c809696f3c34ee8",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"email\":\"new@email\",\"name\":\"testupdatecloudflareaccountreturnsokresponse1674809929\"},\"type\":\"cloudflare-accounts\",\"id\":\"4d22579092049210a1db06b632485219\"}}\n",
+      "body": "{\"data\":{\"type\":\"cloudflare-accounts\",\"attributes\":{\"resources\":[],\"email\":\"dev@datadoghq.com\",\"zones\":[\"zone-id-3\"],\"name\":\"testupdatecloudflareaccountreturnsokresponse1704393647\"},\"id\":\"6956534375b31b062c809696f3c34ee8\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "52aafb3d-5e7d-4375-8a2d-68d18a23b97b"
+    "id": "15c1f1e3-e7ae-b873-5115-a419ed72c494"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/cloudflare/accounts/4d22579092049210a1db06b632485219",
+      "path": "/api/v2/integrations/cloudflare/accounts/6956534375b31b062c809696f3c34ee8",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8f83e309-3bcd-a0a1-cc6b-ba3a7699e503"
+    "id": "5983e7da-349b-cc45-0667-2ffb1963c5bf"
   }
 ]

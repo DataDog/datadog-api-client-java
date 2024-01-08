@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"test-api-key\",\"name\":\"testaddcloudflareaccountreturnsbadrequestresponseduetomissingemail1674730504\"},\"type\":\"cloudflare-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"name\":\"testaddcloudflareaccountreturnsbadrequestresponseduetomissingemail1704393640\"},\"type\":\"cloudflare-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"{u'_schema': ['Email address is required if providing an api key and not an api token.']}\"]}",
+      "body": "{\"errors\":[\"{'_schema': ['Email address is required if providing an api key and not an api token.']}\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "13c7d145-8bac-4a16-202b-30a082c2a497"
+    "id": "bb24d6bc-d3c0-f11c-8b88-30475507c52c"
   }
 ]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971\"},\"type\":\"cloudflare-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1704393644\",\"resources\":[\"web\",\"dns\"],\"zones\":[\"zone-id-1\",\"zone-id-2\"]},\"type\":\"cloudflare-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971\"},\"type\":\"cloudflare-accounts\",\"id\":\"56a7295bd711e0aea34906a3bea8a2b3\"}}\n",
+      "body": "{\"data\":{\"type\":\"cloudflare-accounts\",\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1704393644\",\"resources\":[\"web\",\"dns\"],\"zones\":[\"zone-id-1\",\"zone-id-2\"]},\"id\":\"25336f9851edaf58647eec09ce3b636f\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "60bf0c4f-3644-7526-0030-3a8e5feed022"
+    "id": "4a0c2728-115b-dcd8-7a80-cebeac401e5c"
   },
   {
     "httpRequest": {
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/integrations/cloudflare/accounts/56a7295bd711e0aea34906a3bea8a2b3",
+      "path": "/api/v2/integrations/cloudflare/accounts/25336f9851edaf58647eec09ce3b636f",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Invalid account. Your Cloudflare configuration is invalid. Impossible to get zones for the account testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1674809971: API key or email is unknown.\"]}",
+      "body": "{\"errors\":[\"Invalid account. Your Cloudflare configuration is invalid. Impossible to get zones for the account testupdatecloudflareaccountreturnsbadrequestresponseduetoinvalidapikey1704393644: API key or email is unknown.\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3f23d00e-3a64-a6fa-757f-56c5364ca6d5"
+    "id": "afa3a8fd-0c2f-a655-a947-8b72af95c268"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/cloudflare/accounts/56a7295bd711e0aea34906a3bea8a2b3",
+      "path": "/api/v2/integrations/cloudflare/accounts/25336f9851edaf58647eec09ce3b636f",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ef4708ff-e201-db20-f8d5-b432046e803e"
+    "id": "6915301c-2ef0-c1b0-186a-30b528cc8c93"
   }
 ]
