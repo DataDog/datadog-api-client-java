@@ -26,6 +26,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageSummaryResponse.JSON_PROPERTY_AGENT_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_FARGATE_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG_SUM,
@@ -148,6 +149,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P_SUM =
       "apm_azure_app_service_host_top99p_sum";
   private Long apmAzureAppServiceHostTop99pSum;
+
+  public static final String JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P_SUM =
+      "apm_devsecops_host_top99p_sum";
+  private Long apmDevsecopsHostTop99pSum;
 
   public static final String JSON_PROPERTY_APM_FARGATE_COUNT_AVG_SUM = "apm_fargate_count_avg_sum";
   private Long apmFargateCountAvgSum;
@@ -597,6 +602,28 @@ public class UsageSummaryResponse {
 
   public void setApmAzureAppServiceHostTop99pSum(Long apmAzureAppServiceHostTop99pSum) {
     this.apmAzureAppServiceHostTop99pSum = apmAzureAppServiceHostTop99pSum;
+  }
+
+  public UsageSummaryResponse apmDevsecopsHostTop99pSum(Long apmDevsecopsHostTop99pSum) {
+    this.apmDevsecopsHostTop99pSum = apmDevsecopsHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current months for
+   * all organizations.
+   *
+   * @return apmDevsecopsHostTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmDevsecopsHostTop99pSum() {
+    return apmDevsecopsHostTop99pSum;
+  }
+
+  public void setApmDevsecopsHostTop99pSum(Long apmDevsecopsHostTop99pSum) {
+    this.apmDevsecopsHostTop99pSum = apmDevsecopsHostTop99pSum;
   }
 
   public UsageSummaryResponse apmFargateCountAvgSum(Long apmFargateCountAvgSum) {
@@ -3160,6 +3187,8 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.apmAzureAppServiceHostTop99pSum,
             usageSummaryResponse.apmAzureAppServiceHostTop99pSum)
+        && Objects.equals(
+            this.apmDevsecopsHostTop99pSum, usageSummaryResponse.apmDevsecopsHostTop99pSum)
         && Objects.equals(this.apmFargateCountAvgSum, usageSummaryResponse.apmFargateCountAvgSum)
         && Objects.equals(this.apmHostTop99pSum, usageSummaryResponse.apmHostTop99pSum)
         && Objects.equals(
@@ -3388,6 +3417,7 @@ public class UsageSummaryResponse {
     return Objects.hash(
         agentHostTop99pSum,
         apmAzureAppServiceHostTop99pSum,
+        apmDevsecopsHostTop99pSum,
         apmFargateCountAvgSum,
         apmHostTop99pSum,
         appsecFargateCountAvgSum,
@@ -3509,6 +3539,9 @@ public class UsageSummaryResponse {
     sb.append("    agentHostTop99pSum: ").append(toIndentedString(agentHostTop99pSum)).append("\n");
     sb.append("    apmAzureAppServiceHostTop99pSum: ")
         .append(toIndentedString(apmAzureAppServiceHostTop99pSum))
+        .append("\n");
+    sb.append("    apmDevsecopsHostTop99pSum: ")
+        .append(toIndentedString(apmDevsecopsHostTop99pSum))
         .append("\n");
     sb.append("    apmFargateCountAvgSum: ")
         .append(toIndentedString(apmFargateCountAvgSum))
