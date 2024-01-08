@@ -20,6 +20,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageSummaryDateOrg.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_FARGATE_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG,
@@ -135,6 +136,9 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P =
       "apm_azure_app_service_host_top99p";
   private Long apmAzureAppServiceHostTop99p;
+
+  public static final String JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P = "apm_devsecops_host_top99p";
+  private Long apmDevsecopsHostTop99p;
 
   public static final String JSON_PROPERTY_APM_FARGATE_COUNT_AVG = "apm_fargate_count_avg";
   private Long apmFargateCountAvg;
@@ -544,6 +548,28 @@ public class UsageSummaryDateOrg {
 
   public void setApmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
     this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
+  }
+
+  public UsageSummaryDateOrg apmDevsecopsHostTop99p(Long apmDevsecopsHostTop99p) {
+    this.apmDevsecopsHostTop99p = apmDevsecopsHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for the
+   * given org.
+   *
+   * @return apmDevsecopsHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getApmDevsecopsHostTop99p() {
+    return apmDevsecopsHostTop99p;
+  }
+
+  public void setApmDevsecopsHostTop99p(Long apmDevsecopsHostTop99p) {
+    this.apmDevsecopsHostTop99p = apmDevsecopsHostTop99p;
   }
 
   public UsageSummaryDateOrg apmFargateCountAvg(Long apmFargateCountAvg) {
@@ -2898,6 +2924,7 @@ public class UsageSummaryDateOrg {
     return Objects.equals(this.agentHostTop99p, usageSummaryDateOrg.agentHostTop99p)
         && Objects.equals(
             this.apmAzureAppServiceHostTop99p, usageSummaryDateOrg.apmAzureAppServiceHostTop99p)
+        && Objects.equals(this.apmDevsecopsHostTop99p, usageSummaryDateOrg.apmDevsecopsHostTop99p)
         && Objects.equals(this.apmFargateCountAvg, usageSummaryDateOrg.apmFargateCountAvg)
         && Objects.equals(this.apmHostTop99p, usageSummaryDateOrg.apmHostTop99p)
         && Objects.equals(this.appsecFargateCountAvg, usageSummaryDateOrg.appsecFargateCountAvg)
@@ -3083,6 +3110,7 @@ public class UsageSummaryDateOrg {
     return Objects.hash(
         agentHostTop99p,
         apmAzureAppServiceHostTop99p,
+        apmDevsecopsHostTop99p,
         apmFargateCountAvg,
         apmHostTop99p,
         appsecFargateCountAvg,
@@ -3197,6 +3225,9 @@ public class UsageSummaryDateOrg {
     sb.append("    agentHostTop99p: ").append(toIndentedString(agentHostTop99p)).append("\n");
     sb.append("    apmAzureAppServiceHostTop99p: ")
         .append(toIndentedString(apmAzureAppServiceHostTop99p))
+        .append("\n");
+    sb.append("    apmDevsecopsHostTop99p: ")
+        .append(toIndentedString(apmDevsecopsHostTop99p))
         .append("\n");
     sb.append("    apmFargateCountAvg: ").append(toIndentedString(apmFargateCountAvg)).append("\n");
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
