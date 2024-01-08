@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.CloudflareAccountType;
 import com.datadog.api.client.v2.model.CloudflareAccountUpdateRequest;
 import com.datadog.api.client.v2.model.CloudflareAccountUpdateRequestAttributes;
 import com.datadog.api.client.v2.model.CloudflareAccountUpdateRequestData;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,7 +25,8 @@ public class Example {
                     .attributes(
                         new CloudflareAccountUpdateRequestAttributes()
                             .apiKey("fakekey")
-                            .email("new@email"))
+                            .email("dev@datadoghq.com")
+                            .zones(Collections.singletonList("zone-id-3")))
                     .type(CloudflareAccountType.CLOUDFLARE_ACCOUNTS));
 
     try {

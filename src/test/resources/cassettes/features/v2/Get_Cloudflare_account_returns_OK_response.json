@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"dev@datadog.com\",\"name\":\"testgetcloudflareaccountreturnsokresponse1674810021\"},\"type\":\"cloudflare-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"api_key\":\"fakekey\",\"email\":\"dev@datadog.com\",\"name\":\"testgetcloudflareaccountreturnsokresponse1704393642\",\"resources\":[\"web\",\"dns\"],\"zones\":[\"zone-id-1\",\"zone-id-2\"]},\"type\":\"cloudflare-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testgetcloudflareaccountreturnsokresponse1674810021\"},\"type\":\"cloudflare-accounts\",\"id\":\"ec582035efa21742f8f4ef4393ded49c\"}}\n",
+      "body": "{\"data\":{\"type\":\"cloudflare-accounts\",\"attributes\":{\"name\":\"testgetcloudflareaccountreturnsokresponse1704393642\",\"email\":\"dev@datadog.com\",\"zones\":[\"zone-id-1\",\"zone-id-2\"],\"resources\":[\"web\",\"dns\"]},\"id\":\"88d65a60026254bfaf976a427606c061\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "125d4c1c-f8e8-2278-0c9d-cad313f6c095"
+    "id": "8e4b379b-1646-13a5-84c3-245f40a800dd"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/integrations/cloudflare/accounts/ec582035efa21742f8f4ef4393ded49c",
+      "path": "/api/v2/integrations/cloudflare/accounts/88d65a60026254bfaf976a427606c061",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"email\":\"dev@datadog.com\",\"name\":\"testgetcloudflareaccountreturnsokresponse1674810021\"},\"type\":\"cloudflare-accounts\",\"id\":\"ec582035efa21742f8f4ef4393ded49c\"}}\n",
+      "body": "{\"data\":{\"type\":\"cloudflare-accounts\",\"attributes\":{\"zones\":[\"zone-id-1\",\"zone-id-2\"],\"email\":\"dev@datadog.com\",\"name\":\"testgetcloudflareaccountreturnsokresponse1704393642\",\"resources\":[\"web\",\"dns\"]},\"id\":\"88d65a60026254bfaf976a427606c061\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e5262591-ea3c-b785-87ef-5e55125d7359"
+    "id": "afe69c55-27b6-eab3-590b-ddfbab89e832"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/cloudflare/accounts/ec582035efa21742f8f4ef4393ded49c",
+      "path": "/api/v2/integrations/cloudflare/accounts/88d65a60026254bfaf976a427606c061",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dead9516-22e0-8a9b-2f0e-1d56d3fa167f"
+    "id": "0b1288b4-5665-2ae5-3f0c-5250ceac0515"
   }
 ]

@@ -13,14 +13,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** Attributes object for updating a Cloudflare account. */
 @JsonPropertyOrder({
   CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_API_KEY,
-  CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_EMAIL
+  CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_EMAIL,
+  CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_RESOURCES,
+  CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_ZONES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -31,6 +35,12 @@ public class CloudflareAccountUpdateRequestAttributes {
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
+
+  public static final String JSON_PROPERTY_RESOURCES = "resources";
+  private List<String> resources = null;
+
+  public static final String JSON_PROPERTY_ZONES = "zones";
+  private List<String> zones = null;
 
   public CloudflareAccountUpdateRequestAttributes() {}
 
@@ -80,6 +90,64 @@ public class CloudflareAccountUpdateRequestAttributes {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public CloudflareAccountUpdateRequestAttributes resources(List<String> resources) {
+    this.resources = resources;
+    return this;
+  }
+
+  public CloudflareAccountUpdateRequestAttributes addResourcesItem(String resourcesItem) {
+    if (this.resources == null) {
+      this.resources = new ArrayList<>();
+    }
+    this.resources.add(resourcesItem);
+    return this;
+  }
+
+  /**
+   * An allowlist of resources to restrict pulling metrics for.
+   *
+   * @return resources
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getResources() {
+    return resources;
+  }
+
+  public void setResources(List<String> resources) {
+    this.resources = resources;
+  }
+
+  public CloudflareAccountUpdateRequestAttributes zones(List<String> zones) {
+    this.zones = zones;
+    return this;
+  }
+
+  public CloudflareAccountUpdateRequestAttributes addZonesItem(String zonesItem) {
+    if (this.zones == null) {
+      this.zones = new ArrayList<>();
+    }
+    this.zones.add(zonesItem);
+    return this;
+  }
+
+  /**
+   * An allowlist of zones to restrict pulling metrics for.
+   *
+   * @return zones
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ZONES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getZones() {
+    return zones;
+  }
+
+  public void setZones(List<String> zones) {
+    this.zones = zones;
   }
 
   /**
@@ -141,6 +209,8 @@ public class CloudflareAccountUpdateRequestAttributes {
         (CloudflareAccountUpdateRequestAttributes) o;
     return Objects.equals(this.apiKey, cloudflareAccountUpdateRequestAttributes.apiKey)
         && Objects.equals(this.email, cloudflareAccountUpdateRequestAttributes.email)
+        && Objects.equals(this.resources, cloudflareAccountUpdateRequestAttributes.resources)
+        && Objects.equals(this.zones, cloudflareAccountUpdateRequestAttributes.zones)
         && Objects.equals(
             this.additionalProperties,
             cloudflareAccountUpdateRequestAttributes.additionalProperties);
@@ -148,7 +218,7 @@ public class CloudflareAccountUpdateRequestAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, email, additionalProperties);
+    return Objects.hash(apiKey, email, resources, zones, additionalProperties);
   }
 
   @Override
@@ -157,6 +227,8 @@ public class CloudflareAccountUpdateRequestAttributes {
     sb.append("class CloudflareAccountUpdateRequestAttributes {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
+    sb.append("    zones: ").append(toIndentedString(zones)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

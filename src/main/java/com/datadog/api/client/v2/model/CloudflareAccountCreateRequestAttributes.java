@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -21,7 +23,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   CloudflareAccountCreateRequestAttributes.JSON_PROPERTY_API_KEY,
   CloudflareAccountCreateRequestAttributes.JSON_PROPERTY_EMAIL,
-  CloudflareAccountCreateRequestAttributes.JSON_PROPERTY_NAME
+  CloudflareAccountCreateRequestAttributes.JSON_PROPERTY_NAME,
+  CloudflareAccountCreateRequestAttributes.JSON_PROPERTY_RESOURCES,
+  CloudflareAccountCreateRequestAttributes.JSON_PROPERTY_ZONES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -35,6 +39,12 @@ public class CloudflareAccountCreateRequestAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_RESOURCES = "resources";
+  private List<String> resources = null;
+
+  public static final String JSON_PROPERTY_ZONES = "zones";
+  private List<String> zones = null;
 
   public CloudflareAccountCreateRequestAttributes() {}
 
@@ -108,6 +118,64 @@ public class CloudflareAccountCreateRequestAttributes {
     this.name = name;
   }
 
+  public CloudflareAccountCreateRequestAttributes resources(List<String> resources) {
+    this.resources = resources;
+    return this;
+  }
+
+  public CloudflareAccountCreateRequestAttributes addResourcesItem(String resourcesItem) {
+    if (this.resources == null) {
+      this.resources = new ArrayList<>();
+    }
+    this.resources.add(resourcesItem);
+    return this;
+  }
+
+  /**
+   * An allowlist of resources to restrict pulling metrics for.
+   *
+   * @return resources
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getResources() {
+    return resources;
+  }
+
+  public void setResources(List<String> resources) {
+    this.resources = resources;
+  }
+
+  public CloudflareAccountCreateRequestAttributes zones(List<String> zones) {
+    this.zones = zones;
+    return this;
+  }
+
+  public CloudflareAccountCreateRequestAttributes addZonesItem(String zonesItem) {
+    if (this.zones == null) {
+      this.zones = new ArrayList<>();
+    }
+    this.zones.add(zonesItem);
+    return this;
+  }
+
+  /**
+   * An allowlist of zones to restrict pulling metrics for.
+   *
+   * @return zones
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ZONES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getZones() {
+    return zones;
+  }
+
+  public void setZones(List<String> zones) {
+    this.zones = zones;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -168,6 +236,8 @@ public class CloudflareAccountCreateRequestAttributes {
     return Objects.equals(this.apiKey, cloudflareAccountCreateRequestAttributes.apiKey)
         && Objects.equals(this.email, cloudflareAccountCreateRequestAttributes.email)
         && Objects.equals(this.name, cloudflareAccountCreateRequestAttributes.name)
+        && Objects.equals(this.resources, cloudflareAccountCreateRequestAttributes.resources)
+        && Objects.equals(this.zones, cloudflareAccountCreateRequestAttributes.zones)
         && Objects.equals(
             this.additionalProperties,
             cloudflareAccountCreateRequestAttributes.additionalProperties);
@@ -175,7 +245,7 @@ public class CloudflareAccountCreateRequestAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, email, name, additionalProperties);
+    return Objects.hash(apiKey, email, name, resources, zones, additionalProperties);
   }
 
   @Override
@@ -185,6 +255,8 @@ public class CloudflareAccountCreateRequestAttributes {
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
+    sb.append("    zones: ").append(toIndentedString(zones)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
