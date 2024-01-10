@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 2.20.0 / 2024-01-10
+
+### Added
+* Add priority field to SDS rule and standard-pattern by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2110
+* Document new `resource_collection` and `is_security_command_center_enabled` fields in GCP APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2111
+* Add SAML attributes by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2104
+* Security Monitoring - Support custom third party rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2128
+* Add public API support for time-slice SLOs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2120
+* Add included_keyword_configuration field to SDS rule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2132
+* Update Documentation for APM DevSecOps by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2133
+### Changed
+* Mark v1 downtime endpoints as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2125
+* Adding Cloud Cost Management API Documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2118
+* Add support for Cloudflare API `zone` and `resource` fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2130
+
+## New Contributors
+* @enderdincer made their first contribution in https://github.com/DataDog/datadog-api-client-java/pull/2131
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.19.0...datadog-api-client-2.20.0
+
 ## 2.19.0 / 2023-12-12
 
 ### Added
