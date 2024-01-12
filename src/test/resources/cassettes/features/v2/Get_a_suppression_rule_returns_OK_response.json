@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Get_a_suppression_rule_returns_OK_response-1704967591\",\"enabled\":true,\"name\":\"Test-Get_a_suppression_rule_returns_OK_response-1704967591\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\"},\"type\":\"suppressions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/suppressions",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"vac-d9u-mmr\",\"attributes\":{\"name\":\"Test-Get_a_suppression_rule_returns_OK_response-1704967591\",\"enabled\":true,\"description\":\"Test-Get_a_suppression_rule_returns_OK_response-1704967591\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"version\":1,\"creation_date\":1704967592204,\"update_date\":1704967592204,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "50e8bc48-db89-3343-e42b-8cd91d6f7efd"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/vac-d9u-mmr",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"vac-d9u-mmr\",\"attributes\":{\"name\":\"Test-Get_a_suppression_rule_returns_OK_response-1704967591\",\"enabled\":true,\"description\":\"Test-Get_a_suppression_rule_returns_OK_response-1704967591\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"version\":1,\"creation_date\":1704967592204,\"update_date\":1704967592204,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c6a4d879-0428-23d3-f173-8d8ea1756d4d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/vac-d9u-mmr",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e4715e19-3992-be16-4df3-0b501939f0a5"
+  }
+]
