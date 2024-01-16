@@ -30,6 +30,10 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSignalStateUpdateReques
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalTriageUpdateResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsListResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalsSort;
+import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.time.OffsetDateTime;
@@ -346,6 +350,147 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Create a suppression rule.
+   *
+   * <p>See {@link #createSecurityMonitoringSuppressionWithHttpInfo}.
+   *
+   * @param body The definition of the new suppression rule. (required)
+   * @return SecurityMonitoringSuppressionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSuppressionResponse createSecurityMonitoringSuppression(
+      SecurityMonitoringSuppressionCreateRequest body) throws ApiException {
+    return createSecurityMonitoringSuppressionWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a suppression rule.
+   *
+   * <p>See {@link #createSecurityMonitoringSuppressionWithHttpInfoAsync}.
+   *
+   * @param body The definition of the new suppression rule. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSuppressionResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSuppressionResponse>
+      createSecurityMonitoringSuppressionAsync(SecurityMonitoringSuppressionCreateRequest body) {
+    return createSecurityMonitoringSuppressionWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new suppression rule.
+   *
+   * @param body The definition of the new suppression rule. (required)
+   * @return ApiResponse&lt;SecurityMonitoringSuppressionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSuppressionResponse>
+      createSecurityMonitoringSuppressionWithHttpInfo(
+          SecurityMonitoringSuppressionCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createSecurityMonitoringSuppression");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/suppressions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityMonitoringSuppression",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
+  /**
+   * Create a suppression rule.
+   *
+   * <p>See {@link #createSecurityMonitoringSuppressionWithHttpInfo}.
+   *
+   * @param body The definition of the new suppression rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSuppressionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSuppressionResponse>>
+      createSecurityMonitoringSuppressionWithHttpInfoAsync(
+          SecurityMonitoringSuppressionCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityMonitoringSuppression"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/suppressions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityMonitoringSuppression",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
+  /**
    * Delete a security filter.
    *
    * <p>See {@link #deleteSecurityFilterWithHttpInfo}.
@@ -599,6 +744,146 @@ public class SecurityMonitoringApi {
       builder =
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.deleteSecurityMonitoringRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a suppression rule.
+   *
+   * <p>See {@link #deleteSecurityMonitoringSuppressionWithHttpInfo}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityMonitoringSuppression(String suppressionId) throws ApiException {
+    deleteSecurityMonitoringSuppressionWithHttpInfo(suppressionId);
+  }
+
+  /**
+   * Delete a suppression rule.
+   *
+   * <p>See {@link #deleteSecurityMonitoringSuppressionWithHttpInfoAsync}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityMonitoringSuppressionAsync(String suppressionId) {
+    return deleteSecurityMonitoringSuppressionWithHttpInfoAsync(suppressionId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a specific suppression rule.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityMonitoringSuppressionWithHttpInfo(String suppressionId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suppressionId' is set
+    if (suppressionId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'suppressionId' when calling"
+              + " deleteSecurityMonitoringSuppression");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}"
+            .replaceAll(
+                "\\{" + "suppression_id" + "\\}", apiClient.escapeString(suppressionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityMonitoringSuppression",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a suppression rule.
+   *
+   * <p>See {@link #deleteSecurityMonitoringSuppressionWithHttpInfo}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteSecurityMonitoringSuppressionWithHttpInfoAsync(
+      String suppressionId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suppressionId' is set
+    if (suppressionId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'suppressionId' when calling"
+                  + " deleteSecurityMonitoringSuppression"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}"
+            .replaceAll(
+                "\\{" + "suppression_id" + "\\}", apiClient.escapeString(suppressionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityMonitoringSuppression",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1776,6 +2061,151 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityMonitoringSignalResponse>() {});
   }
 
+  /**
+   * Get a suppression rule.
+   *
+   * <p>See {@link #getSecurityMonitoringSuppressionWithHttpInfo}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @return SecurityMonitoringSuppressionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSuppressionResponse getSecurityMonitoringSuppression(
+      String suppressionId) throws ApiException {
+    return getSecurityMonitoringSuppressionWithHttpInfo(suppressionId).getData();
+  }
+
+  /**
+   * Get a suppression rule.
+   *
+   * <p>See {@link #getSecurityMonitoringSuppressionWithHttpInfoAsync}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSuppressionResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSuppressionResponse>
+      getSecurityMonitoringSuppressionAsync(String suppressionId) {
+    return getSecurityMonitoringSuppressionWithHttpInfoAsync(suppressionId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of a specific suppression rule.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @return ApiResponse&lt;SecurityMonitoringSuppressionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSuppressionResponse>
+      getSecurityMonitoringSuppressionWithHttpInfo(String suppressionId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suppressionId' is set
+    if (suppressionId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'suppressionId' when calling"
+              + " getSecurityMonitoringSuppression");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}"
+            .replaceAll(
+                "\\{" + "suppression_id" + "\\}", apiClient.escapeString(suppressionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityMonitoringSuppression",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
+  /**
+   * Get a suppression rule.
+   *
+   * <p>See {@link #getSecurityMonitoringSuppressionWithHttpInfo}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSuppressionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSuppressionResponse>>
+      getSecurityMonitoringSuppressionWithHttpInfoAsync(String suppressionId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'suppressionId' is set
+    if (suppressionId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'suppressionId' when calling"
+                  + " getSecurityMonitoringSuppression"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}"
+            .replaceAll(
+                "\\{" + "suppression_id" + "\\}", apiClient.escapeString(suppressionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityMonitoringSuppression",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
   /** Manage optional parameters to listFindings. */
   public static class ListFindingsOptionalParameters {
     private Long pageLimit;
@@ -2874,6 +3304,120 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get all suppression rules.
+   *
+   * <p>See {@link #listSecurityMonitoringSuppressionsWithHttpInfo}.
+   *
+   * @return SecurityMonitoringSuppressionsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSuppressionsResponse listSecurityMonitoringSuppressions()
+      throws ApiException {
+    return listSecurityMonitoringSuppressionsWithHttpInfo().getData();
+  }
+
+  /**
+   * Get all suppression rules.
+   *
+   * <p>See {@link #listSecurityMonitoringSuppressionsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityMonitoringSuppressionsResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSuppressionsResponse>
+      listSecurityMonitoringSuppressionsAsync() {
+    return listSecurityMonitoringSuppressionsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of all suppression rules.
+   *
+   * @return ApiResponse&lt;SecurityMonitoringSuppressionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSuppressionsResponse>
+      listSecurityMonitoringSuppressionsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/suppressions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityMonitoringSuppressions",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionsResponse>() {});
+  }
+
+  /**
+   * Get all suppression rules.
+   *
+   * <p>See {@link #listSecurityMonitoringSuppressionsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSuppressionsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSuppressionsResponse>>
+      listSecurityMonitoringSuppressionsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/suppressions";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityMonitoringSuppressions",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionsResponse>() {});
+  }
+
+  /**
    * Mute or unmute a batch of findings.
    *
    * <p>See {@link #muteFindingsWithHttpInfo}.
@@ -3625,5 +4169,179 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringRuleResponse>() {});
+  }
+
+  /**
+   * Update a suppression rule.
+   *
+   * <p>See {@link #updateSecurityMonitoringSuppressionWithHttpInfo}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @param body New definition of the suppression rule. Supports partial updates. (required)
+   * @return SecurityMonitoringSuppressionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringSuppressionResponse updateSecurityMonitoringSuppression(
+      String suppressionId, SecurityMonitoringSuppressionUpdateRequest body) throws ApiException {
+    return updateSecurityMonitoringSuppressionWithHttpInfo(suppressionId, body).getData();
+  }
+
+  /**
+   * Update a suppression rule.
+   *
+   * <p>See {@link #updateSecurityMonitoringSuppressionWithHttpInfoAsync}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @param body New definition of the suppression rule. Supports partial updates. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringSuppressionResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringSuppressionResponse>
+      updateSecurityMonitoringSuppressionAsync(
+          String suppressionId, SecurityMonitoringSuppressionUpdateRequest body) {
+    return updateSecurityMonitoringSuppressionWithHttpInfoAsync(suppressionId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a specific suppression rule.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @param body New definition of the suppression rule. Supports partial updates. (required)
+   * @return ApiResponse&lt;SecurityMonitoringSuppressionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSuppressionResponse>
+      updateSecurityMonitoringSuppressionWithHttpInfo(
+          String suppressionId, SecurityMonitoringSuppressionUpdateRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'suppressionId' is set
+    if (suppressionId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'suppressionId' when calling"
+              + " updateSecurityMonitoringSuppression");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling updateSecurityMonitoringSuppression");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}"
+            .replaceAll(
+                "\\{" + "suppression_id" + "\\}", apiClient.escapeString(suppressionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateSecurityMonitoringSuppression",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
+  /**
+   * Update a suppression rule.
+   *
+   * <p>See {@link #updateSecurityMonitoringSuppressionWithHttpInfo}.
+   *
+   * @param suppressionId The ID of the suppression rule (required)
+   * @param body New definition of the suppression rule. Supports partial updates. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringSuppressionResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringSuppressionResponse>>
+      updateSecurityMonitoringSuppressionWithHttpInfoAsync(
+          String suppressionId, SecurityMonitoringSuppressionUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'suppressionId' is set
+    if (suppressionId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'suppressionId' when calling"
+                  + " updateSecurityMonitoringSuppression"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateSecurityMonitoringSuppression"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/suppressions/{suppression_id}"
+            .replaceAll(
+                "\\{" + "suppression_id" + "\\}", apiClient.escapeString(suppressionId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateSecurityMonitoringSuppression",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringSuppressionResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringSuppressionResponse>() {});
   }
 }

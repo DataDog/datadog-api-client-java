@@ -4,10 +4,11 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,59 +17,45 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object describing a log after being processed and stored by Datadog. */
-@JsonPropertyOrder({Log.JSON_PROPERTY_CONTENT, Log.JSON_PROPERTY_ID})
+/** Request object that includes the suppression rule that you would like to create. */
+@JsonPropertyOrder({SecurityMonitoringSuppressionCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Log {
+public class SecurityMonitoringSuppressionCreateRequest {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CONTENT = "content";
-  private LogContent content;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private SecurityMonitoringSuppressionCreateData data;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public SecurityMonitoringSuppressionCreateRequest() {}
 
-  public Log content(LogContent content) {
-    this.content = content;
-    this.unparsed |= content.unparsed;
+  @JsonCreator
+  public SecurityMonitoringSuppressionCreateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          SecurityMonitoringSuppressionCreateData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public SecurityMonitoringSuppressionCreateRequest data(
+      SecurityMonitoringSuppressionCreateData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * JSON object containing all log attributes and their associated values.
+   * Object for a single suppression rule.
    *
-   * @return content
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTENT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogContent getContent() {
-    return content;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SecurityMonitoringSuppressionCreateData getData() {
+    return data;
   }
 
-  public void setContent(LogContent content) {
-    this.content = content;
-  }
-
-  public Log id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * ID of the Log.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
+  public void setData(SecurityMonitoringSuppressionCreateData data) {
+    this.data = data;
   }
 
   /**
@@ -83,10 +70,11 @@ public class Log {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return Log
+   * @return SecurityMonitoringSuppressionCreateRequest
    */
   @JsonAnySetter
-  public Log putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringSuppressionCreateRequest putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -117,7 +105,7 @@ public class Log {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this Log object is equal to o. */
+  /** Return true if this SecurityMonitoringSuppressionCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -126,27 +114,28 @@ public class Log {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Log log = (Log) o;
-    return Objects.equals(this.content, log.content)
-        && Objects.equals(this.id, log.id)
-        && Objects.equals(this.additionalProperties, log.additionalProperties);
+    SecurityMonitoringSuppressionCreateRequest securityMonitoringSuppressionCreateRequest =
+        (SecurityMonitoringSuppressionCreateRequest) o;
+    return Objects.equals(this.data, securityMonitoringSuppressionCreateRequest.data)
+        && Objects.equals(
+            this.additionalProperties,
+            securityMonitoringSuppressionCreateRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, id, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Log {\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class SecurityMonitoringSuppressionCreateRequest {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
-    sb.append('}');
+    sb.append("}");
     return sb.toString();
   }
 

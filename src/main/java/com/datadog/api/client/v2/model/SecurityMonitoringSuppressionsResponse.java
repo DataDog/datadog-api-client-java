@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -12,63 +12,53 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object describing a log after being processed and stored by Datadog. */
-@JsonPropertyOrder({Log.JSON_PROPERTY_CONTENT, Log.JSON_PROPERTY_ID})
+/** Response object containing the available suppression rules. */
+@JsonPropertyOrder({SecurityMonitoringSuppressionsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Log {
+public class SecurityMonitoringSuppressionsResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CONTENT = "content";
-  private LogContent content;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<SecurityMonitoringSuppression> data = null;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public SecurityMonitoringSuppressionsResponse data(List<SecurityMonitoringSuppression> data) {
+    this.data = data;
+    for (SecurityMonitoringSuppression item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
 
-  public Log content(LogContent content) {
-    this.content = content;
-    this.unparsed |= content.unparsed;
+  public SecurityMonitoringSuppressionsResponse addDataItem(
+      SecurityMonitoringSuppression dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * JSON object containing all log attributes and their associated values.
+   * A list of suppressions objects.
    *
-   * @return content
+   * @return data
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogContent getContent() {
-    return content;
+  public List<SecurityMonitoringSuppression> getData() {
+    return data;
   }
 
-  public void setContent(LogContent content) {
-    this.content = content;
-  }
-
-  public Log id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * ID of the Log.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
+  public void setData(List<SecurityMonitoringSuppression> data) {
+    this.data = data;
   }
 
   /**
@@ -83,10 +73,10 @@ public class Log {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return Log
+   * @return SecurityMonitoringSuppressionsResponse
    */
   @JsonAnySetter
-  public Log putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringSuppressionsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -117,7 +107,7 @@ public class Log {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this Log object is equal to o. */
+  /** Return true if this SecurityMonitoringSuppressionsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -126,27 +116,27 @@ public class Log {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Log log = (Log) o;
-    return Objects.equals(this.content, log.content)
-        && Objects.equals(this.id, log.id)
-        && Objects.equals(this.additionalProperties, log.additionalProperties);
+    SecurityMonitoringSuppressionsResponse securityMonitoringSuppressionsResponse =
+        (SecurityMonitoringSuppressionsResponse) o;
+    return Objects.equals(this.data, securityMonitoringSuppressionsResponse.data)
+        && Objects.equals(
+            this.additionalProperties, securityMonitoringSuppressionsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, id, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Log {\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class SecurityMonitoringSuppressionsResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
-    sb.append('}');
+    sb.append("}");
     return sb.toString();
   }
 

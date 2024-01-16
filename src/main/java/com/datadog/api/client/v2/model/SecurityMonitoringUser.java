@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -15,60 +15,73 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Object describing a log after being processed and stored by Datadog. */
-@JsonPropertyOrder({Log.JSON_PROPERTY_CONTENT, Log.JSON_PROPERTY_ID})
+/** A user. */
+@JsonPropertyOrder({
+  SecurityMonitoringUser.JSON_PROPERTY_HANDLE,
+  SecurityMonitoringUser.JSON_PROPERTY_NAME
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Log {
+public class SecurityMonitoringUser {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CONTENT = "content";
-  private LogContent content;
+  public static final String JSON_PROPERTY_HANDLE = "handle";
+  private String handle;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
-  public Log content(LogContent content) {
-    this.content = content;
-    this.unparsed |= content.unparsed;
+  public SecurityMonitoringUser handle(String handle) {
+    this.handle = handle;
     return this;
   }
 
   /**
-   * JSON object containing all log attributes and their associated values.
+   * The handle of the user.
    *
-   * @return content
+   * @return handle
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogContent getContent() {
-    return content;
+  public String getHandle() {
+    return handle;
   }
 
-  public void setContent(LogContent content) {
-    this.content = content;
+  public void setHandle(String handle) {
+    this.handle = handle;
   }
 
-  public Log id(String id) {
-    this.id = id;
+  public SecurityMonitoringUser name(String name) {
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
   /**
-   * ID of the Log.
+   * The name of the user.
    *
-   * @return id
+   * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  @JsonIgnore
+  public String getName() {
+    return name.orElse(null);
   }
 
-  public void setId(String id) {
-    this.id = id;
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getName_JsonNullable() {
+    return name;
+  }
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
+    this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
   /**
@@ -83,10 +96,10 @@ public class Log {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return Log
+   * @return SecurityMonitoringUser
    */
   @JsonAnySetter
-  public Log putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringUser putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -117,7 +130,7 @@ public class Log {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this Log object is equal to o. */
+  /** Return true if this SecurityMonitoringUser object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -126,27 +139,27 @@ public class Log {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Log log = (Log) o;
-    return Objects.equals(this.content, log.content)
-        && Objects.equals(this.id, log.id)
-        && Objects.equals(this.additionalProperties, log.additionalProperties);
+    SecurityMonitoringUser securityMonitoringUser = (SecurityMonitoringUser) o;
+    return Objects.equals(this.handle, securityMonitoringUser.handle)
+        && Objects.equals(this.name, securityMonitoringUser.name)
+        && Objects.equals(this.additionalProperties, securityMonitoringUser.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, id, additionalProperties);
+    return Objects.hash(handle, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Log {\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class SecurityMonitoringUser {\n");
+    sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
-    sb.append('}');
+    sb.append("}");
     return sb.toString();
   }
 

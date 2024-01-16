@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -16,47 +16,55 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object describing a log after being processed and stored by Datadog. */
-@JsonPropertyOrder({Log.JSON_PROPERTY_CONTENT, Log.JSON_PROPERTY_ID})
+/** The suppression rule's properties. */
+@JsonPropertyOrder({
+  SecurityMonitoringSuppression.JSON_PROPERTY_ATTRIBUTES,
+  SecurityMonitoringSuppression.JSON_PROPERTY_ID,
+  SecurityMonitoringSuppression.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Log {
+public class SecurityMonitoringSuppression {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CONTENT = "content";
-  private LogContent content;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private SecurityMonitoringSuppressionAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public Log content(LogContent content) {
-    this.content = content;
-    this.unparsed |= content.unparsed;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SecurityMonitoringSuppressionType type = SecurityMonitoringSuppressionType.SUPPRESSIONS;
+
+  public SecurityMonitoringSuppression attributes(
+      SecurityMonitoringSuppressionAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * JSON object containing all log attributes and their associated values.
+   * The attributes of the suppression rule.
    *
-   * @return content
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogContent getContent() {
-    return content;
+  public SecurityMonitoringSuppressionAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setContent(LogContent content) {
-    this.content = content;
+  public void setAttributes(SecurityMonitoringSuppressionAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public Log id(String id) {
+  public SecurityMonitoringSuppression id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * ID of the Log.
+   * The ID of the suppression rule.
    *
    * @return id
    */
@@ -71,6 +79,31 @@ public class Log {
     this.id = id;
   }
 
+  public SecurityMonitoringSuppression type(SecurityMonitoringSuppressionType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * The type of the resource. The value should always be <code>suppressions</code>.
+   *
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringSuppressionType getType() {
+    return type;
+  }
+
+  public void setType(SecurityMonitoringSuppressionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -83,10 +116,10 @@ public class Log {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return Log
+   * @return SecurityMonitoringSuppression
    */
   @JsonAnySetter
-  public Log putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringSuppression putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -117,7 +150,7 @@ public class Log {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this Log object is equal to o. */
+  /** Return true if this SecurityMonitoringSuppression object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -126,27 +159,30 @@ public class Log {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Log log = (Log) o;
-    return Objects.equals(this.content, log.content)
-        && Objects.equals(this.id, log.id)
-        && Objects.equals(this.additionalProperties, log.additionalProperties);
+    SecurityMonitoringSuppression securityMonitoringSuppression = (SecurityMonitoringSuppression) o;
+    return Objects.equals(this.attributes, securityMonitoringSuppression.attributes)
+        && Objects.equals(this.id, securityMonitoringSuppression.id)
+        && Objects.equals(this.type, securityMonitoringSuppression.type)
+        && Objects.equals(
+            this.additionalProperties, securityMonitoringSuppression.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, id, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Log {\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("class SecurityMonitoringSuppression {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
-    sb.append('}');
+    sb.append("}");
     return sb.toString();
   }
 
