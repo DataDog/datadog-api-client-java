@@ -854,7 +854,6 @@ public class ApiClient {
    * @return API client
    */
   public ApiClient setUserAgent(String userAgent) {
-    userAgent = userAgent;
     addDefaultHeader("User-Agent", userAgent);
     return this;
   }
@@ -1197,7 +1196,9 @@ public class ApiClient {
     List<Pair> params = new ArrayList<Pair>();
 
     // preconditions
-    if (name == null || name.isEmpty() || value == null) return params;
+    if (name == null || name.isEmpty() || value == null) {
+      return params;
+    }
 
     Collection<?> valueCollection;
     if (value instanceof Collection) {
@@ -1256,7 +1257,7 @@ public class ApiClient {
    */
   public boolean isJsonMime(String mime) {
     String jsonMime = "(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$";
-    return mime != null && (mime.matches(jsonMime) || mime.equals("*/*"));
+    return mime != null && (mime.matches(jsonMime) || "*/*".equals(mime));
   }
 
   /**
@@ -1408,11 +1409,6 @@ public class ApiClient {
       // Handle binary response (byte array).
       return (T) response.readEntity(byte[].class);
     }
-
-    String contentType = null;
-    List<Object> contentTypes = response.getHeaders().get("Content-Type");
-    if (contentTypes != null && !contentTypes.isEmpty())
-      contentType = String.valueOf(contentTypes.get(0));
 
     // read the entity stream multiple times
     response.bufferEntity();

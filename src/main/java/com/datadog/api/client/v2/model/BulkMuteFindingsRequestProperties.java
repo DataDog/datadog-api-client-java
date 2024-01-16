@@ -166,7 +166,7 @@ public class BulkMuteFindingsRequestProperties {
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    muted: ").append(toIndentedString(muted)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("}");
+    sb.append('}');
     return sb.toString();
   }
 

@@ -6,11 +6,15 @@
 
 package com.datadog.api.client;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class RetryConfig {
   public boolean enableRetry;
   public int backOffMultiplier;
   public int backOffBase;
   public int maxRetries;
+  private static final Logger log = Logger.getLogger(RetryConfig.class.getName());
 
   /**
    * @param enableRetry Enable retry when rate limited
@@ -65,7 +69,7 @@ public class RetryConfig {
       Thread.sleep(sleepInterval * 1000);
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();
-      e.printStackTrace();
+      log.log(Level.FINE, "Retry sleep interrupted", e);
     }
   }
 }

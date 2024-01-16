@@ -77,7 +77,7 @@ public class SLOTimeSliceSpec {
     StringBuilder sb = new StringBuilder();
     sb.append("class SLOTimeSliceSpec {\n");
     sb.append("    timeSlice: ").append(toIndentedString(timeSlice)).append("\n");
-    sb.append("}");
+    sb.append('}');
     return sb.toString();
   }
 

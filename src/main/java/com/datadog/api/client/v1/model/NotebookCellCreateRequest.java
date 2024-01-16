@@ -115,7 +115,7 @@ public class NotebookCellCreateRequest {
     sb.append("class NotebookCellCreateRequest {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
+    sb.append('}');
     return sb.toString();
   }
 
