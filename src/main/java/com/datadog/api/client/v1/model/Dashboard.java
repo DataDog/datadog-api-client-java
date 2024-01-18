@@ -215,7 +215,11 @@ public class Dashboard {
 
   /**
    * Whether this dashboard is read-only. If True, only the author and admins can make changes to
-   * it. Prefer using <code>restricted_roles</code> to manage write authorization.
+   * it.
+   *
+   * <p>This property is deprecated; please use the <a
+   * href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policies API</a>
+   * instead to manage write authorization for individual dashboards.
    *
    * @return isReadOnly
    * @deprecated
@@ -356,8 +360,14 @@ public class Dashboard {
    * A list of role identifiers. Only the author and users associated with at least one of these
    * roles can edit this dashboard.
    *
+   * <p>This property is deprecated; please use the <a
+   * href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policies API</a>
+   * instead to manage write authorization for individual dashboards.
+   *
    * @return restrictedRoles
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,6 +375,7 @@ public class Dashboard {
     return restrictedRoles;
   }
 
+  @Deprecated
   public void setRestrictedRoles(List<String> restrictedRoles) {
     this.restrictedRoles = restrictedRoles;
   }
