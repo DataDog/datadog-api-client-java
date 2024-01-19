@@ -28,6 +28,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE,
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE_DOMAINS,
   SyntheticsTestRequest.JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR,
+  SyntheticsTestRequest.JSON_PROPERTY_COMPRESSED_PROTO_FILE,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER_PORT,
   SyntheticsTestRequest.JSON_PROPERTY_FOLLOW_REDIRECTS,
@@ -75,6 +76,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR = "compressedJsonDescriptor";
   private String compressedJsonDescriptor;
+
+  public static final String JSON_PROPERTY_COMPRESSED_PROTO_FILE = "compressedProtoFile";
+  private String compressedProtoFile;
 
   public static final String JSON_PROPERTY_DNS_SERVER = "dnsServer";
   private String dnsServer;
@@ -319,6 +323,27 @@ public class SyntheticsTestRequest {
 
   public void setCompressedJsonDescriptor(String compressedJsonDescriptor) {
     this.compressedJsonDescriptor = compressedJsonDescriptor;
+  }
+
+  public SyntheticsTestRequest compressedProtoFile(String compressedProtoFile) {
+    this.compressedProtoFile = compressedProtoFile;
+    return this;
+  }
+
+  /**
+   * A protobuf file that needs to be gzipped first then base64 encoded.
+   *
+   * @return compressedProtoFile
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPRESSED_PROTO_FILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCompressedProtoFile() {
+    return compressedProtoFile;
+  }
+
+  public void setCompressedProtoFile(String compressedProtoFile) {
+    this.compressedProtoFile = compressedProtoFile;
   }
 
   public SyntheticsTestRequest dnsServer(String dnsServer) {
@@ -806,6 +831,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.certificateDomains, syntheticsTestRequest.certificateDomains)
         && Objects.equals(
             this.compressedJsonDescriptor, syntheticsTestRequest.compressedJsonDescriptor)
+        && Objects.equals(this.compressedProtoFile, syntheticsTestRequest.compressedProtoFile)
         && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer)
         && Objects.equals(this.dnsServerPort, syntheticsTestRequest.dnsServerPort)
         && Objects.equals(this.followRedirects, syntheticsTestRequest.followRedirects)
@@ -839,6 +865,7 @@ public class SyntheticsTestRequest {
         certificate,
         certificateDomains,
         compressedJsonDescriptor,
+        compressedProtoFile,
         dnsServer,
         dnsServerPort,
         followRedirects,
@@ -874,6 +901,9 @@ public class SyntheticsTestRequest {
     sb.append("    certificateDomains: ").append(toIndentedString(certificateDomains)).append("\n");
     sb.append("    compressedJsonDescriptor: ")
         .append(toIndentedString(compressedJsonDescriptor))
+        .append("\n");
+    sb.append("    compressedProtoFile: ")
+        .append(toIndentedString(compressedProtoFile))
         .append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
     sb.append("    dnsServerPort: ").append(toIndentedString(dnsServerPort)).append("\n");
