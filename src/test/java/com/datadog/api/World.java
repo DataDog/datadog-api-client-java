@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.Scenario;
 import jakarta.ws.rs.client.Client;
+import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -303,7 +304,16 @@ public class World {
 
     Object data = fromJSON(getObjectMapper(), fieldType, templated(value, context));
     if (isOptional) {
-      requestParametersClass.getMethod(propertyName, fieldType).invoke(requestParameters, data);
+      if (fieldType == File.class) {
+        String apiVersion = getVersion();
+        String filePath =
+            "src/test/resources/com/datadog/api/client/" + apiVersion + "/api/" + data.toString();
+        requestParametersClass
+            .getMethod(propertyName, fieldType)
+            .invoke(requestParameters, new File(filePath));
+      } else {
+        requestParametersClass.getMethod(propertyName, fieldType).invoke(requestParameters, data);
+      }
     } else {
       parametersArray.add(data);
     }
