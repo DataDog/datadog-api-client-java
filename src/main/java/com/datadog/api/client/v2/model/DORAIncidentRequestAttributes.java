@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** Attributes to create a DORA incident event. */
 @JsonPropertyOrder({
+  DORAIncidentRequestAttributes.JSON_PROPERTY_ENV,
   DORAIncidentRequestAttributes.JSON_PROPERTY_FINISHED_AT,
   DORAIncidentRequestAttributes.JSON_PROPERTY_GIT,
   DORAIncidentRequestAttributes.JSON_PROPERTY_ID,
@@ -32,6 +33,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DORAIncidentRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENV = "env";
+  private String env;
+
   public static final String JSON_PROPERTY_FINISHED_AT = "finished_at";
   private Long finishedAt;
 
@@ -64,6 +68,27 @@ public class DORAIncidentRequestAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) Long startedAt) {
     this.service = service;
     this.startedAt = startedAt;
+  }
+
+  public DORAIncidentRequestAttributes env(String env) {
+    this.env = env;
+    return this;
+  }
+
+  /**
+   * Environment name that was impacted by the incident.
+   *
+   * @return env
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEnv() {
+    return env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
   }
 
   public DORAIncidentRequestAttributes finishedAt(Long finishedAt) {
@@ -291,7 +316,8 @@ public class DORAIncidentRequestAttributes {
       return false;
     }
     DORAIncidentRequestAttributes doraIncidentRequestAttributes = (DORAIncidentRequestAttributes) o;
-    return Objects.equals(this.finishedAt, doraIncidentRequestAttributes.finishedAt)
+    return Objects.equals(this.env, doraIncidentRequestAttributes.env)
+        && Objects.equals(this.finishedAt, doraIncidentRequestAttributes.finishedAt)
         && Objects.equals(this.git, doraIncidentRequestAttributes.git)
         && Objects.equals(this.id, doraIncidentRequestAttributes.id)
         && Objects.equals(this.name, doraIncidentRequestAttributes.name)
@@ -306,13 +332,23 @@ public class DORAIncidentRequestAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        finishedAt, git, id, name, service, severity, startedAt, version, additionalProperties);
+        env,
+        finishedAt,
+        git,
+        id,
+        name,
+        service,
+        severity,
+        startedAt,
+        version,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DORAIncidentRequestAttributes {\n");
+    sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    finishedAt: ").append(toIndentedString(finishedAt)).append("\n");
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
