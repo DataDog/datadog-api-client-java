@@ -164,8 +164,14 @@ public class DashboardSummaryDefinition {
    * Whether this dashboard is read-only. If True, only the author and admins can make changes to
    * it.
    *
+   * <p>This property is deprecated; please use the <a
+   * href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policies API</a>
+   * instead to manage write authorization for individual dashboards.
+   *
    * @return isReadOnly
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,6 +179,7 @@ public class DashboardSummaryDefinition {
     return isReadOnly;
   }
 
+  @Deprecated
   public void setIsReadOnly(Boolean isReadOnly) {
     this.isReadOnly = isReadOnly;
   }
