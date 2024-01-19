@@ -306,8 +306,11 @@ public class World {
     if (isOptional) {
       if (fieldType == File.class) {
         String apiVersion = getVersion();
-        String filePath = "src/test/resources/com/datadog/api/client/" + apiVersion + "/api/" + data.toString();
-        requestParametersClass.getMethod(propertyName, fieldType).invoke(requestParameters, new File(filePath));
+        String filePath =
+            "src/test/resources/com/datadog/api/client/" + apiVersion + "/api/" + data.toString();
+        requestParametersClass
+            .getMethod(propertyName, fieldType)
+            .invoke(requestParameters, new File(filePath));
       } else {
         requestParametersClass.getMethod(propertyName, fieldType).invoke(requestParameters, data);
       }
