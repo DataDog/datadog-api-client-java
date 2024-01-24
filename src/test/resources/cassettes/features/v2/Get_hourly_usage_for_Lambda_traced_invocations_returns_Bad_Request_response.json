@@ -6,17 +6,17 @@
       "path": "/api/v2/usage/lambda_traced_invocations",
       "queryStringParameters": {
         "start_hr": [
-          "2022-05-03T18:07:36.174Z"
+          "2024-01-21T20:56:23.911Z"
         ],
         "end_hr": [
-          "2022-05-01T18:07:36.174Z"
+          "2024-01-19T20:56:23.911Z"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}\n",
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d19a0507-6404-164d-8f0d-ef0c128f076f"
+    "id": "af201a68-1472-acf2-fa02-feb5049e78f4"
   }
 ]
