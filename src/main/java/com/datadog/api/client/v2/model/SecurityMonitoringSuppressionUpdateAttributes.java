@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The suppression rule properties to be updated. */
 @JsonPropertyOrder({
@@ -37,7 +38,7 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
   private Boolean enabled;
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expiration_date";
-  private Long expirationDate;
+  private JsonNullable<Long> expirationDate = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -94,25 +95,36 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
   }
 
   public SecurityMonitoringSuppressionUpdateAttributes expirationDate(Long expirationDate) {
-    this.expirationDate = expirationDate;
+    this.expirationDate = JsonNullable.<Long>of(expirationDate);
     return this;
   }
 
   /**
    * A Unix millisecond timestamp giving an expiration date for the suppression rule. After this
-   * date, it won't suppress signals anymore.
+   * date, it won't suppress signals anymore. If unset, the expiration date of the suppression rule
+   * is left untouched. If set to <code>null</code>, the expiration date is removed.
    *
    * @return expirationDate
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getExpirationDate() {
+    return expirationDate.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getExpirationDate() {
+  public JsonNullable<Long> getExpirationDate_JsonNullable() {
     return expirationDate;
   }
 
-  public void setExpirationDate(Long expirationDate) {
+  @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
+  public void setExpirationDate_JsonNullable(JsonNullable<Long> expirationDate) {
     this.expirationDate = expirationDate;
+  }
+
+  public void setExpirationDate(Long expirationDate) {
+    this.expirationDate = JsonNullable.<Long>of(expirationDate);
   }
 
   public SecurityMonitoringSuppressionUpdateAttributes name(String name) {
