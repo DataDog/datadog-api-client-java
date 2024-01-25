@@ -9,7 +9,7 @@ variables:
 # We've already run tests through the CI when creating the changelog and tag, skip them here
 deploy_to_sonatype:
   stage: deploy_to_sonatype
-  tags: [ "runner:docker", "size:large" ]
+  tags: [ "arch:amd64" ]
   image: maven:3.6.3-jdk-8-slim
   only:
     - tags
