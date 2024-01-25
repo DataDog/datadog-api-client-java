@@ -47,9 +47,7 @@ create_key:
   stage: create_key
   when: manual
 
-  tags:
-    - "runner:docker"
-    - "size:large"
+  tags: [ "arch:amd64" ]
 
   image: $REGISTRY/ci/agent-key-management-tools/gpg:1
   variables:
