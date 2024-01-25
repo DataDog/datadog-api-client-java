@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Response containing the number of lambda functions and sum of the invocations of all lambda
+ * Response containing the number of Lambda functions and sum of the invocations of all Lambda
  * functions for each hour for a given organization.
  */
 @JsonPropertyOrder({UsageLambdaResponse.JSON_PROPERTY_USAGE})
