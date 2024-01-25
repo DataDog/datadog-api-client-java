@@ -4580,7 +4580,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda.
+   * Get hourly usage for Lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
@@ -4594,7 +4594,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda.
+   * Get hourly usage for Lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfoAsync}.
    *
@@ -4611,7 +4611,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda.
+   * Get hourly usage for Lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *
@@ -4627,7 +4627,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda.
+   * Get hourly usage for Lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfoAsync}.
    *
@@ -4646,7 +4646,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda. <strong>Note:</strong> hourly usage data for all products is now
+   * Get hourly usage for Lambda. <strong>Note:</strong> hourly usage data for all products is now
    * available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
    * hourly usage by product family API</a>. Refer to <a
@@ -4708,7 +4708,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda.
+   * Get hourly usage for Lambda.
    *
    * <p>See {@link #getUsageLambdaWithHttpInfo}.
    *

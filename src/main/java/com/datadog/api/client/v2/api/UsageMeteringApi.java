@@ -2155,7 +2155,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda traced invocations.
+   * Get hourly usage for Lambda traced invocations.
    *
    * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfo}.
    *
@@ -2172,7 +2172,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda traced invocations.
+   * Get hourly usage for Lambda traced invocations.
    *
    * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfoAsync}.
    *
@@ -2191,7 +2191,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda traced invocations.
+   * Get hourly usage for Lambda traced invocations.
    *
    * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfo}.
    *
@@ -2208,7 +2208,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda traced invocations.
+   * Get hourly usage for Lambda traced invocations.
    *
    * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfoAsync}.
    *
@@ -2228,7 +2228,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda traced invocations. <strong>Note:</strong> hourly usage data for
+   * Get hourly usage for Lambda traced invocations. <strong>Note:</strong> hourly usage data for
    * all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
    * hourly usage by product family API</a>
@@ -2291,7 +2291,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda traced invocations.
+   * Get hourly usage for Lambda traced invocations.
    *
    * <p>See {@link #getUsageLambdaTracedInvocationsWithHttpInfo}.
    *
