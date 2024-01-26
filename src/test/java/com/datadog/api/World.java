@@ -411,16 +411,20 @@ public class World {
         try {
           Field f = givenParametersClass.getDeclaredField(entry.getKey());
           f.setAccessible(true);
-          f.set(parameters, entry.getValue().resolve(f.getType(), context, getObjectMapper()));
+          f.set(
+              parameters,
+              entry.getValue().resolve(f.getType(), context, getObjectMapper(), getVersion()));
         } catch (NoSuchFieldException e) {
           Class<?>[] types = givenOperation.getParameterTypes();
           Class fieldType = types[givenParametersArray.size()];
-          givenParametersArray.add(entry.getValue().resolve(fieldType, context, getObjectMapper()));
+          givenParametersArray.add(
+              entry.getValue().resolve(fieldType, context, getObjectMapper(), getVersion()));
         }
       } else {
         Class<?>[] types = givenOperation.getParameterTypes();
         Class fieldType = types[givenParametersArray.size()];
-        givenParametersArray.add(entry.getValue().resolve(fieldType, context, getObjectMapper()));
+        givenParametersArray.add(
+            entry.getValue().resolve(fieldType, context, getObjectMapper(), getVersion()));
       }
     }
     if (givenParametersClass != null) {

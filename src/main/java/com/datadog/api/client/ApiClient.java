@@ -367,6 +367,10 @@ public class ApiClient {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
+          put("v2.createOpenAPI", false);
+          put("v2.deleteOpenAPI", false);
+          put("v2.getOpenAPI", false);
+          put("v2.updateOpenAPI", false);
           put("v2.getActiveBillingDimensions", false);
           put("v2.getMonthlyCostAttribution", false);
           put("v2.createDORADeployment", false);
