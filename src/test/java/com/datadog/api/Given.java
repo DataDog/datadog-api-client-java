@@ -37,7 +37,10 @@ public class Given {
           if (clazz == File.class) {
             // trim leading and trailing quotes from the value variable
             String filePath =
-                "src/test/resources/com/datadog/api/client/" + version + "/api/" + value.replaceAll("^\"|\"$", "");
+                "src/test/resources/com/datadog/api/client/"
+                    + version
+                    + "/api/"
+                    + value.replaceAll("^\"|\"$", "");
             return (T) new File(filePath);
           }
           return World.fromJSON(mapper, clazz, World.templated(value, context));
