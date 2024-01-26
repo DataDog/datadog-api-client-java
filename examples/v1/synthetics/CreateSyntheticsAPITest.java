@@ -51,7 +51,7 @@ public class Example {
                     .ci(
                         new SyntheticsTestCiOptions()
                             .executionRule(SyntheticsTestExecutionRule.BLOCKING))
-                    .deviceIds(Collections.singletonList(SyntheticsDeviceID.LAPTOP_LARGE))
+                    .deviceIds(Collections.singletonList(SyntheticsDeviceID.CHROME_LAPTOP_LARGE))
                     .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP1)
                     .monitorOptions(new SyntheticsTestOptionsMonitorOptions())
                     .restrictedRoles(
