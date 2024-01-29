@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"auth_method\":\"oauth\",\"client_id\":\"client_id\",\"client_secret\":\"client_secret\",\"domain\":\"https://example.okta.com/\",\"name\":\"Okta_Prod\"},\"id\":\"f749daaf-682e-4208-a38d-c9b43162c609\",\"type\":\"okta-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"auth_method\":\"oauth\",\"client_id\":\"client_id\",\"client_secret\":\"client_secret\",\"domain\":\"https://example.okta.com/\",\"name\":\"testaddoktaaccountreturnsokresponse1706540332\"},\"id\":\"f749daaf-682e-4208-a38d-c9b43162c609\",\"type\":\"okta-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"okta-accounts\",\"attributes\":{\"domain\":\"https://example.okta.com/\",\"client_id\":\"client_id\",\"auth_method\":\"oauth\",\"name\":\"Okta_Prod\"},\"id\":\"6330b376-d352-4a06-a169-107002bd6e6c\"}}\n",
+      "body": "{\"data\":{\"type\":\"okta-accounts\",\"attributes\":{\"auth_method\":\"oauth\",\"client_id\":\"client_id\",\"domain\":\"https://example.okta.com/\",\"name\":\"testaddoktaaccountreturnsokresponse1706540332\"},\"id\":\"1e62be98-94ab-403d-9491-98b7fbf9a7de\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1f7ad488-1024-ab95-f442-0e8ba9f41dcd"
+    "id": "56b23e8d-e172-67b9-ec08-0d554f59e5d8"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/okta/accounts/6330b376-d352-4a06-a169-107002bd6e6c",
+      "path": "/api/v2/integrations/okta/accounts/1e62be98-94ab-403d-9491-98b7fbf9a7de",
       "keepAlive": false,
       "secure": true
     },
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "04f5a1b2-c6f2-e4d8-9bc5-c35c0ba0f5ba"
+    "id": "27a6fdbc-eb32-9036-9865-5f33967d283d"
   }
 ]
