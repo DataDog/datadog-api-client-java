@@ -20,6 +20,7 @@ import com.datadog.api.client.v2.model.TeamResponse;
 import com.datadog.api.client.v2.model.TeamUpdateRequest;
 import com.datadog.api.client.v2.model.TeamsField;
 import com.datadog.api.client.v2.model.TeamsResponse;
+import com.datadog.api.client.v2.model.UserTeam;
 import com.datadog.api.client.v2.model.UserTeamRequest;
 import com.datadog.api.client.v2.model.UserTeamResponse;
 import com.datadog.api.client.v2.model.UserTeamUpdateRequest;
@@ -1485,6 +1486,62 @@ public class TeamsApi {
             response -> {
               return response.getData();
             });
+  }
+
+  /**
+   * Get team memberships.
+   *
+   * <p>See {@link #getTeamMembershipsWithHttpInfo}.
+   *
+   * @param teamId None (required)
+   * @return PaginationIterable&lt;UserTeam&gt;
+   */
+  public PaginationIterable<UserTeam> getTeamMembershipsWithPagination(String teamId) {
+    GetTeamMembershipsOptionalParameters parameters = new GetTeamMembershipsOptionalParameters();
+    return getTeamMembershipsWithPagination(teamId, parameters);
+  }
+
+  /**
+   * Get team memberships.
+   *
+   * <p>See {@link #getTeamMembershipsWithHttpInfo}.
+   *
+   * @param teamId None (required)
+   * @return UserTeamsResponse
+   */
+  public PaginationIterable<UserTeam> getTeamMembershipsWithPagination(
+      String teamId, GetTeamMembershipsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("teamId", teamId);
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "getTeamMemberships",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            limit,
+            args);
+
+    return iterator;
   }
 
   /**
