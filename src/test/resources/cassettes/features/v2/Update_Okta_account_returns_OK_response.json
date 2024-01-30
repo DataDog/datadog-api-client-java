@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"auth_method\":\"oauth\",\"client_id\":\"fakeclientid\",\"client_secret\":\"fakeclientsecret\",\"domain\":\"https://dev-test.okta.com/\",\"name\":\"testupdateoktaaccountreturnsokresponse1700585987\"},\"type\":\"okta-accounts\"}}"
+        "json": "{\"data\":{\"attributes\":{\"auth_method\":\"oauth\",\"client_id\":\"fakeclientid\",\"client_secret\":\"fakeclientsecret\",\"domain\":\"https://dev-test.okta.com/\",\"name\":\"testupdateoktaaccountreturnsokresponse1706630043\"},\"type\":\"okta-accounts\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"okta-accounts\",\"attributes\":{\"domain\":\"https://dev-test.okta.com/\",\"auth_method\":\"oauth\",\"client_id\":\"fakeclientid\",\"name\":\"testupdateoktaaccountreturnsokresponse1700585987\"},\"id\":\"c847a349-9687-4b80-8b0f-996e0e75f73e\"}}\n",
+      "body": "{\"data\":{\"type\":\"okta-accounts\",\"attributes\":{\"name\":\"testupdateoktaaccountreturnsokresponse1706630043\",\"auth_method\":\"oauth\",\"domain\":\"https://dev-test.okta.com/\",\"client_id\":\"fakeclientid\"},\"id\":\"e8630371-1a60-4444-b84e-f674beec5f73\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e4994ca5-e1a0-7bc2-c149-c281bbbddc82"
+    "id": "ff6f884c-fe34-0c85-feed-6663c2372814"
   },
   {
     "httpRequest": {
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/integrations/okta/accounts/c847a349-9687-4b80-8b0f-996e0e75f73e",
+      "path": "/api/v2/integrations/okta/accounts/e8630371-1a60-4444-b84e-f674beec5f73",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"okta-accounts\",\"id\":\"7343985f-6e86-4327-8792-538b4c9b38e9\",\"attributes\":{\"auth_method\":\"oauth\",\"client_id\":\"client_id\",\"domain\":\"https://example.okta.com/\",\"name\":\"testupdateoktaaccountreturnsokresponse1700585987\"}}}\n",
+      "body": "{\"data\":{\"type\":\"okta-accounts\",\"attributes\":{\"name\":\"testupdateoktaaccountreturnsokresponse1706630043\",\"client_id\":\"client_id\",\"domain\":\"https://example.okta.com/\",\"auth_method\":\"oauth\"},\"id\":\"7caeaadf-8391-45b0-b99b-5356eed810fd\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,38 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "caac8c2e-6846-b6ee-3e09-0a3bdcf9e5b1"
+    "id": "0399dad2-aac8-28db-f0ed-84ff6d5863e8"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integrations/okta/accounts/c847a349-9687-4b80-8b0f-996e0e75f73e",
+      "path": "/api/v2/integrations/okta/accounts/7caeaadf-8391-45b0-b99b-5356eed810fd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0e6939a1-1af3-7c7d-dd90-cd1d0bce25ed"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integrations/okta/accounts/e8630371-1a60-4444-b84e-f674beec5f73",
       "keepAlive": false,
       "secure": true
     },
@@ -83,6 +108,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4ca29646-fa0f-108e-0e63-0b9a71589d90"
+    "id": "c4260380-ceca-1584-a6be-49e59e929753"
   }
 ]
