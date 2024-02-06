@@ -178,8 +178,8 @@ public class SLOHistoryMonitor {
 
   /**
    * For <code>monitor</code> based SLOs, this includes the aggregated history as arrays that
-   * include time series and uptime data where <code>0=monitor</code> is in <code>OK</code> state
-   * and <code>1=monitor</code> is in <code>alert</code> state.
+   * include timeseries and uptime data where <code>0=monitor</code> is in <code>OK</code> state and
+   * <code>1=monitor</code> is in <code>alert</code> state.
    *
    * @return history
    */
