@@ -51,7 +51,7 @@ public class MetricPayload {
   }
 
   /**
-   * A list of time series to submit to Datadog.
+   * A list of timeseries to submit to Datadog.
    *
    * @return series
    */
