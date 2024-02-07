@@ -10,7 +10,7 @@ variables:
 deploy_to_sonatype:
   stage: deploy_to_sonatype
   tags: [ "arch:amd64" ]
-  image: registry.ddbuild.io/images/mirror/adoptopenjdk/openjdk8:alpine
+  image: registry.ddbuild.io/images/mirror/maven:3.8.6-openjdk-8
   only:
     - tags
   script:
