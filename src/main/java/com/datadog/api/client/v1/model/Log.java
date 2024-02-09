@@ -56,7 +56,7 @@ public class Log {
   }
 
   /**
-   * Unique ID of the Log.
+   * ID of the Log.
    *
    * @return id
    */

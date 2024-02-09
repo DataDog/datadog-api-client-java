@@ -34,7 +34,8 @@ public class Example {
                                     .password("PaSSw0RD!")
                                     .type(SyntheticsBasicAuthWebType.WEB)
                                     .username("my_username")))
-                        .deviceIds(Collections.singletonList(SyntheticsDeviceID.LAPTOP_LARGE))
+                        .deviceIds(
+                            Collections.singletonList(SyntheticsDeviceID.CHROME_LAPTOP_LARGE))
                         .locations(Collections.singletonList("aws:eu-west-3"))
                         .metadata(
                             new SyntheticsCIBatchMetadata()

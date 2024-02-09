@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"enabled\":true,\"name\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\"},\"type\":\"suppressions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/suppressions",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"xhe-kbx-qym\",\"attributes\":{\"name\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"enabled\":true,\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"version\":1,\"creation_date\":1704967597310,\"update_date\":1704967597310,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0a4df5bd-ebd7-d792-15d6-7c824b5d87ed"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"suppression_query\":\"env:staging status:low\"},\"type\":\"suppressions\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/xhe-kbx-qym",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"xhe-kbx-qym\",\"attributes\":{\"name\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"enabled\":true,\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:staging status:low\",\"version\":2,\"creation_date\":1704967597310,\"update_date\":1704967597660,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "99982b4a-97d2-80b2-4d88-fa946de48bab"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/xhe-kbx-qym",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "53571d32-147b-a6c7-9637-4188f8e863a6"
+  }
+]

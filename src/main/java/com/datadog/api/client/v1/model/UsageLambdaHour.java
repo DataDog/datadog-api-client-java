@@ -19,7 +19,7 @@ import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
- * Number of lambda functions and sum of the invocations of all lambda functions for each hour for a
+ * Number of Lambda functions and sum of the invocations of all Lambda functions for each hour for a
  * given organization.
  */
 @JsonPropertyOrder({
