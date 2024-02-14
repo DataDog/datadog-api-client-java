@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -24,9 +26,10 @@ import java.util.Objects;
   DORAIncidentRequestAttributes.JSON_PROPERTY_GIT,
   DORAIncidentRequestAttributes.JSON_PROPERTY_ID,
   DORAIncidentRequestAttributes.JSON_PROPERTY_NAME,
-  DORAIncidentRequestAttributes.JSON_PROPERTY_SERVICE,
+  DORAIncidentRequestAttributes.JSON_PROPERTY_SERVICES,
   DORAIncidentRequestAttributes.JSON_PROPERTY_SEVERITY,
   DORAIncidentRequestAttributes.JSON_PROPERTY_STARTED_AT,
+  DORAIncidentRequestAttributes.JSON_PROPERTY_TEAM,
   DORAIncidentRequestAttributes.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
@@ -48,14 +51,17 @@ public class DORAIncidentRequestAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_SERVICE = "service";
-  private String service;
+  public static final String JSON_PROPERTY_SERVICES = "services";
+  private List<String> services = null;
 
   public static final String JSON_PROPERTY_SEVERITY = "severity";
   private String severity;
 
   public static final String JSON_PROPERTY_STARTED_AT = "started_at";
   private Long startedAt;
+
+  public static final String JSON_PROPERTY_TEAM = "team";
+  private String team;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
@@ -64,9 +70,7 @@ public class DORAIncidentRequestAttributes {
 
   @JsonCreator
   public DORAIncidentRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
       @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) Long startedAt) {
-    this.service = service;
     this.startedAt = startedAt;
   }
 
@@ -140,7 +144,7 @@ public class DORAIncidentRequestAttributes {
   }
 
   /**
-   * Incident ID
+   * Incident ID. Required to update a previously sent incident.
    *
    * @return id
    */
@@ -176,24 +180,34 @@ public class DORAIncidentRequestAttributes {
     this.name = name;
   }
 
-  public DORAIncidentRequestAttributes service(String service) {
-    this.service = service;
+  public DORAIncidentRequestAttributes services(List<String> services) {
+    this.services = services;
+    return this;
+  }
+
+  public DORAIncidentRequestAttributes addServicesItem(String servicesItem) {
+    if (this.services == null) {
+      this.services = new ArrayList<>();
+    }
+    this.services.add(servicesItem);
     return this;
   }
 
   /**
-   * Service name from a service available in the Service Catalog.
+   * Service names impacted by the incident. If possible, use names registered in the Service
+   * Catalog. Required when the team field is not provided.
    *
-   * @return service
+   * @return services
    */
-  @JsonProperty(JSON_PROPERTY_SERVICE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getService() {
-    return service;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getServices() {
+    return services;
   }
 
-  public void setService(String service) {
-    this.service = service;
+  public void setServices(List<String> services) {
+    this.services = services;
   }
 
   public DORAIncidentRequestAttributes severity(String severity) {
@@ -235,6 +249,28 @@ public class DORAIncidentRequestAttributes {
 
   public void setStartedAt(Long startedAt) {
     this.startedAt = startedAt;
+  }
+
+  public DORAIncidentRequestAttributes team(String team) {
+    this.team = team;
+    return this;
+  }
+
+  /**
+   * Name of the team owning the services impacted. If possible, use team handles registered in
+   * Datadog. Required when the services field is not provided.
+   *
+   * @return team
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTeam() {
+    return team;
+  }
+
+  public void setTeam(String team) {
+    this.team = team;
   }
 
   public DORAIncidentRequestAttributes version(String version) {
@@ -321,9 +357,10 @@ public class DORAIncidentRequestAttributes {
         && Objects.equals(this.git, doraIncidentRequestAttributes.git)
         && Objects.equals(this.id, doraIncidentRequestAttributes.id)
         && Objects.equals(this.name, doraIncidentRequestAttributes.name)
-        && Objects.equals(this.service, doraIncidentRequestAttributes.service)
+        && Objects.equals(this.services, doraIncidentRequestAttributes.services)
         && Objects.equals(this.severity, doraIncidentRequestAttributes.severity)
         && Objects.equals(this.startedAt, doraIncidentRequestAttributes.startedAt)
+        && Objects.equals(this.team, doraIncidentRequestAttributes.team)
         && Objects.equals(this.version, doraIncidentRequestAttributes.version)
         && Objects.equals(
             this.additionalProperties, doraIncidentRequestAttributes.additionalProperties);
@@ -337,9 +374,10 @@ public class DORAIncidentRequestAttributes {
         git,
         id,
         name,
-        service,
+        services,
         severity,
         startedAt,
+        team,
         version,
         additionalProperties);
   }
@@ -353,9 +391,10 @@ public class DORAIncidentRequestAttributes {
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    service: ").append(toIndentedString(service)).append("\n");
+    sb.append("    services: ").append(toIndentedString(services)).append("\n");
     sb.append("    severity: ").append(toIndentedString(severity)).append("\n");
     sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
+    sb.append("    team: ").append(toIndentedString(team)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
