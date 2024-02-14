@@ -369,20 +369,16 @@
                     </transformers>
                     <relocations>
                         <relocation>
-                            <pattern>org.glassfish.jersey</pattern>
-                            <shadedPattern>com.datadoghq.org.glassfish.jersey</shadedPattern>
+                            <pattern>org.glassfish</pattern>
+                            <shadedPattern>com.datadoghq.org.glassfish</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.glassfish.hk2</pattern>
-                            <shadedPattern>com.datadoghq.org.glassfish.hk2</shadedPattern>
+                            <pattern>com.fasterxml</pattern>
+                            <shadedPattern>com.datadoghq.com.fasterxml</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>com.fasterxml.jackson</pattern>
-                            <shadedPattern>com.datadoghq.com.fasterxml.jackson</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.openapitools.jackson</pattern>
-                            <shadedPattern>com.datadoghq.org.openapitools.jackson</shadedPattern>
+                            <pattern>org.openapitools</pattern>
+                            <shadedPattern>com.datadoghq.org.openapitools</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>javax.ws.rs</pattern>
@@ -409,24 +405,32 @@
                             <shadedPattern>com.datadoghq.org.javassist</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.jvnet.mimepull</pattern>
-                            <shadedPattern>com.datadoghq.org.jvnet.mimepull</shadedPattern>
+                            <pattern>javassist</pattern>
+                            <shadedPattern>com.datadoghq.javassist</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>com.fasterxml.jackson.module</pattern>
-                            <shadedPattern>com.datadoghq.com.fasterxml.jackson.module</shadedPattern>
+                            <pattern>org.jvnet</pattern>
+                            <shadedPattern>com.datadoghq.org.jvnet</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>jakarta.xml.bind</pattern>
-                            <shadedPattern>com.datadoghq.jakarta.xml.bind</shadedPattern>
+                            <pattern>com.fasterxml.jackson</pattern>
+                            <shadedPattern>com.datadoghq.com.fasterxml.jackson</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>com.github.luben</pattern>
                             <shadedPattern>com.datadoghq.com.github.luben</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>jakarta.ws.rs</pattern>
-                            <shadedPattern>com.datadoghq.jakarta.ws.rs</shadedPattern>
+                            <pattern>org.apache</pattern>
+                            <shadedPattern>com.datadoghq.org.apache</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>commons-logging</pattern>
+                            <shadedPattern>com.datadoghq.commons-logging</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>jakarta</pattern>
+                            <shadedPattern>com.datadoghq.jakarta</shadedPattern>
                         </relocation>
                     </relocations>
                     <shadedClassifierName>shaded-jar</shadedClassifierName>
@@ -511,7 +515,6 @@
             <artifactId>scribejava-core</artifactId>
             <version>${scribejava-version}</version>
         </dependency>
-
 
         <dependency>
             <groupId>com.github.luben</groupId>
