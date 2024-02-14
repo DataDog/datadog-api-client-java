@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.DORAIncidentRequest;
 import com.datadog.api.client.v2.model.DORAIncidentRequestAttributes;
 import com.datadog.api.client.v2.model.DORAIncidentRequestData;
 import com.datadog.api.client.v2.model.DORAIncidentResponse;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,16 +22,17 @@ public class Example {
                 new DORAIncidentRequestData()
                     .attributes(
                         new DORAIncidentRequestAttributes()
-                            .finishedAt(1693491984000000000L)
+                            .finishedAt(1707842944600000000L)
                             .git(
                                 new DORAGitInfo()
                                     .commitSha("66adc9350f2cc9b250b69abddab733dd55e1a588")
                                     .repositoryUrl(
                                         "https://github.com/organization/example-repository"))
                             .name("Webserver is down failing all requests")
-                            .service("shopist")
+                            .services(Collections.singletonList("shopist"))
                             .severity("High")
-                            .startedAt(1693491974000000000L)
+                            .startedAt(1707842944500000000L)
+                            .team("backend")
                             .version("v1.12.07")));
 
     try {
