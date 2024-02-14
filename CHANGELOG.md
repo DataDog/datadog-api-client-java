@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 2.21.1 / 2024-02-14
+
+### Fixed
+* Relocate additional packages and remove duplicate patterns by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/2186
+### Added
+* Case Management Public API documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2159
+### Changed
+* Update spec for DORA Metrics Incident endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2182
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.21.0...datadog-api-client-2.21.1
+
 ## 2.21.0 / 2024-02-07
 
 ### Fixed
