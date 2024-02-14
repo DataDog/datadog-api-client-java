@@ -385,10 +385,6 @@
                             <shadedPattern>com.datadoghq.javax.ws.rs</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>org.apache.hc</pattern>
-                            <shadedPattern>com.datadoghq.org.apache.hc</shadedPattern>
-                        </relocation>
-                        <relocation>
                             <pattern>com.github.scribejava</pattern>
                             <shadedPattern>com.datadoghq.com.github.scribejava</shadedPattern>
                         </relocation>
