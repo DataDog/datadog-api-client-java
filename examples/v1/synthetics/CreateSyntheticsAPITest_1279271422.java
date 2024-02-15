@@ -17,12 +17,15 @@ import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptionsType;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParserType;
 import com.datadog.api.client.v1.model.SyntheticsParsingOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestCallType;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
 import com.datadog.api.client.v1.model.SyntheticsVariableParser;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -41,7 +44,7 @@ public class Example {
                                 .pattern("content-type")
                                 .type(SyntheticsConfigVariableType.TEXT)))
                     .steps(
-                        Collections.singletonList(
+                        Arrays.asList(
                             new SyntheticsAPIStep()
                                 .allowFailure(true)
                                 .assertions(
@@ -71,7 +74,31 @@ public class Example {
                                         .timeout(10.0)
                                         .url("https://datadoghq.com"))
                                 .retry(new SyntheticsTestOptionsRetry().count(5L).interval(1000.0))
-                                .subtype(SyntheticsAPIStepSubtype.HTTP))))
+                                .subtype(SyntheticsAPIStepSubtype.HTTP),
+                            new SyntheticsAPIStep()
+                                .name("GRPC CALL")
+                                .subtype(SyntheticsAPIStepSubtype.GRPC)
+                                .allowFailure(false)
+                                .isCritical(true)
+                                .retry(new SyntheticsTestOptionsRetry().count(0L).interval(300.0))
+                                .assertions(
+                                    Collections.singletonList(
+                                        new SyntheticsAssertion(
+                                            new SyntheticsAssertionTarget()
+                                                .operator(SyntheticsAssertionOperator.LESS_THAN)
+                                                .type(SyntheticsAssertionType.RESPONSE_TIME)
+                                                .target(1000))))
+                                .request(
+                                    new SyntheticsTestRequest()
+                                        .host("grpcbin.test.k6.io")
+                                        .port(9000L)
+                                        .service("grpcbin.GRPCBin")
+                                        .method("Index")
+                                        .message("{}")
+                                        .compressedJsonDescriptor(
+                                            "eJy1lU1z2yAQhv+Lzj74I3ETH506bQ7OZOSm1w4Wa4epBARQppqM/3v5koCJJdvtxCdW77vPssCO3zMKUgHOFu/ZXvBiS6hZho/f8qe7pftYgXphWJrlA8XwxywEvNba+6PhkC2yVcVVswYp0R6ykRYlZ1SCV21SDrxsssPIeS9FJKqGfK2rqnmmSBwhWa2XlKgtaQPiDcRGCUDVfwGD2sKUqKEtc1cSoOrsMlaMOec1sySYCCgUYRSVLv2zSva2u+FQkB0pVkIw8bFuIudOOn3pOaKYVT3Iy97Pd0AYhOx5QcMsnxvRHlnuLf8ETDd3CNtrv2nejkDpRnANCmGkkFn/hsYzpBKE7jVbufgnKnV9HRM9zRPDDKPttYT61n0TdWkAAjggk9AhuxIeaXd69CYTcsGw7cBTakLVbNpRzGEgyWjkSOpMbZXkhGL6oX30R49qt3GoHrap7i0XdD41WQ+2icCNm5p1hmFqnHNlcla0riKmDZ183crDxChjbnurtxHPRE784sVhWvDfGP+SsTKibU3o5NtWHuZFGZOxP6P5VXqIOvaOSec4eYohyd7NslHuJbd1bewds85xYrNxkr2d+5IhFWF3NvaO684xjE2S5ulY+tu64Pna0fCPJgzw6vF5/WucLcYjt5xoq19O3UDptOg/OamJQRaCcPPnMTQ2QDFn+uhPvUfnCrMc99upyQY4Ui9Dlc/YoG3R/v4Cs9YE+g==")
+                                        .metadata(Map.ofEntries())
+                                        .callType(SyntheticsTestCallType.UNARY)))))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_test_multi_step_payload.json")
             .name("Example-Synthetic")
