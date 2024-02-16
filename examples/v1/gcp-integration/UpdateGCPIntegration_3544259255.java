@@ -1,4 +1,4 @@
-// Create a GCP integration returns "OK" response
+// Update a GCP integration cloud run revision filters returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -19,7 +19,7 @@ public class Example {
             .clientId("163662907116366290710")
             .clientX509CertUrl("https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL")
             .hostFilters("key:value,filter:example")
-            .cloudRunRevisionFilters(Collections.singletonList("dr:dre"))
+            .cloudRunRevisionFilters(Collections.singletonList("merp:derp"))
             .isCspmEnabled(true)
             .isSecurityCommandCenterEnabled(true)
             .privateKey("private_key")
@@ -30,9 +30,9 @@ public class Example {
             .type("service_account");
 
     try {
-      apiInstance.createGCPIntegration(body);
+      apiInstance.updateGCPIntegration(body);
     } catch (ApiException e) {
-      System.err.println("Exception when calling GcpIntegrationApi#createGCPIntegration");
+      System.err.println("Exception when calling GcpIntegrationApi#updateGCPIntegration");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
