@@ -323,6 +323,9 @@
                                 <exclude>META-INF/*.MF</exclude>
                                 <exclude>META-INF/LICENSE*</exclude>
                                 <exclude>META-INF/NOTICE*</exclude>
+                                <exclude>META-INF/*.SF</exclude>
+                                <exclude>META-INF/*.DSA</exclude>
+                                <exclude>META-INF/*.RSA</exclude>
                             </excludes>
                         </filter>
                     </filters>
