@@ -2,7 +2,7 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.CasesApi;
+import com.datadog.api.client.v2.api.CaseManagementApi;
 import com.datadog.api.client.v2.model.CaseCreate;
 import com.datadog.api.client.v2.model.CaseCreateAttributes;
 import com.datadog.api.client.v2.model.CaseCreateRelationships;
@@ -21,7 +21,7 @@ import com.datadog.api.client.v2.model.UserResourceType;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    CasesApi apiInstance = new CasesApi(defaultClient);
+    CaseManagementApi apiInstance = new CaseManagementApi(defaultClient);
 
     // there is a valid "user" in the system
     String USER_DATA_ID = System.getenv("USER_DATA_ID");
@@ -33,7 +33,7 @@ public class Example {
                     .attributes(
                         new CaseCreateAttributes()
                             .priority(CasePriority.NOT_DEFINED)
-                            .title("Security breach investigation in 3dcc5b2ebf9bfb8f")
+                            .title("Security breach investigation in 0cfbc5cbc676ee71")
                             .type(CaseType.STANDARD))
                     .relationships(
                         new CaseCreateRelationships()
@@ -55,7 +55,7 @@ public class Example {
       CaseResponse result = apiInstance.createCase(body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CasesApi#createCase");
+      System.err.println("Exception when calling CaseManagementApi#createCase");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
