@@ -16,7 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A sort rule. */
+/**
+ * A sort rule. The <code>aggregation</code> field is required when <code>type</code> is <code>
+ * measure</code>.
+ */
 @JsonPropertyOrder({
   CIAppAggregateSort.JSON_PROPERTY_AGGREGATION,
   CIAppAggregateSort.JSON_PROPERTY_METRIC,
