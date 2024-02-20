@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"020e2ce7-9fe8-4273-81ae-1e5873fba9d3\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"created_at\":\"2024-02-07T18:00:42.286687881Z\",\"creation_source\":\"MANUAL\",\"description\":\"\",\"insights\":[],\"internal_id\":\"020e2ce7-9fe8-4273-81ae-1e5873fba9d3\",\"key\":\"DDFC-9\",\"priority\":\"P4\",\"public_id\":\"69\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"STANDARD\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"type\":\"user\",\"attributes\":{\"email\":\"team-intg-tools-libs-spam@datadoghq.com\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"}}]}",
+      "body": "{\"data\":{\"id\":\"56b03839-5199-4207-94e6-648f5c363d1d\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"created_at\":\"2024-02-14T18:55:18.285988591Z\",\"creation_source\":\"MANUAL\",\"description\":\"\",\"insights\":[],\"internal_id\":\"56b03839-5199-4207-94e6-648f5c363d1d\",\"key\":\"DDFC-189\",\"priority\":\"P4\",\"public_id\":\"249\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"STANDARD\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\",\"attributes\":{\"email\":\"frog@datadoghq.com\",\"handle\":\"frog@datadoghq.com\",\"name\":\"\"}}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/cases/020e2ce7-9fe8-4273-81ae-1e5873fba9d3/unarchive",
+      "path": "/api/v2/cases/56b03839-5199-4207-94e6-648f5c363d1d/unarchive",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"020e2ce7-9fe8-4273-81ae-1e5873fba9d3\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"created_at\":\"2024-02-07T18:00:42.286688Z\",\"creation_source\":\"MANUAL\",\"description\":\"\",\"insights\":[],\"internal_id\":\"020e2ce7-9fe8-4273-81ae-1e5873fba9d3\",\"key\":\"DDFC-9\",\"priority\":\"P4\",\"public_id\":\"69\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"STANDARD\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"type\":\"user\",\"attributes\":{\"email\":\"team-intg-tools-libs-spam@datadoghq.com\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\"}}]}",
+      "body": "{\"data\":{\"id\":\"56b03839-5199-4207-94e6-648f5c363d1d\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"created_at\":\"2024-02-14T18:55:18.285989Z\",\"creation_source\":\"MANUAL\",\"description\":\"\",\"insights\":[],\"internal_id\":\"56b03839-5199-4207-94e6-648f5c363d1d\",\"key\":\"DDFC-189\",\"priority\":\"P4\",\"public_id\":\"249\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"STANDARD\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\",\"attributes\":{\"email\":\"frog@datadoghq.com\",\"handle\":\"frog@datadoghq.com\",\"name\":\"\"}}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,6 +57,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b0b5632a-23eb-2bb3-7871-201d11f2f4ea"
+    "id": "4916ad79-2e8e-c09f-8dd7-b6750db0879d"
   }
 ]
