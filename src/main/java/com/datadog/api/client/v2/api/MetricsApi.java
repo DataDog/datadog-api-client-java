@@ -682,7 +682,8 @@ public class MetricsApi {
      * Set filterHoursAgo.
      *
      * @param filterHoursAgo The number of hours of look back (from now) to estimate cardinality
-     *     with. (optional)
+     *     with. Estimates are based on historical data, and unspecified fields default to the
+     *     minimum 49 hours. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterHoursAgo(Integer filterHoursAgo) {
