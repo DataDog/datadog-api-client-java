@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 2.22.0 / 2024-02-21
+
+### Fixed
+* Relocate additional packages and remove duplicate patterns by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/2186
+* Move under common tag Case Management by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2188
+### Added
+* Case Management Public API documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2159
+* Make grpc steps available for synthetics api multisteps tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2185
+* Add cloud run filter to GCP v1 and v2 spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2156
+* Exclude additional files from shaded jar by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/2195
+### Changed
+* Update spec for DORA Metrics Incident endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2182
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.21.0...datadog-api-client-2.22.0
+
 ## 2.21.0 / 2024-02-07
 
 ### Fixed
