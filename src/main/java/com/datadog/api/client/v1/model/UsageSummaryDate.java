@@ -27,6 +27,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_APM_FARGATE_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_APM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG,
+  UsageSummaryDate.JSON_PROPERTY_ASM_SERVERLESS_SUM,
   UsageSummaryDate.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM,
   UsageSummaryDate.JSON_PROPERTY_AUDIT_TRAIL_ENABLED_HWM,
   UsageSummaryDate.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
@@ -147,6 +148,9 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_APPSEC_FARGATE_COUNT_AVG = "appsec_fargate_count_avg";
   private Long appsecFargateCountAvg;
+
+  public static final String JSON_PROPERTY_ASM_SERVERLESS_SUM = "asm_serverless_sum";
+  private Long asmServerlessSum;
 
   public static final String JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM =
       "audit_logs_lines_indexed_sum";
@@ -623,6 +627,28 @@ public class UsageSummaryDate {
 
   public void setAppsecFargateCountAvg(Long appsecFargateCountAvg) {
     this.appsecFargateCountAvg = appsecFargateCountAvg;
+  }
+
+  public UsageSummaryDate asmServerlessSum(Long asmServerlessSum) {
+    this.asmServerlessSum = asmServerlessSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Application Security Monitoring Serverless invocations over all hours in
+   * the current date for all organizations.
+   *
+   * @return asmServerlessSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASM_SERVERLESS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAsmServerlessSum() {
+    return asmServerlessSum;
+  }
+
+  public void setAsmServerlessSum(Long asmServerlessSum) {
+    this.asmServerlessSum = asmServerlessSum;
   }
 
   public UsageSummaryDate auditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
@@ -2850,6 +2876,7 @@ public class UsageSummaryDate {
         && Objects.equals(this.apmFargateCountAvg, usageSummaryDate.apmFargateCountAvg)
         && Objects.equals(this.apmHostTop99p, usageSummaryDate.apmHostTop99p)
         && Objects.equals(this.appsecFargateCountAvg, usageSummaryDate.appsecFargateCountAvg)
+        && Objects.equals(this.asmServerlessSum, usageSummaryDate.asmServerlessSum)
         && Objects.equals(this.auditLogsLinesIndexedSum, usageSummaryDate.auditLogsLinesIndexedSum)
         && Objects.equals(this.auditTrailEnabledHwm, usageSummaryDate.auditTrailEnabledHwm)
         && Objects.equals(this.avgProfiledFargateTasks, usageSummaryDate.avgProfiledFargateTasks)
@@ -3022,6 +3049,7 @@ public class UsageSummaryDate {
         apmFargateCountAvg,
         apmHostTop99p,
         appsecFargateCountAvg,
+        asmServerlessSum,
         auditLogsLinesIndexedSum,
         auditTrailEnabledHwm,
         avgProfiledFargateTasks,
@@ -3138,6 +3166,7 @@ public class UsageSummaryDate {
     sb.append("    appsecFargateCountAvg: ")
         .append(toIndentedString(appsecFargateCountAvg))
         .append("\n");
+    sb.append("    asmServerlessSum: ").append(toIndentedString(asmServerlessSum)).append("\n");
     sb.append("    auditLogsLinesIndexedSum: ")
         .append(toIndentedString(auditLogsLinesIndexedSum))
         .append("\n");

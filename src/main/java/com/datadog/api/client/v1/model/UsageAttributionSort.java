@@ -60,7 +60,9 @@ public class UsageAttributionSort extends ModelEnum<String> {
               "appsec_fargate_usage",
               "appsec_fargate_percentage",
               "estimated_rum_usage_attribution_usage",
-              "estimated_rum_usage_attribution_percentage"));
+              "estimated_rum_usage_attribution_percentage",
+              "asm_serverless_traced_invocations_usage",
+              "asm_serverless_traced_invocations_percentage"));
 
   public static final UsageAttributionSort API_PERCENTAGE =
       new UsageAttributionSort("api_percentage");
@@ -131,6 +133,10 @@ public class UsageAttributionSort extends ModelEnum<String> {
       new UsageAttributionSort("estimated_rum_usage_attribution_usage");
   public static final UsageAttributionSort ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE =
       new UsageAttributionSort("estimated_rum_usage_attribution_percentage");
+  public static final UsageAttributionSort ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
+      new UsageAttributionSort("asm_serverless_traced_invocations_usage");
+  public static final UsageAttributionSort ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
+      new UsageAttributionSort("asm_serverless_traced_invocations_percentage");
 
   UsageAttributionSort(String value) {
     super(value, allowedValues);
