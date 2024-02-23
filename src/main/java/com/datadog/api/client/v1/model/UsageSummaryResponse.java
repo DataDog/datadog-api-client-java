@@ -50,6 +50,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CI_VISIBILITY_TEST_COMMITTERS_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AWS_HOST_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_AZURE_HOST_COUNT_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_SIEM_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_AVG_SUM,
@@ -80,8 +81,14 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_DBM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_DBM_QUERIES_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_END_DATE,
+  UsageSummaryResponse.JSON_PROPERTY_ERROR_TRACKING_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FLEX_STORED_LOGS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FORWARDING_EVENTS_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_GCP_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_HEROKU_HOST_TOP99P_SUM,
@@ -240,6 +247,10 @@ public class UsageSummaryResponse {
       "cloud_cost_management_azure_host_count_avg_sum";
   private Long cloudCostManagementAzureHostCountAvgSum;
 
+  public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG_SUM =
+      "cloud_cost_management_gcp_host_count_avg_sum";
+  private Long cloudCostManagementGcpHostCountAvgSum;
+
   public static final String JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG_SUM =
       "cloud_cost_management_host_count_avg_sum";
   private Long cloudCostManagementHostCountAvgSum;
@@ -343,6 +354,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_END_DATE = "end_date";
   private OffsetDateTime endDate;
 
+  public static final String JSON_PROPERTY_ERROR_TRACKING_EVENTS_AGG_SUM =
+      "error_tracking_events_agg_sum";
+  private Long errorTrackingEventsAggSum;
+
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM =
       "fargate_tasks_count_avg_sum";
   private Long fargateTasksCountAvgSum;
@@ -350,6 +365,25 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM_SUM =
       "fargate_tasks_count_hwm_sum";
   private Long fargateTasksCountHwmSum;
+
+  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG_SUM =
+      "flex_logs_compute_large_avg_sum";
+  private Long flexLogsComputeLargeAvgSum;
+
+  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG_SUM =
+      "flex_logs_compute_medium_avg_sum";
+  private Long flexLogsComputeMediumAvgSum;
+
+  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG_SUM =
+      "flex_logs_compute_small_avg_sum";
+  private Long flexLogsComputeSmallAvgSum;
+
+  public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG_SUM =
+      "flex_logs_compute_xsmall_avg_sum";
+  private Long flexLogsComputeXsmallAvgSum;
+
+  public static final String JSON_PROPERTY_FLEX_STORED_LOGS_AVG_SUM = "flex_stored_logs_avg_sum";
+  private Long flexStoredLogsAvgSum;
 
   public static final String JSON_PROPERTY_FORWARDING_EVENTS_BYTES_AGG_SUM =
       "forwarding_events_bytes_agg_sum";
@@ -1145,6 +1179,28 @@ public class UsageSummaryResponse {
     this.cloudCostManagementAzureHostCountAvgSum = cloudCostManagementAzureHostCountAvgSum;
   }
 
+  public UsageSummaryResponse cloudCostManagementGcpHostCountAvgSum(
+      Long cloudCostManagementGcpHostCountAvgSum) {
+    this.cloudCostManagementGcpHostCountAvgSum = cloudCostManagementGcpHostCountAvgSum;
+    return this;
+  }
+
+  /**
+   * Sum of the host count average for Cloud Cost Management for GCP.
+   *
+   * @return cloudCostManagementGcpHostCountAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCloudCostManagementGcpHostCountAvgSum() {
+    return cloudCostManagementGcpHostCountAvgSum;
+  }
+
+  public void setCloudCostManagementGcpHostCountAvgSum(Long cloudCostManagementGcpHostCountAvgSum) {
+    this.cloudCostManagementGcpHostCountAvgSum = cloudCostManagementGcpHostCountAvgSum;
+  }
+
   public UsageSummaryResponse cloudCostManagementHostCountAvgSum(
       Long cloudCostManagementHostCountAvgSum) {
     this.cloudCostManagementHostCountAvgSum = cloudCostManagementHostCountAvgSum;
@@ -1825,6 +1881,28 @@ public class UsageSummaryResponse {
     this.endDate = endDate;
   }
 
+  public UsageSummaryResponse errorTrackingEventsAggSum(Long errorTrackingEventsAggSum) {
+    this.errorTrackingEventsAggSum = errorTrackingEventsAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Error Tracking events over all hours in the current months for all
+   * organizations.
+   *
+   * @return errorTrackingEventsAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_EVENTS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getErrorTrackingEventsAggSum() {
+    return errorTrackingEventsAggSum;
+  }
+
+  public void setErrorTrackingEventsAggSum(Long errorTrackingEventsAggSum) {
+    this.errorTrackingEventsAggSum = errorTrackingEventsAggSum;
+  }
+
   public UsageSummaryResponse fargateTasksCountAvgSum(Long fargateTasksCountAvgSum) {
     this.fargateTasksCountAvgSum = fargateTasksCountAvgSum;
     return this;
@@ -1867,6 +1945,116 @@ public class UsageSummaryResponse {
 
   public void setFargateTasksCountHwmSum(Long fargateTasksCountHwmSum) {
     this.fargateTasksCountHwmSum = fargateTasksCountHwmSum;
+  }
+
+  public UsageSummaryResponse flexLogsComputeLargeAvgSum(Long flexLogsComputeLargeAvgSum) {
+    this.flexLogsComputeLargeAvgSum = flexLogsComputeLargeAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average number of Flex Logs Compute Large Instances over all hours in the current
+   * months for all organizations.
+   *
+   * @return flexLogsComputeLargeAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFlexLogsComputeLargeAvgSum() {
+    return flexLogsComputeLargeAvgSum;
+  }
+
+  public void setFlexLogsComputeLargeAvgSum(Long flexLogsComputeLargeAvgSum) {
+    this.flexLogsComputeLargeAvgSum = flexLogsComputeLargeAvgSum;
+  }
+
+  public UsageSummaryResponse flexLogsComputeMediumAvgSum(Long flexLogsComputeMediumAvgSum) {
+    this.flexLogsComputeMediumAvgSum = flexLogsComputeMediumAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average number of Flex Logs Compute Medium Instances over all hours in the current
+   * months for all organizations.
+   *
+   * @return flexLogsComputeMediumAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFlexLogsComputeMediumAvgSum() {
+    return flexLogsComputeMediumAvgSum;
+  }
+
+  public void setFlexLogsComputeMediumAvgSum(Long flexLogsComputeMediumAvgSum) {
+    this.flexLogsComputeMediumAvgSum = flexLogsComputeMediumAvgSum;
+  }
+
+  public UsageSummaryResponse flexLogsComputeSmallAvgSum(Long flexLogsComputeSmallAvgSum) {
+    this.flexLogsComputeSmallAvgSum = flexLogsComputeSmallAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average number of Flex Logs Compute Small Instances over all hours in the current
+   * months for all organizations.
+   *
+   * @return flexLogsComputeSmallAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFlexLogsComputeSmallAvgSum() {
+    return flexLogsComputeSmallAvgSum;
+  }
+
+  public void setFlexLogsComputeSmallAvgSum(Long flexLogsComputeSmallAvgSum) {
+    this.flexLogsComputeSmallAvgSum = flexLogsComputeSmallAvgSum;
+  }
+
+  public UsageSummaryResponse flexLogsComputeXsmallAvgSum(Long flexLogsComputeXsmallAvgSum) {
+    this.flexLogsComputeXsmallAvgSum = flexLogsComputeXsmallAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the
+   * current months for all organizations.
+   *
+   * @return flexLogsComputeXsmallAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFlexLogsComputeXsmallAvgSum() {
+    return flexLogsComputeXsmallAvgSum;
+  }
+
+  public void setFlexLogsComputeXsmallAvgSum(Long flexLogsComputeXsmallAvgSum) {
+    this.flexLogsComputeXsmallAvgSum = flexLogsComputeXsmallAvgSum;
+  }
+
+  public UsageSummaryResponse flexStoredLogsAvgSum(Long flexStoredLogsAvgSum) {
+    this.flexStoredLogsAvgSum = flexStoredLogsAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average of all Flex Stored Logs over all hours in the current months for all
+   * organizations.
+   *
+   * @return flexStoredLogsAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_STORED_LOGS_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFlexStoredLogsAvgSum() {
+    return flexStoredLogsAvgSum;
+  }
+
+  public void setFlexStoredLogsAvgSum(Long flexStoredLogsAvgSum) {
+    this.flexStoredLogsAvgSum = flexStoredLogsAvgSum;
   }
 
   public UsageSummaryResponse forwardingEventsBytesAggSum(Long forwardingEventsBytesAggSum) {
@@ -3262,6 +3450,9 @@ public class UsageSummaryResponse {
             this.cloudCostManagementAzureHostCountAvgSum,
             usageSummaryResponse.cloudCostManagementAzureHostCountAvgSum)
         && Objects.equals(
+            this.cloudCostManagementGcpHostCountAvgSum,
+            usageSummaryResponse.cloudCostManagementGcpHostCountAvgSum)
+        && Objects.equals(
             this.cloudCostManagementHostCountAvgSum,
             usageSummaryResponse.cloudCostManagementHostCountAvgSum)
         && Objects.equals(this.cloudSiemEventsAggSum, usageSummaryResponse.cloudSiemEventsAggSum)
@@ -3315,9 +3506,20 @@ public class UsageSummaryResponse {
         && Objects.equals(this.dbmQueriesAvgSum, usageSummaryResponse.dbmQueriesAvgSum)
         && Objects.equals(this.endDate, usageSummaryResponse.endDate)
         && Objects.equals(
+            this.errorTrackingEventsAggSum, usageSummaryResponse.errorTrackingEventsAggSum)
+        && Objects.equals(
             this.fargateTasksCountAvgSum, usageSummaryResponse.fargateTasksCountAvgSum)
         && Objects.equals(
             this.fargateTasksCountHwmSum, usageSummaryResponse.fargateTasksCountHwmSum)
+        && Objects.equals(
+            this.flexLogsComputeLargeAvgSum, usageSummaryResponse.flexLogsComputeLargeAvgSum)
+        && Objects.equals(
+            this.flexLogsComputeMediumAvgSum, usageSummaryResponse.flexLogsComputeMediumAvgSum)
+        && Objects.equals(
+            this.flexLogsComputeSmallAvgSum, usageSummaryResponse.flexLogsComputeSmallAvgSum)
+        && Objects.equals(
+            this.flexLogsComputeXsmallAvgSum, usageSummaryResponse.flexLogsComputeXsmallAvgSum)
+        && Objects.equals(this.flexStoredLogsAvgSum, usageSummaryResponse.flexStoredLogsAvgSum)
         && Objects.equals(
             this.forwardingEventsBytesAggSum, usageSummaryResponse.forwardingEventsBytesAggSum)
         && Objects.equals(this.gcpHostTop99pSum, usageSummaryResponse.gcpHostTop99pSum)
@@ -3468,6 +3670,7 @@ public class UsageSummaryResponse {
         ciVisibilityTestCommittersHwmSum,
         cloudCostManagementAwsHostCountAvgSum,
         cloudCostManagementAzureHostCountAvgSum,
+        cloudCostManagementGcpHostCountAvgSum,
         cloudCostManagementHostCountAvgSum,
         cloudSiemEventsAggSum,
         containerAvgSum,
@@ -3498,8 +3701,14 @@ public class UsageSummaryResponse {
         dbmHostTop99pSum,
         dbmQueriesAvgSum,
         endDate,
+        errorTrackingEventsAggSum,
         fargateTasksCountAvgSum,
         fargateTasksCountHwmSum,
+        flexLogsComputeLargeAvgSum,
+        flexLogsComputeMediumAvgSum,
+        flexLogsComputeSmallAvgSum,
+        flexLogsComputeXsmallAvgSum,
+        flexStoredLogsAvgSum,
         forwardingEventsBytesAggSum,
         gcpHostTop99pSum,
         herokuHostTop99pSum,
@@ -3632,6 +3841,9 @@ public class UsageSummaryResponse {
     sb.append("    cloudCostManagementAzureHostCountAvgSum: ")
         .append(toIndentedString(cloudCostManagementAzureHostCountAvgSum))
         .append("\n");
+    sb.append("    cloudCostManagementGcpHostCountAvgSum: ")
+        .append(toIndentedString(cloudCostManagementGcpHostCountAvgSum))
+        .append("\n");
     sb.append("    cloudCostManagementHostCountAvgSum: ")
         .append(toIndentedString(cloudCostManagementHostCountAvgSum))
         .append("\n");
@@ -3704,11 +3916,29 @@ public class UsageSummaryResponse {
     sb.append("    dbmHostTop99pSum: ").append(toIndentedString(dbmHostTop99pSum)).append("\n");
     sb.append("    dbmQueriesAvgSum: ").append(toIndentedString(dbmQueriesAvgSum)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
+    sb.append("    errorTrackingEventsAggSum: ")
+        .append(toIndentedString(errorTrackingEventsAggSum))
+        .append("\n");
     sb.append("    fargateTasksCountAvgSum: ")
         .append(toIndentedString(fargateTasksCountAvgSum))
         .append("\n");
     sb.append("    fargateTasksCountHwmSum: ")
         .append(toIndentedString(fargateTasksCountHwmSum))
+        .append("\n");
+    sb.append("    flexLogsComputeLargeAvgSum: ")
+        .append(toIndentedString(flexLogsComputeLargeAvgSum))
+        .append("\n");
+    sb.append("    flexLogsComputeMediumAvgSum: ")
+        .append(toIndentedString(flexLogsComputeMediumAvgSum))
+        .append("\n");
+    sb.append("    flexLogsComputeSmallAvgSum: ")
+        .append(toIndentedString(flexLogsComputeSmallAvgSum))
+        .append("\n");
+    sb.append("    flexLogsComputeXsmallAvgSum: ")
+        .append(toIndentedString(flexLogsComputeXsmallAvgSum))
+        .append("\n");
+    sb.append("    flexStoredLogsAvgSum: ")
+        .append(toIndentedString(flexStoredLogsAvgSum))
         .append("\n");
     sb.append("    forwardingEventsBytesAggSum: ")
         .append(toIndentedString(forwardingEventsBytesAggSum))
