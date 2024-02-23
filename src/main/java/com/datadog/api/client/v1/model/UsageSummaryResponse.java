@@ -569,7 +569,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all agent hosts over all hours in the current months for all
+   * Shows the 99th percentile of all agent hosts over all hours in the current month for all
    * organizations.
    *
    * @return agentHostTop99pSum
@@ -593,7 +593,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Azure app services using APM over all hours in the current
-   * months all organizations.
+   * month all organizations.
    *
    * @return apmAzureAppServiceHostTop99pSum
    */
@@ -614,7 +614,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current months for
+   * Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current month for
    * all organizations.
    *
    * @return apmDevsecopsHostTop99pSum
@@ -636,7 +636,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the average of all APM ECS Fargate tasks over all hours in the current months for all
+   * Shows the average of all APM ECS Fargate tasks over all hours in the current month for all
    * organizations.
    *
    * @return apmFargateCountAvgSum
@@ -658,8 +658,8 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all distinct APM hosts over all hours in the current months for
-   * all organizations.
+   * Shows the 99th percentile of all distinct APM hosts over all hours in the current month for all
+   * organizations.
    *
    * @return apmHostTop99pSum
    */
@@ -681,7 +681,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in
-   * the current months for all organizations.
+   * the current month for all organizations.
    *
    * @return appsecFargateCountAvgSum
    */
@@ -724,7 +724,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all audit logs lines indexed over all hours in the current months for all
+   * Shows the sum of all audit logs lines indexed over all hours in the current month for all
    * organizations.
    *
    * @return auditLogsLinesIndexedAggSum
@@ -771,7 +771,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the average of all profiled Fargate tasks over all hours in the current months for all
+   * Shows the average of all profiled Fargate tasks over all hours in the current month for all
    * organizations.
    *
    * @return avgProfiledFargateTasksSum
@@ -793,7 +793,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all AWS hosts over all hours in the current months for all
+   * Shows the 99th percentile of all AWS hosts over all hours in the current month for all
    * organizations.
    *
    * @return awsHostTop99pSum
@@ -816,7 +816,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of the number of functions that executed 1 or more times each hour in the
-   * current months for all organizations.
+   * current month for all organizations.
    *
    * @return awsLambdaFuncCount
    */
@@ -837,7 +837,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all AWS Lambda invocations over all hours in the current months for all
+   * Shows the sum of all AWS Lambda invocations over all hours in the current month for all
    * organizations.
    *
    * @return awsLambdaInvocationsSum
@@ -859,8 +859,8 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all Azure app services over all hours in the current months for
-   * all organizations.
+   * Shows the 99th percentile of all Azure app services over all hours in the current month for all
+   * organizations.
    *
    * @return azureAppServiceTop99pSum
    */
@@ -881,7 +881,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all Azure hosts over all hours in the current months for all
+   * Shows the 99th percentile of all Azure hosts over all hours in the current month for all
    * organizations.
    *
    * @return azureHostTop99pSum
@@ -903,7 +903,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all log bytes ingested over all hours in the current months for all
+   * Shows the sum of all log bytes ingested over all hours in the current month for all
    * organizations.
    *
    * @return billableIngestedBytesAggSum
@@ -926,7 +926,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all browser lite sessions over all hours in the current months for all
+   * Shows the sum of all browser lite sessions over all hours in the current month for all
    * organizations.
    *
    * @return browserRumLiteSessionCountAggSum
@@ -949,7 +949,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all browser replay sessions over all hours in the current months for all
+   * Shows the sum of all browser replay sessions over all hours in the current month for all
    * organizations.
    *
    * @return browserRumReplaySessionCountAggSum
@@ -971,7 +971,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all browser RUM units over all hours in the current months for all
+   * Shows the sum of all browser RUM units over all hours in the current month for all
    * organizations.
    *
    * @return browserRumUnitsAggSum
@@ -993,7 +993,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all CI pipeline indexed spans over all hours in the current months for all
+   * Shows the sum of all CI pipeline indexed spans over all hours in the current month for all
    * organizations.
    *
    * @return ciPipelineIndexedSpansAggSum
@@ -1015,7 +1015,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all CI test indexed spans over all hours in the current months for all
+   * Shows the sum of all CI test indexed spans over all hours in the current month for all
    * organizations.
    *
    * @return ciTestIndexedSpansAggSum
@@ -1039,7 +1039,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the high-water mark of all CI visibility intelligent test runner committers over all
-   * hours in the current months for all organizations.
+   * hours in the current month for all organizations.
    *
    * @return ciVisibilityItrCommittersHwmSum
    */
@@ -1062,7 +1062,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the high-water mark of all CI visibility pipeline committers over all hours in the
-   * current months for all organizations.
+   * current month for all organizations.
    *
    * @return ciVisibilityPipelineCommittersHwmSum
    */
@@ -1085,7 +1085,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the high-water mark of all CI visibility test committers over all hours in the current
-   * months for all organizations.
+   * month for all organizations.
    *
    * @return ciVisibilityTestCommittersHwmSum
    */
@@ -1174,7 +1174,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all Cloud Security Information and Event Management events over all hours in
-   * the current months for all organizations.
+   * the current month for all organizations.
    *
    * @return cloudSiemEventsAggSum
    */
@@ -1195,7 +1195,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the average of all distinct containers over all hours in the current months for all
+   * Shows the average of all distinct containers over all hours in the current month for all
    * organizations.
    *
    * @return containerAvgSum
@@ -1240,7 +1240,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of the high-water marks of all distinct containers over all hours in the current
-   * months for all organizations.
+   * month for all organizations.
    *
    * @return containerHwmSum
    */
@@ -1263,7 +1263,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours
-   * in the current months for all organizations.
+   * in the current month for all organizations.
    *
    * @return csmContainerEnterpriseComplianceCountAggSum
    */
@@ -1287,7 +1287,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers
-   * over all hours in the current months for all organizations.
+   * over all hours in the current month for all organizations.
    *
    * @return csmContainerEnterpriseCwsCountAggSum
    */
@@ -1310,7 +1310,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all Cloud Security Management Enterprise containers over all hours in the
-   * current months for all organizations.
+   * current month for all organizations.
    *
    * @return csmContainerEnterpriseTotalCountAggSum
    */
@@ -1334,7 +1334,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts
-   * over all hours in the current months for all organizations.
+   * over all hours in the current month for all organizations.
    *
    * @return csmHostEnterpriseAasHostCountTop99pSum
    */
@@ -1358,7 +1358,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours
-   * in the current months for all organizations.
+   * in the current month for all organizations.
    *
    * @return csmHostEnterpriseAwsHostCountTop99pSum
    */
@@ -1382,7 +1382,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all
-   * hours in the current months for all organizations.
+   * hours in the current month for all organizations.
    *
    * @return csmHostEnterpriseAzureHostCountTop99pSum
    */
@@ -1407,7 +1407,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all
-   * hours in the current months for all organizations.
+   * hours in the current month for all organizations.
    *
    * @return csmHostEnterpriseComplianceHostCountTop99pSum
    */
@@ -1432,7 +1432,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security
-   * hosts over all hours in the current months for all organizations.
+   * hosts over all hours in the current month for all organizations.
    *
    * @return csmHostEnterpriseCwsHostCountTop99pSum
    */
@@ -1456,7 +1456,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours
-   * in the current months for all organizations.
+   * in the current month for all organizations.
    *
    * @return csmHostEnterpriseGcpHostCountTop99pSum
    */
@@ -1480,7 +1480,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in
-   * the current months for all organizations.
+   * the current month for all organizations.
    *
    * @return csmHostEnterpriseTotalHostCountTop99pSum
    */
@@ -1503,7 +1503,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro Azure app services hosts over
-   * all hours in the current months for all organizations.
+   * all hours in the current month for all organizations.
    *
    * @return cspmAasHostTop99pSum
    */
@@ -1525,7 +1525,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro AWS hosts over all hours in the
-   * current months for all organizations.
+   * current month for all organizations.
    *
    * @return cspmAwsHostTop99pSum
    */
@@ -1547,7 +1547,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro Azure hosts over all hours in
-   * the current months for all organizations.
+   * the current month for all organizations.
    *
    * @return cspmAzureHostTop99pSum
    */
@@ -1569,7 +1569,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average number of Cloud Security Management Pro containers over all hours in the
-   * current months for all organizations.
+   * current month for all organizations.
    *
    * @return cspmContainerAvgSum
    */
@@ -1591,7 +1591,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of the the high-water marks of Cloud Security Management Pro containers over all
-   * hours in the current months for all organizations.
+   * hours in the current month for all organizations.
    *
    * @return cspmContainerHwmSum
    */
@@ -1613,7 +1613,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro GCP hosts over all hours in the
-   * current months for all organizations.
+   * current month for all organizations.
    *
    * @return cspmGcpHostTop99pSum
    */
@@ -1635,7 +1635,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the
-   * current months for all organizations.
+   * current month for all organizations.
    *
    * @return cspmHostTop99pSum
    */
@@ -1657,7 +1657,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average number of distinct historical custom metrics over all hours in the current
-   * months for all organizations.
+   * month for all organizations.
    *
    * @return customHistoricalTsSum
    */
@@ -1678,7 +1678,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the average number of distinct live custom metrics over all hours in the current months
+   * Shows the average number of distinct live custom metrics over all hours in the current month
    * for all organizations.
    *
    * @return customLiveTsSum
@@ -1700,8 +1700,8 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the average number of distinct custom metrics over all hours in the current months for
-   * all organizations.
+   * Shows the average number of distinct custom metrics over all hours in the current month for all
+   * organizations.
    *
    * @return customTsSum
    */
@@ -1723,7 +1723,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the average of all distinct Cloud Workload Security containers over all hours in the
-   * current months for all organizations.
+   * current month for all organizations.
    *
    * @return cwsContainersAvgSum
    */
@@ -1745,7 +1745,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current
-   * months for all organizations.
+   * month for all organizations.
    *
    * @return cwsHostTop99pSum
    */
@@ -1810,7 +1810,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the last date of usage in the current months for all organizations.
+   * Shows the last date of usage in the current month for all organizations.
    *
    * @return endDate
    */
@@ -1831,7 +1831,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the average of all Fargate tasks over all hours in the current months for all
+   * Shows the average of all Fargate tasks over all hours in the current month for all
    * organizations.
    *
    * @return fargateTasksCountAvgSum
@@ -1853,7 +1853,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of the high-water marks of all Fargate tasks over all hours in the current months
+   * Shows the sum of the high-water marks of all Fargate tasks over all hours in the current month
    * for all organizations.
    *
    * @return fargateTasksCountHwmSum
@@ -1875,7 +1875,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all logs forwarding bytes over all hours in the current months for all
+   * Shows the sum of all logs forwarding bytes over all hours in the current month for all
    * organizations (data available as of April 1, 2023)
    *
    * @return forwardingEventsBytesAggSum
@@ -1897,7 +1897,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all GCP hosts over all hours in the current months for all
+   * Shows the 99th percentile of all GCP hosts over all hours in the current month for all
    * organizations.
    *
    * @return gcpHostTop99pSum
@@ -1919,7 +1919,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all Heroku dynos over all hours in the current months for all
+   * Shows the 99th percentile of all Heroku dynos over all hours in the current month for all
    * organizations.
    *
    * @return herokuHostTop99pSum
@@ -1943,7 +1943,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows sum of the the high-water marks of incident management monthly active users in the
-   * current months for all organizations.
+   * current month for all organizations.
    *
    * @return incidentManagementMonthlyActiveUsersHwmSum
    */
@@ -1965,7 +1965,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all log events indexed over all hours in the current months for all
+   * Shows the sum of all log events indexed over all hours in the current month for all
    * organizations.
    *
    * @return indexedEventsCountAggSum
@@ -1988,7 +1988,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current
-   * months for all organizations.
+   * month for all organizations.
    *
    * @return infraHostTop99pSum
    */
@@ -2009,7 +2009,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all log bytes ingested over all hours in the current months for all
+   * Shows the sum of all log bytes ingested over all hours in the current month for all
    * organizations.
    *
    * @return ingestedEventsBytesAggSum
@@ -2031,7 +2031,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all IoT devices over all hours in the current months for all organizations.
+   * Shows the sum of all IoT devices over all hours in the current month for all organizations.
    *
    * @return iotDeviceAggSum
    */
@@ -2052,7 +2052,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all IoT devices over all hours in the current months of all
+   * Shows the 99th percentile of all IoT devices over all hours in the current month of all
    * organizations.
    *
    * @return iotDeviceTop99pSum
@@ -2074,7 +2074,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the the most recent hour in the current months for all organizations for which all usages
+   * Shows the the most recent hour in the current month for all organizations for which all usages
    * were calculated.
    *
    * @return lastUpdated
@@ -2096,7 +2096,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all live logs indexed over all hours in the current months for all
+   * Shows the sum of all live logs indexed over all hours in the current month for all
    * organizations (data available as of December 1, 2020).
    *
    * @return liveIndexedEventsAggSum
@@ -2118,7 +2118,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all live logs bytes ingested over all hours in the current months for all
+   * Shows the sum of all live logs bytes ingested over all hours in the current month for all
    * organizations (data available as of December 1, 2020).
    *
    * @return liveIngestedBytesAggSum
@@ -2163,7 +2163,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all mobile lite sessions over all hours in the current months for all
+   * Shows the sum of all mobile lite sessions over all hours in the current month for all
    * organizations.
    *
    * @return mobileRumLiteSessionCountAggSum
@@ -2185,7 +2185,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions over all hours in the current months for all
+   * Shows the sum of all mobile RUM Sessions over all hours in the current month for all
    * organizations.
    *
    * @return mobileRumSessionCountAggSum
@@ -2208,8 +2208,8 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for
-   * all organizations.
+   * Shows the sum of all mobile RUM Sessions on Android over all hours in the current month for all
+   * organizations.
    *
    * @return mobileRumSessionCountAndroidAggSum
    */
@@ -2231,8 +2231,8 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions on Flutter over all hours in the current months for
-   * all organizations.
+   * Shows the sum of all mobile RUM Sessions on Flutter over all hours in the current month for all
+   * organizations.
    *
    * @return mobileRumSessionCountFlutterAggSum
    */
@@ -2253,7 +2253,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all
+   * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current month for all
    * organizations.
    *
    * @return mobileRumSessionCountIosAggSum
@@ -2276,7 +2276,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions on React Native over all hours in the current months
+   * Shows the sum of all mobile RUM Sessions on React Native over all hours in the current month
    * for all organizations.
    *
    * @return mobileRumSessionCountReactnativeAggSum
@@ -2300,7 +2300,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions on Roku over all hours in the current months for all
+   * Shows the sum of all mobile RUM Sessions on Roku over all hours in the current month for all
    * organizations.
    *
    * @return mobileRumSessionCountRokuAggSum
@@ -2322,7 +2322,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all mobile RUM units over all hours in the current months for all
+   * Shows the sum of all mobile RUM units over all hours in the current month for all
    * organizations.
    *
    * @return mobileRumUnitsAggSum
@@ -2345,7 +2345,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current
-   * months for all organizations.
+   * month for all organizations.
    *
    * @return ndmNetflowEventsAggSum
    */
@@ -2367,7 +2367,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all Network flows indexed over all hours in the current months for all
+   * Shows the sum of all Network flows indexed over all hours in the current month for all
    * organizations.
    *
    * @return netflowIndexedEventsCountAggSum
@@ -2389,7 +2389,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all distinct Networks hosts over all hours in the current months
+   * Shows the 99th percentile of all distinct Networks hosts over all hours in the current month
    * for all organizations.
    *
    * @return npmHostTop99pSum
@@ -2412,7 +2412,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Sum of all observability pipelines bytes processed over all hours in the current months for all
+   * Sum of all observability pipelines bytes processed over all hours in the current month for all
    * organizations.
    *
    * @return observabilityPipelinesBytesProcessedAggSum
@@ -2435,7 +2435,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Sum of all online archived events over all hours in the current months for all organizations.
+   * Sum of all online archived events over all hours in the current month for all organizations.
    *
    * @return onlineArchiveEventsCountAggSum
    */
@@ -2457,7 +2457,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry
-   * Collector over all hours in the current months for all organizations.
+   * Collector over all hours in the current month for all organizations.
    *
    * @return opentelemetryApmHostTop99pSum
    */
@@ -2479,7 +2479,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry
-   * Collector over all hours in the current months for all organizations.
+   * Collector over all hours in the current month for all organizations.
    *
    * @return opentelemetryHostTop99pSum
    */
@@ -2501,7 +2501,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all profiled Azure app services over all hours in the current
-   * months for all organizations.
+   * month for all organizations.
    *
    * @return profilingAasCountTop99pSum
    */
@@ -2523,7 +2523,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the average number of profiled containers over all hours in the current months for all
+   * Shows the average number of profiled containers over all hours in the current month for all
    * organizations.
    *
    * @return profilingContainerAgentCountAvg
@@ -2545,7 +2545,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all profiled hosts over all hours in the current months for all
+   * Shows the 99th percentile of all profiled hosts over all hours in the current month for all
    * organizations.
    *
    * @return profilingHostCountTop99pSum
@@ -2567,7 +2567,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all rehydrated logs indexed over all hours in the current months for all
+   * Shows the sum of all rehydrated logs indexed over all hours in the current month for all
    * organizations (data available as of December 1, 2020).
    *
    * @return rehydratedIndexedEventsAggSum
@@ -2589,8 +2589,8 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all rehydrated logs bytes ingested over all hours in the current months for
-   * all organizations (data available as of December 1, 2020).
+   * Shows the sum of all rehydrated logs bytes ingested over all hours in the current month for all
+   * organizations (data available as of December 1, 2020).
    *
    * @return rehydratedIngestedBytesAggSum
    */
@@ -2634,7 +2634,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all browser RUM Lite Sessions over all hours in the current months for all
+   * Shows the sum of all browser RUM Lite Sessions over all hours in the current month for all
    * organizations.
    *
    * @return rumSessionCountAggSum
@@ -2656,7 +2656,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all
+   * Shows the sum of RUM Sessions (browser and mobile) over all hours in the current month for all
    * organizations.
    *
    * @return rumTotalSessionCountAggSum
@@ -2678,7 +2678,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all browser and mobile RUM units over all hours in the current months for all
+   * Shows the sum of all browser and mobile RUM units over all hours in the current month for all
    * organizations.
    *
    * @return rumUnitsAggSum
@@ -2700,7 +2700,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Sum of all APM bytes scanned with sensitive data scanner in the current months for all
+   * Sum of all APM bytes scanned with sensitive data scanner in the current month for all
    * organizations.
    *
    * @return sdsApmScannedBytesSum
@@ -2722,7 +2722,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Sum of all event stream events bytes scanned with sensitive data scanner in the current months
+   * Sum of all event stream events bytes scanned with sensitive data scanner in the current month
    * for all organizations.
    *
    * @return sdsEventsScannedBytesSum
@@ -2766,7 +2766,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Sum of all RUM bytes scanned with sensitive data scanner in the current months for all
+   * Sum of all RUM bytes scanned with sensitive data scanner in the current month for all
    * organizations.
    *
    * @return sdsRumScannedBytesSum
@@ -2810,7 +2810,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Sum of the average number of Serverless Apps for Azure in the current months for all
+   * Sum of the average number of Serverless Apps for Azure in the current month for all
    * organizations.
    *
    * @return serverlessAppsAzureCountAvgSum
@@ -2833,7 +2833,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Sum of the average number of Serverless Apps for Google Cloud in the current months for all
+   * Sum of the average number of Serverless Apps for Google Cloud in the current month for all
    * organizations.
    *
    * @return serverlessAppsGoogleCountAvgSum
@@ -2855,7 +2855,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Sum of the average number of Serverless Apps for Azure and Google Cloud in the current months
+   * Sum of the average number of Serverless Apps for Azure and Google Cloud in the current month
    * for all organizations.
    *
    * @return serverlessAppsTotalCountAvgSum
@@ -2877,7 +2877,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the first date of usage in the current months for all organizations.
+   * Shows the first date of usage in the current month for all organizations.
    *
    * @return startDate
    */
@@ -2899,7 +2899,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all Synthetic browser tests over all hours in the current months for all
+   * Shows the sum of all Synthetic browser tests over all hours in the current month for all
    * organizations.
    *
    * @return syntheticsBrowserCheckCallsCountAggSum
@@ -2923,7 +2923,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all Synthetic API tests over all hours in the current months for all
+   * Shows the sum of all Synthetic API tests over all hours in the current month for all
    * organizations.
    *
    * @return syntheticsCheckCallsCountAggSum
@@ -2945,8 +2945,8 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of Synthetic mobile application tests over all hours in the current months for
-   * all organizations.
+   * Shows the sum of Synthetic mobile application tests over all hours in the current month for all
+   * organizations.
    *
    * @return syntheticsMobileTestRunsAggSum
    */
@@ -2992,7 +2992,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all Indexed Spans indexed over all hours in the current months for all
+   * Shows the sum of all Indexed Spans indexed over all hours in the current month for all
    * organizations.
    *
    * @return traceSearchIndexedEventsCountAggSum
@@ -3014,7 +3014,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all ingested APM span bytes over all hours in the current months for all
+   * Shows the sum of all ingested APM span bytes over all hours in the current month for all
    * organizations.
    *
    * @return twolIngestedEventsBytesAggSum
@@ -3038,7 +3038,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Universal Service Monitoring hosts over all hours in the
-   * current months for all organizations.
+   * current month for all organizations.
    *
    * @return universalServiceMonitoringHostTop99pSum
    */
@@ -3093,7 +3093,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the 99th percentile of all vSphere hosts over all hours in the current months for all
+   * Shows the 99th percentile of all vSphere hosts over all hours in the current month for all
    * organizations.
    *
    * @return vsphereHostTop99pSum
@@ -3117,7 +3117,7 @@ public class UsageSummaryResponse {
 
   /**
    * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in
-   * the current months for all organizations.
+   * the current month for all organizations.
    *
    * @return vulnManagementHostCountTop99pSum
    */
@@ -3138,7 +3138,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Sum of all workflows executed over all hours in the current months for all organizations.
+   * Sum of all workflows executed over all hours in the current month for all organizations.
    *
    * @return workflowExecutionsUsageAggSum
    */

@@ -582,7 +582,7 @@ public class UsageSummaryDateOrg {
   }
 
   /**
-   * Shows the average of all APM ECS Fargate tasks over all hours in the current months for the
+   * Shows the average of all APM ECS Fargate tasks over all hours in the current month for the
    * given org.
    *
    * @return apmFargateCountAvg
@@ -627,7 +627,7 @@ public class UsageSummaryDateOrg {
 
   /**
    * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in
-   * the current months for the given org.
+   * the current month for the given org.
    *
    * @return appsecFargateCountAvg
    */
