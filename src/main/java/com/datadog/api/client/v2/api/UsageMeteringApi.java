@@ -970,14 +970,14 @@ public class UsageMeteringApi {
    *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
    *     cloud_cost_management</code>, <code>csm_container_enterprise</code>, <code>
    *     csm_host_enterprise</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws</code>
-   *     , <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
-   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
-   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>netflow_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions
-   *     </code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api</code>, <code>
-   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     , <code>dbm</code>, <code>error_tracking</code>, <code>fargate</code>, <code>infra_hosts
+   *     </code>, <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans
+   *     </code>, <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations
+   *     </code>, <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     netflow_monitoring</code>, <code>observability_pipelines</code>, <code>online_archive
+   *     </code>, <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>,
+   *     <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
    *     synthetics_parallel_testing</code>, and <code>timeseries</code>. The following product
    *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @return HourlyUsageResponse
@@ -1002,14 +1002,14 @@ public class UsageMeteringApi {
    *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
    *     cloud_cost_management</code>, <code>csm_container_enterprise</code>, <code>
    *     csm_host_enterprise</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws</code>
-   *     , <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
-   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
-   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>netflow_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions
-   *     </code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api</code>, <code>
-   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     , <code>dbm</code>, <code>error_tracking</code>, <code>fargate</code>, <code>infra_hosts
+   *     </code>, <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans
+   *     </code>, <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations
+   *     </code>, <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     netflow_monitoring</code>, <code>observability_pipelines</code>, <code>online_archive
+   *     </code>, <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>,
+   *     <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
    *     synthetics_parallel_testing</code>, and <code>timeseries</code>. The following product
    *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @return CompletableFuture&lt;HourlyUsageResponse&gt;
@@ -1036,14 +1036,14 @@ public class UsageMeteringApi {
    *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
    *     cloud_cost_management</code>, <code>csm_container_enterprise</code>, <code>
    *     csm_host_enterprise</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws</code>
-   *     , <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
-   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
-   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>netflow_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions
-   *     </code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api</code>, <code>
-   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     , <code>dbm</code>, <code>error_tracking</code>, <code>fargate</code>, <code>infra_hosts
+   *     </code>, <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans
+   *     </code>, <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations
+   *     </code>, <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     netflow_monitoring</code>, <code>observability_pipelines</code>, <code>online_archive
+   *     </code>, <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>,
+   *     <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
    *     synthetics_parallel_testing</code>, and <code>timeseries</code>. The following product
    *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
@@ -1071,14 +1071,14 @@ public class UsageMeteringApi {
    *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
    *     cloud_cost_management</code>, <code>csm_container_enterprise</code>, <code>
    *     csm_host_enterprise</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws</code>
-   *     , <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
-   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
-   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>netflow_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions
-   *     </code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api</code>, <code>
-   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     , <code>dbm</code>, <code>error_tracking</code>, <code>fargate</code>, <code>infra_hosts
+   *     </code>, <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans
+   *     </code>, <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations
+   *     </code>, <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     netflow_monitoring</code>, <code>observability_pipelines</code>, <code>online_archive
+   *     </code>, <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>,
+   *     <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
    *     synthetics_parallel_testing</code>, and <code>timeseries</code>. The following product
    *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
@@ -1105,14 +1105,14 @@ public class UsageMeteringApi {
    *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
    *     cloud_cost_management</code>, <code>csm_container_enterprise</code>, <code>
    *     csm_host_enterprise</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws</code>
-   *     , <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
-   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
-   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>netflow_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions
-   *     </code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api</code>, <code>
-   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     , <code>dbm</code>, <code>error_tracking</code>, <code>fargate</code>, <code>infra_hosts
+   *     </code>, <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans
+   *     </code>, <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations
+   *     </code>, <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     netflow_monitoring</code>, <code>observability_pipelines</code>, <code>online_archive
+   *     </code>, <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>,
+   *     <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
    *     synthetics_parallel_testing</code>, and <code>timeseries</code>. The following product
    *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
@@ -1206,14 +1206,14 @@ public class UsageMeteringApi {
    *     </code>, <code>audit_trail</code>, <code>serverless</code>, <code>ci_app</code>, <code>
    *     cloud_cost_management</code>, <code>csm_container_enterprise</code>, <code>
    *     csm_host_enterprise</code>, <code>cspm</code>, <code>custom_events</code>, <code>cws</code>
-   *     , <code>dbm</code>, <code>fargate</code>, <code>infra_hosts</code>, <code>
-   *     incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans</code>, <code>
-   *     ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations</code>, <code>logs
-   *     </code>, <code>network_flows</code>, <code>network_hosts</code>, <code>netflow_monitoring
-   *     </code>, <code>observability_pipelines</code>, <code>online_archive</code>, <code>profiling
-   *     </code>, <code>rum</code>, <code>rum_browser_sessions</code>, <code>rum_mobile_sessions
-   *     </code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api</code>, <code>
-   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     , <code>dbm</code>, <code>error_tracking</code>, <code>fargate</code>, <code>infra_hosts
+   *     </code>, <code>incident_management</code>, <code>indexed_logs</code>, <code>indexed_spans
+   *     </code>, <code>ingested_spans</code>, <code>iot</code>, <code>lambda_traced_invocations
+   *     </code>, <code>logs</code>, <code>network_flows</code>, <code>network_hosts</code>, <code>
+   *     netflow_monitoring</code>, <code>observability_pipelines</code>, <code>online_archive
+   *     </code>, <code>profiling</code>, <code>rum</code>, <code>rum_browser_sessions</code>,
+   *     <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp</code>, <code>synthetics_api
+   *     </code>, <code>synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
    *     synthetics_parallel_testing</code>, and <code>timeseries</code>. The following product
    *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.

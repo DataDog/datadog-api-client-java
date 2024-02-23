@@ -30,6 +30,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_APPSEC_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_BROWSER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_PIPELINE_INDEXED_SPANS_PERCENTAGE,
@@ -62,6 +64,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_DBM_HOSTS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_DBM_QUERIES_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_DBM_QUERIES_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ERROR_TRACKING_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ERROR_TRACKING_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE,
@@ -179,6 +183,14 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_APPSEC_USAGE = "appsec_usage";
   private Double appsecUsage;
 
+  public static final String JSON_PROPERTY_ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
+      "asm_serverless_traced_invocations_percentage";
+  private Double asmServerlessTracedInvocationsPercentage;
+
+  public static final String JSON_PROPERTY_ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
+      "asm_serverless_traced_invocations_usage";
+  private Double asmServerlessTracedInvocationsUsage;
+
   public static final String JSON_PROPERTY_BROWSER_PERCENTAGE = "browser_percentage";
   private Double browserPercentage;
 
@@ -285,6 +297,12 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_DBM_QUERIES_USAGE = "dbm_queries_usage";
   private Double dbmQueriesUsage;
+
+  public static final String JSON_PROPERTY_ERROR_TRACKING_PERCENTAGE = "error_tracking_percentage";
+  private Double errorTrackingPercentage;
+
+  public static final String JSON_PROPERTY_ERROR_TRACKING_USAGE = "error_tracking_usage";
+  private Double errorTrackingUsage;
 
   public static final String JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE =
       "estimated_indexed_logs_percentage";
@@ -804,6 +822,52 @@ public class MonthlyUsageAttributionValues {
 
   public void setAppsecUsage(Double appsecUsage) {
     this.appsecUsage = appsecUsage;
+  }
+
+  public MonthlyUsageAttributionValues asmServerlessTracedInvocationsPercentage(
+      Double asmServerlessTracedInvocationsPercentage) {
+    this.asmServerlessTracedInvocationsPercentage = asmServerlessTracedInvocationsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Application Security Monitoring Serverless traced invocations usage by
+   * tag(s).
+   *
+   * @return asmServerlessTracedInvocationsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getAsmServerlessTracedInvocationsPercentage() {
+    return asmServerlessTracedInvocationsPercentage;
+  }
+
+  public void setAsmServerlessTracedInvocationsPercentage(
+      Double asmServerlessTracedInvocationsPercentage) {
+    this.asmServerlessTracedInvocationsPercentage = asmServerlessTracedInvocationsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues asmServerlessTracedInvocationsUsage(
+      Double asmServerlessTracedInvocationsUsage) {
+    this.asmServerlessTracedInvocationsUsage = asmServerlessTracedInvocationsUsage;
+    return this;
+  }
+
+  /**
+   * The Application Security Monitoring Serverless traced invocations usage by tag(s).
+   *
+   * @return asmServerlessTracedInvocationsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getAsmServerlessTracedInvocationsUsage() {
+    return asmServerlessTracedInvocationsUsage;
+  }
+
+  public void setAsmServerlessTracedInvocationsUsage(Double asmServerlessTracedInvocationsUsage) {
+    this.asmServerlessTracedInvocationsUsage = asmServerlessTracedInvocationsUsage;
   }
 
   public MonthlyUsageAttributionValues browserPercentage(Double browserPercentage) {
@@ -1483,6 +1547,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setDbmQueriesUsage(Double dbmQueriesUsage) {
     this.dbmQueriesUsage = dbmQueriesUsage;
+  }
+
+  public MonthlyUsageAttributionValues errorTrackingPercentage(Double errorTrackingPercentage) {
+    this.errorTrackingPercentage = errorTrackingPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of error tracking events usage by tag(s).
+   *
+   * @return errorTrackingPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getErrorTrackingPercentage() {
+    return errorTrackingPercentage;
+  }
+
+  public void setErrorTrackingPercentage(Double errorTrackingPercentage) {
+    this.errorTrackingPercentage = errorTrackingPercentage;
+  }
+
+  public MonthlyUsageAttributionValues errorTrackingUsage(Double errorTrackingUsage) {
+    this.errorTrackingUsage = errorTrackingUsage;
+    return this;
+  }
+
+  /**
+   * The error tracking events usage by tag(s).
+   *
+   * @return errorTrackingUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getErrorTrackingUsage() {
+    return errorTrackingUsage;
+  }
+
+  public void setErrorTrackingUsage(Double errorTrackingUsage) {
+    this.errorTrackingUsage = errorTrackingUsage;
   }
 
   public MonthlyUsageAttributionValues estimatedIndexedLogsPercentage(
@@ -3182,6 +3288,12 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(this.appsecFargateUsage, monthlyUsageAttributionValues.appsecFargateUsage)
         && Objects.equals(this.appsecPercentage, monthlyUsageAttributionValues.appsecPercentage)
         && Objects.equals(this.appsecUsage, monthlyUsageAttributionValues.appsecUsage)
+        && Objects.equals(
+            this.asmServerlessTracedInvocationsPercentage,
+            monthlyUsageAttributionValues.asmServerlessTracedInvocationsPercentage)
+        && Objects.equals(
+            this.asmServerlessTracedInvocationsUsage,
+            monthlyUsageAttributionValues.asmServerlessTracedInvocationsUsage)
         && Objects.equals(this.browserPercentage, monthlyUsageAttributionValues.browserPercentage)
         && Objects.equals(this.browserUsage, monthlyUsageAttributionValues.browserUsage)
         && Objects.equals(
@@ -3241,6 +3353,9 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.dbmQueriesPercentage, monthlyUsageAttributionValues.dbmQueriesPercentage)
         && Objects.equals(this.dbmQueriesUsage, monthlyUsageAttributionValues.dbmQueriesUsage)
+        && Objects.equals(
+            this.errorTrackingPercentage, monthlyUsageAttributionValues.errorTrackingPercentage)
+        && Objects.equals(this.errorTrackingUsage, monthlyUsageAttributionValues.errorTrackingUsage)
         && Objects.equals(
             this.estimatedIndexedLogsPercentage,
             monthlyUsageAttributionValues.estimatedIndexedLogsPercentage)
@@ -3431,6 +3546,8 @@ public class MonthlyUsageAttributionValues {
         appsecFargateUsage,
         appsecPercentage,
         appsecUsage,
+        asmServerlessTracedInvocationsPercentage,
+        asmServerlessTracedInvocationsUsage,
         browserPercentage,
         browserUsage,
         ciPipelineIndexedSpansPercentage,
@@ -3463,6 +3580,8 @@ public class MonthlyUsageAttributionValues {
         dbmHostsUsage,
         dbmQueriesPercentage,
         dbmQueriesUsage,
+        errorTrackingPercentage,
+        errorTrackingUsage,
         estimatedIndexedLogsPercentage,
         estimatedIndexedLogsUsage,
         estimatedIndexedSpansPercentage,
@@ -3562,6 +3681,12 @@ public class MonthlyUsageAttributionValues {
     sb.append("    appsecFargateUsage: ").append(toIndentedString(appsecFargateUsage)).append("\n");
     sb.append("    appsecPercentage: ").append(toIndentedString(appsecPercentage)).append("\n");
     sb.append("    appsecUsage: ").append(toIndentedString(appsecUsage)).append("\n");
+    sb.append("    asmServerlessTracedInvocationsPercentage: ")
+        .append(toIndentedString(asmServerlessTracedInvocationsPercentage))
+        .append("\n");
+    sb.append("    asmServerlessTracedInvocationsUsage: ")
+        .append(toIndentedString(asmServerlessTracedInvocationsUsage))
+        .append("\n");
     sb.append("    browserPercentage: ").append(toIndentedString(browserPercentage)).append("\n");
     sb.append("    browserUsage: ").append(toIndentedString(browserUsage)).append("\n");
     sb.append("    ciPipelineIndexedSpansPercentage: ")
@@ -3634,6 +3759,10 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(dbmQueriesPercentage))
         .append("\n");
     sb.append("    dbmQueriesUsage: ").append(toIndentedString(dbmQueriesUsage)).append("\n");
+    sb.append("    errorTrackingPercentage: ")
+        .append(toIndentedString(errorTrackingPercentage))
+        .append("\n");
+    sb.append("    errorTrackingUsage: ").append(toIndentedString(errorTrackingUsage)).append("\n");
     sb.append("    estimatedIndexedLogsPercentage: ")
         .append(toIndentedString(estimatedIndexedLogsPercentage))
         .append("\n");
