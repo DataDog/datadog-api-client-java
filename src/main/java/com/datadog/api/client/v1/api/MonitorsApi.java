@@ -1020,6 +1020,8 @@ public class MonitorsApi {
     private Long idOffset;
     private Long page;
     private Integer pageSize;
+    private String monitorIds;
+    private Boolean withFreshness;
 
     /**
      * Set groupStates.
@@ -1119,6 +1121,29 @@ public class MonitorsApi {
      */
     public ListMonitorsOptionalParameters pageSize(Integer pageSize) {
       this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set monitorIds.
+     *
+     * @param monitorIds A comma separated list of monitor ids (optional)
+     * @return ListMonitorsOptionalParameters
+     */
+    public ListMonitorsOptionalParameters monitorIds(String monitorIds) {
+      this.monitorIds = monitorIds;
+      return this;
+    }
+
+    /**
+     * Set withFreshness.
+     *
+     * @param withFreshness If this argument is set to true, then the returned monitors include the
+     *     monitor freshness, indicating whether the monitor is correctly evaluating (optional)
+     * @return ListMonitorsOptionalParameters
+     */
+    public ListMonitorsOptionalParameters withFreshness(Boolean withFreshness) {
+      this.withFreshness = withFreshness;
       return this;
     }
   }
@@ -1260,6 +1285,8 @@ public class MonitorsApi {
     Long idOffset = parameters.idOffset;
     Long page = parameters.page;
     Integer pageSize = parameters.pageSize;
+    String monitorIds = parameters.monitorIds;
+    Boolean withFreshness = parameters.withFreshness;
     // create path and map variables
     String localVarPath = "/api/v1/monitor";
 
@@ -1274,6 +1301,8 @@ public class MonitorsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "id_offset", idOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "monitor_ids", monitorIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_freshness", withFreshness));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1314,6 +1343,8 @@ public class MonitorsApi {
     Long idOffset = parameters.idOffset;
     Long page = parameters.page;
     Integer pageSize = parameters.pageSize;
+    String monitorIds = parameters.monitorIds;
+    Boolean withFreshness = parameters.withFreshness;
     // create path and map variables
     String localVarPath = "/api/v1/monitor";
 
@@ -1328,6 +1359,8 @@ public class MonitorsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "id_offset", idOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page_size", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "monitor_ids", monitorIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "with_freshness", withFreshness));
 
     Invocation.Builder builder;
     try {

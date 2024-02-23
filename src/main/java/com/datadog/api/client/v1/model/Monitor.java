@@ -26,6 +26,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Monitor.JSON_PROPERTY_CREATED,
   Monitor.JSON_PROPERTY_CREATOR,
   Monitor.JSON_PROPERTY_DELETED,
+  Monitor.JSON_PROPERTY_FRESHNESS,
   Monitor.JSON_PROPERTY_ID,
   Monitor.JSON_PROPERTY_MATCHING_DOWNTIMES,
   Monitor.JSON_PROPERTY_MESSAGE,
@@ -53,6 +54,9 @@ public class Monitor {
 
   public static final String JSON_PROPERTY_DELETED = "deleted";
   private JsonNullable<OffsetDateTime> deleted = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_FRESHNESS = "freshness";
+  private MonitorFreshness freshness;
 
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
@@ -155,6 +159,19 @@ public class Monitor {
   @JsonProperty(JSON_PROPERTY_DELETED)
   private void setDeleted_JsonNullable(JsonNullable<OffsetDateTime> deleted) {
     this.deleted = deleted;
+  }
+
+  /**
+   * The freshness of the monitor, indicating if the monitor evaluation is up to date. <strong>This
+   * feature is currently in private beta.</strong>
+   *
+   * @return freshness
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FRESHNESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorFreshness getFreshness() {
+    return freshness;
   }
 
   /**
@@ -529,6 +546,7 @@ public class Monitor {
     return Objects.equals(this.created, monitor.created)
         && Objects.equals(this.creator, monitor.creator)
         && Objects.equals(this.deleted, monitor.deleted)
+        && Objects.equals(this.freshness, monitor.freshness)
         && Objects.equals(this.id, monitor.id)
         && Objects.equals(this.matchingDowntimes, monitor.matchingDowntimes)
         && Objects.equals(this.message, monitor.message)
@@ -552,6 +570,7 @@ public class Monitor {
         created,
         creator,
         deleted,
+        freshness,
         id,
         matchingDowntimes,
         message,
@@ -576,6 +595,7 @@ public class Monitor {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    freshness: ").append(toIndentedString(freshness)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    matchingDowntimes: ").append(toIndentedString(matchingDowntimes)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
