@@ -43,6 +43,9 @@ public abstract class V1ApiTest extends TestUtils.APITest {
     secrets.put("appKeyAuth", TEST_APP_KEY);
     generalApiClient.configureApiKeys(secrets);
 
+    // Set retry configuration
+    generalApiClient.enableRetry(true);
+
     // Set debugging based on env
     generalApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
 
