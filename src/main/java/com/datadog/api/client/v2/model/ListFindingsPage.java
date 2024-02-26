@@ -94,7 +94,7 @@ public class ListFindingsPage {
     sb.append("class ListFindingsPage {\n");
     sb.append("    cursor: ").append(toIndentedString(cursor)).append("\n");
     sb.append("    totalFilteredCount: ").append(toIndentedString(totalFilteredCount)).append("\n");
-    sb.append("}");
+    sb.append('}');
     return sb.toString();
   }
 

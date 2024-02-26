@@ -835,8 +835,9 @@ public class MetricsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    if (contentEncoding != null)
+    if (contentEncoding != null) {
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+    }
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -886,8 +887,9 @@ public class MetricsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    if (contentEncoding != null)
+    if (contentEncoding != null) {
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+    }
 
     Invocation.Builder builder;
     try {
@@ -1042,8 +1044,9 @@ public class MetricsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    if (contentEncoding != null)
+    if (contentEncoding != null) {
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+    }
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1092,8 +1095,9 @@ public class MetricsApi {
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    if (contentEncoding != null)
+    if (contentEncoding != null) {
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+    }
 
     Invocation.Builder builder;
     try {

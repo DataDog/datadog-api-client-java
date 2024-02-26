@@ -90,7 +90,7 @@ public class FindingRule {
     sb.append("class FindingRule {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("}");
+    sb.append('}');
     return sb.toString();
   }
 
