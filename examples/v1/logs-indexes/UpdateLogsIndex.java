@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.LogsIndexesApi;
+import com.datadog.api.client.v1.model.LogsDailyLimitReset;
 import com.datadog.api.client.v1.model.LogsExclusion;
 import com.datadog.api.client.v1.model.LogsExclusionFilter;
 import com.datadog.api.client.v1.model.LogsFilter;
@@ -18,6 +19,8 @@ public class Example {
     LogsIndexUpdateRequest body =
         new LogsIndexUpdateRequest()
             .dailyLimit(300000000L)
+            .dailyLimitReset(new LogsDailyLimitReset().resetTime("14:00").resetUtcOffset("+02:00"))
+            .dailyLimitWarningThresholdPercentage(70.0)
             .disableDailyLimit(false)
             .exclusionFilters(
                 Collections.singletonList(

@@ -255,8 +255,8 @@ public class MonitorsApi {
    * </ul>
    *
    * <p><strong>Notes</strong>: - Synthetic monitors are created through the Synthetics API. See the
-   * [Synthetics API] (https://docs.datadoghq.com/api/latest/synthetics/) documentation for more
-   * information. - Log monitors require an unscoped App Key.
+   * <a href="https://docs.datadoghq.com/api/latest/synthetics/">Synthetics API</a> documentation
+   * for more information. - Log monitors require an unscoped App Key.
    *
    * <h3>Query Types</h3>
    *
@@ -499,8 +499,6 @@ public class MonitorsApi {
    *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
-   *
-   * <p><strong>NOTE</strong> Database Monitoring monitors are in alpha on US1.
    *
    * @param body Create a monitor request body. (required)
    * @return ApiResponse&lt;Monitor&gt;

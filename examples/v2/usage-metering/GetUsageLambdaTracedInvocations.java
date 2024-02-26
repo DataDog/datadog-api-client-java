@@ -1,4 +1,4 @@
-// Get hourly usage for lambda traced invocations returns "OK" response
+// Get hourly usage for Lambda traced invocations returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.UsageMeteringApi;

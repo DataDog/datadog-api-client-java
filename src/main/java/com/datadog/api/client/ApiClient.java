@@ -62,6 +62,7 @@ import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.glassfish.jersey.client.filter.EncodingFilter;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.logging.LoggingFeature;
+import org.glassfish.jersey.media.multipart.Boundary;
 import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.MultiPart;
@@ -366,6 +367,10 @@ public class ApiClient {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
+          put("v2.createOpenAPI", false);
+          put("v2.deleteOpenAPI", false);
+          put("v2.getOpenAPI", false);
+          put("v2.updateOpenAPI", false);
           put("v2.getActiveBillingDimensions", false);
           put("v2.getMonthlyCostAttribution", false);
           put("v2.createDORADeployment", false);
@@ -1350,7 +1355,9 @@ public class ApiClient {
               new FormDataBodyPart(contentDisp, parameterToString(param.getValue())));
         }
       }
-      entity = Entity.entity(multiPart, MediaType.MULTIPART_FORM_DATA_TYPE);
+      MediaType mediaDataType = MediaType.MULTIPART_FORM_DATA_TYPE;
+      mediaDataType = Boundary.addBoundary(mediaDataType);
+      entity = Entity.entity(multiPart, mediaDataType);
     } else if (contentType.startsWith("application/x-www-form-urlencoded")) {
       Form form = new Form();
       for (Entry<String, Object> param : formParams.entrySet()) {

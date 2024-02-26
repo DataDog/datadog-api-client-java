@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.GcpIntegrationApi;
 import com.datadog.api.client.v1.model.GCPAccount;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -18,6 +19,7 @@ public class Example {
             .clientId("163662907116366290710")
             .clientX509CertUrl("https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL")
             .hostFilters("key:value,filter:example")
+            .cloudRunRevisionFilters(Collections.singletonList("dr:dre"))
             .isCspmEnabled(true)
             .isSecurityCommandCenterEnabled(true)
             .privateKey("private_key")

@@ -27,7 +27,15 @@ public class MonitorFormulaAndFunctionEventsDataSource extends ModelEnum<String>
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("rum", "ci_pipelines", "ci_tests", "audit", "events", "logs", "spans"));
+          Arrays.asList(
+              "rum",
+              "ci_pipelines",
+              "ci_tests",
+              "audit",
+              "events",
+              "logs",
+              "spans",
+              "database_queries"));
 
   public static final MonitorFormulaAndFunctionEventsDataSource RUM =
       new MonitorFormulaAndFunctionEventsDataSource("rum");
@@ -43,6 +51,8 @@ public class MonitorFormulaAndFunctionEventsDataSource extends ModelEnum<String>
       new MonitorFormulaAndFunctionEventsDataSource("logs");
   public static final MonitorFormulaAndFunctionEventsDataSource SPANS =
       new MonitorFormulaAndFunctionEventsDataSource("spans");
+  public static final MonitorFormulaAndFunctionEventsDataSource DATABASE_QUERIES =
+      new MonitorFormulaAndFunctionEventsDataSource("database_queries");
 
   MonitorFormulaAndFunctionEventsDataSource(String value) {
     super(value, allowedValues);

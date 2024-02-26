@@ -25,9 +25,11 @@ import java.util.Set;
 @JsonSerialize(using = SyntheticsAPIStepSubtype.SyntheticsAPIStepSubtypeSerializer.class)
 public class SyntheticsAPIStepSubtype extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("http"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("http", "grpc"));
 
   public static final SyntheticsAPIStepSubtype HTTP = new SyntheticsAPIStepSubtype("http");
+  public static final SyntheticsAPIStepSubtype GRPC = new SyntheticsAPIStepSubtype("grpc");
 
   SyntheticsAPIStepSubtype(String value) {
     super(value, allowedValues);
