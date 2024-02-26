@@ -1,0 +1,8 @@
+rulesets: 
+- java-best-practices             # ensure best practices are followed
+- java-code-style                 # code-style enforcement for Java
+- java-inclusive                  # ensure that we use inclusive wording in our codebase
+- java-security                   # ensure your Java code is safe and secure
+
+ignore-paths:
+  - examples/
