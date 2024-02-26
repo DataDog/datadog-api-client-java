@@ -77,7 +77,7 @@ public class BulkMuteFindingsRequestAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class BulkMuteFindingsRequestAttributes {\n");
     sb.append("    mute: ").append(toIndentedString(mute)).append("\n");
-    sb.append("}");
+    sb.append('}');
     return sb.toString();
   }
 

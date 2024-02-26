@@ -135,7 +135,7 @@ public class MonitorConfigPolicyListResponse {
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
-    sb.append("}");
+    sb.append('}');
     return sb.toString();
   }
 

@@ -142,7 +142,9 @@ public class OrganizationsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    if (idpFile != null) localVarFormParams.put("idp_file", idpFile);
+    if (idpFile != null) {
+      localVarFormParams.put("idp_file", idpFile);
+    }
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -182,7 +184,9 @@ public class OrganizationsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    if (idpFile != null) localVarFormParams.put("idp_file", idpFile);
+    if (idpFile != null) {
+      localVarFormParams.put("idp_file", idpFile);
+    }
 
     Invocation.Builder builder;
     try {

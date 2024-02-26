@@ -913,8 +913,9 @@ public class LogsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ddtags", ddtags));
-    if (contentEncoding != null)
+    if (contentEncoding != null) {
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+    }
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -965,8 +966,9 @@ public class LogsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ddtags", ddtags));
-    if (contentEncoding != null)
+    if (contentEncoding != null) {
       localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
+    }
 
     Invocation.Builder builder;
     try {

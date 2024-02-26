@@ -157,7 +157,9 @@ public class ApiManagementApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    if (openapiSpecFile != null) localVarFormParams.put("openapi_spec_file", openapiSpecFile);
+    if (openapiSpecFile != null) {
+      localVarFormParams.put("openapi_spec_file", openapiSpecFile);
+    }
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -207,7 +209,9 @@ public class ApiManagementApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    if (openapiSpecFile != null) localVarFormParams.put("openapi_spec_file", openapiSpecFile);
+    if (openapiSpecFile != null) {
+      localVarFormParams.put("openapi_spec_file", openapiSpecFile);
+    }
 
     Invocation.Builder builder;
     try {
@@ -656,7 +660,9 @@ public class ApiManagementApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    if (openapiSpecFile != null) localVarFormParams.put("openapi_spec_file", openapiSpecFile);
+    if (openapiSpecFile != null) {
+      localVarFormParams.put("openapi_spec_file", openapiSpecFile);
+    }
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -717,7 +723,9 @@ public class ApiManagementApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    if (openapiSpecFile != null) localVarFormParams.put("openapi_spec_file", openapiSpecFile);
+    if (openapiSpecFile != null) {
+      localVarFormParams.put("openapi_spec_file", openapiSpecFile);
+    }
 
     Invocation.Builder builder;
     try {

@@ -95,7 +95,7 @@ public class ListFindingsMeta {
     sb.append("class ListFindingsMeta {\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    snapshotTimestamp: ").append(toIndentedString(snapshotTimestamp)).append("\n");
-    sb.append("}");
+    sb.append('}');
     return sb.toString();
   }
 

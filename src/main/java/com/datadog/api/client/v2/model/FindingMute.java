@@ -206,7 +206,7 @@ public class FindingMute {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
-    sb.append("}");
+    sb.append('}');
     return sb.toString();
   }
 

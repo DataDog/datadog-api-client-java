@@ -13,11 +13,13 @@ import java.util.Map;
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApiException extends Exception {
-  private int code = 0;
+  private int code;
   private Map<String, List<String>> responseHeaders = null;
-  private String responseBody = null;
+  private String responseBody;
 
-  public ApiException() {}
+  public ApiException() {
+    super();
+  }
 
   public ApiException(Throwable throwable) {
     super(throwable);
