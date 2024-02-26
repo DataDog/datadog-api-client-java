@@ -75,6 +75,8 @@ public class UsageAttributionSupportedMetrics extends ModelEnum<String> {
               "appsec_fargate_percentage",
               "estimated_rum_usage_attribution_usage",
               "estimated_rum_usage_attribution_percentage",
+              "asm_serverless_traced_invocations_usage",
+              "asm_serverless_traced_invocations_percentage",
               "*"));
 
   public static final UsageAttributionSupportedMetrics CUSTOM_TIMESERIES_USAGE =
@@ -169,6 +171,11 @@ public class UsageAttributionSupportedMetrics extends ModelEnum<String> {
       new UsageAttributionSupportedMetrics("estimated_rum_usage_attribution_usage");
   public static final UsageAttributionSupportedMetrics ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE =
       new UsageAttributionSupportedMetrics("estimated_rum_usage_attribution_percentage");
+  public static final UsageAttributionSupportedMetrics ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
+      new UsageAttributionSupportedMetrics("asm_serverless_traced_invocations_usage");
+  public static final UsageAttributionSupportedMetrics
+      ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
+          new UsageAttributionSupportedMetrics("asm_serverless_traced_invocations_percentage");
   public static final UsageAttributionSupportedMetrics ALL =
       new UsageAttributionSupportedMetrics("*");
 

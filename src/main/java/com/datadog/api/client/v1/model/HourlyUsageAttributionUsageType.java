@@ -32,6 +32,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "apm_usm_usage",
               "appsec_fargate_usage",
               "appsec_usage",
+              "asm_serverless_traced_invocations_usage",
+              "asm_serverless_traced_invocations_percentage",
               "browser_usage",
               "ci_pipeline_indexed_spans_usage",
               "ci_test_indexed_spans_usage",
@@ -48,6 +50,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "cws_hosts_usage",
               "dbm_hosts_usage",
               "dbm_queries_usage",
+              "error_tracking_usage",
+              "error_tracking_percentage",
               "estimated_indexed_logs_usage",
               "estimated_indexed_spans_usage",
               "estimated_ingested_logs_usage",
@@ -99,6 +103,10 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("appsec_fargate_usage");
   public static final HourlyUsageAttributionUsageType APPSEC_USAGE =
       new HourlyUsageAttributionUsageType("appsec_usage");
+  public static final HourlyUsageAttributionUsageType ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
+      new HourlyUsageAttributionUsageType("asm_serverless_traced_invocations_usage");
+  public static final HourlyUsageAttributionUsageType ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
+      new HourlyUsageAttributionUsageType("asm_serverless_traced_invocations_percentage");
   public static final HourlyUsageAttributionUsageType BROWSER_USAGE =
       new HourlyUsageAttributionUsageType("browser_usage");
   public static final HourlyUsageAttributionUsageType CI_PIPELINE_INDEXED_SPANS_USAGE =
@@ -131,6 +139,10 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("dbm_hosts_usage");
   public static final HourlyUsageAttributionUsageType DBM_QUERIES_USAGE =
       new HourlyUsageAttributionUsageType("dbm_queries_usage");
+  public static final HourlyUsageAttributionUsageType ERROR_TRACKING_USAGE =
+      new HourlyUsageAttributionUsageType("error_tracking_usage");
+  public static final HourlyUsageAttributionUsageType ERROR_TRACKING_PERCENTAGE =
+      new HourlyUsageAttributionUsageType("error_tracking_percentage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_LOGS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_indexed_logs_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_SPANS_USAGE =

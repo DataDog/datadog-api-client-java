@@ -295,8 +295,8 @@ public class SLOCorrectionResponseAttributes {
 
   /**
    * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO
-   * corrections are <code>FREQ</code>, <code>INTERVAL</code>, <code>COUNT</code>, and <code>UNTIL
-   * </code>.
+   * corrections are <code>FREQ</code>, <code>INTERVAL</code>, <code>COUNT</code>, <code>UNTIL
+   * </code> and <code>BYDAY</code>.
    *
    * @return rrule
    */

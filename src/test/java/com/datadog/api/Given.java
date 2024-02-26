@@ -31,9 +31,18 @@ public class Given {
     @JsonInclude(Include.NON_NULL)
     public String origin;
 
-    public <T> T resolve(Class<T> clazz, Object context, ObjectMapper mapper) {
+    public <T> T resolve(Class<T> clazz, Object context, ObjectMapper mapper, String version) {
       try {
         if (value != null) {
+          if (clazz == File.class) {
+            // trim leading and trailing quotes from the value variable
+            String filePath =
+                "src/test/resources/com/datadog/api/client/"
+                    + version
+                    + "/api/"
+                    + value.replaceAll("^\"|\"$", "");
+            return (T) new File(filePath);
+          }
           return World.fromJSON(mapper, clazz, World.templated(value, context));
         }
         if (source != null) {

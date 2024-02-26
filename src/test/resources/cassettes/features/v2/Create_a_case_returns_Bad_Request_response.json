@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"priority\":\"NOT_DEFINED\",\"title\":\"Security breach investigation\",\"type\":\"STANDARD\"},\"relationships\":{\"assignee\":{\"data\":{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"userx\"}},\"project\":{\"data\":{\"id\":\"e555e290-ed65-49bd-ae18-8acbfcf18db7\",\"type\":\"project\"}}},\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"got type \\\"userx\\\" expected one of \\\"user\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c53a0d91-6308-6fd6-b142-d95814505a59"
+  }
+]

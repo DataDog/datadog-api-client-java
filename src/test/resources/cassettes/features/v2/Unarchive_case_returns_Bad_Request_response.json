@@ -1,0 +1,62 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"priority\":\"P4\",\"title\":\"My new case\",\"type\":\"STANDARD\"},\"relationships\":{\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}},\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"7c588891-1486-4cf6-992f-f0c3a97f0245\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"created_at\":\"2024-02-14T18:55:18.021909299Z\",\"creation_source\":\"MANUAL\",\"description\":\"\",\"insights\":[],\"internal_id\":\"7c588891-1486-4cf6-992f-f0c3a97f0245\",\"key\":\"DDFC-188\",\"priority\":\"P4\",\"public_id\":\"248\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"STANDARD\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\",\"attributes\":{\"email\":\"frog@datadoghq.com\",\"handle\":\"frog@datadoghq.com\",\"name\":\"\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0a6534d0-42f2-5075-64f8-7ab28f449a95"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"type\":\"project\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/7c588891-1486-4cf6-992f-f0c3a97f0245/unarchive",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"got type \\\"project\\\" expected one of \\\"case\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3cb0b568-7b56-5978-fb3b-022598546774"
+  }
+]

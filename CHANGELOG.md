@@ -1,5 +1,42 @@
 # CHANGELOG
 
+## 2.22.0 / 2024-02-21
+
+### Fixed
+* Relocate additional packages and remove duplicate patterns by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/2186
+* Move under common tag Case Management by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2188
+### Added
+* Case Management Public API documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2159
+* Make grpc steps available for synthetics api multisteps tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2185
+* Add cloud run filter to GCP v1 and v2 spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2156
+* Exclude additional files from shaded jar by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/2195
+### Changed
+* Update spec for DORA Metrics Incident endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2182
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.21.0...datadog-api-client-2.22.0
+
+## 2.21.0 / 2024-02-07
+
+### Fixed
+* Add test support for file parameters by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2150
+* Fix multipart handling by @therve in https://github.com/DataDog/datadog-api-client-java/pull/2155
+* Security Monitoring Suppressions - Make expiration date nullable in update payload by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2160
+### Added
+* Security Monitoring - Add API support for suppression rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2143
+* Document support for BYDAY in SLO corrections by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2151
+* Add missing optional field env in DORA API endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2152
+* Add compressedProtoFile field to SyntheticsTestRequest by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2149
+* Add daily limit reset options to logs indexes api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2153
+* Add support for API management API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2148
+* Add pagination helper for team memberships by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2163
+* Increase limit on allowed number of graphs in split graph widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2168
+### Deprecated
+* Mark dashboard 'is_read_only' and 'restricted_roles' properties as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2135
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.20.0...datadog-api-client-2.21.0
+
 ## 2.20.0 / 2024-01-10
 
 ### Added

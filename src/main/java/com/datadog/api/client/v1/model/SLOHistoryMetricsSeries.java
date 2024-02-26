@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * A representation of <code>metric</code> based SLO time series for the provided queries. This is
+ * A representation of <code>metric</code> based SLO timeseries for the provided queries. This is
  * the same response type from <code>batch_query</code> endpoint.
  */
 @JsonPropertyOrder({

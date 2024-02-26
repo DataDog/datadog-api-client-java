@@ -197,7 +197,7 @@ public class UsageAttributionBody {
   }
 
   /**
-   * Shows the the most recent hour in the current months for all organizations for which all usages
+   * Shows the the most recent hour in the current month for all organizations for which all usages
    * were calculated.
    *
    * @return updatedAt

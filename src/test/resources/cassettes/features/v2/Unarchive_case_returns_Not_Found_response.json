@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/67d80aa3-36ff-44b9-a694-c501a7591737/unarchive",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"code\":\"resource_not_found\",\"title\":\"case not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "29a32511-d4fa-5a96-ef86-da4143f604aa"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"priority\":\"P4\",\"title\":\"My new case\",\"type\":\"STANDARD\"},\"relationships\":{\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}},\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"683c81be-fa27-42c8-957c-897923a2f660\",\"type\":\"case\",\"attributes\":{\"attributes\":{},\"created_at\":\"2024-02-14T18:55:18.846163387Z\",\"creation_source\":\"MANUAL\",\"description\":\"\",\"insights\":[],\"internal_id\":\"683c81be-fa27-42c8-957c-897923a2f660\",\"key\":\"DDFC-192\",\"priority\":\"P4\",\"public_id\":\"252\",\"status\":\"OPEN\",\"title\":\"My new case\",\"type\":\"STANDARD\"},\"relationships\":{\"created_by\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\"}},\"project\":{\"data\":{\"id\":\"d4bbe1af-f36e-42f1-87c1-493ca35c320e\",\"type\":\"project\"}}}},\"included\":[{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"user\",\"attributes\":{\"email\":\"frog@datadoghq.com\",\"handle\":\"frog@datadoghq.com\",\"name\":\"\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0a6534d0-42f2-5075-64f8-7ab28f449a8f"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"priority\":\"P1234\"},\"type\":\"case\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cases/683c81be-fa27-42c8-957c-897923a2f660/priority",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"invalid priority P1234. Must be one of P1, P2, P3, P4, P5, NOT_DEFINED\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "66ade7a1-8fcb-23e3-0477-becade8c4e94"
+  }
+]

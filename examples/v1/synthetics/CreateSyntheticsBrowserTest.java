@@ -52,7 +52,7 @@ public class Example {
                 new SyntheticsTestOptions()
                     .acceptSelfSigned(false)
                     .allowInsecure(true)
-                    .deviceIds(Collections.singletonList(SyntheticsDeviceID.TABLET))
+                    .deviceIds(Collections.singletonList(SyntheticsDeviceID.CHROME_LAPTOP_LARGE))
                     .disableCors(true)
                     .followRedirects(true)
                     .minFailureDuration(10L)

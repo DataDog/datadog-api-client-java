@@ -26,6 +26,7 @@ import java.util.Objects;
   GCPAccount.JSON_PROPERTY_CLIENT_EMAIL,
   GCPAccount.JSON_PROPERTY_CLIENT_ID,
   GCPAccount.JSON_PROPERTY_CLIENT_X509_CERT_URL,
+  GCPAccount.JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS,
   GCPAccount.JSON_PROPERTY_ERRORS,
   GCPAccount.JSON_PROPERTY_HOST_FILTERS,
   GCPAccount.JSON_PROPERTY_IS_CSPM_ENABLED,
@@ -59,6 +60,10 @@ public class GCPAccount {
 
   public static final String JSON_PROPERTY_CLIENT_X509_CERT_URL = "client_x509_cert_url";
   private String clientX509CertUrl;
+
+  public static final String JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS =
+      "cloud_run_revision_filters";
+  private List<String> cloudRunRevisionFilters = null;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<String> errors = null;
@@ -217,6 +222,36 @@ public class GCPAccount {
 
   public void setClientX509CertUrl(String clientX509CertUrl) {
     this.clientX509CertUrl = clientX509CertUrl;
+  }
+
+  public GCPAccount cloudRunRevisionFilters(List<String> cloudRunRevisionFilters) {
+    this.cloudRunRevisionFilters = cloudRunRevisionFilters;
+    return this;
+  }
+
+  public GCPAccount addCloudRunRevisionFiltersItem(String cloudRunRevisionFiltersItem) {
+    if (this.cloudRunRevisionFilters == null) {
+      this.cloudRunRevisionFilters = new ArrayList<>();
+    }
+    this.cloudRunRevisionFilters.add(cloudRunRevisionFiltersItem);
+    return this;
+  }
+
+  /**
+   * Limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run
+   * revision resources that apply to specified filters are imported into Datadog.
+   *
+   * @return cloudRunRevisionFilters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCloudRunRevisionFilters() {
+    return cloudRunRevisionFilters;
+  }
+
+  public void setCloudRunRevisionFilters(List<String> cloudRunRevisionFilters) {
+    this.cloudRunRevisionFilters = cloudRunRevisionFilters;
   }
 
   public GCPAccount errors(List<String> errors) {
@@ -502,6 +537,7 @@ public class GCPAccount {
         && Objects.equals(this.clientEmail, gcpAccount.clientEmail)
         && Objects.equals(this.clientId, gcpAccount.clientId)
         && Objects.equals(this.clientX509CertUrl, gcpAccount.clientX509CertUrl)
+        && Objects.equals(this.cloudRunRevisionFilters, gcpAccount.cloudRunRevisionFilters)
         && Objects.equals(this.errors, gcpAccount.errors)
         && Objects.equals(this.hostFilters, gcpAccount.hostFilters)
         && Objects.equals(this.isCspmEnabled, gcpAccount.isCspmEnabled)
@@ -525,6 +561,7 @@ public class GCPAccount {
         clientEmail,
         clientId,
         clientX509CertUrl,
+        cloudRunRevisionFilters,
         errors,
         hostFilters,
         isCspmEnabled,
@@ -550,6 +587,9 @@ public class GCPAccount {
     sb.append("    clientEmail: ").append(toIndentedString(clientEmail)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientX509CertUrl: ").append(toIndentedString(clientX509CertUrl)).append("\n");
+    sb.append("    cloudRunRevisionFilters: ")
+        .append(toIndentedString(cloudRunRevisionFilters))
+        .append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
     sb.append("    isCspmEnabled: ").append(toIndentedString(isCspmEnabled)).append("\n");

@@ -176,7 +176,7 @@ public class MetricsQueryMetadata {
   }
 
   /**
-   * List of points of the time series in milliseconds.
+   * List of points of the timeseries in milliseconds.
    *
    * @return pointlist
    */

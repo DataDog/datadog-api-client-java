@@ -23,6 +23,7 @@ import java.util.Objects;
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_ACCOUNT_TAGS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_AUTOMUTE,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_CLIENT_EMAIL,
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_HOST_FILTERS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_CSPM_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED,
@@ -40,6 +41,10 @@ public class GCPSTSServiceAccountAttributes {
 
   public static final String JSON_PROPERTY_CLIENT_EMAIL = "client_email";
   private String clientEmail;
+
+  public static final String JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS =
+      "cloud_run_revision_filters";
+  private List<String> cloudRunRevisionFilters = null;
 
   public static final String JSON_PROPERTY_HOST_FILTERS = "host_filters";
   private List<String> hostFilters = null;
@@ -124,6 +129,38 @@ public class GCPSTSServiceAccountAttributes {
 
   public void setClientEmail(String clientEmail) {
     this.clientEmail = clientEmail;
+  }
+
+  public GCPSTSServiceAccountAttributes cloudRunRevisionFilters(
+      List<String> cloudRunRevisionFilters) {
+    this.cloudRunRevisionFilters = cloudRunRevisionFilters;
+    return this;
+  }
+
+  public GCPSTSServiceAccountAttributes addCloudRunRevisionFiltersItem(
+      String cloudRunRevisionFiltersItem) {
+    if (this.cloudRunRevisionFilters == null) {
+      this.cloudRunRevisionFilters = new ArrayList<>();
+    }
+    this.cloudRunRevisionFilters.add(cloudRunRevisionFiltersItem);
+    return this;
+  }
+
+  /**
+   * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags.
+   * Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+   *
+   * @return cloudRunRevisionFilters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCloudRunRevisionFilters() {
+    return cloudRunRevisionFilters;
+  }
+
+  public void setCloudRunRevisionFilters(List<String> cloudRunRevisionFilters) {
+    this.cloudRunRevisionFilters = cloudRunRevisionFilters;
   }
 
   public GCPSTSServiceAccountAttributes hostFilters(List<String> hostFilters) {
@@ -282,6 +319,8 @@ public class GCPSTSServiceAccountAttributes {
     return Objects.equals(this.accountTags, gcpstsServiceAccountAttributes.accountTags)
         && Objects.equals(this.automute, gcpstsServiceAccountAttributes.automute)
         && Objects.equals(this.clientEmail, gcpstsServiceAccountAttributes.clientEmail)
+        && Objects.equals(
+            this.cloudRunRevisionFilters, gcpstsServiceAccountAttributes.cloudRunRevisionFilters)
         && Objects.equals(this.hostFilters, gcpstsServiceAccountAttributes.hostFilters)
         && Objects.equals(this.isCspmEnabled, gcpstsServiceAccountAttributes.isCspmEnabled)
         && Objects.equals(
@@ -300,6 +339,7 @@ public class GCPSTSServiceAccountAttributes {
         accountTags,
         automute,
         clientEmail,
+        cloudRunRevisionFilters,
         hostFilters,
         isCspmEnabled,
         isSecurityCommandCenterEnabled,
@@ -314,6 +354,9 @@ public class GCPSTSServiceAccountAttributes {
     sb.append("    accountTags: ").append(toIndentedString(accountTags)).append("\n");
     sb.append("    automute: ").append(toIndentedString(automute)).append("\n");
     sb.append("    clientEmail: ").append(toIndentedString(clientEmail)).append("\n");
+    sb.append("    cloudRunRevisionFilters: ")
+        .append(toIndentedString(cloudRunRevisionFilters))
+        .append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
     sb.append("    isCspmEnabled: ").append(toIndentedString(isCspmEnabled)).append("\n");
     sb.append("    isSecurityCommandCenterEnabled: ")

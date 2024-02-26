@@ -9,8 +9,8 @@ variables:
 # We've already run tests through the CI when creating the changelog and tag, skip them here
 deploy_to_sonatype:
   stage: deploy_to_sonatype
-  tags: [ "runner:docker", "size:large" ]
-  image: maven:3.6.3-jdk-8-slim
+  tags: [ "arch:amd64" ]
+  image: registry.ddbuild.io/images/mirror/maven:3.8.6-openjdk-8
   only:
     - tags
   script:
@@ -47,9 +47,7 @@ create_key:
   stage: create_key
   when: manual
 
-  tags:
-    - "runner:docker"
-    - "size:large"
+  tags: [ "arch:amd64" ]
 
   image: $REGISTRY/ci/agent-key-management-tools/gpg:1
   variables:

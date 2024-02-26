@@ -62,7 +62,7 @@ public class SplitConfig {
   }
 
   /**
-   * Maximum number of graphs to display in the widget. minimum: 1 maximum: 100
+   * Maximum number of graphs to display in the widget. minimum: 1 maximum: 500
    *
    * @return limit
    */

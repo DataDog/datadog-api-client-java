@@ -40,6 +40,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "apm_usm_percentage",
               "appsec_usage",
               "appsec_percentage",
+              "asm_serverless_traced_invocations_usage",
+              "asm_serverless_traced_invocations_percentage",
               "browser_usage",
               "browser_percentage",
               "ci_visibility_itr_usage",
@@ -66,6 +68,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "dbm_hosts_usage",
               "dbm_queries_percentage",
               "dbm_queries_usage",
+              "error_tracking_usage",
+              "error_tracking_percentage",
               "estimated_indexed_logs_usage",
               "estimated_indexed_logs_percentage",
               "estimated_ingested_logs_usage",
@@ -174,6 +178,13 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("appsec_usage");
   public static final MonthlyUsageAttributionSupportedMetrics APPSEC_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("appsec_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics
+      ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
+          new MonthlyUsageAttributionSupportedMetrics("asm_serverless_traced_invocations_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics
+      ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
+          new MonthlyUsageAttributionSupportedMetrics(
+              "asm_serverless_traced_invocations_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics BROWSER_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("browser_usage");
   public static final MonthlyUsageAttributionSupportedMetrics BROWSER_PERCENTAGE =
@@ -227,6 +238,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("dbm_queries_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics DBM_QUERIES_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("dbm_queries_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics ERROR_TRACKING_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("error_tracking_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics ERROR_TRACKING_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("error_tracking_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("estimated_indexed_logs_usage");
   public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_PERCENTAGE =

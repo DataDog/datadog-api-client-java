@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** Attributes to create a DORA deployment event. */
 @JsonPropertyOrder({
+  DORADeploymentRequestAttributes.JSON_PROPERTY_ENV,
   DORADeploymentRequestAttributes.JSON_PROPERTY_FINISHED_AT,
   DORADeploymentRequestAttributes.JSON_PROPERTY_GIT,
   DORADeploymentRequestAttributes.JSON_PROPERTY_ID,
@@ -30,6 +31,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DORADeploymentRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENV = "env";
+  private String env;
+
   public static final String JSON_PROPERTY_FINISHED_AT = "finished_at";
   private Long finishedAt;
 
@@ -58,6 +62,27 @@ public class DORADeploymentRequestAttributes {
     this.finishedAt = finishedAt;
     this.service = service;
     this.startedAt = startedAt;
+  }
+
+  public DORADeploymentRequestAttributes env(String env) {
+    this.env = env;
+    return this;
+  }
+
+  /**
+   * Environment name to where the service was deployed.
+   *
+   * @return env
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENV)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEnv() {
+    return env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
   }
 
   public DORADeploymentRequestAttributes finishedAt(Long finishedAt) {
@@ -244,7 +269,8 @@ public class DORADeploymentRequestAttributes {
     }
     DORADeploymentRequestAttributes doraDeploymentRequestAttributes =
         (DORADeploymentRequestAttributes) o;
-    return Objects.equals(this.finishedAt, doraDeploymentRequestAttributes.finishedAt)
+    return Objects.equals(this.env, doraDeploymentRequestAttributes.env)
+        && Objects.equals(this.finishedAt, doraDeploymentRequestAttributes.finishedAt)
         && Objects.equals(this.git, doraDeploymentRequestAttributes.git)
         && Objects.equals(this.id, doraDeploymentRequestAttributes.id)
         && Objects.equals(this.service, doraDeploymentRequestAttributes.service)
@@ -256,13 +282,15 @@ public class DORADeploymentRequestAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(finishedAt, git, id, service, startedAt, version, additionalProperties);
+    return Objects.hash(
+        env, finishedAt, git, id, service, startedAt, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DORADeploymentRequestAttributes {\n");
+    sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    finishedAt: ").append(toIndentedString(finishedAt)).append("\n");
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

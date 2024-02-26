@@ -22,6 +22,8 @@ import java.util.Objects;
 /** Object for updating a Datadog Log index. */
 @JsonPropertyOrder({
   LogsIndexUpdateRequest.JSON_PROPERTY_DAILY_LIMIT,
+  LogsIndexUpdateRequest.JSON_PROPERTY_DAILY_LIMIT_RESET,
+  LogsIndexUpdateRequest.JSON_PROPERTY_DAILY_LIMIT_WARNING_THRESHOLD_PERCENTAGE,
   LogsIndexUpdateRequest.JSON_PROPERTY_DISABLE_DAILY_LIMIT,
   LogsIndexUpdateRequest.JSON_PROPERTY_EXCLUSION_FILTERS,
   LogsIndexUpdateRequest.JSON_PROPERTY_FILTER,
@@ -33,6 +35,13 @@ public class LogsIndexUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DAILY_LIMIT = "daily_limit";
   private Long dailyLimit;
+
+  public static final String JSON_PROPERTY_DAILY_LIMIT_RESET = "daily_limit_reset";
+  private LogsDailyLimitReset dailyLimitReset;
+
+  public static final String JSON_PROPERTY_DAILY_LIMIT_WARNING_THRESHOLD_PERCENTAGE =
+      "daily_limit_warning_threshold_percentage";
+  private Double dailyLimitWarningThresholdPercentage;
 
   public static final String JSON_PROPERTY_DISABLE_DAILY_LIMIT = "disable_daily_limit";
   private Boolean disableDailyLimit;
@@ -74,6 +83,51 @@ public class LogsIndexUpdateRequest {
 
   public void setDailyLimit(Long dailyLimit) {
     this.dailyLimit = dailyLimit;
+  }
+
+  public LogsIndexUpdateRequest dailyLimitReset(LogsDailyLimitReset dailyLimitReset) {
+    this.dailyLimitReset = dailyLimitReset;
+    this.unparsed |= dailyLimitReset.unparsed;
+    return this;
+  }
+
+  /**
+   * Object containing options to override the default daily limit reset time.
+   *
+   * @return dailyLimitReset
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DAILY_LIMIT_RESET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsDailyLimitReset getDailyLimitReset() {
+    return dailyLimitReset;
+  }
+
+  public void setDailyLimitReset(LogsDailyLimitReset dailyLimitReset) {
+    this.dailyLimitReset = dailyLimitReset;
+  }
+
+  public LogsIndexUpdateRequest dailyLimitWarningThresholdPercentage(
+      Double dailyLimitWarningThresholdPercentage) {
+    this.dailyLimitWarningThresholdPercentage = dailyLimitWarningThresholdPercentage;
+    return this;
+  }
+
+  /**
+   * A percentage threshold of the daily quota at which a Datadog warning event is generated.
+   * minimum: 50 maximum: 99.99
+   *
+   * @return dailyLimitWarningThresholdPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DAILY_LIMIT_WARNING_THRESHOLD_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDailyLimitWarningThresholdPercentage() {
+    return dailyLimitWarningThresholdPercentage;
+  }
+
+  public void setDailyLimitWarningThresholdPercentage(Double dailyLimitWarningThresholdPercentage) {
+    this.dailyLimitWarningThresholdPercentage = dailyLimitWarningThresholdPercentage;
   }
 
   public LogsIndexUpdateRequest disableDailyLimit(Boolean disableDailyLimit) {
@@ -237,6 +291,10 @@ public class LogsIndexUpdateRequest {
     }
     LogsIndexUpdateRequest logsIndexUpdateRequest = (LogsIndexUpdateRequest) o;
     return Objects.equals(this.dailyLimit, logsIndexUpdateRequest.dailyLimit)
+        && Objects.equals(this.dailyLimitReset, logsIndexUpdateRequest.dailyLimitReset)
+        && Objects.equals(
+            this.dailyLimitWarningThresholdPercentage,
+            logsIndexUpdateRequest.dailyLimitWarningThresholdPercentage)
         && Objects.equals(this.disableDailyLimit, logsIndexUpdateRequest.disableDailyLimit)
         && Objects.equals(this.exclusionFilters, logsIndexUpdateRequest.exclusionFilters)
         && Objects.equals(this.filter, logsIndexUpdateRequest.filter)
@@ -248,6 +306,8 @@ public class LogsIndexUpdateRequest {
   public int hashCode() {
     return Objects.hash(
         dailyLimit,
+        dailyLimitReset,
+        dailyLimitWarningThresholdPercentage,
         disableDailyLimit,
         exclusionFilters,
         filter,
@@ -260,6 +320,10 @@ public class LogsIndexUpdateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsIndexUpdateRequest {\n");
     sb.append("    dailyLimit: ").append(toIndentedString(dailyLimit)).append("\n");
+    sb.append("    dailyLimitReset: ").append(toIndentedString(dailyLimitReset)).append("\n");
+    sb.append("    dailyLimitWarningThresholdPercentage: ")
+        .append(toIndentedString(dailyLimitWarningThresholdPercentage))
+        .append("\n");
     sb.append("    disableDailyLimit: ").append(toIndentedString(disableDailyLimit)).append("\n");
     sb.append("    exclusionFilters: ").append(toIndentedString(exclusionFilters)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");

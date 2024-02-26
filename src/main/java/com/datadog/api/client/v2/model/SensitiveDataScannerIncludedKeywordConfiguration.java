@@ -83,7 +83,7 @@ public class SensitiveDataScannerIncludedKeywordConfiguration {
 
   /**
    * Keyword list that will be checked during scanning in order to validate a match. The number of
-   * keywords in the list must be less than or equal to 20.
+   * keywords in the list must be less than or equal to 30.
    *
    * @return keywords
    */
