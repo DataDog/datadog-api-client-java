@@ -175,6 +175,52 @@ public class IncidentIntegrationMetadataMetadata extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'JiraIntegrationMetadata'", e);
       }
 
+      // deserialize MicrosoftTeamsIntegrationMetadata
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (MicrosoftTeamsIntegrationMetadata.class.equals(Integer.class)
+            || MicrosoftTeamsIntegrationMetadata.class.equals(Long.class)
+            || MicrosoftTeamsIntegrationMetadata.class.equals(Float.class)
+            || MicrosoftTeamsIntegrationMetadata.class.equals(Double.class)
+            || MicrosoftTeamsIntegrationMetadata.class.equals(Boolean.class)
+            || MicrosoftTeamsIntegrationMetadata.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((MicrosoftTeamsIntegrationMetadata.class.equals(Integer.class)
+                        || MicrosoftTeamsIntegrationMetadata.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((MicrosoftTeamsIntegrationMetadata.class.equals(Float.class)
+                        || MicrosoftTeamsIntegrationMetadata.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (MicrosoftTeamsIntegrationMetadata.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (MicrosoftTeamsIntegrationMetadata.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(MicrosoftTeamsIntegrationMetadata.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((MicrosoftTeamsIntegrationMetadata) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'MicrosoftTeamsIntegrationMetadata'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'MicrosoftTeamsIntegrationMetadata'", e);
+      }
+
       IncidentIntegrationMetadataMetadata ret = new IncidentIntegrationMetadataMetadata();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -215,9 +261,17 @@ public class IncidentIntegrationMetadataMetadata extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public IncidentIntegrationMetadataMetadata(MicrosoftTeamsIntegrationMetadata o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("SlackIntegrationMetadata", new GenericType<SlackIntegrationMetadata>() {});
     schemas.put("JiraIntegrationMetadata", new GenericType<JiraIntegrationMetadata>() {});
+    schemas.put(
+        "MicrosoftTeamsIntegrationMetadata",
+        new GenericType<MicrosoftTeamsIntegrationMetadata>() {});
     JSON.registerDescendants(
         IncidentIntegrationMetadataMetadata.class, Collections.unmodifiableMap(schemas));
   }
@@ -229,7 +283,8 @@ public class IncidentIntegrationMetadataMetadata extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: SlackIntegrationMetadata, JiraIntegrationMetadata
+   * against the oneOf child schemas: SlackIntegrationMetadata, JiraIntegrationMetadata,
+   * MicrosoftTeamsIntegrationMetadata
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -244,20 +299,27 @@ public class IncidentIntegrationMetadataMetadata extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        MicrosoftTeamsIntegrationMetadata.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be SlackIntegrationMetadata, JiraIntegrationMetadata");
+        "Invalid instance type. Must be SlackIntegrationMetadata, JiraIntegrationMetadata,"
+            + " MicrosoftTeamsIntegrationMetadata");
   }
 
   /**
    * Get the actual instance, which can be the following: SlackIntegrationMetadata,
-   * JiraIntegrationMetadata
+   * JiraIntegrationMetadata, MicrosoftTeamsIntegrationMetadata
    *
-   * @return The actual instance (SlackIntegrationMetadata, JiraIntegrationMetadata)
+   * @return The actual instance (SlackIntegrationMetadata, JiraIntegrationMetadata,
+   *     MicrosoftTeamsIntegrationMetadata)
    */
   @Override
   public Object getActualInstance() {
@@ -284,5 +346,17 @@ public class IncidentIntegrationMetadataMetadata extends AbstractOpenApiSchema {
    */
   public JiraIntegrationMetadata getJiraIntegrationMetadata() throws ClassCastException {
     return (JiraIntegrationMetadata) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `MicrosoftTeamsIntegrationMetadata`. If the actual instance is not
+   * `MicrosoftTeamsIntegrationMetadata`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `MicrosoftTeamsIntegrationMetadata`
+   * @throws ClassCastException if the instance is not `MicrosoftTeamsIntegrationMetadata`
+   */
+  public MicrosoftTeamsIntegrationMetadata getMicrosoftTeamsIntegrationMetadata()
+      throws ClassCastException {
+    return (MicrosoftTeamsIntegrationMetadata) super.getActualInstance();
   }
 }
