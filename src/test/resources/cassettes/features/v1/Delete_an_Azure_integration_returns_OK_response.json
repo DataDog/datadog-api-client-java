@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17026645-0000-0000-0000-170266451700\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17026645-0000-0000-0000-170266451700\",\"new_tenant_name\":\"17026645-0000-0000-0000-170266451700\",\"resource_collection_enabled\":true,\"tenant_name\":\"17026645-0000-0000-0000-170266451700\"}"
+        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17091519-0000-0000-0000-170915195900\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17091519-0000-0000-0000-170915195900\",\"new_tenant_name\":\"17091519-0000-0000-0000-170915195900\",\"resource_collection_enabled\":true,\"tenant_name\":\"17091519-0000-0000-0000-170915195900\"}"
       },
       "headers": {},
       "method": "POST",
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "237a45b2-4857-4279-05e7-b3861bf0b01b"
+    "id": "28fc8056-6b96-6b1b-3358-284b38769d4d"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"client_id\":\"17026645-0000-0000-0000-170266451700\",\"tenant_name\":\"17026645-0000-0000-0000-170266451700\"}"
+        "json": "{\"client_id\":\"17091519-0000-0000-0000-170915195900\",\"tenant_name\":\"17091519-0000-0000-0000-170915195900\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ca90b9f3-67e9-dde1-4f9a-f1200a46b7e7"
+    "id": "493d73f3-32fe-fc7b-7b8c-f7d6a6b7bfeb"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"client_id\":\"17026645-0000-0000-0000-170266451700\",\"tenant_name\":\"17026645-0000-0000-0000-170266451700\"}"
+        "json": "{\"client_id\":\"17091519-0000-0000-0000-170915195900\",\"tenant_name\":\"17091519-0000-0000-0000-170915195900\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -87,6 +87,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ca90b9f3-67e9-dde1-4f9a-f1200a46b7e8"
+    "id": "493d73f3-32fe-fc7b-7b8c-f7d6a6b7bfec"
   }
 ]
