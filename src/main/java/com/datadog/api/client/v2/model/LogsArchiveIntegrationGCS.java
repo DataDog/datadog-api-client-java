@@ -36,10 +36,8 @@ public class LogsArchiveIntegrationGCS {
 
   @JsonCreator
   public LogsArchiveIntegrationGCS(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_EMAIL) String clientEmail,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) String projectId) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_EMAIL) String clientEmail) {
     this.clientEmail = clientEmail;
-    this.projectId = projectId;
   }
 
   public LogsArchiveIntegrationGCS clientEmail(String clientEmail) {
@@ -72,8 +70,9 @@ public class LogsArchiveIntegrationGCS {
    *
    * @return projectId
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getProjectId() {
     return projectId;
   }
