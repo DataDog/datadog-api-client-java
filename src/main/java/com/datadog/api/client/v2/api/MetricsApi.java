@@ -6,6 +6,7 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.IntakePayloadAccepted;
 import com.datadog.api.client.v2.model.MetricAllTagsResponse;
+import com.datadog.api.client.v2.model.MetricAssetsResponse;
 import com.datadog.api.client.v2.model.MetricBulkTagConfigCreateRequest;
 import com.datadog.api.client.v2.model.MetricBulkTagConfigDeleteRequest;
 import com.datadog.api.client.v2.model.MetricBulkTagConfigResponse;
@@ -1156,6 +1157,145 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricSuggestedTagsAndAggregationsResponse>() {});
+  }
+
+  /**
+   * Related Assets to a Metric.
+   *
+   * <p>See {@link #listMetricAssetsWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return MetricAssetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MetricAssetsResponse listMetricAssets(String metricName) throws ApiException {
+    return listMetricAssetsWithHttpInfo(metricName).getData();
+  }
+
+  /**
+   * Related Assets to a Metric.
+   *
+   * <p>See {@link #listMetricAssetsWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;MetricAssetsResponse&gt;
+   */
+  public CompletableFuture<MetricAssetsResponse> listMetricAssetsAsync(String metricName) {
+    return listMetricAssetsWithHttpInfoAsync(metricName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns dashboards, monitors, notebooks, and SLOs that a metric is stored in, if any. Updated
+   * every 24 hours.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return ApiResponse&lt;MetricAssetsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MetricAssetsResponse> listMetricAssetsWithHttpInfo(String metricName)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'metricName' when calling listMetricAssets");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/assets"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.listMetricAssets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricAssetsResponse>() {});
+  }
+
+  /**
+   * Related Assets to a Metric.
+   *
+   * <p>See {@link #listMetricAssetsWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricAssetsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MetricAssetsResponse>> listMetricAssetsWithHttpInfoAsync(
+      String metricName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<MetricAssetsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'metricName' when calling listMetricAssets"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/assets"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.listMetricAssets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MetricAssetsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricAssetsResponse>() {});
   }
 
   /**
