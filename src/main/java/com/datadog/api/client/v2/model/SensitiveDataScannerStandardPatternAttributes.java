@@ -128,10 +128,13 @@ public class SensitiveDataScannerStandardPatternAttributes {
   }
 
   /**
-   * Regex to match.
+   * (Deprecated) Regex to match, optionally documented for older standard rules. Refer to the
+   * <code>description</code> field to understand what the rule does.
    *
    * @return pattern
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PATTERN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,6 +142,7 @@ public class SensitiveDataScannerStandardPatternAttributes {
     return pattern;
   }
 
+  @Deprecated
   public void setPattern(String pattern) {
     this.pattern = pattern;
   }
