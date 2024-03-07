@@ -662,6 +662,7 @@ public class ServiceDefinitionApi {
     String valueGetterPath = "";
     String valueSetterPath = "pageNumber";
     Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
     Long limit;
 
     if (parameters.pageSize == null) {
@@ -682,7 +683,7 @@ public class ServiceDefinitionApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
-            true,
+            false,
             limit,
             args);
 
