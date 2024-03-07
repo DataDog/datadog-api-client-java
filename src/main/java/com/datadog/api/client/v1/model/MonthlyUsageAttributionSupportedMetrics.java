@@ -96,6 +96,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "npm_host_percentage",
               "obs_pipeline_bytes_usage",
               "obs_pipeline_bytes_percentage",
+              "obs_pipelines_vcpu_usage",
+              "obs_pipelines_vcpu_percentage",
               "profiled_container_usage",
               "profiled_container_percentage",
               "profiled_fargate_usage",
@@ -294,6 +296,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("obs_pipeline_bytes_usage");
   public static final MonthlyUsageAttributionSupportedMetrics OBS_PIPELINE_BYTES_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("obs_pipeline_bytes_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics OBS_PIPELINES_VCPU_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("obs_pipelines_vcpu_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics OBS_PIPELINES_VCPU_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("obs_pipelines_vcpu_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_CONTAINER_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("profiled_container_usage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_CONTAINER_PERCENTAGE =

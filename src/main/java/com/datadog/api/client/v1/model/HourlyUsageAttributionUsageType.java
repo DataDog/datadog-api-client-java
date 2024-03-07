@@ -79,6 +79,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "ndm_netflow_usage",
               "npm_host_usage",
               "obs_pipeline_bytes_usage",
+              "obs_pipelines_vcpu_usage",
               "profiled_container_usage",
               "profiled_fargate_usage",
               "profiled_host_usage",
@@ -197,6 +198,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("npm_host_usage");
   public static final HourlyUsageAttributionUsageType OBS_PIPELINE_BYTES_USAGE =
       new HourlyUsageAttributionUsageType("obs_pipeline_bytes_usage");
+  public static final HourlyUsageAttributionUsageType OBS_PIPELINE_VCPU_USAGE =
+      new HourlyUsageAttributionUsageType("obs_pipelines_vcpu_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_CONTAINER_USAGE =
       new HourlyUsageAttributionUsageType("profiled_container_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_FARGATE_USAGE =

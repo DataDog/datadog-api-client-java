@@ -120,6 +120,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_NPM_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINE_BYTES_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINE_BYTES_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINES_VCPU_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINES_VCPU_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_PERCENTAGE,
@@ -493,6 +495,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
   private Double obsPipelineBytesUsage;
+
+  public static final String JSON_PROPERTY_OBS_PIPELINES_VCPU_PERCENTAGE =
+      "obs_pipelines_vcpu_percentage";
+  private Double obsPipelinesVcpuPercentage;
+
+  public static final String JSON_PROPERTY_OBS_PIPELINES_VCPU_USAGE = "obs_pipelines_vcpu_usage";
+  private Double obsPipelinesVcpuUsage;
 
   public static final String JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE =
       "profiled_container_percentage";
@@ -2748,6 +2757,49 @@ public class MonthlyUsageAttributionValues {
     this.obsPipelineBytesUsage = obsPipelineBytesUsage;
   }
 
+  public MonthlyUsageAttributionValues obsPipelinesVcpuPercentage(
+      Double obsPipelinesVcpuPercentage) {
+    this.obsPipelinesVcpuPercentage = obsPipelinesVcpuPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of observability pipeline per core usage by tag(s).
+   *
+   * @return obsPipelinesVcpuPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OBS_PIPELINES_VCPU_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getObsPipelinesVcpuPercentage() {
+    return obsPipelinesVcpuPercentage;
+  }
+
+  public void setObsPipelinesVcpuPercentage(Double obsPipelinesVcpuPercentage) {
+    this.obsPipelinesVcpuPercentage = obsPipelinesVcpuPercentage;
+  }
+
+  public MonthlyUsageAttributionValues obsPipelinesVcpuUsage(Double obsPipelinesVcpuUsage) {
+    this.obsPipelinesVcpuUsage = obsPipelinesVcpuUsage;
+    return this;
+  }
+
+  /**
+   * The observability pipeline per core usage by tag(s).
+   *
+   * @return obsPipelinesVcpuUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OBS_PIPELINES_VCPU_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getObsPipelinesVcpuUsage() {
+    return obsPipelinesVcpuUsage;
+  }
+
+  public void setObsPipelinesVcpuUsage(Double obsPipelinesVcpuUsage) {
+    this.obsPipelinesVcpuUsage = obsPipelinesVcpuUsage;
+  }
+
   public MonthlyUsageAttributionValues profiledContainerPercentage(
       Double profiledContainerPercentage) {
     this.profiledContainerPercentage = profiledContainerPercentage;
@@ -3479,6 +3531,11 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.obsPipelineBytesUsage, monthlyUsageAttributionValues.obsPipelineBytesUsage)
         && Objects.equals(
+            this.obsPipelinesVcpuPercentage,
+            monthlyUsageAttributionValues.obsPipelinesVcpuPercentage)
+        && Objects.equals(
+            this.obsPipelinesVcpuUsage, monthlyUsageAttributionValues.obsPipelinesVcpuUsage)
+        && Objects.equals(
             this.profiledContainerPercentage,
             monthlyUsageAttributionValues.profiledContainerPercentage)
         && Objects.equals(
@@ -3636,6 +3693,8 @@ public class MonthlyUsageAttributionValues {
         npmHostUsage,
         obsPipelineBytesPercentage,
         obsPipelineBytesUsage,
+        obsPipelinesVcpuPercentage,
+        obsPipelinesVcpuUsage,
         profiledContainerPercentage,
         profiledContainerUsage,
         profiledFargatePercentage,
@@ -3906,6 +3965,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    obsPipelineBytesUsage: ")
         .append(toIndentedString(obsPipelineBytesUsage))
+        .append("\n");
+    sb.append("    obsPipelinesVcpuPercentage: ")
+        .append(toIndentedString(obsPipelinesVcpuPercentage))
+        .append("\n");
+    sb.append("    obsPipelinesVcpuUsage: ")
+        .append(toIndentedString(obsPipelinesVcpuUsage))
         .append("\n");
     sb.append("    profiledContainerPercentage: ")
         .append(toIndentedString(profiledContainerPercentage))
