@@ -143,7 +143,9 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_UNIVERSAL_SERVICE_MONITORING_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_VULN_MANAGEMENT_HOSTS_PERCENTAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_VULN_MANAGEMENT_HOSTS_USAGE
+  MonthlyUsageAttributionValues.JSON_PROPERTY_VULN_MANAGEMENT_HOSTS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_WORKFLOW_EXECUTIONS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -580,6 +582,13 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_VULN_MANAGEMENT_HOSTS_USAGE =
       "vuln_management_hosts_usage";
   private Double vulnManagementHostsUsage;
+
+  public static final String JSON_PROPERTY_WORKFLOW_EXECUTIONS_PERCENTAGE =
+      "workflow_executions_percentage";
+  private Double workflowExecutionsPercentage;
+
+  public static final String JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE = "workflow_executions_usage";
+  private Double workflowExecutionsUsage;
 
   public MonthlyUsageAttributionValues apiPercentage(Double apiPercentage) {
     this.apiPercentage = apiPercentage;
@@ -3270,6 +3279,49 @@ public class MonthlyUsageAttributionValues {
     this.vulnManagementHostsUsage = vulnManagementHostsUsage;
   }
 
+  public MonthlyUsageAttributionValues workflowExecutionsPercentage(
+      Double workflowExecutionsPercentage) {
+    this.workflowExecutionsPercentage = workflowExecutionsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of workflow executions usage by tag(s).
+   *
+   * @return workflowExecutionsPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WORKFLOW_EXECUTIONS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getWorkflowExecutionsPercentage() {
+    return workflowExecutionsPercentage;
+  }
+
+  public void setWorkflowExecutionsPercentage(Double workflowExecutionsPercentage) {
+    this.workflowExecutionsPercentage = workflowExecutionsPercentage;
+  }
+
+  public MonthlyUsageAttributionValues workflowExecutionsUsage(Double workflowExecutionsUsage) {
+    this.workflowExecutionsUsage = workflowExecutionsUsage;
+    return this;
+  }
+
+  /**
+   * The total workflow executions usage by tag(s).
+   *
+   * @return workflowExecutionsUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getWorkflowExecutionsUsage() {
+    return workflowExecutionsUsage;
+  }
+
+  public void setWorkflowExecutionsUsage(Double workflowExecutionsUsage) {
+    this.workflowExecutionsUsage = workflowExecutionsUsage;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -3585,6 +3637,11 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.vulnManagementHostsUsage, monthlyUsageAttributionValues.vulnManagementHostsUsage)
         && Objects.equals(
+            this.workflowExecutionsPercentage,
+            monthlyUsageAttributionValues.workflowExecutionsPercentage)
+        && Objects.equals(
+            this.workflowExecutionsUsage, monthlyUsageAttributionValues.workflowExecutionsUsage)
+        && Objects.equals(
             this.additionalProperties, monthlyUsageAttributionValues.additionalProperties);
   }
 
@@ -3717,6 +3774,8 @@ public class MonthlyUsageAttributionValues {
         universalServiceMonitoringUsage,
         vulnManagementHostsPercentage,
         vulnManagementHostsUsage,
+        workflowExecutionsPercentage,
+        workflowExecutionsUsage,
         additionalProperties);
   }
 
@@ -4031,6 +4090,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    vulnManagementHostsUsage: ")
         .append(toIndentedString(vulnManagementHostsUsage))
+        .append("\n");
+    sb.append("    workflowExecutionsPercentage: ")
+        .append(toIndentedString(workflowExecutionsPercentage))
+        .append("\n");
+    sb.append("    workflowExecutionsUsage: ")
+        .append(toIndentedString(workflowExecutionsUsage))
         .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
