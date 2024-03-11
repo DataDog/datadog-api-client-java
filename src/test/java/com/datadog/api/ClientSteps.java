@@ -281,6 +281,20 @@ public class ClientSteps {
     assertTrue(mapObj.containsKey(field));
   }
 
+  @Then("the response {string} has field {string}")
+  public void theResponseDoesNotHaveField(String responsePath, String field)
+      throws java.lang.reflect.InvocationTargetException,
+          java.lang.IllegalAccessException,
+          java.lang.InstantiationException,
+          java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException,
+          java.lang.NoSuchFieldException {
+    Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
+    Object lookupRes = World.lookup(responseData, responsePath);
+    Map<String, Object> mapObj = world.getObjectMapper().convertValue(lookupRes, Map.class);
+    assertFalse(mapObj.containsKey(field));
+  }
+
   @Then("the response {string} has the same value as {string}")
   public void theResponseHasTheSameValueAs(String responsePath, String fixturePath)
       throws java.lang.reflect.InvocationTargetException,
