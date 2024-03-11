@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Agent rule not found: agentRuleId=abc-123-xyz)\"]}",
+      "body": "{\"errors\":[\"not_found(Agent rule not found: agentRuleId=abc-123-xyz)\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"

@@ -20,6 +20,7 @@ import java.util.Objects;
 /** Object for a single Agent rule. */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleUpdateData.JSON_PROPERTY_ATTRIBUTES,
+  CloudWorkloadSecurityAgentRuleUpdateData.JSON_PROPERTY_ID,
   CloudWorkloadSecurityAgentRuleUpdateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -28,6 +29,9 @@ public class CloudWorkloadSecurityAgentRuleUpdateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CloudWorkloadSecurityAgentRuleUpdateAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private CloudWorkloadSecurityAgentRuleType type = CloudWorkloadSecurityAgentRuleType.AGENT_RULE;
@@ -66,6 +70,27 @@ public class CloudWorkloadSecurityAgentRuleUpdateData {
 
   public void setAttributes(CloudWorkloadSecurityAgentRuleUpdateAttributes attributes) {
     this.attributes = attributes;
+  }
+
+  public CloudWorkloadSecurityAgentRuleUpdateData id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the agent rule.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public CloudWorkloadSecurityAgentRuleUpdateData type(CloudWorkloadSecurityAgentRuleType type) {
@@ -150,6 +175,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateData {
     CloudWorkloadSecurityAgentRuleUpdateData cloudWorkloadSecurityAgentRuleUpdateData =
         (CloudWorkloadSecurityAgentRuleUpdateData) o;
     return Objects.equals(this.attributes, cloudWorkloadSecurityAgentRuleUpdateData.attributes)
+        && Objects.equals(this.id, cloudWorkloadSecurityAgentRuleUpdateData.id)
         && Objects.equals(this.type, cloudWorkloadSecurityAgentRuleUpdateData.type)
         && Objects.equals(
             this.additionalProperties,
@@ -158,7 +184,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
@@ -166,6 +192,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateData {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudWorkloadSecurityAgentRuleUpdateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
