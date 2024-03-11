@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1652349083\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1709907551\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,10 +12,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1652349083\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"My Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":1,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1652349083546,\"creationDate\":1652349083546,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"xnm-bjf-tfb\"}}",
+      "body": "{\"data\":{\"id\":\"ynn-umb-rss\",\"attributes\":{\"version\":1,\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1709907551\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"creationDate\":1709907552061,\"updateAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"updateDate\":1709907552061,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"},\"updater\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -27,21 +27,21 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "86758ad9-8c59-5275-4913-efcc94308b96"
+    "id": "d3c5890e-e7f5-56a4-8199-87a28329b7cc"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/xnm-bjf-tfb",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ynn-umb-rss",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1652349083\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"My Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":1,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1652349083546,\"creationDate\":1652349083546,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"xnm-bjf-tfb\"}}",
+      "body": "{\"data\":{\"id\":\"ynn-umb-rss\",\"attributes\":{\"version\":1,\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1709907551\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"creationDate\":1709907552061,\"updateAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"updateDate\":1709907552061,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"},\"updater\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -53,22 +53,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "85a61811-cce9-371b-6c68-fe0882a104e0"
+    "id": "0021bb7d-28d9-90f3-e05f-1f215de72a90"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/xnm-bjf-tfb",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ynn-umb-rss",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Content-Type": [
-          "application/json;charset=utf-8"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -78,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6ad0b775-4a78-c847-6c2d-d9f9497872c6"
+    "id": "e31f7420-d376-8226-56db-42842025ce16"
   }
 ]

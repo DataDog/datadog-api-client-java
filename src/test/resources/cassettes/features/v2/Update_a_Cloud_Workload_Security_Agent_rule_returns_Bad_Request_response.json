@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1652349086\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1709907560\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,10 +12,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1652349086\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"My Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":1,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1652349087367,\"creationDate\":1652349087367,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"ezf-mkn-g0o\"}}",
+      "body": "{\"data\":{\"id\":\"bvz-vbk-lmb\",\"attributes\":{\"version\":1,\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1709907560\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"creationDate\":1709907560595,\"updateAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"updateDate\":1709907560595,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"},\"updater\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "63618e1f-0ba9-78bc-4def-baca230c3abf"
+    "id": "1ea6ddf4-53ef-91b1-7ea0-ae694b5f7c7c"
   },
   {
     "httpRequest": {
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ezf-mkn-g0o",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/bvz-vbk-lmb",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1652349086` definition error: syntax error: 1:18: unexpected token \\\"sh\\\" (expected \\\"~\\\"))\"]}",
+      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1709907560` error: syntax error `1:18: unexpected token \\\"sh\\\" (expected \\\"~\\\")`)\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,22 +57,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d7d0bb47-df50-b4bf-a1d7-8eaeb3371890"
+    "id": "c443fc45-5ea5-c3ed-f616-cae7279add00"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ezf-mkn-g0o",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/bvz-vbk-lmb",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Content-Type": [
-          "application/json;charset=utf-8"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -82,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "295859c0-7026-f069-a0e4-032fec9eb78d"
+    "id": "cdeac8df-b2d2-9f53-2b6e-617e390462dd"
   }
 ]

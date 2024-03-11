@@ -3,12 +3,12 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/abc-123-xyz",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/abc-123-xyz",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Agent rule not found: agentRuleId=abc-123-xyz)\"]}\n",
+      "body": "{\"errors\":[{\"title\":\"failed to delete rule\"}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "61e04474-6a78-83ac-9581-36cfc11f87f4"
+    "id": "ceb83d3d-046b-71c1-42fb-4beb5c1fae4a"
   }
 ]

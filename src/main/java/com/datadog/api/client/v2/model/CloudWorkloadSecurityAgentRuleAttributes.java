@@ -17,9 +17,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A Cloud Workload Security Agent rule returned by the API. */
 @JsonPropertyOrder({
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_ACTIONS,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_AGENT_CONSTRAINT,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CATEGORY,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CREATION_AUTHOR_UU_ID,
@@ -41,6 +43,10 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACTIONS = "actions";
+  private JsonNullable<List<CloudWorkloadSecurityAgentRuleAction>> actions =
+      JsonNullable.<List<CloudWorkloadSecurityAgentRuleAction>>undefined();
+
   public static final String JSON_PROPERTY_AGENT_CONSTRAINT = "agentConstraint";
   private String agentConstraint;
 
@@ -88,6 +94,52 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
+
+  public CloudWorkloadSecurityAgentRuleAttributes actions(
+      List<CloudWorkloadSecurityAgentRuleAction> actions) {
+    this.actions = JsonNullable.<List<CloudWorkloadSecurityAgentRuleAction>>of(actions);
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAttributes addActionsItem(
+      CloudWorkloadSecurityAgentRuleAction actionsItem) {
+    if (this.actions == null || !this.actions.isPresent()) {
+      this.actions = JsonNullable.<List<CloudWorkloadSecurityAgentRuleAction>>of(new ArrayList<>());
+    }
+    try {
+      this.actions.get().add(actionsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The array of actions the rule can perform if triggered.
+   *
+   * @return actions
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<CloudWorkloadSecurityAgentRuleAction> getActions() {
+    return actions.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ACTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<CloudWorkloadSecurityAgentRuleAction>> getActions_JsonNullable() {
+    return actions;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ACTIONS)
+  public void setActions_JsonNullable(
+      JsonNullable<List<CloudWorkloadSecurityAgentRuleAction>> actions) {
+    this.actions = actions;
+  }
+
+  public void setActions(List<CloudWorkloadSecurityAgentRuleAction> actions) {
+    this.actions = JsonNullable.<List<CloudWorkloadSecurityAgentRuleAction>>of(actions);
+  }
 
   public CloudWorkloadSecurityAgentRuleAttributes agentConstraint(String agentConstraint) {
     this.agentConstraint = agentConstraint;
@@ -494,7 +546,8 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     }
     CloudWorkloadSecurityAgentRuleAttributes cloudWorkloadSecurityAgentRuleAttributes =
         (CloudWorkloadSecurityAgentRuleAttributes) o;
-    return Objects.equals(
+    return Objects.equals(this.actions, cloudWorkloadSecurityAgentRuleAttributes.actions)
+        && Objects.equals(
             this.agentConstraint, cloudWorkloadSecurityAgentRuleAttributes.agentConstraint)
         && Objects.equals(this.category, cloudWorkloadSecurityAgentRuleAttributes.category)
         && Objects.equals(
@@ -521,6 +574,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        actions,
         agentConstraint,
         category,
         creationAuthorUuId,
@@ -544,6 +598,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudWorkloadSecurityAgentRuleAttributes {\n");
+    sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
     sb.append("    agentConstraint: ").append(toIndentedString(agentConstraint)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    creationAuthorUuId: ").append(toIndentedString(creationAuthorUuId)).append("\n");
