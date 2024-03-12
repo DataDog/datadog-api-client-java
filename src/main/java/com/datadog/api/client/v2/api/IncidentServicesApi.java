@@ -56,7 +56,9 @@ public class IncidentServicesApi {
    * @param body Incident Service Payload. (required)
    * @return IncidentServiceResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentServiceResponse createIncidentService(IncidentServiceCreateRequest body)
       throws ApiException {
     return createIncidentServiceWithHttpInfo(body).getData();
@@ -69,7 +71,9 @@ public class IncidentServicesApi {
    *
    * @param body Incident Service Payload. (required)
    * @return CompletableFuture&lt;IncidentServiceResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentServiceResponse> createIncidentServiceAsync(
       IncidentServiceCreateRequest body) {
     return createIncidentServiceWithHttpInfoAsync(body)
@@ -96,7 +100,10 @@ public class IncidentServicesApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentServiceResponse> createIncidentServiceWithHttpInfo(
       IncidentServiceCreateRequest body) throws ApiException {
     // Check if unstable operation is enabled
@@ -145,7 +152,9 @@ public class IncidentServicesApi {
    *
    * @param body Incident Service Payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentServiceResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentServiceResponse>>
       createIncidentServiceWithHttpInfoAsync(IncidentServiceCreateRequest body) {
     // Check if unstable operation is enabled
@@ -207,7 +216,9 @@ public class IncidentServicesApi {
    *
    * @param serviceId The ID of the incident service. (required)
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public void deleteIncidentService(String serviceId) throws ApiException {
     deleteIncidentServiceWithHttpInfo(serviceId);
   }
@@ -219,7 +230,9 @@ public class IncidentServicesApi {
    *
    * @param serviceId The ID of the incident service. (required)
    * @return CompletableFuture
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Void> deleteIncidentServiceAsync(String serviceId) {
     return deleteIncidentServiceWithHttpInfoAsync(serviceId)
         .thenApply(
@@ -245,7 +258,10 @@ public class IncidentServicesApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Void> deleteIncidentServiceWithHttpInfo(String serviceId) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "deleteIncidentService";
@@ -295,7 +311,9 @@ public class IncidentServicesApi {
    *
    * @param serviceId The ID of the incident service. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Void>> deleteIncidentServiceWithHttpInfoAsync(
       String serviceId) {
     // Check if unstable operation is enabled
@@ -378,7 +396,9 @@ public class IncidentServicesApi {
    * @param serviceId The ID of the incident service. (required)
    * @return IncidentServiceResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentServiceResponse getIncidentService(String serviceId) throws ApiException {
     return getIncidentServiceWithHttpInfo(serviceId, new GetIncidentServiceOptionalParameters())
         .getData();
@@ -391,7 +411,9 @@ public class IncidentServicesApi {
    *
    * @param serviceId The ID of the incident service. (required)
    * @return CompletableFuture&lt;IncidentServiceResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentServiceResponse> getIncidentServiceAsync(String serviceId) {
     return getIncidentServiceWithHttpInfoAsync(
             serviceId, new GetIncidentServiceOptionalParameters())
@@ -410,7 +432,9 @@ public class IncidentServicesApi {
    * @param parameters Optional parameters for the request.
    * @return IncidentServiceResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentServiceResponse getIncidentService(
       String serviceId, GetIncidentServiceOptionalParameters parameters) throws ApiException {
     return getIncidentServiceWithHttpInfo(serviceId, parameters).getData();
@@ -424,7 +448,9 @@ public class IncidentServicesApi {
    * @param serviceId The ID of the incident service. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;IncidentServiceResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentServiceResponse> getIncidentServiceAsync(
       String serviceId, GetIncidentServiceOptionalParameters parameters) {
     return getIncidentServiceWithHttpInfoAsync(serviceId, parameters)
@@ -453,7 +479,10 @@ public class IncidentServicesApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentServiceResponse> getIncidentServiceWithHttpInfo(
       String serviceId, GetIncidentServiceOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
@@ -509,7 +538,9 @@ public class IncidentServicesApi {
    * @param serviceId The ID of the incident service. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentServiceResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentServiceResponse>>
       getIncidentServiceWithHttpInfoAsync(
           String serviceId, GetIncidentServiceOptionalParameters parameters) {
@@ -633,7 +664,9 @@ public class IncidentServicesApi {
    *
    * @return IncidentServicesResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentServicesResponse listIncidentServices() throws ApiException {
     return listIncidentServicesWithHttpInfo(new ListIncidentServicesOptionalParameters()).getData();
   }
@@ -644,7 +677,9 @@ public class IncidentServicesApi {
    * <p>See {@link #listIncidentServicesWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;IncidentServicesResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentServicesResponse> listIncidentServicesAsync() {
     return listIncidentServicesWithHttpInfoAsync(new ListIncidentServicesOptionalParameters())
         .thenApply(
@@ -661,7 +696,9 @@ public class IncidentServicesApi {
    * @param parameters Optional parameters for the request.
    * @return IncidentServicesResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentServicesResponse listIncidentServices(
       ListIncidentServicesOptionalParameters parameters) throws ApiException {
     return listIncidentServicesWithHttpInfo(parameters).getData();
@@ -674,7 +711,9 @@ public class IncidentServicesApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;IncidentServicesResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentServicesResponse> listIncidentServicesAsync(
       ListIncidentServicesOptionalParameters parameters) {
     return listIncidentServicesWithHttpInfoAsync(parameters)
@@ -703,7 +742,10 @@ public class IncidentServicesApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentServicesResponse> listIncidentServicesWithHttpInfo(
       ListIncidentServicesOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
@@ -756,7 +798,9 @@ public class IncidentServicesApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentServicesResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentServicesResponse>>
       listIncidentServicesWithHttpInfoAsync(ListIncidentServicesOptionalParameters parameters) {
     // Check if unstable operation is enabled
@@ -821,7 +865,9 @@ public class IncidentServicesApi {
    * @param body Incident Service Payload. (required)
    * @return IncidentServiceResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentServiceResponse updateIncidentService(
       String serviceId, IncidentServiceUpdateRequest body) throws ApiException {
     return updateIncidentServiceWithHttpInfo(serviceId, body).getData();
@@ -835,7 +881,9 @@ public class IncidentServicesApi {
    * @param serviceId The ID of the incident service. (required)
    * @param body Incident Service Payload. (required)
    * @return CompletableFuture&lt;IncidentServiceResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentServiceResponse> updateIncidentServiceAsync(
       String serviceId, IncidentServiceUpdateRequest body) {
     return updateIncidentServiceWithHttpInfoAsync(serviceId, body)
@@ -864,7 +912,10 @@ public class IncidentServicesApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentServiceResponse> updateIncidentServiceWithHttpInfo(
       String serviceId, IncidentServiceUpdateRequest body) throws ApiException {
     // Check if unstable operation is enabled
@@ -922,7 +973,9 @@ public class IncidentServicesApi {
    * @param serviceId The ID of the incident service. (required)
    * @param body Incident Service Payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentServiceResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentServiceResponse>>
       updateIncidentServiceWithHttpInfoAsync(String serviceId, IncidentServiceUpdateRequest body) {
     // Check if unstable operation is enabled
