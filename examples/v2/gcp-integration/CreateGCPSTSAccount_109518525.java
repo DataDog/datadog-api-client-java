@@ -22,7 +22,8 @@ public class Example {
                     .attributes(
                         new GCPSTSServiceAccountAttributes()
                             .accountTags(Arrays.asList("lorem", "ipsum"))
-                            .clientEmail("252bf553ef04b351@test-project.iam.gserviceaccount.com"))
+                            .clientEmail(
+                                "Test-252bf553ef04b351@test-project.iam.gserviceaccount.com"))
                     .type(GCPServiceAccountType.GCP_SERVICE_ACCOUNT));
 
     try {
