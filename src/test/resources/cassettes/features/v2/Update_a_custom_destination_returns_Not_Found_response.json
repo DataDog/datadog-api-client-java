@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"forward_tags\":false,\"forward_tags_restriction_list\":[\"datacenter\",\"host\"],\"forward_tags_restriction_list_type\":\"ALLOW_LIST\",\"forwarder_destination\":{\"auth\":{\"password\":\"datadog-custom-destination-password\",\"type\":\"basic\",\"username\":\"datadog-custom-destination-username\"},\"endpoint\":\"https://example.com\",\"type\":\"http\"},\"name\":\"Nginx logs\",\"query\":\"source:nginx\"},\"id\":\"id-from-non-existing-custom-destination\",\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/logs/config/custom-destinations/id-from-non-existing-custom-destination",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"NotFound\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f37554c7-ccf5-2d24-e2fd-ecfc18983a45"
+  }
+]

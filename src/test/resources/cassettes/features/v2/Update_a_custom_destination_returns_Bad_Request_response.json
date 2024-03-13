@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"forward_tags\":false,\"forward_tags_restriction_list\":[\"host\"],\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forwarder_destination\":{\"auth\":{\"password\":\"my-password\",\"type\":\"basic\",\"username\":\"my-username\"},\"endpoint\":\"https://example.com\",\"type\":\"http\"},\"name\":\"Test-Update_a_custom_destination_returns_Bad_Request_response-1710235216\",\"query\":\"source:nginx\"},\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/custom-destinations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0f1b60fc-4671-4bd5-834b-bc86c8a5065b\",\"attributes\":{\"name\":\"Test-Update_a_custom_destination_returns_Bad_Request_response-1710235216\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"endpoint\":\"https://example.com\",\"auth\":{\"type\":\"basic\"},\"type\":\"http\"},\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forward_tags_restriction_list\":[\"host\"],\"forward_tags\":false},\"type\":\"custom_destination\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b488f47c-8633-fedf-e437-8cd9743078cf"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"forward_tags_restriction_list_type\":\"this_list_type_does_not_exist\"},\"id\":\"0f1b60fc-4671-4bd5-834b-bc86c8a5065b\",\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/logs/config/custom-destinations/0f1b60fc-4671-4bd5-834b-bc86c8a5065b",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Internal error\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2a2cbe27-ffd7-ef79-6ff2-e4021121b096"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/custom-destinations/0f1b60fc-4671-4bd5-834b-bc86c8a5065b",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "332dbec8-8042-036f-a575-db1a5c206308"
+  }
+]
