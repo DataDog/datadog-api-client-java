@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.getCSMThreatsAgentRule", true);
     CloudWorkloadSecurityApi apiInstance = new CloudWorkloadSecurityApi(defaultClient);
 
     // there is a valid "agent_rule_rc" in the system

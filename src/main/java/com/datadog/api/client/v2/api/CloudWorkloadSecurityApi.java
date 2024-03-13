@@ -239,6 +239,13 @@ public class CloudWorkloadSecurityApi {
    */
   public ApiResponse<CloudWorkloadSecurityAgentRuleResponse> createCSMThreatsAgentRuleWithHttpInfo(
       CloudWorkloadSecurityAgentRuleCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createCSMThreatsAgentRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -281,6 +288,17 @@ public class CloudWorkloadSecurityApi {
    */
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>>
       createCSMThreatsAgentRuleWithHttpInfoAsync(CloudWorkloadSecurityAgentRuleCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createCSMThreatsAgentRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -511,6 +529,13 @@ public class CloudWorkloadSecurityApi {
    */
   public ApiResponse<Void> deleteCSMThreatsAgentRuleWithHttpInfo(String agentRuleId)
       throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteCSMThreatsAgentRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'agentRuleId' is set
@@ -557,6 +582,16 @@ public class CloudWorkloadSecurityApi {
    */
   public CompletableFuture<ApiResponse<Void>> deleteCSMThreatsAgentRuleWithHttpInfoAsync(
       String agentRuleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteCSMThreatsAgentRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'agentRuleId' is set
@@ -759,6 +794,13 @@ public class CloudWorkloadSecurityApi {
    *     </table>
    */
   public ApiResponse<File> downloadCSMThreatsPolicyWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "downloadCSMThreatsPolicy";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/remote_config/products/cws/policy/download";
@@ -793,6 +835,16 @@ public class CloudWorkloadSecurityApi {
    * @return CompletableFuture&lt;ApiResponse&lt;File&gt;&gt;
    */
   public CompletableFuture<ApiResponse<File>> downloadCSMThreatsPolicyWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "downloadCSMThreatsPolicy";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<File>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/remote_config/products/cws/policy/download";
@@ -1020,6 +1072,13 @@ public class CloudWorkloadSecurityApi {
    */
   public ApiResponse<CloudWorkloadSecurityAgentRuleResponse> getCSMThreatsAgentRuleWithHttpInfo(
       String agentRuleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getCSMThreatsAgentRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'agentRuleId' is set
@@ -1065,6 +1124,17 @@ public class CloudWorkloadSecurityApi {
    */
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>>
       getCSMThreatsAgentRuleWithHttpInfoAsync(String agentRuleId) {
+    // Check if unstable operation is enabled
+    String operationId = "getCSMThreatsAgentRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'agentRuleId' is set
@@ -1272,6 +1342,13 @@ public class CloudWorkloadSecurityApi {
    */
   public ApiResponse<CloudWorkloadSecurityAgentRulesListResponse>
       listCSMThreatsAgentRulesWithHttpInfo() throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listCSMThreatsAgentRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/remote_config/products/cws/agent_rules";
@@ -1307,6 +1384,17 @@ public class CloudWorkloadSecurityApi {
    */
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRulesListResponse>>
       listCSMThreatsAgentRulesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "listCSMThreatsAgentRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRulesListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/remote_config/products/cws/agent_rules";
@@ -1571,6 +1659,13 @@ public class CloudWorkloadSecurityApi {
    */
   public ApiResponse<CloudWorkloadSecurityAgentRuleResponse> updateCSMThreatsAgentRuleWithHttpInfo(
       String agentRuleId, CloudWorkloadSecurityAgentRuleUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateCSMThreatsAgentRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'agentRuleId' is set
@@ -1625,6 +1720,17 @@ public class CloudWorkloadSecurityApi {
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>>
       updateCSMThreatsAgentRuleWithHttpInfoAsync(
           String agentRuleId, CloudWorkloadSecurityAgentRuleUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateCSMThreatsAgentRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'agentRuleId' is set

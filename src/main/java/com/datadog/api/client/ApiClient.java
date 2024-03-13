@@ -398,6 +398,12 @@ public class ApiClient {
           put("v2.getFinding", false);
           put("v2.listFindings", false);
           put("v2.muteFindings", false);
+          put("v2.createCSMThreatsAgentRule", false);
+          put("v2.deleteCSMThreatsAgentRule", false);
+          put("v2.downloadCSMThreatsPolicy", false);
+          put("v2.getCSMThreatsAgentRule", false);
+          put("v2.listCSMThreatsAgentRules", false);
+          put("v2.updateCSMThreatsAgentRule", false);
           put("v2.createScorecardOutcomesBatch", false);
           put("v2.createScorecardRule", false);
           put("v2.deleteScorecardRule", false);

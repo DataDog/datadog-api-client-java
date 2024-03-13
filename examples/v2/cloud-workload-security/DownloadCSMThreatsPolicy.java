@@ -8,6 +8,7 @@ import java.io.File;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.downloadCSMThreatsPolicy", true);
     CloudWorkloadSecurityApi apiInstance = new CloudWorkloadSecurityApi(defaultClient);
 
     try {
