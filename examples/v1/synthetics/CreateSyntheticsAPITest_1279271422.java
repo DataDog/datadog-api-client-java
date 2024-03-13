@@ -20,6 +20,7 @@ import com.datadog.api.client.v1.model.SyntheticsParsingOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestCallType;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsHTTPVersion;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
 import com.datadog.api.client.v1.model.SyntheticsVariableParser;
@@ -72,7 +73,8 @@ public class Example {
                                     new SyntheticsTestRequest()
                                         .method("GET")
                                         .timeout(10.0)
-                                        .url("https://datadoghq.com"))
+                                        .url("https://datadoghq.com")
+                                        .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP2))
                                 .retry(new SyntheticsTestOptionsRetry().count(5L).interval(1000.0))
                                 .subtype(SyntheticsAPIStepSubtype.HTTP),
                             new SyntheticsAPIStep()
