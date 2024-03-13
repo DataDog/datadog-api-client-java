@@ -34,6 +34,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_FOLLOW_REDIRECTS,
   SyntheticsTestRequest.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
+  SyntheticsTestRequest.JSON_PROPERTY_HTTP_VERSION,
   SyntheticsTestRequest.JSON_PROPERTY_MESSAGE,
   SyntheticsTestRequest.JSON_PROPERTY_METADATA,
   SyntheticsTestRequest.JSON_PROPERTY_METHOD,
@@ -94,6 +95,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_HOST = "host";
   private String host;
+
+  public static final String JSON_PROPERTY_HTTP_VERSION = "httpVersion";
+  private SyntheticsTestOptionsHTTPVersion httpVersion;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -457,6 +461,31 @@ public class SyntheticsTestRequest {
 
   public void setHost(String host) {
     this.host = host;
+  }
+
+  public SyntheticsTestRequest httpVersion(SyntheticsTestOptionsHTTPVersion httpVersion) {
+    this.httpVersion = httpVersion;
+    this.unparsed |= !httpVersion.isValid();
+    return this;
+  }
+
+  /**
+   * HTTP version to use for a Synthetic test.
+   *
+   * @return httpVersion
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HTTP_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestOptionsHTTPVersion getHttpVersion() {
+    return httpVersion;
+  }
+
+  public void setHttpVersion(SyntheticsTestOptionsHTTPVersion httpVersion) {
+    if (!httpVersion.isValid()) {
+      this.unparsed = true;
+    }
+    this.httpVersion = httpVersion;
   }
 
   public SyntheticsTestRequest message(String message) {
@@ -837,6 +866,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.followRedirects, syntheticsTestRequest.followRedirects)
         && Objects.equals(this.headers, syntheticsTestRequest.headers)
         && Objects.equals(this.host, syntheticsTestRequest.host)
+        && Objects.equals(this.httpVersion, syntheticsTestRequest.httpVersion)
         && Objects.equals(this.message, syntheticsTestRequest.message)
         && Objects.equals(this.metadata, syntheticsTestRequest.metadata)
         && Objects.equals(this.method, syntheticsTestRequest.method)
@@ -871,6 +901,7 @@ public class SyntheticsTestRequest {
         followRedirects,
         headers,
         host,
+        httpVersion,
         message,
         metadata,
         method,
@@ -910,6 +941,7 @@ public class SyntheticsTestRequest {
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");

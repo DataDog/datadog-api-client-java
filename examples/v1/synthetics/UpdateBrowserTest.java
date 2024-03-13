@@ -64,6 +64,7 @@ public class Example {
                                 new SyntheticsTestRequestCertificate()
                                     .cert(new SyntheticsTestRequestCertificateItem())
                                     .key(new SyntheticsTestRequestCertificateItem()))
+                            .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP1)
                             .proxy(new SyntheticsTestRequestProxy().url("https://example.com"))
                             .service("Greeter")
                             .url("https://example.com"))
