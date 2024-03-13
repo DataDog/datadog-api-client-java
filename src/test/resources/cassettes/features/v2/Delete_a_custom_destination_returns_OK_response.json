@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"forward_tags\":false,\"forward_tags_restriction_list\":[\"host\"],\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forwarder_destination\":{\"auth\":{\"password\":\"my-password\",\"type\":\"basic\",\"username\":\"my-username\"},\"endpoint\":\"https://example.com\",\"type\":\"http\"},\"name\":\"Test-Delete_a_custom_destination_returns_OK_response-1710235212\",\"query\":\"source:nginx\"},\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/custom-destinations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"596bb741-53be-49c6-939d-b5d4d9307689\",\"attributes\":{\"name\":\"Test-Delete_a_custom_destination_returns_OK_response-1710235212\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"endpoint\":\"https://example.com\",\"auth\":{\"type\":\"basic\"},\"type\":\"http\"},\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forward_tags_restriction_list\":[\"host\"],\"forward_tags\":false},\"type\":\"custom_destination\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "74bb242d-6052-7906-c219-39b67e454f78"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/custom-destinations/596bb741-53be-49c6-939d-b5d4d9307689",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "52965c3e-5194-271e-f6cf-4087a4337f18"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/custom-destinations/596bb741-53be-49c6-939d-b5d4d9307689",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"NotFound\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "52965c3e-5194-271e-f6cf-4087a4337f19"
+  }
+]

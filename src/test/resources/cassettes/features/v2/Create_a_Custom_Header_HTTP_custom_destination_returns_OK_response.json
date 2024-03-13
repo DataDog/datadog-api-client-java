@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"forward_tags\":false,\"forward_tags_restriction_list\":[\"datacenter\",\"host\"],\"forward_tags_restriction_list_type\":\"ALLOW_LIST\",\"forwarder_destination\":{\"auth\":{\"header_name\":\"MY-AUTHENTICATION-HEADER\",\"header_value\":\"my-secret\",\"type\":\"custom_header\"},\"endpoint\":\"https://example.com\",\"type\":\"http\"},\"name\":\"Nginx logs\",\"query\":\"source:nginx\"},\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/custom-destinations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"b522ed5a-3fab-47f4-a828-d34bd5632656\",\"attributes\":{\"name\":\"Nginx logs\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"endpoint\":\"https://example.com\",\"auth\":{\"header_name\":\"MY-AUTHENTICATION-HEADER\",\"type\":\"custom_header\"},\"type\":\"http\"},\"forward_tags_restriction_list_type\":\"ALLOW_LIST\",\"forward_tags_restriction_list\":[\"datacenter\",\"host\"],\"forward_tags\":false},\"type\":\"custom_destination\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "75b1dda1-4d99-4088-f842-72ce81db0beb"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/custom-destinations/b522ed5a-3fab-47f4-a828-d34bd5632656",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "19c64dd6-de81-d53b-a7bd-36bbc26fd073"
+  }
+]

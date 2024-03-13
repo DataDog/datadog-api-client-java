@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"forward_tags\":false,\"forward_tags_restriction_list\":[\"host\"],\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forwarder_destination\":{\"auth\":{\"password\":\"my-password\",\"type\":\"basic\",\"username\":\"my-username\"},\"endpoint\":\"https://example.com\",\"type\":\"http\"},\"name\":\"Test-Get_all_custom_destinations_returns_OK_response-1710235215\",\"query\":\"source:nginx\"},\"type\":\"custom_destination\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/logs/config/custom-destinations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"85883e0f-b010-4b8b-816d-a629600a4d0a\",\"attributes\":{\"name\":\"Test-Get_all_custom_destinations_returns_OK_response-1710235215\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"endpoint\":\"https://example.com\",\"auth\":{\"type\":\"basic\"},\"type\":\"http\"},\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forward_tags_restriction_list\":[\"host\"],\"forward_tags\":false},\"type\":\"custom_destination\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "743f942a-38aa-5c87-42da-29aa55e3404e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/logs/config/custom-destinations",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"85883e0f-b010-4b8b-816d-a629600a4d0a\",\"attributes\":{\"name\":\"Test-Get_all_custom_destinations_returns_OK_response-1710235215\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"endpoint\":\"https://example.com\",\"auth\":{\"type\":\"basic\"},\"type\":\"http\"},\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forward_tags_restriction_list\":[\"host\"],\"forward_tags\":false},\"type\":\"custom_destination\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c3387490-0a8e-f3c0-ee91-b51e33de9da7"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/logs/config/custom-destinations/85883e0f-b010-4b8b-816d-a629600a4d0a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "33fa96ed-5b42-2367-2471-46a5e5a5b217"
+  }
+]
