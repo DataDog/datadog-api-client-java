@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## 2.23.0 / 2024-03-13
+
+### Fixed
+* Include user data with team membership resource by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2181
+* Apply static analysis fixes by @skarimo in https://github.com/DataDog/datadog-api-client-java/pull/2147
+* Disable additionalProperties for Downtime Schedule UpdateRequest oneOfs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2193
+* Fix ListServiceDefinitions pagination information by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2220
+### Added
+* add ASM serverless to usage metering API docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2197
+* Add new products to usage API docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2204
+* Adds support for `ListMetricAssets` endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2199
+* Add support for new CRUD agent rules endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2215
+* Add documentation for workflow usage attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2221
+* Add Custom Destinations Public API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2225
+### Deprecated
+* Deprecate the pattern property for SDS Standard Pattern Attributes by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2216
+* Deprecate Incident Services endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2227
+
+## New Contributors
+* @antonio-ramadas-dd made their first contribution in https://github.com/DataDog/datadog-api-client-java/pull/2224
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.22.0...datadog-api-client-2.23.0
+
 ## 2.22.0 / 2024-02-21
 
 ### Fixed
