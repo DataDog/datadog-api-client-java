@@ -27,6 +27,7 @@ public class Example {
         new ServiceDefinitionsCreateRequest(
             new ServiceDefinitionV2Dot2()
                 .application("my-app")
+                .ciPipelineFingerprints(Arrays.asList("j88xdEy0J5lc", "eZ7LMljCk8vo"))
                 .contacts(
                     Collections.singletonList(
                         new ServiceDefinitionV2Dot2Contact()
