@@ -23,7 +23,7 @@ public class Example {
                 new CustomDestinationUpdateRequestDefinition()
                     .attributes(
                         new CustomDestinationUpdateRequestAttributes().name("Nginx logs (Updated)"))
-                    .type(CustomDestinationType.custom_destination)
+                    .type(CustomDestinationType.CUSTOM_DESTINATION)
                     .id(CUSTOM_DESTINATION_DATA_ID));
 
     try {
