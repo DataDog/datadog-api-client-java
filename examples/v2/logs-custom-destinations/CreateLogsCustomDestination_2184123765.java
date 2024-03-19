@@ -49,7 +49,7 @@ public class Example {
                                         .type(CustomDestinationForwardDestinationHttpType.HTTP)))
                             .name("Nginx logs")
                             .query("source:nginx"))
-                    .type(CustomDestinationType.custom_destination));
+                    .type(CustomDestinationType.CUSTOM_DESTINATION));
 
     try {
       CustomDestinationResponse result = apiInstance.createLogsCustomDestination(body);
