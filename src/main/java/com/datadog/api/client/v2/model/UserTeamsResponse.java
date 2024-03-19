@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Team memberships response */
 @JsonPropertyOrder({
   UserTeamsResponse.JSON_PROPERTY_DATA,
+  UserTeamsResponse.JSON_PROPERTY_INCLUDED,
   UserTeamsResponse.JSON_PROPERTY_LINKS,
   UserTeamsResponse.JSON_PROPERTY_META
 })
@@ -30,6 +31,9 @@ public class UserTeamsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<UserTeam> data = null;
+
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<UserTeamIncluded> included = null;
 
   public static final String JSON_PROPERTY_LINKS = "links";
   private TeamsResponseLinks links;
@@ -68,6 +72,39 @@ public class UserTeamsResponse {
 
   public void setData(List<UserTeam> data) {
     this.data = data;
+  }
+
+  public UserTeamsResponse included(List<UserTeamIncluded> included) {
+    this.included = included;
+    for (UserTeamIncluded item : included) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public UserTeamsResponse addIncludedItem(UserTeamIncluded includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Resources related to the team memberships
+   *
+   * @return included
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<UserTeamIncluded> getIncluded() {
+    return included;
+  }
+
+  public void setIncluded(List<UserTeamIncluded> included) {
+    this.included = included;
   }
 
   public UserTeamsResponse links(TeamsResponseLinks links) {
@@ -171,6 +208,7 @@ public class UserTeamsResponse {
     }
     UserTeamsResponse userTeamsResponse = (UserTeamsResponse) o;
     return Objects.equals(this.data, userTeamsResponse.data)
+        && Objects.equals(this.included, userTeamsResponse.included)
         && Objects.equals(this.links, userTeamsResponse.links)
         && Objects.equals(this.meta, userTeamsResponse.meta)
         && Objects.equals(this.additionalProperties, userTeamsResponse.additionalProperties);
@@ -178,7 +216,7 @@ public class UserTeamsResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, meta, additionalProperties);
+    return Objects.hash(data, included, links, meta, additionalProperties);
   }
 
   @Override
@@ -186,6 +224,7 @@ public class UserTeamsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserTeamsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
