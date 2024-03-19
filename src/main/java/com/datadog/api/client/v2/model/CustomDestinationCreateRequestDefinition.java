@@ -30,7 +30,7 @@ public class CustomDestinationCreateRequestDefinition {
   private CustomDestinationCreateRequestAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private CustomDestinationType type = CustomDestinationType.custom_destination;
+  private CustomDestinationType type = CustomDestinationType.CUSTOM_DESTINATION;
 
   public CustomDestinationCreateRequestDefinition() {}
 

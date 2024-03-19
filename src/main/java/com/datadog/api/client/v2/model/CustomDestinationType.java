@@ -25,7 +25,7 @@ public class CustomDestinationType extends ModelEnum<String> {
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("custom_destination"));
 
-  public static final CustomDestinationType custom_destination =
+  public static final CustomDestinationType CUSTOM_DESTINATION =
       new CustomDestinationType("custom_destination");
 
   CustomDestinationType(String value) {

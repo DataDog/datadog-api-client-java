@@ -33,7 +33,7 @@ public class CustomDestinationResponseDefinition {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private CustomDestinationType type = CustomDestinationType.custom_destination;
+  private CustomDestinationType type = CustomDestinationType.CUSTOM_DESTINATION;
 
   public CustomDestinationResponseDefinition attributes(
       CustomDestinationResponseAttributes attributes) {
