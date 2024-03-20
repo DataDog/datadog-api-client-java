@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,96 +16,87 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Data for creating an AuthN Mapping. */
+/** Team. */
 @JsonPropertyOrder({
-  AuthNMappingCreateData.JSON_PROPERTY_ATTRIBUTES,
-  AuthNMappingCreateData.JSON_PROPERTY_RELATIONSHIPS,
-  AuthNMappingCreateData.JSON_PROPERTY_TYPE
+  AuthNMappingTeam.JSON_PROPERTY_ATTRIBUTES,
+  AuthNMappingTeam.JSON_PROPERTY_ID,
+  AuthNMappingTeam.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AuthNMappingCreateData {
+public class AuthNMappingTeam {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private AuthNMappingCreateAttributes attributes;
+  private AuthNMappingTeamAttributes attributes;
 
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private AuthNMappingCreateRelationships relationships;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private AuthNMappingsType type = AuthNMappingsType.AUTHN_MAPPINGS;
+  private TeamType type = TeamType.TEAM;
 
-  public AuthNMappingCreateData() {}
-
-  @JsonCreator
-  public AuthNMappingCreateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AuthNMappingsType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public AuthNMappingCreateData attributes(AuthNMappingCreateAttributes attributes) {
+  public AuthNMappingTeam attributes(AuthNMappingTeamAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Key/Value pair of attributes used for create request.
+   * Team attributes.
    *
    * @return attributes
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AuthNMappingCreateAttributes getAttributes() {
+  public AuthNMappingTeamAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(AuthNMappingCreateAttributes attributes) {
+  public void setAttributes(AuthNMappingTeamAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public AuthNMappingCreateData relationships(AuthNMappingCreateRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
+  public AuthNMappingTeam id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Relationship of AuthN Mapping create object to a Role or Team.
+   * The ID of the Team.
    *
-   * @return relationships
+   * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AuthNMappingCreateRelationships getRelationships() {
-    return relationships;
+  public String getId() {
+    return id;
   }
 
-  public void setRelationships(AuthNMappingCreateRelationships relationships) {
-    this.relationships = relationships;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public AuthNMappingCreateData type(AuthNMappingsType type) {
+  public AuthNMappingTeam type(TeamType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * AuthN Mappings resource type.
+   * Team type
    *
    * @return type
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AuthNMappingsType getType() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TeamType getType() {
     return type;
   }
 
-  public void setType(AuthNMappingsType type) {
+  public void setType(TeamType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -125,10 +115,10 @@ public class AuthNMappingCreateData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AuthNMappingCreateData
+   * @return AuthNMappingTeam
    */
   @JsonAnySetter
-  public AuthNMappingCreateData putAdditionalProperty(String key, Object value) {
+  public AuthNMappingTeam putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -159,7 +149,7 @@ public class AuthNMappingCreateData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AuthNMappingCreateData object is equal to o. */
+  /** Return true if this AuthNMappingTeam object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -168,24 +158,24 @@ public class AuthNMappingCreateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AuthNMappingCreateData authNMappingCreateData = (AuthNMappingCreateData) o;
-    return Objects.equals(this.attributes, authNMappingCreateData.attributes)
-        && Objects.equals(this.relationships, authNMappingCreateData.relationships)
-        && Objects.equals(this.type, authNMappingCreateData.type)
-        && Objects.equals(this.additionalProperties, authNMappingCreateData.additionalProperties);
+    AuthNMappingTeam authNMappingTeam = (AuthNMappingTeam) o;
+    return Objects.equals(this.attributes, authNMappingTeam.attributes)
+        && Objects.equals(this.id, authNMappingTeam.id)
+        && Objects.equals(this.type, authNMappingTeam.type)
+        && Objects.equals(this.additionalProperties, authNMappingTeam.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, relationships, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AuthNMappingCreateData {\n");
+    sb.append("class AuthNMappingTeam {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
