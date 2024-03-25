@@ -766,7 +766,10 @@ public class MonitorOptions {
   }
 
   /**
-   * The types of monitor statuses for which re-notification messages are sent.
+   * The types of monitor statuses for which re-notification messages are sent. Default:
+   * <strong>null</strong> if <code>renotify_interval</code> is <strong>null</strong>. If <code>
+   * renotify_interval</code> is set, defaults to renotify on <code>Alert</code> and <code>No Data
+   * </code>.
    *
    * @return renotifyStatuses
    */
