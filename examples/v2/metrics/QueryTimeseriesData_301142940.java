@@ -36,7 +36,7 @@ public class Example {
                                             new FormulaLimit()
                                                 .count(10)
                                                 .order(QuerySortOrder.DESC))))
-                            .from(1671612804000L)
+                            .from(1636625471000L)
                             .interval(5000L)
                             .queries(
                                 Collections.singletonList(
@@ -45,7 +45,7 @@ public class Example {
                                             .dataSource(MetricsDataSource.METRICS)
                                             .query("avg:system.cpu.user{*}")
                                             .name("a"))))
-                            .to(1671620004000L))
+                            .to(1636629071000L))
                     .type(TimeseriesFormulaRequestType.TIMESERIES_REQUEST));
 
     try {
