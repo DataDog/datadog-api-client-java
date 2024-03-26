@@ -24,7 +24,7 @@ public class Example {
                     .attributes(
                         new TeamLinkAttributes()
                             .label("Link label")
-                            .url("https://example.com")
+                            .url("https://example.com/one")
                             .position(0))
                     .type(TeamLinkType.TEAM_LINKS));
 

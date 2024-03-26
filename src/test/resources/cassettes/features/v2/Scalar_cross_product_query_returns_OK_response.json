@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a\",\"limit\":{\"count\":10,\"order\":\"desc\"}}],\"from\":1711391280000,\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"a\",\"query\":\"avg:system.cpu.user{*}\"}],\"to\":1711394880000},\"type\":\"scalar_request\"}}"
+        "json": "{\"data\":{\"attributes\":{\"formulas\":[{\"formula\":\"a\",\"limit\":{\"count\":10,\"order\":\"desc\"}}],\"from\":1671612804000,\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"a\",\"query\":\"avg:system.cpu.user{*}\"}],\"to\":1671620004000},\"type\":\"scalar_request\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"scalar_response\",\"attributes\":{\"columns\":[{\"values\":[6.368151928283307],\"name\":\"a\",\"meta\":{\"unit\":[{\"short_name\":\"%\",\"id\":17,\"plural\":\"percent\",\"name\":\"percent\",\"family\":\"percentage\",\"scale_factor\":1.0},null]},\"type\":\"number\"}]}}}",
+      "body": "{\"data\":{\"type\":\"scalar_response\",\"attributes\":{\"columns\":[{\"name\":\"a\",\"values\":[5.173633659114822],\"type\":\"number\",\"meta\":{\"unit\":[{\"scale_factor\":1.0,\"id\":17,\"name\":\"percent\",\"plural\":\"percent\",\"family\":\"percentage\",\"short_name\":\"%\"},null]}}]}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "66313324-595f-f213-f95c-9bd439cb53e4"
+    "id": "f1478dc8-332c-5603-c2b0-7da458f229dc"
   }
 ]

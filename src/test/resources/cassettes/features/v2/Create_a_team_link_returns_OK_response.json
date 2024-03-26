@@ -33,7 +33,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"label\":\"Link label\",\"position\":0,\"url\":\"https://example.com\"},\"type\":\"team_links\"}}"
+        "json": "{\"data\":{\"attributes\":{\"label\":\"Link label\",\"position\":0,\"url\":\"https://example.com/one\"},\"type\":\"team_links\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team_links\",\"id\":\"2d348dee-405b-11ee-b5db-da7ad0900002\",\"attributes\":{\"team_id\":\"2d0e6d4e-405b-11ee-84bc-da7ad0900002\",\"label\":\"Link label\",\"url\":\"https://example.com\",\"position\":0}}}\n",
+      "body": "{\"data\":{\"type\":\"team_links\",\"id\":\"2d348dee-405b-11ee-b5db-da7ad0900002\",\"attributes\":{\"team_id\":\"2d0e6d4e-405b-11ee-84bc-da7ad0900002\",\"label\":\"Link label\",\"url\":\"https://example.com/one\",\"position\":0}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
