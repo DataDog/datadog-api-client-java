@@ -10,6 +10,10 @@ import com.datadog.api.client.v1.model.SyntheticsAssertion;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathTargetTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaMetaSchema;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaOperator;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaTargetTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTimingsScope;
@@ -67,6 +71,19 @@ public class Example {
                                             .jsonPath("topKey")
                                             .operator("isNot")
                                             .targetValue("0"))
+                                    .type(SyntheticsAssertionType.BODY)),
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionJSONSchemaTarget()
+                                    .operator(
+                                        SyntheticsAssertionJSONSchemaOperator.VALIDATES_JSON_SCHEMA)
+                                    .target(
+                                        new SyntheticsAssertionJSONSchemaTargetTarget()
+                                            .metaSchema(
+                                                SyntheticsAssertionJSONSchemaMetaSchema.DRAFT_07)
+                                            .jsonSchema(
+                                                """
+{"type": "object", "properties":{"slideshow":{"type":"object"}}}
+"""))
                                     .type(SyntheticsAssertionType.BODY)),
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionXPathTarget()
