@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/slo/report/9fb2dc2a-ead0-11ee-a174-9fe3a9d7627f/download",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "id,slo_type,name,target,export_error,2023-08-01,2023-09-01,2023-10-01,2023-11-01,2023-12-01,2024-01-01\n",
+      "headers": {
+        "Content-Type": [
+          "text/csv"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "049812a6-c910-9ec0-24bc-d35771cb37a4"
+  }
+]
