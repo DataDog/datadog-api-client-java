@@ -1942,7 +1942,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @return UsageApplicationSecurityMonitoringResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageApplicationSecurityMonitoringResponse getUsageApplicationSecurityMonitoring(
       OffsetDateTime startHr) throws ApiException {
     return getUsageApplicationSecurityMonitoringWithHttpInfo(
@@ -1958,7 +1960,9 @@ public class UsageMeteringApi {
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageApplicationSecurityMonitoringResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageApplicationSecurityMonitoringResponse>
       getUsageApplicationSecurityMonitoringAsync(OffsetDateTime startHr) {
     return getUsageApplicationSecurityMonitoringWithHttpInfoAsync(
@@ -1979,7 +1983,9 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return UsageApplicationSecurityMonitoringResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageApplicationSecurityMonitoringResponse getUsageApplicationSecurityMonitoring(
       OffsetDateTime startHr, GetUsageApplicationSecurityMonitoringOptionalParameters parameters)
       throws ApiException {
@@ -1995,7 +2001,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageApplicationSecurityMonitoringResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageApplicationSecurityMonitoringResponse>
       getUsageApplicationSecurityMonitoringAsync(
           OffsetDateTime startHr,
@@ -2008,8 +2016,8 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for application security . <strong>Note:</strong> hourly usage data for all
-   * products is now available in the <a
+   * Get hourly usage for application security . <strong>Note:</strong> This endpoint has been
+   * deprecated. Hourly usage data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
    * hourly usage by product family API</a>
    *
@@ -2027,7 +2035,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageApplicationSecurityMonitoringResponse>
       getUsageApplicationSecurityMonitoringWithHttpInfo(
           OffsetDateTime startHr,
@@ -2081,7 +2092,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageApplicationSecurityMonitoringResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageApplicationSecurityMonitoringResponse>>
       getUsageApplicationSecurityMonitoringWithHttpInfoAsync(
           OffsetDateTime startHr,
@@ -2163,7 +2176,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @return UsageLambdaTracedInvocationsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageLambdaTracedInvocationsResponse getUsageLambdaTracedInvocations(
       OffsetDateTime startHr) throws ApiException {
     return getUsageLambdaTracedInvocationsWithHttpInfo(
@@ -2179,7 +2194,9 @@ public class UsageMeteringApi {
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageLambdaTracedInvocationsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageLambdaTracedInvocationsResponse>
       getUsageLambdaTracedInvocationsAsync(OffsetDateTime startHr) {
     return getUsageLambdaTracedInvocationsWithHttpInfoAsync(
@@ -2200,7 +2217,9 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return UsageLambdaTracedInvocationsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageLambdaTracedInvocationsResponse getUsageLambdaTracedInvocations(
       OffsetDateTime startHr, GetUsageLambdaTracedInvocationsOptionalParameters parameters)
       throws ApiException {
@@ -2216,7 +2235,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageLambdaTracedInvocationsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageLambdaTracedInvocationsResponse>
       getUsageLambdaTracedInvocationsAsync(
           OffsetDateTime startHr, GetUsageLambdaTracedInvocationsOptionalParameters parameters) {
@@ -2228,8 +2249,8 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Lambda traced invocations. <strong>Note:</strong> hourly usage data for
-   * all products is now available in the <a
+   * Get hourly usage for Lambda traced invocations. <strong>Note:</strong> This endpoint has been
+   * deprecated.. Hourly usage data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
    * hourly usage by product family API</a>
    *
@@ -2247,7 +2268,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageLambdaTracedInvocationsResponse>
       getUsageLambdaTracedInvocationsWithHttpInfo(
           OffsetDateTime startHr, GetUsageLambdaTracedInvocationsOptionalParameters parameters)
@@ -2299,7 +2323,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageLambdaTracedInvocationsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageLambdaTracedInvocationsResponse>>
       getUsageLambdaTracedInvocationsWithHttpInfoAsync(
           OffsetDateTime startHr, GetUsageLambdaTracedInvocationsOptionalParameters parameters) {
@@ -2380,7 +2406,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @return UsageObservabilityPipelinesResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageObservabilityPipelinesResponse getUsageObservabilityPipelines(OffsetDateTime startHr)
       throws ApiException {
     return getUsageObservabilityPipelinesWithHttpInfo(
@@ -2396,7 +2424,9 @@ public class UsageMeteringApi {
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: <code>[YYYY-MM-DDThh]</code>
    *     for usage beginning at this hour. (required)
    * @return CompletableFuture&lt;UsageObservabilityPipelinesResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageObservabilityPipelinesResponse> getUsageObservabilityPipelinesAsync(
       OffsetDateTime startHr) {
     return getUsageObservabilityPipelinesWithHttpInfoAsync(
@@ -2417,7 +2447,9 @@ public class UsageMeteringApi {
    * @param parameters Optional parameters for the request.
    * @return UsageObservabilityPipelinesResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UsageObservabilityPipelinesResponse getUsageObservabilityPipelines(
       OffsetDateTime startHr, GetUsageObservabilityPipelinesOptionalParameters parameters)
       throws ApiException {
@@ -2433,7 +2465,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UsageObservabilityPipelinesResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UsageObservabilityPipelinesResponse> getUsageObservabilityPipelinesAsync(
       OffsetDateTime startHr, GetUsageObservabilityPipelinesOptionalParameters parameters) {
     return getUsageObservabilityPipelinesWithHttpInfoAsync(startHr, parameters)
@@ -2444,8 +2478,8 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for observability pipelines. <strong>Note:</strong> hourly usage data for all
-   * products is now available in the <a
+   * Get hourly usage for observability pipelines. <strong>Note:</strong> This endpoint has been
+   * deprecated. Hourly usage data for all products is now available in the <a
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family">Get
    * hourly usage by product family API</a>
    *
@@ -2463,7 +2497,10 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UsageObservabilityPipelinesResponse>
       getUsageObservabilityPipelinesWithHttpInfo(
           OffsetDateTime startHr, GetUsageObservabilityPipelinesOptionalParameters parameters)
@@ -2515,7 +2552,9 @@ public class UsageMeteringApi {
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UsageObservabilityPipelinesResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UsageObservabilityPipelinesResponse>>
       getUsageObservabilityPipelinesWithHttpInfoAsync(
           OffsetDateTime startHr, GetUsageObservabilityPipelinesOptionalParameters parameters) {
