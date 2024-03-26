@@ -6,6 +6,6 @@
 *                       @DataDog/api-clients
 
 # Documentation
-*.md                    @DataDog/baklava @DataDog/api-clients
-LICENSE                 @DataDog/baklava @DataDog/api-clients
-LICENSE-3rdparty.csv    @DataDog/baklava @DataDog/api-clients
+*.md                    @DataDog/api-clients
+LICENSE                 @DataDog/api-clients
+LICENSE-3rdparty.csv    @DataDog/api-clients
