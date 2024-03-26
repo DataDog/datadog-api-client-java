@@ -408,6 +408,9 @@ public class ApiClient {
           put("v2.getIncidentService", false);
           put("v2.listIncidentServices", false);
           put("v2.updateIncidentService", false);
+          put("v2.createSLOReportJob", false);
+          put("v2.getSLOReport", false);
+          put("v2.getSLOReportJobStatus", false);
           put("v2.createIncidentTeam", false);
           put("v2.deleteIncidentTeam", false);
           put("v2.getIncidentTeam", false);
