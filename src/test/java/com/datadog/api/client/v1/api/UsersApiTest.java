@@ -110,6 +110,7 @@ public class UsersApiTest extends V1ApiTest {
 
   /** Get all users */
   @Test
+  @Ignore("Skipping until account is cleaned up")
   public void listUsersTest() throws ApiException {
     Assume.assumeTrue(
         "This test does not support replay from recording",
@@ -147,6 +148,7 @@ public class UsersApiTest extends V1ApiTest {
    * @throws InterruptedException
    */
   @Test
+  @Ignore("Skipping until account is cleaned up")
   public void listUsersTestAsync() throws ApiException, InterruptedException, ExecutionException {
     Assume.assumeTrue(
         "This test does not support replay from recording",
