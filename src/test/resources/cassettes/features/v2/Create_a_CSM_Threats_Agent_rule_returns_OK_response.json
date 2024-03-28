@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"my_agent_rule\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testcreateacsmthreatsagentrulereturnsokresponse1711634268\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"zer-ow9-d4q\",\"type\":\"agent_rule\",\"attributes\":{\"category\":\"Process Activity\",\"creationDate\":1709907542607,\"creator\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"name\":\"my_agent_rule\",\"updateDate\":1709907542607,\"updater\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"kll-o34-int\",\"type\":\"agent_rule\",\"attributes\":{\"category\":\"Process Activity\",\"creationDate\":1711634268228,\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"name\":\"testcreateacsmthreatsagentrulereturnsokresponse1711634268\",\"updateDate\":1711634268228,\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8da2706d-d366-748c-4c51-b12b31462926"
+    "id": "8a689959-c81f-6802-a490-043fd1e61bbd"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/zer-ow9-d4q",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/kll-o34-int",
       "keepAlive": false,
       "secure": true
     },
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a6a178b7-a011-ecc9-8d0d-f557e83005ea"
+    "id": "88734b15-80bf-566b-b6a7-09c5625181d0"
   }
 ]
