@@ -82,6 +82,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "fargate_percentage",
               "functions_usage",
               "functions_percentage",
+              "incident_management_monthly_active_users_usage",
+              "incident_management_monthly_active_users_percentage",
               "infra_host_usage",
               "infra_host_percentage",
               "invocations_usage",
@@ -98,6 +100,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "obs_pipeline_bytes_percentage",
               "obs_pipelines_vcpu_usage",
               "obs_pipelines_vcpu_percentage",
+              "online_archive_usage",
+              "online_archive_percentage",
               "profiled_container_usage",
               "profiled_container_percentage",
               "profiled_fargate_usage",
@@ -270,6 +274,14 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("functions_usage");
   public static final MonthlyUsageAttributionSupportedMetrics FUNCTIONS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("functions_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics
+      INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE =
+          new MonthlyUsageAttributionSupportedMetrics(
+              "incident_management_monthly_active_users_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics
+      INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE =
+          new MonthlyUsageAttributionSupportedMetrics(
+              "incident_management_monthly_active_users_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics INFRA_HOST_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("infra_host_usage");
   public static final MonthlyUsageAttributionSupportedMetrics INFRA_HOST_PERCENTAGE =
@@ -302,6 +314,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("obs_pipelines_vcpu_usage");
   public static final MonthlyUsageAttributionSupportedMetrics OBS_PIPELINES_VCPU_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("obs_pipelines_vcpu_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics ONLINE_ARCHIVE_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("online_archive_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics ONLINE_ARCHIVE_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("online_archive_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_CONTAINER_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("profiled_container_usage");
   public static final MonthlyUsageAttributionSupportedMetrics PROFILED_CONTAINER_PERCENTAGE =

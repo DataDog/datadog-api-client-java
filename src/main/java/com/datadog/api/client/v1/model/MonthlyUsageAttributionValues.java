@@ -80,6 +80,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INDEXED_SPANS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INDEXED_SPANS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
@@ -122,6 +124,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINE_BYTES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINES_VCPU_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINES_VCPU_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ONLINE_ARCHIVE_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ONLINE_ARCHIVE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_PERCENTAGE,
@@ -360,6 +364,14 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_FUNCTIONS_USAGE = "functions_usage";
   private Double functionsUsage;
 
+  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE =
+      "incident_management_monthly_active_users_percentage";
+  private Double incidentManagementMonthlyActiveUsersPercentage;
+
+  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE =
+      "incident_management_monthly_active_users_usage";
+  private Double incidentManagementMonthlyActiveUsersUsage;
+
   public static final String JSON_PROPERTY_INDEXED_SPANS_PERCENTAGE = "indexed_spans_percentage";
   private Double indexedSpansPercentage;
 
@@ -504,6 +516,12 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_OBS_PIPELINES_VCPU_USAGE = "obs_pipelines_vcpu_usage";
   private Double obsPipelinesVcpuUsage;
+
+  public static final String JSON_PROPERTY_ONLINE_ARCHIVE_PERCENTAGE = "online_archive_percentage";
+  private Double onlineArchivePercentage;
+
+  public static final String JSON_PROPERTY_ONLINE_ARCHIVE_USAGE = "online_archive_usage";
+  private Double onlineArchiveUsage;
 
   public static final String JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE =
       "profiled_container_percentage";
@@ -1911,6 +1929,54 @@ public class MonthlyUsageAttributionValues {
     this.functionsUsage = functionsUsage;
   }
 
+  public MonthlyUsageAttributionValues incidentManagementMonthlyActiveUsersPercentage(
+      Double incidentManagementMonthlyActiveUsersPercentage) {
+    this.incidentManagementMonthlyActiveUsersPercentage =
+        incidentManagementMonthlyActiveUsersPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Incident Management monthly active users usage by tag(s).
+   *
+   * @return incidentManagementMonthlyActiveUsersPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getIncidentManagementMonthlyActiveUsersPercentage() {
+    return incidentManagementMonthlyActiveUsersPercentage;
+  }
+
+  public void setIncidentManagementMonthlyActiveUsersPercentage(
+      Double incidentManagementMonthlyActiveUsersPercentage) {
+    this.incidentManagementMonthlyActiveUsersPercentage =
+        incidentManagementMonthlyActiveUsersPercentage;
+  }
+
+  public MonthlyUsageAttributionValues incidentManagementMonthlyActiveUsersUsage(
+      Double incidentManagementMonthlyActiveUsersUsage) {
+    this.incidentManagementMonthlyActiveUsersUsage = incidentManagementMonthlyActiveUsersUsage;
+    return this;
+  }
+
+  /**
+   * The Incident Management monthly active users usage by tag(s).
+   *
+   * @return incidentManagementMonthlyActiveUsersUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getIncidentManagementMonthlyActiveUsersUsage() {
+    return incidentManagementMonthlyActiveUsersUsage;
+  }
+
+  public void setIncidentManagementMonthlyActiveUsersUsage(
+      Double incidentManagementMonthlyActiveUsersUsage) {
+    this.incidentManagementMonthlyActiveUsersUsage = incidentManagementMonthlyActiveUsersUsage;
+  }
+
   public MonthlyUsageAttributionValues indexedSpansPercentage(Double indexedSpansPercentage) {
     this.indexedSpansPercentage = indexedSpansPercentage;
     return this;
@@ -2809,6 +2875,48 @@ public class MonthlyUsageAttributionValues {
     this.obsPipelinesVcpuUsage = obsPipelinesVcpuUsage;
   }
 
+  public MonthlyUsageAttributionValues onlineArchivePercentage(Double onlineArchivePercentage) {
+    this.onlineArchivePercentage = onlineArchivePercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of online archive usage by tag(s).
+   *
+   * @return onlineArchivePercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getOnlineArchivePercentage() {
+    return onlineArchivePercentage;
+  }
+
+  public void setOnlineArchivePercentage(Double onlineArchivePercentage) {
+    this.onlineArchivePercentage = onlineArchivePercentage;
+  }
+
+  public MonthlyUsageAttributionValues onlineArchiveUsage(Double onlineArchiveUsage) {
+    this.onlineArchiveUsage = onlineArchiveUsage;
+    return this;
+  }
+
+  /**
+   * The online archive usage by tag(s).
+   *
+   * @return onlineArchiveUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getOnlineArchiveUsage() {
+    return onlineArchiveUsage;
+  }
+
+  public void setOnlineArchiveUsage(Double onlineArchiveUsage) {
+    this.onlineArchiveUsage = onlineArchiveUsage;
+  }
+
   public MonthlyUsageAttributionValues profiledContainerPercentage(
       Double profiledContainerPercentage) {
     this.profiledContainerPercentage = profiledContainerPercentage;
@@ -3494,6 +3602,12 @@ public class MonthlyUsageAttributionValues {
             this.functionsPercentage, monthlyUsageAttributionValues.functionsPercentage)
         && Objects.equals(this.functionsUsage, monthlyUsageAttributionValues.functionsUsage)
         && Objects.equals(
+            this.incidentManagementMonthlyActiveUsersPercentage,
+            monthlyUsageAttributionValues.incidentManagementMonthlyActiveUsersPercentage)
+        && Objects.equals(
+            this.incidentManagementMonthlyActiveUsersUsage,
+            monthlyUsageAttributionValues.incidentManagementMonthlyActiveUsersUsage)
+        && Objects.equals(
             this.indexedSpansPercentage, monthlyUsageAttributionValues.indexedSpansPercentage)
         && Objects.equals(this.indexedSpansUsage, monthlyUsageAttributionValues.indexedSpansUsage)
         && Objects.equals(
@@ -3587,6 +3701,9 @@ public class MonthlyUsageAttributionValues {
             monthlyUsageAttributionValues.obsPipelinesVcpuPercentage)
         && Objects.equals(
             this.obsPipelinesVcpuUsage, monthlyUsageAttributionValues.obsPipelinesVcpuUsage)
+        && Objects.equals(
+            this.onlineArchivePercentage, monthlyUsageAttributionValues.onlineArchivePercentage)
+        && Objects.equals(this.onlineArchiveUsage, monthlyUsageAttributionValues.onlineArchiveUsage)
         && Objects.equals(
             this.profiledContainerPercentage,
             monthlyUsageAttributionValues.profiledContainerPercentage)
@@ -3710,6 +3827,8 @@ public class MonthlyUsageAttributionValues {
         fargateUsage,
         functionsPercentage,
         functionsUsage,
+        incidentManagementMonthlyActiveUsersPercentage,
+        incidentManagementMonthlyActiveUsersUsage,
         indexedSpansPercentage,
         indexedSpansUsage,
         infraHostPercentage,
@@ -3752,6 +3871,8 @@ public class MonthlyUsageAttributionValues {
         obsPipelineBytesUsage,
         obsPipelinesVcpuPercentage,
         obsPipelinesVcpuUsage,
+        onlineArchivePercentage,
+        onlineArchiveUsage,
         profiledContainerPercentage,
         profiledContainerUsage,
         profiledFargatePercentage,
@@ -3917,6 +4038,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(functionsPercentage))
         .append("\n");
     sb.append("    functionsUsage: ").append(toIndentedString(functionsUsage)).append("\n");
+    sb.append("    incidentManagementMonthlyActiveUsersPercentage: ")
+        .append(toIndentedString(incidentManagementMonthlyActiveUsersPercentage))
+        .append("\n");
+    sb.append("    incidentManagementMonthlyActiveUsersUsage: ")
+        .append(toIndentedString(incidentManagementMonthlyActiveUsersUsage))
+        .append("\n");
     sb.append("    indexedSpansPercentage: ")
         .append(toIndentedString(indexedSpansPercentage))
         .append("\n");
@@ -4031,6 +4158,10 @@ public class MonthlyUsageAttributionValues {
     sb.append("    obsPipelinesVcpuUsage: ")
         .append(toIndentedString(obsPipelinesVcpuUsage))
         .append("\n");
+    sb.append("    onlineArchivePercentage: ")
+        .append(toIndentedString(onlineArchivePercentage))
+        .append("\n");
+    sb.append("    onlineArchiveUsage: ").append(toIndentedString(onlineArchiveUsage)).append("\n");
     sb.append("    profiledContainerPercentage: ")
         .append(toIndentedString(profiledContainerPercentage))
         .append("\n");
