@@ -43,7 +43,7 @@ public class Example {
                                     new TimeseriesQuery(
                                         new MetricsTimeseriesQuery()
                                             .dataSource(MetricsDataSource.METRICS)
-                                            .query("avg:system.cpu.user{*}")
+                                            .query("avg:datadog.estimated_usage.metrics.custom{*}")
                                             .name("a"))))
                             .to(1636629071000L))
                     .type(TimeseriesFormulaRequestType.TIMESERIES_REQUEST));
