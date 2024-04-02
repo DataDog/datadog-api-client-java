@@ -1031,8 +1031,8 @@ public class MetricsApi {
   }
 
   /**
-   * List tags and aggregations that are actively queried on dashboards and monitors for a given
-   * metric name.
+   * List tags and aggregations that are actively queried on dashboards, notebooks, monitors, and
+   * the Metrics Explorer for a given metric name.
    *
    * @param metricName The name of the metric. (required)
    * @param parameters Optional parameters for the request.
