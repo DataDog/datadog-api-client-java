@@ -565,6 +565,8 @@ public class World {
         throw new Exception(e.getCause());
       }
       undo.add(getRequestUndo(apiVersion, undoSettings, responseData, parametersArray.get(0)));
+
+      sleepAfterRequest();
     }
   }
 
