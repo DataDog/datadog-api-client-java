@@ -143,7 +143,8 @@ public class SecurityMonitoringStandardRuleCreatePayload {
   }
 
   /**
-   * Additional queries to filter matched events before they are processed.
+   * Additional queries to filter matched events before they are processed. This field is deprecated
+   * for log detection, signal correlation, and workload security rules.
    *
    * @return filters
    */
