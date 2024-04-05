@@ -28,6 +28,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestOptionsScheduling;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsSchedulingTimeframe;
 import com.datadog.api.client.v1.model.SyntheticsTestPauseStatus;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
+import com.datadog.api.client.v1.model.SyntheticsTestRequestBodyFile;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestBodyType;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificate;
 import com.datadog.api.client.v1.model.SyntheticsTestRequestCertificateItem;
@@ -64,6 +65,7 @@ public class Example {
                                 new SyntheticsTestRequestCertificate()
                                     .cert(new SyntheticsTestRequestCertificateItem())
                                     .key(new SyntheticsTestRequestCertificateItem()))
+                            .files(Collections.singletonList(new SyntheticsTestRequestBodyFile()))
                             .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP1)
                             .proxy(new SyntheticsTestRequestProxy().url("https://example.com"))
                             .service("Greeter")
