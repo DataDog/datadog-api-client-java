@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.LogsCustomDestinationsApi;
+import com.datadog.api.client.v2.model.CustomDestinationAttributeTagsRestrictionListType;
 import com.datadog.api.client.v2.model.CustomDestinationResponse;
 import com.datadog.api.client.v2.model.CustomDestinationType;
 import com.datadog.api.client.v2.model.CustomDestinationUpdateRequest;
@@ -22,7 +23,13 @@ public class Example {
             .data(
                 new CustomDestinationUpdateRequestDefinition()
                     .attributes(
-                        new CustomDestinationUpdateRequestAttributes().name("Nginx logs (Updated)"))
+                        new CustomDestinationUpdateRequestAttributes()
+                            .name("Nginx logs (Updated)")
+                            .query("source:nginx")
+                            .enabled(false)
+                            .forwardTags(false)
+                            .forwardTagsRestrictionListType(
+                                CustomDestinationAttributeTagsRestrictionListType.BLOCK_LIST))
                     .type(CustomDestinationType.CUSTOM_DESTINATION)
                     .id(CUSTOM_DESTINATION_DATA_ID));
 
