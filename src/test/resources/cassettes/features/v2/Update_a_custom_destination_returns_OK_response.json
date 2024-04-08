@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"forward_tags\":false,\"forward_tags_restriction_list\":[\"host\"],\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forwarder_destination\":{\"auth\":{\"password\":\"my-password\",\"type\":\"basic\",\"username\":\"my-username\"},\"endpoint\":\"https://example.com\",\"type\":\"http\"},\"name\":\"Test-Update_a_custom_destination_returns_OK_response-1710235218\",\"query\":\"source:nginx\"},\"type\":\"custom_destination\"}}"
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"forward_tags\":false,\"forward_tags_restriction_list\":[\"host\"],\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forwarder_destination\":{\"auth\":{\"password\":\"my-password\",\"type\":\"basic\",\"username\":\"my-username\"},\"endpoint\":\"https://example.com\",\"type\":\"http\"},\"name\":\"Test-Update_a_custom_destination_returns_OK_response-1712345501\",\"query\":\"source:nginx\"},\"type\":\"custom_destination\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"22ce0782-a48f-4340-98f5-fd3671b66e19\",\"attributes\":{\"name\":\"Test-Update_a_custom_destination_returns_OK_response-1710235218\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"endpoint\":\"https://example.com\",\"auth\":{\"type\":\"basic\"},\"type\":\"http\"},\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forward_tags_restriction_list\":[\"host\"],\"forward_tags\":false},\"type\":\"custom_destination\"}}\n",
+      "body": "{\"data\":{\"id\":\"60f4b01e-7853-4d48-8f6d-b98802dca889\",\"attributes\":{\"name\":\"Test-Update_a_custom_destination_returns_OK_response-1712345501\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"endpoint\":\"https://example.com\",\"auth\":{\"type\":\"basic\"},\"type\":\"http\"},\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forward_tags_restriction_list\":[\"host\"],\"forward_tags\":false},\"type\":\"custom_destination\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "da515148-1b1c-0395-7922-6fed534a43eb"
+    "id": "c89780a6-31af-d6fc-176c-1e0adf003210"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Nginx logs (Updated)\"},\"id\":\"22ce0782-a48f-4340-98f5-fd3671b66e19\",\"type\":\"custom_destination\"}}"
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"forward_tags\":false,\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"name\":\"Nginx logs (Updated)\",\"query\":\"source:nginx\"},\"id\":\"60f4b01e-7853-4d48-8f6d-b98802dca889\",\"type\":\"custom_destination\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/logs/config/custom-destinations/22ce0782-a48f-4340-98f5-fd3671b66e19",
+      "path": "/api/v2/logs/config/custom-destinations/60f4b01e-7853-4d48-8f6d-b98802dca889",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"22ce0782-a48f-4340-98f5-fd3671b66e19\",\"attributes\":{\"name\":\"Nginx logs (Updated)\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"endpoint\":\"https://example.com\",\"auth\":{\"type\":\"basic\"},\"type\":\"http\"},\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forward_tags_restriction_list\":[\"host\"],\"forward_tags\":false},\"type\":\"custom_destination\"}}\n",
+      "body": "{\"data\":{\"id\":\"60f4b01e-7853-4d48-8f6d-b98802dca889\",\"attributes\":{\"name\":\"Nginx logs (Updated)\",\"query\":\"source:nginx\",\"enabled\":false,\"forwarder_destination\":{\"endpoint\":\"https://example.com\",\"auth\":{\"type\":\"basic\"},\"type\":\"http\"},\"forward_tags_restriction_list_type\":\"BLOCK_LIST\",\"forward_tags_restriction_list\":[\"host\"],\"forward_tags\":false},\"type\":\"custom_destination\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c847e9b2-9275-56b4-a495-d9314ca11a93"
+    "id": "cb64235b-0a05-1c5c-0de0-f9e228cfc71f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/logs/config/custom-destinations/22ce0782-a48f-4340-98f5-fd3671b66e19",
+      "path": "/api/v2/logs/config/custom-destinations/60f4b01e-7853-4d48-8f6d-b98802dca889",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8e8d48ef-6c47-a9a1-85d5-b0c0f6420183"
+    "id": "9457227e-4e46-1d61-9497-d83fa4a14819"
   }
 ]
