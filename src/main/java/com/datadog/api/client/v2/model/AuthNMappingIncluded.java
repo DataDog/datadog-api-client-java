@@ -165,6 +165,50 @@ public class AuthNMappingIncluded extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'Role'", e);
       }
 
+      // deserialize AuthNMappingTeam
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (AuthNMappingTeam.class.equals(Integer.class)
+            || AuthNMappingTeam.class.equals(Long.class)
+            || AuthNMappingTeam.class.equals(Float.class)
+            || AuthNMappingTeam.class.equals(Double.class)
+            || AuthNMappingTeam.class.equals(Boolean.class)
+            || AuthNMappingTeam.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((AuthNMappingTeam.class.equals(Integer.class)
+                        || AuthNMappingTeam.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((AuthNMappingTeam.class.equals(Float.class)
+                        || AuthNMappingTeam.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (AuthNMappingTeam.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (AuthNMappingTeam.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(AuthNMappingTeam.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((AuthNMappingTeam) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'AuthNMappingTeam'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'AuthNMappingTeam'", e);
+      }
+
       AuthNMappingIncluded ret = new AuthNMappingIncluded();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -204,9 +248,15 @@ public class AuthNMappingIncluded extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public AuthNMappingIncluded(AuthNMappingTeam o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("SAMLAssertionAttribute", new GenericType<SAMLAssertionAttribute>() {});
     schemas.put("Role", new GenericType<Role>() {});
+    schemas.put("AuthNMappingTeam", new GenericType<AuthNMappingTeam>() {});
     JSON.registerDescendants(AuthNMappingIncluded.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -217,7 +267,7 @@ public class AuthNMappingIncluded extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: SAMLAssertionAttribute, Role
+   * against the oneOf child schemas: SAMLAssertionAttribute, Role, AuthNMappingTeam
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -232,18 +282,24 @@ public class AuthNMappingIncluded extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(AuthNMappingTeam.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be SAMLAssertionAttribute, Role");
+    throw new RuntimeException(
+        "Invalid instance type. Must be SAMLAssertionAttribute, Role, AuthNMappingTeam");
   }
 
   /**
-   * Get the actual instance, which can be the following: SAMLAssertionAttribute, Role
+   * Get the actual instance, which can be the following: SAMLAssertionAttribute, Role,
+   * AuthNMappingTeam
    *
-   * @return The actual instance (SAMLAssertionAttribute, Role)
+   * @return The actual instance (SAMLAssertionAttribute, Role, AuthNMappingTeam)
    */
   @Override
   public Object getActualInstance() {
@@ -270,5 +326,16 @@ public class AuthNMappingIncluded extends AbstractOpenApiSchema {
    */
   public Role getRole() throws ClassCastException {
     return (Role) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `AuthNMappingTeam`. If the actual instance is not
+   * `AuthNMappingTeam`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `AuthNMappingTeam`
+   * @throws ClassCastException if the instance is not `AuthNMappingTeam`
+   */
+  public AuthNMappingTeam getAuthNMappingTeam() throws ClassCastException {
+    return (AuthNMappingTeam) super.getActualInstance();
   }
 }

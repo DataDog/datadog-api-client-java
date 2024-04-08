@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,26 +17,25 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** All relationships associated with AuthN Mapping. */
-@JsonPropertyOrder({
-  AuthNMappingRelationships.JSON_PROPERTY_ROLE,
-  AuthNMappingRelationships.JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE,
-  AuthNMappingRelationships.JSON_PROPERTY_TEAM
-})
+/** Relationship of AuthN Mapping to a Role. */
+@JsonPropertyOrder({AuthNMappingRelationshipToRole.JSON_PROPERTY_ROLE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AuthNMappingRelationships {
+public class AuthNMappingRelationshipToRole {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ROLE = "role";
   private RelationshipToRole role;
 
-  public static final String JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE = "saml_assertion_attribute";
-  private RelationshipToSAMLAssertionAttribute samlAssertionAttribute;
+  public AuthNMappingRelationshipToRole() {}
 
-  public static final String JSON_PROPERTY_TEAM = "team";
-  private RelationshipToTeam team;
+  @JsonCreator
+  public AuthNMappingRelationshipToRole(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ROLE) RelationshipToRole role) {
+    this.role = role;
+    this.unparsed |= role.unparsed;
+  }
 
-  public AuthNMappingRelationships role(RelationshipToRole role) {
+  public AuthNMappingRelationshipToRole role(RelationshipToRole role) {
     this.role = role;
     this.unparsed |= role.unparsed;
     return this;
@@ -46,61 +46,14 @@ public class AuthNMappingRelationships {
    *
    * @return role
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ROLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public RelationshipToRole getRole() {
     return role;
   }
 
   public void setRole(RelationshipToRole role) {
     this.role = role;
-  }
-
-  public AuthNMappingRelationships samlAssertionAttribute(
-      RelationshipToSAMLAssertionAttribute samlAssertionAttribute) {
-    this.samlAssertionAttribute = samlAssertionAttribute;
-    this.unparsed |= samlAssertionAttribute.unparsed;
-    return this;
-  }
-
-  /**
-   * AuthN Mapping relationship to SAML Assertion Attribute.
-   *
-   * @return samlAssertionAttribute
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToSAMLAssertionAttribute getSamlAssertionAttribute() {
-    return samlAssertionAttribute;
-  }
-
-  public void setSamlAssertionAttribute(
-      RelationshipToSAMLAssertionAttribute samlAssertionAttribute) {
-    this.samlAssertionAttribute = samlAssertionAttribute;
-  }
-
-  public AuthNMappingRelationships team(RelationshipToTeam team) {
-    this.team = team;
-    this.unparsed |= team.unparsed;
-    return this;
-  }
-
-  /**
-   * Relationship to team.
-   *
-   * @return team
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToTeam getTeam() {
-    return team;
-  }
-
-  public void setTeam(RelationshipToTeam team) {
-    this.team = team;
   }
 
   /**
@@ -115,10 +68,10 @@ public class AuthNMappingRelationships {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AuthNMappingRelationships
+   * @return AuthNMappingRelationshipToRole
    */
   @JsonAnySetter
-  public AuthNMappingRelationships putAdditionalProperty(String key, Object value) {
+  public AuthNMappingRelationshipToRole putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -149,7 +102,7 @@ public class AuthNMappingRelationships {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AuthNMappingRelationships object is equal to o. */
+  /** Return true if this AuthNMappingRelationshipToRole object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,29 +111,23 @@ public class AuthNMappingRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AuthNMappingRelationships authNMappingRelationships = (AuthNMappingRelationships) o;
-    return Objects.equals(this.role, authNMappingRelationships.role)
+    AuthNMappingRelationshipToRole authNMappingRelationshipToRole =
+        (AuthNMappingRelationshipToRole) o;
+    return Objects.equals(this.role, authNMappingRelationshipToRole.role)
         && Objects.equals(
-            this.samlAssertionAttribute, authNMappingRelationships.samlAssertionAttribute)
-        && Objects.equals(this.team, authNMappingRelationships.team)
-        && Objects.equals(
-            this.additionalProperties, authNMappingRelationships.additionalProperties);
+            this.additionalProperties, authNMappingRelationshipToRole.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, samlAssertionAttribute, team, additionalProperties);
+    return Objects.hash(role, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AuthNMappingRelationships {\n");
+    sb.append("class AuthNMappingRelationshipToRole {\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    samlAssertionAttribute: ")
-        .append(toIndentedString(samlAssertionAttribute))
-        .append("\n");
-    sb.append("    team: ").append(toIndentedString(team)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -6,133 +6,290 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/** Relationship of AuthN Mapping create object to Role. */
-@JsonPropertyOrder({AuthNMappingCreateRelationships.JSON_PROPERTY_ROLE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AuthNMappingCreateRelationships {
+@JsonDeserialize(
+    using = AuthNMappingCreateRelationships.AuthNMappingCreateRelationshipsDeserializer.class)
+@JsonSerialize(
+    using = AuthNMappingCreateRelationships.AuthNMappingCreateRelationshipsSerializer.class)
+public class AuthNMappingCreateRelationships extends AbstractOpenApiSchema {
+  private static final Logger log =
+      Logger.getLogger(AuthNMappingCreateRelationships.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ROLE = "role";
-  private RelationshipToRole role;
 
-  public AuthNMappingCreateRelationships role(RelationshipToRole role) {
-    this.role = role;
-    this.unparsed |= role.unparsed;
-    return this;
-  }
-
-  /**
-   * Relationship to role.
-   *
-   * @return role
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToRole getRole() {
-    return role;
-  }
-
-  public void setRole(RelationshipToRole role) {
-    this.role = role;
-  }
-
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return AuthNMappingCreateRelationships
-   */
-  @JsonAnySetter
-  public AuthNMappingCreateRelationships putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+  public static class AuthNMappingCreateRelationshipsSerializer
+      extends StdSerializer<AuthNMappingCreateRelationships> {
+    public AuthNMappingCreateRelationshipsSerializer(Class<AuthNMappingCreateRelationships> t) {
+      super(t);
     }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
+    public AuthNMappingCreateRelationshipsSerializer() {
+      this(null);
     }
-    return this.additionalProperties.get(key);
+
+    @Override
+    public void serialize(
+        AuthNMappingCreateRelationships value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
+    }
   }
 
-  /** Return true if this AuthNMappingCreateRelationships object is equal to o. */
+  public static class AuthNMappingCreateRelationshipsDeserializer
+      extends StdDeserializer<AuthNMappingCreateRelationships> {
+    public AuthNMappingCreateRelationshipsDeserializer() {
+      this(AuthNMappingCreateRelationships.class);
+    }
+
+    public AuthNMappingCreateRelationshipsDeserializer(Class<?> vc) {
+      super(vc);
+    }
+
+    @Override
+    public AuthNMappingCreateRelationships deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize AuthNMappingRelationshipToRole
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (AuthNMappingRelationshipToRole.class.equals(Integer.class)
+            || AuthNMappingRelationshipToRole.class.equals(Long.class)
+            || AuthNMappingRelationshipToRole.class.equals(Float.class)
+            || AuthNMappingRelationshipToRole.class.equals(Double.class)
+            || AuthNMappingRelationshipToRole.class.equals(Boolean.class)
+            || AuthNMappingRelationshipToRole.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((AuthNMappingRelationshipToRole.class.equals(Integer.class)
+                        || AuthNMappingRelationshipToRole.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((AuthNMappingRelationshipToRole.class.equals(Float.class)
+                        || AuthNMappingRelationshipToRole.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (AuthNMappingRelationshipToRole.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (AuthNMappingRelationshipToRole.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(AuthNMappingRelationshipToRole.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((AuthNMappingRelationshipToRole) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'AuthNMappingRelationshipToRole'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'AuthNMappingRelationshipToRole'", e);
+      }
+
+      // deserialize AuthNMappingRelationshipToTeam
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (AuthNMappingRelationshipToTeam.class.equals(Integer.class)
+            || AuthNMappingRelationshipToTeam.class.equals(Long.class)
+            || AuthNMappingRelationshipToTeam.class.equals(Float.class)
+            || AuthNMappingRelationshipToTeam.class.equals(Double.class)
+            || AuthNMappingRelationshipToTeam.class.equals(Boolean.class)
+            || AuthNMappingRelationshipToTeam.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((AuthNMappingRelationshipToTeam.class.equals(Integer.class)
+                        || AuthNMappingRelationshipToTeam.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((AuthNMappingRelationshipToTeam.class.equals(Float.class)
+                        || AuthNMappingRelationshipToTeam.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (AuthNMappingRelationshipToTeam.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (AuthNMappingRelationshipToTeam.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(AuthNMappingRelationshipToTeam.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((AuthNMappingRelationshipToTeam) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'AuthNMappingRelationshipToTeam'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'AuthNMappingRelationshipToTeam'", e);
+      }
+
+      AuthNMappingCreateRelationships ret = new AuthNMappingCreateRelationships();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
+    }
+
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public AuthNMappingCreateRelationships getNullValue(DeserializationContext ctxt)
+        throws JsonMappingException {
+      throw new JsonMappingException(
+          ctxt.getParser(), "AuthNMappingCreateRelationships cannot be null");
+    }
+  }
+
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public AuthNMappingCreateRelationships() {
+    super("oneOf", Boolean.FALSE);
+  }
+
+  public AuthNMappingCreateRelationships(AuthNMappingRelationshipToRole o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public AuthNMappingCreateRelationships(AuthNMappingRelationshipToTeam o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  static {
+    schemas.put(
+        "AuthNMappingRelationshipToRole", new GenericType<AuthNMappingRelationshipToRole>() {});
+    schemas.put(
+        "AuthNMappingRelationshipToTeam", new GenericType<AuthNMappingRelationshipToTeam>() {});
+    JSON.registerDescendants(
+        AuthNMappingCreateRelationships.class, Collections.unmodifiableMap(schemas));
+  }
+
   @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    AuthNMappingCreateRelationships authNMappingCreateRelationships =
-        (AuthNMappingCreateRelationships) o;
-    return Objects.equals(this.role, authNMappingCreateRelationships.role)
-        && Objects.equals(
-            this.additionalProperties, authNMappingCreateRelationships.additionalProperties);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(role, additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AuthNMappingCreateRelationships {\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
-    sb.append('}');
-    return sb.toString();
+  public Map<String, GenericType> getSchemas() {
+    return AuthNMappingCreateRelationships.schemas;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: AuthNMappingRelationshipToRole, AuthNMappingRelationshipToTeam
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(
+        AuthNMappingRelationshipToRole.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    return o.toString().replace("\n", "\n    ");
+    if (JSON.isInstanceOf(
+        AuthNMappingRelationshipToTeam.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be AuthNMappingRelationshipToRole,"
+            + " AuthNMappingRelationshipToTeam");
+  }
+
+  /**
+   * Get the actual instance, which can be the following: AuthNMappingRelationshipToRole,
+   * AuthNMappingRelationshipToTeam
+   *
+   * @return The actual instance (AuthNMappingRelationshipToRole, AuthNMappingRelationshipToTeam)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `AuthNMappingRelationshipToRole`. If the actual instance is not
+   * `AuthNMappingRelationshipToRole`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `AuthNMappingRelationshipToRole`
+   * @throws ClassCastException if the instance is not `AuthNMappingRelationshipToRole`
+   */
+  public AuthNMappingRelationshipToRole getAuthNMappingRelationshipToRole()
+      throws ClassCastException {
+    return (AuthNMappingRelationshipToRole) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `AuthNMappingRelationshipToTeam`. If the actual instance is not
+   * `AuthNMappingRelationshipToTeam`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `AuthNMappingRelationshipToTeam`
+   * @throws ClassCastException if the instance is not `AuthNMappingRelationshipToTeam`
+   */
+  public AuthNMappingRelationshipToTeam getAuthNMappingRelationshipToTeam()
+      throws ClassCastException {
+    return (AuthNMappingRelationshipToTeam) super.getActualInstance();
   }
 }
