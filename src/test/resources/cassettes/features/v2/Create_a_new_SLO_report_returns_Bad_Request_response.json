@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"from_ts\":1690901870,\"interval\":\"bad-interval\",\"query\":\"slo_type:metric \\\"SLO Reporting Test\\\"\",\"to_ts\":1706803070}}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/slo/report",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Invalid Argument\",\"detail\":\"bad-interval is not a valid interval\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5140a35a-e1eb-650e-7c8b-c07d82f10f1f"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/slo/report/2b468c54-f2a7-11ee-b0b4-ffe56bb6ad43/status",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Not Found\",\"detail\":\"report ID not found: 2b468c54-f2a7-11ee-b0b4-ffe56bb6ad43\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e125de25-6617-e511-06a6-01185433c302"
+  }
+]
