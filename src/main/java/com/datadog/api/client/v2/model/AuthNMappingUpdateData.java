@@ -100,7 +100,7 @@ public class AuthNMappingUpdateData {
   }
 
   /**
-   * Relationship of AuthN Mapping update object to Role.
+   * Relationship of AuthN Mapping update object to a Role or Team.
    *
    * @return relationships
    */
