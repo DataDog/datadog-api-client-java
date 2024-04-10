@@ -19,6 +19,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The suppression rule properties to be updated. */
 @JsonPropertyOrder({
+  SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_DATA_EXCLUSION_QUERY,
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_DESCRIPTION,
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_ENABLED,
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_EXPIRATION_DATE,
@@ -31,6 +32,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSuppressionUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA_EXCLUSION_QUERY = "data_exclusion_query";
+  private String dataExclusionQuery;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -51,6 +55,30 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Integer version;
+
+  public SecurityMonitoringSuppressionUpdateAttributes dataExclusionQuery(
+      String dataExclusionQuery) {
+    this.dataExclusionQuery = dataExclusionQuery;
+    return this;
+  }
+
+  /**
+   * An exclusion query on the input data of the security rules, which could be logs, Agent events,
+   * or other types of data based on the security rule. Events matching this query are ignored by
+   * any detection rules referenced in the suppression rule.
+   *
+   * @return dataExclusionQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_EXCLUSION_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDataExclusionQuery() {
+    return dataExclusionQuery;
+  }
+
+  public void setDataExclusionQuery(String dataExclusionQuery) {
+    this.dataExclusionQuery = dataExclusionQuery;
+  }
 
   public SecurityMonitoringSuppressionUpdateAttributes description(String description) {
     this.description = description;
@@ -273,6 +301,9 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
     SecurityMonitoringSuppressionUpdateAttributes securityMonitoringSuppressionUpdateAttributes =
         (SecurityMonitoringSuppressionUpdateAttributes) o;
     return Objects.equals(
+            this.dataExclusionQuery,
+            securityMonitoringSuppressionUpdateAttributes.dataExclusionQuery)
+        && Objects.equals(
             this.description, securityMonitoringSuppressionUpdateAttributes.description)
         && Objects.equals(this.enabled, securityMonitoringSuppressionUpdateAttributes.enabled)
         && Objects.equals(
@@ -290,6 +321,7 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        dataExclusionQuery,
         description,
         enabled,
         expirationDate,
@@ -304,6 +336,7 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringSuppressionUpdateAttributes {\n");
+    sb.append("    dataExclusionQuery: ").append(toIndentedString(dataExclusionQuery)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
