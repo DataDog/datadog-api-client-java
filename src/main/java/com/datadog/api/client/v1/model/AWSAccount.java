@@ -25,6 +25,7 @@ import java.util.Objects;
   AWSAccount.JSON_PROPERTY_ACCOUNT_SPECIFIC_NAMESPACE_RULES,
   AWSAccount.JSON_PROPERTY_CSPM_RESOURCE_COLLECTION_ENABLED,
   AWSAccount.JSON_PROPERTY_EXCLUDED_REGIONS,
+  AWSAccount.JSON_PROPERTY_EXTENDED_RESOURCE_COLLECTION_ENABLED,
   AWSAccount.JSON_PROPERTY_FILTER_TAGS,
   AWSAccount.JSON_PROPERTY_HOST_TAGS,
   AWSAccount.JSON_PROPERTY_METRICS_COLLECTION_ENABLED,
@@ -52,6 +53,10 @@ public class AWSAccount {
 
   public static final String JSON_PROPERTY_EXCLUDED_REGIONS = "excluded_regions";
   private List<String> excludedRegions = null;
+
+  public static final String JSON_PROPERTY_EXTENDED_RESOURCE_COLLECTION_ENABLED =
+      "extended_resource_collection_enabled";
+  private Boolean extendedResourceCollectionEnabled = false;
 
   public static final String JSON_PROPERTY_FILTER_TAGS = "filter_tags";
   private List<String> filterTags = null;
@@ -201,6 +206,28 @@ public class AWSAccount {
     this.excludedRegions = excludedRegions;
   }
 
+  public AWSAccount extendedResourceCollectionEnabled(Boolean extendedResourceCollectionEnabled) {
+    this.extendedResourceCollectionEnabled = extendedResourceCollectionEnabled;
+    return this;
+  }
+
+  /**
+   * Whether Datadog collects additional attributes and configuration information about the
+   * resources in your AWS account. Required for <code>cspm_resource_collection</code>.
+   *
+   * @return extendedResourceCollectionEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTENDED_RESOURCE_COLLECTION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getExtendedResourceCollectionEnabled() {
+    return extendedResourceCollectionEnabled;
+  }
+
+  public void setExtendedResourceCollectionEnabled(Boolean extendedResourceCollectionEnabled) {
+    this.extendedResourceCollectionEnabled = extendedResourceCollectionEnabled;
+  }
+
   public AWSAccount filterTags(List<String> filterTags) {
     this.filterTags = filterTags;
     return this;
@@ -292,10 +319,13 @@ public class AWSAccount {
   }
 
   /**
-   * Whether Datadog collects a standard set of resources from your AWS account.
+   * Deprecated in favor of 'extended_resource_collection_enabled'. Whether Datadog collects a
+   * standard set of resources from your AWS account.
    *
    * @return resourceCollectionEnabled
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -303,6 +333,7 @@ public class AWSAccount {
     return resourceCollectionEnabled;
   }
 
+  @Deprecated
   public void setResourceCollectionEnabled(Boolean resourceCollectionEnabled) {
     this.resourceCollectionEnabled = resourceCollectionEnabled;
   }
@@ -412,6 +443,8 @@ public class AWSAccount {
         && Objects.equals(
             this.cspmResourceCollectionEnabled, awsAccount.cspmResourceCollectionEnabled)
         && Objects.equals(this.excludedRegions, awsAccount.excludedRegions)
+        && Objects.equals(
+            this.extendedResourceCollectionEnabled, awsAccount.extendedResourceCollectionEnabled)
         && Objects.equals(this.filterTags, awsAccount.filterTags)
         && Objects.equals(this.hostTags, awsAccount.hostTags)
         && Objects.equals(this.metricsCollectionEnabled, awsAccount.metricsCollectionEnabled)
@@ -429,6 +462,7 @@ public class AWSAccount {
         accountSpecificNamespaceRules,
         cspmResourceCollectionEnabled,
         excludedRegions,
+        extendedResourceCollectionEnabled,
         filterTags,
         hostTags,
         metricsCollectionEnabled,
@@ -451,6 +485,9 @@ public class AWSAccount {
         .append(toIndentedString(cspmResourceCollectionEnabled))
         .append("\n");
     sb.append("    excludedRegions: ").append(toIndentedString(excludedRegions)).append("\n");
+    sb.append("    extendedResourceCollectionEnabled: ")
+        .append(toIndentedString(extendedResourceCollectionEnabled))
+        .append("\n");
     sb.append("    filterTags: ").append(toIndentedString(filterTags)).append("\n");
     sb.append("    hostTags: ").append(toIndentedString(hostTags)).append("\n");
     sb.append("    metricsCollectionEnabled: ")

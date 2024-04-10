@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"account_id\":\"169988502100\",\"account_specific_namespace_rules\":{\"auto_scaling\":false},\"cspm_resource_collection_enabled\":true,\"excluded_regions\":[\"us-east-1\",\"us-west-2\"],\"filter_tags\":[\"$KEY:$VALUE\"],\"host_tags\":[\"$KEY:$VALUE\"],\"metrics_collection_enabled\":false,\"resource_collection_enabled\":true,\"role_name\":\"DatadogAWSIntegrationRole\"}"
+        "json": "{\"account_id\":\"171234183000\",\"account_specific_namespace_rules\":{\"auto_scaling\":false},\"cspm_resource_collection_enabled\":true,\"excluded_regions\":[\"us-east-1\",\"us-west-2\"],\"extended_resource_collection_enabled\":true,\"filter_tags\":[\"$KEY:$VALUE\"],\"host_tags\":[\"$KEY:$VALUE\"],\"metrics_collection_enabled\":false,\"role_name\":\"DatadogAWSIntegrationRole\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"external_id\":\"9668e281c0ef4cc8be01710ef7a0ae4c\"}\n",
+      "body": "{\"external_id\":\"acb8f6b8a844443dbb726d07dcb1a870\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b345fb9c-3709-3389-14a9-210da4d600fd"
+    "id": "f3b49bb6-ccbe-c0a4-a8c8-d5f34460e5c8"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"account_id\":\"169988502100\",\"role_name\":\"DatadogAWSIntegrationRole\"}"
+        "json": "{\"account_id\":\"171234183000\",\"role_name\":\"DatadogAWSIntegrationRole\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -57,6 +57,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f88366bd-5b70-614a-86ac-275fdf744321"
+    "id": "3da73460-b8b0-6d11-64ef-7bc5d9a1e0c5"
   }
 ]

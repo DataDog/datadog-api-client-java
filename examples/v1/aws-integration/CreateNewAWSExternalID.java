@@ -21,6 +21,7 @@ public class Example {
                 Map.ofEntries(Map.entry("auto_scaling", false), Map.entry("opswork", false)))
             .cspmResourceCollectionEnabled(true)
             .excludedRegions(Arrays.asList("us-east-1", "us-west-2"))
+            .extendedResourceCollectionEnabled(true)
             .filterTags(Collections.singletonList("$KEY:$VALUE"))
             .hostTags(Collections.singletonList("$KEY:$VALUE"))
             .metricsCollectionEnabled(false)
