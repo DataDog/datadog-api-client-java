@@ -20,6 +20,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_CREATION_DATE,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_CREATOR,
+  SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_DATA_EXCLUSION_QUERY,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_DESCRIPTION,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_ENABLED,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_EXPIRATION_DATE,
@@ -39,6 +40,9 @@ public class SecurityMonitoringSuppressionAttributes {
 
   public static final String JSON_PROPERTY_CREATOR = "creator";
   private SecurityMonitoringUser creator;
+
+  public static final String JSON_PROPERTY_DATA_EXCLUSION_QUERY = "data_exclusion_query";
+  private String dataExclusionQuery;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -108,6 +112,29 @@ public class SecurityMonitoringSuppressionAttributes {
 
   public void setCreator(SecurityMonitoringUser creator) {
     this.creator = creator;
+  }
+
+  public SecurityMonitoringSuppressionAttributes dataExclusionQuery(String dataExclusionQuery) {
+    this.dataExclusionQuery = dataExclusionQuery;
+    return this;
+  }
+
+  /**
+   * An exclusion query on the input data of the security rules, which could be logs, Agent events,
+   * or other types of data based on the security rule. Events matching this query are ignored by
+   * any detection rules referenced in the suppression rule.
+   *
+   * @return dataExclusionQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_EXCLUSION_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDataExclusionQuery() {
+    return dataExclusionQuery;
+  }
+
+  public void setDataExclusionQuery(String dataExclusionQuery) {
+    this.dataExclusionQuery = dataExclusionQuery;
   }
 
   public SecurityMonitoringSuppressionAttributes description(String description) {
@@ -363,6 +390,8 @@ public class SecurityMonitoringSuppressionAttributes {
         (SecurityMonitoringSuppressionAttributes) o;
     return Objects.equals(this.creationDate, securityMonitoringSuppressionAttributes.creationDate)
         && Objects.equals(this.creator, securityMonitoringSuppressionAttributes.creator)
+        && Objects.equals(
+            this.dataExclusionQuery, securityMonitoringSuppressionAttributes.dataExclusionQuery)
         && Objects.equals(this.description, securityMonitoringSuppressionAttributes.description)
         && Objects.equals(this.enabled, securityMonitoringSuppressionAttributes.enabled)
         && Objects.equals(
@@ -384,6 +413,7 @@ public class SecurityMonitoringSuppressionAttributes {
     return Objects.hash(
         creationDate,
         creator,
+        dataExclusionQuery,
         description,
         enabled,
         expirationDate,
@@ -402,6 +432,7 @@ public class SecurityMonitoringSuppressionAttributes {
     sb.append("class SecurityMonitoringSuppressionAttributes {\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
+    sb.append("    dataExclusionQuery: ").append(toIndentedString(dataExclusionQuery)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");

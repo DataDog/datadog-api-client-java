@@ -19,6 +19,7 @@ import java.util.Objects;
 
 /** Object containing the attributes of the suppression rule to be created. */
 @JsonPropertyOrder({
+  SecurityMonitoringSuppressionCreateAttributes.JSON_PROPERTY_DATA_EXCLUSION_QUERY,
   SecurityMonitoringSuppressionCreateAttributes.JSON_PROPERTY_DESCRIPTION,
   SecurityMonitoringSuppressionCreateAttributes.JSON_PROPERTY_ENABLED,
   SecurityMonitoringSuppressionCreateAttributes.JSON_PROPERTY_EXPIRATION_DATE,
@@ -30,6 +31,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringSuppressionCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA_EXCLUSION_QUERY = "data_exclusion_query";
+  private String dataExclusionQuery;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -54,13 +58,34 @@ public class SecurityMonitoringSuppressionCreateAttributes {
   public SecurityMonitoringSuppressionCreateAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_ENABLED) Boolean enabled,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RULE_QUERY) String ruleQuery,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SUPPRESSION_QUERY)
-          String suppressionQuery) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_RULE_QUERY) String ruleQuery) {
     this.enabled = enabled;
     this.name = name;
     this.ruleQuery = ruleQuery;
-    this.suppressionQuery = suppressionQuery;
+  }
+
+  public SecurityMonitoringSuppressionCreateAttributes dataExclusionQuery(
+      String dataExclusionQuery) {
+    this.dataExclusionQuery = dataExclusionQuery;
+    return this;
+  }
+
+  /**
+   * An exclusion query on the input data of the security rules, which could be logs, Agent events,
+   * or other types of data based on the security rule. Events matching this query are ignored by
+   * any detection rules referenced in the suppression rule.
+   *
+   * @return dataExclusionQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_EXCLUSION_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDataExclusionQuery() {
+    return dataExclusionQuery;
+  }
+
+  public void setDataExclusionQuery(String dataExclusionQuery) {
+    this.dataExclusionQuery = dataExclusionQuery;
   }
 
   public SecurityMonitoringSuppressionCreateAttributes description(String description) {
@@ -174,12 +199,14 @@ public class SecurityMonitoringSuppressionCreateAttributes {
 
   /**
    * The suppression query of the suppression rule. If a signal matches this query, it is suppressed
-   * and is not triggered . Same syntax as the queries to search signals in the signal explorer.
+   * and is not triggered. It uses the same syntax as the queries to search signals in the Signals
+   * Explorer.
    *
    * @return suppressionQuery
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUPPRESSION_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSuppressionQuery() {
     return suppressionQuery;
   }
@@ -247,6 +274,9 @@ public class SecurityMonitoringSuppressionCreateAttributes {
     SecurityMonitoringSuppressionCreateAttributes securityMonitoringSuppressionCreateAttributes =
         (SecurityMonitoringSuppressionCreateAttributes) o;
     return Objects.equals(
+            this.dataExclusionQuery,
+            securityMonitoringSuppressionCreateAttributes.dataExclusionQuery)
+        && Objects.equals(
             this.description, securityMonitoringSuppressionCreateAttributes.description)
         && Objects.equals(this.enabled, securityMonitoringSuppressionCreateAttributes.enabled)
         && Objects.equals(
@@ -263,6 +293,7 @@ public class SecurityMonitoringSuppressionCreateAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        dataExclusionQuery,
         description,
         enabled,
         expirationDate,
@@ -276,6 +307,7 @@ public class SecurityMonitoringSuppressionCreateAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringSuppressionCreateAttributes {\n");
+    sb.append("    dataExclusionQuery: ").append(toIndentedString(dataExclusionQuery)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
