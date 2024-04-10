@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"account_id\":\"170076337600\",\"account_specific_namespace_rules\":{\"auto_scaling\":false},\"cspm_resource_collection_enabled\":true,\"excluded_regions\":[\"us-east-1\",\"us-west-2\"],\"filter_tags\":[\"$KEY:$VALUE\"],\"host_tags\":[\"$KEY:$VALUE\"],\"metrics_collection_enabled\":false,\"resource_collection_enabled\":true,\"role_name\":\"DatadogAWSIntegrationRole\"}"
+        "json": "{\"account_id\":\"171234183400\",\"account_specific_namespace_rules\":{\"auto_scaling\":false},\"cspm_resource_collection_enabled\":true,\"excluded_regions\":[\"us-east-1\",\"us-west-2\"],\"extended_resource_collection_enabled\":true,\"filter_tags\":[\"$KEY:$VALUE\"],\"host_tags\":[\"$KEY:$VALUE\"],\"metrics_collection_enabled\":false,\"role_name\":\"DatadogAWSIntegrationRole\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"external_id\":\"c7298c166e774bf1bd1bc0419e68f1a0\"}\n",
+      "body": "{\"external_id\":\"c8ceedec95fc472fb6156f3104d425c9\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,20 +27,20 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e683ecb6-97b4-2ae8-2b13-f186c3db794e"
+    "id": "7e45d349-dc2c-7cf2-254a-c96981cb3b8c"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"account_id\":\"170076337600\",\"account_specific_namespace_rules\":{\"auto_scaling\":false},\"cspm_resource_collection_enabled\":false,\"excluded_regions\":[\"us-east-1\",\"us-west-2\"],\"filter_tags\":[\"$KEY:$VALUE\"],\"host_tags\":[\"$KEY:$VALUE\"],\"metrics_collection_enabled\":true,\"resource_collection_enabled\":true,\"role_name\":\"DatadogAWSIntegrationRole\"}"
+        "json": "{\"account_id\":\"171234183400\",\"account_specific_namespace_rules\":{\"auto_scaling\":false},\"cspm_resource_collection_enabled\":false,\"excluded_regions\":[\"us-east-1\",\"us-west-2\"],\"extended_resource_collection_enabled\":true,\"filter_tags\":[\"$KEY:$VALUE\"],\"host_tags\":[\"$KEY:$VALUE\"],\"metrics_collection_enabled\":true,\"role_name\":\"DatadogAWSIntegrationRole\"}"
       },
       "headers": {},
       "method": "PUT",
       "path": "/api/v1/integration/aws",
       "queryStringParameters": {
         "account_id": [
-          "170076337600"
+          "171234183400"
         ],
         "role_name": [
           "DatadogAWSIntegrationRole"
@@ -65,13 +65,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b9ef0917-9713-7f87-8c60-3a564f800395"
+    "id": "1e790ee1-b187-95ef-17d0-95b586ba7c7f"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"account_id\":\"170076337600\",\"role_name\":\"DatadogAWSIntegrationRole\"}"
+        "json": "{\"account_id\":\"171234183400\",\"role_name\":\"DatadogAWSIntegrationRole\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -95,6 +95,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9979a2c4-58fd-639b-7988-df76fa0025d7"
+    "id": "60b4327d-82df-8e63-aaef-a6cbf2a229d8"
   }
 ]

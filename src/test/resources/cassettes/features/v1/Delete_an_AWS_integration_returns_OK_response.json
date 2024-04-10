@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"account_id\":\"170059471500\",\"account_specific_namespace_rules\":{\"auto_scaling\":false},\"cspm_resource_collection_enabled\":true,\"excluded_regions\":[\"us-east-1\",\"us-west-2\"],\"filter_tags\":[\"$KEY:$VALUE\"],\"host_tags\":[\"$KEY:$VALUE\"],\"metrics_collection_enabled\":false,\"resource_collection_enabled\":true,\"role_name\":\"DatadogAWSIntegrationRole\"}"
+        "json": "{\"account_id\":\"171234183200\",\"account_specific_namespace_rules\":{\"auto_scaling\":false},\"cspm_resource_collection_enabled\":true,\"excluded_regions\":[\"us-east-1\",\"us-west-2\"],\"extended_resource_collection_enabled\":true,\"filter_tags\":[\"$KEY:$VALUE\"],\"host_tags\":[\"$KEY:$VALUE\"],\"metrics_collection_enabled\":false,\"role_name\":\"DatadogAWSIntegrationRole\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"external_id\":\"77c77ead62584b0fa1bb6a9fe7d2fa28\"}\n",
+      "body": "{\"external_id\":\"6aa1bf95e5dc4c9985593e94169bd2f6\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "bb29ad65-cdff-ba55-4124-05b976907dc1"
+    "id": "348e74c6-1f4b-79b1-b6f7-9b18b6b7b72c"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"account_id\":\"170059471500\",\"role_name\":\"DatadogAWSIntegrationRole\"}"
+        "json": "{\"account_id\":\"171234183200\",\"role_name\":\"DatadogAWSIntegrationRole\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c922634d-c5c2-ad19-83b0-cbb0aad81180"
+    "id": "d9510755-9fb9-1e0e-2661-820fc7c24618"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"account_id\":\"170059471500\",\"role_name\":\"DatadogAWSIntegrationRole\"}"
+        "json": "{\"account_id\":\"171234183200\",\"role_name\":\"DatadogAWSIntegrationRole\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -72,7 +72,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"AWS account 170059471500 does not exist in integration\"]}",
+      "body": "{\"errors\":[\"AWS account 171234183200 does not exist in integration\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -87,6 +87,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c922634d-c5c2-ad19-83b0-cbb0aad81181"
+    "id": "d9510755-9fb9-1e0e-2661-820fc7c24619"
   }
 ]
