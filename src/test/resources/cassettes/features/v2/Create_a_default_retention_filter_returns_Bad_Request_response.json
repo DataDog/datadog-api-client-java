@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"filter_type\":\"spans-errors-sampling-processor\",\"name\":\"my retention filter\",\"rate\":1},\"type\":\"apm_retention_filter\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/apm/config/retention-filters",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Field 'filter_type' is invalid, expected value is 'spans-sampling-processor'\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "23cb9ef5-03c9-1078-cfb5-4a6f43add906"
+  }
+]

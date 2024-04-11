@@ -4,9 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ApmRetentionFiltersApi;
 import com.datadog.api.client.v2.model.ApmRetentionFilterType;
-import com.datadog.api.client.v2.model.RetentionFilterCreateAttributes;
+import com.datadog.api.client.v2.model.RetentionFilterAllType;
 import com.datadog.api.client.v2.model.RetentionFilterResponse;
-import com.datadog.api.client.v2.model.RetentionFilterType;
+import com.datadog.api.client.v2.model.RetentionFilterUpdateAttributes;
 import com.datadog.api.client.v2.model.RetentionFilterUpdateData;
 import com.datadog.api.client.v2.model.RetentionFilterUpdateRequest;
 import com.datadog.api.client.v2.model.SpansFilterCreate;
@@ -24,13 +24,13 @@ public class Example {
             .data(
                 new RetentionFilterUpdateData()
                     .attributes(
-                        new RetentionFilterCreateAttributes()
+                        new RetentionFilterUpdateAttributes()
                             .name("test")
                             .rate(0.9)
                             .filter(
                                 new SpansFilterCreate().query("@_top_level:1 test:service-demo"))
                             .enabled(true)
-                            .filterType(RetentionFilterType.SPANS_SAMPLING_PROCESSOR))
+                            .filterType(RetentionFilterAllType.SPANS_SAMPLING_PROCESSOR))
                     .id("test-id")
                     .type(ApmRetentionFilterType.apm_retention_filter));
 
