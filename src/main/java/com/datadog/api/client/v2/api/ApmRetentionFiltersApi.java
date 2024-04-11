@@ -82,6 +82,9 @@ public class ApmRetentionFiltersApi {
    * Create a retention filter to index spans in your organization. Returns the retention filter
    * definition when the request is successful.
    *
+   * <p>Default filters with types spans-errors-sampling-processor and
+   * spans-appsec-sampling-processor cannot be created.
+   *
    * @param body The definition of the new retention filter. (required)
    * @return ApiResponse&lt;RetentionFilterResponse&gt;
    * @throws ApiException if fails to make API call
@@ -212,6 +215,9 @@ public class ApmRetentionFiltersApi {
 
   /**
    * Delete a specific retention filter from your organization.
+   *
+   * <p>Default filters with types spans-errors-sampling-processor and
+   * spans-appsec-sampling-processor cannot be deleted.
    *
    * @param filterId The ID of the retention filter. (required)
    * @return ApiResponse&lt;Void&gt;
@@ -730,6 +736,9 @@ public class ApmRetentionFiltersApi {
 
   /**
    * Update a retention filter from your organization.
+   *
+   * <p>Default filters (filters with types spans-errors-sampling-processor and
+   * spans-appsec-sampling-processor) cannot be renamed or removed.
    *
    * @param filterId The ID of the retention filter. (required)
    * @param body The updated definition of the retention filter. (required)
