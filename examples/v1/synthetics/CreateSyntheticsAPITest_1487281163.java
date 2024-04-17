@@ -84,6 +84,9 @@ public class Example {
                                 .name("PROPERTY")
                                 .pattern("content-type")
                                 .type(SyntheticsConfigVariableType.TEXT)))
+                    .variablesFromScript("""
+dd.variable.set("FOO", "foo")
+""")
                     .request(
                         new SyntheticsTestRequest()
                             .certificate(

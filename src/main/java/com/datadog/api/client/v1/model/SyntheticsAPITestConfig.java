@@ -23,7 +23,8 @@ import java.util.Objects;
   SyntheticsAPITestConfig.JSON_PROPERTY_ASSERTIONS,
   SyntheticsAPITestConfig.JSON_PROPERTY_CONFIG_VARIABLES,
   SyntheticsAPITestConfig.JSON_PROPERTY_REQUEST,
-  SyntheticsAPITestConfig.JSON_PROPERTY_STEPS
+  SyntheticsAPITestConfig.JSON_PROPERTY_STEPS,
+  SyntheticsAPITestConfig.JSON_PROPERTY_VARIABLES_FROM_SCRIPT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -40,6 +41,9 @@ public class SyntheticsAPITestConfig {
 
   public static final String JSON_PROPERTY_STEPS = "steps";
   private List<SyntheticsAPIStep> steps = null;
+
+  public static final String JSON_PROPERTY_VARIABLES_FROM_SCRIPT = "variablesFromScript";
+  private String variablesFromScript;
 
   public SyntheticsAPITestConfig assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
@@ -163,6 +167,27 @@ public class SyntheticsAPITestConfig {
     this.steps = steps;
   }
 
+  public SyntheticsAPITestConfig variablesFromScript(String variablesFromScript) {
+    this.variablesFromScript = variablesFromScript;
+    return this;
+  }
+
+  /**
+   * Variables defined from JavaScript code.
+   *
+   * @return variablesFromScript
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VARIABLES_FROM_SCRIPT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getVariablesFromScript() {
+    return variablesFromScript;
+  }
+
+  public void setVariablesFromScript(String variablesFromScript) {
+    this.variablesFromScript = variablesFromScript;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -223,12 +248,14 @@ public class SyntheticsAPITestConfig {
         && Objects.equals(this.configVariables, syntheticsApiTestConfig.configVariables)
         && Objects.equals(this.request, syntheticsApiTestConfig.request)
         && Objects.equals(this.steps, syntheticsApiTestConfig.steps)
+        && Objects.equals(this.variablesFromScript, syntheticsApiTestConfig.variablesFromScript)
         && Objects.equals(this.additionalProperties, syntheticsApiTestConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assertions, configVariables, request, steps, additionalProperties);
+    return Objects.hash(
+        assertions, configVariables, request, steps, variablesFromScript, additionalProperties);
   }
 
   @Override
@@ -239,6 +266,9 @@ public class SyntheticsAPITestConfig {
     sb.append("    configVariables: ").append(toIndentedString(configVariables)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
     sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
+    sb.append("    variablesFromScript: ")
+        .append(toIndentedString(variablesFromScript))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
