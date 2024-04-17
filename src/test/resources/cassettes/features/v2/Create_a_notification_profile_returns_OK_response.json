@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Create_a_notification_rule_returns_OK_response-1699976710\",\"selectors\":{\"attributes\":[\"test:123\",\"env:prod\"],\"implicit_vm_rule_match\":false,\"rule_tags\":[\"test:123\"],\"rule_types\":[\"application_security\",\"log_detection\"],\"severities\":[\"high\"],\"signal_tags\":[\"env:prod\"]},\"targets\":[\"@slack-test\"]},\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ixf-lse-ptb\",\"attributes\":{\"version\":1,\"name\":\"Test-Create_a_notification_rule_returns_OK_response-1699976710\",\"targets\":[\"@slack-test\"],\"selectors\":{\"severities\":[\"high\"],\"rule_types\":[\"application_security\",\"log_detection\"],\"rule_tags\":[\"test:123\"],\"signal_tags\":[\"env:prod\"],\"attributes\":[\"env:prod\",\"test:123\"],\"implicit_vm_rule_match\":false},\"enabled\":true,\"creation_date\":1699976710570,\"update_date\":1699976710570,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"notification_rules\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "41223dd2-d478-3d6e-551e-8033a4dbb13a"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules/ixf-lse-ptb",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8b5a7c1c-6eeb-bb13-d008-2e34c13425ae"
+  }
+]

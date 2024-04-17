@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":false,\"name\":\"Test-Update_a_notification_rule_returns_Not_Found_response-1713390911\",\"selectors\":{\"attributes\":[\"fim:true\"],\"implicit_vm_rule_match\":false,\"rule_tags\":[\"fim:true\"],\"rule_types\":[\"log_detection\",\"cloud_configuration\"],\"severities\":[\"high\"],\"signal_tags\":[]},\"targets\":[\"test2\"],\"version\":1},\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules/ThisRuleIdProbablyDoesntExist",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"not_found(Notification rule with id 'ThisRuleIdProbablyDoesntExist' not found)\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "243ac362-8ed4-d64b-718d-b441a86d487e"
+  }
+]

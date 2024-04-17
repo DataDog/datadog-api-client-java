@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Delete_a_notification_rule_returns_OK_response-1713390904\",\"selectors\":{\"attributes\":[\"fim:true\"],\"implicit_vm_rule_match\":false,\"rule_tags\":[\"fim:true\"],\"rule_types\":[\"log_detection\",\"cloud_configuration\"],\"severities\":[\"high\"],\"signal_tags\":[],\"trigger_source\":\"security_signals\"},\"targets\":[\"test\"]},\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"nix-jsb-qqv\",\"attributes\":{\"version\":1,\"name\":\"Test-Delete_a_notification_rule_returns_OK_response-1713390904\",\"targets\":[\"test\"],\"selectors\":{\"severities\":[\"high\"],\"rule_types\":[\"log_detection\",\"cloud_configuration\"],\"rule_tags\":[\"fim:true\"],\"signal_tags\":[],\"attributes\":[\"fim:true\"],\"query\":\"(fim:\\\"true\\\" OR @fim:\\\"true\\\")\",\"migrated\":true,\"trigger_source\":\"security_signals\",\"implicit_vm_rule_match\":false},\"enabled\":true,\"creation_date\":1713390905027,\"update_date\":1713390905027,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"notification_rules\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8db18584-34a2-1984-c8fb-5e54d7a983f5"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules/nix-jsb-qqv",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5f171ec0-8f98-beba-eba7-de451924ae08"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules/nix-jsb-qqv",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"not_found(Notification rule with id 'nix-jsb-qqv' not found)\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5f171ec0-8f98-beba-eba7-de451924ae09"
+  }
+]

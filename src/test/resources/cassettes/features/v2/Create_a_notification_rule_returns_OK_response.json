@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Create_a_notification_rule_returns_OK_response-1713390902\",\"selectors\":{\"attributes\":[\"test:123\",\"env:prod\"],\"implicit_vm_rule_match\":false,\"rule_tags\":[\"test:123\"],\"rule_types\":[\"application_security\",\"log_detection\"],\"severities\":[\"high\"],\"signal_tags\":[\"env:prod\"]},\"targets\":[\"@slack-test\"]},\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ntc-9ny-wdj\",\"attributes\":{\"version\":1,\"name\":\"Test-Create_a_notification_rule_returns_OK_response-1713390902\",\"targets\":[\"@slack-test\"],\"selectors\":{\"severities\":[\"high\"],\"rule_types\":[\"application_security\",\"log_detection\"],\"rule_tags\":[\"test:123\"],\"signal_tags\":[\"env:prod\"],\"attributes\":[\"env:prod\",\"test:123\"],\"query\":\"(env:\\\"prod\\\" OR @env:\\\"prod\\\") AND (test:\\\"123\\\" OR @test:\\\"123\\\")\",\"migrated\":true,\"implicit_vm_rule_match\":false},\"enabled\":true,\"creation_date\":1713390903036,\"update_date\":1713390903036,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"notification_rules\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "51086781-8d66-8750-dab1-a310011502be"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules/ntc-9ny-wdj",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6db94b3d-4d74-93d7-f5f4-8d7f6214b364"
+  }
+]

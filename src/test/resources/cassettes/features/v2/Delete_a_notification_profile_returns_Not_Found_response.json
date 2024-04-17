@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules/ThisRuleIdProbablyDoesntExist",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"not_found(Notification profile with id 'ThisRuleIdProbablyDoesntExist' not found)\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3b40d501-28a3-8810-ded9-c1440b3be01f"
+  }
+]

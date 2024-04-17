@@ -1,4 +1,4 @@
-// Get all security filters returns "OK" response
+// List security filters returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
