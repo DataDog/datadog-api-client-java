@@ -17,6 +17,10 @@ import com.datadog.api.client.v2.model.SecurityFilterResponse;
 import com.datadog.api.client.v2.model.SecurityFilterUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityFiltersResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringListRulesResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringNotificationRuleCreateRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringNotificationRuleListResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringNotificationRuleResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringNotificationRuleUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleUpdatePayload;
@@ -211,6 +215,148 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityFilterResponse>() {});
+  }
+
+  /**
+   * Create a notification rule.
+   *
+   * <p>See {@link #createSecurityMonitoringNotificationRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringNotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringNotificationRuleResponse createSecurityMonitoringNotificationRule(
+      SecurityMonitoringNotificationRuleCreateRequest body) throws ApiException {
+    return createSecurityMonitoringNotificationRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a notification rule.
+   *
+   * <p>See {@link #createSecurityMonitoringNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringNotificationRuleResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringNotificationRuleResponse>
+      createSecurityMonitoringNotificationRuleAsync(
+          SecurityMonitoringNotificationRuleCreateRequest body) {
+    return createSecurityMonitoringNotificationRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a notification rule.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringNotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringNotificationRuleResponse>
+      createSecurityMonitoringNotificationRuleWithHttpInfo(
+          SecurityMonitoringNotificationRuleCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " createSecurityMonitoringNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSecurityMonitoringNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Create a notification rule.
+   *
+   * <p>See {@link #createSecurityMonitoringNotificationRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringNotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleResponse>>
+      createSecurityMonitoringNotificationRuleWithHttpInfoAsync(
+          SecurityMonitoringNotificationRuleCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createSecurityMonitoringNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSecurityMonitoringNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringNotificationRuleResponse>() {});
   }
 
   /**
@@ -632,6 +778,150 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Delete a notification rule.
+   *
+   * <p>See {@link #deleteSecurityMonitoringNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSecurityMonitoringNotificationRule(String notificationRuleId)
+      throws ApiException {
+    deleteSecurityMonitoringNotificationRuleWithHttpInfo(notificationRuleId);
+  }
+
+  /**
+   * Delete a notification rule.
+   *
+   * <p>See {@link #deleteSecurityMonitoringNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSecurityMonitoringNotificationRuleAsync(
+      String notificationRuleId) {
+    return deleteSecurityMonitoringNotificationRuleWithHttpInfoAsync(notificationRuleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a specific notification rule.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSecurityMonitoringNotificationRuleWithHttpInfo(
+      String notificationRuleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'notificationRuleId' when calling"
+              + " deleteSecurityMonitoringNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSecurityMonitoringNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a notification rule.
+   *
+   * <p>See {@link #deleteSecurityMonitoringNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteSecurityMonitoringNotificationRuleWithHttpInfoAsync(String notificationRuleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'notificationRuleId' when calling"
+                  + " deleteSecurityMonitoringNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSecurityMonitoringNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete an existing rule.
    *
    * <p>See {@link #deleteSecurityMonitoringRuleWithHttpInfo}.
@@ -904,6 +1194,184 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Update a notification rule.
+   *
+   * <p>See {@link #editSecurityMonitoringNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @param body Attributes describing the signal update. (required)
+   * @return SecurityMonitoringNotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringNotificationRuleResponse editSecurityMonitoringNotificationRule(
+      String notificationRuleId, SecurityMonitoringNotificationRuleUpdateRequest body)
+      throws ApiException {
+    return editSecurityMonitoringNotificationRuleWithHttpInfo(notificationRuleId, body).getData();
+  }
+
+  /**
+   * Update a notification rule.
+   *
+   * <p>See {@link #editSecurityMonitoringNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @param body Attributes describing the signal update. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringNotificationRuleResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringNotificationRuleResponse>
+      editSecurityMonitoringNotificationRuleAsync(
+          String notificationRuleId, SecurityMonitoringNotificationRuleUpdateRequest body) {
+    return editSecurityMonitoringNotificationRuleWithHttpInfoAsync(notificationRuleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a specific notification rule.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @param body Attributes describing the signal update. (required)
+   * @return ApiResponse&lt;SecurityMonitoringNotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringNotificationRuleResponse>
+      editSecurityMonitoringNotificationRuleWithHttpInfo(
+          String notificationRuleId, SecurityMonitoringNotificationRuleUpdateRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'notificationRuleId' when calling"
+              + " editSecurityMonitoringNotificationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " editSecurityMonitoringNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.editSecurityMonitoringNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Update a notification rule.
+   *
+   * <p>See {@link #editSecurityMonitoringNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @param body Attributes describing the signal update. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringNotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleResponse>>
+      editSecurityMonitoringNotificationRuleWithHttpInfoAsync(
+          String notificationRuleId, SecurityMonitoringNotificationRuleUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'notificationRuleId' when calling"
+                  + " editSecurityMonitoringNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " editSecurityMonitoringNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.editSecurityMonitoringNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringNotificationRuleResponse>() {});
   }
 
   /**
@@ -1779,6 +2247,154 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityFilterResponse>() {});
+  }
+
+  /**
+   * Get notification rule by ID.
+   *
+   * <p>See {@link #getSecurityMonitoringNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return SecurityMonitoringNotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringNotificationRuleResponse getSecurityMonitoringNotificationRule(
+      String notificationRuleId) throws ApiException {
+    return getSecurityMonitoringNotificationRuleWithHttpInfo(notificationRuleId).getData();
+  }
+
+  /**
+   * Get notification rule by ID.
+   *
+   * <p>See {@link #getSecurityMonitoringNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringNotificationRuleResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringNotificationRuleResponse>
+      getSecurityMonitoringNotificationRuleAsync(String notificationRuleId) {
+    return getSecurityMonitoringNotificationRuleWithHttpInfoAsync(notificationRuleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get notification rule by ID.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return ApiResponse&lt;SecurityMonitoringNotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringNotificationRuleResponse>
+      getSecurityMonitoringNotificationRuleWithHttpInfo(String notificationRuleId)
+          throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'notificationRuleId' when calling"
+              + " getSecurityMonitoringNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSecurityMonitoringNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Get notification rule by ID.
+   *
+   * <p>See {@link #getSecurityMonitoringNotificationRuleWithHttpInfo}.
+   *
+   * @param notificationRuleId The ID of the notification rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringNotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleResponse>>
+      getSecurityMonitoringNotificationRuleWithHttpInfoAsync(String notificationRuleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'notificationRuleId' is set
+    if (notificationRuleId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'notificationRuleId' when calling"
+                  + " getSecurityMonitoringNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/notification_rules/{notification_rule_id}"
+            .replaceAll(
+                "\\{" + "notification_rule_id" + "\\}",
+                apiClient.escapeString(notificationRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSecurityMonitoringNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringNotificationRuleResponse>() {});
   }
 
   /**
@@ -2688,7 +3304,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all security filters.
+   * List security filters.
    *
    * <p>See {@link #listSecurityFiltersWithHttpInfo}.
    *
@@ -2700,7 +3316,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all security filters.
+   * List security filters.
    *
    * <p>See {@link #listSecurityFiltersWithHttpInfoAsync}.
    *
@@ -2715,7 +3331,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the list of configured security filters with their definitions.
+   * List all configured security filters with their definitions.
    *
    * @return ApiResponse&lt;SecurityFiltersResponse&gt;
    * @throws ApiException if fails to make API call
@@ -2757,7 +3373,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get all security filters.
+   * List security filters.
    *
    * <p>See {@link #listSecurityFiltersWithHttpInfo}.
    *
@@ -2796,6 +3412,122 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityFiltersResponse>() {});
+  }
+
+  /**
+   * List notification rules.
+   *
+   * <p>See {@link #listSecurityMonitoringNotificationRulesWithHttpInfo}.
+   *
+   * @return SecurityMonitoringNotificationRuleListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringNotificationRuleListResponse listSecurityMonitoringNotificationRules()
+      throws ApiException {
+    return listSecurityMonitoringNotificationRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * List notification rules.
+   *
+   * <p>See {@link #listSecurityMonitoringNotificationRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;SecurityMonitoringNotificationRuleListResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringNotificationRuleListResponse>
+      listSecurityMonitoringNotificationRulesAsync() {
+    return listSecurityMonitoringNotificationRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List all notification rules.
+   *
+   * @return ApiResponse&lt;SecurityMonitoringNotificationRuleListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringNotificationRuleListResponse>
+      listSecurityMonitoringNotificationRulesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listSecurityMonitoringNotificationRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringNotificationRuleListResponse>() {});
+  }
+
+  /**
+   * List notification rules.
+   *
+   * <p>See {@link #listSecurityMonitoringNotificationRulesWithHttpInfo}.
+   *
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringNotificationRuleListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleListResponse>>
+      listSecurityMonitoringNotificationRulesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listSecurityMonitoringNotificationRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringNotificationRuleListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringNotificationRuleListResponse>() {});
   }
 
   /** Manage optional parameters to listSecurityMonitoringRules. */
@@ -2889,7 +3621,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * List rules.
+   * List all rules.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SecurityMonitoringListRulesResponse&gt;

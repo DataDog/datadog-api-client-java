@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Delete_a_notification_rule_returns_OK_response-1699976711\",\"selectors\":{\"attributes\":[\"fim:true\"],\"implicit_vm_rule_match\":false,\"rule_tags\":[\"fim:true\"],\"rule_types\":[\"log_detection\",\"cloud_configuration\"],\"severities\":[\"high\"],\"signal_tags\":[]},\"targets\":[\"test\"]},\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"r51-n2b-ndg\",\"attributes\":{\"version\":1,\"name\":\"Test-Delete_a_notification_rule_returns_OK_response-1699976711\",\"targets\":[\"test\"],\"selectors\":{\"severities\":[\"high\"],\"rule_types\":[\"log_detection\",\"cloud_configuration\"],\"rule_tags\":[\"fim:true\"],\"signal_tags\":[],\"attributes\":[\"fim:true\"],\"implicit_vm_rule_match\":false},\"enabled\":true,\"creation_date\":1699976711788,\"update_date\":1699976711788,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"notification_rules\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f37bafae-7b86-4587-db67-5fb7f74da44f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules/r51-n2b-ndg",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bc9ba124-754c-8df0-e81a-cee98da0dfe4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/notification_rules/r51-n2b-ndg",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"not_found(Notification profile with id 'r51-n2b-ndg' not found)\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bc9ba124-754c-8df0-e81a-cee98da0dfe5"
+  }
+]
