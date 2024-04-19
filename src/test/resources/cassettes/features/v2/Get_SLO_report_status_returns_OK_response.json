@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"from_ts\":1710870996,\"interval\":\"monthly\",\"query\":\"slo_type:metric \\\"SLO Reporting Test\\\"\",\"to_ts\":1712685396}}}"
+        "json": "{\"data\":{\"attributes\":{\"from_ts\":1711656584,\"interval\":\"monthly\",\"query\":\"slo_type:metric \\\"SLO Reporting Test\\\"\",\"to_ts\":1713470984}}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"8288c800-f69a-11ee-aab1-0772aa10fea1\",\"type\":\"report_id\"}}",
+      "body": "{\"data\":{\"id\":\"990d70d6-fdbf-11ee-99ae-1f9640631fbf\",\"type\":\"report_id\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "854876f4-1505-ea10-ecef-5ea7274e65dc"
+    "id": "960ebb20-bca9-bb34-228c-2545bb0a6cf2"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/slo/report/8288c800-f69a-11ee-aab1-0772aa10fea1/status",
+      "path": "/api/v2/slo/report/990d70d6-fdbf-11ee-99ae-1f9640631fbf/status",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"8288c800-f69a-11ee-aab1-0772aa10fea1\",\"type\":\"report_id\",\"attributes\":{\"status\":\"in_progress\"}}}",
+      "body": "{\"data\":{\"id\":\"990d70d6-fdbf-11ee-99ae-1f9640631fbf\",\"type\":\"report_id\",\"attributes\":{\"status\":\"in_progress\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "89ce6490-2c40-a551-5593-455d3690112d"
+    "id": "302cd2c7-5717-99c5-97c7-4eabf5d3766a"
   }
 ]
