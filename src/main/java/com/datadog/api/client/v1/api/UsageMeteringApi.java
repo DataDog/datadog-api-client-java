@@ -2496,6 +2496,10 @@ public class UsageMeteringApi {
   /**
    * Get billable usage across your account.
    *
+   * <p>This endpoint is only accessible for <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
+   *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageBillableSummaryResponse&gt;
    * @throws ApiException if fails to make API call
@@ -7125,6 +7129,10 @@ public class UsageMeteringApi {
 
   /**
    * Get all usage across your account.
+   *
+   * <p>This endpoint is only accessible for <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)
