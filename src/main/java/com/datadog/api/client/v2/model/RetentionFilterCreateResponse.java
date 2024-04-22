@@ -17,15 +17,15 @@ import java.util.Map;
 import java.util.Objects;
 
 /** The retention filters definition. */
-@JsonPropertyOrder({RetentionFilterResponse.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({RetentionFilterCreateResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RetentionFilterResponse {
+public class RetentionFilterCreateResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private RetentionFilterAll data;
+  private RetentionFilter data;
 
-  public RetentionFilterResponse data(RetentionFilterAll data) {
+  public RetentionFilterCreateResponse data(RetentionFilter data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
@@ -39,11 +39,11 @@ public class RetentionFilterResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RetentionFilterAll getData() {
+  public RetentionFilter getData() {
     return data;
   }
 
-  public void setData(RetentionFilterAll data) {
+  public void setData(RetentionFilter data) {
     this.data = data;
   }
 
@@ -59,10 +59,10 @@ public class RetentionFilterResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RetentionFilterResponse
+   * @return RetentionFilterCreateResponse
    */
   @JsonAnySetter
-  public RetentionFilterResponse putAdditionalProperty(String key, Object value) {
+  public RetentionFilterCreateResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +93,7 @@ public class RetentionFilterResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RetentionFilterResponse object is equal to o. */
+  /** Return true if this RetentionFilterCreateResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,9 +102,10 @@ public class RetentionFilterResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RetentionFilterResponse retentionFilterResponse = (RetentionFilterResponse) o;
-    return Objects.equals(this.data, retentionFilterResponse.data)
-        && Objects.equals(this.additionalProperties, retentionFilterResponse.additionalProperties);
+    RetentionFilterCreateResponse retentionFilterCreateResponse = (RetentionFilterCreateResponse) o;
+    return Objects.equals(this.data, retentionFilterCreateResponse.data)
+        && Objects.equals(
+            this.additionalProperties, retentionFilterCreateResponse.additionalProperties);
   }
 
   @Override
@@ -115,7 +116,7 @@ public class RetentionFilterResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RetentionFilterResponse {\n");
+    sb.append("class RetentionFilterCreateResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
