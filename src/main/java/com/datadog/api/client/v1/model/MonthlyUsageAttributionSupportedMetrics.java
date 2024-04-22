@@ -150,6 +150,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "logs_indexed_7day_percentage",
               "logs_indexed_3day_usage",
               "logs_indexed_3day_percentage",
+              "logs_indexed_1day_usage",
+              "logs_indexed_1day_percentage",
               "rum_replay_sessions_usage",
               "rum_replay_sessions_percentage",
               "rum_browser_mobile_sessions_usage",
@@ -416,6 +418,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("logs_indexed_3day_usage");
   public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_3DAY_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("logs_indexed_3day_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_1DAY_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_1day_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics LOGS_INDEXED_1DAY_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("logs_indexed_1day_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics RUM_REPLAY_SESSIONS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("rum_replay_sessions_usage");
   public static final MonthlyUsageAttributionSupportedMetrics RUM_REPLAY_SESSIONS_PERCENTAGE =

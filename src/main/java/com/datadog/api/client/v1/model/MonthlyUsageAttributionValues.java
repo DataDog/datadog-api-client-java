@@ -98,6 +98,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_15DAY_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_180DAY_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_180DAY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_1DAY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_1DAY_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_30DAY_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_30DAY_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_360DAY_PERCENTAGE,
@@ -426,6 +428,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_LOGS_INDEXED_180DAY_USAGE = "logs_indexed_180day_usage";
   private Double logsIndexed180dayUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_1DAY_PERCENTAGE =
+      "logs_indexed_1day_percentage";
+  private Double logsIndexed1dayPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_1DAY_USAGE = "logs_indexed_1day_usage";
+  private Double logsIndexed1dayUsage;
 
   public static final String JSON_PROPERTY_LOGS_INDEXED_30DAY_PERCENTAGE =
       "logs_indexed_30day_percentage";
@@ -2319,6 +2328,48 @@ public class MonthlyUsageAttributionValues {
     this.logsIndexed180dayUsage = logsIndexed180dayUsage;
   }
 
+  public MonthlyUsageAttributionValues logsIndexed1dayPercentage(Double logsIndexed1dayPercentage) {
+    this.logsIndexed1dayPercentage = logsIndexed1dayPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (1-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed1dayPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_1DAY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed1dayPercentage() {
+    return logsIndexed1dayPercentage;
+  }
+
+  public void setLogsIndexed1dayPercentage(Double logsIndexed1dayPercentage) {
+    this.logsIndexed1dayPercentage = logsIndexed1dayPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed1dayUsage(Double logsIndexed1dayUsage) {
+    this.logsIndexed1dayUsage = logsIndexed1dayUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (1-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed1dayUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_1DAY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed1dayUsage() {
+    return logsIndexed1dayUsage;
+  }
+
+  public void setLogsIndexed1dayUsage(Double logsIndexed1dayUsage) {
+    this.logsIndexed1dayUsage = logsIndexed1dayUsage;
+  }
+
   public MonthlyUsageAttributionValues logsIndexed30dayPercentage(
       Double logsIndexed30dayPercentage) {
     this.logsIndexed30dayPercentage = logsIndexed30dayPercentage;
@@ -3643,6 +3694,10 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.logsIndexed180dayUsage, monthlyUsageAttributionValues.logsIndexed180dayUsage)
         && Objects.equals(
+            this.logsIndexed1dayPercentage, monthlyUsageAttributionValues.logsIndexed1dayPercentage)
+        && Objects.equals(
+            this.logsIndexed1dayUsage, monthlyUsageAttributionValues.logsIndexed1dayUsage)
+        && Objects.equals(
             this.logsIndexed30dayPercentage,
             monthlyUsageAttributionValues.logsIndexed30dayPercentage)
         && Objects.equals(
@@ -3845,6 +3900,8 @@ public class MonthlyUsageAttributionValues {
         logsIndexed15dayUsage,
         logsIndexed180dayPercentage,
         logsIndexed180dayUsage,
+        logsIndexed1dayPercentage,
+        logsIndexed1dayUsage,
         logsIndexed30dayPercentage,
         logsIndexed30dayUsage,
         logsIndexed360dayPercentage,
@@ -4085,6 +4142,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    logsIndexed180dayUsage: ")
         .append(toIndentedString(logsIndexed180dayUsage))
+        .append("\n");
+    sb.append("    logsIndexed1dayPercentage: ")
+        .append(toIndentedString(logsIndexed1dayPercentage))
+        .append("\n");
+    sb.append("    logsIndexed1dayUsage: ")
+        .append(toIndentedString(logsIndexed1dayUsage))
         .append("\n");
     sb.append("    logsIndexed30dayPercentage: ")
         .append(toIndentedString(logsIndexed30dayPercentage))
