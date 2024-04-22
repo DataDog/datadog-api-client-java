@@ -7,7 +7,7 @@ import com.datadog.api.client.v2.model.ApmRetentionFilterType;
 import com.datadog.api.client.v2.model.RetentionFilterCreateAttributes;
 import com.datadog.api.client.v2.model.RetentionFilterCreateData;
 import com.datadog.api.client.v2.model.RetentionFilterCreateRequest;
-import com.datadog.api.client.v2.model.RetentionFilterResponse;
+import com.datadog.api.client.v2.model.RetentionFilterCreateResponse;
 import com.datadog.api.client.v2.model.RetentionFilterType;
 import com.datadog.api.client.v2.model.SpansFilterCreate;
 
@@ -32,7 +32,7 @@ public class Example {
                     .type(ApmRetentionFilterType.apm_retention_filter));
 
     try {
-      RetentionFilterResponse result = apiInstance.createApmRetentionFilter(body);
+      RetentionFilterCreateResponse result = apiInstance.createApmRetentionFilter(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApmRetentionFiltersApi#createApmRetentionFilter");

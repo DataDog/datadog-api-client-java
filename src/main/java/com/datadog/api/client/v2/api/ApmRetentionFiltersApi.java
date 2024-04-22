@@ -6,6 +6,7 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ReorderRetentionFiltersRequest;
 import com.datadog.api.client.v2.model.RetentionFilterCreateRequest;
+import com.datadog.api.client.v2.model.RetentionFilterCreateResponse;
 import com.datadog.api.client.v2.model.RetentionFilterResponse;
 import com.datadog.api.client.v2.model.RetentionFilterUpdateRequest;
 import com.datadog.api.client.v2.model.RetentionFiltersResponse;
@@ -53,10 +54,10 @@ public class ApmRetentionFiltersApi {
    * <p>See {@link #createApmRetentionFilterWithHttpInfo}.
    *
    * @param body The definition of the new retention filter. (required)
-   * @return RetentionFilterResponse
+   * @return RetentionFilterCreateResponse
    * @throws ApiException if fails to make API call
    */
-  public RetentionFilterResponse createApmRetentionFilter(RetentionFilterCreateRequest body)
+  public RetentionFilterCreateResponse createApmRetentionFilter(RetentionFilterCreateRequest body)
       throws ApiException {
     return createApmRetentionFilterWithHttpInfo(body).getData();
   }
@@ -67,9 +68,9 @@ public class ApmRetentionFiltersApi {
    * <p>See {@link #createApmRetentionFilterWithHttpInfoAsync}.
    *
    * @param body The definition of the new retention filter. (required)
-   * @return CompletableFuture&lt;RetentionFilterResponse&gt;
+   * @return CompletableFuture&lt;RetentionFilterCreateResponse&gt;
    */
-  public CompletableFuture<RetentionFilterResponse> createApmRetentionFilterAsync(
+  public CompletableFuture<RetentionFilterCreateResponse> createApmRetentionFilterAsync(
       RetentionFilterCreateRequest body) {
     return createApmRetentionFilterWithHttpInfoAsync(body)
         .thenApply(
@@ -86,7 +87,7 @@ public class ApmRetentionFiltersApi {
    * spans-appsec-sampling-processor cannot be created.
    *
    * @param body The definition of the new retention filter. (required)
-   * @return ApiResponse&lt;RetentionFilterResponse&gt;
+   * @return ApiResponse&lt;RetentionFilterCreateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -99,7 +100,7 @@ public class ApmRetentionFiltersApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<RetentionFilterResponse> createApmRetentionFilterWithHttpInfo(
+  public ApiResponse<RetentionFilterCreateResponse> createApmRetentionFilterWithHttpInfo(
       RetentionFilterCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -130,7 +131,7 @@ public class ApmRetentionFiltersApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RetentionFilterResponse>() {});
+        new GenericType<RetentionFilterCreateResponse>() {});
   }
 
   /**
@@ -139,15 +140,16 @@ public class ApmRetentionFiltersApi {
    * <p>See {@link #createApmRetentionFilterWithHttpInfo}.
    *
    * @param body The definition of the new retention filter. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;RetentionFilterResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;RetentionFilterCreateResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<RetentionFilterResponse>>
+  public CompletableFuture<ApiResponse<RetentionFilterCreateResponse>>
       createApmRetentionFilterWithHttpInfoAsync(RetentionFilterCreateRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<RetentionFilterResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RetentionFilterCreateResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'body' when calling createApmRetentionFilter"));
@@ -170,7 +172,8 @@ public class ApmRetentionFiltersApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<RetentionFilterResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<RetentionFilterCreateResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -182,7 +185,7 @@ public class ApmRetentionFiltersApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<RetentionFilterResponse>() {});
+        new GenericType<RetentionFilterCreateResponse>() {});
   }
 
   /**
