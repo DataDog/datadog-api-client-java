@@ -68,6 +68,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "lambda_traced_invocations_usage",
               "logs_indexed_15day_usage",
               "logs_indexed_180day_usage",
+              "logs_indexed_1day_usage",
               "logs_indexed_30day_usage",
               "logs_indexed_360day_usage",
               "logs_indexed_3day_usage",
@@ -180,6 +181,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("logs_indexed_15day_usage");
   public static final HourlyUsageAttributionUsageType LOGS_INDEXED_180DAY_USAGE =
       new HourlyUsageAttributionUsageType("logs_indexed_180day_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_1DAY_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_1day_usage");
   public static final HourlyUsageAttributionUsageType LOGS_INDEXED_30DAY_USAGE =
       new HourlyUsageAttributionUsageType("logs_indexed_30day_usage");
   public static final HourlyUsageAttributionUsageType LOGS_INDEXED_360DAY_USAGE =

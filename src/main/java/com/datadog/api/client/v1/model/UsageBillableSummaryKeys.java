@@ -70,6 +70,7 @@ import java.util.Objects;
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_FORWARDING_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED15DAY_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED180DAY_SUM,
+  UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_1DAY_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED30DAY_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED_360DAY_SUM,
   UsageBillableSummaryKeys.JSON_PROPERTY_LOGS_INDEXED3DAY_SUM,
@@ -279,6 +280,9 @@ public class UsageBillableSummaryKeys {
 
   public static final String JSON_PROPERTY_LOGS_INDEXED180DAY_SUM = "logs_indexed_180day_sum";
   private UsageBillableSummaryBody logsIndexed180daySum;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_1DAY_SUM = "logs_indexed_1day_sum";
+  private UsageBillableSummaryBody logsIndexed1daySum;
 
   public static final String JSON_PROPERTY_LOGS_INDEXED30DAY_SUM = "logs_indexed_30day_sum";
   private UsageBillableSummaryBody logsIndexed30daySum;
@@ -1567,6 +1571,28 @@ public class UsageBillableSummaryKeys {
     this.logsIndexed180daySum = logsIndexed180daySum;
   }
 
+  public UsageBillableSummaryKeys logsIndexed1daySum(UsageBillableSummaryBody logsIndexed1daySum) {
+    this.logsIndexed1daySum = logsIndexed1daySum;
+    this.unparsed |= logsIndexed1daySum.unparsed;
+    return this;
+  }
+
+  /**
+   * Response with properties for each aggregated usage type.
+   *
+   * @return logsIndexed1daySum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_1DAY_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageBillableSummaryBody getLogsIndexed1daySum() {
+    return logsIndexed1daySum;
+  }
+
+  public void setLogsIndexed1daySum(UsageBillableSummaryBody logsIndexed1daySum) {
+    this.logsIndexed1daySum = logsIndexed1daySum;
+  }
+
   public UsageBillableSummaryKeys logsIndexed30daySum(
       UsageBillableSummaryBody logsIndexed30daySum) {
     this.logsIndexed30daySum = logsIndexed30daySum;
@@ -2509,6 +2535,7 @@ public class UsageBillableSummaryKeys {
         && Objects.equals(this.logsForwardingSum, usageBillableSummaryKeys.logsForwardingSum)
         && Objects.equals(this.logsIndexed15daySum, usageBillableSummaryKeys.logsIndexed15daySum)
         && Objects.equals(this.logsIndexed180daySum, usageBillableSummaryKeys.logsIndexed180daySum)
+        && Objects.equals(this.logsIndexed1daySum, usageBillableSummaryKeys.logsIndexed1daySum)
         && Objects.equals(this.logsIndexed30daySum, usageBillableSummaryKeys.logsIndexed30daySum)
         && Objects.equals(this.logsIndexed360daySum, usageBillableSummaryKeys.logsIndexed360daySum)
         && Objects.equals(this.logsIndexed3daySum, usageBillableSummaryKeys.logsIndexed3daySum)
@@ -2613,6 +2640,7 @@ public class UsageBillableSummaryKeys {
         logsForwardingSum,
         logsIndexed15daySum,
         logsIndexed180daySum,
+        logsIndexed1daySum,
         logsIndexed30daySum,
         logsIndexed360daySum,
         logsIndexed3daySum,
@@ -2756,6 +2784,7 @@ public class UsageBillableSummaryKeys {
     sb.append("    logsIndexed180daySum: ")
         .append(toIndentedString(logsIndexed180daySum))
         .append("\n");
+    sb.append("    logsIndexed1daySum: ").append(toIndentedString(logsIndexed1daySum)).append("\n");
     sb.append("    logsIndexed30daySum: ")
         .append(toIndentedString(logsIndexed30daySum))
         .append("\n");
