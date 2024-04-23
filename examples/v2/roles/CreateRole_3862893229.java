@@ -1,4 +1,4 @@
-// Create role returns "OK" response
+// Create role with a permission returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -6,7 +6,6 @@ import com.datadog.api.client.v2.api.RolesApi;
 import com.datadog.api.client.v2.model.PermissionsType;
 import com.datadog.api.client.v2.model.RelationshipToPermissionData;
 import com.datadog.api.client.v2.model.RelationshipToPermissions;
-import com.datadog.api.client.v2.model.RelationshipToUsers;
 import com.datadog.api.client.v2.model.RoleCreateAttributes;
 import com.datadog.api.client.v2.model.RoleCreateData;
 import com.datadog.api.client.v2.model.RoleCreateRequest;
@@ -20,11 +19,15 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);
 
+    // there is a valid "permission" in the system
+    String PERMISSION_ID = System.getenv("PERMISSION_ID");
+
     RoleCreateRequest body =
         new RoleCreateRequest()
             .data(
                 new RoleCreateData()
-                    .attributes(new RoleCreateAttributes().name("developers"))
+                    .type(RolesType.ROLES)
+                    .attributes(new RoleCreateAttributes().name("Example-Role"))
                     .relationships(
                         new RoleRelationships()
                             .permissions(
@@ -32,9 +35,8 @@ public class Example {
                                     .data(
                                         Collections.singletonList(
                                             new RelationshipToPermissionData()
-                                                .type(PermissionsType.PERMISSIONS))))
-                            .users(new RelationshipToUsers()))
-                    .type(RolesType.ROLES));
+                                                .id(PERMISSION_ID)
+                                                .type(PermissionsType.PERMISSIONS))))));
 
     try {
       RoleCreateResponse result = apiInstance.createRole(body);
