@@ -118,6 +118,47 @@ public class UserTeamIncluded extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'User'", e);
       }
 
+      // deserialize Team
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (Team.class.equals(Integer.class)
+            || Team.class.equals(Long.class)
+            || Team.class.equals(Float.class)
+            || Team.class.equals(Double.class)
+            || Team.class.equals(Boolean.class)
+            || Team.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((Team.class.equals(Integer.class) || Team.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((Team.class.equals(Float.class) || Team.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (Team.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |= (Team.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(Team.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((Team) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'Team'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'Team'", e);
+      }
+
       UserTeamIncluded ret = new UserTeamIncluded();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -151,8 +192,14 @@ public class UserTeamIncluded extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public UserTeamIncluded(Team o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("User", new GenericType<User>() {});
+    schemas.put("Team", new GenericType<Team>() {});
     JSON.registerDescendants(UserTeamIncluded.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -163,7 +210,7 @@ public class UserTeamIncluded extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: User
+   * against the oneOf child schemas: User, Team
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -174,18 +221,22 @@ public class UserTeamIncluded extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(Team.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be User");
+    throw new RuntimeException("Invalid instance type. Must be User, Team");
   }
 
   /**
-   * Get the actual instance, which can be the following: User
+   * Get the actual instance, which can be the following: User, Team
    *
-   * @return The actual instance (User)
+   * @return The actual instance (User, Team)
    */
   @Override
   public Object getActualInstance() {
@@ -201,5 +252,16 @@ public class UserTeamIncluded extends AbstractOpenApiSchema {
    */
   public User getUser() throws ClassCastException {
     return (User) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `Team`. If the actual instance is not `Team`, the ClassCastException
+   * will be thrown.
+   *
+   * @return The actual instance of `Team`
+   * @throws ClassCastException if the instance is not `Team`
+   */
+  public Team getTeam() throws ClassCastException {
+    return (Team) super.getActualInstance();
   }
 }
