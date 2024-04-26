@@ -2,7 +2,7 @@
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.CloudWorkloadSecurityApi;
+import com.datadog.api.client.v2.api.CsmThreatsApi;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleType;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleUpdateAttributes;
@@ -12,7 +12,7 @@ import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleUpdateReque
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    CloudWorkloadSecurityApi apiInstance = new CloudWorkloadSecurityApi(defaultClient);
+    CsmThreatsApi apiInstance = new CsmThreatsApi(defaultClient);
 
     // there is a valid "agent_rule" in the system
     String AGENT_RULE_DATA_ID = System.getenv("AGENT_RULE_DATA_ID");
@@ -36,7 +36,7 @@ exec.file.name == "sh"
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println(
-          "Exception when calling CloudWorkloadSecurityApi#updateCloudWorkloadSecurityAgentRule");
+          "Exception when calling CsmThreatsApi#updateCloudWorkloadSecurityAgentRule");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

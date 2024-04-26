@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == sh\",\"name\":\"testcreateacsmthreatsagentrulereturnsbadrequestresponse1711634267\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == sh\",\"name\":\"testcreateacsmthreatsagentrulereturnsbadrequestresponse1713895064\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testcreateacsmthreatsagentrulereturnsbadrequestresponse1711634267` error: rule compilation error: field `sh` not found)\"]}",
+      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testcreateacsmthreatsagentrulereturnsbadrequestresponse1713895064` error: rule compilation error: field `sh` not found)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5353c812-c816-7b03-41d5-4f19353e5a07"
+    "id": "5ac51b84-f3dc-4859-1cb2-aee7e669dc09"
   }
 ]
