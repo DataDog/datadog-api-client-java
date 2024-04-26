@@ -18,14 +18,14 @@ import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class CloudWorkloadSecurityApi {
+public class CsmThreatsApi {
   private ApiClient apiClient;
 
-  public CloudWorkloadSecurityApi() {
+  public CsmThreatsApi() {
     this(ApiClient.getDefaultApiClient());
   }
 
-  public CloudWorkloadSecurityApi(ApiClient apiClient) {
+  public CsmThreatsApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -114,7 +114,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule",
+            "v2.CsmThreatsApi.createCloudWorkloadSecurityAgentRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -165,7 +165,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule",
+              "v2.CsmThreatsApi.createCloudWorkloadSecurityAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -253,7 +253,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.createCSMThreatsAgentRule",
+            "v2.CsmThreatsApi.createCSMThreatsAgentRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -301,7 +301,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.createCSMThreatsAgentRule",
+              "v2.CsmThreatsApi.createCSMThreatsAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -390,7 +390,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule",
+            "v2.CsmThreatsApi.deleteCloudWorkloadSecurityAgentRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -442,7 +442,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule",
+              "v2.CsmThreatsApi.deleteCloudWorkloadSecurityAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -529,7 +529,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.deleteCSMThreatsAgentRule",
+            "v2.CsmThreatsApi.deleteCSMThreatsAgentRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -581,7 +581,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.deleteCSMThreatsAgentRule",
+              "v2.CsmThreatsApi.deleteCSMThreatsAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -656,7 +656,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile",
+            "v2.CsmThreatsApi.downloadCloudWorkloadPolicyFile",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -692,7 +692,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile",
+              "v2.CsmThreatsApi.downloadCloudWorkloadPolicyFile",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -767,7 +767,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.downloadCSMThreatsPolicy",
+            "v2.CsmThreatsApi.downloadCSMThreatsPolicy",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -803,7 +803,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.downloadCSMThreatsPolicy",
+              "v2.CsmThreatsApi.downloadCSMThreatsPolicy",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -894,7 +894,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule",
+            "v2.CsmThreatsApi.getCloudWorkloadSecurityAgentRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -947,7 +947,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule",
+              "v2.CsmThreatsApi.getCloudWorkloadSecurityAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1037,7 +1037,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.getCSMThreatsAgentRule",
+            "v2.CsmThreatsApi.getCSMThreatsAgentRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1089,7 +1089,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.getCSMThreatsAgentRule",
+              "v2.CsmThreatsApi.getCSMThreatsAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1166,7 +1166,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules",
+            "v2.CsmThreatsApi.listCloudWorkloadSecurityAgentRules",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1203,7 +1203,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules",
+              "v2.CsmThreatsApi.listCloudWorkloadSecurityAgentRules",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1280,7 +1280,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.listCSMThreatsAgentRules",
+            "v2.CsmThreatsApi.listCSMThreatsAgentRules",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1317,7 +1317,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.listCSMThreatsAgentRules",
+              "v2.CsmThreatsApi.listCSMThreatsAgentRules",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1425,7 +1425,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule",
+            "v2.CsmThreatsApi.updateCloudWorkloadSecurityAgentRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1492,7 +1492,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule",
+              "v2.CsmThreatsApi.updateCloudWorkloadSecurityAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1595,7 +1595,7 @@ public class CloudWorkloadSecurityApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.CloudWorkloadSecurityApi.updateCSMThreatsAgentRule",
+            "v2.CsmThreatsApi.updateCSMThreatsAgentRule",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -1660,7 +1660,7 @@ public class CloudWorkloadSecurityApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.CloudWorkloadSecurityApi.updateCSMThreatsAgentRule",
+              "v2.CsmThreatsApi.updateCSMThreatsAgentRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,

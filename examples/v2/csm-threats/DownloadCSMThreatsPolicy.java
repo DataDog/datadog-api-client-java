@@ -1,21 +1,20 @@
-// Get all CSM Threats Agent rules returns "OK" response
+// Get the latest CSM Threats policy returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
-import com.datadog.api.client.v2.api.CloudWorkloadSecurityApi;
-import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRulesListResponse;
+import com.datadog.api.client.v2.api.CsmThreatsApi;
+import java.io.File;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    CloudWorkloadSecurityApi apiInstance = new CloudWorkloadSecurityApi(defaultClient);
+    CsmThreatsApi apiInstance = new CsmThreatsApi(defaultClient);
 
     try {
-      CloudWorkloadSecurityAgentRulesListResponse result = apiInstance.listCSMThreatsAgentRules();
+      File result = apiInstance.downloadCSMThreatsPolicy();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println(
-          "Exception when calling CloudWorkloadSecurityApi#listCSMThreatsAgentRules");
+      System.err.println("Exception when calling CsmThreatsApi#downloadCSMThreatsPolicy");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
