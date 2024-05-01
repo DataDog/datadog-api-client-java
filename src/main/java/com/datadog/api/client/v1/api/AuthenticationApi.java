@@ -99,7 +99,7 @@ public class AuthenticationApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth"});
+            new String[] {"apiKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -136,7 +136,7 @@ public class AuthenticationApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth"});
+              new String[] {"apiKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<AuthenticationValidationResponse>> result =
           new CompletableFuture<>();
