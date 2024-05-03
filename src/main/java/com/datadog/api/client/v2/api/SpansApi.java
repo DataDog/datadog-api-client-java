@@ -122,7 +122,7 @@ public class SpansApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -169,7 +169,7 @@ public class SpansApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<SpansAggregateResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
