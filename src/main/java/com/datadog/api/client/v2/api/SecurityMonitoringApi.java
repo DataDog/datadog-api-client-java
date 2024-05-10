@@ -4040,8 +4040,8 @@ public class SecurityMonitoringApi {
   /**
    * Update an existing rule. When updating <code>cases</code>, <code>queries</code> or <code>
    * options</code>, the whole field must be included. For example, when modifying a query all
-   * queries must be included. Default rules can only be updated to be enabled and to change
-   * notifications.
+   * queries must be included. Default rules can only be updated to be enabled, to change
+   * notifications, or to update the tags (default tags cannot be removed).
    *
    * @param ruleId The ID of the rule. (required)
    * @param body (required)
