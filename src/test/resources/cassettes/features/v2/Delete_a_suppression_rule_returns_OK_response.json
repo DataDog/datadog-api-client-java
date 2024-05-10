@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Delete_a_suppression_rule_returns_OK_response-1704967585\",\"enabled\":true,\"name\":\"Test-Delete_a_suppression_rule_returns_OK_response-1704967585\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\"},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Delete_a_suppression_rule_returns_OK_response-1715358879\",\"enabled\":true,\"name\":\"Test-Delete_a_suppression_rule_returns_OK_response-1715358879\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\"},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"kpz-5gs-wn9\",\"attributes\":{\"name\":\"Test-Delete_a_suppression_rule_returns_OK_response-1704967585\",\"enabled\":true,\"description\":\"Test-Delete_a_suppression_rule_returns_OK_response-1704967585\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"version\":1,\"creation_date\":1704967585721,\"update_date\":1704967585721,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "body": "{\"data\":{\"id\":\"csf-zrg-af0\",\"attributes\":{\"name\":\"Test-Delete_a_suppression_rule_returns_OK_response-1715358879\",\"enabled\":true,\"description\":\"Test-Delete_a_suppression_rule_returns_OK_response-1715358879\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"data_exclusion_query\":\"\",\"version\":1,\"creation_date\":1715358880145,\"update_date\":1715358880145,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "67d17587-b926-87a3-7117-5bb755783f0e"
+    "id": "e6655e94-cb79-3ce1-4e5d-1729209d0834"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/kpz-5gs-wn9",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/csf-zrg-af0",
       "keepAlive": false,
       "secure": true
     },
@@ -52,18 +52,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2dec4e65-e244-383b-2424-df11c9a52971"
+    "id": "ae7f3023-a499-f541-5094-584fbf12c187"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/kpz-5gs-wn9",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/csf-zrg-af0",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Suppression with ID kpz-5gs-wn9 not found)\"]}\n",
+      "body": "{\"errors\":[\"not_found(Suppression with ID csf-zrg-af0 not found)\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2dec4e65-e244-383b-2424-df11c9a52972"
+    "id": "ae7f3023-a499-f541-5094-584fbf12c188"
   }
 ]

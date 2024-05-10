@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1666186606\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1666186606\"},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1715358890\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1715358890\"},\"type\":\"security_filters\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1666186606\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1666186606\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"dtb-n4z-x9c\"}}\n",
+      "body": "{\"data\":{\"id\":\"kk9-x1s-rgi\",\"attributes\":{\"version\":1,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1715358890\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1715358890\",\"is_enabled\":true,\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_builtin\":false},\"type\":\"security_filters\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "63ecaf97-56ea-4340-049e-2245a3ad0ab7"
+    "id": "7ed1396d-5ee7-a002-ac87-50c070a91eec"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1666186606\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1666186606\",\"version\":1},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1715358890\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1715358890\",\"version\":1},\"type\":\"security_filters\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/dtb-n4z-x9c",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/kk9-x1s-rgi",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1666186606\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[],\"version\":2,\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1666186606\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"dtb-n4z-x9c\"}}\n",
+      "body": "{\"data\":{\"id\":\"kk9-x1s-rgi\",\"attributes\":{\"version\":2,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1715358890\",\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1715358890\",\"is_enabled\":true,\"exclusion_filters\":[],\"filtered_data_type\":\"logs\",\"is_builtin\":false},\"type\":\"security_filters\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "14ae84ce-0409-a7f4-2479-52195db20b4e"
+    "id": "469495f4-3c81-d097-0eab-76440e941da1"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/dtb-n4z-x9c",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/kk9-x1s-rgi",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "17baa54a-ec50-6648-df06-0d8c196c1a3c"
+    "id": "640736d7-3178-4e20-7918-5b2bcacbc484"
   }
 ]

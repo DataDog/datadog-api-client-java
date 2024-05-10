@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"notifications\":[\"channel\"],\"status\":\"info\"}],\"complianceSignalOptions\":{\"userActivationStatus\":true,\"userGroupByFields\":[\"@account_id\"]},\"isEnabled\":false,\"message\":\"Cloud configuration rule\",\"name\":\"Test-Get_a_cloud_configuration_rule_s_details_returns_OK_response-1693483107_cloud\",\"options\":{\"complianceRuleOptions\":{\"complexRule\":false,\"regoRule\":{\"policy\":\"package datadog\\n\\nimport data.datadog.output as dd_output\\n\\nimport future.keywords.contains\\nimport future.keywords.if\\nimport future.keywords.in\\n\\nmilliseconds_in_a_day := ((1000 * 60) * 60) * 24\\n\\neval(iam_service_account_key) = \\\"skip\\\" if {\\n\\tiam_service_account_key.disabled\\n} else = \\\"pass\\\" if {\\n\\t(iam_service_account_key.resource_seen_at / milliseconds_in_a_day) - (iam_service_account_key.valid_after_time / milliseconds_in_a_day) <= 90\\n} else = \\\"fail\\\"\\n\\n# This part remains unchanged for all rules\\nresults contains result if {\\n\\tsome resource in input.resources[input.main_resource_type]\\n\\tresult := dd_output.format(resource, eval(resource))\\n}\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"resourceType\":\"gcp_compute_disk\"}},\"tags\":[\"a:tag\"],\"type\":\"cloud_configuration\"}"
+        "json": "{\"cases\":[{\"notifications\":[\"channel\"],\"status\":\"info\"}],\"complianceSignalOptions\":{\"userActivationStatus\":true,\"userGroupByFields\":[\"@account_id\"]},\"isEnabled\":false,\"message\":\"Cloud configuration rule\",\"name\":\"Test-Get_a_cloud_configuration_rule_s_details_returns_OK_response-1715358882_cloud\",\"options\":{\"complianceRuleOptions\":{\"complexRule\":false,\"regoRule\":{\"policy\":\"package datadog\\n\\nimport data.datadog.output as dd_output\\n\\nimport future.keywords.contains\\nimport future.keywords.if\\nimport future.keywords.in\\n\\nmilliseconds_in_a_day := ((1000 * 60) * 60) * 24\\n\\neval(iam_service_account_key) = \\\"skip\\\" if {\\n\\tiam_service_account_key.disabled\\n} else = \\\"pass\\\" if {\\n\\t(iam_service_account_key.resource_seen_at / milliseconds_in_a_day) - (iam_service_account_key.valid_after_time / milliseconds_in_a_day) <= 90\\n} else = \\\"fail\\\"\\n\\n# This part remains unchanged for all rules\\nresults contains result if {\\n\\tsome resource in input.resources[input.main_resource_type]\\n\\tresult := dd_output.format(resource, eval(resource))\\n}\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"resourceType\":\"gcp_compute_disk\"}},\"tags\":[\"a:tag\"],\"type\":\"cloud_configuration\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"ijx-ftp-oew\",\"version\":1,\"name\":\"Test-Get_a_cloud_configuration_rule_s_details_returns_OK_response-1693483107_cloud\",\"createdAt\":1693483108023,\"creationAuthorId\":1445416,\"isDefault\":false,\"isEnabled\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"resource_type:gcp_compute_disk\",\"groupByFields\":[\"resource_type\",\"resource_id\"],\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"a\"}],\"options\":{\"keepAlive\":21600,\"maxSignalDuration\":86400,\"detectionMethod\":\"threshold\",\"evaluationWindow\":7200,\"complianceRuleOptions\":{\"resourceType\":\"gcp_compute_disk\",\"regoRule\":{\"policy\":\"package datadog\\n\\nimport data.datadog.output as dd_output\\n\\nimport future.keywords.contains\\nimport future.keywords.if\\nimport future.keywords.in\\n\\nmilliseconds_in_a_day := ((1000 * 60) * 60) * 24\\n\\neval(iam_service_account_key) = \\\"skip\\\" if {\\n\\tiam_service_account_key.disabled\\n} else = \\\"pass\\\" if {\\n\\t(iam_service_account_key.resource_seen_at / milliseconds_in_a_day) - (iam_service_account_key.valid_after_time / milliseconds_in_a_day) <= 90\\n} else = \\\"fail\\\"\\n\\n# This part remains unchanged for all rules\\nresults contains result if {\\n\\tsome resource in input.resources[input.main_resource_type]\\n\\tresult := dd_output.format(resource, eval(resource))\\n}\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"complexRule\":false}},\"complianceSignalOptions\":{\"defaultActivationStatus\":null,\"defaultGroupByFields\":null,\"userActivationStatus\":true,\"userGroupByFields\":[\"@account_id\"]},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[\"channel\"],\"condition\":\"a > 0\"}],\"message\":\"Cloud configuration rule\",\"tags\":[\"a:tag\"],\"hasExtendedTitle\":true,\"type\":\"cloud_configuration\",\"filters\":[]}\n",
+      "body": "{\"id\":\"y8m-i7k-y9h\",\"version\":1,\"name\":\"Test-Get_a_cloud_configuration_rule_s_details_returns_OK_response-1715358882_cloud\",\"createdAt\":1715358882351,\"creationAuthorId\":1445416,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"resource_type:gcp_compute_disk\",\"groupByFields\":[\"resource_type\",\"resource_id\"],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"a\"}],\"options\":{\"keepAlive\":21600,\"maxSignalDuration\":86400,\"detectionMethod\":\"threshold\",\"evaluationWindow\":7200,\"complianceRuleOptions\":{\"resourceType\":\"gcp_compute_disk\",\"regoRule\":{\"policy\":\"package datadog\\n\\nimport data.datadog.output as dd_output\\n\\nimport future.keywords.contains\\nimport future.keywords.if\\nimport future.keywords.in\\n\\nmilliseconds_in_a_day := ((1000 * 60) * 60) * 24\\n\\neval(iam_service_account_key) = \\\"skip\\\" if {\\n\\tiam_service_account_key.disabled\\n} else = \\\"pass\\\" if {\\n\\t(iam_service_account_key.resource_seen_at / milliseconds_in_a_day) - (iam_service_account_key.valid_after_time / milliseconds_in_a_day) <= 90\\n} else = \\\"fail\\\"\\n\\n# This part remains unchanged for all rules\\nresults contains result if {\\n\\tsome resource in input.resources[input.main_resource_type]\\n\\tresult := dd_output.format(resource, eval(resource))\\n}\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"complexRule\":false}},\"complianceSignalOptions\":{\"defaultActivationStatus\":null,\"defaultGroupByFields\":null,\"userActivationStatus\":true,\"userGroupByFields\":[\"@account_id\"]},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[\"channel\"],\"condition\":\"a > 0\"}],\"message\":\"Cloud configuration rule\",\"tags\":[\"a:tag\"],\"hasExtendedTitle\":true,\"type\":\"cloud_configuration\",\"filters\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "80ec0256-dd34-74a0-6b72-087220585cd4"
+    "id": "e7151a88-8f6d-f0fc-fea0-6b9f76e24125"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security_monitoring/rules/ijx-ftp-oew",
+      "path": "/api/v2/security_monitoring/rules/y8m-i7k-y9h",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"ijx-ftp-oew\",\"version\":1,\"name\":\"Test-Get_a_cloud_configuration_rule_s_details_returns_OK_response-1693483107_cloud\",\"createdAt\":1693483108023,\"creationAuthorId\":1445416,\"isDefault\":false,\"isEnabled\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"resource_type:gcp_compute_disk\",\"groupByFields\":[\"resource_type\",\"resource_id\"],\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"a\"}],\"options\":{\"keepAlive\":21600,\"maxSignalDuration\":86400,\"detectionMethod\":\"threshold\",\"evaluationWindow\":7200,\"complianceRuleOptions\":{\"resourceType\":\"gcp_compute_disk\",\"regoRule\":{\"policy\":\"package datadog\\n\\nimport data.datadog.output as dd_output\\n\\nimport future.keywords.contains\\nimport future.keywords.if\\nimport future.keywords.in\\n\\nmilliseconds_in_a_day := ((1000 * 60) * 60) * 24\\n\\neval(iam_service_account_key) = \\\"skip\\\" if {\\n\\tiam_service_account_key.disabled\\n} else = \\\"pass\\\" if {\\n\\t(iam_service_account_key.resource_seen_at / milliseconds_in_a_day) - (iam_service_account_key.valid_after_time / milliseconds_in_a_day) <= 90\\n} else = \\\"fail\\\"\\n\\n# This part remains unchanged for all rules\\nresults contains result if {\\n\\tsome resource in input.resources[input.main_resource_type]\\n\\tresult := dd_output.format(resource, eval(resource))\\n}\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"complexRule\":false}},\"complianceSignalOptions\":{\"defaultActivationStatus\":null,\"defaultGroupByFields\":null,\"userActivationStatus\":true,\"userGroupByFields\":[\"@account_id\"]},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[\"channel\"],\"condition\":\"a > 0\"}],\"message\":\"Cloud configuration rule\",\"tags\":[\"a:tag\"],\"hasExtendedTitle\":true,\"type\":\"cloud_configuration\",\"filters\":[]}\n",
+      "body": "{\"id\":\"y8m-i7k-y9h\",\"version\":1,\"name\":\"Test-Get_a_cloud_configuration_rule_s_details_returns_OK_response-1715358882_cloud\",\"createdAt\":1715358882351,\"creationAuthorId\":1445416,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"resource_type:gcp_compute_disk\",\"groupByFields\":[\"resource_type\",\"resource_id\"],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"a\"}],\"options\":{\"keepAlive\":21600,\"maxSignalDuration\":86400,\"detectionMethod\":\"threshold\",\"evaluationWindow\":7200,\"complianceRuleOptions\":{\"resourceType\":\"gcp_compute_disk\",\"regoRule\":{\"policy\":\"package datadog\\n\\nimport data.datadog.output as dd_output\\n\\nimport future.keywords.contains\\nimport future.keywords.if\\nimport future.keywords.in\\n\\nmilliseconds_in_a_day := ((1000 * 60) * 60) * 24\\n\\neval(iam_service_account_key) = \\\"skip\\\" if {\\n\\tiam_service_account_key.disabled\\n} else = \\\"pass\\\" if {\\n\\t(iam_service_account_key.resource_seen_at / milliseconds_in_a_day) - (iam_service_account_key.valid_after_time / milliseconds_in_a_day) <= 90\\n} else = \\\"fail\\\"\\n\\n# This part remains unchanged for all rules\\nresults contains result if {\\n\\tsome resource in input.resources[input.main_resource_type]\\n\\tresult := dd_output.format(resource, eval(resource))\\n}\\n\",\"resourceTypes\":[\"gcp_compute_disk\"]},\"complexRule\":false}},\"complianceSignalOptions\":{\"defaultActivationStatus\":null,\"defaultGroupByFields\":null,\"userActivationStatus\":true,\"userGroupByFields\":[\"@account_id\"]},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[\"channel\"],\"condition\":\"a > 0\"}],\"message\":\"Cloud configuration rule\",\"tags\":[\"a:tag\"],\"hasExtendedTitle\":true,\"type\":\"cloud_configuration\",\"filters\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1071b162-ce9a-83c1-ee11-5b71c2d866f3"
+    "id": "6f00c426-1350-43b5-213e-1059d4e89b11"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/ijx-ftp-oew",
+      "path": "/api/v2/security_monitoring/rules/y8m-i7k-y9h",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "67888de6-56bb-d12f-decd-7b86ea230413"
+    "id": "ea4ba802-6808-5d9b-fb53-044a16fcb0d5"
   }
 ]

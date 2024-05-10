@@ -24,6 +24,7 @@ import java.util.Objects;
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_DEFAULT_TAGS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_DEPRECATION_DATE,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_FILTERS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_HAS_EXTENDED_TITLE,
@@ -56,6 +57,9 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public static final String JSON_PROPERTY_CREATION_AUTHOR_ID = "creationAuthorId";
   private Long creationAuthorId;
+
+  public static final String JSON_PROPERTY_DEFAULT_TAGS = "defaultTags";
+  private List<String> defaultTags = null;
 
   public static final String JSON_PROPERTY_DEPRECATION_DATE = "deprecationDate";
   private Long deprecationDate;
@@ -202,6 +206,35 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setCreationAuthorId(Long creationAuthorId) {
     this.creationAuthorId = creationAuthorId;
+  }
+
+  public SecurityMonitoringStandardRuleResponse defaultTags(List<String> defaultTags) {
+    this.defaultTags = defaultTags;
+    return this;
+  }
+
+  public SecurityMonitoringStandardRuleResponse addDefaultTagsItem(String defaultTagsItem) {
+    if (this.defaultTags == null) {
+      this.defaultTags = new ArrayList<>();
+    }
+    this.defaultTags.add(defaultTagsItem);
+    return this;
+  }
+
+  /**
+   * Default Tags for default rules (included in tags)
+   *
+   * @return defaultTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDefaultTags() {
+    return defaultTags;
+  }
+
+  public void setDefaultTags(List<String> defaultTags) {
+    this.defaultTags = defaultTags;
   }
 
   public SecurityMonitoringStandardRuleResponse deprecationDate(Long deprecationDate) {
@@ -659,6 +692,7 @@ public class SecurityMonitoringStandardRuleResponse {
         && Objects.equals(this.createdAt, securityMonitoringStandardRuleResponse.createdAt)
         && Objects.equals(
             this.creationAuthorId, securityMonitoringStandardRuleResponse.creationAuthorId)
+        && Objects.equals(this.defaultTags, securityMonitoringStandardRuleResponse.defaultTags)
         && Objects.equals(
             this.deprecationDate, securityMonitoringStandardRuleResponse.deprecationDate)
         && Objects.equals(this.filters, securityMonitoringStandardRuleResponse.filters)
@@ -690,6 +724,7 @@ public class SecurityMonitoringStandardRuleResponse {
         complianceSignalOptions,
         createdAt,
         creationAuthorId,
+        defaultTags,
         deprecationDate,
         filters,
         hasExtendedTitle,
@@ -719,6 +754,7 @@ public class SecurityMonitoringStandardRuleResponse {
         .append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
+    sb.append("    defaultTags: ").append(toIndentedString(defaultTags)).append("\n");
     sb.append("    deprecationDate: ").append(toIndentedString(deprecationDate)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
