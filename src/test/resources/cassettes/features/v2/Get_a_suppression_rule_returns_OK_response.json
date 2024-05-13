@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Get_a_suppression_rule_returns_OK_response-1712570251\",\"enabled\":true,\"name\":\"Test-Get_a_suppression_rule_returns_OK_response-1712570251\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\"},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Get_a_suppression_rule_returns_OK_response-1715358886\",\"enabled\":true,\"name\":\"Test-Get_a_suppression_rule_returns_OK_response-1715358886\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\"},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"zrh-zwa-bgu\",\"attributes\":{\"name\":\"Test-Get_a_suppression_rule_returns_OK_response-1712570251\",\"enabled\":true,\"description\":\"Test-Get_a_suppression_rule_returns_OK_response-1712570251\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"log_exclusion_query\":\"\",\"data_exclusion_query\":\"\",\"version\":1,\"creation_date\":1712570252683,\"update_date\":1712570252683,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "body": "{\"data\":{\"id\":\"ol3-0o2-rrp\",\"attributes\":{\"name\":\"Test-Get_a_suppression_rule_returns_OK_response-1715358886\",\"enabled\":true,\"description\":\"Test-Get_a_suppression_rule_returns_OK_response-1715358886\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"data_exclusion_query\":\"\",\"version\":1,\"creation_date\":1715358886671,\"update_date\":1715358886671,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "70e7f137-fe19-0c5a-29b7-0b2c57525341"
+    "id": "28945bff-c71e-12fa-a466-d32c8d968f4f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/zrh-zwa-bgu",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/ol3-0o2-rrp",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"zrh-zwa-bgu\",\"attributes\":{\"name\":\"Test-Get_a_suppression_rule_returns_OK_response-1712570251\",\"enabled\":true,\"description\":\"Test-Get_a_suppression_rule_returns_OK_response-1712570251\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"log_exclusion_query\":\"\",\"data_exclusion_query\":\"\",\"version\":1,\"creation_date\":1712570252683,\"update_date\":1712570252683,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "body": "{\"data\":{\"id\":\"ol3-0o2-rrp\",\"attributes\":{\"name\":\"Test-Get_a_suppression_rule_returns_OK_response-1715358886\",\"enabled\":true,\"description\":\"Test-Get_a_suppression_rule_returns_OK_response-1715358886\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"data_exclusion_query\":\"\",\"version\":1,\"creation_date\":1715358886671,\"update_date\":1715358886671,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c16b2d81-6d76-c171-a4df-4c49a64dffa0"
+    "id": "91fa7f69-bb6b-48bb-85f0-1b00a1303869"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/zrh-zwa-bgu",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/ol3-0o2-rrp",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3146ff65-246e-3b67-bf0c-c41e1d553817"
+    "id": "d74f3ada-6384-c5d6-3983-a320dda332ea"
   }
 ]

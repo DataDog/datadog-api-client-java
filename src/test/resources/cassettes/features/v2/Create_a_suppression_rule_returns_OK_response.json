@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"enabled\":true,\"expiration_date\":1703187336000,\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1712570218\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"suppression_query\":\"env:staging status:low\"},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"enabled\":true,\"expiration_date\":1703187336000,\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1715358875\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"suppression_query\":\"env:staging status:low\"},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"mu8-qje-pys\",\"attributes\":{\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1712570218\",\"enabled\":true,\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"suppression_query\":\"env:staging status:low\",\"log_exclusion_query\":\"\",\"data_exclusion_query\":\"\",\"expiration_date\":1703187336000,\"version\":1,\"creation_date\":1712570219298,\"update_date\":1712570219298,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "body": "{\"data\":{\"id\":\"lzo-uda-vpz\",\"attributes\":{\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1715358875\",\"enabled\":true,\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"suppression_query\":\"env:staging status:low\",\"data_exclusion_query\":\"\",\"expiration_date\":1703187336000,\"version\":1,\"creation_date\":1715358876178,\"update_date\":1715358876178,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a9dfe349-62b8-7652-2695-8539d321adc0"
+    "id": "9c96081c-2012-7baf-3f28-1bec0d5d7ad4"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/mu8-qje-pys",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/lzo-uda-vpz",
       "keepAlive": false,
       "secure": true
     },
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4a92fd5b-a337-ac23-47c5-74b1bfdf06e6"
+    "id": "97c1f919-798f-3021-dc56-2eaae1eb5dd6"
   }
 ]
