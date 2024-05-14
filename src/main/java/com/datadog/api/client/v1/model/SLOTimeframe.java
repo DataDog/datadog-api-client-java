@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The SLO time window options. */
+/**
+ * The SLO time window options. Note that "custom" is not a valid option for creating or updating
+ * SLOs. It is only used when querying SLO history over custom timeframes.
+ */
 @JsonSerialize(using = SLOTimeframe.SLOTimeframeSerializer.class)
 public class SLOTimeframe extends ModelEnum<String> {
 
