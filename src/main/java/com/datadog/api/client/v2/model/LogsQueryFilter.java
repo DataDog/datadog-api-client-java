@@ -125,7 +125,7 @@ public class LogsQueryFilter {
   }
 
   /**
-   * Specifies storage type as indexes or online-archives
+   * Specifies storage type as indexes, online-archives or flex
    *
    * @return storageTier
    */
