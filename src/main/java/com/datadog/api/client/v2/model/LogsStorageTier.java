@@ -18,15 +18,16 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Specifies storage type as indexes or online-archives */
+/** Specifies storage type as indexes, online-archives or flex */
 @JsonSerialize(using = LogsStorageTier.LogsStorageTierSerializer.class)
 public class LogsStorageTier extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("indexes", "online-archives"));
+      new HashSet<String>(Arrays.asList("indexes", "online-archives", "flex"));
 
   public static final LogsStorageTier INDEXES = new LogsStorageTier("indexes");
   public static final LogsStorageTier ONLINE_ARCHIVES = new LogsStorageTier("online-archives");
+  public static final LogsStorageTier FLEX = new LogsStorageTier("flex");
 
   LogsStorageTier(String value) {
     super(value, allowedValues);
