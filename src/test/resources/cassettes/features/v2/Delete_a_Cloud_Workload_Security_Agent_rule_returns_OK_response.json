@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testdeleteacloudworkloadsecurityagentrulereturnsokresponse1713895066\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testdeleteacloudworkloadsecurityagentrulereturnsokresponse1709907547\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"tlm-pl7-gkc\",\"attributes\":{\"version\":1,\"name\":\"testdeleteacloudworkloadsecurityagentrulereturnsokresponse1713895066\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1713895066982,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1713895066982,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"bo0-5k6-vtc\",\"attributes\":{\"version\":1,\"name\":\"testdeleteacloudworkloadsecurityagentrulereturnsokresponse1709907547\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"creationDate\":1709907548216,\"updateAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"updateDate\":1709907548216,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"},\"updater\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "087495b2-e3d1-1cf3-1508-673688587283"
+    "id": "fc5ac68c-e2a2-29f2-0648-474e9f1bb6b6"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/tlm-pl7-gkc",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/bo0-5k6-vtc",
       "keepAlive": false,
       "secure": true
     },
@@ -48,18 +48,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dd833ed5-9624-1df6-1aa3-168cd6bc26d6"
+    "id": "34ad6efe-9951-5a38-2b03-b6ed479f71b7"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/tlm-pl7-gkc",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/bo0-5k6-vtc",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Agent rule not found: agentRuleId=tlm-pl7-gkc)\"]}\n",
+      "body": "{\"errors\":[\"not_found(Agent rule not found: agentRuleId=bo0-5k6-vtc)\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dd833ed5-9624-1df6-1aa3-168cd6bc26d7"
+    "id": "34ad6efe-9951-5a38-2b03-b6ed479f71b8"
   }
 ]

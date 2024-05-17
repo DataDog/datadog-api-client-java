@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1713895068\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1709907551\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ei4-rq6-ept\",\"attributes\":{\"version\":1,\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1713895068\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1713895068731,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1713895068731,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"ynn-umb-rss\",\"attributes\":{\"version\":1,\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1709907551\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"creationDate\":1709907552061,\"updateAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"updateDate\":1709907552061,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"},\"updater\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0dec293b-85d2-10dd-119f-35f568a5273f"
+    "id": "d3c5890e-e7f5-56a4-8199-87a28329b7cc"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ei4-rq6-ept",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ynn-umb-rss",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ei4-rq6-ept\",\"attributes\":{\"version\":1,\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1713895068\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1713895068731,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1713895068731,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"ynn-umb-rss\",\"attributes\":{\"version\":1,\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1709907551\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"creationDate\":1709907552061,\"updateAuthorUuId\":\"cc32ddea-b5e4-11ec-93be-da7ad0900002\",\"updateDate\":1709907552061,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"},\"updater\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e9d2fdc2-1ea8-86bd-462b-96d289388521"
+    "id": "0021bb7d-28d9-90f3-e05f-1f215de72a90"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ei4-rq6-ept",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ynn-umb-rss",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "86492460-d3e5-7501-1f32-18113b23cd8e"
+    "id": "e31f7420-d376-8226-56db-42842025ce16"
   }
 ]
