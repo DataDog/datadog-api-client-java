@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"data_exclusion_query\":\"account_id:12345\",\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"enabled\":true,\"expiration_date\":1703187336000,\"name\":\"Test-Create_a_suppression_rule_with_an_exclusion_query_returns_OK_response-1715358876\",\"rule_query\":\"type:log_detection source:cloudtrail\"},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"data_exclusion_query\":\"account_id:12345\",\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"enabled\":true,\"expiration_date\":1718039232000,\"name\":\"Test-Create_a_suppression_rule_with_an_exclusion_query_returns_OK_response-1716224832\",\"rule_query\":\"type:log_detection source:cloudtrail\"},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ted-g18-ebn\",\"attributes\":{\"name\":\"Test-Create_a_suppression_rule_with_an_exclusion_query_returns_OK_response-1715358876\",\"enabled\":true,\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"suppression_query\":\"\",\"data_exclusion_query\":\"account_id:12345\",\"expiration_date\":1703187336000,\"version\":1,\"creation_date\":1715358876924,\"update_date\":1715358876924,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "body": "{\"data\":{\"id\":\"i9m-nqb-ets\",\"attributes\":{\"name\":\"Test-Create_a_suppression_rule_with_an_exclusion_query_returns_OK_response-1716224832\",\"enabled\":true,\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"suppression_query\":\"\",\"data_exclusion_query\":\"account_id:12345\",\"expiration_date\":1718039232000,\"version\":1,\"creation_date\":1716224832354,\"update_date\":1716224832355,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "fb714a19-bad8-74d1-e479-5f572c6840e1"
+    "id": "297112e6-457f-d059-13f3-dea87bc09b1f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/ted-g18-ebn",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/i9m-nqb-ets",
       "keepAlive": false,
       "secure": true
     },
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1c15c4e6-a7a5-efed-6118-8e7a711bf9a2"
+    "id": "634e6e91-f885-024b-6ea2-4fe399feb9ff"
   }
 ]
