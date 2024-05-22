@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 2.25.0 / 2024-05-22
+
+### Fixed
+* fix case search documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2266
+### Added
+* Add support variablesFromScript in Synthetics API test by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2268
+* Add JSONSchema assertion support to API and multistep tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2246
+* add 1 day logs to usage api docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2272
+* Update UserTeamIncluded to include teams by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2277
+* Security Monitoring - Make Default Tags available in the response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2285
+* Add flex logs storage tier by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2287
+### Changed
+* Rename the Cloud Workload Security tag to CSM Threats by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2276
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.24.0...datadog-api-client-2.25.0
+
 ## 2.24.0 / 2024-04-11
 
 ### Fixed
