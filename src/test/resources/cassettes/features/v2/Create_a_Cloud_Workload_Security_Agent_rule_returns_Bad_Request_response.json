@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"open.file.path = sh\",\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1709907543\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"open.file.path = sh\",\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1713895065\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1709907543` error: syntax error `1:18: unexpected token \\\"sh\\\" (expected \\\"~\\\")`)\"]}\n",
+      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1713895065` error: syntax error `1:18: unexpected token \\\"sh\\\" (expected \\\"~\\\")`)\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "34074785-1736-a6a3-c615-650548863cf1"
+    "id": "8994593c-4c97-8535-429f-f708d2b005d5"
   }
 ]
