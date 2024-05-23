@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testcreateacsmthreatsagentrulereturnsokresponse1713895064\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"name\":\"testcreateacsmthreatsagentrulereturnsokresponse1716394942\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"922-a60-32v\",\"type\":\"agent_rule\",\"attributes\":{\"category\":\"Process Activity\",\"creationDate\":1713895064438,\"creator\":{\"name\":\"\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"name\":\"testcreateacsmthreatsagentrulereturnsokresponse1713895064\",\"updateDate\":1713895064438,\"updater\":{\"name\":\"\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"pn4-mo8-u5r\",\"type\":\"agent_rule\",\"attributes\":{\"category\":\"Process Activity\",\"creationDate\":1716394942614,\"creator\":{\"name\":\"\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"name\":\"testcreateacsmthreatsagentrulereturnsokresponse1716394942\",\"updateDate\":1716394942614,\"updater\":{\"name\":\"\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c356160d-7a03-f82b-66c8-13b9e60abf9b"
+    "id": "cb586cad-63a8-674d-5f80-7a5bffb9811b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/922-a60-32v",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/pn4-mo8-u5r",
       "keepAlive": false,
       "secure": true
     },
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "766fe110-3c70-d9fe-fa14-dcb49ef1b655"
+    "id": "af4f504c-a69c-e094-030e-fe1c443177fa"
   }
 ]
