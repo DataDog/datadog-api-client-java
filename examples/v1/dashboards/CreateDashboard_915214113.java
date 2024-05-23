@@ -14,6 +14,7 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryGroupBySort;
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventsDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
+import com.datadog.api.client.v1.model.FormulaType;
 import com.datadog.api.client.v1.model.GeomapWidgetDefinition;
 import com.datadog.api.client.v1.model.GeomapWidgetDefinitionStyle;
 import com.datadog.api.client.v1.model.GeomapWidgetDefinitionType;
@@ -23,8 +24,11 @@ import com.datadog.api.client.v1.model.QuerySortOrder;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetFormula;
-import com.datadog.api.client.v1.model.WidgetFormulaLimit;
+import com.datadog.api.client.v1.model.WidgetFormulaSort;
 import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetSort;
+import com.datadog.api.client.v1.model.WidgetSortBy;
+import com.datadog.api.client.v1.model.WidgetSortOrderBy;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import com.datadog.api.client.v1.model.WidgetTime;
 import java.util.Collections;
@@ -55,12 +59,7 @@ public class Example {
                                             new GeomapWidgetRequest()
                                                 .formulas(
                                                     Collections.singletonList(
-                                                        new WidgetFormula()
-                                                            .formula("query1")
-                                                            .limit(
-                                                                new WidgetFormulaLimit()
-                                                                    .count(250L)
-                                                                    .order(QuerySortOrder.DESC))))
+                                                        new WidgetFormula().formula("query1")))
                                                 .queries(
                                                     Collections.singletonList(
                                                         new FormulaAndFunctionQueryDefinition(
@@ -93,6 +92,18 @@ public class Example {
                                                                                     .aggregation(
                                                                                         FormulaAndFunctionEventAggregation
                                                                                             .COUNT)))))))
+                                                .sort(
+                                                    new WidgetSortBy()
+                                                        .count(250L)
+                                                        .orderBy(
+                                                            Collections.singletonList(
+                                                                new WidgetSortOrderBy(
+                                                                    new WidgetFormulaSort()
+                                                                        .type(FormulaType.FORMULA)
+                                                                        .index(0L)
+                                                                        .order(
+                                                                            WidgetSort
+                                                                                .DESCENDING)))))
                                                 .responseFormat(
                                                     FormulaAndFunctionResponseFormat.SCALAR)))
                                     .style(

@@ -1,4 +1,4 @@
-// Create a new dashboard with toplist widget
+// Create a new dashboard with a toplist widget sorted by group
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -10,7 +10,7 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionMetricDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
-import com.datadog.api.client.v1.model.FormulaType;
+import com.datadog.api.client.v1.model.GroupType;
 import com.datadog.api.client.v1.model.ToplistWidgetDefinition;
 import com.datadog.api.client.v1.model.ToplistWidgetDefinitionType;
 import com.datadog.api.client.v1.model.ToplistWidgetDisplay;
@@ -23,7 +23,7 @@ import com.datadog.api.client.v1.model.ToplistWidgetStyle;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetFormula;
-import com.datadog.api.client.v1.model.WidgetFormulaSort;
+import com.datadog.api.client.v1.model.WidgetGroupSort;
 import com.datadog.api.client.v1.model.WidgetLayout;
 import com.datadog.api.client.v1.model.WidgetSort;
 import com.datadog.api.client.v1.model.WidgetSortBy;
@@ -87,12 +87,12 @@ public class Example {
                                                         .orderBy(
                                                             Collections.singletonList(
                                                                 new WidgetSortOrderBy(
-                                                                    new WidgetFormulaSort()
-                                                                        .type(FormulaType.FORMULA)
-                                                                        .index(0L)
+                                                                    new WidgetGroupSort()
+                                                                        .type(GroupType.GROUP)
+                                                                        .name("service")
                                                                         .order(
                                                                             WidgetSort
-                                                                                .DESCENDING)))))
+                                                                                .ASCENDING)))))
                                                 .responseFormat(
                                                     FormulaAndFunctionResponseFormat.SCALAR)))))))
             .layoutType(DashboardLayoutType.FREE)

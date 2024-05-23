@@ -10,7 +10,7 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionMetricDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionMetricQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
-import com.datadog.api.client.v1.model.QuerySortOrder;
+import com.datadog.api.client.v1.model.FormulaType;
 import com.datadog.api.client.v1.model.TableWidgetCellDisplayMode;
 import com.datadog.api.client.v1.model.TableWidgetDefinition;
 import com.datadog.api.client.v1.model.TableWidgetDefinitionType;
@@ -19,8 +19,11 @@ import com.datadog.api.client.v1.model.TableWidgetRequest;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetFormula;
-import com.datadog.api.client.v1.model.WidgetFormulaLimit;
+import com.datadog.api.client.v1.model.WidgetFormulaSort;
 import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetSort;
+import com.datadog.api.client.v1.model.WidgetSortBy;
+import com.datadog.api.client.v1.model.WidgetSortOrderBy;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import com.datadog.api.client.v1.model.WidgetTime;
 import java.util.Collections;
@@ -67,12 +70,20 @@ public class Example {
                                                     Collections.singletonList(
                                                         new WidgetFormula()
                                                             .formula("query1")
-                                                            .limit(
-                                                                new WidgetFormulaLimit()
-                                                                    .count(500L)
-                                                                    .order(QuerySortOrder.DESC))
                                                             .cellDisplayMode(
                                                                 TableWidgetCellDisplayMode.BAR)))
+                                                .sort(
+                                                    new WidgetSortBy()
+                                                        .count(500L)
+                                                        .orderBy(
+                                                            Collections.singletonList(
+                                                                new WidgetSortOrderBy(
+                                                                    new WidgetFormulaSort()
+                                                                        .type(FormulaType.FORMULA)
+                                                                        .index(0L)
+                                                                        .order(
+                                                                            WidgetSort
+                                                                                .DESCENDING)))))
                                                 .responseFormat(
                                                     FormulaAndFunctionResponseFormat.SCALAR)))
                                     .hasSearchBar(TableWidgetHasSearchBar.AUTO)))))
