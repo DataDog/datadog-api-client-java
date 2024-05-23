@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateData;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateRequest;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleType;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -25,6 +26,9 @@ public class Example {
                             .expression("""
 exec.file.name == "sh"
 """)
+                            .filters(Collections.singletonList("""
+os == "linux"
+"""))
                             .name("examplecsmthreat"))
                     .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
 
