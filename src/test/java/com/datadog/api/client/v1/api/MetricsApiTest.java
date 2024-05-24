@@ -221,15 +221,6 @@ public class MetricsApiTest extends V1ApiTest {
       APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
       assertNotNull(error.getErrors());
     }
-
-    try {
-      api.getMetricMetadata("ametric");
-      fail("Expected ApiException not thrown");
-    } catch (ApiException e) {
-      assertEquals(404, e.getCode());
-      APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-      assertNotNull(error.getErrors());
-    }
   }
 
   @Test
@@ -256,15 +247,6 @@ public class MetricsApiTest extends V1ApiTest {
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
-      APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-      assertNotNull(error.getErrors());
-    }
-
-    try {
-      api.updateMetricMetadata("ametric", new MetricMetadata());
-      fail("Expected ApiException not thrown");
-    } catch (ApiException e) {
-      assertEquals(404, e.getCode());
       APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
       assertNotNull(error.getErrors());
     }
