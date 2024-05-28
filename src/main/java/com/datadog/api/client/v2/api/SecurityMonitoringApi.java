@@ -19,6 +19,8 @@ import com.datadog.api.client.v2.model.SecurityFiltersResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringListRulesResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestRequest;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleUpdatePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignal;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalAssigneeUpdateRequest;
@@ -3835,6 +3837,315 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSignalsListResponse>() {});
+  }
+
+  /**
+   * Test an existing rule.
+   *
+   * <p>See {@link #testExistingSecurityMonitoringRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param body (required)
+   * @return SecurityMonitoringRuleTestResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringRuleTestResponse testExistingSecurityMonitoringRule(
+      String ruleId, SecurityMonitoringRuleTestRequest body) throws ApiException {
+    return testExistingSecurityMonitoringRuleWithHttpInfo(ruleId, body).getData();
+  }
+
+  /**
+   * Test an existing rule.
+   *
+   * <p>See {@link #testExistingSecurityMonitoringRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleTestResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringRuleTestResponse>
+      testExistingSecurityMonitoringRuleAsync(
+          String ruleId, SecurityMonitoringRuleTestRequest body) {
+    return testExistingSecurityMonitoringRuleWithHttpInfoAsync(ruleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Test an existing rule.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleTestResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringRuleTestResponse>
+      testExistingSecurityMonitoringRuleWithHttpInfo(
+          String ruleId, SecurityMonitoringRuleTestRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " testExistingSecurityMonitoringRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling testExistingSecurityMonitoringRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/{rule_id}/test"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.testExistingSecurityMonitoringRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleTestResponse>() {});
+  }
+
+  /**
+   * Test an existing rule.
+   *
+   * <p>See {@link #testExistingSecurityMonitoringRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringRuleTestResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringRuleTestResponse>>
+      testExistingSecurityMonitoringRuleWithHttpInfoAsync(
+          String ruleId, SecurityMonitoringRuleTestRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " testExistingSecurityMonitoringRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " testExistingSecurityMonitoringRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/{rule_id}/test"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.testExistingSecurityMonitoringRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleTestResponse>() {});
+  }
+
+  /**
+   * Test a rule.
+   *
+   * <p>See {@link #testSecurityMonitoringRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringRuleTestResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringRuleTestResponse testSecurityMonitoringRule(
+      SecurityMonitoringRuleTestRequest body) throws ApiException {
+    return testSecurityMonitoringRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Test a rule.
+   *
+   * <p>See {@link #testSecurityMonitoringRuleWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleTestResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringRuleTestResponse> testSecurityMonitoringRuleAsync(
+      SecurityMonitoringRuleTestRequest body) {
+    return testSecurityMonitoringRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Test a rule.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleTestResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringRuleTestResponse> testSecurityMonitoringRuleWithHttpInfo(
+      SecurityMonitoringRuleTestRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling testSecurityMonitoringRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/rules/test";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.testSecurityMonitoringRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleTestResponse>() {});
+  }
+
+  /**
+   * Test a rule.
+   *
+   * <p>See {@link #testSecurityMonitoringRuleWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringRuleTestResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringRuleTestResponse>>
+      testSecurityMonitoringRuleWithHttpInfoAsync(SecurityMonitoringRuleTestRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling testSecurityMonitoringRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/rules/test";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.testSecurityMonitoringRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleTestResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleTestResponse>() {});
   }
 
   /**
