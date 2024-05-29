@@ -122,10 +122,9 @@ public class ApiManagementApi {
 
   /**
    * Create a new API from the <a href="https://spec.openapis.org/oas/latest.html">OpenAPI</a>
-   * specification given. It supports version <code>2.0</code>, <code>3.0</code> and <code>3.1
-   * </code> of the specification. A specific extension section, <code>x-datadog</code>, let you
-   * specify the <code>teamHandle</code> for your team responsible for the API in Datadog. It
-   * returns the created API ID.
+   * specification given. See the <a href="https://docs.datadoghq.com/api_catalog/add_metadata/">API
+   * Catalog documentation</a> for additional information about the possible metadata. It returns
+   * the created API ID.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CreateOpenAPIResponse&gt;
