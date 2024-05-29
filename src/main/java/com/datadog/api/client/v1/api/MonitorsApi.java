@@ -1364,12 +1364,12 @@ public class MonitorsApi {
     /**
      * Set query.
      *
-     * @param query After entering a search query in your <a
-     *     href="https://app.datadoghq.com/monitors/manage">Manage Monitor page</a> use the query
-     *     parameter value in the URL of the page as value for this parameter. Consult the dedicated
-     *     <a href="/monitors/manage/#find-the-monitors">manage monitor documentation</a> page to
-     *     learn more. The query can contain any number of space-separated monitor attributes, for
-     *     instance <code>query="type:metric status:alert"</code>. (optional)
+     * @param query After entering a search query on the <a
+     *     href="https://app.datadoghq.com/monitors/triggered">Triggered Monitors page</a>, use the
+     *     query parameter value in the URL of the page as a value for this parameter. For more
+     *     information, see the <a href="/monitors/manage/#triggered-monitors">Manage Monitors
+     *     documentation</a>. The query can contain any number of space-separated monitor
+     *     attributes, for instance: <code>query="type:metric group_status:alert"</code>. (optional)
      * @return SearchMonitorGroupsOptionalParameters
      */
     public SearchMonitorGroupsOptionalParameters query(String query) {
