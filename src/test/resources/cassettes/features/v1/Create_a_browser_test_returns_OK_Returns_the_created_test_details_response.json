@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"config\":{\"assertions\":[],\"configVariables\":[{\"example\":\"content-type\",\"name\":\"PROPERTY\",\"pattern\":\"content-type\",\"secure\":true,\"type\":\"text\"}],\"request\":{\"method\":\"GET\",\"url\":\"https://datadoghq.com\"},\"setCookie\":\"name:test\",\"variables\":[{\"example\":\"secret\",\"name\":\"TEST_VARIABLE\",\"pattern\":\"secret\",\"secure\":true,\"type\":\"text\"}]},\"locations\":[\"aws:us-east-2\"],\"message\":\"Test message\",\"name\":\"Test-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response-1706275301\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"device_ids\":[\"chrome.laptop_large\"],\"disableCors\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"noScreenshot\":true,\"retry\":{\"count\":2,\"interval\":10},\"tick_every\":300},\"steps\":[{\"allowFailure\":false,\"isCritical\":true,\"name\":\"Refresh page\",\"params\":{},\"type\":\"refresh\"}],\"tags\":[\"testing:browser\"],\"type\":\"browser\"}"
+        "json": "{\"config\":{\"assertions\":[],\"configVariables\":[{\"example\":\"content-type\",\"name\":\"PROPERTY\",\"pattern\":\"content-type\",\"secure\":true,\"type\":\"text\"}],\"request\":{\"method\":\"GET\",\"url\":\"https://datadoghq.com\"},\"setCookie\":\"name:test\",\"variables\":[{\"example\":\"secret\",\"name\":\"TEST_VARIABLE\",\"pattern\":\"secret\",\"secure\":true,\"type\":\"text\"}]},\"locations\":[\"aws:us-east-2\"],\"message\":\"Test message\",\"name\":\"Test-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response-1717062278\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"device_ids\":[\"chrome.laptop_large\"],\"disableCors\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"noScreenshot\":true,\"retry\":{\"count\":2,\"interval\":10},\"tick_every\":300},\"steps\":[{\"allowFailure\":false,\"isCritical\":true,\"name\":\"Refresh page\",\"params\":{},\"type\":\"refresh\"}],\"tags\":[\"testing:browser\"],\"type\":\"browser\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"public_id\":\"s58-re2-v8s\",\"name\":\"Test-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response-1706275301\",\"status\":\"paused\",\"type\":\"browser\",\"tags\":[\"testing:browser\"],\"created_at\":\"2024-01-26T13:21:42.472655+00:00\",\"modified_at\":\"2024-01-26T13:21:42.472655+00:00\",\"config\":{\"assertions\":[],\"configVariables\":[{\"name\":\"PROPERTY\",\"secure\":true,\"type\":\"text\"}],\"request\":{\"method\":\"GET\",\"url\":\"https://datadoghq.com\"},\"setCookie\":\"name:test\",\"variables\":[{\"name\":\"TEST_VARIABLE\",\"secure\":true,\"type\":\"text\"}]},\"message\":\"Test message\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"device_ids\":[\"chrome.laptop_large\"],\"disableCors\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"noScreenshot\":true,\"retry\":{\"count\":2,\"interval\":10},\"tick_every\":300},\"locations\":[\"aws:us-east-2\"],\"created_by\":{\"name\":\"Frog\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\"},\"deleted_at\":null,\"monitor_id\":138453230,\"org_id\":569509,\"modified_by\":{\"name\":\"Frog\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\"},\"steps\":[{\"name\":\"Refresh page\",\"params\":{},\"type\":\"refresh\",\"allowFailure\":false,\"isCritical\":true}],\"stepCount\":{\"assertions\":0,\"subtests\":0,\"total\":1}}",
+      "body": "{\"public_id\":\"2nm-wzt-f9i\",\"name\":\"Test-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response-1717062278\",\"status\":\"paused\",\"type\":\"browser\",\"tags\":[\"testing:browser\"],\"created_at\":\"2024-05-30T09:44:39.116271+00:00\",\"modified_at\":\"2024-05-30T09:44:39.116271+00:00\",\"config\":{\"assertions\":[],\"configVariables\":[{\"name\":\"PROPERTY\",\"secure\":true,\"type\":\"text\"}],\"request\":{\"method\":\"GET\",\"url\":\"https://datadoghq.com\"},\"setCookie\":\"name:test\",\"variables\":[{\"name\":\"TEST_VARIABLE\",\"secure\":true,\"type\":\"text\"}]},\"message\":\"Test message\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"device_ids\":[\"chrome.laptop_large\"],\"disableCors\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"noScreenshot\":true,\"retry\":{\"count\":2,\"interval\":10},\"tick_every\":300},\"locations\":[\"aws:us-east-2\"],\"created_by\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\"},\"deleted_at\":null,\"monitor_id\":145979782,\"org_id\":321813,\"modified_by\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\"},\"steps\":[{\"name\":\"Refresh page\",\"params\":{},\"type\":\"refresh\",\"allowFailure\":false,\"isCritical\":true}],\"stepCount\":{\"assertions\":0,\"subtests\":0,\"total\":1}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c1b50e9c-02c7-bb79-472a-72b227ed3688"
+    "id": "8c7c34b8-0b08-61eb-4c5f-bce50c21cb4b"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"public_ids\":[\"s58-re2-v8s\"]}"
+        "json": "{\"public_ids\":[\"2nm-wzt-f9i\"]}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_tests\":[{\"public_id\":\"s58-re2-v8s\",\"deleted_at\":\"2024-01-26T13:21:42.969942+00:00\"}]}\n",
+      "body": "{\"deleted_tests\":[{\"public_id\":\"2nm-wzt-f9i\",\"deleted_at\":\"2024-05-30T09:44:39.970719+00:00\"}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,6 +57,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "26aa243a-2f73-3a74-cb13-c69cc1dd6804"
+    "id": "e6e54e60-627e-3d27-58aa-8cd07bcb8d3a"
   }
 ]
