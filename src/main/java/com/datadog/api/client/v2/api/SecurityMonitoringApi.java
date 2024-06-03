@@ -22,6 +22,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleUpdatePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleValidatePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignal;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalAssigneeUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSignalIncidentsUpdateRequest;
@@ -4664,7 +4665,7 @@ public class SecurityMonitoringApi {
    * @param body (required)
    * @throws ApiException if fails to make API call
    */
-  public void validateSecurityMonitoringRule(SecurityMonitoringRuleCreatePayload body)
+  public void validateSecurityMonitoringRule(SecurityMonitoringRuleValidatePayload body)
       throws ApiException {
     validateSecurityMonitoringRuleWithHttpInfo(body);
   }
@@ -4678,7 +4679,7 @@ public class SecurityMonitoringApi {
    * @return CompletableFuture
    */
   public CompletableFuture<Void> validateSecurityMonitoringRuleAsync(
-      SecurityMonitoringRuleCreatePayload body) {
+      SecurityMonitoringRuleValidatePayload body) {
     return validateSecurityMonitoringRuleWithHttpInfoAsync(body)
         .thenApply(
             response -> {
@@ -4703,7 +4704,7 @@ public class SecurityMonitoringApi {
    *     </table>
    */
   public ApiResponse<Void> validateSecurityMonitoringRuleWithHttpInfo(
-      SecurityMonitoringRuleCreatePayload body) throws ApiException {
+      SecurityMonitoringRuleValidatePayload body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -4745,7 +4746,7 @@ public class SecurityMonitoringApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> validateSecurityMonitoringRuleWithHttpInfoAsync(
-      SecurityMonitoringRuleCreatePayload body) {
+      SecurityMonitoringRuleValidatePayload body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set

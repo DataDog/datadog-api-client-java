@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,30 +19,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Update an existing rule. */
+/** The payload of a signal correlation rule. */
 @JsonPropertyOrder({
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_CASES,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_FILTERS,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_HAS_EXTENDED_TITLE,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_IS_ENABLED,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_MESSAGE,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_NAME,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_OPTIONS,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_QUERIES,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_TAGS,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_THIRD_PARTY_CASES,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_VERSION
+  SecurityMonitoringSignalRulePayload.JSON_PROPERTY_CASES,
+  SecurityMonitoringSignalRulePayload.JSON_PROPERTY_FILTERS,
+  SecurityMonitoringSignalRulePayload.JSON_PROPERTY_HAS_EXTENDED_TITLE,
+  SecurityMonitoringSignalRulePayload.JSON_PROPERTY_IS_ENABLED,
+  SecurityMonitoringSignalRulePayload.JSON_PROPERTY_MESSAGE,
+  SecurityMonitoringSignalRulePayload.JSON_PROPERTY_NAME,
+  SecurityMonitoringSignalRulePayload.JSON_PROPERTY_OPTIONS,
+  SecurityMonitoringSignalRulePayload.JSON_PROPERTY_QUERIES,
+  SecurityMonitoringSignalRulePayload.JSON_PROPERTY_TAGS,
+  SecurityMonitoringSignalRulePayload.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringRuleUpdatePayload {
+public class SecurityMonitoringSignalRulePayload {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CASES = "cases";
-  private List<SecurityMonitoringRuleCase> cases = null;
-
-  public static final String JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS = "complianceSignalOptions";
-  private CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions;
+  private List<SecurityMonitoringRuleCaseCreate> cases = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<SecurityMonitoringFilter> filters = null;
@@ -62,29 +58,46 @@ public class SecurityMonitoringRuleUpdatePayload {
   private SecurityMonitoringRuleOptions options;
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
-  private List<SecurityMonitoringRuleQuery> queries = null;
+  private List<SecurityMonitoringSignalRuleQuery> queries = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
-  public static final String JSON_PROPERTY_THIRD_PARTY_CASES = "thirdPartyCases";
-  private List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases = null;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SecurityMonitoringSignalRuleType type;
 
-  public static final String JSON_PROPERTY_VERSION = "version";
-  private Integer version;
+  public SecurityMonitoringSignalRulePayload() {}
 
-  public SecurityMonitoringRuleUpdatePayload cases(List<SecurityMonitoringRuleCase> cases) {
+  @JsonCreator
+  public SecurityMonitoringSignalRulePayload(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CASES)
+          List<SecurityMonitoringRuleCaseCreate> cases,
+      @JsonProperty(required = true, value = JSON_PROPERTY_IS_ENABLED) Boolean isEnabled,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS)
+          SecurityMonitoringRuleOptions options,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
+          List<SecurityMonitoringSignalRuleQuery> queries) {
     this.cases = cases;
-    for (SecurityMonitoringRuleCase item : cases) {
+    this.isEnabled = isEnabled;
+    this.message = message;
+    this.name = name;
+    this.options = options;
+    this.unparsed |= options.unparsed;
+    this.queries = queries;
+  }
+
+  public SecurityMonitoringSignalRulePayload cases(List<SecurityMonitoringRuleCaseCreate> cases) {
+    this.cases = cases;
+    for (SecurityMonitoringRuleCaseCreate item : cases) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public SecurityMonitoringRuleUpdatePayload addCasesItem(SecurityMonitoringRuleCase casesItem) {
-    if (this.cases == null) {
-      this.cases = new ArrayList<>();
-    }
+  public SecurityMonitoringSignalRulePayload addCasesItem(
+      SecurityMonitoringRuleCaseCreate casesItem) {
     this.cases.add(casesItem);
     this.unparsed |= casesItem.unparsed;
     return this;
@@ -95,42 +108,17 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return cases
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CASES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringRuleCase> getCases() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<SecurityMonitoringRuleCaseCreate> getCases() {
     return cases;
   }
 
-  public void setCases(List<SecurityMonitoringRuleCase> cases) {
+  public void setCases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;
   }
 
-  public SecurityMonitoringRuleUpdatePayload complianceSignalOptions(
-      CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
-    this.complianceSignalOptions = complianceSignalOptions;
-    this.unparsed |= complianceSignalOptions.unparsed;
-    return this;
-  }
-
-  /**
-   * How to generate compliance signals. Useful for cloud_configuration rules only.
-   *
-   * @return complianceSignalOptions
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CloudConfigurationRuleComplianceSignalOptions getComplianceSignalOptions() {
-    return complianceSignalOptions;
-  }
-
-  public void setComplianceSignalOptions(
-      CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
-    this.complianceSignalOptions = complianceSignalOptions;
-  }
-
-  public SecurityMonitoringRuleUpdatePayload filters(List<SecurityMonitoringFilter> filters) {
+  public SecurityMonitoringSignalRulePayload filters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
     for (SecurityMonitoringFilter item : filters) {
       this.unparsed |= item.unparsed;
@@ -138,7 +126,7 @@ public class SecurityMonitoringRuleUpdatePayload {
     return this;
   }
 
-  public SecurityMonitoringRuleUpdatePayload addFiltersItem(SecurityMonitoringFilter filtersItem) {
+  public SecurityMonitoringSignalRulePayload addFiltersItem(SecurityMonitoringFilter filtersItem) {
     if (this.filters == null) {
       this.filters = new ArrayList<>();
     }
@@ -164,7 +152,7 @@ public class SecurityMonitoringRuleUpdatePayload {
     this.filters = filters;
   }
 
-  public SecurityMonitoringRuleUpdatePayload hasExtendedTitle(Boolean hasExtendedTitle) {
+  public SecurityMonitoringSignalRulePayload hasExtendedTitle(Boolean hasExtendedTitle) {
     this.hasExtendedTitle = hasExtendedTitle;
     return this;
   }
@@ -185,7 +173,7 @@ public class SecurityMonitoringRuleUpdatePayload {
     this.hasExtendedTitle = hasExtendedTitle;
   }
 
-  public SecurityMonitoringRuleUpdatePayload isEnabled(Boolean isEnabled) {
+  public SecurityMonitoringSignalRulePayload isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
@@ -195,9 +183,8 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return isEnabled
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getIsEnabled() {
     return isEnabled;
   }
@@ -206,7 +193,7 @@ public class SecurityMonitoringRuleUpdatePayload {
     this.isEnabled = isEnabled;
   }
 
-  public SecurityMonitoringRuleUpdatePayload message(String message) {
+  public SecurityMonitoringSignalRulePayload message(String message) {
     this.message = message;
     return this;
   }
@@ -216,9 +203,8 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return message
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
     return message;
   }
@@ -227,19 +213,18 @@ public class SecurityMonitoringRuleUpdatePayload {
     this.message = message;
   }
 
-  public SecurityMonitoringRuleUpdatePayload name(String name) {
+  public SecurityMonitoringSignalRulePayload name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the rule.
+   * The name of the rule.
    *
    * @return name
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
@@ -248,7 +233,7 @@ public class SecurityMonitoringRuleUpdatePayload {
     this.name = name;
   }
 
-  public SecurityMonitoringRuleUpdatePayload options(SecurityMonitoringRuleOptions options) {
+  public SecurityMonitoringSignalRulePayload options(SecurityMonitoringRuleOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
     return this;
@@ -259,9 +244,8 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @return options
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SecurityMonitoringRuleOptions getOptions() {
     return options;
   }
@@ -270,46 +254,43 @@ public class SecurityMonitoringRuleUpdatePayload {
     this.options = options;
   }
 
-  public SecurityMonitoringRuleUpdatePayload queries(List<SecurityMonitoringRuleQuery> queries) {
+  public SecurityMonitoringSignalRulePayload queries(
+      List<SecurityMonitoringSignalRuleQuery> queries) {
     this.queries = queries;
-    for (SecurityMonitoringRuleQuery item : queries) {
+    for (SecurityMonitoringSignalRuleQuery item : queries) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public SecurityMonitoringRuleUpdatePayload addQueriesItem(
-      SecurityMonitoringRuleQuery queriesItem) {
-    if (this.queries == null) {
-      this.queries = new ArrayList<>();
-    }
+  public SecurityMonitoringSignalRulePayload addQueriesItem(
+      SecurityMonitoringSignalRuleQuery queriesItem) {
     this.queries.add(queriesItem);
     this.unparsed |= queriesItem.unparsed;
     return this;
   }
 
   /**
-   * Queries for selecting logs which are part of the rule.
+   * Queries for selecting signals which are part of the rule.
    *
    * @return queries
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringRuleQuery> getQueries() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<SecurityMonitoringSignalRuleQuery> getQueries() {
     return queries;
   }
 
-  public void setQueries(List<SecurityMonitoringRuleQuery> queries) {
+  public void setQueries(List<SecurityMonitoringSignalRuleQuery> queries) {
     this.queries = queries;
   }
 
-  public SecurityMonitoringRuleUpdatePayload tags(List<String> tags) {
+  public SecurityMonitoringSignalRulePayload tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public SecurityMonitoringRuleUpdatePayload addTagsItem(String tagsItem) {
+  public SecurityMonitoringSignalRulePayload addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -333,60 +314,29 @@ public class SecurityMonitoringRuleUpdatePayload {
     this.tags = tags;
   }
 
-  public SecurityMonitoringRuleUpdatePayload thirdPartyCases(
-      List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases) {
-    this.thirdPartyCases = thirdPartyCases;
-    for (SecurityMonitoringThirdPartyRuleCase item : thirdPartyCases) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public SecurityMonitoringRuleUpdatePayload addThirdPartyCasesItem(
-      SecurityMonitoringThirdPartyRuleCase thirdPartyCasesItem) {
-    if (this.thirdPartyCases == null) {
-      this.thirdPartyCases = new ArrayList<>();
-    }
-    this.thirdPartyCases.add(thirdPartyCasesItem);
-    this.unparsed |= thirdPartyCasesItem.unparsed;
+  public SecurityMonitoringSignalRulePayload type(SecurityMonitoringSignalRuleType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Cases for generating signals from third-party rules. Only available for third-party rules.
+   * The rule type.
    *
-   * @return thirdPartyCases
+   * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_CASES)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringThirdPartyRuleCase> getThirdPartyCases() {
-    return thirdPartyCases;
+  public SecurityMonitoringSignalRuleType getType() {
+    return type;
   }
 
-  public void setThirdPartyCases(List<SecurityMonitoringThirdPartyRuleCase> thirdPartyCases) {
-    this.thirdPartyCases = thirdPartyCases;
-  }
-
-  public SecurityMonitoringRuleUpdatePayload version(Integer version) {
-    this.version = version;
-    return this;
-  }
-
-  /**
-   * The version of the rule being updated. maximum: 2147483647
-   *
-   * @return version
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getVersion() {
-    return version;
-  }
-
-  public void setVersion(Integer version) {
-    this.version = version;
+  public void setType(SecurityMonitoringSignalRuleType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -401,10 +351,10 @@ public class SecurityMonitoringRuleUpdatePayload {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SecurityMonitoringRuleUpdatePayload
+   * @return SecurityMonitoringSignalRulePayload
    */
   @JsonAnySetter
-  public SecurityMonitoringRuleUpdatePayload putAdditionalProperty(String key, Object value) {
+  public SecurityMonitoringSignalRulePayload putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -435,7 +385,7 @@ public class SecurityMonitoringRuleUpdatePayload {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringRuleUpdatePayload object is equal to o. */
+  /** Return true if this SecurityMonitoringSignalRulePayload object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -444,32 +394,27 @@ public class SecurityMonitoringRuleUpdatePayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleUpdatePayload securityMonitoringRuleUpdatePayload =
-        (SecurityMonitoringRuleUpdatePayload) o;
-    return Objects.equals(this.cases, securityMonitoringRuleUpdatePayload.cases)
+    SecurityMonitoringSignalRulePayload securityMonitoringSignalRulePayload =
+        (SecurityMonitoringSignalRulePayload) o;
+    return Objects.equals(this.cases, securityMonitoringSignalRulePayload.cases)
+        && Objects.equals(this.filters, securityMonitoringSignalRulePayload.filters)
         && Objects.equals(
-            this.complianceSignalOptions,
-            securityMonitoringRuleUpdatePayload.complianceSignalOptions)
-        && Objects.equals(this.filters, securityMonitoringRuleUpdatePayload.filters)
+            this.hasExtendedTitle, securityMonitoringSignalRulePayload.hasExtendedTitle)
+        && Objects.equals(this.isEnabled, securityMonitoringSignalRulePayload.isEnabled)
+        && Objects.equals(this.message, securityMonitoringSignalRulePayload.message)
+        && Objects.equals(this.name, securityMonitoringSignalRulePayload.name)
+        && Objects.equals(this.options, securityMonitoringSignalRulePayload.options)
+        && Objects.equals(this.queries, securityMonitoringSignalRulePayload.queries)
+        && Objects.equals(this.tags, securityMonitoringSignalRulePayload.tags)
+        && Objects.equals(this.type, securityMonitoringSignalRulePayload.type)
         && Objects.equals(
-            this.hasExtendedTitle, securityMonitoringRuleUpdatePayload.hasExtendedTitle)
-        && Objects.equals(this.isEnabled, securityMonitoringRuleUpdatePayload.isEnabled)
-        && Objects.equals(this.message, securityMonitoringRuleUpdatePayload.message)
-        && Objects.equals(this.name, securityMonitoringRuleUpdatePayload.name)
-        && Objects.equals(this.options, securityMonitoringRuleUpdatePayload.options)
-        && Objects.equals(this.queries, securityMonitoringRuleUpdatePayload.queries)
-        && Objects.equals(this.tags, securityMonitoringRuleUpdatePayload.tags)
-        && Objects.equals(this.thirdPartyCases, securityMonitoringRuleUpdatePayload.thirdPartyCases)
-        && Objects.equals(this.version, securityMonitoringRuleUpdatePayload.version)
-        && Objects.equals(
-            this.additionalProperties, securityMonitoringRuleUpdatePayload.additionalProperties);
+            this.additionalProperties, securityMonitoringSignalRulePayload.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         cases,
-        complianceSignalOptions,
         filters,
         hasExtendedTitle,
         isEnabled,
@@ -478,19 +423,15 @@ public class SecurityMonitoringRuleUpdatePayload {
         options,
         queries,
         tags,
-        thirdPartyCases,
-        version,
+        type,
         additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringRuleUpdatePayload {\n");
+    sb.append("class SecurityMonitoringSignalRulePayload {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
-    sb.append("    complianceSignalOptions: ")
-        .append(toIndentedString(complianceSignalOptions))
-        .append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
@@ -499,8 +440,7 @@ public class SecurityMonitoringRuleUpdatePayload {
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    thirdPartyCases: ").append(toIndentedString(thirdPartyCases)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

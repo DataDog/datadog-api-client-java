@@ -546,7 +546,7 @@ public class SecurityMonitoringStandardRuleResponse {
   }
 
   /**
-   * Cases for generating signals from third party rules. Only available for third party rules.
+   * Cases for generating signals from third-party rules. Only available for third-party rules.
    *
    * @return thirdPartyCases
    */

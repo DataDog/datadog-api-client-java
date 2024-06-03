@@ -4,7 +4,6 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseCreate;
-import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleDetectionMethod;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleEvaluationWindow;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleKeepAlive;
@@ -13,7 +12,8 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryAggregation;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTypeCreate;
-import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleCreatePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleValidatePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringStandardRulePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleQuery;
 import java.util.Arrays;
 import java.util.Collections;
@@ -23,9 +23,9 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
-    SecurityMonitoringRuleCreatePayload body =
-        new SecurityMonitoringRuleCreatePayload(
-            new SecurityMonitoringStandardRuleCreatePayload()
+    SecurityMonitoringRuleValidatePayload body =
+        new SecurityMonitoringRuleValidatePayload(
+            new SecurityMonitoringStandardRulePayload()
                 .cases(
                     Collections.singletonList(
                         new SecurityMonitoringRuleCaseCreate()
