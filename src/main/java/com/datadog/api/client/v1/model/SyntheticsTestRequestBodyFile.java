@@ -21,6 +21,7 @@ import java.util.Objects;
   SyntheticsTestRequestBodyFile.JSON_PROPERTY_BUCKET_KEY,
   SyntheticsTestRequestBodyFile.JSON_PROPERTY_CONTENT,
   SyntheticsTestRequestBodyFile.JSON_PROPERTY_NAME,
+  SyntheticsTestRequestBodyFile.JSON_PROPERTY_ORIGINAL_FILE_NAME,
   SyntheticsTestRequestBodyFile.JSON_PROPERTY_SIZE,
   SyntheticsTestRequestBodyFile.JSON_PROPERTY_TYPE
 })
@@ -36,6 +37,9 @@ public class SyntheticsTestRequestBodyFile {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_ORIGINAL_FILE_NAME = "originalFileName";
+  private String originalFileName;
 
   public static final String JSON_PROPERTY_SIZE = "size";
   private Long size;
@@ -104,6 +108,27 @@ public class SyntheticsTestRequestBodyFile {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public SyntheticsTestRequestBodyFile originalFileName(String originalFileName) {
+    this.originalFileName = originalFileName;
+    return this;
+  }
+
+  /**
+   * Original name of the file.
+   *
+   * @return originalFileName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORIGINAL_FILE_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOriginalFileName() {
+    return originalFileName;
+  }
+
+  public void setOriginalFileName(String originalFileName) {
+    this.originalFileName = originalFileName;
   }
 
   public SyntheticsTestRequestBodyFile size(Long size) {
@@ -207,6 +232,7 @@ public class SyntheticsTestRequestBodyFile {
     return Objects.equals(this.bucketKey, syntheticsTestRequestBodyFile.bucketKey)
         && Objects.equals(this.content, syntheticsTestRequestBodyFile.content)
         && Objects.equals(this.name, syntheticsTestRequestBodyFile.name)
+        && Objects.equals(this.originalFileName, syntheticsTestRequestBodyFile.originalFileName)
         && Objects.equals(this.size, syntheticsTestRequestBodyFile.size)
         && Objects.equals(this.type, syntheticsTestRequestBodyFile.type)
         && Objects.equals(
@@ -215,7 +241,8 @@ public class SyntheticsTestRequestBodyFile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucketKey, content, name, size, type, additionalProperties);
+    return Objects.hash(
+        bucketKey, content, name, originalFileName, size, type, additionalProperties);
   }
 
   @Override
@@ -225,6 +252,7 @@ public class SyntheticsTestRequestBodyFile {
     sb.append("    bucketKey: ").append(toIndentedString(bucketKey)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    originalFileName: ").append(toIndentedString(originalFileName)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

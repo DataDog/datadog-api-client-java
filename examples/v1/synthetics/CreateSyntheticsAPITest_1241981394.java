@@ -113,6 +113,7 @@ public class Example {
                                 Collections.singletonList(
                                     new SyntheticsTestRequestBodyFile()
                                         .name("file name")
+                                        .originalFileName("image.png")
                                         .content("file content")
                                         .type("file type")))
                             .basicAuth(
