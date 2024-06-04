@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Test the rule queries of a rule. */
+/** Test the rule queries of a rule (rule property is ignored when applied to an existing rule) */
 @JsonPropertyOrder({
   SecurityMonitoringRuleTestRequest.JSON_PROPERTY_RULE,
   SecurityMonitoringRuleTestRequest.JSON_PROPERTY_RULE_QUERY_PAYLOADS
@@ -28,30 +28,30 @@ import java.util.Objects;
 public class SecurityMonitoringRuleTestRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RULE = "rule";
-  private SecurityMonitoringRuleCreatePayload rule;
+  private SecurityMonitoringRuleTestPayload rule;
 
   public static final String JSON_PROPERTY_RULE_QUERY_PAYLOADS = "ruleQueryPayloads";
   private List<SecurityMonitoringRuleQueryPayload> ruleQueryPayloads = null;
 
-  public SecurityMonitoringRuleTestRequest rule(SecurityMonitoringRuleCreatePayload rule) {
+  public SecurityMonitoringRuleTestRequest rule(SecurityMonitoringRuleTestPayload rule) {
     this.rule = rule;
     this.unparsed |= rule.unparsed;
     return this;
   }
 
   /**
-   * Create a new rule.
+   * Test a rule.
    *
    * @return rule
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleCreatePayload getRule() {
+  public SecurityMonitoringRuleTestPayload getRule() {
     return rule;
   }
 
-  public void setRule(SecurityMonitoringRuleCreatePayload rule) {
+  public void setRule(SecurityMonitoringRuleTestPayload rule) {
     this.rule = rule;
   }
 

@@ -4,7 +4,6 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseCreate;
-import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleDetectionMethod;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleEvaluationWindow;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleKeepAlive;
@@ -14,11 +13,12 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryAggregation;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryPayloadData;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestPayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestResponse;
-import com.datadog.api.client.v2.model.SecurityMonitoringRuleTypeCreate;
-import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleCreatePayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleTypeTest;
 import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleQuery;
+import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleTestPayload;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -30,8 +30,8 @@ public class Example {
     SecurityMonitoringRuleTestRequest body =
         new SecurityMonitoringRuleTestRequest()
             .rule(
-                new SecurityMonitoringRuleCreatePayload(
-                    new SecurityMonitoringStandardRuleCreatePayload()
+                new SecurityMonitoringRuleTestPayload(
+                    new SecurityMonitoringStandardRuleTestPayload()
                         .cases(
                             Collections.singletonList(
                                 new SecurityMonitoringRuleCaseCreate()
@@ -60,7 +60,7 @@ public class Example {
                                     .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
                                     .name("")))
                         .tags(Arrays.asList("env:prod", "team:security"))
-                        .type(SecurityMonitoringRuleTypeCreate.LOG_DETECTION)))
+                        .type(SecurityMonitoringRuleTypeTest.LOG_DETECTION)))
             .ruleQueryPayloads(
                 Collections.singletonList(
                     new SecurityMonitoringRuleQueryPayload()
