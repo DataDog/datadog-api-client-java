@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"id\":\"abc-123-xyz\",\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "PATCH",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2b54221f-7179-31ce-25c6-f8724fba4f74"
+    "id": "7edac9ea-36b8-deb4-6f4b-a1e4b54dd869"
   }
 ]

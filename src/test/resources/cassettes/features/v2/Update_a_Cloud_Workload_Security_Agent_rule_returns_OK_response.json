@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1713895073\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1716925090\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"sir-mer-toj\",\"attributes\":{\"version\":1,\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1713895073\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1713895073761,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1713895073761,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"wmz-xld-san\",\"attributes\":{\"version\":1,\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1716925090\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"creationDate\":1716925090332,\"updateAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"updateDate\":1716925090332,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4915f83b-cc2a-ab89-4e6b-f985c2950059"
+    "id": "756706f9-ee44-e129-6017-1c348b77b175"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"id\":\"wmz-xld-san\",\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/sir-mer-toj",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/wmz-xld-san",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"sir-mer-toj\",\"attributes\":{\"version\":2,\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1713895073\",\"description\":\"Test Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1713895073761,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1713895073928,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"wmz-xld-san\",\"attributes\":{\"version\":2,\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsokresponse1716925090\",\"description\":\"Test Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"creationDate\":1716925090332,\"updateAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"updateDate\":1716925090525,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "efaac4ca-5dd4-d7db-35bc-31603a4f57dd"
+    "id": "d6b91df8-ed14-c69c-d2f7-0fe430881561"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/sir-mer-toj",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/wmz-xld-san",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "185c7260-21d6-1c72-463f-ffaa53e5081d"
+    "id": "b914031c-dd6d-49b8-5b9e-976786e1d09c"
   }
 ]
