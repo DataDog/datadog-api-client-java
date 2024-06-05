@@ -28,7 +28,8 @@ public class Example {
                             .expression("""
 exec.file.name == "sh"
 """))
-                    .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
+                    .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE)
+                    .id(AGENT_RULE_DATA_ID));
 
     try {
       CloudWorkloadSecurityAgentRuleResponse result =
