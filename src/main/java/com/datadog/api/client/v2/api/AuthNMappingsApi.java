@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.AuthNMappingCreateRequest;
+import com.datadog.api.client.v2.model.AuthNMappingResourceType;
 import com.datadog.api.client.v2.model.AuthNMappingResponse;
 import com.datadog.api.client.v2.model.AuthNMappingUpdateRequest;
 import com.datadog.api.client.v2.model.AuthNMappingsResponse;
@@ -466,6 +467,7 @@ public class AuthNMappingsApi {
     private Long pageNumber;
     private AuthNMappingsSort sort;
     private String filter;
+    private AuthNMappingResourceType resourceType;
 
     /**
      * Set pageSize.
@@ -509,6 +511,18 @@ public class AuthNMappingsApi {
      */
     public ListAuthNMappingsOptionalParameters filter(String filter) {
       this.filter = filter;
+      return this;
+    }
+
+    /**
+     * Set resourceType.
+     *
+     * @param resourceType Filter by mapping resource type. Defaults to "role" if not specified.
+     *     (optional)
+     * @return ListAuthNMappingsOptionalParameters
+     */
+    public ListAuthNMappingsOptionalParameters resourceType(AuthNMappingResourceType resourceType) {
+      this.resourceType = resourceType;
       return this;
     }
   }
@@ -593,6 +607,7 @@ public class AuthNMappingsApi {
     Long pageNumber = parameters.pageNumber;
     AuthNMappingsSort sort = parameters.sort;
     String filter = parameters.filter;
+    AuthNMappingResourceType resourceType = parameters.resourceType;
     // create path and map variables
     String localVarPath = "/api/v2/authn_mappings";
 
@@ -603,6 +618,7 @@ public class AuthNMappingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "resource_type", resourceType));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -639,6 +655,7 @@ public class AuthNMappingsApi {
     Long pageNumber = parameters.pageNumber;
     AuthNMappingsSort sort = parameters.sort;
     String filter = parameters.filter;
+    AuthNMappingResourceType resourceType = parameters.resourceType;
     // create path and map variables
     String localVarPath = "/api/v2/authn_mappings";
 
@@ -649,6 +666,7 @@ public class AuthNMappingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "resource_type", resourceType));
 
     Invocation.Builder builder;
     try {
