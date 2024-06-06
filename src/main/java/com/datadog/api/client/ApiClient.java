@@ -393,6 +393,11 @@ public class ApiClient {
           put("v2.updateIncidentAttachments", false);
           put("v2.updateIncidentIntegration", false);
           put("v2.updateIncidentTodo", false);
+          put("v2.createAWSAccountv2", false);
+          put("v2.deleteAWSAccountv2", false);
+          put("v2.getAWSAccountv2", false);
+          put("v2.listAWSAccountsv2", false);
+          put("v2.patchAWSAccountv2", false);
           put("v2.queryScalarData", false);
           put("v2.queryTimeseriesData", false);
           put("v2.getFinding", false);
