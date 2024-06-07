@@ -14,6 +14,7 @@ import com.datadog.api.client.v2.model.ApplicationKeyResponse;
 import com.datadog.api.client.v2.model.ApplicationKeyUpdateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeysSort;
 import com.datadog.api.client.v2.model.ListApplicationKeysResponse;
+import com.datadog.api.client.v2.model.PartialApplicationKeyResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -940,10 +941,10 @@ public class KeyManagementApi {
    * <p>See {@link #getApplicationKeyWithHttpInfo}.
    *
    * @param appKeyId The ID of the application key. (required)
-   * @return ApplicationKeyResponse
+   * @return PartialApplicationKeyResponse
    * @throws ApiException if fails to make API call
    */
-  public ApplicationKeyResponse getApplicationKey(String appKeyId) throws ApiException {
+  public PartialApplicationKeyResponse getApplicationKey(String appKeyId) throws ApiException {
     return getApplicationKeyWithHttpInfo(appKeyId, new GetApplicationKeyOptionalParameters())
         .getData();
   }
@@ -954,9 +955,9 @@ public class KeyManagementApi {
    * <p>See {@link #getApplicationKeyWithHttpInfoAsync}.
    *
    * @param appKeyId The ID of the application key. (required)
-   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   * @return CompletableFuture&lt;PartialApplicationKeyResponse&gt;
    */
-  public CompletableFuture<ApplicationKeyResponse> getApplicationKeyAsync(String appKeyId) {
+  public CompletableFuture<PartialApplicationKeyResponse> getApplicationKeyAsync(String appKeyId) {
     return getApplicationKeyWithHttpInfoAsync(appKeyId, new GetApplicationKeyOptionalParameters())
         .thenApply(
             response -> {
@@ -971,10 +972,10 @@ public class KeyManagementApi {
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApplicationKeyResponse
+   * @return PartialApplicationKeyResponse
    * @throws ApiException if fails to make API call
    */
-  public ApplicationKeyResponse getApplicationKey(
+  public PartialApplicationKeyResponse getApplicationKey(
       String appKeyId, GetApplicationKeyOptionalParameters parameters) throws ApiException {
     return getApplicationKeyWithHttpInfo(appKeyId, parameters).getData();
   }
@@ -986,9 +987,9 @@ public class KeyManagementApi {
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApplicationKeyResponse&gt;
+   * @return CompletableFuture&lt;PartialApplicationKeyResponse&gt;
    */
-  public CompletableFuture<ApplicationKeyResponse> getApplicationKeyAsync(
+  public CompletableFuture<PartialApplicationKeyResponse> getApplicationKeyAsync(
       String appKeyId, GetApplicationKeyOptionalParameters parameters) {
     return getApplicationKeyWithHttpInfoAsync(appKeyId, parameters)
         .thenApply(
@@ -1002,7 +1003,7 @@ public class KeyManagementApi {
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;ApplicationKeyResponse&gt;
+   * @return ApiResponse&lt;PartialApplicationKeyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -1015,7 +1016,7 @@ public class KeyManagementApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(
+  public ApiResponse<PartialApplicationKeyResponse> getApplicationKeyWithHttpInfo(
       String appKeyId, GetApplicationKeyOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
@@ -1052,7 +1053,7 @@ public class KeyManagementApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<ApplicationKeyResponse>() {});
+        new GenericType<PartialApplicationKeyResponse>() {});
   }
 
   /**
@@ -1062,15 +1063,17 @@ public class KeyManagementApi {
    *
    * @param appKeyId The ID of the application key. (required)
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;ApplicationKeyResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;PartialApplicationKeyResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ApplicationKeyResponse>> getApplicationKeyWithHttpInfoAsync(
-      String appKeyId, GetApplicationKeyOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<PartialApplicationKeyResponse>>
+      getApplicationKeyWithHttpInfoAsync(
+          String appKeyId, GetApplicationKeyOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'appKeyId' is set
     if (appKeyId == null) {
-      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<PartialApplicationKeyResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'appKeyId' when calling getApplicationKey"));
@@ -1099,7 +1102,8 @@ public class KeyManagementApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<ApplicationKeyResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<PartialApplicationKeyResponse>> result =
+          new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1111,7 +1115,7 @@ public class KeyManagementApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<ApplicationKeyResponse>() {});
+        new GenericType<PartialApplicationKeyResponse>() {});
   }
 
   /**

@@ -1,4 +1,4 @@
-// Get an application key returns "OK" response
+// Get an application key returns "OK" response and response does not contain field "key"
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
