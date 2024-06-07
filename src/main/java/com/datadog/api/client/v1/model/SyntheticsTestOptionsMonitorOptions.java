@@ -33,8 +33,7 @@ public class SyntheticsTestOptionsMonitorOptions {
   }
 
   /**
-   * Time interval before renotifying if the test is still failing (in minutes). minimum: 0 maximum:
-   * 1440
+   * Time interval before renotifying if the test is still failing (in minutes). minimum: 0
    *
    * @return renotifyInterval
    */
