@@ -1,4 +1,4 @@
-// Create an API HTTP test returns "OK - Returns the created test details." response
+// Create an API HTTP test has bodyHash filled out
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
