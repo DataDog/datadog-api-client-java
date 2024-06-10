@@ -123,6 +123,52 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'SyntheticsAssertionTarget'", e);
       }
 
+      // deserialize SyntheticsAssertionBodyHashTarget
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SyntheticsAssertionBodyHashTarget.class.equals(Integer.class)
+            || SyntheticsAssertionBodyHashTarget.class.equals(Long.class)
+            || SyntheticsAssertionBodyHashTarget.class.equals(Float.class)
+            || SyntheticsAssertionBodyHashTarget.class.equals(Double.class)
+            || SyntheticsAssertionBodyHashTarget.class.equals(Boolean.class)
+            || SyntheticsAssertionBodyHashTarget.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SyntheticsAssertionBodyHashTarget.class.equals(Integer.class)
+                        || SyntheticsAssertionBodyHashTarget.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SyntheticsAssertionBodyHashTarget.class.equals(Float.class)
+                        || SyntheticsAssertionBodyHashTarget.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SyntheticsAssertionBodyHashTarget.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SyntheticsAssertionBodyHashTarget.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SyntheticsAssertionBodyHashTarget.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SyntheticsAssertionBodyHashTarget) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SyntheticsAssertionBodyHashTarget'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'SyntheticsAssertionBodyHashTarget'", e);
+      }
+
       // deserialize SyntheticsAssertionJSONPathTarget
       try {
         boolean attemptParsing = true;
@@ -297,6 +343,11 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public SyntheticsAssertion(SyntheticsAssertionBodyHashTarget o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public SyntheticsAssertion(SyntheticsAssertionJSONPathTarget o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -315,6 +366,9 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
   static {
     schemas.put("SyntheticsAssertionTarget", new GenericType<SyntheticsAssertionTarget>() {});
     schemas.put(
+        "SyntheticsAssertionBodyHashTarget",
+        new GenericType<SyntheticsAssertionBodyHashTarget>() {});
+    schemas.put(
         "SyntheticsAssertionJSONPathTarget",
         new GenericType<SyntheticsAssertionJSONPathTarget>() {});
     schemas.put(
@@ -332,8 +386,9 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: SyntheticsAssertionTarget, SyntheticsAssertionJSONPathTarget,
-   * SyntheticsAssertionJSONSchemaTarget, SyntheticsAssertionXPathTarget
+   * against the oneOf child schemas: SyntheticsAssertionTarget, SyntheticsAssertionBodyHashTarget,
+   * SyntheticsAssertionJSONPathTarget, SyntheticsAssertionJSONSchemaTarget,
+   * SyntheticsAssertionXPathTarget
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -341,6 +396,11 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
   @Override
   public void setActualInstance(Object instance) {
     if (JSON.isInstanceOf(SyntheticsAssertionTarget.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        SyntheticsAssertionBodyHashTarget.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -366,17 +426,18 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
     }
     throw new RuntimeException(
         "Invalid instance type. Must be SyntheticsAssertionTarget,"
-            + " SyntheticsAssertionJSONPathTarget, SyntheticsAssertionJSONSchemaTarget,"
-            + " SyntheticsAssertionXPathTarget");
+            + " SyntheticsAssertionBodyHashTarget, SyntheticsAssertionJSONPathTarget,"
+            + " SyntheticsAssertionJSONSchemaTarget, SyntheticsAssertionXPathTarget");
   }
 
   /**
    * Get the actual instance, which can be the following: SyntheticsAssertionTarget,
-   * SyntheticsAssertionJSONPathTarget, SyntheticsAssertionJSONSchemaTarget,
-   * SyntheticsAssertionXPathTarget
+   * SyntheticsAssertionBodyHashTarget, SyntheticsAssertionJSONPathTarget,
+   * SyntheticsAssertionJSONSchemaTarget, SyntheticsAssertionXPathTarget
    *
-   * @return The actual instance (SyntheticsAssertionTarget, SyntheticsAssertionJSONPathTarget,
-   *     SyntheticsAssertionJSONSchemaTarget, SyntheticsAssertionXPathTarget)
+   * @return The actual instance (SyntheticsAssertionTarget, SyntheticsAssertionBodyHashTarget,
+   *     SyntheticsAssertionJSONPathTarget, SyntheticsAssertionJSONSchemaTarget,
+   *     SyntheticsAssertionXPathTarget)
    */
   @Override
   public Object getActualInstance() {
@@ -392,6 +453,18 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
    */
   public SyntheticsAssertionTarget getSyntheticsAssertionTarget() throws ClassCastException {
     return (SyntheticsAssertionTarget) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SyntheticsAssertionBodyHashTarget`. If the actual instance is not
+   * `SyntheticsAssertionBodyHashTarget`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SyntheticsAssertionBodyHashTarget`
+   * @throws ClassCastException if the instance is not `SyntheticsAssertionBodyHashTarget`
+   */
+  public SyntheticsAssertionBodyHashTarget getSyntheticsAssertionBodyHashTarget()
+      throws ClassCastException {
+    return (SyntheticsAssertionBodyHashTarget) super.getActualInstance();
   }
 
   /**
