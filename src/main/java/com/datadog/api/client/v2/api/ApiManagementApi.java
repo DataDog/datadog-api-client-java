@@ -5,12 +5,14 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.CreateOpenAPIResponse;
+import com.datadog.api.client.v2.model.ListAPIsResponse;
 import com.datadog.api.client.v2.model.UpdateOpenAPIResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
@@ -535,6 +537,222 @@ public class ApiManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<File>() {});
+  }
+
+  /** Manage optional parameters to listAPIs. */
+  public static class ListAPIsOptionalParameters {
+    private String query;
+    private Long pageLimit;
+    private Long pageOffset;
+
+    /**
+     * Set query.
+     *
+     * @param query Filter APIs by name (optional)
+     * @return ListAPIsOptionalParameters
+     */
+    public ListAPIsOptionalParameters query(String query) {
+      this.query = query;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Number of items per page. (optional, default to 20)
+     * @return ListAPIsOptionalParameters
+     */
+    public ListAPIsOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Offset for pagination. (optional, default to 0)
+     * @return ListAPIsOptionalParameters
+     */
+    public ListAPIsOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+  }
+
+  /**
+   * List APIs.
+   *
+   * <p>See {@link #listAPIsWithHttpInfo}.
+   *
+   * @return ListAPIsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListAPIsResponse listAPIs() throws ApiException {
+    return listAPIsWithHttpInfo(new ListAPIsOptionalParameters()).getData();
+  }
+
+  /**
+   * List APIs.
+   *
+   * <p>See {@link #listAPIsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListAPIsResponse&gt;
+   */
+  public CompletableFuture<ListAPIsResponse> listAPIsAsync() {
+    return listAPIsWithHttpInfoAsync(new ListAPIsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List APIs.
+   *
+   * <p>See {@link #listAPIsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListAPIsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListAPIsResponse listAPIs(ListAPIsOptionalParameters parameters) throws ApiException {
+    return listAPIsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List APIs.
+   *
+   * <p>See {@link #listAPIsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListAPIsResponse&gt;
+   */
+  public CompletableFuture<ListAPIsResponse> listAPIsAsync(ListAPIsOptionalParameters parameters) {
+    return listAPIsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List APIs and their IDs.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListAPIsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListAPIsResponse> listAPIsWithHttpInfo(ListAPIsOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listAPIs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String query = parameters.query;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    // create path and map variables
+    String localVarPath = "/api/v2/apicatalog/api";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ApiManagementApi.listAPIs",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListAPIsResponse>() {});
+  }
+
+  /**
+   * List APIs.
+   *
+   * <p>See {@link #listAPIsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListAPIsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListAPIsResponse>> listAPIsWithHttpInfoAsync(
+      ListAPIsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listAPIs";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListAPIsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String query = parameters.query;
+    Long pageLimit = parameters.pageLimit;
+    Long pageOffset = parameters.pageOffset;
+    // create path and map variables
+    String localVarPath = "/api/v2/apicatalog/api";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ApiManagementApi.listAPIs",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListAPIsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListAPIsResponse>() {});
   }
 
   /** Manage optional parameters to updateOpenAPI. */
