@@ -113,6 +113,8 @@ jobs:
           cache: "maven"
       - name: Test
         run: ./run-tests.sh
+      - name: Check all dependencies shaded
+        run: mvn package -DskipTests && unzip -Z1 target/datadog-api-client-*-shaded-jar.jar | grep -v "^com/datadog" | grep -v "^META-INF" | grep "\.class$"
 
   examples:
     runs-on: ubuntu-latest
