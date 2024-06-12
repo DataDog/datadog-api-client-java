@@ -372,6 +372,10 @@
                     </transformers>
                     <relocations>
                         <relocation>
+                            <pattern>org.aopalliance</pattern>
+                            <shadedPattern>com.datadoghq.org.aopalliance</shadedPattern>
+                        </relocation>
+                        <relocation>
                             <pattern>org.glassfish</pattern>
                             <shadedPattern>com.datadoghq.org.glassfish</shadedPattern>
                         </relocation>
