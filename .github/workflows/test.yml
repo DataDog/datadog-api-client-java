@@ -93,6 +93,20 @@ jobs:
         run: mvn javadoc:javadoc
         shell: bash
 
+  shading:
+    runs-on: ubuntu-latest
+    if: (github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')) || github.event_name == 'schedule'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: "8"
+          distribution: "temurin"
+          cache: "maven"
+      - name: Check all dependencies shaded
+        run: ./shade-test.sh
+
   test:
     strategy:
       matrix:
@@ -113,8 +127,6 @@ jobs:
           cache: "maven"
       - name: Test
         run: ./run-tests.sh
-      - name: Check all dependencies shaded
-        run: ./shade-test.sh
 
   examples:
     runs-on: ubuntu-latest
