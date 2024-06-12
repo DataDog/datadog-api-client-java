@@ -1,5 +1,5 @@
 # Create the package. Skip tests since this is just for testing the contents of the jar. We've already run the tests in another step.
-mvn package -DskipTests
+mvn package -DskipTests -Dmaven.javadoc.skip=true
 # List everything in the shaded jar. Anything in com/datadog is good since that's either shaded or our own code.
 # We intentionally avoid shading anything in META-INF in the pom.xml.
 # And there are some native libraries in other directories that we don't shade so we only want to check for .class files.
