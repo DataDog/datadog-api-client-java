@@ -136,7 +136,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -194,7 +194,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -290,7 +290,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -347,7 +347,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -432,7 +432,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -478,7 +478,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -564,7 +564,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -611,7 +611,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -695,7 +695,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"*/*"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
         builder,
@@ -743,7 +743,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"*/*"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -829,7 +829,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -876,7 +876,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -963,7 +963,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1012,7 +1012,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProjectResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1088,7 +1088,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1124,7 +1124,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ProjectsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1144,7 +1144,7 @@ public class CaseManagementApi {
   /** Manage optional parameters to searchCases. */
   public static class SearchCasesOptionalParameters {
     private Long pageSize;
-    private Long pageOffset;
+    private Long pageNumber;
     private CaseSortableField sortField;
     private String filter;
     private Boolean sortAsc;
@@ -1162,14 +1162,13 @@ public class CaseManagementApi {
     }
 
     /**
-     * Set pageOffset.
+     * Set pageNumber.
      *
-     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
-     *     default to 0)
+     * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return SearchCasesOptionalParameters
      */
-    public SearchCasesOptionalParameters pageOffset(Long pageOffset) {
-      this.pageOffset = pageOffset;
+    public SearchCasesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
       return this;
     }
 
@@ -1287,8 +1286,9 @@ public class CaseManagementApi {
       SearchCasesOptionalParameters parameters) {
     String resultsPath = "getData";
     String valueGetterPath = "";
-    String valueSetterPath = "pageOffset";
+    String valueSetterPath = "pageNumber";
     Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
     Long limit;
 
     if (parameters.pageSize == null) {
@@ -1309,7 +1309,7 @@ public class CaseManagementApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
-            true,
+            false,
             limit,
             args);
 
@@ -1338,7 +1338,7 @@ public class CaseManagementApi {
       SearchCasesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
-    Long pageOffset = parameters.pageOffset;
+    Long pageNumber = parameters.pageNumber;
     CaseSortableField sortField = parameters.sortField;
     String filter = parameters.filter;
     Boolean sortAsc = parameters.sortAsc;
@@ -1349,7 +1349,7 @@ public class CaseManagementApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[field]", sortField));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[asc]", sortAsc));
@@ -1362,7 +1362,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1386,7 +1386,7 @@ public class CaseManagementApi {
       SearchCasesOptionalParameters parameters) {
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
-    Long pageOffset = parameters.pageOffset;
+    Long pageNumber = parameters.pageNumber;
     CaseSortableField sortField = parameters.sortField;
     String filter = parameters.filter;
     Boolean sortAsc = parameters.sortAsc;
@@ -1397,7 +1397,7 @@ public class CaseManagementApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[field]", sortField));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort[asc]", sortAsc));
@@ -1412,7 +1412,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CasesResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1509,7 +1509,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1568,7 +1568,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1665,7 +1665,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1723,7 +1723,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1822,7 +1822,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -1881,7 +1881,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1980,7 +1980,7 @@ public class CaseManagementApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "POST",
         builder,
@@ -2038,7 +2038,7 @@ public class CaseManagementApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<CaseResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);

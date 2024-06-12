@@ -74,7 +74,7 @@ public class AuthNMappingCreateData {
   }
 
   /**
-   * Relationship of AuthN Mapping create object to Role.
+   * Relationship of AuthN Mapping create object to a Role or Team.
    *
    * @return relationships
    */

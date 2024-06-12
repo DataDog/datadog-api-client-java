@@ -59,6 +59,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "estimated_rum_sessions_usage",
               "fargate_usage",
               "functions_usage",
+              "incident_management_monthly_active_users_usage",
               "indexed_spans_usage",
               "infra_host_usage",
               "ingested_logs_bytes_usage",
@@ -67,6 +68,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "lambda_traced_invocations_usage",
               "logs_indexed_15day_usage",
               "logs_indexed_180day_usage",
+              "logs_indexed_1day_usage",
               "logs_indexed_30day_usage",
               "logs_indexed_360day_usage",
               "logs_indexed_3day_usage",
@@ -80,6 +82,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "npm_host_usage",
               "obs_pipeline_bytes_usage",
               "obs_pipelines_vcpu_usage",
+              "online_archive_usage",
               "profiled_container_usage",
               "profiled_fargate_usage",
               "profiled_host_usage",
@@ -159,6 +162,9 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("fargate_usage");
   public static final HourlyUsageAttributionUsageType FUNCTIONS_USAGE =
       new HourlyUsageAttributionUsageType("functions_usage");
+  public static final HourlyUsageAttributionUsageType
+      INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE =
+          new HourlyUsageAttributionUsageType("incident_management_monthly_active_users_usage");
   public static final HourlyUsageAttributionUsageType INDEXED_SPANS_USAGE =
       new HourlyUsageAttributionUsageType("indexed_spans_usage");
   public static final HourlyUsageAttributionUsageType INFRA_HOST_USAGE =
@@ -175,6 +181,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("logs_indexed_15day_usage");
   public static final HourlyUsageAttributionUsageType LOGS_INDEXED_180DAY_USAGE =
       new HourlyUsageAttributionUsageType("logs_indexed_180day_usage");
+  public static final HourlyUsageAttributionUsageType LOGS_INDEXED_1DAY_USAGE =
+      new HourlyUsageAttributionUsageType("logs_indexed_1day_usage");
   public static final HourlyUsageAttributionUsageType LOGS_INDEXED_30DAY_USAGE =
       new HourlyUsageAttributionUsageType("logs_indexed_30day_usage");
   public static final HourlyUsageAttributionUsageType LOGS_INDEXED_360DAY_USAGE =
@@ -201,6 +209,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("obs_pipeline_bytes_usage");
   public static final HourlyUsageAttributionUsageType OBS_PIPELINE_VCPU_USAGE =
       new HourlyUsageAttributionUsageType("obs_pipelines_vcpu_usage");
+  public static final HourlyUsageAttributionUsageType ONLINE_ARCHIVE_USAGE =
+      new HourlyUsageAttributionUsageType("online_archive_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_CONTAINER_USAGE =
       new HourlyUsageAttributionUsageType("profiled_container_usage");
   public static final HourlyUsageAttributionUsageType PROFILED_FARGATE_USAGE =

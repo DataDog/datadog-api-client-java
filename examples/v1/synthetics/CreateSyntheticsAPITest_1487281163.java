@@ -7,9 +7,16 @@ import com.datadog.api.client.v1.model.SyntheticsAPITest;
 import com.datadog.api.client.v1.model.SyntheticsAPITestConfig;
 import com.datadog.api.client.v1.model.SyntheticsAPITestType;
 import com.datadog.api.client.v1.model.SyntheticsAssertion;
+import com.datadog.api.client.v1.model.SyntheticsAssertionBodyHashOperator;
+import com.datadog.api.client.v1.model.SyntheticsAssertionBodyHashTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionBodyHashType;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathTargetTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaMetaSchema;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaOperator;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaTargetTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTimingsScope;
@@ -69,6 +76,19 @@ public class Example {
                                             .targetValue("0"))
                                     .type(SyntheticsAssertionType.BODY)),
                             new SyntheticsAssertion(
+                                new SyntheticsAssertionJSONSchemaTarget()
+                                    .operator(
+                                        SyntheticsAssertionJSONSchemaOperator.VALIDATES_JSON_SCHEMA)
+                                    .target(
+                                        new SyntheticsAssertionJSONSchemaTargetTarget()
+                                            .metaSchema(
+                                                SyntheticsAssertionJSONSchemaMetaSchema.DRAFT_07)
+                                            .jsonSchema(
+                                                """
+{"type": "object", "properties":{"slideshow":{"type":"object"}}}
+"""))
+                                    .type(SyntheticsAssertionType.BODY)),
+                            new SyntheticsAssertion(
                                 new SyntheticsAssertionXPathTarget()
                                     .operator(SyntheticsAssertionXPathOperator.VALIDATES_X_PATH)
                                     .target(
@@ -76,7 +96,12 @@ public class Example {
                                             .xPath("target-xpath")
                                             .targetValue("0")
                                             .operator("contains"))
-                                    .type(SyntheticsAssertionType.BODY))))
+                                    .type(SyntheticsAssertionType.BODY)),
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionBodyHashTarget()
+                                    .operator(SyntheticsAssertionBodyHashOperator.MD5)
+                                    .target("a")
+                                    .type(SyntheticsAssertionBodyHashType.BODY_HASH))))
                     .configVariables(
                         Collections.singletonList(
                             new SyntheticsConfigVariable()
@@ -84,6 +109,9 @@ public class Example {
                                 .name("PROPERTY")
                                 .pattern("content-type")
                                 .type(SyntheticsConfigVariableType.TEXT)))
+                    .variablesFromScript("""
+dd.variable.set("FOO", "foo")
+""")
                     .request(
                         new SyntheticsTestRequest()
                             .certificate(

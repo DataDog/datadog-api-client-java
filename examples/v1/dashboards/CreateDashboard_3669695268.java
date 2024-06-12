@@ -12,7 +12,7 @@ import com.datadog.api.client.v1.model.FormulaAndFunctionEventQueryDefinitionSea
 import com.datadog.api.client.v1.model.FormulaAndFunctionEventsDataSource;
 import com.datadog.api.client.v1.model.FormulaAndFunctionQueryDefinition;
 import com.datadog.api.client.v1.model.FormulaAndFunctionResponseFormat;
-import com.datadog.api.client.v1.model.QuerySortOrder;
+import com.datadog.api.client.v1.model.FormulaType;
 import com.datadog.api.client.v1.model.TableWidgetCellDisplayMode;
 import com.datadog.api.client.v1.model.TableWidgetDefinition;
 import com.datadog.api.client.v1.model.TableWidgetDefinitionType;
@@ -20,7 +20,10 @@ import com.datadog.api.client.v1.model.TableWidgetRequest;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetFormula;
-import com.datadog.api.client.v1.model.WidgetFormulaLimit;
+import com.datadog.api.client.v1.model.WidgetFormulaSort;
+import com.datadog.api.client.v1.model.WidgetSort;
+import com.datadog.api.client.v1.model.WidgetSortBy;
+import com.datadog.api.client.v1.model.WidgetSortOrderBy;
 import java.util.Collections;
 
 public class Example {
@@ -66,11 +69,19 @@ public class Example {
                                                         new WidgetFormula()
                                                             .cellDisplayMode(
                                                                 TableWidgetCellDisplayMode.BAR)
-                                                            .formula("query1")
-                                                            .limit(
-                                                                new WidgetFormulaLimit()
-                                                                    .count(50L)
-                                                                    .order(QuerySortOrder.DESC))))
+                                                            .formula("query1")))
+                                                .sort(
+                                                    new WidgetSortBy()
+                                                        .count(50L)
+                                                        .orderBy(
+                                                            Collections.singletonList(
+                                                                new WidgetSortOrderBy(
+                                                                    new WidgetFormulaSort()
+                                                                        .type(FormulaType.FORMULA)
+                                                                        .index(0L)
+                                                                        .order(
+                                                                            WidgetSort
+                                                                                .DESCENDING)))))
                                                 .responseFormat(
                                                     FormulaAndFunctionResponseFormat.SCALAR)))))));
 

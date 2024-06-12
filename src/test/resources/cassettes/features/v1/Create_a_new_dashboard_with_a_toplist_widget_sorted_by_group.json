@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_a_toplist_widget_sorted_by_group-1716302622\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":10,\"order_by\":[{\"name\":\"service\",\"order\":\"asc\",\"type\":\"group\"}]}}],\"style\":{\"display\":{\"legend\":\"inline\",\"type\":\"stacked\"},\"scaling\":\"relative\"},\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"toplist\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"wbt-nas-fux\",\"title\":\"Test-Create_a_new_dashboard_with_a_toplist_widget_sorted_by_group-1716302622\",\"description\":\"\",\"author_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"author_name\":\"CI Account\",\"layout_type\":\"free\",\"url\":\"/dashboard/wbt-nas-fux/test-createanewdashboardwithatoplistwidgetsortedbygroup-1716302622\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":10,\"order_by\":[{\"name\":\"service\",\"order\":\"asc\",\"type\":\"group\"}]}}],\"style\":{\"display\":{\"legend\":\"inline\",\"type\":\"stacked\"},\"scaling\":\"relative\"},\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"toplist\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":4714578700620842}],\"notify_list\":[],\"created_at\":\"2024-05-21T14:43:42.875646+00:00\",\"modified_at\":\"2024-05-21T14:43:42.875646+00:00\",\"restricted_roles\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1968816b-b399-07b6-4bb1-21243c0cdabb"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/wbt-nas-fux",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"wbt-nas-fux\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "eb86db7c-7ca4-e5b4-e91a-8997f743c83c"
+  }
+]

@@ -23,9 +23,9 @@ import java.util.Objects;
 public class RetentionFilterResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private RetentionFilter data;
+  private RetentionFilterAll data;
 
-  public RetentionFilterResponse data(RetentionFilter data) {
+  public RetentionFilterResponse data(RetentionFilterAll data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
@@ -39,11 +39,11 @@ public class RetentionFilterResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RetentionFilter getData() {
+  public RetentionFilterAll getData() {
     return data;
   }
 
-  public void setData(RetentionFilter data) {
+  public void setData(RetentionFilterAll data) {
     this.data = data;
   }
 

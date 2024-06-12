@@ -19,11 +19,12 @@ import java.util.Objects;
 
 /**
  * The time-slice condition, composed of 3 parts: 1. the metric timeseries query, 2. the comparator,
- * and 3. the threshold.
+ * and 3. the threshold. Optionally, a fourth part, the query interval, can be provided.
  */
 @JsonPropertyOrder({
   SLOTimeSliceCondition.JSON_PROPERTY_COMPARATOR,
   SLOTimeSliceCondition.JSON_PROPERTY_QUERY,
+  SLOTimeSliceCondition.JSON_PROPERTY_QUERY_INTERVAL_SECONDS,
   SLOTimeSliceCondition.JSON_PROPERTY_THRESHOLD
 })
 @jakarta.annotation.Generated(
@@ -35,6 +36,9 @@ public class SLOTimeSliceCondition {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private SLOTimeSliceQuery query;
+
+  public static final String JSON_PROPERTY_QUERY_INTERVAL_SECONDS = "query_interval_seconds";
+  private SLOTimeSliceInterval queryIntervalSeconds;
 
   public static final String JSON_PROPERTY_THRESHOLD = "threshold";
   private Double threshold;
@@ -97,6 +101,33 @@ public class SLOTimeSliceCondition {
 
   public void setQuery(SLOTimeSliceQuery query) {
     this.query = query;
+  }
+
+  public SLOTimeSliceCondition queryIntervalSeconds(SLOTimeSliceInterval queryIntervalSeconds) {
+    this.queryIntervalSeconds = queryIntervalSeconds;
+    this.unparsed |= !queryIntervalSeconds.isValid();
+    return this;
+  }
+
+  /**
+   * The interval used when querying data, which defines the size of a time slice. Two values are
+   * allowed: 60 (1 minute) and 300 (5 minutes). If not provided, the value defaults to 300 (5
+   * minutes).
+   *
+   * @return queryIntervalSeconds
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY_INTERVAL_SECONDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOTimeSliceInterval getQueryIntervalSeconds() {
+    return queryIntervalSeconds;
+  }
+
+  public void setQueryIntervalSeconds(SLOTimeSliceInterval queryIntervalSeconds) {
+    if (!queryIntervalSeconds.isValid()) {
+      this.unparsed = true;
+    }
+    this.queryIntervalSeconds = queryIntervalSeconds;
   }
 
   public SLOTimeSliceCondition threshold(Double threshold) {
@@ -177,13 +208,14 @@ public class SLOTimeSliceCondition {
     SLOTimeSliceCondition sloTimeSliceCondition = (SLOTimeSliceCondition) o;
     return Objects.equals(this.comparator, sloTimeSliceCondition.comparator)
         && Objects.equals(this.query, sloTimeSliceCondition.query)
+        && Objects.equals(this.queryIntervalSeconds, sloTimeSliceCondition.queryIntervalSeconds)
         && Objects.equals(this.threshold, sloTimeSliceCondition.threshold)
         && Objects.equals(this.additionalProperties, sloTimeSliceCondition.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparator, query, threshold, additionalProperties);
+    return Objects.hash(comparator, query, queryIntervalSeconds, threshold, additionalProperties);
   }
 
   @Override
@@ -192,6 +224,9 @@ public class SLOTimeSliceCondition {
     sb.append("class SLOTimeSliceCondition {\n");
     sb.append("    comparator: ").append(toIndentedString(comparator)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    queryIntervalSeconds: ")
+        .append(toIndentedString(queryIntervalSeconds))
+        .append("\n");
     sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

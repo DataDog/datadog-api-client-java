@@ -28,7 +28,8 @@ import java.util.Objects;
   GeomapWidgetRequest.JSON_PROPERTY_QUERY,
   GeomapWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   GeomapWidgetRequest.JSON_PROPERTY_RUM_QUERY,
-  GeomapWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
+  GeomapWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
+  GeomapWidgetRequest.JSON_PROPERTY_SORT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -60,6 +61,9 @@ public class GeomapWidgetRequest {
 
   public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
   private LogQueryDefinition securityQuery;
+
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private WidgetSortBy sort;
 
   public GeomapWidgetRequest columns(List<ListStreamColumn> columns) {
     this.columns = columns;
@@ -295,6 +299,28 @@ public class GeomapWidgetRequest {
     this.securityQuery = securityQuery;
   }
 
+  public GeomapWidgetRequest sort(WidgetSortBy sort) {
+    this.sort = sort;
+    this.unparsed |= sort.unparsed;
+    return this;
+  }
+
+  /**
+   * The controls for sorting the widget.
+   *
+   * @return sort
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetSortBy getSort() {
+    return sort;
+  }
+
+  public void setSort(WidgetSortBy sort) {
+    this.sort = sort;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -360,6 +386,7 @@ public class GeomapWidgetRequest {
         && Objects.equals(this.responseFormat, geomapWidgetRequest.responseFormat)
         && Objects.equals(this.rumQuery, geomapWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, geomapWidgetRequest.securityQuery)
+        && Objects.equals(this.sort, geomapWidgetRequest.sort)
         && Objects.equals(this.additionalProperties, geomapWidgetRequest.additionalProperties);
   }
 
@@ -375,6 +402,7 @@ public class GeomapWidgetRequest {
         responseFormat,
         rumQuery,
         securityQuery,
+        sort,
         additionalProperties);
   }
 
@@ -391,6 +419,7 @@ public class GeomapWidgetRequest {
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

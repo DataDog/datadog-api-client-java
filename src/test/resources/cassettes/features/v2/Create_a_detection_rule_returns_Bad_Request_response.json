@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"status\":\"info\"}],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_returns_Bad_Request_response-1666186593\",\"options\":{},\"queries\":[{\"query\":\"\"}],\"tags\":[]}"
+        "json": "{\"cases\":[{\"status\":\"info\"}],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_returns_Bad_Request_response-1715358868\",\"options\":{},\"queries\":[{\"query\":\"\"}],\"tags\":[]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Internal error\"]}\n",
+      "body": "{\"errors\":[\"Invalid rule configuration\",\"Query filter cannot be empty\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8515ec7a-4796-004b-97e5-6fe68002292f"
+    "id": "b297de8d-2576-fb4e-0148-b8629f03d267"
   }
 ]

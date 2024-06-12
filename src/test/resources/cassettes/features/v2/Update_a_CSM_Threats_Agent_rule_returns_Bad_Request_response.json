@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacsmthreatsagentrulereturnsbadrequestresponse1709907555\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacsmthreatsagentrulereturnsbadrequestresponse1716925088\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"oes-jfu-tm8\",\"type\":\"agent_rule\",\"attributes\":{\"category\":\"Process Activity\",\"creationDate\":1709907556177,\"creator\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"name\":\"testupdateacsmthreatsagentrulereturnsbadrequestresponse1709907555\",\"updateDate\":1709907556177,\"updater\":{\"name\":\"Malo Le Goff\",\"handle\":\"malo.legoff@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"0wn-l36-875\",\"type\":\"agent_rule\",\"attributes\":{\"category\":\"Process Activity\",\"creationDate\":1716925088306,\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"name\":\"testupdateacsmthreatsagentrulereturnsbadrequestresponse1716925088\",\"updateDate\":1716925088306,\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "23bd8fb1-e856-afba-2538-a3c90e9ebfec"
+    "id": "f62fa329-b7d7-f3c4-3945-5f1d7d83ff69"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"open.file.path = sh\"},\"id\":\"abc-123-xyz\",\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"open.file.path = sh\"},\"id\":\"0wn-l36-875\",\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/oes-jfu-tm8",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/0wn-l36-875",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"title\":\"failed to update rule\"}]}\n",
+      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testupdateacsmthreatsagentrulereturnsbadrequestresponse1716925088` error: syntax error `1:18: unexpected token \\\"sh\\\" (expected \\\"~\\\")`)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7ea99ce1-80d1-6ca2-619d-a11c4f28566d"
+    "id": "093c0289-66a7-d4d4-e415-092f0a75ee45"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/oes-jfu-tm8",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/0wn-l36-875",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d6b95011-3576-af69-8bb1-b87091f7da04"
+    "id": "3fee0144-9473-47d2-5c7b-abbbf617da0b"
   }
 ]

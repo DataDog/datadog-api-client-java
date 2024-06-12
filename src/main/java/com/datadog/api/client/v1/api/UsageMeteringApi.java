@@ -253,7 +253,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -303,7 +303,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1247,7 +1247,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1298,7 +1298,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -1752,7 +1752,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1806,7 +1806,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
           new CompletableFuture<>();
@@ -1908,7 +1908,7 @@ public class UsageMeteringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json;datetime-format=rfc3339"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -1962,7 +1962,7 @@ public class UsageMeteringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json;datetime-format=rfc3339"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
           new CompletableFuture<>();
@@ -2495,6 +2495,10 @@ public class UsageMeteringApi {
 
   /**
    * Get billable usage across your account.
+   *
+   * <p>This endpoint is only accessible for <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageBillableSummaryResponse&gt;
@@ -7125,6 +7129,10 @@ public class UsageMeteringApi {
 
   /**
    * Get all usage across your account.
+   *
+   * <p>This endpoint is only accessible for <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for usage beginning in this month. Maximum of 15 months ago. (required)

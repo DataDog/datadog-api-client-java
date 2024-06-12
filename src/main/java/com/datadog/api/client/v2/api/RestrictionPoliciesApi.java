@@ -377,17 +377,17 @@ public class RestrictionPoliciesApi {
    *
    * <h3>Supported resources</h3>
    *
-   * <p>Restriction policies can be applied to the following resources: - Connections: <code>
-   * connection</code> - Dashboards: <code>dashboard</code> - Notebooks: <code>notebook</code> -
+   * <p>Restriction policies can be applied to the following resources: - Dashboards: <code>
+   * dashboard</code> - Notebooks: <code>notebook</code> - Powerpacks: <code>powerpack</code> -
    * Security Rules: <code>security-rule</code> - Service Level Objectives: <code>slo</code>
    *
    * <h3>Supported relations for resources</h3>
    *
    * <p>Resource Type | Supported Relations -------------------------|--------------------------
-   * Connections | <code>viewer</code>, <code>editor</code>, <code>resolver</code> Dashboards |
-   * <code>viewer</code>, <code>editor</code> Notebooks | <code>viewer</code>, <code>editor</code>
-   * Security Rules | <code>viewer</code>, <code>editor</code> Service Level Objectives | <code>
-   * viewer</code>, <code>editor</code>
+   * Dashboards | <code>viewer</code>, <code>editor</code> Notebooks | <code>viewer</code>, <code>
+   * editor</code> Powerpacks | <code>viewer</code>, <code>editor</code> Security Rules | <code>
+   * viewer</code>, <code>editor</code> Service Level Objectives | <code>viewer</code>, <code>editor
+   * </code>
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>security-rule

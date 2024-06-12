@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** */
 @JsonPropertyOrder({
@@ -35,7 +36,7 @@ public class TimeseriesResponseSeries {
   private Integer queryIndex;
 
   public static final String JSON_PROPERTY_UNIT = "unit";
-  private List<Unit> unit = null;
+  private JsonNullable<List<Unit>> unit = JsonNullable.<List<Unit>>undefined();
 
   public TimeseriesResponseSeries groupTags(List<String> groupTags) {
     this.groupTags = groupTags;
@@ -89,19 +90,19 @@ public class TimeseriesResponseSeries {
   }
 
   public TimeseriesResponseSeries unit(List<Unit> unit) {
-    this.unit = unit;
-    for (Unit item : unit) {
-      this.unparsed |= item.unparsed;
-    }
+    this.unit = JsonNullable.<List<Unit>>of(unit);
     return this;
   }
 
   public TimeseriesResponseSeries addUnitItem(Unit unitItem) {
-    if (this.unit == null) {
-      this.unit = new ArrayList<>();
+    if (this.unit == null || !this.unit.isPresent()) {
+      this.unit = JsonNullable.<List<Unit>>of(new ArrayList<>());
     }
-    this.unit.add(unitItem);
-    this.unparsed |= unitItem.unparsed;
+    try {
+      this.unit.get().add(unitItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -114,14 +115,24 @@ public class TimeseriesResponseSeries {
    * @return unit
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<Unit> getUnit() {
+    return unit.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Unit> getUnit() {
+  public JsonNullable<List<Unit>> getUnit_JsonNullable() {
     return unit;
   }
 
-  public void setUnit(List<Unit> unit) {
+  @JsonProperty(JSON_PROPERTY_UNIT)
+  public void setUnit_JsonNullable(JsonNullable<List<Unit>> unit) {
     this.unit = unit;
+  }
+
+  public void setUnit(List<Unit> unit) {
+    this.unit = JsonNullable.<List<Unit>>of(unit);
   }
 
   /**

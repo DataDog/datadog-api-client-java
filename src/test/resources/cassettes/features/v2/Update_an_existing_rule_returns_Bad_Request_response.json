@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Update_an_existing_rule_returns_Bad_Request_response-1666647605\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metrics\":[],\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Update_an_existing_rule_returns_Bad_Request_response-1715358893\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metrics\":[],\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1666647605501,\"filters\":[],\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"3bq-nad-szq\",\"isDefault\":false,\"name\":\"Test-Update_an_existing_rule_returns_Bad_Request_response-1666647605\"}\n",
+      "body": "{\"id\":\"zis-ime-pv8\",\"version\":1,\"name\":\"Test-Update_an_existing_rule_returns_Bad_Request_response-1715358893\",\"createdAt\":1715358893704,\"creationAuthorId\":1445416,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\"}],\"options\":{\"keepAlive\":3600,\"maxSignalDuration\":86400,\"detectionMethod\":\"threshold\",\"evaluationWindow\":900},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a > 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,17 +27,17 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2a91e4a2-b391-bbe9-a0ae-624c79adc380"
+    "id": "012d70a6-fed0-dfeb-685a-03bc3e427503"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"status\":\"info\"}],\"isEnabled\":true,\"message\":\"Test rule Bad\",\"name\":\"Test-Update_an_existing_rule_returns_Bad_Request_response-1666647605\",\"options\":{},\"queries\":[{\"query\":\"\"}],\"tags\":[]}"
+        "json": "{\"cases\":[{\"status\":\"info\"}],\"isEnabled\":true,\"message\":\"Test rule Bad\",\"name\":\"Test-Update_an_existing_rule_returns_Bad_Request_response-1715358893\",\"options\":{},\"queries\":[{\"query\":\"\"}],\"tags\":[]}"
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/security_monitoring/rules/3bq-nad-szq",
+      "path": "/api/v2/security_monitoring/rules/zis-ime-pv8",
       "keepAlive": false,
       "secure": true
     },
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "41d34eb6-b616-7fa7-ddfb-2742cd227a7f"
+    "id": "f408c9e4-74f7-0869-6fb0-ce959c25a650"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/3bq-nad-szq",
+      "path": "/api/v2/security_monitoring/rules/zis-ime-pv8",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a5052a77-28cc-005e-112f-780b173ca48c"
+    "id": "8d9c5670-d0ac-ee3d-2730-261a320cfee2"
   }
 ]

@@ -283,6 +283,10 @@ public class UsageMeteringApi {
    * href="https://docs.datadoghq.com/api/latest/usage-metering/#get-historical-cost-across-your-account">
    * <code>/historical_cost</code></a> instead.
    *
+   * <p>This endpoint is only accessible for <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
+   *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning this month. (required)
    * @param parameters Optional parameters for the request.
@@ -540,6 +544,10 @@ public class UsageMeteringApi {
    * it was incurred. To access historical costs prior to this, use the <code>/historical_cost
    * </code> endpoint.
    *
+   * <p>This endpoint is only accessible for <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
+   *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CostByOrgResponse&gt;
    * @throws ApiException if fails to make API call
@@ -753,6 +761,10 @@ public class UsageMeteringApi {
   /**
    * Get historical cost across multi-org and single root-org accounts. Cost data for a given month
    * becomes available no later than the 16th of the following month.
+   *
+   * <p>This endpoint is only accessible for <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning this month. (required)
@@ -1515,6 +1527,10 @@ public class UsageMeteringApi {
    *   cursor := response.metadata.pagination.next_record_id
    * END</code>
    *
+   * <p>This endpoint is only accessible for <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
+   *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning in this month. (required)
    * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
@@ -1821,8 +1837,11 @@ public class UsageMeteringApi {
 
   /**
    * Get projected cost across multi-org and single root-org accounts. Projected cost data is only
-   * available for the current month and becomes available around the 12th of the month. This
-   * endpoint requires the usage_read authorization scope.
+   * available for the current month and becomes available around the 12th of the month.
+   *
+   * <p>This endpoint is only accessible for <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ProjectedCostResponse&gt;

@@ -80,6 +80,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INDEXED_SPANS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INDEXED_SPANS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
@@ -96,6 +98,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_15DAY_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_180DAY_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_180DAY_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_1DAY_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_1DAY_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_30DAY_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_30DAY_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_LOGS_INDEXED_360DAY_PERCENTAGE,
@@ -122,6 +126,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINE_BYTES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINES_VCPU_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_OBS_PIPELINES_VCPU_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ONLINE_ARCHIVE_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_ONLINE_ARCHIVE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_PROFILED_FARGATE_PERCENTAGE,
@@ -360,6 +366,14 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_FUNCTIONS_USAGE = "functions_usage";
   private Double functionsUsage;
 
+  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE =
+      "incident_management_monthly_active_users_percentage";
+  private Double incidentManagementMonthlyActiveUsersPercentage;
+
+  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE =
+      "incident_management_monthly_active_users_usage";
+  private Double incidentManagementMonthlyActiveUsersUsage;
+
   public static final String JSON_PROPERTY_INDEXED_SPANS_PERCENTAGE = "indexed_spans_percentage";
   private Double indexedSpansPercentage;
 
@@ -414,6 +428,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_LOGS_INDEXED_180DAY_USAGE = "logs_indexed_180day_usage";
   private Double logsIndexed180dayUsage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_1DAY_PERCENTAGE =
+      "logs_indexed_1day_percentage";
+  private Double logsIndexed1dayPercentage;
+
+  public static final String JSON_PROPERTY_LOGS_INDEXED_1DAY_USAGE = "logs_indexed_1day_usage";
+  private Double logsIndexed1dayUsage;
 
   public static final String JSON_PROPERTY_LOGS_INDEXED_30DAY_PERCENTAGE =
       "logs_indexed_30day_percentage";
@@ -504,6 +525,12 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_OBS_PIPELINES_VCPU_USAGE = "obs_pipelines_vcpu_usage";
   private Double obsPipelinesVcpuUsage;
+
+  public static final String JSON_PROPERTY_ONLINE_ARCHIVE_PERCENTAGE = "online_archive_percentage";
+  private Double onlineArchivePercentage;
+
+  public static final String JSON_PROPERTY_ONLINE_ARCHIVE_USAGE = "online_archive_usage";
+  private Double onlineArchiveUsage;
 
   public static final String JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE =
       "profiled_container_percentage";
@@ -1911,6 +1938,54 @@ public class MonthlyUsageAttributionValues {
     this.functionsUsage = functionsUsage;
   }
 
+  public MonthlyUsageAttributionValues incidentManagementMonthlyActiveUsersPercentage(
+      Double incidentManagementMonthlyActiveUsersPercentage) {
+    this.incidentManagementMonthlyActiveUsersPercentage =
+        incidentManagementMonthlyActiveUsersPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Incident Management monthly active users usage by tag(s).
+   *
+   * @return incidentManagementMonthlyActiveUsersPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getIncidentManagementMonthlyActiveUsersPercentage() {
+    return incidentManagementMonthlyActiveUsersPercentage;
+  }
+
+  public void setIncidentManagementMonthlyActiveUsersPercentage(
+      Double incidentManagementMonthlyActiveUsersPercentage) {
+    this.incidentManagementMonthlyActiveUsersPercentage =
+        incidentManagementMonthlyActiveUsersPercentage;
+  }
+
+  public MonthlyUsageAttributionValues incidentManagementMonthlyActiveUsersUsage(
+      Double incidentManagementMonthlyActiveUsersUsage) {
+    this.incidentManagementMonthlyActiveUsersUsage = incidentManagementMonthlyActiveUsersUsage;
+    return this;
+  }
+
+  /**
+   * The Incident Management monthly active users usage by tag(s).
+   *
+   * @return incidentManagementMonthlyActiveUsersUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getIncidentManagementMonthlyActiveUsersUsage() {
+    return incidentManagementMonthlyActiveUsersUsage;
+  }
+
+  public void setIncidentManagementMonthlyActiveUsersUsage(
+      Double incidentManagementMonthlyActiveUsersUsage) {
+    this.incidentManagementMonthlyActiveUsersUsage = incidentManagementMonthlyActiveUsersUsage;
+  }
+
   public MonthlyUsageAttributionValues indexedSpansPercentage(Double indexedSpansPercentage) {
     this.indexedSpansPercentage = indexedSpansPercentage;
     return this;
@@ -2251,6 +2326,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setLogsIndexed180dayUsage(Double logsIndexed180dayUsage) {
     this.logsIndexed180dayUsage = logsIndexed180dayUsage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed1dayPercentage(Double logsIndexed1dayPercentage) {
+    this.logsIndexed1dayPercentage = logsIndexed1dayPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Indexed Logs (1-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed1dayPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_1DAY_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed1dayPercentage() {
+    return logsIndexed1dayPercentage;
+  }
+
+  public void setLogsIndexed1dayPercentage(Double logsIndexed1dayPercentage) {
+    this.logsIndexed1dayPercentage = logsIndexed1dayPercentage;
+  }
+
+  public MonthlyUsageAttributionValues logsIndexed1dayUsage(Double logsIndexed1dayUsage) {
+    this.logsIndexed1dayUsage = logsIndexed1dayUsage;
+    return this;
+  }
+
+  /**
+   * The total Indexed Logs (1-day Retention) usage by tag(s).
+   *
+   * @return logsIndexed1dayUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LOGS_INDEXED_1DAY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getLogsIndexed1dayUsage() {
+    return logsIndexed1dayUsage;
+  }
+
+  public void setLogsIndexed1dayUsage(Double logsIndexed1dayUsage) {
+    this.logsIndexed1dayUsage = logsIndexed1dayUsage;
   }
 
   public MonthlyUsageAttributionValues logsIndexed30dayPercentage(
@@ -2807,6 +2924,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setObsPipelinesVcpuUsage(Double obsPipelinesVcpuUsage) {
     this.obsPipelinesVcpuUsage = obsPipelinesVcpuUsage;
+  }
+
+  public MonthlyUsageAttributionValues onlineArchivePercentage(Double onlineArchivePercentage) {
+    this.onlineArchivePercentage = onlineArchivePercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of online archive usage by tag(s).
+   *
+   * @return onlineArchivePercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getOnlineArchivePercentage() {
+    return onlineArchivePercentage;
+  }
+
+  public void setOnlineArchivePercentage(Double onlineArchivePercentage) {
+    this.onlineArchivePercentage = onlineArchivePercentage;
+  }
+
+  public MonthlyUsageAttributionValues onlineArchiveUsage(Double onlineArchiveUsage) {
+    this.onlineArchiveUsage = onlineArchiveUsage;
+    return this;
+  }
+
+  /**
+   * The online archive usage by tag(s).
+   *
+   * @return onlineArchiveUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ONLINE_ARCHIVE_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getOnlineArchiveUsage() {
+    return onlineArchiveUsage;
+  }
+
+  public void setOnlineArchiveUsage(Double onlineArchiveUsage) {
+    this.onlineArchiveUsage = onlineArchiveUsage;
   }
 
   public MonthlyUsageAttributionValues profiledContainerPercentage(
@@ -3494,6 +3653,12 @@ public class MonthlyUsageAttributionValues {
             this.functionsPercentage, monthlyUsageAttributionValues.functionsPercentage)
         && Objects.equals(this.functionsUsage, monthlyUsageAttributionValues.functionsUsage)
         && Objects.equals(
+            this.incidentManagementMonthlyActiveUsersPercentage,
+            monthlyUsageAttributionValues.incidentManagementMonthlyActiveUsersPercentage)
+        && Objects.equals(
+            this.incidentManagementMonthlyActiveUsersUsage,
+            monthlyUsageAttributionValues.incidentManagementMonthlyActiveUsersUsage)
+        && Objects.equals(
             this.indexedSpansPercentage, monthlyUsageAttributionValues.indexedSpansPercentage)
         && Objects.equals(this.indexedSpansUsage, monthlyUsageAttributionValues.indexedSpansUsage)
         && Objects.equals(
@@ -3528,6 +3693,10 @@ public class MonthlyUsageAttributionValues {
             monthlyUsageAttributionValues.logsIndexed180dayPercentage)
         && Objects.equals(
             this.logsIndexed180dayUsage, monthlyUsageAttributionValues.logsIndexed180dayUsage)
+        && Objects.equals(
+            this.logsIndexed1dayPercentage, monthlyUsageAttributionValues.logsIndexed1dayPercentage)
+        && Objects.equals(
+            this.logsIndexed1dayUsage, monthlyUsageAttributionValues.logsIndexed1dayUsage)
         && Objects.equals(
             this.logsIndexed30dayPercentage,
             monthlyUsageAttributionValues.logsIndexed30dayPercentage)
@@ -3587,6 +3756,9 @@ public class MonthlyUsageAttributionValues {
             monthlyUsageAttributionValues.obsPipelinesVcpuPercentage)
         && Objects.equals(
             this.obsPipelinesVcpuUsage, monthlyUsageAttributionValues.obsPipelinesVcpuUsage)
+        && Objects.equals(
+            this.onlineArchivePercentage, monthlyUsageAttributionValues.onlineArchivePercentage)
+        && Objects.equals(this.onlineArchiveUsage, monthlyUsageAttributionValues.onlineArchiveUsage)
         && Objects.equals(
             this.profiledContainerPercentage,
             monthlyUsageAttributionValues.profiledContainerPercentage)
@@ -3710,6 +3882,8 @@ public class MonthlyUsageAttributionValues {
         fargateUsage,
         functionsPercentage,
         functionsUsage,
+        incidentManagementMonthlyActiveUsersPercentage,
+        incidentManagementMonthlyActiveUsersUsage,
         indexedSpansPercentage,
         indexedSpansUsage,
         infraHostPercentage,
@@ -3726,6 +3900,8 @@ public class MonthlyUsageAttributionValues {
         logsIndexed15dayUsage,
         logsIndexed180dayPercentage,
         logsIndexed180dayUsage,
+        logsIndexed1dayPercentage,
+        logsIndexed1dayUsage,
         logsIndexed30dayPercentage,
         logsIndexed30dayUsage,
         logsIndexed360dayPercentage,
@@ -3752,6 +3928,8 @@ public class MonthlyUsageAttributionValues {
         obsPipelineBytesUsage,
         obsPipelinesVcpuPercentage,
         obsPipelinesVcpuUsage,
+        onlineArchivePercentage,
+        onlineArchiveUsage,
         profiledContainerPercentage,
         profiledContainerUsage,
         profiledFargatePercentage,
@@ -3917,6 +4095,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(functionsPercentage))
         .append("\n");
     sb.append("    functionsUsage: ").append(toIndentedString(functionsUsage)).append("\n");
+    sb.append("    incidentManagementMonthlyActiveUsersPercentage: ")
+        .append(toIndentedString(incidentManagementMonthlyActiveUsersPercentage))
+        .append("\n");
+    sb.append("    incidentManagementMonthlyActiveUsersUsage: ")
+        .append(toIndentedString(incidentManagementMonthlyActiveUsersUsage))
+        .append("\n");
     sb.append("    indexedSpansPercentage: ")
         .append(toIndentedString(indexedSpansPercentage))
         .append("\n");
@@ -3958,6 +4142,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    logsIndexed180dayUsage: ")
         .append(toIndentedString(logsIndexed180dayUsage))
+        .append("\n");
+    sb.append("    logsIndexed1dayPercentage: ")
+        .append(toIndentedString(logsIndexed1dayPercentage))
+        .append("\n");
+    sb.append("    logsIndexed1dayUsage: ")
+        .append(toIndentedString(logsIndexed1dayUsage))
         .append("\n");
     sb.append("    logsIndexed30dayPercentage: ")
         .append(toIndentedString(logsIndexed30dayPercentage))
@@ -4031,6 +4221,10 @@ public class MonthlyUsageAttributionValues {
     sb.append("    obsPipelinesVcpuUsage: ")
         .append(toIndentedString(obsPipelinesVcpuUsage))
         .append("\n");
+    sb.append("    onlineArchivePercentage: ")
+        .append(toIndentedString(onlineArchivePercentage))
+        .append("\n");
+    sb.append("    onlineArchiveUsage: ").append(toIndentedString(onlineArchiveUsage)).append("\n");
     sb.append("    profiledContainerPercentage: ")
         .append(toIndentedString(profiledContainerPercentage))
         .append("\n");

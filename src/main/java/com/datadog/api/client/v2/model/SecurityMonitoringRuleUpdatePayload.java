@@ -148,7 +148,8 @@ public class SecurityMonitoringRuleUpdatePayload {
   }
 
   /**
-   * Additional queries to filter matched events before they are processed.
+   * Additional queries to filter matched events before they are processed. This field is deprecated
+   * for log detection, signal correlation, and workload security rules.
    *
    * @return filters
    */
@@ -352,7 +353,7 @@ public class SecurityMonitoringRuleUpdatePayload {
   }
 
   /**
-   * Cases for generating signals from third party rules. Only available for third party rules.
+   * Cases for generating signals from third-party rules. Only available for third-party rules.
    *
    * @return thirdPartyCases
    */

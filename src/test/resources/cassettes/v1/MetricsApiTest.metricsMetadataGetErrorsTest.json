@@ -1,74 +1,41 @@
 [{
-  "id" : "ad0a3121-badf-4d76-83f3-5a25f394aa1f",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/metrics/ametric",
     "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "metricsMetadataGetErrorsTest" ],
-      "Connection" : [ "close" ],
-      "content-length" : [ "0" ]
+      "x-datadog-trace-id" : [ "8464845293182634473" ],
+      "x-datadog-tags" : [ "_dd.p.dm=-1" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "content-length" : [ "0" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip,zstd1" ],
+      "Accept" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
   },
   "httpResponse" : {
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 29 Jul 2020 08:32:35 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Via" : [ "1.1 haproxy" ],
-      "content-length" : [ "170" ]
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=31536000; includeSubDomains; preload" ],
+      "Date" : [ "Thu, 23 May 2024 20:35:18 GMT" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
-  }
-}, {
-  "id" : "b59b516f-8d1c-4d96-a9ec-9e01152a966d",
-  "httpRequest" : {
-    "method" : "GET",
-    "path" : "/api/v1/metrics/ametric",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "metricsMetadataGetErrorsTest" ],
-      "Connection" : [ "close" ],
-      "content-length" : [ "0" ]
-    },
-    "keepAlive" : false,
-    "secure" : true
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "errors" : [ "Forbidden" ]
+      }
+    }
   },
-  "times" : {
-    "remainingTimes" : 1
-  },
+  "id" : "fe5f4f65-5ac2-4b93-8aab-8d08bc35d42c",
+  "priority" : 0,
   "timeToLive" : {
     "unlimited" : true
   },
-  "httpResponse" : {
-    "statusCode" : 404,
-    "reasonPhrase" : "Not Found",
-    "headers" : {
-      "Date" : [ "Wed, 29 Jul 2020 08:32:36 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2801981" ],
-      "DD-POOL" : [ "dogweb_events" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "37" ]
-    },
-    "body" : "{\"errors\": [\"metric_name not found\"]}"
+  "times" : {
+    "remainingTimes" : 1
   }
 }]

@@ -3,11 +3,17 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.RolesApi;
+import com.datadog.api.client.v2.model.PermissionsType;
+import com.datadog.api.client.v2.model.RelationshipToPermissionData;
+import com.datadog.api.client.v2.model.RelationshipToPermissions;
+import com.datadog.api.client.v2.model.RelationshipToUsers;
 import com.datadog.api.client.v2.model.RoleCreateAttributes;
 import com.datadog.api.client.v2.model.RoleCreateData;
 import com.datadog.api.client.v2.model.RoleCreateRequest;
 import com.datadog.api.client.v2.model.RoleCreateResponse;
+import com.datadog.api.client.v2.model.RoleRelationships;
 import com.datadog.api.client.v2.model.RolesType;
+import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
@@ -18,8 +24,17 @@ public class Example {
         new RoleCreateRequest()
             .data(
                 new RoleCreateData()
-                    .type(RolesType.ROLES)
-                    .attributes(new RoleCreateAttributes().name("Example-Role")));
+                    .attributes(new RoleCreateAttributes().name("developers"))
+                    .relationships(
+                        new RoleRelationships()
+                            .permissions(
+                                new RelationshipToPermissions()
+                                    .data(
+                                        Collections.singletonList(
+                                            new RelationshipToPermissionData()
+                                                .type(PermissionsType.PERMISSIONS))))
+                            .users(new RelationshipToUsers()))
+                    .type(RolesType.ROLES));
 
     try {
       RoleCreateResponse result = apiInstance.createRole(body);

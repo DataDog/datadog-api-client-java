@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Get_a_rule_s_details_returns_OK_response-1666643900\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metrics\":[],\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Get_a_rule_s_details_returns_OK_response-1715358883\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metrics\":[],\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1666643900572,\"filters\":[],\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"crk-wil-reo\",\"isDefault\":false,\"name\":\"Test-Get_a_rule_s_details_returns_OK_response-1666643900\"}\n",
+      "body": "{\"id\":\"1nj-egs-nfm\",\"version\":1,\"name\":\"Test-Get_a_rule_s_details_returns_OK_response-1715358883\",\"createdAt\":1715358883728,\"creationAuthorId\":1445416,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\"}],\"options\":{\"keepAlive\":3600,\"maxSignalDuration\":86400,\"detectionMethod\":\"threshold\",\"evaluationWindow\":900},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a > 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c4e2fb19-a2cd-bfe6-e24f-80a750c999eb"
+    "id": "25e06994-41e3-b897-7f9c-fe76f7a52b76"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security_monitoring/rules/crk-wil-reo",
+      "path": "/api/v2/security_monitoring/rules/1nj-egs-nfm",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1666643900572,\"filters\":[],\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"crk-wil-reo\",\"isDefault\":false,\"name\":\"Test-Get_a_rule_s_details_returns_OK_response-1666643900\"}\n",
+      "body": "{\"id\":\"1nj-egs-nfm\",\"version\":1,\"name\":\"Test-Get_a_rule_s_details_returns_OK_response-1715358883\",\"createdAt\":1715358883728,\"creationAuthorId\":1445416,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\"}],\"options\":{\"keepAlive\":3600,\"maxSignalDuration\":86400,\"detectionMethod\":\"threshold\",\"evaluationWindow\":900},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a > 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b781f16b-6f10-fec4-ba18-1914647eff82"
+    "id": "467c172e-b6a1-2c07-4d59-e5280f3b6167"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/crk-wil-reo",
+      "path": "/api/v2/security_monitoring/rules/1nj-egs-nfm",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f771091e-8260-23c2-fca0-fc4fd10660b2"
+    "id": "facd89ea-7f0d-a842-0e34-0465afcff64d"
   }
 ]

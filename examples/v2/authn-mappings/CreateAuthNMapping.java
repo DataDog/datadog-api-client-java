@@ -7,6 +7,7 @@ import com.datadog.api.client.v2.model.AuthNMappingCreateAttributes;
 import com.datadog.api.client.v2.model.AuthNMappingCreateData;
 import com.datadog.api.client.v2.model.AuthNMappingCreateRelationships;
 import com.datadog.api.client.v2.model.AuthNMappingCreateRequest;
+import com.datadog.api.client.v2.model.AuthNMappingRelationshipToRole;
 import com.datadog.api.client.v2.model.AuthNMappingResponse;
 import com.datadog.api.client.v2.model.AuthNMappingsType;
 import com.datadog.api.client.v2.model.RelationshipToRole;
@@ -30,13 +31,14 @@ public class Example {
                             .attributeKey("exampleauthnmapping")
                             .attributeValue("Example-AuthN-Mapping"))
                     .relationships(
-                        new AuthNMappingCreateRelationships()
-                            .role(
-                                new RelationshipToRole()
-                                    .data(
-                                        new RelationshipToRoleData()
-                                            .id(ROLE_DATA_ID)
-                                            .type(RolesType.ROLES))))
+                        new AuthNMappingCreateRelationships(
+                            new AuthNMappingRelationshipToRole()
+                                .role(
+                                    new RelationshipToRole()
+                                        .data(
+                                            new RelationshipToRoleData()
+                                                .id(ROLE_DATA_ID)
+                                                .type(RolesType.ROLES)))))
                     .type(AuthNMappingsType.AUTHN_MAPPINGS));
 
     try {

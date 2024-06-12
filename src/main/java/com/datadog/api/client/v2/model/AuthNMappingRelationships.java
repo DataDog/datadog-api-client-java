@@ -19,7 +19,8 @@ import java.util.Objects;
 /** All relationships associated with AuthN Mapping. */
 @JsonPropertyOrder({
   AuthNMappingRelationships.JSON_PROPERTY_ROLE,
-  AuthNMappingRelationships.JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE
+  AuthNMappingRelationships.JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE,
+  AuthNMappingRelationships.JSON_PROPERTY_TEAM
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -30,6 +31,9 @@ public class AuthNMappingRelationships {
 
   public static final String JSON_PROPERTY_SAML_ASSERTION_ATTRIBUTE = "saml_assertion_attribute";
   private RelationshipToSAMLAssertionAttribute samlAssertionAttribute;
+
+  public static final String JSON_PROPERTY_TEAM = "team";
+  private RelationshipToTeam team;
 
   public AuthNMappingRelationships role(RelationshipToRole role) {
     this.role = role;
@@ -75,6 +79,28 @@ public class AuthNMappingRelationships {
   public void setSamlAssertionAttribute(
       RelationshipToSAMLAssertionAttribute samlAssertionAttribute) {
     this.samlAssertionAttribute = samlAssertionAttribute;
+  }
+
+  public AuthNMappingRelationships team(RelationshipToTeam team) {
+    this.team = team;
+    this.unparsed |= team.unparsed;
+    return this;
+  }
+
+  /**
+   * Relationship to team.
+   *
+   * @return team
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToTeam getTeam() {
+    return team;
+  }
+
+  public void setTeam(RelationshipToTeam team) {
+    this.team = team;
   }
 
   /**
@@ -136,13 +162,14 @@ public class AuthNMappingRelationships {
     return Objects.equals(this.role, authNMappingRelationships.role)
         && Objects.equals(
             this.samlAssertionAttribute, authNMappingRelationships.samlAssertionAttribute)
+        && Objects.equals(this.team, authNMappingRelationships.team)
         && Objects.equals(
             this.additionalProperties, authNMappingRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, samlAssertionAttribute, additionalProperties);
+    return Objects.hash(role, samlAssertionAttribute, team, additionalProperties);
   }
 
   @Override
@@ -153,6 +180,7 @@ public class AuthNMappingRelationships {
     sb.append("    samlAssertionAttribute: ")
         .append(toIndentedString(samlAssertionAttribute))
         .append("\n");
+    sb.append("    team: ").append(toIndentedString(team)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

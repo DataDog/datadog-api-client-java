@@ -24,7 +24,7 @@ public class Example {
                                 "This rule suppresses low-severity signals in staging"
                                     + " environments.")
                             .enabled(true)
-                            .expirationDate(1703187336000L)
+                            .expirationDate(1638443471000L)
                             .name("Example-Security-Monitoring")
                             .ruleQuery("type:log_detection source:cloudtrail")
                             .suppressionQuery("env:staging status:low"))

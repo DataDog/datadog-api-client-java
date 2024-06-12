@@ -31,6 +31,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_COMPRESSED_PROTO_FILE,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER_PORT,
+  SyntheticsTestRequest.JSON_PROPERTY_FILES,
   SyntheticsTestRequest.JSON_PROPERTY_FOLLOW_REDIRECTS,
   SyntheticsTestRequest.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
@@ -86,6 +87,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_DNS_SERVER_PORT = "dnsServerPort";
   private Integer dnsServerPort;
+
+  public static final String JSON_PROPERTY_FILES = "files";
+  private List<SyntheticsTestRequestBodyFile> files = null;
 
   public static final String JSON_PROPERTY_FOLLOW_REDIRECTS = "follow_redirects";
   private Boolean followRedirects;
@@ -390,6 +394,39 @@ public class SyntheticsTestRequest {
 
   public void setDnsServerPort(Integer dnsServerPort) {
     this.dnsServerPort = dnsServerPort;
+  }
+
+  public SyntheticsTestRequest files(List<SyntheticsTestRequestBodyFile> files) {
+    this.files = files;
+    for (SyntheticsTestRequestBodyFile item : files) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SyntheticsTestRequest addFilesItem(SyntheticsTestRequestBodyFile filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
+    }
+    this.files.add(filesItem);
+    this.unparsed |= filesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Files to be used as part of the request in the test.
+   *
+   * @return files
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsTestRequestBodyFile> getFiles() {
+    return files;
+  }
+
+  public void setFiles(List<SyntheticsTestRequestBodyFile> files) {
+    this.files = files;
   }
 
   public SyntheticsTestRequest followRedirects(Boolean followRedirects) {
@@ -863,6 +900,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.compressedProtoFile, syntheticsTestRequest.compressedProtoFile)
         && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer)
         && Objects.equals(this.dnsServerPort, syntheticsTestRequest.dnsServerPort)
+        && Objects.equals(this.files, syntheticsTestRequest.files)
         && Objects.equals(this.followRedirects, syntheticsTestRequest.followRedirects)
         && Objects.equals(this.headers, syntheticsTestRequest.headers)
         && Objects.equals(this.host, syntheticsTestRequest.host)
@@ -898,6 +936,7 @@ public class SyntheticsTestRequest {
         compressedProtoFile,
         dnsServer,
         dnsServerPort,
+        files,
         followRedirects,
         headers,
         host,
@@ -938,6 +977,7 @@ public class SyntheticsTestRequest {
         .append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
     sb.append("    dnsServerPort: ").append(toIndentedString(dnsServerPort)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");

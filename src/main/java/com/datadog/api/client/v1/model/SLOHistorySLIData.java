@@ -177,9 +177,15 @@ public class SLOHistorySLIData {
   }
 
   /**
-   * For <code>monitor</code> based SLOs, this includes the aggregated history as arrays that
-   * include timeseries and uptime data where <code>0=monitor</code> is in <code>OK</code> state and
-   * <code>1=monitor</code> is in <code>alert</code> state.
+   * The state transition history for <code>monitor</code> or <code>time-slice</code> SLOs. It is
+   * represented as an array of pairs. Each pair is an array containing the timestamp of the
+   * transition as an integer in Unix epoch format in the first element, and the state as an integer
+   * in the second element. An integer value of <code>0</code> for state means uptime, <code>1
+   * </code> means downtime, and <code>2</code> means no data. Periods of no data count as uptime in
+   * time-slice SLOs, while for monitor SLOs, no data is counted either as uptime or downtime
+   * depending on monitor settings. See <a
+   * href="https://docs.datadoghq.com/service_management/service_level_objectives/monitor/#missing-data">SLO
+   * documentation</a> for detailed information.
    *
    * @return history
    */

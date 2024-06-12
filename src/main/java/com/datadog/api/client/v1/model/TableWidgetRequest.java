@@ -38,7 +38,8 @@ import java.util.Objects;
   TableWidgetRequest.JSON_PROPERTY_QUERIES,
   TableWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   TableWidgetRequest.JSON_PROPERTY_RUM_QUERY,
-  TableWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
+  TableWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
+  TableWidgetRequest.JSON_PROPERTY_SORT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -100,6 +101,9 @@ public class TableWidgetRequest {
 
   public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
   private LogQueryDefinition securityQuery;
+
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private WidgetSortBy sort;
 
   public TableWidgetRequest aggregator(WidgetAggregator aggregator) {
     this.aggregator = aggregator;
@@ -569,6 +573,28 @@ public class TableWidgetRequest {
     this.securityQuery = securityQuery;
   }
 
+  public TableWidgetRequest sort(WidgetSortBy sort) {
+    this.sort = sort;
+    this.unparsed |= sort.unparsed;
+    return this;
+  }
+
+  /**
+   * The controls for sorting the widget.
+   *
+   * @return sort
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetSortBy getSort() {
+    return sort;
+  }
+
+  public void setSort(WidgetSortBy sort) {
+    this.sort = sort;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -644,6 +670,7 @@ public class TableWidgetRequest {
         && Objects.equals(this.responseFormat, tableWidgetRequest.responseFormat)
         && Objects.equals(this.rumQuery, tableWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, tableWidgetRequest.securityQuery)
+        && Objects.equals(this.sort, tableWidgetRequest.sort)
         && Objects.equals(this.additionalProperties, tableWidgetRequest.additionalProperties);
   }
 
@@ -669,6 +696,7 @@ public class TableWidgetRequest {
         responseFormat,
         rumQuery,
         securityQuery,
+        sort,
         additionalProperties);
   }
 
@@ -697,6 +725,7 @@ public class TableWidgetRequest {
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

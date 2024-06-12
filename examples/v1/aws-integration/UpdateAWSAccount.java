@@ -20,10 +20,10 @@ public class Example {
             .accountSpecificNamespaceRules(Map.ofEntries(Map.entry("auto_scaling", false)))
             .cspmResourceCollectionEnabled(false)
             .excludedRegions(Arrays.asList("us-east-1", "us-west-2"))
+            .extendedResourceCollectionEnabled(true)
             .filterTags(Collections.singletonList("$KEY:$VALUE"))
             .hostTags(Collections.singletonList("$KEY:$VALUE"))
             .metricsCollectionEnabled(true)
-            .resourceCollectionEnabled(true)
             .roleName("DatadogAWSIntegrationRole");
 
     try {

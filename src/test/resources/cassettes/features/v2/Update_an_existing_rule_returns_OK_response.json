@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Update_an_existing_rule_returns_OK_response-1666643564\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metrics\":[],\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Update_an_existing_rule_returns_OK_response-1715358894\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metrics\":[],\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1666643564940,\"filters\":[],\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"uhl-lzc-3iz\",\"isDefault\":false,\"name\":\"Test-Update_an_existing_rule_returns_OK_response-1666643564\"}\n",
+      "body": "{\"id\":\"fu8-wg9-rsy\",\"version\":1,\"name\":\"Test-Update_an_existing_rule_returns_OK_response-1715358894\",\"createdAt\":1715358895245,\"creationAuthorId\":1445416,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\"}],\"options\":{\"keepAlive\":3600,\"maxSignalDuration\":86400,\"detectionMethod\":\"threshold\",\"evaluationWindow\":900},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a > 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5dbb098b-cd5b-2c6f-fb23-b61fc764211b"
+    "id": "7a24d972-fec7-738e-f21e-12323265ecac"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Update_an_existing_rule_returns_OK_response-1666643564-Updated\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metrics\":[],\"query\":\"@test:true\"}],\"tags\":[]}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Update_an_existing_rule_returns_OK_response-1715358894-Updated\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metrics\":[],\"query\":\"@test:true\"}],\"tags\":[]}"
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/security_monitoring/rules/uhl-lzc-3iz",
+      "path": "/api/v2/security_monitoring/rules/fu8-wg9-rsy",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"updateAuthorId\":1445416,\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":2,\"isDefault\":false,\"filters\":[],\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"uhl-lzc-3iz\",\"createdAt\":1666643564940,\"name\":\"Test-Update_an_existing_rule_returns_OK_response-1666643564-Updated\"}\n",
+      "body": "{\"id\":\"fu8-wg9-rsy\",\"version\":2,\"name\":\"Test-Update_an_existing_rule_returns_OK_response-1715358894-Updated\",\"createdAt\":1715358895245,\"creationAuthorId\":1445416,\"updateAuthorId\":1445416,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\"}],\"options\":{\"keepAlive\":3600,\"maxSignalDuration\":86400,\"detectionMethod\":\"threshold\",\"evaluationWindow\":900},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a > 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "38dc0345-3b88-3c8c-c8cf-80ef86d335df"
+    "id": "ebf15e08-2867-b752-ff69-2518c9b39deb"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/uhl-lzc-3iz",
+      "path": "/api/v2/security_monitoring/rules/fu8-wg9-rsy",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8958838c-23ad-e16d-55c6-411bcdcf6d72"
+    "id": "27a41a82-285e-7158-7057-10f5b3d96978"
   }
 ]

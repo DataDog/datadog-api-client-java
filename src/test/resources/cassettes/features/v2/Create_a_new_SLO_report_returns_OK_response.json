@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"from_ts\":1690901870,\"interval\":\"monthly\",\"query\":\"slo_type:metric \\\"SLO Reporting Test\\\"\",\"timezone\":\"America/New_York\",\"to_ts\":1706803070}}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/slo/report",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"98c67bea-fdbf-11ee-8a01-bfd37432018b\",\"type\":\"report_id\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bdf42cbc-33ae-72c6-8bdb-ec111046de96"
+  }
+]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"enabled\":true,\"name\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\"},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1715358891\",\"enabled\":true,\"name\":\"Test-Update_a_suppression_rule_returns_OK_response-1715358891\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\"},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"xhe-kbx-qym\",\"attributes\":{\"name\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"enabled\":true,\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"version\":1,\"creation_date\":1704967597310,\"update_date\":1704967597310,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "body": "{\"data\":{\"id\":\"pej-nbn-ai7\",\"attributes\":{\"name\":\"Test-Update_a_suppression_rule_returns_OK_response-1715358891\",\"enabled\":true,\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1715358891\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:test\",\"data_exclusion_query\":\"\",\"version\":1,\"creation_date\":1715358892289,\"update_date\":1715358892289,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0a4df5bd-ebd7-d792-15d6-7c824b5d87ed"
+    "id": "5262b6a1-2de0-ea76-df58-f1a3880f66a0"
   },
   {
     "httpRequest": {
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/xhe-kbx-qym",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/pej-nbn-ai7",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"xhe-kbx-qym\",\"attributes\":{\"name\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"enabled\":true,\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1704967597\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:staging status:low\",\"version\":2,\"creation_date\":1704967597310,\"update_date\":1704967597660,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "body": "{\"data\":{\"id\":\"pej-nbn-ai7\",\"attributes\":{\"name\":\"Test-Update_a_suppression_rule_returns_OK_response-1715358891\",\"enabled\":true,\"description\":\"Test-Update_a_suppression_rule_returns_OK_response-1715358891\",\"rule_query\":\"source:cloudtrail\",\"suppression_query\":\"env:staging status:low\",\"data_exclusion_query\":\"\",\"version\":2,\"creation_date\":1715358892289,\"update_date\":1715358892759,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "99982b4a-97d2-80b2-4d88-fa946de48bab"
+    "id": "ba1aaf9c-7d61-da15-1fa5-0d8744b39467"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/xhe-kbx-qym",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/pej-nbn-ai7",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "53571d32-147b-a6c7-9637-4188f8e863a6"
+    "id": "9b97de2e-1171-319c-e6df-8a3f8a830097"
   }
 ]

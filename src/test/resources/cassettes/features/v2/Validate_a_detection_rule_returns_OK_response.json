@@ -1,0 +1,31 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"hasExtendedTitle\":true,\"isEnabled\":true,\"message\":\"My security monitoring rule\",\"name\":\"My security monitoring rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":1800,\"keepAlive\":1800,\"maxSignalDuration\":1800},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[\"@userIdentity.assumed_role\"],\"name\":\"\",\"query\":\"source:source_here\"}],\"tags\":[\"env:prod\",\"team:security\"],\"type\":\"log_detection\"}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules/validation",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "eff24aa1-fc7c-d68e-5815-6e52bbac0e73"
+  }
+]

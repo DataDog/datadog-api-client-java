@@ -40,7 +40,8 @@ public class SLOTimeSliceSpec {
 
   /**
    * The time-slice condition, composed of 3 parts: 1. the metric timeseries query, 2. the
-   * comparator, and 3. the threshold.
+   * comparator, and 3. the threshold. Optionally, a fourth part, the query interval, can be
+   * provided.
    *
    * @return timeSlice
    */

@@ -13,7 +13,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -22,6 +24,7 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_DESCRIPTION,
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_ENABLED,
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_EXPRESSION,
+  CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_FILTERS,
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_NAME
 })
 @jakarta.annotation.Generated(
@@ -36,6 +39,9 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
 
   public static final String JSON_PROPERTY_EXPRESSION = "expression";
   private String expression;
+
+  public static final String JSON_PROPERTY_FILTERS = "filters";
+  private List<String> filters = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -110,6 +116,35 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
 
   public void setExpression(String expression) {
     this.expression = expression;
+  }
+
+  public CloudWorkloadSecurityAgentRuleCreateAttributes filters(List<String> filters) {
+    this.filters = filters;
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentRuleCreateAttributes addFiltersItem(String filtersItem) {
+    if (this.filters == null) {
+      this.filters = new ArrayList<>();
+    }
+    this.filters.add(filtersItem);
+    return this;
+  }
+
+  /**
+   * The platforms the Agent rule is supported on.
+   *
+   * @return filters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getFilters() {
+    return filters;
+  }
+
+  public void setFilters(List<String> filters) {
+    this.filters = filters;
   }
 
   public CloudWorkloadSecurityAgentRuleCreateAttributes name(String name) {
@@ -195,6 +230,7 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
         && Objects.equals(this.enabled, cloudWorkloadSecurityAgentRuleCreateAttributes.enabled)
         && Objects.equals(
             this.expression, cloudWorkloadSecurityAgentRuleCreateAttributes.expression)
+        && Objects.equals(this.filters, cloudWorkloadSecurityAgentRuleCreateAttributes.filters)
         && Objects.equals(this.name, cloudWorkloadSecurityAgentRuleCreateAttributes.name)
         && Objects.equals(
             this.additionalProperties,
@@ -203,7 +239,7 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, enabled, expression, name, additionalProperties);
+    return Objects.hash(description, enabled, expression, filters, name, additionalProperties);
   }
 
   @Override
@@ -213,6 +249,7 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

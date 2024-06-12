@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.AuthNMappingsApi;
+import com.datadog.api.client.v2.model.AuthNMappingRelationshipToRole;
 import com.datadog.api.client.v2.model.AuthNMappingResponse;
 import com.datadog.api.client.v2.model.AuthNMappingUpdateAttributes;
 import com.datadog.api.client.v2.model.AuthNMappingUpdateData;
@@ -34,13 +35,14 @@ public class Example {
                             .attributeValue("Development"))
                     .id(AUTHN_MAPPING_DATA_ID)
                     .relationships(
-                        new AuthNMappingUpdateRelationships()
-                            .role(
-                                new RelationshipToRole()
-                                    .data(
-                                        new RelationshipToRoleData()
-                                            .id(ROLE_DATA_ID)
-                                            .type(RolesType.ROLES))))
+                        new AuthNMappingUpdateRelationships(
+                            new AuthNMappingRelationshipToRole()
+                                .role(
+                                    new RelationshipToRole()
+                                        .data(
+                                            new RelationshipToRoleData()
+                                                .id(ROLE_DATA_ID)
+                                                .type(RolesType.ROLES)))))
                     .type(AuthNMappingsType.AUTHN_MAPPINGS));
 
     try {

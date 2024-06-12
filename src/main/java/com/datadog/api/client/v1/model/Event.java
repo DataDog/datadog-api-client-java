@@ -112,7 +112,7 @@ public class Event {
 
   /**
    * POSIX timestamp of the event. Must be sent as an integer (that is no quotes). Limited to events
-   * no older than 18 hours.
+   * up to 18 hours in the past and two hours in the future.
    *
    * @return dateHappened
    */

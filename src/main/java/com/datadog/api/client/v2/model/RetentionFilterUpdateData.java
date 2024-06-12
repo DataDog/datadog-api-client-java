@@ -28,7 +28,7 @@ import java.util.Objects;
 public class RetentionFilterUpdateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private RetentionFilterCreateAttributes attributes;
+  private RetentionFilterUpdateAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -41,7 +41,7 @@ public class RetentionFilterUpdateData {
   @JsonCreator
   public RetentionFilterUpdateData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          RetentionFilterCreateAttributes attributes,
+          RetentionFilterUpdateAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ApmRetentionFilterType type) {
     this.attributes = attributes;
@@ -51,7 +51,7 @@ public class RetentionFilterUpdateData {
     this.unparsed |= !type.isValid();
   }
 
-  public RetentionFilterUpdateData attributes(RetentionFilterCreateAttributes attributes) {
+  public RetentionFilterUpdateData attributes(RetentionFilterUpdateAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
@@ -64,11 +64,11 @@ public class RetentionFilterUpdateData {
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public RetentionFilterCreateAttributes getAttributes() {
+  public RetentionFilterUpdateAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(RetentionFilterCreateAttributes attributes) {
+  public void setAttributes(RetentionFilterUpdateAttributes attributes) {
     this.attributes = attributes;
   }
 

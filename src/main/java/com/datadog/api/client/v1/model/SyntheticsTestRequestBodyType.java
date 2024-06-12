@@ -30,7 +30,9 @@ public class SyntheticsTestRequestBodyType extends ModelEnum<String> {
               "text/xml",
               "text/html",
               "application/x-www-form-urlencoded",
-              "graphql"));
+              "graphql",
+              "application/octet-stream",
+              "multipart/form-data"));
 
   public static final SyntheticsTestRequestBodyType TEXT_PLAIN =
       new SyntheticsTestRequestBodyType("text/plain");
@@ -44,6 +46,10 @@ public class SyntheticsTestRequestBodyType extends ModelEnum<String> {
       new SyntheticsTestRequestBodyType("application/x-www-form-urlencoded");
   public static final SyntheticsTestRequestBodyType GRAPHQL =
       new SyntheticsTestRequestBodyType("graphql");
+  public static final SyntheticsTestRequestBodyType APPLICATION_OCTET_STREAM =
+      new SyntheticsTestRequestBodyType("application/octet-stream");
+  public static final SyntheticsTestRequestBodyType MULTIPART_FORM_DATA =
+      new SyntheticsTestRequestBodyType("multipart/form-data");
 
   SyntheticsTestRequestBodyType(String value) {
     super(value, allowedValues);

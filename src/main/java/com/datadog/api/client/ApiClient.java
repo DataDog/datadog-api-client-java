@@ -370,6 +370,7 @@ public class ApiClient {
           put("v2.createOpenAPI", false);
           put("v2.deleteOpenAPI", false);
           put("v2.getOpenAPI", false);
+          put("v2.listAPIs", false);
           put("v2.updateOpenAPI", false);
           put("v2.getActiveBillingDimensions", false);
           put("v2.getMonthlyCostAttribution", false);
@@ -408,6 +409,9 @@ public class ApiClient {
           put("v2.getIncidentService", false);
           put("v2.listIncidentServices", false);
           put("v2.updateIncidentService", false);
+          put("v2.createSLOReportJob", false);
+          put("v2.getSLOReport", false);
+          put("v2.getSLOReportJobStatus", false);
           put("v2.createIncidentTeam", false);
           put("v2.deleteIncidentTeam", false);
           put("v2.getIncidentTeam", false);
