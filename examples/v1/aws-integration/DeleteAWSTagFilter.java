@@ -14,7 +14,7 @@ public class Example {
     AWSTagFilterDeleteRequest body =
         new AWSTagFilterDeleteRequest()
             .accountId("FAKEAC0FAKEAC2FAKEAC")
-            .namespace(AWSNamespace.ELB);
+            .namespace(AWSNamespace.API_GATEWAY);
 
     try {
       apiInstance.deleteAWSTagFilter(body);

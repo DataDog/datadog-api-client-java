@@ -334,10 +334,15 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #createAWSTagFilterWithHttpInfo}.
    *
-   * @param body Set an AWS tag filter using an <code>aws_account_identifier</code>, <code>namespace
-   *     </code>, and filtering string. Namespace options are <code>application_elb</code>, <code>
-   *     elb</code>, <code>lambda</code>, <code>network_elb</code>, <code>rds</code>, <code>sqs
-   *     </code>, and <code>custom</code>. (required)
+   * @param body Set an AWS tag filter by providing the following parameters:
+   *     <ul>
+   *       <li><code>account_id</code>: The identifier for your AWS account.
+   *       <li><code>namespace</code>: The namespace to filter. Query the available namespaces using
+   *           <code>api_instance.list_available_aws_namespaces()</code> to determine the
+   *           appropriate options.
+   *       <li><code>tag_filter_str</code>: The filtering criteria as a string.
+   *     </ul>
+   *     (required)
    * @return Object
    * @throws ApiException if fails to make API call
    */
@@ -350,10 +355,15 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #createAWSTagFilterWithHttpInfoAsync}.
    *
-   * @param body Set an AWS tag filter using an <code>aws_account_identifier</code>, <code>namespace
-   *     </code>, and filtering string. Namespace options are <code>application_elb</code>, <code>
-   *     elb</code>, <code>lambda</code>, <code>network_elb</code>, <code>rds</code>, <code>sqs
-   *     </code>, and <code>custom</code>. (required)
+   * @param body Set an AWS tag filter by providing the following parameters:
+   *     <ul>
+   *       <li><code>account_id</code>: The identifier for your AWS account.
+   *       <li><code>namespace</code>: The namespace to filter. Query the available namespaces using
+   *           <code>api_instance.list_available_aws_namespaces()</code> to determine the
+   *           appropriate options.
+   *       <li><code>tag_filter_str</code>: The filtering criteria as a string.
+   *     </ul>
+   *     (required)
    * @return CompletableFuture&lt;Object&gt;
    */
   public CompletableFuture<Object> createAWSTagFilterAsync(AWSTagFilterCreateRequest body) {
@@ -365,12 +375,19 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Set an AWS tag filter.
+   * Set an AWS tag filter for a specific AWS account and namespace. Before setting a tag filter,
+   * ensure that you have queried the available AWS namespaces by using <code>
+   * api_instance.list_available_aws_namespaces()</code>.
    *
-   * @param body Set an AWS tag filter using an <code>aws_account_identifier</code>, <code>namespace
-   *     </code>, and filtering string. Namespace options are <code>application_elb</code>, <code>
-   *     elb</code>, <code>lambda</code>, <code>network_elb</code>, <code>rds</code>, <code>sqs
-   *     </code>, and <code>custom</code>. (required)
+   * @param body Set an AWS tag filter by providing the following parameters:
+   *     <ul>
+   *       <li><code>account_id</code>: The identifier for your AWS account.
+   *       <li><code>namespace</code>: The namespace to filter. Query the available namespaces using
+   *           <code>api_instance.list_available_aws_namespaces()</code> to determine the
+   *           appropriate options.
+   *       <li><code>tag_filter_str</code>: The filtering criteria as a string.
+   *     </ul>
+   *     (required)
    * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -422,10 +439,15 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #createAWSTagFilterWithHttpInfo}.
    *
-   * @param body Set an AWS tag filter using an <code>aws_account_identifier</code>, <code>namespace
-   *     </code>, and filtering string. Namespace options are <code>application_elb</code>, <code>
-   *     elb</code>, <code>lambda</code>, <code>network_elb</code>, <code>rds</code>, <code>sqs
-   *     </code>, and <code>custom</code>. (required)
+   * @param body Set an AWS tag filter by providing the following parameters:
+   *     <ul>
+   *       <li><code>account_id</code>: The identifier for your AWS account.
+   *       <li><code>namespace</code>: The namespace to filter. Query the available namespaces using
+   *           <code>api_instance.list_available_aws_namespaces()</code> to determine the
+   *           appropriate options.
+   *       <li><code>tag_filter_str</code>: The filtering criteria as a string.
+   *     </ul>
+   *     (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Object>> createAWSTagFilterWithHttpInfoAsync(

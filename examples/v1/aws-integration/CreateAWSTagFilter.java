@@ -14,7 +14,7 @@ public class Example {
     AWSTagFilterCreateRequest body =
         new AWSTagFilterCreateRequest()
             .accountId("123456789012")
-            .namespace(AWSNamespace.ELB)
+            .namespace(AWSNamespace.API_GATEWAY)
             .tagFilterStr("prod*");
 
     try {
