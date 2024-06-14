@@ -76,6 +76,17 @@ public class Example {
                                             .targetValue("0"))
                                     .type(SyntheticsAssertionType.BODY)),
                             new SyntheticsAssertion(
+                                new SyntheticsAssertionJSONPathTarget()
+                                    .operator(
+                                        SyntheticsAssertionJSONPathOperator.VALIDATES_JSON_PATH)
+                                    .target(
+                                        new SyntheticsAssertionJSONPathTargetTarget()
+                                            .elementsOperator("atLeastOneElementMatches")
+                                            .jsonPath("topKey")
+                                            .operator("isNot")
+                                            .targetValue("0"))
+                                    .type(SyntheticsAssertionType.BODY)),
+                            new SyntheticsAssertion(
                                 new SyntheticsAssertionJSONSchemaTarget()
                                     .operator(
                                         SyntheticsAssertionJSONSchemaOperator.VALIDATES_JSON_SCHEMA)
