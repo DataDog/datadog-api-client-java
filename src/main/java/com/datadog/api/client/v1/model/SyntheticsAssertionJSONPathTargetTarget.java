@@ -18,6 +18,7 @@ import java.util.Objects;
 
 /** Composed target for <code>validatesJSONPath</code> operator. */
 @JsonPropertyOrder({
+  SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_ELEMENTS_OPERATOR,
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_JSON_PATH,
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_OPERATOR,
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_TARGET_VALUE
@@ -26,6 +27,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsAssertionJSONPathTargetTarget {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ELEMENTS_OPERATOR = "elementsOperator";
+  private String elementsOperator;
+
   public static final String JSON_PROPERTY_JSON_PATH = "jsonPath";
   private String jsonPath;
 
@@ -34,6 +38,30 @@ public class SyntheticsAssertionJSONPathTargetTarget {
 
   public static final String JSON_PROPERTY_TARGET_VALUE = "targetValue";
   private Object targetValue = null;
+
+  public SyntheticsAssertionJSONPathTargetTarget elementsOperator(String elementsOperator) {
+    this.elementsOperator = elementsOperator;
+    return this;
+  }
+
+  /**
+   * The element from the list of results to assert on. To choose from the first element in the list
+   * <code>firstElementMatches</code>, every element in the list <code>everyElementMatches</code>,
+   * at least one element in the list <code>atLeastOneElementMatches</code> or the serialized value
+   * of the list <code>serializationMatches</code>.
+   *
+   * @return elementsOperator
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ELEMENTS_OPERATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getElementsOperator() {
+    return elementsOperator;
+  }
+
+  public void setElementsOperator(String elementsOperator) {
+    this.elementsOperator = elementsOperator;
+  }
 
   public SyntheticsAssertionJSONPathTargetTarget jsonPath(String jsonPath) {
     this.jsonPath = jsonPath;
@@ -155,7 +183,9 @@ public class SyntheticsAssertionJSONPathTargetTarget {
     }
     SyntheticsAssertionJSONPathTargetTarget syntheticsAssertionJsonPathTargetTarget =
         (SyntheticsAssertionJSONPathTargetTarget) o;
-    return Objects.equals(this.jsonPath, syntheticsAssertionJsonPathTargetTarget.jsonPath)
+    return Objects.equals(
+            this.elementsOperator, syntheticsAssertionJsonPathTargetTarget.elementsOperator)
+        && Objects.equals(this.jsonPath, syntheticsAssertionJsonPathTargetTarget.jsonPath)
         && Objects.equals(this.operator, syntheticsAssertionJsonPathTargetTarget.operator)
         && Objects.equals(this.targetValue, syntheticsAssertionJsonPathTargetTarget.targetValue)
         && Objects.equals(
@@ -165,13 +195,14 @@ public class SyntheticsAssertionJSONPathTargetTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(jsonPath, operator, targetValue, additionalProperties);
+    return Objects.hash(elementsOperator, jsonPath, operator, targetValue, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsAssertionJSONPathTargetTarget {\n");
+    sb.append("    elementsOperator: ").append(toIndentedString(elementsOperator)).append("\n");
     sb.append("    jsonPath: ").append(toIndentedString(jsonPath)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("    targetValue: ").append(toIndentedString(targetValue)).append("\n");
