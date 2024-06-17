@@ -714,14 +714,7 @@ public class ServiceScorecardsApi {
     String valueGetterPath = "";
     String valueSetterPath = "pageOffset";
     Boolean valueSetterParamOptional = true;
-    Long limit;
-
-    if (parameters.pageSize == null) {
-      limit = 10l;
-      parameters.pageSize(limit);
-    } else {
-      limit = parameters.pageSize;
-    }
+    String limit;
 
     LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
     args.put("optionalParams", parameters);
