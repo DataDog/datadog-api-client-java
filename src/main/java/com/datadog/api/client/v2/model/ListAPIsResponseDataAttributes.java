@@ -15,64 +15,35 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.UUID;
 
-/** Data envelope for <code>ListAPIsResponse</code>. */
-@JsonPropertyOrder({
-  ListAPIsResponseData.JSON_PROPERTY_ATTRIBUTES,
-  ListAPIsResponseData.JSON_PROPERTY_ID
-})
+/** Attributes for <code>ListAPIsResponseData</code>. */
+@JsonPropertyOrder({ListAPIsResponseDataAttributes.JSON_PROPERTY_NAME})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ListAPIsResponseData {
+public class ListAPIsResponseDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private ListAPIsResponseDataAttributes attributes;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
-
-  public ListAPIsResponseData attributes(ListAPIsResponseDataAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public ListAPIsResponseDataAttributes name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Attributes for <code>ListAPIsResponseData</code>.
+   * API name.
    *
-   * @return attributes
+   * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ListAPIsResponseDataAttributes getAttributes() {
-    return attributes;
+  public String getName() {
+    return name;
   }
 
-  public void setAttributes(ListAPIsResponseDataAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public ListAPIsResponseData id(UUID id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * API identifier.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -87,10 +58,10 @@ public class ListAPIsResponseData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ListAPIsResponseData
+   * @return ListAPIsResponseDataAttributes
    */
   @JsonAnySetter
-  public ListAPIsResponseData putAdditionalProperty(String key, Object value) {
+  public ListAPIsResponseDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -121,7 +92,7 @@ public class ListAPIsResponseData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ListAPIsResponseData object is equal to o. */
+  /** Return true if this ListAPIsResponseDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,23 +101,23 @@ public class ListAPIsResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListAPIsResponseData listApIsResponseData = (ListAPIsResponseData) o;
-    return Objects.equals(this.attributes, listApIsResponseData.attributes)
-        && Objects.equals(this.id, listApIsResponseData.id)
-        && Objects.equals(this.additionalProperties, listApIsResponseData.additionalProperties);
+    ListAPIsResponseDataAttributes listApIsResponseDataAttributes =
+        (ListAPIsResponseDataAttributes) o;
+    return Objects.equals(this.name, listApIsResponseDataAttributes.name)
+        && Objects.equals(
+            this.additionalProperties, listApIsResponseDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, additionalProperties);
+    return Objects.hash(name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListAPIsResponseData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class ListAPIsResponseDataAttributes {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
