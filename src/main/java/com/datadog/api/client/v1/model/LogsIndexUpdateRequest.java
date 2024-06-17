@@ -27,6 +27,7 @@ import java.util.Objects;
   LogsIndexUpdateRequest.JSON_PROPERTY_DISABLE_DAILY_LIMIT,
   LogsIndexUpdateRequest.JSON_PROPERTY_EXCLUSION_FILTERS,
   LogsIndexUpdateRequest.JSON_PROPERTY_FILTER,
+  LogsIndexUpdateRequest.JSON_PROPERTY_NUM_FLEX_LOGS_RETENTION_DAYS,
   LogsIndexUpdateRequest.JSON_PROPERTY_NUM_RETENTION_DAYS
 })
 @jakarta.annotation.Generated(
@@ -51,6 +52,10 @@ public class LogsIndexUpdateRequest {
 
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsFilter filter;
+
+  public static final String JSON_PROPERTY_NUM_FLEX_LOGS_RETENTION_DAYS =
+      "num_flex_logs_retention_days";
+  private Long numFlexLogsRetentionDays;
 
   public static final String JSON_PROPERTY_NUM_RETENTION_DAYS = "num_retention_days";
   private Long numRetentionDays;
@@ -209,14 +214,41 @@ public class LogsIndexUpdateRequest {
     this.filter = filter;
   }
 
+  public LogsIndexUpdateRequest numFlexLogsRetentionDays(Long numFlexLogsRetentionDays) {
+    this.numFlexLogsRetentionDays = numFlexLogsRetentionDays;
+    return this;
+  }
+
+  /**
+   * The number of days logs are kept in Flex Logs (inclusive of Indexing) before they are deleted.
+   * The values available are 30, 60, 90, 180, 360, and 450 days.
+   *
+   * <p><strong>Note:</strong> Changing the retention for an index adjusts the length of retention
+   * for all Flex logs already in this index. It may also affect billing. If using Flex Starter,
+   * then only 180, 360, and 450 days options are available.
+   *
+   * @return numFlexLogsRetentionDays
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NUM_FLEX_LOGS_RETENTION_DAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getNumFlexLogsRetentionDays() {
+    return numFlexLogsRetentionDays;
+  }
+
+  public void setNumFlexLogsRetentionDays(Long numFlexLogsRetentionDays) {
+    this.numFlexLogsRetentionDays = numFlexLogsRetentionDays;
+  }
+
   public LogsIndexUpdateRequest numRetentionDays(Long numRetentionDays) {
     this.numRetentionDays = numRetentionDays;
     return this;
   }
 
   /**
-   * The number of days before logs are deleted from this index. Available values depend on
-   * retention plans specified in your organization's contract/subscriptions.
+   * The number of days before logs are kept in Standard Indexing before they are either deleted or
+   * retained in Flex Logs. Available values depend on retention plans specified in your
+   * organization's contract / subscriptions.
    *
    * <p><strong>Note:</strong> Changing the retention for an index adjusts the length of retention
    * for all logs already in this index. It may also affect billing.
@@ -298,6 +330,8 @@ public class LogsIndexUpdateRequest {
         && Objects.equals(this.disableDailyLimit, logsIndexUpdateRequest.disableDailyLimit)
         && Objects.equals(this.exclusionFilters, logsIndexUpdateRequest.exclusionFilters)
         && Objects.equals(this.filter, logsIndexUpdateRequest.filter)
+        && Objects.equals(
+            this.numFlexLogsRetentionDays, logsIndexUpdateRequest.numFlexLogsRetentionDays)
         && Objects.equals(this.numRetentionDays, logsIndexUpdateRequest.numRetentionDays)
         && Objects.equals(this.additionalProperties, logsIndexUpdateRequest.additionalProperties);
   }
@@ -311,6 +345,7 @@ public class LogsIndexUpdateRequest {
         disableDailyLimit,
         exclusionFilters,
         filter,
+        numFlexLogsRetentionDays,
         numRetentionDays,
         additionalProperties);
   }
@@ -327,6 +362,9 @@ public class LogsIndexUpdateRequest {
     sb.append("    disableDailyLimit: ").append(toIndentedString(disableDailyLimit)).append("\n");
     sb.append("    exclusionFilters: ").append(toIndentedString(exclusionFilters)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    numFlexLogsRetentionDays: ")
+        .append(toIndentedString(numFlexLogsRetentionDays))
+        .append("\n");
     sb.append("    numRetentionDays: ").append(toIndentedString(numRetentionDays)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
