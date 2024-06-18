@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"value\":\"not-a-boolean\"},\"type\":\"org_configs\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/org_configs/custom_roles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"The value provided for parameter 'OrgConfig: not-a-boolean' is invalid\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d8fa32fb-9a0f-330c-85ec-db6b6f56eb99"
+  }
+]
