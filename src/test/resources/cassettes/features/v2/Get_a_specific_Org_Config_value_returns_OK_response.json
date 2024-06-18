@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/org_configs/custom_roles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"org_configs\",\"id\":\"d4a6259b-5599-5120-8bdb-22718cb09118\",\"attributes\":{\"name\":\"custom_roles\",\"description\":\"Enables the custom roles (RBAC) UI.\",\"value_type\":\"bool\",\"value\":false,\"modified_at\":null}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e66698ba-1757-385f-ee5f-fb7f68314b58"
+  }
+]
