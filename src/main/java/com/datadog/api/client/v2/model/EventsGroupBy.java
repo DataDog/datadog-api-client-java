@@ -31,7 +31,7 @@ public class EventsGroupBy {
   private String facet;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private Integer limit;
+  private Integer limit = 10;
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private EventsGroupBySort sort;
@@ -69,7 +69,8 @@ public class EventsGroupBy {
   }
 
   /**
-   * The maximum number of groups to return. maximum: 2147483647
+   * The maximum buckets to return for this group by. Note: at most 10000 buckets are allowed. If
+   * grouping by multiple facets, the product of limits must not exceed 10000. maximum: 10000
    *
    * @return limit
    */
