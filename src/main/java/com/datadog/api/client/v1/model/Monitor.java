@@ -308,7 +308,7 @@ public class Monitor {
   }
 
   /**
-   * Integer from 1 (high) to 5 (low) indicating alert severity. minimum: 1 maximum: 5
+   * Integer from 1 (high) to 5 (low) indicating alert severity.
    *
    * @return priority
    */

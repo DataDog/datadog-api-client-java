@@ -20,6 +20,7 @@ public class Example {
     MonitorUpdateRequest body =
         new MonitorUpdateRequest()
             .name("My monitor-updated")
+            .priority(null)
             .options(
                 new MonitorOptions()
                     .evaluationDelay(null)
