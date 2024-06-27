@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Number of RUM Sessions recorded for each hour for a given organization. */
+/** Number of RUM sessions recorded for each hour for a given organization. */
 @JsonPropertyOrder({
   UsageRumSessionsHour.JSON_PROPERTY_HOUR,
   UsageRumSessionsHour.JSON_PROPERTY_ORG_NAME,
@@ -130,7 +130,7 @@ public class UsageRumSessionsHour {
   }
 
   /**
-   * Contains the number of RUM Replay Sessions (data available beginning November 1, 2021).
+   * Contains the number of RUM Session Replay counts (data available beginning November 1, 2021).
    *
    * @return replaySessionCount
    */
@@ -151,7 +151,7 @@ public class UsageRumSessionsHour {
   }
 
   /**
-   * Contains the number of browser RUM Lite Sessions.
+   * Contains the number of browser RUM lite Sessions.
    *
    * @return sessionCount
    */
@@ -182,7 +182,7 @@ public class UsageRumSessionsHour {
   }
 
   /**
-   * Contains the number of mobile RUM Sessions on Android (data available beginning December 1,
+   * Contains the number of mobile RUM sessions on Android (data available beginning December 1,
    * 2020).
    *
    * @return sessionCountAndroid
@@ -214,7 +214,7 @@ public class UsageRumSessionsHour {
   }
 
   /**
-   * Contains the number of mobile RUM Sessions on Flutter (data available beginning March 1, 2023).
+   * Contains the number of mobile RUM sessions on Flutter (data available beginning March 1, 2023).
    *
    * @return sessionCountFlutter
    */
@@ -245,7 +245,7 @@ public class UsageRumSessionsHour {
   }
 
   /**
-   * Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
+   * Contains the number of mobile RUM sessions on iOS (data available beginning December 1, 2020).
    *
    * @return sessionCountIos
    */
@@ -276,7 +276,7 @@ public class UsageRumSessionsHour {
   }
 
   /**
-   * Contains the number of mobile RUM Sessions on React Native (data available beginning May 1,
+   * Contains the number of mobile RUM sessions on React Native (data available beginning May 1,
    * 2022).
    *
    * @return sessionCountReactnative

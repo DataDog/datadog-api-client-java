@@ -111,6 +111,21 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT,
+  UsageSummaryDate.JSON_PROPERTY_RUM_BROWSER_LEGACY_SESSION_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_BROWSER_LITE_SESSION_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_BROWSER_REPLAY_SESSION_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_LITE_SESSION_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ANDROID_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_FLUTTER_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_IOS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_REACTNATIVE_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ROKU_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ANDROID_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_FLUTTER_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_UNITS_SUM,
@@ -451,6 +466,66 @@ public class UsageSummaryDate {
       "rum_browser_and_mobile_session_count";
   private Long rumBrowserAndMobileSessionCount;
 
+  public static final String JSON_PROPERTY_RUM_BROWSER_LEGACY_SESSION_COUNT_SUM =
+      "rum_browser_legacy_session_count_sum";
+  private Long rumBrowserLegacySessionCountSum;
+
+  public static final String JSON_PROPERTY_RUM_BROWSER_LITE_SESSION_COUNT_SUM =
+      "rum_browser_lite_session_count_sum";
+  private Long rumBrowserLiteSessionCountSum;
+
+  public static final String JSON_PROPERTY_RUM_BROWSER_REPLAY_SESSION_COUNT_SUM =
+      "rum_browser_replay_session_count_sum";
+  private Long rumBrowserReplaySessionCountSum;
+
+  public static final String JSON_PROPERTY_RUM_LITE_SESSION_COUNT_SUM =
+      "rum_lite_session_count_sum";
+  private Long rumLiteSessionCountSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ANDROID_SUM =
+      "rum_mobile_legacy_session_count_android_sum";
+  private Long rumMobileLegacySessionCountAndroidSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_FLUTTER_SUM =
+      "rum_mobile_legacy_session_count_flutter_sum";
+  private Long rumMobileLegacySessionCountFlutterSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_IOS_SUM =
+      "rum_mobile_legacy_session_count_ios_sum";
+  private Long rumMobileLegacySessionCountIosSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_REACTNATIVE_SUM =
+      "rum_mobile_legacy_session_count_reactnative_sum";
+  private Long rumMobileLegacySessionCountReactnativeSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ROKU_SUM =
+      "rum_mobile_legacy_session_count_roku_sum";
+  private Long rumMobileLegacySessionCountRokuSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ANDROID_SUM =
+      "rum_mobile_lite_session_count_android_sum";
+  private Long rumMobileLiteSessionCountAndroidSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_FLUTTER_SUM =
+      "rum_mobile_lite_session_count_flutter_sum";
+  private Long rumMobileLiteSessionCountFlutterSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM =
+      "rum_mobile_lite_session_count_ios_sum";
+  private Long rumMobileLiteSessionCountIosSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM =
+      "rum_mobile_lite_session_count_reactnative_sum";
+  private Long rumMobileLiteSessionCountReactnativeSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM =
+      "rum_mobile_lite_session_count_roku_sum";
+  private Long rumMobileLiteSessionCountRokuSum;
+
+  public static final String JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM =
+      "rum_replay_session_count_sum";
+  private Long rumReplaySessionCountSum;
+
   public static final String JSON_PROPERTY_RUM_SESSION_COUNT_SUM = "rum_session_count_sum";
   private Long rumSessionCountSum;
 
@@ -691,7 +766,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of audit logs lines indexed over all hours in the current date for all
-   * organizations.
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return auditLogsLinesIndexedSum
    * @deprecated
@@ -868,10 +943,12 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all browser lite sessions over all hours in the current date for all
-   * organizations.
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return browserRumLiteSessionCountSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -879,6 +956,7 @@ public class UsageSummaryDate {
     return browserRumLiteSessionCountSum;
   }
 
+  @Deprecated
   public void setBrowserRumLiteSessionCountSum(Long browserRumLiteSessionCountSum) {
     this.browserRumLiteSessionCountSum = browserRumLiteSessionCountSum;
   }
@@ -890,7 +968,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all browser replay sessions over all hours in the current date for all
-   * organizations.
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return browserRumReplaySessionCountSum
    */
@@ -911,11 +989,13 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all browser RUM units over all hours in the current date for all
-   * organizations.
+   * Shows the sum of all browser RUM units over all hours in the current date for all organizations
+   * (To be deprecated on October 1st, 2024).
    *
    * @return browserRumUnitsSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -923,6 +1003,7 @@ public class UsageSummaryDate {
     return browserRumUnitsSum;
   }
 
+  @Deprecated
   public void setBrowserRumUnitsSum(Long browserRumUnitsSum) {
     this.browserRumUnitsSum = browserRumUnitsSum;
   }
@@ -2113,10 +2194,12 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all mobile lite sessions over all hours in the current date for all
-   * organizations.
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return mobileRumLiteSessionCountSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2124,6 +2207,7 @@ public class UsageSummaryDate {
     return mobileRumLiteSessionCountSum;
   }
 
+  @Deprecated
   public void setMobileRumLiteSessionCountSum(Long mobileRumLiteSessionCountSum) {
     this.mobileRumLiteSessionCountSum = mobileRumLiteSessionCountSum;
   }
@@ -2134,11 +2218,13 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for all
-   * organizations.
+   * Shows the sum of all mobile RUM sessions on Android over all hours in the current date for all
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return mobileRumSessionCountAndroidSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2146,6 +2232,7 @@ public class UsageSummaryDate {
     return mobileRumSessionCountAndroidSum;
   }
 
+  @Deprecated
   public void setMobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
     this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
   }
@@ -2156,11 +2243,13 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions on Flutter over all hours in the current date for all
-   * organizations.
+   * Shows the sum of all mobile RUM sessions on Flutter over all hours in the current date for all
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return mobileRumSessionCountFlutterSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_FLUTTER_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2168,6 +2257,7 @@ public class UsageSummaryDate {
     return mobileRumSessionCountFlutterSum;
   }
 
+  @Deprecated
   public void setMobileRumSessionCountFlutterSum(Long mobileRumSessionCountFlutterSum) {
     this.mobileRumSessionCountFlutterSum = mobileRumSessionCountFlutterSum;
   }
@@ -2178,11 +2268,13 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for all
-   * organizations.
+   * Shows the sum of all mobile RUM sessions on iOS over all hours in the current date for all
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return mobileRumSessionCountIosSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2190,6 +2282,7 @@ public class UsageSummaryDate {
     return mobileRumSessionCountIosSum;
   }
 
+  @Deprecated
   public void setMobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
     this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
   }
@@ -2201,11 +2294,13 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions on React Native over all hours in the current date for
-   * all organizations.
+   * Shows the sum of all mobile RUM sessions on React Native over all hours in the current date for
+   * all organizations (To be deprecated on October 1st, 2024).
    *
    * @return mobileRumSessionCountReactnativeSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_REACTNATIVE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2213,6 +2308,7 @@ public class UsageSummaryDate {
     return mobileRumSessionCountReactnativeSum;
   }
 
+  @Deprecated
   public void setMobileRumSessionCountReactnativeSum(Long mobileRumSessionCountReactnativeSum) {
     this.mobileRumSessionCountReactnativeSum = mobileRumSessionCountReactnativeSum;
   }
@@ -2223,11 +2319,13 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions on Roku over all hours in the current date for all
-   * organizations.
+   * Shows the sum of all mobile RUM sessions on Roku over all hours in the current date for all
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return mobileRumSessionCountRokuSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ROKU_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2235,6 +2333,7 @@ public class UsageSummaryDate {
     return mobileRumSessionCountRokuSum;
   }
 
+  @Deprecated
   public void setMobileRumSessionCountRokuSum(Long mobileRumSessionCountRokuSum) {
     this.mobileRumSessionCountRokuSum = mobileRumSessionCountRokuSum;
   }
@@ -2245,11 +2344,13 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all mobile RUM Sessions over all hours in the current date for all
-   * organizations
+   * Shows the sum of all mobile RUM sessions over all hours in the current date for all
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return mobileRumSessionCountSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2257,6 +2358,7 @@ public class UsageSummaryDate {
     return mobileRumSessionCountSum;
   }
 
+  @Deprecated
   public void setMobileRumSessionCountSum(Long mobileRumSessionCountSum) {
     this.mobileRumSessionCountSum = mobileRumSessionCountSum;
   }
@@ -2267,10 +2369,13 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all mobile RUM units over all hours in the current date for all organizations.
+   * Shows the sum of all mobile RUM units over all hours in the current date for all organizations
+   * (To be deprecated on October 1st, 2024).
    *
    * @return mobileRumUnitsSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2278,6 +2383,7 @@ public class UsageSummaryDate {
     return mobileRumUnitsSum;
   }
 
+  @Deprecated
   public void setMobileRumUnitsSum(Long mobileRumUnitsSum) {
     this.mobileRumUnitsSum = mobileRumUnitsSum;
   }
@@ -2311,10 +2417,12 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all Network flows indexed over all hours in the current date for all
-   * organizations.
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return netflowIndexedEventsCountSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2322,6 +2430,7 @@ public class UsageSummaryDate {
     return netflowIndexedEventsCountSum;
   }
 
+  @Deprecated
   public void setNetflowIndexedEventsCountSum(Long netflowIndexedEventsCountSum) {
     this.netflowIndexedEventsCountSum = netflowIndexedEventsCountSum;
   }
@@ -2521,7 +2630,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in
-   * the current month for all organizations.
+   * the current month for all organizations (To be deprecated on October 1st, 2024).
    *
    * @return rumBrowserAndMobileSessionCount
    */
@@ -2536,17 +2645,359 @@ public class UsageSummaryDate {
     this.rumBrowserAndMobileSessionCount = rumBrowserAndMobileSessionCount;
   }
 
+  public UsageSummaryDate rumBrowserLegacySessionCountSum(Long rumBrowserLegacySessionCountSum) {
+    this.rumBrowserLegacySessionCountSum = rumBrowserLegacySessionCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all browser RUM legacy sessions over all hours in the current date for all
+   * organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumBrowserLegacySessionCountSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_BROWSER_LEGACY_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumBrowserLegacySessionCountSum() {
+    return rumBrowserLegacySessionCountSum;
+  }
+
+  public void setRumBrowserLegacySessionCountSum(Long rumBrowserLegacySessionCountSum) {
+    this.rumBrowserLegacySessionCountSum = rumBrowserLegacySessionCountSum;
+  }
+
+  public UsageSummaryDate rumBrowserLiteSessionCountSum(Long rumBrowserLiteSessionCountSum) {
+    this.rumBrowserLiteSessionCountSum = rumBrowserLiteSessionCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all browser RUM lite sessions over all hours in the current date for all
+   * organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumBrowserLiteSessionCountSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_BROWSER_LITE_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumBrowserLiteSessionCountSum() {
+    return rumBrowserLiteSessionCountSum;
+  }
+
+  public void setRumBrowserLiteSessionCountSum(Long rumBrowserLiteSessionCountSum) {
+    this.rumBrowserLiteSessionCountSum = rumBrowserLiteSessionCountSum;
+  }
+
+  public UsageSummaryDate rumBrowserReplaySessionCountSum(Long rumBrowserReplaySessionCountSum) {
+    this.rumBrowserReplaySessionCountSum = rumBrowserReplaySessionCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all browser RUM Session Replay counts over all hours in the current date for
+   * all organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumBrowserReplaySessionCountSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_BROWSER_REPLAY_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumBrowserReplaySessionCountSum() {
+    return rumBrowserReplaySessionCountSum;
+  }
+
+  public void setRumBrowserReplaySessionCountSum(Long rumBrowserReplaySessionCountSum) {
+    this.rumBrowserReplaySessionCountSum = rumBrowserReplaySessionCountSum;
+  }
+
+  public UsageSummaryDate rumLiteSessionCountSum(Long rumLiteSessionCountSum) {
+    this.rumLiteSessionCountSum = rumLiteSessionCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all RUM lite sessions (browser and mobile) over all hours in the current date
+   * for all organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumLiteSessionCountSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_LITE_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumLiteSessionCountSum() {
+    return rumLiteSessionCountSum;
+  }
+
+  public void setRumLiteSessionCountSum(Long rumLiteSessionCountSum) {
+    this.rumLiteSessionCountSum = rumLiteSessionCountSum;
+  }
+
+  public UsageSummaryDate rumMobileLegacySessionCountAndroidSum(
+      Long rumMobileLegacySessionCountAndroidSum) {
+    this.rumMobileLegacySessionCountAndroidSum = rumMobileLegacySessionCountAndroidSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM legacy sessions on Android over all hours in the current date
+   * for all organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumMobileLegacySessionCountAndroidSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ANDROID_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLegacySessionCountAndroidSum() {
+    return rumMobileLegacySessionCountAndroidSum;
+  }
+
+  public void setRumMobileLegacySessionCountAndroidSum(Long rumMobileLegacySessionCountAndroidSum) {
+    this.rumMobileLegacySessionCountAndroidSum = rumMobileLegacySessionCountAndroidSum;
+  }
+
+  public UsageSummaryDate rumMobileLegacySessionCountFlutterSum(
+      Long rumMobileLegacySessionCountFlutterSum) {
+    this.rumMobileLegacySessionCountFlutterSum = rumMobileLegacySessionCountFlutterSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM legacy Sessions on Flutter over all hours in the current date
+   * for all organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumMobileLegacySessionCountFlutterSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_FLUTTER_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLegacySessionCountFlutterSum() {
+    return rumMobileLegacySessionCountFlutterSum;
+  }
+
+  public void setRumMobileLegacySessionCountFlutterSum(Long rumMobileLegacySessionCountFlutterSum) {
+    this.rumMobileLegacySessionCountFlutterSum = rumMobileLegacySessionCountFlutterSum;
+  }
+
+  public UsageSummaryDate rumMobileLegacySessionCountIosSum(
+      Long rumMobileLegacySessionCountIosSum) {
+    this.rumMobileLegacySessionCountIosSum = rumMobileLegacySessionCountIosSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM legacy sessions on iOS over all hours in the current date for
+   * all organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumMobileLegacySessionCountIosSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_IOS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLegacySessionCountIosSum() {
+    return rumMobileLegacySessionCountIosSum;
+  }
+
+  public void setRumMobileLegacySessionCountIosSum(Long rumMobileLegacySessionCountIosSum) {
+    this.rumMobileLegacySessionCountIosSum = rumMobileLegacySessionCountIosSum;
+  }
+
+  public UsageSummaryDate rumMobileLegacySessionCountReactnativeSum(
+      Long rumMobileLegacySessionCountReactnativeSum) {
+    this.rumMobileLegacySessionCountReactnativeSum = rumMobileLegacySessionCountReactnativeSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM legacy sessions on React Native over all hours in the current
+   * date for all organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumMobileLegacySessionCountReactnativeSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_REACTNATIVE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLegacySessionCountReactnativeSum() {
+    return rumMobileLegacySessionCountReactnativeSum;
+  }
+
+  public void setRumMobileLegacySessionCountReactnativeSum(
+      Long rumMobileLegacySessionCountReactnativeSum) {
+    this.rumMobileLegacySessionCountReactnativeSum = rumMobileLegacySessionCountReactnativeSum;
+  }
+
+  public UsageSummaryDate rumMobileLegacySessionCountRokuSum(
+      Long rumMobileLegacySessionCountRokuSum) {
+    this.rumMobileLegacySessionCountRokuSum = rumMobileLegacySessionCountRokuSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM legacy sessions on Roku over all hours in the current date for
+   * all organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumMobileLegacySessionCountRokuSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LEGACY_SESSION_COUNT_ROKU_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLegacySessionCountRokuSum() {
+    return rumMobileLegacySessionCountRokuSum;
+  }
+
+  public void setRumMobileLegacySessionCountRokuSum(Long rumMobileLegacySessionCountRokuSum) {
+    this.rumMobileLegacySessionCountRokuSum = rumMobileLegacySessionCountRokuSum;
+  }
+
+  public UsageSummaryDate rumMobileLiteSessionCountAndroidSum(
+      Long rumMobileLiteSessionCountAndroidSum) {
+    this.rumMobileLiteSessionCountAndroidSum = rumMobileLiteSessionCountAndroidSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM lite sessions on Android over all hours in the current date for
+   * all organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumMobileLiteSessionCountAndroidSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ANDROID_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLiteSessionCountAndroidSum() {
+    return rumMobileLiteSessionCountAndroidSum;
+  }
+
+  public void setRumMobileLiteSessionCountAndroidSum(Long rumMobileLiteSessionCountAndroidSum) {
+    this.rumMobileLiteSessionCountAndroidSum = rumMobileLiteSessionCountAndroidSum;
+  }
+
+  public UsageSummaryDate rumMobileLiteSessionCountFlutterSum(
+      Long rumMobileLiteSessionCountFlutterSum) {
+    this.rumMobileLiteSessionCountFlutterSum = rumMobileLiteSessionCountFlutterSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM lite sessions on Flutter over all hours in the current date for
+   * all organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumMobileLiteSessionCountFlutterSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_FLUTTER_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLiteSessionCountFlutterSum() {
+    return rumMobileLiteSessionCountFlutterSum;
+  }
+
+  public void setRumMobileLiteSessionCountFlutterSum(Long rumMobileLiteSessionCountFlutterSum) {
+    this.rumMobileLiteSessionCountFlutterSum = rumMobileLiteSessionCountFlutterSum;
+  }
+
+  public UsageSummaryDate rumMobileLiteSessionCountIosSum(Long rumMobileLiteSessionCountIosSum) {
+    this.rumMobileLiteSessionCountIosSum = rumMobileLiteSessionCountIosSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM lite sessions on iOS over all hours in the current date for all
+   * organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumMobileLiteSessionCountIosSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLiteSessionCountIosSum() {
+    return rumMobileLiteSessionCountIosSum;
+  }
+
+  public void setRumMobileLiteSessionCountIosSum(Long rumMobileLiteSessionCountIosSum) {
+    this.rumMobileLiteSessionCountIosSum = rumMobileLiteSessionCountIosSum;
+  }
+
+  public UsageSummaryDate rumMobileLiteSessionCountReactnativeSum(
+      Long rumMobileLiteSessionCountReactnativeSum) {
+    this.rumMobileLiteSessionCountReactnativeSum = rumMobileLiteSessionCountReactnativeSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM lite sessions on React Native over all hours in the current
+   * date for all organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumMobileLiteSessionCountReactnativeSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLiteSessionCountReactnativeSum() {
+    return rumMobileLiteSessionCountReactnativeSum;
+  }
+
+  public void setRumMobileLiteSessionCountReactnativeSum(
+      Long rumMobileLiteSessionCountReactnativeSum) {
+    this.rumMobileLiteSessionCountReactnativeSum = rumMobileLiteSessionCountReactnativeSum;
+  }
+
+  public UsageSummaryDate rumMobileLiteSessionCountRokuSum(Long rumMobileLiteSessionCountRokuSum) {
+    this.rumMobileLiteSessionCountRokuSum = rumMobileLiteSessionCountRokuSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM lite sessions on Roku over all hours in the current date for
+   * all organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumMobileLiteSessionCountRokuSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLiteSessionCountRokuSum() {
+    return rumMobileLiteSessionCountRokuSum;
+  }
+
+  public void setRumMobileLiteSessionCountRokuSum(Long rumMobileLiteSessionCountRokuSum) {
+    this.rumMobileLiteSessionCountRokuSum = rumMobileLiteSessionCountRokuSum;
+  }
+
+  public UsageSummaryDate rumReplaySessionCountSum(Long rumReplaySessionCountSum) {
+    this.rumReplaySessionCountSum = rumReplaySessionCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all RUM Session Replay counts over all hours in the current date for all
+   * organizations (To be introduced on October 1st, 2024).
+   *
+   * @return rumReplaySessionCountSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumReplaySessionCountSum() {
+    return rumReplaySessionCountSum;
+  }
+
+  public void setRumReplaySessionCountSum(Long rumReplaySessionCountSum) {
+    this.rumReplaySessionCountSum = rumReplaySessionCountSum;
+  }
+
   public UsageSummaryDate rumSessionCountSum(Long rumSessionCountSum) {
     this.rumSessionCountSum = rumSessionCountSum;
     return this;
   }
 
   /**
-   * Shows the sum of all browser RUM Lite Sessions over all hours in the current date for all
-   * organizations
+   * Shows the sum of all browser RUM lite sessions over all hours in the current date for all
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return rumSessionCountSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2554,6 +3005,7 @@ public class UsageSummaryDate {
     return rumSessionCountSum;
   }
 
+  @Deprecated
   public void setRumSessionCountSum(Long rumSessionCountSum) {
     this.rumSessionCountSum = rumSessionCountSum;
   }
@@ -2564,7 +3016,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for all
+   * Shows the sum of RUM sessions (browser and mobile) over all hours in the current date for all
    * organizations.
    *
    * @return rumTotalSessionCountSum
@@ -2587,10 +3039,12 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all browser and mobile RUM units over all hours in the current date for all
-   * organizations.
+   * organizations (To be deprecated on October 1st, 2024).
    *
    * @return rumUnitsSum
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RUM_UNITS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -2598,6 +3052,7 @@ public class UsageSummaryDate {
     return rumUnitsSum;
   }
 
+  @Deprecated
   public void setRumUnitsSum(Long rumUnitsSum) {
     this.rumUnitsSum = rumUnitsSum;
   }
@@ -3195,6 +3650,43 @@ public class UsageSummaryDate {
         && Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p)
         && Objects.equals(
             this.rumBrowserAndMobileSessionCount, usageSummaryDate.rumBrowserAndMobileSessionCount)
+        && Objects.equals(
+            this.rumBrowserLegacySessionCountSum, usageSummaryDate.rumBrowserLegacySessionCountSum)
+        && Objects.equals(
+            this.rumBrowserLiteSessionCountSum, usageSummaryDate.rumBrowserLiteSessionCountSum)
+        && Objects.equals(
+            this.rumBrowserReplaySessionCountSum, usageSummaryDate.rumBrowserReplaySessionCountSum)
+        && Objects.equals(this.rumLiteSessionCountSum, usageSummaryDate.rumLiteSessionCountSum)
+        && Objects.equals(
+            this.rumMobileLegacySessionCountAndroidSum,
+            usageSummaryDate.rumMobileLegacySessionCountAndroidSum)
+        && Objects.equals(
+            this.rumMobileLegacySessionCountFlutterSum,
+            usageSummaryDate.rumMobileLegacySessionCountFlutterSum)
+        && Objects.equals(
+            this.rumMobileLegacySessionCountIosSum,
+            usageSummaryDate.rumMobileLegacySessionCountIosSum)
+        && Objects.equals(
+            this.rumMobileLegacySessionCountReactnativeSum,
+            usageSummaryDate.rumMobileLegacySessionCountReactnativeSum)
+        && Objects.equals(
+            this.rumMobileLegacySessionCountRokuSum,
+            usageSummaryDate.rumMobileLegacySessionCountRokuSum)
+        && Objects.equals(
+            this.rumMobileLiteSessionCountAndroidSum,
+            usageSummaryDate.rumMobileLiteSessionCountAndroidSum)
+        && Objects.equals(
+            this.rumMobileLiteSessionCountFlutterSum,
+            usageSummaryDate.rumMobileLiteSessionCountFlutterSum)
+        && Objects.equals(
+            this.rumMobileLiteSessionCountIosSum, usageSummaryDate.rumMobileLiteSessionCountIosSum)
+        && Objects.equals(
+            this.rumMobileLiteSessionCountReactnativeSum,
+            usageSummaryDate.rumMobileLiteSessionCountReactnativeSum)
+        && Objects.equals(
+            this.rumMobileLiteSessionCountRokuSum,
+            usageSummaryDate.rumMobileLiteSessionCountRokuSum)
+        && Objects.equals(this.rumReplaySessionCountSum, usageSummaryDate.rumReplaySessionCountSum)
         && Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum)
         && Objects.equals(this.rumTotalSessionCountSum, usageSummaryDate.rumTotalSessionCountSum)
         && Objects.equals(this.rumUnitsSum, usageSummaryDate.rumUnitsSum)
@@ -3328,6 +3820,21 @@ public class UsageSummaryDate {
         profilingAasCountTop99p,
         profilingHostTop99p,
         rumBrowserAndMobileSessionCount,
+        rumBrowserLegacySessionCountSum,
+        rumBrowserLiteSessionCountSum,
+        rumBrowserReplaySessionCountSum,
+        rumLiteSessionCountSum,
+        rumMobileLegacySessionCountAndroidSum,
+        rumMobileLegacySessionCountFlutterSum,
+        rumMobileLegacySessionCountIosSum,
+        rumMobileLegacySessionCountReactnativeSum,
+        rumMobileLegacySessionCountRokuSum,
+        rumMobileLiteSessionCountAndroidSum,
+        rumMobileLiteSessionCountFlutterSum,
+        rumMobileLiteSessionCountIosSum,
+        rumMobileLiteSessionCountReactnativeSum,
+        rumMobileLiteSessionCountRokuSum,
+        rumReplaySessionCountSum,
         rumSessionCountSum,
         rumTotalSessionCountSum,
         rumUnitsSum,
@@ -3565,6 +4072,51 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    rumBrowserAndMobileSessionCount: ")
         .append(toIndentedString(rumBrowserAndMobileSessionCount))
+        .append("\n");
+    sb.append("    rumBrowserLegacySessionCountSum: ")
+        .append(toIndentedString(rumBrowserLegacySessionCountSum))
+        .append("\n");
+    sb.append("    rumBrowserLiteSessionCountSum: ")
+        .append(toIndentedString(rumBrowserLiteSessionCountSum))
+        .append("\n");
+    sb.append("    rumBrowserReplaySessionCountSum: ")
+        .append(toIndentedString(rumBrowserReplaySessionCountSum))
+        .append("\n");
+    sb.append("    rumLiteSessionCountSum: ")
+        .append(toIndentedString(rumLiteSessionCountSum))
+        .append("\n");
+    sb.append("    rumMobileLegacySessionCountAndroidSum: ")
+        .append(toIndentedString(rumMobileLegacySessionCountAndroidSum))
+        .append("\n");
+    sb.append("    rumMobileLegacySessionCountFlutterSum: ")
+        .append(toIndentedString(rumMobileLegacySessionCountFlutterSum))
+        .append("\n");
+    sb.append("    rumMobileLegacySessionCountIosSum: ")
+        .append(toIndentedString(rumMobileLegacySessionCountIosSum))
+        .append("\n");
+    sb.append("    rumMobileLegacySessionCountReactnativeSum: ")
+        .append(toIndentedString(rumMobileLegacySessionCountReactnativeSum))
+        .append("\n");
+    sb.append("    rumMobileLegacySessionCountRokuSum: ")
+        .append(toIndentedString(rumMobileLegacySessionCountRokuSum))
+        .append("\n");
+    sb.append("    rumMobileLiteSessionCountAndroidSum: ")
+        .append(toIndentedString(rumMobileLiteSessionCountAndroidSum))
+        .append("\n");
+    sb.append("    rumMobileLiteSessionCountFlutterSum: ")
+        .append(toIndentedString(rumMobileLiteSessionCountFlutterSum))
+        .append("\n");
+    sb.append("    rumMobileLiteSessionCountIosSum: ")
+        .append(toIndentedString(rumMobileLiteSessionCountIosSum))
+        .append("\n");
+    sb.append("    rumMobileLiteSessionCountReactnativeSum: ")
+        .append(toIndentedString(rumMobileLiteSessionCountReactnativeSum))
+        .append("\n");
+    sb.append("    rumMobileLiteSessionCountRokuSum: ")
+        .append(toIndentedString(rumMobileLiteSessionCountRokuSum))
+        .append("\n");
+    sb.append("    rumReplaySessionCountSum: ")
+        .append(toIndentedString(rumReplaySessionCountSum))
         .append("\n");
     sb.append("    rumSessionCountSum: ").append(toIndentedString(rumSessionCountSum)).append("\n");
     sb.append("    rumTotalSessionCountSum: ")
