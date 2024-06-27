@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing the number of RUM Sessions for each hour for a given organization. */
+/** Response containing the number of RUM sessions for each hour for a given organization. */
 @JsonPropertyOrder({UsageRumSessionsResponse.JSON_PROPERTY_USAGE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,7 +45,7 @@ public class UsageRumSessionsResponse {
   }
 
   /**
-   * Get hourly usage for RUM Sessions.
+   * Get hourly usage for RUM sessions.
    *
    * @return usage
    */
