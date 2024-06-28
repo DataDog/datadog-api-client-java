@@ -74,7 +74,7 @@ public class MonitorUpdateRequest {
   private MonitorOverallStates overallState;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
-  private Long priority;
+  private JsonNullable<Long> priority = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
@@ -254,24 +254,34 @@ public class MonitorUpdateRequest {
   }
 
   public MonitorUpdateRequest priority(Long priority) {
-    this.priority = priority;
+    this.priority = JsonNullable.<Long>of(priority);
     return this;
   }
 
   /**
-   * Integer from 1 (high) to 5 (low) indicating alert severity. minimum: 1 maximum: 5
+   * Integer from 1 (high) to 5 (low) indicating alert severity.
    *
    * @return priority
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getPriority() {
+    return priority.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getPriority() {
+  public JsonNullable<Long> getPriority_JsonNullable() {
     return priority;
   }
 
-  public void setPriority(Long priority) {
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  public void setPriority_JsonNullable(JsonNullable<Long> priority) {
     this.priority = priority;
+  }
+
+  public void setPriority(Long priority) {
+    this.priority = JsonNullable.<Long>of(priority);
   }
 
   public MonitorUpdateRequest query(String query) {
