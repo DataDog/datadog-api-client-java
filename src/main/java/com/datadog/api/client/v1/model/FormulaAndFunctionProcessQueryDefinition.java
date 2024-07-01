@@ -22,6 +22,7 @@ import java.util.Objects;
 /** Process query using formulas and functions. */
 @JsonPropertyOrder({
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_AGGREGATOR,
+  FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_CROSS_ORG_UUIDS,
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_IS_NORMALIZED_CPU,
   FormulaAndFunctionProcessQueryDefinition.JSON_PROPERTY_LIMIT,
@@ -37,6 +38,9 @@ public class FormulaAndFunctionProcessQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private FormulaAndFunctionMetricAggregation aggregator;
+
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private FormulaAndFunctionProcessQueryDataSource dataSource;
@@ -100,6 +104,35 @@ public class FormulaAndFunctionProcessQueryDefinition {
       this.unparsed = true;
     }
     this.aggregator = aggregator;
+  }
+
+  public FormulaAndFunctionProcessQueryDefinition crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public FormulaAndFunctionProcessQueryDefinition addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * The source organization UUID for cross organization queries. Feature in Private Beta.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public FormulaAndFunctionProcessQueryDefinition dataSource(
@@ -342,6 +375,8 @@ public class FormulaAndFunctionProcessQueryDefinition {
     FormulaAndFunctionProcessQueryDefinition formulaAndFunctionProcessQueryDefinition =
         (FormulaAndFunctionProcessQueryDefinition) o;
     return Objects.equals(this.aggregator, formulaAndFunctionProcessQueryDefinition.aggregator)
+        && Objects.equals(
+            this.crossOrgUuids, formulaAndFunctionProcessQueryDefinition.crossOrgUuids)
         && Objects.equals(this.dataSource, formulaAndFunctionProcessQueryDefinition.dataSource)
         && Objects.equals(
             this.isNormalizedCpu, formulaAndFunctionProcessQueryDefinition.isNormalizedCpu)
@@ -360,6 +395,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
   public int hashCode() {
     return Objects.hash(
         aggregator,
+        crossOrgUuids,
         dataSource,
         isNormalizedCpu,
         limit,
@@ -376,6 +412,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormulaAndFunctionProcessQueryDefinition {\n");
     sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    isNormalizedCpu: ").append(toIndentedString(isNormalizedCpu)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");

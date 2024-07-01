@@ -13,13 +13,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** A formula and functions metrics query. */
 @JsonPropertyOrder({
   FormulaAndFunctionSLOQueryDefinition.JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS,
+  FormulaAndFunctionSLOQueryDefinition.JSON_PROPERTY_CROSS_ORG_UUIDS,
   FormulaAndFunctionSLOQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
   FormulaAndFunctionSLOQueryDefinition.JSON_PROPERTY_GROUP_MODE,
   FormulaAndFunctionSLOQueryDefinition.JSON_PROPERTY_MEASURE,
@@ -33,6 +36,9 @@ public class FormulaAndFunctionSLOQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ADDITIONAL_QUERY_FILTERS = "additional_query_filters";
   private String additionalQueryFilters;
+
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private FormulaAndFunctionSLODataSource dataSource;
@@ -88,6 +94,35 @@ public class FormulaAndFunctionSLOQueryDefinition {
 
   public void setAdditionalQueryFilters(String additionalQueryFilters) {
     this.additionalQueryFilters = additionalQueryFilters;
+  }
+
+  public FormulaAndFunctionSLOQueryDefinition crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public FormulaAndFunctionSLOQueryDefinition addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * The source organization UUID for cross organization queries. Feature in Private Beta.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public FormulaAndFunctionSLOQueryDefinition dataSource(
@@ -291,6 +326,7 @@ public class FormulaAndFunctionSLOQueryDefinition {
     return Objects.equals(
             this.additionalQueryFilters,
             formulaAndFunctionSloQueryDefinition.additionalQueryFilters)
+        && Objects.equals(this.crossOrgUuids, formulaAndFunctionSloQueryDefinition.crossOrgUuids)
         && Objects.equals(this.dataSource, formulaAndFunctionSloQueryDefinition.dataSource)
         && Objects.equals(this.groupMode, formulaAndFunctionSloQueryDefinition.groupMode)
         && Objects.equals(this.measure, formulaAndFunctionSloQueryDefinition.measure)
@@ -305,6 +341,7 @@ public class FormulaAndFunctionSLOQueryDefinition {
   public int hashCode() {
     return Objects.hash(
         additionalQueryFilters,
+        crossOrgUuids,
         dataSource,
         groupMode,
         measure,
@@ -321,6 +358,7 @@ public class FormulaAndFunctionSLOQueryDefinition {
     sb.append("    additionalQueryFilters: ")
         .append(toIndentedString(additionalQueryFilters))
         .append("\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    groupMode: ").append(toIndentedString(groupMode)).append("\n");
     sb.append("    measure: ").append(toIndentedString(measure)).append("\n");
