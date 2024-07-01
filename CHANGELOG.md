@@ -1,33 +1,5 @@
 # CHANGELOG
 
-## 2.26.0 / 2024-07-01
-
-### Fixed
-* Security Monitoring - Define specific payload for rule validation/testing by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2306
-* Remove the maximum limitation for the synthetics renotify_interval monitor option by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2310
-* Add bodyHash as a synthetics assertion type. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2311
-* Add org.aopalliance to the list of packages to shade. by @jack-edmonds-dd in https://github.com/DataDog/datadog-api-client-java/pull/2315
-* Add missing attributes envelope in ListAPIs response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2321
-### Added
-* Allow the usage of the filters field when creating an agent rule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2286
-* Add tileDef sort attribute by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2288
-* Add Security Monitoring rule test endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2302
-* Add originalFileName field to the SyntheticsTestRequestBodyFile definition by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2307
-* Add support for API management ListAPIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2314
-* Add elementsOperator to json path assertion for synthetic HTTP tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2327
-* Add /api/v2/org_configs specs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2326
-* Update docs for RU Rollout New and Deprecated Keys planned for Oct 1st by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2339
-* Add option for wait step in multistep api tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2338
-* add cross org uuids to timeseries query by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2331
-### Changed
-* Monitor priority can have custom ranges and be null by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2335
-
-## New Contributors
-* @jack-edmonds-dd made their first contribution in https://github.com/DataDog/datadog-api-client-java/pull/2315
-* @tim-chaplin-dd made their first contribution in https://github.com/DataDog/datadog-api-client-java/pull/2248
-
-**Full Changelog**: https://github.com/DataDog/datadog-api-client-java/compare/datadog-api-client-2.25.0...datadog-api-client-2.26.0
-
 ## 2.25.0 / 2024-05-22
 
 ### Fixed
