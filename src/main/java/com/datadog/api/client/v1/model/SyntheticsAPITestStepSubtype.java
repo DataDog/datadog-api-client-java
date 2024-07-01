@@ -18,43 +18,40 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The subtype of the Synthetic multistep API test step, currently only supporting <code>http</code>
- * .
- */
-@JsonSerialize(using = SyntheticsAPIStepSubtype.SyntheticsAPIStepSubtypeSerializer.class)
-public class SyntheticsAPIStepSubtype extends ModelEnum<String> {
+/** The subtype of the Synthetic multi-step API test step. */
+@JsonSerialize(using = SyntheticsAPITestStepSubtype.SyntheticsAPITestStepSubtypeSerializer.class)
+public class SyntheticsAPITestStepSubtype extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("http", "grpc"));
 
-  public static final SyntheticsAPIStepSubtype HTTP = new SyntheticsAPIStepSubtype("http");
-  public static final SyntheticsAPIStepSubtype GRPC = new SyntheticsAPIStepSubtype("grpc");
+  public static final SyntheticsAPITestStepSubtype HTTP = new SyntheticsAPITestStepSubtype("http");
+  public static final SyntheticsAPITestStepSubtype GRPC = new SyntheticsAPITestStepSubtype("grpc");
 
-  SyntheticsAPIStepSubtype(String value) {
+  SyntheticsAPITestStepSubtype(String value) {
     super(value, allowedValues);
   }
 
-  public static class SyntheticsAPIStepSubtypeSerializer
-      extends StdSerializer<SyntheticsAPIStepSubtype> {
-    public SyntheticsAPIStepSubtypeSerializer(Class<SyntheticsAPIStepSubtype> t) {
+  public static class SyntheticsAPITestStepSubtypeSerializer
+      extends StdSerializer<SyntheticsAPITestStepSubtype> {
+    public SyntheticsAPITestStepSubtypeSerializer(Class<SyntheticsAPITestStepSubtype> t) {
       super(t);
     }
 
-    public SyntheticsAPIStepSubtypeSerializer() {
+    public SyntheticsAPITestStepSubtypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        SyntheticsAPIStepSubtype value, JsonGenerator jgen, SerializerProvider provider)
+        SyntheticsAPITestStepSubtype value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static SyntheticsAPIStepSubtype fromValue(String value) {
-    return new SyntheticsAPIStepSubtype(value);
+  public static SyntheticsAPITestStepSubtype fromValue(String value) {
+    return new SyntheticsAPITestStepSubtype(value);
   }
 }
