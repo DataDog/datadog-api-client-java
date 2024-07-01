@@ -46,7 +46,7 @@ public class DowntimeCreateRequestAttributes {
 
   public static final String JSON_PROPERTY_MUTE_FIRST_RECOVERY_NOTIFICATION =
       "mute_first_recovery_notification";
-  private Boolean muteFirstRecoveryNotification;
+  private Boolean muteFirstRecoveryNotification = false;
 
   public static final String JSON_PROPERTY_NOTIFY_END_STATES = "notify_end_states";
   private List<DowntimeNotifyEndStateTypes> notifyEndStates = null;
