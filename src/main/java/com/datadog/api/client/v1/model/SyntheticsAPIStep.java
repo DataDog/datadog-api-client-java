@@ -6,376 +6,272 @@
 
 package com.datadog.api.client.v1.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/** The steps used in a Synthetic multistep API test. */
-@JsonPropertyOrder({
-  SyntheticsAPIStep.JSON_PROPERTY_ALLOW_FAILURE,
-  SyntheticsAPIStep.JSON_PROPERTY_ASSERTIONS,
-  SyntheticsAPIStep.JSON_PROPERTY_EXTRACTED_VALUES,
-  SyntheticsAPIStep.JSON_PROPERTY_IS_CRITICAL,
-  SyntheticsAPIStep.JSON_PROPERTY_NAME,
-  SyntheticsAPIStep.JSON_PROPERTY_REQUEST,
-  SyntheticsAPIStep.JSON_PROPERTY_RETRY,
-  SyntheticsAPIStep.JSON_PROPERTY_SUBTYPE
-})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsAPIStep {
+@JsonDeserialize(using = SyntheticsAPIStep.SyntheticsAPIStepDeserializer.class)
+@JsonSerialize(using = SyntheticsAPIStep.SyntheticsAPIStepSerializer.class)
+public class SyntheticsAPIStep extends AbstractOpenApiSchema {
+  private static final Logger log = Logger.getLogger(SyntheticsAPIStep.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
-  private Boolean allowFailure;
 
-  public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
-  private List<SyntheticsAssertion> assertions = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_EXTRACTED_VALUES = "extractedValues";
-  private List<SyntheticsParsingOptions> extractedValues = null;
-
-  public static final String JSON_PROPERTY_IS_CRITICAL = "isCritical";
-  private Boolean isCritical;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
-  public static final String JSON_PROPERTY_REQUEST = "request";
-  private SyntheticsTestRequest request;
-
-  public static final String JSON_PROPERTY_RETRY = "retry";
-  private SyntheticsTestOptionsRetry retry;
-
-  public static final String JSON_PROPERTY_SUBTYPE = "subtype";
-  private SyntheticsAPIStepSubtype subtype;
-
-  public SyntheticsAPIStep() {}
-
-  @JsonCreator
-  public SyntheticsAPIStep(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ASSERTIONS)
-          List<SyntheticsAssertion> assertions,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST) SyntheticsTestRequest request,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SUBTYPE)
-          SyntheticsAPIStepSubtype subtype) {
-    this.assertions = assertions;
-    this.name = name;
-    this.request = request;
-    this.unparsed |= request.unparsed;
-    this.subtype = subtype;
-    this.unparsed |= !subtype.isValid();
-  }
-
-  public SyntheticsAPIStep allowFailure(Boolean allowFailure) {
-    this.allowFailure = allowFailure;
-    return this;
-  }
-
-  /**
-   * Determines whether or not to continue with test if this step fails.
-   *
-   * @return allowFailure
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getAllowFailure() {
-    return allowFailure;
-  }
-
-  public void setAllowFailure(Boolean allowFailure) {
-    this.allowFailure = allowFailure;
-  }
-
-  public SyntheticsAPIStep assertions(List<SyntheticsAssertion> assertions) {
-    this.assertions = assertions;
-    for (SyntheticsAssertion item : assertions) {
-      this.unparsed |= item.unparsed;
+  public static class SyntheticsAPIStepSerializer extends StdSerializer<SyntheticsAPIStep> {
+    public SyntheticsAPIStepSerializer(Class<SyntheticsAPIStep> t) {
+      super(t);
     }
-    return this;
-  }
 
-  public SyntheticsAPIStep addAssertionsItem(SyntheticsAssertion assertionsItem) {
-    this.assertions.add(assertionsItem);
-    this.unparsed |= assertionsItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Array of assertions used for the test.
-   *
-   * @return assertions
-   */
-  @JsonProperty(JSON_PROPERTY_ASSERTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SyntheticsAssertion> getAssertions() {
-    return assertions;
-  }
-
-  public void setAssertions(List<SyntheticsAssertion> assertions) {
-    this.assertions = assertions;
-  }
-
-  public SyntheticsAPIStep extractedValues(List<SyntheticsParsingOptions> extractedValues) {
-    this.extractedValues = extractedValues;
-    for (SyntheticsParsingOptions item : extractedValues) {
-      this.unparsed |= item.unparsed;
+    public SyntheticsAPIStepSerializer() {
+      this(null);
     }
-    return this;
-  }
 
-  public SyntheticsAPIStep addExtractedValuesItem(SyntheticsParsingOptions extractedValuesItem) {
-    if (this.extractedValues == null) {
-      this.extractedValues = new ArrayList<>();
+    @Override
+    public void serialize(SyntheticsAPIStep value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
     }
-    this.extractedValues.add(extractedValuesItem);
-    this.unparsed |= extractedValuesItem.unparsed;
-    return this;
   }
 
-  /**
-   * Array of values to parse and save as variables from the response.
-   *
-   * @return extractedValues
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXTRACTED_VALUES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsParsingOptions> getExtractedValues() {
-    return extractedValues;
-  }
-
-  public void setExtractedValues(List<SyntheticsParsingOptions> extractedValues) {
-    this.extractedValues = extractedValues;
-  }
-
-  public SyntheticsAPIStep isCritical(Boolean isCritical) {
-    this.isCritical = isCritical;
-    return this;
-  }
-
-  /**
-   * Determines whether or not to consider the entire test as failed if this step fails. Can be used
-   * only if <code>allowFailure</code> is <code>true</code>.
-   *
-   * @return isCritical
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_CRITICAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsCritical() {
-    return isCritical;
-  }
-
-  public void setIsCritical(Boolean isCritical) {
-    this.isCritical = isCritical;
-  }
-
-  public SyntheticsAPIStep name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The name of the step.
-   *
-   * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SyntheticsAPIStep request(SyntheticsTestRequest request) {
-    this.request = request;
-    this.unparsed |= request.unparsed;
-    return this;
-  }
-
-  /**
-   * Object describing the Synthetic test request.
-   *
-   * @return request
-   */
-  @JsonProperty(JSON_PROPERTY_REQUEST)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsTestRequest getRequest() {
-    return request;
-  }
-
-  public void setRequest(SyntheticsTestRequest request) {
-    this.request = request;
-  }
-
-  public SyntheticsAPIStep retry(SyntheticsTestOptionsRetry retry) {
-    this.retry = retry;
-    this.unparsed |= retry.unparsed;
-    return this;
-  }
-
-  /**
-   * Object describing the retry strategy to apply to a Synthetic test.
-   *
-   * @return retry
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RETRY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestOptionsRetry getRetry() {
-    return retry;
-  }
-
-  public void setRetry(SyntheticsTestOptionsRetry retry) {
-    this.retry = retry;
-  }
-
-  public SyntheticsAPIStep subtype(SyntheticsAPIStepSubtype subtype) {
-    this.subtype = subtype;
-    this.unparsed |= !subtype.isValid();
-    return this;
-  }
-
-  /**
-   * The subtype of the Synthetic multistep API test step, currently only supporting <code>http
-   * </code>.
-   *
-   * @return subtype
-   */
-  @JsonProperty(JSON_PROPERTY_SUBTYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsAPIStepSubtype getSubtype() {
-    return subtype;
-  }
-
-  public void setSubtype(SyntheticsAPIStepSubtype subtype) {
-    if (!subtype.isValid()) {
-      this.unparsed = true;
+  public static class SyntheticsAPIStepDeserializer extends StdDeserializer<SyntheticsAPIStep> {
+    public SyntheticsAPIStepDeserializer() {
+      this(SyntheticsAPIStep.class);
     }
-    this.subtype = subtype;
+
+    public SyntheticsAPIStepDeserializer(Class<?> vc) {
+      super(vc);
+    }
+
+    @Override
+    public SyntheticsAPIStep deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize SyntheticsAPITestStep
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SyntheticsAPITestStep.class.equals(Integer.class)
+            || SyntheticsAPITestStep.class.equals(Long.class)
+            || SyntheticsAPITestStep.class.equals(Float.class)
+            || SyntheticsAPITestStep.class.equals(Double.class)
+            || SyntheticsAPITestStep.class.equals(Boolean.class)
+            || SyntheticsAPITestStep.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SyntheticsAPITestStep.class.equals(Integer.class)
+                        || SyntheticsAPITestStep.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SyntheticsAPITestStep.class.equals(Float.class)
+                        || SyntheticsAPITestStep.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SyntheticsAPITestStep.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SyntheticsAPITestStep.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SyntheticsAPITestStep.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SyntheticsAPITestStep) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SyntheticsAPITestStep'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'SyntheticsAPITestStep'", e);
+      }
+
+      // deserialize SyntheticsAPIWaitStep
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SyntheticsAPIWaitStep.class.equals(Integer.class)
+            || SyntheticsAPIWaitStep.class.equals(Long.class)
+            || SyntheticsAPIWaitStep.class.equals(Float.class)
+            || SyntheticsAPIWaitStep.class.equals(Double.class)
+            || SyntheticsAPIWaitStep.class.equals(Boolean.class)
+            || SyntheticsAPIWaitStep.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SyntheticsAPIWaitStep.class.equals(Integer.class)
+                        || SyntheticsAPIWaitStep.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SyntheticsAPIWaitStep.class.equals(Float.class)
+                        || SyntheticsAPIWaitStep.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SyntheticsAPIWaitStep.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SyntheticsAPIWaitStep.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SyntheticsAPIWaitStep.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SyntheticsAPIWaitStep) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SyntheticsAPIWaitStep'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'SyntheticsAPIWaitStep'", e);
+      }
+
+      SyntheticsAPIStep ret = new SyntheticsAPIStep();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
+    }
+
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public SyntheticsAPIStep getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+      throw new JsonMappingException(ctxt.getParser(), "SyntheticsAPIStep cannot be null");
+    }
   }
 
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return SyntheticsAPIStep
-   */
-  @JsonAnySetter
-  public SyntheticsAPIStep putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
+  public SyntheticsAPIStep() {
+    super("oneOf", Boolean.FALSE);
   }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
+  public SyntheticsAPIStep(SyntheticsAPITestStep o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
   }
 
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
+  public SyntheticsAPIStep(SyntheticsAPIWaitStep o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
   }
 
-  /** Return true if this SyntheticsAPIStep object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    SyntheticsAPIStep syntheticsApiStep = (SyntheticsAPIStep) o;
-    return Objects.equals(this.allowFailure, syntheticsApiStep.allowFailure)
-        && Objects.equals(this.assertions, syntheticsApiStep.assertions)
-        && Objects.equals(this.extractedValues, syntheticsApiStep.extractedValues)
-        && Objects.equals(this.isCritical, syntheticsApiStep.isCritical)
-        && Objects.equals(this.name, syntheticsApiStep.name)
-        && Objects.equals(this.request, syntheticsApiStep.request)
-        && Objects.equals(this.retry, syntheticsApiStep.retry)
-        && Objects.equals(this.subtype, syntheticsApiStep.subtype)
-        && Objects.equals(this.additionalProperties, syntheticsApiStep.additionalProperties);
+  static {
+    schemas.put("SyntheticsAPITestStep", new GenericType<SyntheticsAPITestStep>() {});
+    schemas.put("SyntheticsAPIWaitStep", new GenericType<SyntheticsAPIWaitStep>() {});
+    JSON.registerDescendants(SyntheticsAPIStep.class, Collections.unmodifiableMap(schemas));
   }
 
   @Override
-  public int hashCode() {
-    return Objects.hash(
-        allowFailure,
-        assertions,
-        extractedValues,
-        isCritical,
-        name,
-        request,
-        retry,
-        subtype,
-        additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsAPIStep {\n");
-    sb.append("    allowFailure: ").append(toIndentedString(allowFailure)).append("\n");
-    sb.append("    assertions: ").append(toIndentedString(assertions)).append("\n");
-    sb.append("    extractedValues: ").append(toIndentedString(extractedValues)).append("\n");
-    sb.append("    isCritical: ").append(toIndentedString(isCritical)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    request: ").append(toIndentedString(request)).append("\n");
-    sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
-    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
-    sb.append('}');
-    return sb.toString();
+  public Map<String, GenericType> getSchemas() {
+    return SyntheticsAPIStep.schemas;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: SyntheticsAPITestStep, SyntheticsAPIWaitStep
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(SyntheticsAPITestStep.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    return o.toString().replace("\n", "\n    ");
+    if (JSON.isInstanceOf(SyntheticsAPIWaitStep.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be SyntheticsAPITestStep, SyntheticsAPIWaitStep");
+  }
+
+  /**
+   * Get the actual instance, which can be the following: SyntheticsAPITestStep,
+   * SyntheticsAPIWaitStep
+   *
+   * @return The actual instance (SyntheticsAPITestStep, SyntheticsAPIWaitStep)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SyntheticsAPITestStep`. If the actual instance is not
+   * `SyntheticsAPITestStep`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SyntheticsAPITestStep`
+   * @throws ClassCastException if the instance is not `SyntheticsAPITestStep`
+   */
+  public SyntheticsAPITestStep getSyntheticsAPITestStep() throws ClassCastException {
+    return (SyntheticsAPITestStep) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SyntheticsAPIWaitStep`. If the actual instance is not
+   * `SyntheticsAPIWaitStep`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SyntheticsAPIWaitStep`
+   * @throws ClassCastException if the instance is not `SyntheticsAPIWaitStep`
+   */
+  public SyntheticsAPIWaitStep getSyntheticsAPIWaitStep() throws ClassCastException {
+    return (SyntheticsAPIWaitStep) super.getActualInstance();
   }
 }
