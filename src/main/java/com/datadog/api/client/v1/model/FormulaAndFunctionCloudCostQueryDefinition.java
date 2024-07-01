@@ -13,13 +13,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 /** A formula and functions Cloud Cost query. */
 @JsonPropertyOrder({
   FormulaAndFunctionCloudCostQueryDefinition.JSON_PROPERTY_AGGREGATOR,
+  FormulaAndFunctionCloudCostQueryDefinition.JSON_PROPERTY_CROSS_ORG_UUIDS,
   FormulaAndFunctionCloudCostQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
   FormulaAndFunctionCloudCostQueryDefinition.JSON_PROPERTY_NAME,
   FormulaAndFunctionCloudCostQueryDefinition.JSON_PROPERTY_QUERY
@@ -30,6 +33,9 @@ public class FormulaAndFunctionCloudCostQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private WidgetAggregator aggregator;
+
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private FormulaAndFunctionCloudCostDataSource dataSource;
@@ -77,6 +83,35 @@ public class FormulaAndFunctionCloudCostQueryDefinition {
       this.unparsed = true;
     }
     this.aggregator = aggregator;
+  }
+
+  public FormulaAndFunctionCloudCostQueryDefinition crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public FormulaAndFunctionCloudCostQueryDefinition addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * The source organization UUID for cross organization queries. Feature in Private Beta.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public FormulaAndFunctionCloudCostQueryDefinition dataSource(
@@ -203,6 +238,8 @@ public class FormulaAndFunctionCloudCostQueryDefinition {
     FormulaAndFunctionCloudCostQueryDefinition formulaAndFunctionCloudCostQueryDefinition =
         (FormulaAndFunctionCloudCostQueryDefinition) o;
     return Objects.equals(this.aggregator, formulaAndFunctionCloudCostQueryDefinition.aggregator)
+        && Objects.equals(
+            this.crossOrgUuids, formulaAndFunctionCloudCostQueryDefinition.crossOrgUuids)
         && Objects.equals(this.dataSource, formulaAndFunctionCloudCostQueryDefinition.dataSource)
         && Objects.equals(this.name, formulaAndFunctionCloudCostQueryDefinition.name)
         && Objects.equals(this.query, formulaAndFunctionCloudCostQueryDefinition.query)
@@ -213,7 +250,7 @@ public class FormulaAndFunctionCloudCostQueryDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregator, dataSource, name, query, additionalProperties);
+    return Objects.hash(aggregator, crossOrgUuids, dataSource, name, query, additionalProperties);
   }
 
   @Override
@@ -221,6 +258,7 @@ public class FormulaAndFunctionCloudCostQueryDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormulaAndFunctionCloudCostQueryDefinition {\n");
     sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");

@@ -22,6 +22,7 @@ import java.util.Objects;
 /** A formula and functions events query. */
 @JsonPropertyOrder({
   FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_COMPUTE,
+  FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_CROSS_ORG_UUIDS,
   FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
   FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_GROUP_BY,
   FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_INDEXES,
@@ -35,6 +36,9 @@ public class FormulaAndFunctionEventQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private FormulaAndFunctionEventQueryDefinitionCompute compute;
+
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private FormulaAndFunctionEventsDataSource dataSource;
@@ -90,6 +94,35 @@ public class FormulaAndFunctionEventQueryDefinition {
 
   public void setCompute(FormulaAndFunctionEventQueryDefinitionCompute compute) {
     this.compute = compute;
+  }
+
+  public FormulaAndFunctionEventQueryDefinition crossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public FormulaAndFunctionEventQueryDefinition addCrossOrgUuidsItem(String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * The source organization UUID for cross organization queries. Feature in Private Beta.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public FormulaAndFunctionEventQueryDefinition dataSource(
@@ -304,6 +337,7 @@ public class FormulaAndFunctionEventQueryDefinition {
     FormulaAndFunctionEventQueryDefinition formulaAndFunctionEventQueryDefinition =
         (FormulaAndFunctionEventQueryDefinition) o;
     return Objects.equals(this.compute, formulaAndFunctionEventQueryDefinition.compute)
+        && Objects.equals(this.crossOrgUuids, formulaAndFunctionEventQueryDefinition.crossOrgUuids)
         && Objects.equals(this.dataSource, formulaAndFunctionEventQueryDefinition.dataSource)
         && Objects.equals(this.groupBy, formulaAndFunctionEventQueryDefinition.groupBy)
         && Objects.equals(this.indexes, formulaAndFunctionEventQueryDefinition.indexes)
@@ -317,7 +351,15 @@ public class FormulaAndFunctionEventQueryDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
-        compute, dataSource, groupBy, indexes, name, search, storage, additionalProperties);
+        compute,
+        crossOrgUuids,
+        dataSource,
+        groupBy,
+        indexes,
+        name,
+        search,
+        storage,
+        additionalProperties);
   }
 
   @Override
@@ -325,6 +367,7 @@ public class FormulaAndFunctionEventQueryDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormulaAndFunctionEventQueryDefinition {\n");
     sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
     sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");

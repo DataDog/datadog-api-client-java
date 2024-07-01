@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** APM resource stats query using formulas and functions. */
 @JsonPropertyOrder({
+  FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_CROSS_ORG_UUIDS,
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_ENV,
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_GROUP_BY,
@@ -36,6 +37,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CROSS_ORG_UUIDS = "cross_org_uuids";
+  private List<String> crossOrgUuids = null;
+
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private FormulaAndFunctionApmResourceStatsDataSource dataSource;
 
@@ -84,6 +88,37 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
     this.service = service;
     this.stat = stat;
     this.unparsed |= !stat.isValid();
+  }
+
+  public FormulaAndFunctionApmResourceStatsQueryDefinition crossOrgUuids(
+      List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
+    return this;
+  }
+
+  public FormulaAndFunctionApmResourceStatsQueryDefinition addCrossOrgUuidsItem(
+      String crossOrgUuidsItem) {
+    if (this.crossOrgUuids == null) {
+      this.crossOrgUuids = new ArrayList<>();
+    }
+    this.crossOrgUuids.add(crossOrgUuidsItem);
+    return this;
+  }
+
+  /**
+   * The source organization UUID for cross organization queries. Feature in Private Beta.
+   *
+   * @return crossOrgUuids
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CROSS_ORG_UUIDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getCrossOrgUuids() {
+    return crossOrgUuids;
+  }
+
+  public void setCrossOrgUuids(List<String> crossOrgUuids) {
+    this.crossOrgUuids = crossOrgUuids;
   }
 
   public FormulaAndFunctionApmResourceStatsQueryDefinition dataSource(
@@ -372,6 +407,8 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
         formulaAndFunctionApmResourceStatsQueryDefinition =
             (FormulaAndFunctionApmResourceStatsQueryDefinition) o;
     return Objects.equals(
+            this.crossOrgUuids, formulaAndFunctionApmResourceStatsQueryDefinition.crossOrgUuids)
+        && Objects.equals(
             this.dataSource, formulaAndFunctionApmResourceStatsQueryDefinition.dataSource)
         && Objects.equals(this.env, formulaAndFunctionApmResourceStatsQueryDefinition.env)
         && Objects.equals(this.groupBy, formulaAndFunctionApmResourceStatsQueryDefinition.groupBy)
@@ -394,6 +431,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   @Override
   public int hashCode() {
     return Objects.hash(
+        crossOrgUuids,
         dataSource,
         env,
         groupBy,
@@ -411,6 +449,7 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormulaAndFunctionApmResourceStatsQueryDefinition {\n");
+    sb.append("    crossOrgUuids: ").append(toIndentedString(crossOrgUuids)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
