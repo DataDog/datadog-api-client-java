@@ -19,13 +19,41 @@ import java.util.Map;
 import java.util.Objects;
 
 /** A JSON list of the ID or IDs of the Synthetic tests that you want to delete. */
-@JsonPropertyOrder({SyntheticsDeleteTestsPayload.JSON_PROPERTY_PUBLIC_IDS})
+@JsonPropertyOrder({
+  SyntheticsDeleteTestsPayload.JSON_PROPERTY_FORCE_DELETE_DEPENDENCIES,
+  SyntheticsDeleteTestsPayload.JSON_PROPERTY_PUBLIC_IDS
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsDeleteTestsPayload {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FORCE_DELETE_DEPENDENCIES = "force_delete_dependencies";
+  private Boolean forceDeleteDependencies;
+
   public static final String JSON_PROPERTY_PUBLIC_IDS = "public_ids";
   private List<String> publicIds = null;
+
+  public SyntheticsDeleteTestsPayload forceDeleteDependencies(Boolean forceDeleteDependencies) {
+    this.forceDeleteDependencies = forceDeleteDependencies;
+    return this;
+  }
+
+  /**
+   * Delete the Synthetic test even if it's referenced by other resources (for example, SLOs and
+   * composite monitors).
+   *
+   * @return forceDeleteDependencies
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORCE_DELETE_DEPENDENCIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getForceDeleteDependencies() {
+    return forceDeleteDependencies;
+  }
+
+  public void setForceDeleteDependencies(Boolean forceDeleteDependencies) {
+    this.forceDeleteDependencies = forceDeleteDependencies;
+  }
 
   public SyntheticsDeleteTestsPayload publicIds(List<String> publicIds) {
     this.publicIds = publicIds;
@@ -112,20 +140,25 @@ public class SyntheticsDeleteTestsPayload {
       return false;
     }
     SyntheticsDeleteTestsPayload syntheticsDeleteTestsPayload = (SyntheticsDeleteTestsPayload) o;
-    return Objects.equals(this.publicIds, syntheticsDeleteTestsPayload.publicIds)
+    return Objects.equals(
+            this.forceDeleteDependencies, syntheticsDeleteTestsPayload.forceDeleteDependencies)
+        && Objects.equals(this.publicIds, syntheticsDeleteTestsPayload.publicIds)
         && Objects.equals(
             this.additionalProperties, syntheticsDeleteTestsPayload.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(publicIds, additionalProperties);
+    return Objects.hash(forceDeleteDependencies, publicIds, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsDeleteTestsPayload {\n");
+    sb.append("    forceDeleteDependencies: ")
+        .append(toIndentedString(forceDeleteDependencies))
+        .append("\n");
     sb.append("    publicIds: ").append(toIndentedString(publicIds)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
