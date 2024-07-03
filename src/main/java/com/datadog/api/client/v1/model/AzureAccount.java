@@ -29,6 +29,7 @@ import java.util.Objects;
   AzureAccount.JSON_PROPERTY_CUSTOM_METRICS_ENABLED,
   AzureAccount.JSON_PROPERTY_ERRORS,
   AzureAccount.JSON_PROPERTY_HOST_FILTERS,
+  AzureAccount.JSON_PROPERTY_METRICS_CONFIG,
   AzureAccount.JSON_PROPERTY_NEW_CLIENT_ID,
   AzureAccount.JSON_PROPERTY_NEW_TENANT_NAME,
   AzureAccount.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED,
@@ -64,6 +65,9 @@ public class AzureAccount {
 
   public static final String JSON_PROPERTY_HOST_FILTERS = "host_filters";
   private String hostFilters;
+
+  public static final String JSON_PROPERTY_METRICS_CONFIG = "metrics_config";
+  private AzureAccountMetricsConfig metricsConfig;
 
   public static final String JSON_PROPERTY_NEW_CLIENT_ID = "new_client_id";
   private String newClientId;
@@ -280,6 +284,32 @@ public class AzureAccount {
     this.hostFilters = hostFilters;
   }
 
+  public AzureAccount metricsConfig(AzureAccountMetricsConfig metricsConfig) {
+    this.metricsConfig = metricsConfig;
+    this.unparsed |= metricsConfig.unparsed;
+    return this;
+  }
+
+  /**
+   * Dictionary containing the key <code>excluded_resource_providers</code> which has to be a list
+   * of Microsoft Azure Resource Provider names. This feature is currently being beta tested. In
+   * order to enable all resource providers for metric collection, pass: <code>
+   * metrics_config: {"excluded_resource_providers": []}</code> (i.e., an empty list for <code>
+   * excluded_resource_providers</code>).
+   *
+   * @return metricsConfig
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRICS_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AzureAccountMetricsConfig getMetricsConfig() {
+    return metricsConfig;
+  }
+
+  public void setMetricsConfig(AzureAccountMetricsConfig metricsConfig) {
+    this.metricsConfig = metricsConfig;
+  }
+
   public AzureAccount newClientId(String newClientId) {
     this.newClientId = newClientId;
     return this;
@@ -430,6 +460,7 @@ public class AzureAccount {
         && Objects.equals(this.customMetricsEnabled, azureAccount.customMetricsEnabled)
         && Objects.equals(this.errors, azureAccount.errors)
         && Objects.equals(this.hostFilters, azureAccount.hostFilters)
+        && Objects.equals(this.metricsConfig, azureAccount.metricsConfig)
         && Objects.equals(this.newClientId, azureAccount.newClientId)
         && Objects.equals(this.newTenantName, azureAccount.newTenantName)
         && Objects.equals(this.resourceCollectionEnabled, azureAccount.resourceCollectionEnabled)
@@ -449,6 +480,7 @@ public class AzureAccount {
         customMetricsEnabled,
         errors,
         hostFilters,
+        metricsConfig,
         newClientId,
         newTenantName,
         resourceCollectionEnabled,
@@ -475,6 +507,7 @@ public class AzureAccount {
         .append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
+    sb.append("    metricsConfig: ").append(toIndentedString(metricsConfig)).append("\n");
     sb.append("    newClientId: ").append(toIndentedString(newClientId)).append("\n");
     sb.append("    newTenantName: ").append(toIndentedString(newTenantName)).append("\n");
     sb.append("    resourceCollectionEnabled: ")
