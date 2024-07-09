@@ -67,7 +67,8 @@ public class RUMApplicationCreateAttributes {
 
   /**
    * Type of the RUM application. Supported values are <code>browser</code>, <code>ios</code>,
-   * <code>android</code>, <code>react-native</code>, <code>flutter</code>.
+   * <code>android</code>, <code>react-native</code>, <code>flutter</code>, <code>roku</code>,
+   * <code>electron</code>, <code>unity</code>, <code>kotlin-multiplatform</code>.
    *
    * @return type
    */
