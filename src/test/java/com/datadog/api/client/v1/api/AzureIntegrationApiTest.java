@@ -58,13 +58,10 @@ public class AzureIntegrationApiTest extends V1ApiTest {
 
     uniqueUpdatedAzureAccount.setClientId(uniqueAzureAccount.getClientId());
     uniqueUpdatedAzureAccount.setTenantName(uniqueTenantName);
-    uniqueUpdatedAzureAccount.setNewClientId("javatest-1234-5678-9101-3fcbf4update");
-    uniqueUpdatedAzureAccount.setNewTenantName(
-        String.format("aaaaaaaa-bbbb-cccc-dddd-%dff", now.toEpochSecond()));
     uniqueUpdatedAzureAccount.setHostFilters("filter:foo,test:bar");
 
-    uniqueUpdatedHostFilters.setClientId(uniqueUpdatedAzureAccount.getNewClientId());
-    uniqueUpdatedHostFilters.setTenantName(uniqueUpdatedAzureAccount.getNewTenantName());
+    uniqueUpdatedHostFilters.setClientId(uniqueUpdatedAzureAccount.getClientId());
+    uniqueUpdatedHostFilters.setTenantName(uniqueUpdatedAzureAccount.getTenantName());
     uniqueUpdatedHostFilters.setHostFilters("filter:updated,test:updated");
   }
 
@@ -80,8 +77,8 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
     // Delete Updated Azure Account too
     AzureAccount updatedAccount = new AzureAccount();
-    updatedAccount.setClientId(uniqueUpdatedAzureAccount.getNewClientId());
-    updatedAccount.setTenantName(uniqueUpdatedAzureAccount.getNewTenantName());
+    updatedAccount.setClientId(uniqueUpdatedAzureAccount.getClientId());
+    updatedAccount.setTenantName(uniqueUpdatedAzureAccount.getTenantName());
     try {
       api.deleteAzureIntegration(updatedAccount);
     } catch (ApiException e) {
@@ -178,9 +175,9 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     List<AzureAccount> listAccounts = api.listAzureIntegration();
     AzureAccount retrievedAccount;
     retrievedAccount =
-        retrieveAccountInList(listAccounts, uniqueUpdatedAzureAccount.getNewTenantName());
-    assertEquals(uniqueUpdatedAzureAccount.getNewClientId(), retrievedAccount.getClientId());
-    assertEquals(uniqueUpdatedAzureAccount.getNewTenantName(), retrievedAccount.getTenantName());
+        retrieveAccountInList(listAccounts, uniqueUpdatedAzureAccount.getTenantName());
+    assertEquals(uniqueUpdatedAzureAccount.getClientId(), retrievedAccount.getClientId());
+    assertEquals(uniqueUpdatedAzureAccount.getTenantName(), retrievedAccount.getTenantName());
     assertEquals(uniqueUpdatedAzureAccount.getHostFilters(), retrievedAccount.getHostFilters());
 
     // Test update host filters endpoint
