@@ -268,8 +268,8 @@
       "contentType" : "application/json",
       "type" : "JSON",
       "json" : {
-        "client_id" : "javatest-1234-5678-9101-3fcbf4update",
-        "tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865323ff"
+        "client_id" : "javatest-1234-5678-9101-3fcbf464test",
+        "tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865323ee"
       }
     }
   },

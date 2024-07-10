@@ -77,8 +77,8 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
     // Delete Updated Azure Account too
     AzureAccount updatedAccount = new AzureAccount();
-    updatedAccount.setClientId(uniqueUpdatedAzureAccount.getClientId());
-    updatedAccount.setTenantName(uniqueUpdatedAzureAccount.getTenantName());
+    updatedAccount.setClientId(uniqueAzureAccount.getClientId());
+    updatedAccount.setTenantName(uniqueAzureAccount.getTenantName());
     try {
       api.deleteAzureIntegration(updatedAccount);
     } catch (ApiException e) {
