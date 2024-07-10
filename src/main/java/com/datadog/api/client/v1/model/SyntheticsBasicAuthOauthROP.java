@@ -72,11 +72,15 @@ public class SyntheticsBasicAuthOauthROP {
       @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
       @JsonProperty(required = true, value = JSON_PROPERTY_TOKEN_API_AUTHENTICATION)
           SyntheticsBasicAuthOauthTokenApiAuthentication tokenApiAuthentication,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          SyntheticsBasicAuthOauthROPType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
     this.accessTokenUrl = accessTokenUrl;
     this.password = password;
     this.tokenApiAuthentication = tokenApiAuthentication;
     this.unparsed |= !tokenApiAuthentication.isValid();
+    this.type = type;
+    this.unparsed |= !type.isValid();
     this.username = username;
   }
 
@@ -262,9 +266,8 @@ public class SyntheticsBasicAuthOauthROP {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBasicAuthOauthROPType getType() {
     return type;
   }
