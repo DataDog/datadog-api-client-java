@@ -266,7 +266,9 @@ public class HostsApi {
     /**
      * Set start.
      *
-     * @param start Host result to start search from. (optional)
+     * @param start Specify the starting point for the host search results. For example, if you set
+     *     <code>count</code> to 100 and the first 100 results have already been returned, you can
+     *     set <code>start</code> to <code>101</code> to get the next 100 results. (optional)
      * @return ListHostsOptionalParameters
      */
     public ListHostsOptionalParameters start(Long start) {
