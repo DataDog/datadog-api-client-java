@@ -27,6 +27,8 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_DEVICE_IDS,
   SyntheticsTestOptions.JSON_PROPERTY_DISABLE_CORS,
   SyntheticsTestOptions.JSON_PROPERTY_DISABLE_CSP,
+  SyntheticsTestOptions.JSON_PROPERTY_ENABLE_PROFILING,
+  SyntheticsTestOptions.JSON_PROPERTY_ENABLE_SECURITY_TESTING,
   SyntheticsTestOptions.JSON_PROPERTY_FOLLOW_REDIRECTS,
   SyntheticsTestOptions.JSON_PROPERTY_HTTP_VERSION,
   SyntheticsTestOptions.JSON_PROPERTY_IGNORE_SERVER_CERTIFICATE_ERROR,
@@ -68,6 +70,12 @@ public class SyntheticsTestOptions {
 
   public static final String JSON_PROPERTY_DISABLE_CSP = "disableCsp";
   private Boolean disableCsp;
+
+  public static final String JSON_PROPERTY_ENABLE_PROFILING = "enableProfiling";
+  private Boolean enableProfiling;
+
+  public static final String JSON_PROPERTY_ENABLE_SECURITY_TESTING = "enableSecurityTesting";
+  private Boolean enableSecurityTesting;
 
   public static final String JSON_PROPERTY_FOLLOW_REDIRECTS = "follow_redirects";
   private Boolean followRedirects;
@@ -270,6 +278,52 @@ public class SyntheticsTestOptions {
 
   public void setDisableCsp(Boolean disableCsp) {
     this.disableCsp = disableCsp;
+  }
+
+  public SyntheticsTestOptions enableProfiling(Boolean enableProfiling) {
+    this.enableProfiling = enableProfiling;
+    return this;
+  }
+
+  /**
+   * Enable profiling for browser tests.
+   *
+   * @return enableProfiling
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_PROFILING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnableProfiling() {
+    return enableProfiling;
+  }
+
+  public void setEnableProfiling(Boolean enableProfiling) {
+    this.enableProfiling = enableProfiling;
+  }
+
+  public SyntheticsTestOptions enableSecurityTesting(Boolean enableSecurityTesting) {
+    this.enableSecurityTesting = enableSecurityTesting;
+    return this;
+  }
+
+  /**
+   * Enable security testing for browser tests. Security testing is not available anymore. This
+   * field is deprecated and won't be used.
+   *
+   * @return enableSecurityTesting
+   * @deprecated
+   */
+  @Deprecated
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLE_SECURITY_TESTING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnableSecurityTesting() {
+    return enableSecurityTesting;
+  }
+
+  @Deprecated
+  public void setEnableSecurityTesting(Boolean enableSecurityTesting) {
+    this.enableSecurityTesting = enableSecurityTesting;
   }
 
   public SyntheticsTestOptions followRedirects(Boolean followRedirects) {
@@ -679,6 +733,8 @@ public class SyntheticsTestOptions {
         && Objects.equals(this.deviceIds, syntheticsTestOptions.deviceIds)
         && Objects.equals(this.disableCors, syntheticsTestOptions.disableCors)
         && Objects.equals(this.disableCsp, syntheticsTestOptions.disableCsp)
+        && Objects.equals(this.enableProfiling, syntheticsTestOptions.enableProfiling)
+        && Objects.equals(this.enableSecurityTesting, syntheticsTestOptions.enableSecurityTesting)
         && Objects.equals(this.followRedirects, syntheticsTestOptions.followRedirects)
         && Objects.equals(this.httpVersion, syntheticsTestOptions.httpVersion)
         && Objects.equals(
@@ -709,6 +765,8 @@ public class SyntheticsTestOptions {
         deviceIds,
         disableCors,
         disableCsp,
+        enableProfiling,
+        enableSecurityTesting,
         followRedirects,
         httpVersion,
         ignoreServerCertificateError,
@@ -740,6 +798,10 @@ public class SyntheticsTestOptions {
     sb.append("    deviceIds: ").append(toIndentedString(deviceIds)).append("\n");
     sb.append("    disableCors: ").append(toIndentedString(disableCors)).append("\n");
     sb.append("    disableCsp: ").append(toIndentedString(disableCsp)).append("\n");
+    sb.append("    enableProfiling: ").append(toIndentedString(enableProfiling)).append("\n");
+    sb.append("    enableSecurityTesting: ")
+        .append(toIndentedString(enableSecurityTesting))
+        .append("\n");
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
     sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
     sb.append("    ignoreServerCertificateError: ")
