@@ -1394,7 +1394,6 @@ public class RolesApi {
     private Long pageSize;
     private Long pageNumber;
     private String sort;
-    private String filter;
 
     /**
      * Set pageSize.
@@ -1430,17 +1429,6 @@ public class RolesApi {
      */
     public ListRoleUsersOptionalParameters sort(String sort) {
       this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Set filter.
-     *
-     * @param filter Filter all users by the given string. Defaults to no filtering. (optional)
-     * @return ListRoleUsersOptionalParameters
-     */
-    public ListRoleUsersOptionalParameters filter(String filter) {
-      this.filter = filter;
       return this;
     }
   }
@@ -1536,7 +1524,6 @@ public class RolesApi {
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     String sort = parameters.sort;
-    String filter = parameters.filter;
     // create path and map variables
     String localVarPath =
         "/api/v2/roles/{role_id}/users"
@@ -1548,7 +1535,6 @@ public class RolesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1594,7 +1580,6 @@ public class RolesApi {
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
     String sort = parameters.sort;
-    String filter = parameters.filter;
     // create path and map variables
     String localVarPath =
         "/api/v2/roles/{role_id}/users"
@@ -1606,7 +1591,6 @@ public class RolesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
 
     Invocation.Builder builder;
     try {
