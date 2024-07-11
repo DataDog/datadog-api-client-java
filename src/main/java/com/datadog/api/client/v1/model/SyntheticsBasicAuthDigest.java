@@ -41,8 +41,11 @@ public class SyntheticsBasicAuthDigest {
   @JsonCreator
   public SyntheticsBasicAuthDigest(
       @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsBasicAuthDigestType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
     this.password = password;
+    this.type = type;
+    this.unparsed |= !type.isValid();
     this.username = username;
   }
 
@@ -77,9 +80,8 @@ public class SyntheticsBasicAuthDigest {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBasicAuthDigestType getType() {
     return type;
   }

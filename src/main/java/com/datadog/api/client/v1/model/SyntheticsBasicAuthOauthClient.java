@@ -64,12 +64,16 @@ public class SyntheticsBasicAuthOauthClient {
       @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_ID) String clientId,
       @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_SECRET) String clientSecret,
       @JsonProperty(required = true, value = JSON_PROPERTY_TOKEN_API_AUTHENTICATION)
-          SyntheticsBasicAuthOauthTokenApiAuthentication tokenApiAuthentication) {
+          SyntheticsBasicAuthOauthTokenApiAuthentication tokenApiAuthentication,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          SyntheticsBasicAuthOauthClientType type) {
     this.accessTokenUrl = accessTokenUrl;
     this.clientId = clientId;
     this.clientSecret = clientSecret;
     this.tokenApiAuthentication = tokenApiAuthentication;
     this.unparsed |= !tokenApiAuthentication.isValid();
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public SyntheticsBasicAuthOauthClient accessTokenUrl(String accessTokenUrl) {
@@ -232,9 +236,8 @@ public class SyntheticsBasicAuthOauthClient {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBasicAuthOauthClientType getType() {
     return type;
   }
