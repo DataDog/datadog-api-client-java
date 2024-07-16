@@ -46,23 +46,11 @@ public class SnapshotsApi {
 
   /** Manage optional parameters to getGraphSnapshot. */
   public static class GetGraphSnapshotOptionalParameters {
-    private String metricQuery;
     private String eventQuery;
     private String graphDef;
     private String title;
     private Long height;
     private Long width;
-
-    /**
-     * Set metricQuery.
-     *
-     * @param metricQuery The metric query. (optional)
-     * @return GetGraphSnapshotOptionalParameters
-     */
-    public GetGraphSnapshotOptionalParameters metricQuery(String metricQuery) {
-      this.metricQuery = metricQuery;
-      return this;
-    }
 
     /**
      * Set eventQuery.
@@ -131,13 +119,17 @@ public class SnapshotsApi {
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
+   * @param metricQuery The metric query. Either <code>metric_query</code> or <code>graph_def</code>
+   *     is required. (required)
    * @param start The POSIX timestamp of the start of the query in seconds. (required)
    * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @return GraphSnapshot
    * @throws ApiException if fails to make API call
    */
-  public GraphSnapshot getGraphSnapshot(Long start, Long end) throws ApiException {
-    return getGraphSnapshotWithHttpInfo(start, end, new GetGraphSnapshotOptionalParameters())
+  public GraphSnapshot getGraphSnapshot(String metricQuery, Long start, Long end)
+      throws ApiException {
+    return getGraphSnapshotWithHttpInfo(
+            metricQuery, start, end, new GetGraphSnapshotOptionalParameters())
         .getData();
   }
 
@@ -146,12 +138,16 @@ public class SnapshotsApi {
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfoAsync}.
    *
+   * @param metricQuery The metric query. Either <code>metric_query</code> or <code>graph_def</code>
+   *     is required. (required)
    * @param start The POSIX timestamp of the start of the query in seconds. (required)
    * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @return CompletableFuture&lt;GraphSnapshot&gt;
    */
-  public CompletableFuture<GraphSnapshot> getGraphSnapshotAsync(Long start, Long end) {
-    return getGraphSnapshotWithHttpInfoAsync(start, end, new GetGraphSnapshotOptionalParameters())
+  public CompletableFuture<GraphSnapshot> getGraphSnapshotAsync(
+      String metricQuery, Long start, Long end) {
+    return getGraphSnapshotWithHttpInfoAsync(
+            metricQuery, start, end, new GetGraphSnapshotOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -163,6 +159,8 @@ public class SnapshotsApi {
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
+   * @param metricQuery The metric query. Either <code>metric_query</code> or <code>graph_def</code>
+   *     is required. (required)
    * @param start The POSIX timestamp of the start of the query in seconds. (required)
    * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @param parameters Optional parameters for the request.
@@ -170,8 +168,9 @@ public class SnapshotsApi {
    * @throws ApiException if fails to make API call
    */
   public GraphSnapshot getGraphSnapshot(
-      Long start, Long end, GetGraphSnapshotOptionalParameters parameters) throws ApiException {
-    return getGraphSnapshotWithHttpInfo(start, end, parameters).getData();
+      String metricQuery, Long start, Long end, GetGraphSnapshotOptionalParameters parameters)
+      throws ApiException {
+    return getGraphSnapshotWithHttpInfo(metricQuery, start, end, parameters).getData();
   }
 
   /**
@@ -179,14 +178,16 @@ public class SnapshotsApi {
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfoAsync}.
    *
+   * @param metricQuery The metric query. Either <code>metric_query</code> or <code>graph_def</code>
+   *     is required. (required)
    * @param start The POSIX timestamp of the start of the query in seconds. (required)
    * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;GraphSnapshot&gt;
    */
   public CompletableFuture<GraphSnapshot> getGraphSnapshotAsync(
-      Long start, Long end, GetGraphSnapshotOptionalParameters parameters) {
-    return getGraphSnapshotWithHttpInfoAsync(start, end, parameters)
+      String metricQuery, Long start, Long end, GetGraphSnapshotOptionalParameters parameters) {
+    return getGraphSnapshotWithHttpInfoAsync(metricQuery, start, end, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -197,6 +198,8 @@ public class SnapshotsApi {
    * Take graph snapshots. <strong>Note</strong>: When a snapshot is created, there is some delay
    * before it is available.
    *
+   * @param metricQuery The metric query. Either <code>metric_query</code> or <code>graph_def</code>
+   *     is required. (required)
    * @param start The POSIX timestamp of the start of the query in seconds. (required)
    * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @param parameters Optional parameters for the request.
@@ -213,8 +216,15 @@ public class SnapshotsApi {
    *     </table>
    */
   public ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(
-      Long start, Long end, GetGraphSnapshotOptionalParameters parameters) throws ApiException {
+      String metricQuery, Long start, Long end, GetGraphSnapshotOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
+
+    // verify the required parameter 'metricQuery' is set
+    if (metricQuery == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'metricQuery' when calling getGraphSnapshot");
+    }
 
     // verify the required parameter 'start' is set
     if (start == null) {
@@ -227,7 +237,6 @@ public class SnapshotsApi {
       throw new ApiException(
           400, "Missing the required parameter 'end' when calling getGraphSnapshot");
     }
-    String metricQuery = parameters.metricQuery;
     String eventQuery = parameters.eventQuery;
     String graphDef = parameters.graphDef;
     String title = parameters.title;
@@ -239,9 +248,9 @@ public class SnapshotsApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "metric_query", metricQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "metric_query", metricQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "event_query", eventQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "graph_def", graphDef));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "title", title));
@@ -273,14 +282,25 @@ public class SnapshotsApi {
    *
    * <p>See {@link #getGraphSnapshotWithHttpInfo}.
    *
+   * @param metricQuery The metric query. Either <code>metric_query</code> or <code>graph_def</code>
+   *     is required. (required)
    * @param start The POSIX timestamp of the start of the query in seconds. (required)
    * @param end The POSIX timestamp of the end of the query in seconds. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;GraphSnapshot&gt;&gt;
    */
   public CompletableFuture<ApiResponse<GraphSnapshot>> getGraphSnapshotWithHttpInfoAsync(
-      Long start, Long end, GetGraphSnapshotOptionalParameters parameters) {
+      String metricQuery, Long start, Long end, GetGraphSnapshotOptionalParameters parameters) {
     Object localVarPostBody = null;
+
+    // verify the required parameter 'metricQuery' is set
+    if (metricQuery == null) {
+      CompletableFuture<ApiResponse<GraphSnapshot>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'metricQuery' when calling getGraphSnapshot"));
+      return result;
+    }
 
     // verify the required parameter 'start' is set
     if (start == null) {
@@ -299,7 +319,6 @@ public class SnapshotsApi {
               400, "Missing the required parameter 'end' when calling getGraphSnapshot"));
       return result;
     }
-    String metricQuery = parameters.metricQuery;
     String eventQuery = parameters.eventQuery;
     String graphDef = parameters.graphDef;
     String title = parameters.title;
@@ -311,9 +330,9 @@ public class SnapshotsApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "metric_query", metricQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end", end));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "metric_query", metricQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "event_query", eventQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "graph_def", graphDef));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "title", title));

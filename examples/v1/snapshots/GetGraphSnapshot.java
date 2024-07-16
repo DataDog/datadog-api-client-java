@@ -14,10 +14,10 @@ public class Example {
     try {
       GraphSnapshot result =
           apiInstance.getGraphSnapshot(
+              "avg:system.load.1{*}",
               OffsetDateTime.now().plusDays(-1).toInstant().getEpochSecond(),
               OffsetDateTime.now().toInstant().getEpochSecond(),
               new GetGraphSnapshotOptionalParameters()
-                  .metricQuery("avg:system.load.1{*}")
                   .title("System load")
                   .height(400L)
                   .width(600L));
