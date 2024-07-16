@@ -382,7 +382,7 @@ public class OrganizationsApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+            new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "PATCH",
         builder,
@@ -443,7 +443,7 @@ public class OrganizationsApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+              new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<OrgConfigGetResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
