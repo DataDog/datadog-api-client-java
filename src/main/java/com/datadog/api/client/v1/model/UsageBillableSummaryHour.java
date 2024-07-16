@@ -19,6 +19,8 @@ import java.util.Objects;
 
 /** Response with monthly summary of data billed by Datadog. */
 @JsonPropertyOrder({
+  UsageBillableSummaryHour.JSON_PROPERTY_ACCOUNT_NAME,
+  UsageBillableSummaryHour.JSON_PROPERTY_ACCOUNT_PUBLIC_ID,
   UsageBillableSummaryHour.JSON_PROPERTY_BILLING_PLAN,
   UsageBillableSummaryHour.JSON_PROPERTY_END_DATE,
   UsageBillableSummaryHour.JSON_PROPERTY_NUM_ORGS,
@@ -33,6 +35,12 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageBillableSummaryHour {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_NAME = "account_name";
+  private String accountName;
+
+  public static final String JSON_PROPERTY_ACCOUNT_PUBLIC_ID = "account_public_id";
+  private String accountPublicId;
+
   public static final String JSON_PROPERTY_BILLING_PLAN = "billing_plan";
   private String billingPlan;
 
@@ -59,6 +67,48 @@ public class UsageBillableSummaryHour {
 
   public static final String JSON_PROPERTY_USAGE = "usage";
   private UsageBillableSummaryKeys usage;
+
+  public UsageBillableSummaryHour accountName(String accountName) {
+    this.accountName = accountName;
+    return this;
+  }
+
+  /**
+   * The account name.
+   *
+   * @return accountName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountName() {
+    return accountName;
+  }
+
+  public void setAccountName(String accountName) {
+    this.accountName = accountName;
+  }
+
+  public UsageBillableSummaryHour accountPublicId(String accountPublicId) {
+    this.accountPublicId = accountPublicId;
+    return this;
+  }
+
+  /**
+   * The account public ID.
+   *
+   * @return accountPublicId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountPublicId() {
+    return accountPublicId;
+  }
+
+  public void setAccountPublicId(String accountPublicId) {
+    this.accountPublicId = accountPublicId;
+  }
 
   public UsageBillableSummaryHour billingPlan(String billingPlan) {
     this.billingPlan = billingPlan;
@@ -306,7 +356,9 @@ public class UsageBillableSummaryHour {
       return false;
     }
     UsageBillableSummaryHour usageBillableSummaryHour = (UsageBillableSummaryHour) o;
-    return Objects.equals(this.billingPlan, usageBillableSummaryHour.billingPlan)
+    return Objects.equals(this.accountName, usageBillableSummaryHour.accountName)
+        && Objects.equals(this.accountPublicId, usageBillableSummaryHour.accountPublicId)
+        && Objects.equals(this.billingPlan, usageBillableSummaryHour.billingPlan)
         && Objects.equals(this.endDate, usageBillableSummaryHour.endDate)
         && Objects.equals(this.numOrgs, usageBillableSummaryHour.numOrgs)
         && Objects.equals(this.orgName, usageBillableSummaryHour.orgName)
@@ -321,6 +373,8 @@ public class UsageBillableSummaryHour {
   @Override
   public int hashCode() {
     return Objects.hash(
+        accountName,
+        accountPublicId,
         billingPlan,
         endDate,
         numOrgs,
@@ -337,6 +391,8 @@ public class UsageBillableSummaryHour {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageBillableSummaryHour {\n");
+    sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    accountPublicId: ").append(toIndentedString(accountPublicId)).append("\n");
     sb.append("    billingPlan: ").append(toIndentedString(billingPlan)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    numOrgs: ").append(toIndentedString(numOrgs)).append("\n");

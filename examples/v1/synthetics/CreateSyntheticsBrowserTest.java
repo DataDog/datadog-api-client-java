@@ -59,7 +59,9 @@ public class Example {
                     .minLocationFailed(1L)
                     .noScreenshot(true)
                     .retry(new SyntheticsTestOptionsRetry().count(2L).interval(10.0))
-                    .tickEvery(300L))
+                    .tickEvery(300L)
+                    .enableProfiling(true)
+                    .enableSecurityTesting(true))
             .tags(Collections.singletonList("testing:browser"))
             .type(SyntheticsBrowserTestType.BROWSER)
             .steps(

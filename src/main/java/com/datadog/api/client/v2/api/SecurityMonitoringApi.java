@@ -17,6 +17,8 @@ import com.datadog.api.client.v2.model.SecurityFilterResponse;
 import com.datadog.api.client.v2.model.SecurityFilterUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityFiltersResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringListRulesResponse;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertPayload;
+import com.datadog.api.client.v2.model.SecurityMonitoringRuleConvertResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleTestRequest;
@@ -76,6 +78,332 @@ public class SecurityMonitoringApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Convert an existing rule from JSON to Terraform.
+   *
+   * <p>See {@link #convertExistingSecurityMonitoringRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return SecurityMonitoringRuleConvertResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringRuleConvertResponse convertExistingSecurityMonitoringRule(String ruleId)
+      throws ApiException {
+    return convertExistingSecurityMonitoringRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Convert an existing rule from JSON to Terraform.
+   *
+   * <p>See {@link #convertExistingSecurityMonitoringRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleConvertResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringRuleConvertResponse>
+      convertExistingSecurityMonitoringRuleAsync(String ruleId) {
+    return convertExistingSecurityMonitoringRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Convert an existing rule from JSON to Terraform for datadog provider resource
+   * datadog_security_monitoring_rule.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleConvertResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringRuleConvertResponse>
+      convertExistingSecurityMonitoringRuleWithHttpInfo(String ruleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "convertExistingSecurityMonitoringRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling"
+              + " convertExistingSecurityMonitoringRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/{rule_id}/convert"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.convertExistingSecurityMonitoringRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleConvertResponse>() {});
+  }
+
+  /**
+   * Convert an existing rule from JSON to Terraform.
+   *
+   * <p>See {@link #convertExistingSecurityMonitoringRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringRuleConvertResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>>
+      convertExistingSecurityMonitoringRuleWithHttpInfoAsync(String ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "convertExistingSecurityMonitoringRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " convertExistingSecurityMonitoringRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/{rule_id}/convert"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.convertExistingSecurityMonitoringRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleConvertResponse>() {});
+  }
+
+  /**
+   * Convert a rule from JSON to Terraform.
+   *
+   * <p>See {@link #convertSecurityMonitoringRuleFromJSONToTerraformWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringRuleConvertResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SecurityMonitoringRuleConvertResponse convertSecurityMonitoringRuleFromJSONToTerraform(
+      SecurityMonitoringRuleConvertPayload body) throws ApiException {
+    return convertSecurityMonitoringRuleFromJSONToTerraformWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Convert a rule from JSON to Terraform.
+   *
+   * <p>See {@link #convertSecurityMonitoringRuleFromJSONToTerraformWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;SecurityMonitoringRuleConvertResponse&gt;
+   */
+  public CompletableFuture<SecurityMonitoringRuleConvertResponse>
+      convertSecurityMonitoringRuleFromJSONToTerraformAsync(
+          SecurityMonitoringRuleConvertPayload body) {
+    return convertSecurityMonitoringRuleFromJSONToTerraformWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Convert a rule that doesn't (yet) exist from JSON to Terraform for datadog provider resource
+   * datadog_security_monitoring_rule.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleConvertResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringRuleConvertResponse>
+      convertSecurityMonitoringRuleFromJSONToTerraformWithHttpInfo(
+          SecurityMonitoringRuleConvertPayload body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "convertSecurityMonitoringRuleFromJSONToTerraform";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling"
+              + " convertSecurityMonitoringRuleFromJSONToTerraform");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/rules/convert";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.convertSecurityMonitoringRuleFromJSONToTerraform",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleConvertResponse>() {});
+  }
+
+  /**
+   * Convert a rule from JSON to Terraform.
+   *
+   * <p>See {@link #convertSecurityMonitoringRuleFromJSONToTerraformWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SecurityMonitoringRuleConvertResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>>
+      convertSecurityMonitoringRuleFromJSONToTerraformWithHttpInfoAsync(
+          SecurityMonitoringRuleConvertPayload body) {
+    // Check if unstable operation is enabled
+    String operationId = "convertSecurityMonitoringRuleFromJSONToTerraform";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " convertSecurityMonitoringRuleFromJSONToTerraform"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/rules/convert";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.convertSecurityMonitoringRuleFromJSONToTerraform",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SecurityMonitoringRuleConvertResponse>() {});
   }
 
   /**

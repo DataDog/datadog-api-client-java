@@ -71,8 +71,6 @@
       "json" : {
         "client_id" : "javatest-1234-5678-9101-3fcbf464test",
         "host_filters" : "filter:foo,test:bar",
-        "new_client_id" : "javatest-1234-5678-9101-3fcbf4update",
-        "new_tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865340ff",
         "tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865340ee"
       }
     }
@@ -133,8 +131,8 @@
       "contentType" : "application/json",
       "type" : "JSON",
       "json" : [ {
-        "tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865340ff",
-        "client_id" : "javatest-1234-5678-9101-3fcbf4update",
+        "tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865340ee",
+        "client_id" : "javatest-1234-5678-9101-3fcbf464test",
         "host_filters" : "filter:foo,test:bar",
         "app_service_plan_filters" : "",
         "automute" : true,
@@ -173,9 +171,9 @@
       "contentType" : "application/json",
       "type" : "JSON",
       "json" : {
-        "client_id" : "javatest-1234-5678-9101-3fcbf4update",
+        "client_id" : "javatest-1234-5678-9101-3fcbf464test",
         "host_filters" : "filter:updated,test:updated",
-        "tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865340ff"
+        "tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865340ee"
       }
     }
   },
@@ -235,8 +233,8 @@
       "contentType" : "application/json",
       "type" : "JSON",
       "json" : [ {
-        "tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865340ff",
-        "client_id" : "javatest-1234-5678-9101-3fcbf4update",
+        "tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865340ee",
+        "client_id" : "javatest-1234-5678-9101-3fcbf464test",
         "host_filters" : "filter:updated,test:updated",
         "app_service_plan_filters" : "",
         "automute" : true,
@@ -326,8 +324,8 @@
       "contentType" : "application/json",
       "type" : "JSON",
       "json" : {
-        "client_id" : "javatest-1234-5678-9101-3fcbf4update",
-        "tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865340ff"
+        "client_id" : "javatest-1234-5678-9101-3fcbf464test",
+        "tenant_name" : "aaaaaaaa-bbbb-cccc-dddd-1692865340ee"
       }
     }
   },

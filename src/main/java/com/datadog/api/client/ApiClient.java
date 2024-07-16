@@ -396,6 +396,8 @@ public class ApiClient {
           put("v2.updateIncidentTodo", false);
           put("v2.queryScalarData", false);
           put("v2.queryTimeseriesData", false);
+          put("v2.convertExistingSecurityMonitoringRule", false);
+          put("v2.convertSecurityMonitoringRuleFromJSONToTerraform", false);
           put("v2.getFinding", false);
           put("v2.listFindings", false);
           put("v2.muteFindings", false);
