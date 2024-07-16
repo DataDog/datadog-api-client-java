@@ -2420,6 +2420,7 @@ public class UsageMeteringApi {
   /** Manage optional parameters to getUsageBillableSummary. */
   public static class GetUsageBillableSummaryOptionalParameters {
     private OffsetDateTime month;
+    private Boolean includeConnectedAccounts;
 
     /**
      * Set month.
@@ -2430,6 +2431,20 @@ public class UsageMeteringApi {
      */
     public GetUsageBillableSummaryOptionalParameters month(OffsetDateTime month) {
       this.month = month;
+      return this;
+    }
+
+    /**
+     * Set includeConnectedAccounts.
+     *
+     * @param includeConnectedAccounts Boolean to specify whether to include accounts connected to
+     *     the current account as partner customers in the Datadog partner network program. Defaults
+     *     to <code>false</code>. (optional, default to false)
+     * @return GetUsageBillableSummaryOptionalParameters
+     */
+    public GetUsageBillableSummaryOptionalParameters includeConnectedAccounts(
+        Boolean includeConnectedAccounts) {
+      this.includeConnectedAccounts = includeConnectedAccounts;
       return this;
     }
   }
@@ -2517,6 +2532,7 @@ public class UsageMeteringApi {
       GetUsageBillableSummaryOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     OffsetDateTime month = parameters.month;
+    Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v1/usage/billable-summary";
 
@@ -2524,6 +2540,8 @@ public class UsageMeteringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -2558,6 +2576,7 @@ public class UsageMeteringApi {
           GetUsageBillableSummaryOptionalParameters parameters) {
     Object localVarPostBody = null;
     OffsetDateTime month = parameters.month;
+    Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v1/usage/billable-summary";
 
@@ -2565,6 +2584,8 @@ public class UsageMeteringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "month", month));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
     Invocation.Builder builder;
     try {

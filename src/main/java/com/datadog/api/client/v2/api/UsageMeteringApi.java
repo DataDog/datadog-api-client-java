@@ -412,6 +412,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endMonth;
     private OffsetDateTime startDate;
     private OffsetDateTime endDate;
+    private Boolean includeConnectedAccounts;
 
     /**
      * Set view.
@@ -475,6 +476,20 @@ public class UsageMeteringApi {
      */
     public GetEstimatedCostByOrgOptionalParameters endDate(OffsetDateTime endDate) {
       this.endDate = endDate;
+      return this;
+    }
+
+    /**
+     * Set includeConnectedAccounts.
+     *
+     * @param includeConnectedAccounts Boolean to specify whether to include accounts connected to
+     *     the current account as partner customers in the Datadog partner network program. Defaults
+     *     to <code>false</code>. (optional, default to false)
+     * @return GetEstimatedCostByOrgOptionalParameters
+     */
+    public GetEstimatedCostByOrgOptionalParameters includeConnectedAccounts(
+        Boolean includeConnectedAccounts) {
+      this.includeConnectedAccounts = includeConnectedAccounts;
       return this;
     }
   }
@@ -569,6 +584,7 @@ public class UsageMeteringApi {
     OffsetDateTime endMonth = parameters.endMonth;
     OffsetDateTime startDate = parameters.startDate;
     OffsetDateTime endDate = parameters.endDate;
+    Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v2/usage/estimated_cost";
 
@@ -580,6 +596,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_date", endDate));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -617,6 +635,7 @@ public class UsageMeteringApi {
     OffsetDateTime endMonth = parameters.endMonth;
     OffsetDateTime startDate = parameters.startDate;
     OffsetDateTime endDate = parameters.endDate;
+    Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v2/usage/estimated_cost";
 
@@ -628,6 +647,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_date", startDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_date", endDate));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
     Invocation.Builder builder;
     try {
