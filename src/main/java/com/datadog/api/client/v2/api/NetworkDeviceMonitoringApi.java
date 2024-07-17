@@ -1,0 +1,535 @@
+package com.datadog.api.client.v2.api;
+
+import com.datadog.api.client.ApiClient;
+import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.GetDeviceResponse;
+import com.datadog.api.client.v2.model.GetInterfacesResponse;
+import com.datadog.api.client.v2.model.ListDevicesResponse;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.core.GenericType;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+
+@jakarta.annotation.Generated(
+    value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
+public class NetworkDeviceMonitoringApi {
+  private ApiClient apiClient;
+
+  public NetworkDeviceMonitoringApi() {
+    this(ApiClient.getDefaultApiClient());
+  }
+
+  public NetworkDeviceMonitoringApi(ApiClient apiClient) {
+    this.apiClient = apiClient;
+  }
+
+  /**
+   * Get the API client.
+   *
+   * @return API client
+   */
+  public ApiClient getApiClient() {
+    return apiClient;
+  }
+
+  /**
+   * Set the API client.
+   *
+   * @param apiClient an instance of API client
+   */
+  public void setApiClient(ApiClient apiClient) {
+    this.apiClient = apiClient;
+  }
+
+  /**
+   * Get the device details.
+   *
+   * <p>See {@link #getDeviceWithHttpInfo}.
+   *
+   * @param deviceId The id of the device to fetch. (required)
+   * @return GetDeviceResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetDeviceResponse getDevice(String deviceId) throws ApiException {
+    return getDeviceWithHttpInfo(deviceId).getData();
+  }
+
+  /**
+   * Get the device details.
+   *
+   * <p>See {@link #getDeviceWithHttpInfoAsync}.
+   *
+   * @param deviceId The id of the device to fetch. (required)
+   * @return CompletableFuture&lt;GetDeviceResponse&gt;
+   */
+  public CompletableFuture<GetDeviceResponse> getDeviceAsync(String deviceId) {
+    return getDeviceWithHttpInfoAsync(deviceId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the device details.
+   *
+   * @param deviceId The id of the device to fetch. (required)
+   * @return ApiResponse&lt;GetDeviceResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetDeviceResponse> getDeviceWithHttpInfo(String deviceId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'deviceId' when calling getDevice");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/ndm/devices/{device_id}"
+            .replaceAll("\\{" + "device_id" + "\\}", apiClient.escapeString(deviceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.NetworkDeviceMonitoringApi.getDevice",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetDeviceResponse>() {});
+  }
+
+  /**
+   * Get the device details.
+   *
+   * <p>See {@link #getDeviceWithHttpInfo}.
+   *
+   * @param deviceId The id of the device to fetch. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GetDeviceResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetDeviceResponse>> getDeviceWithHttpInfoAsync(
+      String deviceId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId == null) {
+      CompletableFuture<ApiResponse<GetDeviceResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'deviceId' when calling getDevice"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/ndm/devices/{device_id}"
+            .replaceAll("\\{" + "device_id" + "\\}", apiClient.escapeString(deviceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.NetworkDeviceMonitoringApi.getDevice",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetDeviceResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetDeviceResponse>() {});
+  }
+
+  /**
+   * Get the list of interfaces of the device.
+   *
+   * <p>See {@link #getInterfacesWithHttpInfo}.
+   *
+   * @param deviceId The ID of the device to get interfaces from. (required)
+   * @return GetInterfacesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetInterfacesResponse getInterfaces(String deviceId) throws ApiException {
+    return getInterfacesWithHttpInfo(deviceId).getData();
+  }
+
+  /**
+   * Get the list of interfaces of the device.
+   *
+   * <p>See {@link #getInterfacesWithHttpInfoAsync}.
+   *
+   * @param deviceId The ID of the device to get interfaces from. (required)
+   * @return CompletableFuture&lt;GetInterfacesResponse&gt;
+   */
+  public CompletableFuture<GetInterfacesResponse> getInterfacesAsync(String deviceId) {
+    return getInterfacesWithHttpInfoAsync(deviceId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of interfaces of the device.
+   *
+   * @param deviceId The ID of the device to get interfaces from. (required)
+   * @return ApiResponse&lt;GetInterfacesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetInterfacesResponse> getInterfacesWithHttpInfo(String deviceId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'deviceId' when calling getInterfaces");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/ndm/interfaces";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "device_id", deviceId));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.NetworkDeviceMonitoringApi.getInterfaces",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetInterfacesResponse>() {});
+  }
+
+  /**
+   * Get the list of interfaces of the device.
+   *
+   * <p>See {@link #getInterfacesWithHttpInfo}.
+   *
+   * @param deviceId The ID of the device to get interfaces from. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GetInterfacesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetInterfacesResponse>> getInterfacesWithHttpInfoAsync(
+      String deviceId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId == null) {
+      CompletableFuture<ApiResponse<GetInterfacesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'deviceId' when calling getInterfaces"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/ndm/interfaces";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "device_id", deviceId));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.NetworkDeviceMonitoringApi.getInterfaces",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetInterfacesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetInterfacesResponse>() {});
+  }
+
+  /** Manage optional parameters to listDevices. */
+  public static class ListDevicesOptionalParameters {
+    private Long pageNumber;
+    private Long pageSize;
+    private String sort;
+    private String filterTag;
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber The page number to fetch. (optional)
+     * @return ListDevicesOptionalParameters
+     */
+    public ListDevicesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize The number of devices to return per page. (optional)
+     * @return ListDevicesOptionalParameters
+     */
+    public ListDevicesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set sort.
+     *
+     * @param sort The field to sort the devices by. (optional)
+     * @return ListDevicesOptionalParameters
+     */
+    public ListDevicesOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set filterTag.
+     *
+     * @param filterTag Filter devices by tag. (optional)
+     * @return ListDevicesOptionalParameters
+     */
+    public ListDevicesOptionalParameters filterTag(String filterTag) {
+      this.filterTag = filterTag;
+      return this;
+    }
+  }
+
+  /**
+   * Get the list of devices.
+   *
+   * <p>See {@link #listDevicesWithHttpInfo}.
+   *
+   * @return ListDevicesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListDevicesResponse listDevices() throws ApiException {
+    return listDevicesWithHttpInfo(new ListDevicesOptionalParameters()).getData();
+  }
+
+  /**
+   * Get the list of devices.
+   *
+   * <p>See {@link #listDevicesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListDevicesResponse&gt;
+   */
+  public CompletableFuture<ListDevicesResponse> listDevicesAsync() {
+    return listDevicesWithHttpInfoAsync(new ListDevicesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of devices.
+   *
+   * <p>See {@link #listDevicesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListDevicesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListDevicesResponse listDevices(ListDevicesOptionalParameters parameters)
+      throws ApiException {
+    return listDevicesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get the list of devices.
+   *
+   * <p>See {@link #listDevicesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListDevicesResponse&gt;
+   */
+  public CompletableFuture<ListDevicesResponse> listDevicesAsync(
+      ListDevicesOptionalParameters parameters) {
+    return listDevicesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of devices.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListDevicesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListDevicesResponse> listDevicesWithHttpInfo(
+      ListDevicesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String sort = parameters.sort;
+    String filterTag = parameters.filterTag;
+    // create path and map variables
+    String localVarPath = "/api/v2/ndm/devices";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tag]", filterTag));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.NetworkDeviceMonitoringApi.listDevices",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListDevicesResponse>() {});
+  }
+
+  /**
+   * Get the list of devices.
+   *
+   * <p>See {@link #listDevicesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListDevicesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListDevicesResponse>> listDevicesWithHttpInfoAsync(
+      ListDevicesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageNumber = parameters.pageNumber;
+    Long pageSize = parameters.pageSize;
+    String sort = parameters.sort;
+    String filterTag = parameters.filterTag;
+    // create path and map variables
+    String localVarPath = "/api/v2/ndm/devices";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tag]", filterTag));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.NetworkDeviceMonitoringApi.listDevices",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListDevicesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListDevicesResponse>() {});
+  }
+}
