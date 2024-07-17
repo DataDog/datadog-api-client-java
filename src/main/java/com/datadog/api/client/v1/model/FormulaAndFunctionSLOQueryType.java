@@ -23,10 +23,13 @@ import java.util.Set;
     using = FormulaAndFunctionSLOQueryType.FormulaAndFunctionSLOQueryTypeSerializer.class)
 public class FormulaAndFunctionSLOQueryType extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("metric"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("metric", "time_slice"));
 
   public static final FormulaAndFunctionSLOQueryType METRIC =
       new FormulaAndFunctionSLOQueryType("metric");
+  public static final FormulaAndFunctionSLOQueryType TIME_SLICE =
+      new FormulaAndFunctionSLOQueryType("time_slice");
 
   FormulaAndFunctionSLOQueryType(String value) {
     super(value, allowedValues);
