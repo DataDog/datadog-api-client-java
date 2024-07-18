@@ -720,7 +720,9 @@ public class CloudCostManagementApi {
    * @param filterManagementAccountId The ID of the management account to filter by. (required)
    * @return AWSRelatedAccountsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public AWSRelatedAccountsResponse listAWSRelatedAccounts(String filterManagementAccountId)
       throws ApiException {
     return listAWSRelatedAccountsWithHttpInfo(filterManagementAccountId).getData();
@@ -733,7 +735,9 @@ public class CloudCostManagementApi {
    *
    * @param filterManagementAccountId The ID of the management account to filter by. (required)
    * @return CompletableFuture&lt;AWSRelatedAccountsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<AWSRelatedAccountsResponse> listAWSRelatedAccountsAsync(
       String filterManagementAccountId) {
     return listAWSRelatedAccountsWithHttpInfoAsync(filterManagementAccountId)
@@ -759,7 +763,10 @@ public class CloudCostManagementApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<AWSRelatedAccountsResponse> listAWSRelatedAccountsWithHttpInfo(
       String filterManagementAccountId) throws ApiException {
     Object localVarPostBody = null;
@@ -807,7 +814,9 @@ public class CloudCostManagementApi {
    *
    * @param filterManagementAccountId The ID of the management account to filter by. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSRelatedAccountsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<AWSRelatedAccountsResponse>>
       listAWSRelatedAccountsWithHttpInfoAsync(String filterManagementAccountId) {
     Object localVarPostBody = null;
