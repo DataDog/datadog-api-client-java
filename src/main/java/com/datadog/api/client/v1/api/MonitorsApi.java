@@ -235,7 +235,6 @@ public class MonitorsApi {
    *   <li>APM: <code>query alert</code> or <code>trace-analytics alert</code>
    *   <li>composite: <code>composite</code>
    *   <li>custom: <code>service check</code>
-   *   <li>event: <code>event alert</code>
    *   <li>forecast: <code>query alert</code>
    *   <li>host: <code>service check</code>
    *   <li>integration: <code>query alert</code> or <code>service check</code>
