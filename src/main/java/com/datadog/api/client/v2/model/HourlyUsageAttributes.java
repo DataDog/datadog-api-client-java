@@ -21,6 +21,8 @@ import java.util.Objects;
 
 /** Attributes of hourly usage for a product family for an org for a time period. */
 @JsonPropertyOrder({
+  HourlyUsageAttributes.JSON_PROPERTY_ACCOUNT_NAME,
+  HourlyUsageAttributes.JSON_PROPERTY_ACCOUNT_PUBLIC_ID,
   HourlyUsageAttributes.JSON_PROPERTY_MEASUREMENTS,
   HourlyUsageAttributes.JSON_PROPERTY_ORG_NAME,
   HourlyUsageAttributes.JSON_PROPERTY_PRODUCT_FAMILY,
@@ -32,6 +34,12 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class HourlyUsageAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_NAME = "account_name";
+  private String accountName;
+
+  public static final String JSON_PROPERTY_ACCOUNT_PUBLIC_ID = "account_public_id";
+  private String accountPublicId;
+
   public static final String JSON_PROPERTY_MEASUREMENTS = "measurements";
   private List<HourlyUsageMeasurement> measurements = null;
 
@@ -49,6 +57,48 @@ public class HourlyUsageAttributes {
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private OffsetDateTime timestamp;
+
+  public HourlyUsageAttributes accountName(String accountName) {
+    this.accountName = accountName;
+    return this;
+  }
+
+  /**
+   * The account name.
+   *
+   * @return accountName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountName() {
+    return accountName;
+  }
+
+  public void setAccountName(String accountName) {
+    this.accountName = accountName;
+  }
+
+  public HourlyUsageAttributes accountPublicId(String accountPublicId) {
+    this.accountPublicId = accountPublicId;
+    return this;
+  }
+
+  /**
+   * The account public ID.
+   *
+   * @return accountPublicId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountPublicId() {
+    return accountPublicId;
+  }
+
+  public void setAccountPublicId(String accountPublicId) {
+    this.accountPublicId = accountPublicId;
+  }
 
   public HourlyUsageAttributes measurements(List<HourlyUsageMeasurement> measurements) {
     this.measurements = measurements;
@@ -244,7 +294,9 @@ public class HourlyUsageAttributes {
       return false;
     }
     HourlyUsageAttributes hourlyUsageAttributes = (HourlyUsageAttributes) o;
-    return Objects.equals(this.measurements, hourlyUsageAttributes.measurements)
+    return Objects.equals(this.accountName, hourlyUsageAttributes.accountName)
+        && Objects.equals(this.accountPublicId, hourlyUsageAttributes.accountPublicId)
+        && Objects.equals(this.measurements, hourlyUsageAttributes.measurements)
         && Objects.equals(this.orgName, hourlyUsageAttributes.orgName)
         && Objects.equals(this.productFamily, hourlyUsageAttributes.productFamily)
         && Objects.equals(this.publicId, hourlyUsageAttributes.publicId)
@@ -256,13 +308,23 @@ public class HourlyUsageAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        measurements, orgName, productFamily, publicId, region, timestamp, additionalProperties);
+        accountName,
+        accountPublicId,
+        measurements,
+        orgName,
+        productFamily,
+        publicId,
+        region,
+        timestamp,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HourlyUsageAttributes {\n");
+    sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    accountPublicId: ").append(toIndentedString(accountPublicId)).append("\n");
     sb.append("    measurements: ").append(toIndentedString(measurements)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    productFamily: ").append(toIndentedString(productFamily)).append("\n");

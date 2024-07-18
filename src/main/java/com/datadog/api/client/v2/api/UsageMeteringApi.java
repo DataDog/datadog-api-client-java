@@ -910,6 +910,7 @@ public class UsageMeteringApi {
   public static class GetHourlyUsageOptionalParameters {
     private OffsetDateTime filterTimestampEnd;
     private Boolean filterIncludeDescendants;
+    private Boolean filterIncludeConnectedAccounts;
     private Boolean filterIncludeBreakdown;
     private String filterVersions;
     private Integer pageLimit;
@@ -937,6 +938,20 @@ public class UsageMeteringApi {
     public GetHourlyUsageOptionalParameters filterIncludeDescendants(
         Boolean filterIncludeDescendants) {
       this.filterIncludeDescendants = filterIncludeDescendants;
+      return this;
+    }
+
+    /**
+     * Set filterIncludeConnectedAccounts.
+     *
+     * @param filterIncludeConnectedAccounts Boolean to specify whether to include accounts
+     *     connected to the current account as partner customers in the Datadog partner network
+     *     program. Defaults to false. (optional, default to false)
+     * @return GetHourlyUsageOptionalParameters
+     */
+    public GetHourlyUsageOptionalParameters filterIncludeConnectedAccounts(
+        Boolean filterIncludeConnectedAccounts) {
+      this.filterIncludeConnectedAccounts = filterIncludeConnectedAccounts;
       return this;
     }
 
@@ -1182,6 +1197,7 @@ public class UsageMeteringApi {
     }
     OffsetDateTime filterTimestampEnd = parameters.filterTimestampEnd;
     Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    Boolean filterIncludeConnectedAccounts = parameters.filterIncludeConnectedAccounts;
     Boolean filterIncludeBreakdown = parameters.filterIncludeBreakdown;
     String filterVersions = parameters.filterVersions;
     Integer pageLimit = parameters.pageLimit;
@@ -1200,6 +1216,9 @@ public class UsageMeteringApi {
         apiClient.parameterToPairs("", "filter[timestamp][end]", filterTimestampEnd));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[include_connected_accounts]", filterIncludeConnectedAccounts));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_breakdown]", filterIncludeBreakdown));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[versions]", filterVersions));
@@ -1280,6 +1299,7 @@ public class UsageMeteringApi {
     }
     OffsetDateTime filterTimestampEnd = parameters.filterTimestampEnd;
     Boolean filterIncludeDescendants = parameters.filterIncludeDescendants;
+    Boolean filterIncludeConnectedAccounts = parameters.filterIncludeConnectedAccounts;
     Boolean filterIncludeBreakdown = parameters.filterIncludeBreakdown;
     String filterVersions = parameters.filterVersions;
     Integer pageLimit = parameters.pageLimit;
@@ -1298,6 +1318,9 @@ public class UsageMeteringApi {
         apiClient.parameterToPairs("", "filter[timestamp][end]", filterTimestampEnd));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_descendants]", filterIncludeDescendants));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[include_connected_accounts]", filterIncludeConnectedAccounts));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[include_breakdown]", filterIncludeBreakdown));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[versions]", filterVersions));
