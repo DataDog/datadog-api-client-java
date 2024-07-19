@@ -131,13 +131,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<SecurityMonitoringRuleConvertResponse>
       convertExistingSecurityMonitoringRuleWithHttpInfo(String ruleId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "convertExistingSecurityMonitoringRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'ruleId' is set
@@ -184,17 +177,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>>
       convertExistingSecurityMonitoringRuleWithHttpInfoAsync(String ruleId) {
-    // Check if unstable operation is enabled
-    String operationId = "convertExistingSecurityMonitoringRule";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'ruleId' is set
@@ -297,13 +279,6 @@ public class SecurityMonitoringApi {
   public ApiResponse<SecurityMonitoringRuleConvertResponse>
       convertSecurityMonitoringRuleFromJSONToTerraformWithHttpInfo(
           SecurityMonitoringRuleConvertPayload body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "convertSecurityMonitoringRuleFromJSONToTerraform";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -349,17 +324,6 @@ public class SecurityMonitoringApi {
   public CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>>
       convertSecurityMonitoringRuleFromJSONToTerraformWithHttpInfoAsync(
           SecurityMonitoringRuleConvertPayload body) {
-    // Check if unstable operation is enabled
-    String operationId = "convertSecurityMonitoringRuleFromJSONToTerraform";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<SecurityMonitoringRuleConvertResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
