@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Resources related to the API key. */
 @JsonPropertyOrder({
@@ -29,7 +30,8 @@ public class APIKeyRelationships {
   private RelationshipToUser createdBy;
 
   public static final String JSON_PROPERTY_MODIFIED_BY = "modified_by";
-  private RelationshipToUser modifiedBy;
+  private JsonNullable<NullableRelationshipToUser> modifiedBy =
+      JsonNullable.<NullableRelationshipToUser>undefined();
 
   public APIKeyRelationships createdBy(RelationshipToUser createdBy) {
     this.createdBy = createdBy;
@@ -53,9 +55,8 @@ public class APIKeyRelationships {
     this.createdBy = createdBy;
   }
 
-  public APIKeyRelationships modifiedBy(RelationshipToUser modifiedBy) {
-    this.modifiedBy = modifiedBy;
-    this.unparsed |= modifiedBy.unparsed;
+  public APIKeyRelationships modifiedBy(NullableRelationshipToUser modifiedBy) {
+    this.modifiedBy = JsonNullable.<NullableRelationshipToUser>of(modifiedBy);
     return this;
   }
 
@@ -65,14 +66,24 @@ public class APIKeyRelationships {
    * @return modifiedBy
    */
   @jakarta.annotation.Nullable
+  @JsonIgnore
+  public NullableRelationshipToUser getModifiedBy() {
+    return modifiedBy.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getModifiedBy() {
+  public JsonNullable<NullableRelationshipToUser> getModifiedBy_JsonNullable() {
     return modifiedBy;
   }
 
-  public void setModifiedBy(RelationshipToUser modifiedBy) {
+  @JsonProperty(JSON_PROPERTY_MODIFIED_BY)
+  public void setModifiedBy_JsonNullable(JsonNullable<NullableRelationshipToUser> modifiedBy) {
     this.modifiedBy = modifiedBy;
+  }
+
+  public void setModifiedBy(NullableRelationshipToUser modifiedBy) {
+    this.modifiedBy = JsonNullable.<NullableRelationshipToUser>of(modifiedBy);
   }
 
   /**
