@@ -424,7 +424,7 @@ def format_data_with_schema(
             def open_file(x):
                 return f"new File({format_string(x)})"
 
-            formatter = {
+            formatters = {
                 "int32": lambda x: str(int(x)),
                 "int64": lambda x: str(int(x)) + "L",
                 "double": format_double,
@@ -437,7 +437,9 @@ def format_data_with_schema(
                 "binary": open_file,
                 "uuid": format_uuid,
                 None: format_interface,
-            }[schema.get("format", schema.get("type"))]
+            }
+            schema_type = schema.get("type")
+            formatter = formatters.get(schema.get("format", schema_type), formatters.get(schema_type))
 
             parameters = formatter(data)
 
