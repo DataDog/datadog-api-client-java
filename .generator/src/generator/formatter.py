@@ -209,11 +209,9 @@ def simple_type(schema):
         return {
             "date": "OffsetDateTime",
             "date-time": "OffsetDateTime",
-            "email": "String",
             "binary": "File",
             "uuid": "UUID",
-            None: "String",
-        }[type_format]
+        }.get(type_format, "String")
     if type_name == "boolean":
         return "Boolean"
 
