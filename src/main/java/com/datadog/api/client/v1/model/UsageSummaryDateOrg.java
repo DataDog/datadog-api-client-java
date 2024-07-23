@@ -18,6 +18,8 @@ import java.util.Objects;
 
 /** Global hourly report of all data billed by Datadog for a given organization. */
 @JsonPropertyOrder({
+  UsageSummaryDateOrg.JSON_PROPERTY_ACCOUNT_NAME,
+  UsageSummaryDateOrg.JSON_PROPERTY_ACCOUNT_PUBLIC_ID,
   UsageSummaryDateOrg.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_DEVSECOPS_HOST_TOP99P,
@@ -153,6 +155,12 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UsageSummaryDateOrg {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_NAME = "account_name";
+  private String accountName;
+
+  public static final String JSON_PROPERTY_ACCOUNT_PUBLIC_ID = "account_public_id";
+  private String accountPublicId;
+
   public static final String JSON_PROPERTY_AGENT_HOST_TOP99P = "agent_host_top99p";
   private Long agentHostTop99p;
 
@@ -617,6 +625,48 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_WORKFLOW_EXECUTIONS_USAGE_SUM =
       "workflow_executions_usage_sum";
   private Long workflowExecutionsUsageSum;
+
+  public UsageSummaryDateOrg accountName(String accountName) {
+    this.accountName = accountName;
+    return this;
+  }
+
+  /**
+   * The account name.
+   *
+   * @return accountName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountName() {
+    return accountName;
+  }
+
+  public void setAccountName(String accountName) {
+    this.accountName = accountName;
+  }
+
+  public UsageSummaryDateOrg accountPublicId(String accountPublicId) {
+    this.accountPublicId = accountPublicId;
+    return this;
+  }
+
+  /**
+   * The account public id.
+   *
+   * @return accountPublicId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountPublicId() {
+    return accountPublicId;
+  }
+
+  public void setAccountPublicId(String accountPublicId) {
+    this.accountPublicId = accountPublicId;
+  }
 
   public UsageSummaryDateOrg agentHostTop99p(Long agentHostTop99p) {
     this.agentHostTop99p = agentHostTop99p;
@@ -3596,7 +3646,9 @@ public class UsageSummaryDateOrg {
       return false;
     }
     UsageSummaryDateOrg usageSummaryDateOrg = (UsageSummaryDateOrg) o;
-    return Objects.equals(this.agentHostTop99p, usageSummaryDateOrg.agentHostTop99p)
+    return Objects.equals(this.accountName, usageSummaryDateOrg.accountName)
+        && Objects.equals(this.accountPublicId, usageSummaryDateOrg.accountPublicId)
+        && Objects.equals(this.agentHostTop99p, usageSummaryDateOrg.agentHostTop99p)
         && Objects.equals(
             this.apmAzureAppServiceHostTop99p, usageSummaryDateOrg.apmAzureAppServiceHostTop99p)
         && Objects.equals(this.apmDevsecopsHostTop99p, usageSummaryDateOrg.apmDevsecopsHostTop99p)
@@ -3836,6 +3888,8 @@ public class UsageSummaryDateOrg {
   @Override
   public int hashCode() {
     return Objects.hash(
+        accountName,
+        accountPublicId,
         agentHostTop99p,
         apmAzureAppServiceHostTop99p,
         apmDevsecopsHostTop99p,
@@ -3973,6 +4027,8 @@ public class UsageSummaryDateOrg {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageSummaryDateOrg {\n");
+    sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    accountPublicId: ").append(toIndentedString(accountPublicId)).append("\n");
     sb.append("    agentHostTop99p: ").append(toIndentedString(agentHostTop99p)).append("\n");
     sb.append("    apmAzureAppServiceHostTop99p: ")
         .append(toIndentedString(apmAzureAppServiceHostTop99p))
