@@ -7056,6 +7056,7 @@ public class UsageMeteringApi {
   public static class GetUsageSummaryOptionalParameters {
     private OffsetDateTime endMonth;
     private Boolean includeOrgDetails;
+    private Boolean includeConnectedAccounts;
 
     /**
      * Set endMonth.
@@ -7077,6 +7078,20 @@ public class UsageMeteringApi {
      */
     public GetUsageSummaryOptionalParameters includeOrgDetails(Boolean includeOrgDetails) {
       this.includeOrgDetails = includeOrgDetails;
+      return this;
+    }
+
+    /**
+     * Set includeConnectedAccounts.
+     *
+     * @param includeConnectedAccounts Boolean to specify whether to include accounts connected to
+     *     the current account as partner customers in the Datadog partner network program. Defaults
+     *     to <code>false</code>. (optional, default to false)
+     * @return GetUsageSummaryOptionalParameters
+     */
+    public GetUsageSummaryOptionalParameters includeConnectedAccounts(
+        Boolean includeConnectedAccounts) {
+      this.includeConnectedAccounts = includeConnectedAccounts;
       return this;
     }
   }
@@ -7181,6 +7196,7 @@ public class UsageMeteringApi {
     }
     OffsetDateTime endMonth = parameters.endMonth;
     Boolean includeOrgDetails = parameters.includeOrgDetails;
+    Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v1/usage/summary";
 
@@ -7191,6 +7207,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_org_details", includeOrgDetails));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -7236,6 +7254,7 @@ public class UsageMeteringApi {
     }
     OffsetDateTime endMonth = parameters.endMonth;
     Boolean includeOrgDetails = parameters.includeOrgDetails;
+    Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v1/usage/summary";
 
@@ -7246,6 +7265,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_org_details", includeOrgDetails));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
     Invocation.Builder builder;
     try {
