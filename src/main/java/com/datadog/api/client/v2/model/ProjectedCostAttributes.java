@@ -21,6 +21,8 @@ import java.util.Objects;
 
 /** Projected Cost attributes data. */
 @JsonPropertyOrder({
+  ProjectedCostAttributes.JSON_PROPERTY_ACCOUNT_NAME,
+  ProjectedCostAttributes.JSON_PROPERTY_ACCOUNT_PUBLIC_ID,
   ProjectedCostAttributes.JSON_PROPERTY_CHARGES,
   ProjectedCostAttributes.JSON_PROPERTY_DATE,
   ProjectedCostAttributes.JSON_PROPERTY_ORG_NAME,
@@ -32,6 +34,12 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProjectedCostAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_NAME = "account_name";
+  private String accountName;
+
+  public static final String JSON_PROPERTY_ACCOUNT_PUBLIC_ID = "account_public_id";
+  private String accountPublicId;
+
   public static final String JSON_PROPERTY_CHARGES = "charges";
   private List<ChargebackBreakdown> charges = null;
 
@@ -49,6 +57,48 @@ public class ProjectedCostAttributes {
 
   public static final String JSON_PROPERTY_REGION = "region";
   private String region;
+
+  public ProjectedCostAttributes accountName(String accountName) {
+    this.accountName = accountName;
+    return this;
+  }
+
+  /**
+   * The account name.
+   *
+   * @return accountName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountName() {
+    return accountName;
+  }
+
+  public void setAccountName(String accountName) {
+    this.accountName = accountName;
+  }
+
+  public ProjectedCostAttributes accountPublicId(String accountPublicId) {
+    this.accountPublicId = accountPublicId;
+    return this;
+  }
+
+  /**
+   * The account public ID.
+   *
+   * @return accountPublicId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountPublicId() {
+    return accountPublicId;
+  }
+
+  public void setAccountPublicId(String accountPublicId) {
+    this.accountPublicId = accountPublicId;
+  }
 
   public ProjectedCostAttributes charges(List<ChargebackBreakdown> charges) {
     this.charges = charges;
@@ -244,7 +294,9 @@ public class ProjectedCostAttributes {
       return false;
     }
     ProjectedCostAttributes projectedCostAttributes = (ProjectedCostAttributes) o;
-    return Objects.equals(this.charges, projectedCostAttributes.charges)
+    return Objects.equals(this.accountName, projectedCostAttributes.accountName)
+        && Objects.equals(this.accountPublicId, projectedCostAttributes.accountPublicId)
+        && Objects.equals(this.charges, projectedCostAttributes.charges)
         && Objects.equals(this.date, projectedCostAttributes.date)
         && Objects.equals(this.orgName, projectedCostAttributes.orgName)
         && Objects.equals(this.projectedTotalCost, projectedCostAttributes.projectedTotalCost)
@@ -256,13 +308,23 @@ public class ProjectedCostAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        charges, date, orgName, projectedTotalCost, publicId, region, additionalProperties);
+        accountName,
+        accountPublicId,
+        charges,
+        date,
+        orgName,
+        projectedTotalCost,
+        publicId,
+        region,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProjectedCostAttributes {\n");
+    sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
+    sb.append("    accountPublicId: ").append(toIndentedString(accountPublicId)).append("\n");
     sb.append("    charges: ").append(toIndentedString(charges)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");

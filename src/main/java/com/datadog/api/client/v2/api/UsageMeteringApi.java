@@ -681,6 +681,7 @@ public class UsageMeteringApi {
   public static class GetHistoricalCostByOrgOptionalParameters {
     private String view;
     private OffsetDateTime endMonth;
+    private Boolean includeConnectedAccounts;
 
     /**
      * Set view.
@@ -704,6 +705,20 @@ public class UsageMeteringApi {
      */
     public GetHistoricalCostByOrgOptionalParameters endMonth(OffsetDateTime endMonth) {
       this.endMonth = endMonth;
+      return this;
+    }
+
+    /**
+     * Set includeConnectedAccounts.
+     *
+     * @param includeConnectedAccounts Boolean to specify whether to include accounts connected to
+     *     the current account as partner customers in the Datadog partner network program. Defaults
+     *     to <code>false</code>. (optional, default to false)
+     * @return GetHistoricalCostByOrgOptionalParameters
+     */
+    public GetHistoricalCostByOrgOptionalParameters includeConnectedAccounts(
+        Boolean includeConnectedAccounts) {
+      this.includeConnectedAccounts = includeConnectedAccounts;
       return this;
     }
   }
@@ -814,6 +829,7 @@ public class UsageMeteringApi {
     }
     String view = parameters.view;
     OffsetDateTime endMonth = parameters.endMonth;
+    Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v2/usage/historical_cost";
 
@@ -823,6 +839,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "view", view));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -869,6 +887,7 @@ public class UsageMeteringApi {
     }
     String view = parameters.view;
     OffsetDateTime endMonth = parameters.endMonth;
+    Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v2/usage/historical_cost";
 
@@ -878,6 +897,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "view", view));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
     Invocation.Builder builder;
     try {
@@ -1806,6 +1827,7 @@ public class UsageMeteringApi {
   /** Manage optional parameters to getProjectedCost. */
   public static class GetProjectedCostOptionalParameters {
     private String view;
+    private Boolean includeConnectedAccounts;
 
     /**
      * Set view.
@@ -1817,6 +1839,20 @@ public class UsageMeteringApi {
      */
     public GetProjectedCostOptionalParameters view(String view) {
       this.view = view;
+      return this;
+    }
+
+    /**
+     * Set includeConnectedAccounts.
+     *
+     * @param includeConnectedAccounts Boolean to specify whether to include accounts connected to
+     *     the current account as partner customers in the Datadog partner network program. Defaults
+     *     to <code>false</code>. (optional, default to false)
+     * @return GetProjectedCostOptionalParameters
+     */
+    public GetProjectedCostOptionalParameters includeConnectedAccounts(
+        Boolean includeConnectedAccounts) {
+      this.includeConnectedAccounts = includeConnectedAccounts;
       return this;
     }
   }
@@ -1904,6 +1940,7 @@ public class UsageMeteringApi {
       GetProjectedCostOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String view = parameters.view;
+    Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v2/usage/projected_cost";
 
@@ -1911,6 +1948,8 @@ public class UsageMeteringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "view", view));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1944,6 +1983,7 @@ public class UsageMeteringApi {
       GetProjectedCostOptionalParameters parameters) {
     Object localVarPostBody = null;
     String view = parameters.view;
+    Boolean includeConnectedAccounts = parameters.includeConnectedAccounts;
     // create path and map variables
     String localVarPath = "/api/v2/usage/projected_cost";
 
@@ -1951,6 +1991,8 @@ public class UsageMeteringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "view", view));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_connected_accounts", includeConnectedAccounts));
 
     Invocation.Builder builder;
     try {
