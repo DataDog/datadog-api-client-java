@@ -40,12 +40,8 @@ public class ApplicationKeyUpdateData {
 
   @JsonCreator
   public ApplicationKeyUpdateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          ApplicationKeyUpdateAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ApplicationKeysType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -62,8 +58,9 @@ public class ApplicationKeyUpdateData {
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ApplicationKeyUpdateAttributes getAttributes() {
     return attributes;
   }

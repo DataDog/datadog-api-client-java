@@ -27,7 +27,37 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6bf7ec14-e356-62da-9821-014a7ce6633a"
+    "id": "6bf7ec14-e356-62da-9821-014a7ce66339"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"client_id\":\"17198592-0000-0000-0000-171985920500\",\"tenant_name\":\"17198592-0000-0000-0000-171985920500\"}"
+      },
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/integration/azure",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8e24b3ac-0aac-d652-3dbd-8e914b6b8495"
   },
   {
     "httpRequest": {
@@ -58,35 +88,5 @@
       "unlimited": true
     },
     "id": "8e24b3ac-0aac-d652-3dbd-8e914b6b8496"
-  },
-  {
-    "httpRequest": {
-      "body": {
-        "type": "JSON",
-        "json": "{\"client_id\":\"17198592-0000-0000-0000-171985920500\",\"tenant_name\":\"17198592-0000-0000-0000-171985920500\"}"
-      },
-      "headers": {},
-      "method": "DELETE",
-      "path": "/api/v1/integration/azure",
-      "keepAlive": false,
-      "secure": true
-    },
-    "httpResponse": {
-      "body": "{}\n",
-      "headers": {
-        "Content-Type": [
-          "application/json"
-        ]
-      },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
-    },
-    "times": {
-      "remainingTimes": 1
-    },
-    "timeToLive": {
-      "unlimited": true
-    },
-    "id": "8e24b3ac-0aac-d652-3dbd-8e914b6b8497"
   }
 ]
