@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -31,6 +32,19 @@ public class FastlyAccountUpdateRequestData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private FastlyAccountType type = FastlyAccountType.FASTLY_ACCOUNTS;
 
+  public FastlyAccountUpdateRequestData() {}
+
+  @JsonCreator
+  public FastlyAccountUpdateRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          FastlyAccountUpdateRequestAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FastlyAccountType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
   public FastlyAccountUpdateRequestData attributes(
       FastlyAccountUpdateRequestAttributes attributes) {
     this.attributes = attributes;
@@ -43,9 +57,8 @@ public class FastlyAccountUpdateRequestData {
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FastlyAccountUpdateRequestAttributes getAttributes() {
     return attributes;
   }
@@ -65,9 +78,8 @@ public class FastlyAccountUpdateRequestData {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public FastlyAccountType getType() {
     return type;
   }

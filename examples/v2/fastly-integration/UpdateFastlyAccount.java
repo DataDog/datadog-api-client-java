@@ -21,7 +21,10 @@ public class Example {
         new FastlyAccountUpdateRequest()
             .data(
                 new FastlyAccountUpdateRequestData()
-                    .attributes(new FastlyAccountUpdateRequestAttributes().apiKey("update-secret"))
+                    .attributes(
+                        new FastlyAccountUpdateRequestAttributes()
+                            .apiKey("update-secret")
+                            .name("test-name"))
                     .type(FastlyAccountType.FASTLY_ACCOUNTS));
 
     try {
