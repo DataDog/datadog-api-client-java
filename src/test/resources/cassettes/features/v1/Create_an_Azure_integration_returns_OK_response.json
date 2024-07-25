@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17091519-0000-0000-0000-170915195900\",\"client_secret\":\"testingx./Sw*g/Y33t..R1cH+hScMDt\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17091519-0000-0000-0000-170915195900\",\"new_tenant_name\":\"17091519-0000-0000-0000-170915195900\",\"resource_collection_enabled\":true,\"tenant_name\":\"17091519-0000-0000-0000-170915195900\"}"
+        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17219332-0000-0000-0000-172193325500\",\"client_secret\":\"TestingRh2nx664kUy5dIApvM54T4AtO\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"new_client_id\":\"17219332-0000-0000-0000-172193325500\",\"new_tenant_name\":\"17219332-0000-0000-0000-172193325500\",\"resource_collection_enabled\":true,\"tenant_name\":\"17219332-0000-0000-0000-172193325500\"}"
       },
       "headers": {},
       "method": "POST",
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "28fc8056-6b96-6b1b-3358-284b38769d4c"
+    "id": "f4900827-a47a-dfbc-078b-f09738afc5db"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"client_id\":\"17091519-0000-0000-0000-170915195900\",\"tenant_name\":\"17091519-0000-0000-0000-170915195900\"}"
+        "json": "{\"client_id\":\"17219332-0000-0000-0000-172193325500\",\"tenant_name\":\"17219332-0000-0000-0000-172193325500\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -57,6 +57,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "493d73f3-32fe-fc7b-7b8c-f7d6a6b7bfea"
+    "id": "92cc025e-6a5d-ac9c-a6af-65450cdedad3"
   }
 ]
