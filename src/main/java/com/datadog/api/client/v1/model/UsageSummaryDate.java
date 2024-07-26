@@ -129,6 +129,8 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_UNITS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_SCA_FARGATE_COUNT_AVG,
+  UsageSummaryDate.JSON_PROPERTY_SCA_FARGATE_COUNT_HWM,
   UsageSummaryDate.JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM,
@@ -536,6 +538,12 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_RUM_UNITS_SUM = "rum_units_sum";
   private Long rumUnitsSum;
+
+  public static final String JSON_PROPERTY_SCA_FARGATE_COUNT_AVG = "sca_fargate_count_avg";
+  private Long scaFargateCountAvg;
+
+  public static final String JSON_PROPERTY_SCA_FARGATE_COUNT_HWM = "sca_fargate_count_hwm";
+  private Long scaFargateCountHwm;
 
   public static final String JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM = "sds_apm_scanned_bytes_sum";
   private Long sdsApmScannedBytesSum;
@@ -3062,6 +3070,50 @@ public class UsageSummaryDate {
     this.rumUnitsSum = rumUnitsSum;
   }
 
+  public UsageSummaryDate scaFargateCountAvg(Long scaFargateCountAvg) {
+    this.scaFargateCountAvg = scaFargateCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all Software Composition Analysis Fargate tasks over all hours in the
+   * current date for the given org.
+   *
+   * @return scaFargateCountAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getScaFargateCountAvg() {
+    return scaFargateCountAvg;
+  }
+
+  public void setScaFargateCountAvg(Long scaFargateCountAvg) {
+    this.scaFargateCountAvg = scaFargateCountAvg;
+  }
+
+  public UsageSummaryDate scaFargateCountHwm(Long scaFargateCountHwm) {
+    this.scaFargateCountHwm = scaFargateCountHwm;
+    return this;
+  }
+
+  /**
+   * Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over
+   * all hours in the current date for the given org.
+   *
+   * @return scaFargateCountHwm
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getScaFargateCountHwm() {
+    return scaFargateCountHwm;
+  }
+
+  public void setScaFargateCountHwm(Long scaFargateCountHwm) {
+    this.scaFargateCountHwm = scaFargateCountHwm;
+  }
+
   public UsageSummaryDate sdsApmScannedBytesSum(Long sdsApmScannedBytesSum) {
     this.sdsApmScannedBytesSum = sdsApmScannedBytesSum;
     return this;
@@ -3717,6 +3769,8 @@ public class UsageSummaryDate {
         && Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum)
         && Objects.equals(this.rumTotalSessionCountSum, usageSummaryDate.rumTotalSessionCountSum)
         && Objects.equals(this.rumUnitsSum, usageSummaryDate.rumUnitsSum)
+        && Objects.equals(this.scaFargateCountAvg, usageSummaryDate.scaFargateCountAvg)
+        && Objects.equals(this.scaFargateCountHwm, usageSummaryDate.scaFargateCountHwm)
         && Objects.equals(this.sdsApmScannedBytesSum, usageSummaryDate.sdsApmScannedBytesSum)
         && Objects.equals(this.sdsEventsScannedBytesSum, usageSummaryDate.sdsEventsScannedBytesSum)
         && Objects.equals(this.sdsLogsScannedBytesSum, usageSummaryDate.sdsLogsScannedBytesSum)
@@ -3867,6 +3921,8 @@ public class UsageSummaryDate {
         rumSessionCountSum,
         rumTotalSessionCountSum,
         rumUnitsSum,
+        scaFargateCountAvg,
+        scaFargateCountHwm,
         sdsApmScannedBytesSum,
         sdsEventsScannedBytesSum,
         sdsLogsScannedBytesSum,
@@ -4153,6 +4209,8 @@ public class UsageSummaryDate {
         .append(toIndentedString(rumTotalSessionCountSum))
         .append("\n");
     sb.append("    rumUnitsSum: ").append(toIndentedString(rumUnitsSum)).append("\n");
+    sb.append("    scaFargateCountAvg: ").append(toIndentedString(scaFargateCountAvg)).append("\n");
+    sb.append("    scaFargateCountHwm: ").append(toIndentedString(scaFargateCountHwm)).append("\n");
     sb.append("    sdsApmScannedBytesSum: ")
         .append(toIndentedString(sdsApmScannedBytesSum))
         .append("\n");

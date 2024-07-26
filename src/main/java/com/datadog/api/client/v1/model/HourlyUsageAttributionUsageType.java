@@ -88,6 +88,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "profiled_host_usage",
               "rum_browser_mobile_sessions_usage",
               "rum_replay_sessions_usage",
+              "sca_fargate_usage",
               "sds_scanned_bytes_usage",
               "serverless_apps_usage",
               "siem_analyzed_logs_add_on_usage",
@@ -222,6 +223,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("rum_browser_mobile_sessions_usage");
   public static final HourlyUsageAttributionUsageType RUM_REPLAY_SESSIONS_USAGE =
       new HourlyUsageAttributionUsageType("rum_replay_sessions_usage");
+  public static final HourlyUsageAttributionUsageType SCA_FARGATE_USAGE =
+      new HourlyUsageAttributionUsageType("sca_fargate_usage");
   public static final HourlyUsageAttributionUsageType SDS_SCANNED_BYTES_USAGE =
       new HourlyUsageAttributionUsageType("sds_scanned_bytes_usage");
   public static final HourlyUsageAttributionUsageType SERVERLESS_APPS_USAGE =

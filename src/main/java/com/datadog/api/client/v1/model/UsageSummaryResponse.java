@@ -141,6 +141,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_UNITS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_SCA_FARGATE_COUNT_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_SCA_FARGATE_COUNT_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SDS_EVENTS_SCANNED_BYTES_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM,
@@ -597,6 +599,12 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_RUM_UNITS_AGG_SUM = "rum_units_agg_sum";
   private Long rumUnitsAggSum;
+
+  public static final String JSON_PROPERTY_SCA_FARGATE_COUNT_AVG_SUM = "sca_fargate_count_avg_sum";
+  private Long scaFargateCountAvgSum;
+
+  public static final String JSON_PROPERTY_SCA_FARGATE_COUNT_HWM_SUM = "sca_fargate_count_hwm_sum";
+  private Long scaFargateCountHwmSum;
 
   public static final String JSON_PROPERTY_SDS_APM_SCANNED_BYTES_SUM = "sds_apm_scanned_bytes_sum";
   private Long sdsApmScannedBytesSum;
@@ -3361,6 +3369,50 @@ public class UsageSummaryResponse {
     this.rumUnitsAggSum = rumUnitsAggSum;
   }
 
+  public UsageSummaryResponse scaFargateCountAvgSum(Long scaFargateCountAvgSum) {
+    this.scaFargateCountAvgSum = scaFargateCountAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average of all Software Composition Analysis Fargate tasks over all hours in the
+   * current months for all organizations.
+   *
+   * @return scaFargateCountAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getScaFargateCountAvgSum() {
+    return scaFargateCountAvgSum;
+  }
+
+  public void setScaFargateCountAvgSum(Long scaFargateCountAvgSum) {
+    this.scaFargateCountAvgSum = scaFargateCountAvgSum;
+  }
+
+  public UsageSummaryResponse scaFargateCountHwmSum(Long scaFargateCountHwmSum) {
+    this.scaFargateCountHwmSum = scaFargateCountHwmSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over
+   * all hours in the current months for all organizations.
+   *
+   * @return scaFargateCountHwmSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCA_FARGATE_COUNT_HWM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getScaFargateCountHwmSum() {
+    return scaFargateCountHwmSum;
+  }
+
+  public void setScaFargateCountHwmSum(Long scaFargateCountHwmSum) {
+    this.scaFargateCountHwmSum = scaFargateCountHwmSum;
+  }
+
   public UsageSummaryResponse sdsApmScannedBytesSum(Long sdsApmScannedBytesSum) {
     this.sdsApmScannedBytesSum = sdsApmScannedBytesSum;
     return this;
@@ -4139,6 +4191,8 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.rumTotalSessionCountAggSum, usageSummaryResponse.rumTotalSessionCountAggSum)
         && Objects.equals(this.rumUnitsAggSum, usageSummaryResponse.rumUnitsAggSum)
+        && Objects.equals(this.scaFargateCountAvgSum, usageSummaryResponse.scaFargateCountAvgSum)
+        && Objects.equals(this.scaFargateCountHwmSum, usageSummaryResponse.scaFargateCountHwmSum)
         && Objects.equals(this.sdsApmScannedBytesSum, usageSummaryResponse.sdsApmScannedBytesSum)
         && Objects.equals(
             this.sdsEventsScannedBytesSum, usageSummaryResponse.sdsEventsScannedBytesSum)
@@ -4309,6 +4363,8 @@ public class UsageSummaryResponse {
         rumSessionCountAggSum,
         rumTotalSessionCountAggSum,
         rumUnitsAggSum,
+        scaFargateCountAvgSum,
+        scaFargateCountHwmSum,
         sdsApmScannedBytesSum,
         sdsEventsScannedBytesSum,
         sdsLogsScannedBytesSum,
@@ -4644,6 +4700,12 @@ public class UsageSummaryResponse {
         .append(toIndentedString(rumTotalSessionCountAggSum))
         .append("\n");
     sb.append("    rumUnitsAggSum: ").append(toIndentedString(rumUnitsAggSum)).append("\n");
+    sb.append("    scaFargateCountAvgSum: ")
+        .append(toIndentedString(scaFargateCountAvgSum))
+        .append("\n");
+    sb.append("    scaFargateCountHwmSum: ")
+        .append(toIndentedString(scaFargateCountHwmSum))
+        .append("\n");
     sb.append("    sdsApmScannedBytesSum: ")
         .append(toIndentedString(sdsApmScannedBytesSum))
         .append("\n");
