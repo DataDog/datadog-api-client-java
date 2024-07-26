@@ -164,6 +164,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "siem_ingested_bytes_percentage",
               "workflow_executions_usage",
               "workflow_executions_percentage",
+              "sca_fargate_usage",
+              "sca_fargate_percentage",
               "*"));
 
   public static final MonthlyUsageAttributionSupportedMetrics API_USAGE =
@@ -449,6 +451,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("workflow_executions_usage");
   public static final MonthlyUsageAttributionSupportedMetrics WORKFLOW_EXECUTIONS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("workflow_executions_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics SCA_FARGATE_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("sca_fargate_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics SCA_FARGATE_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("sca_fargate_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics ALL =
       new MonthlyUsageAttributionSupportedMetrics("*");
 

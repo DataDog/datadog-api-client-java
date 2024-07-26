@@ -138,6 +138,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_BROWSER_MOBILE_SESSIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_REPLAY_SESSIONS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_RUM_REPLAY_SESSIONS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SCA_FARGATE_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SCA_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_PERCENTAGE,
@@ -568,6 +570,12 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage";
   private Double rumReplaySessionsUsage;
+
+  public static final String JSON_PROPERTY_SCA_FARGATE_PERCENTAGE = "sca_fargate_percentage";
+  private Double scaFargatePercentage;
+
+  public static final String JSON_PROPERTY_SCA_FARGATE_USAGE = "sca_fargate_usage";
+  private Double scaFargateUsage;
 
   public static final String JSON_PROPERTY_SDS_SCANNED_BYTES_PERCENTAGE =
       "sds_scanned_bytes_percentage";
@@ -3192,6 +3200,48 @@ public class MonthlyUsageAttributionValues {
     this.rumReplaySessionsUsage = rumReplaySessionsUsage;
   }
 
+  public MonthlyUsageAttributionValues scaFargatePercentage(Double scaFargatePercentage) {
+    this.scaFargatePercentage = scaFargatePercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Software Composition Analysis Fargate task usage by tag(s).
+   *
+   * @return scaFargatePercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCA_FARGATE_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getScaFargatePercentage() {
+    return scaFargatePercentage;
+  }
+
+  public void setScaFargatePercentage(Double scaFargatePercentage) {
+    this.scaFargatePercentage = scaFargatePercentage;
+  }
+
+  public MonthlyUsageAttributionValues scaFargateUsage(Double scaFargateUsage) {
+    this.scaFargateUsage = scaFargateUsage;
+    return this;
+  }
+
+  /**
+   * The total Software Composition Analysis Fargate task usage by tag(s).
+   *
+   * @return scaFargateUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCA_FARGATE_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getScaFargateUsage() {
+    return scaFargateUsage;
+  }
+
+  public void setScaFargateUsage(Double scaFargateUsage) {
+    this.scaFargateUsage = scaFargateUsage;
+  }
+
   public MonthlyUsageAttributionValues sdsScannedBytesPercentage(Double sdsScannedBytesPercentage) {
     this.sdsScannedBytesPercentage = sdsScannedBytesPercentage;
     return this;
@@ -3837,6 +3887,9 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.rumReplaySessionsUsage, monthlyUsageAttributionValues.rumReplaySessionsUsage)
         && Objects.equals(
+            this.scaFargatePercentage, monthlyUsageAttributionValues.scaFargatePercentage)
+        && Objects.equals(this.scaFargateUsage, monthlyUsageAttributionValues.scaFargateUsage)
+        && Objects.equals(
             this.sdsScannedBytesPercentage, monthlyUsageAttributionValues.sdsScannedBytesPercentage)
         && Objects.equals(
             this.sdsScannedBytesUsage, monthlyUsageAttributionValues.sdsScannedBytesUsage)
@@ -4000,6 +4053,8 @@ public class MonthlyUsageAttributionValues {
         rumBrowserMobileSessionsUsage,
         rumReplaySessionsPercentage,
         rumReplaySessionsUsage,
+        scaFargatePercentage,
+        scaFargateUsage,
         sdsScannedBytesPercentage,
         sdsScannedBytesUsage,
         serverlessAppsPercentage,
@@ -4315,6 +4370,10 @@ public class MonthlyUsageAttributionValues {
     sb.append("    rumReplaySessionsUsage: ")
         .append(toIndentedString(rumReplaySessionsUsage))
         .append("\n");
+    sb.append("    scaFargatePercentage: ")
+        .append(toIndentedString(scaFargatePercentage))
+        .append("\n");
+    sb.append("    scaFargateUsage: ").append(toIndentedString(scaFargateUsage)).append("\n");
     sb.append("    sdsScannedBytesPercentage: ")
         .append(toIndentedString(sdsScannedBytesPercentage))
         .append("\n");
