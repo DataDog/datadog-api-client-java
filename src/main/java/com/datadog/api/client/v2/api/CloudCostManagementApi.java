@@ -14,6 +14,10 @@ import com.datadog.api.client.v2.model.AzureUCConfigPatchRequest;
 import com.datadog.api.client.v2.model.AzureUCConfigPostRequest;
 import com.datadog.api.client.v2.model.AzureUCConfigsResponse;
 import com.datadog.api.client.v2.model.CloudCostActivityResponse;
+import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
+import com.datadog.api.client.v2.model.CustomCostsFileLineItem;
+import com.datadog.api.client.v2.model.CustomCostsFileListResponse;
+import com.datadog.api.client.v2.model.CustomCostsFileUploadResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -602,6 +606,138 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * Delete Custom Costs file.
+   *
+   * <p>See {@link #deleteCustomCostsFileWithHttpInfo}.
+   *
+   * @param fileId File ID. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteCustomCostsFile(String fileId) throws ApiException {
+    deleteCustomCostsFileWithHttpInfo(fileId);
+  }
+
+  /**
+   * Delete Custom Costs file.
+   *
+   * <p>See {@link #deleteCustomCostsFileWithHttpInfoAsync}.
+   *
+   * @param fileId File ID. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteCustomCostsFileAsync(String fileId) {
+    return deleteCustomCostsFileWithHttpInfoAsync(fileId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete the specified Custom Costs file.
+   *
+   * @param fileId File ID. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteCustomCostsFileWithHttpInfo(String fileId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'fileId' is set
+    if (fileId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'fileId' when calling deleteCustomCostsFile");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/custom_costs/{file_id}"
+            .replaceAll("\\{" + "file_id" + "\\}", apiClient.escapeString(fileId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.deleteCustomCostsFile",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete Custom Costs file.
+   *
+   * <p>See {@link #deleteCustomCostsFileWithHttpInfo}.
+   *
+   * @param fileId File ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteCustomCostsFileWithHttpInfoAsync(
+      String fileId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'fileId' is set
+    if (fileId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'fileId' when calling deleteCustomCostsFile"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/custom_costs/{file_id}"
+            .replaceAll("\\{" + "file_id" + "\\}", apiClient.escapeString(fileId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.deleteCustomCostsFile",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Cloud Cost Enabled.
    *
    * <p>See {@link #getCloudCostActivityWithHttpInfo}.
@@ -710,6 +846,140 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CloudCostActivityResponse>() {});
+  }
+
+  /**
+   * Get Custom Costs file.
+   *
+   * <p>See {@link #getCustomCostsFileWithHttpInfo}.
+   *
+   * @param fileId File ID. (required)
+   * @return CustomCostsFileGetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CustomCostsFileGetResponse getCustomCostsFile(String fileId) throws ApiException {
+    return getCustomCostsFileWithHttpInfo(fileId).getData();
+  }
+
+  /**
+   * Get Custom Costs file.
+   *
+   * <p>See {@link #getCustomCostsFileWithHttpInfoAsync}.
+   *
+   * @param fileId File ID. (required)
+   * @return CompletableFuture&lt;CustomCostsFileGetResponse&gt;
+   */
+  public CompletableFuture<CustomCostsFileGetResponse> getCustomCostsFileAsync(String fileId) {
+    return getCustomCostsFileWithHttpInfoAsync(fileId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetch the specified Custom Costs file.
+   *
+   * @param fileId File ID. (required)
+   * @return ApiResponse&lt;CustomCostsFileGetResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CustomCostsFileGetResponse> getCustomCostsFileWithHttpInfo(String fileId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'fileId' is set
+    if (fileId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'fileId' when calling getCustomCostsFile");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/custom_costs/{file_id}"
+            .replaceAll("\\{" + "file_id" + "\\}", apiClient.escapeString(fileId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getCustomCostsFile",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomCostsFileGetResponse>() {});
+  }
+
+  /**
+   * Get Custom Costs file.
+   *
+   * <p>See {@link #getCustomCostsFileWithHttpInfo}.
+   *
+   * @param fileId File ID. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CustomCostsFileGetResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CustomCostsFileGetResponse>>
+      getCustomCostsFileWithHttpInfoAsync(String fileId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'fileId' is set
+    if (fileId == null) {
+      CompletableFuture<ApiResponse<CustomCostsFileGetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'fileId' when calling getCustomCostsFile"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/custom_costs/{file_id}"
+            .replaceAll("\\{" + "file_id" + "\\}", apiClient.escapeString(fileId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getCustomCostsFile",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CustomCostsFileGetResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomCostsFileGetResponse>() {});
   }
 
   /**
@@ -1090,6 +1360,118 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * List Custom Costs files.
+   *
+   * <p>See {@link #listCustomCostsFilesWithHttpInfo}.
+   *
+   * @return CustomCostsFileListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CustomCostsFileListResponse listCustomCostsFiles() throws ApiException {
+    return listCustomCostsFilesWithHttpInfo().getData();
+  }
+
+  /**
+   * List Custom Costs files.
+   *
+   * <p>See {@link #listCustomCostsFilesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;CustomCostsFileListResponse&gt;
+   */
+  public CompletableFuture<CustomCostsFileListResponse> listCustomCostsFilesAsync() {
+    return listCustomCostsFilesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the Custom Costs files.
+   *
+   * @return ApiResponse&lt;CustomCostsFileListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CustomCostsFileListResponse> listCustomCostsFilesWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/custom_costs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCustomCostsFiles",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomCostsFileListResponse>() {});
+  }
+
+  /**
+   * List Custom Costs files.
+   *
+   * <p>See {@link #listCustomCostsFilesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;CustomCostsFileListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CustomCostsFileListResponse>>
+      listCustomCostsFilesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/custom_costs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCustomCostsFiles",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CustomCostsFileListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomCostsFileListResponse>() {});
+  }
+
+  /**
    * Update Cloud Cost Management AWS CUR config.
    *
    * <p>See {@link #updateCostAWSCURConfigWithHttpInfo}.
@@ -1414,5 +1796,139 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AzureUCConfigPairsResponse>() {});
+  }
+
+  /**
+   * Upload Custom Costs file.
+   *
+   * <p>See {@link #uploadCustomCostsFileWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CustomCostsFileUploadResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CustomCostsFileUploadResponse uploadCustomCostsFile(List<CustomCostsFileLineItem> body)
+      throws ApiException {
+    return uploadCustomCostsFileWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Upload Custom Costs file.
+   *
+   * <p>See {@link #uploadCustomCostsFileWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;CustomCostsFileUploadResponse&gt;
+   */
+  public CompletableFuture<CustomCostsFileUploadResponse> uploadCustomCostsFileAsync(
+      List<CustomCostsFileLineItem> body) {
+    return uploadCustomCostsFileWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Upload a Custom Costs file.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;CustomCostsFileUploadResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CustomCostsFileUploadResponse> uploadCustomCostsFileWithHttpInfo(
+      List<CustomCostsFileLineItem> body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling uploadCustomCostsFile");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/custom_costs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.uploadCustomCostsFile",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomCostsFileUploadResponse>() {});
+  }
+
+  /**
+   * Upload Custom Costs file.
+   *
+   * <p>See {@link #uploadCustomCostsFileWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CustomCostsFileUploadResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CustomCostsFileUploadResponse>>
+      uploadCustomCostsFileWithHttpInfoAsync(List<CustomCostsFileLineItem> body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CustomCostsFileUploadResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling uploadCustomCostsFile"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/custom_costs";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.uploadCustomCostsFile",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CustomCostsFileUploadResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CustomCostsFileUploadResponse>() {});
   }
 }
