@@ -137,6 +137,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG,
+  UsageSummaryDate.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_MOBILE_TEST_RUNS_SUM,
@@ -565,6 +566,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG =
       "serverless_apps_total_count_avg";
   private Long serverlessAppsTotalCountAvg;
+
+  public static final String JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM =
+      "siem_analyzed_logs_add_on_count_sum";
+  private Long siemAnalyzedLogsAddOnCountSum;
 
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM =
       "synthetics_browser_check_calls_count_sum";
@@ -3232,6 +3237,28 @@ public class UsageSummaryDate {
     this.serverlessAppsTotalCountAvg = serverlessAppsTotalCountAvg;
   }
 
+  public UsageSummaryDate siemAnalyzedLogsAddOnCountSum(Long siemAnalyzedLogsAddOnCountSum) {
+    this.siemAnalyzedLogsAddOnCountSum = siemAnalyzedLogsAddOnCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for
+   * the given org.
+   *
+   * @return siemAnalyzedLogsAddOnCountSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSiemAnalyzedLogsAddOnCountSum() {
+    return siemAnalyzedLogsAddOnCountSum;
+  }
+
+  public void setSiemAnalyzedLogsAddOnCountSum(Long siemAnalyzedLogsAddOnCountSum) {
+    this.siemAnalyzedLogsAddOnCountSum = siemAnalyzedLogsAddOnCountSum;
+  }
+
   public UsageSummaryDate syntheticsBrowserCheckCallsCountSum(
       Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
@@ -3702,6 +3729,8 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.serverlessAppsTotalCountAvg, usageSummaryDate.serverlessAppsTotalCountAvg)
         && Objects.equals(
+            this.siemAnalyzedLogsAddOnCountSum, usageSummaryDate.siemAnalyzedLogsAddOnCountSum)
+        && Objects.equals(
             this.syntheticsBrowserCheckCallsCountSum,
             usageSummaryDate.syntheticsBrowserCheckCallsCountSum)
         && Objects.equals(
@@ -3846,6 +3875,7 @@ public class UsageSummaryDate {
         serverlessAppsAzureCountAvg,
         serverlessAppsGoogleCountAvg,
         serverlessAppsTotalCountAvg,
+        siemAnalyzedLogsAddOnCountSum,
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
         syntheticsMobileTestRunsSum,
@@ -4146,6 +4176,9 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    serverlessAppsTotalCountAvg: ")
         .append(toIndentedString(serverlessAppsTotalCountAvg))
+        .append("\n");
+    sb.append("    siemAnalyzedLogsAddOnCountSum: ")
+        .append(toIndentedString(siemAnalyzedLogsAddOnCountSum))
         .append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountSum: ")
         .append(toIndentedString(syntheticsBrowserCheckCallsCountSum))

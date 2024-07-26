@@ -142,6 +142,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_SDS_SCANNED_BYTES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SERVERLESS_APPS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_INGESTED_BYTES_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SIEM_INGESTED_BYTES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
@@ -580,6 +582,14 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_SERVERLESS_APPS_USAGE = "serverless_apps_usage";
   private Double serverlessAppsUsage;
+
+  public static final String JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE =
+      "siem_analyzed_logs_add_on_percentage";
+  private Double siemAnalyzedLogsAddOnPercentage;
+
+  public static final String JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_USAGE =
+      "siem_analyzed_logs_add_on_usage";
+  private Double siemAnalyzedLogsAddOnUsage;
 
   public static final String JSON_PROPERTY_SIEM_INGESTED_BYTES_PERCENTAGE =
       "siem_ingested_bytes_percentage";
@@ -3266,6 +3276,50 @@ public class MonthlyUsageAttributionValues {
     this.serverlessAppsUsage = serverlessAppsUsage;
   }
 
+  public MonthlyUsageAttributionValues siemAnalyzedLogsAddOnPercentage(
+      Double siemAnalyzedLogsAddOnPercentage) {
+    this.siemAnalyzedLogsAddOnPercentage = siemAnalyzedLogsAddOnPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of log events analyzed by Cloud SIEM usage by tag(s).
+   *
+   * @return siemAnalyzedLogsAddOnPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSiemAnalyzedLogsAddOnPercentage() {
+    return siemAnalyzedLogsAddOnPercentage;
+  }
+
+  public void setSiemAnalyzedLogsAddOnPercentage(Double siemAnalyzedLogsAddOnPercentage) {
+    this.siemAnalyzedLogsAddOnPercentage = siemAnalyzedLogsAddOnPercentage;
+  }
+
+  public MonthlyUsageAttributionValues siemAnalyzedLogsAddOnUsage(
+      Double siemAnalyzedLogsAddOnUsage) {
+    this.siemAnalyzedLogsAddOnUsage = siemAnalyzedLogsAddOnUsage;
+    return this;
+  }
+
+  /**
+   * The log events analyzed by Cloud SIEM usage by tag(s).
+   *
+   * @return siemAnalyzedLogsAddOnUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getSiemAnalyzedLogsAddOnUsage() {
+    return siemAnalyzedLogsAddOnUsage;
+  }
+
+  public void setSiemAnalyzedLogsAddOnUsage(Double siemAnalyzedLogsAddOnUsage) {
+    this.siemAnalyzedLogsAddOnUsage = siemAnalyzedLogsAddOnUsage;
+  }
+
   public MonthlyUsageAttributionValues siemIngestedBytesPercentage(
       Double siemIngestedBytesPercentage) {
     this.siemIngestedBytesPercentage = siemIngestedBytesPercentage;
@@ -3791,6 +3845,12 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.serverlessAppsUsage, monthlyUsageAttributionValues.serverlessAppsUsage)
         && Objects.equals(
+            this.siemAnalyzedLogsAddOnPercentage,
+            monthlyUsageAttributionValues.siemAnalyzedLogsAddOnPercentage)
+        && Objects.equals(
+            this.siemAnalyzedLogsAddOnUsage,
+            monthlyUsageAttributionValues.siemAnalyzedLogsAddOnUsage)
+        && Objects.equals(
             this.siemIngestedBytesPercentage,
             monthlyUsageAttributionValues.siemIngestedBytesPercentage)
         && Objects.equals(
@@ -3944,6 +4004,8 @@ public class MonthlyUsageAttributionValues {
         sdsScannedBytesUsage,
         serverlessAppsPercentage,
         serverlessAppsUsage,
+        siemAnalyzedLogsAddOnPercentage,
+        siemAnalyzedLogsAddOnUsage,
         siemIngestedBytesPercentage,
         siemIngestedBytesUsage,
         snmpPercentage,
@@ -4264,6 +4326,12 @@ public class MonthlyUsageAttributionValues {
         .append("\n");
     sb.append("    serverlessAppsUsage: ")
         .append(toIndentedString(serverlessAppsUsage))
+        .append("\n");
+    sb.append("    siemAnalyzedLogsAddOnPercentage: ")
+        .append(toIndentedString(siemAnalyzedLogsAddOnPercentage))
+        .append("\n");
+    sb.append("    siemAnalyzedLogsAddOnUsage: ")
+        .append(toIndentedString(siemAnalyzedLogsAddOnUsage))
         .append("\n");
     sb.append("    siemIngestedBytesPercentage: ")
         .append(toIndentedString(siemIngestedBytesPercentage))

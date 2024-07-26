@@ -149,6 +149,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_AZURE_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_GOOGLE_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_START_DATE,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_AGG_SUM,
@@ -626,6 +627,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_SERVERLESS_APPS_TOTAL_COUNT_AVG_SUM =
       "serverless_apps_total_count_avg_sum";
   private Long serverlessAppsTotalCountAvgSum;
+
+  public static final String JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_AGG_SUM =
+      "siem_analyzed_logs_add_on_count_agg_sum";
+  private Long siemAnalyzedLogsAddOnCountAggSum;
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
   private OffsetDateTime startDate;
@@ -3533,6 +3538,29 @@ public class UsageSummaryResponse {
     this.serverlessAppsTotalCountAvgSum = serverlessAppsTotalCountAvgSum;
   }
 
+  public UsageSummaryResponse siemAnalyzedLogsAddOnCountAggSum(
+      Long siemAnalyzedLogsAddOnCountAggSum) {
+    this.siemAnalyzedLogsAddOnCountAggSum = siemAnalyzedLogsAddOnCountAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current month for
+   * all organizations.
+   *
+   * @return siemAnalyzedLogsAddOnCountAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIEM_ANALYZED_LOGS_ADD_ON_COUNT_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSiemAnalyzedLogsAddOnCountAggSum() {
+    return siemAnalyzedLogsAddOnCountAggSum;
+  }
+
+  public void setSiemAnalyzedLogsAddOnCountAggSum(Long siemAnalyzedLogsAddOnCountAggSum) {
+    this.siemAnalyzedLogsAddOnCountAggSum = siemAnalyzedLogsAddOnCountAggSum;
+  }
+
   public UsageSummaryResponse startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
@@ -4127,6 +4155,9 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.serverlessAppsTotalCountAvgSum,
             usageSummaryResponse.serverlessAppsTotalCountAvgSum)
+        && Objects.equals(
+            this.siemAnalyzedLogsAddOnCountAggSum,
+            usageSummaryResponse.siemAnalyzedLogsAddOnCountAggSum)
         && Objects.equals(this.startDate, usageSummaryResponse.startDate)
         && Objects.equals(
             this.syntheticsBrowserCheckCallsCountAggSum,
@@ -4286,6 +4317,7 @@ public class UsageSummaryResponse {
         serverlessAppsAzureCountAvgSum,
         serverlessAppsGoogleCountAvgSum,
         serverlessAppsTotalCountAvgSum,
+        siemAnalyzedLogsAddOnCountAggSum,
         startDate,
         syntheticsBrowserCheckCallsCountAggSum,
         syntheticsCheckCallsCountAggSum,
@@ -4635,6 +4667,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    serverlessAppsTotalCountAvgSum: ")
         .append(toIndentedString(serverlessAppsTotalCountAvgSum))
+        .append("\n");
+    sb.append("    siemAnalyzedLogsAddOnCountAggSum: ")
+        .append(toIndentedString(siemAnalyzedLogsAddOnCountAggSum))
         .append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountAggSum: ")

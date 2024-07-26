@@ -158,6 +158,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "rum_browser_mobile_sessions_percentage",
               "ingested_spans_bytes_usage",
               "ingested_spans_bytes_percentage",
+              "siem_analyzed_logs_add_on_usage",
+              "siem_analyzed_logs_add_on_percentage",
               "siem_ingested_bytes_usage",
               "siem_ingested_bytes_percentage",
               "workflow_executions_usage",
@@ -435,6 +437,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("ingested_spans_bytes_usage");
   public static final MonthlyUsageAttributionSupportedMetrics INGESTED_SPANS_BYTES_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("ingested_spans_bytes_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics SIEM_ANALYZED_LOGS_ADD_ON_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("siem_analyzed_logs_add_on_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("siem_analyzed_logs_add_on_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics SIEM_INGESTED_BYTES_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("siem_ingested_bytes_usage");
   public static final MonthlyUsageAttributionSupportedMetrics SIEM_INGESTED_BYTES_PERCENTAGE =
