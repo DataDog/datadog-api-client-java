@@ -90,6 +90,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "rum_replay_sessions_usage",
               "sds_scanned_bytes_usage",
               "serverless_apps_usage",
+              "siem_analyzed_logs_add_on_usage",
               "siem_ingested_bytes_usage",
               "snmp_usage",
               "universal_service_monitoring_usage",
@@ -225,6 +226,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("sds_scanned_bytes_usage");
   public static final HourlyUsageAttributionUsageType SERVERLESS_APPS_USAGE =
       new HourlyUsageAttributionUsageType("serverless_apps_usage");
+  public static final HourlyUsageAttributionUsageType SIEM_ANALYZED_LOGS_ADD_ON_USAGE =
+      new HourlyUsageAttributionUsageType("siem_analyzed_logs_add_on_usage");
   public static final HourlyUsageAttributionUsageType SIEM_INGESTED_BYTES_USAGE =
       new HourlyUsageAttributionUsageType("siem_ingested_bytes_usage");
   public static final HourlyUsageAttributionUsageType SNMP_USAGE =
