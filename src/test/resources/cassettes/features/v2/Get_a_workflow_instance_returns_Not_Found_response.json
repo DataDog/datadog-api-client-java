@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/workflows/0233a3b7-b7ba-425e-a8cc-375ca2020b5b/instances/e0c64dc8-f946-4ae8-8d79-54569031ce67",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"code\":\"WORKFLOW_NOT_FOUND\",\"detail\":\"workflow not found\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ad75358e-b208-682a-c62d-06b4e0e0131c"
+  }
+]

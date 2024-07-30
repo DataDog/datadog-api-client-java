@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/workflows/malformed/instances/malformed/cancel",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"code\":\"INVALID_FIELD_VALUE\",\"detail\":\"value <no value> is invalid for field workflow_id\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "98b0f320-8080-a660-0c19-90114cba0bd8"
+  }
+]

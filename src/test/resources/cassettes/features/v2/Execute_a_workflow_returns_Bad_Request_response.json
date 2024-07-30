@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"meta\":{\"payload\":{\"input\":\"value\"}}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/workflows/malformed/instances",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"code\":\"INVALID_FIELD_VALUE\",\"detail\":\"value <no value> is invalid for field workflow_id\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fb922ac2-cc37-4b6b-2d01-8afd8d85424e"
+  }
+]
