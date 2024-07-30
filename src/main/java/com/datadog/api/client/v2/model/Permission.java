@@ -40,7 +40,9 @@ public class Permission {
 
   @JsonCreator
   public Permission(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) PermissionsType type) {
+    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -77,9 +79,8 @@ public class Permission {
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
