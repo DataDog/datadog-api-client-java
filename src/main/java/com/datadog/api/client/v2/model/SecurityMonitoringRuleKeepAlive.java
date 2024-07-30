@@ -20,7 +20,7 @@ import java.util.Set;
 
 /**
  * Once a signal is generated, the signal will remain “open” if a case is matched at least once
- * within this keep alive window.
+ * within this keep alive window. For third party rules, it should equal max signal duration.
  */
 @JsonSerialize(
     using = SecurityMonitoringRuleKeepAlive.SecurityMonitoringRuleKeepAliveSerializer.class)

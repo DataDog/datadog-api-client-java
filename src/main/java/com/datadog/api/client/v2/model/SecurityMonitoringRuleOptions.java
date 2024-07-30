@@ -151,7 +151,8 @@ public class SecurityMonitoringRuleOptions {
 
   /**
    * A time window is specified to match when at least one of the cases matches true. This is a
-   * sliding window and evaluates in real time.
+   * sliding window and evaluates in real time. For third party rules, it should equal max signal
+   * duration.
    *
    * @return evaluationWindow
    */
@@ -228,7 +229,7 @@ public class SecurityMonitoringRuleOptions {
 
   /**
    * Once a signal is generated, the signal will remain “open” if a case is matched at least once
-   * within this keep alive window.
+   * within this keep alive window. For third party rules, it should equal max signal duration.
    *
    * @return keepAlive
    */
