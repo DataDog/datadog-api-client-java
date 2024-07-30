@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/workflows/ccf73164-1998-4785-a7a3-8d06c7e5f558/instances/305a472b-71ab-4ce8-8f8d-75db635627b5/cancel",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5a1720a0-78a4-bb40-88fd-b78f91105a6b"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/workflows/0233a3b7-b7ba-425e-a8cc-375ca2020b5b/instances/e0c64dc8-f946-4ae8-8d79-54569031ce67/cancel",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"code\":\"INSTANCE_NOT_FOUND\",\"detail\":\"instance e0c64dc8-f946-4ae8-8d79-54569031ce67 not found\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0f7c001d-f65a-2383-9d12-29ec52bc73cb"
+  }
+]
