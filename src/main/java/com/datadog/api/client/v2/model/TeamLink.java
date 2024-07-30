@@ -42,11 +42,9 @@ public class TeamLink {
   public TeamLink(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           TeamLinkAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TeamLinkType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
-    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -82,8 +80,9 @@ public class TeamLink {
    *
    * @return id
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
