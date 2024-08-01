@@ -126,7 +126,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
   }
 
   /**
-   * Property of the Synthetic Test Response to use for a Synthetic global variable.
+   * Type of value to extract from a test for a Synthetic global variable.
    *
    * @return type
    */
