@@ -404,6 +404,7 @@ public class ApiClient {
           put("v2.deleteScorecardRule", false);
           put("v2.listScorecardOutcomes", false);
           put("v2.listScorecardRules", false);
+          put("v2.updateScorecardRule", false);
           put("v2.createIncidentService", false);
           put("v2.deleteIncidentService", false);
           put("v2.getIncidentService", false);
