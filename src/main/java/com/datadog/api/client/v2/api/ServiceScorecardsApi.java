@@ -13,6 +13,8 @@ import com.datadog.api.client.v2.model.OutcomesBatchRequest;
 import com.datadog.api.client.v2.model.OutcomesBatchResponse;
 import com.datadog.api.client.v2.model.OutcomesResponse;
 import com.datadog.api.client.v2.model.OutcomesResponseDataItem;
+import com.datadog.api.client.v2.model.UpdateRuleRequest;
+import com.datadog.api.client.v2.model.UpdateRuleResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -357,7 +359,7 @@ public class ServiceScorecardsApi {
    *
    * <p>See {@link #deleteScorecardRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the rule/scorecard. (required)
+   * @param ruleId The ID of the rule. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteScorecardRule(String ruleId) throws ApiException {
@@ -369,7 +371,7 @@ public class ServiceScorecardsApi {
    *
    * <p>See {@link #deleteScorecardRuleWithHttpInfoAsync}.
    *
-   * @param ruleId The ID of the rule/scorecard. (required)
+   * @param ruleId The ID of the rule. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteScorecardRuleAsync(String ruleId) {
@@ -383,7 +385,7 @@ public class ServiceScorecardsApi {
   /**
    * Deletes a single rule.
    *
-   * @param ruleId The ID of the rule/scorecard. (required)
+   * @param ruleId The ID of the rule. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -444,7 +446,7 @@ public class ServiceScorecardsApi {
    *
    * <p>See {@link #deleteScorecardRuleWithHttpInfo}.
    *
-   * @param ruleId The ID of the rule/scorecard. (required)
+   * @param ruleId The ID of the rule. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteScorecardRuleWithHttpInfoAsync(String ruleId) {
@@ -1291,5 +1293,178 @@ public class ServiceScorecardsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListRulesResponse>() {});
+  }
+
+  /**
+   * Update an existing rule.
+   *
+   * <p>See {@link #updateScorecardRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param body Rule attributes. (required)
+   * @return UpdateRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UpdateRuleResponse updateScorecardRule(String ruleId, UpdateRuleRequest body)
+      throws ApiException {
+    return updateScorecardRuleWithHttpInfo(ruleId, body).getData();
+  }
+
+  /**
+   * Update an existing rule.
+   *
+   * <p>See {@link #updateScorecardRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param body Rule attributes. (required)
+   * @return CompletableFuture&lt;UpdateRuleResponse&gt;
+   */
+  public CompletableFuture<UpdateRuleResponse> updateScorecardRuleAsync(
+      String ruleId, UpdateRuleRequest body) {
+    return updateScorecardRuleWithHttpInfoAsync(ruleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates an existing rule.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param body Rule attributes. (required)
+   * @return ApiResponse&lt;UpdateRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Rule updated successfully </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UpdateRuleResponse> updateScorecardRuleWithHttpInfo(
+      String ruleId, UpdateRuleRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateScorecardRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling updateScorecardRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateScorecardRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ServiceScorecardsApi.updateScorecardRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpdateRuleResponse>() {});
+  }
+
+  /**
+   * Update an existing rule.
+   *
+   * <p>See {@link #updateScorecardRuleWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param body Rule attributes. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UpdateRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UpdateRuleResponse>> updateScorecardRuleWithHttpInfoAsync(
+      String ruleId, UpdateRuleRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateScorecardRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<UpdateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<UpdateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'ruleId' when calling updateScorecardRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UpdateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateScorecardRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/scorecard/rules/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ServiceScorecardsApi.updateScorecardRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UpdateRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpdateRuleResponse>() {});
   }
 }

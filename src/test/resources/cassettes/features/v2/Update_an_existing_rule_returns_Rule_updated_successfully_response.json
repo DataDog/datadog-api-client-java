@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Update_an_existing_rule_returns_Rule_updated_successfully_response-1722307632\",\"owner\":\"Datadog\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"},\"type\":\"rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/scorecard/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"L2uJseIxQCRLg_2z\",\"type\":\"rule\",\"attributes\":{\"category\":\"OpenAPI Spec Test Best Practices\",\"created_at\":\"2024-07-30T02:47:13.117302334Z\",\"custom\":true,\"enabled\":true,\"modified_at\":\"2024-07-30T02:47:13.117302334Z\",\"name\":\"Test-Update_an_existing_rule_returns_Rule_updated_successfully_response-1722307632\",\"owner\":\"Datadog\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"},\"relationships\":{\"scorecard\":{\"data\":{\"id\":\"qsxpoYRhU_yz\",\"type\":\"scorecard\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ec027b2f-bb4e-f4cf-6197-f36609ded2d9"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Updated description via test\",\"enabled\":true,\"name\":\"Test-Update_an_existing_rule_returns_Rule_updated_successfully_response-1722307632\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"}}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/scorecard/rules/L2uJseIxQCRLg_2z",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"L2uJseIxQCRLg_2z\",\"type\":\"rule\",\"attributes\":{\"category\":\"OpenAPI Spec Test Best Practices\",\"created_at\":\"2024-07-30T02:47:13.117302Z\",\"custom\":true,\"description\":\"Updated description via test\",\"enabled\":true,\"modified_at\":\"2024-07-30T02:47:13.231478Z\",\"name\":\"Test-Update_an_existing_rule_returns_Rule_updated_successfully_response-1722307632\",\"scorecard_name\":\"OpenAPI Spec Test Best Practices\"},\"relationships\":{\"scorecard\":{\"data\":{\"id\":\"qsxpoYRhU_yz\",\"type\":\"scorecard\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c173c2c3-af4e-e37c-6f43-19a3182dd04d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/scorecard/rules/L2uJseIxQCRLg_2z",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5d467d19-526b-6dac-ec4b-bef75cf79c19"
+  }
+]
