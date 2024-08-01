@@ -8,6 +8,7 @@ import com.datadog.api.client.v1.model.SyntheticsGlobalVariableAttributes;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptionsType;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParserType;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariableRequest;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableValue;
 import com.datadog.api.client.v1.model.SyntheticsVariableParser;
 import java.util.Arrays;
@@ -18,8 +19,8 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
-    SyntheticsGlobalVariable body =
-        new SyntheticsGlobalVariable()
+    SyntheticsGlobalVariableRequest body =
+        new SyntheticsGlobalVariableRequest()
             .attributes(
                 new SyntheticsGlobalVariableAttributes()
                     .restrictedRoles(
