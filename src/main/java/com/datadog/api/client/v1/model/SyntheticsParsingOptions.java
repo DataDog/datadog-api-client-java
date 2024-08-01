@@ -41,7 +41,7 @@ public class SyntheticsParsingOptions {
   private Boolean secure;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SyntheticsGlobalVariableParseTestOptionsType type;
+  private SyntheticsLocalVariableParsingOptionsType type;
 
   public SyntheticsParsingOptions field(String field) {
     this.field = field;
@@ -49,7 +49,8 @@ public class SyntheticsParsingOptions {
   }
 
   /**
-   * When type is <code>http_header</code>, name of the header to use to extract the value.
+   * When type is <code>http_header</code> or <code>grpc_metadata</code>, name of the header or
+   * metadatum to extract.
    *
    * @return field
    */
@@ -128,25 +129,25 @@ public class SyntheticsParsingOptions {
     this.secure = secure;
   }
 
-  public SyntheticsParsingOptions type(SyntheticsGlobalVariableParseTestOptionsType type) {
+  public SyntheticsParsingOptions type(SyntheticsLocalVariableParsingOptionsType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Property of the Synthetic Test Response to use for a Synthetic global variable.
+   * Property of the Synthetic Test Response to extract into a local variable.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsGlobalVariableParseTestOptionsType getType() {
+  public SyntheticsLocalVariableParsingOptionsType getType() {
     return type;
   }
 
-  public void setType(SyntheticsGlobalVariableParseTestOptionsType type) {
+  public void setType(SyntheticsLocalVariableParsingOptionsType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
