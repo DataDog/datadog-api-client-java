@@ -379,15 +379,19 @@ public class RestrictionPoliciesApi {
    *
    * <p>Restriction policies can be applied to the following resources: - Dashboards: <code>
    * dashboard</code> - Notebooks: <code>notebook</code> - Powerpacks: <code>powerpack</code> -
-   * Security Rules: <code>security-rule</code> - Service Level Objectives: <code>slo</code>
+   * Security Rules: <code>security-rule</code> - Service Level Objectives: <code>slo</code> -
+   * Synthetic Global Variable: <code>synthetic-global-variable</code> - Synthetic Test: <code>
+   * synthetic-test</code> - Synthetic Private Location: <code>synthetic-private-location</code>
    *
    * <h3>Supported relations for resources</h3>
    *
-   * <p>Resource Type | Supported Relations -------------------------|--------------------------
+   * <p>Resource Type | Supported Relations ---------------------------|--------------------------
    * Dashboards | <code>viewer</code>, <code>editor</code> Notebooks | <code>viewer</code>, <code>
    * editor</code> Powerpacks | <code>viewer</code>, <code>editor</code> Security Rules | <code>
    * viewer</code>, <code>editor</code> Service Level Objectives | <code>viewer</code>, <code>editor
-   * </code>
+   * </code> Synthetic Global Variable | <code>viewer</code>, <code>editor</code> Synthetic Test |
+   * <code>viewer</code>, <code>editor</code> Synthetic Private Location | <code>viewer</code>,
+   * <code>editor</code>
    *
    * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
    *     connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>security-rule
