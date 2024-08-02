@@ -17,19 +17,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Relationships of the role object. */
-@JsonPropertyOrder({
-  RoleRelationships.JSON_PROPERTY_PERMISSIONS,
-  RoleRelationships.JSON_PROPERTY_USERS
-})
+@JsonPropertyOrder({RoleRelationships.JSON_PROPERTY_PERMISSIONS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RoleRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
   private RelationshipToPermissions permissions;
-
-  public static final String JSON_PROPERTY_USERS = "users";
-  private RelationshipToUsers users;
 
   public RoleRelationships permissions(RelationshipToPermissions permissions) {
     this.permissions = permissions;
@@ -51,28 +45,6 @@ public class RoleRelationships {
 
   public void setPermissions(RelationshipToPermissions permissions) {
     this.permissions = permissions;
-  }
-
-  public RoleRelationships users(RelationshipToUsers users) {
-    this.users = users;
-    this.unparsed |= users.unparsed;
-    return this;
-  }
-
-  /**
-   * Relationship to users.
-   *
-   * @return users
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUsers getUsers() {
-    return users;
-  }
-
-  public void setUsers(RelationshipToUsers users) {
-    this.users = users;
   }
 
   /**
@@ -132,13 +104,12 @@ public class RoleRelationships {
     }
     RoleRelationships roleRelationships = (RoleRelationships) o;
     return Objects.equals(this.permissions, roleRelationships.permissions)
-        && Objects.equals(this.users, roleRelationships.users)
         && Objects.equals(this.additionalProperties, roleRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(permissions, users, additionalProperties);
+    return Objects.hash(permissions, additionalProperties);
   }
 
   @Override
@@ -146,7 +117,6 @@ public class RoleRelationships {
     StringBuilder sb = new StringBuilder();
     sb.append("class RoleRelationships {\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
