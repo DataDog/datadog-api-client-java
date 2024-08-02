@@ -31,6 +31,7 @@ public class Example {
                                     .data(
                                         Collections.singletonList(
                                             new RelationshipToPermissionData()
+                                                .id("219")
                                                 .type(PermissionsType.PERMISSIONS)))))
                     .type(RolesType.ROLES));
 
