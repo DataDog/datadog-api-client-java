@@ -82,7 +82,8 @@ public class WorkflowAutomationApi {
   }
 
   /**
-   * Cancels a specific execution of a given workflow.
+   * Cancels a specific execution of a given workflow. This API requires an application key scoped
+   * with the workflows_run permission.
    *
    * @param workflowId The ID of the workflow. (required)
    * @param instanceId The ID of the workflow instance. (required)
@@ -250,7 +251,8 @@ public class WorkflowAutomationApi {
   }
 
   /**
-   * Execute the given workflow
+   * Execute the given workflow. This API requires an application key scoped with the workflows_run
+   * permission.
    *
    * @param workflowId The ID of the workflow. (required)
    * @param body (required)
@@ -413,7 +415,8 @@ public class WorkflowAutomationApi {
   }
 
   /**
-   * Get a specific execution of a given workflow.
+   * Get a specific execution of a given workflow. This API requires an application key scoped with
+   * the workflows_read permission.
    *
    * @param workflowId The ID of the workflow. (required)
    * @param instanceId The ID of the workflow instance. (required)
@@ -642,7 +645,8 @@ public class WorkflowAutomationApi {
   }
 
   /**
-   * List all instances of a given workflow.
+   * List all instances of a given workflow. This API requires an application key scoped with the
+   * workflows_read permission.
    *
    * @param workflowId The ID of the workflow. (required)
    * @param parameters Optional parameters for the request.
