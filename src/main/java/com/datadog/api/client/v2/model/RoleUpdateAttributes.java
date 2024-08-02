@@ -21,7 +21,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   RoleUpdateAttributes.JSON_PROPERTY_CREATED_AT,
   RoleUpdateAttributes.JSON_PROPERTY_MODIFIED_AT,
-  RoleUpdateAttributes.JSON_PROPERTY_NAME
+  RoleUpdateAttributes.JSON_PROPERTY_NAME,
+  RoleUpdateAttributes.JSON_PROPERTY_USER_COUNT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -35,6 +36,9 @@ public class RoleUpdateAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_USER_COUNT = "user_count";
+  private Integer userCount;
 
   /**
    * Creation time of the role.
@@ -79,6 +83,27 @@ public class RoleUpdateAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public RoleUpdateAttributes userCount(Integer userCount) {
+    this.userCount = userCount;
+    return this;
+  }
+
+  /**
+   * The user count. maximum: 2147483647
+   *
+   * @return userCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USER_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getUserCount() {
+    return userCount;
+  }
+
+  public void setUserCount(Integer userCount) {
+    this.userCount = userCount;
   }
 
   /**
@@ -140,12 +165,13 @@ public class RoleUpdateAttributes {
     return Objects.equals(this.createdAt, roleUpdateAttributes.createdAt)
         && Objects.equals(this.modifiedAt, roleUpdateAttributes.modifiedAt)
         && Objects.equals(this.name, roleUpdateAttributes.name)
+        && Objects.equals(this.userCount, roleUpdateAttributes.userCount)
         && Objects.equals(this.additionalProperties, roleUpdateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, modifiedAt, name, additionalProperties);
+    return Objects.hash(createdAt, modifiedAt, name, userCount, additionalProperties);
   }
 
   @Override
@@ -155,6 +181,7 @@ public class RoleUpdateAttributes {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    userCount: ").append(toIndentedString(userCount)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -6,7 +6,6 @@ import com.datadog.api.client.v2.api.RolesApi;
 import com.datadog.api.client.v2.model.PermissionsType;
 import com.datadog.api.client.v2.model.RelationshipToPermissionData;
 import com.datadog.api.client.v2.model.RelationshipToPermissions;
-import com.datadog.api.client.v2.model.RelationshipToUsers;
 import com.datadog.api.client.v2.model.RoleCreateAttributes;
 import com.datadog.api.client.v2.model.RoleCreateData;
 import com.datadog.api.client.v2.model.RoleCreateRequest;
@@ -32,8 +31,7 @@ public class Example {
                                     .data(
                                         Collections.singletonList(
                                             new RelationshipToPermissionData()
-                                                .type(PermissionsType.PERMISSIONS))))
-                            .users(new RelationshipToUsers()))
+                                                .type(PermissionsType.PERMISSIONS)))))
                     .type(RolesType.ROLES));
 
     try {
