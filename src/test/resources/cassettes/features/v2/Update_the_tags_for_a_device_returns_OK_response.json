@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"tags\":[\"tag:test\",\"tag:testbis\"]},\"id\":\"default_device\",\"type\":\"tags\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/ndm/tags/devices/default_device",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"default_device\",\"type\":\"tags\",\"attributes\":{\"tags\":[\"tag:test\",\"tag:testbis\"]}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bacbb6b5-436c-a7cd-99fb-20f8a16323da"
+  }
+]

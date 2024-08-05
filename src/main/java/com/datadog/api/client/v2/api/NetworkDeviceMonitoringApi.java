@@ -7,6 +7,7 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.GetDeviceResponse;
 import com.datadog.api.client.v2.model.GetInterfacesResponse;
 import com.datadog.api.client.v2.model.ListDevicesResponse;
+import com.datadog.api.client.v2.model.ListTagsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -531,5 +532,296 @@ public class NetworkDeviceMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListDevicesResponse>() {});
+  }
+
+  /**
+   * Get the list of tags for a device.
+   *
+   * <p>See {@link #listDeviceUserTagsWithHttpInfo}.
+   *
+   * @param deviceId The id of the device to fetch tags for. (required)
+   * @return ListTagsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListTagsResponse listDeviceUserTags(String deviceId) throws ApiException {
+    return listDeviceUserTagsWithHttpInfo(deviceId).getData();
+  }
+
+  /**
+   * Get the list of tags for a device.
+   *
+   * <p>See {@link #listDeviceUserTagsWithHttpInfoAsync}.
+   *
+   * @param deviceId The id of the device to fetch tags for. (required)
+   * @return CompletableFuture&lt;ListTagsResponse&gt;
+   */
+  public CompletableFuture<ListTagsResponse> listDeviceUserTagsAsync(String deviceId) {
+    return listDeviceUserTagsWithHttpInfoAsync(deviceId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of tags for a device.
+   *
+   * @param deviceId The id of the device to fetch tags for. (required)
+   * @return ApiResponse&lt;ListTagsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListTagsResponse> listDeviceUserTagsWithHttpInfo(String deviceId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'deviceId' when calling listDeviceUserTags");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/ndm/tags/devices/{device_id}"
+            .replaceAll("\\{" + "device_id" + "\\}", apiClient.escapeString(deviceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.NetworkDeviceMonitoringApi.listDeviceUserTags",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListTagsResponse>() {});
+  }
+
+  /**
+   * Get the list of tags for a device.
+   *
+   * <p>See {@link #listDeviceUserTagsWithHttpInfo}.
+   *
+   * @param deviceId The id of the device to fetch tags for. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ListTagsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListTagsResponse>> listDeviceUserTagsWithHttpInfoAsync(
+      String deviceId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId == null) {
+      CompletableFuture<ApiResponse<ListTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'deviceId' when calling listDeviceUserTags"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/ndm/tags/devices/{device_id}"
+            .replaceAll("\\{" + "device_id" + "\\}", apiClient.escapeString(deviceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.NetworkDeviceMonitoringApi.listDeviceUserTags",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListTagsResponse>() {});
+  }
+
+  /**
+   * Update the tags for a device.
+   *
+   * <p>See {@link #updateDeviceUserTagsWithHttpInfo}.
+   *
+   * @param deviceId The id of the device to update tags for. (required)
+   * @param body (required)
+   * @return ListTagsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListTagsResponse updateDeviceUserTags(String deviceId, ListTagsResponse body)
+      throws ApiException {
+    return updateDeviceUserTagsWithHttpInfo(deviceId, body).getData();
+  }
+
+  /**
+   * Update the tags for a device.
+   *
+   * <p>See {@link #updateDeviceUserTagsWithHttpInfoAsync}.
+   *
+   * @param deviceId The id of the device to update tags for. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ListTagsResponse&gt;
+   */
+  public CompletableFuture<ListTagsResponse> updateDeviceUserTagsAsync(
+      String deviceId, ListTagsResponse body) {
+    return updateDeviceUserTagsWithHttpInfoAsync(deviceId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the tags for a device.
+   *
+   * @param deviceId The id of the device to update tags for. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;ListTagsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListTagsResponse> updateDeviceUserTagsWithHttpInfo(
+      String deviceId, ListTagsResponse body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'deviceId' when calling updateDeviceUserTags");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateDeviceUserTags");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/ndm/tags/devices/{device_id}"
+            .replaceAll("\\{" + "device_id" + "\\}", apiClient.escapeString(deviceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.NetworkDeviceMonitoringApi.updateDeviceUserTags",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListTagsResponse>() {});
+  }
+
+  /**
+   * Update the tags for a device.
+   *
+   * <p>See {@link #updateDeviceUserTagsWithHttpInfo}.
+   *
+   * @param deviceId The id of the device to update tags for. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ListTagsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListTagsResponse>> updateDeviceUserTagsWithHttpInfoAsync(
+      String deviceId, ListTagsResponse body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId == null) {
+      CompletableFuture<ApiResponse<ListTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'deviceId' when calling updateDeviceUserTags"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ListTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateDeviceUserTags"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/ndm/tags/devices/{device_id}"
+            .replaceAll("\\{" + "device_id" + "\\}", apiClient.escapeString(deviceId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.NetworkDeviceMonitoringApi.updateDeviceUserTags",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListTagsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListTagsResponse>() {});
   }
 }
