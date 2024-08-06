@@ -43,7 +43,8 @@ public class SyntheticsAssertionType extends ModelEnum<String> {
               "grpcHealthcheckStatus",
               "grpcMetadata",
               "grpcProto",
-              "connection"));
+              "connection",
+              "javascript"));
 
   public static final SyntheticsAssertionType BODY = new SyntheticsAssertionType("body");
   public static final SyntheticsAssertionType HEADER = new SyntheticsAssertionType("header");
@@ -78,6 +79,8 @@ public class SyntheticsAssertionType extends ModelEnum<String> {
   public static final SyntheticsAssertionType GRPC_PROTO = new SyntheticsAssertionType("grpcProto");
   public static final SyntheticsAssertionType CONNECTION =
       new SyntheticsAssertionType("connection");
+  public static final SyntheticsAssertionType JAVASCRIPT =
+      new SyntheticsAssertionType("javascript");
 
   SyntheticsAssertionType(String value) {
     super(value, allowedValues);
