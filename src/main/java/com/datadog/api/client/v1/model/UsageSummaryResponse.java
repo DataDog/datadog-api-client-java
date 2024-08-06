@@ -88,6 +88,9 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_MEDIUM_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_SMALL_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_STARTER_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_RETENTION_ADJUSTMENT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_STORED_LOGS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FORWARDING_EVENTS_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_GCP_HOST_TOP99P_SUM,
@@ -399,6 +402,17 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_FLEX_LOGS_COMPUTE_XSMALL_AVG_SUM =
       "flex_logs_compute_xsmall_avg_sum";
   private Long flexLogsComputeXsmallAvgSum;
+
+  public static final String JSON_PROPERTY_FLEX_LOGS_STARTER_AVG_SUM = "flex_logs_starter_avg_sum";
+  private Long flexLogsStarterAvgSum;
+
+  public static final String JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG_SUM =
+      "flex_logs_starter_storage_index_avg_sum";
+  private Long flexLogsStarterStorageIndexAvgSum;
+
+  public static final String JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_RETENTION_ADJUSTMENT_AVG_SUM =
+      "flex_logs_starter_storage_retention_adjustment_avg_sum";
+  private Long flexLogsStarterStorageRetentionAdjustmentAvgSum;
 
   public static final String JSON_PROPERTY_FLEX_STORED_LOGS_AVG_SUM = "flex_stored_logs_avg_sum";
   private Long flexStoredLogsAvgSum;
@@ -2127,6 +2141,77 @@ public class UsageSummaryResponse {
 
   public void setFlexLogsComputeXsmallAvgSum(Long flexLogsComputeXsmallAvgSum) {
     this.flexLogsComputeXsmallAvgSum = flexLogsComputeXsmallAvgSum;
+  }
+
+  public UsageSummaryResponse flexLogsStarterAvgSum(Long flexLogsStarterAvgSum) {
+    this.flexLogsStarterAvgSum = flexLogsStarterAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average number of Flex Logs Starter Instances over all hours in the current months
+   * for all organizations.
+   *
+   * @return flexLogsStarterAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFlexLogsStarterAvgSum() {
+    return flexLogsStarterAvgSum;
+  }
+
+  public void setFlexLogsStarterAvgSum(Long flexLogsStarterAvgSum) {
+    this.flexLogsStarterAvgSum = flexLogsStarterAvgSum;
+  }
+
+  public UsageSummaryResponse flexLogsStarterStorageIndexAvgSum(
+      Long flexLogsStarterStorageIndexAvgSum) {
+    this.flexLogsStarterStorageIndexAvgSum = flexLogsStarterStorageIndexAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average number of Flex Logs Starter Storage Index Instances over all hours in the
+   * current months for all organizations.
+   *
+   * @return flexLogsStarterStorageIndexAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_INDEX_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFlexLogsStarterStorageIndexAvgSum() {
+    return flexLogsStarterStorageIndexAvgSum;
+  }
+
+  public void setFlexLogsStarterStorageIndexAvgSum(Long flexLogsStarterStorageIndexAvgSum) {
+    this.flexLogsStarterStorageIndexAvgSum = flexLogsStarterStorageIndexAvgSum;
+  }
+
+  public UsageSummaryResponse flexLogsStarterStorageRetentionAdjustmentAvgSum(
+      Long flexLogsStarterStorageRetentionAdjustmentAvgSum) {
+    this.flexLogsStarterStorageRetentionAdjustmentAvgSum =
+        flexLogsStarterStorageRetentionAdjustmentAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average number of Flex Logs Starter Storage Retention Adjustment Instances over all
+   * hours in the current months for all organizations.
+   *
+   * @return flexLogsStarterStorageRetentionAdjustmentAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FLEX_LOGS_STARTER_STORAGE_RETENTION_ADJUSTMENT_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFlexLogsStarterStorageRetentionAdjustmentAvgSum() {
+    return flexLogsStarterStorageRetentionAdjustmentAvgSum;
+  }
+
+  public void setFlexLogsStarterStorageRetentionAdjustmentAvgSum(
+      Long flexLogsStarterStorageRetentionAdjustmentAvgSum) {
+    this.flexLogsStarterStorageRetentionAdjustmentAvgSum =
+        flexLogsStarterStorageRetentionAdjustmentAvgSum;
   }
 
   public UsageSummaryResponse flexStoredLogsAvgSum(Long flexStoredLogsAvgSum) {
@@ -4073,6 +4158,13 @@ public class UsageSummaryResponse {
             this.flexLogsComputeSmallAvgSum, usageSummaryResponse.flexLogsComputeSmallAvgSum)
         && Objects.equals(
             this.flexLogsComputeXsmallAvgSum, usageSummaryResponse.flexLogsComputeXsmallAvgSum)
+        && Objects.equals(this.flexLogsStarterAvgSum, usageSummaryResponse.flexLogsStarterAvgSum)
+        && Objects.equals(
+            this.flexLogsStarterStorageIndexAvgSum,
+            usageSummaryResponse.flexLogsStarterStorageIndexAvgSum)
+        && Objects.equals(
+            this.flexLogsStarterStorageRetentionAdjustmentAvgSum,
+            usageSummaryResponse.flexLogsStarterStorageRetentionAdjustmentAvgSum)
         && Objects.equals(this.flexStoredLogsAvgSum, usageSummaryResponse.flexStoredLogsAvgSum)
         && Objects.equals(
             this.forwardingEventsBytesAggSum, usageSummaryResponse.forwardingEventsBytesAggSum)
@@ -4310,6 +4402,9 @@ public class UsageSummaryResponse {
         flexLogsComputeMediumAvgSum,
         flexLogsComputeSmallAvgSum,
         flexLogsComputeXsmallAvgSum,
+        flexLogsStarterAvgSum,
+        flexLogsStarterStorageIndexAvgSum,
+        flexLogsStarterStorageRetentionAdjustmentAvgSum,
         flexStoredLogsAvgSum,
         forwardingEventsBytesAggSum,
         gcpHostTop99pSum,
@@ -4556,6 +4651,15 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    flexLogsComputeXsmallAvgSum: ")
         .append(toIndentedString(flexLogsComputeXsmallAvgSum))
+        .append("\n");
+    sb.append("    flexLogsStarterAvgSum: ")
+        .append(toIndentedString(flexLogsStarterAvgSum))
+        .append("\n");
+    sb.append("    flexLogsStarterStorageIndexAvgSum: ")
+        .append(toIndentedString(flexLogsStarterStorageIndexAvgSum))
+        .append("\n");
+    sb.append("    flexLogsStarterStorageRetentionAdjustmentAvgSum: ")
+        .append(toIndentedString(flexLogsStarterStorageRetentionAdjustmentAvgSum))
         .append("\n");
     sb.append("    flexStoredLogsAvgSum: ")
         .append(toIndentedString(flexStoredLogsAvgSum))
