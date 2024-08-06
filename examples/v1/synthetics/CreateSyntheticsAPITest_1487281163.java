@@ -17,6 +17,7 @@ import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaMetaSchema;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaTargetTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionJavascript;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTimingsScope;
@@ -112,7 +113,11 @@ public class Example {
                                 new SyntheticsAssertionBodyHashTarget()
                                     .operator(SyntheticsAssertionBodyHashOperator.MD5)
                                     .target("a")
-                                    .type(SyntheticsAssertionBodyHashType.BODY_HASH))))
+                                    .type(SyntheticsAssertionBodyHashType.BODY_HASH)),
+                            new SyntheticsAssertion(
+                                new SyntheticsAssertionJavascript()
+                                    .code("const hello = 'world';")
+                                    .type(SyntheticsAssertionType.JAVASCRIPT))))
                     .configVariables(
                         Collections.singletonList(
                             new SyntheticsConfigVariable()
