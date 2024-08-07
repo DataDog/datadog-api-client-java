@@ -40,6 +40,7 @@ public class WidgetLiveSpan extends ModelEnum<String> {
               "6mo",
               "week_to_date",
               "month_to_date",
+              "last_month",
               "1y",
               "alert"));
 
@@ -58,6 +59,7 @@ public class WidgetLiveSpan extends ModelEnum<String> {
   public static final WidgetLiveSpan PAST_SIX_MONTHS = new WidgetLiveSpan("6mo");
   public static final WidgetLiveSpan WEEK_TO_DATE = new WidgetLiveSpan("week_to_date");
   public static final WidgetLiveSpan MONTH_TO_DATE = new WidgetLiveSpan("month_to_date");
+  public static final WidgetLiveSpan LAST_MONTH = new WidgetLiveSpan("last_month");
   public static final WidgetLiveSpan PAST_ONE_YEAR = new WidgetLiveSpan("1y");
   public static final WidgetLiveSpan ALERT = new WidgetLiveSpan("alert");
 
