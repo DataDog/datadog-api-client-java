@@ -1,15 +1,20 @@
 // Update a team returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.TeamsApi;
 import com.datadog.api.client.v2.model.TeamResponse;
 import com.datadog.api.client.v2.model.TeamType;
 import com.datadog.api.client.v2.model.TeamUpdate;
 import com.datadog.api.client.v2.model.TeamUpdateAttributes;
 import com.datadog.api.client.v2.model.TeamUpdateRequest;
+import java.io.File;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,19 +26,16 @@ public class Example {
     String DD_TEAM_DATA_ATTRIBUTES_NAME = System.getenv("DD_TEAM_DATA_ATTRIBUTES_NAME");
     String DD_TEAM_DATA_ID = System.getenv("DD_TEAM_DATA_ID");
 
-    TeamUpdateRequest body =
-        new TeamUpdateRequest()
-            .data(
-                new TeamUpdate()
-                    .attributes(
-                        new TeamUpdateAttributes()
-                            .handle(DD_TEAM_DATA_ATTRIBUTES_HANDLE)
-                            .name("Example Team updated")
-                            .avatar("🥑")
-                            .banner(7L)
-                            .hiddenModules(Collections.singletonList("m3"))
-                            .visibleModules(Arrays.asList("m1", "m2")))
-                    .type(TeamType.TEAM));
+    TeamUpdateRequest body = new TeamUpdateRequest()
+.data(new TeamUpdate()
+.attributes(new TeamUpdateAttributes()
+.handle(DD_TEAM_DATA_ATTRIBUTES_HANDLE)
+.name("Example Team updated")
+.avatar("🥑")
+.banner(7L)
+.hiddenModules(Collections.singletonList("m3"))
+.visibleModules(Arrays.asList("m1", "m2")))
+.type(TeamType.TEAM));
 
     try {
       TeamResponse result = apiInstance.updateTeam(DD_TEAM_DATA_ID, body);

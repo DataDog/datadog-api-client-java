@@ -1,9 +1,16 @@
 // Get a browser test result returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.SyntheticsApi;
 import com.datadog.api.client.v1.model.SyntheticsBrowserTestResultFull;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,8 +18,7 @@ public class Example {
     SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     try {
-      SyntheticsBrowserTestResultFull result =
-          apiInstance.getBrowserTestResult("2yy-sem-mjh", "5671719892074090418");
+      SyntheticsBrowserTestResultFull result = apiInstance.getBrowserTestResult("2yy-sem-mjh", "5671719892074090418");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SyntheticsApi#getBrowserTestResult");

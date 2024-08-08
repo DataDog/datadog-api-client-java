@@ -1,28 +1,32 @@
 // Create a user returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.UsersApi;
+import com.datadog.api.client.v2.model.UserResponse;
 import com.datadog.api.client.v2.model.UserCreateAttributes;
 import com.datadog.api.client.v2.model.UserCreateData;
 import com.datadog.api.client.v2.model.UserCreateRequest;
-import com.datadog.api.client.v2.model.UserResponse;
 import com.datadog.api.client.v2.model.UsersType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);
 
-    UserCreateRequest body =
-        new UserCreateRequest()
-            .data(
-                new UserCreateData()
-                    .type(UsersType.USERS)
-                    .attributes(
-                        new UserCreateAttributes()
-                            .name("Datadog API Client Python")
-                            .email("Example-User@datadoghq.com")));
+    UserCreateRequest body = new UserCreateRequest()
+.data(new UserCreateData()
+.type(UsersType.USERS)
+.attributes(new UserCreateAttributes()
+.name("Datadog API Client Python")
+.email("Example-User@datadoghq.com")));
 
     try {
       UserResponse result = apiInstance.createUser(body);

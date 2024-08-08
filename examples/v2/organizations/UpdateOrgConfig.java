@@ -1,25 +1,31 @@
 // Update a specific Org Config returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.OrganizationsApi;
 import com.datadog.api.client.v2.model.OrgConfigGetResponse;
 import com.datadog.api.client.v2.model.OrgConfigType;
 import com.datadog.api.client.v2.model.OrgConfigWrite;
 import com.datadog.api.client.v2.model.OrgConfigWriteAttributes;
 import com.datadog.api.client.v2.model.OrgConfigWriteRequest;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
 
-    OrgConfigWriteRequest body =
-        new OrgConfigWriteRequest()
-            .data(
-                new OrgConfigWrite()
-                    .attributes(new OrgConfigWriteAttributes().value("UTC"))
-                    .type(OrgConfigType.ORG_CONFIGS));
+    OrgConfigWriteRequest body = new OrgConfigWriteRequest()
+.data(new OrgConfigWrite()
+.attributes(new OrgConfigWriteAttributes()
+.value("UTC"))
+.type(OrgConfigType.ORG_CONFIGS));
 
     try {
       OrgConfigGetResponse result = apiInstance.updateOrgConfig("monitor_timezone", body);

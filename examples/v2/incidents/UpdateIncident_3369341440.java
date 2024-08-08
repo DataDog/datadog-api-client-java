@@ -1,7 +1,7 @@
 // Add commander to an incident returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.IncidentsApi;
 import com.datadog.api.client.v2.model.IncidentResponse;
 import com.datadog.api.client.v2.model.IncidentType;
@@ -11,6 +11,13 @@ import com.datadog.api.client.v2.model.IncidentUpdateRequest;
 import com.datadog.api.client.v2.model.NullableRelationshipToUser;
 import com.datadog.api.client.v2.model.NullableRelationshipToUserData;
 import com.datadog.api.client.v2.model.UsersType;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -24,20 +31,15 @@ public class Example {
     // there is a valid "user" in the system
     String USER_DATA_ID = System.getenv("USER_DATA_ID");
 
-    IncidentUpdateRequest body =
-        new IncidentUpdateRequest()
-            .data(
-                new IncidentUpdateData()
-                    .id(INCIDENT_DATA_ID)
-                    .type(IncidentType.INCIDENTS)
-                    .relationships(
-                        new IncidentUpdateRelationships()
-                            .commanderUser(
-                                new NullableRelationshipToUser()
-                                    .data(
-                                        new NullableRelationshipToUserData()
-                                            .id(USER_DATA_ID)
-                                            .type(UsersType.USERS)))));
+    IncidentUpdateRequest body = new IncidentUpdateRequest()
+.data(new IncidentUpdateData()
+.id(INCIDENT_DATA_ID)
+.type(IncidentType.INCIDENTS)
+.relationships(new IncidentUpdateRelationships()
+.commanderUser(new NullableRelationshipToUser()
+.data(new NullableRelationshipToUserData()
+.id(USER_DATA_ID)
+.type(UsersType.USERS)))));
 
     try {
       IncidentResponse result = apiInstance.updateIncident(INCIDENT_DATA_ID, body);
