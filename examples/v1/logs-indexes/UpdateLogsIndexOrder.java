@@ -1,18 +1,25 @@
 // Update indexes order returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.LogsIndexesApi;
 import com.datadog.api.client.v1.model.LogsIndexesOrder;
+import com.datadog.api.client.v1.model.LogsIndexesOrder;
+import java.io.File;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
 
-    LogsIndexesOrder body =
-        new LogsIndexesOrder().indexNames(Arrays.asList("main", "payments", "web"));
+    LogsIndexesOrder body = new LogsIndexesOrder()
+.indexNames(Arrays.asList("main", "payments", "web"));
 
     try {
       LogsIndexesOrder result = apiInstance.updateLogsIndexOrder(body);

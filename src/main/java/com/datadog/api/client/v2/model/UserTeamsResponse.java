@@ -19,12 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Team memberships response */
-@JsonPropertyOrder({
-  UserTeamsResponse.JSON_PROPERTY_DATA,
-  UserTeamsResponse.JSON_PROPERTY_INCLUDED,
-  UserTeamsResponse.JSON_PROPERTY_LINKS,
-  UserTeamsResponse.JSON_PROPERTY_META
-})
+@JsonPropertyOrder({UserTeamsResponse.JSON_PROPERTY_DATA, UserTeamsResponse.JSON_PROPERTY_INCLUDED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserTeamsResponse {
@@ -34,12 +29,6 @@ public class UserTeamsResponse {
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<UserTeamIncluded> included = null;
-
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private TeamsResponseLinks links;
-
-  public static final String JSON_PROPERTY_META = "meta";
-  private TeamsResponseMeta meta;
 
   public UserTeamsResponse data(List<UserTeam> data) {
     this.data = data;
@@ -107,50 +96,6 @@ public class UserTeamsResponse {
     this.included = included;
   }
 
-  public UserTeamsResponse links(TeamsResponseLinks links) {
-    this.links = links;
-    this.unparsed |= links.unparsed;
-    return this;
-  }
-
-  /**
-   * Teams response links.
-   *
-   * @return links
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamsResponseLinks getLinks() {
-    return links;
-  }
-
-  public void setLinks(TeamsResponseLinks links) {
-    this.links = links;
-  }
-
-  public UserTeamsResponse meta(TeamsResponseMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * Teams response metadata.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamsResponseMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(TeamsResponseMeta meta) {
-    this.meta = meta;
-  }
-
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -209,14 +154,12 @@ public class UserTeamsResponse {
     UserTeamsResponse userTeamsResponse = (UserTeamsResponse) o;
     return Objects.equals(this.data, userTeamsResponse.data)
         && Objects.equals(this.included, userTeamsResponse.included)
-        && Objects.equals(this.links, userTeamsResponse.links)
-        && Objects.equals(this.meta, userTeamsResponse.meta)
         && Objects.equals(this.additionalProperties, userTeamsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, links, meta, additionalProperties);
+    return Objects.hash(data, included, additionalProperties);
   }
 
   @Override
@@ -225,8 +168,6 @@ public class UserTeamsResponse {
     sb.append("class UserTeamsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

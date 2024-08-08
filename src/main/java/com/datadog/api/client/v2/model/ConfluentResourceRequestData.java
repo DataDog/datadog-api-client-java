@@ -47,6 +47,7 @@ public class ConfluentResourceRequestData {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.id = id;
+    if (id != null) {}
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -74,14 +75,16 @@ public class ConfluentResourceRequestData {
 
   public ConfluentResourceRequestData id(String id) {
     this.id = id;
+    if (id != null) {}
     return this;
   }
 
   /**
-   * The ID associated with a Confluent resource.
+   * The ConfluentResourceRequestData id.
    *
    * @return id
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {

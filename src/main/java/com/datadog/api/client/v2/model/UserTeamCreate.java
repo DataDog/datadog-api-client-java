@@ -20,6 +20,7 @@ import java.util.Objects;
 /** A user's relationship with a team */
 @JsonPropertyOrder({
   UserTeamCreate.JSON_PROPERTY_ATTRIBUTES,
+  UserTeamCreate.JSON_PROPERTY_ID,
   UserTeamCreate.JSON_PROPERTY_RELATIONSHIPS,
   UserTeamCreate.JSON_PROPERTY_TYPE
 })
@@ -29,6 +30,9 @@ public class UserTeamCreate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private UserTeamAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
   private UserTeamRelationships relationships;
@@ -65,6 +69,27 @@ public class UserTeamCreate {
 
   public void setAttributes(UserTeamAttributes attributes) {
     this.attributes = attributes;
+  }
+
+  public UserTeamCreate id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * ID of user team
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public UserTeamCreate relationships(UserTeamRelationships relationships) {
@@ -170,6 +195,7 @@ public class UserTeamCreate {
     }
     UserTeamCreate userTeamCreate = (UserTeamCreate) o;
     return Objects.equals(this.attributes, userTeamCreate.attributes)
+        && Objects.equals(this.id, userTeamCreate.id)
         && Objects.equals(this.relationships, userTeamCreate.relationships)
         && Objects.equals(this.type, userTeamCreate.type)
         && Objects.equals(this.additionalProperties, userTeamCreate.additionalProperties);
@@ -177,7 +203,7 @@ public class UserTeamCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, relationships, type, additionalProperties);
+    return Objects.hash(attributes, id, relationships, type, additionalProperties);
   }
 
   @Override
@@ -185,6 +211,7 @@ public class UserTeamCreate {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserTeamCreate {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

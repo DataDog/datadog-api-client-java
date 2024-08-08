@@ -1,10 +1,16 @@
-// Get the list of all Synthetic tests returns "OK - Returns the list of all Synthetic tests."
-// response
+// Get the list of all Synthetic tests returns "OK - Returns the list of all Synthetic tests." response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.SyntheticsApi;
 import com.datadog.api.client.v1.model.SyntheticsListTestsResponse;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {

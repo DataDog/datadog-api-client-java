@@ -1,10 +1,17 @@
 // Update a webhook returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.WebhooksIntegrationApi;
 import com.datadog.api.client.v1.model.WebhooksIntegration;
 import com.datadog.api.client.v1.model.WebhooksIntegrationUpdateRequest;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -14,8 +21,8 @@ public class Example {
     // there is a valid "webhook" in the system
     String WEBHOOK_NAME = System.getenv("WEBHOOK_NAME");
 
-    WebhooksIntegrationUpdateRequest body =
-        new WebhooksIntegrationUpdateRequest().url("https://example.com/webhook-updated");
+    WebhooksIntegrationUpdateRequest body = new WebhooksIntegrationUpdateRequest()
+.url("https://example.com/webhook-updated");
 
     try {
       WebhooksIntegration result = apiInstance.updateWebhooksIntegration(WEBHOOK_NAME, body);

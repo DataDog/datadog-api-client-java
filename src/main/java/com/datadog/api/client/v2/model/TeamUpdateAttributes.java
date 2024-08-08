@@ -24,11 +24,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   TeamUpdateAttributes.JSON_PROPERTY_AVATAR,
   TeamUpdateAttributes.JSON_PROPERTY_BANNER,
-  TeamUpdateAttributes.JSON_PROPERTY_COLOR,
   TeamUpdateAttributes.JSON_PROPERTY_DESCRIPTION,
   TeamUpdateAttributes.JSON_PROPERTY_HANDLE,
+  TeamUpdateAttributes.JSON_PROPERTY_HANDLES,
   TeamUpdateAttributes.JSON_PROPERTY_HIDDEN_MODULES,
+  TeamUpdateAttributes.JSON_PROPERTY_LINK_COUNT,
   TeamUpdateAttributes.JSON_PROPERTY_NAME,
+  TeamUpdateAttributes.JSON_PROPERTY_SUMMARY,
   TeamUpdateAttributes.JSON_PROPERTY_VISIBLE_MODULES
 })
 @jakarta.annotation.Generated(
@@ -41,20 +43,26 @@ public class TeamUpdateAttributes {
   public static final String JSON_PROPERTY_BANNER = "banner";
   private JsonNullable<Long> banner = JsonNullable.<Long>undefined();
 
-  public static final String JSON_PROPERTY_COLOR = "color";
-  private Integer color;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
   public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
 
+  public static final String JSON_PROPERTY_HANDLES = "handles";
+  private String handles;
+
   public static final String JSON_PROPERTY_HIDDEN_MODULES = "hidden_modules";
   private List<String> hiddenModules = null;
 
+  public static final String JSON_PROPERTY_LINK_COUNT = "link_count";
+  private Integer linkCount;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_SUMMARY = "summary";
+  private String summary;
 
   public static final String JSON_PROPERTY_VISIBLE_MODULES = "visible_modules";
   private List<String> visibleModules = null;
@@ -131,27 +139,6 @@ public class TeamUpdateAttributes {
     this.banner = JsonNullable.<Long>of(banner);
   }
 
-  public TeamUpdateAttributes color(Integer color) {
-    this.color = color;
-    return this;
-  }
-
-  /**
-   * An identifier for the color representing the team minimum: 0 maximum: 13
-   *
-   * @return color
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COLOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getColor() {
-    return color;
-  }
-
-  public void setColor(Integer color) {
-    this.color = color;
-  }
-
   public TeamUpdateAttributes description(String description) {
     this.description = description;
     return this;
@@ -193,6 +180,27 @@ public class TeamUpdateAttributes {
     this.handle = handle;
   }
 
+  public TeamUpdateAttributes handles(String handles) {
+    this.handles = handles;
+    return this;
+  }
+
+  /**
+   * The TeamUpdateAttributes handles.
+   *
+   * @return handles
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HANDLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHandles() {
+    return handles;
+  }
+
+  public void setHandles(String handles) {
+    this.handles = handles;
+  }
+
   public TeamUpdateAttributes hiddenModules(List<String> hiddenModules) {
     this.hiddenModules = hiddenModules;
     return this;
@@ -222,6 +230,18 @@ public class TeamUpdateAttributes {
     this.hiddenModules = hiddenModules;
   }
 
+  /**
+   * The number of links belonging to the team maximum: 2147483647
+   *
+   * @return linkCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINK_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getLinkCount() {
+    return linkCount;
+  }
+
   public TeamUpdateAttributes name(String name) {
     this.name = name;
     return this;
@@ -240,6 +260,18 @@ public class TeamUpdateAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  /**
+   * A brief summary of the team
+   *
+   * @return summary
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUMMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSummary() {
+    return summary;
   }
 
   public TeamUpdateAttributes visibleModules(List<String> visibleModules) {
@@ -329,11 +361,13 @@ public class TeamUpdateAttributes {
     TeamUpdateAttributes teamUpdateAttributes = (TeamUpdateAttributes) o;
     return Objects.equals(this.avatar, teamUpdateAttributes.avatar)
         && Objects.equals(this.banner, teamUpdateAttributes.banner)
-        && Objects.equals(this.color, teamUpdateAttributes.color)
         && Objects.equals(this.description, teamUpdateAttributes.description)
         && Objects.equals(this.handle, teamUpdateAttributes.handle)
+        && Objects.equals(this.handles, teamUpdateAttributes.handles)
         && Objects.equals(this.hiddenModules, teamUpdateAttributes.hiddenModules)
+        && Objects.equals(this.linkCount, teamUpdateAttributes.linkCount)
         && Objects.equals(this.name, teamUpdateAttributes.name)
+        && Objects.equals(this.summary, teamUpdateAttributes.summary)
         && Objects.equals(this.visibleModules, teamUpdateAttributes.visibleModules)
         && Objects.equals(this.additionalProperties, teamUpdateAttributes.additionalProperties);
   }
@@ -343,11 +377,13 @@ public class TeamUpdateAttributes {
     return Objects.hash(
         avatar,
         banner,
-        color,
         description,
         handle,
+        handles,
         hiddenModules,
+        linkCount,
         name,
+        summary,
         visibleModules,
         additionalProperties);
   }
@@ -358,11 +394,13 @@ public class TeamUpdateAttributes {
     sb.append("class TeamUpdateAttributes {\n");
     sb.append("    avatar: ").append(toIndentedString(avatar)).append("\n");
     sb.append("    banner: ").append(toIndentedString(banner)).append("\n");
-    sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
+    sb.append("    handles: ").append(toIndentedString(handles)).append("\n");
     sb.append("    hiddenModules: ").append(toIndentedString(hiddenModules)).append("\n");
+    sb.append("    linkCount: ").append(toIndentedString(linkCount)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    visibleModules: ").append(toIndentedString(visibleModules)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

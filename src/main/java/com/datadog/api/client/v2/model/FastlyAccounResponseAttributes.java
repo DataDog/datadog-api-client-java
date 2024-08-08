@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Attributes object of a Fastly account. */
 @JsonPropertyOrder({
+  FastlyAccounResponseAttributes.JSON_PROPERTY_API_KEY,
   FastlyAccounResponseAttributes.JSON_PROPERTY_NAME,
   FastlyAccounResponseAttributes.JSON_PROPERTY_SERVICES
 })
@@ -28,6 +29,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FastlyAccounResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_API_KEY = "api_key";
+  private String apiKey;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -40,6 +44,27 @@ public class FastlyAccounResponseAttributes {
   public FastlyAccounResponseAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
+  }
+
+  public FastlyAccounResponseAttributes apiKey(String apiKey) {
+    this.apiKey = apiKey;
+    return this;
+  }
+
+  /**
+   * The FastlyAccounResponseAttributes api_key.
+   *
+   * @return apiKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getApiKey() {
+    return apiKey;
+  }
+
+  public void setApiKey(String apiKey) {
+    this.apiKey = apiKey;
   }
 
   public FastlyAccounResponseAttributes name(String name) {
@@ -152,7 +177,8 @@ public class FastlyAccounResponseAttributes {
     }
     FastlyAccounResponseAttributes fastlyAccounResponseAttributes =
         (FastlyAccounResponseAttributes) o;
-    return Objects.equals(this.name, fastlyAccounResponseAttributes.name)
+    return Objects.equals(this.apiKey, fastlyAccounResponseAttributes.apiKey)
+        && Objects.equals(this.name, fastlyAccounResponseAttributes.name)
         && Objects.equals(this.services, fastlyAccounResponseAttributes.services)
         && Objects.equals(
             this.additionalProperties, fastlyAccounResponseAttributes.additionalProperties);
@@ -160,13 +186,14 @@ public class FastlyAccounResponseAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, services, additionalProperties);
+    return Objects.hash(apiKey, name, services, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FastlyAccounResponseAttributes {\n");
+    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    services: ").append(toIndentedString(services)).append("\n");
     sb.append("    additionalProperties: ")

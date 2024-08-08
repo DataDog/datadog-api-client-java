@@ -1,11 +1,18 @@
 // Get a single service definition returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.ServiceDefinitionApi;
 import com.datadog.api.client.v2.api.ServiceDefinitionApi.GetServiceDefinitionOptionalParameters;
 import com.datadog.api.client.v2.model.ServiceDefinitionGetResponse;
 import com.datadog.api.client.v2.model.ServiceDefinitionSchemaVersions;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -13,11 +20,7 @@ public class Example {
     ServiceDefinitionApi apiInstance = new ServiceDefinitionApi(defaultClient);
 
     try {
-      ServiceDefinitionGetResponse result =
-          apiInstance.getServiceDefinition(
-              "service-definition-test",
-              new GetServiceDefinitionOptionalParameters()
-                  .schemaVersion(ServiceDefinitionSchemaVersions.V2_1));
+      ServiceDefinitionGetResponse result = apiInstance.getServiceDefinition("service-definition-test",new GetServiceDefinitionOptionalParameters().schemaVersion(ServiceDefinitionSchemaVersions.V2_1));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ServiceDefinitionApi#getServiceDefinition");

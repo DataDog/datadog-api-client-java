@@ -19,19 +19,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /** List of process summaries. */
-@JsonPropertyOrder({
-  ProcessSummariesResponse.JSON_PROPERTY_DATA,
-  ProcessSummariesResponse.JSON_PROPERTY_META
-})
+@JsonPropertyOrder({ProcessSummariesResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ProcessSummariesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<ProcessSummary> data = null;
-
-  public static final String JSON_PROPERTY_META = "meta";
-  private ProcessSummariesMeta meta;
 
   public ProcessSummariesResponse data(List<ProcessSummary> data) {
     this.data = data;
@@ -64,28 +58,6 @@ public class ProcessSummariesResponse {
 
   public void setData(List<ProcessSummary> data) {
     this.data = data;
-  }
-
-  public ProcessSummariesResponse meta(ProcessSummariesMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * Response metadata object.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ProcessSummariesMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(ProcessSummariesMeta meta) {
-    this.meta = meta;
   }
 
   /**
@@ -145,13 +117,12 @@ public class ProcessSummariesResponse {
     }
     ProcessSummariesResponse processSummariesResponse = (ProcessSummariesResponse) o;
     return Objects.equals(this.data, processSummariesResponse.data)
-        && Objects.equals(this.meta, processSummariesResponse.meta)
         && Objects.equals(this.additionalProperties, processSummariesResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, meta, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
@@ -159,7 +130,6 @@ public class ProcessSummariesResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessSummariesResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

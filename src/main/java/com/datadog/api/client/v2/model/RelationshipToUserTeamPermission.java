@@ -17,19 +17,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Relationship between a user team permission and a team */
-@JsonPropertyOrder({
-  RelationshipToUserTeamPermission.JSON_PROPERTY_DATA,
-  RelationshipToUserTeamPermission.JSON_PROPERTY_LINKS
-})
+@JsonPropertyOrder({RelationshipToUserTeamPermission.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToUserTeamPermission {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private RelationshipToUserTeamPermissionData data;
-
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private TeamRelationshipsLinks links;
 
   public RelationshipToUserTeamPermission data(RelationshipToUserTeamPermissionData data) {
     this.data = data;
@@ -51,28 +45,6 @@ public class RelationshipToUserTeamPermission {
 
   public void setData(RelationshipToUserTeamPermissionData data) {
     this.data = data;
-  }
-
-  public RelationshipToUserTeamPermission links(TeamRelationshipsLinks links) {
-    this.links = links;
-    this.unparsed |= links.unparsed;
-    return this;
-  }
-
-  /**
-   * Links attributes.
-   *
-   * @return links
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamRelationshipsLinks getLinks() {
-    return links;
-  }
-
-  public void setLinks(TeamRelationshipsLinks links) {
-    this.links = links;
   }
 
   /**
@@ -133,14 +105,13 @@ public class RelationshipToUserTeamPermission {
     RelationshipToUserTeamPermission relationshipToUserTeamPermission =
         (RelationshipToUserTeamPermission) o;
     return Objects.equals(this.data, relationshipToUserTeamPermission.data)
-        && Objects.equals(this.links, relationshipToUserTeamPermission.links)
         && Objects.equals(
             this.additionalProperties, relationshipToUserTeamPermission.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
@@ -148,7 +119,6 @@ public class RelationshipToUserTeamPermission {
     StringBuilder sb = new StringBuilder();
     sb.append("class RelationshipToUserTeamPermission {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

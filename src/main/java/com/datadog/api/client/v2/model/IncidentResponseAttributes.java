@@ -23,16 +23,22 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The incident's attributes from a response. */
 @JsonPropertyOrder({
+  IncidentResponseAttributes.JSON_PROPERTY_ADDITIONAL_NOTIFICATIONS,
   IncidentResponseAttributes.JSON_PROPERTY_ARCHIVED,
   IncidentResponseAttributes.JSON_PROPERTY_CASE_ID,
   IncidentResponseAttributes.JSON_PROPERTY_CREATED,
+  IncidentResponseAttributes.JSON_PROPERTY_CREATED_BY_UUID,
+  IncidentResponseAttributes.JSON_PROPERTY_CREATION_IDEMPOTENCY_KEY,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_DURATION,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_END,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_START,
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACTED,
   IncidentResponseAttributes.JSON_PROPERTY_DETECTED,
+  IncidentResponseAttributes.JSON_PROPERTY_DURATION,
   IncidentResponseAttributes.JSON_PROPERTY_FIELDS,
+  IncidentResponseAttributes.JSON_PROPERTY_INCIDENT_TYPE_UUID,
+  IncidentResponseAttributes.JSON_PROPERTY_LAST_MODIFIED_BY_UUID,
   IncidentResponseAttributes.JSON_PROPERTY_MODIFIED,
   IncidentResponseAttributes.JSON_PROPERTY_NON_DATADOG_CREATOR,
   IncidentResponseAttributes.JSON_PROPERTY_NOTIFICATION_HANDLES,
@@ -51,6 +57,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class IncidentResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ADDITIONAL_NOTIFICATIONS = "additional_notifications";
+  private JsonNullable<String> additionalNotifications = JsonNullable.<String>undefined();
+
   public static final String JSON_PROPERTY_ARCHIVED = "archived";
   private JsonNullable<OffsetDateTime> archived = JsonNullable.<OffsetDateTime>undefined();
 
@@ -59,6 +68,12 @@ public class IncidentResponseAttributes {
 
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
+
+  public static final String JSON_PROPERTY_CREATED_BY_UUID = "created_by_uuid";
+  private JsonNullable<String> createdByUuid = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_CREATION_IDEMPOTENCY_KEY = "creation_idempotency_key";
+  private JsonNullable<String> creationIdempotencyKey = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_DURATION = "customer_impact_duration";
   private Long customerImpactDuration;
@@ -79,8 +94,17 @@ public class IncidentResponseAttributes {
   public static final String JSON_PROPERTY_DETECTED = "detected";
   private JsonNullable<OffsetDateTime> detected = JsonNullable.<OffsetDateTime>undefined();
 
+  public static final String JSON_PROPERTY_DURATION = "duration";
+  private JsonNullable<Integer> duration = JsonNullable.<Integer>undefined();
+
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private Map<String, IncidentFieldAttributes> fields = null;
+
+  public static final String JSON_PROPERTY_INCIDENT_TYPE_UUID = "incident_type_uuid";
+  private JsonNullable<String> incidentTypeUuid = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_LAST_MODIFIED_BY_UUID = "last_modified_by_uuid";
+  private JsonNullable<String> lastModifiedByUuid = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
   private OffsetDateTime modified;
@@ -131,6 +155,38 @@ public class IncidentResponseAttributes {
     this.title = title;
   }
 
+  public IncidentResponseAttributes additionalNotifications(String additionalNotifications) {
+    this.additionalNotifications = JsonNullable.<String>of(additionalNotifications);
+    return this;
+  }
+
+  /**
+   * The IncidentResponseAttributes additional_notifications.
+   *
+   * @return additionalNotifications
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getAdditionalNotifications() {
+    return additionalNotifications.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_NOTIFICATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getAdditionalNotifications_JsonNullable() {
+    return additionalNotifications;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_NOTIFICATIONS)
+  public void setAdditionalNotifications_JsonNullable(
+      JsonNullable<String> additionalNotifications) {
+    this.additionalNotifications = additionalNotifications;
+  }
+
+  public void setAdditionalNotifications(String additionalNotifications) {
+    this.additionalNotifications = JsonNullable.<String>of(additionalNotifications);
+  }
+
   /**
    * Timestamp of when the incident was archived.
    *
@@ -163,7 +219,7 @@ public class IncidentResponseAttributes {
   }
 
   /**
-   * The incident case id.
+   * The incident case id. minimum: 0
    *
    * @return caseId
    */
@@ -198,6 +254,68 @@ public class IncidentResponseAttributes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
     return created;
+  }
+
+  public IncidentResponseAttributes createdByUuid(String createdByUuid) {
+    this.createdByUuid = JsonNullable.<String>of(createdByUuid);
+    return this;
+  }
+
+  /**
+   * The IncidentResponseAttributes created_by_uuid.
+   *
+   * @return createdByUuid
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getCreatedByUuid() {
+    return createdByUuid.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getCreatedByUuid_JsonNullable() {
+    return createdByUuid;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATED_BY_UUID)
+  public void setCreatedByUuid_JsonNullable(JsonNullable<String> createdByUuid) {
+    this.createdByUuid = createdByUuid;
+  }
+
+  public void setCreatedByUuid(String createdByUuid) {
+    this.createdByUuid = JsonNullable.<String>of(createdByUuid);
+  }
+
+  public IncidentResponseAttributes creationIdempotencyKey(String creationIdempotencyKey) {
+    this.creationIdempotencyKey = JsonNullable.<String>of(creationIdempotencyKey);
+    return this;
+  }
+
+  /**
+   * The IncidentResponseAttributes creation_idempotency_key.
+   *
+   * @return creationIdempotencyKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getCreationIdempotencyKey() {
+    return creationIdempotencyKey.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATION_IDEMPOTENCY_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getCreationIdempotencyKey_JsonNullable() {
+    return creationIdempotencyKey;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CREATION_IDEMPOTENCY_KEY)
+  public void setCreationIdempotencyKey_JsonNullable(JsonNullable<String> creationIdempotencyKey) {
+    this.creationIdempotencyKey = creationIdempotencyKey;
+  }
+
+  public void setCreationIdempotencyKey(String creationIdempotencyKey) {
+    this.creationIdempotencyKey = JsonNullable.<String>of(creationIdempotencyKey);
   }
 
   /**
@@ -359,6 +477,37 @@ public class IncidentResponseAttributes {
     this.detected = JsonNullable.<OffsetDateTime>of(detected);
   }
 
+  public IncidentResponseAttributes duration(Integer duration) {
+    this.duration = JsonNullable.<Integer>of(duration);
+    return this;
+  }
+
+  /**
+   * The IncidentResponseAttributes duration. maximum: 2147483647
+   *
+   * @return duration
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Integer getDuration() {
+    return duration.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Integer> getDuration_JsonNullable() {
+    return duration;
+  }
+
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  public void setDuration_JsonNullable(JsonNullable<Integer> duration) {
+    this.duration = duration;
+  }
+
+  public void setDuration(Integer duration) {
+    this.duration = JsonNullable.<Integer>of(duration);
+  }
+
   public IncidentResponseAttributes fields(Map<String, IncidentFieldAttributes> fields) {
     this.fields = fields;
     return this;
@@ -386,6 +535,68 @@ public class IncidentResponseAttributes {
 
   public void setFields(Map<String, IncidentFieldAttributes> fields) {
     this.fields = fields;
+  }
+
+  public IncidentResponseAttributes incidentTypeUuid(String incidentTypeUuid) {
+    this.incidentTypeUuid = JsonNullable.<String>of(incidentTypeUuid);
+    return this;
+  }
+
+  /**
+   * The IncidentResponseAttributes incident_type_uuid.
+   *
+   * @return incidentTypeUuid
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getIncidentTypeUuid() {
+    return incidentTypeUuid.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getIncidentTypeUuid_JsonNullable() {
+    return incidentTypeUuid;
+  }
+
+  @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE_UUID)
+  public void setIncidentTypeUuid_JsonNullable(JsonNullable<String> incidentTypeUuid) {
+    this.incidentTypeUuid = incidentTypeUuid;
+  }
+
+  public void setIncidentTypeUuid(String incidentTypeUuid) {
+    this.incidentTypeUuid = JsonNullable.<String>of(incidentTypeUuid);
+  }
+
+  public IncidentResponseAttributes lastModifiedByUuid(String lastModifiedByUuid) {
+    this.lastModifiedByUuid = JsonNullable.<String>of(lastModifiedByUuid);
+    return this;
+  }
+
+  /**
+   * The IncidentResponseAttributes last_modified_by_uuid.
+   *
+   * @return lastModifiedByUuid
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getLastModifiedByUuid() {
+    return lastModifiedByUuid.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getLastModifiedByUuid_JsonNullable() {
+    return lastModifiedByUuid;
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_UUID)
+  public void setLastModifiedByUuid_JsonNullable(JsonNullable<String> lastModifiedByUuid) {
+    this.lastModifiedByUuid = lastModifiedByUuid;
+  }
+
+  public void setLastModifiedByUuid(String lastModifiedByUuid) {
+    this.lastModifiedByUuid = JsonNullable.<String>of(lastModifiedByUuid);
   }
 
   /**
@@ -749,9 +960,14 @@ public class IncidentResponseAttributes {
       return false;
     }
     IncidentResponseAttributes incidentResponseAttributes = (IncidentResponseAttributes) o;
-    return Objects.equals(this.archived, incidentResponseAttributes.archived)
+    return Objects.equals(
+            this.additionalNotifications, incidentResponseAttributes.additionalNotifications)
+        && Objects.equals(this.archived, incidentResponseAttributes.archived)
         && Objects.equals(this.caseId, incidentResponseAttributes.caseId)
         && Objects.equals(this.created, incidentResponseAttributes.created)
+        && Objects.equals(this.createdByUuid, incidentResponseAttributes.createdByUuid)
+        && Objects.equals(
+            this.creationIdempotencyKey, incidentResponseAttributes.creationIdempotencyKey)
         && Objects.equals(
             this.customerImpactDuration, incidentResponseAttributes.customerImpactDuration)
         && Objects.equals(this.customerImpactEnd, incidentResponseAttributes.customerImpactEnd)
@@ -759,7 +975,10 @@ public class IncidentResponseAttributes {
         && Objects.equals(this.customerImpactStart, incidentResponseAttributes.customerImpactStart)
         && Objects.equals(this.customerImpacted, incidentResponseAttributes.customerImpacted)
         && Objects.equals(this.detected, incidentResponseAttributes.detected)
+        && Objects.equals(this.duration, incidentResponseAttributes.duration)
         && Objects.equals(this.fields, incidentResponseAttributes.fields)
+        && Objects.equals(this.incidentTypeUuid, incidentResponseAttributes.incidentTypeUuid)
+        && Objects.equals(this.lastModifiedByUuid, incidentResponseAttributes.lastModifiedByUuid)
         && Objects.equals(this.modified, incidentResponseAttributes.modified)
         && Objects.equals(this.nonDatadogCreator, incidentResponseAttributes.nonDatadogCreator)
         && Objects.equals(this.notificationHandles, incidentResponseAttributes.notificationHandles)
@@ -781,16 +1000,22 @@ public class IncidentResponseAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        additionalNotifications,
         archived,
         caseId,
         created,
+        createdByUuid,
+        creationIdempotencyKey,
         customerImpactDuration,
         customerImpactEnd,
         customerImpactScope,
         customerImpactStart,
         customerImpacted,
         detected,
+        duration,
         fields,
+        incidentTypeUuid,
+        lastModifiedByUuid,
         modified,
         nonDatadogCreator,
         notificationHandles,
@@ -811,9 +1036,16 @@ public class IncidentResponseAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentResponseAttributes {\n");
+    sb.append("    additionalNotifications: ")
+        .append(toIndentedString(additionalNotifications))
+        .append("\n");
     sb.append("    archived: ").append(toIndentedString(archived)).append("\n");
     sb.append("    caseId: ").append(toIndentedString(caseId)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    createdByUuid: ").append(toIndentedString(createdByUuid)).append("\n");
+    sb.append("    creationIdempotencyKey: ")
+        .append(toIndentedString(creationIdempotencyKey))
+        .append("\n");
     sb.append("    customerImpactDuration: ")
         .append(toIndentedString(customerImpactDuration))
         .append("\n");
@@ -826,7 +1058,10 @@ public class IncidentResponseAttributes {
         .append("\n");
     sb.append("    customerImpacted: ").append(toIndentedString(customerImpacted)).append("\n");
     sb.append("    detected: ").append(toIndentedString(detected)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    incidentTypeUuid: ").append(toIndentedString(incidentTypeUuid)).append("\n");
+    sb.append("    lastModifiedByUuid: ").append(toIndentedString(lastModifiedByUuid)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    nonDatadogCreator: ").append(toIndentedString(nonDatadogCreator)).append("\n");
     sb.append("    notificationHandles: ")

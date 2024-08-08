@@ -22,7 +22,6 @@ import java.util.Objects;
 /** Model representation of a Confluent Cloud resource. */
 @JsonPropertyOrder({
   ConfluentResourceResponseAttributes.JSON_PROPERTY_ENABLE_CUSTOM_METRICS,
-  ConfluentResourceResponseAttributes.JSON_PROPERTY_ID,
   ConfluentResourceResponseAttributes.JSON_PROPERTY_RESOURCE_TYPE,
   ConfluentResourceResponseAttributes.JSON_PROPERTY_TAGS
 })
@@ -32,9 +31,6 @@ public class ConfluentResourceResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENABLE_CUSTOM_METRICS = "enable_custom_metrics";
   private Boolean enableCustomMetrics = false;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
 
   public static final String JSON_PROPERTY_RESOURCE_TYPE = "resource_type";
   private String resourceType;
@@ -69,27 +65,6 @@ public class ConfluentResourceResponseAttributes {
 
   public void setEnableCustomMetrics(Boolean enableCustomMetrics) {
     this.enableCustomMetrics = enableCustomMetrics;
-  }
-
-  public ConfluentResourceResponseAttributes id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The ID associated with the Confluent resource.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public ConfluentResourceResponseAttributes resourceType(String resourceType) {
@@ -202,7 +177,6 @@ public class ConfluentResourceResponseAttributes {
         (ConfluentResourceResponseAttributes) o;
     return Objects.equals(
             this.enableCustomMetrics, confluentResourceResponseAttributes.enableCustomMetrics)
-        && Objects.equals(this.id, confluentResourceResponseAttributes.id)
         && Objects.equals(this.resourceType, confluentResourceResponseAttributes.resourceType)
         && Objects.equals(this.tags, confluentResourceResponseAttributes.tags)
         && Objects.equals(
@@ -211,7 +185,7 @@ public class ConfluentResourceResponseAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enableCustomMetrics, id, resourceType, tags, additionalProperties);
+    return Objects.hash(enableCustomMetrics, resourceType, tags, additionalProperties);
   }
 
   @Override
@@ -221,7 +195,6 @@ public class ConfluentResourceResponseAttributes {
     sb.append("    enableCustomMetrics: ")
         .append(toIndentedString(enableCustomMetrics))
         .append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")

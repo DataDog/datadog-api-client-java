@@ -17,41 +17,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Relationship between membership and a user */
-@JsonPropertyOrder({
-  UserTeamRelationships.JSON_PROPERTY_TEAM,
-  UserTeamRelationships.JSON_PROPERTY_USER
-})
+@JsonPropertyOrder({UserTeamRelationships.JSON_PROPERTY_USER})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserTeamRelationships {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_TEAM = "team";
-  private RelationshipToUserTeamTeam team;
-
   public static final String JSON_PROPERTY_USER = "user";
   private RelationshipToUserTeamUser user;
-
-  public UserTeamRelationships team(RelationshipToUserTeamTeam team) {
-    this.team = team;
-    this.unparsed |= team.unparsed;
-    return this;
-  }
-
-  /**
-   * Relationship between team membership and team
-   *
-   * @return team
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUserTeamTeam getTeam() {
-    return team;
-  }
-
-  public void setTeam(RelationshipToUserTeamTeam team) {
-    this.team = team;
-  }
 
   public UserTeamRelationships user(RelationshipToUserTeamUser user) {
     this.user = user;
@@ -131,21 +103,19 @@ public class UserTeamRelationships {
       return false;
     }
     UserTeamRelationships userTeamRelationships = (UserTeamRelationships) o;
-    return Objects.equals(this.team, userTeamRelationships.team)
-        && Objects.equals(this.user, userTeamRelationships.user)
+    return Objects.equals(this.user, userTeamRelationships.user)
         && Objects.equals(this.additionalProperties, userTeamRelationships.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(team, user, additionalProperties);
+    return Objects.hash(user, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserTeamRelationships {\n");
-    sb.append("    team: ").append(toIndentedString(team)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

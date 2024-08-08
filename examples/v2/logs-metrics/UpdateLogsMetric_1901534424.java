@@ -1,14 +1,22 @@
 // Update a log-based metric with include_percentiles field returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.LogsMetricsApi;
 import com.datadog.api.client.v2.model.LogsMetricResponse;
+import com.datadog.api.client.v2.model.LogsMetricComputeIncludePercentiles;
 import com.datadog.api.client.v2.model.LogsMetricType;
 import com.datadog.api.client.v2.model.LogsMetricUpdateAttributes;
 import com.datadog.api.client.v2.model.LogsMetricUpdateCompute;
 import com.datadog.api.client.v2.model.LogsMetricUpdateData;
 import com.datadog.api.client.v2.model.LogsMetricUpdateRequest;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -18,18 +26,15 @@ public class Example {
     // there is a valid "logs_metric_percentile" in the system
     String LOGS_METRIC_PERCENTILE_DATA_ID = System.getenv("LOGS_METRIC_PERCENTILE_DATA_ID");
 
-    LogsMetricUpdateRequest body =
-        new LogsMetricUpdateRequest()
-            .data(
-                new LogsMetricUpdateData()
-                    .type(LogsMetricType.LOGS_METRICS)
-                    .attributes(
-                        new LogsMetricUpdateAttributes()
-                            .compute(new LogsMetricUpdateCompute().includePercentiles(false))));
+    LogsMetricUpdateRequest body = new LogsMetricUpdateRequest()
+.data(new LogsMetricUpdateData()
+.type(LogsMetricType.LOGS_METRICS)
+.attributes(new LogsMetricUpdateAttributes()
+.compute(new LogsMetricUpdateCompute()
+.includePercentiles(false))));
 
     try {
-      LogsMetricResponse result =
-          apiInstance.updateLogsMetric(LOGS_METRIC_PERCENTILE_DATA_ID, body);
+      LogsMetricResponse result = apiInstance.updateLogsMetric(LOGS_METRIC_PERCENTILE_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LogsMetricsApi#updateLogsMetric");

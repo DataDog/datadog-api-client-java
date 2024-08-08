@@ -21,6 +21,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   OpsgenieServiceResponseAttributes.JSON_PROPERTY_CUSTOM_URL,
   OpsgenieServiceResponseAttributes.JSON_PROPERTY_NAME,
+  OpsgenieServiceResponseAttributes.JSON_PROPERTY_OPSGENIE_API_KEY,
   OpsgenieServiceResponseAttributes.JSON_PROPERTY_REGION
 })
 @jakarta.annotation.Generated(
@@ -32,6 +33,9 @@ public class OpsgenieServiceResponseAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_OPSGENIE_API_KEY = "opsgenie_api_key";
+  private String opsgenieApiKey;
 
   public static final String JSON_PROPERTY_REGION = "region";
   private OpsgenieServiceRegionType region;
@@ -86,6 +90,27 @@ public class OpsgenieServiceResponseAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public OpsgenieServiceResponseAttributes opsgenieApiKey(String opsgenieApiKey) {
+    this.opsgenieApiKey = opsgenieApiKey;
+    return this;
+  }
+
+  /**
+   * The OpsgenieServiceResponseAttributes opsgenie_api_key.
+   *
+   * @return opsgenieApiKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OPSGENIE_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOpsgenieApiKey() {
+    return opsgenieApiKey;
+  }
+
+  public void setOpsgenieApiKey(String opsgenieApiKey) {
+    this.opsgenieApiKey = opsgenieApiKey;
   }
 
   public OpsgenieServiceResponseAttributes region(OpsgenieServiceRegionType region) {
@@ -172,6 +197,7 @@ public class OpsgenieServiceResponseAttributes {
         (OpsgenieServiceResponseAttributes) o;
     return Objects.equals(this.customUrl, opsgenieServiceResponseAttributes.customUrl)
         && Objects.equals(this.name, opsgenieServiceResponseAttributes.name)
+        && Objects.equals(this.opsgenieApiKey, opsgenieServiceResponseAttributes.opsgenieApiKey)
         && Objects.equals(this.region, opsgenieServiceResponseAttributes.region)
         && Objects.equals(
             this.additionalProperties, opsgenieServiceResponseAttributes.additionalProperties);
@@ -179,7 +205,7 @@ public class OpsgenieServiceResponseAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUrl, name, region, additionalProperties);
+    return Objects.hash(customUrl, name, opsgenieApiKey, region, additionalProperties);
   }
 
   @Override
@@ -188,6 +214,7 @@ public class OpsgenieServiceResponseAttributes {
     sb.append("class OpsgenieServiceResponseAttributes {\n");
     sb.append("    customUrl: ").append(toIndentedString(customUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    opsgenieApiKey: ").append(toIndentedString(opsgenieApiKey)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

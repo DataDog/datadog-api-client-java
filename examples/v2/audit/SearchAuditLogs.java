@@ -1,7 +1,7 @@
 // Search Audit Logs events returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.AuditApi;
 import com.datadog.api.client.v2.api.AuditApi.SearchAuditLogsOptionalParameters;
 import com.datadog.api.client.v2.model.AuditLogsEventsResponse;
@@ -10,26 +10,33 @@ import com.datadog.api.client.v2.model.AuditLogsQueryOptions;
 import com.datadog.api.client.v2.model.AuditLogsQueryPageOptions;
 import com.datadog.api.client.v2.model.AuditLogsSearchEventsRequest;
 import com.datadog.api.client.v2.model.AuditLogsSort;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     AuditApi apiInstance = new AuditApi(defaultClient);
 
-    AuditLogsSearchEventsRequest body =
-        new AuditLogsSearchEventsRequest()
-            .filter(
-                new AuditLogsQueryFilter()
-                    .from("now-15m")
-                    .query("@type:session AND @session.type:user")
-                    .to("now"))
-            .options(new AuditLogsQueryOptions().timeOffset(0L).timezone("GMT"))
-            .page(new AuditLogsQueryPageOptions().limit(25))
-            .sort(AuditLogsSort.TIMESTAMP_ASCENDING);
+    AuditLogsSearchEventsRequest body = new AuditLogsSearchEventsRequest()
+.filter(new AuditLogsQueryFilter()
+.from("now-15m")
+.query("@type:session AND @session.type:user")
+.to("now"))
+.options(new AuditLogsQueryOptions()
+.timeOffset(0L)
+.timezone("GMT"))
+.page(new AuditLogsQueryPageOptions()
+.limit(25))
+.sort(AuditLogsSort.TIMESTAMP_ASCENDING);
 
     try {
-      AuditLogsEventsResponse result =
-          apiInstance.searchAuditLogs(new SearchAuditLogsOptionalParameters().body(body));
+      AuditLogsEventsResponse result = apiInstance.searchAuditLogs(new SearchAuditLogsOptionalParameters().body(body));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuditApi#searchAuditLogs");

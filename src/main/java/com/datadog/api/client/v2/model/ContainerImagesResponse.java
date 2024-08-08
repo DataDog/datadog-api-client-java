@@ -19,23 +19,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /** List of Container Images. */
-@JsonPropertyOrder({
-  ContainerImagesResponse.JSON_PROPERTY_DATA,
-  ContainerImagesResponse.JSON_PROPERTY_LINKS,
-  ContainerImagesResponse.JSON_PROPERTY_META
-})
+@JsonPropertyOrder({ContainerImagesResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ContainerImagesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<ContainerImageItem> data = null;
-
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private ContainerImagesResponseLinks links;
-
-  public static final String JSON_PROPERTY_META = "meta";
-  private ContainerImageMeta meta;
 
   public ContainerImagesResponse data(List<ContainerImageItem> data) {
     this.data = data;
@@ -68,50 +58,6 @@ public class ContainerImagesResponse {
 
   public void setData(List<ContainerImageItem> data) {
     this.data = data;
-  }
-
-  public ContainerImagesResponse links(ContainerImagesResponseLinks links) {
-    this.links = links;
-    this.unparsed |= links.unparsed;
-    return this;
-  }
-
-  /**
-   * Pagination links.
-   *
-   * @return links
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ContainerImagesResponseLinks getLinks() {
-    return links;
-  }
-
-  public void setLinks(ContainerImagesResponseLinks links) {
-    this.links = links;
-  }
-
-  public ContainerImagesResponse meta(ContainerImageMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * Response metadata object.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ContainerImageMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(ContainerImageMeta meta) {
-    this.meta = meta;
   }
 
   /**
@@ -171,14 +117,12 @@ public class ContainerImagesResponse {
     }
     ContainerImagesResponse containerImagesResponse = (ContainerImagesResponse) o;
     return Objects.equals(this.data, containerImagesResponse.data)
-        && Objects.equals(this.links, containerImagesResponse.links)
-        && Objects.equals(this.meta, containerImagesResponse.meta)
         && Objects.equals(this.additionalProperties, containerImagesResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, meta, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
@@ -186,8 +130,6 @@ public class ContainerImagesResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ContainerImagesResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

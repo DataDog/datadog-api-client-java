@@ -1,13 +1,21 @@
 // Create a shared dashboard returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.DashboardsApi;
+import com.datadog.api.client.v1.model.SharedDashboard;
 import com.datadog.api.client.v1.model.DashboardGlobalTime;
 import com.datadog.api.client.v1.model.DashboardGlobalTimeLiveSpan;
 import com.datadog.api.client.v1.model.DashboardShareType;
 import com.datadog.api.client.v1.model.DashboardType;
 import com.datadog.api.client.v1.model.SharedDashboard;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
@@ -17,13 +25,12 @@ public class Example {
     // there is a valid "dashboard" in the system
     String DASHBOARD_ID = System.getenv("DASHBOARD_ID");
 
-    SharedDashboard body =
-        new SharedDashboard()
-            .dashboardId(DASHBOARD_ID)
-            .dashboardType(DashboardType.CUSTOM_TIMEBOARD)
-            .shareType(DashboardShareType.OPEN)
-            .globalTime(
-                new DashboardGlobalTime().liveSpan(DashboardGlobalTimeLiveSpan.PAST_ONE_HOUR));
+    SharedDashboard body = new SharedDashboard()
+.dashboardId(DASHBOARD_ID)
+.dashboardType(DashboardType.CUSTOM_TIMEBOARD)
+.shareType(DashboardShareType.OPEN)
+.globalTime(new DashboardGlobalTime()
+.liveSpan(DashboardGlobalTimeLiveSpan.PAST_ONE_HOUR));
 
     try {
       SharedDashboard result = apiInstance.createPublicDashboard(body);

@@ -1,31 +1,36 @@
 // Search logs returns "OK" response
 
-import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v2.api.LogsApi;
 import com.datadog.api.client.v2.api.LogsApi.ListLogsOptionalParameters;
+import com.datadog.api.client.v2.model.LogsListResponse;
 import com.datadog.api.client.v2.model.LogsListRequest;
 import com.datadog.api.client.v2.model.LogsListRequestPage;
-import com.datadog.api.client.v2.model.LogsListResponse;
 import com.datadog.api.client.v2.model.LogsQueryFilter;
 import com.datadog.api.client.v2.model.LogsSort;
+import java.io.File;
+import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
-    LogsListRequest body =
-        new LogsListRequest()
-            .filter(
-                new LogsQueryFilter()
-                    .query("datadog-agent")
-                    .indexes(Collections.singletonList("main"))
-                    .from("2020-09-17T11:48:36+01:00")
-                    .to("2020-09-17T12:48:36+01:00"))
-            .sort(LogsSort.TIMESTAMP_ASCENDING)
-            .page(new LogsListRequestPage().limit(5));
+    LogsListRequest body = new LogsListRequest()
+.filter(new LogsQueryFilter()
+.query("datadog-agent")
+.indexes(Collections.singletonList("main"))
+.from("2020-09-17T11:48:36+01:00")
+.to("2020-09-17T12:48:36+01:00"))
+.sort(LogsSort.TIMESTAMP_ASCENDING)
+.page(new LogsListRequestPage()
+.limit(5));
 
     try {
       LogsListResponse result = apiInstance.listLogs(new ListLogsOptionalParameters().body(body));

@@ -21,8 +21,7 @@ import java.util.Objects;
 /** Array of AuthN Mappings response. */
 @JsonPropertyOrder({
   AuthNMappingsResponse.JSON_PROPERTY_DATA,
-  AuthNMappingsResponse.JSON_PROPERTY_INCLUDED,
-  AuthNMappingsResponse.JSON_PROPERTY_META
+  AuthNMappingsResponse.JSON_PROPERTY_INCLUDED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -33,9 +32,6 @@ public class AuthNMappingsResponse {
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<AuthNMappingIncluded> included = null;
-
-  public static final String JSON_PROPERTY_META = "meta";
-  private ResponseMetaAttributes meta;
 
   public AuthNMappingsResponse data(List<AuthNMapping> data) {
     this.data = data;
@@ -103,28 +99,6 @@ public class AuthNMappingsResponse {
     this.included = included;
   }
 
-  public AuthNMappingsResponse meta(ResponseMetaAttributes meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * Object describing meta attributes of response.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ResponseMetaAttributes getMeta() {
-    return meta;
-  }
-
-  public void setMeta(ResponseMetaAttributes meta) {
-    this.meta = meta;
-  }
-
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -183,13 +157,12 @@ public class AuthNMappingsResponse {
     AuthNMappingsResponse authNMappingsResponse = (AuthNMappingsResponse) o;
     return Objects.equals(this.data, authNMappingsResponse.data)
         && Objects.equals(this.included, authNMappingsResponse.included)
-        && Objects.equals(this.meta, authNMappingsResponse.meta)
         && Objects.equals(this.additionalProperties, authNMappingsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, meta, additionalProperties);
+    return Objects.hash(data, included, additionalProperties);
   }
 
   @Override
@@ -198,7 +171,6 @@ public class AuthNMappingsResponse {
     sb.append("class AuthNMappingsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
