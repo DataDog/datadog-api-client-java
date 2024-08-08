@@ -16,6 +16,7 @@ import com.datadog.api.client.v2.model.ApplicationKeysSort;
 import com.datadog.api.client.v2.model.ListApplicationKeysResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -920,6 +921,7 @@ public class KeyManagementApi {
   /** Manage optional parameters to getApplicationKey. */
   public static class GetApplicationKeyOptionalParameters {
     private String include;
+    private Boolean hideKey;
 
     /**
      * Set include.
@@ -930,6 +932,17 @@ public class KeyManagementApi {
      */
     public GetApplicationKeyOptionalParameters include(String include) {
       this.include = include;
+      return this;
+    }
+
+    /**
+     * Set hideKey.
+     *
+     * @param hideKey app key id (optional)
+     * @return GetApplicationKeyOptionalParameters
+     */
+    public GetApplicationKeyOptionalParameters hideKey(Boolean hideKey) {
+      this.hideKey = hideKey;
       return this;
     }
   }
@@ -1025,6 +1038,7 @@ public class KeyManagementApi {
           400, "Missing the required parameter 'appKeyId' when calling getApplicationKey");
     }
     String include = parameters.include;
+    Boolean hideKey = parameters.hideKey;
     // create path and map variables
     String localVarPath =
         "/api/v2/application_keys/{app_key_id}"
@@ -1034,6 +1048,7 @@ public class KeyManagementApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "hide_key", hideKey));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1077,6 +1092,7 @@ public class KeyManagementApi {
       return result;
     }
     String include = parameters.include;
+    Boolean hideKey = parameters.hideKey;
     // create path and map variables
     String localVarPath =
         "/api/v2/application_keys/{app_key_id}"
@@ -1086,6 +1102,7 @@ public class KeyManagementApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "hide_key", hideKey));
 
     Invocation.Builder builder;
     try {
@@ -1259,10 +1276,10 @@ public class KeyManagementApi {
     private Long pageNumber;
     private APIKeysSort sort;
     private String filter;
-    private String filterCreatedAtStart;
-    private String filterCreatedAtEnd;
-    private String filterModifiedAtStart;
-    private String filterModifiedAtEnd;
+    private OffsetDateTime filterCreatedAtStart;
+    private OffsetDateTime filterCreatedAtEnd;
+    private OffsetDateTime filterModifiedAtStart;
+    private OffsetDateTime filterModifiedAtEnd;
     private String include;
     private Boolean filterRemoteConfigReadEnabled;
     private String filterCategory;
@@ -1321,7 +1338,7 @@ public class KeyManagementApi {
      *     (optional)
      * @return ListAPIKeysOptionalParameters
      */
-    public ListAPIKeysOptionalParameters filterCreatedAtStart(String filterCreatedAtStart) {
+    public ListAPIKeysOptionalParameters filterCreatedAtStart(OffsetDateTime filterCreatedAtStart) {
       this.filterCreatedAtStart = filterCreatedAtStart;
       return this;
     }
@@ -1333,7 +1350,7 @@ public class KeyManagementApi {
      *     (optional)
      * @return ListAPIKeysOptionalParameters
      */
-    public ListAPIKeysOptionalParameters filterCreatedAtEnd(String filterCreatedAtEnd) {
+    public ListAPIKeysOptionalParameters filterCreatedAtEnd(OffsetDateTime filterCreatedAtEnd) {
       this.filterCreatedAtEnd = filterCreatedAtEnd;
       return this;
     }
@@ -1345,7 +1362,8 @@ public class KeyManagementApi {
      *     (optional)
      * @return ListAPIKeysOptionalParameters
      */
-    public ListAPIKeysOptionalParameters filterModifiedAtStart(String filterModifiedAtStart) {
+    public ListAPIKeysOptionalParameters filterModifiedAtStart(
+        OffsetDateTime filterModifiedAtStart) {
       this.filterModifiedAtStart = filterModifiedAtStart;
       return this;
     }
@@ -1357,7 +1375,7 @@ public class KeyManagementApi {
      *     (optional)
      * @return ListAPIKeysOptionalParameters
      */
-    public ListAPIKeysOptionalParameters filterModifiedAtEnd(String filterModifiedAtEnd) {
+    public ListAPIKeysOptionalParameters filterModifiedAtEnd(OffsetDateTime filterModifiedAtEnd) {
       this.filterModifiedAtEnd = filterModifiedAtEnd;
       return this;
     }
@@ -1480,10 +1498,10 @@ public class KeyManagementApi {
     Long pageNumber = parameters.pageNumber;
     APIKeysSort sort = parameters.sort;
     String filter = parameters.filter;
-    String filterCreatedAtStart = parameters.filterCreatedAtStart;
-    String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
-    String filterModifiedAtStart = parameters.filterModifiedAtStart;
-    String filterModifiedAtEnd = parameters.filterModifiedAtEnd;
+    OffsetDateTime filterCreatedAtStart = parameters.filterCreatedAtStart;
+    OffsetDateTime filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    OffsetDateTime filterModifiedAtStart = parameters.filterModifiedAtStart;
+    OffsetDateTime filterModifiedAtEnd = parameters.filterModifiedAtEnd;
     String include = parameters.include;
     Boolean filterRemoteConfigReadEnabled = parameters.filterRemoteConfigReadEnabled;
     String filterCategory = parameters.filterCategory;
@@ -1546,10 +1564,10 @@ public class KeyManagementApi {
     Long pageNumber = parameters.pageNumber;
     APIKeysSort sort = parameters.sort;
     String filter = parameters.filter;
-    String filterCreatedAtStart = parameters.filterCreatedAtStart;
-    String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
-    String filterModifiedAtStart = parameters.filterModifiedAtStart;
-    String filterModifiedAtEnd = parameters.filterModifiedAtEnd;
+    OffsetDateTime filterCreatedAtStart = parameters.filterCreatedAtStart;
+    OffsetDateTime filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    OffsetDateTime filterModifiedAtStart = parameters.filterModifiedAtStart;
+    OffsetDateTime filterModifiedAtEnd = parameters.filterModifiedAtEnd;
     String include = parameters.include;
     Boolean filterRemoteConfigReadEnabled = parameters.filterRemoteConfigReadEnabled;
     String filterCategory = parameters.filterCategory;
@@ -1610,8 +1628,8 @@ public class KeyManagementApi {
     private Long pageNumber;
     private ApplicationKeysSort sort;
     private String filter;
-    private String filterCreatedAtStart;
-    private String filterCreatedAtEnd;
+    private OffsetDateTime filterCreatedAtStart;
+    private OffsetDateTime filterCreatedAtEnd;
     private String include;
 
     /**
@@ -1668,7 +1686,8 @@ public class KeyManagementApi {
      *     date. (optional)
      * @return ListApplicationKeysOptionalParameters
      */
-    public ListApplicationKeysOptionalParameters filterCreatedAtStart(String filterCreatedAtStart) {
+    public ListApplicationKeysOptionalParameters filterCreatedAtStart(
+        OffsetDateTime filterCreatedAtStart) {
       this.filterCreatedAtStart = filterCreatedAtStart;
       return this;
     }
@@ -1680,7 +1699,8 @@ public class KeyManagementApi {
      *     date. (optional)
      * @return ListApplicationKeysOptionalParameters
      */
-    public ListApplicationKeysOptionalParameters filterCreatedAtEnd(String filterCreatedAtEnd) {
+    public ListApplicationKeysOptionalParameters filterCreatedAtEnd(
+        OffsetDateTime filterCreatedAtEnd) {
       this.filterCreatedAtEnd = filterCreatedAtEnd;
       return this;
     }
@@ -1780,8 +1800,8 @@ public class KeyManagementApi {
     Long pageNumber = parameters.pageNumber;
     ApplicationKeysSort sort = parameters.sort;
     String filter = parameters.filter;
-    String filterCreatedAtStart = parameters.filterCreatedAtStart;
-    String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    OffsetDateTime filterCreatedAtStart = parameters.filterCreatedAtStart;
+    OffsetDateTime filterCreatedAtEnd = parameters.filterCreatedAtEnd;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/application_keys";
@@ -1834,8 +1854,8 @@ public class KeyManagementApi {
     Long pageNumber = parameters.pageNumber;
     ApplicationKeysSort sort = parameters.sort;
     String filter = parameters.filter;
-    String filterCreatedAtStart = parameters.filterCreatedAtStart;
-    String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    OffsetDateTime filterCreatedAtStart = parameters.filterCreatedAtStart;
+    OffsetDateTime filterCreatedAtEnd = parameters.filterCreatedAtEnd;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/application_keys";
@@ -1887,8 +1907,8 @@ public class KeyManagementApi {
     private Long pageNumber;
     private ApplicationKeysSort sort;
     private String filter;
-    private String filterCreatedAtStart;
-    private String filterCreatedAtEnd;
+    private OffsetDateTime filterCreatedAtStart;
+    private OffsetDateTime filterCreatedAtEnd;
     private String include;
 
     /**
@@ -1946,7 +1966,7 @@ public class KeyManagementApi {
      * @return ListCurrentUserApplicationKeysOptionalParameters
      */
     public ListCurrentUserApplicationKeysOptionalParameters filterCreatedAtStart(
-        String filterCreatedAtStart) {
+        OffsetDateTime filterCreatedAtStart) {
       this.filterCreatedAtStart = filterCreatedAtStart;
       return this;
     }
@@ -1959,7 +1979,7 @@ public class KeyManagementApi {
      * @return ListCurrentUserApplicationKeysOptionalParameters
      */
     public ListCurrentUserApplicationKeysOptionalParameters filterCreatedAtEnd(
-        String filterCreatedAtEnd) {
+        OffsetDateTime filterCreatedAtEnd) {
       this.filterCreatedAtEnd = filterCreatedAtEnd;
       return this;
     }
@@ -2062,8 +2082,8 @@ public class KeyManagementApi {
     Long pageNumber = parameters.pageNumber;
     ApplicationKeysSort sort = parameters.sort;
     String filter = parameters.filter;
-    String filterCreatedAtStart = parameters.filterCreatedAtStart;
-    String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    OffsetDateTime filterCreatedAtStart = parameters.filterCreatedAtStart;
+    OffsetDateTime filterCreatedAtEnd = parameters.filterCreatedAtEnd;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/current_user/application_keys";
@@ -2117,8 +2137,8 @@ public class KeyManagementApi {
     Long pageNumber = parameters.pageNumber;
     ApplicationKeysSort sort = parameters.sort;
     String filter = parameters.filter;
-    String filterCreatedAtStart = parameters.filterCreatedAtStart;
-    String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    OffsetDateTime filterCreatedAtStart = parameters.filterCreatedAtStart;
+    OffsetDateTime filterCreatedAtEnd = parameters.filterCreatedAtEnd;
     String include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/current_user/application_keys";

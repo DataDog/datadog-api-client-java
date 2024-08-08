@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -33,13 +34,13 @@ public class PartialAPIKeyAttributes {
   private String category;
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private String createdAt;
+  private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_LAST4 = "last4";
   private String last4;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
-  private String modifiedAt;
+  private OffsetDateTime modifiedAt;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -77,7 +78,7 @@ public class PartialAPIKeyAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
@@ -101,7 +102,7 @@ public class PartialAPIKeyAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getModifiedAt() {
+  public OffsetDateTime getModifiedAt() {
     return modifiedAt;
   }
 

@@ -9,11 +9,13 @@ import com.datadog.api.client.v2.model.ApplicationKeyResponse;
 import com.datadog.api.client.v2.model.ApplicationKeyUpdateRequest;
 import com.datadog.api.client.v2.model.ApplicationKeysSort;
 import com.datadog.api.client.v2.model.ListApplicationKeysResponse;
+import com.datadog.api.client.v2.model.ListServiceAccountApplicationKeysInclude;
 import com.datadog.api.client.v2.model.PartialApplicationKeyResponse;
 import com.datadog.api.client.v2.model.ServiceAccountCreateRequest;
 import com.datadog.api.client.v2.model.UserResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -698,8 +700,9 @@ public class ServiceAccountsApi {
     private Long pageNumber;
     private ApplicationKeysSort sort;
     private String filter;
-    private String filterCreatedAtStart;
-    private String filterCreatedAtEnd;
+    private OffsetDateTime filterCreatedAtStart;
+    private OffsetDateTime filterCreatedAtEnd;
+    private List<ListServiceAccountApplicationKeysInclude> include;
 
     /**
      * Set pageSize.
@@ -756,7 +759,7 @@ public class ServiceAccountsApi {
      * @return ListServiceAccountApplicationKeysOptionalParameters
      */
     public ListServiceAccountApplicationKeysOptionalParameters filterCreatedAtStart(
-        String filterCreatedAtStart) {
+        OffsetDateTime filterCreatedAtStart) {
       this.filterCreatedAtStart = filterCreatedAtStart;
       return this;
     }
@@ -769,8 +772,20 @@ public class ServiceAccountsApi {
      * @return ListServiceAccountApplicationKeysOptionalParameters
      */
     public ListServiceAccountApplicationKeysOptionalParameters filterCreatedAtEnd(
-        String filterCreatedAtEnd) {
+        OffsetDateTime filterCreatedAtEnd) {
       this.filterCreatedAtEnd = filterCreatedAtEnd;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include service account id (optional)
+     * @return ListServiceAccountApplicationKeysOptionalParameters
+     */
+    public ListServiceAccountApplicationKeysOptionalParameters include(
+        List<ListServiceAccountApplicationKeysInclude> include) {
+      this.include = include;
       return this;
     }
   }
@@ -877,8 +892,9 @@ public class ServiceAccountsApi {
     Long pageNumber = parameters.pageNumber;
     ApplicationKeysSort sort = parameters.sort;
     String filter = parameters.filter;
-    String filterCreatedAtStart = parameters.filterCreatedAtStart;
-    String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    OffsetDateTime filterCreatedAtStart = parameters.filterCreatedAtStart;
+    OffsetDateTime filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    List<ListServiceAccountApplicationKeysInclude> include = parameters.include;
     // create path and map variables
     String localVarPath =
         "/api/v2/service_accounts/{service_account_id}/application_keys"
@@ -897,6 +913,7 @@ public class ServiceAccountsApi {
         apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -947,8 +964,9 @@ public class ServiceAccountsApi {
     Long pageNumber = parameters.pageNumber;
     ApplicationKeysSort sort = parameters.sort;
     String filter = parameters.filter;
-    String filterCreatedAtStart = parameters.filterCreatedAtStart;
-    String filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    OffsetDateTime filterCreatedAtStart = parameters.filterCreatedAtStart;
+    OffsetDateTime filterCreatedAtEnd = parameters.filterCreatedAtEnd;
+    List<ListServiceAccountApplicationKeysInclude> include = parameters.include;
     // create path and map variables
     String localVarPath =
         "/api/v2/service_accounts/{service_account_id}/application_keys"
@@ -967,6 +985,7 @@ public class ServiceAccountsApi {
         apiClient.parameterToPairs("", "filter[created_at][start]", filterCreatedAtStart));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[created_at][end]", filterCreatedAtEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
 
     Invocation.Builder builder;
     try {

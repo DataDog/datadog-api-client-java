@@ -18,13 +18,20 @@ import java.util.Map;
 import java.util.Objects;
 
 /** A user's relationship with a team */
-@JsonPropertyOrder({UserTeamUpdate.JSON_PROPERTY_ATTRIBUTES, UserTeamUpdate.JSON_PROPERTY_TYPE})
+@JsonPropertyOrder({
+  UserTeamUpdate.JSON_PROPERTY_ATTRIBUTES,
+  UserTeamUpdate.JSON_PROPERTY_ID,
+  UserTeamUpdate.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserTeamUpdate {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private UserTeamAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private UserTeamType type = UserTeamType.TEAM_MEMBERSHIPS;
@@ -58,6 +65,27 @@ public class UserTeamUpdate {
 
   public void setAttributes(UserTeamAttributes attributes) {
     this.attributes = attributes;
+  }
+
+  public UserTeamUpdate id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * ID of user team
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public UserTeamUpdate type(UserTeamType type) {
@@ -141,13 +169,14 @@ public class UserTeamUpdate {
     }
     UserTeamUpdate userTeamUpdate = (UserTeamUpdate) o;
     return Objects.equals(this.attributes, userTeamUpdate.attributes)
+        && Objects.equals(this.id, userTeamUpdate.id)
         && Objects.equals(this.type, userTeamUpdate.type)
         && Objects.equals(this.additionalProperties, userTeamUpdate.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
@@ -155,6 +184,7 @@ public class UserTeamUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserTeamUpdate {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

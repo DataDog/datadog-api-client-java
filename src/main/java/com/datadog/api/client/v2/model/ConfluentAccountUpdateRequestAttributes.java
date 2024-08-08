@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   ConfluentAccountUpdateRequestAttributes.JSON_PROPERTY_API_KEY,
   ConfluentAccountUpdateRequestAttributes.JSON_PROPERTY_API_SECRET,
+  ConfluentAccountUpdateRequestAttributes.JSON_PROPERTY_RESOURCES,
   ConfluentAccountUpdateRequestAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
@@ -34,6 +35,9 @@ public class ConfluentAccountUpdateRequestAttributes {
 
   public static final String JSON_PROPERTY_API_SECRET = "api_secret";
   private String apiSecret;
+
+  public static final String JSON_PROPERTY_RESOURCES = "resources";
+  private String resources;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -86,6 +90,27 @@ public class ConfluentAccountUpdateRequestAttributes {
 
   public void setApiSecret(String apiSecret) {
     this.apiSecret = apiSecret;
+  }
+
+  public ConfluentAccountUpdateRequestAttributes resources(String resources) {
+    this.resources = resources;
+    return this;
+  }
+
+  /**
+   * The ConfluentAccountUpdateRequestAttributes resources.
+   *
+   * @return resources
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getResources() {
+    return resources;
+  }
+
+  public void setResources(String resources) {
+    this.resources = resources;
   }
 
   public ConfluentAccountUpdateRequestAttributes tags(List<String> tags) {
@@ -177,6 +202,7 @@ public class ConfluentAccountUpdateRequestAttributes {
         (ConfluentAccountUpdateRequestAttributes) o;
     return Objects.equals(this.apiKey, confluentAccountUpdateRequestAttributes.apiKey)
         && Objects.equals(this.apiSecret, confluentAccountUpdateRequestAttributes.apiSecret)
+        && Objects.equals(this.resources, confluentAccountUpdateRequestAttributes.resources)
         && Objects.equals(this.tags, confluentAccountUpdateRequestAttributes.tags)
         && Objects.equals(
             this.additionalProperties,
@@ -185,7 +211,7 @@ public class ConfluentAccountUpdateRequestAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, apiSecret, tags, additionalProperties);
+    return Objects.hash(apiKey, apiSecret, resources, tags, additionalProperties);
   }
 
   @Override
@@ -194,6 +220,7 @@ public class ConfluentAccountUpdateRequestAttributes {
     sb.append("class ConfluentAccountUpdateRequestAttributes {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    apiSecret: ").append(toIndentedString(apiSecret)).append("\n");
+    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

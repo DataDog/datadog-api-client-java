@@ -26,8 +26,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
   TeamCreateAttributes.JSON_PROPERTY_BANNER,
   TeamCreateAttributes.JSON_PROPERTY_DESCRIPTION,
   TeamCreateAttributes.JSON_PROPERTY_HANDLE,
+  TeamCreateAttributes.JSON_PROPERTY_HANDLES,
   TeamCreateAttributes.JSON_PROPERTY_HIDDEN_MODULES,
+  TeamCreateAttributes.JSON_PROPERTY_LINK_COUNT,
   TeamCreateAttributes.JSON_PROPERTY_NAME,
+  TeamCreateAttributes.JSON_PROPERTY_SUMMARY,
   TeamCreateAttributes.JSON_PROPERTY_VISIBLE_MODULES
 })
 @jakarta.annotation.Generated(
@@ -46,11 +49,20 @@ public class TeamCreateAttributes {
   public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
 
+  public static final String JSON_PROPERTY_HANDLES = "handles";
+  private String handles;
+
   public static final String JSON_PROPERTY_HIDDEN_MODULES = "hidden_modules";
   private List<String> hiddenModules = null;
 
+  public static final String JSON_PROPERTY_LINK_COUNT = "link_count";
+  private Integer linkCount;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_SUMMARY = "summary";
+  private String summary;
 
   public static final String JSON_PROPERTY_VISIBLE_MODULES = "visible_modules";
   private List<String> visibleModules = null;
@@ -168,6 +180,27 @@ public class TeamCreateAttributes {
     this.handle = handle;
   }
 
+  public TeamCreateAttributes handles(String handles) {
+    this.handles = handles;
+    return this;
+  }
+
+  /**
+   * The TeamCreateAttributes handles.
+   *
+   * @return handles
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HANDLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHandles() {
+    return handles;
+  }
+
+  public void setHandles(String handles) {
+    this.handles = handles;
+  }
+
   public TeamCreateAttributes hiddenModules(List<String> hiddenModules) {
     this.hiddenModules = hiddenModules;
     return this;
@@ -197,6 +230,18 @@ public class TeamCreateAttributes {
     this.hiddenModules = hiddenModules;
   }
 
+  /**
+   * The number of links belonging to the team maximum: 2147483647
+   *
+   * @return linkCount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINK_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getLinkCount() {
+    return linkCount;
+  }
+
   public TeamCreateAttributes name(String name) {
     this.name = name;
     return this;
@@ -215,6 +260,18 @@ public class TeamCreateAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  /**
+   * A brief summary of the team
+   *
+   * @return summary
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUMMARY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSummary() {
+    return summary;
   }
 
   public TeamCreateAttributes visibleModules(List<String> visibleModules) {
@@ -306,8 +363,11 @@ public class TeamCreateAttributes {
         && Objects.equals(this.banner, teamCreateAttributes.banner)
         && Objects.equals(this.description, teamCreateAttributes.description)
         && Objects.equals(this.handle, teamCreateAttributes.handle)
+        && Objects.equals(this.handles, teamCreateAttributes.handles)
         && Objects.equals(this.hiddenModules, teamCreateAttributes.hiddenModules)
+        && Objects.equals(this.linkCount, teamCreateAttributes.linkCount)
         && Objects.equals(this.name, teamCreateAttributes.name)
+        && Objects.equals(this.summary, teamCreateAttributes.summary)
         && Objects.equals(this.visibleModules, teamCreateAttributes.visibleModules)
         && Objects.equals(this.additionalProperties, teamCreateAttributes.additionalProperties);
   }
@@ -319,8 +379,11 @@ public class TeamCreateAttributes {
         banner,
         description,
         handle,
+        handles,
         hiddenModules,
+        linkCount,
         name,
+        summary,
         visibleModules,
         additionalProperties);
   }
@@ -333,8 +396,11 @@ public class TeamCreateAttributes {
     sb.append("    banner: ").append(toIndentedString(banner)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
+    sb.append("    handles: ").append(toIndentedString(handles)).append("\n");
     sb.append("    hiddenModules: ").append(toIndentedString(hiddenModules)).append("\n");
+    sb.append("    linkCount: ").append(toIndentedString(linkCount)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    visibleModules: ").append(toIndentedString(visibleModules)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

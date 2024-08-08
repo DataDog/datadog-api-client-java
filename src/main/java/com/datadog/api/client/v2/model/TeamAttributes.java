@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   TeamAttributes.JSON_PROPERTY_CREATED_AT,
   TeamAttributes.JSON_PROPERTY_DESCRIPTION,
   TeamAttributes.JSON_PROPERTY_HANDLE,
+  TeamAttributes.JSON_PROPERTY_HANDLES,
   TeamAttributes.JSON_PROPERTY_HIDDEN_MODULES,
   TeamAttributes.JSON_PROPERTY_LINK_COUNT,
   TeamAttributes.JSON_PROPERTY_MODIFIED_AT,
@@ -54,6 +55,9 @@ public class TeamAttributes {
 
   public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
+
+  public static final String JSON_PROPERTY_HANDLES = "handles";
+  private String handles;
 
   public static final String JSON_PROPERTY_HIDDEN_MODULES = "hidden_modules";
   private List<String> hiddenModules = null;
@@ -218,6 +222,27 @@ public class TeamAttributes {
 
   public void setHandle(String handle) {
     this.handle = handle;
+  }
+
+  public TeamAttributes handles(String handles) {
+    this.handles = handles;
+    return this;
+  }
+
+  /**
+   * The TeamAttributes handles.
+   *
+   * @return handles
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HANDLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHandles() {
+    return handles;
+  }
+
+  public void setHandles(String handles) {
+    this.handles = handles;
   }
 
   public TeamAttributes hiddenModules(List<String> hiddenModules) {
@@ -435,6 +460,7 @@ public class TeamAttributes {
         && Objects.equals(this.createdAt, teamAttributes.createdAt)
         && Objects.equals(this.description, teamAttributes.description)
         && Objects.equals(this.handle, teamAttributes.handle)
+        && Objects.equals(this.handles, teamAttributes.handles)
         && Objects.equals(this.hiddenModules, teamAttributes.hiddenModules)
         && Objects.equals(this.linkCount, teamAttributes.linkCount)
         && Objects.equals(this.modifiedAt, teamAttributes.modifiedAt)
@@ -453,6 +479,7 @@ public class TeamAttributes {
         createdAt,
         description,
         handle,
+        handles,
         hiddenModules,
         linkCount,
         modifiedAt,
@@ -472,6 +499,7 @@ public class TeamAttributes {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
+    sb.append("    handles: ").append(toIndentedString(handles)).append("\n");
     sb.append("    hiddenModules: ").append(toIndentedString(hiddenModules)).append("\n");
     sb.append("    linkCount: ").append(toIndentedString(linkCount)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");

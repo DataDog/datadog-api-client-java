@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +22,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes used to update an application Key. */
 @JsonPropertyOrder({
+  ApplicationKeyUpdateAttributes.JSON_PROPERTY_CREATED_AT,
+  ApplicationKeyUpdateAttributes.JSON_PROPERTY_LAST4,
   ApplicationKeyUpdateAttributes.JSON_PROPERTY_NAME,
   ApplicationKeyUpdateAttributes.JSON_PROPERTY_SCOPES
 })
@@ -28,11 +31,59 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ApplicationKeyUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  private OffsetDateTime createdAt;
+
+  public static final String JSON_PROPERTY_LAST4 = "last4";
+  private String last4;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
   private JsonNullable<List<String>> scopes = JsonNullable.<List<String>>undefined();
+
+  public ApplicationKeyUpdateAttributes createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * The ApplicationKeyUpdateAttributes created_at.
+   *
+   * @return createdAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public ApplicationKeyUpdateAttributes last4(String last4) {
+    this.last4 = last4;
+    return this;
+  }
+
+  /**
+   * The ApplicationKeyUpdateAttributes last4.
+   *
+   * @return last4
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LAST4)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLast4() {
+    return last4;
+  }
+
+  public void setLast4(String last4) {
+    this.last4 = last4;
+  }
 
   public ApplicationKeyUpdateAttributes name(String name) {
     this.name = name;
@@ -155,7 +206,9 @@ public class ApplicationKeyUpdateAttributes {
     }
     ApplicationKeyUpdateAttributes applicationKeyUpdateAttributes =
         (ApplicationKeyUpdateAttributes) o;
-    return Objects.equals(this.name, applicationKeyUpdateAttributes.name)
+    return Objects.equals(this.createdAt, applicationKeyUpdateAttributes.createdAt)
+        && Objects.equals(this.last4, applicationKeyUpdateAttributes.last4)
+        && Objects.equals(this.name, applicationKeyUpdateAttributes.name)
         && Objects.equals(this.scopes, applicationKeyUpdateAttributes.scopes)
         && Objects.equals(
             this.additionalProperties, applicationKeyUpdateAttributes.additionalProperties);
@@ -163,13 +216,15 @@ public class ApplicationKeyUpdateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, scopes, additionalProperties);
+    return Objects.hash(createdAt, last4, name, scopes, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApplicationKeyUpdateAttributes {\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
     sb.append("    additionalProperties: ")

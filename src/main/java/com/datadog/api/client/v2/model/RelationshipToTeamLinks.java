@@ -19,19 +19,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Relationship between a team and a team link */
-@JsonPropertyOrder({
-  RelationshipToTeamLinks.JSON_PROPERTY_DATA,
-  RelationshipToTeamLinks.JSON_PROPERTY_LINKS
-})
+@JsonPropertyOrder({RelationshipToTeamLinks.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class RelationshipToTeamLinks {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<RelationshipToTeamLinkData> data = null;
-
-  public static final String JSON_PROPERTY_LINKS = "links";
-  private TeamRelationshipsLinks links;
 
   public RelationshipToTeamLinks data(List<RelationshipToTeamLinkData> data) {
     this.data = data;
@@ -64,28 +58,6 @@ public class RelationshipToTeamLinks {
 
   public void setData(List<RelationshipToTeamLinkData> data) {
     this.data = data;
-  }
-
-  public RelationshipToTeamLinks links(TeamRelationshipsLinks links) {
-    this.links = links;
-    this.unparsed |= links.unparsed;
-    return this;
-  }
-
-  /**
-   * Links attributes.
-   *
-   * @return links
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINKS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamRelationshipsLinks getLinks() {
-    return links;
-  }
-
-  public void setLinks(TeamRelationshipsLinks links) {
-    this.links = links;
   }
 
   /**
@@ -145,13 +117,12 @@ public class RelationshipToTeamLinks {
     }
     RelationshipToTeamLinks relationshipToTeamLinks = (RelationshipToTeamLinks) o;
     return Objects.equals(this.data, relationshipToTeamLinks.data)
-        && Objects.equals(this.links, relationshipToTeamLinks.links)
         && Objects.equals(this.additionalProperties, relationshipToTeamLinks.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, links, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
@@ -159,7 +130,6 @@ public class RelationshipToTeamLinks {
     StringBuilder sb = new StringBuilder();
     sb.append("class RelationshipToTeamLinks {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

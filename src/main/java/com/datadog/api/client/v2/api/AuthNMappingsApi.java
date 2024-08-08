@@ -468,6 +468,7 @@ public class AuthNMappingsApi {
     private AuthNMappingsSort sort;
     private String filter;
     private AuthNMappingResourceType resourceType;
+    private List<String> include;
 
     /**
      * Set pageSize.
@@ -523,6 +524,17 @@ public class AuthNMappingsApi {
      */
     public ListAuthNMappingsOptionalParameters resourceType(AuthNMappingResourceType resourceType) {
       this.resourceType = resourceType;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include include mapping (optional)
+     * @return ListAuthNMappingsOptionalParameters
+     */
+    public ListAuthNMappingsOptionalParameters include(List<String> include) {
+      this.include = include;
       return this;
     }
   }
@@ -608,6 +620,7 @@ public class AuthNMappingsApi {
     AuthNMappingsSort sort = parameters.sort;
     String filter = parameters.filter;
     AuthNMappingResourceType resourceType = parameters.resourceType;
+    List<String> include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/authn_mappings";
 
@@ -619,6 +632,7 @@ public class AuthNMappingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "resource_type", resourceType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -656,6 +670,7 @@ public class AuthNMappingsApi {
     AuthNMappingsSort sort = parameters.sort;
     String filter = parameters.filter;
     AuthNMappingResourceType resourceType = parameters.resourceType;
+    List<String> include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/authn_mappings";
 
@@ -667,6 +682,7 @@ public class AuthNMappingsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "resource_type", resourceType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "include", include));
 
     Invocation.Builder builder;
     try {

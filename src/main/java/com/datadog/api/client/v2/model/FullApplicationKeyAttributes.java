@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +23,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** Attributes of a full application key. */
 @JsonPropertyOrder({
   FullApplicationKeyAttributes.JSON_PROPERTY_CREATED_AT,
-  FullApplicationKeyAttributes.JSON_PROPERTY_KEY,
   FullApplicationKeyAttributes.JSON_PROPERTY_LAST4,
   FullApplicationKeyAttributes.JSON_PROPERTY_NAME,
   FullApplicationKeyAttributes.JSON_PROPERTY_SCOPES
@@ -32,10 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class FullApplicationKeyAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private String createdAt;
-
-  public static final String JSON_PROPERTY_KEY = "key";
-  private String key;
+  private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_LAST4 = "last4";
   private String last4;
@@ -54,20 +51,8 @@ public class FullApplicationKeyAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
-  }
-
-  /**
-   * The application key.
-   *
-   * @return key
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getKey() {
-    return key;
   }
 
   /**
@@ -203,7 +188,6 @@ public class FullApplicationKeyAttributes {
     }
     FullApplicationKeyAttributes fullApplicationKeyAttributes = (FullApplicationKeyAttributes) o;
     return Objects.equals(this.createdAt, fullApplicationKeyAttributes.createdAt)
-        && Objects.equals(this.key, fullApplicationKeyAttributes.key)
         && Objects.equals(this.last4, fullApplicationKeyAttributes.last4)
         && Objects.equals(this.name, fullApplicationKeyAttributes.name)
         && Objects.equals(this.scopes, fullApplicationKeyAttributes.scopes)
@@ -213,7 +197,7 @@ public class FullApplicationKeyAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, key, last4, name, scopes, additionalProperties);
+    return Objects.hash(createdAt, last4, name, scopes, additionalProperties);
   }
 
   @Override
@@ -221,7 +205,6 @@ public class FullApplicationKeyAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class FullApplicationKeyAttributes {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
