@@ -106,7 +106,7 @@ public class Example {
                                     .request(
                                         new SyntheticsTestRequest()
                                             .host("grpcbin.test.k6.io")
-                                            .port(9000L)
+                                            .port("9000")
                                             .service("grpcbin.GRPCBin")
                                             .method("Index")
                                             .message("{}")
