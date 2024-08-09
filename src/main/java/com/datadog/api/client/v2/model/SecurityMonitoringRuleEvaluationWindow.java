@@ -20,8 +20,7 @@ import java.util.Set;
 
 /**
  * A time window is specified to match when at least one of the cases matches true. This is a
- * sliding window and evaluates in real time. For third party rules, it should equal max signal
- * duration.
+ * sliding window and evaluates in real time. For third party rules, this field is not used.
  */
 @JsonSerialize(
     using =
