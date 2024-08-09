@@ -86,7 +86,7 @@ public class SyntheticsTestRequest {
   private String dnsServer;
 
   public static final String JSON_PROPERTY_DNS_SERVER_PORT = "dnsServerPort";
-  private Integer dnsServerPort;
+  private String dnsServerPort;
 
   public static final String JSON_PROPERTY_FILES = "files";
   private List<SyntheticsTestRequestBodyFile> files = null;
@@ -122,7 +122,7 @@ public class SyntheticsTestRequest {
   private Boolean persistCookies;
 
   public static final String JSON_PROPERTY_PORT = "port";
-  private Long port;
+  private String port;
 
   public static final String JSON_PROPERTY_PROXY = "proxy";
   private SyntheticsTestRequestProxy proxy;
@@ -375,24 +375,24 @@ public class SyntheticsTestRequest {
     this.dnsServer = dnsServer;
   }
 
-  public SyntheticsTestRequest dnsServerPort(Integer dnsServerPort) {
+  public SyntheticsTestRequest dnsServerPort(String dnsServerPort) {
     this.dnsServerPort = dnsServerPort;
     return this;
   }
 
   /**
-   * DNS server port to use for DNS tests. minimum: 1 maximum: 65535
+   * DNS server port to use for DNS tests.
    *
    * @return dnsServerPort
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DNS_SERVER_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getDnsServerPort() {
+  public String getDnsServerPort() {
     return dnsServerPort;
   }
 
-  public void setDnsServerPort(Integer dnsServerPort) {
+  public void setDnsServerPort(String dnsServerPort) {
     this.dnsServerPort = dnsServerPort;
   }
 
@@ -661,7 +661,7 @@ public class SyntheticsTestRequest {
     this.persistCookies = persistCookies;
   }
 
-  public SyntheticsTestRequest port(Long port) {
+  public SyntheticsTestRequest port(String port) {
     this.port = port;
     return this;
   }
@@ -674,11 +674,11 @@ public class SyntheticsTestRequest {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getPort() {
+  public String getPort() {
     return port;
   }
 
-  public void setPort(Long port) {
+  public void setPort(String port) {
     this.port = port;
   }
 
