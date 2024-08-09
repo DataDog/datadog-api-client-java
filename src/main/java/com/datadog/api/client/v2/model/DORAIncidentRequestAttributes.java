@@ -101,7 +101,8 @@ public class DORAIncidentRequestAttributes {
   }
 
   /**
-   * Unix timestamp in nanoseconds when the incident finished. It should not be older than 1 hour.
+   * Unix timestamp when the incident finished. It must be in nanoseconds, milliseconds, or seconds,
+   * and it should not be older than 1 hour.
    *
    * @return finishedAt
    */
@@ -237,7 +238,7 @@ public class DORAIncidentRequestAttributes {
   }
 
   /**
-   * Unix timestamp in nanoseconds when the incident started.
+   * Unix timestamp when the incident started. It must be in nanoseconds, milliseconds, or seconds.
    *
    * @return startedAt
    */
