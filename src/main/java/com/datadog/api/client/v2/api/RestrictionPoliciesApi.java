@@ -380,9 +380,9 @@ public class RestrictionPoliciesApi {
    * <p>Restriction policies can be applied to the following resources: - Dashboards: <code>
    * dashboard</code> - Notebooks: <code>notebook</code> - Powerpacks: <code>powerpack</code> -
    * Security Rules: <code>security-rule</code> - Service Level Objectives: <code>slo</code> -
-   * Synthetic Global Variables: <code>synthetic-global-variable</code> - Synthetic Tests: <code>
-   * synthetic-test</code> - Synthetic Private Locations: <code>synthetic-private-location</code> -
-   * Monitors: <code>monitor</code>
+   * Synthetic Global Variables: <code>synthetics-global-variable</code> - Synthetic Tests: <code>
+   * synthetics-test</code> - Synthetic Private Locations: <code>synthetics-private-location</code>
+   * - Monitors: <code>monitor</code>
    *
    * <h3>Supported relations for resources</h3>
    *
