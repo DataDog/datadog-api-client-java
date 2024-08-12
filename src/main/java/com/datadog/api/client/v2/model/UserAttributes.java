@@ -25,6 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UserAttributes.JSON_PROPERTY_EMAIL,
   UserAttributes.JSON_PROPERTY_HANDLE,
   UserAttributes.JSON_PROPERTY_ICON,
+  UserAttributes.JSON_PROPERTY_MFA_ENABLED,
   UserAttributes.JSON_PROPERTY_MODIFIED_AT,
   UserAttributes.JSON_PROPERTY_NAME,
   UserAttributes.JSON_PROPERTY_SERVICE_ACCOUNT,
@@ -50,6 +51,9 @@ public class UserAttributes {
 
   public static final String JSON_PROPERTY_ICON = "icon";
   private String icon;
+
+  public static final String JSON_PROPERTY_MFA_ENABLED = "mfa_enabled";
+  private Boolean mfaEnabled;
 
   public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
   private OffsetDateTime modifiedAt;
@@ -172,6 +176,18 @@ public class UserAttributes {
 
   public void setIcon(String icon) {
     this.icon = icon;
+  }
+
+  /**
+   * If user has MFA enabled.
+   *
+   * @return mfaEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MFA_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getMfaEnabled() {
+    return mfaEnabled;
   }
 
   public UserAttributes modifiedAt(OffsetDateTime modifiedAt) {
@@ -381,6 +397,7 @@ public class UserAttributes {
         && Objects.equals(this.email, userAttributes.email)
         && Objects.equals(this.handle, userAttributes.handle)
         && Objects.equals(this.icon, userAttributes.icon)
+        && Objects.equals(this.mfaEnabled, userAttributes.mfaEnabled)
         && Objects.equals(this.modifiedAt, userAttributes.modifiedAt)
         && Objects.equals(this.name, userAttributes.name)
         && Objects.equals(this.serviceAccount, userAttributes.serviceAccount)
@@ -398,6 +415,7 @@ public class UserAttributes {
         email,
         handle,
         icon,
+        mfaEnabled,
         modifiedAt,
         name,
         serviceAccount,
@@ -416,6 +434,7 @@ public class UserAttributes {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
+    sb.append("    mfaEnabled: ").append(toIndentedString(mfaEnabled)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
