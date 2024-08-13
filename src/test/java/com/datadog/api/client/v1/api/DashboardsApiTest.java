@@ -126,7 +126,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test Alert Graph Widget")
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)));
     Widget alertGraphWidget = new Widget().definition(new WidgetDefinition(alertGraphDefinition));
     orderedWidgetList.add(alertGraphWidget);
 
@@ -149,7 +149,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test Change Widget")
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)))
             .addCustomLinksItem(
                 new WidgetCustomLink()
                     .label("Test Custom Link label")
@@ -178,7 +178,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test Check Status Widget")
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)));
     Widget checkStatusWidget =
         new Widget().definition(new WidgetDefinition(checkStatusWidgetDefinition));
     orderedWidgetList.add(checkStatusWidget);
@@ -194,7 +194,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test Distribution Widget")
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES));
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)));
     Widget distributionWidget =
         new Widget().definition(new WidgetDefinition(distributionWidgetDefinition));
     orderedWidgetList.add(distributionWidget);
@@ -207,7 +207,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test Event Stream Widget")
             .titleSize("16")
             .titleAlign(WidgetTextAlign.CENTER)
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_ONE_DAY));
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_ONE_DAY)));
     Widget eventStreamWidget =
         new Widget()
             .definition(new WidgetDefinition(eventStreamWidgetDefinition))
@@ -221,7 +221,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test Event Timeline Widget")
             .titleSize("16")
             .titleAlign(WidgetTextAlign.LEFT)
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_ONE_MONTH));
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_ONE_MONTH)));
     Widget eventTimelineWidget =
         new Widget()
             .definition(new WidgetDefinition(eventTimelineWidgetDefinition))
@@ -267,7 +267,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .showLegend(true)
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)))
             .addCustomLinksItem(
                 new WidgetCustomLink()
                     .label("Test Custom Link label")
@@ -336,7 +336,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test Logstream Widget")
             .titleSize("16")
             .titleAlign(WidgetTextAlign.RIGHT)
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_TWO_DAYS))
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_TWO_DAYS)))
             .messageDisplay(WidgetMessageDisplay.EXPANDED_LARGE)
             .showDateColumn(true)
             .showMessageColumn(true)
@@ -404,7 +404,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test Query Value Widget")
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)))
             .addCustomLinksItem(
                 new WidgetCustomLink()
                     .label("Test Custom Link label")
@@ -432,7 +432,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test ScatterPlot Widget")
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)))
             .addCustomLinksItem(
                 new WidgetCustomLink()
                     .label("Test Custom Link label")
@@ -488,7 +488,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test Service Summary Widget")
             .titleSize("16")
             .titleAlign(WidgetTextAlign.CENTER)
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_ONE_HOUR));
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_ONE_HOUR)));
     Widget serviceSummaryWidget =
         new Widget()
             .definition(new WidgetDefinition(serviceSummaryWidgetDefinition))
@@ -518,7 +518,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test Table Widget")
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)))
             .addCustomLinksItem(
                 new WidgetCustomLink()
                     .label("Test Custom Link label")
@@ -569,7 +569,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .showLegend(true)
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)))
             .showLegend(true)
             .legendSize("16")
             .addCustomLinksItem(
@@ -617,7 +617,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .showLegend(true)
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)))
             .showLegend(true)
             .legendSize("16")
             .addCustomLinksItem(
@@ -673,7 +673,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .showLegend(true)
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)))
             .showLegend(true)
             .legendSize("16")
             .addCustomLinksItem(
@@ -730,7 +730,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .showLegend(true)
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)))
             .showLegend(true)
             .legendSize("16")
             .addCustomLinksItem(
@@ -759,7 +759,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .title("Test Toplist Widget")
             .titleAlign(WidgetTextAlign.CENTER)
             .titleSize("16")
-            .time(new WidgetTime().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES))
+            .time(new WidgetTime(new WidgetLegacyLiveSpan().liveSpan(WidgetLiveSpan.PAST_FIFTEEN_MINUTES)))
             .addCustomLinksItem(
                 new WidgetCustomLink()
                     .label("Test Custom Link label")
