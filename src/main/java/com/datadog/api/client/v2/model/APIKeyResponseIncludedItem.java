@@ -121,6 +121,48 @@ public class APIKeyResponseIncludedItem extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'User'", e);
       }
 
+      // deserialize LeakedKey
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (LeakedKey.class.equals(Integer.class)
+            || LeakedKey.class.equals(Long.class)
+            || LeakedKey.class.equals(Float.class)
+            || LeakedKey.class.equals(Double.class)
+            || LeakedKey.class.equals(Boolean.class)
+            || LeakedKey.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((LeakedKey.class.equals(Integer.class) || LeakedKey.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((LeakedKey.class.equals(Float.class) || LeakedKey.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (LeakedKey.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (LeakedKey.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(LeakedKey.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((LeakedKey) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'LeakedKey'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'LeakedKey'", e);
+      }
+
       APIKeyResponseIncludedItem ret = new APIKeyResponseIncludedItem();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -155,8 +197,14 @@ public class APIKeyResponseIncludedItem extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public APIKeyResponseIncludedItem(LeakedKey o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("User", new GenericType<User>() {});
+    schemas.put("LeakedKey", new GenericType<LeakedKey>() {});
     JSON.registerDescendants(
         APIKeyResponseIncludedItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -168,7 +216,7 @@ public class APIKeyResponseIncludedItem extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: User
+   * against the oneOf child schemas: User, LeakedKey
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -179,18 +227,22 @@ public class APIKeyResponseIncludedItem extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(LeakedKey.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be User");
+    throw new RuntimeException("Invalid instance type. Must be User, LeakedKey");
   }
 
   /**
-   * Get the actual instance, which can be the following: User
+   * Get the actual instance, which can be the following: User, LeakedKey
    *
-   * @return The actual instance (User)
+   * @return The actual instance (User, LeakedKey)
    */
   @Override
   public Object getActualInstance() {
@@ -206,5 +258,16 @@ public class APIKeyResponseIncludedItem extends AbstractOpenApiSchema {
    */
   public User getUser() throws ClassCastException {
     return (User) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `LeakedKey`. If the actual instance is not `LeakedKey`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `LeakedKey`
+   * @throws ClassCastException if the instance is not `LeakedKey`
+   */
+  public LeakedKey getLeakedKey() throws ClassCastException {
+    return (LeakedKey) super.getActualInstance();
   }
 }

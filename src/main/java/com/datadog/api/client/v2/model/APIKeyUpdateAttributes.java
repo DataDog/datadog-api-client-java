@@ -18,13 +18,24 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Attributes used to update an API Key. */
-@JsonPropertyOrder({APIKeyUpdateAttributes.JSON_PROPERTY_NAME})
+@JsonPropertyOrder({
+  APIKeyUpdateAttributes.JSON_PROPERTY_CATEGORY,
+  APIKeyUpdateAttributes.JSON_PROPERTY_NAME,
+  APIKeyUpdateAttributes.JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class APIKeyUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CATEGORY = "category";
+  private String category;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED =
+      "remote_config_read_enabled";
+  private Boolean remoteConfigReadEnabled;
 
   public APIKeyUpdateAttributes() {}
 
@@ -32,6 +43,27 @@ public class APIKeyUpdateAttributes {
   public APIKeyUpdateAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
+  }
+
+  public APIKeyUpdateAttributes category(String category) {
+    this.category = category;
+    return this;
+  }
+
+  /**
+   * The APIKeyUpdateAttributes category.
+   *
+   * @return category
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CATEGORY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
   }
 
   public APIKeyUpdateAttributes name(String name) {
@@ -52,6 +84,27 @@ public class APIKeyUpdateAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public APIKeyUpdateAttributes remoteConfigReadEnabled(Boolean remoteConfigReadEnabled) {
+    this.remoteConfigReadEnabled = remoteConfigReadEnabled;
+    return this;
+  }
+
+  /**
+   * The APIKeyUpdateAttributes remote_config_read_enabled.
+   *
+   * @return remoteConfigReadEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getRemoteConfigReadEnabled() {
+    return remoteConfigReadEnabled;
+  }
+
+  public void setRemoteConfigReadEnabled(Boolean remoteConfigReadEnabled) {
+    this.remoteConfigReadEnabled = remoteConfigReadEnabled;
   }
 
   /**
@@ -110,20 +163,27 @@ public class APIKeyUpdateAttributes {
       return false;
     }
     APIKeyUpdateAttributes apiKeyUpdateAttributes = (APIKeyUpdateAttributes) o;
-    return Objects.equals(this.name, apiKeyUpdateAttributes.name)
+    return Objects.equals(this.category, apiKeyUpdateAttributes.category)
+        && Objects.equals(this.name, apiKeyUpdateAttributes.name)
+        && Objects.equals(
+            this.remoteConfigReadEnabled, apiKeyUpdateAttributes.remoteConfigReadEnabled)
         && Objects.equals(this.additionalProperties, apiKeyUpdateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, additionalProperties);
+    return Objects.hash(category, name, remoteConfigReadEnabled, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class APIKeyUpdateAttributes {\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    remoteConfigReadEnabled: ")
+        .append(toIndentedString(remoteConfigReadEnabled))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
