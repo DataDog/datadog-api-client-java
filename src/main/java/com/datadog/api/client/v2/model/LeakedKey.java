@@ -17,94 +17,103 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes used to create an API Key. */
+/** The definition of LeakedKey object. */
 @JsonPropertyOrder({
-  APIKeyCreateAttributes.JSON_PROPERTY_CATEGORY,
-  APIKeyCreateAttributes.JSON_PROPERTY_NAME,
-  APIKeyCreateAttributes.JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED
+  LeakedKey.JSON_PROPERTY_ATTRIBUTES,
+  LeakedKey.JSON_PROPERTY_ID,
+  LeakedKey.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class APIKeyCreateAttributes {
+public class LeakedKey {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CATEGORY = "category";
-  private String category;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private LeakedKeyAttributes attributes;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public static final String JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED =
-      "remote_config_read_enabled";
-  private Boolean remoteConfigReadEnabled;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private LeakedKeyType type = LeakedKeyType.LEAKED_KEYS;
 
-  public APIKeyCreateAttributes() {}
+  public LeakedKey() {}
 
   @JsonCreator
-  public APIKeyCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
+  public LeakedKey(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          LeakedKeyAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LeakedKeyType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
-  public APIKeyCreateAttributes category(String category) {
-    this.category = category;
+  public LeakedKey attributes(LeakedKeyAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * The APIKeyCreateAttributes category.
+   * The definition of LeakedKeyAttributes object.
    *
-   * @return category
+   * @return attributes
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CATEGORY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCategory() {
-    return category;
-  }
-
-  public void setCategory(String category) {
-    this.category = category;
-  }
-
-  public APIKeyCreateAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the API key.
-   *
-   * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
+  public LeakedKeyAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setAttributes(LeakedKeyAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public APIKeyCreateAttributes remoteConfigReadEnabled(Boolean remoteConfigReadEnabled) {
-    this.remoteConfigReadEnabled = remoteConfigReadEnabled;
+  public LeakedKey id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * The APIKeyCreateAttributes remote_config_read_enabled.
+   * The LeakedKey id.
    *
-   * @return remoteConfigReadEnabled
+   * @return id
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REMOTE_CONFIG_READ_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getRemoteConfigReadEnabled() {
-    return remoteConfigReadEnabled;
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
   }
 
-  public void setRemoteConfigReadEnabled(Boolean remoteConfigReadEnabled) {
-    this.remoteConfigReadEnabled = remoteConfigReadEnabled;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public LeakedKey type(LeakedKeyType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * The definition of LeakedKeyType object.
+   *
+   * @return type
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LeakedKeyType getType() {
+    return type;
+  }
+
+  public void setType(LeakedKeyType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -119,10 +128,10 @@ public class APIKeyCreateAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return APIKeyCreateAttributes
+   * @return LeakedKey
    */
   @JsonAnySetter
-  public APIKeyCreateAttributes putAdditionalProperty(String key, Object value) {
+  public LeakedKey putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -153,7 +162,7 @@ public class APIKeyCreateAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this APIKeyCreateAttributes object is equal to o. */
+  /** Return true if this LeakedKey object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -162,28 +171,25 @@ public class APIKeyCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    APIKeyCreateAttributes apiKeyCreateAttributes = (APIKeyCreateAttributes) o;
-    return Objects.equals(this.category, apiKeyCreateAttributes.category)
-        && Objects.equals(this.name, apiKeyCreateAttributes.name)
-        && Objects.equals(
-            this.remoteConfigReadEnabled, apiKeyCreateAttributes.remoteConfigReadEnabled)
-        && Objects.equals(this.additionalProperties, apiKeyCreateAttributes.additionalProperties);
+    LeakedKey leakedKey = (LeakedKey) o;
+    return Objects.equals(this.attributes, leakedKey.attributes)
+        && Objects.equals(this.id, leakedKey.id)
+        && Objects.equals(this.type, leakedKey.type)
+        && Objects.equals(this.additionalProperties, leakedKey.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, name, remoteConfigReadEnabled, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class APIKeyCreateAttributes {\n");
-    sb.append("    category: ").append(toIndentedString(category)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    remoteConfigReadEnabled: ")
-        .append(toIndentedString(remoteConfigReadEnabled))
-        .append("\n");
+    sb.append("class LeakedKey {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

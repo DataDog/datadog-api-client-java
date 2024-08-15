@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Attributes object of a Cloudflare account. */
 @JsonPropertyOrder({
+  CloudflareAccountResponseAttributes.JSON_PROPERTY_API_KEY,
   CloudflareAccountResponseAttributes.JSON_PROPERTY_EMAIL,
   CloudflareAccountResponseAttributes.JSON_PROPERTY_NAME,
   CloudflareAccountResponseAttributes.JSON_PROPERTY_RESOURCES,
@@ -30,6 +31,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudflareAccountResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_API_KEY = "api_key";
+  private String apiKey;
+
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
@@ -48,6 +52,27 @@ public class CloudflareAccountResponseAttributes {
   public CloudflareAccountResponseAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
+  }
+
+  public CloudflareAccountResponseAttributes apiKey(String apiKey) {
+    this.apiKey = apiKey;
+    return this;
+  }
+
+  /**
+   * The CloudflareAccountResponseAttributes api_key.
+   *
+   * @return apiKey
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_API_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getApiKey() {
+    return apiKey;
+  }
+
+  public void setApiKey(String apiKey) {
+    this.apiKey = apiKey;
   }
 
   public CloudflareAccountResponseAttributes email(String email) {
@@ -206,7 +231,8 @@ public class CloudflareAccountResponseAttributes {
     }
     CloudflareAccountResponseAttributes cloudflareAccountResponseAttributes =
         (CloudflareAccountResponseAttributes) o;
-    return Objects.equals(this.email, cloudflareAccountResponseAttributes.email)
+    return Objects.equals(this.apiKey, cloudflareAccountResponseAttributes.apiKey)
+        && Objects.equals(this.email, cloudflareAccountResponseAttributes.email)
         && Objects.equals(this.name, cloudflareAccountResponseAttributes.name)
         && Objects.equals(this.resources, cloudflareAccountResponseAttributes.resources)
         && Objects.equals(this.zones, cloudflareAccountResponseAttributes.zones)
@@ -216,13 +242,14 @@ public class CloudflareAccountResponseAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, name, resources, zones, additionalProperties);
+    return Objects.hash(apiKey, email, name, resources, zones, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudflareAccountResponseAttributes {\n");
+    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
