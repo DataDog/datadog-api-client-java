@@ -16,6 +16,7 @@ import com.datadog.api.client.v1.model.SyntheticsDeleteTestsResponse;
 import com.datadog.api.client.v1.model.SyntheticsGetAPITestLatestResultsResponse;
 import com.datadog.api.client.v1.model.SyntheticsGetBrowserTestLatestResultsResponse;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariable;
+import com.datadog.api.client.v1.model.SyntheticsGlobalVariableRequest;
 import com.datadog.api.client.v1.model.SyntheticsListGlobalVariablesResponse;
 import com.datadog.api.client.v1.model.SyntheticsListTestsResponse;
 import com.datadog.api.client.v1.model.SyntheticsLocations;
@@ -75,7 +76,7 @@ public class SyntheticsApi {
    * @return SyntheticsGlobalVariable
    * @throws ApiException if fails to make API call
    */
-  public SyntheticsGlobalVariable createGlobalVariable(SyntheticsGlobalVariable body)
+  public SyntheticsGlobalVariable createGlobalVariable(SyntheticsGlobalVariableRequest body)
       throws ApiException {
     return createGlobalVariableWithHttpInfo(body).getData();
   }
@@ -89,7 +90,7 @@ public class SyntheticsApi {
    * @return CompletableFuture&lt;SyntheticsGlobalVariable&gt;
    */
   public CompletableFuture<SyntheticsGlobalVariable> createGlobalVariableAsync(
-      SyntheticsGlobalVariable body) {
+      SyntheticsGlobalVariableRequest body) {
     return createGlobalVariableWithHttpInfoAsync(body)
         .thenApply(
             response -> {
@@ -115,7 +116,7 @@ public class SyntheticsApi {
    *     </table>
    */
   public ApiResponse<SyntheticsGlobalVariable> createGlobalVariableWithHttpInfo(
-      SyntheticsGlobalVariable body) throws ApiException {
+      SyntheticsGlobalVariableRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -157,7 +158,7 @@ public class SyntheticsApi {
    * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsGlobalVariable&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SyntheticsGlobalVariable>>
-      createGlobalVariableWithHttpInfoAsync(SyntheticsGlobalVariable body) {
+      createGlobalVariableWithHttpInfoAsync(SyntheticsGlobalVariableRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1020,7 +1021,7 @@ public class SyntheticsApi {
    * @throws ApiException if fails to make API call
    */
   public SyntheticsGlobalVariable editGlobalVariable(
-      String variableId, SyntheticsGlobalVariable body) throws ApiException {
+      String variableId, SyntheticsGlobalVariableRequest body) throws ApiException {
     return editGlobalVariableWithHttpInfo(variableId, body).getData();
   }
 
@@ -1034,7 +1035,7 @@ public class SyntheticsApi {
    * @return CompletableFuture&lt;SyntheticsGlobalVariable&gt;
    */
   public CompletableFuture<SyntheticsGlobalVariable> editGlobalVariableAsync(
-      String variableId, SyntheticsGlobalVariable body) {
+      String variableId, SyntheticsGlobalVariableRequest body) {
     return editGlobalVariableWithHttpInfoAsync(variableId, body)
         .thenApply(
             response -> {
@@ -1060,7 +1061,7 @@ public class SyntheticsApi {
    *     </table>
    */
   public ApiResponse<SyntheticsGlobalVariable> editGlobalVariableWithHttpInfo(
-      String variableId, SyntheticsGlobalVariable body) throws ApiException {
+      String variableId, SyntheticsGlobalVariableRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'variableId' is set
@@ -1112,7 +1113,7 @@ public class SyntheticsApi {
    * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsGlobalVariable&gt;&gt;
    */
   public CompletableFuture<ApiResponse<SyntheticsGlobalVariable>>
-      editGlobalVariableWithHttpInfoAsync(String variableId, SyntheticsGlobalVariable body) {
+      editGlobalVariableWithHttpInfoAsync(String variableId, SyntheticsGlobalVariableRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'variableId' is set

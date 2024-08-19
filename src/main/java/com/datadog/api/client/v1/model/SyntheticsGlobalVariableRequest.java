@@ -19,22 +19,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Synthetic global variable. */
+/** Details of the global variable to create. */
 @JsonPropertyOrder({
-  SyntheticsGlobalVariable.JSON_PROPERTY_ATTRIBUTES,
-  SyntheticsGlobalVariable.JSON_PROPERTY_DESCRIPTION,
-  SyntheticsGlobalVariable.JSON_PROPERTY_ID,
-  SyntheticsGlobalVariable.JSON_PROPERTY_IS_FIDO,
-  SyntheticsGlobalVariable.JSON_PROPERTY_IS_TOTP,
-  SyntheticsGlobalVariable.JSON_PROPERTY_NAME,
-  SyntheticsGlobalVariable.JSON_PROPERTY_PARSE_TEST_OPTIONS,
-  SyntheticsGlobalVariable.JSON_PROPERTY_PARSE_TEST_PUBLIC_ID,
-  SyntheticsGlobalVariable.JSON_PROPERTY_TAGS,
-  SyntheticsGlobalVariable.JSON_PROPERTY_VALUE
+  SyntheticsGlobalVariableRequest.JSON_PROPERTY_ATTRIBUTES,
+  SyntheticsGlobalVariableRequest.JSON_PROPERTY_DESCRIPTION,
+  SyntheticsGlobalVariableRequest.JSON_PROPERTY_ID,
+  SyntheticsGlobalVariableRequest.JSON_PROPERTY_IS_FIDO,
+  SyntheticsGlobalVariableRequest.JSON_PROPERTY_IS_TOTP,
+  SyntheticsGlobalVariableRequest.JSON_PROPERTY_NAME,
+  SyntheticsGlobalVariableRequest.JSON_PROPERTY_PARSE_TEST_OPTIONS,
+  SyntheticsGlobalVariableRequest.JSON_PROPERTY_PARSE_TEST_PUBLIC_ID,
+  SyntheticsGlobalVariableRequest.JSON_PROPERTY_TAGS,
+  SyntheticsGlobalVariableRequest.JSON_PROPERTY_VALUE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsGlobalVariable {
+public class SyntheticsGlobalVariableRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private SyntheticsGlobalVariableAttributes attributes;
@@ -66,23 +66,19 @@ public class SyntheticsGlobalVariable {
   public static final String JSON_PROPERTY_VALUE = "value";
   private SyntheticsGlobalVariableValue value;
 
-  public SyntheticsGlobalVariable() {}
+  public SyntheticsGlobalVariableRequest() {}
 
   @JsonCreator
-  public SyntheticsGlobalVariable(
+  public SyntheticsGlobalVariableRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags,
-      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE)
-          SyntheticsGlobalVariableValue value) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags) {
     this.description = description;
     this.name = name;
     this.tags = tags;
-    this.value = value;
-    this.unparsed |= value.unparsed;
   }
 
-  public SyntheticsGlobalVariable attributes(SyntheticsGlobalVariableAttributes attributes) {
+  public SyntheticsGlobalVariableRequest attributes(SyntheticsGlobalVariableAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
@@ -104,7 +100,7 @@ public class SyntheticsGlobalVariable {
     this.attributes = attributes;
   }
 
-  public SyntheticsGlobalVariable description(String description) {
+  public SyntheticsGlobalVariableRequest description(String description) {
     this.description = description;
     return this;
   }
@@ -136,7 +132,7 @@ public class SyntheticsGlobalVariable {
     return id;
   }
 
-  public SyntheticsGlobalVariable isFido(Boolean isFido) {
+  public SyntheticsGlobalVariableRequest isFido(Boolean isFido) {
     this.isFido = isFido;
     return this;
   }
@@ -157,7 +153,7 @@ public class SyntheticsGlobalVariable {
     this.isFido = isFido;
   }
 
-  public SyntheticsGlobalVariable isTotp(Boolean isTotp) {
+  public SyntheticsGlobalVariableRequest isTotp(Boolean isTotp) {
     this.isTotp = isTotp;
     return this;
   }
@@ -178,7 +174,7 @@ public class SyntheticsGlobalVariable {
     this.isTotp = isTotp;
   }
 
-  public SyntheticsGlobalVariable name(String name) {
+  public SyntheticsGlobalVariableRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -198,7 +194,7 @@ public class SyntheticsGlobalVariable {
     this.name = name;
   }
 
-  public SyntheticsGlobalVariable parseTestOptions(
+  public SyntheticsGlobalVariableRequest parseTestOptions(
       SyntheticsGlobalVariableParseTestOptions parseTestOptions) {
     this.parseTestOptions = parseTestOptions;
     this.unparsed |= parseTestOptions.unparsed;
@@ -222,7 +218,7 @@ public class SyntheticsGlobalVariable {
     this.parseTestOptions = parseTestOptions;
   }
 
-  public SyntheticsGlobalVariable parseTestPublicId(String parseTestPublicId) {
+  public SyntheticsGlobalVariableRequest parseTestPublicId(String parseTestPublicId) {
     this.parseTestPublicId = parseTestPublicId;
     return this;
   }
@@ -243,12 +239,12 @@ public class SyntheticsGlobalVariable {
     this.parseTestPublicId = parseTestPublicId;
   }
 
-  public SyntheticsGlobalVariable tags(List<String> tags) {
+  public SyntheticsGlobalVariableRequest tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public SyntheticsGlobalVariable addTagsItem(String tagsItem) {
+  public SyntheticsGlobalVariableRequest addTagsItem(String tagsItem) {
     this.tags.add(tagsItem);
     return this;
   }
@@ -268,7 +264,7 @@ public class SyntheticsGlobalVariable {
     this.tags = tags;
   }
 
-  public SyntheticsGlobalVariable value(SyntheticsGlobalVariableValue value) {
+  public SyntheticsGlobalVariableRequest value(SyntheticsGlobalVariableValue value) {
     this.value = value;
     this.unparsed |= value.unparsed;
     return this;
@@ -279,8 +275,9 @@ public class SyntheticsGlobalVariable {
    *
    * @return value
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SyntheticsGlobalVariableValue getValue() {
     return value;
   }
@@ -301,10 +298,10 @@ public class SyntheticsGlobalVariable {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsGlobalVariable
+   * @return SyntheticsGlobalVariableRequest
    */
   @JsonAnySetter
-  public SyntheticsGlobalVariable putAdditionalProperty(String key, Object value) {
+  public SyntheticsGlobalVariableRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -335,7 +332,7 @@ public class SyntheticsGlobalVariable {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsGlobalVariable object is equal to o. */
+  /** Return true if this SyntheticsGlobalVariableRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -344,18 +341,20 @@ public class SyntheticsGlobalVariable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsGlobalVariable syntheticsGlobalVariable = (SyntheticsGlobalVariable) o;
-    return Objects.equals(this.attributes, syntheticsGlobalVariable.attributes)
-        && Objects.equals(this.description, syntheticsGlobalVariable.description)
-        && Objects.equals(this.id, syntheticsGlobalVariable.id)
-        && Objects.equals(this.isFido, syntheticsGlobalVariable.isFido)
-        && Objects.equals(this.isTotp, syntheticsGlobalVariable.isTotp)
-        && Objects.equals(this.name, syntheticsGlobalVariable.name)
-        && Objects.equals(this.parseTestOptions, syntheticsGlobalVariable.parseTestOptions)
-        && Objects.equals(this.parseTestPublicId, syntheticsGlobalVariable.parseTestPublicId)
-        && Objects.equals(this.tags, syntheticsGlobalVariable.tags)
-        && Objects.equals(this.value, syntheticsGlobalVariable.value)
-        && Objects.equals(this.additionalProperties, syntheticsGlobalVariable.additionalProperties);
+    SyntheticsGlobalVariableRequest syntheticsGlobalVariableRequest =
+        (SyntheticsGlobalVariableRequest) o;
+    return Objects.equals(this.attributes, syntheticsGlobalVariableRequest.attributes)
+        && Objects.equals(this.description, syntheticsGlobalVariableRequest.description)
+        && Objects.equals(this.id, syntheticsGlobalVariableRequest.id)
+        && Objects.equals(this.isFido, syntheticsGlobalVariableRequest.isFido)
+        && Objects.equals(this.isTotp, syntheticsGlobalVariableRequest.isTotp)
+        && Objects.equals(this.name, syntheticsGlobalVariableRequest.name)
+        && Objects.equals(this.parseTestOptions, syntheticsGlobalVariableRequest.parseTestOptions)
+        && Objects.equals(this.parseTestPublicId, syntheticsGlobalVariableRequest.parseTestPublicId)
+        && Objects.equals(this.tags, syntheticsGlobalVariableRequest.tags)
+        && Objects.equals(this.value, syntheticsGlobalVariableRequest.value)
+        && Objects.equals(
+            this.additionalProperties, syntheticsGlobalVariableRequest.additionalProperties);
   }
 
   @Override
@@ -377,7 +376,7 @@ public class SyntheticsGlobalVariable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsGlobalVariable {\n");
+    sb.append("class SyntheticsGlobalVariableRequest {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
