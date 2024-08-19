@@ -17,19 +17,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Attributes object for updating a Fastly account. */
-@JsonPropertyOrder({
-  FastlyAccountUpdateRequestAttributes.JSON_PROPERTY_API_KEY,
-  FastlyAccountUpdateRequestAttributes.JSON_PROPERTY_NAME
-})
+@JsonPropertyOrder({FastlyAccountUpdateRequestAttributes.JSON_PROPERTY_API_KEY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FastlyAccountUpdateRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
   private String apiKey;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
 
   public FastlyAccountUpdateRequestAttributes apiKey(String apiKey) {
     this.apiKey = apiKey;
@@ -50,27 +44,6 @@ public class FastlyAccountUpdateRequestAttributes {
 
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
-  }
-
-  public FastlyAccountUpdateRequestAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The FastlyAccountUpdateRequestAttributes name.
-   *
-   * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   /**
@@ -131,14 +104,13 @@ public class FastlyAccountUpdateRequestAttributes {
     FastlyAccountUpdateRequestAttributes fastlyAccountUpdateRequestAttributes =
         (FastlyAccountUpdateRequestAttributes) o;
     return Objects.equals(this.apiKey, fastlyAccountUpdateRequestAttributes.apiKey)
-        && Objects.equals(this.name, fastlyAccountUpdateRequestAttributes.name)
         && Objects.equals(
             this.additionalProperties, fastlyAccountUpdateRequestAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, name, additionalProperties);
+    return Objects.hash(apiKey, additionalProperties);
   }
 
   @Override
@@ -146,7 +118,6 @@ public class FastlyAccountUpdateRequestAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class FastlyAccountUpdateRequestAttributes {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
