@@ -23,7 +23,6 @@ import java.util.Objects;
 @JsonPropertyOrder({
   CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_API_KEY,
   CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_EMAIL,
-  CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_NAME,
   CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_RESOURCES,
   CloudflareAccountUpdateRequestAttributes.JSON_PROPERTY_ZONES
 })
@@ -36,9 +35,6 @@ public class CloudflareAccountUpdateRequestAttributes {
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
 
   public static final String JSON_PROPERTY_RESOURCES = "resources";
   private List<String> resources = null;
@@ -94,27 +90,6 @@ public class CloudflareAccountUpdateRequestAttributes {
 
   public void setEmail(String email) {
     this.email = email;
-  }
-
-  public CloudflareAccountUpdateRequestAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The CloudflareAccountUpdateRequestAttributes name.
-   *
-   * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   public CloudflareAccountUpdateRequestAttributes resources(List<String> resources) {
@@ -234,7 +209,6 @@ public class CloudflareAccountUpdateRequestAttributes {
         (CloudflareAccountUpdateRequestAttributes) o;
     return Objects.equals(this.apiKey, cloudflareAccountUpdateRequestAttributes.apiKey)
         && Objects.equals(this.email, cloudflareAccountUpdateRequestAttributes.email)
-        && Objects.equals(this.name, cloudflareAccountUpdateRequestAttributes.name)
         && Objects.equals(this.resources, cloudflareAccountUpdateRequestAttributes.resources)
         && Objects.equals(this.zones, cloudflareAccountUpdateRequestAttributes.zones)
         && Objects.equals(
@@ -244,7 +218,7 @@ public class CloudflareAccountUpdateRequestAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, email, name, resources, zones, additionalProperties);
+    return Objects.hash(apiKey, email, resources, zones, additionalProperties);
   }
 
   @Override
@@ -253,7 +227,6 @@ public class CloudflareAccountUpdateRequestAttributes {
     sb.append("class CloudflareAccountUpdateRequestAttributes {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("    zones: ").append(toIndentedString(zones)).append("\n");
     sb.append("    additionalProperties: ")
