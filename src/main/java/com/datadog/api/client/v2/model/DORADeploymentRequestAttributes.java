@@ -155,7 +155,7 @@ public class DORADeploymentRequestAttributes {
   }
 
   /**
-   * Service name from a service available in the Service Catalog.
+   * Service name.
    *
    * @return service
    */
