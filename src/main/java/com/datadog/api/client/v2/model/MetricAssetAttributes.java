@@ -16,14 +16,20 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Assets where only included attribute is its title */
-@JsonPropertyOrder({MetricAssetAttributes.JSON_PROPERTY_TITLE})
+/** Assets related to the object, including title and url. */
+@JsonPropertyOrder({
+  MetricAssetAttributes.JSON_PROPERTY_TITLE,
+  MetricAssetAttributes.JSON_PROPERTY_URL
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricAssetAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  public static final String JSON_PROPERTY_URL = "url";
+  private String url;
 
   public MetricAssetAttributes title(String title) {
     this.title = title;
@@ -44,6 +50,27 @@ public class MetricAssetAttributes {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+  public MetricAssetAttributes url(String url) {
+    this.url = url;
+    return this;
+  }
+
+  /**
+   * URL path of the asset.
+   *
+   * @return url
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
   /**
@@ -103,12 +130,13 @@ public class MetricAssetAttributes {
     }
     MetricAssetAttributes metricAssetAttributes = (MetricAssetAttributes) o;
     return Objects.equals(this.title, metricAssetAttributes.title)
+        && Objects.equals(this.url, metricAssetAttributes.url)
         && Objects.equals(this.additionalProperties, metricAssetAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, additionalProperties);
+    return Objects.hash(title, url, additionalProperties);
   }
 
   @Override
@@ -116,6 +144,7 @@ public class MetricAssetAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricAssetAttributes {\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
