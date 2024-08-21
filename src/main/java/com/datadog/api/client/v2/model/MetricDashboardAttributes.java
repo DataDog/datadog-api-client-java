@@ -16,10 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes related to the dashboard, including title and popularity. */
+/** Attributes related to the dashboard, including title, popularity, and url. */
 @JsonPropertyOrder({
   MetricDashboardAttributes.JSON_PROPERTY_POPULARITY,
-  MetricDashboardAttributes.JSON_PROPERTY_TITLE
+  MetricDashboardAttributes.JSON_PROPERTY_TITLE,
+  MetricDashboardAttributes.JSON_PROPERTY_URL
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -30,6 +31,9 @@ public class MetricDashboardAttributes {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  public static final String JSON_PROPERTY_URL = "url";
+  private String url;
 
   public MetricDashboardAttributes popularity(Double popularity) {
     this.popularity = popularity;
@@ -71,6 +75,27 @@ public class MetricDashboardAttributes {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+  public MetricDashboardAttributes url(String url) {
+    this.url = url;
+    return this;
+  }
+
+  /**
+   * URL path of the asset.
+   *
+   * @return url
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
   /**
@@ -131,13 +156,14 @@ public class MetricDashboardAttributes {
     MetricDashboardAttributes metricDashboardAttributes = (MetricDashboardAttributes) o;
     return Objects.equals(this.popularity, metricDashboardAttributes.popularity)
         && Objects.equals(this.title, metricDashboardAttributes.title)
+        && Objects.equals(this.url, metricDashboardAttributes.url)
         && Objects.equals(
             this.additionalProperties, metricDashboardAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(popularity, title, additionalProperties);
+    return Objects.hash(popularity, title, url, additionalProperties);
   }
 
   @Override
@@ -146,6 +172,7 @@ public class MetricDashboardAttributes {
     sb.append("class MetricDashboardAttributes {\n");
     sb.append("    popularity: ").append(toIndentedString(popularity)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
