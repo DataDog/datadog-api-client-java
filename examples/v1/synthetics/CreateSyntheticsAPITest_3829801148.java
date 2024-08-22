@@ -42,7 +42,7 @@ public class Example {
                         new SyntheticsTestRequest()
                             .host("https://datadoghq.com")
                             .message("message")
-                            .port(443L)))
+                            .port("443")))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_test_udp_payload.json")
             .name("Example-Synthetic")
