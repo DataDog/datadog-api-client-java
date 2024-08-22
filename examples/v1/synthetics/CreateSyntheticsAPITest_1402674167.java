@@ -48,7 +48,7 @@ public class Example {
                     .request(
                         new SyntheticsTestRequest()
                             .host("localhost")
-                            .port(50051L)
+                            .port("50051")
                             .service("Hello")
                             .method("GET")
                             .message("")
