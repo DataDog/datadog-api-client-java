@@ -13,6 +13,7 @@ import com.datadog.api.client.v1.model.SyntheticsBrowserTestResultFull;
 import com.datadog.api.client.v1.model.SyntheticsCITestBody;
 import com.datadog.api.client.v1.model.SyntheticsDeleteTestsPayload;
 import com.datadog.api.client.v1.model.SyntheticsDeleteTestsResponse;
+import com.datadog.api.client.v1.model.SyntheticsFetchUptimesPayload;
 import com.datadog.api.client.v1.model.SyntheticsGetAPITestLatestResultsResponse;
 import com.datadog.api.client.v1.model.SyntheticsGetBrowserTestLatestResultsResponse;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariable;
@@ -24,6 +25,7 @@ import com.datadog.api.client.v1.model.SyntheticsPatchTestBody;
 import com.datadog.api.client.v1.model.SyntheticsPrivateLocation;
 import com.datadog.api.client.v1.model.SyntheticsPrivateLocationCreationResponse;
 import com.datadog.api.client.v1.model.SyntheticsTestDetails;
+import com.datadog.api.client.v1.model.SyntheticsTestUptime;
 import com.datadog.api.client.v1.model.SyntheticsTriggerBody;
 import com.datadog.api.client.v1.model.SyntheticsTriggerCITestsResponse;
 import com.datadog.api.client.v1.model.SyntheticsUpdateTestPauseStatusPayload;
@@ -1166,6 +1168,138 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SyntheticsGlobalVariable>() {});
+  }
+
+  /**
+   * Fetch uptime for multiple tests.
+   *
+   * <p>See {@link #fetchUptimesWithHttpInfo}.
+   *
+   * @param body Public ID list of the Synthetic tests and timeframe. (required)
+   * @return List&lt;SyntheticsTestUptime&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<SyntheticsTestUptime> fetchUptimes(SyntheticsFetchUptimesPayload body)
+      throws ApiException {
+    return fetchUptimesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Fetch uptime for multiple tests.
+   *
+   * <p>See {@link #fetchUptimesWithHttpInfoAsync}.
+   *
+   * @param body Public ID list of the Synthetic tests and timeframe. (required)
+   * @return CompletableFuture&lt;List&lt;SyntheticsTestUptime&gt;&gt;
+   */
+  public CompletableFuture<List<SyntheticsTestUptime>> fetchUptimesAsync(
+      SyntheticsFetchUptimesPayload body) {
+    return fetchUptimesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetch uptime for multiple Synthetic tests by ID.
+   *
+   * @param body Public ID list of the Synthetic tests and timeframe. (required)
+   * @return ApiResponse&lt;List&lt;SyntheticsTestUptime&gt;&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<List<SyntheticsTestUptime>> fetchUptimesWithHttpInfo(
+      SyntheticsFetchUptimesPayload body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling fetchUptimes");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/uptimes";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.SyntheticsApi.fetchUptimes",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<SyntheticsTestUptime>>() {});
+  }
+
+  /**
+   * Fetch uptime for multiple tests.
+   *
+   * <p>See {@link #fetchUptimesWithHttpInfo}.
+   *
+   * @param body Public ID list of the Synthetic tests and timeframe. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;List&lt;SyntheticsTestUptime&gt;&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<List<SyntheticsTestUptime>>> fetchUptimesWithHttpInfoAsync(
+      SyntheticsFetchUptimesPayload body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<List<SyntheticsTestUptime>>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling fetchUptimes"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/uptimes";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.SyntheticsApi.fetchUptimes",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<List<SyntheticsTestUptime>>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<List<SyntheticsTestUptime>>() {});
   }
 
   /**
