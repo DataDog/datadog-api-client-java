@@ -54,7 +54,7 @@ public class MetricMonitorAsset {
   }
 
   /**
-   * Assets where only included attribute is its title
+   * Assets related to the object, including title and url.
    *
    * @return attributes
    */

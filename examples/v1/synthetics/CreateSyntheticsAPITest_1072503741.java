@@ -31,7 +31,7 @@ public class Example {
                                     .operator(SyntheticsAssertionOperator.IS_IN_MORE_DAYS_THAN)
                                     .target(10)
                                     .type(SyntheticsAssertionType.CERTIFICATE))))
-                    .request(new SyntheticsTestRequest().host("datadoghq.com").port(443L)))
+                    .request(new SyntheticsTestRequest().host("datadoghq.com").port("443")))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_ssl_test_payload.json")
             .name("Example-Synthetic")

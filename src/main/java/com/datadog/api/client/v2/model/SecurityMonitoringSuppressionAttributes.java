@@ -22,6 +22,7 @@ import java.util.Objects;
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_CREATOR,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_DATA_EXCLUSION_QUERY,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_DESCRIPTION,
+  SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_EDITABLE,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_ENABLED,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_EXPIRATION_DATE,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_NAME,
@@ -46,6 +47,9 @@ public class SecurityMonitoringSuppressionAttributes {
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_EDITABLE = "editable";
+  private Boolean editable;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
@@ -156,6 +160,27 @@ public class SecurityMonitoringSuppressionAttributes {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public SecurityMonitoringSuppressionAttributes editable(Boolean editable) {
+    this.editable = editable;
+    return this;
+  }
+
+  /**
+   * Whether the suppression rule is editable.
+   *
+   * @return editable
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EDITABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEditable() {
+    return editable;
+  }
+
+  public void setEditable(Boolean editable) {
+    this.editable = editable;
   }
 
   public SecurityMonitoringSuppressionAttributes enabled(Boolean enabled) {
@@ -393,6 +418,7 @@ public class SecurityMonitoringSuppressionAttributes {
         && Objects.equals(
             this.dataExclusionQuery, securityMonitoringSuppressionAttributes.dataExclusionQuery)
         && Objects.equals(this.description, securityMonitoringSuppressionAttributes.description)
+        && Objects.equals(this.editable, securityMonitoringSuppressionAttributes.editable)
         && Objects.equals(this.enabled, securityMonitoringSuppressionAttributes.enabled)
         && Objects.equals(
             this.expirationDate, securityMonitoringSuppressionAttributes.expirationDate)
@@ -415,6 +441,7 @@ public class SecurityMonitoringSuppressionAttributes {
         creator,
         dataExclusionQuery,
         description,
+        editable,
         enabled,
         expirationDate,
         name,
@@ -434,6 +461,7 @@ public class SecurityMonitoringSuppressionAttributes {
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    dataExclusionQuery: ").append(toIndentedString(dataExclusionQuery)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    editable: ").append(toIndentedString(editable)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
