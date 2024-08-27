@@ -28,6 +28,7 @@ public class Example {
                         .filter(new LogsExclusionFilter().query("*").sampleRate(1.0))
                         .name("payment")))
             .filter(new LogsFilter().query("source:python"))
+            .numFlexLogsRetentionDays(360L)
             .numRetentionDays(15L);
 
     try {

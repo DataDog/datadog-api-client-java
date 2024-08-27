@@ -27,6 +27,7 @@ public class Example {
                         .name("payment")))
             .filter(new LogsFilter().query("source:python"))
             .name("main")
+            .numFlexLogsRetentionDays(360L)
             .numRetentionDays(15L);
 
     try {
