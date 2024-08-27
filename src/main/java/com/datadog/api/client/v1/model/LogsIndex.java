@@ -28,6 +28,7 @@ import java.util.Objects;
   LogsIndex.JSON_PROPERTY_FILTER,
   LogsIndex.JSON_PROPERTY_IS_RATE_LIMITED,
   LogsIndex.JSON_PROPERTY_NAME,
+  LogsIndex.JSON_PROPERTY_NUM_FLEX_LOGS_RETENTION_DAYS,
   LogsIndex.JSON_PROPERTY_NUM_RETENTION_DAYS
 })
 @jakarta.annotation.Generated(
@@ -55,6 +56,10 @@ public class LogsIndex {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_NUM_FLEX_LOGS_RETENTION_DAYS =
+      "num_flex_logs_retention_days";
+  private Long numFlexLogsRetentionDays;
 
   public static final String JSON_PROPERTY_NUM_RETENTION_DAYS = "num_retention_days";
   private Long numRetentionDays;
@@ -225,14 +230,41 @@ public class LogsIndex {
     this.name = name;
   }
 
+  public LogsIndex numFlexLogsRetentionDays(Long numFlexLogsRetentionDays) {
+    this.numFlexLogsRetentionDays = numFlexLogsRetentionDays;
+    return this;
+  }
+
+  /**
+   * The total number of days logs are stored in Standard and Flex Tier before being deleted from
+   * the index. If Standard Tier is enabled on this index, logs are first retained in Standard Tier
+   * for the number of days specified through <code>num_retention_days</code>, and then stored in
+   * Flex Tier until the number of days specified in <code>num_flex_logs_retention_days</code> is
+   * reached. The available values depend on retention plans specified in your organization's
+   * contract/subscriptions.
+   *
+   * @return numFlexLogsRetentionDays
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NUM_FLEX_LOGS_RETENTION_DAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getNumFlexLogsRetentionDays() {
+    return numFlexLogsRetentionDays;
+  }
+
+  public void setNumFlexLogsRetentionDays(Long numFlexLogsRetentionDays) {
+    this.numFlexLogsRetentionDays = numFlexLogsRetentionDays;
+  }
+
   public LogsIndex numRetentionDays(Long numRetentionDays) {
     this.numRetentionDays = numRetentionDays;
     return this;
   }
 
   /**
-   * The number of days before logs are deleted from this index. Available values depend on
-   * retention plans specified in your organization's contract/subscriptions.
+   * The number of days logs are stored in Standard Tier before aging into the Flex Tier or being
+   * deleted from the index. The available values depend on retention plans specified in your
+   * organization's contract/subscriptions.
    *
    * @return numRetentionDays
    */
@@ -312,6 +344,7 @@ public class LogsIndex {
         && Objects.equals(this.filter, logsIndex.filter)
         && Objects.equals(this.isRateLimited, logsIndex.isRateLimited)
         && Objects.equals(this.name, logsIndex.name)
+        && Objects.equals(this.numFlexLogsRetentionDays, logsIndex.numFlexLogsRetentionDays)
         && Objects.equals(this.numRetentionDays, logsIndex.numRetentionDays)
         && Objects.equals(this.additionalProperties, logsIndex.additionalProperties);
   }
@@ -326,6 +359,7 @@ public class LogsIndex {
         filter,
         isRateLimited,
         name,
+        numFlexLogsRetentionDays,
         numRetentionDays,
         additionalProperties);
   }
@@ -343,6 +377,9 @@ public class LogsIndex {
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    isRateLimited: ").append(toIndentedString(isRateLimited)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    numFlexLogsRetentionDays: ")
+        .append(toIndentedString(numFlexLogsRetentionDays))
+        .append("\n");
     sb.append("    numRetentionDays: ").append(toIndentedString(numRetentionDays)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
