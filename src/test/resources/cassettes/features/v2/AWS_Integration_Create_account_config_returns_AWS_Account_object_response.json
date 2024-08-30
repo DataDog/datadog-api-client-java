@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"account_tags\":[],\"auth_config\":{\"role_name\":\"test\"},\"aws_account_id\":\"123456789012\",\"aws_partition\":\"aws\",\"aws_regions\":{\"include_only\":[\"us-east-1\"]},\"logs_config\":{\"lambda_forwarder\":{\"lambdas\":[],\"sources\":[\"s3\"]}},\"metrics_config\":{\"namespace_filters\":{\"include_only\":[\"AWS/EC2\"]},\"tag_filters\":[{\"namespace\":\"AWS/EC2\",\"tags\":[]}]},\"resources_config\":{},\"traces_config\":{\"xray_services\":{\"include_only\":[\"AWS/AppSync\"]}}},\"id\":\"123456789012\",\"type\":\"account\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/aws/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"7cd9c604-8bc9-4491-8b17-3754d09a0370\",\"type\":\"account\",\"attributes\":{\"account_tags\":null,\"auth_config\":{\"role_name\":\"test\",\"external_id\":\"1c94fa9639fd4266b96ce33e03277ce1\"},\"aws_account_id\":\"123456789012\",\"aws_partition\":\"aws\",\"aws_regions\":{\"include_only\":[\"us-east-1\"]},\"created_at\":\"2024-08-21T20:16:50.202384947Z\",\"logs_config\":{\"lambda_forwarder\":{\"sources\":[\"s3\"]}},\"metrics_config\":{\"enabled\":true,\"automute_enabled\":true,\"collect_custom_metrics\":false,\"collect_cloudwatch_alarms\":false,\"tag_filters\":[{\"namespace\":\"AWS/EC2\",\"tags\":null}],\"namespace_filters\":{\"include_only\":[\"AWS/EC2\"]}},\"modified_at\":\"2024-08-21T20:16:50.202388738Z\",\"resources_config\":{\"cloud_security_posture_management_collection\":false}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8064e139-e8ef-0d01-377a-9afa92268fdd"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/aws/accounts/123456789012",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e897b7ca-83cb-687c-d821-7ad147c155d3"
+  }
+]
