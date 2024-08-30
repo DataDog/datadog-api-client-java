@@ -1,5 +1,4 @@
 // Create a new SLO report returns "OK" response
-
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ServiceLevelObjectivesApi;
@@ -8,6 +7,7 @@ import com.datadog.api.client.v2.model.SLOReportPostResponse;
 import com.datadog.api.client.v2.model.SloReportCreateRequest;
 import com.datadog.api.client.v2.model.SloReportCreateRequestAttributes;
 import com.datadog.api.client.v2.model.SloReportCreateRequestData;
+import java.time.OffsetDateTime;
 
 public class Example {
   public static void main(String[] args) {
@@ -21,8 +21,8 @@ public class Example {
                 new SloReportCreateRequestData()
                     .attributes(
                         new SloReportCreateRequestAttributes()
-                            .fromTs(1690901870L)
-                            .toTs(1706803070L)
+                            .fromTs(OffsetDateTime.now().plusDays(-40).toInstant().getEpochSecond())
+                            .toTs(OffsetDateTime.now().toInstant().getEpochSecond())
                             .query("""
 slo_type:metric "SLO Reporting Test"
 """)
