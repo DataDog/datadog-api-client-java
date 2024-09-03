@@ -17,8 +17,8 @@ import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
-import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParseTestOptionsType;
 import com.datadog.api.client.v1.model.SyntheticsGlobalVariableParserType;
+import com.datadog.api.client.v1.model.SyntheticsLocalVariableParsingOptionsType;
 import com.datadog.api.client.v1.model.SyntheticsParsingOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestCallType;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
@@ -69,7 +69,7 @@ public class Example {
                                                         .type(
                                                             SyntheticsGlobalVariableParserType.RAW))
                                                 .type(
-                                                    SyntheticsGlobalVariableParseTestOptionsType
+                                                    SyntheticsLocalVariableParsingOptionsType
                                                         .HTTP_HEADER)
                                                 .secure(true)))
                                     .isCritical(true)

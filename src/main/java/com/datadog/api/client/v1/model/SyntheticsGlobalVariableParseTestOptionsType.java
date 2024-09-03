@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Property of the Synthetic Test Response to use for a Synthetic global variable. */
+/** Type of value to extract from a test for a Synthetic global variable. */
 @JsonSerialize(
     using =
         SyntheticsGlobalVariableParseTestOptionsType
@@ -26,12 +26,15 @@ import java.util.Set;
 public class SyntheticsGlobalVariableParseTestOptionsType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("http_body", "http_header", "local_variable"));
+      new HashSet<String>(
+          Arrays.asList("http_body", "http_header", "http_status_code", "local_variable"));
 
   public static final SyntheticsGlobalVariableParseTestOptionsType HTTP_BODY =
       new SyntheticsGlobalVariableParseTestOptionsType("http_body");
   public static final SyntheticsGlobalVariableParseTestOptionsType HTTP_HEADER =
       new SyntheticsGlobalVariableParseTestOptionsType("http_header");
+  public static final SyntheticsGlobalVariableParseTestOptionsType HTTP_STATUS_CODE =
+      new SyntheticsGlobalVariableParseTestOptionsType("http_status_code");
   public static final SyntheticsGlobalVariableParseTestOptionsType LOCAL_VARIABLE =
       new SyntheticsGlobalVariableParseTestOptionsType("local_variable");
 
