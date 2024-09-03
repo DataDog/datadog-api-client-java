@@ -10,6 +10,7 @@ import com.datadog.api.client.v1.model.DashboardLayoutType;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import com.datadog.api.client.v1.model.WidgetTime;
 import com.datadog.api.client.v1.model.WidgetVizType;
@@ -37,7 +38,7 @@ public class Example {
                                     .title("")
                                     .titleSize("16")
                                     .titleAlign(WidgetTextAlign.LEFT)
-                                    .time(new WidgetTime())
+                                    .time(new WidgetTime(new WidgetLegacyLiveSpan()))
                                     .type(AlertGraphWidgetDefinitionType.ALERT_GRAPH)
                                     .alertId("7")
                                     .vizType(WidgetVizType.TIMESERIES)))))

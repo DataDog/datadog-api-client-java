@@ -22,6 +22,7 @@ import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetDisplayType;
 import com.datadog.api.client.v1.model.WidgetFormula;
+import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetLineType;
 import com.datadog.api.client.v1.model.WidgetLineWidth;
 import com.datadog.api.client.v1.model.WidgetRequestStyle;
@@ -53,7 +54,7 @@ public class Example {
                                             TimeseriesWidgetLegendColumn.MAX,
                                             TimeseriesWidgetLegendColumn.VALUE,
                                             TimeseriesWidgetLegendColumn.SUM))
-                                    .time(new WidgetTime())
+                                    .time(new WidgetTime(new WidgetLegacyLiveSpan()))
                                     .type(TimeseriesWidgetDefinitionType.TIMESERIES)
                                     .requests(
                                         Collections.singletonList(

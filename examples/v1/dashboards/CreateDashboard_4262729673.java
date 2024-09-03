@@ -1,4 +1,4 @@
-// Create a new timeseries widget with incident_analytics data source
+// Create a new timeseries widget with legacy live span time format
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -25,6 +25,7 @@ import com.datadog.api.client.v1.model.WidgetFormula;
 import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetLineType;
 import com.datadog.api.client.v1.model.WidgetLineWidth;
+import com.datadog.api.client.v1.model.WidgetLiveSpan;
 import com.datadog.api.client.v1.model.WidgetRequestStyle;
 import com.datadog.api.client.v1.model.WidgetTime;
 import java.util.Arrays;
@@ -37,7 +38,7 @@ public class Example {
 
     Dashboard body =
         new Dashboard()
-            .title("Example-Dashboard with incident_analytics datasource")
+            .title("Example-Dashboard with legacy live span time")
             .widgets(
                 Collections.singletonList(
                     new Widget()
@@ -54,7 +55,10 @@ public class Example {
                                             TimeseriesWidgetLegendColumn.MAX,
                                             TimeseriesWidgetLegendColumn.VALUE,
                                             TimeseriesWidgetLegendColumn.SUM))
-                                    .time(new WidgetTime(new WidgetLegacyLiveSpan()))
+                                    .time(
+                                        new WidgetTime(
+                                            new WidgetLegacyLiveSpan()
+                                                .liveSpan(WidgetLiveSpan.PAST_FIVE_MINUTES)))
                                     .type(TimeseriesWidgetDefinitionType.TIMESERIES)
                                     .requests(
                                         Collections.singletonList(
@@ -68,18 +72,20 @@ public class Example {
                                                             new FormulaAndFunctionEventQueryDefinition()
                                                                 .dataSource(
                                                                     FormulaAndFunctionEventsDataSource
-                                                                        .INCIDENT_ANALYTICS)
+                                                                        .CI_PIPELINES)
                                                                 .name("query1")
                                                                 .search(
                                                                     new FormulaAndFunctionEventQueryDefinitionSearch()
-                                                                        .query("test_level:test"))
+                                                                        .query("ci_level:job"))
                                                                 .indexes(
                                                                     Collections.singletonList("*"))
                                                                 .compute(
                                                                     new FormulaAndFunctionEventQueryDefinitionCompute()
                                                                         .aggregation(
                                                                             FormulaAndFunctionEventAggregation
-                                                                                .COUNT)))))
+                                                                                .COUNT)
+                                                                        .metric(
+                                                                            "@ci.queue_time")))))
                                                 .responseFormat(
                                                     FormulaAndFunctionResponseFormat.TIMESERIES)
                                                 .style(

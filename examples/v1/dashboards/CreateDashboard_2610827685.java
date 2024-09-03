@@ -11,6 +11,7 @@ import com.datadog.api.client.v1.model.RunWorkflowWidgetInput;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import com.datadog.api.client.v1.model.WidgetTime;
 import java.util.Collections;
@@ -34,7 +35,7 @@ public class Example {
                                     .title("Run workflow title")
                                     .titleSize("16")
                                     .titleAlign(WidgetTextAlign.LEFT)
-                                    .time(new WidgetTime())
+                                    .time(new WidgetTime(new WidgetLegacyLiveSpan()))
                                     .type(RunWorkflowWidgetDefinitionType.RUN_WORKFLOW)
                                     .workflowId("2e055f16-8b6a-4cdd-b452-17a34c44b160")
                                     .inputs(
