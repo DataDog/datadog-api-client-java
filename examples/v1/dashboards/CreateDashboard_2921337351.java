@@ -10,6 +10,7 @@ import com.datadog.api.client.v1.model.ServiceSummaryWidgetDefinitionType;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetServiceSummaryDisplayFormat;
 import com.datadog.api.client.v1.model.WidgetSizeFormat;
 import com.datadog.api.client.v1.model.WidgetTime;
@@ -32,7 +33,7 @@ public class Example {
                             new WidgetDefinition(
                                 new ServiceSummaryWidgetDefinition()
                                     .title("Service Summary")
-                                    .time(new WidgetTime())
+                                    .time(new WidgetTime(new WidgetLegacyLiveSpan()))
                                     .type(ServiceSummaryWidgetDefinitionType.TRACE_SERVICE)
                                     .env("none")
                                     .service("")

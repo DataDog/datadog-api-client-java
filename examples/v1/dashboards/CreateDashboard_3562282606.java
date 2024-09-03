@@ -20,6 +20,7 @@ import com.datadog.api.client.v1.model.WidgetChangeType;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetFormula;
 import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetOrderBy;
 import com.datadog.api.client.v1.model.WidgetSort;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
@@ -47,7 +48,7 @@ public class Example {
                                     .title("")
                                     .titleSize("16")
                                     .titleAlign(WidgetTextAlign.LEFT)
-                                    .time(new WidgetTime())
+                                    .time(new WidgetTime(new WidgetLegacyLiveSpan()))
                                     .type(ChangeWidgetDefinitionType.CHANGE)
                                     .requests(
                                         Collections.singletonList(

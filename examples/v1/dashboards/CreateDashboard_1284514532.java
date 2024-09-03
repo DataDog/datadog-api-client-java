@@ -16,6 +16,7 @@ import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetDisplayType;
 import com.datadog.api.client.v1.model.WidgetFormula;
+import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetLineType;
 import com.datadog.api.client.v1.model.WidgetLineWidth;
 import com.datadog.api.client.v1.model.WidgetLiveSpan;
@@ -69,7 +70,9 @@ public class Example {
                                                         .lineWidth(WidgetLineWidth.NORMAL))
                                                 .displayType(WidgetDisplayType.BARS)))
                                     .time(
-                                        new WidgetTime().liveSpan(WidgetLiveSpan.WEEK_TO_DATE))))))
+                                        new WidgetTime(
+                                            new WidgetLegacyLiveSpan()
+                                                .liveSpan(WidgetLiveSpan.WEEK_TO_DATE)))))))
             .layoutType(DashboardLayoutType.ORDERED);
 
     try {

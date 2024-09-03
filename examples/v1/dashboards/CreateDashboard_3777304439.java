@@ -16,6 +16,7 @@ import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetFormula;
 import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetStyle;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import com.datadog.api.client.v1.model.WidgetTime;
@@ -39,7 +40,7 @@ public class Example {
                                     .title("")
                                     .titleSize("16")
                                     .titleAlign(WidgetTextAlign.LEFT)
-                                    .time(new WidgetTime())
+                                    .time(new WidgetTime(new WidgetLegacyLiveSpan()))
                                     .type(HeatMapWidgetDefinitionType.HEATMAP)
                                     .requests(
                                         Collections.singletonList(

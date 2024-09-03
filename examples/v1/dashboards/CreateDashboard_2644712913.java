@@ -17,6 +17,7 @@ import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetFormula;
 import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import com.datadog.api.client.v1.model.WidgetTime;
 import java.util.Collections;
@@ -40,7 +41,7 @@ public class Example {
                                     .title("")
                                     .titleAlign(WidgetTextAlign.LEFT)
                                     .precision(2L)
-                                    .time(new WidgetTime())
+                                    .time(new WidgetTime(new WidgetLegacyLiveSpan()))
                                     .autoscale(true)
                                     .requests(
                                         Collections.singletonList(

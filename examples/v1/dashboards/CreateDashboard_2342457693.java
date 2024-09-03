@@ -20,6 +20,7 @@ import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetAxis;
 import com.datadog.api.client.v1.model.WidgetDefinition;
 import com.datadog.api.client.v1.model.WidgetLayout;
+import com.datadog.api.client.v1.model.WidgetLegacyLiveSpan;
 import com.datadog.api.client.v1.model.WidgetTextAlign;
 import com.datadog.api.client.v1.model.WidgetTime;
 import java.util.Arrays;
@@ -44,7 +45,7 @@ public class Example {
                                     .title("")
                                     .titleSize("16")
                                     .titleAlign(WidgetTextAlign.LEFT)
-                                    .time(new WidgetTime())
+                                    .time(new WidgetTime(new WidgetLegacyLiveSpan()))
                                     .type(ScatterPlotWidgetDefinitionType.SCATTERPLOT)
                                     .requests(
                                         new ScatterPlotWidgetDefinitionRequests()
