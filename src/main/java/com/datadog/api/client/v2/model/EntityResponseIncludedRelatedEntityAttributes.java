@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -16,62 +16,57 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Parsing options for variables to extract. */
+/** Related entity attributes. */
 @JsonPropertyOrder({
-  SyntheticsParsingOptions.JSON_PROPERTY_FIELD,
-  SyntheticsParsingOptions.JSON_PROPERTY_NAME,
-  SyntheticsParsingOptions.JSON_PROPERTY_PARSER,
-  SyntheticsParsingOptions.JSON_PROPERTY_SECURE,
-  SyntheticsParsingOptions.JSON_PROPERTY_TYPE
+  EntityResponseIncludedRelatedEntityAttributes.JSON_PROPERTY_KIND,
+  EntityResponseIncludedRelatedEntityAttributes.JSON_PROPERTY_NAME,
+  EntityResponseIncludedRelatedEntityAttributes.JSON_PROPERTY_NAMESPACE,
+  EntityResponseIncludedRelatedEntityAttributes.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsParsingOptions {
+public class EntityResponseIncludedRelatedEntityAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
+  public static final String JSON_PROPERTY_KIND = "kind";
+  private String kind;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_PARSER = "parser";
-  private SyntheticsVariableParser parser;
-
-  public static final String JSON_PROPERTY_SECURE = "secure";
-  private Boolean secure;
+  public static final String JSON_PROPERTY_NAMESPACE = "namespace";
+  private String namespace;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SyntheticsLocalVariableParsingOptionsType type;
+  private String type;
 
-  public SyntheticsParsingOptions field(String field) {
-    this.field = field;
+  public EntityResponseIncludedRelatedEntityAttributes kind(String kind) {
+    this.kind = kind;
     return this;
   }
 
   /**
-   * When type is <code>http_header</code> or <code>grpc_metadata</code>, name of the header or
-   * metadatum to extract.
+   * Entity kind.
    *
-   * @return field
+   * @return kind
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonProperty(JSON_PROPERTY_KIND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getField() {
-    return field;
+  public String getKind() {
+    return kind;
   }
 
-  public void setField(String field) {
-    this.field = field;
+  public void setKind(String kind) {
+    this.kind = kind;
   }
 
-  public SyntheticsParsingOptions name(String name) {
+  public EntityResponseIncludedRelatedEntityAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Name of the variable to extract.
+   * Entity name.
    *
    * @return name
    */
@@ -86,71 +81,45 @@ public class SyntheticsParsingOptions {
     this.name = name;
   }
 
-  public SyntheticsParsingOptions parser(SyntheticsVariableParser parser) {
-    this.parser = parser;
-    this.unparsed |= parser.unparsed;
+  public EntityResponseIncludedRelatedEntityAttributes namespace(String namespace) {
+    this.namespace = namespace;
     return this;
   }
 
   /**
-   * Details of the parser to use for the global variable.
+   * Entity namespace.
    *
-   * @return parser
+   * @return namespace
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PARSER)
+  @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsVariableParser getParser() {
-    return parser;
+  public String getNamespace() {
+    return namespace;
   }
 
-  public void setParser(SyntheticsVariableParser parser) {
-    this.parser = parser;
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
   }
 
-  public SyntheticsParsingOptions secure(Boolean secure) {
-    this.secure = secure;
-    return this;
-  }
-
-  /**
-   * Determines whether or not the extracted value will be obfuscated.
-   *
-   * @return secure
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SECURE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getSecure() {
-    return secure;
-  }
-
-  public void setSecure(Boolean secure) {
-    this.secure = secure;
-  }
-
-  public SyntheticsParsingOptions type(SyntheticsLocalVariableParsingOptionsType type) {
+  public EntityResponseIncludedRelatedEntityAttributes type(String type) {
     this.type = type;
-    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Property of the Synthetic Test Response to extract into a local variable.
+   * Entity relation type to the associated entity.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsLocalVariableParsingOptionsType getType() {
+  public String getType() {
     return type;
   }
 
-  public void setType(SyntheticsLocalVariableParsingOptionsType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
+  public void setType(String type) {
     this.type = type;
   }
 
@@ -166,10 +135,11 @@ public class SyntheticsParsingOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsParsingOptions
+   * @return EntityResponseIncludedRelatedEntityAttributes
    */
   @JsonAnySetter
-  public SyntheticsParsingOptions putAdditionalProperty(String key, Object value) {
+  public EntityResponseIncludedRelatedEntityAttributes putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -200,7 +170,7 @@ public class SyntheticsParsingOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsParsingOptions object is equal to o. */
+  /** Return true if this EntityResponseIncludedRelatedEntityAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -209,28 +179,29 @@ public class SyntheticsParsingOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsParsingOptions syntheticsParsingOptions = (SyntheticsParsingOptions) o;
-    return Objects.equals(this.field, syntheticsParsingOptions.field)
-        && Objects.equals(this.name, syntheticsParsingOptions.name)
-        && Objects.equals(this.parser, syntheticsParsingOptions.parser)
-        && Objects.equals(this.secure, syntheticsParsingOptions.secure)
-        && Objects.equals(this.type, syntheticsParsingOptions.type)
-        && Objects.equals(this.additionalProperties, syntheticsParsingOptions.additionalProperties);
+    EntityResponseIncludedRelatedEntityAttributes entityResponseIncludedRelatedEntityAttributes =
+        (EntityResponseIncludedRelatedEntityAttributes) o;
+    return Objects.equals(this.kind, entityResponseIncludedRelatedEntityAttributes.kind)
+        && Objects.equals(this.name, entityResponseIncludedRelatedEntityAttributes.name)
+        && Objects.equals(this.namespace, entityResponseIncludedRelatedEntityAttributes.namespace)
+        && Objects.equals(this.type, entityResponseIncludedRelatedEntityAttributes.type)
+        && Objects.equals(
+            this.additionalProperties,
+            entityResponseIncludedRelatedEntityAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, name, parser, secure, type, additionalProperties);
+    return Objects.hash(kind, name, namespace, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsParsingOptions {\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
+    sb.append("class EntityResponseIncludedRelatedEntityAttributes {\n");
+    sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    parser: ").append(toIndentedString(parser)).append("\n");
-    sb.append("    secure: ").append(toIndentedString(secure)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

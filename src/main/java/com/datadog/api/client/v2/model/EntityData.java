@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -16,141 +16,138 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Parsing options for variables to extract. */
+/** Entity data. */
 @JsonPropertyOrder({
-  SyntheticsParsingOptions.JSON_PROPERTY_FIELD,
-  SyntheticsParsingOptions.JSON_PROPERTY_NAME,
-  SyntheticsParsingOptions.JSON_PROPERTY_PARSER,
-  SyntheticsParsingOptions.JSON_PROPERTY_SECURE,
-  SyntheticsParsingOptions.JSON_PROPERTY_TYPE
+  EntityData.JSON_PROPERTY_ATTRIBUTES,
+  EntityData.JSON_PROPERTY_ID,
+  EntityData.JSON_PROPERTY_META,
+  EntityData.JSON_PROPERTY_RELATIONSHIPS,
+  EntityData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsParsingOptions {
+public class EntityData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private EntityAttributes attributes;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public static final String JSON_PROPERTY_PARSER = "parser";
-  private SyntheticsVariableParser parser;
+  public static final String JSON_PROPERTY_META = "meta";
+  private EntityMeta meta;
 
-  public static final String JSON_PROPERTY_SECURE = "secure";
-  private Boolean secure;
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private EntityRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private SyntheticsLocalVariableParsingOptionsType type;
+  private String type;
 
-  public SyntheticsParsingOptions field(String field) {
-    this.field = field;
+  public EntityData attributes(EntityAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * When type is <code>http_header</code> or <code>grpc_metadata</code>, name of the header or
-   * metadatum to extract.
+   * Entity attributes.
    *
-   * @return field
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FIELD)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getField() {
-    return field;
+  public EntityAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setField(String field) {
-    this.field = field;
+  public void setAttributes(EntityAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public SyntheticsParsingOptions name(String name) {
-    this.name = name;
+  public EntityData id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Name of the variable to extract.
+   * Entity id.
    *
-   * @return name
+   * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
+  public String getId() {
+    return id;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public SyntheticsParsingOptions parser(SyntheticsVariableParser parser) {
-    this.parser = parser;
-    this.unparsed |= parser.unparsed;
+  public EntityData meta(EntityMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
     return this;
   }
 
   /**
-   * Details of the parser to use for the global variable.
+   * Entity metadata.
    *
-   * @return parser
+   * @return meta
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PARSER)
+  @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsVariableParser getParser() {
-    return parser;
+  public EntityMeta getMeta() {
+    return meta;
   }
 
-  public void setParser(SyntheticsVariableParser parser) {
-    this.parser = parser;
+  public void setMeta(EntityMeta meta) {
+    this.meta = meta;
   }
 
-  public SyntheticsParsingOptions secure(Boolean secure) {
-    this.secure = secure;
+  public EntityData relationships(EntityRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
     return this;
   }
 
   /**
-   * Determines whether or not the extracted value will be obfuscated.
+   * Entity relationships.
    *
-   * @return secure
+   * @return relationships
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SECURE)
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getSecure() {
-    return secure;
+  public EntityRelationships getRelationships() {
+    return relationships;
   }
 
-  public void setSecure(Boolean secure) {
-    this.secure = secure;
+  public void setRelationships(EntityRelationships relationships) {
+    this.relationships = relationships;
   }
 
-  public SyntheticsParsingOptions type(SyntheticsLocalVariableParsingOptionsType type) {
+  public EntityData type(String type) {
     this.type = type;
-    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Property of the Synthetic Test Response to extract into a local variable.
+   * Entity.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsLocalVariableParsingOptionsType getType() {
+  public String getType() {
     return type;
   }
 
-  public void setType(SyntheticsLocalVariableParsingOptionsType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
+  public void setType(String type) {
     this.type = type;
   }
 
@@ -166,10 +163,10 @@ public class SyntheticsParsingOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsParsingOptions
+   * @return EntityData
    */
   @JsonAnySetter
-  public SyntheticsParsingOptions putAdditionalProperty(String key, Object value) {
+  public EntityData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -200,7 +197,7 @@ public class SyntheticsParsingOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsParsingOptions object is equal to o. */
+  /** Return true if this EntityData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -209,28 +206,28 @@ public class SyntheticsParsingOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsParsingOptions syntheticsParsingOptions = (SyntheticsParsingOptions) o;
-    return Objects.equals(this.field, syntheticsParsingOptions.field)
-        && Objects.equals(this.name, syntheticsParsingOptions.name)
-        && Objects.equals(this.parser, syntheticsParsingOptions.parser)
-        && Objects.equals(this.secure, syntheticsParsingOptions.secure)
-        && Objects.equals(this.type, syntheticsParsingOptions.type)
-        && Objects.equals(this.additionalProperties, syntheticsParsingOptions.additionalProperties);
+    EntityData entityData = (EntityData) o;
+    return Objects.equals(this.attributes, entityData.attributes)
+        && Objects.equals(this.id, entityData.id)
+        && Objects.equals(this.meta, entityData.meta)
+        && Objects.equals(this.relationships, entityData.relationships)
+        && Objects.equals(this.type, entityData.type)
+        && Objects.equals(this.additionalProperties, entityData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, name, parser, secure, type, additionalProperties);
+    return Objects.hash(attributes, id, meta, relationships, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsParsingOptions {\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    parser: ").append(toIndentedString(parser)).append("\n");
-    sb.append("    secure: ").append(toIndentedString(secure)).append("\n");
+    sb.append("class EntityData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
