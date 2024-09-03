@@ -73,7 +73,7 @@ public class EventsApi {
     /**
      * Set filterFrom.
      *
-     * @param filterFrom Minimum timestamp for requested events. (optional)
+     * @param filterFrom Minimum timestamp for requested events, in milliseconds. (optional)
      * @return ListEventsOptionalParameters
      */
     public ListEventsOptionalParameters filterFrom(String filterFrom) {
@@ -84,7 +84,7 @@ public class EventsApi {
     /**
      * Set filterTo.
      *
-     * @param filterTo Maximum timestamp for requested events. (optional)
+     * @param filterTo Maximum timestamp for requested events, in milliseconds. (optional)
      * @return ListEventsOptionalParameters
      */
     public ListEventsOptionalParameters filterTo(String filterTo) {
