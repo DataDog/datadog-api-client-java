@@ -5,10 +5,10 @@
 ### Fixed
 * Add `is_totp` and `is_fido` to Synthetic global variables by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2384
 ### Added
-* Enable automerging for cloudflare routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2430
-* Enable automerging for Fastly routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2431
-* Enable automerging for opsgenie routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2432
-* Enable auto-merging for keys routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2433
+* Add `api_key` and `name` to `CloudflareAccountResponseAttributes`. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2430
+* Add `api_key` and `name` to `FastlyAccountUpdateRequestAttributes`. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2431
+* Add `opsgenie_api_key` to `OpsgenieServiceResponseAttributes`. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2432
+* Add `category` and `remote_config_read_enabled` to `APIKeyCreateAttributes`, and add `LeakedKey`. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2433
 * Allow 4 group-bys for pattern viz by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2441
 * add url attribute to metrics assets v2 api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2443
 * Add editable field to suppression rule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2340
@@ -17,7 +17,7 @@
 ### Changed
 * allow variables in port by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2424
 * Fix VFTs and extracted local variables enum types by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2405
-* Extend Widget time schema with support for new fixed_span and live_span object by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2428
+* Changed Widget time schema to add support for new fixed_span and live_span object by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2428
 ### Deprecated
 * mark groupby_simple_monitor as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-java/pull/2456
 
