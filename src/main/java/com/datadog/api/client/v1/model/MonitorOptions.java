@@ -312,10 +312,12 @@ public class MonitorOptions {
 
   /**
    * Whether the log alert monitor triggers a single alert or multiple alerts when any group
-   * breaches a threshold.
+   * breaches a threshold. Use <code>notify_by</code> instead.
    *
    * @return groupbySimpleMonitor
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUPBY_SIMPLE_MONITOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -323,6 +325,7 @@ public class MonitorOptions {
     return groupbySimpleMonitor;
   }
 
+  @Deprecated
   public void setGroupbySimpleMonitor(Boolean groupbySimpleMonitor) {
     this.groupbySimpleMonitor = groupbySimpleMonitor;
   }
