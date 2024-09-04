@@ -44,7 +44,7 @@ public class Example {
                     new SecurityMonitoringRuleOptions()
                         .detectionMethod(SecurityMonitoringRuleDetectionMethod.THIRD_PARTY)
                         .keepAlive(SecurityMonitoringRuleKeepAlive.ZERO_MINUTES)
-                        .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.ZERO_MINUTES)
+                        .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.TEN_MINUTES)
                         .thirdPartyRuleOptions(
                             new SecurityMonitoringRuleThirdPartyOptions()
                                 .defaultStatus(SecurityMonitoringRuleSeverity.INFO)
