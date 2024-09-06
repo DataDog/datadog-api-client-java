@@ -60,7 +60,8 @@ public class Example {
                                                     new ToplistWidgetStacked()
                                                         .type(ToplistWidgetStackedType.STACKED)
                                                         .legend(ToplistWidgetLegend.INLINE)))
-                                            .scaling(ToplistWidgetScaling.RELATIVE))
+                                            .scaling(ToplistWidgetScaling.RELATIVE)
+                                            .palette("dog_classic"))
                                     .type(ToplistWidgetDefinitionType.TOPLIST)
                                     .requests(
                                         Collections.singletonList(
