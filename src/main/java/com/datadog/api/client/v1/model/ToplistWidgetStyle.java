@@ -19,6 +19,7 @@ import java.util.Objects;
 /** Style customization for a top list widget. */
 @JsonPropertyOrder({
   ToplistWidgetStyle.JSON_PROPERTY_DISPLAY,
+  ToplistWidgetStyle.JSON_PROPERTY_PALETTE,
   ToplistWidgetStyle.JSON_PROPERTY_SCALING
 })
 @jakarta.annotation.Generated(
@@ -27,6 +28,9 @@ public class ToplistWidgetStyle {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY = "display";
   private ToplistWidgetDisplay display;
+
+  public static final String JSON_PROPERTY_PALETTE = "palette";
+  private String palette;
 
   public static final String JSON_PROPERTY_SCALING = "scaling";
   private ToplistWidgetScaling scaling;
@@ -51,6 +55,27 @@ public class ToplistWidgetStyle {
 
   public void setDisplay(ToplistWidgetDisplay display) {
     this.display = display;
+  }
+
+  public ToplistWidgetStyle palette(String palette) {
+    this.palette = palette;
+    return this;
+  }
+
+  /**
+   * Color palette to apply to the widget.
+   *
+   * @return palette
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PALETTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPalette() {
+    return palette;
+  }
+
+  public void setPalette(String palette) {
+    this.palette = palette;
   }
 
   public ToplistWidgetStyle scaling(ToplistWidgetScaling scaling) {
@@ -135,13 +160,14 @@ public class ToplistWidgetStyle {
     }
     ToplistWidgetStyle toplistWidgetStyle = (ToplistWidgetStyle) o;
     return Objects.equals(this.display, toplistWidgetStyle.display)
+        && Objects.equals(this.palette, toplistWidgetStyle.palette)
         && Objects.equals(this.scaling, toplistWidgetStyle.scaling)
         && Objects.equals(this.additionalProperties, toplistWidgetStyle.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(display, scaling, additionalProperties);
+    return Objects.hash(display, palette, scaling, additionalProperties);
   }
 
   @Override
@@ -149,6 +175,7 @@ public class ToplistWidgetStyle {
     StringBuilder sb = new StringBuilder();
     sb.append("class ToplistWidgetStyle {\n");
     sb.append("    display: ").append(toIndentedString(display)).append("\n");
+    sb.append("    palette: ").append(toIndentedString(palette)).append("\n");
     sb.append("    scaling: ").append(toIndentedString(scaling)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
