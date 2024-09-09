@@ -1,5 +1,9 @@
 name: Send PR Approval Status
 
+permissions:
+  contents: read
+  checks: write
+
 on:
   pull_request:
     branches:
