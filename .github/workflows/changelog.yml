@@ -2,7 +2,7 @@ name: "Ensure labels"
 
 permissions:
   contents: read
-  pull-requests: write
+  pull-requests: read
 
 on: # yamllint disable-line rule:truthy
   pull_request:
