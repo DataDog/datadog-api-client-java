@@ -2,7 +2,7 @@ name: "Pull Request Labeler"
 
 permissions:
   contents: read
-  pull-request: write
+  pull-requests: write
 
 on:
   - pull_request
