@@ -26,6 +26,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsHTTPVersion;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
+import com.datadog.api.client.v1.model.SyntheticsTestRequestPort;
 import com.datadog.api.client.v1.model.SyntheticsVariableParser;
 import java.util.Arrays;
 import java.util.Collections;
@@ -106,7 +107,7 @@ public class Example {
                                     .request(
                                         new SyntheticsTestRequest()
                                             .host("grpcbin.test.k6.io")
-                                            .port("9000")
+                                            .port(new SyntheticsTestRequestPort(9000L))
                                             .service("grpcbin.GRPCBin")
                                             .method("Index")
                                             .message("{}")

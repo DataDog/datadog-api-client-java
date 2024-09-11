@@ -13,6 +13,7 @@ import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
+import com.datadog.api.client.v1.model.SyntheticsTestRequestPort;
 import java.util.Collections;
 
 public class Example {
@@ -31,7 +32,10 @@ public class Example {
                                     .operator(SyntheticsAssertionOperator.IS_IN_MORE_DAYS_THAN)
                                     .target(10)
                                     .type(SyntheticsAssertionType.CERTIFICATE))))
-                    .request(new SyntheticsTestRequest().host("datadoghq.com").port("443")))
+                    .request(
+                        new SyntheticsTestRequest()
+                            .host("datadoghq.com")
+                            .port(new SyntheticsTestRequestPort("{{ DATADOG_PORT }}"))))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_ssl_test_payload.json")
             .name("Example-Synthetic")
