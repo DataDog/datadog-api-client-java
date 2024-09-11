@@ -39,7 +39,8 @@ import java.util.Objects;
   TableWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   TableWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   TableWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
-  TableWidgetRequest.JSON_PROPERTY_SORT
+  TableWidgetRequest.JSON_PROPERTY_SORT,
+  TableWidgetRequest.JSON_PROPERTY_TEXT_FORMATS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -104,6 +105,9 @@ public class TableWidgetRequest {
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private WidgetSortBy sort;
+
+  public static final String JSON_PROPERTY_TEXT_FORMATS = "text_formats";
+  private List<List<TableWidgetTextFormatRule>> textFormats = null;
 
   public TableWidgetRequest aggregator(WidgetAggregator aggregator) {
     this.aggregator = aggregator;
@@ -595,6 +599,35 @@ public class TableWidgetRequest {
     this.sort = sort;
   }
 
+  public TableWidgetRequest textFormats(List<List<TableWidgetTextFormatRule>> textFormats) {
+    this.textFormats = textFormats;
+    return this;
+  }
+
+  public TableWidgetRequest addTextFormatsItem(List<TableWidgetTextFormatRule> textFormatsItem) {
+    if (this.textFormats == null) {
+      this.textFormats = new ArrayList<>();
+    }
+    this.textFormats.add(textFormatsItem);
+    return this;
+  }
+
+  /**
+   * List of text formats for columns produced by tags.
+   *
+   * @return textFormats
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEXT_FORMATS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<List<TableWidgetTextFormatRule>> getTextFormats() {
+    return textFormats;
+  }
+
+  public void setTextFormats(List<List<TableWidgetTextFormatRule>> textFormats) {
+    this.textFormats = textFormats;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -671,6 +704,7 @@ public class TableWidgetRequest {
         && Objects.equals(this.rumQuery, tableWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, tableWidgetRequest.securityQuery)
         && Objects.equals(this.sort, tableWidgetRequest.sort)
+        && Objects.equals(this.textFormats, tableWidgetRequest.textFormats)
         && Objects.equals(this.additionalProperties, tableWidgetRequest.additionalProperties);
   }
 
@@ -697,6 +731,7 @@ public class TableWidgetRequest {
         rumQuery,
         securityQuery,
         sort,
+        textFormats,
         additionalProperties);
   }
 
@@ -726,6 +761,7 @@ public class TableWidgetRequest {
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    textFormats: ").append(toIndentedString(textFormats)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
