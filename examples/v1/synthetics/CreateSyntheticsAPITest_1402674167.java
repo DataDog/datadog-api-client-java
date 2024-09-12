@@ -14,6 +14,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsMonitorOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
+import com.datadog.api.client.v1.model.SyntheticsTestRequestPort;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
@@ -48,7 +49,7 @@ public class Example {
                     .request(
                         new SyntheticsTestRequest()
                             .host("localhost")
-                            .port("50051")
+                            .port(new SyntheticsTestRequestPort(50051L))
                             .service("Hello")
                             .method("GET")
                             .message("")

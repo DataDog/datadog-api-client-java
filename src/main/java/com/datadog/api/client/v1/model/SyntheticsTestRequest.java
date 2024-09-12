@@ -122,7 +122,7 @@ public class SyntheticsTestRequest {
   private Boolean persistCookies;
 
   public static final String JSON_PROPERTY_PORT = "port";
-  private String port;
+  private SyntheticsTestRequestPort port;
 
   public static final String JSON_PROPERTY_PROXY = "proxy";
   private SyntheticsTestRequestProxy proxy;
@@ -661,8 +661,9 @@ public class SyntheticsTestRequest {
     this.persistCookies = persistCookies;
   }
 
-  public SyntheticsTestRequest port(String port) {
+  public SyntheticsTestRequest port(SyntheticsTestRequestPort port) {
     this.port = port;
+    this.unparsed |= port.unparsed;
     return this;
   }
 
@@ -674,11 +675,11 @@ public class SyntheticsTestRequest {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPort() {
+  public SyntheticsTestRequestPort getPort() {
     return port;
   }
 
-  public void setPort(String port) {
+  public void setPort(SyntheticsTestRequestPort port) {
     this.port = port;
   }
 

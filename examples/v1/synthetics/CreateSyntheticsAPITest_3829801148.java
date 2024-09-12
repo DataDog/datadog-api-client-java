@@ -14,6 +14,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTestRequest;
+import com.datadog.api.client.v1.model.SyntheticsTestRequestPort;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -42,7 +43,7 @@ public class Example {
                         new SyntheticsTestRequest()
                             .host("https://datadoghq.com")
                             .message("message")
-                            .port("443")))
+                            .port(new SyntheticsTestRequestPort(443L))))
             .locations(Collections.singletonList("aws:us-east-2"))
             .message("BDD test payload: synthetics_api_test_udp_payload.json")
             .name("Example-Synthetic")
