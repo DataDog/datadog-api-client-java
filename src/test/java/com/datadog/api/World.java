@@ -653,7 +653,7 @@ public class World {
     Object result = data;
     for (String dotPart : path.split("\\.")) {
       for (String part : dotPart.split("\\[")) {
-        if (part == "") {
+        if (part.length() > 0) {
           continue;
         }
         if (part.contains("]")) {
