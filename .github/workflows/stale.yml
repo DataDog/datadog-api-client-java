@@ -1,6 +1,11 @@
 # Configuration for https://github.com/actions/stale
 
 name: "Stale issues and pull requests"
+
+permissions:
+  contents: read
+  pull-requests: write
+
 on:
   schedule:
     - cron: "0 0 * * *"
