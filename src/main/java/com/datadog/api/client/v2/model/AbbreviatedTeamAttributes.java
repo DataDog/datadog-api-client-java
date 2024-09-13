@@ -13,59 +13,57 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Team update attributes */
+/** The definition of <code>AbbreviatedTeamAttributes</code> object. */
 @JsonPropertyOrder({
-  TeamUpdateAttributes.JSON_PROPERTY_AVATAR,
-  TeamUpdateAttributes.JSON_PROPERTY_BANNER,
-  TeamUpdateAttributes.JSON_PROPERTY_DESCRIPTION,
-  TeamUpdateAttributes.JSON_PROPERTY_HANDLE,
-  TeamUpdateAttributes.JSON_PROPERTY_HIDDEN_MODULES,
-  TeamUpdateAttributes.JSON_PROPERTY_NAME,
-  TeamUpdateAttributes.JSON_PROPERTY_VISIBLE_MODULES
+  AbbreviatedTeamAttributes.JSON_PROPERTY_AVATAR,
+  AbbreviatedTeamAttributes.JSON_PROPERTY_BANNER,
+  AbbreviatedTeamAttributes.JSON_PROPERTY_HANDLE,
+  AbbreviatedTeamAttributes.JSON_PROPERTY_HANDLES,
+  AbbreviatedTeamAttributes.JSON_PROPERTY_IS_OPEN_MEMBERSHIP,
+  AbbreviatedTeamAttributes.JSON_PROPERTY_NAME,
+  AbbreviatedTeamAttributes.JSON_PROPERTY_SUMMARY
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamUpdateAttributes {
+public class AbbreviatedTeamAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVATAR = "avatar";
   private JsonNullable<String> avatar = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_BANNER = "banner";
-  private JsonNullable<Long> banner = JsonNullable.<Long>undefined();
-
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  private Long banner;
 
   public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
 
-  public static final String JSON_PROPERTY_HIDDEN_MODULES = "hidden_modules";
-  private List<String> hiddenModules = null;
+  public static final String JSON_PROPERTY_HANDLES = "handles";
+  private String handles;
+
+  public static final String JSON_PROPERTY_IS_OPEN_MEMBERSHIP = "is_open_membership";
+  private Boolean isOpenMembership;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_VISIBLE_MODULES = "visible_modules";
-  private List<String> visibleModules = null;
+  public static final String JSON_PROPERTY_SUMMARY = "summary";
+  private String summary;
 
-  public TeamUpdateAttributes() {}
+  public AbbreviatedTeamAttributes() {}
 
   @JsonCreator
-  public TeamUpdateAttributes(
+  public AbbreviatedTeamAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_HANDLE) String handle,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.handle = handle;
     this.name = name;
   }
 
-  public TeamUpdateAttributes avatar(String avatar) {
+  public AbbreviatedTeamAttributes avatar(String avatar) {
     this.avatar = JsonNullable.<String>of(avatar);
     return this;
   }
@@ -96,8 +94,8 @@ public class TeamUpdateAttributes {
     this.avatar = JsonNullable.<String>of(avatar);
   }
 
-  public TeamUpdateAttributes banner(Long banner) {
-    this.banner = JsonNullable.<Long>of(banner);
+  public AbbreviatedTeamAttributes banner(Long banner) {
+    this.banner = banner;
     return this;
   }
 
@@ -107,48 +105,17 @@ public class TeamUpdateAttributes {
    * @return banner
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-  public Long getBanner() {
-    return banner.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_BANNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getBanner_JsonNullable() {
+  public Long getBanner() {
     return banner;
   }
 
-  @JsonProperty(JSON_PROPERTY_BANNER)
-  public void setBanner_JsonNullable(JsonNullable<Long> banner) {
+  public void setBanner(Long banner) {
     this.banner = banner;
   }
 
-  public void setBanner(Long banner) {
-    this.banner = JsonNullable.<Long>of(banner);
-  }
-
-  public TeamUpdateAttributes description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Free-form markdown description/content for the team's homepage
-   *
-   * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public TeamUpdateAttributes handle(String handle) {
+  public AbbreviatedTeamAttributes handle(String handle) {
     this.handle = handle;
     return this;
   }
@@ -168,36 +135,40 @@ public class TeamUpdateAttributes {
     this.handle = handle;
   }
 
-  public TeamUpdateAttributes hiddenModules(List<String> hiddenModules) {
-    this.hiddenModules = hiddenModules;
-    return this;
-  }
-
-  public TeamUpdateAttributes addHiddenModulesItem(String hiddenModulesItem) {
-    if (this.hiddenModules == null) {
-      this.hiddenModules = new ArrayList<>();
-    }
-    this.hiddenModules.add(hiddenModulesItem);
+  public AbbreviatedTeamAttributes handles(String handles) {
+    this.handles = handles;
     return this;
   }
 
   /**
-   * Collection of hidden modules for the team
+   * The <code>AbbreviatedTeamAttributes</code> <code>handles</code>.
    *
-   * @return hiddenModules
+   * @return handles
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIDDEN_MODULES)
+  @JsonProperty(JSON_PROPERTY_HANDLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getHiddenModules() {
-    return hiddenModules;
+  public String getHandles() {
+    return handles;
   }
 
-  public void setHiddenModules(List<String> hiddenModules) {
-    this.hiddenModules = hiddenModules;
+  public void setHandles(String handles) {
+    this.handles = handles;
   }
 
-  public TeamUpdateAttributes name(String name) {
+  /**
+   * The <code>AbbreviatedTeamAttributes</code> <code>is_open_membership</code>.
+   *
+   * @return isOpenMembership
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_OPEN_MEMBERSHIP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsOpenMembership() {
+    return isOpenMembership;
+  }
+
+  public AbbreviatedTeamAttributes name(String name) {
     this.name = name;
     return this;
   }
@@ -217,33 +188,16 @@ public class TeamUpdateAttributes {
     this.name = name;
   }
 
-  public TeamUpdateAttributes visibleModules(List<String> visibleModules) {
-    this.visibleModules = visibleModules;
-    return this;
-  }
-
-  public TeamUpdateAttributes addVisibleModulesItem(String visibleModulesItem) {
-    if (this.visibleModules == null) {
-      this.visibleModules = new ArrayList<>();
-    }
-    this.visibleModules.add(visibleModulesItem);
-    return this;
-  }
-
   /**
-   * Collection of visible modules for the team
+   * A brief summary of the team
    *
-   * @return visibleModules
+   * @return summary
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VISIBLE_MODULES)
+  @JsonProperty(JSON_PROPERTY_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getVisibleModules() {
-    return visibleModules;
-  }
-
-  public void setVisibleModules(List<String> visibleModules) {
-    this.visibleModules = visibleModules;
+  public String getSummary() {
+    return summary;
   }
 
   /**
@@ -258,10 +212,10 @@ public class TeamUpdateAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamUpdateAttributes
+   * @return AbbreviatedTeamAttributes
    */
   @JsonAnySetter
-  public TeamUpdateAttributes putAdditionalProperty(String key, Object value) {
+  public AbbreviatedTeamAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -292,7 +246,7 @@ public class TeamUpdateAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamUpdateAttributes object is equal to o. */
+  /** Return true if this AbbreviatedTeamAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -301,41 +255,35 @@ public class TeamUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamUpdateAttributes teamUpdateAttributes = (TeamUpdateAttributes) o;
-    return Objects.equals(this.avatar, teamUpdateAttributes.avatar)
-        && Objects.equals(this.banner, teamUpdateAttributes.banner)
-        && Objects.equals(this.description, teamUpdateAttributes.description)
-        && Objects.equals(this.handle, teamUpdateAttributes.handle)
-        && Objects.equals(this.hiddenModules, teamUpdateAttributes.hiddenModules)
-        && Objects.equals(this.name, teamUpdateAttributes.name)
-        && Objects.equals(this.visibleModules, teamUpdateAttributes.visibleModules)
-        && Objects.equals(this.additionalProperties, teamUpdateAttributes.additionalProperties);
+    AbbreviatedTeamAttributes abbreviatedTeamAttributes = (AbbreviatedTeamAttributes) o;
+    return Objects.equals(this.avatar, abbreviatedTeamAttributes.avatar)
+        && Objects.equals(this.banner, abbreviatedTeamAttributes.banner)
+        && Objects.equals(this.handle, abbreviatedTeamAttributes.handle)
+        && Objects.equals(this.handles, abbreviatedTeamAttributes.handles)
+        && Objects.equals(this.isOpenMembership, abbreviatedTeamAttributes.isOpenMembership)
+        && Objects.equals(this.name, abbreviatedTeamAttributes.name)
+        && Objects.equals(this.summary, abbreviatedTeamAttributes.summary)
+        && Objects.equals(
+            this.additionalProperties, abbreviatedTeamAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        avatar,
-        banner,
-        description,
-        handle,
-        hiddenModules,
-        name,
-        visibleModules,
-        additionalProperties);
+        avatar, banner, handle, handles, isOpenMembership, name, summary, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamUpdateAttributes {\n");
+    sb.append("class AbbreviatedTeamAttributes {\n");
     sb.append("    avatar: ").append(toIndentedString(avatar)).append("\n");
     sb.append("    banner: ").append(toIndentedString(banner)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
-    sb.append("    hiddenModules: ").append(toIndentedString(hiddenModules)).append("\n");
+    sb.append("    handles: ").append(toIndentedString(handles)).append("\n");
+    sb.append("    isOpenMembership: ").append(toIndentedString(isOpenMembership)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    visibleModules: ").append(toIndentedString(visibleModules)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
