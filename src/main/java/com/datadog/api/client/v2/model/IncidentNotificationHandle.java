@@ -58,7 +58,8 @@ public class IncidentNotificationHandle {
   }
 
   /**
-   * The email address used for the notification.
+   * The handle used for the notification. This includes an email address, Slack channel, or
+   * workflow.
    *
    * @return handle
    */
