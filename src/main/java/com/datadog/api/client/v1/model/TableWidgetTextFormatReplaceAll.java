@@ -4,10 +4,11 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v2.model;
+package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,62 +17,75 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A notification handle that will be notified at incident creation. */
+/** Match All definition. */
 @JsonPropertyOrder({
-  IncidentNotificationHandle.JSON_PROPERTY_DISPLAY_NAME,
-  IncidentNotificationHandle.JSON_PROPERTY_HANDLE
+  TableWidgetTextFormatReplaceAll.JSON_PROPERTY_TYPE,
+  TableWidgetTextFormatReplaceAll.JSON_PROPERTY_WITH
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentNotificationHandle {
+public class TableWidgetTextFormatReplaceAll {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
-  private String displayName;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TableWidgetTextFormatReplaceAllType type;
 
-  public static final String JSON_PROPERTY_HANDLE = "handle";
-  private String handle;
+  public static final String JSON_PROPERTY_WITH = "with";
+  private String with;
 
-  public IncidentNotificationHandle displayName(String displayName) {
-    this.displayName = displayName;
+  public TableWidgetTextFormatReplaceAll() {}
+
+  @JsonCreator
+  public TableWidgetTextFormatReplaceAll(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          TableWidgetTextFormatReplaceAllType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_WITH) String with) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    this.with = with;
+  }
+
+  public TableWidgetTextFormatReplaceAll type(TableWidgetTextFormatReplaceAllType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The name of the notified handle.
+   * Table widget text format replace all type.
    *
-   * @return displayName
+   * @return type
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDisplayName() {
-    return displayName;
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TableWidgetTextFormatReplaceAllType getType() {
+    return type;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setType(TableWidgetTextFormatReplaceAllType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
-  public IncidentNotificationHandle handle(String handle) {
-    this.handle = handle;
+  public TableWidgetTextFormatReplaceAll with(String with) {
+    this.with = with;
     return this;
   }
 
   /**
-   * The handle used for the notification. This includes an email address, Slack channel, or
-   * workflow.
+   * Replace All type.
    *
-   * @return handle
+   * @return with
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HANDLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHandle() {
-    return handle;
+  @JsonProperty(JSON_PROPERTY_WITH)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getWith() {
+    return with;
   }
 
-  public void setHandle(String handle) {
-    this.handle = handle;
+  public void setWith(String with) {
+    this.with = with;
   }
 
   /**
@@ -86,10 +100,10 @@ public class IncidentNotificationHandle {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentNotificationHandle
+   * @return TableWidgetTextFormatReplaceAll
    */
   @JsonAnySetter
-  public IncidentNotificationHandle putAdditionalProperty(String key, Object value) {
+  public TableWidgetTextFormatReplaceAll putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -120,7 +134,7 @@ public class IncidentNotificationHandle {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentNotificationHandle object is equal to o. */
+  /** Return true if this TableWidgetTextFormatReplaceAll object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,24 +143,25 @@ public class IncidentNotificationHandle {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentNotificationHandle incidentNotificationHandle = (IncidentNotificationHandle) o;
-    return Objects.equals(this.displayName, incidentNotificationHandle.displayName)
-        && Objects.equals(this.handle, incidentNotificationHandle.handle)
+    TableWidgetTextFormatReplaceAll tableWidgetTextFormatReplaceAll =
+        (TableWidgetTextFormatReplaceAll) o;
+    return Objects.equals(this.type, tableWidgetTextFormatReplaceAll.type)
+        && Objects.equals(this.with, tableWidgetTextFormatReplaceAll.with)
         && Objects.equals(
-            this.additionalProperties, incidentNotificationHandle.additionalProperties);
+            this.additionalProperties, tableWidgetTextFormatReplaceAll.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, handle, additionalProperties);
+    return Objects.hash(type, with, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentNotificationHandle {\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
+    sb.append("class TableWidgetTextFormatReplaceAll {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    with: ").append(toIndentedString(with)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,62 +17,99 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A notification handle that will be notified at incident creation. */
+/** The definition of <code>UserTeamUser</code> object. */
 @JsonPropertyOrder({
-  IncidentNotificationHandle.JSON_PROPERTY_DISPLAY_NAME,
-  IncidentNotificationHandle.JSON_PROPERTY_HANDLE
+  UserTeamUser.JSON_PROPERTY_ATTRIBUTES,
+  UserTeamUser.JSON_PROPERTY_ID,
+  UserTeamUser.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentNotificationHandle {
+public class UserTeamUser {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
-  private String displayName;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private UserTeamUserAttributes attributes;
 
-  public static final String JSON_PROPERTY_HANDLE = "handle";
-  private String handle;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public IncidentNotificationHandle displayName(String displayName) {
-    this.displayName = displayName;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private UserTeamUserType type = UserTeamUserType.USERS;
+
+  public UserTeamUser() {}
+
+  @JsonCreator
+  public UserTeamUser(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) UserTeamUserType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public UserTeamUser attributes(UserTeamUserAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * The name of the notified handle.
+   * The definition of <code>UserTeamUserAttributes</code> object.
    *
-   * @return displayName
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDisplayName() {
-    return displayName;
+  public UserTeamUserAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setAttributes(UserTeamUserAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public IncidentNotificationHandle handle(String handle) {
-    this.handle = handle;
+  public UserTeamUser id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * The handle used for the notification. This includes an email address, Slack channel, or
-   * workflow.
+   * The <code>UserTeamUser</code> ID.
    *
-   * @return handle
+   * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HANDLE)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHandle() {
-    return handle;
+  public String getId() {
+    return id;
   }
 
-  public void setHandle(String handle) {
-    this.handle = handle;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public UserTeamUser type(UserTeamUserType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * User team user type
+   *
+   * @return type
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UserTeamUserType getType() {
+    return type;
+  }
+
+  public void setType(UserTeamUserType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -86,10 +124,10 @@ public class IncidentNotificationHandle {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentNotificationHandle
+   * @return UserTeamUser
    */
   @JsonAnySetter
-  public IncidentNotificationHandle putAdditionalProperty(String key, Object value) {
+  public UserTeamUser putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -120,7 +158,7 @@ public class IncidentNotificationHandle {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentNotificationHandle object is equal to o. */
+  /** Return true if this UserTeamUser object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,24 +167,25 @@ public class IncidentNotificationHandle {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentNotificationHandle incidentNotificationHandle = (IncidentNotificationHandle) o;
-    return Objects.equals(this.displayName, incidentNotificationHandle.displayName)
-        && Objects.equals(this.handle, incidentNotificationHandle.handle)
-        && Objects.equals(
-            this.additionalProperties, incidentNotificationHandle.additionalProperties);
+    UserTeamUser userTeamUser = (UserTeamUser) o;
+    return Objects.equals(this.attributes, userTeamUser.attributes)
+        && Objects.equals(this.id, userTeamUser.id)
+        && Objects.equals(this.type, userTeamUser.type)
+        && Objects.equals(this.additionalProperties, userTeamUser.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, handle, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentNotificationHandle {\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
+    sb.append("class UserTeamUser {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

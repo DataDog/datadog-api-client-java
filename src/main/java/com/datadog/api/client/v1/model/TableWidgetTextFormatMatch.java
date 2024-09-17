@@ -4,10 +4,11 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v2.model;
+package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,62 +17,75 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A notification handle that will be notified at incident creation. */
+/** Match rule for the table widget text format. */
 @JsonPropertyOrder({
-  IncidentNotificationHandle.JSON_PROPERTY_DISPLAY_NAME,
-  IncidentNotificationHandle.JSON_PROPERTY_HANDLE
+  TableWidgetTextFormatMatch.JSON_PROPERTY_TYPE,
+  TableWidgetTextFormatMatch.JSON_PROPERTY_VALUE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class IncidentNotificationHandle {
+public class TableWidgetTextFormatMatch {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
-  private String displayName;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TableWidgetTextFormatMatchType type;
 
-  public static final String JSON_PROPERTY_HANDLE = "handle";
-  private String handle;
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private String value;
 
-  public IncidentNotificationHandle displayName(String displayName) {
-    this.displayName = displayName;
+  public TableWidgetTextFormatMatch() {}
+
+  @JsonCreator
+  public TableWidgetTextFormatMatch(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          TableWidgetTextFormatMatchType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    this.value = value;
+  }
+
+  public TableWidgetTextFormatMatch type(TableWidgetTextFormatMatchType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The name of the notified handle.
+   * Match or compare option.
    *
-   * @return displayName
+   * @return type
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDisplayName() {
-    return displayName;
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TableWidgetTextFormatMatchType getType() {
+    return type;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setType(TableWidgetTextFormatMatchType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
-  public IncidentNotificationHandle handle(String handle) {
-    this.handle = handle;
+  public TableWidgetTextFormatMatch value(String value) {
+    this.value = value;
     return this;
   }
 
   /**
-   * The handle used for the notification. This includes an email address, Slack channel, or
-   * workflow.
+   * Table Widget Match String.
    *
-   * @return handle
+   * @return value
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HANDLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHandle() {
-    return handle;
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getValue() {
+    return value;
   }
 
-  public void setHandle(String handle) {
-    this.handle = handle;
+  public void setValue(String value) {
+    this.value = value;
   }
 
   /**
@@ -86,10 +100,10 @@ public class IncidentNotificationHandle {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return IncidentNotificationHandle
+   * @return TableWidgetTextFormatMatch
    */
   @JsonAnySetter
-  public IncidentNotificationHandle putAdditionalProperty(String key, Object value) {
+  public TableWidgetTextFormatMatch putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -120,7 +134,7 @@ public class IncidentNotificationHandle {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this IncidentNotificationHandle object is equal to o. */
+  /** Return true if this TableWidgetTextFormatMatch object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,24 +143,24 @@ public class IncidentNotificationHandle {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentNotificationHandle incidentNotificationHandle = (IncidentNotificationHandle) o;
-    return Objects.equals(this.displayName, incidentNotificationHandle.displayName)
-        && Objects.equals(this.handle, incidentNotificationHandle.handle)
+    TableWidgetTextFormatMatch tableWidgetTextFormatMatch = (TableWidgetTextFormatMatch) o;
+    return Objects.equals(this.type, tableWidgetTextFormatMatch.type)
+        && Objects.equals(this.value, tableWidgetTextFormatMatch.value)
         && Objects.equals(
-            this.additionalProperties, incidentNotificationHandle.additionalProperties);
+            this.additionalProperties, tableWidgetTextFormatMatch.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, handle, additionalProperties);
+    return Objects.hash(type, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentNotificationHandle {\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
+    sb.append("class TableWidgetTextFormatMatch {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
