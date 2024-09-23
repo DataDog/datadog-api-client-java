@@ -25,17 +25,17 @@ import java.util.Objects;
 public class FastlyServicesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<FastlyServiceResponse> data = null;
+  private List<FastlyServiceData> data = null;
 
-  public FastlyServicesResponse data(List<FastlyServiceResponse> data) {
+  public FastlyServicesResponse data(List<FastlyServiceData> data) {
     this.data = data;
-    for (FastlyServiceResponse item : data) {
+    for (FastlyServiceData item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public FastlyServicesResponse addDataItem(FastlyServiceResponse dataItem) {
+  public FastlyServicesResponse addDataItem(FastlyServiceData dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -52,11 +52,11 @@ public class FastlyServicesResponse {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<FastlyServiceResponse> getData() {
+  public List<FastlyServiceData> getData() {
     return data;
   }
 
-  public void setData(List<FastlyServiceResponse> data) {
+  public void setData(List<FastlyServiceData> data) {
     this.data = data;
   }
 
