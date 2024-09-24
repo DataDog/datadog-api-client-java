@@ -73,6 +73,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CUSTOM_TS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CWS_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_DBM_HOST_TOP99P_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_DBM_QUERIES_AVG_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM,
@@ -350,6 +351,10 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_CWS_HOST_TOP99P = "cws_host_top99p";
   private Long cwsHostTop99p;
+
+  public static final String JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM =
+      "data_jobs_monitoring_host_hr_sum";
+  private Long dataJobsMonitoringHostHrSum;
 
   public static final String JSON_PROPERTY_DBM_HOST_TOP99P_SUM = "dbm_host_top99p_sum";
   private Long dbmHostTop99pSum;
@@ -1878,6 +1883,28 @@ public class UsageSummaryDateOrg {
 
   public void setCwsHostTop99p(Long cwsHostTop99p) {
     this.cwsHostTop99p = cwsHostTop99p;
+  }
+
+  public UsageSummaryDateOrg dataJobsMonitoringHostHrSum(Long dataJobsMonitoringHostHrSum) {
+    this.dataJobsMonitoringHostHrSum = dataJobsMonitoringHostHrSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for the
+   * given org.
+   *
+   * @return dataJobsMonitoringHostHrSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDataJobsMonitoringHostHrSum() {
+    return dataJobsMonitoringHostHrSum;
+  }
+
+  public void setDataJobsMonitoringHostHrSum(Long dataJobsMonitoringHostHrSum) {
+    this.dataJobsMonitoringHostHrSum = dataJobsMonitoringHostHrSum;
   }
 
   public UsageSummaryDateOrg dbmHostTop99pSum(Long dbmHostTop99pSum) {
@@ -3903,6 +3930,8 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.customTsAvg, usageSummaryDateOrg.customTsAvg)
         && Objects.equals(this.cwsContainerCountAvg, usageSummaryDateOrg.cwsContainerCountAvg)
         && Objects.equals(this.cwsHostTop99p, usageSummaryDateOrg.cwsHostTop99p)
+        && Objects.equals(
+            this.dataJobsMonitoringHostHrSum, usageSummaryDateOrg.dataJobsMonitoringHostHrSum)
         && Objects.equals(this.dbmHostTop99pSum, usageSummaryDateOrg.dbmHostTop99pSum)
         && Objects.equals(this.dbmQueriesAvgSum, usageSummaryDateOrg.dbmQueriesAvgSum)
         && Objects.equals(this.errorTrackingEventsSum, usageSummaryDateOrg.errorTrackingEventsSum)
@@ -4116,6 +4145,7 @@ public class UsageSummaryDateOrg {
         customTsAvg,
         cwsContainerCountAvg,
         cwsHostTop99p,
+        dataJobsMonitoringHostHrSum,
         dbmHostTop99pSum,
         dbmQueriesAvgSum,
         errorTrackingEventsSum,
@@ -4329,6 +4359,9 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(cwsContainerCountAvg))
         .append("\n");
     sb.append("    cwsHostTop99p: ").append(toIndentedString(cwsHostTop99p)).append("\n");
+    sb.append("    dataJobsMonitoringHostHrSum: ")
+        .append(toIndentedString(dataJobsMonitoringHostHrSum))
+        .append("\n");
     sb.append("    dbmHostTop99pSum: ").append(toIndentedString(dbmHostTop99pSum)).append("\n");
     sb.append("    dbmQueriesAvgSum: ").append(toIndentedString(dbmQueriesAvgSum)).append("\n");
     sb.append("    errorTrackingEventsSum: ")
