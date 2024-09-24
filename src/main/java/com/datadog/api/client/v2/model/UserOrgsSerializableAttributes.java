@@ -8,52 +8,38 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of the created user. */
+/** The definition of <code>UserOrgsSerializableAttributes</code> object. */
 @JsonPropertyOrder({
-  UserCreateAttributes.JSON_PROPERTY_CREATED_AT,
-  UserCreateAttributes.JSON_PROPERTY_DISABLED,
-  UserCreateAttributes.JSON_PROPERTY_EMAIL,
-  UserCreateAttributes.JSON_PROPERTY_HANDLE,
-  UserCreateAttributes.JSON_PROPERTY_MODIFIED_AT,
-  UserCreateAttributes.JSON_PROPERTY_NAME,
-  UserCreateAttributes.JSON_PROPERTY_SERVICE_ACCOUNT,
-  UserCreateAttributes.JSON_PROPERTY_TITLE,
-  UserCreateAttributes.JSON_PROPERTY_VERIFIED
+  UserOrgsSerializableAttributes.JSON_PROPERTY_DISABLED,
+  UserOrgsSerializableAttributes.JSON_PROPERTY_EMAIL,
+  UserOrgsSerializableAttributes.JSON_PROPERTY_NAME,
+  UserOrgsSerializableAttributes.JSON_PROPERTY_ORG_ID,
+  UserOrgsSerializableAttributes.JSON_PROPERTY_TITLE,
+  UserOrgsSerializableAttributes.JSON_PROPERTY_VERIFIED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class UserCreateAttributes {
+public class UserOrgsSerializableAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private OffsetDateTime createdAt;
-
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
-  public static final String JSON_PROPERTY_HANDLE = "handle";
-  private String handle;
-
-  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
-  private OffsetDateTime modifiedAt;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_SERVICE_ACCOUNT = "service_account";
-  private Boolean serviceAccount;
+  public static final String JSON_PROPERTY_ORG_ID = "org_id";
+  private String orgId;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -61,42 +47,13 @@ public class UserCreateAttributes {
   public static final String JSON_PROPERTY_VERIFIED = "verified";
   private Boolean verified;
 
-  public UserCreateAttributes() {}
-
-  @JsonCreator
-  public UserCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_EMAIL) String email) {
-    this.email = email;
-  }
-
-  public UserCreateAttributes createdAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-  /**
-   * The <code>UserCreateAttributes</code> <code>created_at</code>.
-   *
-   * @return createdAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public UserCreateAttributes disabled(Boolean disabled) {
+  public UserOrgsSerializableAttributes disabled(Boolean disabled) {
     this.disabled = disabled;
     return this;
   }
 
   /**
-   * The <code>UserCreateAttributes</code> <code>disabled</code>.
+   * The <code>UserOrgsSerializableAttributes</code> <code>disabled</code>.
    *
    * @return disabled
    */
@@ -111,18 +68,19 @@ public class UserCreateAttributes {
     this.disabled = disabled;
   }
 
-  public UserCreateAttributes email(String email) {
+  public UserOrgsSerializableAttributes email(String email) {
     this.email = email;
     return this;
   }
 
   /**
-   * The email of the user.
+   * The <code>UserOrgsSerializableAttributes</code> <code>email</code>.
    *
    * @return email
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEmail() {
     return email;
   }
@@ -131,55 +89,13 @@ public class UserCreateAttributes {
     this.email = email;
   }
 
-  public UserCreateAttributes handle(String handle) {
-    this.handle = handle;
-    return this;
-  }
-
-  /**
-   * The <code>UserCreateAttributes</code> <code>handle</code>.
-   *
-   * @return handle
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HANDLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getHandle() {
-    return handle;
-  }
-
-  public void setHandle(String handle) {
-    this.handle = handle;
-  }
-
-  public UserCreateAttributes modifiedAt(OffsetDateTime modifiedAt) {
-    this.modifiedAt = modifiedAt;
-    return this;
-  }
-
-  /**
-   * The <code>UserCreateAttributes</code> <code>modified_at</code>.
-   *
-   * @return modifiedAt
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModifiedAt() {
-    return modifiedAt;
-  }
-
-  public void setModifiedAt(OffsetDateTime modifiedAt) {
-    this.modifiedAt = modifiedAt;
-  }
-
-  public UserCreateAttributes name(String name) {
+  public UserOrgsSerializableAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The name of the user.
+   * The <code>UserOrgsSerializableAttributes</code> <code>name</code>.
    *
    * @return name
    */
@@ -194,34 +110,34 @@ public class UserCreateAttributes {
     this.name = name;
   }
 
-  public UserCreateAttributes serviceAccount(Boolean serviceAccount) {
-    this.serviceAccount = serviceAccount;
+  public UserOrgsSerializableAttributes orgId(String orgId) {
+    this.orgId = orgId;
     return this;
   }
 
   /**
-   * The <code>UserCreateAttributes</code> <code>service_account</code>.
+   * The <code>UserOrgsSerializableAttributes</code> <code>org_id</code>.
    *
-   * @return serviceAccount
+   * @return orgId
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT)
+  @JsonProperty(JSON_PROPERTY_ORG_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getServiceAccount() {
-    return serviceAccount;
+  public String getOrgId() {
+    return orgId;
   }
 
-  public void setServiceAccount(Boolean serviceAccount) {
-    this.serviceAccount = serviceAccount;
+  public void setOrgId(String orgId) {
+    this.orgId = orgId;
   }
 
-  public UserCreateAttributes title(String title) {
+  public UserOrgsSerializableAttributes title(String title) {
     this.title = title;
     return this;
   }
 
   /**
-   * The title of the user.
+   * The <code>UserOrgsSerializableAttributes</code> <code>title</code>.
    *
    * @return title
    */
@@ -236,13 +152,13 @@ public class UserCreateAttributes {
     this.title = title;
   }
 
-  public UserCreateAttributes verified(Boolean verified) {
+  public UserOrgsSerializableAttributes verified(Boolean verified) {
     this.verified = verified;
     return this;
   }
 
   /**
-   * The <code>UserCreateAttributes</code> <code>verified</code>.
+   * The <code>UserOrgsSerializableAttributes</code> <code>verified</code>.
    *
    * @return verified
    */
@@ -269,10 +185,10 @@ public class UserCreateAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return UserCreateAttributes
+   * @return UserOrgsSerializableAttributes
    */
   @JsonAnySetter
-  public UserCreateAttributes putAdditionalProperty(String key, Object value) {
+  public UserOrgsSerializableAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -303,7 +219,7 @@ public class UserCreateAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this UserCreateAttributes object is equal to o. */
+  /** Return true if this UserOrgsSerializableAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -312,45 +228,31 @@ public class UserCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserCreateAttributes userCreateAttributes = (UserCreateAttributes) o;
-    return Objects.equals(this.createdAt, userCreateAttributes.createdAt)
-        && Objects.equals(this.disabled, userCreateAttributes.disabled)
-        && Objects.equals(this.email, userCreateAttributes.email)
-        && Objects.equals(this.handle, userCreateAttributes.handle)
-        && Objects.equals(this.modifiedAt, userCreateAttributes.modifiedAt)
-        && Objects.equals(this.name, userCreateAttributes.name)
-        && Objects.equals(this.serviceAccount, userCreateAttributes.serviceAccount)
-        && Objects.equals(this.title, userCreateAttributes.title)
-        && Objects.equals(this.verified, userCreateAttributes.verified)
-        && Objects.equals(this.additionalProperties, userCreateAttributes.additionalProperties);
+    UserOrgsSerializableAttributes userOrgsSerializableAttributes =
+        (UserOrgsSerializableAttributes) o;
+    return Objects.equals(this.disabled, userOrgsSerializableAttributes.disabled)
+        && Objects.equals(this.email, userOrgsSerializableAttributes.email)
+        && Objects.equals(this.name, userOrgsSerializableAttributes.name)
+        && Objects.equals(this.orgId, userOrgsSerializableAttributes.orgId)
+        && Objects.equals(this.title, userOrgsSerializableAttributes.title)
+        && Objects.equals(this.verified, userOrgsSerializableAttributes.verified)
+        && Objects.equals(
+            this.additionalProperties, userOrgsSerializableAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createdAt,
-        disabled,
-        email,
-        handle,
-        modifiedAt,
-        name,
-        serviceAccount,
-        title,
-        verified,
-        additionalProperties);
+    return Objects.hash(disabled, email, name, orgId, title, verified, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserCreateAttributes {\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("class UserOrgsSerializableAttributes {\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
-    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
+    sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    verified: ").append(toIndentedString(verified)).append("\n");
     sb.append("    additionalProperties: ")

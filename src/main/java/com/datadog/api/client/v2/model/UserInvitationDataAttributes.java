@@ -16,12 +16,14 @@ import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of a user invitation. */
 @JsonPropertyOrder({
   UserInvitationDataAttributes.JSON_PROPERTY_CREATED_AT,
   UserInvitationDataAttributes.JSON_PROPERTY_EXPIRES_AT,
   UserInvitationDataAttributes.JSON_PROPERTY_INVITE_TYPE,
+  UserInvitationDataAttributes.JSON_PROPERTY_LOGIN_METHOD,
   UserInvitationDataAttributes.JSON_PROPERTY_UUID
 })
 @jakarta.annotation.Generated(
@@ -36,6 +38,9 @@ public class UserInvitationDataAttributes {
 
   public static final String JSON_PROPERTY_INVITE_TYPE = "invite_type";
   private String inviteType;
+
+  public static final String JSON_PROPERTY_LOGIN_METHOD = "login_method";
+  private JsonNullable<String> loginMethod = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_UUID = "uuid";
   private String uuid;
@@ -101,6 +106,37 @@ public class UserInvitationDataAttributes {
 
   public void setInviteType(String inviteType) {
     this.inviteType = inviteType;
+  }
+
+  public UserInvitationDataAttributes loginMethod(String loginMethod) {
+    this.loginMethod = JsonNullable.<String>of(loginMethod);
+    return this;
+  }
+
+  /**
+   * The <code>UserInvitationDataAttributes</code> <code>login_method</code>.
+   *
+   * @return loginMethod
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getLoginMethod() {
+    return loginMethod.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getLoginMethod_JsonNullable() {
+    return loginMethod;
+  }
+
+  @JsonProperty(JSON_PROPERTY_LOGIN_METHOD)
+  public void setLoginMethod_JsonNullable(JsonNullable<String> loginMethod) {
+    this.loginMethod = loginMethod;
+  }
+
+  public void setLoginMethod(String loginMethod) {
+    this.loginMethod = JsonNullable.<String>of(loginMethod);
   }
 
   public UserInvitationDataAttributes uuid(String uuid) {
@@ -183,6 +219,7 @@ public class UserInvitationDataAttributes {
     return Objects.equals(this.createdAt, userInvitationDataAttributes.createdAt)
         && Objects.equals(this.expiresAt, userInvitationDataAttributes.expiresAt)
         && Objects.equals(this.inviteType, userInvitationDataAttributes.inviteType)
+        && Objects.equals(this.loginMethod, userInvitationDataAttributes.loginMethod)
         && Objects.equals(this.uuid, userInvitationDataAttributes.uuid)
         && Objects.equals(
             this.additionalProperties, userInvitationDataAttributes.additionalProperties);
@@ -190,7 +227,7 @@ public class UserInvitationDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, expiresAt, inviteType, uuid, additionalProperties);
+    return Objects.hash(createdAt, expiresAt, inviteType, loginMethod, uuid, additionalProperties);
   }
 
   @Override
@@ -200,6 +237,7 @@ public class UserInvitationDataAttributes {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    inviteType: ").append(toIndentedString(inviteType)).append("\n");
+    sb.append("    loginMethod: ").append(toIndentedString(loginMethod)).append("\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
