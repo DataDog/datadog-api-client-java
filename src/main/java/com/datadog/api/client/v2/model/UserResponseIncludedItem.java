@@ -205,6 +205,96 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'Role'", e);
       }
 
+      // deserialize UserOverrideIdentityProvider
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (UserOverrideIdentityProvider.class.equals(Integer.class)
+            || UserOverrideIdentityProvider.class.equals(Long.class)
+            || UserOverrideIdentityProvider.class.equals(Float.class)
+            || UserOverrideIdentityProvider.class.equals(Double.class)
+            || UserOverrideIdentityProvider.class.equals(Boolean.class)
+            || UserOverrideIdentityProvider.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((UserOverrideIdentityProvider.class.equals(Integer.class)
+                        || UserOverrideIdentityProvider.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((UserOverrideIdentityProvider.class.equals(Float.class)
+                        || UserOverrideIdentityProvider.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (UserOverrideIdentityProvider.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (UserOverrideIdentityProvider.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(UserOverrideIdentityProvider.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((UserOverrideIdentityProvider) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'UserOverrideIdentityProvider'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'UserOverrideIdentityProvider'", e);
+      }
+
+      // deserialize UserOrgsSerializable
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (UserOrgsSerializable.class.equals(Integer.class)
+            || UserOrgsSerializable.class.equals(Long.class)
+            || UserOrgsSerializable.class.equals(Float.class)
+            || UserOrgsSerializable.class.equals(Double.class)
+            || UserOrgsSerializable.class.equals(Boolean.class)
+            || UserOrgsSerializable.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((UserOrgsSerializable.class.equals(Integer.class)
+                        || UserOrgsSerializable.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((UserOrgsSerializable.class.equals(Float.class)
+                        || UserOrgsSerializable.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (UserOrgsSerializable.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (UserOrgsSerializable.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(UserOrgsSerializable.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((UserOrgsSerializable) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'UserOrgsSerializable'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'UserOrgsSerializable'", e);
+      }
+
       UserResponseIncludedItem ret = new UserResponseIncludedItem();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -249,10 +339,22 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public UserResponseIncludedItem(UserOverrideIdentityProvider o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public UserResponseIncludedItem(UserOrgsSerializable o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("Organization", new GenericType<Organization>() {});
     schemas.put("Permission", new GenericType<Permission>() {});
     schemas.put("Role", new GenericType<Role>() {});
+    schemas.put("UserOverrideIdentityProvider", new GenericType<UserOverrideIdentityProvider>() {});
+    schemas.put("UserOrgsSerializable", new GenericType<UserOrgsSerializable>() {});
     JSON.registerDescendants(UserResponseIncludedItem.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -263,7 +365,8 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: Organization, Permission, Role
+   * against the oneOf child schemas: Organization, Permission, Role, UserOverrideIdentityProvider,
+   * UserOrgsSerializable
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -282,18 +385,30 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(UserOverrideIdentityProvider.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(UserOrgsSerializable.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be Organization, Permission, Role");
+    throw new RuntimeException(
+        "Invalid instance type. Must be Organization, Permission, Role,"
+            + " UserOverrideIdentityProvider, UserOrgsSerializable");
   }
 
   /**
-   * Get the actual instance, which can be the following: Organization, Permission, Role
+   * Get the actual instance, which can be the following: Organization, Permission, Role,
+   * UserOverrideIdentityProvider, UserOrgsSerializable
    *
-   * @return The actual instance (Organization, Permission, Role)
+   * @return The actual instance (Organization, Permission, Role, UserOverrideIdentityProvider,
+   *     UserOrgsSerializable)
    */
   @Override
   public Object getActualInstance() {
@@ -331,5 +446,27 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
    */
   public Role getRole() throws ClassCastException {
     return (Role) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `UserOverrideIdentityProvider`. If the actual instance is not
+   * `UserOverrideIdentityProvider`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `UserOverrideIdentityProvider`
+   * @throws ClassCastException if the instance is not `UserOverrideIdentityProvider`
+   */
+  public UserOverrideIdentityProvider getUserOverrideIdentityProvider() throws ClassCastException {
+    return (UserOverrideIdentityProvider) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `UserOrgsSerializable`. If the actual instance is not
+   * `UserOrgsSerializable`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `UserOrgsSerializable`
+   * @throws ClassCastException if the instance is not `UserOrgsSerializable`
+   */
+  public UserOrgsSerializable getUserOrgsSerializable() throws ClassCastException {
+    return (UserOrgsSerializable) super.getActualInstance();
   }
 }

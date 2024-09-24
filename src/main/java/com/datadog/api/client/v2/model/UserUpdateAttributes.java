@@ -12,28 +12,75 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of the edited user. */
 @JsonPropertyOrder({
+  UserUpdateAttributes.JSON_PROPERTY_CREATED_AT,
   UserUpdateAttributes.JSON_PROPERTY_DISABLED,
   UserUpdateAttributes.JSON_PROPERTY_EMAIL,
-  UserUpdateAttributes.JSON_PROPERTY_NAME
+  UserUpdateAttributes.JSON_PROPERTY_HANDLE,
+  UserUpdateAttributes.JSON_PROPERTY_MODIFIED_AT,
+  UserUpdateAttributes.JSON_PROPERTY_NAME,
+  UserUpdateAttributes.JSON_PROPERTY_SERVICE_ACCOUNT,
+  UserUpdateAttributes.JSON_PROPERTY_TITLE,
+  UserUpdateAttributes.JSON_PROPERTY_VERIFIED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class UserUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  private OffsetDateTime createdAt;
+
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
 
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
+  public static final String JSON_PROPERTY_HANDLE = "handle";
+  private String handle;
+
+  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+  private OffsetDateTime modifiedAt;
+
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_SERVICE_ACCOUNT = "service_account";
+  private Boolean serviceAccount;
+
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private JsonNullable<String> title = JsonNullable.<String>undefined();
+
+  public static final String JSON_PROPERTY_VERIFIED = "verified";
+  private Boolean verified;
+
+  public UserUpdateAttributes createdAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * The <code>UserUpdateAttributes</code> <code>created_at</code>.
+   *
+   * @return createdAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
 
   public UserUpdateAttributes disabled(Boolean disabled) {
     this.disabled = disabled;
@@ -77,6 +124,48 @@ public class UserUpdateAttributes {
     this.email = email;
   }
 
+  public UserUpdateAttributes handle(String handle) {
+    this.handle = handle;
+    return this;
+  }
+
+  /**
+   * The <code>UserUpdateAttributes</code> <code>handle</code>.
+   *
+   * @return handle
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HANDLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getHandle() {
+    return handle;
+  }
+
+  public void setHandle(String handle) {
+    this.handle = handle;
+  }
+
+  public UserUpdateAttributes modifiedAt(OffsetDateTime modifiedAt) {
+    this.modifiedAt = modifiedAt;
+    return this;
+  }
+
+  /**
+   * The <code>UserUpdateAttributes</code> <code>modified_at</code>.
+   *
+   * @return modifiedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
+
+  public void setModifiedAt(OffsetDateTime modifiedAt) {
+    this.modifiedAt = modifiedAt;
+  }
+
   public UserUpdateAttributes name(String name) {
     this.name = name;
     return this;
@@ -96,6 +185,79 @@ public class UserUpdateAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public UserUpdateAttributes serviceAccount(Boolean serviceAccount) {
+    this.serviceAccount = serviceAccount;
+    return this;
+  }
+
+  /**
+   * The <code>UserUpdateAttributes</code> <code>service_account</code>.
+   *
+   * @return serviceAccount
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getServiceAccount() {
+    return serviceAccount;
+  }
+
+  public void setServiceAccount(Boolean serviceAccount) {
+    this.serviceAccount = serviceAccount;
+  }
+
+  public UserUpdateAttributes title(String title) {
+    this.title = JsonNullable.<String>of(title);
+    return this;
+  }
+
+  /**
+   * The <code>UserUpdateAttributes</code> <code>title</code>.
+   *
+   * @return title
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public String getTitle() {
+    return title.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getTitle_JsonNullable() {
+    return title;
+  }
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
+    this.title = title;
+  }
+
+  public void setTitle(String title) {
+    this.title = JsonNullable.<String>of(title);
+  }
+
+  public UserUpdateAttributes verified(Boolean verified) {
+    this.verified = verified;
+    return this;
+  }
+
+  /**
+   * The <code>UserUpdateAttributes</code> <code>verified</code>.
+   *
+   * @return verified
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getVerified() {
+    return verified;
+  }
+
+  public void setVerified(Boolean verified) {
+    this.verified = verified;
   }
 
   /**
@@ -154,24 +316,46 @@ public class UserUpdateAttributes {
       return false;
     }
     UserUpdateAttributes userUpdateAttributes = (UserUpdateAttributes) o;
-    return Objects.equals(this.disabled, userUpdateAttributes.disabled)
+    return Objects.equals(this.createdAt, userUpdateAttributes.createdAt)
+        && Objects.equals(this.disabled, userUpdateAttributes.disabled)
         && Objects.equals(this.email, userUpdateAttributes.email)
+        && Objects.equals(this.handle, userUpdateAttributes.handle)
+        && Objects.equals(this.modifiedAt, userUpdateAttributes.modifiedAt)
         && Objects.equals(this.name, userUpdateAttributes.name)
+        && Objects.equals(this.serviceAccount, userUpdateAttributes.serviceAccount)
+        && Objects.equals(this.title, userUpdateAttributes.title)
+        && Objects.equals(this.verified, userUpdateAttributes.verified)
         && Objects.equals(this.additionalProperties, userUpdateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(disabled, email, name, additionalProperties);
+    return Objects.hash(
+        createdAt,
+        disabled,
+        email,
+        handle,
+        modifiedAt,
+        name,
+        serviceAccount,
+        title,
+        verified,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserUpdateAttributes {\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    verified: ").append(toIndentedString(verified)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
