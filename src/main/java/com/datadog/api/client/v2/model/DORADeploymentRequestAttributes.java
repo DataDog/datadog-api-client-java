@@ -25,6 +25,7 @@ import java.util.Objects;
   DORADeploymentRequestAttributes.JSON_PROPERTY_ID,
   DORADeploymentRequestAttributes.JSON_PROPERTY_SERVICE,
   DORADeploymentRequestAttributes.JSON_PROPERTY_STARTED_AT,
+  DORADeploymentRequestAttributes.JSON_PROPERTY_TEAM,
   DORADeploymentRequestAttributes.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
@@ -48,6 +49,9 @@ public class DORADeploymentRequestAttributes {
 
   public static final String JSON_PROPERTY_STARTED_AT = "started_at";
   private Long startedAt;
+
+  public static final String JSON_PROPERTY_TEAM = "team";
+  private String team;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
@@ -190,6 +194,28 @@ public class DORADeploymentRequestAttributes {
     this.startedAt = startedAt;
   }
 
+  public DORADeploymentRequestAttributes team(String team) {
+    this.team = team;
+    return this;
+  }
+
+  /**
+   * Name of the team owning the deployed service. If not provided, this is automatically populated
+   * with the team associated with the service in the Service Catalog.
+   *
+   * @return team
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TEAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTeam() {
+    return team;
+  }
+
+  public void setTeam(String team) {
+    this.team = team;
+  }
+
   public DORADeploymentRequestAttributes version(String version) {
     this.version = version;
     return this;
@@ -276,6 +302,7 @@ public class DORADeploymentRequestAttributes {
         && Objects.equals(this.id, doraDeploymentRequestAttributes.id)
         && Objects.equals(this.service, doraDeploymentRequestAttributes.service)
         && Objects.equals(this.startedAt, doraDeploymentRequestAttributes.startedAt)
+        && Objects.equals(this.team, doraDeploymentRequestAttributes.team)
         && Objects.equals(this.version, doraDeploymentRequestAttributes.version)
         && Objects.equals(
             this.additionalProperties, doraDeploymentRequestAttributes.additionalProperties);
@@ -284,7 +311,7 @@ public class DORADeploymentRequestAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        env, finishedAt, git, id, service, startedAt, version, additionalProperties);
+        env, finishedAt, git, id, service, startedAt, team, version, additionalProperties);
   }
 
   @Override
@@ -297,6 +324,7 @@ public class DORADeploymentRequestAttributes {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
+    sb.append("    team: ").append(toIndentedString(team)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
