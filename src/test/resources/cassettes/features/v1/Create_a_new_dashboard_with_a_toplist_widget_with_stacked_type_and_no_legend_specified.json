@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_a_toplist_widget_with_stacked_type_and_no_legend_specified-1727726843\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":10,\"order_by\":[{\"name\":\"service\",\"order\":\"asc\",\"type\":\"group\"}]}}],\"style\":{\"display\":{\"type\":\"stacked\"},\"palette\":\"dog_classic\",\"scaling\":\"relative\"},\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"toplist\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"6mi-b8f-mty\",\"title\":\"Test-Create_a_new_dashboard_with_a_toplist_widget_with_stacked_type_and_no_legend_specified-1727726843\",\"description\":\"\",\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"free\",\"url\":\"/dashboard/6mi-b8f-mty/test-createanewdashboardwithatoplistwidgetwithstackedtypeandnolegendspecified-17\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":10,\"order_by\":[{\"name\":\"service\",\"order\":\"asc\",\"type\":\"group\"}]}}],\"style\":{\"display\":{\"type\":\"stacked\"},\"palette\":\"dog_classic\",\"scaling\":\"relative\"},\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"toplist\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":3930262956836651}],\"notify_list\":[],\"created_at\":\"2024-09-30T20:07:23.641078+00:00\",\"modified_at\":\"2024-09-30T20:07:23.641078+00:00\",\"experience_type\":\"default\",\"restricted_roles\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3a789182-0dd4-3c06-5c54-77a4b9c3c5f8"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/6mi-b8f-mty",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"6mi-b8f-mty\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e35b33e8-8546-82d7-1a75-4ea4828ad74b"
+  }
+]

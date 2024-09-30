@@ -29,7 +29,6 @@ import java.util.Objects;
   SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_NAME,
   SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_QUERIES,
-  SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_REFERENCE_TABLES,
   SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_TAGS,
   SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_THIRD_PARTY_CASES,
   SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_TYPE
@@ -61,9 +60,6 @@ public class SecurityMonitoringStandardRuleTestPayload {
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
   private List<SecurityMonitoringStandardRuleQuery> queries = new ArrayList<>();
-
-  public static final String JSON_PROPERTY_REFERENCE_TABLES = "referenceTables";
-  private List<SecurityMonitoringReferenceTable> referenceTables = null;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -295,41 +291,6 @@ public class SecurityMonitoringStandardRuleTestPayload {
     this.queries = queries;
   }
 
-  public SecurityMonitoringStandardRuleTestPayload referenceTables(
-      List<SecurityMonitoringReferenceTable> referenceTables) {
-    this.referenceTables = referenceTables;
-    for (SecurityMonitoringReferenceTable item : referenceTables) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public SecurityMonitoringStandardRuleTestPayload addReferenceTablesItem(
-      SecurityMonitoringReferenceTable referenceTablesItem) {
-    if (this.referenceTables == null) {
-      this.referenceTables = new ArrayList<>();
-    }
-    this.referenceTables.add(referenceTablesItem);
-    this.unparsed |= referenceTablesItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Reference tables for the rule.
-   *
-   * @return referenceTables
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_REFERENCE_TABLES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringReferenceTable> getReferenceTables() {
-    return referenceTables;
-  }
-
-  public void setReferenceTables(List<SecurityMonitoringReferenceTable> referenceTables) {
-    this.referenceTables = referenceTables;
-  }
-
   public SecurityMonitoringStandardRuleTestPayload tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -485,8 +446,6 @@ public class SecurityMonitoringStandardRuleTestPayload {
         && Objects.equals(this.name, securityMonitoringStandardRuleTestPayload.name)
         && Objects.equals(this.options, securityMonitoringStandardRuleTestPayload.options)
         && Objects.equals(this.queries, securityMonitoringStandardRuleTestPayload.queries)
-        && Objects.equals(
-            this.referenceTables, securityMonitoringStandardRuleTestPayload.referenceTables)
         && Objects.equals(this.tags, securityMonitoringStandardRuleTestPayload.tags)
         && Objects.equals(
             this.thirdPartyCases, securityMonitoringStandardRuleTestPayload.thirdPartyCases)
@@ -507,7 +466,6 @@ public class SecurityMonitoringStandardRuleTestPayload {
         name,
         options,
         queries,
-        referenceTables,
         tags,
         thirdPartyCases,
         type,
@@ -526,7 +484,6 @@ public class SecurityMonitoringStandardRuleTestPayload {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
-    sb.append("    referenceTables: ").append(toIndentedString(referenceTables)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    thirdPartyCases: ").append(toIndentedString(thirdPartyCases)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
