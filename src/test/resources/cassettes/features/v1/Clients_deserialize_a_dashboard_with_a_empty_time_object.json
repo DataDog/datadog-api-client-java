@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Clients_deserialize_a_dashboard_with_a_empty_time_object-1727205571\",\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"cloud_cost\",\"name\":\"query1\",\"query\":\"sum:aws.cost.amortized{*} by {aws_product}.rollup(sum, monthly)\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"time\":{},\"title\":\"Example Cloud Cost Query\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"han-5zg-c32\",\"title\":\"Test-Clients_deserialize_a_dashboard_with_a_empty_time_object-1727205571\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/han-5zg-c32/test-clientsdeserializeadashboardwithaemptytimeobject-1727205571\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"cloud_cost\",\"name\":\"query1\",\"query\":\"sum:aws.cost.amortized{*} by {aws_product}.rollup(sum, monthly)\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"time\":{},\"title\":\"Example Cloud Cost Query\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"},\"id\":4274057372149908}],\"notify_list\":null,\"created_at\":\"2024-09-24T19:19:32.071328+00:00\",\"modified_at\":\"2024-09-24T19:19:32.071328+00:00\",\"experience_type\":\"default\",\"restricted_roles\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "25f142c7-7556-d0a0-7f60-c9aea7b1aa17"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/han-5zg-c32",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"han-5zg-c32\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9350b5ff-5d55-807a-27b7-1a985a5d0edd"
+  }
+]
