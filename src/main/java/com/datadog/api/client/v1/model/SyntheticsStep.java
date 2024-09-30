@@ -23,6 +23,7 @@ import java.util.Objects;
   SyntheticsStep.JSON_PROPERTY_NAME,
   SyntheticsStep.JSON_PROPERTY_NO_SCREENSHOT,
   SyntheticsStep.JSON_PROPERTY_PARAMS,
+  SyntheticsStep.JSON_PROPERTY_PUBLIC_ID,
   SyntheticsStep.JSON_PROPERTY_TIMEOUT,
   SyntheticsStep.JSON_PROPERTY_TYPE
 })
@@ -44,6 +45,9 @@ public class SyntheticsStep {
 
   public static final String JSON_PROPERTY_PARAMS = "params";
   private Object params;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public static final String JSON_PROPERTY_TIMEOUT = "timeout";
   private Long timeout;
@@ -157,6 +161,27 @@ public class SyntheticsStep {
     this.params = params;
   }
 
+  public SyntheticsStep publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The public ID of the step.
+   *
+   * @return publicId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   public SyntheticsStep timeout(Long timeout) {
     this.timeout = timeout;
     return this;
@@ -264,6 +289,7 @@ public class SyntheticsStep {
         && Objects.equals(this.name, syntheticsStep.name)
         && Objects.equals(this.noScreenshot, syntheticsStep.noScreenshot)
         && Objects.equals(this.params, syntheticsStep.params)
+        && Objects.equals(this.publicId, syntheticsStep.publicId)
         && Objects.equals(this.timeout, syntheticsStep.timeout)
         && Objects.equals(this.type, syntheticsStep.type)
         && Objects.equals(this.additionalProperties, syntheticsStep.additionalProperties);
@@ -272,7 +298,15 @@ public class SyntheticsStep {
   @Override
   public int hashCode() {
     return Objects.hash(
-        allowFailure, isCritical, name, noScreenshot, params, timeout, type, additionalProperties);
+        allowFailure,
+        isCritical,
+        name,
+        noScreenshot,
+        params,
+        publicId,
+        timeout,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -284,6 +318,7 @@ public class SyntheticsStep {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    noScreenshot: ").append(toIndentedString(noScreenshot)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
