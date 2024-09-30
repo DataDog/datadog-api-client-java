@@ -3,7 +3,6 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
-import com.datadog.api.client.v2.model.SecurityMonitoringReferenceTable;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseCreate;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleEvaluationWindow;
@@ -46,15 +45,7 @@ public class Example {
                         .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.ONE_DAY))
                 .message("Test rule")
                 .isEnabled(true)
-                .type(SecurityMonitoringRuleTypeCreate.LOG_DETECTION)
-                .referenceTables(
-                    Collections.singletonList(
-                        new SecurityMonitoringReferenceTable()
-                            .tableName("synthetics_test_reference_table_dont_delete")
-                            .columnName("value")
-                            .logFieldPath("testtag")
-                            .checkPresence(true)
-                            .ruleQueryName("a"))));
+                .type(SecurityMonitoringRuleTypeCreate.LOG_DETECTION));
 
     try {
       SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule(body);
