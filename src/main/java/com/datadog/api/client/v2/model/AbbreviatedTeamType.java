@@ -18,36 +18,37 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** User team team type */
-@JsonSerialize(using = UserTeamTeamType.UserTeamTeamTypeSerializer.class)
-public class UserTeamTeamType extends ModelEnum<String> {
+/** The definition of <code>AbbreviatedTeamType</code> object. */
+@JsonSerialize(using = AbbreviatedTeamType.AbbreviatedTeamTypeSerializer.class)
+public class AbbreviatedTeamType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("team"));
 
-  public static final UserTeamTeamType TEAM = new UserTeamTeamType("team");
+  public static final AbbreviatedTeamType TEAM = new AbbreviatedTeamType("team");
 
-  UserTeamTeamType(String value) {
+  AbbreviatedTeamType(String value) {
     super(value, allowedValues);
   }
 
-  public static class UserTeamTeamTypeSerializer extends StdSerializer<UserTeamTeamType> {
-    public UserTeamTeamTypeSerializer(Class<UserTeamTeamType> t) {
+  public static class AbbreviatedTeamTypeSerializer extends StdSerializer<AbbreviatedTeamType> {
+    public AbbreviatedTeamTypeSerializer(Class<AbbreviatedTeamType> t) {
       super(t);
     }
 
-    public UserTeamTeamTypeSerializer() {
+    public AbbreviatedTeamTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(UserTeamTeamType value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        AbbreviatedTeamType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static UserTeamTeamType fromValue(String value) {
-    return new UserTeamTeamType(value);
+  public static AbbreviatedTeamType fromValue(String value) {
+    return new AbbreviatedTeamType(value);
   }
 }

@@ -17,44 +17,72 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The team associated with the membership */
+/** The definition of <code>AbbreviatedTeam</code> object. */
 @JsonPropertyOrder({
-  RelationshipToUserTeamTeamData.JSON_PROPERTY_ID,
-  RelationshipToUserTeamTeamData.JSON_PROPERTY_TYPE
+  AbbreviatedTeam.JSON_PROPERTY_ATTRIBUTES,
+  AbbreviatedTeam.JSON_PROPERTY_ID,
+  AbbreviatedTeam.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class RelationshipToUserTeamTeamData {
+public class AbbreviatedTeam {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private AbbreviatedTeamAttributes attributes;
+
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private UserTeamTeamType type = UserTeamTeamType.TEAM;
+  private AbbreviatedTeamType type = AbbreviatedTeamType.TEAM;
 
-  public RelationshipToUserTeamTeamData() {}
+  public AbbreviatedTeam() {}
 
   @JsonCreator
-  public RelationshipToUserTeamTeamData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) UserTeamTeamType type) {
-    this.id = id;
+  public AbbreviatedTeam(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          AbbreviatedTeamAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AbbreviatedTeamType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public RelationshipToUserTeamTeamData id(String id) {
+  public AbbreviatedTeam attributes(AbbreviatedTeamAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    return this;
+  }
+
+  /**
+   * The definition of <code>AbbreviatedTeamAttributes</code> object.
+   *
+   * @return attributes
+   */
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AbbreviatedTeamAttributes getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(AbbreviatedTeamAttributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public AbbreviatedTeam id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the team associated with the membership
+   * ID of the team
    *
    * @return id
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -63,24 +91,24 @@ public class RelationshipToUserTeamTeamData {
     this.id = id;
   }
 
-  public RelationshipToUserTeamTeamData type(UserTeamTeamType type) {
+  public AbbreviatedTeam type(AbbreviatedTeamType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * User team team type
+   * The definition of <code>AbbreviatedTeamType</code> object.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public UserTeamTeamType getType() {
+  public AbbreviatedTeamType getType() {
     return type;
   }
 
-  public void setType(UserTeamTeamType type) {
+  public void setType(AbbreviatedTeamType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -99,10 +127,10 @@ public class RelationshipToUserTeamTeamData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return RelationshipToUserTeamTeamData
+   * @return AbbreviatedTeam
    */
   @JsonAnySetter
-  public RelationshipToUserTeamTeamData putAdditionalProperty(String key, Object value) {
+  public AbbreviatedTeam putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +161,7 @@ public class RelationshipToUserTeamTeamData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this RelationshipToUserTeamTeamData object is equal to o. */
+  /** Return true if this AbbreviatedTeam object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,23 +170,23 @@ public class RelationshipToUserTeamTeamData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RelationshipToUserTeamTeamData relationshipToUserTeamTeamData =
-        (RelationshipToUserTeamTeamData) o;
-    return Objects.equals(this.id, relationshipToUserTeamTeamData.id)
-        && Objects.equals(this.type, relationshipToUserTeamTeamData.type)
-        && Objects.equals(
-            this.additionalProperties, relationshipToUserTeamTeamData.additionalProperties);
+    AbbreviatedTeam abbreviatedTeam = (AbbreviatedTeam) o;
+    return Objects.equals(this.attributes, abbreviatedTeam.attributes)
+        && Objects.equals(this.id, abbreviatedTeam.id)
+        && Objects.equals(this.type, abbreviatedTeam.type)
+        && Objects.equals(this.additionalProperties, abbreviatedTeam.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RelationshipToUserTeamTeamData {\n");
+    sb.append("class AbbreviatedTeam {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

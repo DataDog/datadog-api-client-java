@@ -77,86 +77,90 @@ public class UserTeamIncluded extends AbstractOpenApiSchema {
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize User
+      // deserialize AbbreviatedTeam
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (User.class.equals(Integer.class)
-            || User.class.equals(Long.class)
-            || User.class.equals(Float.class)
-            || User.class.equals(Double.class)
-            || User.class.equals(Boolean.class)
-            || User.class.equals(String.class)) {
+        if (AbbreviatedTeam.class.equals(Integer.class)
+            || AbbreviatedTeam.class.equals(Long.class)
+            || AbbreviatedTeam.class.equals(Float.class)
+            || AbbreviatedTeam.class.equals(Double.class)
+            || AbbreviatedTeam.class.equals(Boolean.class)
+            || AbbreviatedTeam.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((User.class.equals(Integer.class) || User.class.equals(Long.class))
+                ((AbbreviatedTeam.class.equals(Integer.class)
+                        || AbbreviatedTeam.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((User.class.equals(Float.class) || User.class.equals(Double.class))
+                ((AbbreviatedTeam.class.equals(Float.class)
+                        || AbbreviatedTeam.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (User.class.equals(Boolean.class)
+                (AbbreviatedTeam.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |= (User.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+            attemptParsing |=
+                (AbbreviatedTeam.class.equals(String.class) && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(User.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(AbbreviatedTeam.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((User) tmp).unparsed) {
+          if (!((AbbreviatedTeam) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'User'");
+          log.log(Level.FINER, "Input data matches schema 'AbbreviatedTeam'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'User'", e);
+        log.log(Level.FINER, "Input data does not match schema 'AbbreviatedTeam'", e);
       }
 
-      // deserialize Team
+      // deserialize UserTeamUser
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (Team.class.equals(Integer.class)
-            || Team.class.equals(Long.class)
-            || Team.class.equals(Float.class)
-            || Team.class.equals(Double.class)
-            || Team.class.equals(Boolean.class)
-            || Team.class.equals(String.class)) {
+        if (UserTeamUser.class.equals(Integer.class)
+            || UserTeamUser.class.equals(Long.class)
+            || UserTeamUser.class.equals(Float.class)
+            || UserTeamUser.class.equals(Double.class)
+            || UserTeamUser.class.equals(Boolean.class)
+            || UserTeamUser.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((Team.class.equals(Integer.class) || Team.class.equals(Long.class))
+                ((UserTeamUser.class.equals(Integer.class) || UserTeamUser.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((Team.class.equals(Float.class) || Team.class.equals(Double.class))
+                ((UserTeamUser.class.equals(Float.class) || UserTeamUser.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (Team.class.equals(Boolean.class)
+                (UserTeamUser.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |= (Team.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+            attemptParsing |=
+                (UserTeamUser.class.equals(String.class) && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(Team.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(UserTeamUser.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((Team) tmp).unparsed) {
+          if (!((UserTeamUser) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'Team'");
+          log.log(Level.FINER, "Input data matches schema 'UserTeamUser'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'Team'", e);
+        log.log(Level.FINER, "Input data does not match schema 'UserTeamUser'", e);
       }
 
       UserTeamIncluded ret = new UserTeamIncluded();
@@ -187,19 +191,19 @@ public class UserTeamIncluded extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public UserTeamIncluded(User o) {
+  public UserTeamIncluded(AbbreviatedTeam o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
-  public UserTeamIncluded(Team o) {
+  public UserTeamIncluded(UserTeamUser o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
   static {
-    schemas.put("User", new GenericType<User>() {});
-    schemas.put("Team", new GenericType<Team>() {});
+    schemas.put("AbbreviatedTeam", new GenericType<AbbreviatedTeam>() {});
+    schemas.put("UserTeamUser", new GenericType<UserTeamUser>() {});
     JSON.registerDescendants(UserTeamIncluded.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -210,18 +214,18 @@ public class UserTeamIncluded extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: User, Team
+   * against the oneOf child schemas: AbbreviatedTeam, UserTeamUser
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(User.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(AbbreviatedTeam.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(Team.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(UserTeamUser.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -230,13 +234,13 @@ public class UserTeamIncluded extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be User, Team");
+    throw new RuntimeException("Invalid instance type. Must be AbbreviatedTeam, UserTeamUser");
   }
 
   /**
-   * Get the actual instance, which can be the following: User, Team
+   * Get the actual instance, which can be the following: AbbreviatedTeam, UserTeamUser
    *
-   * @return The actual instance (User, Team)
+   * @return The actual instance (AbbreviatedTeam, UserTeamUser)
    */
   @Override
   public Object getActualInstance() {
@@ -244,24 +248,24 @@ public class UserTeamIncluded extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `User`. If the actual instance is not `User`, the ClassCastException
-   * will be thrown.
+   * Get the actual instance of `AbbreviatedTeam`. If the actual instance is not `AbbreviatedTeam`,
+   * the ClassCastException will be thrown.
    *
-   * @return The actual instance of `User`
-   * @throws ClassCastException if the instance is not `User`
+   * @return The actual instance of `AbbreviatedTeam`
+   * @throws ClassCastException if the instance is not `AbbreviatedTeam`
    */
-  public User getUser() throws ClassCastException {
-    return (User) super.getActualInstance();
+  public AbbreviatedTeam getAbbreviatedTeam() throws ClassCastException {
+    return (AbbreviatedTeam) super.getActualInstance();
   }
 
   /**
-   * Get the actual instance of `Team`. If the actual instance is not `Team`, the ClassCastException
-   * will be thrown.
+   * Get the actual instance of `UserTeamUser`. If the actual instance is not `UserTeamUser`, the
+   * ClassCastException will be thrown.
    *
-   * @return The actual instance of `Team`
-   * @throws ClassCastException if the instance is not `Team`
+   * @return The actual instance of `UserTeamUser`
+   * @throws ClassCastException if the instance is not `UserTeamUser`
    */
-  public Team getTeam() throws ClassCastException {
-    return (Team) super.getActualInstance();
+  public UserTeamUser getUserTeamUser() throws ClassCastException {
+    return (UserTeamUser) super.getActualInstance();
   }
 }
