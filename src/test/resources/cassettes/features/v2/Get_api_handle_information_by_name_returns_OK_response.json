@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"channel_id\":\"19:iD_D2xy_sAa-JV851JJYwIa6mlW9F9Nxm3SLyZq68qY1@thread.tacv2\",\"name\":\"Test-Get_api_handle_information_by_name_returns_OK_response-1727794144\",\"team_id\":\"e5f50a58-c929-4fb3-8866-e2cd836de3c2\",\"tenant_id\":\"4d3bac44-0230-4732-9e70-cc00736f0a97\"},\"type\":\"handle\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/ms-teams/configuration/tenant-based-handles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4e084346-8004-11ef-b4b6-da7ad0900002\",\"type\":\"handle\",\"attributes\":{\"channel_id\":\"19:iD_D2xy_sAa-JV851JJYwIa6mlW9F9Nxm3SLyZq68qY1@thread.tacv2\",\"name\":\"Test-Get_api_handle_information_by_name_returns_OK_response-1727794144\",\"team_id\":\"e5f50a58-c929-4fb3-8866-e2cd836de3c2\",\"tenant_id\":\"4d3bac44-0230-4732-9e70-cc00736f0a97\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "534dcf1f-475f-3deb-9514-9dea909b3026"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/integration/ms-teams/configuration/tenant-based-handles/name/Test-Get_api_handle_information_by_name_returns_OK_response-1727794144",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4e084346-8004-11ef-b4b6-da7ad0900002\",\"type\":\"ms-teams-handle-info\",\"attributes\":{\"channel_id\":\"19:iD_D2xy_sAa-JV851JJYwIa6mlW9F9Nxm3SLyZq68qY1@thread.tacv2\",\"channel_name\":\"General-1\",\"name\":\"Test-Get_api_handle_information_by_name_returns_OK_response-1727794144\",\"team_id\":\"e5f50a58-c929-4fb3-8866-e2cd836de3c2\",\"team_name\":\"Chat Integrations\",\"tenant_id\":\"4d3bac44-0230-4732-9e70-cc00736f0a97\",\"tenant_name\":\"Datadog, Inc.\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "63bf2ad5-d53a-2301-bca8-4f040ee74242"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/ms-teams/configuration/tenant-based-handles/4e084346-8004-11ef-b4b6-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "73549007-4e88-410f-ea33-7b40b2f270cc"
+  }
+]
