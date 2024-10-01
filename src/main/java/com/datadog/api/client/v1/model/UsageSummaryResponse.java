@@ -118,6 +118,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_NPM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_OCI_HOST_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_OCI_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM,
@@ -512,6 +514,12 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_AGG_SUM =
       "observability_pipelines_bytes_processed_agg_sum";
   private Long observabilityPipelinesBytesProcessedAggSum;
+
+  public static final String JSON_PROPERTY_OCI_HOST_AGG_SUM = "oci_host_agg_sum";
+  private Long ociHostAggSum;
+
+  public static final String JSON_PROPERTY_OCI_HOST_TOP99P_SUM = "oci_host_top99p_sum";
+  private Long ociHostTop99pSum;
 
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_AGG_SUM =
       "online_archive_events_count_agg_sum";
@@ -2856,6 +2864,50 @@ public class UsageSummaryResponse {
     this.observabilityPipelinesBytesProcessedAggSum = observabilityPipelinesBytesProcessedAggSum;
   }
 
+  public UsageSummaryResponse ociHostAggSum(Long ociHostAggSum) {
+    this.ociHostAggSum = ociHostAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of Oracle Cloud Infrastructure hosts over all hours in the current months for all
+   * organizations
+   *
+   * @return ociHostAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OCI_HOST_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOciHostAggSum() {
+    return ociHostAggSum;
+  }
+
+  public void setOciHostAggSum(Long ociHostAggSum) {
+    this.ociHostAggSum = ociHostAggSum;
+  }
+
+  public UsageSummaryResponse ociHostTop99pSum(Long ociHostTop99pSum) {
+    this.ociHostTop99pSum = ociHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of Oracle Cloud Infrastructure hosts over all hours in the current
+   * months for all organizations
+   *
+   * @return ociHostTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OCI_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOciHostTop99pSum() {
+    return ociHostTop99pSum;
+  }
+
+  public void setOciHostTop99pSum(Long ociHostTop99pSum) {
+    this.ociHostTop99pSum = ociHostTop99pSum;
+  }
+
   public UsageSummaryResponse onlineArchiveEventsCountAggSum(Long onlineArchiveEventsCountAggSum) {
     this.onlineArchiveEventsCountAggSum = onlineArchiveEventsCountAggSum;
     return this;
@@ -4245,6 +4297,8 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.observabilityPipelinesBytesProcessedAggSum,
             usageSummaryResponse.observabilityPipelinesBytesProcessedAggSum)
+        && Objects.equals(this.ociHostAggSum, usageSummaryResponse.ociHostAggSum)
+        && Objects.equals(this.ociHostTop99pSum, usageSummaryResponse.ociHostTop99pSum)
         && Objects.equals(
             this.onlineArchiveEventsCountAggSum,
             usageSummaryResponse.onlineArchiveEventsCountAggSum)
@@ -4462,6 +4516,8 @@ public class UsageSummaryResponse {
         netflowIndexedEventsCountAggSum,
         npmHostTop99pSum,
         observabilityPipelinesBytesProcessedAggSum,
+        ociHostAggSum,
+        ociHostTop99pSum,
         onlineArchiveEventsCountAggSum,
         opentelemetryApmHostTop99pSum,
         opentelemetryHostTop99pSum,
@@ -4759,6 +4815,8 @@ public class UsageSummaryResponse {
     sb.append("    observabilityPipelinesBytesProcessedAggSum: ")
         .append(toIndentedString(observabilityPipelinesBytesProcessedAggSum))
         .append("\n");
+    sb.append("    ociHostAggSum: ").append(toIndentedString(ociHostAggSum)).append("\n");
+    sb.append("    ociHostTop99pSum: ").append(toIndentedString(ociHostTop99pSum)).append("\n");
     sb.append("    onlineArchiveEventsCountAggSum: ")
         .append(toIndentedString(onlineArchiveEventsCountAggSum))
         .append("\n");
