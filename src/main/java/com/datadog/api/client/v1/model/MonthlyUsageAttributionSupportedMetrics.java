@@ -64,6 +64,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "cws_containers_usage",
               "cws_hosts_percentage",
               "cws_hosts_usage",
+              "data_jobs_monitoring_usage",
+              "data_jobs_monitoring_percentage",
               "dbm_hosts_percentage",
               "dbm_hosts_usage",
               "dbm_queries_percentage",
@@ -244,6 +246,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("cws_hosts_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics CWS_HOSTS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("cws_hosts_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics DATA_JOBS_MONITORING_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("data_jobs_monitoring_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics DATA_JOBS_MONITORING_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("data_jobs_monitoring_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics DBM_HOSTS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("dbm_hosts_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics DBM_HOSTS_USAGE =

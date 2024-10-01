@@ -48,6 +48,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "custom_timeseries_usage",
               "cws_containers_usage",
               "cws_hosts_usage",
+              "data_jobs_monitoring_usage",
               "dbm_hosts_usage",
               "dbm_queries_usage",
               "error_tracking_usage",
@@ -142,6 +143,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("cws_containers_usage");
   public static final HourlyUsageAttributionUsageType CWS_HOSTS_USAGE =
       new HourlyUsageAttributionUsageType("cws_hosts_usage");
+  public static final HourlyUsageAttributionUsageType DATA_JOBS_MONITORING_USAGE =
+      new HourlyUsageAttributionUsageType("data_jobs_monitoring_usage");
   public static final HourlyUsageAttributionUsageType DBM_HOSTS_USAGE =
       new HourlyUsageAttributionUsageType("dbm_hosts_usage");
   public static final HourlyUsageAttributionUsageType DBM_QUERIES_USAGE =
