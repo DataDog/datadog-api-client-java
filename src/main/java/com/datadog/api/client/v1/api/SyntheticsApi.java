@@ -20,6 +20,7 @@ import com.datadog.api.client.v1.model.SyntheticsGlobalVariableRequest;
 import com.datadog.api.client.v1.model.SyntheticsListGlobalVariablesResponse;
 import com.datadog.api.client.v1.model.SyntheticsListTestsResponse;
 import com.datadog.api.client.v1.model.SyntheticsLocations;
+import com.datadog.api.client.v1.model.SyntheticsMobileTest;
 import com.datadog.api.client.v1.model.SyntheticsPatchTestBody;
 import com.datadog.api.client.v1.model.SyntheticsPrivateLocation;
 import com.datadog.api.client.v1.model.SyntheticsPrivateLocationCreationResponse;
@@ -601,6 +602,141 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SyntheticsBrowserTest>() {});
+  }
+
+  /**
+   * Create a mobile test.
+   *
+   * <p>See {@link #createSyntheticsMobileTestWithHttpInfo}.
+   *
+   * @param body Details of the test to create. (required)
+   * @return SyntheticsMobileTest
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsMobileTest createSyntheticsMobileTest(SyntheticsMobileTest body)
+      throws ApiException {
+    return createSyntheticsMobileTestWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a mobile test.
+   *
+   * <p>See {@link #createSyntheticsMobileTestWithHttpInfoAsync}.
+   *
+   * @param body Details of the test to create. (required)
+   * @return CompletableFuture&lt;SyntheticsMobileTest&gt;
+   */
+  public CompletableFuture<SyntheticsMobileTest> createSyntheticsMobileTestAsync(
+      SyntheticsMobileTest body) {
+    return createSyntheticsMobileTestWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a Synthetic mobile test.
+   *
+   * @param body Details of the test to create. (required)
+   * @return ApiResponse&lt;SyntheticsMobileTest&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
+   *       <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsMobileTest> createSyntheticsMobileTestWithHttpInfo(
+      SyntheticsMobileTest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createSyntheticsMobileTest");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/mobile";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.SyntheticsApi.createSyntheticsMobileTest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsMobileTest>() {});
+  }
+
+  /**
+   * Create a mobile test.
+   *
+   * <p>See {@link #createSyntheticsMobileTestWithHttpInfo}.
+   *
+   * @param body Details of the test to create. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsMobileTest&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsMobileTest>>
+      createSyntheticsMobileTestWithHttpInfoAsync(SyntheticsMobileTest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SyntheticsMobileTest>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createSyntheticsMobileTest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/mobile";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.SyntheticsApi.createSyntheticsMobileTest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsMobileTest>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsMobileTest>() {});
   }
 
   /**
@@ -2379,6 +2515,141 @@ public class SyntheticsApi {
   }
 
   /**
+   * Get a Mobile test.
+   *
+   * <p>See {@link #getMobileTestWithHttpInfo}.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return SyntheticsMobileTest
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsMobileTest getMobileTest(String publicId) throws ApiException {
+    return getMobileTestWithHttpInfo(publicId).getData();
+  }
+
+  /**
+   * Get a Mobile test.
+   *
+   * <p>See {@link #getMobileTestWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return CompletableFuture&lt;SyntheticsMobileTest&gt;
+   */
+  public CompletableFuture<SyntheticsMobileTest> getMobileTestAsync(String publicId) {
+    return getMobileTestWithHttpInfoAsync(publicId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the detailed configuration associated with a Synthetic Mobile test.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return ApiResponse&lt;SyntheticsMobileTest&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsMobileTest> getMobileTestWithHttpInfo(String publicId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling getMobileTest");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/synthetics/tests/mobile/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.SyntheticsApi.getMobileTest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsMobileTest>() {});
+  }
+
+  /**
+   * Get a Mobile test.
+   *
+   * <p>See {@link #getMobileTestWithHttpInfo}.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsMobileTest&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsMobileTest>> getMobileTestWithHttpInfoAsync(
+      String publicId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsMobileTest>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'publicId' when calling getMobileTest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/synthetics/tests/mobile/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.SyntheticsApi.getMobileTest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsMobileTest>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsMobileTest>() {});
+  }
+
+  /**
    * Get a private location.
    *
    * <p>See {@link #getPrivateLocationWithHttpInfo}.
@@ -4090,6 +4361,163 @@ public class SyntheticsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SyntheticsBrowserTest>() {});
+  }
+
+  /**
+   * Edit a Mobile test.
+   *
+   * <p>See {@link #updateMobileTestWithHttpInfo}.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @param body New test details to be saved. (required)
+   * @return SyntheticsMobileTest
+   * @throws ApiException if fails to make API call
+   */
+  public SyntheticsMobileTest updateMobileTest(String publicId, SyntheticsMobileTest body)
+      throws ApiException {
+    return updateMobileTestWithHttpInfo(publicId, body).getData();
+  }
+
+  /**
+   * Edit a Mobile test.
+   *
+   * <p>See {@link #updateMobileTestWithHttpInfoAsync}.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @param body New test details to be saved. (required)
+   * @return CompletableFuture&lt;SyntheticsMobileTest&gt;
+   */
+  public CompletableFuture<SyntheticsMobileTest> updateMobileTestAsync(
+      String publicId, SyntheticsMobileTest body) {
+    return updateMobileTestWithHttpInfoAsync(publicId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Edit the configuration of a Synthetic Mobile test.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @param body New test details to be saved. (required)
+   * @return ApiResponse&lt;SyntheticsMobileTest&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsMobileTest> updateMobileTestWithHttpInfo(
+      String publicId, SyntheticsMobileTest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'publicId' when calling updateMobileTest");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateMobileTest");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/synthetics/tests/mobile/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.SyntheticsApi.updateMobileTest",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsMobileTest>() {});
+  }
+
+  /**
+   * Edit a Mobile test.
+   *
+   * <p>See {@link #updateMobileTestWithHttpInfo}.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @param body New test details to be saved. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;SyntheticsMobileTest&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<SyntheticsMobileTest>> updateMobileTestWithHttpInfoAsync(
+      String publicId, SyntheticsMobileTest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'publicId' is set
+    if (publicId == null) {
+      CompletableFuture<ApiResponse<SyntheticsMobileTest>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'publicId' when calling updateMobileTest"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<SyntheticsMobileTest>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateMobileTest"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/synthetics/tests/mobile/{public_id}"
+            .replaceAll("\\{" + "public_id" + "\\}", apiClient.escapeString(publicId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.SyntheticsApi.updateMobileTest",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<SyntheticsMobileTest>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<SyntheticsMobileTest>() {});
   }
 
   /**

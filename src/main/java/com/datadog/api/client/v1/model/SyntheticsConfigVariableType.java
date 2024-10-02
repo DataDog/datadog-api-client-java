@@ -23,11 +23,13 @@ import java.util.Set;
 public class SyntheticsConfigVariableType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("global", "text"));
+      new HashSet<String>(Arrays.asList("global", "text", "email"));
 
   public static final SyntheticsConfigVariableType GLOBAL =
       new SyntheticsConfigVariableType("global");
   public static final SyntheticsConfigVariableType TEXT = new SyntheticsConfigVariableType("text");
+  public static final SyntheticsConfigVariableType EMAIL =
+      new SyntheticsConfigVariableType("email");
 
   SyntheticsConfigVariableType(String value) {
     super(value, allowedValues);
