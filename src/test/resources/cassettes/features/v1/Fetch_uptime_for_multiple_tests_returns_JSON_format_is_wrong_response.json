@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"from_ts\":0,\"public_ids\":[],\"to_ts\":0}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/synthetics/tests/uptimes",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Minimum number of elements in parameter 'public_ids' should be 1\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "23da9bb7-4dd4-12c2-37ee-8406f9945944"
+  }
+]

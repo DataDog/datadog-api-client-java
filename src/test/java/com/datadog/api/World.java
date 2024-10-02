@@ -653,6 +653,9 @@ public class World {
     Object result = data;
     for (String dotPart : path.split("\\.")) {
       for (String part : dotPart.split("\\[")) {
+        if (part.length() == 0) {
+          continue;
+        }
         if (part.contains("]")) {
           int index = Integer.parseInt(part.replaceAll("]", ""));
           result = List.class.cast(result).get(index);
