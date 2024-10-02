@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"from_ts\":1726041488,\"public_ids\":[\"p8m-9gw-nte\"],\"to_ts\":1726055954}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/synthetics/tests/uptimes",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "[{\"from_ts\":1726041488,\"to_ts\":1726055954,\"overall\":{\"name\":\"[Synthetics] Synthetics test\",\"preview\":false,\"monitor_type\":\"synthetics alert\",\"monitor_modified\":1726060063,\"errors\":null,\"span_precision\":0,\"history\":[[1726004543,0],[1726053503,1]],\"uptime\":83.05682373046875},\"public_id\":\"p8m-9gw-nte\",\"groups\":[]}]\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5bb349ef-4e23-17c9-3873-95651078521d"
+  }
+]
