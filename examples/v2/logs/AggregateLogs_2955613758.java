@@ -12,7 +12,6 @@ import com.datadog.api.client.v2.model.LogsCompute;
 import com.datadog.api.client.v2.model.LogsComputeType;
 import com.datadog.api.client.v2.model.LogsGroupBy;
 import com.datadog.api.client.v2.model.LogsGroupByMissing;
-import com.datadog.api.client.v2.model.LogsGroupByTotal;
 import com.datadog.api.client.v2.model.LogsQueryFilter;
 import com.datadog.api.client.v2.model.LogsSortOrder;
 import java.util.Collections;
@@ -46,8 +45,7 @@ public class Example {
                                 .type(LogsAggregateSortType.MEASURE)
                                 .order(LogsSortOrder.ASCENDING)
                                 .aggregation(LogsAggregationFunction.PERCENTILE_90)
-                                .metric("@duration"))
-                        .total(new LogsGroupByTotal("recall"))));
+                                .metric("@duration"))));
 
     try {
       LogsAggregateResponse result = apiInstance.aggregateLogs(body);
