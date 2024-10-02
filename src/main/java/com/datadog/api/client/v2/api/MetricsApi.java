@@ -15,7 +15,7 @@ import com.datadog.api.client.v2.model.MetricEstimateResponse;
 import com.datadog.api.client.v2.model.MetricPayload;
 import com.datadog.api.client.v2.model.MetricSuggestedTagsAndAggregationsResponse;
 import com.datadog.api.client.v2.model.MetricTagConfigurationCreateRequest;
-import com.datadog.api.client.v2.model.MetricTagConfigurationMetricTypes;
+import com.datadog.api.client.v2.model.MetricTagConfigurationMetricTypeCategory;
 import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
 import com.datadog.api.client.v2.model.MetricTagConfigurationUpdateRequest;
 import com.datadog.api.client.v2.model.MetricVolumesResponse;
@@ -683,8 +683,7 @@ public class MetricsApi {
      * Set filterHoursAgo.
      *
      * @param filterHoursAgo The number of hours of look back (from now) to estimate cardinality
-     *     with. Estimates are based on historical data, and unspecified fields default to the
-     *     minimum 49 hours. (optional)
+     *     with. If unspecified, it defaults to 0 hours. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterHoursAgo(Integer filterHoursAgo) {
@@ -722,7 +721,7 @@ public class MetricsApi {
      * Set filterTimespanH.
      *
      * @param filterTimespanH A window, in hours, from the look back to estimate cardinality with.
-     *     (optional)
+     *     The minimum and default is 1 hour. (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterTimespanH(Integer filterTimespanH) {
@@ -1446,7 +1445,7 @@ public class MetricsApi {
   public static class ListTagConfigurationsOptionalParameters {
     private Boolean filterConfigured;
     private String filterTagsConfigured;
-    private MetricTagConfigurationMetricTypes filterMetricType;
+    private MetricTagConfigurationMetricTypeCategory filterMetricType;
     private Boolean filterIncludePercentiles;
     private Boolean filterQueried;
     private String filterTags;
@@ -1478,11 +1477,11 @@ public class MetricsApi {
     /**
      * Set filterMetricType.
      *
-     * @param filterMetricType Filter metrics by metric type. (optional, default to "gauge")
+     * @param filterMetricType Filter metrics by metric type. (optional, default to "distribution")
      * @return ListTagConfigurationsOptionalParameters
      */
     public ListTagConfigurationsOptionalParameters filterMetricType(
-        MetricTagConfigurationMetricTypes filterMetricType) {
+        MetricTagConfigurationMetricTypeCategory filterMetricType) {
       this.filterMetricType = filterMetricType;
       return this;
     }
@@ -1621,7 +1620,7 @@ public class MetricsApi {
     Object localVarPostBody = null;
     Boolean filterConfigured = parameters.filterConfigured;
     String filterTagsConfigured = parameters.filterTagsConfigured;
-    MetricTagConfigurationMetricTypes filterMetricType = parameters.filterMetricType;
+    MetricTagConfigurationMetricTypeCategory filterMetricType = parameters.filterMetricType;
     Boolean filterIncludePercentiles = parameters.filterIncludePercentiles;
     Boolean filterQueried = parameters.filterQueried;
     String filterTags = parameters.filterTags;
@@ -1677,7 +1676,7 @@ public class MetricsApi {
     Object localVarPostBody = null;
     Boolean filterConfigured = parameters.filterConfigured;
     String filterTagsConfigured = parameters.filterTagsConfigured;
-    MetricTagConfigurationMetricTypes filterMetricType = parameters.filterMetricType;
+    MetricTagConfigurationMetricTypeCategory filterMetricType = parameters.filterMetricType;
     Boolean filterIncludePercentiles = parameters.filterIncludePercentiles;
     Boolean filterQueried = parameters.filterQueried;
     String filterTags = parameters.filterTags;

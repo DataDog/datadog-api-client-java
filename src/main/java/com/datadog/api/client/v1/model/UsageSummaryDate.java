@@ -108,6 +108,8 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NPM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM,
+  UsageSummaryDate.JSON_PROPERTY_OCI_HOST_SUM,
+  UsageSummaryDate.JSON_PROPERTY_OCI_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
@@ -462,6 +464,12 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_OBSERVABILITY_PIPELINES_BYTES_PROCESSED_SUM =
       "observability_pipelines_bytes_processed_sum";
   private Long observabilityPipelinesBytesProcessedSum;
+
+  public static final String JSON_PROPERTY_OCI_HOST_SUM = "oci_host_sum";
+  private Long ociHostSum;
+
+  public static final String JSON_PROPERTY_OCI_HOST_TOP99P = "oci_host_top99p";
+  private Long ociHostTop99p;
 
   public static final String JSON_PROPERTY_ONLINE_ARCHIVE_EVENTS_COUNT_SUM =
       "online_archive_events_count_sum";
@@ -2605,6 +2613,50 @@ public class UsageSummaryDate {
     this.observabilityPipelinesBytesProcessedSum = observabilityPipelinesBytesProcessedSum;
   }
 
+  public UsageSummaryDate ociHostSum(Long ociHostSum) {
+    this.ociHostSum = ociHostSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Oracle Cloud Infrastructure hosts over all hours in the current date for
+   * the given org.
+   *
+   * @return ociHostSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OCI_HOST_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOciHostSum() {
+    return ociHostSum;
+  }
+
+  public void setOciHostSum(Long ociHostSum) {
+    this.ociHostSum = ociHostSum;
+  }
+
+  public UsageSummaryDate ociHostTop99p(Long ociHostTop99p) {
+    this.ociHostTop99p = ociHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Oracle Cloud Infrastructure hosts over all hours in the
+   * current date for the given org.
+   *
+   * @return ociHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OCI_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOciHostTop99p() {
+    return ociHostTop99p;
+  }
+
+  public void setOciHostTop99p(Long ociHostTop99p) {
+    this.ociHostTop99p = ociHostTop99p;
+  }
+
   public UsageSummaryDate onlineArchiveEventsCountSum(Long onlineArchiveEventsCountSum) {
     this.onlineArchiveEventsCountSum = onlineArchiveEventsCountSum;
     return this;
@@ -3838,6 +3890,8 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.observabilityPipelinesBytesProcessedSum,
             usageSummaryDate.observabilityPipelinesBytesProcessedSum)
+        && Objects.equals(this.ociHostSum, usageSummaryDate.ociHostSum)
+        && Objects.equals(this.ociHostTop99p, usageSummaryDate.ociHostTop99p)
         && Objects.equals(
             this.onlineArchiveEventsCountSum, usageSummaryDate.onlineArchiveEventsCountSum)
         && Objects.equals(
@@ -4019,6 +4073,8 @@ public class UsageSummaryDate {
         netflowIndexedEventsCountSum,
         npmHostTop99p,
         observabilityPipelinesBytesProcessedSum,
+        ociHostSum,
+        ociHostTop99p,
         onlineArchiveEventsCountSum,
         opentelemetryApmHostTop99p,
         opentelemetryHostTop99p,
@@ -4273,6 +4329,8 @@ public class UsageSummaryDate {
     sb.append("    observabilityPipelinesBytesProcessedSum: ")
         .append(toIndentedString(observabilityPipelinesBytesProcessedSum))
         .append("\n");
+    sb.append("    ociHostSum: ").append(toIndentedString(ociHostSum)).append("\n");
+    sb.append("    ociHostTop99p: ").append(toIndentedString(ociHostTop99p)).append("\n");
     sb.append("    onlineArchiveEventsCountSum: ")
         .append(toIndentedString(onlineArchiveEventsCountSum))
         .append("\n");

@@ -78,8 +78,8 @@ public class MetricTagConfigurationUpdateAttributes {
    *   <li>time: sum, space: sum
    * </ul>
    *
-   * <p>Can only be applied to metrics that have a <code>metric_type</code> of <code>count</code>,
-   * <code>rate</code>, or <code>gauge</code>.
+   * <p>Can only be applied to non_distribution metrics that have a <code>metric_type</code> of
+   * <code>count</code>, <code>rate</code>, or <code>gauge</code>.
    *
    * @return aggregations
    */
