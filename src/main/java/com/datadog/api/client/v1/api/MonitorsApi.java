@@ -252,6 +252,7 @@ public class MonitorsApi {
    *   <li>error-tracking: <code>error-tracking alert</code>
    *   <li>database-monitoring: <code>database-monitoring alert</code>
    *   <li>network-performance: <code>network-performance alert</code>
+   *   <li>cloud cost: <code>cost alert</code>
    * </ul>
    *
    * <p><strong>Notes</strong>: - Synthetic monitors are created through the Synthetics API. See the
