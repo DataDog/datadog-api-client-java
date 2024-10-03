@@ -17,43 +17,44 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response of a handle. */
-@JsonPropertyOrder({MicrosoftTeamsCreateApiHandleResponse.JSON_PROPERTY_DATA})
+/** Create tenant-based handle request. */
+@JsonPropertyOrder({MicrosoftTeamsCreateTenantBasedHandleRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MicrosoftTeamsCreateApiHandleResponse {
+public class MicrosoftTeamsCreateTenantBasedHandleRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private MicrosoftTeamsApiHandleResponseData data;
+  private MicrosoftTeamsTenantBasedHandleRequestData data;
 
-  public MicrosoftTeamsCreateApiHandleResponse() {}
+  public MicrosoftTeamsCreateTenantBasedHandleRequest() {}
 
   @JsonCreator
-  public MicrosoftTeamsCreateApiHandleResponse(
+  public MicrosoftTeamsCreateTenantBasedHandleRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          MicrosoftTeamsApiHandleResponseData data) {
+          MicrosoftTeamsTenantBasedHandleRequestData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public MicrosoftTeamsCreateApiHandleResponse data(MicrosoftTeamsApiHandleResponseData data) {
+  public MicrosoftTeamsCreateTenantBasedHandleRequest data(
+      MicrosoftTeamsTenantBasedHandleRequestData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Handle data from a response.
+   * Tenant-based handle data from a response.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MicrosoftTeamsApiHandleResponseData getData() {
+  public MicrosoftTeamsTenantBasedHandleRequestData getData() {
     return data;
   }
 
-  public void setData(MicrosoftTeamsApiHandleResponseData data) {
+  public void setData(MicrosoftTeamsTenantBasedHandleRequestData data) {
     this.data = data;
   }
 
@@ -69,10 +70,11 @@ public class MicrosoftTeamsCreateApiHandleResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MicrosoftTeamsCreateApiHandleResponse
+   * @return MicrosoftTeamsCreateTenantBasedHandleRequest
    */
   @JsonAnySetter
-  public MicrosoftTeamsCreateApiHandleResponse putAdditionalProperty(String key, Object value) {
+  public MicrosoftTeamsCreateTenantBasedHandleRequest putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -103,7 +105,7 @@ public class MicrosoftTeamsCreateApiHandleResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MicrosoftTeamsCreateApiHandleResponse object is equal to o. */
+  /** Return true if this MicrosoftTeamsCreateTenantBasedHandleRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,11 +114,12 @@ public class MicrosoftTeamsCreateApiHandleResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MicrosoftTeamsCreateApiHandleResponse microsoftTeamsCreateApiHandleResponse =
-        (MicrosoftTeamsCreateApiHandleResponse) o;
-    return Objects.equals(this.data, microsoftTeamsCreateApiHandleResponse.data)
+    MicrosoftTeamsCreateTenantBasedHandleRequest microsoftTeamsCreateTenantBasedHandleRequest =
+        (MicrosoftTeamsCreateTenantBasedHandleRequest) o;
+    return Objects.equals(this.data, microsoftTeamsCreateTenantBasedHandleRequest.data)
         && Objects.equals(
-            this.additionalProperties, microsoftTeamsCreateApiHandleResponse.additionalProperties);
+            this.additionalProperties,
+            microsoftTeamsCreateTenantBasedHandleRequest.additionalProperties);
   }
 
   @Override
@@ -127,7 +130,7 @@ public class MicrosoftTeamsCreateApiHandleResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MicrosoftTeamsCreateApiHandleResponse {\n");
+    sb.append("class MicrosoftTeamsCreateTenantBasedHandleRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

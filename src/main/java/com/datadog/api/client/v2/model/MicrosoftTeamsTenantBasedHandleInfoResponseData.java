@@ -16,111 +16,94 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Handle attributes. */
+/** Tenant-based handle data from a response. */
 @JsonPropertyOrder({
-  MicrosoftTeamsApiHandleAttributes.JSON_PROPERTY_CHANNEL_ID,
-  MicrosoftTeamsApiHandleAttributes.JSON_PROPERTY_NAME,
-  MicrosoftTeamsApiHandleAttributes.JSON_PROPERTY_TEAM_ID,
-  MicrosoftTeamsApiHandleAttributes.JSON_PROPERTY_TENANT_ID
+  MicrosoftTeamsTenantBasedHandleInfoResponseData.JSON_PROPERTY_ATTRIBUTES,
+  MicrosoftTeamsTenantBasedHandleInfoResponseData.JSON_PROPERTY_ID,
+  MicrosoftTeamsTenantBasedHandleInfoResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MicrosoftTeamsApiHandleAttributes {
+public class MicrosoftTeamsTenantBasedHandleInfoResponseData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CHANNEL_ID = "channel_id";
-  private String channelId;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private MicrosoftTeamsTenantBasedHandleInfoResponseAttributes attributes;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public static final String JSON_PROPERTY_TEAM_ID = "team_id";
-  private String teamId;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private MicrosoftTeamsTenantBasedHandleInfoType type =
+      MicrosoftTeamsTenantBasedHandleInfoType.MS_TEAMS_TENANT_BASED_HANDLE_INFO;
 
-  public static final String JSON_PROPERTY_TENANT_ID = "tenant_id";
-  private String tenantId;
-
-  public MicrosoftTeamsApiHandleAttributes channelId(String channelId) {
-    this.channelId = channelId;
+  public MicrosoftTeamsTenantBasedHandleInfoResponseData attributes(
+      MicrosoftTeamsTenantBasedHandleInfoResponseAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Channel id.
+   * Tenant-based handle attributes.
    *
-   * @return channelId
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CHANNEL_ID)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getChannelId() {
-    return channelId;
+  public MicrosoftTeamsTenantBasedHandleInfoResponseAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setChannelId(String channelId) {
-    this.channelId = channelId;
+  public void setAttributes(MicrosoftTeamsTenantBasedHandleInfoResponseAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public MicrosoftTeamsApiHandleAttributes name(String name) {
-    this.name = name;
+  public MicrosoftTeamsTenantBasedHandleInfoResponseData id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Handle name.
+   * The ID of the tenant-based handle.
    *
-   * @return name
+   * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
+  public String getId() {
+    return id;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public MicrosoftTeamsApiHandleAttributes teamId(String teamId) {
-    this.teamId = teamId;
+  public MicrosoftTeamsTenantBasedHandleInfoResponseData type(
+      MicrosoftTeamsTenantBasedHandleInfoType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Team id.
+   * Tenant-based handle resource type.
    *
-   * @return teamId
+   * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TEAM_ID)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTeamId() {
-    return teamId;
+  public MicrosoftTeamsTenantBasedHandleInfoType getType() {
+    return type;
   }
 
-  public void setTeamId(String teamId) {
-    this.teamId = teamId;
-  }
-
-  public MicrosoftTeamsApiHandleAttributes tenantId(String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Tenant id.
-   *
-   * @return tenantId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TENANT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
+  public void setType(MicrosoftTeamsTenantBasedHandleInfoType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -135,10 +118,11 @@ public class MicrosoftTeamsApiHandleAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MicrosoftTeamsApiHandleAttributes
+   * @return MicrosoftTeamsTenantBasedHandleInfoResponseData
    */
   @JsonAnySetter
-  public MicrosoftTeamsApiHandleAttributes putAdditionalProperty(String key, Object value) {
+  public MicrosoftTeamsTenantBasedHandleInfoResponseData putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -169,7 +153,7 @@ public class MicrosoftTeamsApiHandleAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MicrosoftTeamsApiHandleAttributes object is equal to o. */
+  /** Return true if this MicrosoftTeamsTenantBasedHandleInfoResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -178,29 +162,30 @@ public class MicrosoftTeamsApiHandleAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MicrosoftTeamsApiHandleAttributes microsoftTeamsApiHandleAttributes =
-        (MicrosoftTeamsApiHandleAttributes) o;
-    return Objects.equals(this.channelId, microsoftTeamsApiHandleAttributes.channelId)
-        && Objects.equals(this.name, microsoftTeamsApiHandleAttributes.name)
-        && Objects.equals(this.teamId, microsoftTeamsApiHandleAttributes.teamId)
-        && Objects.equals(this.tenantId, microsoftTeamsApiHandleAttributes.tenantId)
+    MicrosoftTeamsTenantBasedHandleInfoResponseData
+        microsoftTeamsTenantBasedHandleInfoResponseData =
+            (MicrosoftTeamsTenantBasedHandleInfoResponseData) o;
+    return Objects.equals(
+            this.attributes, microsoftTeamsTenantBasedHandleInfoResponseData.attributes)
+        && Objects.equals(this.id, microsoftTeamsTenantBasedHandleInfoResponseData.id)
+        && Objects.equals(this.type, microsoftTeamsTenantBasedHandleInfoResponseData.type)
         && Objects.equals(
-            this.additionalProperties, microsoftTeamsApiHandleAttributes.additionalProperties);
+            this.additionalProperties,
+            microsoftTeamsTenantBasedHandleInfoResponseData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(channelId, name, teamId, tenantId, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MicrosoftTeamsApiHandleAttributes {\n");
-    sb.append("    channelId: ").append(toIndentedString(channelId)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
+    sb.append("class MicrosoftTeamsTenantBasedHandleInfoResponseData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

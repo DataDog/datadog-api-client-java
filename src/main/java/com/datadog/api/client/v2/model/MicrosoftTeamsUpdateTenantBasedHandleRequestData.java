@@ -17,74 +17,77 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Handle data from a response. */
+/** Tenant-based handle data from a response. */
 @JsonPropertyOrder({
-  MicrosoftTeamsUpdateApiHandleRequestData.JSON_PROPERTY_ATTRIBUTES,
-  MicrosoftTeamsUpdateApiHandleRequestData.JSON_PROPERTY_TYPE
+  MicrosoftTeamsUpdateTenantBasedHandleRequestData.JSON_PROPERTY_ATTRIBUTES,
+  MicrosoftTeamsUpdateTenantBasedHandleRequestData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MicrosoftTeamsUpdateApiHandleRequestData {
+public class MicrosoftTeamsUpdateTenantBasedHandleRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private MicrosoftTeamsApiHandleAttributes attributes;
+  private MicrosoftTeamsTenantBasedHandleAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private MicrosoftTeamsApiHandleType type = MicrosoftTeamsApiHandleType.HANDLE;
+  private MicrosoftTeamsTenantBasedHandleType type =
+      MicrosoftTeamsTenantBasedHandleType.TENANT_BASED_HANDLE;
 
-  public MicrosoftTeamsUpdateApiHandleRequestData() {}
+  public MicrosoftTeamsUpdateTenantBasedHandleRequestData() {}
 
   @JsonCreator
-  public MicrosoftTeamsUpdateApiHandleRequestData(
+  public MicrosoftTeamsUpdateTenantBasedHandleRequestData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          MicrosoftTeamsApiHandleAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) MicrosoftTeamsApiHandleType type) {
+          MicrosoftTeamsTenantBasedHandleAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          MicrosoftTeamsTenantBasedHandleType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public MicrosoftTeamsUpdateApiHandleRequestData attributes(
-      MicrosoftTeamsApiHandleAttributes attributes) {
+  public MicrosoftTeamsUpdateTenantBasedHandleRequestData attributes(
+      MicrosoftTeamsTenantBasedHandleAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Handle attributes.
+   * Tenant-based handle attributes.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MicrosoftTeamsApiHandleAttributes getAttributes() {
+  public MicrosoftTeamsTenantBasedHandleAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(MicrosoftTeamsApiHandleAttributes attributes) {
+  public void setAttributes(MicrosoftTeamsTenantBasedHandleAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public MicrosoftTeamsUpdateApiHandleRequestData type(MicrosoftTeamsApiHandleType type) {
+  public MicrosoftTeamsUpdateTenantBasedHandleRequestData type(
+      MicrosoftTeamsTenantBasedHandleType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Specifies the handle resource type.
+   * Specifies the tenant-based handle resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public MicrosoftTeamsApiHandleType getType() {
+  public MicrosoftTeamsTenantBasedHandleType getType() {
     return type;
   }
 
-  public void setType(MicrosoftTeamsApiHandleType type) {
+  public void setType(MicrosoftTeamsTenantBasedHandleType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -103,10 +106,11 @@ public class MicrosoftTeamsUpdateApiHandleRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MicrosoftTeamsUpdateApiHandleRequestData
+   * @return MicrosoftTeamsUpdateTenantBasedHandleRequestData
    */
   @JsonAnySetter
-  public MicrosoftTeamsUpdateApiHandleRequestData putAdditionalProperty(String key, Object value) {
+  public MicrosoftTeamsUpdateTenantBasedHandleRequestData putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -137,7 +141,7 @@ public class MicrosoftTeamsUpdateApiHandleRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MicrosoftTeamsUpdateApiHandleRequestData object is equal to o. */
+  /** Return true if this MicrosoftTeamsUpdateTenantBasedHandleRequestData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,13 +150,15 @@ public class MicrosoftTeamsUpdateApiHandleRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MicrosoftTeamsUpdateApiHandleRequestData microsoftTeamsUpdateApiHandleRequestData =
-        (MicrosoftTeamsUpdateApiHandleRequestData) o;
-    return Objects.equals(this.attributes, microsoftTeamsUpdateApiHandleRequestData.attributes)
-        && Objects.equals(this.type, microsoftTeamsUpdateApiHandleRequestData.type)
+    MicrosoftTeamsUpdateTenantBasedHandleRequestData
+        microsoftTeamsUpdateTenantBasedHandleRequestData =
+            (MicrosoftTeamsUpdateTenantBasedHandleRequestData) o;
+    return Objects.equals(
+            this.attributes, microsoftTeamsUpdateTenantBasedHandleRequestData.attributes)
+        && Objects.equals(this.type, microsoftTeamsUpdateTenantBasedHandleRequestData.type)
         && Objects.equals(
             this.additionalProperties,
-            microsoftTeamsUpdateApiHandleRequestData.additionalProperties);
+            microsoftTeamsUpdateTenantBasedHandleRequestData.additionalProperties);
   }
 
   @Override
@@ -163,7 +169,7 @@ public class MicrosoftTeamsUpdateApiHandleRequestData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MicrosoftTeamsUpdateApiHandleRequestData {\n");
+    sb.append("class MicrosoftTeamsUpdateTenantBasedHandleRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

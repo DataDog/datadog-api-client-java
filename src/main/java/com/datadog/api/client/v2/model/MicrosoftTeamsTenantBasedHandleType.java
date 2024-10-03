@@ -18,41 +18,42 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Handle resource type. */
+/** Specifies the tenant-based handle resource type. */
 @JsonSerialize(
-    using = MicrosoftTeamsApiHandleInfoType.MicrosoftTeamsApiHandleInfoTypeSerializer.class)
-public class MicrosoftTeamsApiHandleInfoType extends ModelEnum<String> {
+    using = MicrosoftTeamsTenantBasedHandleType.MicrosoftTeamsTenantBasedHandleTypeSerializer.class)
+public class MicrosoftTeamsTenantBasedHandleType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("ms-teams-handle-info"));
+      new HashSet<String>(Arrays.asList("tenant-based-handle"));
 
-  public static final MicrosoftTeamsApiHandleInfoType MS_TEAMS_HANDLE_INFO =
-      new MicrosoftTeamsApiHandleInfoType("ms-teams-handle-info");
+  public static final MicrosoftTeamsTenantBasedHandleType TENANT_BASED_HANDLE =
+      new MicrosoftTeamsTenantBasedHandleType("tenant-based-handle");
 
-  MicrosoftTeamsApiHandleInfoType(String value) {
+  MicrosoftTeamsTenantBasedHandleType(String value) {
     super(value, allowedValues);
   }
 
-  public static class MicrosoftTeamsApiHandleInfoTypeSerializer
-      extends StdSerializer<MicrosoftTeamsApiHandleInfoType> {
-    public MicrosoftTeamsApiHandleInfoTypeSerializer(Class<MicrosoftTeamsApiHandleInfoType> t) {
+  public static class MicrosoftTeamsTenantBasedHandleTypeSerializer
+      extends StdSerializer<MicrosoftTeamsTenantBasedHandleType> {
+    public MicrosoftTeamsTenantBasedHandleTypeSerializer(
+        Class<MicrosoftTeamsTenantBasedHandleType> t) {
       super(t);
     }
 
-    public MicrosoftTeamsApiHandleInfoTypeSerializer() {
+    public MicrosoftTeamsTenantBasedHandleTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        MicrosoftTeamsApiHandleInfoType value, JsonGenerator jgen, SerializerProvider provider)
+        MicrosoftTeamsTenantBasedHandleType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static MicrosoftTeamsApiHandleInfoType fromValue(String value) {
-    return new MicrosoftTeamsApiHandleInfoType(value);
+  public static MicrosoftTeamsTenantBasedHandleType fromValue(String value) {
+    return new MicrosoftTeamsTenantBasedHandleType(value);
   }
 }
