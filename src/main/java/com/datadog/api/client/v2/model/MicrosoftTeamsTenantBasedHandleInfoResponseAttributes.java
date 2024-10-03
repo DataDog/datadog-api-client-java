@@ -16,19 +16,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Handle attributes. */
+/** Tenant-based handle attributes. */
 @JsonPropertyOrder({
-  MicrosoftTeamsApiHandleInfoResponseAttributes.JSON_PROPERTY_CHANNEL_ID,
-  MicrosoftTeamsApiHandleInfoResponseAttributes.JSON_PROPERTY_CHANNEL_NAME,
-  MicrosoftTeamsApiHandleInfoResponseAttributes.JSON_PROPERTY_NAME,
-  MicrosoftTeamsApiHandleInfoResponseAttributes.JSON_PROPERTY_TEAM_ID,
-  MicrosoftTeamsApiHandleInfoResponseAttributes.JSON_PROPERTY_TEAM_NAME,
-  MicrosoftTeamsApiHandleInfoResponseAttributes.JSON_PROPERTY_TENANT_ID,
-  MicrosoftTeamsApiHandleInfoResponseAttributes.JSON_PROPERTY_TENANT_NAME
+  MicrosoftTeamsTenantBasedHandleInfoResponseAttributes.JSON_PROPERTY_CHANNEL_ID,
+  MicrosoftTeamsTenantBasedHandleInfoResponseAttributes.JSON_PROPERTY_CHANNEL_NAME,
+  MicrosoftTeamsTenantBasedHandleInfoResponseAttributes.JSON_PROPERTY_NAME,
+  MicrosoftTeamsTenantBasedHandleInfoResponseAttributes.JSON_PROPERTY_TEAM_ID,
+  MicrosoftTeamsTenantBasedHandleInfoResponseAttributes.JSON_PROPERTY_TEAM_NAME,
+  MicrosoftTeamsTenantBasedHandleInfoResponseAttributes.JSON_PROPERTY_TENANT_ID,
+  MicrosoftTeamsTenantBasedHandleInfoResponseAttributes.JSON_PROPERTY_TENANT_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MicrosoftTeamsApiHandleInfoResponseAttributes {
+public class MicrosoftTeamsTenantBasedHandleInfoResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHANNEL_ID = "channel_id";
   private String channelId;
@@ -51,7 +51,7 @@ public class MicrosoftTeamsApiHandleInfoResponseAttributes {
   public static final String JSON_PROPERTY_TENANT_NAME = "tenant_name";
   private String tenantName;
 
-  public MicrosoftTeamsApiHandleInfoResponseAttributes channelId(String channelId) {
+  public MicrosoftTeamsTenantBasedHandleInfoResponseAttributes channelId(String channelId) {
     this.channelId = channelId;
     return this;
   }
@@ -72,7 +72,7 @@ public class MicrosoftTeamsApiHandleInfoResponseAttributes {
     this.channelId = channelId;
   }
 
-  public MicrosoftTeamsApiHandleInfoResponseAttributes channelName(String channelName) {
+  public MicrosoftTeamsTenantBasedHandleInfoResponseAttributes channelName(String channelName) {
     this.channelName = channelName;
     return this;
   }
@@ -93,13 +93,13 @@ public class MicrosoftTeamsApiHandleInfoResponseAttributes {
     this.channelName = channelName;
   }
 
-  public MicrosoftTeamsApiHandleInfoResponseAttributes name(String name) {
+  public MicrosoftTeamsTenantBasedHandleInfoResponseAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Handle name.
+   * Tenant-based handle name.
    *
    * @return name
    */
@@ -114,7 +114,7 @@ public class MicrosoftTeamsApiHandleInfoResponseAttributes {
     this.name = name;
   }
 
-  public MicrosoftTeamsApiHandleInfoResponseAttributes teamId(String teamId) {
+  public MicrosoftTeamsTenantBasedHandleInfoResponseAttributes teamId(String teamId) {
     this.teamId = teamId;
     return this;
   }
@@ -135,7 +135,7 @@ public class MicrosoftTeamsApiHandleInfoResponseAttributes {
     this.teamId = teamId;
   }
 
-  public MicrosoftTeamsApiHandleInfoResponseAttributes teamName(String teamName) {
+  public MicrosoftTeamsTenantBasedHandleInfoResponseAttributes teamName(String teamName) {
     this.teamName = teamName;
     return this;
   }
@@ -156,7 +156,7 @@ public class MicrosoftTeamsApiHandleInfoResponseAttributes {
     this.teamName = teamName;
   }
 
-  public MicrosoftTeamsApiHandleInfoResponseAttributes tenantId(String tenantId) {
+  public MicrosoftTeamsTenantBasedHandleInfoResponseAttributes tenantId(String tenantId) {
     this.tenantId = tenantId;
     return this;
   }
@@ -177,7 +177,7 @@ public class MicrosoftTeamsApiHandleInfoResponseAttributes {
     this.tenantId = tenantId;
   }
 
-  public MicrosoftTeamsApiHandleInfoResponseAttributes tenantName(String tenantName) {
+  public MicrosoftTeamsTenantBasedHandleInfoResponseAttributes tenantName(String tenantName) {
     this.tenantName = tenantName;
     return this;
   }
@@ -210,10 +210,10 @@ public class MicrosoftTeamsApiHandleInfoResponseAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MicrosoftTeamsApiHandleInfoResponseAttributes
+   * @return MicrosoftTeamsTenantBasedHandleInfoResponseAttributes
    */
   @JsonAnySetter
-  public MicrosoftTeamsApiHandleInfoResponseAttributes putAdditionalProperty(
+  public MicrosoftTeamsTenantBasedHandleInfoResponseAttributes putAdditionalProperty(
       String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
@@ -245,7 +245,9 @@ public class MicrosoftTeamsApiHandleInfoResponseAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MicrosoftTeamsApiHandleInfoResponseAttributes object is equal to o. */
+  /**
+   * Return true if this MicrosoftTeamsTenantBasedHandleInfoResponseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -254,19 +256,24 @@ public class MicrosoftTeamsApiHandleInfoResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MicrosoftTeamsApiHandleInfoResponseAttributes microsoftTeamsApiHandleInfoResponseAttributes =
-        (MicrosoftTeamsApiHandleInfoResponseAttributes) o;
-    return Objects.equals(this.channelId, microsoftTeamsApiHandleInfoResponseAttributes.channelId)
+    MicrosoftTeamsTenantBasedHandleInfoResponseAttributes
+        microsoftTeamsTenantBasedHandleInfoResponseAttributes =
+            (MicrosoftTeamsTenantBasedHandleInfoResponseAttributes) o;
+    return Objects.equals(
+            this.channelId, microsoftTeamsTenantBasedHandleInfoResponseAttributes.channelId)
         && Objects.equals(
-            this.channelName, microsoftTeamsApiHandleInfoResponseAttributes.channelName)
-        && Objects.equals(this.name, microsoftTeamsApiHandleInfoResponseAttributes.name)
-        && Objects.equals(this.teamId, microsoftTeamsApiHandleInfoResponseAttributes.teamId)
-        && Objects.equals(this.teamName, microsoftTeamsApiHandleInfoResponseAttributes.teamName)
-        && Objects.equals(this.tenantId, microsoftTeamsApiHandleInfoResponseAttributes.tenantId)
-        && Objects.equals(this.tenantName, microsoftTeamsApiHandleInfoResponseAttributes.tenantName)
+            this.channelName, microsoftTeamsTenantBasedHandleInfoResponseAttributes.channelName)
+        && Objects.equals(this.name, microsoftTeamsTenantBasedHandleInfoResponseAttributes.name)
+        && Objects.equals(this.teamId, microsoftTeamsTenantBasedHandleInfoResponseAttributes.teamId)
+        && Objects.equals(
+            this.teamName, microsoftTeamsTenantBasedHandleInfoResponseAttributes.teamName)
+        && Objects.equals(
+            this.tenantId, microsoftTeamsTenantBasedHandleInfoResponseAttributes.tenantId)
+        && Objects.equals(
+            this.tenantName, microsoftTeamsTenantBasedHandleInfoResponseAttributes.tenantName)
         && Objects.equals(
             this.additionalProperties,
-            microsoftTeamsApiHandleInfoResponseAttributes.additionalProperties);
+            microsoftTeamsTenantBasedHandleInfoResponseAttributes.additionalProperties);
   }
 
   @Override
@@ -278,7 +285,7 @@ public class MicrosoftTeamsApiHandleInfoResponseAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MicrosoftTeamsApiHandleInfoResponseAttributes {\n");
+    sb.append("class MicrosoftTeamsTenantBasedHandleInfoResponseAttributes {\n");
     sb.append("    channelId: ").append(toIndentedString(channelId)).append("\n");
     sb.append("    channelName: ").append(toIndentedString(channelName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

@@ -16,56 +16,56 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Handle data from a response. */
+/** Tenant-based handle data from a response. */
 @JsonPropertyOrder({
-  MicrosoftTeamsApiHandleInfoResponseData.JSON_PROPERTY_ATTRIBUTES,
-  MicrosoftTeamsApiHandleInfoResponseData.JSON_PROPERTY_ID,
-  MicrosoftTeamsApiHandleInfoResponseData.JSON_PROPERTY_TYPE
+  MicrosoftTeamsTenantBasedHandleResponseData.JSON_PROPERTY_ATTRIBUTES,
+  MicrosoftTeamsTenantBasedHandleResponseData.JSON_PROPERTY_ID,
+  MicrosoftTeamsTenantBasedHandleResponseData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MicrosoftTeamsApiHandleInfoResponseData {
+public class MicrosoftTeamsTenantBasedHandleResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private MicrosoftTeamsApiHandleInfoResponseAttributes attributes;
+  private MicrosoftTeamsTenantBasedHandleAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private MicrosoftTeamsApiHandleInfoType type =
-      MicrosoftTeamsApiHandleInfoType.MS_TEAMS_HANDLE_INFO;
+  private MicrosoftTeamsTenantBasedHandleType type =
+      MicrosoftTeamsTenantBasedHandleType.TENANT_BASED_HANDLE;
 
-  public MicrosoftTeamsApiHandleInfoResponseData attributes(
-      MicrosoftTeamsApiHandleInfoResponseAttributes attributes) {
+  public MicrosoftTeamsTenantBasedHandleResponseData attributes(
+      MicrosoftTeamsTenantBasedHandleAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Handle attributes.
+   * Tenant-based handle attributes.
    *
    * @return attributes
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MicrosoftTeamsApiHandleInfoResponseAttributes getAttributes() {
+  public MicrosoftTeamsTenantBasedHandleAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(MicrosoftTeamsApiHandleInfoResponseAttributes attributes) {
+  public void setAttributes(MicrosoftTeamsTenantBasedHandleAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public MicrosoftTeamsApiHandleInfoResponseData id(String id) {
+  public MicrosoftTeamsTenantBasedHandleResponseData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the handle.
+   * The ID of the tenant-based handle.
    *
    * @return id
    */
@@ -80,25 +80,26 @@ public class MicrosoftTeamsApiHandleInfoResponseData {
     this.id = id;
   }
 
-  public MicrosoftTeamsApiHandleInfoResponseData type(MicrosoftTeamsApiHandleInfoType type) {
+  public MicrosoftTeamsTenantBasedHandleResponseData type(
+      MicrosoftTeamsTenantBasedHandleType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Handle resource type.
+   * Specifies the tenant-based handle resource type.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MicrosoftTeamsApiHandleInfoType getType() {
+  public MicrosoftTeamsTenantBasedHandleType getType() {
     return type;
   }
 
-  public void setType(MicrosoftTeamsApiHandleInfoType type) {
+  public void setType(MicrosoftTeamsTenantBasedHandleType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -117,10 +118,11 @@ public class MicrosoftTeamsApiHandleInfoResponseData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MicrosoftTeamsApiHandleInfoResponseData
+   * @return MicrosoftTeamsTenantBasedHandleResponseData
    */
   @JsonAnySetter
-  public MicrosoftTeamsApiHandleInfoResponseData putAdditionalProperty(String key, Object value) {
+  public MicrosoftTeamsTenantBasedHandleResponseData putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -151,7 +153,7 @@ public class MicrosoftTeamsApiHandleInfoResponseData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MicrosoftTeamsApiHandleInfoResponseData object is equal to o. */
+  /** Return true if this MicrosoftTeamsTenantBasedHandleResponseData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -160,14 +162,14 @@ public class MicrosoftTeamsApiHandleInfoResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MicrosoftTeamsApiHandleInfoResponseData microsoftTeamsApiHandleInfoResponseData =
-        (MicrosoftTeamsApiHandleInfoResponseData) o;
-    return Objects.equals(this.attributes, microsoftTeamsApiHandleInfoResponseData.attributes)
-        && Objects.equals(this.id, microsoftTeamsApiHandleInfoResponseData.id)
-        && Objects.equals(this.type, microsoftTeamsApiHandleInfoResponseData.type)
+    MicrosoftTeamsTenantBasedHandleResponseData microsoftTeamsTenantBasedHandleResponseData =
+        (MicrosoftTeamsTenantBasedHandleResponseData) o;
+    return Objects.equals(this.attributes, microsoftTeamsTenantBasedHandleResponseData.attributes)
+        && Objects.equals(this.id, microsoftTeamsTenantBasedHandleResponseData.id)
+        && Objects.equals(this.type, microsoftTeamsTenantBasedHandleResponseData.type)
         && Objects.equals(
             this.additionalProperties,
-            microsoftTeamsApiHandleInfoResponseData.additionalProperties);
+            microsoftTeamsTenantBasedHandleResponseData.additionalProperties);
   }
 
   @Override
@@ -178,7 +180,7 @@ public class MicrosoftTeamsApiHandleInfoResponseData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MicrosoftTeamsApiHandleInfoResponseData {\n");
+    sb.append("class MicrosoftTeamsTenantBasedHandleResponseData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

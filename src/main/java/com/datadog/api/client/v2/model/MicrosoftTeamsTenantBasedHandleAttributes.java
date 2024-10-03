@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,16 +16,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Handle attributes. */
+/** Tenant-based handle attributes. */
 @JsonPropertyOrder({
-  MicrosoftTeamsApiHandleRequestAttributes.JSON_PROPERTY_CHANNEL_ID,
-  MicrosoftTeamsApiHandleRequestAttributes.JSON_PROPERTY_NAME,
-  MicrosoftTeamsApiHandleRequestAttributes.JSON_PROPERTY_TEAM_ID,
-  MicrosoftTeamsApiHandleRequestAttributes.JSON_PROPERTY_TENANT_ID
+  MicrosoftTeamsTenantBasedHandleAttributes.JSON_PROPERTY_CHANNEL_ID,
+  MicrosoftTeamsTenantBasedHandleAttributes.JSON_PROPERTY_NAME,
+  MicrosoftTeamsTenantBasedHandleAttributes.JSON_PROPERTY_TEAM_ID,
+  MicrosoftTeamsTenantBasedHandleAttributes.JSON_PROPERTY_TENANT_ID
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class MicrosoftTeamsApiHandleRequestAttributes {
+public class MicrosoftTeamsTenantBasedHandleAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHANNEL_ID = "channel_id";
   private String channelId;
@@ -40,21 +39,7 @@ public class MicrosoftTeamsApiHandleRequestAttributes {
   public static final String JSON_PROPERTY_TENANT_ID = "tenant_id";
   private String tenantId;
 
-  public MicrosoftTeamsApiHandleRequestAttributes() {}
-
-  @JsonCreator
-  public MicrosoftTeamsApiHandleRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CHANNEL_ID) String channelId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TEAM_ID) String teamId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TENANT_ID) String tenantId) {
-    this.channelId = channelId;
-    this.name = name;
-    this.teamId = teamId;
-    this.tenantId = tenantId;
-  }
-
-  public MicrosoftTeamsApiHandleRequestAttributes channelId(String channelId) {
+  public MicrosoftTeamsTenantBasedHandleAttributes channelId(String channelId) {
     this.channelId = channelId;
     return this;
   }
@@ -64,8 +49,9 @@ public class MicrosoftTeamsApiHandleRequestAttributes {
    *
    * @return channelId
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHANNEL_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getChannelId() {
     return channelId;
   }
@@ -74,18 +60,19 @@ public class MicrosoftTeamsApiHandleRequestAttributes {
     this.channelId = channelId;
   }
 
-  public MicrosoftTeamsApiHandleRequestAttributes name(String name) {
+  public MicrosoftTeamsTenantBasedHandleAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Handle name.
+   * Tenant-based handle name.
    *
    * @return name
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
     return name;
   }
@@ -94,7 +81,7 @@ public class MicrosoftTeamsApiHandleRequestAttributes {
     this.name = name;
   }
 
-  public MicrosoftTeamsApiHandleRequestAttributes teamId(String teamId) {
+  public MicrosoftTeamsTenantBasedHandleAttributes teamId(String teamId) {
     this.teamId = teamId;
     return this;
   }
@@ -104,8 +91,9 @@ public class MicrosoftTeamsApiHandleRequestAttributes {
    *
    * @return teamId
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEAM_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTeamId() {
     return teamId;
   }
@@ -114,7 +102,7 @@ public class MicrosoftTeamsApiHandleRequestAttributes {
     this.teamId = teamId;
   }
 
-  public MicrosoftTeamsApiHandleRequestAttributes tenantId(String tenantId) {
+  public MicrosoftTeamsTenantBasedHandleAttributes tenantId(String tenantId) {
     this.tenantId = tenantId;
     return this;
   }
@@ -124,8 +112,9 @@ public class MicrosoftTeamsApiHandleRequestAttributes {
    *
    * @return tenantId
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TENANT_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTenantId() {
     return tenantId;
   }
@@ -146,10 +135,10 @@ public class MicrosoftTeamsApiHandleRequestAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return MicrosoftTeamsApiHandleRequestAttributes
+   * @return MicrosoftTeamsTenantBasedHandleAttributes
    */
   @JsonAnySetter
-  public MicrosoftTeamsApiHandleRequestAttributes putAdditionalProperty(String key, Object value) {
+  public MicrosoftTeamsTenantBasedHandleAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -180,7 +169,7 @@ public class MicrosoftTeamsApiHandleRequestAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this MicrosoftTeamsApiHandleRequestAttributes object is equal to o. */
+  /** Return true if this MicrosoftTeamsTenantBasedHandleAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -189,15 +178,15 @@ public class MicrosoftTeamsApiHandleRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MicrosoftTeamsApiHandleRequestAttributes microsoftTeamsApiHandleRequestAttributes =
-        (MicrosoftTeamsApiHandleRequestAttributes) o;
-    return Objects.equals(this.channelId, microsoftTeamsApiHandleRequestAttributes.channelId)
-        && Objects.equals(this.name, microsoftTeamsApiHandleRequestAttributes.name)
-        && Objects.equals(this.teamId, microsoftTeamsApiHandleRequestAttributes.teamId)
-        && Objects.equals(this.tenantId, microsoftTeamsApiHandleRequestAttributes.tenantId)
+    MicrosoftTeamsTenantBasedHandleAttributes microsoftTeamsTenantBasedHandleAttributes =
+        (MicrosoftTeamsTenantBasedHandleAttributes) o;
+    return Objects.equals(this.channelId, microsoftTeamsTenantBasedHandleAttributes.channelId)
+        && Objects.equals(this.name, microsoftTeamsTenantBasedHandleAttributes.name)
+        && Objects.equals(this.teamId, microsoftTeamsTenantBasedHandleAttributes.teamId)
+        && Objects.equals(this.tenantId, microsoftTeamsTenantBasedHandleAttributes.tenantId)
         && Objects.equals(
             this.additionalProperties,
-            microsoftTeamsApiHandleRequestAttributes.additionalProperties);
+            microsoftTeamsTenantBasedHandleAttributes.additionalProperties);
   }
 
   @Override
@@ -208,7 +197,7 @@ public class MicrosoftTeamsApiHandleRequestAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MicrosoftTeamsApiHandleRequestAttributes {\n");
+    sb.append("class MicrosoftTeamsTenantBasedHandleAttributes {\n");
     sb.append("    channelId: ").append(toIndentedString(channelId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
