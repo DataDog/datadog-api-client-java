@@ -42,10 +42,10 @@ public class WidgetLayout {
   private Long width;
 
   public static final String JSON_PROPERTY_X = "x";
-  private Long x;
+  private Double x;
 
   public static final String JSON_PROPERTY_Y = "y";
-  private Long y;
+  private Double y;
 
   public WidgetLayout() {}
 
@@ -53,8 +53,8 @@ public class WidgetLayout {
   public WidgetLayout(
       @JsonProperty(required = true, value = JSON_PROPERTY_HEIGHT) Long height,
       @JsonProperty(required = true, value = JSON_PROPERTY_WIDTH) Long width,
-      @JsonProperty(required = true, value = JSON_PROPERTY_X) Long x,
-      @JsonProperty(required = true, value = JSON_PROPERTY_Y) Long y) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_X) Double x,
+      @JsonProperty(required = true, value = JSON_PROPERTY_Y) Double y) {
     this.height = height;
     this.width = width;
     this.x = x;
@@ -124,45 +124,45 @@ public class WidgetLayout {
     this.width = width;
   }
 
-  public WidgetLayout x(Long x) {
+  public WidgetLayout x(Double x) {
     this.x = x;
     return this;
   }
 
   /**
-   * The position of the widget on the x (horizontal) axis. Should be a non-negative integer.
+   * The position of the widget on the x (horizontal) axis. Should be a non-negative number.
    * minimum: 0
    *
    * @return x
    */
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getX() {
+  public Double getX() {
     return x;
   }
 
-  public void setX(Long x) {
+  public void setX(Double x) {
     this.x = x;
   }
 
-  public WidgetLayout y(Long y) {
+  public WidgetLayout y(Double y) {
     this.y = y;
     return this;
   }
 
   /**
-   * The position of the widget on the y (vertical) axis. Should be a non-negative integer. minimum:
+   * The position of the widget on the y (vertical) axis. Should be a non-negative number. minimum:
    * 0
    *
    * @return y
    */
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Long getY() {
+  public Double getY() {
     return y;
   }
 
-  public void setY(Long y) {
+  public void setY(Double y) {
     this.y = y;
   }
 
