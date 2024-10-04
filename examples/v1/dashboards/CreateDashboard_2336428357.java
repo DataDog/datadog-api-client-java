@@ -41,7 +41,7 @@ public class Example {
             .widgets(
                 Collections.singletonList(
                     new Widget()
-                        .layout(new WidgetLayout().x(0L).y(0L).width(54L).height(32L))
+                        .layout(new WidgetLayout().width(54L).height(32L))
                         .definition(
                             new WidgetDefinition(
                                 new TableWidgetDefinition()

@@ -62,7 +62,7 @@ public class Example {
                                                                 .groupBy(
                                                                     Collections.singletonList(
                                                                         "resource_name")))))))))
-                        .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L))))
+                        .layout(new WidgetLayout().width(4L).height(4L))))
             .layoutType(DashboardLayoutType.ORDERED);
 
     try {

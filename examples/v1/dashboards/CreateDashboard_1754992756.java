@@ -47,8 +47,8 @@ public class Example {
                                                                 "baz", "qux", "quuz")))))))
                         .layout(
                             new WidgetLayout()
-                                .x(1L)
-                                .y(1L)
+                                .x(1.0)
+                                .y(1.0)
                                 .width(2L)
                                 .height(2L)
                                 .isColumnBreak(false))))

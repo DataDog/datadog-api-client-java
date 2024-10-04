@@ -81,7 +81,7 @@ public class Example {
                                                     DistributionWidgetHistogramRequestType
                                                         .HISTOGRAM)
                                                 .style(new WidgetStyle().palette("dog_classic"))))))
-                        .layout(new WidgetLayout().x(8L).y(0L).width(4L).height(2L))))
+                        .layout(new WidgetLayout().x(8.0).width(4L).height(2L))))
             .layoutType(DashboardLayoutType.ORDERED);
 
     try {
