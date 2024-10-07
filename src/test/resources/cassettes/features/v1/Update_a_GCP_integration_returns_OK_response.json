@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"auth_provider_x509_cert_url\":\"https://www.googleapis.com/oauth2/v1/certs\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"client_email\":\"5cf439fad579761d@example.com\",\"client_id\":\"170307982017030798200\",\"client_x509_cert_url\":\"https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL\",\"host_filters\":\"key:value,filter:example\",\"is_cspm_enabled\":true,\"is_security_command_center_enabled\":true,\"private_key\":\"private_key\",\"private_key_id\":\"123456789abcdefghi123456789abcdefghijklm\",\"project_id\":\"datadog-apitest\",\"resource_collection_enabled\":true,\"token_uri\":\"https://accounts.google.com/o/oauth2/token\",\"type\":\"service_account\"}"
+        "json": "{\"auth_provider_x509_cert_url\":\"https://www.googleapis.com/oauth2/v1/certs\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"client_email\":\"b4b2a84c6669b5d4@example.com\",\"client_id\":\"172833301117283330110\",\"client_x509_cert_url\":\"https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL\",\"host_filters\":\"key:value,filter:example\",\"is_cspm_enabled\":true,\"is_resource_change_collection_enabled\":true,\"is_security_command_center_enabled\":true,\"private_key\":\"private_key\",\"private_key_id\":\"123456789abcdefghi123456789abcdefghijklm\",\"project_id\":\"datadog-apitest\",\"resource_collection_enabled\":true,\"token_uri\":\"https://accounts.google.com/o/oauth2/token\",\"type\":\"service_account\"}"
       },
       "headers": {},
       "method": "POST",
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "948d959d-eb7c-3dd5-d6f9-b005cc6ac91f"
+    "id": "6ba08bc0-6cf2-20d8-ee5e-3e8fdd6b39d2"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"auth_provider_x509_cert_url\":\"https://www.googleapis.com/oauth2/v1/certs\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"client_email\":\"5cf439fad579761d@example.com\",\"client_id\":\"170307982017030798200\",\"client_x509_cert_url\":\"https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL\",\"host_filters\":\"key:value,filter:example\",\"is_cspm_enabled\":true,\"is_security_command_center_enabled\":true,\"private_key\":\"private_key\",\"private_key_id\":\"123456789abcdefghi123456789abcdefghijklm\",\"project_id\":\"datadog-apitest\",\"resource_collection_enabled\":true,\"token_uri\":\"https://accounts.google.com/o/oauth2/token\",\"type\":\"service_account\"}"
+        "json": "{\"auth_provider_x509_cert_url\":\"https://www.googleapis.com/oauth2/v1/certs\",\"auth_uri\":\"https://accounts.google.com/o/oauth2/auth\",\"client_email\":\"b4b2a84c6669b5d4@example.com\",\"client_id\":\"172833301117283330110\",\"client_x509_cert_url\":\"https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL\",\"host_filters\":\"key:value,filter:example\",\"is_cspm_enabled\":true,\"is_resource_change_collection_enabled\":true,\"is_security_command_center_enabled\":true,\"private_key\":\"private_key\",\"private_key_id\":\"123456789abcdefghi123456789abcdefghijklm\",\"project_id\":\"datadog-apitest\",\"resource_collection_enabled\":true,\"token_uri\":\"https://accounts.google.com/o/oauth2/token\",\"type\":\"service_account\"}"
       },
       "headers": {},
       "method": "PUT",
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a4e0f5ca-334e-ae20-c292-f85d670cf2eb"
+    "id": "82037953-bac5-1ed8-c53c-fcaf186070c4"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"client_email\":\"5cf439fad579761d@example.com\",\"client_id\":\"170307982017030798200\",\"project_id\":\"datadog-apitest\"}"
+        "json": "{\"client_email\":\"b4b2a84c6669b5d4@example.com\",\"client_id\":\"172833301117283330110\",\"project_id\":\"datadog-apitest\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -87,6 +87,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "430afe65-f016-121e-09f1-ca5d2830268f"
+    "id": "93fedefe-f27b-34f2-9e64-c3e91dcd86fe"
   }
 ]
