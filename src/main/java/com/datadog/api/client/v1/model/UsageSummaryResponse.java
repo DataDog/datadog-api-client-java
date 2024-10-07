@@ -53,6 +53,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_SIEM_EVENTS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_HWM_SUM,
@@ -281,6 +283,14 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_CLOUD_SIEM_EVENTS_AGG_SUM = "cloud_siem_events_agg_sum";
   private Long cloudSiemEventsAggSum;
+
+  public static final String JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM_SUM =
+      "code_analysis_sa_committers_hwm_sum";
+  private Long codeAnalysisSaCommittersHwmSum;
+
+  public static final String JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM_SUM =
+      "code_analysis_sca_committers_hwm_sum";
+  private Long codeAnalysisScaCommittersHwmSum;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG_SUM = "container_avg_sum";
   private Long containerAvgSum;
@@ -1364,6 +1374,51 @@ public class UsageSummaryResponse {
 
   public void setCloudSiemEventsAggSum(Long cloudSiemEventsAggSum) {
     this.cloudSiemEventsAggSum = cloudSiemEventsAggSum;
+  }
+
+  public UsageSummaryResponse codeAnalysisSaCommittersHwmSum(Long codeAnalysisSaCommittersHwmSum) {
+    this.codeAnalysisSaCommittersHwmSum = codeAnalysisSaCommittersHwmSum;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of all Static Analysis committers over all hours in the current month
+   * for all organizations.
+   *
+   * @return codeAnalysisSaCommittersHwmSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCodeAnalysisSaCommittersHwmSum() {
+    return codeAnalysisSaCommittersHwmSum;
+  }
+
+  public void setCodeAnalysisSaCommittersHwmSum(Long codeAnalysisSaCommittersHwmSum) {
+    this.codeAnalysisSaCommittersHwmSum = codeAnalysisSaCommittersHwmSum;
+  }
+
+  public UsageSummaryResponse codeAnalysisScaCommittersHwmSum(
+      Long codeAnalysisScaCommittersHwmSum) {
+    this.codeAnalysisScaCommittersHwmSum = codeAnalysisScaCommittersHwmSum;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of all static Software Composition Analysis committers over all hours
+   * in the current month for all organizations.
+   *
+   * @return codeAnalysisScaCommittersHwmSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCodeAnalysisScaCommittersHwmSum() {
+    return codeAnalysisScaCommittersHwmSum;
+  }
+
+  public void setCodeAnalysisScaCommittersHwmSum(Long codeAnalysisScaCommittersHwmSum) {
+    this.codeAnalysisScaCommittersHwmSum = codeAnalysisScaCommittersHwmSum;
   }
 
   public UsageSummaryResponse containerAvgSum(Long containerAvgSum) {
@@ -4174,6 +4229,12 @@ public class UsageSummaryResponse {
             this.cloudCostManagementHostCountAvgSum,
             usageSummaryResponse.cloudCostManagementHostCountAvgSum)
         && Objects.equals(this.cloudSiemEventsAggSum, usageSummaryResponse.cloudSiemEventsAggSum)
+        && Objects.equals(
+            this.codeAnalysisSaCommittersHwmSum,
+            usageSummaryResponse.codeAnalysisSaCommittersHwmSum)
+        && Objects.equals(
+            this.codeAnalysisScaCommittersHwmSum,
+            usageSummaryResponse.codeAnalysisScaCommittersHwmSum)
         && Objects.equals(this.containerAvgSum, usageSummaryResponse.containerAvgSum)
         && Objects.equals(
             this.containerExclAgentAvgSum, usageSummaryResponse.containerExclAgentAvgSum)
@@ -4451,6 +4512,8 @@ public class UsageSummaryResponse {
         cloudCostManagementGcpHostCountAvgSum,
         cloudCostManagementHostCountAvgSum,
         cloudSiemEventsAggSum,
+        codeAnalysisSaCommittersHwmSum,
+        codeAnalysisScaCommittersHwmSum,
         containerAvgSum,
         containerExclAgentAvgSum,
         containerHwmSum,
@@ -4651,6 +4714,12 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    cloudSiemEventsAggSum: ")
         .append(toIndentedString(cloudSiemEventsAggSum))
+        .append("\n");
+    sb.append("    codeAnalysisSaCommittersHwmSum: ")
+        .append(toIndentedString(codeAnalysisSaCommittersHwmSum))
+        .append("\n");
+    sb.append("    codeAnalysisScaCommittersHwmSum: ")
+        .append(toIndentedString(codeAnalysisScaCommittersHwmSum))
         .append("\n");
     sb.append("    containerAvgSum: ").append(toIndentedString(containerAvgSum)).append("\n");
     sb.append("    containerExclAgentAvgSum: ")

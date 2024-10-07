@@ -1046,10 +1046,11 @@ public class UsageMeteringApi {
    *     network_hosts</code>, <code>network_monitoring</code>, <code>observability_pipelines</code>
    *     , <code>online_archive</code>, <code>profiling</code>, <code>rum</code>, <code>
    *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp
-   *     </code>, <code>synthetics_api</code>, <code>synthetics_browser</code>, <code>
-   *     synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries</code>
-   *     , <code>vuln_management</code>, and <code>workflow_executions</code>. The following product
-   *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     </code>, <code>software_delivery</code>, <code>synthetics_api</code>, <code>
+   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>,
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @return HourlyUsageResponse
    * @throws ApiException if fails to make API call
    */
@@ -1079,10 +1080,11 @@ public class UsageMeteringApi {
    *     network_hosts</code>, <code>network_monitoring</code>, <code>observability_pipelines</code>
    *     , <code>online_archive</code>, <code>profiling</code>, <code>rum</code>, <code>
    *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp
-   *     </code>, <code>synthetics_api</code>, <code>synthetics_browser</code>, <code>
-   *     synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries</code>
-   *     , <code>vuln_management</code>, and <code>workflow_executions</code>. The following product
-   *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     </code>, <code>software_delivery</code>, <code>synthetics_api</code>, <code>
+   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>,
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @return CompletableFuture&lt;HourlyUsageResponse&gt;
    */
   public CompletableFuture<HourlyUsageResponse> getHourlyUsageAsync(
@@ -1114,10 +1116,11 @@ public class UsageMeteringApi {
    *     network_hosts</code>, <code>network_monitoring</code>, <code>observability_pipelines</code>
    *     , <code>online_archive</code>, <code>profiling</code>, <code>rum</code>, <code>
    *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp
-   *     </code>, <code>synthetics_api</code>, <code>synthetics_browser</code>, <code>
-   *     synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries</code>
-   *     , <code>vuln_management</code>, and <code>workflow_executions</code>. The following product
-   *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     </code>, <code>software_delivery</code>, <code>synthetics_api</code>, <code>
+   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>,
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return HourlyUsageResponse
    * @throws ApiException if fails to make API call
@@ -1150,10 +1153,11 @@ public class UsageMeteringApi {
    *     network_hosts</code>, <code>network_monitoring</code>, <code>observability_pipelines</code>
    *     , <code>online_archive</code>, <code>profiling</code>, <code>rum</code>, <code>
    *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp
-   *     </code>, <code>synthetics_api</code>, <code>synthetics_browser</code>, <code>
-   *     synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries</code>
-   *     , <code>vuln_management</code>, and <code>workflow_executions</code>. The following product
-   *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     </code>, <code>software_delivery</code>, <code>synthetics_api</code>, <code>
+   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>,
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;HourlyUsageResponse&gt;
    */
@@ -1185,10 +1189,11 @@ public class UsageMeteringApi {
    *     network_hosts</code>, <code>network_monitoring</code>, <code>observability_pipelines</code>
    *     , <code>online_archive</code>, <code>profiling</code>, <code>rum</code>, <code>
    *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp
-   *     </code>, <code>synthetics_api</code>, <code>synthetics_browser</code>, <code>
-   *     synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries</code>
-   *     , <code>vuln_management</code>, and <code>workflow_executions</code>. The following product
-   *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     </code>, <code>software_delivery</code>, <code>synthetics_api</code>, <code>
+   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>,
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HourlyUsageResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1291,10 +1296,11 @@ public class UsageMeteringApi {
    *     network_hosts</code>, <code>network_monitoring</code>, <code>observability_pipelines</code>
    *     , <code>online_archive</code>, <code>profiling</code>, <code>rum</code>, <code>
    *     rum_browser_sessions</code>, <code>rum_mobile_sessions</code>, <code>sds</code>, <code>snmp
-   *     </code>, <code>synthetics_api</code>, <code>synthetics_browser</code>, <code>
-   *     synthetics_mobile</code>, <code>synthetics_parallel_testing</code>, <code>timeseries</code>
-   *     , <code>vuln_management</code>, and <code>workflow_executions</code>. The following product
-   *     family has been <strong>deprecated</strong>: <code>audit_logs</code>. (required)
+   *     </code>, <code>software_delivery</code>, <code>synthetics_api</code>, <code>
+   *     synthetics_browser</code>, <code>synthetics_mobile</code>, <code>
+   *     synthetics_parallel_testing</code>, <code>timeseries</code>, <code>vuln_management</code>,
+   *     and <code>workflow_executions</code>. The following product family has been
+   *     <strong>deprecated</strong>: <code>audit_logs</code>. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;HourlyUsageResponse&gt;&gt;
    */

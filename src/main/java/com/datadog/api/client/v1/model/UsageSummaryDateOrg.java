@@ -48,6 +48,8 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_GCP_HOST_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_COST_MANAGEMENT_HOST_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
@@ -268,6 +270,14 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM = "cloud_siem_events_sum";
   private Long cloudSiemEventsSum;
+
+  public static final String JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM =
+      "code_analysis_sa_committers_hwm";
+  private Long codeAnalysisSaCommittersHwm;
+
+  public static final String JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM =
+      "code_analysis_sca_committers_hwm";
+  private Long codeAnalysisScaCommittersHwm;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
@@ -1329,6 +1339,50 @@ public class UsageSummaryDateOrg {
 
   public void setCloudSiemEventsSum(Long cloudSiemEventsSum) {
     this.cloudSiemEventsSum = cloudSiemEventsSum;
+  }
+
+  public UsageSummaryDateOrg codeAnalysisSaCommittersHwm(Long codeAnalysisSaCommittersHwm) {
+    this.codeAnalysisSaCommittersHwm = codeAnalysisSaCommittersHwm;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of all Static Analysis committers over all hours in the current date
+   * for the given org.
+   *
+   * @return codeAnalysisSaCommittersHwm
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCodeAnalysisSaCommittersHwm() {
+    return codeAnalysisSaCommittersHwm;
+  }
+
+  public void setCodeAnalysisSaCommittersHwm(Long codeAnalysisSaCommittersHwm) {
+    this.codeAnalysisSaCommittersHwm = codeAnalysisSaCommittersHwm;
+  }
+
+  public UsageSummaryDateOrg codeAnalysisScaCommittersHwm(Long codeAnalysisScaCommittersHwm) {
+    this.codeAnalysisScaCommittersHwm = codeAnalysisScaCommittersHwm;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of all static Software Composition Analysis committers over all hours
+   * in the current date for the given org.
+   *
+   * @return codeAnalysisScaCommittersHwm
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCodeAnalysisScaCommittersHwm() {
+    return codeAnalysisScaCommittersHwm;
+  }
+
+  public void setCodeAnalysisScaCommittersHwm(Long codeAnalysisScaCommittersHwm) {
+    this.codeAnalysisScaCommittersHwm = codeAnalysisScaCommittersHwm;
   }
 
   public UsageSummaryDateOrg containerAvg(Long containerAvg) {
@@ -3937,6 +3991,10 @@ public class UsageSummaryDateOrg {
             this.cloudCostManagementHostCountAvg,
             usageSummaryDateOrg.cloudCostManagementHostCountAvg)
         && Objects.equals(this.cloudSiemEventsSum, usageSummaryDateOrg.cloudSiemEventsSum)
+        && Objects.equals(
+            this.codeAnalysisSaCommittersHwm, usageSummaryDateOrg.codeAnalysisSaCommittersHwm)
+        && Objects.equals(
+            this.codeAnalysisScaCommittersHwm, usageSummaryDateOrg.codeAnalysisScaCommittersHwm)
         && Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg)
         && Objects.equals(this.containerExclAgentAvg, usageSummaryDateOrg.containerExclAgentAvg)
         && Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm)
@@ -4174,6 +4232,8 @@ public class UsageSummaryDateOrg {
         cloudCostManagementGcpHostCountAvg,
         cloudCostManagementHostCountAvg,
         cloudSiemEventsSum,
+        codeAnalysisSaCommittersHwm,
+        codeAnalysisScaCommittersHwm,
         containerAvg,
         containerExclAgentAvg,
         containerHwm,
@@ -4362,6 +4422,12 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(cloudCostManagementHostCountAvg))
         .append("\n");
     sb.append("    cloudSiemEventsSum: ").append(toIndentedString(cloudSiemEventsSum)).append("\n");
+    sb.append("    codeAnalysisSaCommittersHwm: ")
+        .append(toIndentedString(codeAnalysisSaCommittersHwm))
+        .append("\n");
+    sb.append("    codeAnalysisScaCommittersHwm: ")
+        .append(toIndentedString(codeAnalysisScaCommittersHwm))
+        .append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerExclAgentAvg: ")
         .append(toIndentedString(containerExclAgentAvg))
