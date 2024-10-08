@@ -184,7 +184,7 @@ public class SLOHistoryMonitor {
    * no data. Periods of no data are counted either as uptime or downtime depending on monitor
    * settings. See <a
    * href="https://docs.datadoghq.com/service_management/service_level_objectives/monitor/#missing-data">SLO
-   * documentatio</a> for detailed information.
+   * documentation</a> for detailed information.
    *
    * @return history
    */
