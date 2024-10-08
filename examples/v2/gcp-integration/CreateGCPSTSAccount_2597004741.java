@@ -22,6 +22,7 @@ public class Example {
                     .attributes(
                         new GCPSTSServiceAccountAttributes()
                             .isSecurityCommandCenterEnabled(true)
+                            .isResourceChangeCollectionEnabled(true)
                             .clientEmail(
                                 "Test-252bf553ef04b351@test-project.iam.gserviceaccount.com"))
                     .type(GCPServiceAccountType.GCP_SERVICE_ACCOUNT));

@@ -26,6 +26,7 @@ import java.util.Objects;
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_HOST_FILTERS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_CSPM_ENABLED,
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_RESOURCE_CHANGE_COLLECTION_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED
 })
@@ -51,6 +52,10 @@ public class GCPSTSServiceAccountAttributes {
 
   public static final String JSON_PROPERTY_IS_CSPM_ENABLED = "is_cspm_enabled";
   private Boolean isCspmEnabled;
+
+  public static final String JSON_PROPERTY_IS_RESOURCE_CHANGE_COLLECTION_ENABLED =
+      "is_resource_change_collection_enabled";
+  private Boolean isResourceChangeCollectionEnabled = false;
 
   public static final String JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED =
       "is_security_command_center_enabled";
@@ -214,6 +219,28 @@ public class GCPSTSServiceAccountAttributes {
     this.isCspmEnabled = isCspmEnabled;
   }
 
+  public GCPSTSServiceAccountAttributes isResourceChangeCollectionEnabled(
+      Boolean isResourceChangeCollectionEnabled) {
+    this.isResourceChangeCollectionEnabled = isResourceChangeCollectionEnabled;
+    return this;
+  }
+
+  /**
+   * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+   *
+   * @return isResourceChangeCollectionEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_RESOURCE_CHANGE_COLLECTION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsResourceChangeCollectionEnabled() {
+    return isResourceChangeCollectionEnabled;
+  }
+
+  public void setIsResourceChangeCollectionEnabled(Boolean isResourceChangeCollectionEnabled) {
+    this.isResourceChangeCollectionEnabled = isResourceChangeCollectionEnabled;
+  }
+
   public GCPSTSServiceAccountAttributes isSecurityCommandCenterEnabled(
       Boolean isSecurityCommandCenterEnabled) {
     this.isSecurityCommandCenterEnabled = isSecurityCommandCenterEnabled;
@@ -324,6 +351,9 @@ public class GCPSTSServiceAccountAttributes {
         && Objects.equals(this.hostFilters, gcpstsServiceAccountAttributes.hostFilters)
         && Objects.equals(this.isCspmEnabled, gcpstsServiceAccountAttributes.isCspmEnabled)
         && Objects.equals(
+            this.isResourceChangeCollectionEnabled,
+            gcpstsServiceAccountAttributes.isResourceChangeCollectionEnabled)
+        && Objects.equals(
             this.isSecurityCommandCenterEnabled,
             gcpstsServiceAccountAttributes.isSecurityCommandCenterEnabled)
         && Objects.equals(
@@ -342,6 +372,7 @@ public class GCPSTSServiceAccountAttributes {
         cloudRunRevisionFilters,
         hostFilters,
         isCspmEnabled,
+        isResourceChangeCollectionEnabled,
         isSecurityCommandCenterEnabled,
         resourceCollectionEnabled,
         additionalProperties);
@@ -359,6 +390,9 @@ public class GCPSTSServiceAccountAttributes {
         .append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
     sb.append("    isCspmEnabled: ").append(toIndentedString(isCspmEnabled)).append("\n");
+    sb.append("    isResourceChangeCollectionEnabled: ")
+        .append(toIndentedString(isResourceChangeCollectionEnabled))
+        .append("\n");
     sb.append("    isSecurityCommandCenterEnabled: ")
         .append(toIndentedString(isSecurityCommandCenterEnabled))
         .append("\n");
