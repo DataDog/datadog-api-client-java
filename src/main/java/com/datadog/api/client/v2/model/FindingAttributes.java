@@ -28,7 +28,8 @@ import java.util.Objects;
   FindingAttributes.JSON_PROPERTY_RESOURCE_TYPE,
   FindingAttributes.JSON_PROPERTY_RULE,
   FindingAttributes.JSON_PROPERTY_STATUS,
-  FindingAttributes.JSON_PROPERTY_TAGS
+  FindingAttributes.JSON_PROPERTY_TAGS,
+  FindingAttributes.JSON_PROPERTY_VULNERABILITY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -60,6 +61,9 @@ public class FindingAttributes {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public static final String JSON_PROPERTY_VULNERABILITY_TYPE = "vulnerability_type";
+  private FindingVulnerabilityType vulnerabilityType;
 
   public FindingAttributes evaluation(FindingEvaluation evaluation) {
     this.evaluation = evaluation;
@@ -268,6 +272,31 @@ public class FindingAttributes {
     this.tags = tags;
   }
 
+  public FindingAttributes vulnerabilityType(FindingVulnerabilityType vulnerabilityType) {
+    this.vulnerabilityType = vulnerabilityType;
+    this.unparsed |= !vulnerabilityType.isValid();
+    return this;
+  }
+
+  /**
+   * The vulnerability type of the finding.
+   *
+   * @return vulnerabilityType
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VULNERABILITY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FindingVulnerabilityType getVulnerabilityType() {
+    return vulnerabilityType;
+  }
+
+  public void setVulnerabilityType(FindingVulnerabilityType vulnerabilityType) {
+    if (!vulnerabilityType.isValid()) {
+      this.unparsed = true;
+    }
+    this.vulnerabilityType = vulnerabilityType;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -333,6 +362,7 @@ public class FindingAttributes {
         && Objects.equals(this.rule, findingAttributes.rule)
         && Objects.equals(this.status, findingAttributes.status)
         && Objects.equals(this.tags, findingAttributes.tags)
+        && Objects.equals(this.vulnerabilityType, findingAttributes.vulnerabilityType)
         && Objects.equals(this.additionalProperties, findingAttributes.additionalProperties);
   }
 
@@ -348,6 +378,7 @@ public class FindingAttributes {
         rule,
         status,
         tags,
+        vulnerabilityType,
         additionalProperties);
   }
 
@@ -368,6 +399,7 @@ public class FindingAttributes {
     sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    vulnerabilityType: ").append(toIndentedString(vulnerabilityType)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
