@@ -33,7 +33,6 @@ logs("service:foo AND type:error").index("main").rollup("count").by("source,stat
                     .escalationMessage("the situation has escalated")
                     .evaluationDelay(700L)
                     .groupRetentionDuration("2d")
-                    .groupbySimpleMonitor(false)
                     .includeTags(true)
                     .locked(false)
                     .newHostDelay(600L)
