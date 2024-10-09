@@ -1757,7 +1757,7 @@ public class MetricsApi {
   }
 
   /**
-   * View indexed tag key-value pairs for a given metric name.
+   * View indexed tag key-value pairs for a given metric name over the previous hour.
    *
    * @param metricName The name of the metric. (required)
    * @return ApiResponse&lt;MetricAllTagsResponse&gt;
