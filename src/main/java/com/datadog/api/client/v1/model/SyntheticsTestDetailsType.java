@@ -23,11 +23,10 @@ import java.util.Set;
 public class SyntheticsTestDetailsType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("api", "browser", "mobile"));
+      new HashSet<String>(Arrays.asList("api", "browser"));
 
   public static final SyntheticsTestDetailsType API = new SyntheticsTestDetailsType("api");
   public static final SyntheticsTestDetailsType BROWSER = new SyntheticsTestDetailsType("browser");
-  public static final SyntheticsTestDetailsType MOBILE = new SyntheticsTestDetailsType("mobile");
 
   SyntheticsTestDetailsType(String value) {
     super(value, allowedValues);

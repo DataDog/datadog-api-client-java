@@ -55,7 +55,7 @@ public class SyntheticsMobileTestOptions {
   private Integer defaultStepTimeout;
 
   public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
-  private List<String> deviceIds = null;
+  private List<SyntheticsMobileDeviceID> deviceIds = null;
 
   public static final String JSON_PROPERTY_DISABLE_AUTO_ACCEPT_ALERT = "disableAutoAcceptAlert";
   private Boolean disableAutoAcceptAlert;
@@ -191,16 +191,17 @@ public class SyntheticsMobileTestOptions {
     this.defaultStepTimeout = defaultStepTimeout;
   }
 
-  public SyntheticsMobileTestOptions deviceIds(List<String> deviceIds) {
+  public SyntheticsMobileTestOptions deviceIds(List<SyntheticsMobileDeviceID> deviceIds) {
     this.deviceIds = deviceIds;
     return this;
   }
 
-  public SyntheticsMobileTestOptions addDeviceIdsItem(String deviceIdsItem) {
+  public SyntheticsMobileTestOptions addDeviceIdsItem(SyntheticsMobileDeviceID deviceIdsItem) {
     if (this.deviceIds == null) {
       this.deviceIds = new ArrayList<>();
     }
     this.deviceIds.add(deviceIdsItem);
+    this.unparsed |= !deviceIdsItem.isValid();
     return this;
   }
 
@@ -212,11 +213,11 @@ public class SyntheticsMobileTestOptions {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getDeviceIds() {
+  public List<SyntheticsMobileDeviceID> getDeviceIds() {
     return deviceIds;
   }
 
-  public void setDeviceIds(List<String> deviceIds) {
+  public void setDeviceIds(List<SyntheticsMobileDeviceID> deviceIds) {
     this.deviceIds = deviceIds;
   }
 
