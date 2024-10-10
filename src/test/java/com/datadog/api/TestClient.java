@@ -425,7 +425,7 @@ public class TestClient implements Client {
 
         List<String> actualQueryValue  = Arrays.asList(this.queryParams.entrySet().iterator().next().getValue());
         Collections.sort(actualQueryValue);
-        assertEquals(expectedQueryParams, queryParams);
+        assertEquals(expectedQueryParams, this.queryParams);
 
       }
       return new TestBuilder(this.client);
