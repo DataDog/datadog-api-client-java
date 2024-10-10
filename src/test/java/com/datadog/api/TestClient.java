@@ -418,9 +418,15 @@ public class TestClient implements Client {
       if (params != null) {
         Map expectedQueryParams = new HashMap<String, String>();
         for (Map.Entry<String, List<String>> entry : params.entrySet()) {
-          expectedQueryParams.put(entry.getKey(), entry.getValue().get(0));
+          List<String> paramValueList = entry.getValue();
+          Collections.sort(paramValueList);
+          expectedQueryParams.put(entry.getKey(), paramValueList.get(0));
         }
-        assertEquals(this.queryParams, expectedQueryParams);
+
+        List<String> actualQueryValue  = Arrays.asList(this.queryParams.entrySet().iterator().next().getValue());
+        Collections.sort(actualQueryValue);
+        assertEquals(expectedQueryParams, queryParams);
+
       }
       return new TestBuilder(this.client);
     }
