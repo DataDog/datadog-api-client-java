@@ -63,7 +63,7 @@ public class EntityAttributes {
   }
 
   /**
-   * The api version.
+   * The API version.
    *
    * @return apiVersion
    */

@@ -71,7 +71,7 @@ public class EntityData {
   }
 
   /**
-   * Entity id.
+   * Entity ID.
    *
    * @return id
    */

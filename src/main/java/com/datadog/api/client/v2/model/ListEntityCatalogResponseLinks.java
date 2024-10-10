@@ -41,7 +41,7 @@ public class ListEntityCatalogResponseLinks {
   }
 
   /**
-   * next link.
+   * Next link.
    *
    * @return next
    */
@@ -62,7 +62,7 @@ public class ListEntityCatalogResponseLinks {
   }
 
   /**
-   * previous link.
+   * Previous link.
    *
    * @return previous
    */
@@ -83,7 +83,7 @@ public class ListEntityCatalogResponseLinks {
   }
 
   /**
-   * current link.
+   * Current link.
    *
    * @return self
    */

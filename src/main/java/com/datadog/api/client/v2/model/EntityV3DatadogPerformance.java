@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Performance stats association */
+/** Performance stats association. */
 @JsonPropertyOrder({EntityV3DatadogPerformance.JSON_PROPERTY_TAGS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -37,7 +37,7 @@ public class EntityV3DatadogPerformance {
   }
 
   /**
-   * A list of APM entity tags that associates the APM Stats data with the entity
+   * A list of APM entity tags that associates the APM Stats data with the entity.
    *
    * @return tags
    */

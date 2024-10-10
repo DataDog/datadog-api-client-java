@@ -46,7 +46,7 @@ public class EntityV3MetadataAdditionalOwnersItems {
   }
 
   /**
-   * Team name
+   * Team name.
    *
    * @return name
    */
@@ -66,7 +66,7 @@ public class EntityV3MetadataAdditionalOwnersItems {
   }
 
   /**
-   * Team type
+   * Team type.
    *
    * @return type
    */

@@ -64,7 +64,7 @@ public class EntityResponseIncludedIncident {
   }
 
   /**
-   * Incident id.
+   * Incident ID.
    *
    * @return id
    */

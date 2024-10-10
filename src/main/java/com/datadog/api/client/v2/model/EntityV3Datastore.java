@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for datastore entities */
+/** Schema for datastore entities. */
 @JsonPropertyOrder({
   EntityV3Datastore.JSON_PROPERTY_API_VERSION,
   EntityV3Datastore.JSON_PROPERTY_DATADOG,
@@ -73,7 +73,8 @@ public class EntityV3Datastore {
   }
 
   /**
-   * The schema version of entity type. The field is known as schema-version in the previous version
+   * The schema version of entity type. The field is known as schema-version in the previous
+   * version.
    *
    * @return apiVersion
    */
@@ -97,7 +98,7 @@ public class EntityV3Datastore {
   }
 
   /**
-   * Datadog product integrations for the datastore entity
+   * Datadog product integrations for the datastore entity.
    *
    * @return datadog
    */
@@ -149,7 +150,7 @@ public class EntityV3Datastore {
   }
 
   /**
-   * A base schema for defining third party integrations
+   * A base schema for defining third-party integrations.
    *
    * @return integrations
    */

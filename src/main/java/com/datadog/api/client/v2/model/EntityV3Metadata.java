@@ -99,7 +99,7 @@ public class EntityV3Metadata {
   }
 
   /**
-   * The additional owners of the entity, usually a team
+   * The additional owners of the entity, usually a team.
    *
    * @return additionalOwners
    */
@@ -132,7 +132,7 @@ public class EntityV3Metadata {
   }
 
   /**
-   * A list of contacts for the entity
+   * A list of contacts for the entity.
    *
    * @return contacts
    */
@@ -153,7 +153,7 @@ public class EntityV3Metadata {
   }
 
   /**
-   * Short description of the entity. The UI can leverage the description for display
+   * Short description of the entity. The UI can leverage the description for display.
    *
    * @return description
    */
@@ -174,7 +174,7 @@ public class EntityV3Metadata {
   }
 
   /**
-   * User friendly name of the entity. The UI can leverage the display name for display
+   * User friendly name of the entity. The UI can leverage the display name for display.
    *
    * @return displayName
    */
@@ -250,7 +250,7 @@ public class EntityV3Metadata {
   }
 
   /**
-   * A list of links for the entity
+   * A list of links for the entity.
    *
    * @return links
    */
@@ -301,7 +301,7 @@ public class EntityV3Metadata {
   }
 
   /**
-   * Unique name given to an entity under the kind/namespace
+   * Unique name given to an entity under the kind/namespace.
    *
    * @return name
    */
@@ -321,7 +321,7 @@ public class EntityV3Metadata {
   }
 
   /**
-   * Namespace is a part of unique identifier. It has a default value of 'default'
+   * Namespace is a part of unique identifier. It has a default value of 'default'.
    *
    * @return namespace
    */
@@ -343,7 +343,7 @@ public class EntityV3Metadata {
   }
 
   /**
-   * The owner of the entity, usually a team
+   * The owner of the entity, usually a team.
    *
    * @return owner
    */
@@ -372,7 +372,7 @@ public class EntityV3Metadata {
   }
 
   /**
-   * A set of custom tags
+   * A set of custom tags.
    *
    * @return tags
    */

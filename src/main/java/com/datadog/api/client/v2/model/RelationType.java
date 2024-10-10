@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** supported relation types */
+/** Supported relation types. */
 @JsonSerialize(using = RelationType.RelationTypeSerializer.class)
 public class RelationType extends ModelEnum<String> {
 

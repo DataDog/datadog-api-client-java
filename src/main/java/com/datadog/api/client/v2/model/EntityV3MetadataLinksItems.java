@@ -54,7 +54,7 @@ public class EntityV3MetadataLinksItems {
   }
 
   /**
-   * Link name
+   * Link name.
    *
    * @return name
    */
@@ -115,7 +115,7 @@ public class EntityV3MetadataLinksItems {
   }
 
   /**
-   * Link url
+   * Link URL.
    *
    * @return url
    */

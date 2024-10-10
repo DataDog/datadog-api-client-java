@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** supported include types. */
+/** Supported include types. */
 @JsonSerialize(using = IncludeType.IncludeTypeSerializer.class)
 public class IncludeType extends ModelEnum<String> {
 

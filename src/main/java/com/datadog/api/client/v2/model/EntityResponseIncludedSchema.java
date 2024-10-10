@@ -64,7 +64,7 @@ public class EntityResponseIncludedSchema {
   }
 
   /**
-   * Entity id.
+   * Entity ID.
    *
    * @return id
    */
