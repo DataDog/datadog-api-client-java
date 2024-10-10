@@ -1,0 +1,34 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/posture_management/findings",
+      "queryStringParameters": {
+        "filter[detection_type]": [
+          "misconfiguration",
+          "attack_path"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[],\"meta\":{\"page\":{\"total_filtered_count\":0},\"snapshot_timestamp\":1727465091308}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4ec02501-f339-0117-166c-0dc56b57b505"
+  }
+]

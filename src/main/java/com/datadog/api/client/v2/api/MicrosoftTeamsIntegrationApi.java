@@ -4,11 +4,12 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
-import com.datadog.api.client.v2.model.MicrosoftTeamsCreateTenantBasedHandleRequest;
+import com.datadog.api.client.v2.model.MicrosoftTeamsApiHandleInfoResponse;
+import com.datadog.api.client.v2.model.MicrosoftTeamsApiHandlesResponse;
+import com.datadog.api.client.v2.model.MicrosoftTeamsCreateApiHandleRequest;
+import com.datadog.api.client.v2.model.MicrosoftTeamsCreateApiHandleResponse;
 import com.datadog.api.client.v2.model.MicrosoftTeamsGetChannelByNameResponse;
-import com.datadog.api.client.v2.model.MicrosoftTeamsTenantBasedHandleResponse;
-import com.datadog.api.client.v2.model.MicrosoftTeamsTenantBasedHandlesResponse;
-import com.datadog.api.client.v2.model.MicrosoftTeamsUpdateTenantBasedHandleRequest;
+import com.datadog.api.client.v2.model.MicrosoftTeamsUpdateApiHandleRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -49,30 +50,30 @@ public class MicrosoftTeamsIntegrationApi {
   }
 
   /**
-   * Create tenant-based handle.
+   * Create handle.
    *
-   * <p>See {@link #createTenantBasedHandleWithHttpInfo}.
+   * <p>See {@link #createApiHandleWithHttpInfo}.
    *
-   * @param body Tenant-based handle payload. (required)
-   * @return MicrosoftTeamsTenantBasedHandleResponse
+   * @param body Handle payload. (required)
+   * @return MicrosoftTeamsCreateApiHandleResponse
    * @throws ApiException if fails to make API call
    */
-  public MicrosoftTeamsTenantBasedHandleResponse createTenantBasedHandle(
-      MicrosoftTeamsCreateTenantBasedHandleRequest body) throws ApiException {
-    return createTenantBasedHandleWithHttpInfo(body).getData();
+  public MicrosoftTeamsCreateApiHandleResponse createApiHandle(
+      MicrosoftTeamsCreateApiHandleRequest body) throws ApiException {
+    return createApiHandleWithHttpInfo(body).getData();
   }
 
   /**
-   * Create tenant-based handle.
+   * Create handle.
    *
-   * <p>See {@link #createTenantBasedHandleWithHttpInfoAsync}.
+   * <p>See {@link #createApiHandleWithHttpInfoAsync}.
    *
-   * @param body Tenant-based handle payload. (required)
-   * @return CompletableFuture&lt;MicrosoftTeamsTenantBasedHandleResponse&gt;
+   * @param body Handle payload. (required)
+   * @return CompletableFuture&lt;MicrosoftTeamsCreateApiHandleResponse&gt;
    */
-  public CompletableFuture<MicrosoftTeamsTenantBasedHandleResponse> createTenantBasedHandleAsync(
-      MicrosoftTeamsCreateTenantBasedHandleRequest body) {
-    return createTenantBasedHandleWithHttpInfoAsync(body)
+  public CompletableFuture<MicrosoftTeamsCreateApiHandleResponse> createApiHandleAsync(
+      MicrosoftTeamsCreateApiHandleRequest body) {
+    return createApiHandleWithHttpInfoAsync(body)
         .thenApply(
             response -> {
               return response.getData();
@@ -80,10 +81,10 @@ public class MicrosoftTeamsIntegrationApi {
   }
 
   /**
-   * Create a tenant-based handle in the Datadog Microsoft Teams integration.
+   * Create a handle in the Datadog Microsoft Teams integration.
    *
-   * @param body Tenant-based handle payload. (required)
-   * @return ApiResponse&lt;MicrosoftTeamsTenantBasedHandleResponse&gt;
+   * @param body Handle payload. (required)
+   * @return ApiResponse&lt;MicrosoftTeamsCreateApiHandleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -98,14 +99,14 @@ public class MicrosoftTeamsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MicrosoftTeamsTenantBasedHandleResponse> createTenantBasedHandleWithHttpInfo(
-      MicrosoftTeamsCreateTenantBasedHandleRequest body) throws ApiException {
+  public ApiResponse<MicrosoftTeamsCreateApiHandleResponse> createApiHandleWithHttpInfo(
+      MicrosoftTeamsCreateApiHandleRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling createTenantBasedHandle");
+          400, "Missing the required parameter 'body' when calling createApiHandle");
     }
     // create path and map variables
     String localVarPath = "/api/v2/integration/ms-teams/configuration/tenant-based-handles";
@@ -114,7 +115,7 @@ public class MicrosoftTeamsIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.MicrosoftTeamsIntegrationApi.createTenantBasedHandle",
+            "v2.MicrosoftTeamsIntegrationApi.createApiHandle",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -129,28 +130,28 @@ public class MicrosoftTeamsIntegrationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<MicrosoftTeamsTenantBasedHandleResponse>() {});
+        new GenericType<MicrosoftTeamsCreateApiHandleResponse>() {});
   }
 
   /**
-   * Create tenant-based handle.
+   * Create handle.
    *
-   * <p>See {@link #createTenantBasedHandleWithHttpInfo}.
+   * <p>See {@link #createApiHandleWithHttpInfo}.
    *
-   * @param body Tenant-based handle payload. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsTenantBasedHandleResponse&gt;&gt;
+   * @param body Handle payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsCreateApiHandleResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandleResponse>>
-      createTenantBasedHandleWithHttpInfoAsync(MicrosoftTeamsCreateTenantBasedHandleRequest body) {
+  public CompletableFuture<ApiResponse<MicrosoftTeamsCreateApiHandleResponse>>
+      createApiHandleWithHttpInfoAsync(MicrosoftTeamsCreateApiHandleRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandleResponse>> result =
+      CompletableFuture<ApiResponse<MicrosoftTeamsCreateApiHandleResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'body' when calling createTenantBasedHandle"));
+              400, "Missing the required parameter 'body' when calling createApiHandle"));
       return result;
     }
     // create path and map variables
@@ -162,7 +163,7 @@ public class MicrosoftTeamsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.MicrosoftTeamsIntegrationApi.createTenantBasedHandle",
+              "v2.MicrosoftTeamsIntegrationApi.createApiHandle",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -170,7 +171,7 @@ public class MicrosoftTeamsIntegrationApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandleResponse>> result =
+      CompletableFuture<ApiResponse<MicrosoftTeamsCreateApiHandleResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -183,31 +184,31 @@ public class MicrosoftTeamsIntegrationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<MicrosoftTeamsTenantBasedHandleResponse>() {});
+        new GenericType<MicrosoftTeamsCreateApiHandleResponse>() {});
   }
 
   /**
-   * Delete tenant-based handle.
+   * Delete handle.
    *
-   * <p>See {@link #deleteTenantBasedHandleWithHttpInfo}.
+   * <p>See {@link #deleteApiHandleWithHttpInfo}.
    *
-   * @param handleId Your tenant-based handle id. (required)
+   * @param handleId Your handle id. (required)
    * @throws ApiException if fails to make API call
    */
-  public void deleteTenantBasedHandle(String handleId) throws ApiException {
-    deleteTenantBasedHandleWithHttpInfo(handleId);
+  public void deleteApiHandle(String handleId) throws ApiException {
+    deleteApiHandleWithHttpInfo(handleId);
   }
 
   /**
-   * Delete tenant-based handle.
+   * Delete handle.
    *
-   * <p>See {@link #deleteTenantBasedHandleWithHttpInfoAsync}.
+   * <p>See {@link #deleteApiHandleWithHttpInfoAsync}.
    *
-   * @param handleId Your tenant-based handle id. (required)
+   * @param handleId Your handle id. (required)
    * @return CompletableFuture
    */
-  public CompletableFuture<Void> deleteTenantBasedHandleAsync(String handleId) {
-    return deleteTenantBasedHandleWithHttpInfoAsync(handleId)
+  public CompletableFuture<Void> deleteApiHandleAsync(String handleId) {
+    return deleteApiHandleWithHttpInfoAsync(handleId)
         .thenApply(
             response -> {
               return response.getData();
@@ -215,9 +216,9 @@ public class MicrosoftTeamsIntegrationApi {
   }
 
   /**
-   * Delete a tenant-based handle from the Datadog Microsoft Teams integration.
+   * Delete a handle from the Datadog Microsoft Teams integration.
    *
-   * @param handleId Your tenant-based handle id. (required)
+   * @param handleId Your handle id. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -231,14 +232,13 @@ public class MicrosoftTeamsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Void> deleteTenantBasedHandleWithHttpInfo(String handleId)
-      throws ApiException {
+  public ApiResponse<Void> deleteApiHandleWithHttpInfo(String handleId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'handleId' is set
     if (handleId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'handleId' when calling deleteTenantBasedHandle");
+          400, "Missing the required parameter 'handleId' when calling deleteApiHandle");
     }
     // create path and map variables
     String localVarPath =
@@ -249,7 +249,7 @@ public class MicrosoftTeamsIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.MicrosoftTeamsIntegrationApi.deleteTenantBasedHandle",
+            "v2.MicrosoftTeamsIntegrationApi.deleteApiHandle",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -268,15 +268,14 @@ public class MicrosoftTeamsIntegrationApi {
   }
 
   /**
-   * Delete tenant-based handle.
+   * Delete handle.
    *
-   * <p>See {@link #deleteTenantBasedHandleWithHttpInfo}.
+   * <p>See {@link #deleteApiHandleWithHttpInfo}.
    *
-   * @param handleId Your tenant-based handle id. (required)
+   * @param handleId Your handle id. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<Void>> deleteTenantBasedHandleWithHttpInfoAsync(
-      String handleId) {
+  public CompletableFuture<ApiResponse<Void>> deleteApiHandleWithHttpInfoAsync(String handleId) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'handleId' is set
@@ -284,8 +283,7 @@ public class MicrosoftTeamsIntegrationApi {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400,
-              "Missing the required parameter 'handleId' when calling deleteTenantBasedHandle"));
+              400, "Missing the required parameter 'handleId' when calling deleteApiHandle"));
       return result;
     }
     // create path and map variables
@@ -299,7 +297,7 @@ public class MicrosoftTeamsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.MicrosoftTeamsIntegrationApi.deleteTenantBasedHandle",
+              "v2.MicrosoftTeamsIntegrationApi.deleteApiHandle",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -320,6 +318,290 @@ public class MicrosoftTeamsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /**
+   * Get handle information.
+   *
+   * <p>See {@link #getApiHandleWithHttpInfo}.
+   *
+   * @param handleId Your handle id. (required)
+   * @return MicrosoftTeamsApiHandleInfoResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MicrosoftTeamsApiHandleInfoResponse getApiHandle(String handleId) throws ApiException {
+    return getApiHandleWithHttpInfo(handleId).getData();
+  }
+
+  /**
+   * Get handle information.
+   *
+   * <p>See {@link #getApiHandleWithHttpInfoAsync}.
+   *
+   * @param handleId Your handle id. (required)
+   * @return CompletableFuture&lt;MicrosoftTeamsApiHandleInfoResponse&gt;
+   */
+  public CompletableFuture<MicrosoftTeamsApiHandleInfoResponse> getApiHandleAsync(String handleId) {
+    return getApiHandleWithHttpInfoAsync(handleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the tenant, team, and channel information of a handle from the Datadog Microsoft Teams
+   * integration.
+   *
+   * @param handleId Your handle id. (required)
+   * @return ApiResponse&lt;MicrosoftTeamsApiHandleInfoResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Failed Precondition </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MicrosoftTeamsApiHandleInfoResponse> getApiHandleWithHttpInfo(String handleId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'handleId' is set
+    if (handleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'handleId' when calling getApiHandle");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}"
+            .replaceAll("\\{" + "handle_id" + "\\}", apiClient.escapeString(handleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MicrosoftTeamsIntegrationApi.getApiHandle",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsApiHandleInfoResponse>() {});
+  }
+
+  /**
+   * Get handle information.
+   *
+   * <p>See {@link #getApiHandleWithHttpInfo}.
+   *
+   * @param handleId Your handle id. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsApiHandleInfoResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MicrosoftTeamsApiHandleInfoResponse>>
+      getApiHandleWithHttpInfoAsync(String handleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'handleId' is set
+    if (handleId == null) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsApiHandleInfoResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'handleId' when calling getApiHandle"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}"
+            .replaceAll("\\{" + "handle_id" + "\\}", apiClient.escapeString(handleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MicrosoftTeamsIntegrationApi.getApiHandle",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsApiHandleInfoResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsApiHandleInfoResponse>() {});
+  }
+
+  /**
+   * Get handle information by name.
+   *
+   * <p>See {@link #getApiHandleByNameWithHttpInfo}.
+   *
+   * @param handleName Your handle name. (required)
+   * @return MicrosoftTeamsApiHandleInfoResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MicrosoftTeamsApiHandleInfoResponse getApiHandleByName(String handleName)
+      throws ApiException {
+    return getApiHandleByNameWithHttpInfo(handleName).getData();
+  }
+
+  /**
+   * Get handle information by name.
+   *
+   * <p>See {@link #getApiHandleByNameWithHttpInfoAsync}.
+   *
+   * @param handleName Your handle name. (required)
+   * @return CompletableFuture&lt;MicrosoftTeamsApiHandleInfoResponse&gt;
+   */
+  public CompletableFuture<MicrosoftTeamsApiHandleInfoResponse> getApiHandleByNameAsync(
+      String handleName) {
+    return getApiHandleByNameWithHttpInfoAsync(handleName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the tenant, team, and channel information of a handle by name from the Datadog Microsoft
+   * Teams integration.
+   *
+   * @param handleName Your handle name. (required)
+   * @return ApiResponse&lt;MicrosoftTeamsApiHandleInfoResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Failed Precondition </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MicrosoftTeamsApiHandleInfoResponse> getApiHandleByNameWithHttpInfo(
+      String handleName) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'handleName' is set
+    if (handleName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'handleName' when calling getApiHandleByName");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/tenant-based-handles/name/{handle_name}"
+            .replaceAll(
+                "\\{" + "handle_name" + "\\}", apiClient.escapeString(handleName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MicrosoftTeamsIntegrationApi.getApiHandleByName",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsApiHandleInfoResponse>() {});
+  }
+
+  /**
+   * Get handle information by name.
+   *
+   * <p>See {@link #getApiHandleByNameWithHttpInfo}.
+   *
+   * @param handleName Your handle name. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsApiHandleInfoResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MicrosoftTeamsApiHandleInfoResponse>>
+      getApiHandleByNameWithHttpInfoAsync(String handleName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'handleName' is set
+    if (handleName == null) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsApiHandleInfoResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'handleName' when calling getApiHandleByName"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/tenant-based-handles/name/{handle_name}"
+            .replaceAll(
+                "\\{" + "handle_name" + "\\}", apiClient.escapeString(handleName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MicrosoftTeamsIntegrationApi.getApiHandleByName",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsApiHandleInfoResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsApiHandleInfoResponse>() {});
   }
 
   /**
@@ -510,198 +792,43 @@ public class MicrosoftTeamsIntegrationApi {
         new GenericType<MicrosoftTeamsGetChannelByNameResponse>() {});
   }
 
-  /**
-   * Get tenant-based handle information.
-   *
-   * <p>See {@link #getTenantBasedHandleWithHttpInfo}.
-   *
-   * @param handleId Your tenant-based handle id. (required)
-   * @return MicrosoftTeamsTenantBasedHandleResponse
-   * @throws ApiException if fails to make API call
-   */
-  public MicrosoftTeamsTenantBasedHandleResponse getTenantBasedHandle(String handleId)
-      throws ApiException {
-    return getTenantBasedHandleWithHttpInfo(handleId).getData();
-  }
-
-  /**
-   * Get tenant-based handle information.
-   *
-   * <p>See {@link #getTenantBasedHandleWithHttpInfoAsync}.
-   *
-   * @param handleId Your tenant-based handle id. (required)
-   * @return CompletableFuture&lt;MicrosoftTeamsTenantBasedHandleResponse&gt;
-   */
-  public CompletableFuture<MicrosoftTeamsTenantBasedHandleResponse> getTenantBasedHandleAsync(
-      String handleId) {
-    return getTenantBasedHandleWithHttpInfoAsync(handleId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Get the tenant, team, and channel information of a tenant-based handle from the Datadog
-   * Microsoft Teams integration.
-   *
-   * @param handleId Your tenant-based handle id. (required)
-   * @return ApiResponse&lt;MicrosoftTeamsTenantBasedHandleResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 412 </td><td> Failed Precondition </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<MicrosoftTeamsTenantBasedHandleResponse> getTenantBasedHandleWithHttpInfo(
-      String handleId) throws ApiException {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'handleId' is set
-    if (handleId == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'handleId' when calling getTenantBasedHandle");
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}"
-            .replaceAll("\\{" + "handle_id" + "\\}", apiClient.escapeString(handleId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.MicrosoftTeamsIntegrationApi.getTenantBasedHandle",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MicrosoftTeamsTenantBasedHandleResponse>() {});
-  }
-
-  /**
-   * Get tenant-based handle information.
-   *
-   * <p>See {@link #getTenantBasedHandleWithHttpInfo}.
-   *
-   * @param handleId Your tenant-based handle id. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsTenantBasedHandleResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandleResponse>>
-      getTenantBasedHandleWithHttpInfoAsync(String handleId) {
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'handleId' is set
-    if (handleId == null) {
-      CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandleResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400, "Missing the required parameter 'handleId' when calling getTenantBasedHandle"));
-      return result;
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}"
-            .replaceAll("\\{" + "handle_id" + "\\}", apiClient.escapeString(handleId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.MicrosoftTeamsIntegrationApi.getTenantBasedHandle",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandleResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<MicrosoftTeamsTenantBasedHandleResponse>() {});
-  }
-
-  /** Manage optional parameters to listTenantBasedHandles. */
-  public static class ListTenantBasedHandlesOptionalParameters {
+  /** Manage optional parameters to listApiHandles. */
+  public static class ListApiHandlesOptionalParameters {
     private String tenantId;
-    private String name;
 
     /**
      * Set tenantId.
      *
      * @param tenantId Your tenant id. (optional)
-     * @return ListTenantBasedHandlesOptionalParameters
+     * @return ListApiHandlesOptionalParameters
      */
-    public ListTenantBasedHandlesOptionalParameters tenantId(String tenantId) {
+    public ListApiHandlesOptionalParameters tenantId(String tenantId) {
       this.tenantId = tenantId;
       return this;
     }
-
-    /**
-     * Set name.
-     *
-     * @param name Your tenant-based handle name. (optional)
-     * @return ListTenantBasedHandlesOptionalParameters
-     */
-    public ListTenantBasedHandlesOptionalParameters name(String name) {
-      this.name = name;
-      return this;
-    }
   }
 
   /**
-   * Get all tenant-based handles.
+   * Get all handles.
    *
-   * <p>See {@link #listTenantBasedHandlesWithHttpInfo}.
+   * <p>See {@link #listApiHandlesWithHttpInfo}.
    *
-   * @return MicrosoftTeamsTenantBasedHandlesResponse
+   * @return MicrosoftTeamsApiHandlesResponse
    * @throws ApiException if fails to make API call
    */
-  public MicrosoftTeamsTenantBasedHandlesResponse listTenantBasedHandles() throws ApiException {
-    return listTenantBasedHandlesWithHttpInfo(new ListTenantBasedHandlesOptionalParameters())
-        .getData();
+  public MicrosoftTeamsApiHandlesResponse listApiHandles() throws ApiException {
+    return listApiHandlesWithHttpInfo(new ListApiHandlesOptionalParameters()).getData();
   }
 
   /**
-   * Get all tenant-based handles.
+   * Get all handles.
    *
-   * <p>See {@link #listTenantBasedHandlesWithHttpInfoAsync}.
+   * <p>See {@link #listApiHandlesWithHttpInfoAsync}.
    *
-   * @return CompletableFuture&lt;MicrosoftTeamsTenantBasedHandlesResponse&gt;
+   * @return CompletableFuture&lt;MicrosoftTeamsApiHandlesResponse&gt;
    */
-  public CompletableFuture<MicrosoftTeamsTenantBasedHandlesResponse> listTenantBasedHandlesAsync() {
-    return listTenantBasedHandlesWithHttpInfoAsync(new ListTenantBasedHandlesOptionalParameters())
+  public CompletableFuture<MicrosoftTeamsApiHandlesResponse> listApiHandlesAsync() {
+    return listApiHandlesWithHttpInfoAsync(new ListApiHandlesOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -709,30 +836,30 @@ public class MicrosoftTeamsIntegrationApi {
   }
 
   /**
-   * Get all tenant-based handles.
+   * Get all handles.
    *
-   * <p>See {@link #listTenantBasedHandlesWithHttpInfo}.
+   * <p>See {@link #listApiHandlesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return MicrosoftTeamsTenantBasedHandlesResponse
+   * @return MicrosoftTeamsApiHandlesResponse
    * @throws ApiException if fails to make API call
    */
-  public MicrosoftTeamsTenantBasedHandlesResponse listTenantBasedHandles(
-      ListTenantBasedHandlesOptionalParameters parameters) throws ApiException {
-    return listTenantBasedHandlesWithHttpInfo(parameters).getData();
+  public MicrosoftTeamsApiHandlesResponse listApiHandles(
+      ListApiHandlesOptionalParameters parameters) throws ApiException {
+    return listApiHandlesWithHttpInfo(parameters).getData();
   }
 
   /**
-   * Get all tenant-based handles.
+   * Get all handles.
    *
-   * <p>See {@link #listTenantBasedHandlesWithHttpInfoAsync}.
+   * <p>See {@link #listApiHandlesWithHttpInfoAsync}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;MicrosoftTeamsTenantBasedHandlesResponse&gt;
+   * @return CompletableFuture&lt;MicrosoftTeamsApiHandlesResponse&gt;
    */
-  public CompletableFuture<MicrosoftTeamsTenantBasedHandlesResponse> listTenantBasedHandlesAsync(
-      ListTenantBasedHandlesOptionalParameters parameters) {
-    return listTenantBasedHandlesWithHttpInfoAsync(parameters)
+  public CompletableFuture<MicrosoftTeamsApiHandlesResponse> listApiHandlesAsync(
+      ListApiHandlesOptionalParameters parameters) {
+    return listApiHandlesWithHttpInfoAsync(parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -740,10 +867,10 @@ public class MicrosoftTeamsIntegrationApi {
   }
 
   /**
-   * Get a list of all tenant-based handles from the Datadog Microsoft Teams integration.
+   * Get a list of all handles from the Datadog Microsoft Teams integration.
    *
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;MicrosoftTeamsTenantBasedHandlesResponse&gt;
+   * @return ApiResponse&lt;MicrosoftTeamsApiHandlesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -757,11 +884,10 @@ public class MicrosoftTeamsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MicrosoftTeamsTenantBasedHandlesResponse> listTenantBasedHandlesWithHttpInfo(
-      ListTenantBasedHandlesOptionalParameters parameters) throws ApiException {
+  public ApiResponse<MicrosoftTeamsApiHandlesResponse> listApiHandlesWithHttpInfo(
+      ListApiHandlesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     String tenantId = parameters.tenantId;
-    String name = parameters.name;
     // create path and map variables
     String localVarPath = "/api/v2/integration/ms-teams/configuration/tenant-based-handles";
 
@@ -769,11 +895,10 @@ public class MicrosoftTeamsIntegrationApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tenant_id", tenantId));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.MicrosoftTeamsIntegrationApi.listTenantBasedHandles",
+            "v2.MicrosoftTeamsIntegrationApi.listApiHandles",
             localVarPath,
             localVarQueryParams,
             localVarHeaderParams,
@@ -788,22 +913,21 @@ public class MicrosoftTeamsIntegrationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<MicrosoftTeamsTenantBasedHandlesResponse>() {});
+        new GenericType<MicrosoftTeamsApiHandlesResponse>() {});
   }
 
   /**
-   * Get all tenant-based handles.
+   * Get all handles.
    *
-   * <p>See {@link #listTenantBasedHandlesWithHttpInfo}.
+   * <p>See {@link #listApiHandlesWithHttpInfo}.
    *
    * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsTenantBasedHandlesResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsApiHandlesResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandlesResponse>>
-      listTenantBasedHandlesWithHttpInfoAsync(ListTenantBasedHandlesOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<MicrosoftTeamsApiHandlesResponse>>
+      listApiHandlesWithHttpInfoAsync(ListApiHandlesOptionalParameters parameters) {
     Object localVarPostBody = null;
     String tenantId = parameters.tenantId;
-    String name = parameters.name;
     // create path and map variables
     String localVarPath = "/api/v2/integration/ms-teams/configuration/tenant-based-handles";
 
@@ -811,13 +935,12 @@ public class MicrosoftTeamsIntegrationApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tenant_id", tenantId));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
 
     Invocation.Builder builder;
     try {
       builder =
           apiClient.createBuilder(
-              "v2.MicrosoftTeamsIntegrationApi.listTenantBasedHandles",
+              "v2.MicrosoftTeamsIntegrationApi.listApiHandles",
               localVarPath,
               localVarQueryParams,
               localVarHeaderParams,
@@ -825,7 +948,7 @@ public class MicrosoftTeamsIntegrationApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandlesResponse>> result =
+      CompletableFuture<ApiResponse<MicrosoftTeamsApiHandlesResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -838,36 +961,36 @@ public class MicrosoftTeamsIntegrationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<MicrosoftTeamsTenantBasedHandlesResponse>() {});
+        new GenericType<MicrosoftTeamsApiHandlesResponse>() {});
   }
 
   /**
-   * Update tenant-based handle.
+   * Update handle.
    *
-   * <p>See {@link #updateTenantBasedHandleWithHttpInfo}.
+   * <p>See {@link #updateApiHandleWithHttpInfo}.
    *
-   * @param handleId Your tenant-based handle id. (required)
-   * @param body Tenant-based handle payload. (required)
-   * @return MicrosoftTeamsTenantBasedHandleResponse
+   * @param handleId Your handle id. (required)
+   * @param body Opsgenie service payload. (required)
+   * @return MicrosoftTeamsApiHandleInfoResponse
    * @throws ApiException if fails to make API call
    */
-  public MicrosoftTeamsTenantBasedHandleResponse updateTenantBasedHandle(
-      String handleId, MicrosoftTeamsUpdateTenantBasedHandleRequest body) throws ApiException {
-    return updateTenantBasedHandleWithHttpInfo(handleId, body).getData();
+  public MicrosoftTeamsApiHandleInfoResponse updateApiHandle(
+      String handleId, MicrosoftTeamsUpdateApiHandleRequest body) throws ApiException {
+    return updateApiHandleWithHttpInfo(handleId, body).getData();
   }
 
   /**
-   * Update tenant-based handle.
+   * Update handle.
    *
-   * <p>See {@link #updateTenantBasedHandleWithHttpInfoAsync}.
+   * <p>See {@link #updateApiHandleWithHttpInfoAsync}.
    *
-   * @param handleId Your tenant-based handle id. (required)
-   * @param body Tenant-based handle payload. (required)
-   * @return CompletableFuture&lt;MicrosoftTeamsTenantBasedHandleResponse&gt;
+   * @param handleId Your handle id. (required)
+   * @param body Opsgenie service payload. (required)
+   * @return CompletableFuture&lt;MicrosoftTeamsApiHandleInfoResponse&gt;
    */
-  public CompletableFuture<MicrosoftTeamsTenantBasedHandleResponse> updateTenantBasedHandleAsync(
-      String handleId, MicrosoftTeamsUpdateTenantBasedHandleRequest body) {
-    return updateTenantBasedHandleWithHttpInfoAsync(handleId, body)
+  public CompletableFuture<MicrosoftTeamsApiHandleInfoResponse> updateApiHandleAsync(
+      String handleId, MicrosoftTeamsUpdateApiHandleRequest body) {
+    return updateApiHandleWithHttpInfoAsync(handleId, body)
         .thenApply(
             response -> {
               return response.getData();
@@ -875,11 +998,11 @@ public class MicrosoftTeamsIntegrationApi {
   }
 
   /**
-   * Update a tenant-based handle from the Datadog Microsoft Teams integration.
+   * Update a handle from the Datadog Microsoft Teams integration.
    *
-   * @param handleId Your tenant-based handle id. (required)
-   * @param body Tenant-based handle payload. (required)
-   * @return ApiResponse&lt;MicrosoftTeamsTenantBasedHandleResponse&gt;
+   * @param handleId Your handle id. (required)
+   * @param body Opsgenie service payload. (required)
+   * @return ApiResponse&lt;MicrosoftTeamsApiHandleInfoResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -894,20 +1017,20 @@ public class MicrosoftTeamsIntegrationApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<MicrosoftTeamsTenantBasedHandleResponse> updateTenantBasedHandleWithHttpInfo(
-      String handleId, MicrosoftTeamsUpdateTenantBasedHandleRequest body) throws ApiException {
+  public ApiResponse<MicrosoftTeamsApiHandleInfoResponse> updateApiHandleWithHttpInfo(
+      String handleId, MicrosoftTeamsUpdateApiHandleRequest body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'handleId' is set
     if (handleId == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'handleId' when calling updateTenantBasedHandle");
+          400, "Missing the required parameter 'handleId' when calling updateApiHandle");
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
       throw new ApiException(
-          400, "Missing the required parameter 'body' when calling updateTenantBasedHandle");
+          400, "Missing the required parameter 'body' when calling updateApiHandle");
     }
     // create path and map variables
     String localVarPath =
@@ -918,7 +1041,7 @@ public class MicrosoftTeamsIntegrationApi {
 
     Invocation.Builder builder =
         apiClient.createBuilder(
-            "v2.MicrosoftTeamsIntegrationApi.updateTenantBasedHandle",
+            "v2.MicrosoftTeamsIntegrationApi.updateApiHandle",
             localVarPath,
             new ArrayList<Pair>(),
             localVarHeaderParams,
@@ -933,41 +1056,39 @@ public class MicrosoftTeamsIntegrationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<MicrosoftTeamsTenantBasedHandleResponse>() {});
+        new GenericType<MicrosoftTeamsApiHandleInfoResponse>() {});
   }
 
   /**
-   * Update tenant-based handle.
+   * Update handle.
    *
-   * <p>See {@link #updateTenantBasedHandleWithHttpInfo}.
+   * <p>See {@link #updateApiHandleWithHttpInfo}.
    *
-   * @param handleId Your tenant-based handle id. (required)
-   * @param body Tenant-based handle payload. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsTenantBasedHandleResponse&gt;&gt;
+   * @param handleId Your handle id. (required)
+   * @param body Opsgenie service payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsApiHandleInfoResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandleResponse>>
-      updateTenantBasedHandleWithHttpInfoAsync(
-          String handleId, MicrosoftTeamsUpdateTenantBasedHandleRequest body) {
+  public CompletableFuture<ApiResponse<MicrosoftTeamsApiHandleInfoResponse>>
+      updateApiHandleWithHttpInfoAsync(String handleId, MicrosoftTeamsUpdateApiHandleRequest body) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'handleId' is set
     if (handleId == null) {
-      CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandleResponse>> result =
+      CompletableFuture<ApiResponse<MicrosoftTeamsApiHandleInfoResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400,
-              "Missing the required parameter 'handleId' when calling updateTenantBasedHandle"));
+              400, "Missing the required parameter 'handleId' when calling updateApiHandle"));
       return result;
     }
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandleResponse>> result =
+      CompletableFuture<ApiResponse<MicrosoftTeamsApiHandleInfoResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
-              400, "Missing the required parameter 'body' when calling updateTenantBasedHandle"));
+              400, "Missing the required parameter 'body' when calling updateApiHandle"));
       return result;
     }
     // create path and map variables
@@ -981,7 +1102,7 @@ public class MicrosoftTeamsIntegrationApi {
     try {
       builder =
           apiClient.createBuilder(
-              "v2.MicrosoftTeamsIntegrationApi.updateTenantBasedHandle",
+              "v2.MicrosoftTeamsIntegrationApi.updateApiHandle",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -989,7 +1110,7 @@ public class MicrosoftTeamsIntegrationApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<MicrosoftTeamsTenantBasedHandleResponse>> result =
+      CompletableFuture<ApiResponse<MicrosoftTeamsApiHandleInfoResponse>> result =
           new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
@@ -1002,6 +1123,6 @@ public class MicrosoftTeamsIntegrationApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<MicrosoftTeamsTenantBasedHandleResponse>() {});
+        new GenericType<MicrosoftTeamsApiHandleInfoResponse>() {});
   }
 }

@@ -81,48 +81,45 @@ public class IncidentResponseIncludedItem extends AbstractOpenApiSchema {
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize IncidentUserData
+      // deserialize User
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (IncidentUserData.class.equals(Integer.class)
-            || IncidentUserData.class.equals(Long.class)
-            || IncidentUserData.class.equals(Float.class)
-            || IncidentUserData.class.equals(Double.class)
-            || IncidentUserData.class.equals(Boolean.class)
-            || IncidentUserData.class.equals(String.class)) {
+        if (User.class.equals(Integer.class)
+            || User.class.equals(Long.class)
+            || User.class.equals(Float.class)
+            || User.class.equals(Double.class)
+            || User.class.equals(Boolean.class)
+            || User.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((IncidentUserData.class.equals(Integer.class)
-                        || IncidentUserData.class.equals(Long.class))
+                ((User.class.equals(Integer.class) || User.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((IncidentUserData.class.equals(Float.class)
-                        || IncidentUserData.class.equals(Double.class))
+                ((User.class.equals(Float.class) || User.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (IncidentUserData.class.equals(Boolean.class)
+                (User.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (IncidentUserData.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+            attemptParsing |= (User.class.equals(String.class) && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(IncidentUserData.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(User.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((IncidentUserData) tmp).unparsed) {
+          if (!((User) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'IncidentUserData'");
+          log.log(Level.FINER, "Input data matches schema 'User'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'IncidentUserData'", e);
+        log.log(Level.FINER, "Input data does not match schema 'User'", e);
       }
 
       // deserialize IncidentAttachmentData
@@ -200,7 +197,7 @@ public class IncidentResponseIncludedItem extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public IncidentResponseIncludedItem(IncidentUserData o) {
+  public IncidentResponseIncludedItem(User o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -211,7 +208,7 @@ public class IncidentResponseIncludedItem extends AbstractOpenApiSchema {
   }
 
   static {
-    schemas.put("IncidentUserData", new GenericType<IncidentUserData>() {});
+    schemas.put("User", new GenericType<User>() {});
     schemas.put("IncidentAttachmentData", new GenericType<IncidentAttachmentData>() {});
     JSON.registerDescendants(
         IncidentResponseIncludedItem.class, Collections.unmodifiableMap(schemas));
@@ -224,14 +221,14 @@ public class IncidentResponseIncludedItem extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: IncidentUserData, IncidentAttachmentData
+   * against the oneOf child schemas: User, IncidentAttachmentData
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(IncidentUserData.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(User.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -244,14 +241,13 @@ public class IncidentResponseIncludedItem extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException(
-        "Invalid instance type. Must be IncidentUserData, IncidentAttachmentData");
+    throw new RuntimeException("Invalid instance type. Must be User, IncidentAttachmentData");
   }
 
   /**
-   * Get the actual instance, which can be the following: IncidentUserData, IncidentAttachmentData
+   * Get the actual instance, which can be the following: User, IncidentAttachmentData
    *
-   * @return The actual instance (IncidentUserData, IncidentAttachmentData)
+   * @return The actual instance (User, IncidentAttachmentData)
    */
   @Override
   public Object getActualInstance() {
@@ -259,14 +255,14 @@ public class IncidentResponseIncludedItem extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `IncidentUserData`. If the actual instance is not
-   * `IncidentUserData`, the ClassCastException will be thrown.
+   * Get the actual instance of `User`. If the actual instance is not `User`, the ClassCastException
+   * will be thrown.
    *
-   * @return The actual instance of `IncidentUserData`
-   * @throws ClassCastException if the instance is not `IncidentUserData`
+   * @return The actual instance of `User`
+   * @throws ClassCastException if the instance is not `User`
    */
-  public IncidentUserData getIncidentUserData() throws ClassCastException {
-    return (IncidentUserData) super.getActualInstance();
+  public User getUser() throws ClassCastException {
+    return (User) super.getActualInstance();
   }
 
   /**

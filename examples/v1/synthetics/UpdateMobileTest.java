@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.SyntheticsApi;
+import com.datadog.api.client.v1.model.SyntheticsMobileDeviceID;
 import com.datadog.api.client.v1.model.SyntheticsMobileTest;
 import com.datadog.api.client.v1.model.SyntheticsMobileTestConfig;
 import com.datadog.api.client.v1.model.SyntheticsMobileTestOptions;
@@ -30,7 +31,8 @@ public class Example {
             .options(
                 new SyntheticsMobileTestOptions()
                     .deviceIds(
-                        Collections.singletonList("synthetics:mobile:device:iphone_15_ios_17"))
+                        Collections.singletonList(
+                            SyntheticsMobileDeviceID.SYNTHETICS_MOBILE_DEVICE_IPHONE_15_IOS_17))
                     .mobileApplication(
                         new SyntheticsMobileTestsMobileApplication()
                             .applicationId("ab0e0aed-536d-411a-9a99-5428c27d8f8e")

@@ -20,7 +20,6 @@ public class Example {
             .hostFilters("key:value,filter:example")
             .isCspmEnabled(true)
             .isSecurityCommandCenterEnabled(true)
-            .isResourceChangeCollectionEnabled(true)
             .privateKey("private_key")
             .privateKeyId("123456789abcdefghi123456789abcdefghijklm")
             .projectId("datadog-apitest")

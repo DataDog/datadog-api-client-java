@@ -41,7 +41,7 @@ public class SyntheticsMobileTest {
   private SyntheticsMobileTestConfig config;
 
   public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
-  private List<String> deviceIds = null;
+  private List<SyntheticsMobileDeviceID> deviceIds = null;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -110,16 +110,17 @@ public class SyntheticsMobileTest {
     this.config = config;
   }
 
-  public SyntheticsMobileTest deviceIds(List<String> deviceIds) {
+  public SyntheticsMobileTest deviceIds(List<SyntheticsMobileDeviceID> deviceIds) {
     this.deviceIds = deviceIds;
     return this;
   }
 
-  public SyntheticsMobileTest addDeviceIdsItem(String deviceIdsItem) {
+  public SyntheticsMobileTest addDeviceIdsItem(SyntheticsMobileDeviceID deviceIdsItem) {
     if (this.deviceIds == null) {
       this.deviceIds = new ArrayList<>();
     }
     this.deviceIds.add(deviceIdsItem);
+    this.unparsed |= !deviceIdsItem.isValid();
     return this;
   }
 
@@ -131,11 +132,11 @@ public class SyntheticsMobileTest {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getDeviceIds() {
+  public List<SyntheticsMobileDeviceID> getDeviceIds() {
     return deviceIds;
   }
 
-  public void setDeviceIds(List<String> deviceIds) {
+  public void setDeviceIds(List<SyntheticsMobileDeviceID> deviceIds) {
     this.deviceIds = deviceIds;
   }
 

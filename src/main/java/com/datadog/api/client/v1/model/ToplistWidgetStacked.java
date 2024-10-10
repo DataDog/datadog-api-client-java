@@ -36,7 +36,10 @@ public class ToplistWidgetStacked {
 
   @JsonCreator
   public ToplistWidgetStacked(
+      @JsonProperty(required = true, value = JSON_PROPERTY_LEGEND) ToplistWidgetLegend legend,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ToplistWidgetStackedType type) {
+    this.legend = legend;
+    this.unparsed |= !legend.isValid();
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -52,9 +55,8 @@ public class ToplistWidgetStacked {
    *
    * @return legend
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LEGEND)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ToplistWidgetLegend getLegend() {
     return legend;
   }
