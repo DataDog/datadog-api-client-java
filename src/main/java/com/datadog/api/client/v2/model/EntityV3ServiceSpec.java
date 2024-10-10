@@ -55,7 +55,7 @@ public class EntityV3ServiceSpec {
   }
 
   /**
-   * A list of components the service depends on
+   * A list of components the service depends on.
    *
    * @return dependsOn
    */
@@ -126,7 +126,7 @@ public class EntityV3ServiceSpec {
   }
 
   /**
-   * The importance of the component
+   * The importance of the component.
    *
    * @return tier
    */
@@ -147,7 +147,7 @@ public class EntityV3ServiceSpec {
   }
 
   /**
-   * The type of service
+   * The type of service.
    *
    * @return type
    */

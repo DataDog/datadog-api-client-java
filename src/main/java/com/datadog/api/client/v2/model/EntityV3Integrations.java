@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** A base schema for defining third party integrations */
+/** A base schema for defining third-party integrations. */
 @JsonPropertyOrder({
   EntityV3Integrations.JSON_PROPERTY_OPSGENIE,
   EntityV3Integrations.JSON_PROPERTY_PAGERDUTY
@@ -34,7 +34,7 @@ public class EntityV3Integrations {
   }
 
   /**
-   * An Opsgenie integration schema
+   * An Opsgenie integration schema.
    *
    * @return opsgenie
    */
@@ -56,7 +56,7 @@ public class EntityV3Integrations {
   }
 
   /**
-   * An PagerDuty integration schema
+   * A PagerDuty integration schema.
    *
    * @return pagerduty
    */

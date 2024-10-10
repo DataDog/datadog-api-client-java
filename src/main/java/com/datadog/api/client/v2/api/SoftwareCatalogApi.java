@@ -56,7 +56,7 @@ public class SoftwareCatalogApi {
    *
    * <p>See {@link #deleteCatalogEntityWithHttpInfo}.
    *
-   * @param entityId UUID or Entity Ref (required)
+   * @param entityId UUID or Entity Ref. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteCatalogEntity(String entityId) throws ApiException {
@@ -68,7 +68,7 @@ public class SoftwareCatalogApi {
    *
    * <p>See {@link #deleteCatalogEntityWithHttpInfoAsync}.
    *
-   * @param entityId UUID or Entity Ref (required)
+   * @param entityId UUID or Entity Ref. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteCatalogEntityAsync(String entityId) {
@@ -82,7 +82,7 @@ public class SoftwareCatalogApi {
   /**
    * Delete a single entity in Software Catalog.
    *
-   * @param entityId UUID or Entity Ref (required)
+   * @param entityId UUID or Entity Ref. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -136,7 +136,7 @@ public class SoftwareCatalogApi {
    *
    * <p>See {@link #deleteCatalogEntityWithHttpInfo}.
    *
-   * @param entityId UUID or Entity Ref (required)
+   * @param entityId UUID or Entity Ref. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteCatalogEntityWithHttpInfoAsync(
@@ -189,13 +189,13 @@ public class SoftwareCatalogApi {
   public static class ListCatalogEntityOptionalParameters {
     private Long pageOffset;
     private Long pageLimit;
-    private String fitlerId;
-    private String fitlerRef;
-    private String fitlerName;
-    private String fitlerKind;
-    private String fitlerOwner;
-    private RelationType fitlerRelationType;
-    private String fitlerExcludeSnapshot;
+    private String filterId;
+    private String filterRef;
+    private String filterName;
+    private String filterKind;
+    private String filterOwner;
+    private RelationType filterRelationType;
+    private String filterExcludeSnapshot;
     private IncludeType include;
 
     /**
@@ -222,86 +222,86 @@ public class SoftwareCatalogApi {
     }
 
     /**
-     * Set fitlerId.
+     * Set filterId.
      *
-     * @param fitlerId Filter entities by UUID (optional)
+     * @param filterId Filter entities by UUID. (optional)
      * @return ListCatalogEntityOptionalParameters
      */
-    public ListCatalogEntityOptionalParameters fitlerId(String fitlerId) {
-      this.fitlerId = fitlerId;
+    public ListCatalogEntityOptionalParameters filterId(String filterId) {
+      this.filterId = filterId;
       return this;
     }
 
     /**
-     * Set fitlerRef.
+     * Set filterRef.
      *
-     * @param fitlerRef Filter entities by reference (optional)
+     * @param filterRef Filter entities by reference (optional)
      * @return ListCatalogEntityOptionalParameters
      */
-    public ListCatalogEntityOptionalParameters fitlerRef(String fitlerRef) {
-      this.fitlerRef = fitlerRef;
+    public ListCatalogEntityOptionalParameters filterRef(String filterRef) {
+      this.filterRef = filterRef;
       return this;
     }
 
     /**
-     * Set fitlerName.
+     * Set filterName.
      *
-     * @param fitlerName Filter entities by name (optional)
+     * @param filterName Filter entities by name. (optional)
      * @return ListCatalogEntityOptionalParameters
      */
-    public ListCatalogEntityOptionalParameters fitlerName(String fitlerName) {
-      this.fitlerName = fitlerName;
+    public ListCatalogEntityOptionalParameters filterName(String filterName) {
+      this.filterName = filterName;
       return this;
     }
 
     /**
-     * Set fitlerKind.
+     * Set filterKind.
      *
-     * @param fitlerKind Filter entities by kind (optional)
+     * @param filterKind Filter entities by kind. (optional)
      * @return ListCatalogEntityOptionalParameters
      */
-    public ListCatalogEntityOptionalParameters fitlerKind(String fitlerKind) {
-      this.fitlerKind = fitlerKind;
+    public ListCatalogEntityOptionalParameters filterKind(String filterKind) {
+      this.filterKind = filterKind;
       return this;
     }
 
     /**
-     * Set fitlerOwner.
+     * Set filterOwner.
      *
-     * @param fitlerOwner Filter entities by owner (optional)
+     * @param filterOwner Filter entities by owner. (optional)
      * @return ListCatalogEntityOptionalParameters
      */
-    public ListCatalogEntityOptionalParameters fitlerOwner(String fitlerOwner) {
-      this.fitlerOwner = fitlerOwner;
+    public ListCatalogEntityOptionalParameters filterOwner(String filterOwner) {
+      this.filterOwner = filterOwner;
       return this;
     }
 
     /**
-     * Set fitlerRelationType.
+     * Set filterRelationType.
      *
-     * @param fitlerRelationType Filter entities by relation type (optional)
+     * @param filterRelationType Filter entities by relation type. (optional)
      * @return ListCatalogEntityOptionalParameters
      */
-    public ListCatalogEntityOptionalParameters fitlerRelationType(RelationType fitlerRelationType) {
-      this.fitlerRelationType = fitlerRelationType;
+    public ListCatalogEntityOptionalParameters filterRelationType(RelationType filterRelationType) {
+      this.filterRelationType = filterRelationType;
       return this;
     }
 
     /**
-     * Set fitlerExcludeSnapshot.
+     * Set filterExcludeSnapshot.
      *
-     * @param fitlerExcludeSnapshot Filter entities by excluding snapshotted entities (optional)
+     * @param filterExcludeSnapshot Filter entities by excluding snapshotted entities. (optional)
      * @return ListCatalogEntityOptionalParameters
      */
-    public ListCatalogEntityOptionalParameters fitlerExcludeSnapshot(String fitlerExcludeSnapshot) {
-      this.fitlerExcludeSnapshot = fitlerExcludeSnapshot;
+    public ListCatalogEntityOptionalParameters filterExcludeSnapshot(String filterExcludeSnapshot) {
+      this.filterExcludeSnapshot = filterExcludeSnapshot;
       return this;
     }
 
     /**
      * Set include.
      *
-     * @param include include relationship data (optional)
+     * @param include Include relationship data. (optional)
      * @return ListCatalogEntityOptionalParameters
      */
     public ListCatalogEntityOptionalParameters include(IncludeType include) {
@@ -441,13 +441,13 @@ public class SoftwareCatalogApi {
     Object localVarPostBody = null;
     Long pageOffset = parameters.pageOffset;
     Long pageLimit = parameters.pageLimit;
-    String fitlerId = parameters.fitlerId;
-    String fitlerRef = parameters.fitlerRef;
-    String fitlerName = parameters.fitlerName;
-    String fitlerKind = parameters.fitlerKind;
-    String fitlerOwner = parameters.fitlerOwner;
-    RelationType fitlerRelationType = parameters.fitlerRelationType;
-    String fitlerExcludeSnapshot = parameters.fitlerExcludeSnapshot;
+    String filterId = parameters.filterId;
+    String filterRef = parameters.filterRef;
+    String filterName = parameters.filterName;
+    String filterKind = parameters.filterKind;
+    String filterOwner = parameters.filterOwner;
+    RelationType filterRelationType = parameters.filterRelationType;
+    String filterExcludeSnapshot = parameters.filterExcludeSnapshot;
     IncludeType include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/catalog/entity";
@@ -457,15 +457,15 @@ public class SoftwareCatalogApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitler[id]", fitlerId));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitler[ref]", fitlerRef));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitler[name]", fitlerName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitler[kind]", fitlerKind));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitler[owner]", fitlerOwner));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[id]", filterId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[ref]", filterRef));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[kind]", filterKind));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[owner]", filterOwner));
     localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "fitler[relation][type]", fitlerRelationType));
+        apiClient.parameterToPairs("", "filter[relation][type]", filterRelationType));
     localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "fitler[exclude_snapshot]", fitlerExcludeSnapshot));
+        apiClient.parameterToPairs("", "filter[exclude_snapshot]", filterExcludeSnapshot));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder =
@@ -501,13 +501,13 @@ public class SoftwareCatalogApi {
     Object localVarPostBody = null;
     Long pageOffset = parameters.pageOffset;
     Long pageLimit = parameters.pageLimit;
-    String fitlerId = parameters.fitlerId;
-    String fitlerRef = parameters.fitlerRef;
-    String fitlerName = parameters.fitlerName;
-    String fitlerKind = parameters.fitlerKind;
-    String fitlerOwner = parameters.fitlerOwner;
-    RelationType fitlerRelationType = parameters.fitlerRelationType;
-    String fitlerExcludeSnapshot = parameters.fitlerExcludeSnapshot;
+    String filterId = parameters.filterId;
+    String filterRef = parameters.filterRef;
+    String filterName = parameters.filterName;
+    String filterKind = parameters.filterKind;
+    String filterOwner = parameters.filterOwner;
+    RelationType filterRelationType = parameters.filterRelationType;
+    String filterExcludeSnapshot = parameters.filterExcludeSnapshot;
     IncludeType include = parameters.include;
     // create path and map variables
     String localVarPath = "/api/v2/catalog/entity";
@@ -517,15 +517,15 @@ public class SoftwareCatalogApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitler[id]", fitlerId));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitler[ref]", fitlerRef));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitler[name]", fitlerName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitler[kind]", fitlerKind));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fitler[owner]", fitlerOwner));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[id]", filterId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[ref]", filterRef));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[kind]", filterKind));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[owner]", filterOwner));
     localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "fitler[relation][type]", fitlerRelationType));
+        apiClient.parameterToPairs("", "filter[relation][type]", filterRelationType));
     localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "fitler[exclude_snapshot]", fitlerExcludeSnapshot));
+        apiClient.parameterToPairs("", "filter[exclude_snapshot]", filterExcludeSnapshot));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
 
     Invocation.Builder builder;
@@ -560,7 +560,7 @@ public class SoftwareCatalogApi {
    *
    * <p>See {@link #upsertCatalogEntityWithHttpInfo}.
    *
-   * @param body Entity YAML/JSON. (required)
+   * @param body Entity YAML or JSON. (required)
    * @return UpsertCatalogEntityResponse
    * @throws ApiException if fails to make API call
    */
@@ -574,7 +574,7 @@ public class SoftwareCatalogApi {
    *
    * <p>See {@link #upsertCatalogEntityWithHttpInfoAsync}.
    *
-   * @param body Entity YAML/JSON. (required)
+   * @param body Entity YAML or JSON. (required)
    * @return CompletableFuture&lt;UpsertCatalogEntityResponse&gt;
    */
   public CompletableFuture<UpsertCatalogEntityResponse> upsertCatalogEntityAsync(
@@ -589,7 +589,7 @@ public class SoftwareCatalogApi {
   /**
    * Create or update entities in Software Catalog.
    *
-   * @param body Entity YAML/JSON. (required)
+   * @param body Entity YAML or JSON. (required)
    * @return ApiResponse&lt;UpsertCatalogEntityResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -641,7 +641,7 @@ public class SoftwareCatalogApi {
    *
    * <p>See {@link #upsertCatalogEntityWithHttpInfo}.
    *
-   * @param body Entity YAML/JSON. (required)
+   * @param body Entity YAML or JSON. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;UpsertCatalogEntityResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UpsertCatalogEntityResponse>>

@@ -58,7 +58,7 @@ public class EntityV3DatastoreSpec {
   }
 
   /**
-   * The importance of the datastore
+   * The importance of the datastore.
    *
    * @return tier
    */
@@ -79,7 +79,7 @@ public class EntityV3DatastoreSpec {
   }
 
   /**
-   * The type of datastore
+   * The type of datastore.
    *
    * @return type
    */

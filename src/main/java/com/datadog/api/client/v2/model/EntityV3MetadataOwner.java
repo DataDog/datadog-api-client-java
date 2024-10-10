@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** The owner of the entity, usually a team */
+/** The owner of the entity, usually a team. */
 @JsonPropertyOrder({EntityV3MetadataOwner.JSON_PROPERTY_NAME})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -27,7 +27,7 @@ public class EntityV3MetadataOwner {
   }
 
   /**
-   * Team name
+   * Team name.
    *
    * @return name
    */

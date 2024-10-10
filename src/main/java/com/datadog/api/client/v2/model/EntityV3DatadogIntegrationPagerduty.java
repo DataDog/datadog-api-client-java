@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** An PagerDuty integration schema */
+/** A PagerDuty integration schema. */
 @JsonPropertyOrder({EntityV3DatadogIntegrationPagerduty.JSON_PROPERTY_SERVICE_URL})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -36,7 +36,7 @@ public class EntityV3DatadogIntegrationPagerduty {
   }
 
   /**
-   * The service url for the PagerDuty integration.
+   * The service URL for the PagerDuty integration.
    *
    * @return serviceUrl
    */

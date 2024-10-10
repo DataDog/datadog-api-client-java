@@ -58,7 +58,7 @@ public class EntityV3QueueSpec {
   }
 
   /**
-   * The importance of the queue
+   * The importance of the queue.
    *
    * @return tier
    */
@@ -79,7 +79,7 @@ public class EntityV3QueueSpec {
   }
 
   /**
-   * The type of queue
+   * The type of queue.
    *
    * @return type
    */

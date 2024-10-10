@@ -64,7 +64,7 @@ public class EntityResponseIncludedRawSchema {
   }
 
   /**
-   * Raw schema id.
+   * Raw schema ID.
    *
    * @return id
    */

@@ -33,7 +33,7 @@ public class EntityV3DatadogEventItem {
   }
 
   /**
-   * The name of the query
+   * The name of the query.
    *
    * @return name
    */
@@ -54,7 +54,7 @@ public class EntityV3DatadogEventItem {
   }
 
   /**
-   * The query to run
+   * The query to run.
    *
    * @return query
    */
