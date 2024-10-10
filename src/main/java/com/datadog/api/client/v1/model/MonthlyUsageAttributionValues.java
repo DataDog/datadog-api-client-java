@@ -61,6 +61,7 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_HOSTS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_HOSTS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_DATA_JOBS_MONITORING_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_DATA_STREAM_MONITORING_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_DBM_HOSTS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_DBM_HOSTS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_DBM_QUERIES_PERCENTAGE,
@@ -304,6 +305,10 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_DATA_JOBS_MONITORING_USAGE =
       "data_jobs_monitoring_usage";
   private Double dataJobsMonitoringUsage;
+
+  public static final String JSON_PROPERTY_DATA_STREAM_MONITORING_USAGE =
+      "data_stream_monitoring_usage";
+  private Double dataStreamMonitoringUsage;
 
   public static final String JSON_PROPERTY_DBM_HOSTS_PERCENTAGE = "dbm_hosts_percentage";
   private Double dbmHostsPercentage;
@@ -1552,6 +1557,27 @@ public class MonthlyUsageAttributionValues {
 
   public void setDataJobsMonitoringUsage(Double dataJobsMonitoringUsage) {
     this.dataJobsMonitoringUsage = dataJobsMonitoringUsage;
+  }
+
+  public MonthlyUsageAttributionValues dataStreamMonitoringUsage(Double dataStreamMonitoringUsage) {
+    this.dataStreamMonitoringUsage = dataStreamMonitoringUsage;
+    return this;
+  }
+
+  /**
+   * The Data Stream Monitoring usage by tag(s).
+   *
+   * @return dataStreamMonitoringUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_STREAM_MONITORING_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDataStreamMonitoringUsage() {
+    return dataStreamMonitoringUsage;
+  }
+
+  public void setDataStreamMonitoringUsage(Double dataStreamMonitoringUsage) {
+    this.dataStreamMonitoringUsage = dataStreamMonitoringUsage;
   }
 
   public MonthlyUsageAttributionValues dbmHostsPercentage(Double dbmHostsPercentage) {
@@ -3743,6 +3769,8 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(this.cwsHostsUsage, monthlyUsageAttributionValues.cwsHostsUsage)
         && Objects.equals(
             this.dataJobsMonitoringUsage, monthlyUsageAttributionValues.dataJobsMonitoringUsage)
+        && Objects.equals(
+            this.dataStreamMonitoringUsage, monthlyUsageAttributionValues.dataStreamMonitoringUsage)
         && Objects.equals(this.dbmHostsPercentage, monthlyUsageAttributionValues.dbmHostsPercentage)
         && Objects.equals(this.dbmHostsUsage, monthlyUsageAttributionValues.dbmHostsUsage)
         && Objects.equals(
@@ -4004,6 +4032,7 @@ public class MonthlyUsageAttributionValues {
         cwsHostsPercentage,
         cwsHostsUsage,
         dataJobsMonitoringUsage,
+        dataStreamMonitoringUsage,
         dbmHostsPercentage,
         dbmHostsUsage,
         dbmQueriesPercentage,
@@ -4197,6 +4226,9 @@ public class MonthlyUsageAttributionValues {
     sb.append("    cwsHostsUsage: ").append(toIndentedString(cwsHostsUsage)).append("\n");
     sb.append("    dataJobsMonitoringUsage: ")
         .append(toIndentedString(dataJobsMonitoringUsage))
+        .append("\n");
+    sb.append("    dataStreamMonitoringUsage: ")
+        .append(toIndentedString(dataStreamMonitoringUsage))
         .append("\n");
     sb.append("    dbmHostsPercentage: ").append(toIndentedString(dbmHostsPercentage)).append("\n");
     sb.append("    dbmHostsUsage: ").append(toIndentedString(dbmHostsUsage)).append("\n");
