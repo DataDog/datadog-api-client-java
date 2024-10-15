@@ -45,7 +45,7 @@ public class SyntheticsCITestBody {
   }
 
   /**
-   * Individual synthetics test.
+   * List of individual synthetic tests.
    *
    * @return tests
    */
