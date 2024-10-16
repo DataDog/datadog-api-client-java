@@ -49,7 +49,7 @@ public class SyntheticsMobileTestOptions {
   private List<SyntheticsMobileTestBinding> bindings = null;
 
   public static final String JSON_PROPERTY_CI = "ci";
-  private SyntheticsMobileTestCiOptions ci;
+  private SyntheticsTestCiOptions ci;
 
   public static final String JSON_PROPERTY_DEFAULT_STEP_TIMEOUT = "defaultStepTimeout";
   private Integer defaultStepTimeout;
@@ -147,7 +147,7 @@ public class SyntheticsMobileTestOptions {
     this.bindings = bindings;
   }
 
-  public SyntheticsMobileTestOptions ci(SyntheticsMobileTestCiOptions ci) {
+  public SyntheticsMobileTestOptions ci(SyntheticsTestCiOptions ci) {
     this.ci = ci;
     this.unparsed |= ci.unparsed;
     return this;
@@ -161,11 +161,11 @@ public class SyntheticsMobileTestOptions {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestCiOptions getCi() {
+  public SyntheticsTestCiOptions getCi() {
     return ci;
   }
 
-  public void setCi(SyntheticsMobileTestCiOptions ci) {
+  public void setCi(SyntheticsTestCiOptions ci) {
     this.ci = ci;
   }
 
