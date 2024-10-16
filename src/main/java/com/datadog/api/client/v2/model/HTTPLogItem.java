@@ -170,7 +170,7 @@ public class HTTPLogItem {
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
    */
-  private Map<String, String> additionalProperties;
+  private Map<String, Object> additionalProperties;
 
   /**
    * Set the additional (undeclared) property with the specified name and value. If the property
@@ -181,9 +181,9 @@ public class HTTPLogItem {
    * @return HTTPLogItem
    */
   @JsonAnySetter
-  public HTTPLogItem putAdditionalProperty(String key, String value) {
+  public HTTPLogItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, String>();
+      this.additionalProperties = new HashMap<String, Object>();
     }
     this.additionalProperties.put(key, value);
     return this;
@@ -195,7 +195,7 @@ public class HTTPLogItem {
    * @return The additional properties
    */
   @JsonAnyGetter
-  public Map<String, String> getAdditionalProperties() {
+  public Map<String, Object> getAdditionalProperties() {
     return additionalProperties;
   }
 
@@ -205,7 +205,7 @@ public class HTTPLogItem {
    * @param key The arbitrary key to get
    * @return The specific additional property for the given key
    */
-  public String getAdditionalProperty(String key) {
+  public Object getAdditionalProperty(String key) {
     if (this.additionalProperties == null) {
       return null;
     }
