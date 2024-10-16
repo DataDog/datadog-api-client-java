@@ -16,36 +16,38 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Name of the property. */
-@JsonPropertyOrder({
-  SyntheticsMobileTestInitialApplicationArgumentsPropertyNames.JSON_PROPERTY_PATTERN
-})
+/** The definition of <code>SyntheticsMobileStepParamsCheck</code> object. */
+@JsonPropertyOrder({SyntheticsMobileStepParamsCheck.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
+public class SyntheticsMobileStepParamsCheck {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PATTERN = "pattern";
-  private String pattern;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SyntheticsCheckType type;
 
-  public SyntheticsMobileTestInitialApplicationArgumentsPropertyNames pattern(String pattern) {
-    this.pattern = pattern;
+  public SyntheticsMobileStepParamsCheck type(SyntheticsCheckType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The <code>propertyNames</code> <code>pattern</code>.
+   * Type of assertion to apply in an API test.
    *
-   * @return pattern
+   * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PATTERN)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPattern() {
-    return pattern;
+  public SyntheticsCheckType getType() {
+    return type;
   }
 
-  public void setPattern(String pattern) {
-    this.pattern = pattern;
+  public void setType(SyntheticsCheckType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -60,11 +62,10 @@ public class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestInitialApplicationArgumentsPropertyNames
+   * @return SyntheticsMobileStepParamsCheck
    */
   @JsonAnySetter
-  public SyntheticsMobileTestInitialApplicationArgumentsPropertyNames putAdditionalProperty(
-      String key, Object value) {
+  public SyntheticsMobileStepParamsCheck putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -95,10 +96,7 @@ public class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsMobileTestInitialApplicationArgumentsPropertyNames object is
-   * equal to o.
-   */
+  /** Return true if this SyntheticsMobileStepParamsCheck object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -107,26 +105,23 @@ public class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestInitialApplicationArgumentsPropertyNames
-        syntheticsMobileTestInitialApplicationArgumentsPropertyNames =
-            (SyntheticsMobileTestInitialApplicationArgumentsPropertyNames) o;
-    return Objects.equals(
-            this.pattern, syntheticsMobileTestInitialApplicationArgumentsPropertyNames.pattern)
+    SyntheticsMobileStepParamsCheck syntheticsMobileStepParamsCheck =
+        (SyntheticsMobileStepParamsCheck) o;
+    return Objects.equals(this.type, syntheticsMobileStepParamsCheck.type)
         && Objects.equals(
-            this.additionalProperties,
-            syntheticsMobileTestInitialApplicationArgumentsPropertyNames.additionalProperties);
+            this.additionalProperties, syntheticsMobileStepParamsCheck.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pattern, additionalProperties);
+    return Objects.hash(type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {\n");
-    sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsCheck {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

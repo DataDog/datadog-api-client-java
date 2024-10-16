@@ -8,7 +8,6 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,47 +16,61 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** CI/CD options for a Synthetic test. */
-@JsonPropertyOrder({SyntheticsMobileTestCiOptions.JSON_PROPERTY_EXECUTION_RULE})
+/** The definition of <code>SyntheticsMobileStepParamsPositionPositionsItems</code> object. */
+@JsonPropertyOrder({
+  SyntheticsMobileStepParamsPositionPositionsItems.JSON_PROPERTY_X,
+  SyntheticsMobileStepParamsPositionPositionsItems.JSON_PROPERTY_Y
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestCiOptions {
+public class SyntheticsMobileStepParamsPositionPositionsItems {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_EXECUTION_RULE = "executionRule";
-  private SyntheticsTestExecutionRule executionRule;
+  public static final String JSON_PROPERTY_X = "x";
+  private Long x;
 
-  public SyntheticsMobileTestCiOptions() {}
+  public static final String JSON_PROPERTY_Y = "y";
+  private Long y;
 
-  @JsonCreator
-  public SyntheticsMobileTestCiOptions(
-      @JsonProperty(required = true, value = JSON_PROPERTY_EXECUTION_RULE)
-          SyntheticsTestExecutionRule executionRule) {
-    this.executionRule = executionRule;
-    this.unparsed |= !executionRule.isValid();
-  }
-
-  public SyntheticsMobileTestCiOptions executionRule(SyntheticsTestExecutionRule executionRule) {
-    this.executionRule = executionRule;
-    this.unparsed |= !executionRule.isValid();
+  public SyntheticsMobileStepParamsPositionPositionsItems x(Long x) {
+    this.x = x;
     return this;
   }
 
   /**
-   * Execution rule for a Synthetic test.
+   * The <code>SyntheticsMobileStepParamsPositionPositionsItems</code> <code>x</code>.
    *
-   * @return executionRule
+   * @return x
    */
-  @JsonProperty(JSON_PROPERTY_EXECUTION_RULE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsTestExecutionRule getExecutionRule() {
-    return executionRule;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_X)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getX() {
+    return x;
   }
 
-  public void setExecutionRule(SyntheticsTestExecutionRule executionRule) {
-    if (!executionRule.isValid()) {
-      this.unparsed = true;
-    }
-    this.executionRule = executionRule;
+  public void setX(Long x) {
+    this.x = x;
+  }
+
+  public SyntheticsMobileStepParamsPositionPositionsItems y(Long y) {
+    this.y = y;
+    return this;
+  }
+
+  /**
+   * The <code>SyntheticsMobileStepParamsPositionPositionsItems</code> <code>y</code>.
+   *
+   * @return y
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_Y)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getY() {
+    return y;
+  }
+
+  public void setY(Long y) {
+    this.y = y;
   }
 
   /**
@@ -72,10 +85,11 @@ public class SyntheticsMobileTestCiOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestCiOptions
+   * @return SyntheticsMobileStepParamsPositionPositionsItems
    */
   @JsonAnySetter
-  public SyntheticsMobileTestCiOptions putAdditionalProperty(String key, Object value) {
+  public SyntheticsMobileStepParamsPositionPositionsItems putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -106,7 +120,7 @@ public class SyntheticsMobileTestCiOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsMobileTestCiOptions object is equal to o. */
+  /** Return true if this SyntheticsMobileStepParamsPositionPositionsItems object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,22 +129,27 @@ public class SyntheticsMobileTestCiOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestCiOptions syntheticsMobileTestCiOptions = (SyntheticsMobileTestCiOptions) o;
-    return Objects.equals(this.executionRule, syntheticsMobileTestCiOptions.executionRule)
+    SyntheticsMobileStepParamsPositionPositionsItems
+        syntheticsMobileStepParamsPositionPositionsItems =
+            (SyntheticsMobileStepParamsPositionPositionsItems) o;
+    return Objects.equals(this.x, syntheticsMobileStepParamsPositionPositionsItems.x)
+        && Objects.equals(this.y, syntheticsMobileStepParamsPositionPositionsItems.y)
         && Objects.equals(
-            this.additionalProperties, syntheticsMobileTestCiOptions.additionalProperties);
+            this.additionalProperties,
+            syntheticsMobileStepParamsPositionPositionsItems.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(executionRule, additionalProperties);
+    return Objects.hash(x, y, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestCiOptions {\n");
-    sb.append("    executionRule: ").append(toIndentedString(executionRule)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsPositionPositionsItems {\n");
+    sb.append("    x: ").append(toIndentedString(x)).append("\n");
+    sb.append("    y: ").append(toIndentedString(y)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -16,37 +16,61 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Initial application arguments for a mobile test. */
-@JsonPropertyOrder({SyntheticsMobileTestInitialApplicationArguments.JSON_PROPERTY_PROPERTY_NAMES})
+/** The definition of <code>SyntheticsMobileStepParamsElementRelativePosition</code> object. */
+@JsonPropertyOrder({
+  SyntheticsMobileStepParamsElementRelativePosition.JSON_PROPERTY_X,
+  SyntheticsMobileStepParamsElementRelativePosition.JSON_PROPERTY_Y
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestInitialApplicationArguments {
+public class SyntheticsMobileStepParamsElementRelativePosition {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PROPERTY_NAMES = "propertyNames";
-  private SyntheticsMobileTestInitialApplicationArgumentsPropertyNames propertyNames;
+  public static final String JSON_PROPERTY_X = "x";
+  private Long x;
 
-  public SyntheticsMobileTestInitialApplicationArguments propertyNames(
-      SyntheticsMobileTestInitialApplicationArgumentsPropertyNames propertyNames) {
-    this.propertyNames = propertyNames;
-    this.unparsed |= propertyNames.unparsed;
+  public static final String JSON_PROPERTY_Y = "y";
+  private Long y;
+
+  public SyntheticsMobileStepParamsElementRelativePosition x(Long x) {
+    this.x = x;
     return this;
   }
 
   /**
-   * Name of the property.
+   * The <code>relativePosition</code> <code>x</code>.
    *
-   * @return propertyNames
+   * @return x
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROPERTY_NAMES)
+  @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestInitialApplicationArgumentsPropertyNames getPropertyNames() {
-    return propertyNames;
+  public Long getX() {
+    return x;
   }
 
-  public void setPropertyNames(
-      SyntheticsMobileTestInitialApplicationArgumentsPropertyNames propertyNames) {
-    this.propertyNames = propertyNames;
+  public void setX(Long x) {
+    this.x = x;
+  }
+
+  public SyntheticsMobileStepParamsElementRelativePosition y(Long y) {
+    this.y = y;
+    return this;
+  }
+
+  /**
+   * The <code>relativePosition</code> <code>y</code>.
+   *
+   * @return y
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_Y)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getY() {
+    return y;
+  }
+
+  public void setY(Long y) {
+    this.y = y;
   }
 
   /**
@@ -61,10 +85,10 @@ public class SyntheticsMobileTestInitialApplicationArguments {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestInitialApplicationArguments
+   * @return SyntheticsMobileStepParamsElementRelativePosition
    */
   @JsonAnySetter
-  public SyntheticsMobileTestInitialApplicationArguments putAdditionalProperty(
+  public SyntheticsMobileStepParamsElementRelativePosition putAdditionalProperty(
       String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
@@ -96,7 +120,7 @@ public class SyntheticsMobileTestInitialApplicationArguments {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsMobileTestInitialApplicationArguments object is equal to o. */
+  /** Return true if this SyntheticsMobileStepParamsElementRelativePosition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -105,26 +129,27 @@ public class SyntheticsMobileTestInitialApplicationArguments {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestInitialApplicationArguments
-        syntheticsMobileTestInitialApplicationArguments =
-            (SyntheticsMobileTestInitialApplicationArguments) o;
-    return Objects.equals(
-            this.propertyNames, syntheticsMobileTestInitialApplicationArguments.propertyNames)
+    SyntheticsMobileStepParamsElementRelativePosition
+        syntheticsMobileStepParamsElementRelativePosition =
+            (SyntheticsMobileStepParamsElementRelativePosition) o;
+    return Objects.equals(this.x, syntheticsMobileStepParamsElementRelativePosition.x)
+        && Objects.equals(this.y, syntheticsMobileStepParamsElementRelativePosition.y)
         && Objects.equals(
             this.additionalProperties,
-            syntheticsMobileTestInitialApplicationArguments.additionalProperties);
+            syntheticsMobileStepParamsElementRelativePosition.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(propertyNames, additionalProperties);
+    return Objects.hash(x, y, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestInitialApplicationArguments {\n");
-    sb.append("    propertyNames: ").append(toIndentedString(propertyNames)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsElementRelativePosition {\n");
+    sb.append("    x: ").append(toIndentedString(x)).append("\n");
+    sb.append("    y: ").append(toIndentedString(y)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

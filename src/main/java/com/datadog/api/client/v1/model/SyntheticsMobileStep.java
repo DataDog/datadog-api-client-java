@@ -48,7 +48,7 @@ public class SyntheticsMobileStep {
   private Boolean noScreenshot;
 
   public static final String JSON_PROPERTY_PARAMS = "params";
-  private Object params;
+  private SyntheticsMobileStepParams params;
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "publicId";
   private String publicId;
@@ -165,24 +165,25 @@ public class SyntheticsMobileStep {
     this.noScreenshot = noScreenshot;
   }
 
-  public SyntheticsMobileStep params(Object params) {
+  public SyntheticsMobileStep params(SyntheticsMobileStepParams params) {
     this.params = params;
+    this.unparsed |= params.unparsed;
     return this;
   }
 
   /**
-   * The parameters of the mobile step.
+   * The parameters of a mobile step.
    *
    * @return params
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PARAMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getParams() {
+  public SyntheticsMobileStepParams getParams() {
     return params;
   }
 
-  public void setParams(Object params) {
+  public void setParams(SyntheticsMobileStepParams params) {
     this.params = params;
   }
 

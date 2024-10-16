@@ -18,73 +18,48 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Objects describing the binding used for a mobile test. */
-@JsonPropertyOrder({
-  SyntheticsMobileTestBinding.JSON_PROPERTY_PRINCIPALS,
-  SyntheticsMobileTestBinding.JSON_PROPERTY_RELATION
-})
+/** The definition of <code>SyntheticsMobileStepParamsPosition</code> object. */
+@JsonPropertyOrder({SyntheticsMobileStepParamsPosition.JSON_PROPERTY_POSITIONS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestBinding {
+public class SyntheticsMobileStepParamsPosition {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PRINCIPALS = "principals";
-  private List<String> principals = null;
+  public static final String JSON_PROPERTY_POSITIONS = "positions";
+  private List<SyntheticsMobileStepParamsPositionPositionsItems> positions = null;
 
-  public static final String JSON_PROPERTY_RELATION = "relation";
-  private SyntheticsMobileTestBindingRelation relation;
-
-  public SyntheticsMobileTestBinding principals(List<String> principals) {
-    this.principals = principals;
+  public SyntheticsMobileStepParamsPosition positions(
+      List<SyntheticsMobileStepParamsPositionPositionsItems> positions) {
+    this.positions = positions;
+    for (SyntheticsMobileStepParamsPositionPositionsItems item : positions) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
-  public SyntheticsMobileTestBinding addPrincipalsItem(String principalsItem) {
-    if (this.principals == null) {
-      this.principals = new ArrayList<>();
+  public SyntheticsMobileStepParamsPosition addPositionsItem(
+      SyntheticsMobileStepParamsPositionPositionsItems positionsItem) {
+    if (this.positions == null) {
+      this.positions = new ArrayList<>();
     }
-    this.principals.add(principalsItem);
+    this.positions.add(positionsItem);
+    this.unparsed |= positionsItem.unparsed;
     return this;
   }
 
   /**
-   * List of principals for a mobile test binding.
+   * The <code>position</code> <code>positions</code>.
    *
-   * @return principals
+   * @return positions
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRINCIPALS)
+  @JsonProperty(JSON_PROPERTY_POSITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getPrincipals() {
-    return principals;
+  public List<SyntheticsMobileStepParamsPositionPositionsItems> getPositions() {
+    return positions;
   }
 
-  public void setPrincipals(List<String> principals) {
-    this.principals = principals;
-  }
-
-  public SyntheticsMobileTestBinding relation(SyntheticsMobileTestBindingRelation relation) {
-    this.relation = relation;
-    this.unparsed |= !relation.isValid();
-    return this;
-  }
-
-  /**
-   * The definition of <code>SyntheticsMobileTestBindingRelation</code> object.
-   *
-   * @return relation
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestBindingRelation getRelation() {
-    return relation;
-  }
-
-  public void setRelation(SyntheticsMobileTestBindingRelation relation) {
-    if (!relation.isValid()) {
-      this.unparsed = true;
-    }
-    this.relation = relation;
+  public void setPositions(List<SyntheticsMobileStepParamsPositionPositionsItems> positions) {
+    this.positions = positions;
   }
 
   /**
@@ -99,10 +74,10 @@ public class SyntheticsMobileTestBinding {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestBinding
+   * @return SyntheticsMobileStepParamsPosition
    */
   @JsonAnySetter
-  public SyntheticsMobileTestBinding putAdditionalProperty(String key, Object value) {
+  public SyntheticsMobileStepParamsPosition putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +108,7 @@ public class SyntheticsMobileTestBinding {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsMobileTestBinding object is equal to o. */
+  /** Return true if this SyntheticsMobileStepParamsPosition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,24 +117,23 @@ public class SyntheticsMobileTestBinding {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestBinding syntheticsMobileTestBinding = (SyntheticsMobileTestBinding) o;
-    return Objects.equals(this.principals, syntheticsMobileTestBinding.principals)
-        && Objects.equals(this.relation, syntheticsMobileTestBinding.relation)
+    SyntheticsMobileStepParamsPosition syntheticsMobileStepParamsPosition =
+        (SyntheticsMobileStepParamsPosition) o;
+    return Objects.equals(this.positions, syntheticsMobileStepParamsPosition.positions)
         && Objects.equals(
-            this.additionalProperties, syntheticsMobileTestBinding.additionalProperties);
+            this.additionalProperties, syntheticsMobileStepParamsPosition.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(principals, relation, additionalProperties);
+    return Objects.hash(positions, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestBinding {\n");
-    sb.append("    principals: ").append(toIndentedString(principals)).append("\n");
-    sb.append("    relation: ").append(toIndentedString(relation)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsPosition {\n");
+    sb.append("    positions: ").append(toIndentedString(positions)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

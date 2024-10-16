@@ -18,84 +18,76 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Configuration object for a Synthetic mobile test. */
+/** The definition of <code>SyntheticsMobileStepParamsElementUserLocator</code> object. */
 @JsonPropertyOrder({
-  SyntheticsMobileTestConfig.JSON_PROPERTY_INITIAL_APPLICATION_ARGUMENTS,
-  SyntheticsMobileTestConfig.JSON_PROPERTY_VARIABLES
+  SyntheticsMobileStepParamsElementUserLocator.JSON_PROPERTY_FAIL_TEST_ON_CANNOT_LOCATE,
+  SyntheticsMobileStepParamsElementUserLocator.JSON_PROPERTY_VALUES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestConfig {
+public class SyntheticsMobileStepParamsElementUserLocator {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_INITIAL_APPLICATION_ARGUMENTS =
-      "initialApplicationArguments";
-  private Map<String, String> initialApplicationArguments = null;
+  public static final String JSON_PROPERTY_FAIL_TEST_ON_CANNOT_LOCATE = "failTestOnCannotLocate";
+  private Boolean failTestOnCannotLocate;
 
-  public static final String JSON_PROPERTY_VARIABLES = "variables";
-  private List<SyntheticsConfigVariable> variables = null;
+  public static final String JSON_PROPERTY_VALUES = "values";
+  private List<SyntheticsMobileStepParamsElementUserLocatorValuesItems> values = null;
 
-  public SyntheticsMobileTestConfig initialApplicationArguments(
-      Map<String, String> initialApplicationArguments) {
-    this.initialApplicationArguments = initialApplicationArguments;
-    return this;
-  }
-
-  public SyntheticsMobileTestConfig putInitialApplicationArgumentsItem(
-      String key, String initialApplicationArgumentsItem) {
-    if (this.initialApplicationArguments == null) {
-      this.initialApplicationArguments = new HashMap<>();
-    }
-    this.initialApplicationArguments.put(key, initialApplicationArgumentsItem);
+  public SyntheticsMobileStepParamsElementUserLocator failTestOnCannotLocate(
+      Boolean failTestOnCannotLocate) {
+    this.failTestOnCannotLocate = failTestOnCannotLocate;
     return this;
   }
 
   /**
-   * Initial application arguments for a mobile test.
+   * The <code>userLocator</code> <code>failTestOnCannotLocate</code>.
    *
-   * @return initialApplicationArguments
+   * @return failTestOnCannotLocate
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INITIAL_APPLICATION_ARGUMENTS)
+  @JsonProperty(JSON_PROPERTY_FAIL_TEST_ON_CANNOT_LOCATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, String> getInitialApplicationArguments() {
-    return initialApplicationArguments;
+  public Boolean getFailTestOnCannotLocate() {
+    return failTestOnCannotLocate;
   }
 
-  public void setInitialApplicationArguments(Map<String, String> initialApplicationArguments) {
-    this.initialApplicationArguments = initialApplicationArguments;
+  public void setFailTestOnCannotLocate(Boolean failTestOnCannotLocate) {
+    this.failTestOnCannotLocate = failTestOnCannotLocate;
   }
 
-  public SyntheticsMobileTestConfig variables(List<SyntheticsConfigVariable> variables) {
-    this.variables = variables;
-    for (SyntheticsConfigVariable item : variables) {
+  public SyntheticsMobileStepParamsElementUserLocator values(
+      List<SyntheticsMobileStepParamsElementUserLocatorValuesItems> values) {
+    this.values = values;
+    for (SyntheticsMobileStepParamsElementUserLocatorValuesItems item : values) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public SyntheticsMobileTestConfig addVariablesItem(SyntheticsConfigVariable variablesItem) {
-    if (this.variables == null) {
-      this.variables = new ArrayList<>();
+  public SyntheticsMobileStepParamsElementUserLocator addValuesItem(
+      SyntheticsMobileStepParamsElementUserLocatorValuesItems valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<>();
     }
-    this.variables.add(variablesItem);
-    this.unparsed |= variablesItem.unparsed;
+    this.values.add(valuesItem);
+    this.unparsed |= valuesItem.unparsed;
     return this;
   }
 
   /**
-   * Array of variables used for the test steps.
+   * The <code>userLocator</code> <code>values</code>.
    *
-   * @return variables
+   * @return values
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VARIABLES)
+  @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsConfigVariable> getVariables() {
-    return variables;
+  public List<SyntheticsMobileStepParamsElementUserLocatorValuesItems> getValues() {
+    return values;
   }
 
-  public void setVariables(List<SyntheticsConfigVariable> variables) {
-    this.variables = variables;
+  public void setValues(List<SyntheticsMobileStepParamsElementUserLocatorValuesItems> values) {
+    this.values = values;
   }
 
   /**
@@ -110,10 +102,11 @@ public class SyntheticsMobileTestConfig {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestConfig
+   * @return SyntheticsMobileStepParamsElementUserLocator
    */
   @JsonAnySetter
-  public SyntheticsMobileTestConfig putAdditionalProperty(String key, Object value) {
+  public SyntheticsMobileStepParamsElementUserLocator putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -144,7 +137,7 @@ public class SyntheticsMobileTestConfig {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsMobileTestConfig object is equal to o. */
+  /** Return true if this SyntheticsMobileStepParamsElementUserLocator object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,28 +146,30 @@ public class SyntheticsMobileTestConfig {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestConfig syntheticsMobileTestConfig = (SyntheticsMobileTestConfig) o;
+    SyntheticsMobileStepParamsElementUserLocator syntheticsMobileStepParamsElementUserLocator =
+        (SyntheticsMobileStepParamsElementUserLocator) o;
     return Objects.equals(
-            this.initialApplicationArguments,
-            syntheticsMobileTestConfig.initialApplicationArguments)
-        && Objects.equals(this.variables, syntheticsMobileTestConfig.variables)
+            this.failTestOnCannotLocate,
+            syntheticsMobileStepParamsElementUserLocator.failTestOnCannotLocate)
+        && Objects.equals(this.values, syntheticsMobileStepParamsElementUserLocator.values)
         && Objects.equals(
-            this.additionalProperties, syntheticsMobileTestConfig.additionalProperties);
+            this.additionalProperties,
+            syntheticsMobileStepParamsElementUserLocator.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(initialApplicationArguments, variables, additionalProperties);
+    return Objects.hash(failTestOnCannotLocate, values, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestConfig {\n");
-    sb.append("    initialApplicationArguments: ")
-        .append(toIndentedString(initialApplicationArguments))
+    sb.append("class SyntheticsMobileStepParamsElementUserLocator {\n");
+    sb.append("    failTestOnCannotLocate: ")
+        .append(toIndentedString(failTestOnCannotLocate))
         .append("\n");
-    sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

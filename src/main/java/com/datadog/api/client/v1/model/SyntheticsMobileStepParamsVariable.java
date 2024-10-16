@@ -12,79 +12,65 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Objects describing the binding used for a mobile test. */
+/** The definition of <code>SyntheticsMobileStepParamsVariable</code> object. */
 @JsonPropertyOrder({
-  SyntheticsMobileTestBinding.JSON_PROPERTY_PRINCIPALS,
-  SyntheticsMobileTestBinding.JSON_PROPERTY_RELATION
+  SyntheticsMobileStepParamsVariable.JSON_PROPERTY_EXAMPLE,
+  SyntheticsMobileStepParamsVariable.JSON_PROPERTY_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestBinding {
+public class SyntheticsMobileStepParamsVariable {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PRINCIPALS = "principals";
-  private List<String> principals = null;
+  public static final String JSON_PROPERTY_EXAMPLE = "example";
+  private String example;
 
-  public static final String JSON_PROPERTY_RELATION = "relation";
-  private SyntheticsMobileTestBindingRelation relation;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public SyntheticsMobileTestBinding principals(List<String> principals) {
-    this.principals = principals;
-    return this;
-  }
-
-  public SyntheticsMobileTestBinding addPrincipalsItem(String principalsItem) {
-    if (this.principals == null) {
-      this.principals = new ArrayList<>();
-    }
-    this.principals.add(principalsItem);
+  public SyntheticsMobileStepParamsVariable example(String example) {
+    this.example = example;
     return this;
   }
 
   /**
-   * List of principals for a mobile test binding.
+   * The <code>variable</code> <code>example</code>.
    *
-   * @return principals
+   * @return example
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRINCIPALS)
+  @JsonProperty(JSON_PROPERTY_EXAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getPrincipals() {
-    return principals;
+  public String getExample() {
+    return example;
   }
 
-  public void setPrincipals(List<String> principals) {
-    this.principals = principals;
+  public void setExample(String example) {
+    this.example = example;
   }
 
-  public SyntheticsMobileTestBinding relation(SyntheticsMobileTestBindingRelation relation) {
-    this.relation = relation;
-    this.unparsed |= !relation.isValid();
+  public SyntheticsMobileStepParamsVariable name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * The definition of <code>SyntheticsMobileTestBindingRelation</code> object.
+   * The <code>variable</code> <code>name</code>.
    *
-   * @return relation
+   * @return name
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATION)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestBindingRelation getRelation() {
-    return relation;
+  public String getName() {
+    return name;
   }
 
-  public void setRelation(SyntheticsMobileTestBindingRelation relation) {
-    if (!relation.isValid()) {
-      this.unparsed = true;
-    }
-    this.relation = relation;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -99,10 +85,10 @@ public class SyntheticsMobileTestBinding {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestBinding
+   * @return SyntheticsMobileStepParamsVariable
    */
   @JsonAnySetter
-  public SyntheticsMobileTestBinding putAdditionalProperty(String key, Object value) {
+  public SyntheticsMobileStepParamsVariable putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +119,7 @@ public class SyntheticsMobileTestBinding {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsMobileTestBinding object is equal to o. */
+  /** Return true if this SyntheticsMobileStepParamsVariable object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,24 +128,25 @@ public class SyntheticsMobileTestBinding {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestBinding syntheticsMobileTestBinding = (SyntheticsMobileTestBinding) o;
-    return Objects.equals(this.principals, syntheticsMobileTestBinding.principals)
-        && Objects.equals(this.relation, syntheticsMobileTestBinding.relation)
+    SyntheticsMobileStepParamsVariable syntheticsMobileStepParamsVariable =
+        (SyntheticsMobileStepParamsVariable) o;
+    return Objects.equals(this.example, syntheticsMobileStepParamsVariable.example)
+        && Objects.equals(this.name, syntheticsMobileStepParamsVariable.name)
         && Objects.equals(
-            this.additionalProperties, syntheticsMobileTestBinding.additionalProperties);
+            this.additionalProperties, syntheticsMobileStepParamsVariable.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(principals, relation, additionalProperties);
+    return Objects.hash(example, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestBinding {\n");
-    sb.append("    principals: ").append(toIndentedString(principals)).append("\n");
-    sb.append("    relation: ").append(toIndentedString(relation)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsVariable {\n");
+    sb.append("    example: ").append(toIndentedString(example)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
