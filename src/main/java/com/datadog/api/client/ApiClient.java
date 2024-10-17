@@ -376,6 +376,7 @@ public class ApiClient {
           put("v2.getMonthlyCostAttribution", false);
           put("v2.createDORADeployment", false);
           put("v2.createDORAIncident", false);
+          put("v2.createEvent", false);
           put("v2.createIncident", false);
           put("v2.createIncidentIntegration", false);
           put("v2.createIncidentTodo", false);
