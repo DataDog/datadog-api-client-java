@@ -2,6 +2,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.UsageMeteringApi;
+import com.datadog.api.client.v2.api.UsageMeteringApi.GetMonthlyCostAttributionOptionalParameters;
 import com.datadog.api.client.v2.model.MonthlyCostAttributionResponse;
 import java.time.OffsetDateTime;
 
@@ -15,8 +16,9 @@ public class Example {
       MonthlyCostAttributionResponse result =
           apiInstance.getMonthlyCostAttribution(
               OffsetDateTime.now().plusDays(-5),
-              OffsetDateTime.now().plusDays(-3),
-              "infra_host_total_cost");
+              "infra_host_total_cost",
+              new GetMonthlyCostAttributionOptionalParameters()
+                  .endMonth(OffsetDateTime.now().plusDays(-3)));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling UsageMeteringApi#getMonthlyCostAttribution");
