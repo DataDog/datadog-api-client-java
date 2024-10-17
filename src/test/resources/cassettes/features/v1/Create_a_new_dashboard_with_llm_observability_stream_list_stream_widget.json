@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_llm_observability_stream_list_stream_widget-1729028766 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"@status\",\"width\":\"compact\"},{\"field\":\"@content.prompt\",\"width\":\"auto\"},{\"field\":\"@content.response.content\",\"width\":\"auto\"},{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"@ml_app\",\"width\":\"auto\"},{\"field\":\"service\",\"width\":\"auto\"},{\"field\":\"@meta.evaluations.quality\",\"width\":\"auto\"},{\"field\":\"@meta.evaluations.security\",\"width\":\"auto\"},{\"field\":\"@duration\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"llm_observability_stream\",\"indexes\":[],\"query_string\":\"@event_type:span @parent_id:undefined\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"k3w-qcg-ug8\",\"title\":\"Test-Create_a_new_dashboard_with_llm_observability_stream_list_stream_widget-1729028766 with list_stream widget\",\"description\":null,\"author_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"author_name\":\"CI Account\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/k3w-qcg-ug8/test-createanewdashboardwithllmobservabilitystreamliststreamwidget-1729028766-wi\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"@status\",\"width\":\"compact\"},{\"field\":\"@content.prompt\",\"width\":\"auto\"},{\"field\":\"@content.response.content\",\"width\":\"auto\"},{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"@ml_app\",\"width\":\"auto\"},{\"field\":\"service\",\"width\":\"auto\"},{\"field\":\"@meta.evaluations.quality\",\"width\":\"auto\"},{\"field\":\"@meta.evaluations.security\",\"width\":\"auto\"},{\"field\":\"@duration\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"llm_observability_stream\",\"indexes\":[],\"query_string\":\"@event_type:span @parent_id:undefined\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":8221646523831060}],\"notify_list\":null,\"created_at\":\"2024-10-15T21:46:06.954265+00:00\",\"modified_at\":\"2024-10-15T21:46:06.954265+00:00\",\"restricted_roles\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cf641f4f-8e4f-7935-f5b4-4afac4518e18"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/k3w-qcg-ug8",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"k3w-qcg-ug8\"}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a917abb5-e304-8f7d-e7b8-bd4e3f095748"
+  }
+]

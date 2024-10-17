@@ -36,7 +36,8 @@ public class ListStreamSource extends ModelEnum<String> {
               "logs_pattern_stream",
               "logs_transaction_stream",
               "event_stream",
-              "rum_stream"));
+              "rum_stream",
+              "llm_observability_stream"));
 
   public static final ListStreamSource LOGS_STREAM = new ListStreamSource("logs_stream");
   public static final ListStreamSource AUDIT_STREAM = new ListStreamSource("audit_stream");
@@ -54,6 +55,8 @@ public class ListStreamSource extends ModelEnum<String> {
       new ListStreamSource("logs_transaction_stream");
   public static final ListStreamSource EVENT_STREAM = new ListStreamSource("event_stream");
   public static final ListStreamSource RUM_STREAM = new ListStreamSource("rum_stream");
+  public static final ListStreamSource LLM_OBSERVABILITY_STREAM =
+      new ListStreamSource("llm_observability_stream");
 
   ListStreamSource(String value) {
     super(value, allowedValues);
