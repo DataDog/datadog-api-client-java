@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   IncidentResponseAttributes.JSON_PROPERTY_CUSTOMER_IMPACTED,
   IncidentResponseAttributes.JSON_PROPERTY_DETECTED,
   IncidentResponseAttributes.JSON_PROPERTY_FIELDS,
+  IncidentResponseAttributes.JSON_PROPERTY_INCIDENT_TYPE_UUID,
   IncidentResponseAttributes.JSON_PROPERTY_MODIFIED,
   IncidentResponseAttributes.JSON_PROPERTY_NON_DATADOG_CREATOR,
   IncidentResponseAttributes.JSON_PROPERTY_NOTIFICATION_HANDLES,
@@ -81,6 +82,9 @@ public class IncidentResponseAttributes {
 
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private Map<String, IncidentFieldAttributes> fields = null;
+
+  public static final String JSON_PROPERTY_INCIDENT_TYPE_UUID = "incident_type_uuid";
+  private String incidentTypeUuid;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
   private OffsetDateTime modified;
@@ -386,6 +390,27 @@ public class IncidentResponseAttributes {
 
   public void setFields(Map<String, IncidentFieldAttributes> fields) {
     this.fields = fields;
+  }
+
+  public IncidentResponseAttributes incidentTypeUuid(String incidentTypeUuid) {
+    this.incidentTypeUuid = incidentTypeUuid;
+    return this;
+  }
+
+  /**
+   * A unique identifier that represents an incident type.
+   *
+   * @return incidentTypeUuid
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIncidentTypeUuid() {
+    return incidentTypeUuid;
+  }
+
+  public void setIncidentTypeUuid(String incidentTypeUuid) {
+    this.incidentTypeUuid = incidentTypeUuid;
   }
 
   /**
@@ -760,6 +785,7 @@ public class IncidentResponseAttributes {
         && Objects.equals(this.customerImpacted, incidentResponseAttributes.customerImpacted)
         && Objects.equals(this.detected, incidentResponseAttributes.detected)
         && Objects.equals(this.fields, incidentResponseAttributes.fields)
+        && Objects.equals(this.incidentTypeUuid, incidentResponseAttributes.incidentTypeUuid)
         && Objects.equals(this.modified, incidentResponseAttributes.modified)
         && Objects.equals(this.nonDatadogCreator, incidentResponseAttributes.nonDatadogCreator)
         && Objects.equals(this.notificationHandles, incidentResponseAttributes.notificationHandles)
@@ -791,6 +817,7 @@ public class IncidentResponseAttributes {
         customerImpacted,
         detected,
         fields,
+        incidentTypeUuid,
         modified,
         nonDatadogCreator,
         notificationHandles,
@@ -827,6 +854,7 @@ public class IncidentResponseAttributes {
     sb.append("    customerImpacted: ").append(toIndentedString(customerImpacted)).append("\n");
     sb.append("    detected: ").append(toIndentedString(detected)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    incidentTypeUuid: ").append(toIndentedString(incidentTypeUuid)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    nonDatadogCreator: ").append(toIndentedString(nonDatadogCreator)).append("\n");
     sb.append("    notificationHandles: ")
