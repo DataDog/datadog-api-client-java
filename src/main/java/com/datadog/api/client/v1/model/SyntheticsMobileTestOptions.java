@@ -8,6 +8,7 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -49,13 +50,13 @@ public class SyntheticsMobileTestOptions {
   private List<SyntheticsMobileTestBinding> bindings = null;
 
   public static final String JSON_PROPERTY_CI = "ci";
-  private SyntheticsMobileTestCiOptions ci;
+  private SyntheticsTestCiOptions ci;
 
   public static final String JSON_PROPERTY_DEFAULT_STEP_TIMEOUT = "defaultStepTimeout";
   private Integer defaultStepTimeout;
 
   public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
-  private List<String> deviceIds = null;
+  private List<String> deviceIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_DISABLE_AUTO_ACCEPT_ALERT = "disableAutoAcceptAlert";
   private Boolean disableAutoAcceptAlert;
@@ -92,6 +93,20 @@ public class SyntheticsMobileTestOptions {
 
   public static final String JSON_PROPERTY_VERBOSITY = "verbosity";
   private Integer verbosity;
+
+  public SyntheticsMobileTestOptions() {}
+
+  @JsonCreator
+  public SyntheticsMobileTestOptions(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DEVICE_IDS) List<String> deviceIds,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MOBILE_APPLICATION)
+          SyntheticsMobileTestsMobileApplication mobileApplication,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TICK_EVERY) Long tickEvery) {
+    this.deviceIds = deviceIds;
+    this.mobileApplication = mobileApplication;
+    this.unparsed |= mobileApplication.unparsed;
+    this.tickEvery = tickEvery;
+  }
 
   public SyntheticsMobileTestOptions allowApplicationCrash(Boolean allowApplicationCrash) {
     this.allowApplicationCrash = allowApplicationCrash;
@@ -147,7 +162,7 @@ public class SyntheticsMobileTestOptions {
     this.bindings = bindings;
   }
 
-  public SyntheticsMobileTestOptions ci(SyntheticsMobileTestCiOptions ci) {
+  public SyntheticsMobileTestOptions ci(SyntheticsTestCiOptions ci) {
     this.ci = ci;
     this.unparsed |= ci.unparsed;
     return this;
@@ -161,11 +176,11 @@ public class SyntheticsMobileTestOptions {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestCiOptions getCi() {
+  public SyntheticsTestCiOptions getCi() {
     return ci;
   }
 
-  public void setCi(SyntheticsMobileTestCiOptions ci) {
+  public void setCi(SyntheticsTestCiOptions ci) {
     this.ci = ci;
   }
 
@@ -197,9 +212,6 @@ public class SyntheticsMobileTestOptions {
   }
 
   public SyntheticsMobileTestOptions addDeviceIdsItem(String deviceIdsItem) {
-    if (this.deviceIds == null) {
-      this.deviceIds = new ArrayList<>();
-    }
     this.deviceIds.add(deviceIdsItem);
     return this;
   }
@@ -209,9 +221,8 @@ public class SyntheticsMobileTestOptions {
    *
    * @return deviceIds
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getDeviceIds() {
     return deviceIds;
   }
@@ -274,9 +285,8 @@ public class SyntheticsMobileTestOptions {
    *
    * @return mobileApplication
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_APPLICATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsMobileTestsMobileApplication getMobileApplication() {
     return mobileApplication;
   }
@@ -457,9 +467,8 @@ public class SyntheticsMobileTestOptions {
    *
    * @return tickEvery
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TICK_EVERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getTickEvery() {
     return tickEvery;
   }

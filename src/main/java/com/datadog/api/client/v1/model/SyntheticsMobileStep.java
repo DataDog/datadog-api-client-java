@@ -8,6 +8,7 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -48,7 +49,7 @@ public class SyntheticsMobileStep {
   private Boolean noScreenshot;
 
   public static final String JSON_PROPERTY_PARAMS = "params";
-  private Object params;
+  private SyntheticsMobileStepParams params;
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "publicId";
   private String publicId;
@@ -58,6 +59,21 @@ public class SyntheticsMobileStep {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsMobileStepType type;
+
+  public SyntheticsMobileStep() {}
+
+  @JsonCreator
+  public SyntheticsMobileStep(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PARAMS)
+          SyntheticsMobileStepParams params,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsMobileStepType type) {
+    this.name = name;
+    this.params = params;
+    this.unparsed |= params.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
   public SyntheticsMobileStep allowFailure(Boolean allowFailure) {
     this.allowFailure = allowFailure;
@@ -133,9 +149,8 @@ public class SyntheticsMobileStep {
    *
    * @return name
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
@@ -165,24 +180,24 @@ public class SyntheticsMobileStep {
     this.noScreenshot = noScreenshot;
   }
 
-  public SyntheticsMobileStep params(Object params) {
+  public SyntheticsMobileStep params(SyntheticsMobileStepParams params) {
     this.params = params;
+    this.unparsed |= params.unparsed;
     return this;
   }
 
   /**
-   * The parameters of the mobile step.
+   * The parameters of a mobile step.
    *
    * @return params
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PARAMS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getParams() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsMobileStepParams getParams() {
     return params;
   }
 
-  public void setParams(Object params) {
+  public void setParams(SyntheticsMobileStepParams params) {
     this.params = params;
   }
 
@@ -239,9 +254,8 @@ public class SyntheticsMobileStep {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsMobileStepType getType() {
     return type;
   }

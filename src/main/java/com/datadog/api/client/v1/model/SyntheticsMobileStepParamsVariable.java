@@ -8,6 +8,7 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,37 +17,68 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Initial application arguments for a mobile test. */
-@JsonPropertyOrder({SyntheticsMobileTestInitialApplicationArguments.JSON_PROPERTY_PROPERTY_NAMES})
+/** The definition of <code>SyntheticsMobileStepParamsVariable</code> object. */
+@JsonPropertyOrder({
+  SyntheticsMobileStepParamsVariable.JSON_PROPERTY_EXAMPLE,
+  SyntheticsMobileStepParamsVariable.JSON_PROPERTY_NAME
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestInitialApplicationArguments {
+public class SyntheticsMobileStepParamsVariable {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PROPERTY_NAMES = "propertyNames";
-  private SyntheticsMobileTestInitialApplicationArgumentsPropertyNames propertyNames;
+  public static final String JSON_PROPERTY_EXAMPLE = "example";
+  private String example;
 
-  public SyntheticsMobileTestInitialApplicationArguments propertyNames(
-      SyntheticsMobileTestInitialApplicationArgumentsPropertyNames propertyNames) {
-    this.propertyNames = propertyNames;
-    this.unparsed |= propertyNames.unparsed;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
+  public SyntheticsMobileStepParamsVariable() {}
+
+  @JsonCreator
+  public SyntheticsMobileStepParamsVariable(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
+  }
+
+  public SyntheticsMobileStepParamsVariable example(String example) {
+    this.example = example;
     return this;
   }
 
   /**
-   * Name of the property.
+   * The <code>variable</code> <code>example</code>.
    *
-   * @return propertyNames
+   * @return example
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROPERTY_NAMES)
+  @JsonProperty(JSON_PROPERTY_EXAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestInitialApplicationArgumentsPropertyNames getPropertyNames() {
-    return propertyNames;
+  public String getExample() {
+    return example;
   }
 
-  public void setPropertyNames(
-      SyntheticsMobileTestInitialApplicationArgumentsPropertyNames propertyNames) {
-    this.propertyNames = propertyNames;
+  public void setExample(String example) {
+    this.example = example;
+  }
+
+  public SyntheticsMobileStepParamsVariable name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * The <code>variable</code> <code>name</code>.
+   *
+   * @return name
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -61,11 +93,10 @@ public class SyntheticsMobileTestInitialApplicationArguments {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestInitialApplicationArguments
+   * @return SyntheticsMobileStepParamsVariable
    */
   @JsonAnySetter
-  public SyntheticsMobileTestInitialApplicationArguments putAdditionalProperty(
-      String key, Object value) {
+  public SyntheticsMobileStepParamsVariable putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -96,7 +127,7 @@ public class SyntheticsMobileTestInitialApplicationArguments {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsMobileTestInitialApplicationArguments object is equal to o. */
+  /** Return true if this SyntheticsMobileStepParamsVariable object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -105,26 +136,25 @@ public class SyntheticsMobileTestInitialApplicationArguments {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestInitialApplicationArguments
-        syntheticsMobileTestInitialApplicationArguments =
-            (SyntheticsMobileTestInitialApplicationArguments) o;
-    return Objects.equals(
-            this.propertyNames, syntheticsMobileTestInitialApplicationArguments.propertyNames)
+    SyntheticsMobileStepParamsVariable syntheticsMobileStepParamsVariable =
+        (SyntheticsMobileStepParamsVariable) o;
+    return Objects.equals(this.example, syntheticsMobileStepParamsVariable.example)
+        && Objects.equals(this.name, syntheticsMobileStepParamsVariable.name)
         && Objects.equals(
-            this.additionalProperties,
-            syntheticsMobileTestInitialApplicationArguments.additionalProperties);
+            this.additionalProperties, syntheticsMobileStepParamsVariable.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(propertyNames, additionalProperties);
+    return Objects.hash(example, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestInitialApplicationArguments {\n");
-    sb.append("    propertyNames: ").append(toIndentedString(propertyNames)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsVariable {\n");
+    sb.append("    example: ").append(toIndentedString(example)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

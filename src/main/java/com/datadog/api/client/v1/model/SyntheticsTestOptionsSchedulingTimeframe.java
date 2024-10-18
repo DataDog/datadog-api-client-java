@@ -8,6 +8,7 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,6 +36,18 @@ public class SyntheticsTestOptionsSchedulingTimeframe {
   public static final String JSON_PROPERTY_TO = "to";
   private String to;
 
+  public SyntheticsTestOptionsSchedulingTimeframe() {}
+
+  @JsonCreator
+  public SyntheticsTestOptionsSchedulingTimeframe(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DAY) Integer day,
+      @JsonProperty(required = true, value = JSON_PROPERTY_FROM) String from,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TO) String to) {
+    this.day = day;
+    this.from = from;
+    this.to = to;
+  }
+
   public SyntheticsTestOptionsSchedulingTimeframe day(Integer day) {
     this.day = day;
     return this;
@@ -45,9 +58,8 @@ public class SyntheticsTestOptionsSchedulingTimeframe {
    *
    * @return day
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getDay() {
     return day;
   }
@@ -66,9 +78,8 @@ public class SyntheticsTestOptionsSchedulingTimeframe {
    *
    * @return from
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getFrom() {
     return from;
   }
@@ -87,9 +98,8 @@ public class SyntheticsTestOptionsSchedulingTimeframe {
    *
    * @return to
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTo() {
     return to;
   }
