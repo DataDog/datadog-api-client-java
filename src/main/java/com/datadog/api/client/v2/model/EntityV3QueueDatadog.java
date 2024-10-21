@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Datadog product integrations for the datastore entity */
+/** Datadog product integrations for the datastore entity. */
 @JsonPropertyOrder({
   EntityV3QueueDatadog.JSON_PROPERTY_EVENTS,
   EntityV3QueueDatadog.JSON_PROPERTY_LOGS,
@@ -51,7 +51,7 @@ public class EntityV3QueueDatadog {
   }
 
   /**
-   * Events associations
+   * Events associations.
    *
    * @return events
    */
@@ -84,7 +84,7 @@ public class EntityV3QueueDatadog {
   }
 
   /**
-   * Logs association
+   * Logs association.
    *
    * @return logs
    */
@@ -106,7 +106,7 @@ public class EntityV3QueueDatadog {
   }
 
   /**
-   * Performance stats association
+   * Performance stats association.
    *
    * @return performanceData
    */

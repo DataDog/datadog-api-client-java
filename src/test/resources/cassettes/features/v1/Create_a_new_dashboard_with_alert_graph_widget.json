@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Create_a_new_dashboard_with_alert_graph_widget-1674067036\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"groupby_simple_monitor\": true, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notification_preset_name\": \"hide_handles\", \"notify_audit\": false, \"notify_no_data\": false, \"on_missing_data\": \"show_and_notify_no_data\", \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 24}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testcreateanewdashboardwithalertgraphwidget1674067036\", \"env:ci\"], \"type\": \"log alert\"}"
+        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Create_a_new_dashboard_with_alert_graph_widget-1728578737\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notification_preset_name\": \"hide_handles\", \"notify_audit\": false, \"notify_no_data\": false, \"on_missing_data\": \"show_and_notify_no_data\", \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 24}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testcreateanewdashboardwithalertgraphwidget1728578737\", \"env:ci\"], \"type\": \"log alert\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":108260299,\"org_id\":321813,\"type\":\"log alert\",\"name\":\"Test-Create_a_new_dashboard_with_alert_graph_widget-1674067036\",\"message\":\"some message Notify: @hipchat-channel\",\"tags\":[\"test:testcreateanewdashboardwithalertgraphwidget1674067036\",\"env:ci\"],\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"options\":{\"enable_logs_sample\":true,\"escalation_message\":\"the situation has escalated\",\"evaluation_delay\":700,\"groupby_simple_monitor\":true,\"include_tags\":true,\"locked\":false,\"new_host_delay\":600,\"no_data_timeframe\":null,\"notification_preset_name\":\"hide_handles\",\"notify_audit\":false,\"notify_no_data\":false,\"on_missing_data\":\"show_and_notify_no_data\",\"renotify_interval\":60,\"require_full_window\":true,\"thresholds\":{\"critical\":2.0,\"warning\":1.0},\"timeout_h\":24,\"silenced\":{}},\"multi\":true,\"created_at\":1674067036000,\"created\":\"2023-01-18T18:37:16.358564+00:00\",\"modified\":\"2023-01-18T18:37:16.358564+00:00\",\"deleted\":null,\"restricted_roles\":null,\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"id\":1445416}}\n",
+      "body": "{\"id\":155845586,\"org_id\":321813,\"type\":\"log alert\",\"name\":\"Test-Create_a_new_dashboard_with_alert_graph_widget-1728578737\",\"message\":\"some message Notify: @hipchat-channel\",\"tags\":[\"test:testcreateanewdashboardwithalertgraphwidget1728578737\",\"env:ci\"],\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"options\":{\"enable_logs_sample\":true,\"escalation_message\":\"the situation has escalated\",\"evaluation_delay\":700,\"include_tags\":true,\"locked\":false,\"new_host_delay\":600,\"no_data_timeframe\":null,\"notification_preset_name\":\"hide_handles\",\"notify_audit\":false,\"notify_no_data\":false,\"on_missing_data\":\"show_and_notify_no_data\",\"renotify_interval\":60,\"require_full_window\":true,\"thresholds\":{\"critical\":2.0,\"warning\":1.0},\"timeout_h\":24,\"groupby_simple_monitor\":false,\"silenced\":{}},\"multi\":true,\"created_at\":1728578737000,\"created\":\"2024-10-10T16:45:37.282544+00:00\",\"modified\":\"2024-10-10T16:45:37.282544+00:00\",\"deleted\":null,\"restricted_roles\":null,\"priority\":3,\"restriction_policy\":null,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"id\":1445416}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7cab4340-d73a-9dbc-5f31-0a5d03bdf56c"
+    "id": "d706321f-2b8a-11b9-cf0b-d3b09b52288e"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_alert_graph_widget-1674067036\",\"widgets\":[{\"definition\":{\"alert_id\":\"108260299\",\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"alert_graph\",\"viz_type\":\"timeseries\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_alert_graph_widget-1728578737\",\"widgets\":[{\"definition\":{\"alert_id\":\"155845586\",\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"alert_graph\",\"viz_type\":\"timeseries\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":[],\"description\":\"\",\"restricted_roles\":[],\"author_name\":null,\"template_variables\":[],\"is_read_only\":false,\"id\":\"tvp-85z-v2d\",\"title\":\"Test-Create_a_new_dashboard_with_alert_graph_widget-1674067036\",\"url\":\"/dashboard/tvp-85z-v2d/test-createanewdashboardwithalertgraphwidget-1674067036\",\"created_at\":\"2023-01-18T18:37:16.495648+00:00\",\"modified_at\":\"2023-01-18T18:37:16.495648+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"title_size\":\"16\",\"viz_type\":\"timeseries\",\"title\":\"\",\"title_align\":\"left\",\"alert_id\":\"108260299\",\"time\":{},\"type\":\"alert_graph\"},\"layout\":{\"y\":0,\"width\":47,\"x\":0,\"height\":15},\"id\":236119153104762}],\"layout_type\":\"free\"}\n",
+      "body": "{\"id\":\"9y7-dzu-fqr\",\"title\":\"Test-Create_a_new_dashboard_with_alert_graph_widget-1728578737\",\"description\":\"\",\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"free\",\"url\":\"/dashboard/9y7-dzu-fqr/test-createanewdashboardwithalertgraphwidget-1728578737\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"alert_id\":\"155845586\",\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"alert_graph\",\"viz_type\":\"timeseries\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":7729343486286001}],\"notify_list\":[],\"created_at\":\"2024-10-10T16:45:37.490575+00:00\",\"modified_at\":\"2024-10-10T16:45:37.490575+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,18 +57,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "714e5eb4-1f13-3549-a38a-d019896c5ec1"
+    "id": "b4ff48de-586a-27c9-94af-5d82e09b7b9a"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/tvp-85z-v2d",
+      "path": "/api/v1/dashboard/9y7-dzu-fqr",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"tvp-85z-v2d\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"9y7-dzu-fqr\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -83,18 +83,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7e0a0e07-ac53-fda0-b4f8-f11fb0cd9664"
+    "id": "0834f466-2ca5-77ca-b120-f11d503b03b8"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/monitor/108260299",
+      "path": "/api/v1/monitor/155845586",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_monitor_id\":108260299}\n",
+      "body": "{\"deleted_monitor_id\":155845586}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -109,6 +109,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d1765d18-bd59-11d0-62ee-545b8379ef4b"
+    "id": "2e16a3ef-f256-640c-8e5a-606622d21867"
   }
 ]

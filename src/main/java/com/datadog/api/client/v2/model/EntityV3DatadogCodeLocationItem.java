@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** code location item. */
+/** Code location item. */
 @JsonPropertyOrder({
   EntityV3DatadogCodeLocationItem.JSON_PROPERTY_PATHS,
   EntityV3DatadogCodeLocationItem.JSON_PROPERTY_REPOSITORY_URL
@@ -43,7 +43,7 @@ public class EntityV3DatadogCodeLocationItem {
   }
 
   /**
-   * The paths (glob) to the source code of the service
+   * The paths (glob) to the source code of the service.
    *
    * @return paths
    */
@@ -64,7 +64,7 @@ public class EntityV3DatadogCodeLocationItem {
   }
 
   /**
-   * The repository path of the source code of the entity
+   * The repository path of the source code of the entity.
    *
    * @return repositoryUrl
    */

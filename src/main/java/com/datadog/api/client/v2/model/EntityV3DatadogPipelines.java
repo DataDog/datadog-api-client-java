@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** CI Pipelines association */
+/** CI Pipelines association. */
 @JsonPropertyOrder({EntityV3DatadogPipelines.JSON_PROPERTY_FINGERPRINTS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -37,7 +37,7 @@ public class EntityV3DatadogPipelines {
   }
 
   /**
-   * A list of CI Fingerprints that associate CI Pipelines with the entity
+   * A list of CI Fingerprints that associate CI Pipelines with the entity.
    *
    * @return fingerprints
    */

@@ -53,7 +53,7 @@ public class EntityResponseIncludedRelatedOncallAttributes {
   }
 
   /**
-   * Oncall escalations
+   * Oncall escalations.
    *
    * @return escalations
    */

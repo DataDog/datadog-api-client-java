@@ -1390,11 +1390,24 @@ public class UsageMeteringApi {
 
   /** Manage optional parameters to getMonthlyCostAttribution. */
   public static class GetMonthlyCostAttributionOptionalParameters {
+    private OffsetDateTime endMonth;
     private SortDirection sortDirection;
     private String sortName;
     private String tagBreakdownKeys;
     private String nextRecordId;
     private Boolean includeDescendants;
+
+    /**
+     * Set endMonth.
+     *
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
+     *     for cost ending this month. (optional)
+     * @return GetMonthlyCostAttributionOptionalParameters
+     */
+    public GetMonthlyCostAttributionOptionalParameters endMonth(OffsetDateTime endMonth) {
+      this.endMonth = endMonth;
+      return this;
+    }
 
     /**
      * Set sortDirection.
@@ -1466,8 +1479,6 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning in this month. (required)
-   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
-   *     cost ending this month. (required)
    * @param fields Comma-separated list specifying cost types (e.g., <code>
    *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
    *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
@@ -1483,9 +1494,9 @@ public class UsageMeteringApi {
    * @throws ApiException if fails to make API call
    */
   public MonthlyCostAttributionResponse getMonthlyCostAttribution(
-      OffsetDateTime startMonth, OffsetDateTime endMonth, String fields) throws ApiException {
+      OffsetDateTime startMonth, String fields) throws ApiException {
     return getMonthlyCostAttributionWithHttpInfo(
-            startMonth, endMonth, fields, new GetMonthlyCostAttributionOptionalParameters())
+            startMonth, fields, new GetMonthlyCostAttributionOptionalParameters())
         .getData();
   }
 
@@ -1496,8 +1507,6 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning in this month. (required)
-   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
-   *     cost ending this month. (required)
    * @param fields Comma-separated list specifying cost types (e.g., <code>
    *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
    *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
@@ -1512,9 +1521,9 @@ public class UsageMeteringApi {
    * @return CompletableFuture&lt;MonthlyCostAttributionResponse&gt;
    */
   public CompletableFuture<MonthlyCostAttributionResponse> getMonthlyCostAttributionAsync(
-      OffsetDateTime startMonth, OffsetDateTime endMonth, String fields) {
+      OffsetDateTime startMonth, String fields) {
     return getMonthlyCostAttributionWithHttpInfoAsync(
-            startMonth, endMonth, fields, new GetMonthlyCostAttributionOptionalParameters())
+            startMonth, fields, new GetMonthlyCostAttributionOptionalParameters())
         .thenApply(
             response -> {
               return response.getData();
@@ -1528,8 +1537,6 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning in this month. (required)
-   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
-   *     cost ending this month. (required)
    * @param fields Comma-separated list specifying cost types (e.g., <code>
    *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
    *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
@@ -1547,12 +1554,10 @@ public class UsageMeteringApi {
    */
   public MonthlyCostAttributionResponse getMonthlyCostAttribution(
       OffsetDateTime startMonth,
-      OffsetDateTime endMonth,
       String fields,
       GetMonthlyCostAttributionOptionalParameters parameters)
       throws ApiException {
-    return getMonthlyCostAttributionWithHttpInfo(startMonth, endMonth, fields, parameters)
-        .getData();
+    return getMonthlyCostAttributionWithHttpInfo(startMonth, fields, parameters).getData();
   }
 
   /**
@@ -1562,8 +1567,6 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning in this month. (required)
-   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
-   *     cost ending this month. (required)
    * @param fields Comma-separated list specifying cost types (e.g., <code>
    *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
    *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
@@ -1580,10 +1583,9 @@ public class UsageMeteringApi {
    */
   public CompletableFuture<MonthlyCostAttributionResponse> getMonthlyCostAttributionAsync(
       OffsetDateTime startMonth,
-      OffsetDateTime endMonth,
       String fields,
       GetMonthlyCostAttributionOptionalParameters parameters) {
-    return getMonthlyCostAttributionWithHttpInfoAsync(startMonth, endMonth, fields, parameters)
+    return getMonthlyCostAttributionWithHttpInfoAsync(startMonth, fields, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -1610,8 +1612,6 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning in this month. (required)
-   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
-   *     cost ending this month. (required)
    * @param fields Comma-separated list specifying cost types (e.g., <code>
    *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
    *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
@@ -1638,7 +1638,6 @@ public class UsageMeteringApi {
    */
   public ApiResponse<MonthlyCostAttributionResponse> getMonthlyCostAttributionWithHttpInfo(
       OffsetDateTime startMonth,
-      OffsetDateTime endMonth,
       String fields,
       GetMonthlyCostAttributionOptionalParameters parameters)
       throws ApiException {
@@ -1658,17 +1657,12 @@ public class UsageMeteringApi {
           "Missing the required parameter 'startMonth' when calling getMonthlyCostAttribution");
     }
 
-    // verify the required parameter 'endMonth' is set
-    if (endMonth == null) {
-      throw new ApiException(
-          400, "Missing the required parameter 'endMonth' when calling getMonthlyCostAttribution");
-    }
-
     // verify the required parameter 'fields' is set
     if (fields == null) {
       throw new ApiException(
           400, "Missing the required parameter 'fields' when calling getMonthlyCostAttribution");
     }
+    OffsetDateTime endMonth = parameters.endMonth;
     SortDirection sortDirection = parameters.sortDirection;
     String sortName = parameters.sortName;
     String tagBreakdownKeys = parameters.tagBreakdownKeys;
@@ -1681,8 +1675,8 @@ public class UsageMeteringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_direction", sortDirection));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_name", sortName));
     localVarQueryParams.addAll(
@@ -1718,8 +1712,6 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning in this month. (required)
-   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for
-   *     cost ending this month. (required)
    * @param fields Comma-separated list specifying cost types (e.g., <code>
    *     &lt;billing_dimension&gt;_on_demand_cost</code>, <code>
    *     &lt;billing_dimension&gt;_committed_cost</code>, <code>&lt;billing_dimension&gt;_total_cost
@@ -1737,7 +1729,6 @@ public class UsageMeteringApi {
   public CompletableFuture<ApiResponse<MonthlyCostAttributionResponse>>
       getMonthlyCostAttributionWithHttpInfoAsync(
           OffsetDateTime startMonth,
-          OffsetDateTime endMonth,
           String fields,
           GetMonthlyCostAttributionOptionalParameters parameters) {
     // Check if unstable operation is enabled
@@ -1765,17 +1756,6 @@ public class UsageMeteringApi {
       return result;
     }
 
-    // verify the required parameter 'endMonth' is set
-    if (endMonth == null) {
-      CompletableFuture<ApiResponse<MonthlyCostAttributionResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(
-              400,
-              "Missing the required parameter 'endMonth' when calling getMonthlyCostAttribution"));
-      return result;
-    }
-
     // verify the required parameter 'fields' is set
     if (fields == null) {
       CompletableFuture<ApiResponse<MonthlyCostAttributionResponse>> result =
@@ -1786,6 +1766,7 @@ public class UsageMeteringApi {
               "Missing the required parameter 'fields' when calling getMonthlyCostAttribution"));
       return result;
     }
+    OffsetDateTime endMonth = parameters.endMonth;
     SortDirection sortDirection = parameters.sortDirection;
     String sortName = parameters.sortName;
     String tagBreakdownKeys = parameters.tagBreakdownKeys;
@@ -1798,8 +1779,8 @@ public class UsageMeteringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_direction", sortDirection));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_name", sortName));
     localVarQueryParams.addAll(

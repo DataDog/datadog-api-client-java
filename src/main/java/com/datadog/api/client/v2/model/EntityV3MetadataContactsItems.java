@@ -48,7 +48,7 @@ public class EntityV3MetadataContactsItems {
   }
 
   /**
-   * Contact value
+   * Contact value.
    *
    * @return contact
    */
@@ -68,7 +68,7 @@ public class EntityV3MetadataContactsItems {
   }
 
   /**
-   * Contact name
+   * Contact name.
    *
    * @return name
    */

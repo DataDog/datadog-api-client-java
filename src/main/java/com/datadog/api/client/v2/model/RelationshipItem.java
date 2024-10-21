@@ -34,7 +34,7 @@ public class RelationshipItem {
   }
 
   /**
-   * Associated data id.
+   * Associated data ID.
    *
    * @return id
    */

@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The schema version of entity type. The field is known as schema-version in the previous version
+ * The schema version of entity type. The field is known as schema-version in the previous version.
  */
 @JsonSerialize(using = EntityV3APIVersion.EntityV3APIVersionSerializer.class)
 public class EntityV3APIVersion extends ModelEnum<String> {

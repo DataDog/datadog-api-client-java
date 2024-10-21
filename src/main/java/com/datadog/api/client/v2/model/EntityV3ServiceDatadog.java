@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Datadog product integrations for the service entity */
+/** Datadog product integrations for the service entity. */
 @JsonPropertyOrder({
   EntityV3ServiceDatadog.JSON_PROPERTY_CODE_LOCATIONS,
   EntityV3ServiceDatadog.JSON_PROPERTY_EVENTS,
@@ -60,7 +60,7 @@ public class EntityV3ServiceDatadog {
   }
 
   /**
-   * Schema for mapping source code locations to an entity
+   * Schema for mapping source code locations to an entity.
    *
    * @return codeLocations
    */
@@ -93,7 +93,7 @@ public class EntityV3ServiceDatadog {
   }
 
   /**
-   * Events associations
+   * Events associations.
    *
    * @return events
    */
@@ -126,7 +126,7 @@ public class EntityV3ServiceDatadog {
   }
 
   /**
-   * Logs association
+   * Logs association.
    *
    * @return logs
    */
@@ -148,7 +148,7 @@ public class EntityV3ServiceDatadog {
   }
 
   /**
-   * Performance stats association
+   * Performance stats association.
    *
    * @return performanceData
    */
@@ -170,7 +170,7 @@ public class EntityV3ServiceDatadog {
   }
 
   /**
-   * CI Pipelines association
+   * CI Pipelines association.
    *
    * @return pipelines
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Oncall escalation */
+/** Oncall escalation. */
 @JsonPropertyOrder({
   EntityResponseIncludedRelatedOncallEscalationItem.JSON_PROPERTY_EMAIL,
   EntityResponseIncludedRelatedOncallEscalationItem.JSON_PROPERTY_ESCALATION_LEVEL,

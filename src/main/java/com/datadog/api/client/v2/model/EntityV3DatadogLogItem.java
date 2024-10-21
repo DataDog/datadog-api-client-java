@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** log association item. */
+/** Log association item. */
 @JsonPropertyOrder({
   EntityV3DatadogLogItem.JSON_PROPERTY_NAME,
   EntityV3DatadogLogItem.JSON_PROPERTY_QUERY
@@ -33,7 +33,7 @@ public class EntityV3DatadogLogItem {
   }
 
   /**
-   * The name of the query
+   * The name of the query.
    *
    * @return name
    */
@@ -54,7 +54,7 @@ public class EntityV3DatadogLogItem {
   }
 
   /**
-   * The query to run
+   * The query to run.
    *
    * @return query
    */

@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for service entities */
+/** Schema for service entities. */
 @JsonPropertyOrder({
   EntityV3Service.JSON_PROPERTY_API_VERSION,
   EntityV3Service.JSON_PROPERTY_DATADOG,
@@ -73,7 +73,8 @@ public class EntityV3Service {
   }
 
   /**
-   * The schema version of entity type. The field is known as schema-version in the previous version
+   * The schema version of entity type. The field is known as schema-version in the previous
+   * version.
    *
    * @return apiVersion
    */
@@ -97,7 +98,7 @@ public class EntityV3Service {
   }
 
   /**
-   * Datadog product integrations for the service entity
+   * Datadog product integrations for the service entity.
    *
    * @return datadog
    */
@@ -126,7 +127,7 @@ public class EntityV3Service {
   }
 
   /**
-   * Custom extensions. This is the free-formed field to send client side metadata. No Datadog
+   * Custom extensions. This is the free-formed field to send client-side metadata. No Datadog
    * features are affected by this field.
    *
    * @return extensions
@@ -149,7 +150,7 @@ public class EntityV3Service {
   }
 
   /**
-   * A base schema for defining third party integrations
+   * A base schema for defining third-party integrations.
    *
    * @return integrations
    */

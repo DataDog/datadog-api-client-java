@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Objects;
 
-/** An Opsgenie integration schema */
+/** An Opsgenie integration schema. */
 @JsonPropertyOrder({
   EntityV3DatadogIntegrationOpsgenie.JSON_PROPERTY_REGION,
   EntityV3DatadogIntegrationOpsgenie.JSON_PROPERTY_SERVICE_URL
@@ -63,7 +63,7 @@ public class EntityV3DatadogIntegrationOpsgenie {
   }
 
   /**
-   * The service url for the Opsgenie integration.
+   * The service URL for the Opsgenie integration.
    *
    * @return serviceUrl
    */
