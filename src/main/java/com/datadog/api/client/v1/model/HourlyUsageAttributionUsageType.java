@@ -55,9 +55,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "error_tracking_usage",
               "error_tracking_percentage",
               "estimated_indexed_logs_usage",
-              "estimated_indexed_spans_usage",
               "estimated_ingested_logs_usage",
-              "estimated_ingested_spans_usage",
               "estimated_rum_sessions_usage",
               "fargate_usage",
               "functions_usage",
@@ -158,12 +156,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("error_tracking_percentage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_LOGS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_indexed_logs_usage");
-  public static final HourlyUsageAttributionUsageType ESTIMATED_INDEXED_SPANS_USAGE =
-      new HourlyUsageAttributionUsageType("estimated_indexed_spans_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_INGESTED_LOGS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_ingested_logs_usage");
-  public static final HourlyUsageAttributionUsageType ESTIMATED_INGESTED_SPANS_USAGE =
-      new HourlyUsageAttributionUsageType("estimated_ingested_spans_usage");
   public static final HourlyUsageAttributionUsageType ESTIMATED_RUM_SESSIONS_USAGE =
       new HourlyUsageAttributionUsageType("estimated_rum_sessions_usage");
   public static final HourlyUsageAttributionUsageType FARGATE_USAGE =
