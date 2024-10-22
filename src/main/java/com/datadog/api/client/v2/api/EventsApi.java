@@ -5,6 +5,8 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.ChangeEventCreateRequestPayload;
+import com.datadog.api.client.v2.model.ChangeEventCreateResponsePayload;
 import com.datadog.api.client.v2.model.EventResponse;
 import com.datadog.api.client.v2.model.EventsListRequest;
 import com.datadog.api.client.v2.model.EventsListResponse;
@@ -48,6 +50,158 @@ public class EventsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Post a change event.
+   *
+   * <p>See {@link #createEventWithHttpInfo}.
+   *
+   * @param body Event request object (required)
+   * @return ChangeEventCreateResponsePayload
+   * @throws ApiException if fails to make API call
+   */
+  public ChangeEventCreateResponsePayload createEvent(ChangeEventCreateRequestPayload body)
+      throws ApiException {
+    return createEventWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Post a change event.
+   *
+   * <p>See {@link #createEventWithHttpInfoAsync}.
+   *
+   * @param body Event request object (required)
+   * @return CompletableFuture&lt;ChangeEventCreateResponsePayload&gt;
+   */
+  public CompletableFuture<ChangeEventCreateResponsePayload> createEventAsync(
+      ChangeEventCreateRequestPayload body) {
+    return createEventWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * This endpoint allows you to post events. Only events with <code>change</code> category are
+   * supported.
+   *
+   * @param body Event request object (required)
+   * @return ApiResponse&lt;ChangeEventCreateResponsePayload&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ChangeEventCreateResponsePayload> createEventWithHttpInfo(
+      ChangeEventCreateRequestPayload body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createEvent";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createEvent");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/events";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.EventsApi.createEvent",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ChangeEventCreateResponsePayload>() {});
+  }
+
+  /**
+   * Post a change event.
+   *
+   * <p>See {@link #createEventWithHttpInfo}.
+   *
+   * @param body Event request object (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ChangeEventCreateResponsePayload&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ChangeEventCreateResponsePayload>>
+      createEventWithHttpInfoAsync(ChangeEventCreateRequestPayload body) {
+    // Check if unstable operation is enabled
+    String operationId = "createEvent";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ChangeEventCreateResponsePayload>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ChangeEventCreateResponsePayload>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling createEvent"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/events";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.EventsApi.createEvent",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ChangeEventCreateResponsePayload>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ChangeEventCreateResponsePayload>() {});
   }
 
   /** Manage optional parameters to listEvents. */
