@@ -20,11 +20,13 @@ import java.util.Objects;
 
 /** Object describing a step for a Synthetic test. */
 @JsonPropertyOrder({
+  SyntheticsStepDetail.JSON_PROPERTY_ALLOW_FAILURE,
   SyntheticsStepDetail.JSON_PROPERTY_BROWSER_ERRORS,
   SyntheticsStepDetail.JSON_PROPERTY_CHECK_TYPE,
   SyntheticsStepDetail.JSON_PROPERTY_DESCRIPTION,
   SyntheticsStepDetail.JSON_PROPERTY_DURATION,
   SyntheticsStepDetail.JSON_PROPERTY_ERROR,
+  SyntheticsStepDetail.JSON_PROPERTY_FAILURE,
   SyntheticsStepDetail.JSON_PROPERTY_PLAYING_TAB,
   SyntheticsStepDetail.JSON_PROPERTY_SCREENSHOT_BUCKET_KEY,
   SyntheticsStepDetail.JSON_PROPERTY_SKIPPED,
@@ -42,6 +44,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsStepDetail {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
+  private Boolean allowFailure;
+
   public static final String JSON_PROPERTY_BROWSER_ERRORS = "browserErrors";
   private List<SyntheticsBrowserError> browserErrors = null;
 
@@ -56,6 +61,9 @@ public class SyntheticsStepDetail {
 
   public static final String JSON_PROPERTY_ERROR = "error";
   private String error;
+
+  public static final String JSON_PROPERTY_FAILURE = "failure";
+  private SyntheticsBrowserTestResultFailure failure;
 
   public static final String JSON_PROPERTY_PLAYING_TAB = "playingTab";
   private SyntheticsPlayingTab playingTab;
@@ -92,6 +100,27 @@ public class SyntheticsStepDetail {
 
   public static final String JSON_PROPERTY_WARNINGS = "warnings";
   private List<SyntheticsStepDetailWarning> warnings = null;
+
+  public SyntheticsStepDetail allowFailure(Boolean allowFailure) {
+    this.allowFailure = allowFailure;
+    return this;
+  }
+
+  /**
+   * Whether or not the step was allowed to fail.
+   *
+   * @return allowFailure
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAllowFailure() {
+    return allowFailure;
+  }
+
+  public void setAllowFailure(Boolean allowFailure) {
+    this.allowFailure = allowFailure;
+  }
 
   public SyntheticsStepDetail browserErrors(List<SyntheticsBrowserError> browserErrors) {
     this.browserErrors = browserErrors;
@@ -212,6 +241,28 @@ public class SyntheticsStepDetail {
 
   public void setError(String error) {
     this.error = error;
+  }
+
+  public SyntheticsStepDetail failure(SyntheticsBrowserTestResultFailure failure) {
+    this.failure = failure;
+    this.unparsed |= failure.unparsed;
+    return this;
+  }
+
+  /**
+   * The browser test failure details.
+   *
+   * @return failure
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsBrowserTestResultFailure getFailure() {
+    return failure;
+  }
+
+  public void setFailure(SyntheticsBrowserTestResultFailure failure) {
+    this.failure = failure;
   }
 
   public SyntheticsStepDetail playingTab(SyntheticsPlayingTab playingTab) {
@@ -569,11 +620,13 @@ public class SyntheticsStepDetail {
       return false;
     }
     SyntheticsStepDetail syntheticsStepDetail = (SyntheticsStepDetail) o;
-    return Objects.equals(this.browserErrors, syntheticsStepDetail.browserErrors)
+    return Objects.equals(this.allowFailure, syntheticsStepDetail.allowFailure)
+        && Objects.equals(this.browserErrors, syntheticsStepDetail.browserErrors)
         && Objects.equals(this.checkType, syntheticsStepDetail.checkType)
         && Objects.equals(this.description, syntheticsStepDetail.description)
         && Objects.equals(this.duration, syntheticsStepDetail.duration)
         && Objects.equals(this.error, syntheticsStepDetail.error)
+        && Objects.equals(this.failure, syntheticsStepDetail.failure)
         && Objects.equals(this.playingTab, syntheticsStepDetail.playingTab)
         && Objects.equals(this.screenshotBucketKey, syntheticsStepDetail.screenshotBucketKey)
         && Objects.equals(this.skipped, syntheticsStepDetail.skipped)
@@ -592,11 +645,13 @@ public class SyntheticsStepDetail {
   @Override
   public int hashCode() {
     return Objects.hash(
+        allowFailure,
         browserErrors,
         checkType,
         description,
         duration,
         error,
+        failure,
         playingTab,
         screenshotBucketKey,
         skipped,
@@ -616,11 +671,13 @@ public class SyntheticsStepDetail {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsStepDetail {\n");
+    sb.append("    allowFailure: ").append(toIndentedString(allowFailure)).append("\n");
     sb.append("    browserErrors: ").append(toIndentedString(browserErrors)).append("\n");
     sb.append("    checkType: ").append(toIndentedString(checkType)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    failure: ").append(toIndentedString(failure)).append("\n");
     sb.append("    playingTab: ").append(toIndentedString(playingTab)).append("\n");
     sb.append("    screenshotBucketKey: ")
         .append(toIndentedString(screenshotBucketKey))
