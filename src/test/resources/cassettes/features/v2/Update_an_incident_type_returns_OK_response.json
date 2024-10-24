@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"7a71352d63ea9891\"},\"type\":\"incident_types\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/incidents/config/types",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"54ee8a4c-591e-48eb-8207-c12ad57617a9\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2024-10-24T16:03:10.596580603Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2024-10-24T16:03:10.596580603Z\",\"name\":\"7a71352d63ea9891\",\"prefix\":\"IR\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "84c914d2-d77d-e516-206f-99d373d1bc19"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"7a71352d63ea9891-updated\"},\"id\":\"54ee8a4c-591e-48eb-8207-c12ad57617a9\",\"type\":\"incident_types\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/incidents/config/types/54ee8a4c-591e-48eb-8207-c12ad57617a9",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"54ee8a4c-591e-48eb-8207-c12ad57617a9\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2024-10-24T16:03:10.596581Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2024-10-24T16:03:10.974980567Z\",\"name\":\"7a71352d63ea9891-updated\",\"prefix\":\"IR\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6e7b53bc-a3a1-f428-89cf-659d458545f3"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/incidents/config/types/54ee8a4c-591e-48eb-8207-c12ad57617a9",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "bb934eb7-ca28-9a4d-269c-345bfc7d9de5"
+  }
+]
