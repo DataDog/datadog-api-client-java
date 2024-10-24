@@ -8,6 +8,7 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,6 +26,16 @@ public class SyntheticsTestCiOptions {
   public static final String JSON_PROPERTY_EXECUTION_RULE = "executionRule";
   private SyntheticsTestExecutionRule executionRule;
 
+  public SyntheticsTestCiOptions() {}
+
+  @JsonCreator
+  public SyntheticsTestCiOptions(
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXECUTION_RULE)
+          SyntheticsTestExecutionRule executionRule) {
+    this.executionRule = executionRule;
+    this.unparsed |= !executionRule.isValid();
+  }
+
   public SyntheticsTestCiOptions executionRule(SyntheticsTestExecutionRule executionRule) {
     this.executionRule = executionRule;
     this.unparsed |= !executionRule.isValid();
@@ -36,9 +47,8 @@ public class SyntheticsTestCiOptions {
    *
    * @return executionRule
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXECUTION_RULE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsTestExecutionRule getExecutionRule() {
     return executionRule;
   }

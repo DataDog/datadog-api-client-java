@@ -17,47 +17,69 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** CI/CD options for a Synthetic test. */
-@JsonPropertyOrder({SyntheticsMobileTestCiOptions.JSON_PROPERTY_EXECUTION_RULE})
+/** Variable object for EXTRACT_VARIABLE step type. */
+@JsonPropertyOrder({
+  SyntheticsMobileStepParamsVariable.JSON_PROPERTY_EXAMPLE,
+  SyntheticsMobileStepParamsVariable.JSON_PROPERTY_NAME
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestCiOptions {
+public class SyntheticsMobileStepParamsVariable {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_EXECUTION_RULE = "executionRule";
-  private SyntheticsTestExecutionRule executionRule;
+  public static final String JSON_PROPERTY_EXAMPLE = "example";
+  private String example;
 
-  public SyntheticsMobileTestCiOptions() {}
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
+  public SyntheticsMobileStepParamsVariable() {}
 
   @JsonCreator
-  public SyntheticsMobileTestCiOptions(
-      @JsonProperty(required = true, value = JSON_PROPERTY_EXECUTION_RULE)
-          SyntheticsTestExecutionRule executionRule) {
-    this.executionRule = executionRule;
-    this.unparsed |= !executionRule.isValid();
+  public SyntheticsMobileStepParamsVariable(
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXAMPLE) String example,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.example = example;
+    this.name = name;
   }
 
-  public SyntheticsMobileTestCiOptions executionRule(SyntheticsTestExecutionRule executionRule) {
-    this.executionRule = executionRule;
-    this.unparsed |= !executionRule.isValid();
+  public SyntheticsMobileStepParamsVariable example(String example) {
+    this.example = example;
     return this;
   }
 
   /**
-   * Execution rule for a Synthetic test.
+   * An example for the variable.
    *
-   * @return executionRule
+   * @return example
    */
-  @JsonProperty(JSON_PROPERTY_EXECUTION_RULE)
+  @JsonProperty(JSON_PROPERTY_EXAMPLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsTestExecutionRule getExecutionRule() {
-    return executionRule;
+  public String getExample() {
+    return example;
   }
 
-  public void setExecutionRule(SyntheticsTestExecutionRule executionRule) {
-    if (!executionRule.isValid()) {
-      this.unparsed = true;
-    }
-    this.executionRule = executionRule;
+  public void setExample(String example) {
+    this.example = example;
+  }
+
+  public SyntheticsMobileStepParamsVariable name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * The variable name.
+   *
+   * @return name
+   */
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -72,10 +94,10 @@ public class SyntheticsMobileTestCiOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestCiOptions
+   * @return SyntheticsMobileStepParamsVariable
    */
   @JsonAnySetter
-  public SyntheticsMobileTestCiOptions putAdditionalProperty(String key, Object value) {
+  public SyntheticsMobileStepParamsVariable putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -106,7 +128,7 @@ public class SyntheticsMobileTestCiOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsMobileTestCiOptions object is equal to o. */
+  /** Return true if this SyntheticsMobileStepParamsVariable object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,22 +137,25 @@ public class SyntheticsMobileTestCiOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestCiOptions syntheticsMobileTestCiOptions = (SyntheticsMobileTestCiOptions) o;
-    return Objects.equals(this.executionRule, syntheticsMobileTestCiOptions.executionRule)
+    SyntheticsMobileStepParamsVariable syntheticsMobileStepParamsVariable =
+        (SyntheticsMobileStepParamsVariable) o;
+    return Objects.equals(this.example, syntheticsMobileStepParamsVariable.example)
+        && Objects.equals(this.name, syntheticsMobileStepParamsVariable.name)
         && Objects.equals(
-            this.additionalProperties, syntheticsMobileTestCiOptions.additionalProperties);
+            this.additionalProperties, syntheticsMobileStepParamsVariable.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(executionRule, additionalProperties);
+    return Objects.hash(example, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestCiOptions {\n");
-    sb.append("    executionRule: ").append(toIndentedString(executionRule)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsVariable {\n");
+    sb.append("    example: ").append(toIndentedString(example)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

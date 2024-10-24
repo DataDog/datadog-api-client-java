@@ -71,8 +71,7 @@ public class SyntheticsMobileTestOptionsMonitorOptions {
   }
 
   /**
-   * The definition of <code>SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName</code>
-   * object.
+   * The name of the preset for the notification for the monitor.
    *
    * @return notificationPresetName
    */
@@ -119,7 +118,7 @@ public class SyntheticsMobileTestOptionsMonitorOptions {
   }
 
   /**
-   * The <code>SyntheticsMobileTestOptionsMonitorOptions</code> <code>renotify_occurrences</code>.
+   * The number renotify_occurrences for the test.
    *
    * @return renotifyOccurrences
    */

@@ -8,6 +8,7 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -28,10 +29,21 @@ import java.util.Objects;
 public class SyntheticsTestOptionsScheduling {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TIMEFRAMES = "timeframes";
-  private List<SyntheticsTestOptionsSchedulingTimeframe> timeframes = null;
+  private List<SyntheticsTestOptionsSchedulingTimeframe> timeframes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
   private String timezone;
+
+  public SyntheticsTestOptionsScheduling() {}
+
+  @JsonCreator
+  public SyntheticsTestOptionsScheduling(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIMEFRAMES)
+          List<SyntheticsTestOptionsSchedulingTimeframe> timeframes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIMEZONE) String timezone) {
+    this.timeframes = timeframes;
+    this.timezone = timezone;
+  }
 
   public SyntheticsTestOptionsScheduling timeframes(
       List<SyntheticsTestOptionsSchedulingTimeframe> timeframes) {
@@ -44,9 +56,6 @@ public class SyntheticsTestOptionsScheduling {
 
   public SyntheticsTestOptionsScheduling addTimeframesItem(
       SyntheticsTestOptionsSchedulingTimeframe timeframesItem) {
-    if (this.timeframes == null) {
-      this.timeframes = new ArrayList<>();
-    }
     this.timeframes.add(timeframesItem);
     this.unparsed |= timeframesItem.unparsed;
     return this;
@@ -57,9 +66,8 @@ public class SyntheticsTestOptionsScheduling {
    *
    * @return timeframes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEFRAMES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<SyntheticsTestOptionsSchedulingTimeframe> getTimeframes() {
     return timeframes;
   }
@@ -78,9 +86,8 @@ public class SyntheticsTestOptionsScheduling {
    *
    * @return timezone
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTimezone() {
     return timezone;
   }

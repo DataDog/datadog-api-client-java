@@ -29,15 +29,23 @@ public class SyntheticsMobileTestConfig {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INITIAL_APPLICATION_ARGUMENTS =
       "initialApplicationArguments";
-  private SyntheticsMobileTestInitialApplicationArguments initialApplicationArguments;
+  private Map<String, String> initialApplicationArguments = null;
 
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private List<SyntheticsConfigVariable> variables = null;
 
   public SyntheticsMobileTestConfig initialApplicationArguments(
-      SyntheticsMobileTestInitialApplicationArguments initialApplicationArguments) {
+      Map<String, String> initialApplicationArguments) {
     this.initialApplicationArguments = initialApplicationArguments;
-    this.unparsed |= initialApplicationArguments.unparsed;
+    return this;
+  }
+
+  public SyntheticsMobileTestConfig putInitialApplicationArgumentsItem(
+      String key, String initialApplicationArgumentsItem) {
+    if (this.initialApplicationArguments == null) {
+      this.initialApplicationArguments = new HashMap<>();
+    }
+    this.initialApplicationArguments.put(key, initialApplicationArgumentsItem);
     return this;
   }
 
@@ -49,12 +57,11 @@ public class SyntheticsMobileTestConfig {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INITIAL_APPLICATION_ARGUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestInitialApplicationArguments getInitialApplicationArguments() {
+  public Map<String, String> getInitialApplicationArguments() {
     return initialApplicationArguments;
   }
 
-  public void setInitialApplicationArguments(
-      SyntheticsMobileTestInitialApplicationArguments initialApplicationArguments) {
+  public void setInitialApplicationArguments(Map<String, String> initialApplicationArguments) {
     this.initialApplicationArguments = initialApplicationArguments;
   }
 
