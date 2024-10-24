@@ -12,79 +12,70 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Objects describing the binding used for a mobile test. */
+/** A single User Locator object. */
 @JsonPropertyOrder({
-  SyntheticsMobileTestBinding.JSON_PROPERTY_PRINCIPALS,
-  SyntheticsMobileTestBinding.JSON_PROPERTY_RELATION
+  SyntheticsMobileStepParamsElementUserLocatorValuesItems.JSON_PROPERTY_TYPE,
+  SyntheticsMobileStepParamsElementUserLocatorValuesItems.JSON_PROPERTY_VALUE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestBinding {
+public class SyntheticsMobileStepParamsElementUserLocatorValuesItems {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PRINCIPALS = "principals";
-  private List<String> principals = null;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SyntheticsMobileStepParamsElementUserLocatorValuesItemsType type;
 
-  public static final String JSON_PROPERTY_RELATION = "relation";
-  private SyntheticsMobileTestBindingRelation relation;
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private String value;
 
-  public SyntheticsMobileTestBinding principals(List<String> principals) {
-    this.principals = principals;
-    return this;
-  }
-
-  public SyntheticsMobileTestBinding addPrincipalsItem(String principalsItem) {
-    if (this.principals == null) {
-      this.principals = new ArrayList<>();
-    }
-    this.principals.add(principalsItem);
+  public SyntheticsMobileStepParamsElementUserLocatorValuesItems type(
+      SyntheticsMobileStepParamsElementUserLocatorValuesItemsType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * List of principals for a mobile test binding.
+   * Type of a User Locator.
    *
-   * @return principals
+   * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRINCIPALS)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getPrincipals() {
-    return principals;
+  public SyntheticsMobileStepParamsElementUserLocatorValuesItemsType getType() {
+    return type;
   }
 
-  public void setPrincipals(List<String> principals) {
-    this.principals = principals;
-  }
-
-  public SyntheticsMobileTestBinding relation(SyntheticsMobileTestBindingRelation relation) {
-    this.relation = relation;
-    this.unparsed |= !relation.isValid();
-    return this;
-  }
-
-  /**
-   * The type of relation for the binding.
-   *
-   * @return relation
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestBindingRelation getRelation() {
-    return relation;
-  }
-
-  public void setRelation(SyntheticsMobileTestBindingRelation relation) {
-    if (!relation.isValid()) {
+  public void setType(SyntheticsMobileStepParamsElementUserLocatorValuesItemsType type) {
+    if (!type.isValid()) {
       this.unparsed = true;
     }
-    this.relation = relation;
+    this.type = type;
+  }
+
+  public SyntheticsMobileStepParamsElementUserLocatorValuesItems value(String value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * Value of a User Locator.
+   *
+   * @return value
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
   /**
@@ -99,10 +90,11 @@ public class SyntheticsMobileTestBinding {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestBinding
+   * @return SyntheticsMobileStepParamsElementUserLocatorValuesItems
    */
   @JsonAnySetter
-  public SyntheticsMobileTestBinding putAdditionalProperty(String key, Object value) {
+  public SyntheticsMobileStepParamsElementUserLocatorValuesItems putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +125,10 @@ public class SyntheticsMobileTestBinding {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsMobileTestBinding object is equal to o. */
+  /**
+   * Return true if this SyntheticsMobileStepParamsElementUserLocatorValuesItems object is equal to
+   * o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,24 +137,27 @@ public class SyntheticsMobileTestBinding {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestBinding syntheticsMobileTestBinding = (SyntheticsMobileTestBinding) o;
-    return Objects.equals(this.principals, syntheticsMobileTestBinding.principals)
-        && Objects.equals(this.relation, syntheticsMobileTestBinding.relation)
+    SyntheticsMobileStepParamsElementUserLocatorValuesItems
+        syntheticsMobileStepParamsElementUserLocatorValuesItems =
+            (SyntheticsMobileStepParamsElementUserLocatorValuesItems) o;
+    return Objects.equals(this.type, syntheticsMobileStepParamsElementUserLocatorValuesItems.type)
+        && Objects.equals(this.value, syntheticsMobileStepParamsElementUserLocatorValuesItems.value)
         && Objects.equals(
-            this.additionalProperties, syntheticsMobileTestBinding.additionalProperties);
+            this.additionalProperties,
+            syntheticsMobileStepParamsElementUserLocatorValuesItems.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(principals, relation, additionalProperties);
+    return Objects.hash(type, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestBinding {\n");
-    sb.append("    principals: ").append(toIndentedString(principals)).append("\n");
-    sb.append("    relation: ").append(toIndentedString(relation)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsElementUserLocatorValuesItems {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

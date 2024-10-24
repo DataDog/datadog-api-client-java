@@ -18,45 +18,44 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The definition of <code>SyntheticsMobileTestBindingItemsRole</code> object. */
+/** The type of relation for the binding. */
 @JsonSerialize(
-    using =
-        SyntheticsMobileTestBindingItemsRole.SyntheticsMobileTestBindingItemsRoleSerializer.class)
-public class SyntheticsMobileTestBindingItemsRole extends ModelEnum<String> {
+    using = SyntheticsMobileTestBindingRelation.SyntheticsMobileTestBindingRelationSerializer.class)
+public class SyntheticsMobileTestBindingRelation extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("editor", "viewer"));
 
-  public static final SyntheticsMobileTestBindingItemsRole EDITOR =
-      new SyntheticsMobileTestBindingItemsRole("editor");
-  public static final SyntheticsMobileTestBindingItemsRole VIEWER =
-      new SyntheticsMobileTestBindingItemsRole("viewer");
+  public static final SyntheticsMobileTestBindingRelation EDITOR =
+      new SyntheticsMobileTestBindingRelation("editor");
+  public static final SyntheticsMobileTestBindingRelation VIEWER =
+      new SyntheticsMobileTestBindingRelation("viewer");
 
-  SyntheticsMobileTestBindingItemsRole(String value) {
+  SyntheticsMobileTestBindingRelation(String value) {
     super(value, allowedValues);
   }
 
-  public static class SyntheticsMobileTestBindingItemsRoleSerializer
-      extends StdSerializer<SyntheticsMobileTestBindingItemsRole> {
-    public SyntheticsMobileTestBindingItemsRoleSerializer(
-        Class<SyntheticsMobileTestBindingItemsRole> t) {
+  public static class SyntheticsMobileTestBindingRelationSerializer
+      extends StdSerializer<SyntheticsMobileTestBindingRelation> {
+    public SyntheticsMobileTestBindingRelationSerializer(
+        Class<SyntheticsMobileTestBindingRelation> t) {
       super(t);
     }
 
-    public SyntheticsMobileTestBindingItemsRoleSerializer() {
+    public SyntheticsMobileTestBindingRelationSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        SyntheticsMobileTestBindingItemsRole value, JsonGenerator jgen, SerializerProvider provider)
+        SyntheticsMobileTestBindingRelation value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static SyntheticsMobileTestBindingItemsRole fromValue(String value) {
-    return new SyntheticsMobileTestBindingItemsRole(value);
+  public static SyntheticsMobileTestBindingRelation fromValue(String value) {
+    return new SyntheticsMobileTestBindingRelation(value);
   }
 }

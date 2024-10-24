@@ -18,10 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * The definition of <code>SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName</code>
- * object.
- */
+/** The name of the preset for the notification for the monitor. */
 @JsonSerialize(
     using =
         SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName
