@@ -74,10 +74,6 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "dbm_queries_usage",
               "error_tracking_usage",
               "error_tracking_percentage",
-              "estimated_indexed_logs_usage",
-              "estimated_indexed_logs_percentage",
-              "estimated_ingested_logs_usage",
-              "estimated_ingested_logs_percentage",
               "estimated_indexed_spans_usage",
               "estimated_indexed_spans_percentage",
               "estimated_ingested_spans_usage",
@@ -116,8 +112,6 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "serverless_apps_percentage",
               "snmp_usage",
               "snmp_percentage",
-              "estimated_rum_sessions_usage",
-              "estimated_rum_sessions_percentage",
               "universal_service_monitoring_usage",
               "universal_service_monitoring_percentage",
               "vuln_management_hosts_usage",
@@ -268,14 +262,6 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("error_tracking_usage");
   public static final MonthlyUsageAttributionSupportedMetrics ERROR_TRACKING_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("error_tracking_percentage");
-  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_USAGE =
-      new MonthlyUsageAttributionSupportedMetrics("estimated_indexed_logs_usage");
-  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_PERCENTAGE =
-      new MonthlyUsageAttributionSupportedMetrics("estimated_indexed_logs_percentage");
-  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INGESTED_LOGS_USAGE =
-      new MonthlyUsageAttributionSupportedMetrics("estimated_ingested_logs_usage");
-  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INGESTED_LOGS_PERCENTAGE =
-      new MonthlyUsageAttributionSupportedMetrics("estimated_ingested_logs_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_SPANS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("estimated_indexed_spans_usage");
   public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_INDEXED_SPANS_PERCENTAGE =
@@ -356,10 +342,6 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("snmp_usage");
   public static final MonthlyUsageAttributionSupportedMetrics SNMP_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("snmp_percentage");
-  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_RUM_SESSIONS_USAGE =
-      new MonthlyUsageAttributionSupportedMetrics("estimated_rum_sessions_usage");
-  public static final MonthlyUsageAttributionSupportedMetrics ESTIMATED_RUM_SESSIONS_PERCENTAGE =
-      new MonthlyUsageAttributionSupportedMetrics("estimated_rum_sessions_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics UNIVERSAL_SERVICE_MONITORING_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("universal_service_monitoring_usage");
   public static final MonthlyUsageAttributionSupportedMetrics

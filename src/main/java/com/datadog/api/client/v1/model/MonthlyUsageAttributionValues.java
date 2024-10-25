@@ -68,16 +68,10 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_DBM_QUERIES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ERROR_TRACKING_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ERROR_TRACKING_USAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_USAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_PERCENTAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_PERCENTAGE,
-  MonthlyUsageAttributionValues.JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FARGATE_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_FUNCTIONS_PERCENTAGE,
@@ -328,14 +322,6 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_ERROR_TRACKING_USAGE = "error_tracking_usage";
   private Double errorTrackingUsage;
 
-  public static final String JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE =
-      "estimated_indexed_logs_percentage";
-  private Double estimatedIndexedLogsPercentage;
-
-  public static final String JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE =
-      "estimated_indexed_logs_usage";
-  private Double estimatedIndexedLogsUsage;
-
   public static final String JSON_PROPERTY_ESTIMATED_INDEXED_SPANS_PERCENTAGE =
       "estimated_indexed_spans_percentage";
   private Double estimatedIndexedSpansPercentage;
@@ -344,14 +330,6 @@ public class MonthlyUsageAttributionValues {
       "estimated_indexed_spans_usage";
   private Double estimatedIndexedSpansUsage;
 
-  public static final String JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_PERCENTAGE =
-      "estimated_ingested_logs_percentage";
-  private Double estimatedIngestedLogsPercentage;
-
-  public static final String JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_USAGE =
-      "estimated_ingested_logs_usage";
-  private Double estimatedIngestedLogsUsage;
-
   public static final String JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_PERCENTAGE =
       "estimated_ingested_spans_percentage";
   private Double estimatedIngestedSpansPercentage;
@@ -359,14 +337,6 @@ public class MonthlyUsageAttributionValues {
   public static final String JSON_PROPERTY_ESTIMATED_INGESTED_SPANS_USAGE =
       "estimated_ingested_spans_usage";
   private Double estimatedIngestedSpansUsage;
-
-  public static final String JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_PERCENTAGE =
-      "estimated_rum_sessions_percentage";
-  private Double estimatedRumSessionsPercentage;
-
-  public static final String JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_USAGE =
-      "estimated_rum_sessions_usage";
-  private Double estimatedRumSessionsUsage;
 
   public static final String JSON_PROPERTY_FARGATE_PERCENTAGE = "fargate_percentage";
   private Double fargatePercentage;
@@ -1706,49 +1676,6 @@ public class MonthlyUsageAttributionValues {
     this.errorTrackingUsage = errorTrackingUsage;
   }
 
-  public MonthlyUsageAttributionValues estimatedIndexedLogsPercentage(
-      Double estimatedIndexedLogsPercentage) {
-    this.estimatedIndexedLogsPercentage = estimatedIndexedLogsPercentage;
-    return this;
-  }
-
-  /**
-   * The percentage of estimated live indexed logs usage by tag(s).
-   *
-   * @return estimatedIndexedLogsPercentage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getEstimatedIndexedLogsPercentage() {
-    return estimatedIndexedLogsPercentage;
-  }
-
-  public void setEstimatedIndexedLogsPercentage(Double estimatedIndexedLogsPercentage) {
-    this.estimatedIndexedLogsPercentage = estimatedIndexedLogsPercentage;
-  }
-
-  public MonthlyUsageAttributionValues estimatedIndexedLogsUsage(Double estimatedIndexedLogsUsage) {
-    this.estimatedIndexedLogsUsage = estimatedIndexedLogsUsage;
-    return this;
-  }
-
-  /**
-   * The estimated live indexed logs usage by tag(s).
-   *
-   * @return estimatedIndexedLogsUsage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getEstimatedIndexedLogsUsage() {
-    return estimatedIndexedLogsUsage;
-  }
-
-  public void setEstimatedIndexedLogsUsage(Double estimatedIndexedLogsUsage) {
-    this.estimatedIndexedLogsUsage = estimatedIndexedLogsUsage;
-  }
-
   public MonthlyUsageAttributionValues estimatedIndexedSpansPercentage(
       Double estimatedIndexedSpansPercentage) {
     this.estimatedIndexedSpansPercentage = estimatedIndexedSpansPercentage;
@@ -1793,50 +1720,6 @@ public class MonthlyUsageAttributionValues {
     this.estimatedIndexedSpansUsage = estimatedIndexedSpansUsage;
   }
 
-  public MonthlyUsageAttributionValues estimatedIngestedLogsPercentage(
-      Double estimatedIngestedLogsPercentage) {
-    this.estimatedIngestedLogsPercentage = estimatedIngestedLogsPercentage;
-    return this;
-  }
-
-  /**
-   * The percentage of estimated live ingested logs usage by tag(s).
-   *
-   * @return estimatedIngestedLogsPercentage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_PERCENTAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getEstimatedIngestedLogsPercentage() {
-    return estimatedIngestedLogsPercentage;
-  }
-
-  public void setEstimatedIngestedLogsPercentage(Double estimatedIngestedLogsPercentage) {
-    this.estimatedIngestedLogsPercentage = estimatedIngestedLogsPercentage;
-  }
-
-  public MonthlyUsageAttributionValues estimatedIngestedLogsUsage(
-      Double estimatedIngestedLogsUsage) {
-    this.estimatedIngestedLogsUsage = estimatedIngestedLogsUsage;
-    return this;
-  }
-
-  /**
-   * The estimated live ingested logs usage by tag(s).
-   *
-   * @return estimatedIngestedLogsUsage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ESTIMATED_INGESTED_LOGS_USAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getEstimatedIngestedLogsUsage() {
-    return estimatedIngestedLogsUsage;
-  }
-
-  public void setEstimatedIngestedLogsUsage(Double estimatedIngestedLogsUsage) {
-    this.estimatedIngestedLogsUsage = estimatedIngestedLogsUsage;
-  }
-
   public MonthlyUsageAttributionValues estimatedIngestedSpansPercentage(
       Double estimatedIngestedSpansPercentage) {
     this.estimatedIngestedSpansPercentage = estimatedIngestedSpansPercentage;
@@ -1879,49 +1762,6 @@ public class MonthlyUsageAttributionValues {
 
   public void setEstimatedIngestedSpansUsage(Double estimatedIngestedSpansUsage) {
     this.estimatedIngestedSpansUsage = estimatedIngestedSpansUsage;
-  }
-
-  public MonthlyUsageAttributionValues estimatedRumSessionsPercentage(
-      Double estimatedRumSessionsPercentage) {
-    this.estimatedRumSessionsPercentage = estimatedRumSessionsPercentage;
-    return this;
-  }
-
-  /**
-   * The percentage of estimated rum sessions usage by tag(s).
-   *
-   * @return estimatedRumSessionsPercentage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_PERCENTAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getEstimatedRumSessionsPercentage() {
-    return estimatedRumSessionsPercentage;
-  }
-
-  public void setEstimatedRumSessionsPercentage(Double estimatedRumSessionsPercentage) {
-    this.estimatedRumSessionsPercentage = estimatedRumSessionsPercentage;
-  }
-
-  public MonthlyUsageAttributionValues estimatedRumSessionsUsage(Double estimatedRumSessionsUsage) {
-    this.estimatedRumSessionsUsage = estimatedRumSessionsUsage;
-    return this;
-  }
-
-  /**
-   * The estimated rum sessions usage by tag(s).
-   *
-   * @return estimatedRumSessionsUsage
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ESTIMATED_RUM_SESSIONS_USAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getEstimatedRumSessionsUsage() {
-    return estimatedRumSessionsUsage;
-  }
-
-  public void setEstimatedRumSessionsUsage(Double estimatedRumSessionsUsage) {
-    this.estimatedRumSessionsUsage = estimatedRumSessionsUsage;
   }
 
   public MonthlyUsageAttributionValues fargatePercentage(Double fargatePercentage) {
@@ -3780,33 +3620,17 @@ public class MonthlyUsageAttributionValues {
             this.errorTrackingPercentage, monthlyUsageAttributionValues.errorTrackingPercentage)
         && Objects.equals(this.errorTrackingUsage, monthlyUsageAttributionValues.errorTrackingUsage)
         && Objects.equals(
-            this.estimatedIndexedLogsPercentage,
-            monthlyUsageAttributionValues.estimatedIndexedLogsPercentage)
-        && Objects.equals(
-            this.estimatedIndexedLogsUsage, monthlyUsageAttributionValues.estimatedIndexedLogsUsage)
-        && Objects.equals(
             this.estimatedIndexedSpansPercentage,
             monthlyUsageAttributionValues.estimatedIndexedSpansPercentage)
         && Objects.equals(
             this.estimatedIndexedSpansUsage,
             monthlyUsageAttributionValues.estimatedIndexedSpansUsage)
         && Objects.equals(
-            this.estimatedIngestedLogsPercentage,
-            monthlyUsageAttributionValues.estimatedIngestedLogsPercentage)
-        && Objects.equals(
-            this.estimatedIngestedLogsUsage,
-            monthlyUsageAttributionValues.estimatedIngestedLogsUsage)
-        && Objects.equals(
             this.estimatedIngestedSpansPercentage,
             monthlyUsageAttributionValues.estimatedIngestedSpansPercentage)
         && Objects.equals(
             this.estimatedIngestedSpansUsage,
             monthlyUsageAttributionValues.estimatedIngestedSpansUsage)
-        && Objects.equals(
-            this.estimatedRumSessionsPercentage,
-            monthlyUsageAttributionValues.estimatedRumSessionsPercentage)
-        && Objects.equals(
-            this.estimatedRumSessionsUsage, monthlyUsageAttributionValues.estimatedRumSessionsUsage)
         && Objects.equals(this.fargatePercentage, monthlyUsageAttributionValues.fargatePercentage)
         && Objects.equals(this.fargateUsage, monthlyUsageAttributionValues.fargateUsage)
         && Objects.equals(
@@ -4039,16 +3863,10 @@ public class MonthlyUsageAttributionValues {
         dbmQueriesUsage,
         errorTrackingPercentage,
         errorTrackingUsage,
-        estimatedIndexedLogsPercentage,
-        estimatedIndexedLogsUsage,
         estimatedIndexedSpansPercentage,
         estimatedIndexedSpansUsage,
-        estimatedIngestedLogsPercentage,
-        estimatedIngestedLogsUsage,
         estimatedIngestedSpansPercentage,
         estimatedIngestedSpansUsage,
-        estimatedRumSessionsPercentage,
-        estimatedRumSessionsUsage,
         fargatePercentage,
         fargateUsage,
         functionsPercentage,
@@ -4240,35 +4058,17 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(errorTrackingPercentage))
         .append("\n");
     sb.append("    errorTrackingUsage: ").append(toIndentedString(errorTrackingUsage)).append("\n");
-    sb.append("    estimatedIndexedLogsPercentage: ")
-        .append(toIndentedString(estimatedIndexedLogsPercentage))
-        .append("\n");
-    sb.append("    estimatedIndexedLogsUsage: ")
-        .append(toIndentedString(estimatedIndexedLogsUsage))
-        .append("\n");
     sb.append("    estimatedIndexedSpansPercentage: ")
         .append(toIndentedString(estimatedIndexedSpansPercentage))
         .append("\n");
     sb.append("    estimatedIndexedSpansUsage: ")
         .append(toIndentedString(estimatedIndexedSpansUsage))
         .append("\n");
-    sb.append("    estimatedIngestedLogsPercentage: ")
-        .append(toIndentedString(estimatedIngestedLogsPercentage))
-        .append("\n");
-    sb.append("    estimatedIngestedLogsUsage: ")
-        .append(toIndentedString(estimatedIngestedLogsUsage))
-        .append("\n");
     sb.append("    estimatedIngestedSpansPercentage: ")
         .append(toIndentedString(estimatedIngestedSpansPercentage))
         .append("\n");
     sb.append("    estimatedIngestedSpansUsage: ")
         .append(toIndentedString(estimatedIngestedSpansUsage))
-        .append("\n");
-    sb.append("    estimatedRumSessionsPercentage: ")
-        .append(toIndentedString(estimatedRumSessionsPercentage))
-        .append("\n");
-    sb.append("    estimatedRumSessionsUsage: ")
-        .append(toIndentedString(estimatedRumSessionsUsage))
         .append("\n");
     sb.append("    fargatePercentage: ").append(toIndentedString(fargatePercentage)).append("\n");
     sb.append("    fargateUsage: ").append(toIndentedString(fargateUsage)).append("\n");
