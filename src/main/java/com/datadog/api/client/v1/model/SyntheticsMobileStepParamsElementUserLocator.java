@@ -18,73 +18,76 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object describing the binding used for a mobile test. */
+/** User locator to find the element. */
 @JsonPropertyOrder({
-  SyntheticsMobileTestBindingItems.JSON_PROPERTY_PRINCIPALS,
-  SyntheticsMobileTestBindingItems.JSON_PROPERTY_ROLE
+  SyntheticsMobileStepParamsElementUserLocator.JSON_PROPERTY_FAIL_TEST_ON_CANNOT_LOCATE,
+  SyntheticsMobileStepParamsElementUserLocator.JSON_PROPERTY_VALUES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestBindingItems {
+public class SyntheticsMobileStepParamsElementUserLocator {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PRINCIPALS = "principals";
-  private List<String> principals = null;
+  public static final String JSON_PROPERTY_FAIL_TEST_ON_CANNOT_LOCATE = "failTestOnCannotLocate";
+  private Boolean failTestOnCannotLocate;
 
-  public static final String JSON_PROPERTY_ROLE = "role";
-  private SyntheticsMobileTestBindingItemsRole role;
+  public static final String JSON_PROPERTY_VALUES = "values";
+  private List<SyntheticsMobileStepParamsElementUserLocatorValuesItems> values = null;
 
-  public SyntheticsMobileTestBindingItems principals(List<String> principals) {
-    this.principals = principals;
-    return this;
-  }
-
-  public SyntheticsMobileTestBindingItems addPrincipalsItem(String principalsItem) {
-    if (this.principals == null) {
-      this.principals = new ArrayList<>();
-    }
-    this.principals.add(principalsItem);
+  public SyntheticsMobileStepParamsElementUserLocator failTestOnCannotLocate(
+      Boolean failTestOnCannotLocate) {
+    this.failTestOnCannotLocate = failTestOnCannotLocate;
     return this;
   }
 
   /**
-   * List of principals for a mobile test binding.
+   * Whether if the the test should fail if the element cannot be found.
    *
-   * @return principals
+   * @return failTestOnCannotLocate
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRINCIPALS)
+  @JsonProperty(JSON_PROPERTY_FAIL_TEST_ON_CANNOT_LOCATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getPrincipals() {
-    return principals;
+  public Boolean getFailTestOnCannotLocate() {
+    return failTestOnCannotLocate;
   }
 
-  public void setPrincipals(List<String> principals) {
-    this.principals = principals;
+  public void setFailTestOnCannotLocate(Boolean failTestOnCannotLocate) {
+    this.failTestOnCannotLocate = failTestOnCannotLocate;
   }
 
-  public SyntheticsMobileTestBindingItems role(SyntheticsMobileTestBindingItemsRole role) {
-    this.role = role;
-    this.unparsed |= !role.isValid();
+  public SyntheticsMobileStepParamsElementUserLocator values(
+      List<SyntheticsMobileStepParamsElementUserLocatorValuesItems> values) {
+    this.values = values;
+    for (SyntheticsMobileStepParamsElementUserLocatorValuesItems item : values) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SyntheticsMobileStepParamsElementUserLocator addValuesItem(
+      SyntheticsMobileStepParamsElementUserLocatorValuesItems valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<>();
+    }
+    this.values.add(valuesItem);
+    this.unparsed |= valuesItem.unparsed;
     return this;
   }
 
   /**
-   * The definition of <code>SyntheticsMobileTestBindingItemsRole</code> object.
+   * Values of the user locator.
    *
-   * @return role
+   * @return values
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROLE)
+  @JsonProperty(JSON_PROPERTY_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestBindingItemsRole getRole() {
-    return role;
+  public List<SyntheticsMobileStepParamsElementUserLocatorValuesItems> getValues() {
+    return values;
   }
 
-  public void setRole(SyntheticsMobileTestBindingItemsRole role) {
-    if (!role.isValid()) {
-      this.unparsed = true;
-    }
-    this.role = role;
+  public void setValues(List<SyntheticsMobileStepParamsElementUserLocatorValuesItems> values) {
+    this.values = values;
   }
 
   /**
@@ -99,10 +102,11 @@ public class SyntheticsMobileTestBindingItems {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestBindingItems
+   * @return SyntheticsMobileStepParamsElementUserLocator
    */
   @JsonAnySetter
-  public SyntheticsMobileTestBindingItems putAdditionalProperty(String key, Object value) {
+  public SyntheticsMobileStepParamsElementUserLocator putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +137,7 @@ public class SyntheticsMobileTestBindingItems {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsMobileTestBindingItems object is equal to o. */
+  /** Return true if this SyntheticsMobileStepParamsElementUserLocator object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,25 +146,30 @@ public class SyntheticsMobileTestBindingItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestBindingItems syntheticsMobileTestBindingItems =
-        (SyntheticsMobileTestBindingItems) o;
-    return Objects.equals(this.principals, syntheticsMobileTestBindingItems.principals)
-        && Objects.equals(this.role, syntheticsMobileTestBindingItems.role)
+    SyntheticsMobileStepParamsElementUserLocator syntheticsMobileStepParamsElementUserLocator =
+        (SyntheticsMobileStepParamsElementUserLocator) o;
+    return Objects.equals(
+            this.failTestOnCannotLocate,
+            syntheticsMobileStepParamsElementUserLocator.failTestOnCannotLocate)
+        && Objects.equals(this.values, syntheticsMobileStepParamsElementUserLocator.values)
         && Objects.equals(
-            this.additionalProperties, syntheticsMobileTestBindingItems.additionalProperties);
+            this.additionalProperties,
+            syntheticsMobileStepParamsElementUserLocator.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(principals, role, additionalProperties);
+    return Objects.hash(failTestOnCannotLocate, values, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestBindingItems {\n");
-    sb.append("    principals: ").append(toIndentedString(principals)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsElementUserLocator {\n");
+    sb.append("    failTestOnCannotLocate: ")
+        .append(toIndentedString(failTestOnCannotLocate))
+        .append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

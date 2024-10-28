@@ -16,35 +16,61 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Objects describing the binding used for a mobile test. */
-@JsonPropertyOrder({SyntheticsMobileTestBinding.JSON_PROPERTY_ITEMS})
+/** Position of the action relative to the element. */
+@JsonPropertyOrder({
+  SyntheticsMobileStepParamsElementRelativePosition.JSON_PROPERTY_X,
+  SyntheticsMobileStepParamsElementRelativePosition.JSON_PROPERTY_Y
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestBinding {
+public class SyntheticsMobileStepParamsElementRelativePosition {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ITEMS = "items";
-  private SyntheticsMobileTestBindingItems items;
+  public static final String JSON_PROPERTY_X = "x";
+  private Long x;
 
-  public SyntheticsMobileTestBinding items(SyntheticsMobileTestBindingItems items) {
-    this.items = items;
-    this.unparsed |= items.unparsed;
+  public static final String JSON_PROPERTY_Y = "y";
+  private Long y;
+
+  public SyntheticsMobileStepParamsElementRelativePosition x(Long x) {
+    this.x = x;
     return this;
   }
 
   /**
-   * Object describing the binding used for a mobile test.
+   * The <code>relativePosition</code> on the <code>x</code> axis for the element.
    *
-   * @return items
+   * @return x
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ITEMS)
+  @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestBindingItems getItems() {
-    return items;
+  public Long getX() {
+    return x;
   }
 
-  public void setItems(SyntheticsMobileTestBindingItems items) {
-    this.items = items;
+  public void setX(Long x) {
+    this.x = x;
+  }
+
+  public SyntheticsMobileStepParamsElementRelativePosition y(Long y) {
+    this.y = y;
+    return this;
+  }
+
+  /**
+   * The <code>relativePosition</code> on the <code>y</code> axis for the element.
+   *
+   * @return y
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_Y)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getY() {
+    return y;
+  }
+
+  public void setY(Long y) {
+    this.y = y;
   }
 
   /**
@@ -59,10 +85,11 @@ public class SyntheticsMobileTestBinding {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestBinding
+   * @return SyntheticsMobileStepParamsElementRelativePosition
    */
   @JsonAnySetter
-  public SyntheticsMobileTestBinding putAdditionalProperty(String key, Object value) {
+  public SyntheticsMobileStepParamsElementRelativePosition putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +120,7 @@ public class SyntheticsMobileTestBinding {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsMobileTestBinding object is equal to o. */
+  /** Return true if this SyntheticsMobileStepParamsElementRelativePosition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,22 +129,27 @@ public class SyntheticsMobileTestBinding {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestBinding syntheticsMobileTestBinding = (SyntheticsMobileTestBinding) o;
-    return Objects.equals(this.items, syntheticsMobileTestBinding.items)
+    SyntheticsMobileStepParamsElementRelativePosition
+        syntheticsMobileStepParamsElementRelativePosition =
+            (SyntheticsMobileStepParamsElementRelativePosition) o;
+    return Objects.equals(this.x, syntheticsMobileStepParamsElementRelativePosition.x)
+        && Objects.equals(this.y, syntheticsMobileStepParamsElementRelativePosition.y)
         && Objects.equals(
-            this.additionalProperties, syntheticsMobileTestBinding.additionalProperties);
+            this.additionalProperties,
+            syntheticsMobileStepParamsElementRelativePosition.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, additionalProperties);
+    return Objects.hash(x, y, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestBinding {\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsElementRelativePosition {\n");
+    sb.append("    x: ").append(toIndentedString(x)).append("\n");
+    sb.append("    y: ").append(toIndentedString(y)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

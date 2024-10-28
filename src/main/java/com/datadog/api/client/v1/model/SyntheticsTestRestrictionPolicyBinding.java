@@ -12,40 +12,80 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Name of the property. */
+/** Objects describing the binding used for a mobile test. */
 @JsonPropertyOrder({
-  SyntheticsMobileTestInitialApplicationArgumentsPropertyNames.JSON_PROPERTY_PATTERN
+  SyntheticsTestRestrictionPolicyBinding.JSON_PROPERTY_PRINCIPALS,
+  SyntheticsTestRestrictionPolicyBinding.JSON_PROPERTY_RELATION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
+public class SyntheticsTestRestrictionPolicyBinding {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PATTERN = "pattern";
-  private String pattern;
+  public static final String JSON_PROPERTY_PRINCIPALS = "principals";
+  private List<String> principals = null;
 
-  public SyntheticsMobileTestInitialApplicationArgumentsPropertyNames pattern(String pattern) {
-    this.pattern = pattern;
+  public static final String JSON_PROPERTY_RELATION = "relation";
+  private SyntheticsTestRestrictionPolicyBindingRelation relation;
+
+  public SyntheticsTestRestrictionPolicyBinding principals(List<String> principals) {
+    this.principals = principals;
+    return this;
+  }
+
+  public SyntheticsTestRestrictionPolicyBinding addPrincipalsItem(String principalsItem) {
+    if (this.principals == null) {
+      this.principals = new ArrayList<>();
+    }
+    this.principals.add(principalsItem);
     return this;
   }
 
   /**
-   * The <code>propertyNames</code> <code>pattern</code>.
+   * List of principals for a mobile test binding.
    *
-   * @return pattern
+   * @return principals
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PATTERN)
+  @JsonProperty(JSON_PROPERTY_PRINCIPALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPattern() {
-    return pattern;
+  public List<String> getPrincipals() {
+    return principals;
   }
 
-  public void setPattern(String pattern) {
-    this.pattern = pattern;
+  public void setPrincipals(List<String> principals) {
+    this.principals = principals;
+  }
+
+  public SyntheticsTestRestrictionPolicyBinding relation(
+      SyntheticsTestRestrictionPolicyBindingRelation relation) {
+    this.relation = relation;
+    this.unparsed |= !relation.isValid();
+    return this;
+  }
+
+  /**
+   * The type of relation for the binding.
+   *
+   * @return relation
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RELATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestRestrictionPolicyBindingRelation getRelation() {
+    return relation;
+  }
+
+  public void setRelation(SyntheticsTestRestrictionPolicyBindingRelation relation) {
+    if (!relation.isValid()) {
+      this.unparsed = true;
+    }
+    this.relation = relation;
   }
 
   /**
@@ -60,11 +100,10 @@ public class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestInitialApplicationArgumentsPropertyNames
+   * @return SyntheticsTestRestrictionPolicyBinding
    */
   @JsonAnySetter
-  public SyntheticsMobileTestInitialApplicationArgumentsPropertyNames putAdditionalProperty(
-      String key, Object value) {
+  public SyntheticsTestRestrictionPolicyBinding putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -95,10 +134,7 @@ public class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this SyntheticsMobileTestInitialApplicationArgumentsPropertyNames object is
-   * equal to o.
-   */
+  /** Return true if this SyntheticsTestRestrictionPolicyBinding object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -107,26 +143,25 @@ public class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestInitialApplicationArgumentsPropertyNames
-        syntheticsMobileTestInitialApplicationArgumentsPropertyNames =
-            (SyntheticsMobileTestInitialApplicationArgumentsPropertyNames) o;
-    return Objects.equals(
-            this.pattern, syntheticsMobileTestInitialApplicationArgumentsPropertyNames.pattern)
+    SyntheticsTestRestrictionPolicyBinding syntheticsTestRestrictionPolicyBinding =
+        (SyntheticsTestRestrictionPolicyBinding) o;
+    return Objects.equals(this.principals, syntheticsTestRestrictionPolicyBinding.principals)
+        && Objects.equals(this.relation, syntheticsTestRestrictionPolicyBinding.relation)
         && Objects.equals(
-            this.additionalProperties,
-            syntheticsMobileTestInitialApplicationArgumentsPropertyNames.additionalProperties);
+            this.additionalProperties, syntheticsTestRestrictionPolicyBinding.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pattern, additionalProperties);
+    return Objects.hash(principals, relation, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {\n");
-    sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
+    sb.append("class SyntheticsTestRestrictionPolicyBinding {\n");
+    sb.append("    principals: ").append(toIndentedString(principals)).append("\n");
+    sb.append("    relation: ").append(toIndentedString(relation)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

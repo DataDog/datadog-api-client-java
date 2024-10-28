@@ -36,7 +36,7 @@ public class SensitiveDataScannerMeta {
   private Long groupCountLimit;
 
   public static final String JSON_PROPERTY_HAS_HIGHLIGHT_ENABLED = "has_highlight_enabled";
-  private Boolean hasHighlightEnabled;
+  private Boolean hasHighlightEnabled = true;
 
   public static final String JSON_PROPERTY_HAS_MULTI_PASS_ENABLED = "has_multi_pass_enabled";
   private Boolean hasMultiPassEnabled;
@@ -95,10 +95,12 @@ public class SensitiveDataScannerMeta {
   }
 
   /**
-   * Whether or not scanned events are highlighted in Logs or RUM for the org.
+   * (Deprecated) Whether or not scanned events are highlighted in Logs or RUM for the org.
    *
    * @return hasHighlightEnabled
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HAS_HIGHLIGHT_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,6 +108,7 @@ public class SensitiveDataScannerMeta {
     return hasHighlightEnabled;
   }
 
+  @Deprecated
   public void setHasHighlightEnabled(Boolean hasHighlightEnabled) {
     this.hasHighlightEnabled = hasHighlightEnabled;
   }
@@ -116,10 +119,12 @@ public class SensitiveDataScannerMeta {
   }
 
   /**
-   * Whether or not scanned events have multi-pass enabled.
+   * (Deprecated) Whether or not scanned events have multi-pass enabled.
    *
    * @return hasMultiPassEnabled
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HAS_MULTI_PASS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,6 +132,7 @@ public class SensitiveDataScannerMeta {
     return hasMultiPassEnabled;
   }
 
+  @Deprecated
   public void setHasMultiPassEnabled(Boolean hasMultiPassEnabled) {
     this.hasMultiPassEnabled = hasMultiPassEnabled;
   }

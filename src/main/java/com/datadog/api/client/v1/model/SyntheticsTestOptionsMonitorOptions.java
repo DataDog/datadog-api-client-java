@@ -19,13 +19,75 @@ import java.util.Objects;
 /**
  * Object containing the options for a Synthetic test as a monitor (for example, renotification).
  */
-@JsonPropertyOrder({SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL})
+@JsonPropertyOrder({
+  SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_ESCALATION_MESSAGE,
+  SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_NOTIFICATION_PRESET_NAME,
+  SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL,
+  SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_OCCURRENCES
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestOptionsMonitorOptions {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ESCALATION_MESSAGE = "escalation_message";
+  private String escalationMessage;
+
+  public static final String JSON_PROPERTY_NOTIFICATION_PRESET_NAME = "notification_preset_name";
+  private SyntheticsTestOptionsMonitorOptionsNotificationPresetName notificationPresetName;
+
   public static final String JSON_PROPERTY_RENOTIFY_INTERVAL = "renotify_interval";
   private Long renotifyInterval;
+
+  public static final String JSON_PROPERTY_RENOTIFY_OCCURRENCES = "renotify_occurrences";
+  private Long renotifyOccurrences;
+
+  public SyntheticsTestOptionsMonitorOptions escalationMessage(String escalationMessage) {
+    this.escalationMessage = escalationMessage;
+    return this;
+  }
+
+  /**
+   * Message to include in the escalation notification.
+   *
+   * @return escalationMessage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ESCALATION_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getEscalationMessage() {
+    return escalationMessage;
+  }
+
+  public void setEscalationMessage(String escalationMessage) {
+    this.escalationMessage = escalationMessage;
+  }
+
+  public SyntheticsTestOptionsMonitorOptions notificationPresetName(
+      SyntheticsTestOptionsMonitorOptionsNotificationPresetName notificationPresetName) {
+    this.notificationPresetName = notificationPresetName;
+    this.unparsed |= !notificationPresetName.isValid();
+    return this;
+  }
+
+  /**
+   * The name of the preset for the notification for the monitor.
+   *
+   * @return notificationPresetName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION_PRESET_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestOptionsMonitorOptionsNotificationPresetName getNotificationPresetName() {
+    return notificationPresetName;
+  }
+
+  public void setNotificationPresetName(
+      SyntheticsTestOptionsMonitorOptionsNotificationPresetName notificationPresetName) {
+    if (!notificationPresetName.isValid()) {
+      this.unparsed = true;
+    }
+    this.notificationPresetName = notificationPresetName;
+  }
 
   public SyntheticsTestOptionsMonitorOptions renotifyInterval(Long renotifyInterval) {
     this.renotifyInterval = renotifyInterval;
@@ -46,6 +108,27 @@ public class SyntheticsTestOptionsMonitorOptions {
 
   public void setRenotifyInterval(Long renotifyInterval) {
     this.renotifyInterval = renotifyInterval;
+  }
+
+  public SyntheticsTestOptionsMonitorOptions renotifyOccurrences(Long renotifyOccurrences) {
+    this.renotifyOccurrences = renotifyOccurrences;
+    return this;
+  }
+
+  /**
+   * The number of times to renotify if the test is still failing.
+   *
+   * @return renotifyOccurrences
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RENOTIFY_OCCURRENCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRenotifyOccurrences() {
+    return renotifyOccurrences;
+  }
+
+  public void setRenotifyOccurrences(Long renotifyOccurrences) {
+    this.renotifyOccurrences = renotifyOccurrences;
   }
 
   /**
@@ -106,21 +189,39 @@ public class SyntheticsTestOptionsMonitorOptions {
     SyntheticsTestOptionsMonitorOptions syntheticsTestOptionsMonitorOptions =
         (SyntheticsTestOptionsMonitorOptions) o;
     return Objects.equals(
+            this.escalationMessage, syntheticsTestOptionsMonitorOptions.escalationMessage)
+        && Objects.equals(
+            this.notificationPresetName, syntheticsTestOptionsMonitorOptions.notificationPresetName)
+        && Objects.equals(
             this.renotifyInterval, syntheticsTestOptionsMonitorOptions.renotifyInterval)
+        && Objects.equals(
+            this.renotifyOccurrences, syntheticsTestOptionsMonitorOptions.renotifyOccurrences)
         && Objects.equals(
             this.additionalProperties, syntheticsTestOptionsMonitorOptions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(renotifyInterval, additionalProperties);
+    return Objects.hash(
+        escalationMessage,
+        notificationPresetName,
+        renotifyInterval,
+        renotifyOccurrences,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsTestOptionsMonitorOptions {\n");
+    sb.append("    escalationMessage: ").append(toIndentedString(escalationMessage)).append("\n");
+    sb.append("    notificationPresetName: ")
+        .append(toIndentedString(notificationPresetName))
+        .append("\n");
     sb.append("    renotifyInterval: ").append(toIndentedString(renotifyInterval)).append("\n");
+    sb.append("    renotifyOccurrences: ")
+        .append(toIndentedString(renotifyOccurrences))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
