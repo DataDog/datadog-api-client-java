@@ -18,6 +18,7 @@ import com.datadog.api.client.v1.model.SyntheticsTestExecutionRule;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsHTTPVersion;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsMonitorOptions;
+import com.datadog.api.client.v1.model.SyntheticsTestOptionsMonitorOptionsNotificationPresetName;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsScheduling;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsSchedulingTimeframe;
@@ -53,7 +54,10 @@ public class Example {
                             .executionRule(SyntheticsTestExecutionRule.BLOCKING))
                     .deviceIds(Collections.singletonList(SyntheticsDeviceID.CHROME_LAPTOP_LARGE))
                     .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP1)
-                    .monitorOptions(new SyntheticsTestOptionsMonitorOptions())
+                    .monitorOptions(
+                        new SyntheticsTestOptionsMonitorOptions()
+                            .notificationPresetName(
+                                SyntheticsTestOptionsMonitorOptionsNotificationPresetName.SHOW_ALL))
                     .restrictedRoles(
                         Collections.singletonList("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"))
                     .retry(new SyntheticsTestOptionsRetry())

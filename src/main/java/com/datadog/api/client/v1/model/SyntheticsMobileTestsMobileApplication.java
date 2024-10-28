@@ -8,6 +8,7 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,6 +36,20 @@ public class SyntheticsMobileTestsMobileApplication {
   public static final String JSON_PROPERTY_REFERENCE_TYPE = "referenceType";
   private SyntheticsMobileTestsMobileApplicationReferenceType referenceType;
 
+  public SyntheticsMobileTestsMobileApplication() {}
+
+  @JsonCreator
+  public SyntheticsMobileTestsMobileApplication(
+      @JsonProperty(required = true, value = JSON_PROPERTY_APPLICATION_ID) String applicationId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REFERENCE_ID) String referenceId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REFERENCE_TYPE)
+          SyntheticsMobileTestsMobileApplicationReferenceType referenceType) {
+    this.applicationId = applicationId;
+    this.referenceId = referenceId;
+    this.referenceType = referenceType;
+    this.unparsed |= !referenceType.isValid();
+  }
+
   public SyntheticsMobileTestsMobileApplication applicationId(String applicationId) {
     this.applicationId = applicationId;
     return this;
@@ -45,9 +60,8 @@ public class SyntheticsMobileTestsMobileApplication {
    *
    * @return applicationId
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLICATION_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getApplicationId() {
     return applicationId;
   }
@@ -66,9 +80,8 @@ public class SyntheticsMobileTestsMobileApplication {
    *
    * @return referenceId
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getReferenceId() {
     return referenceId;
   }
@@ -89,9 +102,8 @@ public class SyntheticsMobileTestsMobileApplication {
    *
    * @return referenceType
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsMobileTestsMobileApplicationReferenceType getReferenceType() {
     return referenceType;
   }
