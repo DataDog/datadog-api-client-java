@@ -8,6 +8,7 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -46,16 +47,16 @@ public class SyntheticsMobileTestOptions {
   private Boolean allowApplicationCrash;
 
   public static final String JSON_PROPERTY_BINDINGS = "bindings";
-  private List<SyntheticsMobileTestBinding> bindings = null;
+  private List<SyntheticsTestRestrictionPolicyBinding> bindings = null;
 
   public static final String JSON_PROPERTY_CI = "ci";
-  private SyntheticsMobileTestCiOptions ci;
+  private SyntheticsTestCiOptions ci;
 
   public static final String JSON_PROPERTY_DEFAULT_STEP_TIMEOUT = "defaultStepTimeout";
   private Integer defaultStepTimeout;
 
   public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
-  private List<String> deviceIds = null;
+  private List<String> deviceIds = new ArrayList<>();
 
   public static final String JSON_PROPERTY_DISABLE_AUTO_ACCEPT_ALERT = "disableAutoAcceptAlert";
   private Boolean disableAutoAcceptAlert;
@@ -70,7 +71,7 @@ public class SyntheticsMobileTestOptions {
   private String monitorName;
 
   public static final String JSON_PROPERTY_MONITOR_OPTIONS = "monitor_options";
-  private SyntheticsMobileTestOptionsMonitorOptions monitorOptions;
+  private SyntheticsTestOptionsMonitorOptions monitorOptions;
 
   public static final String JSON_PROPERTY_MONITOR_PRIORITY = "monitor_priority";
   private Integer monitorPriority;
@@ -93,13 +94,27 @@ public class SyntheticsMobileTestOptions {
   public static final String JSON_PROPERTY_VERBOSITY = "verbosity";
   private Integer verbosity;
 
+  public SyntheticsMobileTestOptions() {}
+
+  @JsonCreator
+  public SyntheticsMobileTestOptions(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DEVICE_IDS) List<String> deviceIds,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MOBILE_APPLICATION)
+          SyntheticsMobileTestsMobileApplication mobileApplication,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TICK_EVERY) Long tickEvery) {
+    this.deviceIds = deviceIds;
+    this.mobileApplication = mobileApplication;
+    this.unparsed |= mobileApplication.unparsed;
+    this.tickEvery = tickEvery;
+  }
+
   public SyntheticsMobileTestOptions allowApplicationCrash(Boolean allowApplicationCrash) {
     this.allowApplicationCrash = allowApplicationCrash;
     return this;
   }
 
   /**
-   * The <code>SyntheticsMobileTestOptions</code> <code>allowApplicationCrash</code>.
+   * A boolean to set if an application crash would mark the test as failed.
    *
    * @return allowApplicationCrash
    */
@@ -114,15 +129,17 @@ public class SyntheticsMobileTestOptions {
     this.allowApplicationCrash = allowApplicationCrash;
   }
 
-  public SyntheticsMobileTestOptions bindings(List<SyntheticsMobileTestBinding> bindings) {
+  public SyntheticsMobileTestOptions bindings(
+      List<SyntheticsTestRestrictionPolicyBinding> bindings) {
     this.bindings = bindings;
-    for (SyntheticsMobileTestBinding item : bindings) {
+    for (SyntheticsTestRestrictionPolicyBinding item : bindings) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public SyntheticsMobileTestOptions addBindingsItem(SyntheticsMobileTestBinding bindingsItem) {
+  public SyntheticsMobileTestOptions addBindingsItem(
+      SyntheticsTestRestrictionPolicyBinding bindingsItem) {
     if (this.bindings == null) {
       this.bindings = new ArrayList<>();
     }
@@ -139,15 +156,15 @@ public class SyntheticsMobileTestOptions {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BINDINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsMobileTestBinding> getBindings() {
+  public List<SyntheticsTestRestrictionPolicyBinding> getBindings() {
     return bindings;
   }
 
-  public void setBindings(List<SyntheticsMobileTestBinding> bindings) {
+  public void setBindings(List<SyntheticsTestRestrictionPolicyBinding> bindings) {
     this.bindings = bindings;
   }
 
-  public SyntheticsMobileTestOptions ci(SyntheticsMobileTestCiOptions ci) {
+  public SyntheticsMobileTestOptions ci(SyntheticsTestCiOptions ci) {
     this.ci = ci;
     this.unparsed |= ci.unparsed;
     return this;
@@ -161,11 +178,11 @@ public class SyntheticsMobileTestOptions {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestCiOptions getCi() {
+  public SyntheticsTestCiOptions getCi() {
     return ci;
   }
 
-  public void setCi(SyntheticsMobileTestCiOptions ci) {
+  public void setCi(SyntheticsTestCiOptions ci) {
     this.ci = ci;
   }
 
@@ -175,8 +192,7 @@ public class SyntheticsMobileTestOptions {
   }
 
   /**
-   * The <code>SyntheticsMobileTestOptions</code> <code>defaultStepTimeout</code>. minimum: 1
-   * maximum: 300
+   * The default timeout for steps in the test (in seconds). minimum: 1 maximum: 300
    *
    * @return defaultStepTimeout
    */
@@ -197,9 +213,6 @@ public class SyntheticsMobileTestOptions {
   }
 
   public SyntheticsMobileTestOptions addDeviceIdsItem(String deviceIdsItem) {
-    if (this.deviceIds == null) {
-      this.deviceIds = new ArrayList<>();
-    }
     this.deviceIds.add(deviceIdsItem);
     return this;
   }
@@ -209,9 +222,8 @@ public class SyntheticsMobileTestOptions {
    *
    * @return deviceIds
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getDeviceIds() {
     return deviceIds;
   }
@@ -226,7 +238,7 @@ public class SyntheticsMobileTestOptions {
   }
 
   /**
-   * The <code>SyntheticsMobileTestOptions</code> <code>disableAutoAcceptAlert</code>.
+   * A boolean to disable auto accepting alerts.
    *
    * @return disableAutoAcceptAlert
    */
@@ -274,9 +286,8 @@ public class SyntheticsMobileTestOptions {
    *
    * @return mobileApplication
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_APPLICATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsMobileTestsMobileApplication getMobileApplication() {
     return mobileApplication;
   }
@@ -308,26 +319,25 @@ public class SyntheticsMobileTestOptions {
   }
 
   public SyntheticsMobileTestOptions monitorOptions(
-      SyntheticsMobileTestOptionsMonitorOptions monitorOptions) {
+      SyntheticsTestOptionsMonitorOptions monitorOptions) {
     this.monitorOptions = monitorOptions;
     this.unparsed |= monitorOptions.unparsed;
     return this;
   }
 
   /**
-   * Object containing the options for a mobile Synthetic test as a monitor (for example,
-   * renotification).
+   * Object containing the options for a Synthetic test as a monitor (for example, renotification).
    *
    * @return monitorOptions
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONITOR_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsMobileTestOptionsMonitorOptions getMonitorOptions() {
+  public SyntheticsTestOptionsMonitorOptions getMonitorOptions() {
     return monitorOptions;
   }
 
-  public void setMonitorOptions(SyntheticsMobileTestOptionsMonitorOptions monitorOptions) {
+  public void setMonitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
     this.monitorOptions = monitorOptions;
   }
 
@@ -358,7 +368,7 @@ public class SyntheticsMobileTestOptions {
   }
 
   /**
-   * The <code>SyntheticsMobileTestOptions</code> <code>noScreenshot</code>.
+   * A boolean set to not take a screenshot for the step.
    *
    * @return noScreenshot
    */
@@ -457,9 +467,8 @@ public class SyntheticsMobileTestOptions {
    *
    * @return tickEvery
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TICK_EVERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Long getTickEvery() {
     return tickEvery;
   }
@@ -474,7 +483,7 @@ public class SyntheticsMobileTestOptions {
   }
 
   /**
-   * The <code>SyntheticsMobileTestOptions</code> <code>verbosity</code>. minimum: 0 maximum: 5
+   * The level of verbosity for the mobile test. minimum: 0 maximum: 5
    *
    * @return verbosity
    */

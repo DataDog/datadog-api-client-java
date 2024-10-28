@@ -124,7 +124,7 @@ public class SyntheticsMobileTest {
   }
 
   /**
-   * The <code>SyntheticsMobileTest</code> <code>device_ids</code>.
+   * Array with the different device IDs used to run the test.
    *
    * @return deviceIds
    */

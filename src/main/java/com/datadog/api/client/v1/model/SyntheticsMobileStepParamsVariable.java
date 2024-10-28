@@ -13,87 +13,73 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object containing timeframes and timezone used for advanced scheduling. */
+/** Variable object for <code>extractVariable</code> step type. */
 @JsonPropertyOrder({
-  SyntheticsTestOptionsScheduling.JSON_PROPERTY_TIMEFRAMES,
-  SyntheticsTestOptionsScheduling.JSON_PROPERTY_TIMEZONE
+  SyntheticsMobileStepParamsVariable.JSON_PROPERTY_EXAMPLE,
+  SyntheticsMobileStepParamsVariable.JSON_PROPERTY_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsTestOptionsScheduling {
+public class SyntheticsMobileStepParamsVariable {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_TIMEFRAMES = "timeframes";
-  private List<SyntheticsTestOptionsSchedulingTimeframe> timeframes = new ArrayList<>();
+  public static final String JSON_PROPERTY_EXAMPLE = "example";
+  private String example;
 
-  public static final String JSON_PROPERTY_TIMEZONE = "timezone";
-  private String timezone;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public SyntheticsTestOptionsScheduling() {}
+  public SyntheticsMobileStepParamsVariable() {}
 
   @JsonCreator
-  public SyntheticsTestOptionsScheduling(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIMEFRAMES)
-          List<SyntheticsTestOptionsSchedulingTimeframe> timeframes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIMEZONE) String timezone) {
-    this.timeframes = timeframes;
-    this.timezone = timezone;
+  public SyntheticsMobileStepParamsVariable(
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXAMPLE) String example,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.example = example;
+    this.name = name;
   }
 
-  public SyntheticsTestOptionsScheduling timeframes(
-      List<SyntheticsTestOptionsSchedulingTimeframe> timeframes) {
-    this.timeframes = timeframes;
-    for (SyntheticsTestOptionsSchedulingTimeframe item : timeframes) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public SyntheticsTestOptionsScheduling addTimeframesItem(
-      SyntheticsTestOptionsSchedulingTimeframe timeframesItem) {
-    this.timeframes.add(timeframesItem);
-    this.unparsed |= timeframesItem.unparsed;
+  public SyntheticsMobileStepParamsVariable example(String example) {
+    this.example = example;
     return this;
   }
 
   /**
-   * Array containing objects describing the scheduling pattern to apply to each day.
+   * An example for the variable.
    *
-   * @return timeframes
+   * @return example
    */
-  @JsonProperty(JSON_PROPERTY_TIMEFRAMES)
+  @JsonProperty(JSON_PROPERTY_EXAMPLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SyntheticsTestOptionsSchedulingTimeframe> getTimeframes() {
-    return timeframes;
+  public String getExample() {
+    return example;
   }
 
-  public void setTimeframes(List<SyntheticsTestOptionsSchedulingTimeframe> timeframes) {
-    this.timeframes = timeframes;
+  public void setExample(String example) {
+    this.example = example;
   }
 
-  public SyntheticsTestOptionsScheduling timezone(String timezone) {
-    this.timezone = timezone;
+  public SyntheticsMobileStepParamsVariable name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Timezone in which the timeframe is based.
+   * The variable name.
    *
-   * @return timezone
+   * @return name
    */
-  @JsonProperty(JSON_PROPERTY_TIMEZONE)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getTimezone() {
-    return timezone;
+  public String getName() {
+    return name;
   }
 
-  public void setTimezone(String timezone) {
-    this.timezone = timezone;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -108,10 +94,10 @@ public class SyntheticsTestOptionsScheduling {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsTestOptionsScheduling
+   * @return SyntheticsMobileStepParamsVariable
    */
   @JsonAnySetter
-  public SyntheticsTestOptionsScheduling putAdditionalProperty(String key, Object value) {
+  public SyntheticsMobileStepParamsVariable putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -142,7 +128,7 @@ public class SyntheticsTestOptionsScheduling {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsTestOptionsScheduling object is equal to o. */
+  /** Return true if this SyntheticsMobileStepParamsVariable object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -151,25 +137,25 @@ public class SyntheticsTestOptionsScheduling {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestOptionsScheduling syntheticsTestOptionsScheduling =
-        (SyntheticsTestOptionsScheduling) o;
-    return Objects.equals(this.timeframes, syntheticsTestOptionsScheduling.timeframes)
-        && Objects.equals(this.timezone, syntheticsTestOptionsScheduling.timezone)
+    SyntheticsMobileStepParamsVariable syntheticsMobileStepParamsVariable =
+        (SyntheticsMobileStepParamsVariable) o;
+    return Objects.equals(this.example, syntheticsMobileStepParamsVariable.example)
+        && Objects.equals(this.name, syntheticsMobileStepParamsVariable.name)
         && Objects.equals(
-            this.additionalProperties, syntheticsTestOptionsScheduling.additionalProperties);
+            this.additionalProperties, syntheticsMobileStepParamsVariable.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timeframes, timezone, additionalProperties);
+    return Objects.hash(example, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTestOptionsScheduling {\n");
-    sb.append("    timeframes: ").append(toIndentedString(timeframes)).append("\n");
-    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsVariable {\n");
+    sb.append("    example: ").append(toIndentedString(example)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

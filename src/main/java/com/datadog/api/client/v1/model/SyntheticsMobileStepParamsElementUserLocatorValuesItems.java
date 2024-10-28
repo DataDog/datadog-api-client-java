@@ -8,7 +8,6 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,47 +16,66 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** CI/CD options for a Synthetic test. */
-@JsonPropertyOrder({SyntheticsMobileTestCiOptions.JSON_PROPERTY_EXECUTION_RULE})
+/** A single user locator object. */
+@JsonPropertyOrder({
+  SyntheticsMobileStepParamsElementUserLocatorValuesItems.JSON_PROPERTY_TYPE,
+  SyntheticsMobileStepParamsElementUserLocatorValuesItems.JSON_PROPERTY_VALUE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SyntheticsMobileTestCiOptions {
+public class SyntheticsMobileStepParamsElementUserLocatorValuesItems {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_EXECUTION_RULE = "executionRule";
-  private SyntheticsTestExecutionRule executionRule;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SyntheticsMobileStepParamsElementUserLocatorValuesItemsType type;
 
-  public SyntheticsMobileTestCiOptions() {}
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private String value;
 
-  @JsonCreator
-  public SyntheticsMobileTestCiOptions(
-      @JsonProperty(required = true, value = JSON_PROPERTY_EXECUTION_RULE)
-          SyntheticsTestExecutionRule executionRule) {
-    this.executionRule = executionRule;
-    this.unparsed |= !executionRule.isValid();
-  }
-
-  public SyntheticsMobileTestCiOptions executionRule(SyntheticsTestExecutionRule executionRule) {
-    this.executionRule = executionRule;
-    this.unparsed |= !executionRule.isValid();
+  public SyntheticsMobileStepParamsElementUserLocatorValuesItems type(
+      SyntheticsMobileStepParamsElementUserLocatorValuesItemsType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Execution rule for a Synthetic test.
+   * Type of a user locator.
    *
-   * @return executionRule
+   * @return type
    */
-  @JsonProperty(JSON_PROPERTY_EXECUTION_RULE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsTestExecutionRule getExecutionRule() {
-    return executionRule;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsMobileStepParamsElementUserLocatorValuesItemsType getType() {
+    return type;
   }
 
-  public void setExecutionRule(SyntheticsTestExecutionRule executionRule) {
-    if (!executionRule.isValid()) {
+  public void setType(SyntheticsMobileStepParamsElementUserLocatorValuesItemsType type) {
+    if (!type.isValid()) {
       this.unparsed = true;
     }
-    this.executionRule = executionRule;
+    this.type = type;
+  }
+
+  public SyntheticsMobileStepParamsElementUserLocatorValuesItems value(String value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * Value of a user locator.
+   *
+   * @return value
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
   /**
@@ -72,10 +90,11 @@ public class SyntheticsMobileTestCiOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SyntheticsMobileTestCiOptions
+   * @return SyntheticsMobileStepParamsElementUserLocatorValuesItems
    */
   @JsonAnySetter
-  public SyntheticsMobileTestCiOptions putAdditionalProperty(String key, Object value) {
+  public SyntheticsMobileStepParamsElementUserLocatorValuesItems putAdditionalProperty(
+      String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -106,7 +125,10 @@ public class SyntheticsMobileTestCiOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SyntheticsMobileTestCiOptions object is equal to o. */
+  /**
+   * Return true if this SyntheticsMobileStepParamsElementUserLocatorValuesItems object is equal to
+   * o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,22 +137,27 @@ public class SyntheticsMobileTestCiOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsMobileTestCiOptions syntheticsMobileTestCiOptions = (SyntheticsMobileTestCiOptions) o;
-    return Objects.equals(this.executionRule, syntheticsMobileTestCiOptions.executionRule)
+    SyntheticsMobileStepParamsElementUserLocatorValuesItems
+        syntheticsMobileStepParamsElementUserLocatorValuesItems =
+            (SyntheticsMobileStepParamsElementUserLocatorValuesItems) o;
+    return Objects.equals(this.type, syntheticsMobileStepParamsElementUserLocatorValuesItems.type)
+        && Objects.equals(this.value, syntheticsMobileStepParamsElementUserLocatorValuesItems.value)
         && Objects.equals(
-            this.additionalProperties, syntheticsMobileTestCiOptions.additionalProperties);
+            this.additionalProperties,
+            syntheticsMobileStepParamsElementUserLocatorValuesItems.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(executionRule, additionalProperties);
+    return Objects.hash(type, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsMobileTestCiOptions {\n");
-    sb.append("    executionRule: ").append(toIndentedString(executionRule)).append("\n");
+    sb.append("class SyntheticsMobileStepParamsElementUserLocatorValuesItems {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
