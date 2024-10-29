@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"e4408b9cd8ee3d61\",\"is_default\":true,\"name\":\"e4408b9cd8ee3d61\"},\"type\":\"incident_types\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/incidents/config/types",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"56ec8c33-78bf-469b-a45c-7aa57f5c2328\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2024-10-24T15:20:11.007569706Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"e4408b9cd8ee3d61\",\"is_default\":true,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2024-10-24T15:20:11.007569706Z\",\"name\":\"e4408b9cd8ee3d61\",\"prefix\":\"IR\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a20f9ca0-32af-9f52-110b-cc93fc9ba034"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/incidents/config/types/56ec8c33-78bf-469b-a45c-7aa57f5c2328",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"cannot delete default incident type 56ec8c33-78bf-469b-a45c-7aa57f5c2328\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "adde0cb1-c20b-10fb-0a62-4f5377271f31"
+  }
+]

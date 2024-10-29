@@ -25,6 +25,10 @@ import com.datadog.api.client.v2.model.IncidentTodoCreateRequest;
 import com.datadog.api.client.v2.model.IncidentTodoListResponse;
 import com.datadog.api.client.v2.model.IncidentTodoPatchRequest;
 import com.datadog.api.client.v2.model.IncidentTodoResponse;
+import com.datadog.api.client.v2.model.IncidentTypeCreateRequest;
+import com.datadog.api.client.v2.model.IncidentTypeListResponse;
+import com.datadog.api.client.v2.model.IncidentTypePatchRequest;
+import com.datadog.api.client.v2.model.IncidentTypeResponse;
 import com.datadog.api.client.v2.model.IncidentUpdateRequest;
 import com.datadog.api.client.v2.model.IncidentsResponse;
 import jakarta.ws.rs.client.Invocation;
@@ -580,6 +584,158 @@ public class IncidentsApi {
   }
 
   /**
+   * Create an incident type.
+   *
+   * <p>See {@link #createIncidentTypeWithHttpInfo}.
+   *
+   * @param body Incident type payload. (required)
+   * @return IncidentTypeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentTypeResponse createIncidentType(IncidentTypeCreateRequest body)
+      throws ApiException {
+    return createIncidentTypeWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an incident type.
+   *
+   * <p>See {@link #createIncidentTypeWithHttpInfoAsync}.
+   *
+   * @param body Incident type payload. (required)
+   * @return CompletableFuture&lt;IncidentTypeResponse&gt;
+   */
+  public CompletableFuture<IncidentTypeResponse> createIncidentTypeAsync(
+      IncidentTypeCreateRequest body) {
+    return createIncidentTypeWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create an incident type.
+   *
+   * @param body Incident type payload. (required)
+   * @return ApiResponse&lt;IncidentTypeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentTypeResponse> createIncidentTypeWithHttpInfo(
+      IncidentTypeCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentType";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createIncidentType");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/types";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.createIncidentType",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTypeResponse>() {});
+  }
+
+  /**
+   * Create an incident type.
+   *
+   * <p>See {@link #createIncidentTypeWithHttpInfo}.
+   *
+   * @param body Incident type payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentTypeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentTypeResponse>> createIncidentTypeWithHttpInfoAsync(
+      IncidentTypeCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createIncidentType";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createIncidentType"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/types";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.createIncidentType",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTypeResponse>() {});
+  }
+
+  /**
    * Delete an existing incident.
    *
    * <p>See {@link #deleteIncidentWithHttpInfo}.
@@ -1075,6 +1231,164 @@ public class IncidentsApi {
       builder =
           apiClient.createBuilder(
               "v2.IncidentsApi.deleteIncidentTodo",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an incident type.
+   *
+   * <p>See {@link #deleteIncidentTypeWithHttpInfo}.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteIncidentType(String incidentTypeId) throws ApiException {
+    deleteIncidentTypeWithHttpInfo(incidentTypeId);
+  }
+
+  /**
+   * Delete an incident type.
+   *
+   * <p>See {@link #deleteIncidentTypeWithHttpInfoAsync}.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteIncidentTypeAsync(String incidentTypeId) {
+    return deleteIncidentTypeWithHttpInfoAsync(incidentTypeId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an incident type.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteIncidentTypeWithHttpInfo(String incidentTypeId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentType";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentTypeId' is set
+    if (incidentTypeId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'incidentTypeId' when calling deleteIncidentType");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/types/{incident_type_id}"
+            .replaceAll(
+                "\\{" + "incident_type_id" + "\\}",
+                apiClient.escapeString(incidentTypeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.deleteIncidentType",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an incident type.
+   *
+   * <p>See {@link #deleteIncidentTypeWithHttpInfo}.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteIncidentTypeWithHttpInfoAsync(
+      String incidentTypeId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteIncidentType";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentTypeId' is set
+    if (incidentTypeId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentTypeId' when calling deleteIncidentType"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/types/{incident_type_id}"
+            .replaceAll(
+                "\\{" + "incident_type_id" + "\\}",
+                apiClient.escapeString(incidentTypeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.deleteIncidentType",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1682,6 +1996,164 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentTodoResponse>() {});
+  }
+
+  /**
+   * Get incident type details.
+   *
+   * <p>See {@link #getIncidentTypeWithHttpInfo}.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @return IncidentTypeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentTypeResponse getIncidentType(String incidentTypeId) throws ApiException {
+    return getIncidentTypeWithHttpInfo(incidentTypeId).getData();
+  }
+
+  /**
+   * Get incident type details.
+   *
+   * <p>See {@link #getIncidentTypeWithHttpInfoAsync}.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @return CompletableFuture&lt;IncidentTypeResponse&gt;
+   */
+  public CompletableFuture<IncidentTypeResponse> getIncidentTypeAsync(String incidentTypeId) {
+    return getIncidentTypeWithHttpInfoAsync(incidentTypeId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get incident type details.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @return ApiResponse&lt;IncidentTypeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentTypeResponse> getIncidentTypeWithHttpInfo(String incidentTypeId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentType";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentTypeId' is set
+    if (incidentTypeId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'incidentTypeId' when calling getIncidentType");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/types/{incident_type_id}"
+            .replaceAll(
+                "\\{" + "incident_type_id" + "\\}",
+                apiClient.escapeString(incidentTypeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.getIncidentType",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTypeResponse>() {});
+  }
+
+  /**
+   * Get incident type details.
+   *
+   * <p>See {@link #getIncidentTypeWithHttpInfo}.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentTypeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentTypeResponse>> getIncidentTypeWithHttpInfoAsync(
+      String incidentTypeId) {
+    // Check if unstable operation is enabled
+    String operationId = "getIncidentType";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'incidentTypeId' is set
+    if (incidentTypeId == null) {
+      CompletableFuture<ApiResponse<IncidentTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'incidentTypeId' when calling getIncidentType"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/types/{incident_type_id}"
+            .replaceAll(
+                "\\{" + "incident_type_id" + "\\}",
+                apiClient.escapeString(incidentTypeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.getIncidentType",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTypeResponse>() {});
   }
 
   /** Manage optional parameters to listIncidentAttachments. */
@@ -2522,6 +2994,194 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentTodoListResponse>() {});
+  }
+
+  /** Manage optional parameters to listIncidentTypes. */
+  public static class ListIncidentTypesOptionalParameters {
+    private Boolean includeDeleted;
+
+    /**
+     * Set includeDeleted.
+     *
+     * @param includeDeleted Include deleted incident types in the response. (optional, default to
+     *     false)
+     * @return ListIncidentTypesOptionalParameters
+     */
+    public ListIncidentTypesOptionalParameters includeDeleted(Boolean includeDeleted) {
+      this.includeDeleted = includeDeleted;
+      return this;
+    }
+  }
+
+  /**
+   * Get a list of incident types.
+   *
+   * <p>See {@link #listIncidentTypesWithHttpInfo}.
+   *
+   * @return IncidentTypeListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentTypeListResponse listIncidentTypes() throws ApiException {
+    return listIncidentTypesWithHttpInfo(new ListIncidentTypesOptionalParameters()).getData();
+  }
+
+  /**
+   * Get a list of incident types.
+   *
+   * <p>See {@link #listIncidentTypesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;IncidentTypeListResponse&gt;
+   */
+  public CompletableFuture<IncidentTypeListResponse> listIncidentTypesAsync() {
+    return listIncidentTypesWithHttpInfoAsync(new ListIncidentTypesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of incident types.
+   *
+   * <p>See {@link #listIncidentTypesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return IncidentTypeListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentTypeListResponse listIncidentTypes(ListIncidentTypesOptionalParameters parameters)
+      throws ApiException {
+    return listIncidentTypesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get a list of incident types.
+   *
+   * <p>See {@link #listIncidentTypesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;IncidentTypeListResponse&gt;
+   */
+  public CompletableFuture<IncidentTypeListResponse> listIncidentTypesAsync(
+      ListIncidentTypesOptionalParameters parameters) {
+    return listIncidentTypesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all incident types.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentTypeListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentTypeListResponse> listIncidentTypesWithHttpInfo(
+      ListIncidentTypesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentTypes";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Boolean includeDeleted = parameters.includeDeleted;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/types";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_deleted", includeDeleted));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.listIncidentTypes",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTypeListResponse>() {});
+  }
+
+  /**
+   * Get a list of incident types.
+   *
+   * <p>See {@link #listIncidentTypesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentTypeListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentTypeListResponse>>
+      listIncidentTypesWithHttpInfoAsync(ListIncidentTypesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listIncidentTypes";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentTypeListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Boolean includeDeleted = parameters.includeDeleted;
+    // create path and map variables
+    String localVarPath = "/api/v2/incidents/config/types";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_deleted", includeDeleted));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.listIncidentTypes",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentTypeListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTypeListResponse>() {});
   }
 
   /** Manage optional parameters to searchIncidents. */
@@ -3787,5 +4447,185 @@ public class IncidentsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<IncidentTodoResponse>() {});
+  }
+
+  /**
+   * Update an incident type.
+   *
+   * <p>See {@link #updateIncidentTypeWithHttpInfo}.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @param body Incident type payload. (required)
+   * @return IncidentTypeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public IncidentTypeResponse updateIncidentType(
+      String incidentTypeId, IncidentTypePatchRequest body) throws ApiException {
+    return updateIncidentTypeWithHttpInfo(incidentTypeId, body).getData();
+  }
+
+  /**
+   * Update an incident type.
+   *
+   * <p>See {@link #updateIncidentTypeWithHttpInfoAsync}.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @param body Incident type payload. (required)
+   * @return CompletableFuture&lt;IncidentTypeResponse&gt;
+   */
+  public CompletableFuture<IncidentTypeResponse> updateIncidentTypeAsync(
+      String incidentTypeId, IncidentTypePatchRequest body) {
+    return updateIncidentTypeWithHttpInfoAsync(incidentTypeId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an incident type.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @param body Incident type payload. (required)
+   * @return ApiResponse&lt;IncidentTypeResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentTypeResponse> updateIncidentTypeWithHttpInfo(
+      String incidentTypeId, IncidentTypePatchRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentType";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentTypeId' is set
+    if (incidentTypeId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'incidentTypeId' when calling updateIncidentType");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateIncidentType");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/types/{incident_type_id}"
+            .replaceAll(
+                "\\{" + "incident_type_id" + "\\}",
+                apiClient.escapeString(incidentTypeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.IncidentsApi.updateIncidentType",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTypeResponse>() {});
+  }
+
+  /**
+   * Update an incident type.
+   *
+   * <p>See {@link #updateIncidentTypeWithHttpInfo}.
+   *
+   * @param incidentTypeId The UUID of the incident type. (required)
+   * @param body Incident type payload. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;IncidentTypeResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<IncidentTypeResponse>> updateIncidentTypeWithHttpInfoAsync(
+      String incidentTypeId, IncidentTypePatchRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateIncidentType";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<IncidentTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'incidentTypeId' is set
+    if (incidentTypeId == null) {
+      CompletableFuture<ApiResponse<IncidentTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'incidentTypeId' when calling updateIncidentType"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<IncidentTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateIncidentType"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/incidents/config/types/{incident_type_id}"
+            .replaceAll(
+                "\\{" + "incident_type_id" + "\\}",
+                apiClient.escapeString(incidentTypeId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.IncidentsApi.updateIncidentType",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<IncidentTypeResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<IncidentTypeResponse>() {});
   }
 }

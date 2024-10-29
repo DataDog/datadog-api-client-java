@@ -24,6 +24,7 @@ import java.util.Objects;
   IncidentCreateAttributes.JSON_PROPERTY_CUSTOMER_IMPACT_SCOPE,
   IncidentCreateAttributes.JSON_PROPERTY_CUSTOMER_IMPACTED,
   IncidentCreateAttributes.JSON_PROPERTY_FIELDS,
+  IncidentCreateAttributes.JSON_PROPERTY_INCIDENT_TYPE_UUID,
   IncidentCreateAttributes.JSON_PROPERTY_INITIAL_CELLS,
   IncidentCreateAttributes.JSON_PROPERTY_NOTIFICATION_HANDLES,
   IncidentCreateAttributes.JSON_PROPERTY_TITLE
@@ -40,6 +41,9 @@ public class IncidentCreateAttributes {
 
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private Map<String, IncidentFieldAttributes> fields = null;
+
+  public static final String JSON_PROPERTY_INCIDENT_TYPE_UUID = "incident_type_uuid";
+  private String incidentTypeUuid;
 
   public static final String JSON_PROPERTY_INITIAL_CELLS = "initial_cells";
   private List<IncidentTimelineCellCreateAttributes> initialCells = null;
@@ -130,6 +134,28 @@ public class IncidentCreateAttributes {
 
   public void setFields(Map<String, IncidentFieldAttributes> fields) {
     this.fields = fields;
+  }
+
+  public IncidentCreateAttributes incidentTypeUuid(String incidentTypeUuid) {
+    this.incidentTypeUuid = incidentTypeUuid;
+    return this;
+  }
+
+  /**
+   * A unique identifier that represents an incident type. The default incident type will be used if
+   * this property is not provided.
+   *
+   * @return incidentTypeUuid
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCIDENT_TYPE_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIncidentTypeUuid() {
+    return incidentTypeUuid;
+  }
+
+  public void setIncidentTypeUuid(String incidentTypeUuid) {
+    this.incidentTypeUuid = incidentTypeUuid;
   }
 
   public IncidentCreateAttributes initialCells(
@@ -281,6 +307,7 @@ public class IncidentCreateAttributes {
     return Objects.equals(this.customerImpactScope, incidentCreateAttributes.customerImpactScope)
         && Objects.equals(this.customerImpacted, incidentCreateAttributes.customerImpacted)
         && Objects.equals(this.fields, incidentCreateAttributes.fields)
+        && Objects.equals(this.incidentTypeUuid, incidentCreateAttributes.incidentTypeUuid)
         && Objects.equals(this.initialCells, incidentCreateAttributes.initialCells)
         && Objects.equals(this.notificationHandles, incidentCreateAttributes.notificationHandles)
         && Objects.equals(this.title, incidentCreateAttributes.title)
@@ -293,6 +320,7 @@ public class IncidentCreateAttributes {
         customerImpactScope,
         customerImpacted,
         fields,
+        incidentTypeUuid,
         initialCells,
         notificationHandles,
         title,
@@ -308,6 +336,7 @@ public class IncidentCreateAttributes {
         .append("\n");
     sb.append("    customerImpacted: ").append(toIndentedString(customerImpacted)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    incidentTypeUuid: ").append(toIndentedString(incidentTypeUuid)).append("\n");
     sb.append("    initialCells: ").append(toIndentedString(initialCells)).append("\n");
     sb.append("    notificationHandles: ")
         .append(toIndentedString(notificationHandles))
