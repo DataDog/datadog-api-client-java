@@ -26,12 +26,12 @@ import java.util.Objects;
 public class SyntheticsMobileStepParamsPositionsItems {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_X = "x";
-  private Long x;
+  private Double x;
 
   public static final String JSON_PROPERTY_Y = "y";
-  private Long y;
+  private Double y;
 
-  public SyntheticsMobileStepParamsPositionsItems x(Long x) {
+  public SyntheticsMobileStepParamsPositionsItems x(Double x) {
     this.x = x;
     return this;
   }
@@ -44,15 +44,15 @@ public class SyntheticsMobileStepParamsPositionsItems {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getX() {
+  public Double getX() {
     return x;
   }
 
-  public void setX(Long x) {
+  public void setX(Double x) {
     this.x = x;
   }
 
-  public SyntheticsMobileStepParamsPositionsItems y(Long y) {
+  public SyntheticsMobileStepParamsPositionsItems y(Double y) {
     this.y = y;
     return this;
   }
@@ -65,11 +65,11 @@ public class SyntheticsMobileStepParamsPositionsItems {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getY() {
+  public Double getY() {
     return y;
   }
 
-  public void setY(Long y) {
+  public void setY(Double y) {
     this.y = y;
   }
 
