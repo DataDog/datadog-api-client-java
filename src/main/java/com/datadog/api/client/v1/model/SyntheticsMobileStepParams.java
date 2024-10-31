@@ -24,7 +24,7 @@ import java.util.Objects;
   SyntheticsMobileStepParams.JSON_PROPERTY_DELAY,
   SyntheticsMobileStepParams.JSON_PROPERTY_DIRECTION,
   SyntheticsMobileStepParams.JSON_PROPERTY_ELEMENT,
-  SyntheticsMobileStepParams.JSON_PROPERTY_ENABLE,
+  SyntheticsMobileStepParams.JSON_PROPERTY_ENABLED,
   SyntheticsMobileStepParams.JSON_PROPERTY_MAX_SCROLLS,
   SyntheticsMobileStepParams.JSON_PROPERTY_POSITIONS,
   SyntheticsMobileStepParams.JSON_PROPERTY_SUBTEST_PUBLIC_ID,
@@ -50,8 +50,8 @@ public class SyntheticsMobileStepParams {
   public static final String JSON_PROPERTY_ELEMENT = "element";
   private SyntheticsMobileStepParamsElement element;
 
-  public static final String JSON_PROPERTY_ENABLE = "enable";
-  private Boolean enable;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
 
   public static final String JSON_PROPERTY_MAX_SCROLLS = "maxScrolls";
   private Long maxScrolls;
@@ -63,7 +63,7 @@ public class SyntheticsMobileStepParams {
   private String subtestPublicId;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private String value;
+  private SyntheticsMobileStepParamsValue value;
 
   public static final String JSON_PROPERTY_VARIABLE = "variable";
   private SyntheticsMobileStepParamsVariable variable;
@@ -72,10 +72,10 @@ public class SyntheticsMobileStepParams {
   private Boolean withEnter;
 
   public static final String JSON_PROPERTY_X = "x";
-  private Long x;
+  private Double x;
 
   public static final String JSON_PROPERTY_Y = "y";
-  private Long y;
+  private Double y;
 
   public SyntheticsMobileStepParams check(SyntheticsCheckType check) {
     this.check = check;
@@ -171,25 +171,25 @@ public class SyntheticsMobileStepParams {
     this.element = element;
   }
 
-  public SyntheticsMobileStepParams enable(Boolean enable) {
-    this.enable = enable;
+  public SyntheticsMobileStepParams enabled(Boolean enabled) {
+    this.enabled = enabled;
     return this;
   }
 
   /**
    * Boolean to change the state of the wifi for a <code>toggleWiFi</code> step type.
    *
-   * @return enable
+   * @return enabled
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ENABLE)
+  @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getEnable() {
-    return enable;
+  public Boolean getEnabled() {
+    return enabled;
   }
 
-  public void setEnable(Boolean enable) {
-    this.enable = enable;
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   public SyntheticsMobileStepParams maxScrolls(Long maxScrolls) {
@@ -269,24 +269,25 @@ public class SyntheticsMobileStepParams {
     this.subtestPublicId = subtestPublicId;
   }
 
-  public SyntheticsMobileStepParams value(String value) {
+  public SyntheticsMobileStepParams value(SyntheticsMobileStepParamsValue value) {
     this.value = value;
+    this.unparsed |= value.unparsed;
     return this;
   }
 
   /**
-   * Values used in the step. Used in multiple step types.
+   * Values used in the step for in multiple step types.
    *
    * @return value
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getValue() {
+  public SyntheticsMobileStepParamsValue getValue() {
     return value;
   }
 
-  public void setValue(String value) {
+  public void setValue(SyntheticsMobileStepParamsValue value) {
     this.value = value;
   }
 
@@ -334,7 +335,7 @@ public class SyntheticsMobileStepParams {
     this.withEnter = withEnter;
   }
 
-  public SyntheticsMobileStepParams x(Long x) {
+  public SyntheticsMobileStepParams x(Double x) {
     this.x = x;
     return this;
   }
@@ -347,15 +348,15 @@ public class SyntheticsMobileStepParams {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getX() {
+  public Double getX() {
     return x;
   }
 
-  public void setX(Long x) {
+  public void setX(Double x) {
     this.x = x;
   }
 
-  public SyntheticsMobileStepParams y(Long y) {
+  public SyntheticsMobileStepParams y(Double y) {
     this.y = y;
     return this;
   }
@@ -368,11 +369,11 @@ public class SyntheticsMobileStepParams {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getY() {
+  public Double getY() {
     return y;
   }
 
-  public void setY(Long y) {
+  public void setY(Double y) {
     this.y = y;
   }
 
@@ -436,7 +437,7 @@ public class SyntheticsMobileStepParams {
         && Objects.equals(this.delay, syntheticsMobileStepParams.delay)
         && Objects.equals(this.direction, syntheticsMobileStepParams.direction)
         && Objects.equals(this.element, syntheticsMobileStepParams.element)
-        && Objects.equals(this.enable, syntheticsMobileStepParams.enable)
+        && Objects.equals(this.enabled, syntheticsMobileStepParams.enabled)
         && Objects.equals(this.maxScrolls, syntheticsMobileStepParams.maxScrolls)
         && Objects.equals(this.positions, syntheticsMobileStepParams.positions)
         && Objects.equals(this.subtestPublicId, syntheticsMobileStepParams.subtestPublicId)
@@ -456,7 +457,7 @@ public class SyntheticsMobileStepParams {
         delay,
         direction,
         element,
-        enable,
+        enabled,
         maxScrolls,
         positions,
         subtestPublicId,
@@ -476,7 +477,7 @@ public class SyntheticsMobileStepParams {
     sb.append("    delay: ").append(toIndentedString(delay)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    element: ").append(toIndentedString(element)).append("\n");
-    sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    maxScrolls: ").append(toIndentedString(maxScrolls)).append("\n");
     sb.append("    positions: ").append(toIndentedString(positions)).append("\n");
     sb.append("    subtestPublicId: ").append(toIndentedString(subtestPublicId)).append("\n");
