@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/usage/billing_dimension_mapping",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"id\":null,\"links\":null,\"status\":\"400\",\"code\":null,\"title\":\"Bad Request\",\"detail\":\"API called with non-parent org keys. Data is only available at the root level org\",\"source\":null,\"meta\":null}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "49fc3efb-4f23-bbde-b855-c3d4aa87f91c"
+  }
+]
