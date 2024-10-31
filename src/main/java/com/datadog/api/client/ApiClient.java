@@ -373,6 +373,7 @@ public class ApiClient {
           put("v2.listAPIs", false);
           put("v2.updateOpenAPI", false);
           put("v2.getActiveBillingDimensions", false);
+          put("v2.getBillingDimensionMapping", false);
           put("v2.getMonthlyCostAttribution", false);
           put("v2.createDORADeployment", false);
           put("v2.createDORAIncident", false);

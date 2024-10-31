@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ActiveBillingDimensionsResponse;
+import com.datadog.api.client.v2.model.BillingDimensionsMappingResponse;
 import com.datadog.api.client.v2.model.CostByOrgResponse;
 import com.datadog.api.client.v2.model.HourlyUsageResponse;
 import com.datadog.api.client.v2.model.MonthlyCostAttributionResponse;
@@ -183,6 +184,223 @@ public class UsageMeteringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ActiveBillingDimensionsResponse>() {});
+  }
+
+  /** Manage optional parameters to getBillingDimensionMapping. */
+  public static class GetBillingDimensionMappingOptionalParameters {
+    private OffsetDateTime filterMonth;
+    private String filterView;
+
+    /**
+     * Set filterMonth.
+     *
+     * @param filterMonth Datetime in ISO-8601 format, UTC, and for mappings beginning this month.
+     *     Defaults to the current month. (optional)
+     * @return GetBillingDimensionMappingOptionalParameters
+     */
+    public GetBillingDimensionMappingOptionalParameters filterMonth(OffsetDateTime filterMonth) {
+      this.filterMonth = filterMonth;
+      return this;
+    }
+
+    /**
+     * Set filterView.
+     *
+     * @param filterView String to specify whether to retrieve active billing dimension mappings for
+     *     the contract or for all available mappings. Allowed views have the string <code>active
+     *     </code> or <code>all</code>. Defaults to <code>active</code>. (optional, default to
+     *     "active")
+     * @return GetBillingDimensionMappingOptionalParameters
+     */
+    public GetBillingDimensionMappingOptionalParameters filterView(String filterView) {
+      this.filterView = filterView;
+      return this;
+    }
+  }
+
+  /**
+   * Get billing dimension mapping for usage endpoints.
+   *
+   * <p>See {@link #getBillingDimensionMappingWithHttpInfo}.
+   *
+   * @return BillingDimensionsMappingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public BillingDimensionsMappingResponse getBillingDimensionMapping() throws ApiException {
+    return getBillingDimensionMappingWithHttpInfo(
+            new GetBillingDimensionMappingOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get billing dimension mapping for usage endpoints.
+   *
+   * <p>See {@link #getBillingDimensionMappingWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;BillingDimensionsMappingResponse&gt;
+   */
+  public CompletableFuture<BillingDimensionsMappingResponse> getBillingDimensionMappingAsync() {
+    return getBillingDimensionMappingWithHttpInfoAsync(
+            new GetBillingDimensionMappingOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get billing dimension mapping for usage endpoints.
+   *
+   * <p>See {@link #getBillingDimensionMappingWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return BillingDimensionsMappingResponse
+   * @throws ApiException if fails to make API call
+   */
+  public BillingDimensionsMappingResponse getBillingDimensionMapping(
+      GetBillingDimensionMappingOptionalParameters parameters) throws ApiException {
+    return getBillingDimensionMappingWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get billing dimension mapping for usage endpoints.
+   *
+   * <p>See {@link #getBillingDimensionMappingWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;BillingDimensionsMappingResponse&gt;
+   */
+  public CompletableFuture<BillingDimensionsMappingResponse> getBillingDimensionMappingAsync(
+      GetBillingDimensionMappingOptionalParameters parameters) {
+    return getBillingDimensionMappingWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a mapping of billing dimensions to the corresponding keys for the supported usage metering
+   * public API endpoints. Mapping data is updated on a monthly cadence.
+   *
+   * <p>This endpoint is only accessible to <a
+   * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
+   * organizations</a>.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;BillingDimensionsMappingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<BillingDimensionsMappingResponse> getBillingDimensionMappingWithHttpInfo(
+      GetBillingDimensionMappingOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getBillingDimensionMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    OffsetDateTime filterMonth = parameters.filterMonth;
+    String filterView = parameters.filterView;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/billing_dimension_mapping";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[view]", filterView));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.UsageMeteringApi.getBillingDimensionMapping",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BillingDimensionsMappingResponse>() {});
+  }
+
+  /**
+   * Get billing dimension mapping for usage endpoints.
+   *
+   * <p>See {@link #getBillingDimensionMappingWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;BillingDimensionsMappingResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<BillingDimensionsMappingResponse>>
+      getBillingDimensionMappingWithHttpInfoAsync(
+          GetBillingDimensionMappingOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getBillingDimensionMapping";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<BillingDimensionsMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    OffsetDateTime filterMonth = parameters.filterMonth;
+    String filterView = parameters.filterView;
+    // create path and map variables
+    String localVarPath = "/api/v2/usage/billing_dimension_mapping";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[month]", filterMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[view]", filterView));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.UsageMeteringApi.getBillingDimensionMapping",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<BillingDimensionsMappingResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BillingDimensionsMappingResponse>() {});
   }
 
   /** Manage optional parameters to getCostByOrg. */
