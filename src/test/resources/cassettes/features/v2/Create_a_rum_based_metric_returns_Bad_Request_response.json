@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"event_type\":\"action\",\"uniqueness\":{\"when\":\"match\"}},\"id\":\"rum.actions.invalid\",\"type\":\"rum_metrics\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/rum/config/metrics",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"attribute \\\"uniqueness\\\" failed excluded_if validation\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8fb0b3e4-39bb-f164-4ee3-704266160603"
+  }
+]

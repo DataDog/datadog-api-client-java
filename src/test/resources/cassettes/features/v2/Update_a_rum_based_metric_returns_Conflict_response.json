@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1730203167\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}},\"id\":\"Test-Update_a_rum_based_metric_returns_Conflict_response-1730203167\",\"type\":\"rum_metrics\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/rum/config/metrics",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"Test_Update_a_rum_based_metric_returns_Conflict_response_1730203167\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1730203167\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "11890b83-f1b0-cb40-781b-4f98b3bb08cb"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"include_percentiles\":true}},\"id\":\"conflicting.id\",\"type\":\"rum_metrics\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/rum/config/metrics/Test_Update_a_rum_based_metric_returns_Conflict_response_1730203167",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"409\",\"title\":\"Conflict\",\"detail\":\"ID provided in the payload does not match the url parameter\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 409,
+      "reasonPhrase": "Conflict"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4faafd02-614f-bfa6-a7f0-0cbddeae06b8"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/rum/config/metrics/Test_Update_a_rum_based_metric_returns_Conflict_response_1730203167",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1410007e-f5c7-3dcc-62a3-8f1ec16ec47c"
+  }
+]
