@@ -132,7 +132,8 @@ public class CloudflareAccountCreateRequestAttributes {
   }
 
   /**
-   * An allowlist of resources to restrict pulling metrics for.
+   * An allowlist of resources to restrict pulling metrics for including <code>
+   * 'web', 'dns', 'lb' (load balancer), 'worker'</code>.
    *
    * @return resources
    */
