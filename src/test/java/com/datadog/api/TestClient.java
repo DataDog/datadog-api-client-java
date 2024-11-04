@@ -423,10 +423,10 @@ public class TestClient implements Client {
           expectedQueryParams.put(entry.getKey(), paramValueList.get(0));
         }
 
-        List<String> actualQueryValue  = Arrays.asList(this.queryParams.entrySet().iterator().next().getValue());
+        List<String> actualQueryValue =
+            Arrays.asList(this.queryParams.entrySet().iterator().next().getValue());
         Collections.sort(actualQueryValue);
         assertEquals(expectedQueryParams, this.queryParams);
-
       }
       return new TestBuilder(this.client);
     }
