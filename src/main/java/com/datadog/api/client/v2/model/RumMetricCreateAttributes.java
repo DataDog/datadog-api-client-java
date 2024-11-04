@@ -166,7 +166,8 @@ public class RumMetricCreateAttributes {
   }
 
   /**
-   * The rule to count updatable events. Is only set if "event_type" is "sessions" or "views".
+   * The rule to count updatable events. Is only set if <code>event_type</code> is <code>sessions
+   * </code> or <code>views</code>.
    *
    * @return uniqueness
    */

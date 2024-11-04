@@ -39,7 +39,7 @@ public class RumMetricFilter {
   }
 
   /**
-   * The search query - following the RUM search syntax. Must include an @type facet query.
+   * The search query - following the RUM search syntax.
    *
    * @return query
    */

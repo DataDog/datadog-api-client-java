@@ -17,7 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The rule to count updatable events. Is only set if "event_type" is "sessions" or "views". */
+/**
+ * The rule to count updatable events. Is only set if <code>event_type</code> is <code>sessions
+ * </code> or <code>views</code>.
+ */
 @JsonPropertyOrder({RumMetricUniqueness.JSON_PROPERTY_WHEN})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,8 +45,8 @@ public class RumMetricUniqueness {
   }
 
   /**
-   * When to count updatable events. "match" when the event is first seen, or "end" when the event
-   * is complete.
+   * When to count updatable events. <code>match</code> when the event is first seen, or <code>end
+   * </code> when the event is complete.
    *
    * @return when
    */
