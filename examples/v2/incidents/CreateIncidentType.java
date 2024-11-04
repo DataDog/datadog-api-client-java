@@ -21,9 +21,11 @@ public class Example {
                 new IncidentTypeCreateData()
                     .attributes(
                         new IncidentTypeAttributes()
-                            .description("8d4bbb66dccf2456")
-                            .isDefault(true)
-                            .name("8d4bbb66dccf2456"))
+                            .description(
+                                "Any incidents that harm (or have the potential to) the"
+                                    + " confidentiality, integrity, or availability of our data.")
+                            .isDefault(false)
+                            .name("Security Incident"))
                     .type(IncidentTypeType.INCIDENT_TYPES));
 
     try {
