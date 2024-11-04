@@ -105,8 +105,8 @@ public class CloudflareAccountResponseAttributes {
   }
 
   /**
-   * An allowlist of resources to restrict pulling metrics for including <code>
-   * 'web', 'dns', 'lb' (load balancer), 'worker'</code>.
+   * An allowlist of resources, such as <code>web</code>, <code>dns</code>, <code>lb</code> (load
+   * balancer), <code>worker</code>, that restricts pulling metrics from those resources.
    *
    * @return resources
    */
