@@ -743,7 +743,9 @@ public class CloudCostManagementApi {
    *
    * @return CloudCostActivityResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CloudCostActivityResponse getCloudCostActivity() throws ApiException {
     return getCloudCostActivityWithHttpInfo().getData();
   }
@@ -754,7 +756,9 @@ public class CloudCostManagementApi {
    * <p>See {@link #getCloudCostActivityWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;CloudCostActivityResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<CloudCostActivityResponse> getCloudCostActivityAsync() {
     return getCloudCostActivityWithHttpInfoAsync()
         .thenApply(
@@ -776,7 +780,10 @@ public class CloudCostManagementApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CloudCostActivityResponse> getCloudCostActivityWithHttpInfo()
       throws ApiException {
     Object localVarPostBody = null;
@@ -811,7 +818,9 @@ public class CloudCostManagementApi {
    * <p>See {@link #getCloudCostActivityWithHttpInfo}.
    *
    * @return CompletableFuture&lt;ApiResponse&lt;CloudCostActivityResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<CloudCostActivityResponse>>
       getCloudCostActivityWithHttpInfoAsync() {
     Object localVarPostBody = null;
