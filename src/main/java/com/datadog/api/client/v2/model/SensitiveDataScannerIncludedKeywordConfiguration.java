@@ -27,7 +27,8 @@ import java.util.Objects;
  */
 @JsonPropertyOrder({
   SensitiveDataScannerIncludedKeywordConfiguration.JSON_PROPERTY_CHARACTER_COUNT,
-  SensitiveDataScannerIncludedKeywordConfiguration.JSON_PROPERTY_KEYWORDS
+  SensitiveDataScannerIncludedKeywordConfiguration.JSON_PROPERTY_KEYWORDS,
+  SensitiveDataScannerIncludedKeywordConfiguration.JSON_PROPERTY_USE_RECOMMENDED_KEYWORDS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -38,6 +39,9 @@ public class SensitiveDataScannerIncludedKeywordConfiguration {
 
   public static final String JSON_PROPERTY_KEYWORDS = "keywords";
   private List<String> keywords = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_USE_RECOMMENDED_KEYWORDS = "use_recommended_keywords";
+  private Boolean useRecommendedKeywords;
 
   public SensitiveDataScannerIncludedKeywordConfiguration() {}
 
@@ -95,6 +99,30 @@ public class SensitiveDataScannerIncludedKeywordConfiguration {
 
   public void setKeywords(List<String> keywords) {
     this.keywords = keywords;
+  }
+
+  public SensitiveDataScannerIncludedKeywordConfiguration useRecommendedKeywords(
+      Boolean useRecommendedKeywords) {
+    this.useRecommendedKeywords = useRecommendedKeywords;
+    return this;
+  }
+
+  /**
+   * Should the rule use the underlying standard pattern keyword configuration. If set to <code>true
+   * </code>, the rule must be tied to a standard pattern. If set to <code>false</code>, the
+   * specified keywords and <code>character_count</code> are applied.
+   *
+   * @return useRecommendedKeywords
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USE_RECOMMENDED_KEYWORDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getUseRecommendedKeywords() {
+    return useRecommendedKeywords;
+  }
+
+  public void setUseRecommendedKeywords(Boolean useRecommendedKeywords) {
+    this.useRecommendedKeywords = useRecommendedKeywords;
   }
 
   /**
@@ -160,13 +188,16 @@ public class SensitiveDataScannerIncludedKeywordConfiguration {
             this.characterCount, sensitiveDataScannerIncludedKeywordConfiguration.characterCount)
         && Objects.equals(this.keywords, sensitiveDataScannerIncludedKeywordConfiguration.keywords)
         && Objects.equals(
+            this.useRecommendedKeywords,
+            sensitiveDataScannerIncludedKeywordConfiguration.useRecommendedKeywords)
+        && Objects.equals(
             this.additionalProperties,
             sensitiveDataScannerIncludedKeywordConfiguration.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(characterCount, keywords, additionalProperties);
+    return Objects.hash(characterCount, keywords, useRecommendedKeywords, additionalProperties);
   }
 
   @Override
@@ -175,6 +206,9 @@ public class SensitiveDataScannerIncludedKeywordConfiguration {
     sb.append("class SensitiveDataScannerIncludedKeywordConfiguration {\n");
     sb.append("    characterCount: ").append(toIndentedString(characterCount)).append("\n");
     sb.append("    keywords: ").append(toIndentedString(keywords)).append("\n");
+    sb.append("    useRecommendedKeywords: ")
+        .append(toIndentedString(useRecommendedKeywords))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

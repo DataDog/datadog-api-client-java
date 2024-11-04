@@ -18,38 +18,43 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Type of AWS related account. */
-@JsonSerialize(using = AWSRelatedAccountType.AWSRelatedAccountTypeSerializer.class)
-public class AWSRelatedAccountType extends ModelEnum<String> {
+/**
+ * When to count updatable events. "match" when the event is first seen, or "end" when the event is
+ * complete.
+ */
+@JsonSerialize(using = RumMetricUniquenessWhen.RumMetricUniquenessWhenSerializer.class)
+public class RumMetricUniquenessWhen extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("aws_account"));
+      new HashSet<String>(Arrays.asList("match", "end"));
 
-  public static final AWSRelatedAccountType AWS_ACCOUNT = new AWSRelatedAccountType("aws_account");
+  public static final RumMetricUniquenessWhen WHEN_MATCH = new RumMetricUniquenessWhen("match");
+  public static final RumMetricUniquenessWhen WHEN_END = new RumMetricUniquenessWhen("end");
 
-  AWSRelatedAccountType(String value) {
+  RumMetricUniquenessWhen(String value) {
     super(value, allowedValues);
   }
 
-  public static class AWSRelatedAccountTypeSerializer extends StdSerializer<AWSRelatedAccountType> {
-    public AWSRelatedAccountTypeSerializer(Class<AWSRelatedAccountType> t) {
+  public static class RumMetricUniquenessWhenSerializer
+      extends StdSerializer<RumMetricUniquenessWhen> {
+    public RumMetricUniquenessWhenSerializer(Class<RumMetricUniquenessWhen> t) {
       super(t);
     }
 
-    public AWSRelatedAccountTypeSerializer() {
+    public RumMetricUniquenessWhenSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        AWSRelatedAccountType value, JsonGenerator jgen, SerializerProvider provider)
+        RumMetricUniquenessWhen value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static AWSRelatedAccountType fromValue(String value) {
-    return new AWSRelatedAccountType(value);
+  public static RumMetricUniquenessWhen fromValue(String value) {
+    return new RumMetricUniquenessWhen(value);
   }
 }

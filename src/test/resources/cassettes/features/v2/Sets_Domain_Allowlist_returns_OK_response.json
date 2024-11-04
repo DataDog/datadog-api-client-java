@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"domains\":[\"@static-test-domain.test\"],\"enabled\":false},\"type\":\"domain_allowlist\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/domain_allowlist",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"domain_allowlist\",\"attributes\":{\"enabled\":false,\"domains\":[\"@static-test-domain.test\"]}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a389d9f3-b7a7-111e-6014-fd052f8b33d1"
+  }
+]

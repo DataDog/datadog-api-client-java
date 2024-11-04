@@ -12,65 +12,52 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes for an AWS related account. */
-@JsonPropertyOrder({
-  AWSRelatedAccountAttributes.JSON_PROPERTY_HAS_DATADOG_INTEGRATION,
-  AWSRelatedAccountAttributes.JSON_PROPERTY_NAME
-})
+/** All the available rum-based metric objects. */
+@JsonPropertyOrder({RumMetricsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AWSRelatedAccountAttributes {
+public class RumMetricsResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_HAS_DATADOG_INTEGRATION = "has_datadog_integration";
-  private Boolean hasDatadogIntegration;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<RumMetricResponseData> data = null;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public RumMetricsResponse data(List<RumMetricResponseData> data) {
+    this.data = data;
+    for (RumMetricResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
 
-  public AWSRelatedAccountAttributes hasDatadogIntegration(Boolean hasDatadogIntegration) {
-    this.hasDatadogIntegration = hasDatadogIntegration;
+  public RumMetricsResponse addDataItem(RumMetricResponseData dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * Whether or not the AWS account has a Datadog integration.
+   * A list of rum-based metric objects.
    *
-   * @return hasDatadogIntegration
+   * @return data
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HAS_DATADOG_INTEGRATION)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getHasDatadogIntegration() {
-    return hasDatadogIntegration;
+  public List<RumMetricResponseData> getData() {
+    return data;
   }
 
-  public void setHasDatadogIntegration(Boolean hasDatadogIntegration) {
-    this.hasDatadogIntegration = hasDatadogIntegration;
-  }
-
-  public AWSRelatedAccountAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The name of the AWS account.
-   *
-   * @return name
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setData(List<RumMetricResponseData> data) {
+    this.data = data;
   }
 
   /**
@@ -85,10 +72,10 @@ public class AWSRelatedAccountAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AWSRelatedAccountAttributes
+   * @return RumMetricsResponse
    */
   @JsonAnySetter
-  public AWSRelatedAccountAttributes putAdditionalProperty(String key, Object value) {
+  public RumMetricsResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -119,7 +106,7 @@ public class AWSRelatedAccountAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AWSRelatedAccountAttributes object is equal to o. */
+  /** Return true if this RumMetricsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,27 +115,21 @@ public class AWSRelatedAccountAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSRelatedAccountAttributes awsRelatedAccountAttributes = (AWSRelatedAccountAttributes) o;
-    return Objects.equals(
-            this.hasDatadogIntegration, awsRelatedAccountAttributes.hasDatadogIntegration)
-        && Objects.equals(this.name, awsRelatedAccountAttributes.name)
-        && Objects.equals(
-            this.additionalProperties, awsRelatedAccountAttributes.additionalProperties);
+    RumMetricsResponse rumMetricsResponse = (RumMetricsResponse) o;
+    return Objects.equals(this.data, rumMetricsResponse.data)
+        && Objects.equals(this.additionalProperties, rumMetricsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hasDatadogIntegration, name, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AWSRelatedAccountAttributes {\n");
-    sb.append("    hasDatadogIntegration: ")
-        .append(toIndentedString(hasDatadogIntegration))
-        .append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("class RumMetricsResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

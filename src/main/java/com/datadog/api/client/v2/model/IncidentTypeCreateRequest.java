@@ -8,55 +8,51 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** List of AWS related accounts. */
-@JsonPropertyOrder({AWSRelatedAccountsResponse.JSON_PROPERTY_DATA})
+/** Create request for an incident type. */
+@JsonPropertyOrder({IncidentTypeCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AWSRelatedAccountsResponse {
+public class IncidentTypeCreateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<AWSRelatedAccount> data = null;
+  private IncidentTypeCreateData data;
 
-  public AWSRelatedAccountsResponse data(List<AWSRelatedAccount> data) {
+  public IncidentTypeCreateRequest() {}
+
+  @JsonCreator
+  public IncidentTypeCreateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentTypeCreateData data) {
     this.data = data;
-    for (AWSRelatedAccount item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
+    this.unparsed |= data.unparsed;
   }
 
-  public AWSRelatedAccountsResponse addDataItem(AWSRelatedAccount dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+  public IncidentTypeCreateRequest data(IncidentTypeCreateData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * An AWS related account.
+   * Incident type data for a create request.
    *
    * @return data
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AWSRelatedAccount> getData() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentTypeCreateData getData() {
     return data;
   }
 
-  public void setData(List<AWSRelatedAccount> data) {
+  public void setData(IncidentTypeCreateData data) {
     this.data = data;
   }
 
@@ -72,10 +68,10 @@ public class AWSRelatedAccountsResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AWSRelatedAccountsResponse
+   * @return IncidentTypeCreateRequest
    */
   @JsonAnySetter
-  public AWSRelatedAccountsResponse putAdditionalProperty(String key, Object value) {
+  public IncidentTypeCreateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -106,7 +102,7 @@ public class AWSRelatedAccountsResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AWSRelatedAccountsResponse object is equal to o. */
+  /** Return true if this IncidentTypeCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,10 +111,10 @@ public class AWSRelatedAccountsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSRelatedAccountsResponse awsRelatedAccountsResponse = (AWSRelatedAccountsResponse) o;
-    return Objects.equals(this.data, awsRelatedAccountsResponse.data)
+    IncidentTypeCreateRequest incidentTypeCreateRequest = (IncidentTypeCreateRequest) o;
+    return Objects.equals(this.data, incidentTypeCreateRequest.data)
         && Objects.equals(
-            this.additionalProperties, awsRelatedAccountsResponse.additionalProperties);
+            this.additionalProperties, incidentTypeCreateRequest.additionalProperties);
   }
 
   @Override
@@ -129,7 +125,7 @@ public class AWSRelatedAccountsResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AWSRelatedAccountsResponse {\n");
+    sb.append("class IncidentTypeCreateRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

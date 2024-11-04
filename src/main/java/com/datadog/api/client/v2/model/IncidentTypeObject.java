@@ -17,65 +17,65 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS related account. */
+/** Incident type response data. */
 @JsonPropertyOrder({
-  AWSRelatedAccount.JSON_PROPERTY_ATTRIBUTES,
-  AWSRelatedAccount.JSON_PROPERTY_ID,
-  AWSRelatedAccount.JSON_PROPERTY_TYPE
+  IncidentTypeObject.JSON_PROPERTY_ATTRIBUTES,
+  IncidentTypeObject.JSON_PROPERTY_ID,
+  IncidentTypeObject.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AWSRelatedAccount {
+public class IncidentTypeObject {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private AWSRelatedAccountAttributes attributes;
+  private IncidentTypeAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private AWSRelatedAccountType type = AWSRelatedAccountType.AWS_ACCOUNT;
+  private IncidentTypeType type = IncidentTypeType.INCIDENT_TYPES;
 
-  public AWSRelatedAccount() {}
+  public IncidentTypeObject() {}
 
   @JsonCreator
-  public AWSRelatedAccount(
+  public IncidentTypeObject(
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AWSRelatedAccountType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentTypeType type) {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public AWSRelatedAccount attributes(AWSRelatedAccountAttributes attributes) {
+  public IncidentTypeObject attributes(IncidentTypeAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for an AWS related account.
+   * Incident type's attributes.
    *
    * @return attributes
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AWSRelatedAccountAttributes getAttributes() {
+  public IncidentTypeAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(AWSRelatedAccountAttributes attributes) {
+  public void setAttributes(IncidentTypeAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public AWSRelatedAccount id(String id) {
+  public IncidentTypeObject id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The AWS account ID.
+   * The incident type's ID.
    *
    * @return id
    */
@@ -89,24 +89,24 @@ public class AWSRelatedAccount {
     this.id = id;
   }
 
-  public AWSRelatedAccount type(AWSRelatedAccountType type) {
+  public IncidentTypeObject type(IncidentTypeType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Type of AWS related account.
+   * Incident type resource type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AWSRelatedAccountType getType() {
+  public IncidentTypeType getType() {
     return type;
   }
 
-  public void setType(AWSRelatedAccountType type) {
+  public void setType(IncidentTypeType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -125,10 +125,10 @@ public class AWSRelatedAccount {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AWSRelatedAccount
+   * @return IncidentTypeObject
    */
   @JsonAnySetter
-  public AWSRelatedAccount putAdditionalProperty(String key, Object value) {
+  public IncidentTypeObject putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -159,7 +159,7 @@ public class AWSRelatedAccount {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AWSRelatedAccount object is equal to o. */
+  /** Return true if this IncidentTypeObject object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -168,11 +168,11 @@ public class AWSRelatedAccount {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AWSRelatedAccount awsRelatedAccount = (AWSRelatedAccount) o;
-    return Objects.equals(this.attributes, awsRelatedAccount.attributes)
-        && Objects.equals(this.id, awsRelatedAccount.id)
-        && Objects.equals(this.type, awsRelatedAccount.type)
-        && Objects.equals(this.additionalProperties, awsRelatedAccount.additionalProperties);
+    IncidentTypeObject incidentTypeObject = (IncidentTypeObject) o;
+    return Objects.equals(this.attributes, incidentTypeObject.attributes)
+        && Objects.equals(this.id, incidentTypeObject.id)
+        && Objects.equals(this.type, incidentTypeObject.type)
+        && Objects.equals(this.additionalProperties, incidentTypeObject.additionalProperties);
   }
 
   @Override
@@ -183,7 +183,7 @@ public class AWSRelatedAccount {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AWSRelatedAccount {\n");
+    sb.append("class IncidentTypeObject {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
