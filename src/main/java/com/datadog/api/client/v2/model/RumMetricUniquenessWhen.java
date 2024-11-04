@@ -19,8 +19,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * When to count updatable events. "match" when the event is first seen, or "end" when the event is
- * complete.
+ * When to count updatable events. <code>match</code> when the event is first seen, or <code>end
+ * </code> when the event is complete.
  */
 @JsonSerialize(using = RumMetricUniquenessWhen.RumMetricUniquenessWhenSerializer.class)
 public class RumMetricUniquenessWhen extends ModelEnum<String> {

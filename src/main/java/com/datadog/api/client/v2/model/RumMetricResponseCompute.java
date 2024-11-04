@@ -67,7 +67,7 @@ public class RumMetricResponseCompute {
 
   /**
    * Toggle to include or exclude percentile aggregations for distribution metrics. Only present
-   * when the <code>aggregation_type</code> is <code>distribution</code>.
+   * when <code>aggregation_type</code> is <code>distribution</code>.
    *
    * @return includePercentiles
    */
@@ -88,8 +88,8 @@ public class RumMetricResponseCompute {
   }
 
   /**
-   * The path to the value the rum-based metric will aggregate on (only used if the aggregation type
-   * is a "distribution").
+   * The path to the value the rum-based metric will aggregate on. Only present when <code>
+   * aggregation_type</code> is <code>distribution</code>.
    *
    * @return path
    */

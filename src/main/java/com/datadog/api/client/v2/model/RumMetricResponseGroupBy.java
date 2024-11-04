@@ -58,7 +58,7 @@ public class RumMetricResponseGroupBy {
   }
 
   /**
-   * Eventual name of the tag that gets created. By default, the path attribute is used as the tag
+   * Eventual name of the tag that gets created. By default, <code>path</code> is used as the tag
    * name.
    *
    * @return tagName

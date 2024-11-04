@@ -32,7 +32,7 @@ public class RumMetricUpdateCompute {
 
   /**
    * Toggle to include or exclude percentile aggregations for distribution metrics. Only present
-   * when the <code>aggregation_type</code> is <code>distribution</code>.
+   * when <code>aggregation_type</code> is <code>distribution</code>.
    *
    * @return includePercentiles
    */
