@@ -18,39 +18,40 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Determines whether or not the batch has passed, failed, or is in progress. */
-@JsonSerialize(using = SyntheticsStatus.SyntheticsStatusSerializer.class)
-public class SyntheticsStatus extends ModelEnum<String> {
+/** Determines whether the batch has passed, failed, or is in progress. */
+@JsonSerialize(using = SyntheticsBatchStatus.SyntheticsBatchStatusSerializer.class)
+public class SyntheticsBatchStatus extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(Arrays.asList("passed", "skipped", "failed"));
 
-  public static final SyntheticsStatus PASSED = new SyntheticsStatus("passed");
-  public static final SyntheticsStatus skipped = new SyntheticsStatus("skipped");
-  public static final SyntheticsStatus failed = new SyntheticsStatus("failed");
+  public static final SyntheticsBatchStatus PASSED = new SyntheticsBatchStatus("passed");
+  public static final SyntheticsBatchStatus SKIPPED = new SyntheticsBatchStatus("skipped");
+  public static final SyntheticsBatchStatus FAILED = new SyntheticsBatchStatus("failed");
 
-  SyntheticsStatus(String value) {
+  SyntheticsBatchStatus(String value) {
     super(value, allowedValues);
   }
 
-  public static class SyntheticsStatusSerializer extends StdSerializer<SyntheticsStatus> {
-    public SyntheticsStatusSerializer(Class<SyntheticsStatus> t) {
+  public static class SyntheticsBatchStatusSerializer extends StdSerializer<SyntheticsBatchStatus> {
+    public SyntheticsBatchStatusSerializer(Class<SyntheticsBatchStatus> t) {
       super(t);
     }
 
-    public SyntheticsStatusSerializer() {
+    public SyntheticsBatchStatusSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(SyntheticsStatus value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        SyntheticsBatchStatus value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static SyntheticsStatus fromValue(String value) {
-    return new SyntheticsStatus(value);
+  public static SyntheticsBatchStatus fromValue(String value) {
+    return new SyntheticsBatchStatus(value);
   }
 }
