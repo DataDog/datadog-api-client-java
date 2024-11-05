@@ -28,6 +28,7 @@ import java.util.Objects;
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_CSPM_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_RESOURCE_CHANGE_COLLECTION_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED,
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_METRIC_NAMESPACE_CONFIGS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED
 })
 @jakarta.annotation.Generated(
@@ -60,6 +61,9 @@ public class GCPSTSServiceAccountAttributes {
   public static final String JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED =
       "is_security_command_center_enabled";
   private Boolean isSecurityCommandCenterEnabled = false;
+
+  public static final String JSON_PROPERTY_METRIC_NAMESPACE_CONFIGS = "metric_namespace_configs";
+  private List<GCPMetricNamespaceConfig> metricNamespaceConfigs = null;
 
   public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED =
       "resource_collection_enabled";
@@ -264,6 +268,41 @@ public class GCPSTSServiceAccountAttributes {
     this.isSecurityCommandCenterEnabled = isSecurityCommandCenterEnabled;
   }
 
+  public GCPSTSServiceAccountAttributes metricNamespaceConfigs(
+      List<GCPMetricNamespaceConfig> metricNamespaceConfigs) {
+    this.metricNamespaceConfigs = metricNamespaceConfigs;
+    for (GCPMetricNamespaceConfig item : metricNamespaceConfigs) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public GCPSTSServiceAccountAttributes addMetricNamespaceConfigsItem(
+      GCPMetricNamespaceConfig metricNamespaceConfigsItem) {
+    if (this.metricNamespaceConfigs == null) {
+      this.metricNamespaceConfigs = new ArrayList<>();
+    }
+    this.metricNamespaceConfigs.add(metricNamespaceConfigsItem);
+    this.unparsed |= metricNamespaceConfigsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Configurations for GCP metric namespaces.
+   *
+   * @return metricNamespaceConfigs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRIC_NAMESPACE_CONFIGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<GCPMetricNamespaceConfig> getMetricNamespaceConfigs() {
+    return metricNamespaceConfigs;
+  }
+
+  public void setMetricNamespaceConfigs(List<GCPMetricNamespaceConfig> metricNamespaceConfigs) {
+    this.metricNamespaceConfigs = metricNamespaceConfigs;
+  }
+
   public GCPSTSServiceAccountAttributes resourceCollectionEnabled(
       Boolean resourceCollectionEnabled) {
     this.resourceCollectionEnabled = resourceCollectionEnabled;
@@ -357,6 +396,8 @@ public class GCPSTSServiceAccountAttributes {
             this.isSecurityCommandCenterEnabled,
             gcpstsServiceAccountAttributes.isSecurityCommandCenterEnabled)
         && Objects.equals(
+            this.metricNamespaceConfigs, gcpstsServiceAccountAttributes.metricNamespaceConfigs)
+        && Objects.equals(
             this.resourceCollectionEnabled,
             gcpstsServiceAccountAttributes.resourceCollectionEnabled)
         && Objects.equals(
@@ -374,6 +415,7 @@ public class GCPSTSServiceAccountAttributes {
         isCspmEnabled,
         isResourceChangeCollectionEnabled,
         isSecurityCommandCenterEnabled,
+        metricNamespaceConfigs,
         resourceCollectionEnabled,
         additionalProperties);
   }
@@ -395,6 +437,9 @@ public class GCPSTSServiceAccountAttributes {
         .append("\n");
     sb.append("    isSecurityCommandCenterEnabled: ")
         .append(toIndentedString(isSecurityCommandCenterEnabled))
+        .append("\n");
+    sb.append("    metricNamespaceConfigs: ")
+        .append(toIndentedString(metricNamespaceConfigs))
         .append("\n");
     sb.append("    resourceCollectionEnabled: ")
         .append(toIndentedString(resourceCollectionEnabled))
