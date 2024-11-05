@@ -19,6 +19,8 @@ import java.util.Objects;
 /** The steps used in a Synthetic browser test. */
 @JsonPropertyOrder({
   SyntheticsStep.JSON_PROPERTY_ALLOW_FAILURE,
+  SyntheticsStep.JSON_PROPERTY_ALWAYS_EXECUTE,
+  SyntheticsStep.JSON_PROPERTY_EXIT_IF_SUCCEED,
   SyntheticsStep.JSON_PROPERTY_IS_CRITICAL,
   SyntheticsStep.JSON_PROPERTY_NAME,
   SyntheticsStep.JSON_PROPERTY_NO_SCREENSHOT,
@@ -32,6 +34,12 @@ public class SyntheticsStep {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
   private Boolean allowFailure;
+
+  public static final String JSON_PROPERTY_ALWAYS_EXECUTE = "alwaysExecute";
+  private Boolean alwaysExecute;
+
+  public static final String JSON_PROPERTY_EXIT_IF_SUCCEED = "exitIfSucceed";
+  private Boolean exitIfSucceed;
 
   public static final String JSON_PROPERTY_IS_CRITICAL = "isCritical";
   private Boolean isCritical;
@@ -70,6 +78,48 @@ public class SyntheticsStep {
 
   public void setAllowFailure(Boolean allowFailure) {
     this.allowFailure = allowFailure;
+  }
+
+  public SyntheticsStep alwaysExecute(Boolean alwaysExecute) {
+    this.alwaysExecute = alwaysExecute;
+    return this;
+  }
+
+  /**
+   * A boolean set to always execute this step even if the previous step failed or was skipped.
+   *
+   * @return alwaysExecute
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ALWAYS_EXECUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAlwaysExecute() {
+    return alwaysExecute;
+  }
+
+  public void setAlwaysExecute(Boolean alwaysExecute) {
+    this.alwaysExecute = alwaysExecute;
+  }
+
+  public SyntheticsStep exitIfSucceed(Boolean exitIfSucceed) {
+    this.exitIfSucceed = exitIfSucceed;
+    return this;
+  }
+
+  /**
+   * A boolean set to exit the test if the step succeeds.
+   *
+   * @return exitIfSucceed
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXIT_IF_SUCCEED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getExitIfSucceed() {
+    return exitIfSucceed;
+  }
+
+  public void setExitIfSucceed(Boolean exitIfSucceed) {
+    this.exitIfSucceed = exitIfSucceed;
   }
 
   public SyntheticsStep isCritical(Boolean isCritical) {
@@ -121,7 +171,7 @@ public class SyntheticsStep {
   }
 
   /**
-   * A boolean set to not take a screenshot for the step.
+   * A boolean set to skip taking a screenshot for the step.
    *
    * @return noScreenshot
    */
@@ -260,6 +310,8 @@ public class SyntheticsStep {
     }
     SyntheticsStep syntheticsStep = (SyntheticsStep) o;
     return Objects.equals(this.allowFailure, syntheticsStep.allowFailure)
+        && Objects.equals(this.alwaysExecute, syntheticsStep.alwaysExecute)
+        && Objects.equals(this.exitIfSucceed, syntheticsStep.exitIfSucceed)
         && Objects.equals(this.isCritical, syntheticsStep.isCritical)
         && Objects.equals(this.name, syntheticsStep.name)
         && Objects.equals(this.noScreenshot, syntheticsStep.noScreenshot)
@@ -272,7 +324,16 @@ public class SyntheticsStep {
   @Override
   public int hashCode() {
     return Objects.hash(
-        allowFailure, isCritical, name, noScreenshot, params, timeout, type, additionalProperties);
+        allowFailure,
+        alwaysExecute,
+        exitIfSucceed,
+        isCritical,
+        name,
+        noScreenshot,
+        params,
+        timeout,
+        type,
+        additionalProperties);
   }
 
   @Override
@@ -280,6 +341,8 @@ public class SyntheticsStep {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsStep {\n");
     sb.append("    allowFailure: ").append(toIndentedString(allowFailure)).append("\n");
+    sb.append("    alwaysExecute: ").append(toIndentedString(alwaysExecute)).append("\n");
+    sb.append("    exitIfSucceed: ").append(toIndentedString(exitIfSucceed)).append("\n");
     sb.append("    isCritical: ").append(toIndentedString(isCritical)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    noScreenshot: ").append(toIndentedString(noScreenshot)).append("\n");
