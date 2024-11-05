@@ -52,7 +52,7 @@ public class SyntheticsBatchResult {
   private Double retries;
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  private SyntheticsStatus status;
+  private SyntheticsBatchStatus status;
 
   public static final String JSON_PROPERTY_TEST_NAME = "test_name";
   private String testName;
@@ -197,25 +197,25 @@ public class SyntheticsBatchResult {
     this.retries = retries;
   }
 
-  public SyntheticsBatchResult status(SyntheticsStatus status) {
+  public SyntheticsBatchResult status(SyntheticsBatchStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
     return this;
   }
 
   /**
-   * Determines whether or not the batch has passed, failed, or is in progress.
+   * Determines whether the batch has passed, failed, or is in progress.
    *
    * @return status
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsStatus getStatus() {
+  public SyntheticsBatchStatus getStatus() {
     return status;
   }
 
-  public void setStatus(SyntheticsStatus status) {
+  public void setStatus(SyntheticsBatchStatus status) {
     if (!status.isValid()) {
       this.unparsed = true;
     }
