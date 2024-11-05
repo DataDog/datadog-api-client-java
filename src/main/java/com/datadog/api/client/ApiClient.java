@@ -400,8 +400,6 @@ public class ApiClient {
           put("v2.updateIncidentIntegration", false);
           put("v2.updateIncidentTodo", false);
           put("v2.updateIncidentType", false);
-          put("v2.queryScalarData", false);
-          put("v2.queryTimeseriesData", false);
           put("v2.getFinding", false);
           put("v2.listFindings", false);
           put("v2.muteFindings", false);
