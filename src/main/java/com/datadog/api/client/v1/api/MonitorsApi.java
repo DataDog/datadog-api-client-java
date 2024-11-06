@@ -464,19 +464,24 @@ public class MonitorsApi {
    *
    * <h4>Error Tracking Alert Query</h4>
    *
-   * <p>Example(RUM): <code>
-   * error-tracking-rum(query).rollup(rollup_method[, measure]).last(time_window) operator #</code>
-   * Example(APM Traces): <code>
-   * error-tracking-traces(query).rollup(rollup_method[, measure]).last(time_window) operator #
+   * <p>"New issue" example: <code>
+   * error-tracking(query).source(issue_source).new().rollup(rollup_method[, measure]).by(group_by).last(time_window) operator #
+   * </code> "High impact issue" example: <code>
+   * error-tracking(query).source(issue_source).impact().rollup(rollup_method[, measure]).by(group_by).last(time_window) operator #
    * </code>
    *
    * <ul>
    *   <li><code>query</code> The search query - following the <a
    *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
+   *   <li><code>issue_source</code> The issue source - supports <code>all</code>, <code>browser
+   *       </code>, <code>mobile</code> and <code>backend</code> and defaults to <code>all</code> if
+   *       omitted.
    *   <li><code>rollup_method</code> The stats roll-up method - supports <code>count</code>, <code>
-   *       avg</code>, and <code>cardinality</code>.
+   *       avg</code>, and <code>cardinality</code> and defaults to <code>count</code> if omitted.
    *   <li><code>measure</code> For <code>avg</code> and cardinality <code>rollup_method</code> -
    *       specify the measure or the facet name you want to use.
+   *   <li><code>group by</code> Comma-separated list of attributes to group by - should contain at
+   *       least <code>issue.id</code>.
    *   <li><code>time_window</code> #m (between 1 and 2880), #h (between 1 and 48).
    *   <li><code>operator</code> <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>
    *       &gt;=</code>, <code>==</code>, or <code>!=</code>.
