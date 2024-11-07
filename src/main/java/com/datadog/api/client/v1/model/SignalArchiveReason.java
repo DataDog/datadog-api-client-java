@@ -29,6 +29,8 @@ public class SignalArchiveReason extends ModelEnum<String> {
               "false_positive",
               "testing_or_maintenance",
               "investigated_case_opened",
+              "true_positive_benign",
+              "true_positive_malicious",
               "other"));
 
   public static final SignalArchiveReason NONE = new SignalArchiveReason("none");
@@ -38,6 +40,10 @@ public class SignalArchiveReason extends ModelEnum<String> {
       new SignalArchiveReason("testing_or_maintenance");
   public static final SignalArchiveReason INVESTIGATED_CASE_OPENED =
       new SignalArchiveReason("investigated_case_opened");
+  public static final SignalArchiveReason TRUE_POSITIVE_BENIGN =
+      new SignalArchiveReason("true_positive_benign");
+  public static final SignalArchiveReason TRUE_POSITIVE_MALICIOUS =
+      new SignalArchiveReason("true_positive_malicious");
   public static final SignalArchiveReason OTHER = new SignalArchiveReason("other");
 
   SignalArchiveReason(String value) {
