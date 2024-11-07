@@ -78,7 +78,9 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_DATE,
   UsageSummaryDate.JSON_PROPERTY_DBM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_DBM_QUERIES_COUNT_AVG,
+  UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
   UsageSummaryDate.JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG,
@@ -362,8 +364,16 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_DBM_QUERIES_COUNT_AVG = "dbm_queries_count_avg";
   private Long dbmQueriesCountAvg;
 
+  public static final String JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM =
+      "error_tracking_error_events_sum";
+  private Long errorTrackingErrorEventsSum;
+
   public static final String JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM = "error_tracking_events_sum";
   private Long errorTrackingEventsSum;
+
+  public static final String JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM =
+      "error_tracking_rum_error_events_sum";
+  private Long errorTrackingRumErrorEventsSum;
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG = "fargate_tasks_count_avg";
   private Long fargateTasksCountAvg;
@@ -1929,6 +1939,28 @@ public class UsageSummaryDate {
     this.dbmQueriesCountAvg = dbmQueriesCountAvg;
   }
 
+  public UsageSummaryDate errorTrackingErrorEventsSum(Long errorTrackingErrorEventsSum) {
+    this.errorTrackingErrorEventsSum = errorTrackingErrorEventsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Error Tracking error events over all hours in the current date for the
+   * given org.
+   *
+   * @return errorTrackingErrorEventsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getErrorTrackingErrorEventsSum() {
+    return errorTrackingErrorEventsSum;
+  }
+
+  public void setErrorTrackingErrorEventsSum(Long errorTrackingErrorEventsSum) {
+    this.errorTrackingErrorEventsSum = errorTrackingErrorEventsSum;
+  }
+
   public UsageSummaryDate errorTrackingEventsSum(Long errorTrackingEventsSum) {
     this.errorTrackingEventsSum = errorTrackingEventsSum;
     return this;
@@ -1949,6 +1981,28 @@ public class UsageSummaryDate {
 
   public void setErrorTrackingEventsSum(Long errorTrackingEventsSum) {
     this.errorTrackingEventsSum = errorTrackingEventsSum;
+  }
+
+  public UsageSummaryDate errorTrackingRumErrorEventsSum(Long errorTrackingRumErrorEventsSum) {
+    this.errorTrackingRumErrorEventsSum = errorTrackingRumErrorEventsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Error Tracking RUM error events over all hours in the current date for the
+   * given org.
+   *
+   * @return errorTrackingRumErrorEventsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getErrorTrackingRumErrorEventsSum() {
+    return errorTrackingRumErrorEventsSum;
+  }
+
+  public void setErrorTrackingRumErrorEventsSum(Long errorTrackingRumErrorEventsSum) {
+    this.errorTrackingRumErrorEventsSum = errorTrackingRumErrorEventsSum;
   }
 
   public UsageSummaryDate fargateTasksCountAvg(Long fargateTasksCountAvg) {
@@ -3901,7 +3955,11 @@ public class UsageSummaryDate {
         && Objects.equals(this.date, usageSummaryDate.date)
         && Objects.equals(this.dbmHostTop99p, usageSummaryDate.dbmHostTop99p)
         && Objects.equals(this.dbmQueriesCountAvg, usageSummaryDate.dbmQueriesCountAvg)
+        && Objects.equals(
+            this.errorTrackingErrorEventsSum, usageSummaryDate.errorTrackingErrorEventsSum)
         && Objects.equals(this.errorTrackingEventsSum, usageSummaryDate.errorTrackingEventsSum)
+        && Objects.equals(
+            this.errorTrackingRumErrorEventsSum, usageSummaryDate.errorTrackingRumErrorEventsSum)
         && Objects.equals(this.fargateTasksCountAvg, usageSummaryDate.fargateTasksCountAvg)
         && Objects.equals(this.fargateTasksCountHwm, usageSummaryDate.fargateTasksCountHwm)
         && Objects.equals(this.flexLogsComputeLargeAvg, usageSummaryDate.flexLogsComputeLargeAvg)
@@ -4101,7 +4159,9 @@ public class UsageSummaryDate {
         date,
         dbmHostTop99p,
         dbmQueriesCountAvg,
+        errorTrackingErrorEventsSum,
         errorTrackingEventsSum,
+        errorTrackingRumErrorEventsSum,
         fargateTasksCountAvg,
         fargateTasksCountHwm,
         flexLogsComputeLargeAvg,
@@ -4317,8 +4377,14 @@ public class UsageSummaryDate {
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    dbmHostTop99p: ").append(toIndentedString(dbmHostTop99p)).append("\n");
     sb.append("    dbmQueriesCountAvg: ").append(toIndentedString(dbmQueriesCountAvg)).append("\n");
+    sb.append("    errorTrackingErrorEventsSum: ")
+        .append(toIndentedString(errorTrackingErrorEventsSum))
+        .append("\n");
     sb.append("    errorTrackingEventsSum: ")
         .append(toIndentedString(errorTrackingEventsSum))
+        .append("\n");
+    sb.append("    errorTrackingRumErrorEventsSum: ")
+        .append(toIndentedString(errorTrackingRumErrorEventsSum))
         .append("\n");
     sb.append("    fargateTasksCountAvg: ")
         .append(toIndentedString(fargateTasksCountAvg))
