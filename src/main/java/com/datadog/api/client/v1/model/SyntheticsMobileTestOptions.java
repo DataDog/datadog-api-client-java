@@ -483,7 +483,8 @@ public class SyntheticsMobileTestOptions {
   }
 
   /**
-   * The level of verbosity for the mobile test. minimum: 0 maximum: 5
+   * The level of verbosity for the mobile test. This field can not be set by a user. minimum: 0
+   * maximum: 5
    *
    * @return verbosity
    */
