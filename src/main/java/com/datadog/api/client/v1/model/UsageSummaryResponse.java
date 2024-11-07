@@ -84,7 +84,9 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_DBM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_DBM_QUERIES_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_END_DATE,
+  UsageSummaryResponse.JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_ERROR_TRACKING_EVENTS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG_SUM,
@@ -392,9 +394,17 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_END_DATE = "end_date";
   private OffsetDateTime endDate;
 
+  public static final String JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_AGG_SUM =
+      "error_tracking_error_events_agg_sum";
+  private Long errorTrackingErrorEventsAggSum;
+
   public static final String JSON_PROPERTY_ERROR_TRACKING_EVENTS_AGG_SUM =
       "error_tracking_events_agg_sum";
   private Long errorTrackingEventsAggSum;
+
+  public static final String JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_AGG_SUM =
+      "error_tracking_rum_error_events_agg_sum";
+  private Long errorTrackingRumErrorEventsAggSum;
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM =
       "fargate_tasks_count_avg_sum";
@@ -2079,6 +2089,28 @@ public class UsageSummaryResponse {
     this.endDate = endDate;
   }
 
+  public UsageSummaryResponse errorTrackingErrorEventsAggSum(Long errorTrackingErrorEventsAggSum) {
+    this.errorTrackingErrorEventsAggSum = errorTrackingErrorEventsAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Error Tracking error events over all hours in the current month for all
+   * organizations.
+   *
+   * @return errorTrackingErrorEventsAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getErrorTrackingErrorEventsAggSum() {
+    return errorTrackingErrorEventsAggSum;
+  }
+
+  public void setErrorTrackingErrorEventsAggSum(Long errorTrackingErrorEventsAggSum) {
+    this.errorTrackingErrorEventsAggSum = errorTrackingErrorEventsAggSum;
+  }
+
   public UsageSummaryResponse errorTrackingEventsAggSum(Long errorTrackingEventsAggSum) {
     this.errorTrackingEventsAggSum = errorTrackingEventsAggSum;
     return this;
@@ -2099,6 +2131,29 @@ public class UsageSummaryResponse {
 
   public void setErrorTrackingEventsAggSum(Long errorTrackingEventsAggSum) {
     this.errorTrackingEventsAggSum = errorTrackingEventsAggSum;
+  }
+
+  public UsageSummaryResponse errorTrackingRumErrorEventsAggSum(
+      Long errorTrackingRumErrorEventsAggSum) {
+    this.errorTrackingRumErrorEventsAggSum = errorTrackingRumErrorEventsAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Error Tracking RUM error events over all hours in the current month for
+   * all organizations.
+   *
+   * @return errorTrackingRumErrorEventsAggSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getErrorTrackingRumErrorEventsAggSum() {
+    return errorTrackingRumErrorEventsAggSum;
+  }
+
+  public void setErrorTrackingRumErrorEventsAggSum(Long errorTrackingRumErrorEventsAggSum) {
+    this.errorTrackingRumErrorEventsAggSum = errorTrackingRumErrorEventsAggSum;
   }
 
   public UsageSummaryResponse fargateTasksCountAvgSum(Long fargateTasksCountAvgSum) {
@@ -4288,7 +4343,13 @@ public class UsageSummaryResponse {
         && Objects.equals(this.dbmQueriesAvgSum, usageSummaryResponse.dbmQueriesAvgSum)
         && Objects.equals(this.endDate, usageSummaryResponse.endDate)
         && Objects.equals(
+            this.errorTrackingErrorEventsAggSum,
+            usageSummaryResponse.errorTrackingErrorEventsAggSum)
+        && Objects.equals(
             this.errorTrackingEventsAggSum, usageSummaryResponse.errorTrackingEventsAggSum)
+        && Objects.equals(
+            this.errorTrackingRumErrorEventsAggSum,
+            usageSummaryResponse.errorTrackingRumErrorEventsAggSum)
         && Objects.equals(
             this.fargateTasksCountAvgSum, usageSummaryResponse.fargateTasksCountAvgSum)
         && Objects.equals(
@@ -4543,7 +4604,9 @@ public class UsageSummaryResponse {
         dbmHostTop99pSum,
         dbmQueriesAvgSum,
         endDate,
+        errorTrackingErrorEventsAggSum,
         errorTrackingEventsAggSum,
+        errorTrackingRumErrorEventsAggSum,
         fargateTasksCountAvgSum,
         fargateTasksCountHwmSum,
         flexLogsComputeLargeAvgSum,
@@ -4790,8 +4853,14 @@ public class UsageSummaryResponse {
     sb.append("    dbmHostTop99pSum: ").append(toIndentedString(dbmHostTop99pSum)).append("\n");
     sb.append("    dbmQueriesAvgSum: ").append(toIndentedString(dbmQueriesAvgSum)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
+    sb.append("    errorTrackingErrorEventsAggSum: ")
+        .append(toIndentedString(errorTrackingErrorEventsAggSum))
+        .append("\n");
     sb.append("    errorTrackingEventsAggSum: ")
         .append(toIndentedString(errorTrackingEventsAggSum))
+        .append("\n");
+    sb.append("    errorTrackingRumErrorEventsAggSum: ")
+        .append(toIndentedString(errorTrackingRumErrorEventsAggSum))
         .append("\n");
     sb.append("    fargateTasksCountAvgSum: ")
         .append(toIndentedString(fargateTasksCountAvgSum))
