@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"jobResultIds\":[\"\"],\"notifications\":[\"\"],\"signalMessage\":\"A large number of failed login attempts.\",\"signalSeverity\":\"critical\"},\"type\":\"historicalDetectionsJobResultSignalConversion\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/siem-historical-detections/jobs/signal_convert",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Generic Error\",\"detail\":\"empty jobResultId provided\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0d4946af-2c85-586b-74dd-eb117a50a4a6"
+  }
+]

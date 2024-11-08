@@ -400,9 +400,15 @@ public class ApiClient {
           put("v2.updateIncidentIntegration", false);
           put("v2.updateIncidentTodo", false);
           put("v2.updateIncidentType", false);
+          put("v2.cancelHistoricalJob", false);
+          put("v2.convertJobResultToSignal", false);
+          put("v2.deleteHistoricalJob", false);
           put("v2.getFinding", false);
+          put("v2.getHistoricalJob", false);
           put("v2.listFindings", false);
+          put("v2.listHistoricalJobs", false);
           put("v2.muteFindings", false);
+          put("v2.runHistoricalJob", false);
           put("v2.createScorecardOutcomesBatch", false);
           put("v2.createScorecardRule", false);
           put("v2.deleteScorecardRule", false);
