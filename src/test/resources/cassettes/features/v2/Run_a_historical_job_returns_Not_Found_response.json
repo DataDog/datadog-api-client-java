@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"fromRule\":{\"caseIndex\":0,\"from\":1730201035064,\"id\":\"non-existng\",\"index\":\"main\",\"notifications\":[],\"to\":1730204635115}},\"type\":\"historicalDetectionsJobCreate\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/siem-historical-detections/jobs",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"detail\":\"failed to get rule details\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8056350d-00d9-df6e-525e-771fe22b1354"
+  }
+]
