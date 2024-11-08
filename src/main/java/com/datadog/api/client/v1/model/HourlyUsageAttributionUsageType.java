@@ -47,6 +47,7 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
               "custom_ingested_timeseries_usage",
               "custom_timeseries_usage",
               "cws_containers_usage",
+              "cws_fargate_task_usage",
               "cws_hosts_usage",
               "data_jobs_monitoring_usage",
               "data_stream_monitoring_usage",
@@ -139,6 +140,8 @@ public class HourlyUsageAttributionUsageType extends ModelEnum<String> {
       new HourlyUsageAttributionUsageType("custom_timeseries_usage");
   public static final HourlyUsageAttributionUsageType CWS_CONTAINERS_USAGE =
       new HourlyUsageAttributionUsageType("cws_containers_usage");
+  public static final HourlyUsageAttributionUsageType CWS_FARGATE_TASK_USAGE =
+      new HourlyUsageAttributionUsageType("cws_fargate_task_usage");
   public static final HourlyUsageAttributionUsageType CWS_HOSTS_USAGE =
       new HourlyUsageAttributionUsageType("cws_hosts_usage");
   public static final HourlyUsageAttributionUsageType DATA_JOBS_MONITORING_USAGE =

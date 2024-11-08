@@ -62,6 +62,8 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
               "custom_ingested_timeseries_percentage",
               "cws_containers_percentage",
               "cws_containers_usage",
+              "cws_fargate_task_percentage",
+              "cws_fargate_task_usage",
               "cws_hosts_percentage",
               "cws_hosts_usage",
               "data_jobs_monitoring_usage",
@@ -238,6 +240,10 @@ public class MonthlyUsageAttributionSupportedMetrics extends ModelEnum<String> {
       new MonthlyUsageAttributionSupportedMetrics("cws_containers_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics CWS_CONTAINERS_USAGE =
       new MonthlyUsageAttributionSupportedMetrics("cws_containers_usage");
+  public static final MonthlyUsageAttributionSupportedMetrics CWS_FARGATE_TASK_PERCENTAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cws_fargate_task_percentage");
+  public static final MonthlyUsageAttributionSupportedMetrics CWS_FARGATE_TASK_USAGE =
+      new MonthlyUsageAttributionSupportedMetrics("cws_fargate_task_usage");
   public static final MonthlyUsageAttributionSupportedMetrics CWS_HOSTS_PERCENTAGE =
       new MonthlyUsageAttributionSupportedMetrics("cws_hosts_percentage");
   public static final MonthlyUsageAttributionSupportedMetrics CWS_HOSTS_USAGE =
