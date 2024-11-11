@@ -74,6 +74,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CUSTOM_LIVE_TS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CUSTOM_TS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_CWS_FARGATE_TASK_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CWS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_DBM_HOST_TOP99P_SUM,
@@ -362,6 +363,9 @@ public class UsageSummaryDateOrg {
 
   public static final String JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG = "cws_container_count_avg";
   private Long cwsContainerCountAvg;
+
+  public static final String JSON_PROPERTY_CWS_FARGATE_TASK_AVG = "cws_fargate_task_avg";
+  private Long cwsFargateTaskAvg;
 
   public static final String JSON_PROPERTY_CWS_HOST_TOP99P = "cws_host_top99p";
   private Long cwsHostTop99p;
@@ -1933,6 +1937,28 @@ public class UsageSummaryDateOrg {
 
   public void setCwsContainerCountAvg(Long cwsContainerCountAvg) {
     this.cwsContainerCountAvg = cwsContainerCountAvg;
+  }
+
+  public UsageSummaryDateOrg cwsFargateTaskAvg(Long cwsFargateTaskAvg) {
+    this.cwsFargateTaskAvg = cwsFargateTaskAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all distinct Cloud Workload Security Fargate tasks over all hours in the
+   * current date for the given org.
+   *
+   * @return cwsFargateTaskAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CWS_FARGATE_TASK_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCwsFargateTaskAvg() {
+    return cwsFargateTaskAvg;
+  }
+
+  public void setCwsFargateTaskAvg(Long cwsFargateTaskAvg) {
+    this.cwsFargateTaskAvg = cwsFargateTaskAvg;
   }
 
   public UsageSummaryDateOrg cwsHostTop99p(Long cwsHostTop99p) {
@@ -4093,6 +4119,7 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.customLiveTsAvg, usageSummaryDateOrg.customLiveTsAvg)
         && Objects.equals(this.customTsAvg, usageSummaryDateOrg.customTsAvg)
         && Objects.equals(this.cwsContainerCountAvg, usageSummaryDateOrg.cwsContainerCountAvg)
+        && Objects.equals(this.cwsFargateTaskAvg, usageSummaryDateOrg.cwsFargateTaskAvg)
         && Objects.equals(this.cwsHostTop99p, usageSummaryDateOrg.cwsHostTop99p)
         && Objects.equals(
             this.dataJobsMonitoringHostHrSum, usageSummaryDateOrg.dataJobsMonitoringHostHrSum)
@@ -4316,6 +4343,7 @@ public class UsageSummaryDateOrg {
         customLiveTsAvg,
         customTsAvg,
         cwsContainerCountAvg,
+        cwsFargateTaskAvg,
         cwsHostTop99p,
         dataJobsMonitoringHostHrSum,
         dbmHostTop99pSum,
@@ -4540,6 +4568,7 @@ public class UsageSummaryDateOrg {
     sb.append("    cwsContainerCountAvg: ")
         .append(toIndentedString(cwsContainerCountAvg))
         .append("\n");
+    sb.append("    cwsFargateTaskAvg: ").append(toIndentedString(cwsFargateTaskAvg)).append("\n");
     sb.append("    cwsHostTop99p: ").append(toIndentedString(cwsHostTop99p)).append("\n");
     sb.append("    dataJobsMonitoringHostHrSum: ")
         .append(toIndentedString(dataJobsMonitoringHostHrSum))

@@ -58,6 +58,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_CONTAINERS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_CONTAINERS_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_FARGATE_TASK_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_FARGATE_TASK_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_HOSTS_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CWS_HOSTS_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_DATA_JOBS_MONITORING_USAGE,
@@ -289,6 +291,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_CWS_CONTAINERS_USAGE = "cws_containers_usage";
   private Double cwsContainersUsage;
+
+  public static final String JSON_PROPERTY_CWS_FARGATE_TASK_PERCENTAGE =
+      "cws_fargate_task_percentage";
+  private Double cwsFargateTaskPercentage;
+
+  public static final String JSON_PROPERTY_CWS_FARGATE_TASK_USAGE = "cws_fargate_task_usage";
+  private Double cwsFargateTaskUsage;
 
   public static final String JSON_PROPERTY_CWS_HOSTS_PERCENTAGE = "cws_hosts_percentage";
   private Double cwsHostsPercentage;
@@ -1464,6 +1473,48 @@ public class MonthlyUsageAttributionValues {
 
   public void setCwsContainersUsage(Double cwsContainersUsage) {
     this.cwsContainersUsage = cwsContainersUsage;
+  }
+
+  public MonthlyUsageAttributionValues cwsFargateTaskPercentage(Double cwsFargateTaskPercentage) {
+    this.cwsFargateTaskPercentage = cwsFargateTaskPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Cloud Workload Security Fargate task usage by tag(s).
+   *
+   * @return cwsFargateTaskPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CWS_FARGATE_TASK_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCwsFargateTaskPercentage() {
+    return cwsFargateTaskPercentage;
+  }
+
+  public void setCwsFargateTaskPercentage(Double cwsFargateTaskPercentage) {
+    this.cwsFargateTaskPercentage = cwsFargateTaskPercentage;
+  }
+
+  public MonthlyUsageAttributionValues cwsFargateTaskUsage(Double cwsFargateTaskUsage) {
+    this.cwsFargateTaskUsage = cwsFargateTaskUsage;
+    return this;
+  }
+
+  /**
+   * The Cloud Workload Security Fargate task usage by tag(s).
+   *
+   * @return cwsFargateTaskUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CWS_FARGATE_TASK_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCwsFargateTaskUsage() {
+    return cwsFargateTaskUsage;
+  }
+
+  public void setCwsFargateTaskUsage(Double cwsFargateTaskUsage) {
+    this.cwsFargateTaskUsage = cwsFargateTaskUsage;
   }
 
   public MonthlyUsageAttributionValues cwsHostsPercentage(Double cwsHostsPercentage) {
@@ -3605,6 +3656,10 @@ public class MonthlyUsageAttributionValues {
         && Objects.equals(
             this.cwsContainersPercentage, monthlyUsageAttributionValues.cwsContainersPercentage)
         && Objects.equals(this.cwsContainersUsage, monthlyUsageAttributionValues.cwsContainersUsage)
+        && Objects.equals(
+            this.cwsFargateTaskPercentage, monthlyUsageAttributionValues.cwsFargateTaskPercentage)
+        && Objects.equals(
+            this.cwsFargateTaskUsage, monthlyUsageAttributionValues.cwsFargateTaskUsage)
         && Objects.equals(this.cwsHostsPercentage, monthlyUsageAttributionValues.cwsHostsPercentage)
         && Objects.equals(this.cwsHostsUsage, monthlyUsageAttributionValues.cwsHostsUsage)
         && Objects.equals(
@@ -3853,6 +3908,8 @@ public class MonthlyUsageAttributionValues {
         customTimeseriesUsage,
         cwsContainersPercentage,
         cwsContainersUsage,
+        cwsFargateTaskPercentage,
+        cwsFargateTaskUsage,
         cwsHostsPercentage,
         cwsHostsUsage,
         dataJobsMonitoringUsage,
@@ -4040,6 +4097,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(cwsContainersPercentage))
         .append("\n");
     sb.append("    cwsContainersUsage: ").append(toIndentedString(cwsContainersUsage)).append("\n");
+    sb.append("    cwsFargateTaskPercentage: ")
+        .append(toIndentedString(cwsFargateTaskPercentage))
+        .append("\n");
+    sb.append("    cwsFargateTaskUsage: ")
+        .append(toIndentedString(cwsFargateTaskUsage))
+        .append("\n");
     sb.append("    cwsHostsPercentage: ").append(toIndentedString(cwsHostsPercentage)).append("\n");
     sb.append("    cwsHostsUsage: ").append(toIndentedString(cwsHostsUsage)).append("\n");
     sb.append("    dataJobsMonitoringUsage: ")

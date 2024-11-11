@@ -78,7 +78,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_HISTORICAL_TS_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_LIVE_TS_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_TS_SUM,
-  UsageSummaryResponse.JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CWS_CONTAINER_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CWS_FARGATE_TASK_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CWS_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_DATA_JOBS_MONITORING_HOST_HR_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_DBM_HOST_TOP99P_SUM,
@@ -375,8 +376,11 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_CUSTOM_TS_SUM = "custom_ts_sum";
   private Long customTsSum;
 
-  public static final String JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM = "cws_containers_avg_sum";
-  private Long cwsContainersAvgSum;
+  public static final String JSON_PROPERTY_CWS_CONTAINER_AVG_SUM = "cws_container_avg_sum";
+  private Long cwsContainerAvgSum;
+
+  public static final String JSON_PROPERTY_CWS_FARGATE_TASK_AVG_SUM = "cws_fargate_task_avg_sum";
+  private Long cwsFargateTaskAvgSum;
 
   public static final String JSON_PROPERTY_CWS_HOST_TOP99P_SUM = "cws_host_top99p_sum";
   private Long cwsHostTop99pSum;
@@ -1958,8 +1962,8 @@ public class UsageSummaryResponse {
     this.customTsSum = customTsSum;
   }
 
-  public UsageSummaryResponse cwsContainersAvgSum(Long cwsContainersAvgSum) {
-    this.cwsContainersAvgSum = cwsContainersAvgSum;
+  public UsageSummaryResponse cwsContainerAvgSum(Long cwsContainerAvgSum) {
+    this.cwsContainerAvgSum = cwsContainerAvgSum;
     return this;
   }
 
@@ -1967,17 +1971,39 @@ public class UsageSummaryResponse {
    * Shows the average of all distinct Cloud Workload Security containers over all hours in the
    * current month for all organizations.
    *
-   * @return cwsContainersAvgSum
+   * @return cwsContainerAvgSum
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM)
+  @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_AVG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCwsContainersAvgSum() {
-    return cwsContainersAvgSum;
+  public Long getCwsContainerAvgSum() {
+    return cwsContainerAvgSum;
   }
 
-  public void setCwsContainersAvgSum(Long cwsContainersAvgSum) {
-    this.cwsContainersAvgSum = cwsContainersAvgSum;
+  public void setCwsContainerAvgSum(Long cwsContainerAvgSum) {
+    this.cwsContainerAvgSum = cwsContainerAvgSum;
+  }
+
+  public UsageSummaryResponse cwsFargateTaskAvgSum(Long cwsFargateTaskAvgSum) {
+    this.cwsFargateTaskAvgSum = cwsFargateTaskAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average of all distinct Cloud Workload Security Fargate tasks over all hours in the
+   * current month for all organizations.
+   *
+   * @return cwsFargateTaskAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CWS_FARGATE_TASK_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCwsFargateTaskAvgSum() {
+    return cwsFargateTaskAvgSum;
+  }
+
+  public void setCwsFargateTaskAvgSum(Long cwsFargateTaskAvgSum) {
+    this.cwsFargateTaskAvgSum = cwsFargateTaskAvgSum;
   }
 
   public UsageSummaryResponse cwsHostTop99pSum(Long cwsHostTop99pSum) {
@@ -4334,7 +4360,8 @@ public class UsageSummaryResponse {
         && Objects.equals(this.customHistoricalTsSum, usageSummaryResponse.customHistoricalTsSum)
         && Objects.equals(this.customLiveTsSum, usageSummaryResponse.customLiveTsSum)
         && Objects.equals(this.customTsSum, usageSummaryResponse.customTsSum)
-        && Objects.equals(this.cwsContainersAvgSum, usageSummaryResponse.cwsContainersAvgSum)
+        && Objects.equals(this.cwsContainerAvgSum, usageSummaryResponse.cwsContainerAvgSum)
+        && Objects.equals(this.cwsFargateTaskAvgSum, usageSummaryResponse.cwsFargateTaskAvgSum)
         && Objects.equals(this.cwsHostTop99pSum, usageSummaryResponse.cwsHostTop99pSum)
         && Objects.equals(
             this.dataJobsMonitoringHostHrAggSum,
@@ -4598,7 +4625,8 @@ public class UsageSummaryResponse {
         customHistoricalTsSum,
         customLiveTsSum,
         customTsSum,
-        cwsContainersAvgSum,
+        cwsContainerAvgSum,
+        cwsFargateTaskAvgSum,
         cwsHostTop99pSum,
         dataJobsMonitoringHostHrAggSum,
         dbmHostTop99pSum,
@@ -4843,8 +4871,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    customLiveTsSum: ").append(toIndentedString(customLiveTsSum)).append("\n");
     sb.append("    customTsSum: ").append(toIndentedString(customTsSum)).append("\n");
-    sb.append("    cwsContainersAvgSum: ")
-        .append(toIndentedString(cwsContainersAvgSum))
+    sb.append("    cwsContainerAvgSum: ").append(toIndentedString(cwsContainerAvgSum)).append("\n");
+    sb.append("    cwsFargateTaskAvgSum: ")
+        .append(toIndentedString(cwsFargateTaskAvgSum))
         .append("\n");
     sb.append("    cwsHostTop99pSum: ").append(toIndentedString(cwsHostTop99pSum)).append("\n");
     sb.append("    dataJobsMonitoringHostHrAggSum: ")
