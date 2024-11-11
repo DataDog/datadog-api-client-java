@@ -27,6 +27,8 @@ public class FormulaAndFunctionSLOMeasure extends ModelEnum<String> {
           Arrays.asList(
               "good_events",
               "bad_events",
+              "good_minutes",
+              "bad_minutes",
               "slo_status",
               "error_budget_remaining",
               "burn_rate",
@@ -36,6 +38,10 @@ public class FormulaAndFunctionSLOMeasure extends ModelEnum<String> {
       new FormulaAndFunctionSLOMeasure("good_events");
   public static final FormulaAndFunctionSLOMeasure BAD_EVENTS =
       new FormulaAndFunctionSLOMeasure("bad_events");
+  public static final FormulaAndFunctionSLOMeasure GOOD_MINUTES =
+      new FormulaAndFunctionSLOMeasure("good_minutes");
+  public static final FormulaAndFunctionSLOMeasure BAD_MINUTES =
+      new FormulaAndFunctionSLOMeasure("bad_minutes");
   public static final FormulaAndFunctionSLOMeasure SLO_STATUS =
       new FormulaAndFunctionSLOMeasure("slo_status");
   public static final FormulaAndFunctionSLOMeasure ERROR_BUDGET_REMAINING =
