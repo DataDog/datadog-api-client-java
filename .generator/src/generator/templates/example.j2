@@ -41,7 +41,7 @@ import java.util.UUID;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-{%- for operation in context._enable_operations %}
+{%- for operation in context._enable_operations|sort %}
     defaultClient.setUnstableOperationEnabled("{{ version }}.{{ operation|untitle_case }}", true);
 {%- endfor %}
     {{ context.api_instance.name|camel_case|upperfirst }}Api apiInstance = new {{ context.api_instance.name|camel_case|upperfirst }}Api(defaultClient);
