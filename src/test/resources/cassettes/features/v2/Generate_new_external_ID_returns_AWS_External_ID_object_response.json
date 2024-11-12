@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/aws/generate_new_external_id",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"78feee6b9c374776888068593fa8c0b9\",\"type\":\"external_id\",\"attributes\":{\"external_id\":\"78feee6b9c374776888068593fa8c0b9\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a3ebb722-60eb-fa89-589a-ff3630e3a2cd"
+  }
+]

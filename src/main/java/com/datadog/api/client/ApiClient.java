@@ -400,6 +400,14 @@ public class ApiClient {
           put("v2.updateIncidentIntegration", false);
           put("v2.updateIncidentTodo", false);
           put("v2.updateIncidentType", false);
+          put("v2.createAWSAccount", false);
+          put("v2.createNewAWSExternalID", false);
+          put("v2.deleteAWSAccount", false);
+          put("v2.getAWSAccount", false);
+          put("v2.listAWSAccounts", false);
+          put("v2.listAWSNamespaces", false);
+          put("v2.updateAWSAccount", false);
+          put("v2.listAWSLogsServices", false);
           put("v2.cancelHistoricalJob", false);
           put("v2.convertJobResultToSignal", false);
           put("v2.deleteHistoricalJob", false);
