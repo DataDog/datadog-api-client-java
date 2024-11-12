@@ -20,46 +20,46 @@ import java.util.Objects;
 
 /** Objects describing the binding used for a mobile test. */
 @JsonPropertyOrder({
-  SyntheticsTestRestrictionPolicyBinding.JSON_PROPERTY_PRINCIPAL,
+  SyntheticsTestRestrictionPolicyBinding.JSON_PROPERTY_PRINCIPALS,
   SyntheticsTestRestrictionPolicyBinding.JSON_PROPERTY_RELATION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SyntheticsTestRestrictionPolicyBinding {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PRINCIPAL = "principal";
-  private List<String> principal = null;
+  public static final String JSON_PROPERTY_PRINCIPALS = "principals";
+  private List<String> principals = null;
 
   public static final String JSON_PROPERTY_RELATION = "relation";
   private SyntheticsTestRestrictionPolicyBindingRelation relation;
 
-  public SyntheticsTestRestrictionPolicyBinding principal(List<String> principal) {
-    this.principal = principal;
+  public SyntheticsTestRestrictionPolicyBinding principals(List<String> principals) {
+    this.principals = principals;
     return this;
   }
 
-  public SyntheticsTestRestrictionPolicyBinding addPrincipalItem(String principalItem) {
-    if (this.principal == null) {
-      this.principal = new ArrayList<>();
+  public SyntheticsTestRestrictionPolicyBinding addPrincipalsItem(String principalsItem) {
+    if (this.principals == null) {
+      this.principals = new ArrayList<>();
     }
-    this.principal.add(principalItem);
+    this.principals.add(principalsItem);
     return this;
   }
 
   /**
    * List of principals for a mobile test binding.
    *
-   * @return principal
+   * @return principals
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PRINCIPAL)
+  @JsonProperty(JSON_PROPERTY_PRINCIPALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getPrincipal() {
-    return principal;
+  public List<String> getPrincipals() {
+    return principals;
   }
 
-  public void setPrincipal(List<String> principal) {
-    this.principal = principal;
+  public void setPrincipals(List<String> principals) {
+    this.principals = principals;
   }
 
   public SyntheticsTestRestrictionPolicyBinding relation(
@@ -145,7 +145,7 @@ public class SyntheticsTestRestrictionPolicyBinding {
     }
     SyntheticsTestRestrictionPolicyBinding syntheticsTestRestrictionPolicyBinding =
         (SyntheticsTestRestrictionPolicyBinding) o;
-    return Objects.equals(this.principal, syntheticsTestRestrictionPolicyBinding.principal)
+    return Objects.equals(this.principals, syntheticsTestRestrictionPolicyBinding.principals)
         && Objects.equals(this.relation, syntheticsTestRestrictionPolicyBinding.relation)
         && Objects.equals(
             this.additionalProperties, syntheticsTestRestrictionPolicyBinding.additionalProperties);
@@ -153,14 +153,14 @@ public class SyntheticsTestRestrictionPolicyBinding {
 
   @Override
   public int hashCode() {
-    return Objects.hash(principal, relation, additionalProperties);
+    return Objects.hash(principals, relation, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsTestRestrictionPolicyBinding {\n");
-    sb.append("    principal: ").append(toIndentedString(principal)).append("\n");
+    sb.append("    principals: ").append(toIndentedString(principals)).append("\n");
     sb.append("    relation: ").append(toIndentedString(relation)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
