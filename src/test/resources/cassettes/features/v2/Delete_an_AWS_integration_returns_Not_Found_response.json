@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"account_tags\":[\"key:value\"],\"auth_config\":{\"role_name\":\"DatadogIntegrationRole\"},\"aws_account_id\":\"123456789012\",\"aws_partition\":\"aws\",\"aws_regions\":{\"include_only\":[\"us-east-1\"]},\"logs_config\":{\"lambda_forwarder\":{\"lambdas\":[\"arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder\"],\"sources\":[\"s3\"]}},\"metrics_config\":{\"automute_enabled\":true,\"collect_cloudwatch_alarms\":false,\"collect_custom_metrics\":false,\"enabled\":true,\"namespace_filters\":{\"include_only\":[\"AWS/EC2\"]},\"tag_filters\":[{\"namespace\":\"AWS/EC2\",\"tags\":[\"key:value\"]}]},\"resources_config\":{\"cloud_security_posture_management_collection\":false,\"extended_collection\":false},\"traces_config\":{\"xray_services\":{\"include_only\":[\"AWS/AppSync\"]}}},\"type\":\"account\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/aws/accounts",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"22e02b17-0d91-46d7-a228-69f7250a9c67\",\"type\":\"account\",\"attributes\":{\"account_tags\":[\"key:value\"],\"auth_config\":{\"role_name\":\"DatadogIntegrationRole\",\"external_id\":\"7d448990acf04682b29cb61691bf86bc\"},\"aws_account_id\":\"123456789012\",\"aws_partition\":\"aws\",\"aws_regions\":{\"include_only\":[\"us-east-1\"]},\"created_at\":\"2024-11-06T18:44:51.024047931Z\",\"logs_config\":{\"lambda_forwarder\":{\"lambdas\":[\"arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder\"],\"sources\":[\"s3\"]}},\"metrics_config\":{\"enabled\":true,\"automute_enabled\":true,\"collect_custom_metrics\":false,\"collect_cloudwatch_alarms\":false,\"tag_filters\":[{\"namespace\":\"AWS/EC2\",\"tags\":[\"key:value\"]}],\"namespace_filters\":{\"include_only\":[\"AWS/EC2\"]}},\"modified_at\":\"2024-11-06T18:44:51.024054618Z\",\"resources_config\":{\"cloud_security_posture_management_collection\":false,\"extended_collection\":false},\"traces_config\":{\"xray_services\":{\"include_only\":[\"AWS/AppSync\"]}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cd59362c-7df2-d349-9880-5b5536151a09"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/aws/accounts/448169a8-251c-4344-abee-1c4edef39f7a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Account not found\",\"detail\":\"AWS account with provided id is not integrated\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ab2123e3-6fb5-0f90-fe98-365e086c9c6e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/aws/accounts/22e02b17-0d91-46d7-a228-69f7250a9c67",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "296dbed7-0485-cd34-8857-47ec8c3d181c"
+  }
+]
