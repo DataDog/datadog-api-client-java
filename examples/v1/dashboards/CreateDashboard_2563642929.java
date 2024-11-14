@@ -97,8 +97,7 @@ public class Example {
                                                                                 .ASCENDING)))))
                                                 .responseFormat(
                                                     FormulaAndFunctionResponseFormat.SCALAR)))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

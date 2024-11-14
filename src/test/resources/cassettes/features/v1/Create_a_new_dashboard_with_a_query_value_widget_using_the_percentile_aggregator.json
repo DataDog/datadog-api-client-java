@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator-1641430225 with QVW Percentile Aggregator\",\"widgets\":[{\"definition\":{\"autoscale\":true,\"precision\":2,\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"p90:dist.dd.dogweb.latency{*}\"}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_value\"},\"layout\":{\"height\":2,\"width\":2,\"x\":0,\"y\":0}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator-1731611530 with QVW Percentile Aggregator\",\"widgets\":[{\"definition\":{\"autoscale\":true,\"precision\":2,\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"p90:dist.dd.dogweb.latency{*}\"}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_value\"},\"layout\":{\"height\":2,\"width\":2,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"xtt-jph-mde\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator-1641430225 with QVW Percentile Aggregator\",\"url\":\"/dashboard/xtt-jph-mde/test-createanewdashboardwithaqueryvaluewidgetusingthepercentileaggregator-164143\",\"created_at\":\"2022-01-06T00:50:25.655596+00:00\",\"modified_at\":\"2022-01-06T00:50:25.655596+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"autoscale\":true,\"title\":\"\",\"title_align\":\"left\",\"precision\":2,\"time\":{},\"title_size\":\"16\",\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"response_format\":\"scalar\",\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"p90:dist.dd.dogweb.latency{*}\"}]}],\"type\":\"query_value\"},\"layout\":{\"y\":0,\"width\":2,\"x\":0,\"height\":2},\"id\":5189476437557683}],\"layout_type\":\"ordered\"}",
+      "body": "{\"id\":\"5e6-uwt-hiw\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator-1731611530 with QVW Percentile Aggregator\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/5e6-uwt-hiw/test-createanewdashboardwithaqueryvaluewidgetusingthepercentileaggregator-173161\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"autoscale\":true,\"precision\":2,\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"p90:dist.dd.dogweb.latency{*}\"}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_value\"},\"layout\":{\"height\":2,\"width\":2,\"x\":0,\"y\":0},\"id\":2654036272451651}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:10.298509+00:00\",\"modified_at\":\"2024-11-14T19:12:10.298509+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "9ffa4243-ccee-79ea-4cac-7cd2d7dff38c"
+    "id": "eeb28a54-47f3-1ea5-a33a-662c57556b7e"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/xtt-jph-mde",
+      "path": "/api/v1/dashboard/5e6-uwt-hiw",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"xtt-jph-mde\"}",
+      "body": "{\"deleted_dashboard_id\":\"5e6-uwt-hiw\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0e2e5343-cc31-8630-1987-7d132a570e89"
+    "id": "c391dae9-338d-ae66-9dca-2545a97a1287"
   }
 ]

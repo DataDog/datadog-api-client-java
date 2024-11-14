@@ -46,8 +46,7 @@ public class Example {
                                     .showResourceList(false)
                                     .sizeFormat(WidgetSizeFormat.MEDIUM)
                                     .displayFormat(WidgetServiceSummaryDisplayFormat.TWO_COLUMN)))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

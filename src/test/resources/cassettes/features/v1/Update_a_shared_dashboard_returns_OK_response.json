@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Update_a_shared_dashboard_returns_OK_response-1681332944 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Update_a_shared_dashboard_returns_OK_response-1731611574 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"n4p-ymg-wjf\",\"title\":\"Test-Update_a_shared_dashboard_returns_OK_response-1681332944 with Profile Metrics Query\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/n4p-ymg-wjf/test-updateashareddashboardreturnsokresponse-1681332944-with-profile-metrics-que\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"},\"id\":8334852074489292}],\"notify_list\":null,\"created_at\":\"2023-04-12T20:55:45.157005+00:00\",\"modified_at\":\"2023-04-12T20:55:45.157005+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"88w-xn2-mij\",\"title\":\"Test-Update_a_shared_dashboard_returns_OK_response-1731611574 with Profile Metrics Query\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/88w-xn2-mij/test-updateashareddashboardreturnsokresponse-1731611574-with-profile-metrics-que\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"},\"id\":6560132249388355}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:55.067902+00:00\",\"modified_at\":\"2024-11-14T19:12:55.067902+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "04e6632c-5f5e-932b-8269-4d2e5f2e3804"
+    "id": "d8e21ef6-c6ec-5a30-e3c8-c17176c21fed"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"dashboard_id\":\"n4p-ymg-wjf\",\"dashboard_type\":\"custom_timeboard\",\"global_time\":{\"live_span\":\"1h\"},\"share_list\":[\"testupdateashareddashboardreturnsokresponse1681332944@datadoghq.com\"],\"share_type\":\"invite\"}"
+        "json": "{\"dashboard_id\":\"88w-xn2-mij\",\"dashboard_type\":\"custom_timeboard\",\"global_time\":{\"live_span\":\"1h\"},\"share_list\":[\"testupdateashareddashboardreturnsokresponse1731611574@datadoghq.com\"],\"share_type\":\"invite\"}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"author\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"dashboard_id\":\"n4p-ymg-wjf\",\"dashboard_type\":\"custom_timeboard\",\"global_time_selectable_enabled\":false,\"global_time\":{\"live_span\":\"1h\"},\"selectable_template_vars\":null,\"token\":\"fasjyydbcgwwc2uc-02029ebbe19451affffb0342605f03e7\",\"public_url\":\"https://p.datadoghq.com/sb/fasjyydbcgwwc2uc-02029ebbe19451affffb0342605f03e7\",\"created\":\"2023-04-12T20:55:45.513088+00:00\",\"share_type\":\"invite\",\"share_list\":[\"testupdateashareddashboardreturnsokresponse1681332944@datadoghq.com\"]}\n",
+      "body": "{\"author\":{\"handle\":\"anika.maskara@datadoghq.com\",\"name\":\"Anika Maskara\"},\"dashboard_id\":\"88w-xn2-mij\",\"dashboard_type\":\"custom_timeboard\",\"status\":\"active\",\"title\":\"Test-Update_a_shared_dashboard_returns_OK_response-1731611574 with Profile Metrics Query\",\"viewing_preferences\":{},\"expiration\":null,\"last_accessed\":null,\"global_time_selectable_enabled\":false,\"global_time\":{\"live_span\":\"1h\"},\"selectable_template_vars\":null,\"token\":\"fasjyydbcgwwc2uc-671f5753eee0a2a6b3fd80019ccbf1ec\",\"public_url\":\"https://p.datadoghq.com/sb/fasjyydbcgwwc2uc-671f5753eee0a2a6b3fd80019ccbf1ec\",\"created\":\"2024-11-14T19:12:55.398738+00:00\",\"share_type\":\"invite\",\"share_list\":[\"testupdateashareddashboardreturnsokresponse1731611574@datadoghq.com\"],\"session_duration_in_days\":30,\"invitees\":[{\"email\":\"testupdateashareddashboardreturnsokresponse1731611574@datadoghq.com\",\"access_expiration\":null,\"last_accessed\":null,\"created_at\":\"2024-11-14T19:12:55.430476+00:00\"}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,7 +57,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b8ecddab-1508-d45f-f948-5905956d9435"
+    "id": "d7b7c3ed-5ab9-9a52-7f6b-b367a143a4ed"
   },
   {
     "httpRequest": {
@@ -67,12 +67,12 @@
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v1/dashboard/public/fasjyydbcgwwc2uc-02029ebbe19451affffb0342605f03e7",
+      "path": "/api/v1/dashboard/public/fasjyydbcgwwc2uc-671f5753eee0a2a6b3fd80019ccbf1ec",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"author\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"dashboard_id\":\"n4p-ymg-wjf\",\"dashboard_type\":\"custom_timeboard\",\"global_time_selectable_enabled\":false,\"global_time\":{\"live_span\":\"15m\"},\"selectable_template_vars\":null,\"token\":\"fasjyydbcgwwc2uc-02029ebbe19451affffb0342605f03e7\",\"public_url\":\"https://p.datadoghq.com/sb/fasjyydbcgwwc2uc-02029ebbe19451affffb0342605f03e7\",\"created\":\"2023-04-12T20:55:45.513088+00:00\",\"share_type\":\"open\",\"share_list\":[]}\n",
+      "body": "{\"author\":{\"handle\":\"anika.maskara@datadoghq.com\",\"name\":\"Anika Maskara\"},\"dashboard_id\":\"88w-xn2-mij\",\"dashboard_type\":\"custom_timeboard\",\"status\":\"active\",\"title\":\"Test-Update_a_shared_dashboard_returns_OK_response-1731611574 with Profile Metrics Query\",\"viewing_preferences\":{},\"expiration\":null,\"last_accessed\":null,\"global_time_selectable_enabled\":false,\"global_time\":{\"live_span\":\"15m\"},\"selectable_template_vars\":null,\"token\":\"fasjyydbcgwwc2uc-671f5753eee0a2a6b3fd80019ccbf1ec\",\"public_url\":\"https://p.datadoghq.com/sb/fasjyydbcgwwc2uc-671f5753eee0a2a6b3fd80019ccbf1ec\",\"created\":\"2024-11-14T19:12:55.398738+00:00\",\"share_type\":\"open\",\"share_list\":[],\"session_duration_in_days\":null,\"invitees\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -87,18 +87,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "666e7c08-deb0-9c42-30a3-ac7291fe4755"
+    "id": "275e3b9c-7dd0-bad1-8f2b-86b8859f2a61"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/public/fasjyydbcgwwc2uc-02029ebbe19451affffb0342605f03e7",
+      "path": "/api/v1/dashboard/public/fasjyydbcgwwc2uc-671f5753eee0a2a6b3fd80019ccbf1ec",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_public_dashboard_token\":\"fasjyydbcgwwc2uc-02029ebbe19451affffb0342605f03e7\"}\n",
+      "body": "{\"deleted_public_dashboard_token\":\"fasjyydbcgwwc2uc-671f5753eee0a2a6b3fd80019ccbf1ec\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -113,18 +113,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2a4053aa-c7c4-be18-706d-24680d08b548"
+    "id": "2fcaf4a4-9eb2-1ff2-0b10-00d22e9997d1"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/n4p-ymg-wjf",
+      "path": "/api/v1/dashboard/88w-xn2-mij",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"n4p-ymg-wjf\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"88w-xn2-mij\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -139,6 +139,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f8c88d89-e4ba-f805-e0e5-0a3a50938315"
+    "id": "0a62cc69-d520-0c96-4842-e7db234a8e08"
   }
 ]

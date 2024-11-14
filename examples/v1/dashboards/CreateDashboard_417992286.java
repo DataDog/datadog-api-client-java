@@ -30,8 +30,7 @@ public class Example {
                                 new NoteWidgetDefinition()
                                     .type(NoteWidgetDefinitionType.NOTE)
                                     .content("# Example Note")))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

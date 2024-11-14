@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":null,\"is_read_only\":false,\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"auto\",\"restricted_roles\":[],\"template_variable_presets\":[{\"name\":\"my saved view\",\"template_variables\":[{\"name\":\"datacenter\",\"value\":\"*\",\"values\":[\"*\"]}]}],\"template_variables\":[{\"available_values\":[\"my-host\",\"host1\",\"host2\"],\"defaults\":[\"my-host\"],\"name\":\"host1\",\"prefix\":\"host\"}],\"title\":\"\",\"widgets\":[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"}}]}"
+        "json": "{\"description\":null,\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"auto\",\"restricted_roles\":[],\"template_variable_presets\":[{\"name\":\"my saved view\",\"template_variables\":[{\"name\":\"datacenter\",\"value\":\"*\",\"values\":[\"*\"]}]}],\"template_variables\":[{\"available_values\":[\"my-host\",\"host1\",\"host2\"],\"defaults\":[\"my-host\"],\"name\":\"host1\",\"prefix\":\"host\"}],\"title\":\"\",\"widgets\":[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"'template_variables' value '{u'values': [u'*'], u'name': u'datacenter', u'value': u'*'}' is invalid\"]}",
+      "body": "{\"errors\":[\"'template_variables' value '{'name': 'datacenter', 'value': '*', 'values': ['*']}' is invalid\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "19c54e47-2621-b960-df98-4e9aacb783cc"
+    "id": "b650be71-04ec-33fc-2fc5-b5053e0e0033"
   }
 ]

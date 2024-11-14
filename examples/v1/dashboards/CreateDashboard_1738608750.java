@@ -34,8 +34,7 @@ public class Example {
                                     .color("#4d4d4d")
                                     .fontSize("auto")
                                     .textAlign(WidgetTextAlign.LEFT)))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

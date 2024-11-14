@@ -36,8 +36,7 @@ public class Example {
                                     .type(ServiceMapWidgetDefinitionType.SERVICEMAP)
                                     .service("")
                                     .filters(Arrays.asList("env:none", "environment:*"))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

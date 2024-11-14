@@ -42,8 +42,7 @@ public class Example {
                                     .type(AlertGraphWidgetDefinitionType.ALERT_GRAPH)
                                     .alertId("7")
                                     .vizType(WidgetVizType.TIMESERIES)))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

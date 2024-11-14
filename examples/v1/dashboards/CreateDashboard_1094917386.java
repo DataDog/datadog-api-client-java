@@ -44,8 +44,7 @@ public class Example {
                                     .count(50L)
                                     .start(0L)
                                     .showPriority(false)))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

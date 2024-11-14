@@ -44,8 +44,7 @@ public class Example {
                                                         .limit(75L))
                                                 .requestType(
                                                     SLOListWidgetRequestType.SLO_LIST)))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

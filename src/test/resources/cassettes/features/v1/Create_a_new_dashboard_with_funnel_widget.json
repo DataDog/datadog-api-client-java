@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_funnel_widget-1641430232 with funnel widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"rum\",\"query_string\":\"\",\"steps\":[]},\"request_type\":\"funnel\"}],\"type\":\"funnel\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_funnel_widget-1731611543 with funnel widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"rum\",\"query_string\":\"\",\"steps\":[]},\"request_type\":\"funnel\"}],\"type\":\"funnel\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"2n6-br7-kwr\",\"title\":\"Test-Create_a_new_dashboard_with_funnel_widget-1641430232 with funnel widget\",\"url\":\"/dashboard/2n6-br7-kwr/test-createanewdashboardwithfunnelwidget-1641430232-with-funnel-widget\",\"created_at\":\"2022-01-06T00:50:33.082701+00:00\",\"modified_at\":\"2022-01-06T00:50:33.082701+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"query_string\":\"\",\"data_source\":\"rum\",\"steps\":[]},\"request_type\":\"funnel\"}],\"type\":\"funnel\"},\"id\":5380342825148909}],\"layout_type\":\"ordered\"}",
+      "body": "{\"id\":\"zta-rqr-z7r\",\"title\":\"Test-Create_a_new_dashboard_with_funnel_widget-1731611543 with funnel widget\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/zta-rqr-z7r/test-createanewdashboardwithfunnelwidget-1731611543-with-funnel-widget\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"rum\",\"query_string\":\"\",\"steps\":[]},\"request_type\":\"funnel\"}],\"type\":\"funnel\"},\"id\":3177333241748468}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:23.172576+00:00\",\"modified_at\":\"2024-11-14T19:12:23.172576+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d5bec424-0346-bd92-7f41-a7740c38b9c3"
+    "id": "cb30f11f-bb16-199e-0d38-d2f63ac0aa46"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/2n6-br7-kwr",
+      "path": "/api/v1/dashboard/zta-rqr-z7r",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"2n6-br7-kwr\"}",
+      "body": "{\"deleted_dashboard_id\":\"zta-rqr-z7r\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2cbcf55d-fe78-afe4-7f7b-4f1e71a93fb2"
+    "id": "d71dedf3-2d3d-9618-d528-ab67476dbbfc"
   }
 ]

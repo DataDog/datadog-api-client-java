@@ -47,8 +47,7 @@ public class Example {
                                     .showDateColumn(true)
                                     .showMessageColumn(true)
                                     .messageDisplay(WidgetMessageDisplay.EXPANDED_MEDIUM)))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

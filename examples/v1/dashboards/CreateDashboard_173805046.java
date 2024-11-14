@@ -45,8 +45,7 @@ public class Example {
                                     .viewMode(WidgetViewMode.OVERALL)
                                     .globalTimeTarget("0")
                                     .additionalQueryFilters("!host:excluded_host")))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

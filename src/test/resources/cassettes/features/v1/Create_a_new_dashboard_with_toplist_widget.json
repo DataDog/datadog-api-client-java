@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_toplist_widget-1725624651\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":10,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"style\":{\"display\":{\"legend\":\"inline\",\"type\":\"stacked\"},\"palette\":\"dog_classic\",\"scaling\":\"relative\"},\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"toplist\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_toplist_widget-1731611562\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":10,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"style\":{\"display\":{\"legend\":\"inline\",\"type\":\"stacked\"},\"palette\":\"dog_classic\",\"scaling\":\"relative\"},\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"toplist\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"q25-ie2-8p9\",\"title\":\"Test-Create_a_new_dashboard_with_toplist_widget-1725624651\",\"description\":\"\",\"author_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"author_name\":\"CI Account\",\"layout_type\":\"free\",\"url\":\"/dashboard/q25-ie2-8p9/test-createanewdashboardwithtoplistwidget-1725624651\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":10,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"style\":{\"display\":{\"legend\":\"inline\",\"type\":\"stacked\"},\"palette\":\"dog_classic\",\"scaling\":\"relative\"},\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"toplist\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":6898333964604098}],\"notify_list\":[],\"created_at\":\"2024-09-06T12:10:51.371974+00:00\",\"modified_at\":\"2024-09-06T12:10:51.371974+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"ffe-udq-bak\",\"title\":\"Test-Create_a_new_dashboard_with_toplist_widget-1731611562\",\"description\":\"\",\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"free\",\"url\":\"/dashboard/ffe-udq-bak/test-createanewdashboardwithtoplistwidget-1731611562\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":10,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"style\":{\"display\":{\"legend\":\"inline\",\"type\":\"stacked\"},\"palette\":\"dog_classic\",\"scaling\":\"relative\"},\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"toplist\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":3080030583008842}],\"notify_list\":[],\"created_at\":\"2024-11-14T19:12:42.698270+00:00\",\"modified_at\":\"2024-11-14T19:12:42.698270+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d4d59ff6-298b-c4e3-059c-0d98a94c6c3a"
+    "id": "a75d943d-c18d-7dea-7a05-2fc56a969911"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/q25-ie2-8p9",
+      "path": "/api/v1/dashboard/ffe-udq-bak",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"q25-ie2-8p9\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"ffe-udq-bak\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "acd77fd7-fab8-c994-0694-b18c7658915d"
+    "id": "eff31f14-d2ac-51bf-5274-61d2ca30d1bc"
   }
 ]

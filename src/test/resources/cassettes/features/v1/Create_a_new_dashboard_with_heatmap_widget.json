@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":null,\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_heatmap_widget-1641430233\",\"widgets\":[{\"definition\":{\"requests\":[{\"q\":\"avg:system.cpu.user{*} by {service}\",\"style\":{\"palette\":\"dog_classic\"}}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"heatmap\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":null,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_heatmap_widget-1731611543\",\"widgets\":[{\"definition\":{\"requests\":[{\"q\":\"avg:system.cpu.user{*} by {service}\",\"style\":{\"palette\":\"dog_classic\"}}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"heatmap\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":[],\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":[],\"is_read_only\":false,\"id\":\"itn-x76-j9p\",\"title\":\"Test-Create_a_new_dashboard_with_heatmap_widget-1641430233\",\"url\":\"/dashboard/itn-x76-j9p/test-createanewdashboardwithheatmapwidget-1641430233\",\"created_at\":\"2022-01-06T00:50:34.035679+00:00\",\"modified_at\":\"2022-01-06T00:50:34.035679+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"title_size\":\"16\",\"title\":\"\",\"title_align\":\"left\",\"time\":{},\"requests\":[{\"q\":\"avg:system.cpu.user{*} by {service}\",\"style\":{\"palette\":\"dog_classic\"}}],\"type\":\"heatmap\"},\"layout\":{\"y\":0,\"width\":47,\"x\":0,\"height\":15},\"id\":3967109255591210}],\"layout_type\":\"free\"}",
+      "body": "{\"id\":\"m55-nbe-fb2\",\"title\":\"Test-Create_a_new_dashboard_with_heatmap_widget-1731611543\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"free\",\"url\":\"/dashboard/m55-nbe-fb2/test-createanewdashboardwithheatmapwidget-1731611543\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"q\":\"avg:system.cpu.user{*} by {service}\",\"style\":{\"palette\":\"dog_classic\"}}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"heatmap\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":3468862583321901}],\"notify_list\":[],\"created_at\":\"2024-11-14T19:12:24.011974+00:00\",\"modified_at\":\"2024-11-14T19:12:24.011974+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "db572424-32c6-d8cd-5b59-5de7dc124b22"
+    "id": "adee0351-4afa-c9be-5325-4dd004655d8c"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/itn-x76-j9p",
+      "path": "/api/v1/dashboard/m55-nbe-fb2",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"itn-x76-j9p\"}",
+      "body": "{\"deleted_dashboard_id\":\"m55-nbe-fb2\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a22f16b2-efe5-dd6f-dab2-ed841f270161"
+    "id": "738b44e6-4c11-b505-8096-618daf3d2221"
   }
 ]

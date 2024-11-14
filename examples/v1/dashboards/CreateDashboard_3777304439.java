@@ -61,8 +61,7 @@ public class Example {
                                                         new WidgetFormula().formula("query1")))
                                                 .style(
                                                     new WidgetStyle().palette("dog_classic"))))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

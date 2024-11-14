@@ -32,8 +32,7 @@ public class Example {
                                     .type(ImageWidgetDefinitionType.IMAGE)
                                     .url("https://example.com/image.png")
                                     .sizing(WidgetImageSizing.COVER)))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

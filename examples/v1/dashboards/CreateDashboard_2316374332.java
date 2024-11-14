@@ -40,8 +40,7 @@ public class Example {
                                     .unit("auto")
                                     .textAlign(WidgetTextAlign.LEFT)
                                     .precision(2L)))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

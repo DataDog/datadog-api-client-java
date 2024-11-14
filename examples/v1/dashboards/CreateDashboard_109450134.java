@@ -51,8 +51,7 @@ public class Example {
                                                                     .order(WidgetSort.ASCENDING))))
                                                 .requestType(
                                                     SLOListWidgetRequestType.SLO_LIST)))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

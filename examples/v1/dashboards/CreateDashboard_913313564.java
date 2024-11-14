@@ -30,8 +30,7 @@ public class Example {
                                 new IFrameWidgetDefinition()
                                     .type(IFrameWidgetDefinitionType.IFRAME)
                                     .url("https://docs.datadoghq.com/api/latest/")))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

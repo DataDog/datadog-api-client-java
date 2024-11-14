@@ -44,8 +44,7 @@ public class Example {
                                                 .q("avg:system.cpu.user{*} by {service}")
                                                 .style(
                                                     new WidgetStyle().palette("dog_classic"))))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);
