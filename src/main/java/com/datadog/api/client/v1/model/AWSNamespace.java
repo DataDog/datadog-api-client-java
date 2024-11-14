@@ -24,7 +24,15 @@ public class AWSNamespace extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("elb", "application_elb", "sqs", "rds", "custom", "network_elb", "lambda"));
+          Arrays.asList(
+              "elb",
+              "application_elb",
+              "sqs",
+              "rds",
+              "custom",
+              "network_elb",
+              "lambda",
+              "step_functions"));
 
   public static final AWSNamespace ELB = new AWSNamespace("elb");
   public static final AWSNamespace APPLICATION_ELB = new AWSNamespace("application_elb");
@@ -33,6 +41,7 @@ public class AWSNamespace extends ModelEnum<String> {
   public static final AWSNamespace CUSTOM = new AWSNamespace("custom");
   public static final AWSNamespace NETWORK_ELB = new AWSNamespace("network_elb");
   public static final AWSNamespace LAMBDA = new AWSNamespace("lambda");
+  public static final AWSNamespace STEP_FUNCTIONS = new AWSNamespace("step_functions");
 
   AWSNamespace(String value) {
     super(value, allowedValues);
