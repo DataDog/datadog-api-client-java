@@ -3395,7 +3395,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a list of CSPM findings.
+   * Get a list of findings. These include both misconfigurations and identity risks.
    *
    * <h3>Filtering</h3>
    *
