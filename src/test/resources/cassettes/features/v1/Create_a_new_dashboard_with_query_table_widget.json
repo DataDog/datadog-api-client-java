@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_query_table_widget-1731611552\",\"widgets\":[{\"definition\":{\"has_search_bar\":\"auto\",\"requests\":[{\"formulas\":[{\"cell_display_mode\":\"bar\",\"conditional_formats\":[],\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {host}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":500,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_table\"},\"layout\":{\"height\":32,\"width\":54,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_query_table_widget-1731699170\",\"widgets\":[{\"definition\":{\"has_search_bar\":\"auto\",\"requests\":[{\"formulas\":[{\"cell_display_mode\":\"bar\",\"conditional_formats\":[],\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {host}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":500,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_table\"},\"layout\":{\"height\":32,\"width\":54,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"vx3-uy4-r8e\",\"title\":\"Test-Create_a_new_dashboard_with_query_table_widget-1731611552\",\"description\":\"\",\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"free\",\"url\":\"/dashboard/vx3-uy4-r8e/test-createanewdashboardwithquerytablewidget-1731611552\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"has_search_bar\":\"auto\",\"requests\":[{\"formulas\":[{\"cell_display_mode\":\"bar\",\"conditional_formats\":[],\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {host}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":500,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_table\"},\"layout\":{\"height\":32,\"width\":54,\"x\":0,\"y\":0},\"id\":3858788506982676}],\"notify_list\":[],\"created_at\":\"2024-11-14T19:12:32.810607+00:00\",\"modified_at\":\"2024-11-14T19:12:32.810607+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"7q6-h26-j3u\",\"title\":\"Test-Create_a_new_dashboard_with_query_table_widget-1731699170\",\"description\":\"\",\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"free\",\"url\":\"/dashboard/7q6-h26-j3u/test-createanewdashboardwithquerytablewidget-1731699170\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"has_search_bar\":\"auto\",\"requests\":[{\"formulas\":[{\"cell_display_mode\":\"bar\",\"conditional_formats\":[],\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {host}\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":500,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_table\"},\"layout\":{\"height\":32,\"width\":54,\"x\":0,\"y\":0},\"id\":6518783990420616}],\"notify_list\":[],\"created_at\":\"2024-11-15T19:32:50.203807+00:00\",\"modified_at\":\"2024-11-15T19:32:50.203807+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2b20b709-11c7-fc8a-547b-c869c96e1b5c"
+    "id": "f982a3ca-9d91-d46b-ec92-c2e7f22afb55"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/vx3-uy4-r8e",
+      "path": "/api/v1/dashboard/7q6-h26-j3u",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"vx3-uy4-r8e\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"7q6-h26-j3u\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a09292b9-e539-2dc1-8d99-12c27af13196"
+    "id": "c804cc1c-7114-914b-7bbf-eceb3bd627e6"
   }
 ]

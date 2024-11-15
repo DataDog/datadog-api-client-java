@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_trace_service_widget-1731611563\",\"widgets\":[{\"definition\":{\"display_format\":\"two_column\",\"env\":\"none\",\"service\":\"\",\"show_breakdown\":true,\"show_distribution\":true,\"show_errors\":true,\"show_hits\":true,\"show_latency\":true,\"show_resource_list\":false,\"size_format\":\"medium\",\"span_name\":\"\",\"time\":{},\"title\":\"Service Summary\",\"type\":\"trace_service\"},\"layout\":{\"height\":72,\"width\":72,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_trace_service_widget-1731699180\",\"widgets\":[{\"definition\":{\"display_format\":\"two_column\",\"env\":\"none\",\"service\":\"\",\"show_breakdown\":true,\"show_distribution\":true,\"show_errors\":true,\"show_hits\":true,\"show_latency\":true,\"show_resource_list\":false,\"size_format\":\"medium\",\"span_name\":\"\",\"time\":{},\"title\":\"Service Summary\",\"type\":\"trace_service\"},\"layout\":{\"height\":72,\"width\":72,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"82r-6xq-vn3\",\"title\":\"Test-Create_a_new_dashboard_with_trace_service_widget-1731611563\",\"description\":\"\",\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"free\",\"url\":\"/dashboard/82r-6xq-vn3/test-createanewdashboardwithtraceservicewidget-1731611563\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"display_format\":\"two_column\",\"env\":\"none\",\"service\":\"\",\"show_breakdown\":true,\"show_distribution\":true,\"show_errors\":true,\"show_hits\":true,\"show_latency\":true,\"show_resource_list\":false,\"size_format\":\"medium\",\"span_name\":\"\",\"time\":{},\"title\":\"Service Summary\",\"type\":\"trace_service\"},\"layout\":{\"height\":72,\"width\":72,\"x\":0,\"y\":0},\"id\":8083039739576862}],\"notify_list\":[],\"created_at\":\"2024-11-14T19:12:43.452285+00:00\",\"modified_at\":\"2024-11-14T19:12:43.452285+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"8rp-yjv-2c7\",\"title\":\"Test-Create_a_new_dashboard_with_trace_service_widget-1731699180\",\"description\":\"\",\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"free\",\"url\":\"/dashboard/8rp-yjv-2c7/test-createanewdashboardwithtraceservicewidget-1731699180\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"display_format\":\"two_column\",\"env\":\"none\",\"service\":\"\",\"show_breakdown\":true,\"show_distribution\":true,\"show_errors\":true,\"show_hits\":true,\"show_latency\":true,\"show_resource_list\":false,\"size_format\":\"medium\",\"span_name\":\"\",\"time\":{},\"title\":\"Service Summary\",\"type\":\"trace_service\"},\"layout\":{\"height\":72,\"width\":72,\"x\":0,\"y\":0},\"id\":1971574953690767}],\"notify_list\":[],\"created_at\":\"2024-11-15T19:33:00.618626+00:00\",\"modified_at\":\"2024-11-15T19:33:00.618626+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "95df53b0-a842-8d43-e105-03466caae9b9"
+    "id": "804a27fe-beee-3c52-8895-ed6406c101be"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/82r-6xq-vn3",
+      "path": "/api/v1/dashboard/8rp-yjv-2c7",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"82r-6xq-vn3\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"8rp-yjv-2c7\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "82b873c9-0584-353a-9969-aa57aeb78738"
+    "id": "084524cf-dbba-5955-3c6a-c1e32bdb29c5"
   }
 ]

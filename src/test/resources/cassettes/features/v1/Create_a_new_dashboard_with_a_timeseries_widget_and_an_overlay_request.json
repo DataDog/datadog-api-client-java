@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_timeseries_widget_and_an_overlay_request-1731611531\",\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"on_right_yaxis\":false,\"queries\":[{\"data_source\":\"metrics\",\"name\":\"mymetric\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\"},{\"display_type\":\"overlay\",\"queries\":[{\"data_source\":\"metrics\",\"name\":\"mymetricoverlay\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"purple\"}}],\"type\":\"timeseries\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_timeseries_widget_and_an_overlay_request-1731699152\",\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"on_right_yaxis\":false,\"queries\":[{\"data_source\":\"metrics\",\"name\":\"mymetric\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\"},{\"display_type\":\"overlay\",\"queries\":[{\"data_source\":\"metrics\",\"name\":\"mymetricoverlay\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"purple\"}}],\"type\":\"timeseries\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"9dj-gpc-pve\",\"title\":\"Test-Create_a_new_dashboard_with_a_timeseries_widget_and_an_overlay_request-1731611531\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/9dj-gpc-pve/test-createanewdashboardwithatimeserieswidgetandanoverlayrequest-1731611531\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"on_right_yaxis\":false,\"queries\":[{\"data_source\":\"metrics\",\"name\":\"mymetric\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\"},{\"display_type\":\"overlay\",\"queries\":[{\"data_source\":\"metrics\",\"name\":\"mymetricoverlay\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"purple\"}}],\"type\":\"timeseries\"},\"id\":3340608125452159}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:11.274182+00:00\",\"modified_at\":\"2024-11-14T19:12:11.274182+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"9kn-skt-493\",\"title\":\"Test-Create_a_new_dashboard_with_a_timeseries_widget_and_an_overlay_request-1731699152\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/9kn-skt-493/test-createanewdashboardwithatimeserieswidgetandanoverlayrequest-1731699152\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"on_right_yaxis\":false,\"queries\":[{\"data_source\":\"metrics\",\"name\":\"mymetric\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\"},{\"display_type\":\"overlay\",\"queries\":[{\"data_source\":\"metrics\",\"name\":\"mymetricoverlay\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"purple\"}}],\"type\":\"timeseries\"},\"id\":8425606312270690}],\"notify_list\":null,\"created_at\":\"2024-11-15T19:32:32.390240+00:00\",\"modified_at\":\"2024-11-15T19:32:32.390240+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "606f853f-5b29-7ad0-a178-609c10ace58b"
+    "id": "3c9dae0d-9125-03db-f984-49f6532128d4"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/9dj-gpc-pve",
+      "path": "/api/v1/dashboard/9kn-skt-493",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"9dj-gpc-pve\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"9kn-skt-493\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2a3a0203-b7b4-c612-1a94-7446e2e5c3e4"
+    "id": "8781dc3c-0d17-453b-194a-5360e90b480a"
   }
 ]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_iframe_widget-1731611544\",\"widgets\":[{\"definition\":{\"type\":\"iframe\",\"url\":\"https://docs.datadoghq.com/api/latest/\"},\"layout\":{\"height\":12,\"width\":12,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_iframe_widget-1731699163\",\"widgets\":[{\"definition\":{\"type\":\"iframe\",\"url\":\"https://docs.datadoghq.com/api/latest/\"},\"layout\":{\"height\":12,\"width\":12,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"az3-9m4-ywf\",\"title\":\"Test-Create_a_new_dashboard_with_iframe_widget-1731611544\",\"description\":\"\",\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"free\",\"url\":\"/dashboard/az3-9m4-ywf/test-createanewdashboardwithiframewidget-1731611544\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"type\":\"iframe\",\"url\":\"https://docs.datadoghq.com/api/latest/\"},\"layout\":{\"height\":12,\"width\":12,\"x\":0,\"y\":0},\"id\":3286517205333846}],\"notify_list\":[],\"created_at\":\"2024-11-14T19:12:24.844136+00:00\",\"modified_at\":\"2024-11-14T19:12:24.844136+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"y65-35v-xh5\",\"title\":\"Test-Create_a_new_dashboard_with_iframe_widget-1731699163\",\"description\":\"\",\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"free\",\"url\":\"/dashboard/y65-35v-xh5/test-createanewdashboardwithiframewidget-1731699163\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"type\":\"iframe\",\"url\":\"https://docs.datadoghq.com/api/latest/\"},\"layout\":{\"height\":12,\"width\":12,\"x\":0,\"y\":0},\"id\":1537588948372026}],\"notify_list\":[],\"created_at\":\"2024-11-15T19:32:43.415569+00:00\",\"modified_at\":\"2024-11-15T19:32:43.415569+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b7386fef-68fe-83ec-8f9e-fe4fb95487b8"
+    "id": "1ecbc983-1f0d-9c05-81b4-1c032c2d7a62"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/az3-9m4-ywf",
+      "path": "/api/v1/dashboard/y65-35v-xh5",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"az3-9m4-ywf\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"y65-35v-xh5\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1ad3e090-7ebb-c440-a257-6f1419ab5404"
+    "id": "80d807d8-e53a-ea56-cf8b-b3396b319f60"
   }
 ]

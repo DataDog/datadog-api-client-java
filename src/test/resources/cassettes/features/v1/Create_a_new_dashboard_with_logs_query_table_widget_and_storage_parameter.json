@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_logs_query_table_widget_and_storage_parameter-1731611548 with query table widget and storage parameter\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"cell_display_mode\":\"bar\",\"conditional_formats\":[],\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"},\"storage\":\"online_archives\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":50,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"type\":\"query_table\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_logs_query_table_widget_and_storage_parameter-1731699166 with query table widget and storage parameter\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"cell_display_mode\":\"bar\",\"conditional_formats\":[],\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"},\"storage\":\"online_archives\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":50,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"type\":\"query_table\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"cum-shp-mz2\",\"title\":\"Test-Create_a_new_dashboard_with_logs_query_table_widget_and_storage_parameter-1731611548 with query table widget and storage parameter\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/cum-shp-mz2/test-createanewdashboardwithlogsquerytablewidgetandstorageparameter-1731611548-w\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"cell_display_mode\":\"bar\",\"conditional_formats\":[],\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"},\"storage\":\"online_archives\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":50,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"type\":\"query_table\"},\"id\":7464174593696253}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:29.025064+00:00\",\"modified_at\":\"2024-11-14T19:12:29.025064+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"3bi-3is-gj3\",\"title\":\"Test-Create_a_new_dashboard_with_logs_query_table_widget_and_storage_parameter-1731699166 with query table widget and storage parameter\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/3bi-3is-gj3/test-createanewdashboardwithlogsquerytablewidgetandstorageparameter-1731699166-w\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"cell_display_mode\":\"bar\",\"conditional_formats\":[],\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"},\"storage\":\"online_archives\"}],\"response_format\":\"scalar\",\"sort\":{\"count\":50,\"order_by\":[{\"index\":0,\"order\":\"desc\",\"type\":\"formula\"}]}}],\"type\":\"query_table\"},\"id\":6318589982774362}],\"notify_list\":null,\"created_at\":\"2024-11-15T19:32:46.331888+00:00\",\"modified_at\":\"2024-11-15T19:32:46.331888+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6e2b5712-8dfc-852f-6734-bbbd054b1e58"
+    "id": "08c70727-f2db-79da-235c-6dcb9f323c05"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/cum-shp-mz2",
+      "path": "/api/v1/dashboard/3bi-3is-gj3",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"cum-shp-mz2\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"3bi-3is-gj3\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "69bbc9fa-253f-08d5-bc3a-cc08fdfadfb3"
+    "id": "8af836b4-cf6f-e1f8-bf69-32986a9e2ec0"
   }
 ]

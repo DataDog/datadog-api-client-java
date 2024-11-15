@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_topology_map_widget-1731611562\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"service_map\",\"filters\":[\"env:none\",\"environment:*\"],\"service\":\"\"},\"request_type\":\"topology\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"topology_map\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_topology_map_widget-1731699180\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"service_map\",\"filters\":[\"env:none\",\"environment:*\"],\"service\":\"\"},\"request_type\":\"topology\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"topology_map\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"4nx-4x7-4ft\",\"title\":\"Test-Create_a_new_dashboard_with_topology_map_widget-1731611562\",\"description\":\"\",\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"free\",\"url\":\"/dashboard/4nx-4x7-4ft/test-createanewdashboardwithtopologymapwidget-1731611562\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"service_map\",\"filters\":[\"env:none\",\"environment:*\"],\"service\":\"\"},\"request_type\":\"topology\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"topology_map\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":4417217639321993}],\"notify_list\":[],\"created_at\":\"2024-11-14T19:12:43.065479+00:00\",\"modified_at\":\"2024-11-14T19:12:43.065479+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"9fp-eg8-uae\",\"title\":\"Test-Create_a_new_dashboard_with_topology_map_widget-1731699180\",\"description\":\"\",\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"free\",\"url\":\"/dashboard/9fp-eg8-uae/test-createanewdashboardwithtopologymapwidget-1731699180\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"data_source\":\"service_map\",\"filters\":[\"env:none\",\"environment:*\"],\"service\":\"\"},\"request_type\":\"topology\"}],\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"topology_map\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":606036044054377}],\"notify_list\":[],\"created_at\":\"2024-11-15T19:33:00.244891+00:00\",\"modified_at\":\"2024-11-15T19:33:00.244891+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0cadda3c-3871-399c-9041-63d203bd786b"
+    "id": "05449535-0472-a316-0863-0f2afc9a0133"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/4nx-4x7-4ft",
+      "path": "/api/v1/dashboard/9fp-eg8-uae",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"4nx-4x7-4ft\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"9fp-eg8-uae\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ea6638b8-f0c2-b53e-9ca6-a6c22b45485a"
+    "id": "fabc692f-3ab5-ba37-0375-9e04e278c3f1"
   }
 ]

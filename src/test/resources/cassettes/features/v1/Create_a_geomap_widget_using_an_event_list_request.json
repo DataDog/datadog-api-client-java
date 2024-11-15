@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":\"Test-Create_a_geomap_widget_using_an_event_list_request-1731611527\",\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"fixed\",\"tags\":[],\"template_variables\":[],\"title\":\"Test-Create_a_geomap_widget_using_an_event_list_request-1731611527\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"@network.client.geoip.location.latitude\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.location.longitude\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.country.iso_code\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.subdivision.name\",\"width\":\"auto\"},{\"field\":\"classic\",\"width\":\"auto\"},{\"field\":\"\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"logs_stream\",\"indexes\":[],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"style\":{\"palette\":\"hostmap_blues\",\"palette_flip\":false},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"geomap\",\"view\":{\"focus\":\"WORLD\"}},\"layout\":{\"height\":6,\"width\":12,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":\"Test-Create_a_geomap_widget_using_an_event_list_request-1731699148\",\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"fixed\",\"tags\":[],\"template_variables\":[],\"title\":\"Test-Create_a_geomap_widget_using_an_event_list_request-1731699148\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"@network.client.geoip.location.latitude\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.location.longitude\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.country.iso_code\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.subdivision.name\",\"width\":\"auto\"},{\"field\":\"classic\",\"width\":\"auto\"},{\"field\":\"\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"logs_stream\",\"indexes\":[],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"style\":{\"palette\":\"hostmap_blues\",\"palette_flip\":false},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"geomap\",\"view\":{\"focus\":\"WORLD\"}},\"layout\":{\"height\":6,\"width\":12,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"kfv-qnp-4tg\",\"title\":\"Test-Create_a_geomap_widget_using_an_event_list_request-1731611527\",\"description\":\"Test-Create_a_geomap_widget_using_an_event_list_request-1731611527\",\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/kfv-qnp-4tg/test-createageomapwidgetusinganeventlistrequest-1731611527\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"@network.client.geoip.location.latitude\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.location.longitude\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.country.iso_code\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.subdivision.name\",\"width\":\"auto\"},{\"field\":\"classic\",\"width\":\"auto\"},{\"field\":\"\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"logs_stream\",\"indexes\":[],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"style\":{\"palette\":\"hostmap_blues\",\"palette_flip\":false},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"geomap\",\"view\":{\"focus\":\"WORLD\"}},\"layout\":{\"height\":6,\"width\":12,\"x\":0,\"y\":0},\"id\":4347700758144484}],\"notify_list\":[],\"created_at\":\"2024-11-14T19:12:07.732619+00:00\",\"modified_at\":\"2024-11-14T19:12:07.732619+00:00\",\"reflow_type\":\"fixed\",\"tags\":[],\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"85y-teg-6gs\",\"title\":\"Test-Create_a_geomap_widget_using_an_event_list_request-1731699148\",\"description\":\"Test-Create_a_geomap_widget_using_an_event_list_request-1731699148\",\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/85y-teg-6gs/test-createageomapwidgetusinganeventlistrequest-1731699148\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"@network.client.geoip.location.latitude\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.location.longitude\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.country.iso_code\",\"width\":\"auto\"},{\"field\":\"@network.client.geoip.subdivision.name\",\"width\":\"auto\"},{\"field\":\"classic\",\"width\":\"auto\"},{\"field\":\"\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"logs_stream\",\"indexes\":[],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"style\":{\"palette\":\"hostmap_blues\",\"palette_flip\":false},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"geomap\",\"view\":{\"focus\":\"WORLD\"}},\"layout\":{\"height\":6,\"width\":12,\"x\":0,\"y\":0},\"id\":303965122186527}],\"notify_list\":[],\"created_at\":\"2024-11-15T19:32:28.542191+00:00\",\"modified_at\":\"2024-11-15T19:32:28.542191+00:00\",\"reflow_type\":\"fixed\",\"tags\":[],\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b95c9a73-62c4-0c04-47ec-ece9c2d2c8e0"
+    "id": "47d12f40-94aa-076f-795d-5df55853d478"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/kfv-qnp-4tg",
+      "path": "/api/v1/dashboard/85y-teg-6gs",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"kfv-qnp-4tg\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"85y-teg-6gs\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b72f57da-f5b9-eafa-1e5c-0ff4d154ce78"
+    "id": "74648b78-2554-d1fb-22b3-0eed73e8bc72"
   }
 ]

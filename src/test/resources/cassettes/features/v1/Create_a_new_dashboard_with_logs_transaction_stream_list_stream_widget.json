@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_logs_transaction_stream_list_stream_widget-1731611550 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"compute\":[{\"aggregation\":\"count\",\"facet\":\"service\"}],\"data_source\":\"logs_transaction_stream\",\"group_by\":[{\"facet\":\"service\"}],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_logs_transaction_stream_list_stream_widget-1731699167 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"compute\":[{\"aggregation\":\"count\",\"facet\":\"service\"}],\"data_source\":\"logs_transaction_stream\",\"group_by\":[{\"facet\":\"service\"}],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"yp5-u4f-myz\",\"title\":\"Test-Create_a_new_dashboard_with_logs_transaction_stream_list_stream_widget-1731611550 with list_stream widget\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/yp5-u4f-myz/test-createanewdashboardwithlogstransactionstreamliststreamwidget-1731611550-wit\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"compute\":[{\"aggregation\":\"count\",\"facet\":\"service\"}],\"data_source\":\"logs_transaction_stream\",\"group_by\":[{\"facet\":\"service\"}],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":7241154271346052}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:30.290344+00:00\",\"modified_at\":\"2024-11-14T19:12:30.290344+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"6dq-36y-p59\",\"title\":\"Test-Create_a_new_dashboard_with_logs_transaction_stream_list_stream_widget-1731699167 with list_stream widget\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/6dq-36y-p59/test-createanewdashboardwithlogstransactionstreamliststreamwidget-1731699167-wit\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"compute\":[{\"aggregation\":\"count\",\"facet\":\"service\"}],\"data_source\":\"logs_transaction_stream\",\"group_by\":[{\"facet\":\"service\"}],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":2144413846825527}],\"notify_list\":null,\"created_at\":\"2024-11-15T19:32:47.601494+00:00\",\"modified_at\":\"2024-11-15T19:32:47.601494+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c634d7a2-66c5-b3a4-7a19-4f26c0998dbc"
+    "id": "4605ebab-b926-47bb-09a4-314f46a61fb3"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/yp5-u4f-myz",
+      "path": "/api/v1/dashboard/6dq-36y-p59",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"yp5-u4f-myz\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"6dq-36y-p59\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "222ab516-c42e-0efb-e72d-52887d7382c2"
+    "id": "f5346fa5-4bde-3c19-3ddc-d6df5d835f6c"
   }
 ]

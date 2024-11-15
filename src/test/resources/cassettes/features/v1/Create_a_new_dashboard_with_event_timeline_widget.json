@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":null,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_event_timeline_widget-1731611541\",\"widgets\":[{\"definition\":{\"query\":\"status:error priority:all\",\"tags_execution\":\"and\",\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"event_timeline\"},\"layout\":{\"height\":9,\"width\":47,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":null,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_event_timeline_widget-1731699159\",\"widgets\":[{\"definition\":{\"query\":\"status:error priority:all\",\"tags_execution\":\"and\",\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"event_timeline\"},\"layout\":{\"height\":9,\"width\":47,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"i3x-7cz-cn3\",\"title\":\"Test-Create_a_new_dashboard_with_event_timeline_widget-1731611541\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"free\",\"url\":\"/dashboard/i3x-7cz-cn3/test-createanewdashboardwitheventtimelinewidget-1731611541\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"query\":\"status:error priority:all\",\"tags_execution\":\"and\",\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"event_timeline\"},\"layout\":{\"height\":9,\"width\":47,\"x\":0,\"y\":0},\"id\":2993493904946935}],\"notify_list\":[],\"created_at\":\"2024-11-14T19:12:21.485271+00:00\",\"modified_at\":\"2024-11-14T19:12:21.485271+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"y4s-pyq-y6k\",\"title\":\"Test-Create_a_new_dashboard_with_event_timeline_widget-1731699159\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"free\",\"url\":\"/dashboard/y4s-pyq-y6k/test-createanewdashboardwitheventtimelinewidget-1731699159\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"query\":\"status:error priority:all\",\"tags_execution\":\"and\",\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"event_timeline\"},\"layout\":{\"height\":9,\"width\":47,\"x\":0,\"y\":0},\"id\":1248560916532440}],\"notify_list\":[],\"created_at\":\"2024-11-15T19:32:39.998921+00:00\",\"modified_at\":\"2024-11-15T19:32:39.998921+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b925dc37-9df1-dcb0-b3db-37a62829a9ff"
+    "id": "a12b7918-89bb-7c3c-fba3-fbc093860a89"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/i3x-7cz-cn3",
+      "path": "/api/v1/dashboard/y4s-pyq-y6k",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"i3x-7cz-cn3\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"y4s-pyq-y6k\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6c572ecc-12ef-d4e9-421f-b11ff56591b7"
+    "id": "4d00f84c-570c-2fc1-2368-fe9ddd04099c"
   }
 ]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_timeseries_widget_using_formulas_and_functions_cloud_cost_query-1731611531\",\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"cloud_cost\",\"name\":\"query1\",\"query\":\"sum:aws.cost.amortized{*} by {aws_product}.rollup(sum, monthly)\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"time\":{\"live_span\":\"week_to_date\"},\"title\":\"Example Cloud Cost Query\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_timeseries_widget_using_formulas_and_functions_cloud_cost_query-1731699152\",\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"cloud_cost\",\"name\":\"query1\",\"query\":\"sum:aws.cost.amortized{*} by {aws_product}.rollup(sum, monthly)\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"time\":{\"live_span\":\"week_to_date\"},\"title\":\"Example Cloud Cost Query\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"kf9-5t7-m6u\",\"title\":\"Test-Create_a_new_dashboard_with_a_timeseries_widget_using_formulas_and_functions_cloud_cost_query-1731611531\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/kf9-5t7-m6u/test-createanewdashboardwithatimeserieswidgetusingformulasandfunctionscloudcostq\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"cloud_cost\",\"name\":\"query1\",\"query\":\"sum:aws.cost.amortized{*} by {aws_product}.rollup(sum, monthly)\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"time\":{\"live_span\":\"week_to_date\"},\"title\":\"Example Cloud Cost Query\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"},\"id\":6669803341186266}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:11.710518+00:00\",\"modified_at\":\"2024-11-14T19:12:11.710518+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"vyw-yjx-s93\",\"title\":\"Test-Create_a_new_dashboard_with_a_timeseries_widget_using_formulas_and_functions_cloud_cost_query-1731699152\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/vyw-yjx-s93/test-createanewdashboardwithatimeserieswidgetusingformulasandfunctionscloudcostq\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"cloud_cost\",\"name\":\"query1\",\"query\":\"sum:aws.cost.amortized{*} by {aws_product}.rollup(sum, monthly)\"}],\"response_format\":\"timeseries\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"time\":{\"live_span\":\"week_to_date\"},\"title\":\"Example Cloud Cost Query\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"timeseries\"},\"id\":2217465194290585}],\"notify_list\":null,\"created_at\":\"2024-11-15T19:32:32.857554+00:00\",\"modified_at\":\"2024-11-15T19:32:32.857554+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c4118b5c-543b-8326-3018-432a3825f465"
+    "id": "562675d1-f128-7fc8-8dbf-fb6f47e1f219"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/kf9-5t7-m6u",
+      "path": "/api/v1/dashboard/vyw-yjx-s93",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"kf9-5t7-m6u\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"vyw-yjx-s93\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1d788a27-15c0-775f-87ed-7d20cb657210"
+    "id": "8cc170b3-44fa-9e0c-147d-bff82b222234"
   }
 ]

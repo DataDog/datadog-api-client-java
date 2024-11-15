@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_formula_and_function_heatmap_widget-1731611541\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\",\"style\":{\"palette\":\"dog_classic\"}}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"heatmap\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
+        "json": "{\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_formula_and_function_heatmap_widget-1731699160\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\",\"style\":{\"palette\":\"dog_classic\"}}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"heatmap\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"pn9-3xt-h79\",\"title\":\"Test-Create_a_new_dashboard_with_formula_and_function_heatmap_widget-1731611541\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"free\",\"url\":\"/dashboard/pn9-3xt-h79/test-createanewdashboardwithformulaandfunctionheatmapwidget-1731611541\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\",\"style\":{\"palette\":\"dog_classic\"}}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"heatmap\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":479413654119352}],\"notify_list\":[],\"created_at\":\"2024-11-14T19:12:21.909777+00:00\",\"modified_at\":\"2024-11-14T19:12:21.909777+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"g5w-g59-qaw\",\"title\":\"Test-Create_a_new_dashboard_with_formula_and_function_heatmap_widget-1731699160\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"free\",\"url\":\"/dashboard/g5w-g59-qaw/test-createanewdashboardwithformulaandfunctionheatmapwidget-1731699160\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*}\"}],\"response_format\":\"timeseries\",\"style\":{\"palette\":\"dog_classic\"}}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"heatmap\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":7260882193896439}],\"notify_list\":[],\"created_at\":\"2024-11-15T19:32:40.397908+00:00\",\"modified_at\":\"2024-11-15T19:32:40.397908+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "54b3cacf-2a21-d24a-f3c6-66a8a593fdf2"
+    "id": "b90ad1f1-f533-0746-678e-a4389872c90b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/pn9-3xt-h79",
+      "path": "/api/v1/dashboard/g5w-g59-qaw",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"pn9-3xt-h79\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"g5w-g59-qaw\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "50155118-dffd-f1dd-3eab-da0fcc334209"
+    "id": "37e7dcdf-1877-3355-ecb7-e5be6183519f"
   }
 ]
