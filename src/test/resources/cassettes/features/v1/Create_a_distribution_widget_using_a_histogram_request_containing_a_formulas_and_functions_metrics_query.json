@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_metrics_q-1731611527\",\"widgets\":[{\"definition\":{\"custom_links\":[{\"label\":\"Example\",\"link\":\"https://example.org/\"}],\"requests\":[{\"query\":{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"histogram:trace.Load{*}\"},\"request_type\":\"histogram\",\"style\":{\"palette\":\"dog_classic\"}}],\"show_legend\":false,\"title\":\"Metrics HOP\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_metrics_q-1731699147\",\"widgets\":[{\"definition\":{\"custom_links\":[{\"label\":\"Example\",\"link\":\"https://example.org/\"}],\"requests\":[{\"query\":{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"histogram:trace.Load{*}\"},\"request_type\":\"histogram\",\"style\":{\"palette\":\"dog_classic\"}}],\"show_legend\":false,\"title\":\"Metrics HOP\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"2fs-dz8-tdz\",\"title\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_metrics_q-1731611527\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/2fs-dz8-tdz/test-createadistributionwidgetusingahistogramrequestcontainingaformulasandfuncti\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"custom_links\":[{\"label\":\"Example\",\"link\":\"https://example.org/\"}],\"requests\":[{\"query\":{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"histogram:trace.Load{*}\"},\"request_type\":\"histogram\",\"style\":{\"palette\":\"dog_classic\"}}],\"show_legend\":false,\"title\":\"Metrics HOP\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0},\"id\":1403016087327739}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:07.286820+00:00\",\"modified_at\":\"2024-11-14T19:12:07.286820+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"ydy-5hn-vib\",\"title\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_metrics_q-1731699147\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/ydy-5hn-vib/test-createadistributionwidgetusingahistogramrequestcontainingaformulasandfuncti\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"custom_links\":[{\"label\":\"Example\",\"link\":\"https://example.org/\"}],\"requests\":[{\"query\":{\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"histogram:trace.Load{*}\"},\"request_type\":\"histogram\",\"style\":{\"palette\":\"dog_classic\"}}],\"show_legend\":false,\"title\":\"Metrics HOP\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0},\"id\":4914950205969851}],\"notify_list\":null,\"created_at\":\"2024-11-15T19:32:28.073069+00:00\",\"modified_at\":\"2024-11-15T19:32:28.073069+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e75e99b8-2cf7-6212-f1f7-13520bc5c078"
+    "id": "91abe059-c342-79ac-55c5-253c74248ec9"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/2fs-dz8-tdz",
+      "path": "/api/v1/dashboard/ydy-5hn-vib",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"2fs-dz8-tdz\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"ydy-5hn-vib\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4e0874dc-4906-2226-be95-61304d3cafcb"
+    "id": "cb463e8f-f29b-a3c6-3bb1-a7a56f2ea2a0"
   }
 ]

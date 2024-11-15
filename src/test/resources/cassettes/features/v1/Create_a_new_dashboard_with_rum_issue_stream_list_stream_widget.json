@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_rum_issue_stream_list_stream_widget-1731611553 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"rum_issue_stream\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_rum_issue_stream_list_stream_widget-1731699171 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"rum_issue_stream\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"cg8-yhk-bw6\",\"title\":\"Test-Create_a_new_dashboard_with_rum_issue_stream_list_stream_widget-1731611553 with list_stream widget\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/cg8-yhk-bw6/test-createanewdashboardwithrumissuestreamliststreamwidget-1731611553-with-lists\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"rum_issue_stream\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":4087077140268311}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:34.322600+00:00\",\"modified_at\":\"2024-11-14T19:12:34.322600+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"ce9-y6g-66s\",\"title\":\"Test-Create_a_new_dashboard_with_rum_issue_stream_list_stream_widget-1731699171 with list_stream widget\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/ce9-y6g-66s/test-createanewdashboardwithrumissuestreamliststreamwidget-1731699171-with-lists\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"rum_issue_stream\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":6059436646329395}],\"notify_list\":null,\"created_at\":\"2024-11-15T19:32:51.588133+00:00\",\"modified_at\":\"2024-11-15T19:32:51.588133+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ac572efa-1947-e6f3-0414-8f4f9b8a55eb"
+    "id": "6f41befb-4d70-4dbf-2479-8f1e0a0a50db"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/cg8-yhk-bw6",
+      "path": "/api/v1/dashboard/ce9-y6g-66s",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"cg8-yhk-bw6\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"ce9-y6g-66s\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f17c9434-15be-eb91-51c8-f8c0b30ff79d"
+    "id": "9f24418e-f057-1917-03f9-4f77dbca0c00"
   }
 ]

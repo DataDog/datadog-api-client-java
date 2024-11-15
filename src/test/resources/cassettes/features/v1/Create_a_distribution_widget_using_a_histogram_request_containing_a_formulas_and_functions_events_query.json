@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu-1731611526\",\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu-1731611526\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"compute\":{\"aggregation\":\"min\",\"metric\":\"@duration\"},\"data_source\":\"events\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}},\"request_type\":\"histogram\"}],\"show_legend\":false,\"title\":\"Events Platform - Request latency HOP\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu-1731699147\",\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu-1731699147\",\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"compute\":{\"aggregation\":\"min\",\"metric\":\"@duration\"},\"data_source\":\"events\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}},\"request_type\":\"histogram\"}],\"show_legend\":false,\"title\":\"Events Platform - Request latency HOP\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"tys-evq-k25\",\"title\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu-1731611526\",\"description\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu-1731611526\",\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/tys-evq-k25/test-createadistributionwidgetusingahistogramrequestcontainingaformulasandfuncti\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"compute\":{\"aggregation\":\"min\",\"metric\":\"@duration\"},\"data_source\":\"events\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}},\"request_type\":\"histogram\"}],\"show_legend\":false,\"title\":\"Events Platform - Request latency HOP\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0},\"id\":1505752567613231}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:06.799728+00:00\",\"modified_at\":\"2024-11-14T19:12:06.799728+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"p6k-cxc-g8m\",\"title\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu-1731699147\",\"description\":\"Test-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_events_qu-1731699147\",\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/p6k-cxc-g8m/test-createadistributionwidgetusingahistogramrequestcontainingaformulasandfuncti\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"query\":{\"compute\":{\"aggregation\":\"min\",\"metric\":\"@duration\"},\"data_source\":\"events\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}},\"request_type\":\"histogram\"}],\"show_legend\":false,\"title\":\"Events Platform - Request latency HOP\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"distribution\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":2,\"width\":4,\"x\":0,\"y\":0},\"id\":8624507873468872}],\"notify_list\":null,\"created_at\":\"2024-11-15T19:32:27.570354+00:00\",\"modified_at\":\"2024-11-15T19:32:27.570354+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "43f830f6-04ed-fa77-6ddc-5a33ba5c6f42"
+    "id": "fc9281f9-09ee-c892-6ea8-7538fc72a6c3"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/tys-evq-k25",
+      "path": "/api/v1/dashboard/p6k-cxc-g8m",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"tys-evq-k25\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"p6k-cxc-g8m\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cc101bef-d271-3c62-2fea-b369975c7eb5"
+    "id": "a03eda53-3a64-d4ff-e0f3-e68aa7fffbb1"
   }
 ]

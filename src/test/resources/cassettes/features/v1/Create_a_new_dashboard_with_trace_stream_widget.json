@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_trace_stream_widget-1731611563 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"service\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"trace_stream\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_trace_stream_widget-1731699180 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"service\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"trace_stream\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"wnc-xse-sns\",\"title\":\"Test-Create_a_new_dashboard_with_trace_stream_widget-1731611563 with list_stream widget\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/wnc-xse-sns/test-createanewdashboardwithtracestreamwidget-1731611563-with-liststream-widget\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"service\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"trace_stream\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":6150580172370879}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:43.829004+00:00\",\"modified_at\":\"2024-11-14T19:12:43.829004+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"8hi-5bw-sya\",\"title\":\"Test-Create_a_new_dashboard_with_trace_stream_widget-1731699180 with list_stream widget\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/8hi-5bw-sya/test-createanewdashboardwithtracestreamwidget-1731699180-with-liststream-widget\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"service\",\"width\":\"auto\"}],\"query\":{\"data_source\":\"trace_stream\",\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":4795393510685480}],\"notify_list\":null,\"created_at\":\"2024-11-15T19:33:01.001890+00:00\",\"modified_at\":\"2024-11-15T19:33:01.001890+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "47212ea0-a175-abc0-eaa1-67af254f8474"
+    "id": "27b9d802-2b4b-fb60-d78c-35f7130d78f5"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/wnc-xse-sns",
+      "path": "/api/v1/dashboard/8hi-5bw-sya",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"wnc-xse-sns\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"8hi-5bw-sya\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "59c23ac4-f20e-07da-1247-7e0f9f86db40"
+    "id": "8f095424-ccc0-d87f-aa46-434d50a8f92b"
   }
 ]

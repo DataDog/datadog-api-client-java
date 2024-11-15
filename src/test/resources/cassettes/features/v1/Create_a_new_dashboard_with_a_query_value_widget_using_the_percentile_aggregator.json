@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator-1731611530 with QVW Percentile Aggregator\",\"widgets\":[{\"definition\":{\"autoscale\":true,\"precision\":2,\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"p90:dist.dd.dogweb.latency{*}\"}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_value\"},\"layout\":{\"height\":2,\"width\":2,\"x\":0,\"y\":0}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator-1731699151 with QVW Percentile Aggregator\",\"widgets\":[{\"definition\":{\"autoscale\":true,\"precision\":2,\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"p90:dist.dd.dogweb.latency{*}\"}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_value\"},\"layout\":{\"height\":2,\"width\":2,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"5e6-uwt-hiw\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator-1731611530 with QVW Percentile Aggregator\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/5e6-uwt-hiw/test-createanewdashboardwithaqueryvaluewidgetusingthepercentileaggregator-173161\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"autoscale\":true,\"precision\":2,\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"p90:dist.dd.dogweb.latency{*}\"}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_value\"},\"layout\":{\"height\":2,\"width\":2,\"x\":0,\"y\":0},\"id\":2654036272451651}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:10.298509+00:00\",\"modified_at\":\"2024-11-14T19:12:10.298509+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"u3x-4y8-hiy\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator-1731699151 with QVW Percentile Aggregator\",\"description\":null,\"author_handle\":\"frog@datadoghq.com\",\"author_name\":null,\"layout_type\":\"ordered\",\"url\":\"/dashboard/u3x-4y8-hiy/test-createanewdashboardwithaqueryvaluewidgetusingthepercentileaggregator-173169\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"autoscale\":true,\"precision\":2,\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"p90:dist.dd.dogweb.latency{*}\"}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_value\"},\"layout\":{\"height\":2,\"width\":2,\"x\":0,\"y\":0},\"id\":662978730586709}],\"notify_list\":null,\"created_at\":\"2024-11-15T19:32:31.492216+00:00\",\"modified_at\":\"2024-11-15T19:32:31.492216+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "eeb28a54-47f3-1ea5-a33a-662c57556b7e"
+    "id": "380b8e3b-3e50-5a46-5be3-1bc3fadd2016"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/5e6-uwt-hiw",
+      "path": "/api/v1/dashboard/u3x-4y8-hiy",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"5e6-uwt-hiw\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"u3x-4y8-hiy\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c391dae9-338d-ae66-9dca-2545a97a1287"
+    "id": "470a1b4e-89a4-22a1-2900-495d6c2dbff4"
   }
 ]
