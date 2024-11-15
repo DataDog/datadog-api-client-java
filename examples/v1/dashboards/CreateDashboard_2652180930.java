@@ -50,8 +50,7 @@ public class Example {
                                                         .filters(
                                                             Arrays.asList(
                                                                 "env:none", "environment:*")))))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

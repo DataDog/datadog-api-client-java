@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1641430241 with timeseries widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"on_right_yaxis\":false,\"q\":\"sum:trace.test.errors{env:prod,service:datadog-api-spec} by {resource_name}.as_count()\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"warm\"}}],\"type\":\"timeseries\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1731611562 with timeseries widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"on_right_yaxis\":false,\"q\":\"sum:trace.test.errors{env:prod,service:datadog-api-spec} by {resource_name}.as_count()\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"warm\"}}],\"type\":\"timeseries\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"asn-82x-2q5\",\"title\":\"Test-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1641430241 with timeseries widget\",\"url\":\"/dashboard/asn-82x-2q5/test-createanewdashboardwithtimeserieswidgetcontainingstyleattributes-1641430241\",\"created_at\":\"2022-01-06T00:50:41.722113+00:00\",\"modified_at\":\"2022-01-06T00:50:41.722113+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"q\":\"sum:trace.test.errors{env:prod,service:datadog-api-spec} by {resource_name}.as_count()\",\"on_right_yaxis\":false,\"style\":{\"line_width\":\"normal\",\"palette\":\"warm\",\"line_type\":\"solid\"},\"display_type\":\"bars\"}],\"type\":\"timeseries\"},\"id\":8478940066341905}],\"layout_type\":\"ordered\"}",
+      "body": "{\"id\":\"d2u-a79-uqv\",\"title\":\"Test-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes-1731611562 with timeseries widget\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/d2u-a79-uqv/test-createanewdashboardwithtimeserieswidgetcontainingstyleattributes-1731611562\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"display_type\":\"bars\",\"on_right_yaxis\":false,\"q\":\"sum:trace.test.errors{env:prod,service:datadog-api-spec} by {resource_name}.as_count()\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"warm\"}}],\"type\":\"timeseries\"},\"id\":123635508219251}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:42.289738+00:00\",\"modified_at\":\"2024-11-14T19:12:42.289738+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5cc6a4de-54ec-0d25-c69e-4aba7394d9eb"
+    "id": "23d4d945-8046-a95f-a7fe-655835bd92c0"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/asn-82x-2q5",
+      "path": "/api/v1/dashboard/d2u-a79-uqv",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"asn-82x-2q5\"}",
+      "body": "{\"deleted_dashboard_id\":\"d2u-a79-uqv\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a3b0bb32-df62-76b6-36fe-936f6e204f53"
+    "id": "b88c9d16-d51a-27a9-2268-7abdc30bd1db"
   }
 ]

@@ -112,8 +112,7 @@ public class Example {
                                                                     "env"))))))
                                     .size(SplitGraphVizSize.MD)
                                     .hasUniformYAxes(true)))))
-            .layoutType(DashboardLayoutType.ORDERED)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.ORDERED);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

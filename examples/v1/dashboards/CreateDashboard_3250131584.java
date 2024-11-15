@@ -35,8 +35,7 @@ public class Example {
                                     .type(EventTimelineWidgetDefinitionType.EVENT_TIMELINE)
                                     .query("status:error priority:all")
                                     .tagsExecution("and")))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

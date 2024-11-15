@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_servicemap_widget-1641430239\",\"widgets\":[{\"definition\":{\"filters\":[\"env:none\",\"environment:*\"],\"service\":\"\",\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"servicemap\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":\"\",\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_servicemap_widget-1731611555\",\"widgets\":[{\"definition\":{\"filters\":[\"env:none\",\"environment:*\"],\"service\":\"\",\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"servicemap\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":[],\"description\":\"\",\"restricted_roles\":[],\"author_name\":null,\"template_variables\":[],\"is_read_only\":false,\"id\":\"9b3-emh-qe4\",\"title\":\"Test-Create_a_new_dashboard_with_servicemap_widget-1641430239\",\"url\":\"/dashboard/9b3-emh-qe4/test-createanewdashboardwithservicemapwidget-1641430239\",\"created_at\":\"2022-01-06T00:50:39.841716+00:00\",\"modified_at\":\"2022-01-06T00:50:39.841716+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"title_size\":\"16\",\"service\":\"\",\"title\":\"\",\"title_align\":\"left\",\"filters\":[\"env:none\",\"environment:*\"],\"type\":\"servicemap\"},\"layout\":{\"y\":0,\"width\":47,\"x\":0,\"height\":15},\"id\":2823265998914096}],\"layout_type\":\"free\"}",
+      "body": "{\"id\":\"g7c-rdn-m36\",\"title\":\"Test-Create_a_new_dashboard_with_servicemap_widget-1731611555\",\"description\":\"\",\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"free\",\"url\":\"/dashboard/g7c-rdn-m36/test-createanewdashboardwithservicemapwidget-1731611555\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"filters\":[\"env:none\",\"environment:*\"],\"service\":\"\",\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"servicemap\"},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0},\"id\":4603681015487781}],\"notify_list\":[],\"created_at\":\"2024-11-14T19:12:35.752272+00:00\",\"modified_at\":\"2024-11-14T19:12:35.752272+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a9c50f08-1667-a43b-3eb6-047c622365b5"
+    "id": "b82b2ec1-7f61-e933-e275-d5b9025e51ff"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/9b3-emh-qe4",
+      "path": "/api/v1/dashboard/g7c-rdn-m36",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"9b3-emh-qe4\"}",
+      "body": "{\"deleted_dashboard_id\":\"g7c-rdn-m36\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b2ba7322-77df-cea1-e25f-f56289aabbf3"
+    "id": "852d05db-b8ec-904d-3cbc-8730ad4920f2"
   }
 ]

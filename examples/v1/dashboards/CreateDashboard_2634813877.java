@@ -37,8 +37,7 @@ public class Example {
                                     .query("example-query")
                                     .tagsExecution("and")
                                     .eventSize(WidgetEventSize.SMALL)))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

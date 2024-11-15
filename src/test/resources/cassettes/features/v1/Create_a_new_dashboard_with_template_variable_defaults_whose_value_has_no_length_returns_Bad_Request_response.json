@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":null,\"is_read_only\":false,\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"auto\",\"restricted_roles\":[],\"template_variables\":[{\"available_values\":[\"my-host\",\"host1\",\"host2\"],\"defaults\":[\"\"],\"name\":\"host1\",\"prefix\":\"host\"}],\"title\":\"\",\"widgets\":[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"}}]}"
+        "json": "{\"description\":null,\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"auto\",\"restricted_roles\":[],\"template_variables\":[{\"available_values\":[\"my-host\",\"host1\",\"host2\"],\"defaults\":[\"\"],\"name\":\"host1\",\"prefix\":\"host\"}],\"title\":\"\",\"widgets\":[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Minimum length of parameter 'defaults' should be 1\"]}\n",
+      "body": "{\"errors\":[\"Minimum length of parameter 'defaults' should be 1\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "46a0f6ac-2198-ca81-3563-f3642a435388"
+    "id": "3269d53b-9d85-b492-5233-11daa9cb9ca1"
   }
 ]

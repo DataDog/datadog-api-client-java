@@ -49,8 +49,7 @@ public class Example {
                                         new HostMapWidgetDefinitionStyle()
                                             .palette("green_to_orange")
                                             .paletteFlip(false))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

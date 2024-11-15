@@ -43,8 +43,7 @@ public class Example {
                                     .sort(WidgetMonitorSummarySort.STATUS_ASCENDING)
                                     .count(50L)
                                     .start(0L)))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

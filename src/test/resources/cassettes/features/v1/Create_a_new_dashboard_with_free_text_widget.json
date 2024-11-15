@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":null,\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_free_text_widget-1641430232\",\"widgets\":[{\"definition\":{\"color\":\"#4d4d4d\",\"font_size\":\"auto\",\"text\":\"Example free text\",\"text_align\":\"left\",\"type\":\"free_text\"},\"layout\":{\"height\":6,\"width\":24,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":null,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_free_text_widget-1731611542\",\"widgets\":[{\"definition\":{\"color\":\"#4d4d4d\",\"font_size\":\"auto\",\"text\":\"Example free text\",\"text_align\":\"left\",\"type\":\"free_text\"},\"layout\":{\"height\":6,\"width\":24,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":[],\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":[],\"is_read_only\":false,\"id\":\"d55-4cs-38k\",\"title\":\"Test-Create_a_new_dashboard_with_free_text_widget-1641430232\",\"url\":\"/dashboard/d55-4cs-38k/test-createanewdashboardwithfreetextwidget-1641430232\",\"created_at\":\"2022-01-06T00:50:32.631852+00:00\",\"modified_at\":\"2022-01-06T00:50:32.631852+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"color\":\"#4d4d4d\",\"text\":\"Example free text\",\"font_size\":\"auto\",\"text_align\":\"left\",\"type\":\"free_text\"},\"layout\":{\"y\":0,\"width\":24,\"x\":0,\"height\":6},\"id\":5625839222691607}],\"layout_type\":\"free\"}",
+      "body": "{\"id\":\"th4-kf6-2wb\",\"title\":\"Test-Create_a_new_dashboard_with_free_text_widget-1731611542\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"free\",\"url\":\"/dashboard/th4-kf6-2wb/test-createanewdashboardwithfreetextwidget-1731611542\",\"is_read_only\":false,\"template_variables\":[],\"widgets\":[{\"definition\":{\"color\":\"#4d4d4d\",\"font_size\":\"auto\",\"text\":\"Example free text\",\"text_align\":\"left\",\"type\":\"free_text\"},\"layout\":{\"height\":6,\"width\":24,\"x\":0,\"y\":0},\"id\":3975450487298464}],\"notify_list\":[],\"created_at\":\"2024-11-14T19:12:22.794244+00:00\",\"modified_at\":\"2024-11-14T19:12:22.794244+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "97a3e6dd-a9e0-ead6-5480-98a4b6fb3859"
+    "id": "169e45be-686c-4e04-dd98-e49f98e0c627"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/d55-4cs-38k",
+      "path": "/api/v1/dashboard/th4-kf6-2wb",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"d55-4cs-38k\"}",
+      "body": "{\"deleted_dashboard_id\":\"th4-kf6-2wb\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3c7f1718-99e2-5246-db3a-03bac840bec3"
+    "id": "ad7f9aa9-4e4d-cc4a-c04f-4dbaffe05435"
   }
 ]

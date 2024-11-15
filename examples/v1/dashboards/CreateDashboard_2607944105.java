@@ -36,8 +36,7 @@ public class Example {
                                     .check("datadog.agent.up")
                                     .grouping(WidgetGrouping.CHECK)
                                     .tags(Collections.singletonList("*"))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

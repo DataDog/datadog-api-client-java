@@ -88,8 +88,7 @@ public class Example {
                                                 .responseFormat(
                                                     FormulaAndFunctionResponseFormat.SCALAR)))
                                     .hasSearchBar(TableWidgetHasSearchBar.AUTO)))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

@@ -101,8 +101,7 @@ public class Example {
                                             .includeZero(true)
                                             .min("auto")
                                             .max("auto"))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

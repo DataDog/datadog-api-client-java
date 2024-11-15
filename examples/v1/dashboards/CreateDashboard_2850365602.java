@@ -26,7 +26,6 @@ public class Example {
     Dashboard body =
         new Dashboard()
             .description(null)
-            .isReadOnly(false)
             .layoutType(DashboardLayoutType.ORDERED)
             .reflowType(DashboardReflowType.AUTO)
             .templateVariablePresets(

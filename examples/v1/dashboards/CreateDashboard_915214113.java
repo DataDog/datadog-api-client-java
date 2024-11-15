@@ -112,8 +112,7 @@ public class Example {
                                             .palette("hostmap_blues")
                                             .paletteFlip(false))
                                     .view(new GeomapWidgetDefinitionView().focus("WORLD"))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

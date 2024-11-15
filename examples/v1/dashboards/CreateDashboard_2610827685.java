@@ -43,8 +43,7 @@ public class Example {
                                             new RunWorkflowWidgetInput()
                                                 .name("environment")
                                                 .value("$env.value")))))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

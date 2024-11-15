@@ -52,8 +52,7 @@ public class Example {
                                 .width(2L)
                                 .height(2L)
                                 .isColumnBreak(false))))
-            .description("description")
-            .isReadOnly(false);
+            .description("description");
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

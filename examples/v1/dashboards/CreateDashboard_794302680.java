@@ -214,8 +214,7 @@ public class Example {
                                                                 .customFgColor("#632ca6"))))))
                                     .hasSearchBar(TableWidgetHasSearchBar.NEVER)))
                         .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L))))
-            .layoutType(DashboardLayoutType.FREE)
-            .isReadOnly(false);
+            .layoutType(DashboardLayoutType.FREE);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

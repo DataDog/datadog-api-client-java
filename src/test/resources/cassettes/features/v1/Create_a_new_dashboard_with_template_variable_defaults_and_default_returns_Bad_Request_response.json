@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":null,\"is_read_only\":false,\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"auto\",\"restricted_roles\":[],\"template_variables\":[{\"available_values\":[\"my-host\",\"host1\",\"host2\"],\"default\":\"my-host\",\"defaults\":[\"my-host\"],\"name\":\"host1\",\"prefix\":\"host\"}],\"title\":\"\",\"widgets\":[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"}}]}"
+        "json": "{\"description\":null,\"layout_type\":\"ordered\",\"notify_list\":[],\"reflow_type\":\"auto\",\"restricted_roles\":[],\"template_variables\":[{\"available_values\":[\"my-host\",\"host1\",\"host2\"],\"default\":\"my-host\",\"defaults\":[\"my-host\"],\"name\":\"host1\",\"prefix\":\"host\"}],\"title\":\"\",\"widgets\":[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"'template_variables' is invalid\"]}\n",
+      "body": "{\"errors\":[\"'template_variables' is invalid\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8588e1ea-2dac-d091-388b-5219856564c1"
+    "id": "fc0e0cf6-951e-4283-34e9-307b0eaada05"
   }
 ]

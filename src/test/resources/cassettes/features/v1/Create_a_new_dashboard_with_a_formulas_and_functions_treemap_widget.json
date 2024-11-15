@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_formulas_and_functions_treemap_widget-1641982291\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"hour_before(query1)\"},{\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"scalar\"}],\"title\":\"\",\"type\":\"treemap\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_formulas_and_functions_treemap_widget-1731611529\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"hour_before(query1)\"},{\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"scalar\"}],\"title\":\"\",\"type\":\"treemap\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"2ar-acj-hxc\",\"title\":\"Test-Create_a_new_dashboard_with_a_formulas_and_functions_treemap_widget-1641982291\",\"url\":\"/dashboard/2ar-acj-hxc/test-createanewdashboardwithaformulasandfunctionstreemapwidget-1641982291\",\"created_at\":\"2022-01-12T10:11:31.601485+00:00\",\"modified_at\":\"2022-01-12T10:11:31.601485+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"hour_before(query1)\"},{\"formula\":\"query1\"}],\"response_format\":\"scalar\",\"queries\":[{\"search\":{\"query\":\"\"},\"data_source\":\"logs\",\"compute\":{\"aggregation\":\"count\"},\"name\":\"query1\",\"indexes\":[\"*\"],\"group_by\":[]}]}],\"type\":\"treemap\",\"title\":\"\"},\"layout\":{\"y\":0,\"width\":4,\"x\":0,\"height\":4},\"id\":2836171994664464}],\"layout_type\":\"ordered\"}",
+      "body": "{\"id\":\"83d-i5u-m3v\",\"title\":\"Test-Create_a_new_dashboard_with_a_formulas_and_functions_treemap_widget-1731611529\",\"description\":null,\"author_handle\":\"anika.maskara@datadoghq.com\",\"author_name\":\"Anika Maskara\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/83d-i5u-m3v/test-createanewdashboardwithaformulasandfunctionstreemapwidget-1731611529\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"formulas\":[{\"formula\":\"hour_before(query1)\"},{\"formula\":\"query1\"}],\"queries\":[{\"compute\":{\"aggregation\":\"count\"},\"data_source\":\"logs\",\"group_by\":[],\"indexes\":[\"*\"],\"name\":\"query1\",\"search\":{\"query\":\"\"}}],\"response_format\":\"scalar\"}],\"title\":\"\",\"type\":\"treemap\"},\"layout\":{\"height\":4,\"width\":4,\"x\":0,\"y\":0},\"id\":7665743685931618}],\"notify_list\":null,\"created_at\":\"2024-11-14T19:12:09.852911+00:00\",\"modified_at\":\"2024-11-14T19:12:09.852911+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "14594ccf-095d-aa90-9689-69cdd40b4adb"
+    "id": "bdde5c1e-c96b-3cf5-ae1f-d38d23efe90b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/2ar-acj-hxc",
+      "path": "/api/v1/dashboard/83d-i5u-m3v",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"2ar-acj-hxc\"}",
+      "body": "{\"deleted_dashboard_id\":\"83d-i5u-m3v\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "657dda1a-8731-f849-1b14-3842fe7d0347"
+    "id": "a0527eb5-e701-2340-34a8-7b998c7a5ddf"
   }
 ]
