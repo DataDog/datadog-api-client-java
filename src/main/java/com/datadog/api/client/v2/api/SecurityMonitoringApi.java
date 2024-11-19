@@ -3397,6 +3397,9 @@ public class SecurityMonitoringApi {
   /**
    * Get a list of findings. These include both misconfigurations and identity risks.
    *
+   * <p><strong>Note</strong>: To filter and return only identity risks, add the following query
+   * parameter: <code>?filter[tags]=dd_rule_type:ciem</code>
+   *
    * <h3>Filtering</h3>
    *
    * <p>Filters can be applied by appending query parameters to the URL.
