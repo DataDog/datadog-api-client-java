@@ -16,6 +16,7 @@ import com.datadog.api.client.v1.model.ListStreamWidgetDefinitionType;
 import com.datadog.api.client.v1.model.ListStreamWidgetRequest;
 import com.datadog.api.client.v1.model.Widget;
 import com.datadog.api.client.v1.model.WidgetDefinition;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -38,15 +39,20 @@ public class Example {
                                         Collections.singletonList(
                                             new ListStreamWidgetRequest()
                                                 .columns(
-                                                    Collections.singletonList(
+                                                    Arrays.asList(
                                                         new ListStreamColumn()
                                                             .width(ListStreamColumnWidth.AUTO)
-                                                            .field("timestamp")))
+                                                            .field("timestamp"),
+                                                        new ListStreamColumn()
+                                                            .width(ListStreamColumnWidth.AUTO)
+                                                            .field("message")
+                                                            .isClusteringPatternFieldPath(true)))
                                                 .query(
                                                     new ListStreamQuery()
                                                         .dataSource(
                                                             ListStreamSource.LOGS_PATTERN_STREAM)
                                                         .queryString("")
+                                                        .clusteringPatternFieldPath("message")
                                                         .groupBy(
                                                             Collections.singletonList(
                                                                 new ListStreamGroupByItems()

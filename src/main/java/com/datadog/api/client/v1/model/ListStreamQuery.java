@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Updated list stream widget. */
 @JsonPropertyOrder({
+  ListStreamQuery.JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH,
   ListStreamQuery.JSON_PROPERTY_COMPUTE,
   ListStreamQuery.JSON_PROPERTY_DATA_SOURCE,
   ListStreamQuery.JSON_PROPERTY_EVENT_SIZE,
@@ -34,6 +35,10 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamQuery {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH =
+      "clustering_pattern_field_path";
+  private String clusteringPatternFieldPath = "message";
+
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private List<ListStreamComputeItems> compute = null;
 
@@ -67,6 +72,27 @@ public class ListStreamQuery {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     this.queryString = queryString;
+  }
+
+  public ListStreamQuery clusteringPatternFieldPath(String clusteringPatternFieldPath) {
+    this.clusteringPatternFieldPath = clusteringPatternFieldPath;
+    return this;
+  }
+
+  /**
+   * Specifies the field for logs pattern clustering. Usable only with logs_pattern_stream.
+   *
+   * @return clusteringPatternFieldPath
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getClusteringPatternFieldPath() {
+    return clusteringPatternFieldPath;
+  }
+
+  public void setClusteringPatternFieldPath(String clusteringPatternFieldPath) {
+    this.clusteringPatternFieldPath = clusteringPatternFieldPath;
   }
 
   public ListStreamQuery compute(List<ListStreamComputeItems> compute) {
@@ -335,7 +361,9 @@ public class ListStreamQuery {
       return false;
     }
     ListStreamQuery listStreamQuery = (ListStreamQuery) o;
-    return Objects.equals(this.compute, listStreamQuery.compute)
+    return Objects.equals(
+            this.clusteringPatternFieldPath, listStreamQuery.clusteringPatternFieldPath)
+        && Objects.equals(this.compute, listStreamQuery.compute)
         && Objects.equals(this.dataSource, listStreamQuery.dataSource)
         && Objects.equals(this.eventSize, listStreamQuery.eventSize)
         && Objects.equals(this.groupBy, listStreamQuery.groupBy)
@@ -349,6 +377,7 @@ public class ListStreamQuery {
   @Override
   public int hashCode() {
     return Objects.hash(
+        clusteringPatternFieldPath,
         compute,
         dataSource,
         eventSize,
@@ -364,6 +393,9 @@ public class ListStreamQuery {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListStreamQuery {\n");
+    sb.append("    clusteringPatternFieldPath: ")
+        .append(toIndentedString(clusteringPatternFieldPath))
+        .append("\n");
     sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    eventSize: ").append(toIndentedString(eventSize)).append("\n");
