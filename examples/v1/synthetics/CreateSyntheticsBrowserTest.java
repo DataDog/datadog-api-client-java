@@ -10,7 +10,6 @@ import com.datadog.api.client.v1.model.SyntheticsBrowserVariable;
 import com.datadog.api.client.v1.model.SyntheticsBrowserVariableType;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
-import com.datadog.api.client.v1.model.SyntheticsDeviceID;
 import com.datadog.api.client.v1.model.SyntheticsStep;
 import com.datadog.api.client.v1.model.SyntheticsStepType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
@@ -52,7 +51,7 @@ public class Example {
                 new SyntheticsTestOptions()
                     .acceptSelfSigned(false)
                     .allowInsecure(true)
-                    .deviceIds(Collections.singletonList(SyntheticsDeviceID.CHROME_LAPTOP_LARGE))
+                    .deviceIds(Collections.singletonList("chrome.laptop_large"))
                     .disableCors(true)
                     .followRedirects(true)
                     .minFailureDuration(10L)

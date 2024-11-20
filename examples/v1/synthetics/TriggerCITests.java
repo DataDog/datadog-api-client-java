@@ -13,7 +13,6 @@ import com.datadog.api.client.v1.model.SyntheticsCIBatchMetadataPipeline;
 import com.datadog.api.client.v1.model.SyntheticsCIBatchMetadataProvider;
 import com.datadog.api.client.v1.model.SyntheticsCITest;
 import com.datadog.api.client.v1.model.SyntheticsCITestBody;
-import com.datadog.api.client.v1.model.SyntheticsDeviceID;
 import com.datadog.api.client.v1.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.client.v1.model.SyntheticsTriggerCITestsResponse;
 import java.util.Collections;
@@ -34,8 +33,7 @@ public class Example {
                                     .password("PaSSw0RD!")
                                     .type(SyntheticsBasicAuthWebType.WEB)
                                     .username("my_username")))
-                        .deviceIds(
-                            Collections.singletonList(SyntheticsDeviceID.CHROME_LAPTOP_LARGE))
+                        .deviceIds(Collections.singletonList("chrome.laptop_large"))
                         .locations(Collections.singletonList("aws:eu-west-3"))
                         .metadata(
                             new SyntheticsCIBatchMetadata()

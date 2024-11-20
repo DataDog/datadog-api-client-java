@@ -63,7 +63,7 @@ public class SyntheticsTestOptions {
   private SyntheticsTestCiOptions ci;
 
   public static final String JSON_PROPERTY_DEVICE_IDS = "device_ids";
-  private List<SyntheticsDeviceID> deviceIds = null;
+  private List<String> deviceIds = null;
 
   public static final String JSON_PROPERTY_DISABLE_CORS = "disableCors";
   private Boolean disableCors;
@@ -208,17 +208,16 @@ public class SyntheticsTestOptions {
     this.ci = ci;
   }
 
-  public SyntheticsTestOptions deviceIds(List<SyntheticsDeviceID> deviceIds) {
+  public SyntheticsTestOptions deviceIds(List<String> deviceIds) {
     this.deviceIds = deviceIds;
     return this;
   }
 
-  public SyntheticsTestOptions addDeviceIdsItem(SyntheticsDeviceID deviceIdsItem) {
+  public SyntheticsTestOptions addDeviceIdsItem(String deviceIdsItem) {
     if (this.deviceIds == null) {
       this.deviceIds = new ArrayList<>();
     }
     this.deviceIds.add(deviceIdsItem);
-    this.unparsed |= !deviceIdsItem.isValid();
     return this;
   }
 
@@ -230,11 +229,11 @@ public class SyntheticsTestOptions {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsDeviceID> getDeviceIds() {
+  public List<String> getDeviceIds() {
     return deviceIds;
   }
 
-  public void setDeviceIds(List<SyntheticsDeviceID> deviceIds) {
+  public void setDeviceIds(List<String> deviceIds) {
     this.deviceIds = deviceIds;
   }
 

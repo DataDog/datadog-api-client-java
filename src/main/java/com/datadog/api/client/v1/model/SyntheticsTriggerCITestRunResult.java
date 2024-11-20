@@ -28,7 +28,7 @@ import java.util.Objects;
 public class SyntheticsTriggerCITestRunResult {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEVICE = "device";
-  private SyntheticsDeviceID device;
+  private String device;
 
   public static final String JSON_PROPERTY_LOCATION = "location";
   private Long location;
@@ -39,9 +39,8 @@ public class SyntheticsTriggerCITestRunResult {
   public static final String JSON_PROPERTY_RESULT_ID = "result_id";
   private String resultId;
 
-  public SyntheticsTriggerCITestRunResult device(SyntheticsDeviceID device) {
+  public SyntheticsTriggerCITestRunResult device(String device) {
     this.device = device;
-    this.unparsed |= !device.isValid();
     return this;
   }
 
@@ -53,14 +52,11 @@ public class SyntheticsTriggerCITestRunResult {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsDeviceID getDevice() {
+  public String getDevice() {
     return device;
   }
 
-  public void setDevice(SyntheticsDeviceID device) {
-    if (!device.isValid()) {
-      this.unparsed = true;
-    }
+  public void setDevice(String device) {
     this.device = device;
   }
 

@@ -14,7 +14,6 @@ import com.datadog.api.client.v1.model.SyntheticsBrowserVariable;
 import com.datadog.api.client.v1.model.SyntheticsBrowserVariableType;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
-import com.datadog.api.client.v1.model.SyntheticsDeviceID;
 import com.datadog.api.client.v1.model.SyntheticsStep;
 import com.datadog.api.client.v1.model.SyntheticsStepType;
 import com.datadog.api.client.v1.model.SyntheticsTestCallType;
@@ -84,7 +83,7 @@ public class Example {
                     .ci(
                         new SyntheticsTestCiOptions()
                             .executionRule(SyntheticsTestExecutionRule.BLOCKING))
-                    .deviceIds(Collections.singletonList(SyntheticsDeviceID.CHROME_LAPTOP_LARGE))
+                    .deviceIds(Collections.singletonList("chrome.laptop_large"))
                     .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP1)
                     .monitorOptions(
                         new SyntheticsTestOptionsMonitorOptions()
