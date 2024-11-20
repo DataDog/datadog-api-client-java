@@ -34,7 +34,7 @@ import java.util.Objects;
 public class SyntheticsBatchResult {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEVICE = "device";
-  private SyntheticsDeviceID device;
+  private String device;
 
   public static final String JSON_PROPERTY_DURATION = "duration";
   private Double duration;
@@ -63,9 +63,8 @@ public class SyntheticsBatchResult {
   public static final String JSON_PROPERTY_TEST_TYPE = "test_type";
   private SyntheticsTestDetailsType testType;
 
-  public SyntheticsBatchResult device(SyntheticsDeviceID device) {
+  public SyntheticsBatchResult device(String device) {
     this.device = device;
-    this.unparsed |= !device.isValid();
     return this;
   }
 
@@ -77,14 +76,11 @@ public class SyntheticsBatchResult {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsDeviceID getDevice() {
+  public String getDevice() {
     return device;
   }
 
-  public void setDevice(SyntheticsDeviceID device) {
-    if (!device.isValid()) {
-      this.unparsed = true;
-    }
+  public void setDevice(String device) {
     this.device = device;
   }
 

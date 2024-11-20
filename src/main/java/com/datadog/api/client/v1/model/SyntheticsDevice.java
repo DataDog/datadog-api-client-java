@@ -33,7 +33,7 @@ public class SyntheticsDevice {
   private Long height;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private SyntheticsDeviceID id;
+  private String id;
 
   public static final String JSON_PROPERTY_IS_MOBILE = "isMobile";
   private Boolean isMobile;
@@ -49,12 +49,11 @@ public class SyntheticsDevice {
   @JsonCreator
   public SyntheticsDevice(
       @JsonProperty(required = true, value = JSON_PROPERTY_HEIGHT) Long height,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) SyntheticsDeviceID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_WIDTH) Long width) {
     this.height = height;
     this.id = id;
-    this.unparsed |= !id.isValid();
     this.name = name;
     this.width = width;
   }
@@ -79,9 +78,8 @@ public class SyntheticsDevice {
     this.height = height;
   }
 
-  public SyntheticsDevice id(SyntheticsDeviceID id) {
+  public SyntheticsDevice id(String id) {
     this.id = id;
-    this.unparsed |= !id.isValid();
     return this;
   }
 
@@ -92,14 +90,11 @@ public class SyntheticsDevice {
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public SyntheticsDeviceID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(SyntheticsDeviceID id) {
-    if (!id.isValid()) {
-      this.unparsed = true;
-    }
+  public void setId(String id) {
     this.id = id;
   }
 

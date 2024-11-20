@@ -11,7 +11,6 @@ import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsBrowserTestRumSettings;
-import com.datadog.api.client.v1.model.SyntheticsDeviceID;
 import com.datadog.api.client.v1.model.SyntheticsTestCiOptions;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestExecutionRule;
@@ -52,7 +51,7 @@ public class Example {
                     .ci(
                         new SyntheticsTestCiOptions()
                             .executionRule(SyntheticsTestExecutionRule.BLOCKING))
-                    .deviceIds(Collections.singletonList(SyntheticsDeviceID.CHROME_LAPTOP_LARGE))
+                    .deviceIds(Collections.singletonList("chrome.laptop_large"))
                     .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP1)
                     .monitorOptions(
                         new SyntheticsTestOptionsMonitorOptions()

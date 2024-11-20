@@ -57,7 +57,7 @@ public class SyntheticsCITest {
   private String cookies;
 
   public static final String JSON_PROPERTY_DEVICE_IDS = "deviceIds";
-  private List<SyntheticsDeviceID> deviceIds = null;
+  private List<String> deviceIds = null;
 
   public static final String JSON_PROPERTY_FOLLOW_REDIRECTS = "followRedirects";
   private Boolean followRedirects;
@@ -197,17 +197,16 @@ public class SyntheticsCITest {
     this.cookies = cookies;
   }
 
-  public SyntheticsCITest deviceIds(List<SyntheticsDeviceID> deviceIds) {
+  public SyntheticsCITest deviceIds(List<String> deviceIds) {
     this.deviceIds = deviceIds;
     return this;
   }
 
-  public SyntheticsCITest addDeviceIdsItem(SyntheticsDeviceID deviceIdsItem) {
+  public SyntheticsCITest addDeviceIdsItem(String deviceIdsItem) {
     if (this.deviceIds == null) {
       this.deviceIds = new ArrayList<>();
     }
     this.deviceIds.add(deviceIdsItem);
-    this.unparsed |= !deviceIdsItem.isValid();
     return this;
   }
 
@@ -219,11 +218,11 @@ public class SyntheticsCITest {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsDeviceID> getDeviceIds() {
+  public List<String> getDeviceIds() {
     return deviceIds;
   }
 
-  public void setDeviceIds(List<SyntheticsDeviceID> deviceIds) {
+  public void setDeviceIds(List<String> deviceIds) {
     this.deviceIds = deviceIds;
   }
 
