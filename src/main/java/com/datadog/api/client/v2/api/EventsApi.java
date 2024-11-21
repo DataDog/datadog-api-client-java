@@ -5,6 +5,8 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.EventCreateRequestPayload;
+import com.datadog.api.client.v2.model.EventCreateResponsePayload;
 import com.datadog.api.client.v2.model.EventResponse;
 import com.datadog.api.client.v2.model.EventsListRequest;
 import com.datadog.api.client.v2.model.EventsListResponse;
@@ -48,6 +50,138 @@ public class EventsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Post an event.
+   *
+   * <p>See {@link #createEventWithHttpInfo}.
+   *
+   * @param body Event request object (required)
+   * @return EventCreateResponsePayload
+   * @throws ApiException if fails to make API call
+   */
+  public EventCreateResponsePayload createEvent(EventCreateRequestPayload body)
+      throws ApiException {
+    return createEventWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Post an event.
+   *
+   * <p>See {@link #createEventWithHttpInfoAsync}.
+   *
+   * @param body Event request object (required)
+   * @return CompletableFuture&lt;EventCreateResponsePayload&gt;
+   */
+  public CompletableFuture<EventCreateResponsePayload> createEventAsync(
+      EventCreateRequestPayload body) {
+    return createEventWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * This endpoint allows you to post events. Only events with <code>change</code> category are
+   * under General Availability.
+   *
+   * @param body Event request object (required)
+   * @return ApiResponse&lt;EventCreateResponsePayload&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EventCreateResponsePayload> createEventWithHttpInfo(
+      EventCreateRequestPayload body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createEvent");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/events";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.EventsApi.createEvent",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EventCreateResponsePayload>() {});
+  }
+
+  /**
+   * Post an event.
+   *
+   * <p>See {@link #createEventWithHttpInfo}.
+   *
+   * @param body Event request object (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;EventCreateResponsePayload&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EventCreateResponsePayload>> createEventWithHttpInfoAsync(
+      EventCreateRequestPayload body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<EventCreateResponsePayload>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling createEvent"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/events";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.EventsApi.createEvent",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<EventCreateResponsePayload>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EventCreateResponsePayload>() {});
   }
 
   /** Manage optional parameters to listEvents. */
