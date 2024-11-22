@@ -37,7 +37,7 @@ public class ListStreamQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CLUSTERING_PATTERN_FIELD_PATH =
       "clustering_pattern_field_path";
-  private String clusteringPatternFieldPath = "message";
+  private String clusteringPatternFieldPath;
 
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private List<ListStreamComputeItems> compute = null;
