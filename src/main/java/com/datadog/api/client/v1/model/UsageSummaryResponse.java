@@ -55,6 +55,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CLOUD_SIEM_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_HWM_SUM,
@@ -294,6 +295,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM_SUM =
       "code_analysis_sca_committers_hwm_sum";
   private Long codeAnalysisScaCommittersHwmSum;
+
+  public static final String JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P_SUM =
+      "code_security_host_top99p_sum";
+  private Long codeSecurityHostTop99pSum;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG_SUM = "container_avg_sum";
   private Long containerAvgSum;
@@ -1433,6 +1438,28 @@ public class UsageSummaryResponse {
 
   public void setCodeAnalysisScaCommittersHwmSum(Long codeAnalysisScaCommittersHwmSum) {
     this.codeAnalysisScaCommittersHwmSum = codeAnalysisScaCommittersHwmSum;
+  }
+
+  public UsageSummaryResponse codeSecurityHostTop99pSum(Long codeSecurityHostTop99pSum) {
+    this.codeSecurityHostTop99pSum = codeSecurityHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Code Security hosts over all hours in the current month for
+   * all organizations.
+   *
+   * @return codeSecurityHostTop99pSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCodeSecurityHostTop99pSum() {
+    return codeSecurityHostTop99pSum;
+  }
+
+  public void setCodeSecurityHostTop99pSum(Long codeSecurityHostTop99pSum) {
+    this.codeSecurityHostTop99pSum = codeSecurityHostTop99pSum;
   }
 
   public UsageSummaryResponse containerAvgSum(Long containerAvgSum) {
@@ -4316,6 +4343,8 @@ public class UsageSummaryResponse {
         && Objects.equals(
             this.codeAnalysisScaCommittersHwmSum,
             usageSummaryResponse.codeAnalysisScaCommittersHwmSum)
+        && Objects.equals(
+            this.codeSecurityHostTop99pSum, usageSummaryResponse.codeSecurityHostTop99pSum)
         && Objects.equals(this.containerAvgSum, usageSummaryResponse.containerAvgSum)
         && Objects.equals(
             this.containerExclAgentAvgSum, usageSummaryResponse.containerExclAgentAvgSum)
@@ -4602,6 +4631,7 @@ public class UsageSummaryResponse {
         cloudSiemEventsAggSum,
         codeAnalysisSaCommittersHwmSum,
         codeAnalysisScaCommittersHwmSum,
+        codeSecurityHostTop99pSum,
         containerAvgSum,
         containerExclAgentAvgSum,
         containerHwmSum,
@@ -4811,6 +4841,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    codeAnalysisScaCommittersHwmSum: ")
         .append(toIndentedString(codeAnalysisScaCommittersHwmSum))
+        .append("\n");
+    sb.append("    codeSecurityHostTop99pSum: ")
+        .append(toIndentedString(codeSecurityHostTop99pSum))
         .append("\n");
     sb.append("    containerAvgSum: ").append(toIndentedString(containerAvgSum)).append("\n");
     sb.append("    containerExclAgentAvgSum: ")
