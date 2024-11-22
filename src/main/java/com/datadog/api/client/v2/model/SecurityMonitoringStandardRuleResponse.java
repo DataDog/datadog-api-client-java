@@ -41,6 +41,7 @@ import java.util.Objects;
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_THIRD_PARTY_CASES,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_TYPE,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_UPDATE_AUTHOR_ID,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_UPDATED_AT,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
@@ -109,6 +110,9 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public static final String JSON_PROPERTY_UPDATE_AUTHOR_ID = "updateAuthorId";
   private Long updateAuthorId;
+
+  public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
+  private Long updatedAt;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
@@ -646,6 +650,27 @@ public class SecurityMonitoringStandardRuleResponse {
     this.updateAuthorId = updateAuthorId;
   }
 
+  public SecurityMonitoringStandardRuleResponse updatedAt(Long updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * The date the rule was last updated, in milliseconds.
+   *
+   * @return updatedAt
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(Long updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
   public SecurityMonitoringStandardRuleResponse version(Long version) {
     this.version = version;
     return this;
@@ -753,6 +778,7 @@ public class SecurityMonitoringStandardRuleResponse {
         && Objects.equals(this.type, securityMonitoringStandardRuleResponse.type)
         && Objects.equals(
             this.updateAuthorId, securityMonitoringStandardRuleResponse.updateAuthorId)
+        && Objects.equals(this.updatedAt, securityMonitoringStandardRuleResponse.updatedAt)
         && Objects.equals(this.version, securityMonitoringStandardRuleResponse.version)
         && Objects.equals(
             this.additionalProperties, securityMonitoringStandardRuleResponse.additionalProperties);
@@ -782,6 +808,7 @@ public class SecurityMonitoringStandardRuleResponse {
         thirdPartyCases,
         type,
         updateAuthorId,
+        updatedAt,
         version,
         additionalProperties);
   }
@@ -813,6 +840,7 @@ public class SecurityMonitoringStandardRuleResponse {
     sb.append("    thirdPartyCases: ").append(toIndentedString(thirdPartyCases)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateAuthorId: ").append(toIndentedString(updateAuthorId)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
