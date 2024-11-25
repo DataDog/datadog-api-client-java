@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"06b62294-36d7-4bbe-a8b8-7c93736dc0ee\",\"type\":\"account\",\"attributes\":{\"account_tags\":[\"key:value\"],\"auth_config\":{\"role_name\":\"DatadogIntegrationRole\",\"external_id\":\"c16e1ceb4ac64293ba91f020191fa781\"},\"aws_account_id\":\"123456789012\",\"aws_partition\":\"aws\",\"aws_regions\":{\"include_only\":[\"us-east-1\"]},\"created_at\":\"2024-11-06T18:44:54.297075743Z\",\"logs_config\":{\"lambda_forwarder\":{\"lambdas\":[\"arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder\"],\"sources\":[\"s3\"]}},\"metrics_config\":{\"enabled\":true,\"automute_enabled\":true,\"collect_custom_metrics\":false,\"collect_cloudwatch_alarms\":false,\"tag_filters\":[{\"namespace\":\"AWS/EC2\",\"tags\":[\"key:value\"]}],\"namespace_filters\":{\"include_only\":[\"AWS/EC2\"]}},\"modified_at\":\"2024-11-06T18:44:54.297079976Z\",\"resources_config\":{\"cloud_security_posture_management_collection\":false,\"extended_collection\":false},\"traces_config\":{\"xray_services\":{\"include_only\":[\"AWS/AppSync\"]}}}}}",
+      "body": "{\"data\":{\"id\":\"da257b29-9c21-471f-9f5d-41ccfbedd320\",\"type\":\"account\",\"attributes\":{\"account_tags\":[\"key:value\"],\"auth_config\":{\"role_name\":\"DatadogIntegrationRole\",\"external_id\":\"532ab1a205b74240a3ca14407209b4a6\"},\"aws_account_id\":\"123456789012\",\"aws_partition\":\"aws\",\"aws_regions\":{\"include_only\":[\"us-east-1\"]},\"created_at\":\"2024-11-14T20:08:04.788732465Z\",\"logs_config\":{\"lambda_forwarder\":{\"lambdas\":[\"arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder\"],\"sources\":[\"s3\"]}},\"metrics_config\":{\"enabled\":true,\"automute_enabled\":true,\"collect_custom_metrics\":false,\"collect_cloudwatch_alarms\":false,\"tag_filters\":[{\"namespace\":\"AWS/EC2\",\"tags\":[\"key:value\"]}],\"namespace_filters\":{\"include_only\":[\"AWS/EC2\"]}},\"modified_at\":\"2024-11-14T20:08:04.788740678Z\",\"resources_config\":{\"cloud_security_posture_management_collection\":false,\"extended_collection\":false},\"traces_config\":{\"xray_services\":{\"include_only\":[\"AWS/AppSync\"]}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/integration/aws/accounts/06b62294-36d7-4bbe-a8b8-7c93736dc0ee",
+      "path": "/api/v2/integration/aws/accounts/da257b29-9c21-471f-9f5d-41ccfbedd320",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"06b62294-36d7-4bbe-a8b8-7c93736dc0ee\",\"type\":\"account\",\"attributes\":{\"account_tags\":[\"key:value\"],\"auth_config\":{\"role_name\":\"DatadogIntegrationRole\",\"external_id\":\"c16e1ceb4ac64293ba91f020191fa781\"},\"aws_account_id\":\"123456789012\",\"aws_partition\":\"aws\",\"aws_regions\":{\"include_only\":[\"us-east-1\"]},\"created_at\":\"2024-11-06T18:44:54.297076Z\",\"logs_config\":{\"lambda_forwarder\":{\"lambdas\":[\"arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder\"],\"sources\":[\"s3\"]}},\"metrics_config\":{\"enabled\":true,\"automute_enabled\":true,\"collect_custom_metrics\":true,\"collect_cloudwatch_alarms\":true,\"tag_filters\":[{\"namespace\":\"AWS/EC2\",\"tags\":[\"key:value\"]}],\"namespace_filters\":{\"include_only\":[\"AWS/EC2\"]}},\"modified_at\":\"2024-11-06T18:44:54.489623544Z\",\"resources_config\":{\"cloud_security_posture_management_collection\":false,\"extended_collection\":false},\"traces_config\":{\"xray_services\":{\"include_only\":[\"AWS/AppSync\"]}}}}}",
+      "body": "{\"data\":{\"id\":\"da257b29-9c21-471f-9f5d-41ccfbedd320\",\"type\":\"account\",\"attributes\":{\"account_tags\":[\"key:value\"],\"auth_config\":{\"role_name\":\"DatadogIntegrationRole\",\"external_id\":\"532ab1a205b74240a3ca14407209b4a6\"},\"aws_account_id\":\"123456789012\",\"aws_partition\":\"aws\",\"aws_regions\":{\"include_only\":[\"us-east-1\"]},\"created_at\":\"2024-11-14T20:08:04.788732Z\",\"logs_config\":{\"lambda_forwarder\":{\"lambdas\":[\"arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder\"],\"sources\":[\"s3\"]}},\"metrics_config\":{\"enabled\":true,\"automute_enabled\":true,\"collect_custom_metrics\":true,\"collect_cloudwatch_alarms\":true,\"tag_filters\":[{\"namespace\":\"AWS/EC2\",\"tags\":[\"key:value\"]}],\"namespace_filters\":{\"include_only\":[\"AWS/EC2\"]}},\"modified_at\":\"2024-11-14T20:08:04.980569196Z\",\"resources_config\":{\"cloud_security_posture_management_collection\":false,\"extended_collection\":false},\"traces_config\":{\"xray_services\":{\"include_only\":[\"AWS/AppSync\"]}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1a822b78-55d5-a1a7-cccb-55e1839ea5dc"
+    "id": "dff252dd-4a9f-3626-d976-f050308fc2fb"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/integration/aws/accounts/06b62294-36d7-4bbe-a8b8-7c93736dc0ee",
+      "path": "/api/v2/integration/aws/accounts/da257b29-9c21-471f-9f5d-41ccfbedd320",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f1bb647e-d216-d2cc-ee31-7dd2381c304e"
+    "id": "3d012e58-3689-111e-3436-abdaa1b6c81d"
   }
 ]

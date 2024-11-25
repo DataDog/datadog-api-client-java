@@ -8,7 +8,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"78feee6b9c374776888068593fa8c0b9\",\"type\":\"external_id\",\"attributes\":{\"external_id\":\"78feee6b9c374776888068593fa8c0b9\"}}}",
+      "body": "{\"data\":{\"id\":\"02482e8953d346d8a50e512dba92bff3\",\"type\":\"external_id\",\"attributes\":{\"external_id\":\"02482e8953d346d8a50e512dba92bff3\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
