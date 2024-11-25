@@ -78,51 +78,6 @@ public class AWSNamespaceFilters extends AbstractOpenApiSchema {
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize AWSNamespaceFiltersExcludeAll
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (AWSNamespaceFiltersExcludeAll.class.equals(Integer.class)
-            || AWSNamespaceFiltersExcludeAll.class.equals(Long.class)
-            || AWSNamespaceFiltersExcludeAll.class.equals(Float.class)
-            || AWSNamespaceFiltersExcludeAll.class.equals(Double.class)
-            || AWSNamespaceFiltersExcludeAll.class.equals(Boolean.class)
-            || AWSNamespaceFiltersExcludeAll.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((AWSNamespaceFiltersExcludeAll.class.equals(Integer.class)
-                        || AWSNamespaceFiltersExcludeAll.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((AWSNamespaceFiltersExcludeAll.class.equals(Float.class)
-                        || AWSNamespaceFiltersExcludeAll.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (AWSNamespaceFiltersExcludeAll.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (AWSNamespaceFiltersExcludeAll.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(AWSNamespaceFiltersExcludeAll.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((AWSNamespaceFiltersExcludeAll) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'AWSNamespaceFiltersExcludeAll'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'AWSNamespaceFiltersExcludeAll'", e);
-      }
-
       // deserialize AWSNamespaceFiltersExcludeOnly
       try {
         boolean attemptParsing = true;
@@ -167,51 +122,6 @@ public class AWSNamespaceFilters extends AbstractOpenApiSchema {
         // deserialization failed, continue
         log.log(
             Level.FINER, "Input data does not match schema 'AWSNamespaceFiltersExcludeOnly'", e);
-      }
-
-      // deserialize AWSNamespaceFiltersIncludeAll
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (AWSNamespaceFiltersIncludeAll.class.equals(Integer.class)
-            || AWSNamespaceFiltersIncludeAll.class.equals(Long.class)
-            || AWSNamespaceFiltersIncludeAll.class.equals(Float.class)
-            || AWSNamespaceFiltersIncludeAll.class.equals(Double.class)
-            || AWSNamespaceFiltersIncludeAll.class.equals(Boolean.class)
-            || AWSNamespaceFiltersIncludeAll.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((AWSNamespaceFiltersIncludeAll.class.equals(Integer.class)
-                        || AWSNamespaceFiltersIncludeAll.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((AWSNamespaceFiltersIncludeAll.class.equals(Float.class)
-                        || AWSNamespaceFiltersIncludeAll.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (AWSNamespaceFiltersIncludeAll.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (AWSNamespaceFiltersIncludeAll.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(AWSNamespaceFiltersIncludeAll.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((AWSNamespaceFiltersIncludeAll) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'AWSNamespaceFiltersIncludeAll'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'AWSNamespaceFiltersIncludeAll'", e);
       }
 
       // deserialize AWSNamespaceFiltersIncludeOnly
@@ -289,17 +199,7 @@ public class AWSNamespaceFilters extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public AWSNamespaceFilters(AWSNamespaceFiltersExcludeAll o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
   public AWSNamespaceFilters(AWSNamespaceFiltersExcludeOnly o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public AWSNamespaceFilters(AWSNamespaceFiltersIncludeAll o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -311,11 +211,7 @@ public class AWSNamespaceFilters extends AbstractOpenApiSchema {
 
   static {
     schemas.put(
-        "AWSNamespaceFiltersExcludeAll", new GenericType<AWSNamespaceFiltersExcludeAll>() {});
-    schemas.put(
         "AWSNamespaceFiltersExcludeOnly", new GenericType<AWSNamespaceFiltersExcludeOnly>() {});
-    schemas.put(
-        "AWSNamespaceFiltersIncludeAll", new GenericType<AWSNamespaceFiltersIncludeAll>() {});
     schemas.put(
         "AWSNamespaceFiltersIncludeOnly", new GenericType<AWSNamespaceFiltersIncludeOnly>() {});
     JSON.registerDescendants(AWSNamespaceFilters.class, Collections.unmodifiableMap(schemas));
@@ -328,24 +224,15 @@ public class AWSNamespaceFilters extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: AWSNamespaceFiltersExcludeAll, AWSNamespaceFiltersExcludeOnly,
-   * AWSNamespaceFiltersIncludeAll, AWSNamespaceFiltersIncludeOnly
+   * against the oneOf child schemas: AWSNamespaceFiltersExcludeOnly, AWSNamespaceFiltersIncludeOnly
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(AWSNamespaceFiltersExcludeAll.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
     if (JSON.isInstanceOf(
         AWSNamespaceFiltersExcludeOnly.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(AWSNamespaceFiltersIncludeAll.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -360,33 +247,19 @@ public class AWSNamespaceFilters extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be AWSNamespaceFiltersExcludeAll,"
-            + " AWSNamespaceFiltersExcludeOnly, AWSNamespaceFiltersIncludeAll,"
+        "Invalid instance type. Must be AWSNamespaceFiltersExcludeOnly,"
             + " AWSNamespaceFiltersIncludeOnly");
   }
 
   /**
-   * Get the actual instance, which can be the following: AWSNamespaceFiltersExcludeAll,
-   * AWSNamespaceFiltersExcludeOnly, AWSNamespaceFiltersIncludeAll, AWSNamespaceFiltersIncludeOnly
+   * Get the actual instance, which can be the following: AWSNamespaceFiltersExcludeOnly,
+   * AWSNamespaceFiltersIncludeOnly
    *
-   * @return The actual instance (AWSNamespaceFiltersExcludeAll, AWSNamespaceFiltersExcludeOnly,
-   *     AWSNamespaceFiltersIncludeAll, AWSNamespaceFiltersIncludeOnly)
+   * @return The actual instance (AWSNamespaceFiltersExcludeOnly, AWSNamespaceFiltersIncludeOnly)
    */
   @Override
   public Object getActualInstance() {
     return super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `AWSNamespaceFiltersExcludeAll`. If the actual instance is not
-   * `AWSNamespaceFiltersExcludeAll`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `AWSNamespaceFiltersExcludeAll`
-   * @throws ClassCastException if the instance is not `AWSNamespaceFiltersExcludeAll`
-   */
-  public AWSNamespaceFiltersExcludeAll getAWSNamespaceFiltersExcludeAll()
-      throws ClassCastException {
-    return (AWSNamespaceFiltersExcludeAll) super.getActualInstance();
   }
 
   /**
@@ -399,18 +272,6 @@ public class AWSNamespaceFilters extends AbstractOpenApiSchema {
   public AWSNamespaceFiltersExcludeOnly getAWSNamespaceFiltersExcludeOnly()
       throws ClassCastException {
     return (AWSNamespaceFiltersExcludeOnly) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `AWSNamespaceFiltersIncludeAll`. If the actual instance is not
-   * `AWSNamespaceFiltersIncludeAll`, the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `AWSNamespaceFiltersIncludeAll`
-   * @throws ClassCastException if the instance is not `AWSNamespaceFiltersIncludeAll`
-   */
-  public AWSNamespaceFiltersIncludeAll getAWSNamespaceFiltersIncludeAll()
-      throws ClassCastException {
-    return (AWSNamespaceFiltersIncludeAll) super.getActualInstance();
   }
 
   /**
