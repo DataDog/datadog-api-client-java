@@ -1,4 +1,4 @@
-// Send pipeline event returns "Request accepted for processing" response
+// Send running pipeline event returns "Request accepted for processing" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CiVisibilityPipelinesApi;
@@ -8,10 +8,10 @@ import com.datadog.api.client.v2.model.CIAppCreatePipelineEventRequestAttributes
 import com.datadog.api.client.v2.model.CIAppCreatePipelineEventRequestData;
 import com.datadog.api.client.v2.model.CIAppCreatePipelineEventRequestDataType;
 import com.datadog.api.client.v2.model.CIAppGitInfo;
-import com.datadog.api.client.v2.model.CIAppPipelineEventFinishedPipeline;
+import com.datadog.api.client.v2.model.CIAppPipelineEventInProgressPipeline;
 import com.datadog.api.client.v2.model.CIAppPipelineEventPipeline;
+import com.datadog.api.client.v2.model.CIAppPipelineEventPipelineInProgressStatus;
 import com.datadog.api.client.v2.model.CIAppPipelineEventPipelineLevel;
-import com.datadog.api.client.v2.model.CIAppPipelineEventPipelineStatus;
 import java.time.OffsetDateTime;
 
 public class Example {
@@ -28,15 +28,15 @@ public class Example {
                             .resource(
                                 new CIAppCreatePipelineEventRequestAttributesResource(
                                     new CIAppPipelineEventPipeline(
-                                        new CIAppPipelineEventFinishedPipeline()
+                                        new CIAppPipelineEventInProgressPipeline()
                                             .level(CIAppPipelineEventPipelineLevel.PIPELINE)
                                             .uniqueId("3eacb6f3-ff04-4e10-8a9c-46e6d054024a")
                                             .name("Deploy to AWS")
                                             .url(
                                                 "https://my-ci-provider.example/pipelines/my-pipeline/run/1")
                                             .start(OffsetDateTime.now().plusSeconds(-120))
-                                            .end(OffsetDateTime.now().plusSeconds(-30))
-                                            .status(CIAppPipelineEventPipelineStatus.SUCCESS)
+                                            .status(
+                                                CIAppPipelineEventPipelineInProgressStatus.RUNNING)
                                             .partialRetry(false)
                                             .git(
                                                 new CIAppGitInfo()
