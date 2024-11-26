@@ -249,7 +249,7 @@ public class SecurityMonitoringStandardRulePayload {
   }
 
   /**
-   * Options on rules.
+   * Options.
    *
    * @return options
    */

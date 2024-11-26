@@ -287,7 +287,7 @@ public class JobDefinition {
   }
 
   /**
-   * Options on rules.
+   * Options.
    *
    * @return options
    */
@@ -350,7 +350,7 @@ public class JobDefinition {
   }
 
   /**
-   * Reference tables for the rule.
+   * Reference tables used in the queries.
    *
    * @return referenceTables
    */
@@ -414,7 +414,8 @@ public class JobDefinition {
   }
 
   /**
-   * Cases for generating results from third-party rules. Only available for third-party rules.
+   * Cases for generating results from third-party detection method. Only available for third-party
+   * detection method.
    *
    * @return thirdPartyCases
    */

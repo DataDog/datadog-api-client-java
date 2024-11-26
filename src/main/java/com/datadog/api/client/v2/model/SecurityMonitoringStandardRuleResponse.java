@@ -451,7 +451,7 @@ public class SecurityMonitoringStandardRuleResponse {
   }
 
   /**
-   * Options on rules.
+   * Options.
    *
    * @return options
    */

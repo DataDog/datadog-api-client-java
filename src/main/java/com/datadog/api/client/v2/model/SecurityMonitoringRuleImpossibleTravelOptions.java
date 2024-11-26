@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Options on impossible travel rules. */
+/** Options on impossible travel detection method. */
 @JsonPropertyOrder({
   SecurityMonitoringRuleImpossibleTravelOptions.JSON_PROPERTY_BASELINE_USER_LOCATIONS
 })
