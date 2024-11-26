@@ -58,7 +58,7 @@ public class SecurityMonitoringRuleCaseCreate {
   }
 
   /**
-   * A rule case contains logical operations (<code>&gt;</code>,<code>&gt;=</code>, <code>&amp;&amp;
+   * A case contains logical operations (<code>&gt;</code>,<code>&gt;=</code>, <code>&amp;&amp;
    * </code>, <code>||</code>) to determine if a signal should be generated based on the event
    * counts in the previously defined queries.
    *
@@ -110,7 +110,7 @@ public class SecurityMonitoringRuleCaseCreate {
   }
 
   /**
-   * Notification targets for each rule case.
+   * Notification targets.
    *
    * @return notifications
    */

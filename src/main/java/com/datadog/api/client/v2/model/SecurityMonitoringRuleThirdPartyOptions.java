@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Options on third party rules. */
+/** Options on third party detection method. */
 @JsonPropertyOrder({
   SecurityMonitoringRuleThirdPartyOptions.JSON_PROPERTY_DEFAULT_NOTIFICATIONS,
   SecurityMonitoringRuleThirdPartyOptions.JSON_PROPERTY_DEFAULT_STATUS,
