@@ -25,6 +25,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_EXPIRATION_DATE,
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_NAME,
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_RULE_QUERY,
+  SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_START_DATE,
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_SUPPRESSION_QUERY,
   SecurityMonitoringSuppressionUpdateAttributes.JSON_PROPERTY_VERSION
 })
@@ -49,6 +50,9 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
 
   public static final String JSON_PROPERTY_RULE_QUERY = "rule_query";
   private String ruleQuery;
+
+  public static final String JSON_PROPERTY_START_DATE = "start_date";
+  private JsonNullable<Long> startDate = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_SUPPRESSION_QUERY = "suppression_query";
   private String suppressionQuery;
@@ -198,6 +202,39 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
     this.ruleQuery = ruleQuery;
   }
 
+  public SecurityMonitoringSuppressionUpdateAttributes startDate(Long startDate) {
+    this.startDate = JsonNullable.<Long>of(startDate);
+    return this;
+  }
+
+  /**
+   * A Unix millisecond timestamp giving the start date for the suppression rule. After this date,
+   * it starts suppressing signals. If unset, the start date of the suppression rule is left
+   * untouched. If set to <code>null</code>, the start date is removed.
+   *
+   * @return startDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public Long getStartDate() {
+    return startDate.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getStartDate_JsonNullable() {
+    return startDate;
+  }
+
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  public void setStartDate_JsonNullable(JsonNullable<Long> startDate) {
+    this.startDate = startDate;
+  }
+
+  public void setStartDate(Long startDate) {
+    this.startDate = JsonNullable.<Long>of(startDate);
+  }
+
   public SecurityMonitoringSuppressionUpdateAttributes suppressionQuery(String suppressionQuery) {
     this.suppressionQuery = suppressionQuery;
     return this;
@@ -310,6 +347,7 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
             this.expirationDate, securityMonitoringSuppressionUpdateAttributes.expirationDate)
         && Objects.equals(this.name, securityMonitoringSuppressionUpdateAttributes.name)
         && Objects.equals(this.ruleQuery, securityMonitoringSuppressionUpdateAttributes.ruleQuery)
+        && Objects.equals(this.startDate, securityMonitoringSuppressionUpdateAttributes.startDate)
         && Objects.equals(
             this.suppressionQuery, securityMonitoringSuppressionUpdateAttributes.suppressionQuery)
         && Objects.equals(this.version, securityMonitoringSuppressionUpdateAttributes.version)
@@ -327,6 +365,7 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
         expirationDate,
         name,
         ruleQuery,
+        startDate,
         suppressionQuery,
         version,
         additionalProperties);
@@ -342,6 +381,7 @@ public class SecurityMonitoringSuppressionUpdateAttributes {
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ruleQuery: ").append(toIndentedString(ruleQuery)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    suppressionQuery: ").append(toIndentedString(suppressionQuery)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
