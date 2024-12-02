@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Metrics config */
+/** AWS Metrics Collection config. */
 @JsonPropertyOrder({
   AWSMetricsConfig.JSON_PROPERTY_AUTOMUTE_ENABLED,
   AWSMetricsConfig.JSON_PROPERTY_COLLECT_CLOUDWATCH_ALARMS,
@@ -55,7 +55,7 @@ public class AWSMetricsConfig {
   }
 
   /**
-   * Enable EC2 automute for AWS metrics
+   * Enable EC2 automute for AWS metrics. Defaults to <code>true</code>.
    *
    * @return automuteEnabled
    */
@@ -76,7 +76,7 @@ public class AWSMetricsConfig {
   }
 
   /**
-   * Enable CloudWatch alarms collection
+   * Enable CloudWatch alarms collection. Defaults to <code>false</code>.
    *
    * @return collectCloudwatchAlarms
    */
@@ -97,7 +97,7 @@ public class AWSMetricsConfig {
   }
 
   /**
-   * Enable custom metrics collection
+   * Enable custom metrics collection. Defaults to <code>false</code>.
    *
    * @return collectCustomMetrics
    */
@@ -118,7 +118,7 @@ public class AWSMetricsConfig {
   }
 
   /**
-   * Enable AWS metrics collection
+   * Enable AWS metrics collection. Defaults to <code>true</code>.
    *
    * @return enabled
    */
@@ -140,7 +140,7 @@ public class AWSMetricsConfig {
   }
 
   /**
-   * AWS Metrics namespace filters
+   * AWS Metrics namespace filters. Defaults to <code>exclude_only</code>.
    *
    * @return namespaceFilters
    */
@@ -173,7 +173,7 @@ public class AWSMetricsConfig {
   }
 
   /**
-   * AWS Metrics tag filters list
+   * AWS Metrics collection tag filters list. Defaults to <code>[]</code>.
    *
    * @return tagFilters
    */

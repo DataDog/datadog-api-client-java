@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Include only these regions */
+/** Include only these regions. */
 @JsonPropertyOrder({AWSRegionsIncludeOnly.JSON_PROPERTY_INCLUDE_ONLY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class AWSRegionsIncludeOnly {
   }
 
   /**
-   * Include only these regions
+   * Include only these regions.
    *
    * @return includeOnly
    */
