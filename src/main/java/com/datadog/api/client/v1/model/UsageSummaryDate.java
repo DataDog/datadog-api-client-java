@@ -2707,8 +2707,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for
-   * all organizations.
+   * Shows the 99th percentile of all distinct Cloud Network Monitoring hosts (formerly known as
+   * Network hosts) over all hours in the current date for all organizations.
    *
    * @return npmHostTop99p
    */
