@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Account Create Request data */
+/** AWS Account Create Request data. */
 @JsonPropertyOrder({
   AWSAccountCreateRequestData.JSON_PROPERTY_ATTRIBUTES,
   AWSAccountCreateRequestData.JSON_PROPERTY_TYPE
@@ -52,7 +52,7 @@ public class AWSAccountCreateRequestData {
   }
 
   /**
-   * The AWS Account Integration Config to be created
+   * The AWS Account Integration Config to be created.
    *
    * @return attributes
    */

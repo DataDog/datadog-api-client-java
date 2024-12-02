@@ -18,7 +18,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** AWS Account partition */
+/**
+ * AWS partition your AWS account is scoped to. Defaults to <code>aws</code>. See <a
+ * href="https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html">Partitions</a>
+ * in the AWS documentation for more information.
+ */
 @JsonSerialize(using = AWSAccountPartition.AWSAccountPartitionSerializer.class)
 public class AWSAccountPartition extends ModelEnum<String> {
 

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Resources config */
+/** AWS Resources Collection config. */
 @JsonPropertyOrder({
   AWSResourcesConfig.JSON_PROPERTY_CLOUD_SECURITY_POSTURE_MANAGEMENT_COLLECTION,
   AWSResourcesConfig.JSON_PROPERTY_EXTENDED_COLLECTION
@@ -39,7 +39,9 @@ public class AWSResourcesConfig {
   }
 
   /**
-   * Whether Datadog collects cloud security posture management resources from your AWS account.
+   * Enable Cloud Security Management to scan AWS resources for vulnerabilities, misconfigurations,
+   * identity risks, and compliance violations. Defaults to <code>false</code>. Requires <code>
+   * extended_collection</code> to be set to <code>true</code>.
    *
    * @return cloudSecurityPostureManagementCollection
    */
@@ -62,7 +64,8 @@ public class AWSResourcesConfig {
 
   /**
    * Whether Datadog collects additional attributes and configuration information about the
-   * resources in your AWS account. Required for <code>cspm_resource_collection</code>.
+   * resources in your AWS account. Defaults to <code>true</code>. Required for <code>
+   * cloud_security_posture_management_collection</code>.
    *
    * @return extendedCollection
    */
