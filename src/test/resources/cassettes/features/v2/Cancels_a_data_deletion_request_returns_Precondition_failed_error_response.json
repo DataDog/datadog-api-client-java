@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/deletion/requests/-1/cancel",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"412\",\"code\":\"INVALID_ID\",\"title\":\"INVALID_ID\",\"detail\":\"INVALID_ID\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 412,
+      "reasonPhrase": "Precondition Failed"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f7808c13-ff40-1d77-3b30-8d1a7f7fb27b"
+  }
+]
