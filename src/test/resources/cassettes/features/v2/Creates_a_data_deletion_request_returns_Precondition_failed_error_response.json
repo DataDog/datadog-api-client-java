@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"from\":1672527600000,\"indexes\":[\"index-1\",\"index-2\"],\"query\":{},\"to\":1704063600000}}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/deletion/data/logs",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"412\",\"code\":\"INVALID_BODY\",\"title\":\"INVALID_BODY\",\"detail\":\"INVALID_BODY\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 412,
+      "reasonPhrase": "Precondition Failed"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "38a81782-900f-1977-8fe0-51f319bdc048"
+  }
+]
