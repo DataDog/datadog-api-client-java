@@ -12,7 +12,6 @@ import com.datadog.api.client.v2.model.AzureUCConfigPairsResponse;
 import com.datadog.api.client.v2.model.AzureUCConfigPatchRequest;
 import com.datadog.api.client.v2.model.AzureUCConfigPostRequest;
 import com.datadog.api.client.v2.model.AzureUCConfigsResponse;
-import com.datadog.api.client.v2.model.CloudCostActivityResponse;
 import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
 import com.datadog.api.client.v2.model.CustomCostsFileLineItem;
 import com.datadog.api.client.v2.model.CustomCostsFileListResponse;
@@ -734,126 +733,6 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         null);
-  }
-
-  /**
-   * Cloud Cost Enabled.
-   *
-   * <p>See {@link #getCloudCostActivityWithHttpInfo}.
-   *
-   * @return CloudCostActivityResponse
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public CloudCostActivityResponse getCloudCostActivity() throws ApiException {
-    return getCloudCostActivityWithHttpInfo().getData();
-  }
-
-  /**
-   * Cloud Cost Enabled.
-   *
-   * <p>See {@link #getCloudCostActivityWithHttpInfoAsync}.
-   *
-   * @return CompletableFuture&lt;CloudCostActivityResponse&gt;
-   * @deprecated
-   */
-  @Deprecated
-  public CompletableFuture<CloudCostActivityResponse> getCloudCostActivityAsync() {
-    return getCloudCostActivityWithHttpInfoAsync()
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Get the Cloud Cost Management activity.
-   *
-   * @return ApiResponse&lt;CloudCostActivityResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   *
-   * @deprecated
-   */
-  @Deprecated
-  public ApiResponse<CloudCostActivityResponse> getCloudCostActivityWithHttpInfo()
-      throws ApiException {
-    Object localVarPostBody = null;
-    // create path and map variables
-    String localVarPath = "/api/v2/cost/enabled";
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.CloudCostManagementApi.getCloudCostActivity",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CloudCostActivityResponse>() {});
-  }
-
-  /**
-   * Cloud Cost Enabled.
-   *
-   * <p>See {@link #getCloudCostActivityWithHttpInfo}.
-   *
-   * @return CompletableFuture&lt;ApiResponse&lt;CloudCostActivityResponse&gt;&gt;
-   * @deprecated
-   */
-  @Deprecated
-  public CompletableFuture<ApiResponse<CloudCostActivityResponse>>
-      getCloudCostActivityWithHttpInfoAsync() {
-    Object localVarPostBody = null;
-    // create path and map variables
-    String localVarPath = "/api/v2/cost/enabled";
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.CloudCostManagementApi.getCloudCostActivity",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<CloudCostActivityResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "GET",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<CloudCostActivityResponse>() {});
   }
 
   /**
