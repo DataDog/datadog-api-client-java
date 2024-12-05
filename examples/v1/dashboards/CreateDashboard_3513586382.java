@@ -80,7 +80,7 @@ public class Example {
                                             .palette("hostmap_blues")
                                             .paletteFlip(false))
                                     .view(new GeomapWidgetDefinitionView().focus("WORLD"))))
-                        .layout(new WidgetLayout().x(0L).y(0L).width(12L).height(6L))))
+                        .layout(new WidgetLayout().width(12L).height(6L))))
             .layoutType(DashboardLayoutType.ORDERED)
             .reflowType(DashboardReflowType.FIXED);
 

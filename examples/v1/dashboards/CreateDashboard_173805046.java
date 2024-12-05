@@ -30,7 +30,7 @@ public class Example {
             .widgets(
                 Collections.singletonList(
                     new Widget()
-                        .layout(new WidgetLayout().x(0L).y(0L).width(60L).height(21L))
+                        .layout(new WidgetLayout().width(60L).height(21L))
                         .definition(
                             new WidgetDefinition(
                                 new SLOWidgetDefinition()
