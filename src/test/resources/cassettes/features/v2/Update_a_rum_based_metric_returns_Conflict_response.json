@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1730203167\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}},\"id\":\"Test-Update_a_rum_based_metric_returns_Conflict_response-1730203167\",\"type\":\"rum_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1732807885\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}},\"id\":\"testupdatearumbasedmetricreturnsconflictresponse1732807885\",\"type\":\"rum_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Update_a_rum_based_metric_returns_Conflict_response_1730203167\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1730203167\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
+      "body": "{\"data\":{\"id\":\"testupdatearumbasedmetricreturnsconflictresponse1732807885\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Update_a_rum_based_metric_returns_Conflict_response-1732807885\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "11890b83-f1b0-cb40-781b-4f98b3bb08cb"
+    "id": "c9f4a4fe-2c17-6cc2-7966-fd89c6619f63"
   },
   {
     "httpRequest": {
@@ -37,7 +37,7 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/rum/config/metrics/Test_Update_a_rum_based_metric_returns_Conflict_response_1730203167",
+      "path": "/api/v2/rum/config/metrics/testupdatearumbasedmetricreturnsconflictresponse1732807885",
       "keepAlive": false,
       "secure": true
     },
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4faafd02-614f-bfa6-a7f0-0cbddeae06b8"
+    "id": "a511542a-c3bf-cffa-9a42-6349147536e7"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/rum/config/metrics/Test_Update_a_rum_based_metric_returns_Conflict_response_1730203167",
+      "path": "/api/v2/rum/config/metrics/testupdatearumbasedmetricreturnsconflictresponse1732807885",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1410007e-f5c7-3dcc-62a3-8f1ec16ec47c"
+    "id": "8e43a8cd-2828-6ef3-eae5-6acfbef4dde7"
   }
 ]

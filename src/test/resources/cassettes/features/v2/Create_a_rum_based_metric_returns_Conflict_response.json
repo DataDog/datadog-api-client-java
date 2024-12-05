@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Create_a_rum_based_metric_returns_Conflict_response-1730203160\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}},\"id\":\"Test-Create_a_rum_based_metric_returns_Conflict_response-1730203160\",\"type\":\"rum_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Create_a_rum_based_metric_returns_Conflict_response-1732807878\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}},\"id\":\"testcreatearumbasedmetricreturnsconflictresponse1732807878\",\"type\":\"rum_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Create_a_rum_based_metric_returns_Conflict_response_1730203160\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Create_a_rum_based_metric_returns_Conflict_response-1730203160\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
+      "body": "{\"data\":{\"id\":\"testcreatearumbasedmetricreturnsconflictresponse1732807878\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Create_a_rum_based_metric_returns_Conflict_response-1732807878\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2a6602f7-aa7e-35be-efd3-54decce6d54a"
+    "id": "ce744ac5-145e-eb81-ed26-b24d00a1d475"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"event_type\":\"action\"},\"id\":\"Test_Create_a_rum_based_metric_returns_Conflict_response_1730203160\",\"type\":\"rum_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"},\"event_type\":\"action\"},\"id\":\"testcreatearumbasedmetricreturnsconflictresponse1732807878\",\"type\":\"rum_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"409\",\"title\":\"Conflict\",\"detail\":\"conflict(Field 'data.id' is invalid: 'Test_Create_a_rum_based_metric_returns_Conflict_response_1730203160' cannot be used as metric name, a metric already exists with that name)\"}]}",
+      "body": "{\"errors\":[{\"status\":\"409\",\"title\":\"Conflict\",\"detail\":\"conflict(Field 'data.id' is invalid: 'testcreatearumbasedmetricreturnsconflictresponse1732807878' cannot be used as metric name, a metric already exists with that name)\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0b463238-da04-e251-6292-7c2144cefd67"
+    "id": "c3a3e4c1-d20a-e3f2-2aaf-0bcc6df34957"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/rum/config/metrics/Test_Create_a_rum_based_metric_returns_Conflict_response_1730203160",
+      "path": "/api/v2/rum/config/metrics/testcreatearumbasedmetricreturnsconflictresponse1732807878",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dd0c47de-d3cd-da09-899a-1b5c9bde3ddf"
+    "id": "6e3a0d4b-b63e-9dc8-9da8-cf0af190715a"
   }
 ]
