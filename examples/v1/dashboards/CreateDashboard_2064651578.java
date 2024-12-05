@@ -81,7 +81,7 @@ public class Example {
                                                 .orderBy(WidgetOrderBy.CHANGE)
                                                 .changeType(WidgetChangeType.ABSOLUTE)
                                                 .orderDir(WidgetSort.DESCENDING)))))
-                        .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L))))
+                        .layout(new WidgetLayout().width(4L).height(4L))))
             .tags(Collections.singletonList("team:foobar"))
             .layoutType(DashboardLayoutType.ORDERED);
 

@@ -65,7 +65,7 @@ public class Example {
                                                                     FormulaAndFunctionMetricAggregation
                                                                         .PERCENTILE))))))
                                     .type(QueryValueWidgetDefinitionType.QUERY_VALUE)))
-                        .layout(new WidgetLayout().y(0L).x(0L).height(2L).width(2L))));
+                        .layout(new WidgetLayout().height(2L).width(2L))));
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

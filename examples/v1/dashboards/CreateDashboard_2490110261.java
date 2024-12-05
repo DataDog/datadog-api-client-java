@@ -60,7 +60,7 @@ public class Example {
                                                                 .indexes(
                                                                     Collections.singletonList(
                                                                         "*")))))))))
-                        .layout(new WidgetLayout().x(2L).y(0L).width(4L).height(2L))));
+                        .layout(new WidgetLayout().x(2.0).width(4L).height(2L))));
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

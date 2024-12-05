@@ -84,7 +84,7 @@ public class Example {
                                                                             .AVG))))
                                                     .responseFormat(
                                                         FormulaAndFunctionResponseFormat.SCALAR)))))
-                        .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(2L))))
+                        .layout(new WidgetLayout().width(4L).height(2L))))
             .layoutType(DashboardLayoutType.ORDERED);
 
     try {

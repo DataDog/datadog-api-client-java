@@ -28,7 +28,7 @@ public class Example {
             .widgets(
                 Collections.singletonList(
                     new Widget()
-                        .layout(new WidgetLayout().x(0L).y(0L).width(47L).height(15L))
+                        .layout(new WidgetLayout().width(47L).height(15L))
                         .definition(
                             new WidgetDefinition(
                                 new RunWorkflowWidgetDefinition()

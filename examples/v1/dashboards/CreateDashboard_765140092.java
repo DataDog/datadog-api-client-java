@@ -72,7 +72,7 @@ public class Example {
                                         new TimeseriesBackground()
                                             .type(TimeseriesBackgroundType.AREA)
                                             .yaxis(new WidgetAxis().includeZero(true)))))
-                        .layout(new WidgetLayout().y(0L).x(0L).height(2L).width(2L))));
+                        .layout(new WidgetLayout().height(2L).width(2L))));
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

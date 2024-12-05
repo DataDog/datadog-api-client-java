@@ -25,7 +25,7 @@ public class Example {
             .widgets(
                 Collections.singletonList(
                     new Widget()
-                        .layout(new WidgetLayout().x(0L).y(0L).width(47L).height(9L))
+                        .layout(new WidgetLayout().width(47L).height(9L))
                         .definition(
                             new WidgetDefinition(
                                 new EventTimelineWidgetDefinition()

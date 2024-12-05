@@ -213,7 +213,7 @@ public class Example {
                                                                         .CUSTOM_TEXT)
                                                                 .customFgColor("#632ca6"))))))
                                     .hasSearchBar(TableWidgetHasSearchBar.NEVER)))
-                        .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L))))
+                        .layout(new WidgetLayout().width(4L).height(4L))))
             .layoutType(DashboardLayoutType.FREE);
 
     try {
