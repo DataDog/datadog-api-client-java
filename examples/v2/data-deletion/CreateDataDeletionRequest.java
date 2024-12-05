@@ -22,7 +22,7 @@ public class Example {
                     .attributes(
                         new CreateDataDeletionRequestBodyAttributes()
                             .from(1672527600000L)
-                            .indexes(Arrays.asList("index-1", "index-2"))
+                            .indexes(Arrays.asList("test-index", "test-index-2"))
                             .query(
                                 Map.ofEntries(
                                     Map.entry("host", "abc"), Map.entry("service", "xyz")))
