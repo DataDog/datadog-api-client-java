@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"from\":1672527600000,\"indexes\":[\"index-1\",\"index-2\"],\"query\":{\"host\":\"abc\",\"service\":\"xyz\"},\"to\":1704063600000}}}"
+        "json": "{\"data\":{\"attributes\":{\"from\":1672527600000,\"indexes\":[\"test-index\",\"test-index-2\"],\"query\":{\"host\":\"abc\",\"service\":\"xyz\"},\"to\":1704063600000}}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"303\",\"type\":\"deletion_request\",\"attributes\":{\"created_at\":\"2024-11-15T08:57:03.242841331Z\",\"created_by\":\"frog@datadoghq.com\",\"from_time\":1672527600000,\"indexes\":[\"index-1\",\"index-2\"],\"is_created\":false,\"org_id\":321813,\"product\":\"logs\",\"query\":\"host:abc service:xyz\",\"starting_at\":\"0001-01-01T00:00:00Z\",\"status\":\"pending\",\"to_time\":1704063600000,\"total_unrestricted\":0,\"updated_at\":\"2024-11-15T08:57:03.242841331Z\"}},\"meta\":{\"product\":\"logs\"}}",
+      "body": "{\"data\":{\"id\":\"523\",\"type\":\"deletion_request\",\"attributes\":{\"created_at\":\"2024-12-05T09:23:42.016613164Z\",\"created_by\":\"frog@datadoghq.com\",\"from_time\":1672527600000,\"indexes\":[\"test-index\",\"test-index-2\"],\"is_created\":false,\"org_id\":321813,\"product\":\"logs\",\"query\":\"host:abc service:xyz\",\"starting_at\":\"0001-01-01T00:00:00Z\",\"status\":\"pending\",\"to_time\":1704063600000,\"total_unrestricted\":0,\"updated_at\":\"2024-12-05T09:23:42.016613164Z\"}},\"meta\":{\"product\":\"logs\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5cd4cf47-94a7-8539-6a9c-e898d8edd4fb"
+    "id": "599b5d26-fcc8-db18-1a6e-dfc958964914"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/deletion/requests/303/cancel",
+      "path": "/api/v2/deletion/requests/523/cancel",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"303\",\"type\":\"deletion_request\",\"attributes\":{\"created_at\":\"2024-11-15T08:57:03.242841Z\",\"created_by\":\"frog@datadoghq.com\",\"from_time\":1672527600000,\"indexes\":[\"index-1\",\"index-2\"],\"is_created\":false,\"org_id\":321813,\"product\":\"logs\",\"query\":\"host:abc service:xyz\",\"starting_at\":\"0001-01-01T00:00:00Z\",\"status\":\"canceled\",\"to_time\":1704063600000,\"total_unrestricted\":0,\"updated_at\":\"2024-11-15T08:57:03.638067Z\"}},\"meta\":{\"product\":\"logs\",\"request_status\":\"canceled\"}}",
+      "body": "{\"data\":{\"id\":\"523\",\"type\":\"deletion_request\",\"attributes\":{\"created_at\":\"2024-12-05T09:23:42.016613Z\",\"created_by\":\"frog@datadoghq.com\",\"from_time\":1672527600000,\"indexes\":[\"test-index\",\"test-index-2\"],\"is_created\":false,\"org_id\":321813,\"product\":\"logs\",\"query\":\"host:abc service:xyz\",\"starting_at\":\"0001-01-01T00:00:00Z\",\"status\":\"canceled\",\"to_time\":1704063600000,\"total_unrestricted\":0,\"updated_at\":\"2024-12-05T09:23:42.384299Z\"}},\"meta\":{\"product\":\"logs\",\"request_status\":\"canceled\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,18 +53,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5c48cf25-6248-675c-8bce-de02c7c5fb57"
+    "id": "ec6f7ff8-dba2-9b00-6429-8e9f391044e3"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/deletion/requests/303/cancel",
+      "path": "/api/v2/deletion/requests/523/cancel",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"303\",\"type\":\"deletion_request\",\"attributes\":{\"created_at\":\"2024-11-15T08:57:03.242841Z\",\"created_by\":\"frog@datadoghq.com\",\"from_time\":1672527600000,\"indexes\":[\"index-1\",\"index-2\"],\"is_created\":false,\"org_id\":321813,\"product\":\"logs\",\"query\":\"host:abc service:xyz\",\"starting_at\":\"0001-01-01T00:00:00Z\",\"status\":\"canceled\",\"to_time\":1704063600000,\"total_unrestricted\":0,\"updated_at\":\"2024-11-15T08:57:03.936325Z\"}},\"meta\":{\"product\":\"logs\",\"request_status\":\"canceled\"}}",
+      "body": "{\"data\":{\"id\":\"523\",\"type\":\"deletion_request\",\"attributes\":{\"created_at\":\"2024-12-05T09:23:42.016613Z\",\"created_by\":\"frog@datadoghq.com\",\"from_time\":1672527600000,\"indexes\":[\"test-index\",\"test-index-2\"],\"is_created\":false,\"org_id\":321813,\"product\":\"logs\",\"query\":\"host:abc service:xyz\",\"starting_at\":\"0001-01-01T00:00:00Z\",\"status\":\"canceled\",\"to_time\":1704063600000,\"total_unrestricted\":0,\"updated_at\":\"2024-12-05T09:23:42.384299Z\"}},\"meta\":{\"product\":\"logs\",\"request_status\":\"canceled\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -79,6 +79,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5c48cf25-6248-675c-8bce-de02c7c5fb58"
+    "id": "ec6f7ff8-dba2-9b00-6429-8e9f391044e4"
   }
 ]

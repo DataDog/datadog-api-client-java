@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"from\":1672527600000,\"indexes\":[\"index-1\",\"index-2\"],\"query\":{\"host\":\"abc\",\"service\":\"xyz\"},\"to\":1704063600000}}}"
+        "json": "{\"data\":{\"attributes\":{\"from\":1672527600000,\"indexes\":[\"test-index\",\"test-index-2\"],\"query\":{\"host\":\"abc\",\"service\":\"xyz\"},\"to\":1704063600000}}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"305\",\"type\":\"deletion_request\",\"attributes\":{\"created_at\":\"2024-11-15T08:59:10.304195172Z\",\"created_by\":\"frog@datadoghq.com\",\"from_time\":1672527600000,\"indexes\":[\"index-1\",\"index-2\"],\"is_created\":false,\"org_id\":321813,\"product\":\"logs\",\"query\":\"host:abc service:xyz\",\"starting_at\":\"0001-01-01T00:00:00Z\",\"status\":\"pending\",\"to_time\":1704063600000,\"total_unrestricted\":0,\"updated_at\":\"2024-11-15T08:59:10.304195172Z\"}},\"meta\":{\"product\":\"logs\"}}",
+      "body": "{\"data\":{\"id\":\"524\",\"type\":\"deletion_request\",\"attributes\":{\"created_at\":\"2024-12-05T09:23:43.527574137Z\",\"created_by\":\"frog@datadoghq.com\",\"from_time\":1672527600000,\"indexes\":[\"test-index\",\"test-index-2\"],\"is_created\":false,\"org_id\":321813,\"product\":\"logs\",\"query\":\"host:abc service:xyz\",\"starting_at\":\"0001-01-01T00:00:00Z\",\"status\":\"pending\",\"to_time\":1704063600000,\"total_unrestricted\":0,\"updated_at\":\"2024-12-05T09:23:43.527574137Z\"}},\"meta\":{\"product\":\"logs\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5cd4cf47-94a7-8539-6a9c-e898d8edd4fd"
+    "id": "599b5d26-fcc8-db18-1a6e-dfc958964916"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/deletion/requests/305/cancel",
+      "path": "/api/v2/deletion/requests/524/cancel",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"305\",\"type\":\"deletion_request\",\"attributes\":{\"created_at\":\"2024-11-15T08:59:10.304195Z\",\"created_by\":\"frog@datadoghq.com\",\"from_time\":1672527600000,\"indexes\":[\"index-1\",\"index-2\"],\"is_created\":false,\"org_id\":321813,\"product\":\"logs\",\"query\":\"host:abc service:xyz\",\"starting_at\":\"0001-01-01T00:00:00Z\",\"status\":\"canceled\",\"to_time\":1704063600000,\"total_unrestricted\":0,\"updated_at\":\"2024-11-15T08:59:10.681676Z\"}},\"meta\":{\"product\":\"logs\",\"request_status\":\"canceled\"}}",
+      "body": "{\"data\":{\"id\":\"524\",\"type\":\"deletion_request\",\"attributes\":{\"created_at\":\"2024-12-05T09:23:43.527574Z\",\"created_by\":\"frog@datadoghq.com\",\"from_time\":1672527600000,\"indexes\":[\"test-index\",\"test-index-2\"],\"is_created\":false,\"org_id\":321813,\"product\":\"logs\",\"query\":\"host:abc service:xyz\",\"starting_at\":\"0001-01-01T00:00:00Z\",\"status\":\"canceled\",\"to_time\":1704063600000,\"total_unrestricted\":0,\"updated_at\":\"2024-12-05T09:23:44.017414Z\"}},\"meta\":{\"product\":\"logs\",\"request_status\":\"canceled\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7ee59a12-6bea-0625-a080-1c7a65384828"
+    "id": "f7d7b19c-0391-4246-c87c-6d32dfeb6b9f"
   }
 ]
