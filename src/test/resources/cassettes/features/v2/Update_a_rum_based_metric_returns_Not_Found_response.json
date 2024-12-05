@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Update_a_rum_based_metric_returns_Not_Found_response-1730203168\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}},\"id\":\"Test-Update_a_rum_based_metric_returns_Not_Found_response-1730203168\",\"type\":\"rum_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Update_a_rum_based_metric_returns_Not_Found_response-1732807886\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}},\"id\":\"testupdatearumbasedmetricreturnsnotfoundresponse1732807886\",\"type\":\"rum_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Update_a_rum_based_metric_returns_Not_Found_response_1730203168\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Update_a_rum_based_metric_returns_Not_Found_response-1730203168\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
+      "body": "{\"data\":{\"id\":\"testupdatearumbasedmetricreturnsnotfoundresponse1732807886\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Update_a_rum_based_metric_returns_Not_Found_response-1732807886\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b132afbf-83f6-9646-7003-b8c11761f046"
+    "id": "f54d0ed6-ec0e-b128-9679-f0dbf0dfbb54"
   },
   {
     "httpRequest": {
@@ -63,7 +63,7 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/rum/config/metrics/Test_Update_a_rum_based_metric_returns_Not_Found_response_1730203168",
+      "path": "/api/v2/rum/config/metrics/testupdatearumbasedmetricreturnsnotfoundresponse1732807886",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a367cc16-0356-bb41-e12c-ae5574610e2b"
+    "id": "fc68d951-7ef5-8375-64d1-9d09b67ce812"
   }
 ]

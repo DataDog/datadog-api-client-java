@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Get_a_rum_based_metric_returns_OK_response-1730203164\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}},\"id\":\"Test-Get_a_rum_based_metric_returns_OK_response-1730203164\",\"type\":\"rum_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Get_a_rum_based_metric_returns_OK_response-1732807882\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}},\"id\":\"testgetarumbasedmetricreturnsokresponse1732807882\",\"type\":\"rum_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Get_a_rum_based_metric_returns_OK_response_1730203164\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Get_a_rum_based_metric_returns_OK_response-1730203164\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
+      "body": "{\"data\":{\"id\":\"testgetarumbasedmetricreturnsokresponse1732807882\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Get_a_rum_based_metric_returns_OK_response-1732807882\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e1936bc9-086c-5b0c-6de7-92d56f19191a"
+    "id": "6f12677b-56be-9b60-5972-10384c9d6baa"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/rum/config/metrics/Test_Get_a_rum_based_metric_returns_OK_response_1730203164",
+      "path": "/api/v2/rum/config/metrics/testgetarumbasedmetricreturnsokresponse1732807882",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Get_a_rum_based_metric_returns_OK_response_1730203164\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Get_a_rum_based_metric_returns_OK_response-1730203164\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
+      "body": "{\"data\":{\"id\":\"testgetarumbasedmetricreturnsokresponse1732807882\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Get_a_rum_based_metric_returns_OK_response-1732807882\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "87479b45-bb8c-7f68-1134-f342234a38ca"
+    "id": "9aed34dd-cf6a-9119-3af0-93b3f7987f0c"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/rum/config/metrics/Test_Get_a_rum_based_metric_returns_OK_response_1730203164",
+      "path": "/api/v2/rum/config/metrics/testgetarumbasedmetricreturnsokresponse1732807882",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "936d6d67-6585-3e4d-ba49-26ed713cd772"
+    "id": "7b7496db-44fa-bee7-0fbb-255486b27190"
   }
 ]

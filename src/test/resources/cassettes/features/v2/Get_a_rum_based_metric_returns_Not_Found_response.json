@@ -3,12 +3,12 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/rum/config/metrics/Test-Get_a_rum_based_metric_returns_Not_Found_response-1730203163",
+      "path": "/api/v2/rum/config/metrics/Test-Get_a_rum_based_metric_returns_Not_Found_response-1732807881",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"not_found(Metric with name 'Test-Get_a_rum_based_metric_returns_Not_Found_response-1730203163' not found)\"}]}",
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"not_found(Metric with name 'Test-Get_a_rum_based_metric_returns_Not_Found_response-1732807881' not found)\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6489998c-70f8-3cce-41fe-3600f06a7efa"
+    "id": "63edb03d-bda9-7aef-c842-deeff7625741"
   }
 ]

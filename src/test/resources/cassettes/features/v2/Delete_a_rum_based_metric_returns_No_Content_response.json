@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Delete_a_rum_based_metric_returns_No_Content_response-1730203162\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}},\"id\":\"Test-Delete_a_rum_based_metric_returns_No_Content_response-1730203162\",\"type\":\"rum_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Delete_a_rum_based_metric_returns_No_Content_response-1732807880\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}},\"id\":\"testdeletearumbasedmetricreturnsnocontentresponse1732807880\",\"type\":\"rum_metrics\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Delete_a_rum_based_metric_returns_No_Content_response_1730203162\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Delete_a_rum_based_metric_returns_No_Content_response-1730203162\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
+      "body": "{\"data\":{\"id\":\"testdeletearumbasedmetricreturnsnocontentresponse1732807880\",\"type\":\"rum_metrics\",\"attributes\":{\"compute\":{\"aggregation_type\":\"distribution\",\"include_percentiles\":true,\"path\":\"@duration\"},\"event_type\":\"session\",\"filter\":{\"query\":\"source:Test-Delete_a_rum_based_metric_returns_No_Content_response-1732807880\"},\"group_by\":[{\"path\":\"@browser.name\",\"tag_name\":\"browser_name\"}],\"uniqueness\":{\"when\":\"match\"}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "6f9c5928-9dbd-ed8d-9596-d137c94d59c1"
+    "id": "b88bbfde-f035-ba1b-fc77-6825569e72e6"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/rum/config/metrics/Test_Delete_a_rum_based_metric_returns_No_Content_response_1730203162",
+      "path": "/api/v2/rum/config/metrics/testdeletearumbasedmetricreturnsnocontentresponse1732807880",
       "keepAlive": false,
       "secure": true
     },
@@ -48,18 +48,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8d4567a4-22c0-35bf-e51b-749fa0eb0b4b"
+    "id": "d52b4c53-297e-4084-c6b2-aa19f4e45e38"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/rum/config/metrics/Test_Delete_a_rum_based_metric_returns_No_Content_response_1730203162",
+      "path": "/api/v2/rum/config/metrics/testdeletearumbasedmetricreturnsnocontentresponse1732807880",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"not_found(Metric with name 'Test_Delete_a_rum_based_metric_returns_No_Content_response_1730203162' not found)\"}]}",
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"not_found(Metric with name 'testdeletearumbasedmetricreturnsnocontentresponse1732807880' not found)\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8d4567a4-22c0-35bf-e51b-749fa0eb0b4c"
+    "id": "d52b4c53-297e-4084-c6b2-aa19f4e45e39"
   }
 ]
