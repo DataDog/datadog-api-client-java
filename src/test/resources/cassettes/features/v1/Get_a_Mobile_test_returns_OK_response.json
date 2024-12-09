@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"config\":{\"variables\":[]},\"message\":\"\",\"name\":\"Test-Get_a_Mobile_test_returns_OK_response-1727789081\",\"options\":{\"device_ids\":[\"synthetics:mobile:device:iphone_15_ios_17\"],\"mobileApplication\":{\"applicationId\":\"ab0e0aed-536d-411a-9a99-5428c27d8f8e\",\"referenceId\":\"6115922a-5f5d-455e-bc7e-7955a57f3815\",\"referenceType\":\"version\"},\"tick_every\":3600},\"status\":\"paused\",\"steps\":[],\"type\":\"mobile\"}"
+        "json": "{\"config\":{\"variables\":[]},\"message\":\"\",\"name\":\"Test-Get_a_Mobile_test_returns_OK_response-1733743097\",\"options\":{\"device_ids\":[\"synthetics:mobile:device:iphone_15_ios_17\"],\"mobileApplication\":{\"applicationId\":\"ab0e0aed-536d-411a-9a99-5428c27d8f8e\",\"referenceId\":\"6115922a-5f5d-455e-bc7e-7955a57f3815\",\"referenceType\":\"version\"},\"tick_every\":3600},\"status\":\"paused\",\"steps\":[],\"type\":\"mobile\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"public_id\":\"hxp-wk7-q37\",\"name\":\"Test-Get_a_Mobile_test_returns_OK_response-1727789081\",\"status\":\"paused\",\"type\":\"mobile\",\"tags\":[],\"created_at\":\"2024-10-01T13:24:42.354666+00:00\",\"modified_at\":\"2024-10-01T13:24:42.354666+00:00\",\"config\":{\"variables\":[]},\"message\":\"\",\"options\":{\"device_ids\":[\"synthetics:mobile:device:iphone_15_ios_17\"],\"mobileApplication\":{\"applicationId\":\"ab0e0aed-536d-411a-9a99-5428c27d8f8e\",\"referenceId\":\"6115922a-5f5d-455e-bc7e-7955a57f3815\",\"referenceType\":\"version\"},\"tick_every\":3600},\"locations\":[\"aws:us-west-2\"],\"created_by\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\"},\"deleted_at\":null,\"monitor_id\":155152455,\"org_id\":321813,\"modified_by\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\"},\"stepCount\":{\"assertions\":0,\"subtests\":0,\"total\":0}}\n",
+      "body": "{\"public_id\":\"n3k-v7t-7xq\",\"name\":\"Test-Get_a_Mobile_test_returns_OK_response-1733743097\",\"status\":\"paused\",\"type\":\"mobile\",\"tags\":[],\"created_at\":\"2024-12-09T11:18:17.937883+00:00\",\"modified_at\":\"2024-12-09T11:18:17.937883+00:00\",\"config\":{\"variables\":[]},\"message\":\"\",\"options\":{\"device_ids\":[\"synthetics:mobile:device:iphone_15_ios_17\"],\"mobileApplication\":{\"applicationId\":\"ab0e0aed-536d-411a-9a99-5428c27d8f8e\",\"referenceId\":\"6115922a-5f5d-455e-bc7e-7955a57f3815\",\"referenceType\":\"version\"},\"tick_every\":3600},\"locations\":[\"aws:us-west-2\"],\"created_by\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\"},\"deleted_at\":null,\"monitor_id\":159881055,\"org_id\":321813,\"modified_by\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\"},\"stepCount\":{\"assertions\":0,\"subtests\":0,\"total\":0}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "94a695d8-def5-a904-c3ab-16867252bd92"
+    "id": "639d6297-1eda-3657-2b42-ee718b383d9b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v1/synthetics/tests/mobile/hxp-wk7-q37",
+      "path": "/api/v1/synthetics/tests/mobile/n3k-v7t-7xq",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"public_id\":\"hxp-wk7-q37\",\"name\":\"Test-Get_a_Mobile_test_returns_OK_response-1727789081\",\"status\":\"paused\",\"type\":\"mobile\",\"tags\":[],\"created_at\":\"2024-10-01T13:24:42.354666+00:00\",\"modified_at\":\"2024-10-01T13:24:42.354666+00:00\",\"config\":{\"variables\":[]},\"message\":\"\",\"options\":{\"device_ids\":[\"synthetics:mobile:device:iphone_15_ios_17\"],\"mobileApplication\":{\"applicationId\":\"ab0e0aed-536d-411a-9a99-5428c27d8f8e\",\"referenceId\":\"6115922a-5f5d-455e-bc7e-7955a57f3815\",\"referenceType\":\"version\"},\"tick_every\":3600},\"locations\":[\"aws:us-west-2\"],\"monitor_id\":155152455,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\"}}\n",
+      "body": "{\"public_id\":\"n3k-v7t-7xq\",\"name\":\"Test-Get_a_Mobile_test_returns_OK_response-1733743097\",\"status\":\"paused\",\"type\":\"mobile\",\"tags\":[],\"created_at\":\"2024-12-09T11:18:17.937883+00:00\",\"modified_at\":\"2024-12-09T11:18:17.937883+00:00\",\"config\":{\"variables\":[]},\"message\":\"\",\"options\":{\"device_ids\":[\"synthetics:mobile:device:iphone_15_ios_17\"],\"mobileApplication\":{\"applicationId\":\"ab0e0aed-536d-411a-9a99-5428c27d8f8e\",\"referenceId\":\"6115922a-5f5d-455e-bc7e-7955a57f3815\",\"referenceType\":\"version\"},\"tick_every\":3600},\"locations\":[\"aws:us-west-2\"],\"monitor_id\":159881055,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7eb6fcd2-dd95-9444-fb2f-470ca1a95a33"
+    "id": "dff02cac-09c1-39f3-2939-a3ad681f2ad0"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"public_ids\":[\"hxp-wk7-q37\"]}"
+        "json": "{\"public_ids\":[\"n3k-v7t-7xq\"]}"
       },
       "headers": {},
       "method": "POST",
@@ -68,7 +68,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_tests\":[{\"public_id\":\"hxp-wk7-q37\",\"deleted_at\":\"2024-10-01T13:24:43.687553+00:00\"}]}\n",
+      "body": "{\"deleted_tests\":[{\"public_id\":\"n3k-v7t-7xq\",\"deleted_at\":\"2024-12-09T11:18:19.255423+00:00\"}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -83,6 +83,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "11c52a10-67fe-a05e-1ca1-c968457d465c"
+    "id": "e981167d-5c7e-d54a-dbc8-2efa96d5ce10"
   }
 ]

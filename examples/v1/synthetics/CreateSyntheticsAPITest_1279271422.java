@@ -60,6 +60,7 @@ public class Example {
                                                     .operator(SyntheticsAssertionOperator.IS)
                                                     .type(SyntheticsAssertionType.STATUS_CODE)
                                                     .target(200))))
+                                    .exitIfSucceed(true)
                                     .extractedValues(
                                         Collections.singletonList(
                                             new SyntheticsParsingOptions()
