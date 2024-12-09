@@ -3,6 +3,7 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.IntakePayloadAccepted;
 import com.datadog.api.client.v2.model.MetricAllTagsResponse;
@@ -19,6 +20,7 @@ import com.datadog.api.client.v2.model.MetricTagConfigurationMetricTypeCategory;
 import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
 import com.datadog.api.client.v2.model.MetricTagConfigurationUpdateRequest;
 import com.datadog.api.client.v2.model.MetricVolumesResponse;
+import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurations;
 import com.datadog.api.client.v2.model.MetricsAndMetricTagConfigurationsResponse;
 import com.datadog.api.client.v2.model.ScalarFormulaQueryRequest;
 import com.datadog.api.client.v2.model.ScalarFormulaQueryResponse;
@@ -28,6 +30,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -1450,6 +1453,8 @@ public class MetricsApi {
     private Boolean filterQueried;
     private String filterTags;
     private Long windowSeconds;
+    private Integer pageSize;
+    private String pageCursor;
 
     /**
      * Set filterConfigured.
@@ -1537,6 +1542,30 @@ public class MetricsApi {
       this.windowSeconds = windowSeconds;
       return this;
     }
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Maximum number of results returned. (optional, default to 10000)
+     * @return ListTagConfigurationsOptionalParameters
+     */
+    public ListTagConfigurationsOptionalParameters pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageCursor.
+     *
+     * @param pageCursor String to query the next page of results. This key is provided with each
+     *     valid response from the API in <code>meta.pagination.next_cursor</code>. Once the <code>
+     *     meta.pagination.next_cursor</code> key is null, all pages have been retrieved. (optional)
+     * @return ListTagConfigurationsOptionalParameters
+     */
+    public ListTagConfigurationsOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
   }
 
   /**
@@ -1599,8 +1628,67 @@ public class MetricsApi {
   }
 
   /**
+   * Get a list of metrics.
+   *
+   * <p>See {@link #listTagConfigurationsWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;MetricsAndMetricTagConfigurations&gt;
+   */
+  public PaginationIterable<MetricsAndMetricTagConfigurations>
+      listTagConfigurationsWithPagination() {
+    ListTagConfigurationsOptionalParameters parameters =
+        new ListTagConfigurationsOptionalParameters();
+    return listTagConfigurationsWithPagination(parameters);
+  }
+
+  /**
+   * Get a list of metrics.
+   *
+   * <p>See {@link #listTagConfigurationsWithHttpInfo}.
+   *
+   * @return MetricsAndMetricTagConfigurationsResponse
+   */
+  public PaginationIterable<MetricsAndMetricTagConfigurations> listTagConfigurationsWithPagination(
+      ListTagConfigurationsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "getMeta.getPagination.getNextCursor";
+    String valueSetterPath = "pageCursor";
+    Boolean valueSetterParamOptional = true;
+    Integer limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10000;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listTagConfigurations",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
    * Returns all metrics that can be configured in the Metrics Summary page or with Metrics without
-   * Limits™ (matching additional filters if specified).
+   * Limits™ (matching additional filters if specified). Optionally, paginate by using the <code>
+   * page[cursor]</code> and/or <code>page[size]</code> query parameters. To fetch the first page,
+   * pass in a query parameter with either a valid <code>page[size]</code> or an empty cursor like
+   * <code>page[cursor]=</code>. To fetch the next page, pass in the <code>next_cursor</code> value
+   * from the response as the new <code>page[cursor]</code> value. Once the <code>
+   * meta.pagination.next_cursor</code> value is null, all pages have been retrieved.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;MetricsAndMetricTagConfigurationsResponse&gt;
@@ -1625,6 +1713,8 @@ public class MetricsApi {
     Boolean filterQueried = parameters.filterQueried;
     String filterTags = parameters.filterTags;
     Long windowSeconds = parameters.windowSeconds;
+    Integer pageSize = parameters.pageSize;
+    String pageCursor = parameters.pageCursor;
     // create path and map variables
     String localVarPath = "/api/v2/metrics";
 
@@ -1642,6 +1732,8 @@ public class MetricsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[queried]", filterQueried));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -1681,6 +1773,8 @@ public class MetricsApi {
     Boolean filterQueried = parameters.filterQueried;
     String filterTags = parameters.filterTags;
     Long windowSeconds = parameters.windowSeconds;
+    Integer pageSize = parameters.pageSize;
+    String pageCursor = parameters.pageCursor;
     // create path and map variables
     String localVarPath = "/api/v2/metrics";
 
@@ -1698,6 +1792,8 @@ public class MetricsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[queried]", filterQueried));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
 
     Invocation.Builder builder;
     try {
