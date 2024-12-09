@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Include all services */
+/** Include all services. */
 @JsonPropertyOrder({XRayServicesIncludeAll.JSON_PROPERTY_INCLUDE_ALL})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -40,7 +40,7 @@ public class XRayServicesIncludeAll {
   }
 
   /**
-   * Include all services
+   * Include all services.
    *
    * @return includeAll
    */

@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The AWS Account Integration Config to be updated */
+/** The AWS Account Integration Config to be updated. */
 @JsonPropertyOrder({
   AWSAccountUpdateRequestAttributes.JSON_PROPERTY_ACCOUNT_TAGS,
   AWSAccountUpdateRequestAttributes.JSON_PROPERTY_AUTH_CONFIG,
@@ -46,7 +46,7 @@ public class AWSAccountUpdateRequestAttributes {
   private String awsAccountId;
 
   public static final String JSON_PROPERTY_AWS_PARTITION = "aws_partition";
-  private AWSAccountPartition awsPartition = AWSAccountPartition.AWS;
+  private AWSAccountPartition awsPartition;
 
   public static final String JSON_PROPERTY_AWS_REGIONS = "aws_regions";
   private AWSRegions awsRegions;
@@ -89,7 +89,7 @@ public class AWSAccountUpdateRequestAttributes {
   }
 
   /**
-   * Tags to apply to all metrics in the account
+   * Tags to apply to all hosts and metrics reporting for this account. Defaults to <code>[]</code>.
    *
    * @return accountTags
    */
@@ -121,7 +121,7 @@ public class AWSAccountUpdateRequestAttributes {
   }
 
   /**
-   * AWS Authentication config
+   * AWS Authentication config.
    *
    * @return authConfig
    */
@@ -142,7 +142,7 @@ public class AWSAccountUpdateRequestAttributes {
   }
 
   /**
-   * AWS Account ID
+   * AWS Account ID.
    *
    * @return awsAccountId
    */
@@ -163,7 +163,9 @@ public class AWSAccountUpdateRequestAttributes {
   }
 
   /**
-   * AWS Account partition
+   * AWS partition your AWS account is scoped to. Defaults to <code>aws</code>. See <a
+   * href="https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html">Partitions</a>
+   * in the AWS documentation for more information.
    *
    * @return awsPartition
    */
@@ -188,7 +190,7 @@ public class AWSAccountUpdateRequestAttributes {
   }
 
   /**
-   * AWS Regions to collect data from
+   * AWS Regions to collect data from. Defaults to <code>include_all</code>.
    *
    * @return awsRegions
    */
@@ -210,7 +212,7 @@ public class AWSAccountUpdateRequestAttributes {
   }
 
   /**
-   * AWS Logs config
+   * AWS Logs Collection config.
    *
    * @return logsConfig
    */
@@ -232,7 +234,7 @@ public class AWSAccountUpdateRequestAttributes {
   }
 
   /**
-   * AWS Metrics config
+   * AWS Metrics Collection config.
    *
    * @return metricsConfig
    */
@@ -254,7 +256,7 @@ public class AWSAccountUpdateRequestAttributes {
   }
 
   /**
-   * AWS Resources config
+   * AWS Resources Collection config.
    *
    * @return resourcesConfig
    */
@@ -276,7 +278,7 @@ public class AWSAccountUpdateRequestAttributes {
   }
 
   /**
-   * AWS Traces config
+   * AWS Traces Collection config.
    *
    * @return tracesConfig
    */

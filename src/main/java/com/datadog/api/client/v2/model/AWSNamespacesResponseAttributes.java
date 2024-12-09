@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Namespaces response body */
+/** AWS Namespaces response attributes. */
 @JsonPropertyOrder({AWSNamespacesResponseAttributes.JSON_PROPERTY_NAMESPACES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class AWSNamespacesResponseAttributes {
   }
 
   /**
-   * AWS CloudWatch namespace
+   * AWS CloudWatch namespace.
    *
    * @return namespaces
    */
