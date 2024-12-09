@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS External ID response body */
+/** AWS External ID response body. */
 @JsonPropertyOrder({
   AWSNewExternalIDResponseData.JSON_PROPERTY_ATTRIBUTES,
   AWSNewExternalIDResponseData.JSON_PROPERTY_ID,
@@ -55,7 +55,7 @@ public class AWSNewExternalIDResponseData {
   }
 
   /**
-   * AWS External ID response body
+   * AWS External ID response body.
    *
    * @return attributes
    */

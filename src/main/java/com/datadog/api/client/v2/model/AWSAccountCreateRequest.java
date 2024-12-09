@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Account Create Request body */
+/** AWS Account Create Request body. */
 @JsonPropertyOrder({AWSAccountCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class AWSAccountCreateRequest {
   }
 
   /**
-   * AWS Account Create Request data
+   * AWS Account Create Request data.
    *
    * @return data
    */
