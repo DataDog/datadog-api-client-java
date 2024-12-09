@@ -81,7 +81,7 @@ public class SyntheticsFetchUptimesPayload {
   }
 
   /**
-   * An array of Synthetic test IDs you want to delete.
+   * An array of Synthetic test IDs you want uptimes for.
    *
    * @return publicIds
    */
