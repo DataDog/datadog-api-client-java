@@ -67,6 +67,8 @@ public class Example {
                 Collections.singletonList(
                     new SyntheticsStep()
                         .allowFailure(false)
+                        .alwaysExecute(true)
+                        .exitIfSucceed(true)
                         .isCritical(true)
                         .name("Refresh page")
                         .params(new Object())

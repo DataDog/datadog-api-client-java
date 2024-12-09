@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SyntheticsAPITestStep.JSON_PROPERTY_ALLOW_FAILURE,
   SyntheticsAPITestStep.JSON_PROPERTY_ASSERTIONS,
+  SyntheticsAPITestStep.JSON_PROPERTY_EXIT_IF_SUCCEED,
   SyntheticsAPITestStep.JSON_PROPERTY_EXTRACTED_VALUES,
   SyntheticsAPITestStep.JSON_PROPERTY_IS_CRITICAL,
   SyntheticsAPITestStep.JSON_PROPERTY_NAME,
@@ -39,6 +40,9 @@ public class SyntheticsAPITestStep {
 
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<SyntheticsAssertion> assertions = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_EXIT_IF_SUCCEED = "exitIfSucceed";
+  private Boolean exitIfSucceed;
 
   public static final String JSON_PROPERTY_EXTRACTED_VALUES = "extractedValues";
   private List<SyntheticsParsingOptions> extractedValues = null;
@@ -124,6 +128,27 @@ public class SyntheticsAPITestStep {
 
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
+  }
+
+  public SyntheticsAPITestStep exitIfSucceed(Boolean exitIfSucceed) {
+    this.exitIfSucceed = exitIfSucceed;
+    return this;
+  }
+
+  /**
+   * Determines whether or not to exit the test if the step succeeds.
+   *
+   * @return exitIfSucceed
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXIT_IF_SUCCEED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getExitIfSucceed() {
+    return exitIfSucceed;
+  }
+
+  public void setExitIfSucceed(Boolean exitIfSucceed) {
+    this.exitIfSucceed = exitIfSucceed;
   }
 
   public SyntheticsAPITestStep extractedValues(List<SyntheticsParsingOptions> extractedValues) {
@@ -327,6 +352,7 @@ public class SyntheticsAPITestStep {
     SyntheticsAPITestStep syntheticsApiTestStep = (SyntheticsAPITestStep) o;
     return Objects.equals(this.allowFailure, syntheticsApiTestStep.allowFailure)
         && Objects.equals(this.assertions, syntheticsApiTestStep.assertions)
+        && Objects.equals(this.exitIfSucceed, syntheticsApiTestStep.exitIfSucceed)
         && Objects.equals(this.extractedValues, syntheticsApiTestStep.extractedValues)
         && Objects.equals(this.isCritical, syntheticsApiTestStep.isCritical)
         && Objects.equals(this.name, syntheticsApiTestStep.name)
@@ -341,6 +367,7 @@ public class SyntheticsAPITestStep {
     return Objects.hash(
         allowFailure,
         assertions,
+        exitIfSucceed,
         extractedValues,
         isCritical,
         name,
@@ -356,6 +383,7 @@ public class SyntheticsAPITestStep {
     sb.append("class SyntheticsAPITestStep {\n");
     sb.append("    allowFailure: ").append(toIndentedString(allowFailure)).append("\n");
     sb.append("    assertions: ").append(toIndentedString(assertions)).append("\n");
+    sb.append("    exitIfSucceed: ").append(toIndentedString(exitIfSucceed)).append("\n");
     sb.append("    extractedValues: ").append(toIndentedString(extractedValues)).append("\n");
     sb.append("    isCritical: ").append(toIndentedString(isCritical)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
