@@ -19,13 +19,23 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Response object that includes metrics and metric tag configurations. */
-@JsonPropertyOrder({MetricsAndMetricTagConfigurationsResponse.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  MetricsAndMetricTagConfigurationsResponse.JSON_PROPERTY_DATA,
+  MetricsAndMetricTagConfigurationsResponse.JSON_PROPERTY_LINKS,
+  MetricsAndMetricTagConfigurationsResponse.JSON_PROPERTY_META
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricsAndMetricTagConfigurationsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<MetricsAndMetricTagConfigurations> data = null;
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private MetricsListResponseLinks links;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private MetricPaginationMeta meta;
 
   public MetricsAndMetricTagConfigurationsResponse data(
       List<MetricsAndMetricTagConfigurations> data) {
@@ -60,6 +70,50 @@ public class MetricsAndMetricTagConfigurationsResponse {
 
   public void setData(List<MetricsAndMetricTagConfigurations> data) {
     this.data = data;
+  }
+
+  public MetricsAndMetricTagConfigurationsResponse links(MetricsListResponseLinks links) {
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    return this;
+  }
+
+  /**
+   * Pagination links. Only present if pagination query parameters were provided.
+   *
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MetricsListResponseLinks getLinks() {
+    return links;
+  }
+
+  public void setLinks(MetricsListResponseLinks links) {
+    this.links = links;
+  }
+
+  public MetricsAndMetricTagConfigurationsResponse meta(MetricPaginationMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Response metadata object.
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MetricPaginationMeta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(MetricPaginationMeta meta) {
+    this.meta = meta;
   }
 
   /**
@@ -120,6 +174,8 @@ public class MetricsAndMetricTagConfigurationsResponse {
     MetricsAndMetricTagConfigurationsResponse metricsAndMetricTagConfigurationsResponse =
         (MetricsAndMetricTagConfigurationsResponse) o;
     return Objects.equals(this.data, metricsAndMetricTagConfigurationsResponse.data)
+        && Objects.equals(this.links, metricsAndMetricTagConfigurationsResponse.links)
+        && Objects.equals(this.meta, metricsAndMetricTagConfigurationsResponse.meta)
         && Objects.equals(
             this.additionalProperties,
             metricsAndMetricTagConfigurationsResponse.additionalProperties);
@@ -127,7 +183,7 @@ public class MetricsAndMetricTagConfigurationsResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(data, links, meta, additionalProperties);
   }
 
   @Override
@@ -135,6 +191,8 @@ public class MetricsAndMetricTagConfigurationsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricsAndMetricTagConfigurationsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
