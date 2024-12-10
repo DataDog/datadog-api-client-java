@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Include only these services */
+/** Include only these services. Defaults to <code>[]</code>. */
 @JsonPropertyOrder({XRayServicesIncludeOnly.JSON_PROPERTY_INCLUDE_ONLY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class XRayServicesIncludeOnly {
   }
 
   /**
-   * Include only these services
+   * Include only these services.
    *
    * @return includeOnly
    */

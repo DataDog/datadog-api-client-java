@@ -19,7 +19,15 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** AWS Metrics tag filters */
+/**
+ * AWS Metrics Collection tag filters list. Defaults to <code>[]</code>. The array of custom AWS
+ * resource tags (in the form <code>key:value</code>) defines a filter that Datadog uses when
+ * collecting metrics from a specified service. Wildcards, such as <code>?</code> (match a single
+ * character) and <code>*</code> (match multiple characters), and exclusion using <code>!</code>
+ * before the tag are supported. For EC2, only hosts that match one of the defined tags will be
+ * imported into Datadog. The rest will be ignored. For example, <code>
+ * env:production,instance-type:c?.*,!region:us-east-1</code>.
+ */
 @JsonPropertyOrder({
   AWSNamespaceTagFilter.JSON_PROPERTY_NAMESPACE,
   AWSNamespaceTagFilter.JSON_PROPERTY_TAGS
@@ -40,7 +48,7 @@ public class AWSNamespaceTagFilter {
   }
 
   /**
-   * The AWS Namespace to apply the tag filters against
+   * The AWS service for which the tag filters defined in <code>tags</code> will be applied.
    *
    * @return namespace
    */
@@ -73,7 +81,7 @@ public class AWSNamespaceTagFilter {
   }
 
   /**
-   * The tags to filter based on
+   * The AWS resource tags to filter on for the service specified by <code>namespace</code>.
    *
    * @return tags
    */
