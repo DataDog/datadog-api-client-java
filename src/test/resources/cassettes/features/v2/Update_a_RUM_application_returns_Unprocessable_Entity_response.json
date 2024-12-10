@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"test_name_create\",\"type\":\"browser\"},\"type\":\"rum_application_create\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"test-rum-6fee7799535d7418\",\"type\":\"ios\"},\"type\":\"rum_application_create\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"updated_by_handle\":\"frog@datadoghq.com\",\"application_id\":\"fdf8b82d-d289-408c-9e57-561abf7cd7c4\",\"name\":\"test_name_create\",\"created_by_handle\":\"frog@datadoghq.com\",\"created_at\":1670264354633,\"org_id\":321813,\"updated_at\":1670264354633,\"is_active\":false,\"hash\":\"pub0e8c306f38224753217726072c10be16\",\"client_token\":\"pub0e8c306f38224753217726072c10be16\",\"type\":\"browser\"},\"type\":\"rum_application\",\"id\":\"fdf8b82d-d289-408c-9e57-561abf7cd7c4\"}}\n",
+      "body": "{\"data\":{\"type\":\"rum_application\",\"attributes\":{\"updated_by_handle\":\"frog@datadoghq.com\",\"rum_enabled_at\":1733845249567,\"application_id\":\"00f4c783-4371-4e5c-b2bf-acf591de6c0d\",\"tags\":[],\"product_analytics_enabled\":false,\"rum_disabled_at\":0,\"client_token\":\"pub997fafb8492c06b8826445aba2a0bd3a\",\"created_at\":1733845249567,\"created_by_handle\":\"frog@datadoghq.com\",\"is_active\":false,\"org_id\":321813,\"rum_enabled\":true,\"product_analytics_enabled_at\":1733845249567,\"product_analytics_disabled_at\":1733845249567,\"updated_at\":1733845249567,\"name\":\"test-rum-6fee7799535d7418\",\"hash\":\"pub997fafb8492c06b8826445aba2a0bd3a\",\"type\":\"ios\"},\"id\":\"00f4c783-4371-4e5c-b2bf-acf591de6c0d\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "74945625-c01a-a598-e538-65a53ceb0688"
+    "id": "ad1c1896-0058-dc05-8bca-4ae8629a5f6a"
   },
   {
     "httpRequest": {
@@ -37,7 +37,7 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/rum/applications/fdf8b82d-d289-408c-9e57-561abf7cd7c4",
+      "path": "/api/v2/rum/applications/00f4c783-4371-4e5c-b2bf-acf591de6c0d",
       "keepAlive": false,
       "secure": true
     },
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5211e4cb-663e-7a4c-120d-cfedf38a0382"
+    "id": "419229f6-a1b5-e71c-6076-f66f9a8d8b19"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/rum/applications/fdf8b82d-d289-408c-9e57-561abf7cd7c4",
+      "path": "/api/v2/rum/applications/00f4c783-4371-4e5c-b2bf-acf591de6c0d",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a00e807e-729b-d2cd-c10e-9a35b56b4a0a"
+    "id": "a18544c5-3e40-d8e2-2f05-f60b5e7e966c"
   }
 ]
