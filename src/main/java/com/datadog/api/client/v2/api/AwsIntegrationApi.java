@@ -331,7 +331,10 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #deleteAWSAccountWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteAWSAccount(String awsAccountConfigId) throws ApiException {
@@ -343,7 +346,10 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #deleteAWSAccountWithHttpInfoAsync}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteAWSAccountAsync(String awsAccountConfigId) {
@@ -355,9 +361,12 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Delete an AWS Account Integration Config
+   * Delete an AWS Account Integration Config by config ID.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -421,7 +430,10 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #deleteAWSAccountWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteAWSAccountWithHttpInfoAsync(
@@ -488,7 +500,10 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #getAWSAccountWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return AWSAccountResponse
    * @throws ApiException if fails to make API call
    */
@@ -501,7 +516,10 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #getAWSAccountWithHttpInfoAsync}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return CompletableFuture&lt;AWSAccountResponse&gt;
    */
   public CompletableFuture<AWSAccountResponse> getAWSAccountAsync(String awsAccountConfigId) {
@@ -513,9 +531,12 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Get an AWS Account Integration Config
+   * Get an AWS Account Integration Config by config ID.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return ApiResponse&lt;AWSAccountResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -579,7 +600,10 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #getAWSAccountWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<AWSAccountResponse>> getAWSAccountWithHttpInfoAsync(
@@ -648,7 +672,8 @@ public class AwsIntegrationApi {
     /**
      * Set awsAccountId.
      *
-     * @param awsAccountId Optional query filter accounts by AWS Account ID (optional)
+     * @param awsAccountId Optional query parameter to filter accounts by AWS Account ID. If not
+     *     provided, all accounts are returned. (optional)
      * @return ListAWSAccountsOptionalParameters
      */
     public ListAWSAccountsOptionalParameters awsAccountId(String awsAccountId) {
@@ -958,7 +983,10 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #updateAWSAccountWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @param body (required)
    * @return AWSAccountResponse
    * @throws ApiException if fails to make API call
@@ -973,7 +1001,10 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #updateAWSAccountWithHttpInfoAsync}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @param body (required)
    * @return CompletableFuture&lt;AWSAccountResponse&gt;
    */
@@ -987,9 +1018,12 @@ public class AwsIntegrationApi {
   }
 
   /**
-   * Update an AWS Account Integration Config
+   * Update an AWS Account Integration Config by config ID.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @param body (required)
    * @return ApiResponse&lt;AWSAccountResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1060,7 +1094,10 @@ public class AwsIntegrationApi {
    *
    * <p>See {@link #updateAWSAccountWithHttpInfo}.
    *
-   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config (required)
+   * @param awsAccountConfigId Unique Datadog ID of the AWS Account Integration Config. To get the
+   *     config ID for an account, use the <a
+   *     href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   *     all AWS integrations</a> endpoint and query by AWS Account ID. (required)
    * @param body (required)
    * @return CompletableFuture&lt;ApiResponse&lt;AWSAccountResponse&gt;&gt;
    */
