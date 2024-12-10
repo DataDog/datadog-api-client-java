@@ -1826,7 +1826,7 @@ public class UsageMeteringApi {
    *
    * <p>This endpoint is only accessible for <a
    * href="https://docs.datadoghq.com/account_management/multi_organization/">parent-level
-   * organizations</a>.
+   * organizations</a>. This endpoint is not available in the Government (US1-FED) site.
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code>
    *     for cost beginning in this month. (required)
