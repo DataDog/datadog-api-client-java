@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Logs config */
+/** AWS Logs Collection config. */
 @JsonPropertyOrder({AWSLogsConfig.JSON_PROPERTY_LAMBDA_FORWARDER})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,9 @@ public class AWSLogsConfig {
   }
 
   /**
-   * AWS Lambda forwarder
+   * Log Autosubscription configuration for Datadog Forwarder Lambda functions. Automatically set up
+   * triggers for existing and new logs for some services, ensuring no logs from new resources are
+   * missed and saving time spent on manual configuration.
    *
    * @return lambdaForwarder
    */

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Include all regions */
+/** Include all regions. Defaults to <code>true</code>. */
 @JsonPropertyOrder({AWSRegionsIncludeAll.JSON_PROPERTY_INCLUDE_ALL})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -40,7 +40,7 @@ public class AWSRegionsIncludeAll {
   }
 
   /**
-   * Include all regions
+   * Include all regions.
    *
    * @return includeAll
    */

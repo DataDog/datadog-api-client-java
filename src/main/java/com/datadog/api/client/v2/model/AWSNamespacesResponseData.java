@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Namespaces response body */
+/** AWS Namespaces response data. */
 @JsonPropertyOrder({
   AWSNamespacesResponseData.JSON_PROPERTY_ATTRIBUTES,
   AWSNamespacesResponseData.JSON_PROPERTY_ID,
@@ -55,7 +55,7 @@ public class AWSNamespacesResponseData {
   }
 
   /**
-   * AWS Namespaces response body
+   * AWS Namespaces response attributes.
    *
    * @return attributes
    */

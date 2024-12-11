@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Namespaces response body */
+/** AWS Namespaces response body. */
 @JsonPropertyOrder({AWSNamespacesResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,7 +42,7 @@ public class AWSNamespacesResponse {
   }
 
   /**
-   * AWS Namespaces response body
+   * AWS Namespaces response data.
    *
    * @return data
    */
