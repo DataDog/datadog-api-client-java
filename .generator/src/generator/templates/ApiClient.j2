@@ -261,16 +261,19 @@ public class ApiClient {
     authentications = new HashMap<String, Authentication>();
     Authentication auth = null;
     {%- for name, schema in specs.v2.components.securitySchemes.items()  %}
+    {%- if schema.type == "oauth2"  %}
     if (authMap != null) {
       auth = authMap.get("{{ name }}");
     }
-    {%- if schema.type == "oauth2"  %}
     if (auth instanceof OAuth) {
       authentications.put("{{ name }}", auth);
     } else {
       authentications.put("{{ name }}", new OAuth(basePath, "{{ schema.flows.authorizationCode.tokenUrl }}"));
     }
-    {%- else %}
+    {%- elif schema.type == "apiKey" %}
+    if (authMap != null) {
+      auth = authMap.get("{{ name }}");
+    }
     if (auth instanceof {{ schema.type|upperfirst ~ "Auth" }}) {
       authentications.put("{{ name }}", auth);
     } else {
