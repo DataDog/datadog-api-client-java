@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.GetDataDeletionsResponseBody;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.getDataDeletionRequests", true);
     DataDeletionApi apiInstance = new DataDeletionApi(defaultClient);
 
     try {

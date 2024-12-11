@@ -13,6 +13,7 @@ import java.util.Map;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.createDataDeletionRequest", true);
     DataDeletionApi apiInstance = new DataDeletionApi(defaultClient);
 
     CreateDataDeletionRequestBody body =
