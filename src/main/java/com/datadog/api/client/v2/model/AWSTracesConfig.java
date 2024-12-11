@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Traces config */
+/** AWS Traces Collection config. */
 @JsonPropertyOrder({AWSTracesConfig.JSON_PROPERTY_XRAY_SERVICES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class AWSTracesConfig {
   }
 
   /**
-   * AWS X-Ray services to collect traces from
+   * AWS X-Ray services to collect traces from. Defaults to <code>include_only</code>.
    *
    * @return xrayServices
    */

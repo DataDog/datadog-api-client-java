@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The AWS Account Integration Config */
+/** AWS Account response attributes. */
 @JsonPropertyOrder({
   AWSAccountResponseAttributes.JSON_PROPERTY_ACCOUNT_TAGS,
   AWSAccountResponseAttributes.JSON_PROPERTY_AUTH_CONFIG,
@@ -49,7 +49,7 @@ public class AWSAccountResponseAttributes {
   private String awsAccountId;
 
   public static final String JSON_PROPERTY_AWS_PARTITION = "aws_partition";
-  private AWSAccountPartition awsPartition = AWSAccountPartition.AWS;
+  private AWSAccountPartition awsPartition;
 
   public static final String JSON_PROPERTY_AWS_REGIONS = "aws_regions";
   private AWSRegions awsRegions;
@@ -98,7 +98,7 @@ public class AWSAccountResponseAttributes {
   }
 
   /**
-   * Tags to apply to all metrics in the account
+   * Tags to apply to all hosts and metrics reporting for this account. Defaults to <code>[]</code>.
    *
    * @return accountTags
    */
@@ -130,7 +130,7 @@ public class AWSAccountResponseAttributes {
   }
 
   /**
-   * AWS Authentication config
+   * AWS Authentication config.
    *
    * @return authConfig
    */
@@ -151,7 +151,7 @@ public class AWSAccountResponseAttributes {
   }
 
   /**
-   * AWS Account ID
+   * AWS Account ID.
    *
    * @return awsAccountId
    */
@@ -172,7 +172,9 @@ public class AWSAccountResponseAttributes {
   }
 
   /**
-   * AWS Account partition
+   * AWS partition your AWS account is scoped to. Defaults to <code>aws</code>. See <a
+   * href="https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html">Partitions</a>
+   * in the AWS documentation for more information.
    *
    * @return awsPartition
    */
@@ -197,7 +199,7 @@ public class AWSAccountResponseAttributes {
   }
 
   /**
-   * AWS Regions to collect data from
+   * AWS Regions to collect data from. Defaults to <code>include_all</code>.
    *
    * @return awsRegions
    */
@@ -213,7 +215,7 @@ public class AWSAccountResponseAttributes {
   }
 
   /**
-   * Timestamp of when the account integration was created
+   * Timestamp of when the account integration was created.
    *
    * @return createdAt
    */
@@ -231,7 +233,7 @@ public class AWSAccountResponseAttributes {
   }
 
   /**
-   * AWS Logs config
+   * AWS Logs Collection config.
    *
    * @return logsConfig
    */
@@ -253,7 +255,7 @@ public class AWSAccountResponseAttributes {
   }
 
   /**
-   * AWS Metrics config
+   * AWS Metrics Collection config.
    *
    * @return metricsConfig
    */
@@ -269,7 +271,7 @@ public class AWSAccountResponseAttributes {
   }
 
   /**
-   * Timestamp of when the account integration was updated
+   * Timestamp of when the account integration was updated.
    *
    * @return modifiedAt
    */
@@ -287,7 +289,7 @@ public class AWSAccountResponseAttributes {
   }
 
   /**
-   * AWS Resources config
+   * AWS Resources Collection config.
    *
    * @return resourcesConfig
    */
@@ -309,7 +311,7 @@ public class AWSAccountResponseAttributes {
   }
 
   /**
-   * AWS Traces config
+   * AWS Traces Collection config.
    *
    * @return tracesConfig
    */

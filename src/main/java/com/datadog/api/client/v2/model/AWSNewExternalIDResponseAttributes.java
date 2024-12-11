@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS External ID response body */
+/** AWS External ID response body. */
 @JsonPropertyOrder({AWSNewExternalIDResponseAttributes.JSON_PROPERTY_EXTERNAL_ID})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -40,7 +40,7 @@ public class AWSNewExternalIDResponseAttributes {
   }
 
   /**
-   * AWS IAM External ID for associated role
+   * AWS IAM External ID for associated role.
    *
    * @return externalId
    */

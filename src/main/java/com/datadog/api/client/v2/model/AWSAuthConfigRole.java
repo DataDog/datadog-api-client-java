@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Authentication config for role-based account */
+/** AWS Authentication config to integrate your account using an IAM role. */
 @JsonPropertyOrder({
   AWSAuthConfigRole.JSON_PROPERTY_EXTERNAL_ID,
   AWSAuthConfigRole.JSON_PROPERTY_ROLE_NAME
@@ -46,7 +46,7 @@ public class AWSAuthConfigRole {
   }
 
   /**
-   * AWS IAM External ID for associated role
+   * AWS IAM External ID for associated role.
    *
    * @return externalId
    */
@@ -67,7 +67,7 @@ public class AWSAuthConfigRole {
   }
 
   /**
-   * AWS IAM Role name
+   * AWS IAM Role name.
    *
    * @return roleName
    */

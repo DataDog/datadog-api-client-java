@@ -19,7 +19,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Exclude only these namespaces */
+/**
+ * Exclude only these namespaces from metrics collection. Defaults to <code>
+ * ["AWS/SQS", "AWS/ElasticMapReduce"]</code>. <code>AWS/SQS</code> and <code>AWS/ElasticMapReduce
+ * </code> are excluded by default to reduce your AWS CloudWatch costs from <code>GetMetricData
+ * </code> API calls.
+ */
 @JsonPropertyOrder({AWSNamespaceFiltersExcludeOnly.JSON_PROPERTY_EXCLUDE_ONLY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +52,10 @@ public class AWSNamespaceFiltersExcludeOnly {
   }
 
   /**
-   * Exclude only these namespaces
+   * Exclude only these namespaces from metrics collection. Defaults to <code>
+   * ["AWS/SQS", "AWS/ElasticMapReduce"]</code>. <code>AWS/SQS</code> and <code>AWS/ElasticMapReduce
+   * </code> are excluded by default to reduce your AWS CloudWatch costs from <code>GetMetricData
+   * </code> API calls.
    *
    * @return excludeOnly
    */
