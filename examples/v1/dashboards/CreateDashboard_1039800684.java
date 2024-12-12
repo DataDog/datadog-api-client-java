@@ -45,8 +45,7 @@ public class Example {
                                                             .field("timestamp"),
                                                         new ListStreamColumn()
                                                             .width(ListStreamColumnWidth.AUTO)
-                                                            .field("message")
-                                                            .isClusteringPatternFieldPath(true)))
+                                                            .field("message")))
                                                 .query(
                                                     new ListStreamQuery()
                                                         .dataSource(

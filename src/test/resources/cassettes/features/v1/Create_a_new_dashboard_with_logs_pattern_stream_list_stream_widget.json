@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_logs_pattern_stream_list_stream_widget-1732131826 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"message\",\"is_clustering_pattern_field_path\":true,\"width\":\"auto\"}],\"query\":{\"clustering_pattern_field_path\":\"message\",\"data_source\":\"logs_pattern_stream\",\"group_by\":[{\"facet\":\"service\"}],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_logs_pattern_stream_list_stream_widget-1733944682 with list_stream widget\",\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"message\",\"width\":\"auto\"}],\"query\":{\"clustering_pattern_field_path\":\"message\",\"data_source\":\"logs_pattern_stream\",\"group_by\":[{\"facet\":\"service\"}],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"}}]}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"id\":\"r75-hd7-sd9\",\"title\":\"Test-Create_a_new_dashboard_with_logs_pattern_stream_list_stream_widget-1732131826 with list_stream widget\",\"description\":null,\"author_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"author_name\":\"CI Account\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/r75-hd7-sd9/test-createanewdashboardwithlogspatternstreamliststreamwidget-1732131826-with-li\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"message\",\"is_clustering_pattern_field_path\":true,\"width\":\"auto\"}],\"query\":{\"clustering_pattern_field_path\":\"message\",\"data_source\":\"logs_pattern_stream\",\"group_by\":[{\"facet\":\"service\"}],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":6154246442450384}],\"notify_list\":null,\"created_at\":\"2024-11-20T19:43:46.871965+00:00\",\"modified_at\":\"2024-11-20T19:43:46.871965+00:00\",\"restricted_roles\":[]}\n",
+      "body": "{\"id\":\"fue-7tr-ubw\",\"title\":\"Test-Create_a_new_dashboard_with_logs_pattern_stream_list_stream_widget-1733944682 with list_stream widget\",\"description\":null,\"author_handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"author_name\":\"CI Account\",\"layout_type\":\"ordered\",\"url\":\"/dashboard/fue-7tr-ubw/test-createanewdashboardwithlogspatternstreamliststreamwidget-1733944682-with-li\",\"is_read_only\":false,\"template_variables\":null,\"widgets\":[{\"definition\":{\"requests\":[{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"message\",\"width\":\"auto\"}],\"query\":{\"clustering_pattern_field_path\":\"message\",\"data_source\":\"logs_pattern_stream\",\"group_by\":[{\"facet\":\"service\"}],\"query_string\":\"\"},\"response_format\":\"event_list\"}],\"type\":\"list_stream\"},\"id\":4674889262305585}],\"notify_list\":null,\"created_at\":\"2024-12-11T19:18:03.039937+00:00\",\"modified_at\":\"2024-12-11T19:18:03.039937+00:00\",\"restricted_roles\":[]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "efba31bd-b3f1-473f-e30b-1697b2cc04b1"
+    "id": "ae4564ca-0ff7-f493-3223-c9bf59642d26"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v1/dashboard/r75-hd7-sd9",
+      "path": "/api/v1/dashboard/fue-7tr-ubw",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"r75-hd7-sd9\"}\n",
+      "body": "{\"deleted_dashboard_id\":\"fue-7tr-ubw\"}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d71f08f7-6763-c0e7-e498-162bb5fc9fea"
+    "id": "6f623174-c3b7-b7f8-f17e-f055a28e2d98"
   }
 ]
