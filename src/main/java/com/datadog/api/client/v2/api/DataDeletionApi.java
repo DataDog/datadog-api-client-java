@@ -97,6 +97,13 @@ public class DataDeletionApi {
    */
   public ApiResponse<CancelDataDeletionResponseBody> cancelDataDeletionRequestWithHttpInfo(
       String id) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "cancelDataDeletionRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -141,6 +148,17 @@ public class DataDeletionApi {
    */
   public CompletableFuture<ApiResponse<CancelDataDeletionResponseBody>>
       cancelDataDeletionRequestWithHttpInfoAsync(String id) {
+    // Check if unstable operation is enabled
+    String operationId = "cancelDataDeletionRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CancelDataDeletionResponseBody>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -244,6 +262,13 @@ public class DataDeletionApi {
    */
   public ApiResponse<CreateDataDeletionResponseBody> createDataDeletionRequestWithHttpInfo(
       String product, CreateDataDeletionRequestBody body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createDataDeletionRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'product' is set
@@ -297,6 +322,17 @@ public class DataDeletionApi {
   public CompletableFuture<ApiResponse<CreateDataDeletionResponseBody>>
       createDataDeletionRequestWithHttpInfoAsync(
           String product, CreateDataDeletionRequestBody body) {
+    // Check if unstable operation is enabled
+    String operationId = "createDataDeletionRequest";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<CreateDataDeletionResponseBody>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'product' is set
@@ -497,6 +533,13 @@ public class DataDeletionApi {
    */
   public ApiResponse<GetDataDeletionsResponseBody> getDataDeletionRequestsWithHttpInfo(
       GetDataDeletionRequestsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getDataDeletionRequests";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     String nextPage = parameters.nextPage;
     String product = parameters.product;
@@ -546,6 +589,17 @@ public class DataDeletionApi {
   public CompletableFuture<ApiResponse<GetDataDeletionsResponseBody>>
       getDataDeletionRequestsWithHttpInfoAsync(
           GetDataDeletionRequestsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getDataDeletionRequests";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<GetDataDeletionsResponseBody>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
     String nextPage = parameters.nextPage;
     String product = parameters.product;
