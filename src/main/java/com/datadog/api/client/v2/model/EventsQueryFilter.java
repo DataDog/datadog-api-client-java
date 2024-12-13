@@ -63,7 +63,9 @@ public class EventsQueryFilter {
   }
 
   /**
-   * The search query following the event search syntax.
+   * The search query following the <a
+   * href="https://docs.datadoghq.com/service_management/events/explorer/searching">event search
+   * syntax</a>.
    *
    * @return query
    */
