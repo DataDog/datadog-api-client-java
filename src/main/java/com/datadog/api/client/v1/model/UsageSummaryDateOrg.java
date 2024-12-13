@@ -50,6 +50,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
@@ -281,6 +282,9 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM =
       "code_analysis_sca_committers_hwm";
   private Long codeAnalysisScaCommittersHwm;
+
+  public static final String JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P = "code_security_host_top99p";
+  private Long codeSecurityHostTop99p;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
@@ -1397,6 +1401,28 @@ public class UsageSummaryDateOrg {
 
   public void setCodeAnalysisScaCommittersHwm(Long codeAnalysisScaCommittersHwm) {
     this.codeAnalysisScaCommittersHwm = codeAnalysisScaCommittersHwm;
+  }
+
+  public UsageSummaryDateOrg codeSecurityHostTop99p(Long codeSecurityHostTop99p) {
+    this.codeSecurityHostTop99p = codeSecurityHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Code Security hosts over all hours in the current date for the
+   * given org.
+   *
+   * @return codeSecurityHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCodeSecurityHostTop99p() {
+    return codeSecurityHostTop99p;
+  }
+
+  public void setCodeSecurityHostTop99p(Long codeSecurityHostTop99p) {
+    this.codeSecurityHostTop99p = codeSecurityHostTop99p;
   }
 
   public UsageSummaryDateOrg containerAvg(Long containerAvg) {
@@ -4075,6 +4101,7 @@ public class UsageSummaryDateOrg {
             this.codeAnalysisSaCommittersHwm, usageSummaryDateOrg.codeAnalysisSaCommittersHwm)
         && Objects.equals(
             this.codeAnalysisScaCommittersHwm, usageSummaryDateOrg.codeAnalysisScaCommittersHwm)
+        && Objects.equals(this.codeSecurityHostTop99p, usageSummaryDateOrg.codeSecurityHostTop99p)
         && Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg)
         && Objects.equals(this.containerExclAgentAvg, usageSummaryDateOrg.containerExclAgentAvg)
         && Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm)
@@ -4319,6 +4346,7 @@ public class UsageSummaryDateOrg {
         cloudSiemEventsSum,
         codeAnalysisSaCommittersHwm,
         codeAnalysisScaCommittersHwm,
+        codeSecurityHostTop99p,
         containerAvg,
         containerExclAgentAvg,
         containerHwm,
@@ -4515,6 +4543,9 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    codeAnalysisScaCommittersHwm: ")
         .append(toIndentedString(codeAnalysisScaCommittersHwm))
+        .append("\n");
+    sb.append("    codeSecurityHostTop99p: ")
+        .append(toIndentedString(codeSecurityHostTop99p))
         .append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerExclAgentAvg: ")

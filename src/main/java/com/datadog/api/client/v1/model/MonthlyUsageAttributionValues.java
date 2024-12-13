@@ -42,6 +42,8 @@ import java.util.Objects;
   MonthlyUsageAttributionValues.JSON_PROPERTY_CI_VISIBILITY_ITR_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CLOUD_SIEM_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CLOUD_SIEM_USAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CODE_SECURITY_HOST_PERCENTAGE,
+  MonthlyUsageAttributionValues.JSON_PROPERTY_CODE_SECURITY_HOST_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_EXCL_AGENT_PERCENTAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_EXCL_AGENT_USAGE,
   MonthlyUsageAttributionValues.JSON_PROPERTY_CONTAINER_PERCENTAGE,
@@ -237,6 +239,13 @@ public class MonthlyUsageAttributionValues {
 
   public static final String JSON_PROPERTY_CLOUD_SIEM_USAGE = "cloud_siem_usage";
   private Double cloudSiemUsage;
+
+  public static final String JSON_PROPERTY_CODE_SECURITY_HOST_PERCENTAGE =
+      "code_security_host_percentage";
+  private Double codeSecurityHostPercentage;
+
+  public static final String JSON_PROPERTY_CODE_SECURITY_HOST_USAGE = "code_security_host_usage";
+  private Double codeSecurityHostUsage;
 
   public static final String JSON_PROPERTY_CONTAINER_EXCL_AGENT_PERCENTAGE =
       "container_excl_agent_percentage";
@@ -1133,6 +1142,49 @@ public class MonthlyUsageAttributionValues {
 
   public void setCloudSiemUsage(Double cloudSiemUsage) {
     this.cloudSiemUsage = cloudSiemUsage;
+  }
+
+  public MonthlyUsageAttributionValues codeSecurityHostPercentage(
+      Double codeSecurityHostPercentage) {
+    this.codeSecurityHostPercentage = codeSecurityHostPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Code Security host usage by tags.
+   *
+   * @return codeSecurityHostPercentage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_SECURITY_HOST_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCodeSecurityHostPercentage() {
+    return codeSecurityHostPercentage;
+  }
+
+  public void setCodeSecurityHostPercentage(Double codeSecurityHostPercentage) {
+    this.codeSecurityHostPercentage = codeSecurityHostPercentage;
+  }
+
+  public MonthlyUsageAttributionValues codeSecurityHostUsage(Double codeSecurityHostUsage) {
+    this.codeSecurityHostUsage = codeSecurityHostUsage;
+    return this;
+  }
+
+  /**
+   * The Code Security host usage by tags.
+   *
+   * @return codeSecurityHostUsage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_SECURITY_HOST_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCodeSecurityHostUsage() {
+    return codeSecurityHostUsage;
+  }
+
+  public void setCodeSecurityHostUsage(Double codeSecurityHostUsage) {
+    this.codeSecurityHostUsage = codeSecurityHostUsage;
   }
 
   public MonthlyUsageAttributionValues containerExclAgentPercentage(
@@ -3625,6 +3677,11 @@ public class MonthlyUsageAttributionValues {
             this.cloudSiemPercentage, monthlyUsageAttributionValues.cloudSiemPercentage)
         && Objects.equals(this.cloudSiemUsage, monthlyUsageAttributionValues.cloudSiemUsage)
         && Objects.equals(
+            this.codeSecurityHostPercentage,
+            monthlyUsageAttributionValues.codeSecurityHostPercentage)
+        && Objects.equals(
+            this.codeSecurityHostUsage, monthlyUsageAttributionValues.codeSecurityHostUsage)
+        && Objects.equals(
             this.containerExclAgentPercentage,
             monthlyUsageAttributionValues.containerExclAgentPercentage)
         && Objects.equals(
@@ -3892,6 +3949,8 @@ public class MonthlyUsageAttributionValues {
         ciVisibilityItrUsage,
         cloudSiemPercentage,
         cloudSiemUsage,
+        codeSecurityHostPercentage,
+        codeSecurityHostUsage,
         containerExclAgentPercentage,
         containerExclAgentUsage,
         containerPercentage,
@@ -4057,6 +4116,12 @@ public class MonthlyUsageAttributionValues {
         .append(toIndentedString(cloudSiemPercentage))
         .append("\n");
     sb.append("    cloudSiemUsage: ").append(toIndentedString(cloudSiemUsage)).append("\n");
+    sb.append("    codeSecurityHostPercentage: ")
+        .append(toIndentedString(codeSecurityHostPercentage))
+        .append("\n");
+    sb.append("    codeSecurityHostUsage: ")
+        .append(toIndentedString(codeSecurityHostUsage))
+        .append("\n");
     sb.append("    containerExclAgentPercentage: ")
         .append(toIndentedString(containerExclAgentPercentage))
         .append("\n");
