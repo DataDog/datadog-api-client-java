@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"This is a bad example app\",\"embeddedQueries\":[],\"rootInstanceName\":\"grid0\"},\"type\":\"appDefinitions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/app-builder/apps",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"detail\":\"missing required field\",\"source\":{\"pointer\":\"/data/attributes/name\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cac8f72e-b8c3-9caf-9580-ed4fa55c0d31"
+  }
+]
