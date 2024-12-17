@@ -1,0 +1,84 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"events\":[],\"name\":\"grid0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"gridCell0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"calloutValue0\",\"properties\":{\"isDisabled\":false,\"isLoading\":false,\"isVisible\":true,\"label\":\"CPU Usage\",\"size\":\"sm\",\"style\":\"vivid_yellow\",\"unit\":\"kB\",\"value\":\"42\"},\"type\":\"calloutValue\"}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"height\":8,\"width\":2,\"x\":0,\"y\":0}}},\"type\":\"gridCell\"}]},\"type\":\"grid\"}],\"description\":\"This is a simple example app\",\"embeddedQueries\":[],\"name\":\"Example App\",\"rootInstanceName\":\"grid0\"},\"type\":\"appDefinitions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/app-builder/apps",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"5cb67134-d7bd-4320-9cda-d79ec98cff4c\",\"type\":\"appDefinitions\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "820bad24-1ae4-7d45-b443-7591eb8052c1"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/app-builder/apps/5cb67134-d7bd-4320-9cda-d79ec98cff4c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"5cb67134-d7bd-4320-9cda-d79ec98cff4c\",\"type\":\"appDefinitions\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9c1dd179-d692-3416-28cd-f128df58ebe7"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/app-builder/apps/5cb67134-d7bd-4320-9cda-d79ec98cff4c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"detail\":\"app not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9c1dd179-d692-3416-28cd-f128df58ebe8"
+  }
+]

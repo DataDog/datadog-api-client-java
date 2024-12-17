@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"events\":[],\"name\":\"grid0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"gridCell0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"calloutValue0\",\"properties\":{\"isDisabled\":false,\"isLoading\":false,\"isVisible\":true,\"label\":\"CPU Usage\",\"size\":\"sm\",\"style\":\"vivid_yellow\",\"unit\":\"kB\",\"value\":\"42\"},\"type\":\"calloutValue\"}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"height\":8,\"width\":2,\"x\":0,\"y\":0}}},\"type\":\"gridCell\"}]},\"type\":\"grid\"}],\"description\":\"This is a simple example app\",\"embeddedQueries\":[],\"name\":\"Example App\",\"rootInstanceName\":\"grid0\"},\"type\":\"appDefinitions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/app-builder/apps",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"2d9dd18e-c574-454c-8d43-3045b731d6a2\",\"type\":\"appDefinitions\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "820bad24-1ae4-7d45-b443-7591eb8052c4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/app-builder/apps/2d9dd18e-c574-454c-8d43-3045b731d6a2",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"2d9dd18e-c574-454c-8d43-3045b731d6a2\",\"type\":\"appDefinitions\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1d96f31b-6242-7d87-11a6-166228a63510"
+  }
+]
