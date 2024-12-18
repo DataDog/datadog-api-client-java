@@ -4,8 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.AzureIntegrationApi;
 import com.datadog.api.client.v1.model.AzureAccount;
-import com.datadog.api.client.v1.model.AzureAccountMetricsConfig;
-import java.util.Arrays;
+import com.datadog.api.client.v1.model.ResourceProviderConfig;
 import java.util.Collections;
 
 public class Example {
@@ -24,13 +23,18 @@ public class Example {
             .customMetricsEnabled(true)
             .errors(Collections.singletonList("*"))
             .hostFilters("key:value,filter:example")
-            .metricsConfig(
-                new AzureAccountMetricsConfig()
-                    .excludedResourceProviders(Arrays.asList("Microsoft.Sql", "Microsoft.Cdn")))
+            .metricsEnabled(true)
+            .metricsEnabledDefault(true)
             .newClientId("new1c7f6-1234-5678-9101-3fcbf464test")
             .newTenantName("new1c44-1234-5678-9101-cc00736ftest")
             .resourceCollectionEnabled(true)
-            .tenantName("testc44-1234-5678-9101-cc00736ftest");
+            .resourceProviderConfigs(
+                Collections.singletonList(
+                    new ResourceProviderConfig()
+                        .metricsEnabled(true)
+                        .namespace("Microsoft.Compute")))
+            .tenantName("testc44-1234-5678-9101-cc00736ftest")
+            .usageMetricsEnabled(true);
 
     try {
       apiInstance.updateAzureHostFilters(body);
