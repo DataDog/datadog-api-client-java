@@ -12,57 +12,65 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Dictionary containing the key <code>excluded_resource_providers</code> which has to be a list of
- * Microsoft Azure Resource Provider names. This feature is currently being beta tested. In order to
- * enable all resource providers for metric collection, pass: <code>
- * metrics_config: {"excluded_resource_providers": []}</code> (i.e., an empty list for <code>
- * excluded_resource_providers</code>).
- */
-@JsonPropertyOrder({AzureAccountMetricsConfig.JSON_PROPERTY_EXCLUDED_RESOURCE_PROVIDERS})
+/** Configuration settings applied to resources from the specified Azure resource provider. */
+@JsonPropertyOrder({
+  ResourceProviderConfig.JSON_PROPERTY_METRICS_ENABLED,
+  ResourceProviderConfig.JSON_PROPERTY_NAMESPACE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AzureAccountMetricsConfig {
+public class ResourceProviderConfig {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_EXCLUDED_RESOURCE_PROVIDERS =
-      "excluded_resource_providers";
-  private List<String> excludedResourceProviders = null;
+  public static final String JSON_PROPERTY_METRICS_ENABLED = "metrics_enabled";
+  private Boolean metricsEnabled;
 
-  public AzureAccountMetricsConfig excludedResourceProviders(
-      List<String> excludedResourceProviders) {
-    this.excludedResourceProviders = excludedResourceProviders;
-    return this;
-  }
+  public static final String JSON_PROPERTY_NAMESPACE = "namespace";
+  private String namespace;
 
-  public AzureAccountMetricsConfig addExcludedResourceProvidersItem(
-      String excludedResourceProvidersItem) {
-    if (this.excludedResourceProviders == null) {
-      this.excludedResourceProviders = new ArrayList<>();
-    }
-    this.excludedResourceProviders.add(excludedResourceProvidersItem);
+  public ResourceProviderConfig metricsEnabled(Boolean metricsEnabled) {
+    this.metricsEnabled = metricsEnabled;
     return this;
   }
 
   /**
-   * List of Microsoft Azure Resource Providers to exclude from metric collection.
+   * Collect metrics for resources from this provider.
    *
-   * @return excludedResourceProviders
+   * @return metricsEnabled
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXCLUDED_RESOURCE_PROVIDERS)
+  @JsonProperty(JSON_PROPERTY_METRICS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getExcludedResourceProviders() {
-    return excludedResourceProviders;
+  public Boolean getMetricsEnabled() {
+    return metricsEnabled;
   }
 
-  public void setExcludedResourceProviders(List<String> excludedResourceProviders) {
-    this.excludedResourceProviders = excludedResourceProviders;
+  public void setMetricsEnabled(Boolean metricsEnabled) {
+    this.metricsEnabled = metricsEnabled;
+  }
+
+  public ResourceProviderConfig namespace(String namespace) {
+    this.namespace = namespace;
+    return this;
+  }
+
+  /**
+   * The provider namespace to apply this configuration to.
+   *
+   * @return namespace
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAMESPACE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getNamespace() {
+    return namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
   }
 
   /**
@@ -77,10 +85,10 @@ public class AzureAccountMetricsConfig {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AzureAccountMetricsConfig
+   * @return ResourceProviderConfig
    */
   @JsonAnySetter
-  public AzureAccountMetricsConfig putAdditionalProperty(String key, Object value) {
+  public ResourceProviderConfig putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -111,7 +119,7 @@ public class AzureAccountMetricsConfig {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AzureAccountMetricsConfig object is equal to o. */
+  /** Return true if this ResourceProviderConfig object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -120,25 +128,23 @@ public class AzureAccountMetricsConfig {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AzureAccountMetricsConfig azureAccountMetricsConfig = (AzureAccountMetricsConfig) o;
-    return Objects.equals(
-            this.excludedResourceProviders, azureAccountMetricsConfig.excludedResourceProviders)
-        && Objects.equals(
-            this.additionalProperties, azureAccountMetricsConfig.additionalProperties);
+    ResourceProviderConfig resourceProviderConfig = (ResourceProviderConfig) o;
+    return Objects.equals(this.metricsEnabled, resourceProviderConfig.metricsEnabled)
+        && Objects.equals(this.namespace, resourceProviderConfig.namespace)
+        && Objects.equals(this.additionalProperties, resourceProviderConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(excludedResourceProviders, additionalProperties);
+    return Objects.hash(metricsEnabled, namespace, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AzureAccountMetricsConfig {\n");
-    sb.append("    excludedResourceProviders: ")
-        .append(toIndentedString(excludedResourceProviders))
-        .append("\n");
+    sb.append("class ResourceProviderConfig {\n");
+    sb.append("    metricsEnabled: ").append(toIndentedString(metricsEnabled)).append("\n");
+    sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

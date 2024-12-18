@@ -29,11 +29,14 @@ import java.util.Objects;
   AzureAccount.JSON_PROPERTY_CUSTOM_METRICS_ENABLED,
   AzureAccount.JSON_PROPERTY_ERRORS,
   AzureAccount.JSON_PROPERTY_HOST_FILTERS,
-  AzureAccount.JSON_PROPERTY_METRICS_CONFIG,
+  AzureAccount.JSON_PROPERTY_METRICS_ENABLED,
+  AzureAccount.JSON_PROPERTY_METRICS_ENABLED_DEFAULT,
   AzureAccount.JSON_PROPERTY_NEW_CLIENT_ID,
   AzureAccount.JSON_PROPERTY_NEW_TENANT_NAME,
   AzureAccount.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED,
-  AzureAccount.JSON_PROPERTY_TENANT_NAME
+  AzureAccount.JSON_PROPERTY_RESOURCE_PROVIDER_CONFIGS,
+  AzureAccount.JSON_PROPERTY_TENANT_NAME,
+  AzureAccount.JSON_PROPERTY_USAGE_METRICS_ENABLED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -66,8 +69,11 @@ public class AzureAccount {
   public static final String JSON_PROPERTY_HOST_FILTERS = "host_filters";
   private String hostFilters;
 
-  public static final String JSON_PROPERTY_METRICS_CONFIG = "metrics_config";
-  private AzureAccountMetricsConfig metricsConfig;
+  public static final String JSON_PROPERTY_METRICS_ENABLED = "metrics_enabled";
+  private Boolean metricsEnabled;
+
+  public static final String JSON_PROPERTY_METRICS_ENABLED_DEFAULT = "metrics_enabled_default";
+  private Boolean metricsEnabledDefault;
 
   public static final String JSON_PROPERTY_NEW_CLIENT_ID = "new_client_id";
   private String newClientId;
@@ -79,8 +85,14 @@ public class AzureAccount {
       "resource_collection_enabled";
   private Boolean resourceCollectionEnabled;
 
+  public static final String JSON_PROPERTY_RESOURCE_PROVIDER_CONFIGS = "resource_provider_configs";
+  private List<ResourceProviderConfig> resourceProviderConfigs = null;
+
   public static final String JSON_PROPERTY_TENANT_NAME = "tenant_name";
   private String tenantName;
+
+  public static final String JSON_PROPERTY_USAGE_METRICS_ENABLED = "usage_metrics_enabled";
+  private Boolean usageMetricsEnabled;
 
   public AzureAccount appServicePlanFilters(String appServicePlanFilters) {
     this.appServicePlanFilters = appServicePlanFilters;
@@ -284,30 +296,47 @@ public class AzureAccount {
     this.hostFilters = hostFilters;
   }
 
-  public AzureAccount metricsConfig(AzureAccountMetricsConfig metricsConfig) {
-    this.metricsConfig = metricsConfig;
-    this.unparsed |= metricsConfig.unparsed;
+  public AzureAccount metricsEnabled(Boolean metricsEnabled) {
+    this.metricsEnabled = metricsEnabled;
     return this;
   }
 
   /**
-   * Dictionary containing the key <code>excluded_resource_providers</code> which has to be a list
-   * of Microsoft Azure Resource Provider names. This feature is currently being beta tested. In
-   * order to enable all resource providers for metric collection, pass: <code>
-   * metrics_config: {"excluded_resource_providers": []}</code> (i.e., an empty list for <code>
-   * excluded_resource_providers</code>).
+   * Enable Azure metrics for your organization.
    *
-   * @return metricsConfig
+   * @return metricsEnabled
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRICS_CONFIG)
+  @JsonProperty(JSON_PROPERTY_METRICS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AzureAccountMetricsConfig getMetricsConfig() {
-    return metricsConfig;
+  public Boolean getMetricsEnabled() {
+    return metricsEnabled;
   }
 
-  public void setMetricsConfig(AzureAccountMetricsConfig metricsConfig) {
-    this.metricsConfig = metricsConfig;
+  public void setMetricsEnabled(Boolean metricsEnabled) {
+    this.metricsEnabled = metricsEnabled;
+  }
+
+  public AzureAccount metricsEnabledDefault(Boolean metricsEnabledDefault) {
+    this.metricsEnabledDefault = metricsEnabledDefault;
+    return this;
+  }
+
+  /**
+   * Enable Azure metrics for your organization for resource providers where no resource provider
+   * config is specified.
+   *
+   * @return metricsEnabledDefault
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METRICS_ENABLED_DEFAULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getMetricsEnabledDefault() {
+    return metricsEnabledDefault;
+  }
+
+  public void setMetricsEnabledDefault(Boolean metricsEnabledDefault) {
+    this.metricsEnabledDefault = metricsEnabledDefault;
   }
 
   public AzureAccount newClientId(String newClientId) {
@@ -374,6 +403,41 @@ public class AzureAccount {
     this.resourceCollectionEnabled = resourceCollectionEnabled;
   }
 
+  public AzureAccount resourceProviderConfigs(
+      List<ResourceProviderConfig> resourceProviderConfigs) {
+    this.resourceProviderConfigs = resourceProviderConfigs;
+    for (ResourceProviderConfig item : resourceProviderConfigs) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public AzureAccount addResourceProviderConfigsItem(
+      ResourceProviderConfig resourceProviderConfigsItem) {
+    if (this.resourceProviderConfigs == null) {
+      this.resourceProviderConfigs = new ArrayList<>();
+    }
+    this.resourceProviderConfigs.add(resourceProviderConfigsItem);
+    this.unparsed |= resourceProviderConfigsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Configuration settings applied to resources from the specified Azure resource providers.
+   *
+   * @return resourceProviderConfigs
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESOURCE_PROVIDER_CONFIGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ResourceProviderConfig> getResourceProviderConfigs() {
+    return resourceProviderConfigs;
+  }
+
+  public void setResourceProviderConfigs(List<ResourceProviderConfig> resourceProviderConfigs) {
+    this.resourceProviderConfigs = resourceProviderConfigs;
+  }
+
   public AzureAccount tenantName(String tenantName) {
     this.tenantName = tenantName;
     return this;
@@ -393,6 +457,27 @@ public class AzureAccount {
 
   public void setTenantName(String tenantName) {
     this.tenantName = tenantName;
+  }
+
+  public AzureAccount usageMetricsEnabled(Boolean usageMetricsEnabled) {
+    this.usageMetricsEnabled = usageMetricsEnabled;
+    return this;
+  }
+
+  /**
+   * Enable azure.usage metrics for your organization.
+   *
+   * @return usageMetricsEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USAGE_METRICS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getUsageMetricsEnabled() {
+    return usageMetricsEnabled;
+  }
+
+  public void setUsageMetricsEnabled(Boolean usageMetricsEnabled) {
+    this.usageMetricsEnabled = usageMetricsEnabled;
   }
 
   /**
@@ -460,11 +545,14 @@ public class AzureAccount {
         && Objects.equals(this.customMetricsEnabled, azureAccount.customMetricsEnabled)
         && Objects.equals(this.errors, azureAccount.errors)
         && Objects.equals(this.hostFilters, azureAccount.hostFilters)
-        && Objects.equals(this.metricsConfig, azureAccount.metricsConfig)
+        && Objects.equals(this.metricsEnabled, azureAccount.metricsEnabled)
+        && Objects.equals(this.metricsEnabledDefault, azureAccount.metricsEnabledDefault)
         && Objects.equals(this.newClientId, azureAccount.newClientId)
         && Objects.equals(this.newTenantName, azureAccount.newTenantName)
         && Objects.equals(this.resourceCollectionEnabled, azureAccount.resourceCollectionEnabled)
+        && Objects.equals(this.resourceProviderConfigs, azureAccount.resourceProviderConfigs)
         && Objects.equals(this.tenantName, azureAccount.tenantName)
+        && Objects.equals(this.usageMetricsEnabled, azureAccount.usageMetricsEnabled)
         && Objects.equals(this.additionalProperties, azureAccount.additionalProperties);
   }
 
@@ -480,11 +568,14 @@ public class AzureAccount {
         customMetricsEnabled,
         errors,
         hostFilters,
-        metricsConfig,
+        metricsEnabled,
+        metricsEnabledDefault,
         newClientId,
         newTenantName,
         resourceCollectionEnabled,
+        resourceProviderConfigs,
         tenantName,
+        usageMetricsEnabled,
         additionalProperties);
   }
 
@@ -507,13 +598,22 @@ public class AzureAccount {
         .append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
-    sb.append("    metricsConfig: ").append(toIndentedString(metricsConfig)).append("\n");
+    sb.append("    metricsEnabled: ").append(toIndentedString(metricsEnabled)).append("\n");
+    sb.append("    metricsEnabledDefault: ")
+        .append(toIndentedString(metricsEnabledDefault))
+        .append("\n");
     sb.append("    newClientId: ").append(toIndentedString(newClientId)).append("\n");
     sb.append("    newTenantName: ").append(toIndentedString(newTenantName)).append("\n");
     sb.append("    resourceCollectionEnabled: ")
         .append(toIndentedString(resourceCollectionEnabled))
         .append("\n");
+    sb.append("    resourceProviderConfigs: ")
+        .append(toIndentedString(resourceProviderConfigs))
+        .append("\n");
     sb.append("    tenantName: ").append(toIndentedString(tenantName)).append("\n");
+    sb.append("    usageMetricsEnabled: ")
+        .append(toIndentedString(usageMetricsEnabled))
+        .append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
