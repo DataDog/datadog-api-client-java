@@ -89,6 +89,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_ERROR_TRACKING_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG_SUM,
@@ -414,6 +416,15 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_AGG_SUM =
       "error_tracking_rum_error_events_agg_sum";
   private Long errorTrackingRumErrorEventsAggSum;
+
+  public static final String JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG_SUM =
+      "fargate_container_profiler_profiling_fargate_avg_sum";
+  private Long fargateContainerProfilerProfilingFargateAvgSum;
+
+  public static final String
+      JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG_SUM =
+          "fargate_container_profiler_profiling_fargate_eks_avg_sum";
+  private Long fargateContainerProfilerProfilingFargateEksAvgSum;
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM =
       "fargate_tasks_count_avg_sum";
@@ -949,8 +960,8 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the average of all profiled Fargate tasks over all hours in the current month for all
-   * organizations.
+   * The average total count for Fargate Container Profiler over all hours in the current month for
+   * all organizations.
    *
    * @return avgProfiledFargateTasksSum
    */
@@ -2207,6 +2218,58 @@ public class UsageSummaryResponse {
 
   public void setErrorTrackingRumErrorEventsAggSum(Long errorTrackingRumErrorEventsAggSum) {
     this.errorTrackingRumErrorEventsAggSum = errorTrackingRumErrorEventsAggSum;
+  }
+
+  public UsageSummaryResponse fargateContainerProfilerProfilingFargateAvgSum(
+      Long fargateContainerProfilerProfilingFargateAvgSum) {
+    this.fargateContainerProfilerProfilingFargateAvgSum =
+        fargateContainerProfilerProfilingFargateAvgSum;
+    return this;
+  }
+
+  /**
+   * The average number of Profiling Fargate tasks over all hours in the current month for all
+   * organizations.
+   *
+   * @return fargateContainerProfilerProfilingFargateAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFargateContainerProfilerProfilingFargateAvgSum() {
+    return fargateContainerProfilerProfilingFargateAvgSum;
+  }
+
+  public void setFargateContainerProfilerProfilingFargateAvgSum(
+      Long fargateContainerProfilerProfilingFargateAvgSum) {
+    this.fargateContainerProfilerProfilingFargateAvgSum =
+        fargateContainerProfilerProfilingFargateAvgSum;
+  }
+
+  public UsageSummaryResponse fargateContainerProfilerProfilingFargateEksAvgSum(
+      Long fargateContainerProfilerProfilingFargateEksAvgSum) {
+    this.fargateContainerProfilerProfilingFargateEksAvgSum =
+        fargateContainerProfilerProfilingFargateEksAvgSum;
+    return this;
+  }
+
+  /**
+   * The average number of Profiling Fargate Elastic Kubernetes Service tasks over all hours in the
+   * current month for all organizations.
+   *
+   * @return fargateContainerProfilerProfilingFargateEksAvgSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFargateContainerProfilerProfilingFargateEksAvgSum() {
+    return fargateContainerProfilerProfilingFargateEksAvgSum;
+  }
+
+  public void setFargateContainerProfilerProfilingFargateEksAvgSum(
+      Long fargateContainerProfilerProfilingFargateEksAvgSum) {
+    this.fargateContainerProfilerProfilingFargateEksAvgSum =
+        fargateContainerProfilerProfilingFargateEksAvgSum;
   }
 
   public UsageSummaryResponse fargateTasksCountAvgSum(Long fargateTasksCountAvgSum) {
@@ -4407,6 +4470,12 @@ public class UsageSummaryResponse {
             this.errorTrackingRumErrorEventsAggSum,
             usageSummaryResponse.errorTrackingRumErrorEventsAggSum)
         && Objects.equals(
+            this.fargateContainerProfilerProfilingFargateAvgSum,
+            usageSummaryResponse.fargateContainerProfilerProfilingFargateAvgSum)
+        && Objects.equals(
+            this.fargateContainerProfilerProfilingFargateEksAvgSum,
+            usageSummaryResponse.fargateContainerProfilerProfilingFargateEksAvgSum)
+        && Objects.equals(
             this.fargateTasksCountAvgSum, usageSummaryResponse.fargateTasksCountAvgSum)
         && Objects.equals(
             this.fargateTasksCountHwmSum, usageSummaryResponse.fargateTasksCountHwmSum)
@@ -4665,6 +4734,8 @@ public class UsageSummaryResponse {
         errorTrackingErrorEventsAggSum,
         errorTrackingEventsAggSum,
         errorTrackingRumErrorEventsAggSum,
+        fargateContainerProfilerProfilingFargateAvgSum,
+        fargateContainerProfilerProfilingFargateEksAvgSum,
         fargateTasksCountAvgSum,
         fargateTasksCountHwmSum,
         flexLogsComputeLargeAvgSum,
@@ -4923,6 +4994,12 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    errorTrackingRumErrorEventsAggSum: ")
         .append(toIndentedString(errorTrackingRumErrorEventsAggSum))
+        .append("\n");
+    sb.append("    fargateContainerProfilerProfilingFargateAvgSum: ")
+        .append(toIndentedString(fargateContainerProfilerProfilingFargateAvgSum))
+        .append("\n");
+    sb.append("    fargateContainerProfilerProfilingFargateEksAvgSum: ")
+        .append(toIndentedString(fargateContainerProfilerProfilingFargateEksAvgSum))
         .append("\n");
     sb.append("    fargateTasksCountAvgSum: ")
         .append(toIndentedString(fargateTasksCountAvgSum))

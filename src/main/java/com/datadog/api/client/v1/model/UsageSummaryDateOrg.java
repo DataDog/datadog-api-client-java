@@ -83,6 +83,8 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG,
@@ -394,6 +396,14 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM =
       "error_tracking_rum_error_events_sum";
   private Long errorTrackingRumErrorEventsSum;
+
+  public static final String JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG =
+      "fargate_container_profiler_profiling_fargate_avg";
+  private Long fargateContainerProfilerProfilingFargateAvg;
+
+  public static final String JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG =
+      "fargate_container_profiler_profiling_fargate_eks_avg";
+  private Long fargateContainerProfilerProfilingFargateEksAvg;
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG = "fargate_tasks_count_avg";
   private Long fargateTasksCountAvg;
@@ -942,7 +952,8 @@ public class UsageSummaryDateOrg {
   }
 
   /**
-   * The average profiled task count for Fargate Profiling.
+   * The average total count for Fargate Container Profiler over all hours in the current month for
+   * the given org.
    *
    * @return avgProfiledFargateTasks
    */
@@ -2139,6 +2150,56 @@ public class UsageSummaryDateOrg {
 
   public void setErrorTrackingRumErrorEventsSum(Long errorTrackingRumErrorEventsSum) {
     this.errorTrackingRumErrorEventsSum = errorTrackingRumErrorEventsSum;
+  }
+
+  public UsageSummaryDateOrg fargateContainerProfilerProfilingFargateAvg(
+      Long fargateContainerProfilerProfilingFargateAvg) {
+    this.fargateContainerProfilerProfilingFargateAvg = fargateContainerProfilerProfilingFargateAvg;
+    return this;
+  }
+
+  /**
+   * The average number of Profiling Fargate tasks over all hours in the current month for the given
+   * org.
+   *
+   * @return fargateContainerProfilerProfilingFargateAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFargateContainerProfilerProfilingFargateAvg() {
+    return fargateContainerProfilerProfilingFargateAvg;
+  }
+
+  public void setFargateContainerProfilerProfilingFargateAvg(
+      Long fargateContainerProfilerProfilingFargateAvg) {
+    this.fargateContainerProfilerProfilingFargateAvg = fargateContainerProfilerProfilingFargateAvg;
+  }
+
+  public UsageSummaryDateOrg fargateContainerProfilerProfilingFargateEksAvg(
+      Long fargateContainerProfilerProfilingFargateEksAvg) {
+    this.fargateContainerProfilerProfilingFargateEksAvg =
+        fargateContainerProfilerProfilingFargateEksAvg;
+    return this;
+  }
+
+  /**
+   * The average number of Profiling Fargate Elastic Kubernetes Service tasks over all hours in the
+   * current month for the given org.
+   *
+   * @return fargateContainerProfilerProfilingFargateEksAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFargateContainerProfilerProfilingFargateEksAvg() {
+    return fargateContainerProfilerProfilingFargateEksAvg;
+  }
+
+  public void setFargateContainerProfilerProfilingFargateEksAvg(
+      Long fargateContainerProfilerProfilingFargateEksAvg) {
+    this.fargateContainerProfilerProfilingFargateEksAvg =
+        fargateContainerProfilerProfilingFargateEksAvg;
   }
 
   public UsageSummaryDateOrg fargateTasksCountAvg(Long fargateTasksCountAvg) {
@@ -4157,6 +4218,12 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.errorTrackingEventsSum, usageSummaryDateOrg.errorTrackingEventsSum)
         && Objects.equals(
             this.errorTrackingRumErrorEventsSum, usageSummaryDateOrg.errorTrackingRumErrorEventsSum)
+        && Objects.equals(
+            this.fargateContainerProfilerProfilingFargateAvg,
+            usageSummaryDateOrg.fargateContainerProfilerProfilingFargateAvg)
+        && Objects.equals(
+            this.fargateContainerProfilerProfilingFargateEksAvg,
+            usageSummaryDateOrg.fargateContainerProfilerProfilingFargateEksAvg)
         && Objects.equals(this.fargateTasksCountAvg, usageSummaryDateOrg.fargateTasksCountAvg)
         && Objects.equals(this.fargateTasksCountHwm, usageSummaryDateOrg.fargateTasksCountHwm)
         && Objects.equals(this.flexLogsComputeLargeAvg, usageSummaryDateOrg.flexLogsComputeLargeAvg)
@@ -4379,6 +4446,8 @@ public class UsageSummaryDateOrg {
         errorTrackingErrorEventsSum,
         errorTrackingEventsSum,
         errorTrackingRumErrorEventsSum,
+        fargateContainerProfilerProfilingFargateAvg,
+        fargateContainerProfilerProfilingFargateEksAvg,
         fargateTasksCountAvg,
         fargateTasksCountHwm,
         flexLogsComputeLargeAvg,
@@ -4614,6 +4683,12 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    errorTrackingRumErrorEventsSum: ")
         .append(toIndentedString(errorTrackingRumErrorEventsSum))
+        .append("\n");
+    sb.append("    fargateContainerProfilerProfilingFargateAvg: ")
+        .append(toIndentedString(fargateContainerProfilerProfilingFargateAvg))
+        .append("\n");
+    sb.append("    fargateContainerProfilerProfilingFargateEksAvg: ")
+        .append(toIndentedString(fargateContainerProfilerProfilingFargateEksAvg))
         .append("\n");
     sb.append("    fargateTasksCountAvg: ")
         .append(toIndentedString(fargateTasksCountAvg))
