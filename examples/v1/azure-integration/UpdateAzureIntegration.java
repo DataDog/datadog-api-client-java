@@ -4,8 +4,6 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.AzureIntegrationApi;
 import com.datadog.api.client.v1.model.AzureAccount;
-import com.datadog.api.client.v1.model.AzureAccountMetricsConfig;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -27,9 +25,6 @@ public class Example {
             .newClientId("9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d")
             .newTenantName("9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d")
             .resourceCollectionEnabled(true)
-            .metricsConfig(
-                new AzureAccountMetricsConfig()
-                    .excludedResourceProviders(Arrays.asList("Microsoft.Sql", "Microsoft.Cdn")))
             .tenantName("9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d");
 
     try {

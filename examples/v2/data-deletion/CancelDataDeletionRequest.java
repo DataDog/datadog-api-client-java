@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.CancelDataDeletionResponseBody;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("v2.cancelDataDeletionRequest", true);
     DataDeletionApi apiInstance = new DataDeletionApi(defaultClient);
 
     // there is a valid "deletion_request" in the system

@@ -50,6 +50,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_CLOUD_SIEM_EVENTS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_CODE_ANALYSIS_SA_COMMITTERS_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CODE_ANALYSIS_SCA_COMMITTERS_HWM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_EXCL_AGENT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
@@ -82,6 +83,8 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_FLEX_LOGS_COMPUTE_LARGE_AVG,
@@ -282,6 +285,9 @@ public class UsageSummaryDateOrg {
       "code_analysis_sca_committers_hwm";
   private Long codeAnalysisScaCommittersHwm;
 
+  public static final String JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P = "code_security_host_top99p";
+  private Long codeSecurityHostTop99p;
+
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
 
@@ -390,6 +396,14 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM =
       "error_tracking_rum_error_events_sum";
   private Long errorTrackingRumErrorEventsSum;
+
+  public static final String JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG =
+      "fargate_container_profiler_profiling_fargate_avg";
+  private Long fargateContainerProfilerProfilingFargateAvg;
+
+  public static final String JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG =
+      "fargate_container_profiler_profiling_fargate_eks_avg";
+  private Long fargateContainerProfilerProfilingFargateEksAvg;
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG = "fargate_tasks_count_avg";
   private Long fargateTasksCountAvg;
@@ -938,7 +952,8 @@ public class UsageSummaryDateOrg {
   }
 
   /**
-   * The average profiled task count for Fargate Profiling.
+   * The average total count for Fargate Container Profiler over all hours in the current month for
+   * the given org.
    *
    * @return avgProfiledFargateTasks
    */
@@ -1397,6 +1412,28 @@ public class UsageSummaryDateOrg {
 
   public void setCodeAnalysisScaCommittersHwm(Long codeAnalysisScaCommittersHwm) {
     this.codeAnalysisScaCommittersHwm = codeAnalysisScaCommittersHwm;
+  }
+
+  public UsageSummaryDateOrg codeSecurityHostTop99p(Long codeSecurityHostTop99p) {
+    this.codeSecurityHostTop99p = codeSecurityHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Code Security hosts over all hours in the current date for the
+   * given org.
+   *
+   * @return codeSecurityHostTop99p
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CODE_SECURITY_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCodeSecurityHostTop99p() {
+    return codeSecurityHostTop99p;
+  }
+
+  public void setCodeSecurityHostTop99p(Long codeSecurityHostTop99p) {
+    this.codeSecurityHostTop99p = codeSecurityHostTop99p;
   }
 
   public UsageSummaryDateOrg containerAvg(Long containerAvg) {
@@ -2113,6 +2150,56 @@ public class UsageSummaryDateOrg {
 
   public void setErrorTrackingRumErrorEventsSum(Long errorTrackingRumErrorEventsSum) {
     this.errorTrackingRumErrorEventsSum = errorTrackingRumErrorEventsSum;
+  }
+
+  public UsageSummaryDateOrg fargateContainerProfilerProfilingFargateAvg(
+      Long fargateContainerProfilerProfilingFargateAvg) {
+    this.fargateContainerProfilerProfilingFargateAvg = fargateContainerProfilerProfilingFargateAvg;
+    return this;
+  }
+
+  /**
+   * The average number of Profiling Fargate tasks over all hours in the current month for the given
+   * org.
+   *
+   * @return fargateContainerProfilerProfilingFargateAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFargateContainerProfilerProfilingFargateAvg() {
+    return fargateContainerProfilerProfilingFargateAvg;
+  }
+
+  public void setFargateContainerProfilerProfilingFargateAvg(
+      Long fargateContainerProfilerProfilingFargateAvg) {
+    this.fargateContainerProfilerProfilingFargateAvg = fargateContainerProfilerProfilingFargateAvg;
+  }
+
+  public UsageSummaryDateOrg fargateContainerProfilerProfilingFargateEksAvg(
+      Long fargateContainerProfilerProfilingFargateEksAvg) {
+    this.fargateContainerProfilerProfilingFargateEksAvg =
+        fargateContainerProfilerProfilingFargateEksAvg;
+    return this;
+  }
+
+  /**
+   * The average number of Profiling Fargate Elastic Kubernetes Service tasks over all hours in the
+   * current month for the given org.
+   *
+   * @return fargateContainerProfilerProfilingFargateEksAvg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FARGATE_CONTAINER_PROFILER_PROFILING_FARGATE_EKS_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFargateContainerProfilerProfilingFargateEksAvg() {
+    return fargateContainerProfilerProfilingFargateEksAvg;
+  }
+
+  public void setFargateContainerProfilerProfilingFargateEksAvg(
+      Long fargateContainerProfilerProfilingFargateEksAvg) {
+    this.fargateContainerProfilerProfilingFargateEksAvg =
+        fargateContainerProfilerProfilingFargateEksAvg;
   }
 
   public UsageSummaryDateOrg fargateTasksCountAvg(Long fargateTasksCountAvg) {
@@ -4075,6 +4162,7 @@ public class UsageSummaryDateOrg {
             this.codeAnalysisSaCommittersHwm, usageSummaryDateOrg.codeAnalysisSaCommittersHwm)
         && Objects.equals(
             this.codeAnalysisScaCommittersHwm, usageSummaryDateOrg.codeAnalysisScaCommittersHwm)
+        && Objects.equals(this.codeSecurityHostTop99p, usageSummaryDateOrg.codeSecurityHostTop99p)
         && Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg)
         && Objects.equals(this.containerExclAgentAvg, usageSummaryDateOrg.containerExclAgentAvg)
         && Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm)
@@ -4130,6 +4218,12 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.errorTrackingEventsSum, usageSummaryDateOrg.errorTrackingEventsSum)
         && Objects.equals(
             this.errorTrackingRumErrorEventsSum, usageSummaryDateOrg.errorTrackingRumErrorEventsSum)
+        && Objects.equals(
+            this.fargateContainerProfilerProfilingFargateAvg,
+            usageSummaryDateOrg.fargateContainerProfilerProfilingFargateAvg)
+        && Objects.equals(
+            this.fargateContainerProfilerProfilingFargateEksAvg,
+            usageSummaryDateOrg.fargateContainerProfilerProfilingFargateEksAvg)
         && Objects.equals(this.fargateTasksCountAvg, usageSummaryDateOrg.fargateTasksCountAvg)
         && Objects.equals(this.fargateTasksCountHwm, usageSummaryDateOrg.fargateTasksCountHwm)
         && Objects.equals(this.flexLogsComputeLargeAvg, usageSummaryDateOrg.flexLogsComputeLargeAvg)
@@ -4319,6 +4413,7 @@ public class UsageSummaryDateOrg {
         cloudSiemEventsSum,
         codeAnalysisSaCommittersHwm,
         codeAnalysisScaCommittersHwm,
+        codeSecurityHostTop99p,
         containerAvg,
         containerExclAgentAvg,
         containerHwm,
@@ -4351,6 +4446,8 @@ public class UsageSummaryDateOrg {
         errorTrackingErrorEventsSum,
         errorTrackingEventsSum,
         errorTrackingRumErrorEventsSum,
+        fargateContainerProfilerProfilingFargateAvg,
+        fargateContainerProfilerProfilingFargateEksAvg,
         fargateTasksCountAvg,
         fargateTasksCountHwm,
         flexLogsComputeLargeAvg,
@@ -4516,6 +4613,9 @@ public class UsageSummaryDateOrg {
     sb.append("    codeAnalysisScaCommittersHwm: ")
         .append(toIndentedString(codeAnalysisScaCommittersHwm))
         .append("\n");
+    sb.append("    codeSecurityHostTop99p: ")
+        .append(toIndentedString(codeSecurityHostTop99p))
+        .append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerExclAgentAvg: ")
         .append(toIndentedString(containerExclAgentAvg))
@@ -4583,6 +4683,12 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    errorTrackingRumErrorEventsSum: ")
         .append(toIndentedString(errorTrackingRumErrorEventsSum))
+        .append("\n");
+    sb.append("    fargateContainerProfilerProfilingFargateAvg: ")
+        .append(toIndentedString(fargateContainerProfilerProfilingFargateAvg))
+        .append("\n");
+    sb.append("    fargateContainerProfilerProfilingFargateEksAvg: ")
+        .append(toIndentedString(fargateContainerProfilerProfilingFargateEksAvg))
         .append("\n");
     sb.append("    fargateTasksCountAvg: ")
         .append(toIndentedString(fargateTasksCountAvg))

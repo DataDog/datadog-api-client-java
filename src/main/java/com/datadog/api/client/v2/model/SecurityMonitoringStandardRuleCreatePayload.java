@@ -252,7 +252,7 @@ public class SecurityMonitoringStandardRuleCreatePayload {
   }
 
   /**
-   * Options on rules.
+   * Options.
    *
    * @return options
    */

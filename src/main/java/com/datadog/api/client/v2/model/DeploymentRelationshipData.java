@@ -4,7 +4,7 @@
  * Copyright 2019-Present Datadog, Inc.
  */
 
-package com.datadog.api.client.v1.model;
+package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -12,57 +12,69 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Dictionary containing the key <code>excluded_resource_providers</code> which has to be a list of
- * Microsoft Azure Resource Provider names. This feature is currently being beta tested. In order to
- * enable all resource providers for metric collection, pass: <code>
- * metrics_config: {"excluded_resource_providers": []}</code> (i.e., an empty list for <code>
- * excluded_resource_providers</code>).
- */
-@JsonPropertyOrder({AzureAccountMetricsConfig.JSON_PROPERTY_EXCLUDED_RESOURCE_PROVIDERS})
+/** The definition of <code>DeploymentRelationshipData</code> object. */
+@JsonPropertyOrder({
+  DeploymentRelationshipData.JSON_PROPERTY_ID,
+  DeploymentRelationshipData.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AzureAccountMetricsConfig {
+public class DeploymentRelationshipData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_EXCLUDED_RESOURCE_PROVIDERS =
-      "excluded_resource_providers";
-  private List<String> excludedResourceProviders = null;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public AzureAccountMetricsConfig excludedResourceProviders(
-      List<String> excludedResourceProviders) {
-    this.excludedResourceProviders = excludedResourceProviders;
-    return this;
-  }
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private DeploymentRelationshipDataType type = DeploymentRelationshipDataType.DEPLOYMENT;
 
-  public AzureAccountMetricsConfig addExcludedResourceProvidersItem(
-      String excludedResourceProvidersItem) {
-    if (this.excludedResourceProviders == null) {
-      this.excludedResourceProviders = new ArrayList<>();
-    }
-    this.excludedResourceProviders.add(excludedResourceProvidersItem);
+  public DeploymentRelationshipData id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * List of Microsoft Azure Resource Providers to exclude from metric collection.
+   * The <code>data</code> <code>id</code>.
    *
-   * @return excludedResourceProviders
+   * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXCLUDED_RESOURCE_PROVIDERS)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getExcludedResourceProviders() {
-    return excludedResourceProviders;
+  public String getId() {
+    return id;
   }
 
-  public void setExcludedResourceProviders(List<String> excludedResourceProviders) {
-    this.excludedResourceProviders = excludedResourceProviders;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public DeploymentRelationshipData type(DeploymentRelationshipDataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * The definition of <code>DeploymentRelationshipDataType</code> object.
+   *
+   * @return type
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DeploymentRelationshipDataType getType() {
+    return type;
+  }
+
+  public void setType(DeploymentRelationshipDataType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -77,10 +89,10 @@ public class AzureAccountMetricsConfig {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AzureAccountMetricsConfig
+   * @return DeploymentRelationshipData
    */
   @JsonAnySetter
-  public AzureAccountMetricsConfig putAdditionalProperty(String key, Object value) {
+  public DeploymentRelationshipData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -111,7 +123,7 @@ public class AzureAccountMetricsConfig {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AzureAccountMetricsConfig object is equal to o. */
+  /** Return true if this DeploymentRelationshipData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -120,25 +132,24 @@ public class AzureAccountMetricsConfig {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AzureAccountMetricsConfig azureAccountMetricsConfig = (AzureAccountMetricsConfig) o;
-    return Objects.equals(
-            this.excludedResourceProviders, azureAccountMetricsConfig.excludedResourceProviders)
+    DeploymentRelationshipData deploymentRelationshipData = (DeploymentRelationshipData) o;
+    return Objects.equals(this.id, deploymentRelationshipData.id)
+        && Objects.equals(this.type, deploymentRelationshipData.type)
         && Objects.equals(
-            this.additionalProperties, azureAccountMetricsConfig.additionalProperties);
+            this.additionalProperties, deploymentRelationshipData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(excludedResourceProviders, additionalProperties);
+    return Objects.hash(id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AzureAccountMetricsConfig {\n");
-    sb.append("    excludedResourceProviders: ")
-        .append(toIndentedString(excludedResourceProviders))
-        .append("\n");
+    sb.append("class DeploymentRelationshipData {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

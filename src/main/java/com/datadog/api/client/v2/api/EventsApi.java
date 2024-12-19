@@ -86,9 +86,11 @@ public class EventsApi {
   /**
    * This endpoint allows you to post events.
    *
-   * <p>Only events with <strong><code>change</code> category</strong> are under General
-   * Availability. Refer to <a href="https://docs.datadoghq.com/change_tracking">Change Tracking</a>
-   * for further details.
+   * <p>✅ <strong>Only events with the <code>change</code> category</strong> are in General
+   * Availability. See <a href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for
+   * more details.
+   *
+   * <p>❌ For use cases involving other event categories, please use the V1 endpoint.
    *
    * @param body Event request object (required)
    * @return ApiResponse&lt;EventCreateResponsePayload&gt;

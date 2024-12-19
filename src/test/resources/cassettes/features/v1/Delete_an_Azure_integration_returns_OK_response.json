@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17219332-0000-0000-0000-172193325500\",\"client_secret\":\"TestingRh2nx664kUy5dIApvM54T4AtO\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"metrics_config\":{\"excluded_resource_providers\":[\"Microsoft.Sql\",\"Microsoft.Cdn\"]},\"new_client_id\":\"17219332-0000-0000-0000-172193325500\",\"new_tenant_name\":\"17219332-0000-0000-0000-172193325500\",\"resource_collection_enabled\":true,\"tenant_name\":\"17219332-0000-0000-0000-172193325500\"}"
+        "json": "{\"app_service_plan_filters\":\"key:value,filter:example\",\"automute\":true,\"client_id\":\"17344717-0000-0000-0000-173447178000\",\"client_secret\":\"TestingRh2nx664kUy5dIApvM54T4AtO\",\"container_app_filters\":\"key:value,filter:example\",\"cspm_enabled\":true,\"custom_metrics_enabled\":true,\"errors\":[\"*\"],\"host_filters\":\"key:value,filter:example\",\"metrics_enabled\":true,\"metrics_enabled_default\":true,\"new_client_id\":\"17344717-0000-0000-0000-173447178000\",\"new_tenant_name\":\"17344717-0000-0000-0000-173447178000\",\"resource_collection_enabled\":true,\"resource_provider_configs\":[{\"metrics_enabled\":false,\"namespace\":\"Microsoft.Compute\"},{\"metrics_enabled\":false,\"namespace\":\"Microsoft.Web\"}],\"tenant_name\":\"17344717-0000-0000-0000-173447178000\",\"usage_metrics_enabled\":true}"
       },
       "headers": {},
       "method": "POST",
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a4786fba-223e-c55e-474f-89e7ba3e2920"
+    "id": "4e2e023b-b6c5-6332-0969-71d544522742"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"client_id\":\"17219332-0000-0000-0000-172193325500\",\"tenant_name\":\"17219332-0000-0000-0000-172193325500\"}"
+        "json": "{\"client_id\":\"17344717-0000-0000-0000-173447178000\",\"tenant_name\":\"17344717-0000-0000-0000-173447178000\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "92cc025e-6a5d-ac9c-a6af-65450cdedad3"
+    "id": "18bf59b1-5d58-2ef7-1a8b-79afe390d743"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"client_id\":\"17219332-0000-0000-0000-172193325500\",\"tenant_name\":\"17219332-0000-0000-0000-172193325500\"}"
+        "json": "{\"client_id\":\"17344717-0000-0000-0000-173447178000\",\"tenant_name\":\"17344717-0000-0000-0000-173447178000\"}"
       },
       "headers": {},
       "method": "DELETE",
@@ -87,6 +87,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "92cc025e-6a5d-ac9c-a6af-65450cdedad4"
+    "id": "18bf59b1-5d58-2ef7-1a8b-79afe390d744"
   }
 ]

@@ -20,7 +20,7 @@ import java.util.Set;
 
 /**
  * Once a signal is generated, the signal will remain “open” if a case is matched at least once
- * within this keep alive window. For third party rules, this field is not used.
+ * within this keep alive window. For third party detection method, this field is not used.
  */
 @JsonSerialize(
     using = SecurityMonitoringRuleKeepAlive.SecurityMonitoringRuleKeepAliveSerializer.class)

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Include only these namespaces */
+/** Include only these namespaces. */
 @JsonPropertyOrder({AWSNamespaceFiltersIncludeOnly.JSON_PROPERTY_INCLUDE_ONLY})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class AWSNamespaceFiltersIncludeOnly {
   }
 
   /**
-   * Include only these namespaces
+   * Include only these namespaces.
    *
    * @return includeOnly
    */

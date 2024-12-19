@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Account Response body */
+/** AWS Account response data. */
 @JsonPropertyOrder({
   AWSAccountResponseData.JSON_PROPERTY_ATTRIBUTES,
   AWSAccountResponseData.JSON_PROPERTY_ID,
@@ -54,7 +54,7 @@ public class AWSAccountResponseData {
   }
 
   /**
-   * The AWS Account Integration Config
+   * AWS Account response attributes.
    *
    * @return attributes
    */
@@ -75,7 +75,10 @@ public class AWSAccountResponseData {
   }
 
   /**
-   * Unique Datadog ID of the AWS Account Integration Config
+   * Unique Datadog ID of the AWS Account Integration Config. To get the config ID for an account,
+   * use the <a
+   * href="https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations">List
+   * all AWS integrations</a> endpoint and query by AWS Account ID.
    *
    * @return id
    */

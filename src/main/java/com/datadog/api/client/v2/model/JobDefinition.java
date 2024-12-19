@@ -23,7 +23,6 @@ import java.util.Objects;
 @JsonPropertyOrder({
   JobDefinition.JSON_PROPERTY_CALCULATED_FIELDS,
   JobDefinition.JSON_PROPERTY_CASES,
-  JobDefinition.JSON_PROPERTY_FILTERS,
   JobDefinition.JSON_PROPERTY_FROM,
   JobDefinition.JSON_PROPERTY_INDEX,
   JobDefinition.JSON_PROPERTY_MESSAGE,
@@ -46,9 +45,6 @@ public class JobDefinition {
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCaseCreate> cases = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_FILTERS = "filters";
-  private List<SecurityMonitoringFilter> filters = null;
-
   public static final String JSON_PROPERTY_FROM = "from";
   private Long from;
 
@@ -62,10 +58,10 @@ public class JobDefinition {
   private String name;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
-  private SecurityMonitoringRuleOptions options;
+  private HistoricalJobOptions options;
 
   public static final String JSON_PROPERTY_QUERIES = "queries";
-  private List<SecurityMonitoringStandardRuleQuery> queries = new ArrayList<>();
+  private List<HistoricalJobQuery> queries = new ArrayList<>();
 
   public static final String JSON_PROPERTY_REFERENCE_TABLES = "referenceTables";
   private List<SecurityMonitoringReferenceTable> referenceTables = null;
@@ -93,7 +89,7 @@ public class JobDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
-          List<SecurityMonitoringStandardRuleQuery> queries,
+          List<HistoricalJobQuery> queries,
       @JsonProperty(required = true, value = JSON_PROPERTY_TO) Long to) {
     this.cases = cases;
     this.from = from;
@@ -164,40 +160,6 @@ public class JobDefinition {
 
   public void setCases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;
-  }
-
-  public JobDefinition filters(List<SecurityMonitoringFilter> filters) {
-    this.filters = filters;
-    for (SecurityMonitoringFilter item : filters) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public JobDefinition addFiltersItem(SecurityMonitoringFilter filtersItem) {
-    if (this.filters == null) {
-      this.filters = new ArrayList<>();
-    }
-    this.filters.add(filtersItem);
-    this.unparsed |= filtersItem.unparsed;
-    return this;
-  }
-
-  /**
-   * Additional queries to filter matched events before they are processed. This field is deprecated
-   * for log detection, signal correlation, and workload security rules.
-   *
-   * @return filters
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SecurityMonitoringFilter> getFilters() {
-    return filters;
-  }
-
-  public void setFilters(List<SecurityMonitoringFilter> filters) {
-    this.filters = filters;
   }
 
   public JobDefinition from(Long from) {
@@ -280,37 +242,37 @@ public class JobDefinition {
     this.name = name;
   }
 
-  public JobDefinition options(SecurityMonitoringRuleOptions options) {
+  public JobDefinition options(HistoricalJobOptions options) {
     this.options = options;
     this.unparsed |= options.unparsed;
     return this;
   }
 
   /**
-   * Options on rules.
+   * Job options.
    *
    * @return options
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleOptions getOptions() {
+  public HistoricalJobOptions getOptions() {
     return options;
   }
 
-  public void setOptions(SecurityMonitoringRuleOptions options) {
+  public void setOptions(HistoricalJobOptions options) {
     this.options = options;
   }
 
-  public JobDefinition queries(List<SecurityMonitoringStandardRuleQuery> queries) {
+  public JobDefinition queries(List<HistoricalJobQuery> queries) {
     this.queries = queries;
-    for (SecurityMonitoringStandardRuleQuery item : queries) {
+    for (HistoricalJobQuery item : queries) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public JobDefinition addQueriesItem(SecurityMonitoringStandardRuleQuery queriesItem) {
+  public JobDefinition addQueriesItem(HistoricalJobQuery queriesItem) {
     this.queries.add(queriesItem);
     this.unparsed |= queriesItem.unparsed;
     return this;
@@ -323,11 +285,11 @@ public class JobDefinition {
    */
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<SecurityMonitoringStandardRuleQuery> getQueries() {
+  public List<HistoricalJobQuery> getQueries() {
     return queries;
   }
 
-  public void setQueries(List<SecurityMonitoringStandardRuleQuery> queries) {
+  public void setQueries(List<HistoricalJobQuery> queries) {
     this.queries = queries;
   }
 
@@ -350,7 +312,7 @@ public class JobDefinition {
   }
 
   /**
-   * Reference tables for the rule.
+   * Reference tables used in the queries.
    *
    * @return referenceTables
    */
@@ -414,7 +376,8 @@ public class JobDefinition {
   }
 
   /**
-   * Cases for generating results from third-party rules. Only available for third-party rules.
+   * Cases for generating results from third-party detection method. Only available for third-party
+   * detection method.
    *
    * @return thirdPartyCases
    */
@@ -528,7 +491,6 @@ public class JobDefinition {
     JobDefinition jobDefinition = (JobDefinition) o;
     return Objects.equals(this.calculatedFields, jobDefinition.calculatedFields)
         && Objects.equals(this.cases, jobDefinition.cases)
-        && Objects.equals(this.filters, jobDefinition.filters)
         && Objects.equals(this.from, jobDefinition.from)
         && Objects.equals(this.index, jobDefinition.index)
         && Objects.equals(this.message, jobDefinition.message)
@@ -548,7 +510,6 @@ public class JobDefinition {
     return Objects.hash(
         calculatedFields,
         cases,
-        filters,
         from,
         index,
         message,
@@ -569,7 +530,6 @@ public class JobDefinition {
     sb.append("class JobDefinition {\n");
     sb.append("    calculatedFields: ").append(toIndentedString(calculatedFields)).append("\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
-    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");

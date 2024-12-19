@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** AWS Authentication config for key-based account */
+/** AWS Authentication config to integrate your account using an access key pair. */
 @JsonPropertyOrder({
   AWSAuthConfigKeys.JSON_PROPERTY_ACCESS_KEY_ID,
   AWSAuthConfigKeys.JSON_PROPERTY_SECRET_ACCESS_KEY
@@ -46,7 +46,7 @@ public class AWSAuthConfigKeys {
   }
 
   /**
-   * AWS Access Key ID
+   * AWS Access Key ID.
    *
    * @return accessKeyId
    */
@@ -66,7 +66,7 @@ public class AWSAuthConfigKeys {
   }
 
   /**
-   * AWS Secret Access Key
+   * AWS Secret Access Key.
    *
    * @return secretAccessKey
    */

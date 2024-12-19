@@ -85,7 +85,11 @@ components:
       schema:
         $ref: '#/components/schemas/APIKeysSort'
     AWSAccountConfigIDPathParameter:
-      description: Unique Datadog ID of the AWS Account Integration Config
+      description: 'Unique Datadog ID of the AWS Account Integration Config. To get
+        the config ID for an account, use the
+
+        [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
+        endpoint and query by AWS Account ID.'
       in: path
       name: aws_account_config_id
       required: true
@@ -597,7 +601,7 @@ components:
         type: string
     ResourceID:
       description: 'Identifier, formatted as `type:id`. Supported types: `connection`,
-        `dashboard`, `notebook`, `security-rule`, `slo`.'
+        `dashboard`, `notebook`, `reference-table`, `security-rule`, `slo`.'
       example: dashboard:abc-def-ghi
       in: path
       name: resource_id
@@ -1005,11 +1009,15 @@ components:
       x-enum-varnames:
       - API_KEYS
     AWSAccountConfigID:
-      description: Unique Datadog ID of the AWS Account Integration Config
+      description: 'Unique Datadog ID of the AWS Account Integration Config.
+
+        To get the config ID for an account, use the [List all AWS integrations](https://docs.datadoghq.com/api/latest/aws-integration/#list-all-aws-integrations)
+
+        endpoint and query by AWS Account ID.'
       example: 00000000-abcd-0001-0000-000000000000
       type: string
     AWSAccountCreateRequest:
-      description: AWS Account Create Request body
+      description: AWS Account Create Request body.
       properties:
         data:
           $ref: '#/components/schemas/AWSAccountCreateRequestData'
@@ -1017,7 +1025,7 @@ components:
       - data
       type: object
     AWSAccountCreateRequestAttributes:
-      description: The AWS Account Integration Config to be created
+      description: The AWS Account Integration Config to be created.
       properties:
         account_tags:
           $ref: '#/components/schemas/AWSAccountTags'
@@ -1043,7 +1051,7 @@ components:
       - auth_config
       type: object
     AWSAccountCreateRequestData:
-      description: AWS Account Create Request data
+      description: AWS Account Create Request data.
       properties:
         attributes:
           $ref: '#/components/schemas/AWSAccountCreateRequestAttributes'
@@ -1054,12 +1062,14 @@ components:
       - type
       type: object
     AWSAccountID:
-      description: AWS Account ID
+      description: AWS Account ID.
       example: '123456789012'
       type: string
     AWSAccountPartition:
-      default: aws
-      description: AWS Account partition
+      description: 'AWS partition your AWS account is scoped to. Defaults to `aws`.
+
+        See [Partitions](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/partitions.html)
+        in the AWS documentation for more information.'
       enum:
       - aws
       - aws-cn
@@ -1071,7 +1081,7 @@ components:
       - AWS_CN
       - AWS_US_GOV
     AWSAccountResponse:
-      description: AWS Account response body
+      description: AWS Account response body.
       properties:
         data:
           $ref: '#/components/schemas/AWSAccountResponseData'
@@ -1079,7 +1089,7 @@ components:
       - data
       type: object
     AWSAccountResponseAttributes:
-      description: The AWS Account Integration Config
+      description: AWS Account response attributes.
       properties:
         account_tags:
           $ref: '#/components/schemas/AWSAccountTags'
@@ -1092,7 +1102,7 @@ components:
         aws_regions:
           $ref: '#/components/schemas/AWSRegions'
         created_at:
-          description: Timestamp of when the account integration was created
+          description: Timestamp of when the account integration was created.
           format: date-time
           readOnly: true
           type: string
@@ -1101,7 +1111,7 @@ components:
         metrics_config:
           $ref: '#/components/schemas/AWSMetricsConfig'
         modified_at:
-          description: Timestamp of when the account integration was updated
+          description: Timestamp of when the account integration was updated.
           format: date-time
           readOnly: true
           type: string
@@ -1113,7 +1123,7 @@ components:
       - aws_account_id
       type: object
     AWSAccountResponseData:
-      description: AWS Account Response body
+      description: AWS Account response data.
       properties:
         attributes:
           $ref: '#/components/schemas/AWSAccountResponseAttributes'
@@ -1126,10 +1136,11 @@ components:
       - type
       type: object
     AWSAccountTags:
-      description: Tags to apply to all metrics in the account
+      description: Tags to apply to all hosts and metrics reporting for this account.
+        Defaults to `[]`.
       items:
-        description: Tag to apply to all metrics in the account
-        example: key:value
+        description: Tag in the form `key:value`.
+        example: env:prod
         type: string
       nullable: true
       type: array
@@ -1143,7 +1154,7 @@ components:
       x-enum-varnames:
       - ACCOUNT
     AWSAccountUpdateRequest:
-      description: AWS Account Update Request body
+      description: AWS Account Update Request body.
       properties:
         data:
           $ref: '#/components/schemas/AWSAccountUpdateRequestData'
@@ -1151,7 +1162,7 @@ components:
       - data
       type: object
     AWSAccountUpdateRequestAttributes:
-      description: The AWS Account Integration Config to be updated
+      description: The AWS Account Integration Config to be updated.
       properties:
         account_tags:
           $ref: '#/components/schemas/AWSAccountTags'
@@ -1175,7 +1186,7 @@ components:
       - aws_account_id
       type: object
     AWSAccountUpdateRequestData:
-      description: AWS Account Update Request data
+      description: AWS Account Update Request data.
       properties:
         attributes:
           $ref: '#/components/schemas/AWSAccountUpdateRequestAttributes'
@@ -1188,10 +1199,10 @@ components:
       - type
       type: object
     AWSAccountsResponse:
-      description: AWS Accounts response body
+      description: AWS Accounts response body.
       properties:
         data:
-          description: List of AWS Account Integration Configs
+          description: List of AWS Account Integration Configs.
           items:
             $ref: '#/components/schemas/AWSAccountResponseData'
           type: array
@@ -1199,19 +1210,20 @@ components:
       - data
       type: object
     AWSAuthConfig:
-      description: AWS Authentication config
+      description: AWS Authentication config.
       oneOf:
       - $ref: '#/components/schemas/AWSAuthConfigKeys'
       - $ref: '#/components/schemas/AWSAuthConfigRole'
     AWSAuthConfigKeys:
-      description: AWS Authentication config for key-based account
+      description: AWS Authentication config to integrate your account using an access
+        key pair.
       properties:
         access_key_id:
-          description: AWS Access Key ID
+          description: AWS Access Key ID.
           example: AKIAIOSFODNN7EXAMPLE
           type: string
         secret_access_key:
-          description: AWS Secret Access Key
+          description: AWS Secret Access Key.
           example: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
           minLength: 1
           type: string
@@ -1220,13 +1232,14 @@ components:
       - access_key_id
       type: object
     AWSAuthConfigRole:
-      description: AWS Authentication config for role-based account
+      description: AWS Authentication config to integrate your account using an IAM
+        role.
       properties:
         external_id:
-          description: AWS IAM External ID for associated role
+          description: AWS IAM External ID for associated role.
           type: string
         role_name:
-          description: AWS IAM Role name
+          description: AWS IAM Role name.
           example: DatadogIntegrationRole
           maxLength: 576
           minLength: 1
@@ -1235,24 +1248,32 @@ components:
       - role_name
       type: object
     AWSLambdaForwarderConfig:
-      description: AWS Lambda forwarder
+      description: 'Log Autosubscription configuration for Datadog Forwarder Lambda
+        functions. Automatically set up triggers for existing
+
+        and new logs for some services, ensuring no logs from new resources are missed
+        and saving time spent on manual configuration.'
       properties:
         lambdas:
-          description: List of Datadog Lambda Log Forwarder ARNs
+          description: List of Datadog Lambda Log Forwarder ARNs in your AWS account.
+            Defaults to `[]`.
           items:
             example: arn:aws:lambda:us-east-1:123456789012:function:DatadogLambdaLogForwarder
             type: string
           type: array
         sources:
-          description: List of AWS services that will send logs to the Datadog Lambda
-            Log Forwarder
+          description: 'List of service IDs set to enable automatic log collection.
+            Discover the list of available services with the
+
+            [Get list of AWS log ready services](https://docs.datadoghq.com/api/latest/aws-logs-integration/#get-list-of-aws-log-ready-services)
+            endpoint.'
           items:
             example: s3
             type: string
           type: array
       type: object
     AWSLogsConfig:
-      description: AWS Logs config
+      description: AWS Logs Collection config.
       properties:
         lambda_forwarder:
           $ref: '#/components/schemas/AWSLambdaForwarderConfig'
@@ -1305,55 +1326,64 @@ components:
       x-enum-varnames:
       - LOGS_SERVICES
     AWSMetricsConfig:
-      description: AWS Metrics config
+      description: AWS Metrics Collection config.
       properties:
         automute_enabled:
-          description: Enable EC2 automute for AWS metrics
+          description: Enable EC2 automute for AWS metrics. Defaults to `true`.
           example: true
           type: boolean
         collect_cloudwatch_alarms:
-          description: Enable CloudWatch alarms collection
-          example: true
+          description: Enable CloudWatch alarms collection. Defaults to `false`.
+          example: false
           type: boolean
         collect_custom_metrics:
-          description: Enable custom metrics collection
-          example: true
+          description: Enable custom metrics collection. Defaults to `false`.
+          example: false
           type: boolean
         enabled:
-          description: Enable AWS metrics collection
+          description: Enable AWS metrics collection. Defaults to `true`.
           example: true
           type: boolean
         namespace_filters:
           $ref: '#/components/schemas/AWSNamespaceFilters'
         tag_filters:
-          description: AWS Metrics tag filters list
+          description: AWS Metrics collection tag filters list. Defaults to `[]`.
           items:
             $ref: '#/components/schemas/AWSNamespaceTagFilter'
           type: array
       type: object
     AWSNamespaceFilters:
-      description: AWS Metrics namespace filters
+      description: AWS Metrics namespace filters. Defaults to `exclude_only`.
       oneOf:
       - $ref: '#/components/schemas/AWSNamespaceFiltersExcludeOnly'
       - $ref: '#/components/schemas/AWSNamespaceFiltersIncludeOnly'
     AWSNamespaceFiltersExcludeOnly:
-      description: Exclude only these namespaces
+      description: 'Exclude only these namespaces from metrics collection. Defaults
+        to `["AWS/SQS", "AWS/ElasticMapReduce"]`.
+
+        `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce your
+        AWS CloudWatch costs from `GetMetricData` API calls.'
       properties:
         exclude_only:
-          description: Exclude only these namespaces
+          description: 'Exclude only these namespaces from metrics collection. Defaults
+            to `["AWS/SQS", "AWS/ElasticMapReduce"]`.
+
+            `AWS/SQS` and `AWS/ElasticMapReduce` are excluded by default to reduce
+            your AWS CloudWatch costs from `GetMetricData` API calls.'
           example:
-          - AWS/EC2
+          - AWS/SQS
+          - AWS/ElasticMapReduce
           items:
-            example: AWS/EC2
+            example: AWS/SQS
             type: string
           type: array
       required:
       - exclude_only
     AWSNamespaceFiltersIncludeOnly:
-      description: Include only these namespaces
+      description: Include only these namespaces.
       properties:
         include_only:
-          description: Include only these namespaces
+          description: Include only these namespaces.
           example:
           - AWS/EC2
           items:
@@ -1363,22 +1393,36 @@ components:
       required:
       - include_only
     AWSNamespaceTagFilter:
-      description: AWS Metrics tag filters
+      description: 'AWS Metrics Collection tag filters list. Defaults to `[]`.
+
+        The array of custom AWS resource tags (in the form `key:value`) defines a
+        filter that Datadog uses when collecting metrics from a specified service.
+
+        Wildcards, such as `?` (match a single character) and `*` (match multiple
+        characters), and exclusion using `!` before the tag are supported.
+
+        For EC2, only hosts that match one of the defined tags will be imported into
+        Datadog. The rest will be ignored.
+
+        For example, `env:production,instance-type:c?.*,!region:us-east-1`.'
       properties:
         namespace:
-          description: The AWS Namespace to apply the tag filters against
+          description: The AWS service for which the tag filters defined in `tags`
+            will be applied.
           example: AWS/EC2
           type: string
         tags:
-          description: The tags to filter based on
+          description: The AWS resource tags to filter on for the service specified
+            by `namespace`.
           items:
-            example: key:value
+            description: Tag in the form `key:value`.
+            example: datadog:true
             type: string
           nullable: true
           type: array
       type: object
     AWSNamespacesResponse:
-      description: AWS Namespaces response body
+      description: AWS Namespaces response body.
       properties:
         data:
           $ref: '#/components/schemas/AWSNamespacesResponseData'
@@ -1386,10 +1430,10 @@ components:
       - data
       type: object
     AWSNamespacesResponseAttributes:
-      description: AWS Namespaces response body
+      description: AWS Namespaces response attributes.
       properties:
         namespaces:
-          description: AWS CloudWatch namespace
+          description: AWS CloudWatch namespace.
           example:
           - AWS/ApiGateway
           items:
@@ -1400,7 +1444,7 @@ components:
       - namespaces
       type: object
     AWSNamespacesResponseData:
-      description: AWS Namespaces response body
+      description: AWS Namespaces response data.
       properties:
         attributes:
           $ref: '#/components/schemas/AWSNamespacesResponseAttributes'
@@ -1425,7 +1469,7 @@ components:
       x-enum-varnames:
       - NAMESPACES
     AWSNewExternalIDResponse:
-      description: AWS External ID response body
+      description: AWS External ID response body.
       properties:
         data:
           $ref: '#/components/schemas/AWSNewExternalIDResponseData'
@@ -1433,17 +1477,17 @@ components:
       - data
       type: object
     AWSNewExternalIDResponseAttributes:
-      description: AWS External ID response body
+      description: AWS External ID response body.
       properties:
         external_id:
-          description: AWS IAM External ID for associated role
+          description: AWS IAM External ID for associated role.
           example: acb8f6b8a844443dbb726d07dcb1a870
           type: string
       required:
       - external_id
       type: object
     AWSNewExternalIDResponseData:
-      description: AWS External ID response body
+      description: AWS External ID response body.
       properties:
         attributes:
           $ref: '#/components/schemas/AWSNewExternalIDResponseAttributes'
@@ -1468,24 +1512,24 @@ components:
       x-enum-varnames:
       - EXTERNAL_ID
     AWSRegions:
-      description: AWS Regions to collect data from
+      description: AWS Regions to collect data from. Defaults to `include_all`.
       oneOf:
       - $ref: '#/components/schemas/AWSRegionsIncludeAll'
       - $ref: '#/components/schemas/AWSRegionsIncludeOnly'
     AWSRegionsIncludeAll:
-      description: Include all regions
+      description: Include all regions. Defaults to `true`.
       properties:
         include_all:
-          description: Include all regions
-          example: false
+          description: Include all regions.
+          example: true
           type: boolean
       required:
       - include_all
     AWSRegionsIncludeOnly:
-      description: Include only these regions
+      description: Include only these regions.
       properties:
         include_only:
-          description: Include only these regions
+          description: Include only these regions.
           example:
           - us-east-1
           items:
@@ -1495,21 +1539,23 @@ components:
       required:
       - include_only
     AWSResourcesConfig:
-      description: AWS Resources config
+      description: AWS Resources Collection config.
       properties:
         cloud_security_posture_management_collection:
-          description: Whether Datadog collects cloud security posture management
-            resources from your AWS account.
+          description: Enable Cloud Security Management to scan AWS resources for
+            vulnerabilities, misconfigurations, identity risks, and compliance violations.
+            Defaults to `false`. Requires `extended_collection` to be set to `true`.
           example: false
           type: boolean
         extended_collection:
           description: Whether Datadog collects additional attributes and configuration
-            information about the resources in your AWS account. Required for `cspm_resource_collection`.
-          example: false
+            information about the resources in your AWS account. Defaults to `true`.
+            Required for `cloud_security_posture_management_collection`.
+          example: true
           type: boolean
       type: object
     AWSTracesConfig:
-      description: AWS Traces config
+      description: AWS Traces Collection config.
       properties:
         xray_services:
           $ref: '#/components/schemas/XRayServicesList'
@@ -1569,6 +1615,126 @@ components:
       type: string
       x-enum-varnames:
       - apm_retention_filter
+    AppBuilderError:
+      description: The definition of `AppBuilderError` object.
+      properties:
+        errors:
+          description: The `AppBuilderError` `errors`.
+          items:
+            $ref: '#/components/schemas/AppBuilderErrorErrorsItems'
+          type: array
+      type: object
+    AppBuilderErrorErrorsItems:
+      description: The definition of `AppBuilderErrorErrorsItems` object.
+      properties:
+        detail:
+          description: The `items` `detail`.
+          type: string
+        source:
+          $ref: '#/components/schemas/AppBuilderErrorErrorsItemsSource'
+      type: object
+    AppBuilderErrorErrorsItemsSource:
+      description: The definition of `AppBuilderErrorErrorsItemsSource` object.
+      properties:
+        parameter:
+          description: The `source` `parameter`.
+          type: string
+        pointer:
+          description: The `source` `pointer`.
+          type: string
+      type: object
+    AppBuilderEvent:
+      additionalProperties: {}
+      description: The definition of `AppBuilderEvent` object.
+      properties:
+        name:
+          $ref: '#/components/schemas/AppBuilderEventName'
+        type:
+          $ref: '#/components/schemas/AppBuilderEventType'
+      type: object
+    AppBuilderEventName:
+      description: The triggering action for the event.
+      enum:
+      - pageChange
+      - tableRowClick
+      - _tableRowButtonClick
+      - change
+      - submit
+      - click
+      - toggleOpen
+      - close
+      - open
+      - executionFinished
+      type: string
+      x-enum-varnames:
+      - PAGECHANGE
+      - TABLEROWCLICK
+      - TABLEROWBUTTONCLICK
+      - CHANGE
+      - SUBMIT
+      - CLICK
+      - TOGGLEOPEN
+      - CLOSE
+      - OPEN
+      - EXECUTIONFINISHED
+    AppBuilderEventType:
+      description: The response to the event.
+      enum:
+      - custom
+      - setComponentState
+      - triggerQuery
+      - openModal
+      - closeModal
+      - openUrl
+      - downloadFile
+      - setStateVariableValue
+      type: string
+      x-enum-varnames:
+      - CUSTOM
+      - SETCOMPONENTSTATE
+      - TRIGGERQUERY
+      - OPENMODAL
+      - CLOSEMODAL
+      - OPENURL
+      - DOWNLOADFILE
+      - SETSTATEVARIABLEVALUE
+    AppMeta:
+      description: The definition of `AppMeta` object.
+      properties:
+        created_at:
+          description: The `AppMeta` `created_at`.
+          type: string
+        deleted_at:
+          description: The `AppMeta` `deleted_at`.
+          type: string
+        org_id:
+          description: The `AppMeta` `org_id`.
+          format: int64
+          type: integer
+        run_as_user:
+          description: The `AppMeta` `run_as_user`.
+          type: string
+        updated_at:
+          description: The `AppMeta` `updated_at`.
+          type: string
+        updated_since_deployment:
+          description: The `AppMeta` `updated_since_deployment`.
+          type: boolean
+        user_id:
+          description: The `AppMeta` `user_id`.
+          format: int64
+          type: integer
+        user_name:
+          description: The `AppMeta` `user_name`.
+          type: string
+        user_uuid:
+          description: The `AppMeta` `user_uuid`.
+          type: string
+        version:
+          description: The `AppMeta` `version`.
+          format: int64
+          type: integer
+      type: object
     ApplicationKeyCreateAttributes:
       description: Attributes used to create an application Key.
       properties:
@@ -1720,6 +1886,27 @@ components:
       type: string
       x-enum-varnames:
       - APPLICATION_KEYS
+    AppsSortField:
+      description: The field and direction to sort apps by
+      enum:
+      - name
+      - created_at
+      - updated_at
+      - user_name
+      - -name
+      - -created_at
+      - -updated_at
+      - -user_name
+      type: string
+      x-enum-varnames:
+      - NAME
+      - CREATED_AT
+      - UPDATED_AT
+      - USER_NAME
+      - NAME_DESC
+      - CREATED_AT_DESC
+      - UPDATED_AT_DESC
+      - USER_NAME_DESC
     AuditLogsEvent:
       description: Object description of an Audit Logs event after it is processed
         and stored by Datadog.
@@ -3259,6 +3446,183 @@ components:
         tags:
           $ref: '#/components/schemas/TagsEventAttribute'
       type: object
+    CIAppPipelineEventFinishedPipeline:
+      description: Details of a finished pipeline.
+      properties:
+        end:
+          description: Time when the pipeline run finished. It cannot be older than
+            18 hours in the past from the current time. The time format must be RFC3339.
+          example: '2023-05-31T15:30:00Z'
+          format: date-time
+          type: string
+        error:
+          $ref: '#/components/schemas/CIAppCIError'
+        git:
+          $ref: '#/components/schemas/CIAppGitInfo'
+        is_manual:
+          description: Whether or not the pipeline was triggered manually by the user.
+          example: false
+          nullable: true
+          type: boolean
+        is_resumed:
+          description: Whether or not the pipeline was resumed after being blocked.
+          example: false
+          nullable: true
+          type: boolean
+        level:
+          $ref: '#/components/schemas/CIAppPipelineEventPipelineLevel'
+        metrics:
+          $ref: '#/components/schemas/CIAppPipelineEventMetrics'
+        name:
+          description: Name of the pipeline. All pipeline runs for the builds should
+            have the same name.
+          example: Deploy to AWS
+          type: string
+        node:
+          $ref: '#/components/schemas/CIAppHostInfo'
+        parameters:
+          $ref: '#/components/schemas/CIAppPipelineEventParameters'
+        parent_pipeline:
+          $ref: '#/components/schemas/CIAppPipelineEventParentPipeline'
+        partial_retry:
+          description: 'Whether or not the pipeline was a partial retry of a previous
+            attempt. A partial retry is one
+
+            which only runs a subset of the original jobs.'
+          example: false
+          type: boolean
+        pipeline_id:
+          description: 'Any ID used in the provider to identify the pipeline run even
+            if it is not unique across retries.
+
+            If the `pipeline_id` is unique, then both `unique_id` and `pipeline_id`
+            can be set to the same value.'
+          example: '#023'
+          type: string
+        previous_attempt:
+          $ref: '#/components/schemas/CIAppPipelineEventPreviousPipeline'
+        queue_time:
+          description: The queue time in milliseconds, if applicable.
+          example: 1004
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        start:
+          description: Time when the pipeline run started (it should not include any
+            queue time). The time format must be RFC3339.
+          example: '2023-05-31T15:30:00Z'
+          format: date-time
+          type: string
+        status:
+          $ref: '#/components/schemas/CIAppPipelineEventPipelineStatus'
+        tags:
+          $ref: '#/components/schemas/CIAppPipelineEventTags'
+        unique_id:
+          description: 'UUID of the pipeline run. The ID has to be unique across retries
+            and pipelines,
+
+            including partial retries.'
+          example: 3eacb6f3-ff04-4e10-8a9c-46e6d054024a
+          type: string
+        url:
+          description: The URL to look at the pipeline in the CI provider UI.
+          example: https://my-ci-provider.example/pipelines/my-pipeline/run/1
+          type: string
+      required:
+      - level
+      - unique_id
+      - name
+      - url
+      - start
+      - end
+      - status
+      - partial_retry
+      type: object
+    CIAppPipelineEventInProgressPipeline:
+      description: Details of a running pipeline.
+      properties:
+        error:
+          $ref: '#/components/schemas/CIAppCIError'
+        git:
+          $ref: '#/components/schemas/CIAppGitInfo'
+        is_manual:
+          description: Whether or not the pipeline was triggered manually by the user.
+          example: false
+          nullable: true
+          type: boolean
+        is_resumed:
+          description: Whether or not the pipeline was resumed after being blocked.
+          example: false
+          nullable: true
+          type: boolean
+        level:
+          $ref: '#/components/schemas/CIAppPipelineEventPipelineLevel'
+        metrics:
+          $ref: '#/components/schemas/CIAppPipelineEventMetrics'
+        name:
+          description: Name of the pipeline. All pipeline runs for the builds should
+            have the same name.
+          example: Deploy to AWS
+          type: string
+        node:
+          $ref: '#/components/schemas/CIAppHostInfo'
+        parameters:
+          $ref: '#/components/schemas/CIAppPipelineEventParameters'
+        parent_pipeline:
+          $ref: '#/components/schemas/CIAppPipelineEventParentPipeline'
+        partial_retry:
+          description: 'Whether or not the pipeline was a partial retry of a previous
+            attempt. A partial retry is one
+
+            which only runs a subset of the original jobs.'
+          example: false
+          type: boolean
+        pipeline_id:
+          description: 'Any ID used in the provider to identify the pipeline run even
+            if it is not unique across retries.
+
+            If the `pipeline_id` is unique, then both `unique_id` and `pipeline_id`
+            can be set to the same value.'
+          example: '#023'
+          type: string
+        previous_attempt:
+          $ref: '#/components/schemas/CIAppPipelineEventPreviousPipeline'
+        queue_time:
+          description: The queue time in milliseconds, if applicable.
+          example: 1004
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        start:
+          description: Time when the pipeline run started (it should not include any
+            queue time). The time format must be RFC3339.
+          example: '2023-05-31T15:30:00Z'
+          format: date-time
+          type: string
+        status:
+          $ref: '#/components/schemas/CIAppPipelineEventPipelineInProgressStatus'
+        tags:
+          $ref: '#/components/schemas/CIAppPipelineEventTags'
+        unique_id:
+          description: UUID of the pipeline run. The ID has to be the same as the
+            finished pipeline.
+          example: 3eacb6f3-ff04-4e10-8a9c-46e6d054024a
+          type: string
+        url:
+          description: The URL to look at the pipeline in the CI provider UI.
+          example: https://my-ci-provider.example/pipelines/my-pipeline/run/1
+          type: string
+      required:
+      - level
+      - unique_id
+      - name
+      - url
+      - start
+      - status
+      - partial_retry
+      type: object
     CIAppPipelineEventJob:
       description: Details of a CI job.
       properties:
@@ -3407,97 +3771,17 @@ components:
       type: object
     CIAppPipelineEventPipeline:
       description: Details of the top level pipeline, build, or workflow of your CI.
-      properties:
-        end:
-          description: Time when the pipeline run finished. It cannot be older than
-            18 hours in the past from the current time. The time format must be RFC3339.
-          example: '2023-05-31T15:30:00Z'
-          format: date-time
-          type: string
-        error:
-          $ref: '#/components/schemas/CIAppCIError'
-        git:
-          $ref: '#/components/schemas/CIAppGitInfo'
-        is_manual:
-          description: Whether or not the pipeline was triggered manually by the user.
-          example: false
-          nullable: true
-          type: boolean
-        is_resumed:
-          description: Whether or not the pipeline was resumed after being blocked.
-          example: false
-          nullable: true
-          type: boolean
-        level:
-          $ref: '#/components/schemas/CIAppPipelineEventPipelineLevel'
-        metrics:
-          $ref: '#/components/schemas/CIAppPipelineEventMetrics'
-        name:
-          description: Name of the pipeline. All pipeline runs for the builds should
-            have the same name.
-          example: Deploy to AWS
-          type: string
-        node:
-          $ref: '#/components/schemas/CIAppHostInfo'
-        parameters:
-          $ref: '#/components/schemas/CIAppPipelineEventParameters'
-        parent_pipeline:
-          $ref: '#/components/schemas/CIAppPipelineEventParentPipeline'
-        partial_retry:
-          description: 'Whether or not the pipeline was a partial retry of a previous
-            attempt. A partial retry is one
-
-            which only runs a subset of the original jobs.'
-          example: false
-          type: boolean
-        pipeline_id:
-          description: 'Any ID used in the provider to identify the pipeline run even
-            if it is not unique across retries.
-
-            If the `pipeline_id` is unique, then both `unique_id` and `pipeline_id`
-            can be set to the same value.'
-          example: '#023'
-          type: string
-        previous_attempt:
-          $ref: '#/components/schemas/CIAppPipelineEventPreviousPipeline'
-        queue_time:
-          description: The queue time in milliseconds, if applicable.
-          example: 1004
-          format: int64
-          minimum: 0
-          nullable: true
-          type: integer
-        start:
-          description: Time when the pipeline run started (it should not include any
-            queue time). The time format must be RFC3339.
-          example: '2023-05-31T15:30:00Z'
-          format: date-time
-          type: string
-        status:
-          $ref: '#/components/schemas/CIAppPipelineEventPipelineStatus'
-        tags:
-          $ref: '#/components/schemas/CIAppPipelineEventTags'
-        unique_id:
-          description: 'UUID of the pipeline run. The ID has to be unique across retries
-            and pipelines,
-
-            including partial retries.'
-          example: 3eacb6f3-ff04-4e10-8a9c-46e6d054024a
-          type: string
-        url:
-          description: The URL to look at the pipeline in the CI provider UI.
-          example: https://my-ci-provider.example/pipelines/my-pipeline/run/1
-          type: string
-      required:
-      - level
-      - unique_id
-      - name
-      - url
-      - start
-      - end
-      - status
-      - partial_retry
-      type: object
+      oneOf:
+      - $ref: '#/components/schemas/CIAppPipelineEventFinishedPipeline'
+      - $ref: '#/components/schemas/CIAppPipelineEventInProgressPipeline'
+    CIAppPipelineEventPipelineInProgressStatus:
+      description: The in progress status of the pipeline.
+      enum:
+      - running
+      example: running
+      type: string
+      x-enum-varnames:
+      - RUNNING
     CIAppPipelineEventPipelineLevel:
       default: pipeline
       description: Used to distinguish between pipelines, stages, jobs, and steps.
@@ -4196,6 +4480,34 @@ components:
             from the other indexes
           type: string
       type: object
+    CSMAgentsMetadata:
+      description: Metadata related to the paginated response.
+      properties:
+        page_index:
+          description: The index of the current page in the paginated results.
+          example: 0
+          format: int64
+          type: integer
+        page_size:
+          description: The number of items per page in the paginated results.
+          example: 10
+          format: int64
+          type: integer
+        total_filtered:
+          description: Total number of items that match the filter criteria.
+          example: 128697
+          format: int64
+          type: integer
+      type: object
+    CSMAgentsType:
+      default: datadog_agent
+      description: The type of the resource. The value should always be `datadog_agent`.
+      enum:
+      - datadog_agent
+      example: datadog_agent
+      type: string
+      x-enum-varnames:
+      - DATADOG_AGENT
     CalculatedField:
       description: Calculated field.
       properties:
@@ -5357,6 +5669,150 @@ components:
             $ref: '#/components/schemas/CloudflareAccountResponseData'
           type: array
       type: object
+    Component:
+      description: The definition of `Component` object.
+      properties:
+        events:
+          description: The `Component` `events`.
+          items:
+            $ref: '#/components/schemas/AppBuilderEvent'
+          type: array
+        id:
+          description: The `Component` `id`.
+          nullable: true
+          type: string
+        name:
+          description: The `Component` `name`.
+          example: ''
+          type: string
+        properties:
+          $ref: '#/components/schemas/ComponentProperties'
+        type:
+          $ref: '#/components/schemas/ComponentType'
+      required:
+      - name
+      - type
+      - properties
+      type: object
+    ComponentGrid:
+      description: The definition of `ComponentGrid` object.
+      properties:
+        events:
+          description: The `ComponentGrid` `events`.
+          items:
+            $ref: '#/components/schemas/AppBuilderEvent'
+          type: array
+        id:
+          description: The `ComponentGrid` `id`.
+          type: string
+        name:
+          description: The `ComponentGrid` `name`.
+          example: ''
+          type: string
+        properties:
+          $ref: '#/components/schemas/ComponentGridProperties'
+        type:
+          $ref: '#/components/schemas/ComponentGridType'
+      required:
+      - name
+      - type
+      - properties
+      type: object
+    ComponentGridProperties:
+      description: The definition of `ComponentGridProperties` object.
+      properties:
+        backgroundColor:
+          default: default
+          description: The `ComponentGridProperties` `backgroundColor`.
+          type: string
+        children:
+          description: The `ComponentGridProperties` `children`.
+          items:
+            $ref: '#/components/schemas/Component'
+          type: array
+        isVisible:
+          $ref: '#/components/schemas/ComponentGridPropertiesIsVisible'
+      type: object
+    ComponentGridPropertiesIsVisible:
+      description: The definition of `ComponentGridPropertiesIsVisible` object.
+      oneOf:
+      - type: string
+      - default: true
+        type: boolean
+    ComponentGridType:
+      description: The definition of `ComponentGridType` object.
+      enum:
+      - grid
+      example: grid
+      type: string
+      x-enum-varnames:
+      - GRID
+    ComponentProperties:
+      additionalProperties: {}
+      description: The definition of `ComponentProperties` object.
+      properties:
+        children:
+          description: The `ComponentProperties` `children`.
+          items:
+            $ref: '#/components/schemas/Component'
+          type: array
+        isVisible:
+          $ref: '#/components/schemas/ComponentPropertiesIsVisible'
+      type: object
+    ComponentPropertiesIsVisible:
+      description: The definition of `ComponentPropertiesIsVisible` object.
+      oneOf:
+      - type: boolean
+      - description: If a string, it should be a valid JavaScript expression that
+          evaluates to a boolean.
+        example: ${true}
+        type: string
+    ComponentType:
+      description: The definition of `ComponentType` object.
+      enum:
+      - table
+      - textInput
+      - textArea
+      - button
+      - text
+      - select
+      - modal
+      - schemaForm
+      - checkbox
+      - tabs
+      - vegaChart
+      - radioButtons
+      - numberInput
+      - fileInput
+      - jsonInput
+      - gridCell
+      - dateRangePicker
+      - search
+      - container
+      - calloutValue
+      example: table
+      type: string
+      x-enum-varnames:
+      - TABLE
+      - TEXTINPUT
+      - TEXTAREA
+      - BUTTON
+      - TEXT
+      - SELECT
+      - MODAL
+      - SCHEMAFORM
+      - CHECKBOX
+      - TABS
+      - VEGACHART
+      - RADIOBUTTONS
+      - NUMBERINPUT
+      - FILEINPUT
+      - JSONINPUT
+      - GRIDCELL
+      - DATERANGEPICKER
+      - SEARCH
+      - CONTAINER
+      - CALLOUTVALUE
     ConfluentAccountCreateRequest:
       description: Payload schema when adding a Confluent account.
       properties:
@@ -6358,6 +6814,132 @@ components:
       type: string
       x-enum-varnames:
       - COST_BY_ORG
+    CreateAppRequest:
+      description: The definition of `CreateAppRequest` object.
+      example:
+        data:
+          attributes:
+            components:
+            - events: []
+              name: grid0
+              properties:
+                children:
+                - events: []
+                  name: gridCell0
+                  properties:
+                    children:
+                    - events: []
+                      name: calloutValue0
+                      properties:
+                        isDisabled: false
+                        isLoading: false
+                        isVisible: true
+                        label: CPU Usage
+                        size: sm
+                        style: vivid_yellow
+                        unit: kB
+                        value: '42'
+                      type: calloutValue
+                    isVisible: 'true'
+                    layout:
+                      default:
+                        height: 8
+                        width: 2
+                        x: 0
+                        y: 0
+                  type: gridCell
+              type: grid
+            description: This is a simple example app
+            embeddedQueries: []
+            name: Example App
+            rootInstanceName: grid0
+          type: appDefinitions
+      properties:
+        data:
+          $ref: '#/components/schemas/CreateAppRequestData'
+      type: object
+    CreateAppRequestData:
+      description: The definition of `CreateAppRequestData` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/CreateAppRequestDataAttributes'
+        type:
+          $ref: '#/components/schemas/CreateAppRequestDataType'
+      required:
+      - type
+      type: object
+    CreateAppRequestDataAttributes:
+      description: The definition of `CreateAppRequestDataAttributes` object.
+      properties:
+        components:
+          description: The `attributes` `components`.
+          items:
+            $ref: '#/components/schemas/ComponentGrid'
+          type: array
+        description:
+          description: The `attributes` `description`.
+          type: string
+        embeddedQueries:
+          description: The `attributes` `embeddedQueries`.
+          items:
+            $ref: '#/components/schemas/Query'
+          type: array
+        inputSchema:
+          $ref: '#/components/schemas/InputSchema'
+        name:
+          description: The `attributes` `name`.
+          type: string
+        rootInstanceName:
+          description: The `attributes` `rootInstanceName`.
+          type: string
+        scripts:
+          description: The `attributes` `scripts`.
+          items:
+            $ref: '#/components/schemas/Script'
+          type: array
+        tags:
+          description: The `attributes` `tags`.
+          items:
+            type: string
+          type: array
+      type: object
+    CreateAppRequestDataType:
+      default: appDefinitions
+      description: The definition of `CreateAppRequestDataType` object.
+      enum:
+      - appDefinitions
+      example: appDefinitions
+      type: string
+      x-enum-varnames:
+      - APPDEFINITIONS
+    CreateAppResponse:
+      description: The definition of `CreateAppResponse` object.
+      properties:
+        data:
+          $ref: '#/components/schemas/CreateAppResponseData'
+      type: object
+    CreateAppResponseData:
+      description: The definition of `CreateAppResponseData` object.
+      properties:
+        id:
+          description: The `data` `id`.
+          example: ''
+          type: string
+        type:
+          $ref: '#/components/schemas/CreateAppResponseDataType'
+      required:
+      - id
+      - type
+      type: object
+    CreateAppResponseDataType:
+      default: appDefinitions
+      description: The definition of `CreateAppResponseDataType` object.
+      enum:
+      - appDefinitions
+      example: appDefinitions
+      type: string
+      x-enum-varnames:
+      - APPDEFINITIONS
     CreateDataDeletionRequestBody:
       description: Object needed to create a data deletion request.
       properties:
@@ -6487,6 +7069,134 @@ components:
           nullable: true
           type: string
       type: object
+    CsmAgentData:
+      description: Single Agent Data.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/CsmAgentsAttributes'
+        id:
+          description: The ID of the Agent.
+          example: fffffc5505f6a006fdf7cf5aae053653
+          type: string
+        type:
+          $ref: '#/components/schemas/CSMAgentsType'
+      type: object
+    CsmAgentsAttributes:
+      description: A CSM Agent returned by the API.
+      properties:
+        agent_version:
+          description: Version of the Datadog Agent.
+          type: string
+        aws_fargate:
+          description: AWS Fargate details.
+          type: string
+        cluster_name:
+          description: List of cluster names associated with the Agent.
+          items:
+            type: string
+          type: array
+        datadog_agent:
+          description: Unique identifier for the Datadog Agent.
+          type: string
+        ecs_fargate_task_arn:
+          description: ARN of the ECS Fargate task.
+          type: string
+        envs:
+          description: List of environments associated with the Agent.
+          items:
+            type: string
+          nullable: true
+          type: array
+        host_id:
+          description: ID of the host.
+          format: int64
+          type: integer
+        hostname:
+          description: Name of the host.
+          type: string
+        install_method_installer_version:
+          description: Version of the installer used for installing the Datadog Agent.
+          type: string
+        install_method_tool:
+          description: Tool used for installing the Datadog Agent.
+          type: string
+        is_csm_vm_containers_enabled:
+          description: Indicates if CSM VM Containers is enabled.
+          nullable: true
+          type: boolean
+        is_csm_vm_hosts_enabled:
+          description: Indicates if CSM VM Hosts is enabled.
+          nullable: true
+          type: boolean
+        is_cspm_enabled:
+          description: Indicates if CSPM is enabled.
+          nullable: true
+          type: boolean
+        is_cws_enabled:
+          description: Indicates if CWS is enabled.
+          nullable: true
+          type: boolean
+        is_cws_remote_configuration_enabled:
+          description: Indicates if CWS Remote Configuration is enabled.
+          nullable: true
+          type: boolean
+        is_remote_configuration_enabled:
+          description: Indicates if Remote Configuration is enabled.
+          nullable: true
+          type: boolean
+        os:
+          description: Operating system of the host.
+          type: string
+      type: object
+    CsmAgentsResponse:
+      description: Response object that includes a list of CSM Agents.
+      properties:
+        data:
+          description: A list of Agents.
+          items:
+            $ref: '#/components/schemas/CsmAgentData'
+          type: array
+        meta:
+          $ref: '#/components/schemas/CSMAgentsMetadata'
+      type: object
+    CustomConnection:
+      description: The definition of `CustomConnection` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/CustomConnectionAttributes'
+        id:
+          description: The `CustomConnection` `id`.
+          type: string
+        type:
+          $ref: '#/components/schemas/CustomConnectionType'
+      type: object
+    CustomConnectionAttributes:
+      description: The definition of `CustomConnectionAttributes` object.
+      properties:
+        name:
+          description: The `attributes` `name`.
+          type: string
+        onPremRunner:
+          $ref: '#/components/schemas/CustomConnectionAttributesOnPremRunner'
+      type: object
+    CustomConnectionAttributesOnPremRunner:
+      description: The definition of `CustomConnectionAttributesOnPremRunner` object.
+      properties:
+        id:
+          description: The `onPremRunner` `id`.
+          type: string
+        url:
+          description: The `onPremRunner` `url`.
+          type: string
+      type: object
+    CustomConnectionType:
+      default: custom_connections
+      description: The definition of `CustomConnectionType` object.
+      enum:
+      - custom_connections
+      type: string
+      x-enum-varnames:
+      - CUSTOM_CONNECTIONS
     CustomCostGetResponseMeta:
       description: Meta for the response from the Get Custom Costs endpoints.
       properties:
@@ -7868,6 +8578,270 @@ components:
             type: number
           type: array
       type: object
+    DeleteAppResponse:
+      description: The definition of `DeleteAppResponse` object.
+      properties:
+        data:
+          $ref: '#/components/schemas/DeleteAppResponseData'
+      type: object
+    DeleteAppResponseData:
+      description: The definition of `DeleteAppResponseData` object.
+      properties:
+        id:
+          description: The `data` `id`.
+          example: ''
+          type: string
+        type:
+          $ref: '#/components/schemas/DeleteAppResponseDataType'
+      required:
+      - id
+      - type
+      type: object
+    DeleteAppResponseDataType:
+      default: appDefinitions
+      description: The definition of `DeleteAppResponseDataType` object.
+      enum:
+      - appDefinitions
+      example: appDefinitions
+      type: string
+      x-enum-varnames:
+      - APPDEFINITIONS
+    DeleteAppsRequest:
+      description: The definition of `DeleteAppsRequest` object.
+      example:
+        data:
+        - id: 29494ddd-ac13-46a7-8558-b05b050ee755
+          type: appDefinitions
+        - id: 71c0d358-eac5-41e3-892d-a7467571b9b0
+          type: appDefinitions
+        - id: 98e7e44d-1562-474a-90f7-3a94e739c006
+          type: appDefinitions
+      properties:
+        data:
+          description: The `DeleteAppsRequest` `data`.
+          items:
+            $ref: '#/components/schemas/DeleteAppsRequestDataItems'
+          type: array
+      type: object
+    DeleteAppsRequestDataItems:
+      description: The definition of `DeleteAppsRequestDataItems` object.
+      properties:
+        id:
+          description: The `items` `id`.
+          example: ''
+          type: string
+        type:
+          $ref: '#/components/schemas/DeleteAppsRequestDataItemsType'
+      required:
+      - id
+      - type
+      type: object
+    DeleteAppsRequestDataItemsType:
+      default: appDefinitions
+      description: The definition of `DeleteAppsRequestDataItemsType` object.
+      enum:
+      - appDefinitions
+      example: appDefinitions
+      type: string
+      x-enum-varnames:
+      - APPDEFINITIONS
+    DeleteAppsResponse:
+      description: The definition of `DeleteAppsResponse` object.
+      properties:
+        data:
+          description: The `DeleteAppsResponse` `data`.
+          items:
+            $ref: '#/components/schemas/DeleteAppsResponseDataItems'
+          type: array
+      type: object
+    DeleteAppsResponseDataItems:
+      description: The definition of `DeleteAppsResponseDataItems` object.
+      properties:
+        id:
+          description: The `items` `id`.
+          example: ''
+          type: string
+        type:
+          $ref: '#/components/schemas/DeleteAppsResponseDataItemsType'
+      required:
+      - id
+      - type
+      type: object
+    DeleteAppsResponseDataItemsType:
+      default: appDefinitions
+      description: The definition of `DeleteAppsResponseDataItemsType` object.
+      enum:
+      - appDefinitions
+      example: appDefinitions
+      type: string
+      x-enum-varnames:
+      - APPDEFINITIONS
+    DeployAppResponse:
+      description: The definition of `DeployAppResponse` object.
+      properties:
+        data:
+          $ref: '#/components/schemas/DeployAppResponseData'
+      type: object
+    DeployAppResponseData:
+      description: The definition of `DeployAppResponseData` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/DeployAppResponseDataAttributes'
+        id:
+          description: The `data` `id`.
+          type: string
+        meta:
+          $ref: '#/components/schemas/DeploymentMeta'
+        type:
+          $ref: '#/components/schemas/DeployAppResponseDataType'
+      type: object
+    DeployAppResponseDataAttributes:
+      description: The definition of `DeployAppResponseDataAttributes` object.
+      properties:
+        app_version_id:
+          description: The `attributes` `app_version_id`.
+          type: string
+      type: object
+    DeployAppResponseDataType:
+      default: deployment
+      description: The definition of `DeployAppResponseDataType` object.
+      enum:
+      - deployment
+      type: string
+      x-enum-varnames:
+      - DEPLOYMENT
+    Deployment:
+      description: The definition of `Deployment` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/DeploymentAttributes'
+        id:
+          description: The `Deployment` `id`.
+          type: string
+        meta:
+          $ref: '#/components/schemas/DeploymentMeta'
+        type:
+          $ref: '#/components/schemas/DeploymentType'
+      type: object
+    DeploymentAttributes:
+      description: The definition of `DeploymentAttributes` object.
+      properties:
+        app_version_id:
+          description: The `attributes` `app_version_id`.
+          type: string
+      type: object
+    DeploymentIncluded:
+      description: The definition of `DeploymentIncluded` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/DeploymentIncludedAttributes'
+        id:
+          description: The `DeploymentIncluded` `id`.
+          type: string
+        meta:
+          $ref: '#/components/schemas/DeploymentIncludedMeta'
+        type:
+          $ref: '#/components/schemas/DeploymentIncludedType'
+      type: object
+    DeploymentIncludedAttributes:
+      description: The definition of `DeploymentIncludedAttributes` object.
+      properties:
+        app_version_id:
+          description: The `attributes` `app_version_id`.
+          type: string
+      type: object
+    DeploymentIncludedMeta:
+      description: The definition of `DeploymentIncludedMeta` object.
+      properties:
+        created_at:
+          description: The `meta` `created_at`.
+          type: string
+        user_id:
+          description: The `meta` `user_id`.
+          format: int64
+          type: integer
+        user_name:
+          description: The `meta` `user_name`.
+          type: string
+        user_uuid:
+          description: The `meta` `user_uuid`.
+          type: string
+      type: object
+    DeploymentIncludedType:
+      default: deployment
+      description: The definition of `DeploymentIncludedType` object.
+      enum:
+      - deployment
+      type: string
+      x-enum-varnames:
+      - DEPLOYMENT
+    DeploymentMeta:
+      description: The definition of `DeploymentMeta` object.
+      properties:
+        created_at:
+          description: The `DeploymentMeta` `created_at`.
+          type: string
+        user_id:
+          description: The `DeploymentMeta` `user_id`.
+          format: int64
+          type: integer
+        user_name:
+          description: The `DeploymentMeta` `user_name`.
+          type: string
+        user_uuid:
+          description: The `DeploymentMeta` `user_uuid`.
+          type: string
+      type: object
+    DeploymentRelationship:
+      description: The definition of `DeploymentRelationship` object.
+      properties:
+        data:
+          $ref: '#/components/schemas/DeploymentRelationshipData'
+        meta:
+          $ref: '#/components/schemas/DeploymentRelationshipMeta'
+      type: object
+    DeploymentRelationshipData:
+      description: The definition of `DeploymentRelationshipData` object.
+      properties:
+        id:
+          description: The `data` `id`.
+          type: string
+        type:
+          $ref: '#/components/schemas/DeploymentRelationshipDataType'
+      type: object
+    DeploymentRelationshipDataType:
+      default: deployment
+      description: The definition of `DeploymentRelationshipDataType` object.
+      enum:
+      - deployment
+      type: string
+      x-enum-varnames:
+      - DEPLOYMENT
+    DeploymentRelationshipMeta:
+      description: The definition of `DeploymentRelationshipMeta` object.
+      properties:
+        created_at:
+          description: The `meta` `created_at`.
+          type: string
+        user_id:
+          description: The `meta` `user_id`.
+          format: int64
+          type: integer
+        user_name:
+          description: The `meta` `user_name`.
+          type: string
+        user_uuid:
+          description: The `meta` `user_uuid`.
+          type: string
+      type: object
+    DeploymentType:
+      default: deployment
+      description: The definition of `DeploymentType` object.
+      enum:
+      - deployment
+      type: string
+      x-enum-varnames:
+      - DEPLOYMENT
     DetailedFinding:
       description: A single finding with with message and resource configuration.
       properties:
@@ -8051,6 +9025,40 @@ components:
           description: The type of the resource. The value should always be device.
           type: string
       type: object
+    DisableAppResponse:
+      description: The definition of `DisableAppResponse` object.
+      properties:
+        data:
+          $ref: '#/components/schemas/DisableAppResponseData'
+      type: object
+    DisableAppResponseData:
+      description: The definition of `DisableAppResponseData` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/DisableAppResponseDataAttributes'
+        id:
+          description: The `data` `id`.
+          type: string
+        meta:
+          $ref: '#/components/schemas/DeploymentMeta'
+        type:
+          $ref: '#/components/schemas/DisableAppResponseDataType'
+      type: object
+    DisableAppResponseDataAttributes:
+      description: The definition of `DisableAppResponseDataAttributes` object.
+      properties:
+        app_version_id:
+          description: The `attributes` `app_version_id`.
+          type: string
+      type: object
+    DisableAppResponseDataType:
+      default: deployment
+      description: The definition of `DisableAppResponseDataType` object.
+      enum:
+      - deployment
+      type: string
+      x-enum-varnames:
+      - DEPLOYMENT
     DomainAllowlist:
       description: The email domain allowlist for an org.
       properties:
@@ -10831,6 +11839,95 @@ components:
       type: string
       x-enum-varnames:
       - GCP_SERVICE_ACCOUNT
+    GetAppResponse:
+      description: The definition of `GetAppResponse` object.
+      properties:
+        data:
+          $ref: '#/components/schemas/GetAppResponseData'
+        included:
+          description: The `GetAppResponse` `included`.
+          items:
+            $ref: '#/components/schemas/DeploymentIncluded'
+          type: array
+        meta:
+          $ref: '#/components/schemas/AppMeta'
+        relationship:
+          $ref: '#/components/schemas/GetAppResponseRelationship'
+      type: object
+    GetAppResponseData:
+      description: The definition of `GetAppResponseData` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/GetAppResponseDataAttributes'
+        id:
+          description: The `data` `id`.
+          example: ''
+          type: string
+        type:
+          $ref: '#/components/schemas/GetAppResponseDataType'
+      required:
+      - id
+      - type
+      - attributes
+      type: object
+    GetAppResponseDataAttributes:
+      description: The definition of `GetAppResponseDataAttributes` object.
+      properties:
+        components:
+          description: The `attributes` `components`.
+          items:
+            $ref: '#/components/schemas/ComponentGrid'
+          type: array
+        description:
+          description: The `attributes` `description`.
+          type: string
+        embeddedQueries:
+          description: The `attributes` `embeddedQueries`.
+          items:
+            $ref: '#/components/schemas/Query'
+          type: array
+        favorite:
+          description: The `attributes` `favorite`.
+          type: boolean
+        inputSchema:
+          $ref: '#/components/schemas/InputSchema'
+        name:
+          description: The `attributes` `name`.
+          type: string
+        rootInstanceName:
+          description: The `attributes` `rootInstanceName`.
+          type: string
+        scripts:
+          description: The `attributes` `scripts`.
+          items:
+            $ref: '#/components/schemas/Script'
+          type: array
+        tags:
+          description: The `attributes` `tags`.
+          items:
+            type: string
+          type: array
+      type: object
+    GetAppResponseDataType:
+      default: appDefinitions
+      description: The definition of `GetAppResponseDataType` object.
+      enum:
+      - appDefinitions
+      example: appDefinitions
+      type: string
+      x-enum-varnames:
+      - APPDEFINITIONS
+    GetAppResponseRelationship:
+      description: The definition of `GetAppResponseRelationship` object.
+      properties:
+        connections:
+          description: The `relationship` `connections`.
+          items:
+            $ref: '#/components/schemas/CustomConnection'
+          type: array
+        deployment:
+          $ref: '#/components/schemas/DeploymentRelationship'
+      type: object
     GetDataDeletionsResponseBody:
       description: The response from the get data deletion requests endpoint.
       properties:
@@ -11152,6 +12249,65 @@ components:
           format: int32
           maximum: 2147483647
           type: integer
+      type: object
+    HistoricalJobOptions:
+      description: Job options.
+      properties:
+        detectionMethod:
+          $ref: '#/components/schemas/SecurityMonitoringRuleDetectionMethod'
+        evaluationWindow:
+          $ref: '#/components/schemas/SecurityMonitoringRuleEvaluationWindow'
+        impossibleTravelOptions:
+          $ref: '#/components/schemas/SecurityMonitoringRuleImpossibleTravelOptions'
+        keepAlive:
+          $ref: '#/components/schemas/SecurityMonitoringRuleKeepAlive'
+        maxSignalDuration:
+          $ref: '#/components/schemas/SecurityMonitoringRuleMaxSignalDuration'
+        newValueOptions:
+          $ref: '#/components/schemas/SecurityMonitoringRuleNewValueOptions'
+        thirdPartyRuleOptions:
+          $ref: '#/components/schemas/SecurityMonitoringRuleThirdPartyOptions'
+      type: object
+    HistoricalJobQuery:
+      description: Query for selecting logs analyzed by the historical job.
+      properties:
+        aggregation:
+          $ref: '#/components/schemas/SecurityMonitoringRuleQueryAggregation'
+        distinctFields:
+          description: Field for which the cardinality is measured. Sent as an array.
+          items:
+            description: Field.
+            type: string
+          type: array
+        groupByFields:
+          description: Fields to group by.
+          items:
+            description: Field.
+            type: string
+          type: array
+        hasOptionalGroupByFields:
+          description: When false, events without a group-by value are ignored by
+            the query. When true, events with missing group-by fields are processed
+            with `N/A`, replacing the missing values.
+          example: false
+          readOnly: true
+          type: boolean
+        metrics:
+          description: Group of target fields to aggregate over when using the sum,
+            max, geo data, or new value aggregations. The sum, max, and geo data aggregations
+            only accept one value in this list, whereas the new value aggregation
+            accepts up to five values.
+          items:
+            description: Field.
+            type: string
+          type: array
+        name:
+          description: Name of the query.
+          type: string
+        query:
+          description: Query to run on logs.
+          example: a > 3
+          type: string
       type: object
     HistoricalJobResponse:
       description: Historical job response.
@@ -13484,6 +14640,77 @@ components:
       - ONCALL
       - INCIDENT
       - RELATION
+    InputSchema:
+      description: The definition of `InputSchema` object.
+      properties:
+        data:
+          $ref: '#/components/schemas/InputSchemaData'
+      type: object
+    InputSchemaData:
+      description: The definition of `InputSchemaData` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/InputSchemaDataAttributes'
+        id:
+          description: The `data` `id`.
+          type: string
+        type:
+          $ref: '#/components/schemas/InputSchemaDataType'
+      type: object
+    InputSchemaDataAttributes:
+      description: The definition of `InputSchemaDataAttributes` object.
+      properties:
+        parameters:
+          description: The `attributes` `parameters`.
+          items:
+            $ref: '#/components/schemas/InputSchemaDataAttributesParametersItems'
+          type: array
+      type: object
+    InputSchemaDataAttributesParametersItems:
+      description: The definition of `InputSchemaDataAttributesParametersItems` object.
+      properties:
+        data:
+          $ref: '#/components/schemas/InputSchemaDataAttributesParametersItemsData'
+      type: object
+    InputSchemaDataAttributesParametersItemsData:
+      description: The definition of `InputSchemaDataAttributesParametersItemsData`
+        object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/InputSchemaDataAttributesParametersItemsDataAttributes'
+      type: object
+    InputSchemaDataAttributesParametersItemsDataAttributes:
+      description: The definition of `InputSchemaDataAttributesParametersItemsDataAttributes`
+        object.
+      properties:
+        defaultValue:
+          description: The `attributes` `defaultValue`.
+        description:
+          description: The `attributes` `description`.
+          type: string
+        enum:
+          description: The `attributes` `enum`.
+          items:
+            type: string
+          type: array
+        label:
+          description: The `attributes` `label`.
+          type: string
+        name:
+          description: The `attributes` `name`.
+          type: string
+        type:
+          description: The `attributes` `type`.
+          type: string
+      type: object
+    InputSchemaDataType:
+      default: inputSchema
+      description: The definition of `InputSchemaDataType` object.
+      enum:
+      - inputSchema
+      type: string
+      x-enum-varnames:
+      - INPUTSCHEMA
     IntakePayloadAccepted:
       description: The payload accepted for intake.
       properties:
@@ -13656,13 +14883,6 @@ components:
           items:
             $ref: '#/components/schemas/SecurityMonitoringRuleCaseCreate'
           type: array
-        filters:
-          description: Additional queries to filter matched events before they are
-            processed. This field is deprecated for log detection, signal correlation,
-            and workload security rules.
-          items:
-            $ref: '#/components/schemas/SecurityMonitoringFilter'
-          type: array
         from:
           description: Starting time of data analyzed by the job.
           example: 1729843470000
@@ -13681,14 +14901,14 @@ components:
           example: Excessive number of failed attempts.
           type: string
         options:
-          $ref: '#/components/schemas/SecurityMonitoringRuleOptions'
+          $ref: '#/components/schemas/HistoricalJobOptions'
         queries:
           description: Queries for selecting logs analyzed by the job.
           items:
-            $ref: '#/components/schemas/SecurityMonitoringStandardRuleQuery'
+            $ref: '#/components/schemas/HistoricalJobQuery'
           type: array
         referenceTables:
-          description: Reference tables for the rule.
+          description: Reference tables used in the queries.
           items:
             $ref: '#/components/schemas/SecurityMonitoringReferenceTable'
           type: array
@@ -13698,8 +14918,8 @@ components:
             type: string
           type: array
         thirdPartyCases:
-          description: Cases for generating results from third-party rules. Only available
-            for third-party rules.
+          description: Cases for generating results from third-party detection method.
+            Only available for third-party detection method.
           example: []
           items:
             $ref: '#/components/schemas/SecurityMonitoringThirdPartyRuleCaseCreate'
@@ -13868,6 +15088,96 @@ components:
           type: array
         meta:
           $ref: '#/components/schemas/ApplicationKeyResponseMeta'
+      type: object
+    ListAppsResponse:
+      description: The definition of `ListAppsResponse` object.
+      properties:
+        data:
+          description: The `ListAppsResponse` `data`.
+          items:
+            $ref: '#/components/schemas/ListAppsResponseDataItems'
+          type: array
+        included:
+          description: The `ListAppsResponse` `included`.
+          items:
+            $ref: '#/components/schemas/DeploymentIncluded'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ListAppsResponseMeta'
+      type: object
+    ListAppsResponseDataItems:
+      description: The definition of `ListAppsResponseDataItems` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/ListAppsResponseDataItemsAttributes'
+        id:
+          description: The `items` `id`.
+          example: ''
+          type: string
+        meta:
+          $ref: '#/components/schemas/AppMeta'
+        relationships:
+          $ref: '#/components/schemas/ListAppsResponseDataItemsRelationships'
+        type:
+          $ref: '#/components/schemas/ListAppsResponseDataItemsType'
+      required:
+      - id
+      - type
+      - attributes
+      type: object
+    ListAppsResponseDataItemsAttributes:
+      description: The definition of `ListAppsResponseDataItemsAttributes` object.
+      properties:
+        description:
+          description: The `attributes` `description`.
+          type: string
+        favorite:
+          description: The `attributes` `favorite`.
+          type: boolean
+        name:
+          description: The `attributes` `name`.
+          type: string
+        selfService:
+          description: The `attributes` `selfService`.
+          type: boolean
+        tags:
+          description: The `attributes` `tags`.
+          items:
+            type: string
+          type: array
+      type: object
+    ListAppsResponseDataItemsRelationships:
+      description: The definition of `ListAppsResponseDataItemsRelationships` object.
+      properties:
+        deployment:
+          $ref: '#/components/schemas/DeploymentRelationship'
+      type: object
+    ListAppsResponseDataItemsType:
+      default: appDefinitions
+      description: The definition of `ListAppsResponseDataItemsType` object.
+      enum:
+      - appDefinitions
+      example: appDefinitions
+      type: string
+      x-enum-varnames:
+      - APPDEFINITIONS
+    ListAppsResponseMeta:
+      description: The definition of `ListAppsResponseMeta` object.
+      properties:
+        page:
+          $ref: '#/components/schemas/ListAppsResponseMetaPage'
+      type: object
+    ListAppsResponseMetaPage:
+      description: The definition of `ListAppsResponseMetaPage` object.
+      properties:
+        totalCount:
+          description: The `page` `totalCount`.
+          format: int64
+          type: integer
+        totalFilteredCount:
+          description: The `page` `totalFilteredCount`.
+          format: int64
+          type: integer
       type: object
     ListDevicesResponse:
       description: List devices response.
@@ -15869,6 +17179,36 @@ components:
       - COUNT
       - RATE
       - GAUGE
+    MetricMetaPage:
+      description: Paging attributes. Only present if pagination query parameters
+        were provided.
+      properties:
+        cursor:
+          description: The cursor used to get the current results, if any.
+          nullable: true
+          type: string
+        limit:
+          description: Number of results returned
+          format: int32
+          maximum: 20000
+          minimum: 0
+          type: integer
+        next_cursor:
+          description: The cursor used to get the next results, if any.
+          nullable: true
+          type: string
+        type:
+          $ref: '#/components/schemas/MetricMetaPageType'
+      type: object
+    MetricMetaPageType:
+      default: cursor_limit
+      description: Type of metric pagination.
+      enum:
+      - cursor_limit
+      example: cursor_limit
+      type: string
+      x-enum-varnames:
+      - CURSOR_LIMIT
     MetricMetadata:
       description: Metadata for the metric.
       properties:
@@ -15950,6 +17290,12 @@ components:
           format: int32
           maximum: 1000
           type: integer
+      type: object
+    MetricPaginationMeta:
+      description: Response metadata object.
+      properties:
+        pagination:
+          $ref: '#/components/schemas/MetricMetaPage'
       type: object
     MetricPayload:
       description: The metrics' payload.
@@ -16427,6 +17773,10 @@ components:
           items:
             $ref: '#/components/schemas/MetricsAndMetricTagConfigurations'
           type: array
+        links:
+          $ref: '#/components/schemas/MetricsListResponseLinks'
+        meta:
+          $ref: '#/components/schemas/MetricPaginationMeta'
       readOnly: true
       type: object
     MetricsDataSource:
@@ -16440,6 +17790,29 @@ components:
       x-enum-varnames:
       - METRICS
       - CLOUD_COST
+    MetricsListResponseLinks:
+      description: Pagination links. Only present if pagination query parameters were
+        provided.
+      properties:
+        first:
+          description: Link to the first page.
+          type: string
+        last:
+          description: Link to the last page.
+          nullable: true
+          type: string
+        next:
+          description: Link to the next page.
+          nullable: true
+          type: string
+        prev:
+          description: Link to previous page.
+          nullable: true
+          type: string
+        self:
+          description: Link to current page.
+          type: string
+      type: object
     MetricsScalarQuery:
       description: An individual scalar metrics query.
       properties:
@@ -17498,6 +18871,16 @@ components:
       required:
       - data
       type: object
+    OrderDirection:
+      description: The sort direction for results.
+      enum:
+      - asc
+      - desc
+      example: asc
+      type: string
+      x-enum-varnames:
+      - ASC
+      - DESC
     OrgConfigGetResponse:
       description: A response with a single Org Config.
       properties:
@@ -18574,6 +19957,31 @@ components:
             $ref: '#/components/schemas/Project'
           type: array
       type: object
+    Query:
+      description: The definition of `Query` object.
+      properties:
+        events:
+          description: The `Query` `events`.
+          items:
+            $ref: '#/components/schemas/AppBuilderEvent'
+          type: array
+        id:
+          description: The `Query` `id`.
+          example: ''
+          type: string
+        name:
+          description: The `Query` `name`.
+          example: ''
+          type: string
+        properties:
+          description: The `Query` `properties`.
+        type:
+          $ref: '#/components/schemas/QueryType'
+      required:
+      - id
+      - name
+      - type
+      type: object
     QueryFormula:
       description: A formula for calculation based on one or more queries.
       properties:
@@ -18597,6 +20005,18 @@ components:
       x-enum-varnames:
       - ASC
       - DESC
+    QueryType:
+      description: The definition of `QueryType` object.
+      enum:
+      - action
+      - stateVariable
+      - dataTransform
+      example: action
+      type: string
+      x-enum-varnames:
+      - ACTION
+      - STATEVARIABLE
+      - DATATRANSFORM
     RUMAggregateBucketValue:
       description: A bucket value, can be either a timeseries or a single value.
       oneOf:
@@ -20904,11 +22324,13 @@ components:
     SLOReportInterval:
       description: The frequency at which report data is to be generated.
       enum:
+      - daily
       - weekly
       - monthly
       example: weekly
       type: string
       x-enum-varnames:
+      - DAILY
       - WEEKLY
       - MONTHLY
     SLOReportPostResponse:
@@ -21129,6 +22551,44 @@ components:
       type: string
       x-enum-varnames:
       - SCORECARD
+    Script:
+      description: The definition of `Script` object.
+      properties:
+        data:
+          $ref: '#/components/schemas/ScriptData'
+      type: object
+    ScriptData:
+      description: The definition of `ScriptData` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/ScriptDataAttributes'
+        id:
+          description: The `data` `id`.
+          type: string
+        type:
+          $ref: '#/components/schemas/ScriptDataType'
+      type: object
+    ScriptDataAttributes:
+      description: The definition of `ScriptDataAttributes` object.
+      properties:
+        name:
+          description: The `attributes` `name`.
+          type: string
+        src:
+          description: The `attributes` `src`.
+          type: string
+        type:
+          description: The `attributes` `type`.
+          type: string
+      type: object
+    ScriptDataType:
+      default: scripts
+      description: The definition of `ScriptDataType` object.
+      enum:
+      - scripts
+      type: string
+      x-enum-varnames:
+      - SCRIPTS
     SecurityFilter:
       description: The security filter's properties.
       properties:
@@ -21384,7 +22844,7 @@ components:
           $ref: '#/components/schemas/ResponseMetaAttributes'
       type: object
     SecurityMonitoringReferenceTable:
-      description: Reference table for the rule.
+      description: Reference tables used in the queries.
       properties:
         checkPresence:
           description: Whether to include or exclude the matched values.
@@ -21396,7 +22856,7 @@ components:
           description: The field in the log to match against the reference table.
           type: string
         ruleQueryName:
-          description: The name of the rule query to apply the reference table to.
+          description: The name of the query to apply the reference table to.
           type: string
         tableName:
           description: The name of the reference table.
@@ -21427,7 +22887,7 @@ components:
       description: Case when signal is generated.
       properties:
         condition:
-          description: 'A rule case contains logical operations (`>`,`>=`, `&&`, `||`)
+          description: 'A case contains logical operations (`>`,`>=`, `&&`, `||`)
             to determine if a signal should be generated
 
             based on the event counts in the previously defined queries.'
@@ -21436,7 +22896,7 @@ components:
           description: Name of the case.
           type: string
         notifications:
-          description: Notification targets for each rule case.
+          description: Notification targets.
           items:
             description: Notification.
             type: string
@@ -21498,7 +22958,8 @@ components:
       description: 'A time window is specified to match when at least one of the cases
         matches true. This is a sliding window
 
-        and evaluates in real time. For third party rules, this field is not used.'
+        and evaluates in real time. For third party detection method, this field is
+        not used.'
       enum:
       - 0
       - 60
@@ -21527,7 +22988,7 @@ components:
       x-enum-varnames:
       - LOG4SHELL
     SecurityMonitoringRuleImpossibleTravelOptions:
-      description: Options on impossible travel rules.
+      description: Options on impossible travel detection method.
       properties:
         baselineUserLocations:
           $ref: '#/components/schemas/SecurityMonitoringRuleImpossibleTravelOptionsBaselineUserLocations'
@@ -21543,7 +23004,7 @@ components:
     SecurityMonitoringRuleKeepAlive:
       description: "Once a signal is generated, the signal will remain \u201Copen\u201D
         if a case is matched at least once within\nthis keep alive window. For third
-        party rules, this field is not used."
+        party detection method, this field is not used."
       enum:
       - 0
       - 60
@@ -21601,7 +23062,7 @@ components:
       - TWELVE_HOURS
       - ONE_DAY
     SecurityMonitoringRuleNewValueOptions:
-      description: Options on new value rules.
+      description: Options on new value detection method.
       properties:
         forgetAfter:
           $ref: '#/components/schemas/SecurityMonitoringRuleNewValueOptionsForgetAfter'
@@ -21671,7 +23132,7 @@ components:
       - ZERO_OCCURRENCES
       - ONE_OCCURRENCE
     SecurityMonitoringRuleOptions:
-      description: Options on rules.
+      description: Options.
       properties:
         complianceRuleOptions:
           $ref: '#/components/schemas/CloudConfigurationComplianceRuleOptions'
@@ -21813,7 +23274,7 @@ components:
           type: array
       type: object
     SecurityMonitoringRuleThirdPartyOptions:
-      description: Options on third party rules.
+      description: Options on third party detection method.
       properties:
         defaultNotifications:
           description: Notification targets for the logs that do not correspond to
@@ -23213,7 +24674,7 @@ components:
           description: Name of the case.
           type: string
         notifications:
-          description: Notification targets for each rule case.
+          description: Notification targets for each case.
           items:
             description: Notification.
             type: string
@@ -26722,6 +28183,197 @@ components:
           example: min
           type: string
       type: object
+    UpdateAppRequest:
+      description: The definition of `UpdateAppRequest` object.
+      example:
+        data:
+          attributes:
+            components:
+            - events: []
+              name: grid0
+              properties:
+                children:
+                - events: []
+                  name: gridCell0
+                  properties:
+                    children:
+                    - events: []
+                      name: calloutValue0
+                      properties:
+                        isDisabled: false
+                        isLoading: false
+                        isVisible: true
+                        label: CPU Usage
+                        size: sm
+                        style: vivid_yellow
+                        unit: kB
+                        value: '42'
+                      type: calloutValue
+                    isVisible: 'true'
+                    layout:
+                      default:
+                        height: 8
+                        width: 2
+                        x: 0
+                        y: 0
+                  type: gridCell
+              type: grid
+            description: This is a simple example app
+            embeddedQueries: []
+            name: Example App
+            rootInstanceName: grid0
+          id: 9e20cbaf-68da-45a6-9ccf-54193ac29fa5
+          type: appDefinitions
+      properties:
+        data:
+          $ref: '#/components/schemas/UpdateAppRequestData'
+      type: object
+    UpdateAppRequestData:
+      description: The definition of `UpdateAppRequestData` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/UpdateAppRequestDataAttributes'
+        id:
+          description: The `data` `id`.
+          type: string
+        type:
+          $ref: '#/components/schemas/UpdateAppRequestDataType'
+      required:
+      - type
+      type: object
+    UpdateAppRequestDataAttributes:
+      description: The definition of `UpdateAppRequestDataAttributes` object.
+      properties:
+        components:
+          description: The `attributes` `components`.
+          items:
+            $ref: '#/components/schemas/ComponentGrid'
+          type: array
+        description:
+          description: The `attributes` `description`.
+          type: string
+        embeddedQueries:
+          description: The `attributes` `embeddedQueries`.
+          items:
+            $ref: '#/components/schemas/Query'
+          type: array
+        inputSchema:
+          $ref: '#/components/schemas/InputSchema'
+        name:
+          description: The `attributes` `name`.
+          type: string
+        rootInstanceName:
+          description: The `attributes` `rootInstanceName`.
+          type: string
+        scripts:
+          description: The `attributes` `scripts`.
+          items:
+            $ref: '#/components/schemas/Script'
+          type: array
+        tags:
+          description: The `attributes` `tags`.
+          items:
+            type: string
+          type: array
+      type: object
+    UpdateAppRequestDataType:
+      default: appDefinitions
+      description: The definition of `UpdateAppRequestDataType` object.
+      enum:
+      - appDefinitions
+      example: appDefinitions
+      type: string
+      x-enum-varnames:
+      - APPDEFINITIONS
+    UpdateAppResponse:
+      description: The definition of `UpdateAppResponse` object.
+      properties:
+        data:
+          $ref: '#/components/schemas/UpdateAppResponseData'
+        included:
+          description: The `UpdateAppResponse` `included`.
+          items:
+            $ref: '#/components/schemas/DeploymentIncluded'
+          type: array
+        meta:
+          $ref: '#/components/schemas/AppMeta'
+        relationship:
+          $ref: '#/components/schemas/UpdateAppResponseRelationship'
+      type: object
+    UpdateAppResponseData:
+      description: The definition of `UpdateAppResponseData` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/UpdateAppResponseDataAttributes'
+        id:
+          description: The `data` `id`.
+          example: ''
+          type: string
+        type:
+          $ref: '#/components/schemas/UpdateAppResponseDataType'
+      required:
+      - id
+      - type
+      - attributes
+      type: object
+    UpdateAppResponseDataAttributes:
+      description: The definition of `UpdateAppResponseDataAttributes` object.
+      properties:
+        components:
+          description: The `attributes` `components`.
+          items:
+            $ref: '#/components/schemas/ComponentGrid'
+          type: array
+        description:
+          description: The `attributes` `description`.
+          type: string
+        embeddedQueries:
+          description: The `attributes` `embeddedQueries`.
+          items:
+            $ref: '#/components/schemas/Query'
+          type: array
+        favorite:
+          description: The `attributes` `favorite`.
+          type: boolean
+        inputSchema:
+          $ref: '#/components/schemas/InputSchema'
+        name:
+          description: The `attributes` `name`.
+          type: string
+        rootInstanceName:
+          description: The `attributes` `rootInstanceName`.
+          type: string
+        scripts:
+          description: The `attributes` `scripts`.
+          items:
+            $ref: '#/components/schemas/Script'
+          type: array
+        tags:
+          description: The `attributes` `tags`.
+          items:
+            type: string
+          type: array
+      type: object
+    UpdateAppResponseDataType:
+      default: appDefinitions
+      description: The definition of `UpdateAppResponseDataType` object.
+      enum:
+      - appDefinitions
+      example: appDefinitions
+      type: string
+      x-enum-varnames:
+      - APPDEFINITIONS
+    UpdateAppResponseRelationship:
+      description: The definition of `UpdateAppResponseRelationship` object.
+      properties:
+        connections:
+          description: The `relationship` `connections`.
+          items:
+            $ref: '#/components/schemas/CustomConnection'
+          type: array
+        deployment:
+          $ref: '#/components/schemas/DeploymentRelationship'
+      type: object
     UpdateOpenAPIResponse:
       description: Response for `UpdateOpenAPI`.
       properties:
@@ -27522,20 +29174,20 @@ components:
           type: string
       type: object
     XRayServicesIncludeAll:
-      description: Include all services
+      description: Include all services.
       properties:
         include_all:
-          description: Include all services
+          description: Include all services.
           example: false
           type: boolean
       required:
       - include_all
     XRayServicesIncludeOnly:
-      description: Include only these services
+      description: Include only these services. Defaults to `[]`.
       nullable: true
       properties:
         include_only:
-          description: Include only these services
+          description: Include only these services.
           example:
           - AWS/AppSync
           items:
@@ -27545,7 +29197,7 @@ components:
       required:
       - include_only
     XRayServicesList:
-      description: AWS X-Ray services to collect traces from
+      description: AWS X-Ray services to collect traces from. Defaults to `include_only`.
       oneOf:
       - $ref: '#/components/schemas/XRayServicesIncludeAll'
       - $ref: '#/components/schemas/XRayServicesIncludeOnly'
@@ -27654,6 +29306,12 @@ components:
       name: DD-APPLICATION-KEY
       type: apiKey
       x-env-name: DD_APP_KEY
+    bearerAuth:
+      in: header
+      name: Authorization
+      scheme: bearer
+      type: http
+      x-env-name: DD_BEARER_TOKEN
 info:
   contact:
     email: support@datadoghq.com
@@ -28474,6 +30132,430 @@ paths:
         permissions:
         - apm_retention_filter_write
         - apm_pipelines_write
+  /api/v2/app-builder/apps:
+    delete:
+      description: Delete multiple apps by ID
+      operationId: DeleteApps
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteAppsRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteAppsResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Forbidden, e.g. missing permissions to delete one or more apps
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Not Found
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Delete Multiple Apps
+      tags:
+      - Apps
+      x-permission:
+        operator: OR
+        permissions:
+        - apps_write
+      x-unstable: '**Note**: App Builder API endpoints are still under active development
+        and may change at any time.'
+    get:
+      description: List all apps, with optional filters and sorting
+      operationId: ListApps
+      parameters:
+      - description: The number of apps to return per page
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int64
+          type: integer
+      - description: The page number to return
+        in: query
+        name: page
+        required: false
+        schema:
+          format: int64
+          type: integer
+      - description: The `AppsFilter` `user_name`.
+        in: query
+        name: filter[user_name]
+        required: false
+        schema:
+          type: string
+      - description: The `AppsFilter` `user_uuid`.
+        in: query
+        name: filter[user_uuid]
+        required: false
+        schema:
+          type: string
+      - description: The `AppsFilter` `name`.
+        in: query
+        name: filter[name]
+        required: false
+        schema:
+          type: string
+      - description: The `AppsFilter` `query`.
+        in: query
+        name: filter[query]
+        required: false
+        schema:
+          type: string
+      - description: The `AppsFilter` `deployed`.
+        in: query
+        name: filter[deployed]
+        required: false
+        schema:
+          type: boolean
+      - description: The `AppsFilter` `tags`.
+        in: query
+        name: filter[tags]
+        required: false
+        schema:
+          type: string
+      - description: The `AppsFilter` `favorite`.
+        in: query
+        name: filter[favorite]
+        required: false
+        schema:
+          type: boolean
+      - explode: false
+        in: query
+        name: sort
+        required: false
+        schema:
+          items:
+            $ref: '#/components/schemas/AppsSortField'
+          type: array
+        style: form
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAppsResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Bad Request, e.g. invalid sort parameter
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Forbidden
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: List Apps
+      tags:
+      - Apps
+      x-permission:
+        operator: OR
+        permissions:
+        - apps_run
+      x-unstable: '**Note**: App Builder API endpoints are still under active development
+        and may change at any time.'
+    post:
+      description: Create a new app, returning the app ID
+      operationId: CreateApp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAppRequest'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateAppResponse'
+          description: App Created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Forbidden, e.g. missing required permissions to a connection
+            or workflow used in the app
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Create App
+      tags:
+      - Apps
+      x-permission:
+        operator: AND
+        permissions:
+        - apps_write
+        - connections_resolve
+        - workflows_run
+      x-unstable: '**Note**: App Builder API endpoints are still under active development
+        and may change at any time.'
+  /api/v2/app-builder/apps/{app_id}:
+    delete:
+      description: Delete an app by ID
+      operationId: DeleteApp
+      parameters:
+      - in: path
+        name: app_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteAppResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Not Found
+        '410':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Gone
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Delete App
+      tags:
+      - Apps
+      x-permission:
+        operator: OR
+        permissions:
+        - apps_write
+      x-unstable: '**Note**: App Builder API endpoints are still under active development
+        and may change at any time.'
+    get:
+      description: Get the full definition of an app by ID
+      operationId: GetApp
+      parameters:
+      - in: path
+        name: app_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAppResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Not Found
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Get App
+      tags:
+      - Apps
+      x-permission:
+        operator: AND
+        permissions:
+        - apps_run
+        - connections_read
+      x-unstable: '**Note**: App Builder API endpoints are still under active development
+        and may change at any time.'
+    patch:
+      description: Update an existing app by ID. Creates a new version of the app
+      operationId: UpdateApp
+      parameters:
+      - in: path
+        name: app_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAppRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateAppResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Forbidden, e.g. missing required permissions to a connection
+            or workflow used in the app
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Update App
+      tags:
+      - Apps
+      x-permission:
+        operator: AND
+        permissions:
+        - apps_write
+        - connections_resolve
+        - workflows_run
+      x-unstable: '**Note**: App Builder API endpoints are still under active development
+        and may change at any time.'
+  /api/v2/app-builder/apps/{app_id}/deployment:
+    delete:
+      description: Disable an app by ID
+      operationId: DisableApp
+      parameters:
+      - in: path
+        name: app_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisableAppResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Not Found
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Disable App
+      tags:
+      - App Deployment
+      x-permission:
+        operator: OR
+        permissions:
+        - apps_write
+      x-unstable: '**Note**: App Builder API endpoints are still under active development
+        and may change at any time.'
+    post:
+      description: Deploy (publish) an app by ID
+      operationId: DeployApp
+      parameters:
+      - in: path
+        name: app_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployAppResponse'
+          description: Created
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppBuilderError'
+          description: Not Found
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Deploy App
+      tags:
+      - App Deployment
+      x-permission:
+        operator: OR
+        permissions:
+        - apps_write
+      x-unstable: '**Note**: App Builder API endpoints are still under active development
+        and may change at any time.'
   /api/v2/application_keys:
     get:
       description: List all application keys available for your org
@@ -30593,7 +32675,8 @@ paths:
         != null BEGIN\n  sleep(5 seconds)  # Avoid running into rate limit\n  response
         := GetMonthlyCostAttribution(start_month, end_month, next_record_id=cursor)\n
         \ cursor := response.metadata.pagination.next_record_id\nEND\n```\n\nThis
-        endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/)."
+        endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+        This endpoint is not available in the Government (US1-FED) site."
       operationId: GetMonthlyCostAttribution
       parameters:
       - description: 'Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]`
@@ -30708,6 +32791,113 @@ paths:
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/csm/onboarding/agents:
+    get:
+      description: Get the list of all CSM Agents running on your hosts and containers.
+      operationId: ListAllCSMAgents
+      parameters:
+      - description: The page index for pagination (zero-based).
+        in: query
+        name: page
+        required: false
+        schema:
+          example: 2
+          format: int32
+          maximum: 1000000
+          minimum: 0
+          type: integer
+      - description: The number of items to include in a single page.
+        in: query
+        name: size
+        required: false
+        schema:
+          example: 12
+          format: int32
+          maximum: 100
+          minimum: 0
+          type: integer
+      - description: A search query string to filter results (for example, `hostname:COMP-T2H4J27423`).
+        in: query
+        name: query
+        required: false
+        schema:
+          example: hostname:COMP-T2H4J27423
+          type: string
+      - description: The sort direction for results. Use `asc` for ascending or `desc`
+          for descending.
+        in: query
+        name: order_direction
+        required: false
+        schema:
+          $ref: '#/components/schemas/OrderDirection'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CsmAgentsResponse'
+          description: OK
+        '403':
+          $ref: '#/components/responses/NotAuthorizedResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Get all CSM Agents
+      tags:
+      - CSM Agents
+  /api/v2/csm/onboarding/serverless/agents:
+    get:
+      description: Get the list of all CSM Serverless Agents running on your hosts
+        and containers.
+      operationId: ListAllCSMServerlessAgents
+      parameters:
+      - description: The page index for pagination (zero-based).
+        in: query
+        name: page
+        required: false
+        schema:
+          example: 2
+          format: int32
+          maximum: 1000000
+          minimum: 0
+          type: integer
+      - description: The number of items to include in a single page.
+        in: query
+        name: size
+        required: false
+        schema:
+          example: 12
+          format: int32
+          maximum: 100
+          minimum: 0
+          type: integer
+      - description: A search query string to filter results (for example, `hostname:COMP-T2H4J27423`).
+        in: query
+        name: query
+        required: false
+        schema:
+          example: hostname:COMP-T2H4J27423
+          type: string
+      - description: The sort direction for results. Use `asc` for ascending or `desc`
+          for descending.
+        in: query
+        name: order_direction
+        required: false
+        schema:
+          $ref: '#/components/schemas/OrderDirection'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CsmAgentsResponse'
+          description: OK
+        '403':
+          $ref: '#/components/responses/NotAuthorizedResponse'
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      summary: Get all CSM Serverless Agents
+      tags:
+      - CSM Agents
   /api/v2/current_user/application_keys:
     get:
       description: List all application keys available for current user
@@ -31142,6 +33332,9 @@ paths:
         permissions:
         - rum_delete_data
         - logs_delete_data
+      x-unstable: '**Note**: This endpoint is in Preview. If you have any feedback,
+
+        contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v2/deletion/requests:
     get:
       description: Gets a list of data deletion requests based on several filter parameters.
@@ -31217,6 +33410,9 @@ paths:
         permissions:
         - rum_delete_data
         - logs_delete_data
+      x-unstable: '**Note**: This endpoint is in Preview. If you have any feedback,
+
+        contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v2/deletion/requests/{id}/cancel:
     put:
       description: Cancels a data deletion request by providing its ID.
@@ -31259,6 +33455,9 @@ paths:
         permissions:
         - rum_delete_data
         - logs_delete_data
+      x-unstable: '**Note**: This endpoint is in Preview. If you have any feedback,
+
+        contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v2/domain_allowlist:
     get:
       description: Get the domain allowlist for an organization.
@@ -31764,12 +33963,10 @@ paths:
         permissions:
         - events_read
     post:
-      description: 'This endpoint allows you to post events.
-
-
-        Only events with **`change` category** are under General Availability. Refer
-        to [Change Tracking](https://docs.datadoghq.com/change_tracking) for further
-        details.'
+      description: "This endpoint allows you to post events.\n\n\u2705 **Only events
+        with the `change` category** are in General Availability. See [Change Tracking](https://docs.datadoghq.com/change_tracking)
+        for more details.\n\n\u274C For use cases involving other event categories,
+        please use the V1 endpoint."
       operationId: CreateEvent
       requestBody:
         content:
@@ -32808,7 +35005,8 @@ paths:
       description: Get a list of AWS Account Integration Configs.
       operationId: ListAWSAccounts
       parameters:
-      - description: Optional query filter accounts by AWS Account ID
+      - description: Optional query parameter to filter accounts by AWS Account ID.
+          If not provided, all accounts are returned.
         example: '123456789012'
         in: query
         name: aws_account_id
@@ -32833,7 +35031,7 @@ paths:
         operator: OR
         permissions:
         - aws_configuration_read
-      x-unstable: '**Note: This endpoint is in public beta. If you have any feedback,
+      x-unstable: '**Note: This endpoint is in Preview. If you have any feedback,
 
         contact [Datadog support](https://docs.datadoghq.com/help/).**'
     post:
@@ -32868,12 +35066,12 @@ paths:
         operator: OR
         permissions:
         - aws_configurations_manage
-      x-unstable: '**Note: This endpoint is in public beta. If you have any feedback,
+      x-unstable: '**Note: This endpoint is in Preview. If you have any feedback,
 
         contact [Datadog support](https://docs.datadoghq.com/help/).**'
   /api/v2/integration/aws/accounts/{aws_account_config_id}:
     delete:
-      description: Delete an AWS Account Integration Config
+      description: Delete an AWS Account Integration Config by config ID.
       operationId: DeleteAWSAccount
       parameters:
       - $ref: '#/components/parameters/AWSAccountConfigIDPathParameter'
@@ -32895,11 +35093,11 @@ paths:
         operator: OR
         permissions:
         - aws_configurations_manage
-      x-unstable: '**Note: This endpoint is in public beta. If you have any feedback,
+      x-unstable: '**Note: This endpoint is in Preview. If you have any feedback,
 
         contact [Datadog support](https://docs.datadoghq.com/help/).**'
     get:
-      description: Get an AWS Account Integration Config
+      description: Get an AWS Account Integration Config by config ID.
       operationId: GetAWSAccount
       parameters:
       - $ref: '#/components/parameters/AWSAccountConfigIDPathParameter'
@@ -32925,11 +35123,11 @@ paths:
         operator: OR
         permissions:
         - aws_configuration_read
-      x-unstable: '**Note: This endpoint is in public beta. If you have any feedback,
+      x-unstable: '**Note: This endpoint is in Preview. If you have any feedback,
 
         contact [Datadog support](https://docs.datadoghq.com/help/).**'
     patch:
-      description: Update an AWS Account Integration Config
+      description: Update an AWS Account Integration Config by config ID.
       operationId: UpdateAWSAccount
       parameters:
       - $ref: '#/components/parameters/AWSAccountConfigIDPathParameter'
@@ -32962,7 +35160,7 @@ paths:
         operator: OR
         permissions:
         - aws_configuration_edit
-      x-unstable: '**Note: This endpoint is in public beta. If you have any feedback,
+      x-unstable: '**Note: This endpoint is in Preview. If you have any feedback,
 
         contact [Datadog support](https://docs.datadoghq.com/help/).**'
   /api/v2/integration/aws/available_namespaces:
@@ -32988,7 +35186,7 @@ paths:
         operator: OR
         permissions:
         - aws_configuration_read
-      x-unstable: '**Note: This endpoint is in public beta. If you have any feedback,
+      x-unstable: '**Note: This endpoint is in Preview. If you have any feedback,
 
         contact [Datadog support](https://docs.datadoghq.com/help/).**'
   /api/v2/integration/aws/generate_new_external_id:
@@ -33013,7 +35211,7 @@ paths:
         operator: OR
         permissions:
         - aws_configuration_edit
-      x-unstable: '**Note: This endpoint is in public beta. If you have any feedback,
+      x-unstable: '**Note: This endpoint is in Preview. If you have any feedback,
 
         contact [Datadog support](https://docs.datadoghq.com/help/).**'
   /api/v2/integration/aws/logs/services:
@@ -35623,7 +37821,12 @@ paths:
     get:
       description: "Returns all metrics that can be configured in the Metrics Summary
         page or with Metrics without Limits\u2122 (matching additional filters if
-        specified)."
+        specified).\nOptionally, paginate by using the `page[cursor]` and/or `page[size]`
+        query parameters.\nTo fetch the first page, pass in a query parameter with
+        either a valid `page[size]` or an empty cursor like `page[cursor]=`. To fetch
+        the next page, pass in the `next_cursor` value from the response as the new
+        `page[cursor]` value.\nOnce the `meta.pagination.next_cursor` value is null,
+        all pages have been retrieved."
       operationId: ListTagConfigurations
       parameters:
       - description: Filter custom metrics that have configured tags.
@@ -35688,6 +37891,27 @@ paths:
         schema:
           format: int64
           type: integer
+      - description: Maximum number of results returned.
+        in: query
+        name: page[size]
+        required: false
+        schema:
+          default: 10000
+          format: int32
+          maximum: 10000
+          minimum: 1
+          type: integer
+      - description: 'String to query the next page of results.
+
+          This key is provided with each valid response from the API in `meta.pagination.next_cursor`.
+
+          Once the `meta.pagination.next_cursor` key is null, all pages have been
+          retrieved.'
+        in: query
+        name: page[cursor]
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           content:
@@ -35721,6 +37945,11 @@ paths:
       summary: Get a list of metrics
       tags:
       - Metrics
+      x-pagination:
+        cursorParam: page[cursor]
+        cursorPath: meta.pagination.next_cursor
+        limitParam: page[size]
+        resultsPath: data
       x-permission:
         operator: OR
         permissions:
@@ -37747,6 +39976,8 @@ paths:
 
         - Powerpacks: `powerpack`
 
+        - Reference Tables: `reference-table`
+
         - Security Rules: `security-rule`
 
         - Service Level Objectives: `slo`
@@ -37782,7 +40013,9 @@ paths:
 
         Synthetic Private Locations | `viewer`, `editor`
 
-        Monitors                    | `viewer`, `editor`'
+        Monitors                    | `viewer`, `editor`
+
+        Reference Tables            | `viewer`, `editor`'
       operationId: UpdateRestrictionPolicy
       parameters:
       - $ref: '#/components/parameters/ResourceID'
@@ -44351,6 +46584,10 @@ tags:
   externalDocs:
     url: https://docs.datadoghq.com/integrations/amazon_web_services/#log-collection
   name: AWS Logs Integration
+- description: Deploy and disable apps in App Builder.
+  name: App Deployment
+- description: Create, read, update, and delete apps in App Builder.
+  name: Apps
 - description: Search your Audit Logs events over HTTP.
   name: Audit
 - description: '[The AuthN Mappings API](https://docs.datadoghq.com/account_management/authn_mapping/?tab=example)
@@ -44367,6 +46604,15 @@ tags:
     [Test Visibility in Datadog page](https://docs.datadoghq.com/tests/) for more
     information.
   name: CI Visibility Tests
+- description: 'Datadog Cloud Security Management (CSM) delivers real-time threat
+    detection
+
+    and continuous configuration audits across your entire cloud infrastructure,
+
+    all in a unified view for seamless collaboration and faster remediation.
+
+    Go to https://docs.datadoghq.com/security/cloud_security_management to learn more'
+  name: CSM Agents
 - description: Cloud Security Management Threats (CSM Threats) monitors file, network,
     and process activity across your environment to detect real-time threats to your
     infrastructure. See [Cloud Security Management Threats](https://docs.datadoghq.com/security/threats/)
@@ -44645,7 +46891,11 @@ tags:
     page](https://docs.datadoghq.com/account_management/org_settings/service_accounts/)
     for more information.
   name: Service Accounts
-- description: API to create, update, retrieve and delete service definitions.
+- description: 'API to create, update, retrieve and delete service definitions.
+
+    Note: Service Catalog [v3.0 schema](https://docs.datadoghq.com/service_catalog/service_definitions/v3-0/)
+    has new API endpoints documented under [Software Catalog](https://docs.datadoghq.com/api/latest/software-catalog/).
+    Use the following Service Definition endpoints for v2.2 and earlier.'
   externalDocs:
     url: https://docs.datadoghq.com/tracing/service_catalog/
   name: Service Definition

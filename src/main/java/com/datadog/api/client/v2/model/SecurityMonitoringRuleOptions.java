@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Options on rules. */
+/** Options. */
 @JsonPropertyOrder({
   SecurityMonitoringRuleOptions.JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV,
@@ -151,7 +151,8 @@ public class SecurityMonitoringRuleOptions {
 
   /**
    * A time window is specified to match when at least one of the cases matches true. This is a
-   * sliding window and evaluates in real time. For third party rules, this field is not used.
+   * sliding window and evaluates in real time. For third party detection method, this field is not
+   * used.
    *
    * @return evaluationWindow
    */
@@ -204,7 +205,7 @@ public class SecurityMonitoringRuleOptions {
   }
 
   /**
-   * Options on impossible travel rules.
+   * Options on impossible travel detection method.
    *
    * @return impossibleTravelOptions
    */
@@ -228,7 +229,7 @@ public class SecurityMonitoringRuleOptions {
 
   /**
    * Once a signal is generated, the signal will remain “open” if a case is matched at least once
-   * within this keep alive window. For third party rules, this field is not used.
+   * within this keep alive window. For third party detection method, this field is not used.
    *
    * @return keepAlive
    */
@@ -281,7 +282,7 @@ public class SecurityMonitoringRuleOptions {
   }
 
   /**
-   * Options on new value rules.
+   * Options on new value detection method.
    *
    * @return newValueOptions
    */
@@ -304,7 +305,7 @@ public class SecurityMonitoringRuleOptions {
   }
 
   /**
-   * Options on third party rules.
+   * Options on third party detection method.
    *
    * @return thirdPartyRuleOptions
    */

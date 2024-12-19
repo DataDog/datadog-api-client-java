@@ -1,0 +1,84 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"events\":[],\"name\":\"grid0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"gridCell0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"calloutValue0\",\"properties\":{\"isDisabled\":false,\"isLoading\":false,\"isVisible\":true,\"label\":\"CPU Usage\",\"size\":\"sm\",\"style\":\"vivid_yellow\",\"unit\":\"kB\",\"value\":\"42\"},\"type\":\"calloutValue\"}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"height\":8,\"width\":2,\"x\":0,\"y\":0}}},\"type\":\"gridCell\"}]},\"type\":\"grid\"}],\"description\":\"This is a simple example app\",\"embeddedQueries\":[],\"name\":\"Example App\",\"rootInstanceName\":\"grid0\"},\"type\":\"appDefinitions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/app-builder/apps",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4937a273-31f5-4375-a9cf-b71eeb92f89c\",\"type\":\"appDefinitions\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "820bad24-1ae4-7d45-b443-7591eb8052bf"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/app-builder/apps/4937a273-31f5-4375-a9cf-b71eeb92f89c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4937a273-31f5-4375-a9cf-b71eeb92f89c\",\"type\":\"appDefinitions\",\"attributes\":{\"components\":[{\"events\":[],\"name\":\"grid0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"gridCell0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"calloutValue0\",\"properties\":{\"isDisabled\":false,\"isLoading\":false,\"isVisible\":true,\"label\":\"CPU Usage\",\"size\":\"sm\",\"style\":\"vivid_yellow\",\"unit\":\"kB\",\"value\":\"42\"},\"type\":\"calloutValue\"}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"height\":8,\"width\":2,\"x\":0,\"y\":0}}},\"type\":\"gridCell\"}]},\"type\":\"grid\"}],\"description\":\"This is a simple example app\",\"embeddedQueries\":[],\"favorite\":false,\"name\":\"Example App\",\"rootInstanceName\":\"grid0\",\"selfService\":false,\"tags\":[]},\"meta\":{\"org_id\":321813,\"user_id\":2320499,\"user_uuid\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"user_name\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"version\":1,\"updated_since_deployment\":false,\"created_at\":\"2024-12-12T20:29:25.869968Z\",\"updated_at\":\"2024-12-12T20:29:25.869968Z\",\"deleted_at\":\"0001-01-01T00:00:00Z\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "47b6aadd-1969-51f2-7639-c8987e412dfd"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/app-builder/apps/4937a273-31f5-4375-a9cf-b71eeb92f89c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4937a273-31f5-4375-a9cf-b71eeb92f89c\",\"type\":\"appDefinitions\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "128fd55e-6a03-8c7e-57aa-b18f757d86c7"
+  }
+]

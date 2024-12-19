@@ -23,8 +23,9 @@ import java.util.Set;
 public class SLOReportInterval extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("weekly", "monthly"));
+      new HashSet<String>(Arrays.asList("daily", "weekly", "monthly"));
 
+  public static final SLOReportInterval DAILY = new SLOReportInterval("daily");
   public static final SLOReportInterval WEEKLY = new SLOReportInterval("weekly");
   public static final SLOReportInterval MONTHLY = new SLOReportInterval("monthly");
 

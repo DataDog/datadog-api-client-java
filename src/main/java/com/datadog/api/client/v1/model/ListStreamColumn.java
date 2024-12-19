@@ -18,21 +18,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Widget column. */
-@JsonPropertyOrder({
-  ListStreamColumn.JSON_PROPERTY_FIELD,
-  ListStreamColumn.JSON_PROPERTY_IS_CLUSTERING_PATTERN_FIELD_PATH,
-  ListStreamColumn.JSON_PROPERTY_WIDTH
-})
+@JsonPropertyOrder({ListStreamColumn.JSON_PROPERTY_FIELD, ListStreamColumn.JSON_PROPERTY_WIDTH})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class ListStreamColumn {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
-
-  public static final String JSON_PROPERTY_IS_CLUSTERING_PATTERN_FIELD_PATH =
-      "is_clustering_pattern_field_path";
-  private Boolean isClusteringPatternFieldPath;
 
   public static final String JSON_PROPERTY_WIDTH = "width";
   private ListStreamColumnWidth width;
@@ -66,27 +58,6 @@ public class ListStreamColumn {
 
   public void setField(String field) {
     this.field = field;
-  }
-
-  public ListStreamColumn isClusteringPatternFieldPath(Boolean isClusteringPatternFieldPath) {
-    this.isClusteringPatternFieldPath = isClusteringPatternFieldPath;
-    return this;
-  }
-
-  /**
-   * Identifies the clustering pattern field column, usable only with logs_pattern_stream.
-   *
-   * @return isClusteringPatternFieldPath
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_IS_CLUSTERING_PATTERN_FIELD_PATH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIsClusteringPatternFieldPath() {
-    return isClusteringPatternFieldPath;
-  }
-
-  public void setIsClusteringPatternFieldPath(Boolean isClusteringPatternFieldPath) {
-    this.isClusteringPatternFieldPath = isClusteringPatternFieldPath;
   }
 
   public ListStreamColumn width(ListStreamColumnWidth width) {
@@ -170,15 +141,13 @@ public class ListStreamColumn {
     }
     ListStreamColumn listStreamColumn = (ListStreamColumn) o;
     return Objects.equals(this.field, listStreamColumn.field)
-        && Objects.equals(
-            this.isClusteringPatternFieldPath, listStreamColumn.isClusteringPatternFieldPath)
         && Objects.equals(this.width, listStreamColumn.width)
         && Objects.equals(this.additionalProperties, listStreamColumn.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, isClusteringPatternFieldPath, width, additionalProperties);
+    return Objects.hash(field, width, additionalProperties);
   }
 
   @Override
@@ -186,9 +155,6 @@ public class ListStreamColumn {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListStreamColumn {\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    isClusteringPatternFieldPath: ")
-        .append(toIndentedString(isClusteringPatternFieldPath))
-        .append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
