@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/csm/onboarding/coverage_analysis/serverless",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\",\"type\":\"get_serverless_coverage_analysis_response_public_v0\",\"attributes\":{\"cws_coverage\":{\"partially_configured_resources_count\":0,\"configured_resources_count\":0,\"total_resources_count\":0},\"org_id\":0,\"total_coverage\":{\"partially_configured_resources_count\":0,\"configured_resources_count\":0,\"total_resources_count\":0}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "226ecbee-b2e4-8835-4e36-711fa9438384"
+  }
+]
