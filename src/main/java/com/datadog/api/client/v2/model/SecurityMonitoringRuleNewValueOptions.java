@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Options on new value rules. */
+/** Options on new value detection method. */
 @JsonPropertyOrder({
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_FORGET_AFTER,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_DURATION,

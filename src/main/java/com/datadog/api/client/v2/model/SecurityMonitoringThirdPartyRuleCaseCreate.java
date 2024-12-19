@@ -87,7 +87,7 @@ public class SecurityMonitoringThirdPartyRuleCaseCreate {
   }
 
   /**
-   * Notification targets for each rule case.
+   * Notification targets for each case.
    *
    * @return notifications
    */

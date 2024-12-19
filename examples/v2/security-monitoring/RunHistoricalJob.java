@@ -3,6 +3,8 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.SecurityMonitoringApi;
+import com.datadog.api.client.v2.model.HistoricalJobOptions;
+import com.datadog.api.client.v2.model.HistoricalJobQuery;
 import com.datadog.api.client.v2.model.JobCreateResponse;
 import com.datadog.api.client.v2.model.JobDefinition;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
@@ -13,10 +15,8 @@ import com.datadog.api.client.v2.model.SecurityMonitoringRuleCaseCreate;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleEvaluationWindow;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleKeepAlive;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleMaxSignalDuration;
-import com.datadog.api.client.v2.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleQueryAggregation;
 import com.datadog.api.client.v2.model.SecurityMonitoringRuleSeverity;
-import com.datadog.api.client.v2.model.SecurityMonitoringStandardRuleQuery;
 import java.util.Collections;
 
 public class Example {
@@ -38,7 +38,7 @@ public class Example {
                                     .name("Excessive number of failed attempts.")
                                     .queries(
                                         Collections.singletonList(
-                                            new SecurityMonitoringStandardRuleQuery()
+                                            new HistoricalJobQuery()
                                                 .query("source:non_existing_src_weekend")
                                                 .aggregation(
                                                     SecurityMonitoringRuleQueryAggregation.COUNT)))
@@ -49,7 +49,7 @@ public class Example {
                                                 .status(SecurityMonitoringRuleSeverity.INFO)
                                                 .condition("a > 1")))
                                     .options(
-                                        new SecurityMonitoringRuleOptions()
+                                        new HistoricalJobOptions()
                                             .keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)
                                             .maxSignalDuration(
                                                 SecurityMonitoringRuleMaxSignalDuration.ONE_DAY)

@@ -250,7 +250,7 @@ public class SecurityMonitoringStandardRuleTestPayload {
   }
 
   /**
-   * Options on rules.
+   * Options.
    *
    * @return options
    */

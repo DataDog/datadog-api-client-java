@@ -16,38 +16,25 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Options. */
+/** Job options. */
 @JsonPropertyOrder({
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_DETECTION_METHOD,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_EVALUATION_WINDOW,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_HARDCODED_EVALUATOR_TYPE,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_KEEP_ALIVE,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS
+  HistoricalJobOptions.JSON_PROPERTY_DETECTION_METHOD,
+  HistoricalJobOptions.JSON_PROPERTY_EVALUATION_WINDOW,
+  HistoricalJobOptions.JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS,
+  HistoricalJobOptions.JSON_PROPERTY_KEEP_ALIVE,
+  HistoricalJobOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
+  HistoricalJobOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS,
+  HistoricalJobOptions.JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SecurityMonitoringRuleOptions {
+public class HistoricalJobOptions {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS = "complianceRuleOptions";
-  private CloudConfigurationComplianceRuleOptions complianceRuleOptions;
-
-  public static final String JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV =
-      "decreaseCriticalityBasedOnEnv";
-  private Boolean decreaseCriticalityBasedOnEnv;
-
   public static final String JSON_PROPERTY_DETECTION_METHOD = "detectionMethod";
   private SecurityMonitoringRuleDetectionMethod detectionMethod;
 
   public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluationWindow";
   private SecurityMonitoringRuleEvaluationWindow evaluationWindow;
-
-  public static final String JSON_PROPERTY_HARDCODED_EVALUATOR_TYPE = "hardcodedEvaluatorType";
-  private SecurityMonitoringRuleHardcodedEvaluatorType hardcodedEvaluatorType;
 
   public static final String JSON_PROPERTY_IMPOSSIBLE_TRAVEL_OPTIONS = "impossibleTravelOptions";
   private SecurityMonitoringRuleImpossibleTravelOptions impossibleTravelOptions;
@@ -64,59 +51,7 @@ public class SecurityMonitoringRuleOptions {
   public static final String JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS = "thirdPartyRuleOptions";
   private SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions;
 
-  public SecurityMonitoringRuleOptions complianceRuleOptions(
-      CloudConfigurationComplianceRuleOptions complianceRuleOptions) {
-    this.complianceRuleOptions = complianceRuleOptions;
-    this.unparsed |= complianceRuleOptions.unparsed;
-    return this;
-  }
-
-  /**
-   * Options for cloud_configuration rules. Fields <code>resourceType</code> and <code>regoRule
-   * </code> are mandatory when managing custom <code>cloud_configuration</code> rules.
-   *
-   * @return complianceRuleOptions
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_COMPLIANCE_RULE_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public CloudConfigurationComplianceRuleOptions getComplianceRuleOptions() {
-    return complianceRuleOptions;
-  }
-
-  public void setComplianceRuleOptions(
-      CloudConfigurationComplianceRuleOptions complianceRuleOptions) {
-    this.complianceRuleOptions = complianceRuleOptions;
-  }
-
-  public SecurityMonitoringRuleOptions decreaseCriticalityBasedOnEnv(
-      Boolean decreaseCriticalityBasedOnEnv) {
-    this.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
-    return this;
-  }
-
-  /**
-   * If true, signals in non-production environments have a lower severity than what is defined by
-   * the rule case, which can reduce signal noise. The severity is decreased by one level: <code>
-   * CRITICAL</code> in production becomes <code>HIGH</code> in non-production, <code>HIGH</code>
-   * becomes <code>MEDIUM</code> and so on. <code>INFO</code> remains <code>INFO</code>. The
-   * decrement is applied when the environment tag of the signal starts with <code>staging</code>,
-   * <code>test</code> or <code>dev</code>.
-   *
-   * @return decreaseCriticalityBasedOnEnv
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DECREASE_CRITICALITY_BASED_ON_ENV)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getDecreaseCriticalityBasedOnEnv() {
-    return decreaseCriticalityBasedOnEnv;
-  }
-
-  public void setDecreaseCriticalityBasedOnEnv(Boolean decreaseCriticalityBasedOnEnv) {
-    this.decreaseCriticalityBasedOnEnv = decreaseCriticalityBasedOnEnv;
-  }
-
-  public SecurityMonitoringRuleOptions detectionMethod(
+  public HistoricalJobOptions detectionMethod(
       SecurityMonitoringRuleDetectionMethod detectionMethod) {
     this.detectionMethod = detectionMethod;
     this.unparsed |= !detectionMethod.isValid();
@@ -142,7 +77,7 @@ public class SecurityMonitoringRuleOptions {
     this.detectionMethod = detectionMethod;
   }
 
-  public SecurityMonitoringRuleOptions evaluationWindow(
+  public HistoricalJobOptions evaluationWindow(
       SecurityMonitoringRuleEvaluationWindow evaluationWindow) {
     this.evaluationWindow = evaluationWindow;
     this.unparsed |= !evaluationWindow.isValid();
@@ -170,34 +105,7 @@ public class SecurityMonitoringRuleOptions {
     this.evaluationWindow = evaluationWindow;
   }
 
-  public SecurityMonitoringRuleOptions hardcodedEvaluatorType(
-      SecurityMonitoringRuleHardcodedEvaluatorType hardcodedEvaluatorType) {
-    this.hardcodedEvaluatorType = hardcodedEvaluatorType;
-    this.unparsed |= !hardcodedEvaluatorType.isValid();
-    return this;
-  }
-
-  /**
-   * Hardcoded evaluator type.
-   *
-   * @return hardcodedEvaluatorType
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HARDCODED_EVALUATOR_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleHardcodedEvaluatorType getHardcodedEvaluatorType() {
-    return hardcodedEvaluatorType;
-  }
-
-  public void setHardcodedEvaluatorType(
-      SecurityMonitoringRuleHardcodedEvaluatorType hardcodedEvaluatorType) {
-    if (!hardcodedEvaluatorType.isValid()) {
-      this.unparsed = true;
-    }
-    this.hardcodedEvaluatorType = hardcodedEvaluatorType;
-  }
-
-  public SecurityMonitoringRuleOptions impossibleTravelOptions(
+  public HistoricalJobOptions impossibleTravelOptions(
       SecurityMonitoringRuleImpossibleTravelOptions impossibleTravelOptions) {
     this.impossibleTravelOptions = impossibleTravelOptions;
     this.unparsed |= impossibleTravelOptions.unparsed;
@@ -221,7 +129,7 @@ public class SecurityMonitoringRuleOptions {
     this.impossibleTravelOptions = impossibleTravelOptions;
   }
 
-  public SecurityMonitoringRuleOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
+  public HistoricalJobOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
     this.keepAlive = keepAlive;
     this.unparsed |= !keepAlive.isValid();
     return this;
@@ -247,7 +155,7 @@ public class SecurityMonitoringRuleOptions {
     this.keepAlive = keepAlive;
   }
 
-  public SecurityMonitoringRuleOptions maxSignalDuration(
+  public HistoricalJobOptions maxSignalDuration(
       SecurityMonitoringRuleMaxSignalDuration maxSignalDuration) {
     this.maxSignalDuration = maxSignalDuration;
     this.unparsed |= !maxSignalDuration.isValid();
@@ -274,7 +182,7 @@ public class SecurityMonitoringRuleOptions {
     this.maxSignalDuration = maxSignalDuration;
   }
 
-  public SecurityMonitoringRuleOptions newValueOptions(
+  public HistoricalJobOptions newValueOptions(
       SecurityMonitoringRuleNewValueOptions newValueOptions) {
     this.newValueOptions = newValueOptions;
     this.unparsed |= newValueOptions.unparsed;
@@ -297,7 +205,7 @@ public class SecurityMonitoringRuleOptions {
     this.newValueOptions = newValueOptions;
   }
 
-  public SecurityMonitoringRuleOptions thirdPartyRuleOptions(
+  public HistoricalJobOptions thirdPartyRuleOptions(
       SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions) {
     this.thirdPartyRuleOptions = thirdPartyRuleOptions;
     this.unparsed |= thirdPartyRuleOptions.unparsed;
@@ -333,10 +241,10 @@ public class SecurityMonitoringRuleOptions {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SecurityMonitoringRuleOptions
+   * @return HistoricalJobOptions
    */
   @JsonAnySetter
-  public SecurityMonitoringRuleOptions putAdditionalProperty(String key, Object value) {
+  public HistoricalJobOptions putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -367,7 +275,7 @@ public class SecurityMonitoringRuleOptions {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SecurityMonitoringRuleOptions object is equal to o. */
+  /** Return true if this HistoricalJobOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -376,35 +284,23 @@ public class SecurityMonitoringRuleOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleOptions securityMonitoringRuleOptions = (SecurityMonitoringRuleOptions) o;
-    return Objects.equals(
-            this.complianceRuleOptions, securityMonitoringRuleOptions.complianceRuleOptions)
+    HistoricalJobOptions historicalJobOptions = (HistoricalJobOptions) o;
+    return Objects.equals(this.detectionMethod, historicalJobOptions.detectionMethod)
+        && Objects.equals(this.evaluationWindow, historicalJobOptions.evaluationWindow)
         && Objects.equals(
-            this.decreaseCriticalityBasedOnEnv,
-            securityMonitoringRuleOptions.decreaseCriticalityBasedOnEnv)
-        && Objects.equals(this.detectionMethod, securityMonitoringRuleOptions.detectionMethod)
-        && Objects.equals(this.evaluationWindow, securityMonitoringRuleOptions.evaluationWindow)
-        && Objects.equals(
-            this.hardcodedEvaluatorType, securityMonitoringRuleOptions.hardcodedEvaluatorType)
-        && Objects.equals(
-            this.impossibleTravelOptions, securityMonitoringRuleOptions.impossibleTravelOptions)
-        && Objects.equals(this.keepAlive, securityMonitoringRuleOptions.keepAlive)
-        && Objects.equals(this.maxSignalDuration, securityMonitoringRuleOptions.maxSignalDuration)
-        && Objects.equals(this.newValueOptions, securityMonitoringRuleOptions.newValueOptions)
-        && Objects.equals(
-            this.thirdPartyRuleOptions, securityMonitoringRuleOptions.thirdPartyRuleOptions)
-        && Objects.equals(
-            this.additionalProperties, securityMonitoringRuleOptions.additionalProperties);
+            this.impossibleTravelOptions, historicalJobOptions.impossibleTravelOptions)
+        && Objects.equals(this.keepAlive, historicalJobOptions.keepAlive)
+        && Objects.equals(this.maxSignalDuration, historicalJobOptions.maxSignalDuration)
+        && Objects.equals(this.newValueOptions, historicalJobOptions.newValueOptions)
+        && Objects.equals(this.thirdPartyRuleOptions, historicalJobOptions.thirdPartyRuleOptions)
+        && Objects.equals(this.additionalProperties, historicalJobOptions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        complianceRuleOptions,
-        decreaseCriticalityBasedOnEnv,
         detectionMethod,
         evaluationWindow,
-        hardcodedEvaluatorType,
         impossibleTravelOptions,
         keepAlive,
         maxSignalDuration,
@@ -416,18 +312,9 @@ public class SecurityMonitoringRuleOptions {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityMonitoringRuleOptions {\n");
-    sb.append("    complianceRuleOptions: ")
-        .append(toIndentedString(complianceRuleOptions))
-        .append("\n");
-    sb.append("    decreaseCriticalityBasedOnEnv: ")
-        .append(toIndentedString(decreaseCriticalityBasedOnEnv))
-        .append("\n");
+    sb.append("class HistoricalJobOptions {\n");
     sb.append("    detectionMethod: ").append(toIndentedString(detectionMethod)).append("\n");
     sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
-    sb.append("    hardcodedEvaluatorType: ")
-        .append(toIndentedString(hardcodedEvaluatorType))
-        .append("\n");
     sb.append("    impossibleTravelOptions: ")
         .append(toIndentedString(impossibleTravelOptions))
         .append("\n");
