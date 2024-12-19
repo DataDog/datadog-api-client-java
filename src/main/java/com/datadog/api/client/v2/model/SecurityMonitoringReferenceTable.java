@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Reference table for the rule. */
+/** Reference tables used in the queries. */
 @JsonPropertyOrder({
   SecurityMonitoringReferenceTable.JSON_PROPERTY_CHECK_PRESENCE,
   SecurityMonitoringReferenceTable.JSON_PROPERTY_COLUMN_NAME,
@@ -112,7 +112,7 @@ public class SecurityMonitoringReferenceTable {
   }
 
   /**
-   * The name of the rule query to apply the reference table to.
+   * The name of the query to apply the reference table to.
    *
    * @return ruleQueryName
    */

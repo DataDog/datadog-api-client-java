@@ -381,7 +381,7 @@ public class SecurityMonitoringSignalRuleResponse {
   }
 
   /**
-   * Options on rules.
+   * Options.
    *
    * @return options
    */
