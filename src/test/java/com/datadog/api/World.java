@@ -744,7 +744,7 @@ public class World {
    * Convert an identifier to property name.
    */
   public static String toPropertyName(String identifier) {
-    identifier = replace(identifier, Pattern.compile("[_-](.)"), m -> m.group(1).toUpperCase());
+    identifier = replace(identifier, Pattern.compile("[._-](.)"), m -> m.group(1).toUpperCase());
     identifier =
         replace(
             identifier,
