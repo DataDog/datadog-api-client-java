@@ -242,7 +242,7 @@ public class SecurityMonitoringSignalRuleCreatePayload {
   }
 
   /**
-   * Options on rules.
+   * Options.
    *
    * @return options
    */
