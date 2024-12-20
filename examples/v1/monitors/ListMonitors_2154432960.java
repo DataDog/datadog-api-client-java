@@ -1,4 +1,4 @@
-// Get all monitor details with tags
+// Get all monitors with tags
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
