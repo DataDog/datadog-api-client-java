@@ -1,0 +1,39 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/security/vulnerabilities",
+      "queryStringParameters": {
+        "filter[cvss.base.severity]": [
+          "High"
+        ],
+        "filter[asset.type]": [
+          "Service"
+        ],
+        "filter[tool]": [
+          "Infra"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "aa3145b4-bac2-3bdc-0702-2a2044dc3294"
+  }
+]

@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.AssetType;
 import com.datadog.api.client.v2.model.BulkMuteFindingsRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsResponse;
 import com.datadog.api.client.v2.model.ConvertJobResultsToSignalsRequest;
@@ -17,6 +18,8 @@ import com.datadog.api.client.v2.model.HistoricalJobResponse;
 import com.datadog.api.client.v2.model.JobCreateResponse;
 import com.datadog.api.client.v2.model.ListFindingsResponse;
 import com.datadog.api.client.v2.model.ListHistoricalJobsResponse;
+import com.datadog.api.client.v2.model.ListVulnerabilitiesResponse;
+import com.datadog.api.client.v2.model.ListVulnerableAssetsResponse;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
 import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
@@ -45,6 +48,11 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateReques
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionsResponse;
+import com.datadog.api.client.v2.model.VulnerabilityEcosystem;
+import com.datadog.api.client.v2.model.VulnerabilitySeverity;
+import com.datadog.api.client.v2.model.VulnerabilityStatus;
+import com.datadog.api.client.v2.model.VulnerabilityTool;
+import com.datadog.api.client.v2.model.VulnerabilityType;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.time.OffsetDateTime;
@@ -4581,6 +4589,1546 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSuppressionsResponse>() {});
+  }
+
+  /** Manage optional parameters to listVulnerabilities. */
+  public static class ListVulnerabilitiesOptionalParameters {
+    private String pageToken;
+    private Long pageNumber;
+    private VulnerabilityType filterType;
+    private Double filterCvssBaseScoreOp;
+    private VulnerabilitySeverity filterCvssBaseSeverity;
+    private String filterCvssBaseVector;
+    private Double filterCvssDatadogScoreOp;
+    private VulnerabilitySeverity filterCvssDatadogSeverity;
+    private String filterCvssDatadogVector;
+    private VulnerabilityStatus filterStatus;
+    private VulnerabilityTool filterTool;
+    private String filterLibraryName;
+    private String filterLibraryVersion;
+    private String filterAdvisoryId;
+    private Boolean filterRisksExploitationProbability;
+    private Boolean filterRisksPocExploitAvailable;
+    private Boolean filterRisksExploitAvailable;
+    private Double filterRisksEpssScoreOp;
+    private VulnerabilitySeverity filterRisksEpssSeverity;
+    private String filterLanguage;
+    private VulnerabilityEcosystem filterEcosystem;
+    private String filterCodeLocationLocation;
+    private String filterCodeLocationFilePath;
+    private String filterCodeLocationMethod;
+    private Boolean filterFixAvailable;
+    private String filterRepoDigests;
+    private String filterAssetName;
+    private AssetType filterAssetType;
+    private String filterAssetVersionFirst;
+    private String filterAssetVersionLast;
+    private String filterAssetRepositoryUrl;
+    private Boolean filterAssetRisksInProduction;
+    private Boolean filterAssetRisksUnderAttack;
+    private Boolean filterAssetRisksIsPubliclyAccessible;
+    private Boolean filterAssetRisksHasPrivilegedAccess;
+    private Boolean filterAssetRisksHasAccessToSensitiveData;
+    private String filterAssetEnvironments;
+    private String filterAssetArch;
+    private String filterAssetOperatingSystemName;
+    private String filterAssetOperatingSystemVersion;
+
+    /**
+     * Set pageToken.
+     *
+     * @param pageToken Its value must come from the <code>links</code> section of the response of
+     *     the first request. Do not manually edit it. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber The page number to be retrieved. It should be equal or greater than <code>1
+     *     </code> (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set filterType.
+     *
+     * @param filterType Filter by vulnerability type. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterType(VulnerabilityType filterType) {
+      this.filterType = filterType;
+      return this;
+    }
+
+    /**
+     * Set filterCvssBaseScoreOp.
+     *
+     * @param filterCvssBaseScoreOp Filter by vulnerability base (i.e. from the original advisory)
+     *     severity score. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterCvssBaseScoreOp(
+        Double filterCvssBaseScoreOp) {
+      this.filterCvssBaseScoreOp = filterCvssBaseScoreOp;
+      return this;
+    }
+
+    /**
+     * Set filterCvssBaseSeverity.
+     *
+     * @param filterCvssBaseSeverity Filter by vulnerability base severity. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterCvssBaseSeverity(
+        VulnerabilitySeverity filterCvssBaseSeverity) {
+      this.filterCvssBaseSeverity = filterCvssBaseSeverity;
+      return this;
+    }
+
+    /**
+     * Set filterCvssBaseVector.
+     *
+     * @param filterCvssBaseVector Filter by vulnerability base CVSS vector. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterCvssBaseVector(String filterCvssBaseVector) {
+      this.filterCvssBaseVector = filterCvssBaseVector;
+      return this;
+    }
+
+    /**
+     * Set filterCvssDatadogScoreOp.
+     *
+     * @param filterCvssDatadogScoreOp Filter by vulnerability Datadog severity score. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterCvssDatadogScoreOp(
+        Double filterCvssDatadogScoreOp) {
+      this.filterCvssDatadogScoreOp = filterCvssDatadogScoreOp;
+      return this;
+    }
+
+    /**
+     * Set filterCvssDatadogSeverity.
+     *
+     * @param filterCvssDatadogSeverity Filter by vulnerability Datadog severity. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterCvssDatadogSeverity(
+        VulnerabilitySeverity filterCvssDatadogSeverity) {
+      this.filterCvssDatadogSeverity = filterCvssDatadogSeverity;
+      return this;
+    }
+
+    /**
+     * Set filterCvssDatadogVector.
+     *
+     * @param filterCvssDatadogVector Filter by vulnerability Datadog CVSS vector. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterCvssDatadogVector(
+        String filterCvssDatadogVector) {
+      this.filterCvssDatadogVector = filterCvssDatadogVector;
+      return this;
+    }
+
+    /**
+     * Set filterStatus.
+     *
+     * @param filterStatus Filter by the status of the vulnerability. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterStatus(VulnerabilityStatus filterStatus) {
+      this.filterStatus = filterStatus;
+      return this;
+    }
+
+    /**
+     * Set filterTool.
+     *
+     * @param filterTool Filter by the tool of the vulnerability. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterTool(VulnerabilityTool filterTool) {
+      this.filterTool = filterTool;
+      return this;
+    }
+
+    /**
+     * Set filterLibraryName.
+     *
+     * @param filterLibraryName Filter by library name. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterLibraryName(String filterLibraryName) {
+      this.filterLibraryName = filterLibraryName;
+      return this;
+    }
+
+    /**
+     * Set filterLibraryVersion.
+     *
+     * @param filterLibraryVersion Filter by library version. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterLibraryVersion(String filterLibraryVersion) {
+      this.filterLibraryVersion = filterLibraryVersion;
+      return this;
+    }
+
+    /**
+     * Set filterAdvisoryId.
+     *
+     * @param filterAdvisoryId Filter by advisory ID. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAdvisoryId(String filterAdvisoryId) {
+      this.filterAdvisoryId = filterAdvisoryId;
+      return this;
+    }
+
+    /**
+     * Set filterRisksExploitationProbability.
+     *
+     * @param filterRisksExploitationProbability Filter by exploitation probability. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterRisksExploitationProbability(
+        Boolean filterRisksExploitationProbability) {
+      this.filterRisksExploitationProbability = filterRisksExploitationProbability;
+      return this;
+    }
+
+    /**
+     * Set filterRisksPocExploitAvailable.
+     *
+     * @param filterRisksPocExploitAvailable Filter by POC exploit availability. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterRisksPocExploitAvailable(
+        Boolean filterRisksPocExploitAvailable) {
+      this.filterRisksPocExploitAvailable = filterRisksPocExploitAvailable;
+      return this;
+    }
+
+    /**
+     * Set filterRisksExploitAvailable.
+     *
+     * @param filterRisksExploitAvailable Filter by public exploit availability. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterRisksExploitAvailable(
+        Boolean filterRisksExploitAvailable) {
+      this.filterRisksExploitAvailable = filterRisksExploitAvailable;
+      return this;
+    }
+
+    /**
+     * Set filterRisksEpssScoreOp.
+     *
+     * @param filterRisksEpssScoreOp Filter by vulnerability <a
+     *     href="https://www.first.org/epss/">EPSS</a> severity score. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterRisksEpssScoreOp(
+        Double filterRisksEpssScoreOp) {
+      this.filterRisksEpssScoreOp = filterRisksEpssScoreOp;
+      return this;
+    }
+
+    /**
+     * Set filterRisksEpssSeverity.
+     *
+     * @param filterRisksEpssSeverity Filter by vulnerability <a
+     *     href="https://www.first.org/epss/">EPSS</a> severity. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterRisksEpssSeverity(
+        VulnerabilitySeverity filterRisksEpssSeverity) {
+      this.filterRisksEpssSeverity = filterRisksEpssSeverity;
+      return this;
+    }
+
+    /**
+     * Set filterLanguage.
+     *
+     * @param filterLanguage Filter by language. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterLanguage(String filterLanguage) {
+      this.filterLanguage = filterLanguage;
+      return this;
+    }
+
+    /**
+     * Set filterEcosystem.
+     *
+     * @param filterEcosystem Filter by ecosystem. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterEcosystem(
+        VulnerabilityEcosystem filterEcosystem) {
+      this.filterEcosystem = filterEcosystem;
+      return this;
+    }
+
+    /**
+     * Set filterCodeLocationLocation.
+     *
+     * @param filterCodeLocationLocation Filter by vulnerability location. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterCodeLocationLocation(
+        String filterCodeLocationLocation) {
+      this.filterCodeLocationLocation = filterCodeLocationLocation;
+      return this;
+    }
+
+    /**
+     * Set filterCodeLocationFilePath.
+     *
+     * @param filterCodeLocationFilePath Filter by vulnerability file path. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterCodeLocationFilePath(
+        String filterCodeLocationFilePath) {
+      this.filterCodeLocationFilePath = filterCodeLocationFilePath;
+      return this;
+    }
+
+    /**
+     * Set filterCodeLocationMethod.
+     *
+     * @param filterCodeLocationMethod Filter by method. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterCodeLocationMethod(
+        String filterCodeLocationMethod) {
+      this.filterCodeLocationMethod = filterCodeLocationMethod;
+      return this;
+    }
+
+    /**
+     * Set filterFixAvailable.
+     *
+     * @param filterFixAvailable Filter by fix availability. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterFixAvailable(Boolean filterFixAvailable) {
+      this.filterFixAvailable = filterFixAvailable;
+      return this;
+    }
+
+    /**
+     * Set filterRepoDigests.
+     *
+     * @param filterRepoDigests Filter by vulnerability <code>repo_digest</code> (when the
+     *     vulnerability is related to <code>Image</code> asset). (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterRepoDigests(String filterRepoDigests) {
+      this.filterRepoDigests = filterRepoDigests;
+      return this;
+    }
+
+    /**
+     * Set filterAssetName.
+     *
+     * @param filterAssetName Filter by asset name. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetName(String filterAssetName) {
+      this.filterAssetName = filterAssetName;
+      return this;
+    }
+
+    /**
+     * Set filterAssetType.
+     *
+     * @param filterAssetType Filter by asset type. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetType(AssetType filterAssetType) {
+      this.filterAssetType = filterAssetType;
+      return this;
+    }
+
+    /**
+     * Set filterAssetVersionFirst.
+     *
+     * @param filterAssetVersionFirst Filter by the first version of the asset this vulnerability
+     *     has been detected on. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetVersionFirst(
+        String filterAssetVersionFirst) {
+      this.filterAssetVersionFirst = filterAssetVersionFirst;
+      return this;
+    }
+
+    /**
+     * Set filterAssetVersionLast.
+     *
+     * @param filterAssetVersionLast Filter by the last version of the asset this vulnerability has
+     *     been detected on. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetVersionLast(
+        String filterAssetVersionLast) {
+      this.filterAssetVersionLast = filterAssetVersionLast;
+      return this;
+    }
+
+    /**
+     * Set filterAssetRepositoryUrl.
+     *
+     * @param filterAssetRepositoryUrl Filter by the repository url associated to the asset.
+     *     (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetRepositoryUrl(
+        String filterAssetRepositoryUrl) {
+      this.filterAssetRepositoryUrl = filterAssetRepositoryUrl;
+      return this;
+    }
+
+    /**
+     * Set filterAssetRisksInProduction.
+     *
+     * @param filterAssetRisksInProduction Filter whether the asset is in production or not.
+     *     (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetRisksInProduction(
+        Boolean filterAssetRisksInProduction) {
+      this.filterAssetRisksInProduction = filterAssetRisksInProduction;
+      return this;
+    }
+
+    /**
+     * Set filterAssetRisksUnderAttack.
+     *
+     * @param filterAssetRisksUnderAttack Filter whether the asset is under attack or not.
+     *     (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetRisksUnderAttack(
+        Boolean filterAssetRisksUnderAttack) {
+      this.filterAssetRisksUnderAttack = filterAssetRisksUnderAttack;
+      return this;
+    }
+
+    /**
+     * Set filterAssetRisksIsPubliclyAccessible.
+     *
+     * @param filterAssetRisksIsPubliclyAccessible Filter whether the asset is publicly accessible
+     *     or not. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetRisksIsPubliclyAccessible(
+        Boolean filterAssetRisksIsPubliclyAccessible) {
+      this.filterAssetRisksIsPubliclyAccessible = filterAssetRisksIsPubliclyAccessible;
+      return this;
+    }
+
+    /**
+     * Set filterAssetRisksHasPrivilegedAccess.
+     *
+     * @param filterAssetRisksHasPrivilegedAccess Filter whether the asset is publicly accessible or
+     *     not. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetRisksHasPrivilegedAccess(
+        Boolean filterAssetRisksHasPrivilegedAccess) {
+      this.filterAssetRisksHasPrivilegedAccess = filterAssetRisksHasPrivilegedAccess;
+      return this;
+    }
+
+    /**
+     * Set filterAssetRisksHasAccessToSensitiveData.
+     *
+     * @param filterAssetRisksHasAccessToSensitiveData Filter whether the asset has access to
+     *     sensitive data or not. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetRisksHasAccessToSensitiveData(
+        Boolean filterAssetRisksHasAccessToSensitiveData) {
+      this.filterAssetRisksHasAccessToSensitiveData = filterAssetRisksHasAccessToSensitiveData;
+      return this;
+    }
+
+    /**
+     * Set filterAssetEnvironments.
+     *
+     * @param filterAssetEnvironments Filter by asset environments. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetEnvironments(
+        String filterAssetEnvironments) {
+      this.filterAssetEnvironments = filterAssetEnvironments;
+      return this;
+    }
+
+    /**
+     * Set filterAssetArch.
+     *
+     * @param filterAssetArch Filter by asset architecture. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetArch(String filterAssetArch) {
+      this.filterAssetArch = filterAssetArch;
+      return this;
+    }
+
+    /**
+     * Set filterAssetOperatingSystemName.
+     *
+     * @param filterAssetOperatingSystemName Filter by asset operating system name. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetOperatingSystemName(
+        String filterAssetOperatingSystemName) {
+      this.filterAssetOperatingSystemName = filterAssetOperatingSystemName;
+      return this;
+    }
+
+    /**
+     * Set filterAssetOperatingSystemVersion.
+     *
+     * @param filterAssetOperatingSystemVersion Filter by asset operating system version. (optional)
+     * @return ListVulnerabilitiesOptionalParameters
+     */
+    public ListVulnerabilitiesOptionalParameters filterAssetOperatingSystemVersion(
+        String filterAssetOperatingSystemVersion) {
+      this.filterAssetOperatingSystemVersion = filterAssetOperatingSystemVersion;
+      return this;
+    }
+  }
+
+  /**
+   * List vulnerabilities.
+   *
+   * <p>See {@link #listVulnerabilitiesWithHttpInfo}.
+   *
+   * @return ListVulnerabilitiesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListVulnerabilitiesResponse listVulnerabilities() throws ApiException {
+    return listVulnerabilitiesWithHttpInfo(new ListVulnerabilitiesOptionalParameters()).getData();
+  }
+
+  /**
+   * List vulnerabilities.
+   *
+   * <p>See {@link #listVulnerabilitiesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListVulnerabilitiesResponse&gt;
+   */
+  public CompletableFuture<ListVulnerabilitiesResponse> listVulnerabilitiesAsync() {
+    return listVulnerabilitiesWithHttpInfoAsync(new ListVulnerabilitiesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List vulnerabilities.
+   *
+   * <p>See {@link #listVulnerabilitiesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListVulnerabilitiesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListVulnerabilitiesResponse listVulnerabilities(
+      ListVulnerabilitiesOptionalParameters parameters) throws ApiException {
+    return listVulnerabilitiesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List vulnerabilities.
+   *
+   * <p>See {@link #listVulnerabilitiesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListVulnerabilitiesResponse&gt;
+   */
+  public CompletableFuture<ListVulnerabilitiesResponse> listVulnerabilitiesAsync(
+      ListVulnerabilitiesOptionalParameters parameters) {
+    return listVulnerabilitiesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of vulnerabilities.
+   *
+   * <h3>Pagination</h3>
+   *
+   * <p>Pagination is enabled by default in both <code>vulnerabilities</code> and <code>assets
+   * </code>. The size of the page varies depending on the endpoint and cannot be modified. To
+   * automate the request of the next page, you can use the links section in the response.
+   *
+   * <p>This endpoint will return paginated responses. The pages are stored in the links section of
+   * the response:
+   *
+   * <p><code>JSON
+   * {
+   *   "data": [...],
+   *   "meta": {...},
+   *   "links": {
+   *     "self": "https://.../api/v2/security/vulnerabilities",
+   *     "first": "https://.../api/v2/security/vulnerabilities?page[number]=1&amp;page[token]=abc",
+   *     "last": "https://.../api/v2/security/vulnerabilities?page[number]=43&amp;page[token]=abc",
+   *     "next": "https://.../api/v2/security/vulnerabilities?page[number]=2&amp;page[token]=abc"
+   *   }
+   * }</code>
+   *
+   * <ul>
+   *   <li><code>links.previous</code> is empty if the first page is requested.
+   *   <li><code>links.next</code> is empty if the last page is requested.
+   * </ul>
+   *
+   * <h3>Token</h3>
+   *
+   * <p>Vulnerabilities can be created, updated or deleted at any point in time.
+   *
+   * <p>Upon the first request, a token is created to ensure consistency across subsequent paginated
+   * requests.
+   *
+   * <p>A token is valid only for 24 hours.
+   *
+   * <h3>First request</h3>
+   *
+   * <p>We consider a request to be the first request when there is no <code>page[token]</code>
+   * parameter.
+   *
+   * <p>The response of this first request contains the newly created token in the <code>links
+   * </code> section.
+   *
+   * <p>This token can then be used in the subsequent paginated requests.
+   *
+   * <h3>Subsequent requests</h3>
+   *
+   * <p>Any request containing valid <code>page[token]</code> and <code>page[number]</code>
+   * parameters will be considered a subsequent request.
+   *
+   * <p>If the <code>token</code> is invalid, a <code>404</code> response will be returned.
+   *
+   * <p>If the page <code>number</code> is invalid, a <code>400</code> response will be returned.
+   *
+   * <h3>Filtering</h3>
+   *
+   * <p>The request can include some filter parameters to filter the data to be retrieved. The
+   * format of the filter parameters follows the <a
+   * href="https://jsonapi.org/format/#fetching-filtering">JSON:API format</a>: <code>
+   * filter[$prop_name]</code>, where <code>prop_name</code> is the property name in the entity
+   * being filtered by.
+   *
+   * <p>All filters can include multiple values, where data will be filtered with an OR clause:
+   * <code>filter[title]=Title1,Title2</code> will filter all vulnerabilities where title is equal
+   * to <code>Title1</code> OR <code>Title2</code>.
+   *
+   * <p>String filters are case sensitive.
+   *
+   * <p>Boolean filters accept <code>true</code> or <code>false</code> as values.
+   *
+   * <p>Number filters must include an operator as a second filter input: <code>
+   * filter[$prop_name][$operator]</code>. For example, for the vulnerabilities endpoint: <code>
+   * filter[cvss.base.score][lte]=8</code>.
+   *
+   * <p>Available operators are: <code>eq</code> (==), <code>lt</code> (&lt;), <code>lte</code>
+   * (&lt;=), <code>gt</code> (&gt;) and <code>gte</code> (&gt;=).
+   *
+   * <h3>Metadata</h3>
+   *
+   * <p>Following <a href="https://jsonapi.org/format/#document-meta">JSON:API format</a>, object
+   * including non-standard meta-information.
+   *
+   * <p>This endpoint includes the meta member in the response. For more details on each of the
+   * properties included in this section, check the endpoints response tables.
+   *
+   * <p><code>JSON
+   * {
+   *   "data": [...],
+   *   "meta": {
+   *     "total": 1500,
+   *     "count": 18732,
+   *     "token": "some_token"
+   *   },
+   *   "links": {...}
+   * }</code>
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListVulnerabilitiesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found: There is no request associated with the provided token. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListVulnerabilitiesResponse> listVulnerabilitiesWithHttpInfo(
+      ListVulnerabilitiesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listVulnerabilities";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String pageToken = parameters.pageToken;
+    Long pageNumber = parameters.pageNumber;
+    VulnerabilityType filterType = parameters.filterType;
+    Double filterCvssBaseScoreOp = parameters.filterCvssBaseScoreOp;
+    VulnerabilitySeverity filterCvssBaseSeverity = parameters.filterCvssBaseSeverity;
+    String filterCvssBaseVector = parameters.filterCvssBaseVector;
+    Double filterCvssDatadogScoreOp = parameters.filterCvssDatadogScoreOp;
+    VulnerabilitySeverity filterCvssDatadogSeverity = parameters.filterCvssDatadogSeverity;
+    String filterCvssDatadogVector = parameters.filterCvssDatadogVector;
+    VulnerabilityStatus filterStatus = parameters.filterStatus;
+    VulnerabilityTool filterTool = parameters.filterTool;
+    String filterLibraryName = parameters.filterLibraryName;
+    String filterLibraryVersion = parameters.filterLibraryVersion;
+    String filterAdvisoryId = parameters.filterAdvisoryId;
+    Boolean filterRisksExploitationProbability = parameters.filterRisksExploitationProbability;
+    Boolean filterRisksPocExploitAvailable = parameters.filterRisksPocExploitAvailable;
+    Boolean filterRisksExploitAvailable = parameters.filterRisksExploitAvailable;
+    Double filterRisksEpssScoreOp = parameters.filterRisksEpssScoreOp;
+    VulnerabilitySeverity filterRisksEpssSeverity = parameters.filterRisksEpssSeverity;
+    String filterLanguage = parameters.filterLanguage;
+    VulnerabilityEcosystem filterEcosystem = parameters.filterEcosystem;
+    String filterCodeLocationLocation = parameters.filterCodeLocationLocation;
+    String filterCodeLocationFilePath = parameters.filterCodeLocationFilePath;
+    String filterCodeLocationMethod = parameters.filterCodeLocationMethod;
+    Boolean filterFixAvailable = parameters.filterFixAvailable;
+    String filterRepoDigests = parameters.filterRepoDigests;
+    String filterAssetName = parameters.filterAssetName;
+    AssetType filterAssetType = parameters.filterAssetType;
+    String filterAssetVersionFirst = parameters.filterAssetVersionFirst;
+    String filterAssetVersionLast = parameters.filterAssetVersionLast;
+    String filterAssetRepositoryUrl = parameters.filterAssetRepositoryUrl;
+    Boolean filterAssetRisksInProduction = parameters.filterAssetRisksInProduction;
+    Boolean filterAssetRisksUnderAttack = parameters.filterAssetRisksUnderAttack;
+    Boolean filterAssetRisksIsPubliclyAccessible = parameters.filterAssetRisksIsPubliclyAccessible;
+    Boolean filterAssetRisksHasPrivilegedAccess = parameters.filterAssetRisksHasPrivilegedAccess;
+    Boolean filterAssetRisksHasAccessToSensitiveData =
+        parameters.filterAssetRisksHasAccessToSensitiveData;
+    String filterAssetEnvironments = parameters.filterAssetEnvironments;
+    String filterAssetArch = parameters.filterAssetArch;
+    String filterAssetOperatingSystemName = parameters.filterAssetOperatingSystemName;
+    String filterAssetOperatingSystemVersion = parameters.filterAssetOperatingSystemVersion;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[token]", pageToken));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[type]", filterType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[cvss.base.score][`$op`]", filterCvssBaseScoreOp));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[cvss.base.severity]", filterCvssBaseSeverity));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[cvss.base.vector]", filterCvssBaseVector));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[cvss.datadog.score][`$op`]", filterCvssDatadogScoreOp));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[cvss.datadog.severity]", filterCvssDatadogSeverity));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[cvss.datadog.vector]", filterCvssDatadogVector));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tool]", filterTool));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[library.name]", filterLibraryName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[library.version]", filterLibraryVersion));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[advisory_id]", filterAdvisoryId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.exploitation_probability]", filterRisksExploitationProbability));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.poc_exploit_available]", filterRisksPocExploitAvailable));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.exploit_available]", filterRisksExploitAvailable));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[risks.epss.score][`$op`]", filterRisksEpssScoreOp));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[risks.epss.severity]", filterRisksEpssSeverity));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[language]", filterLanguage));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[ecosystem]", filterEcosystem));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[code_location.location]", filterCodeLocationLocation));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[code_location.file_path]", filterCodeLocationFilePath));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[code_location.method]", filterCodeLocationMethod));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[fix_available]", filterFixAvailable));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[repo_digests]", filterRepoDigests));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.name]", filterAssetName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.type]", filterAssetType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.version.first]", filterAssetVersionFirst));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.version.last]", filterAssetVersionLast));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.repository_url]", filterAssetRepositoryUrl));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[asset.risks.in_production]", filterAssetRisksInProduction));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[asset.risks.under_attack]", filterAssetRisksUnderAttack));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "",
+            "filter[asset.risks.is_publicly_accessible]",
+            filterAssetRisksIsPubliclyAccessible));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[asset.risks.has_privileged_access]", filterAssetRisksHasPrivilegedAccess));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "",
+            "filter[asset.risks.has_access_to_sensitive_data]",
+            filterAssetRisksHasAccessToSensitiveData));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.environments]", filterAssetEnvironments));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.arch]", filterAssetArch));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[asset.operating_system.name]", filterAssetOperatingSystemName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[asset.operating_system.version]", filterAssetOperatingSystemVersion));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listVulnerabilities",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListVulnerabilitiesResponse>() {});
+  }
+
+  /**
+   * List vulnerabilities.
+   *
+   * <p>See {@link #listVulnerabilitiesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListVulnerabilitiesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListVulnerabilitiesResponse>>
+      listVulnerabilitiesWithHttpInfoAsync(ListVulnerabilitiesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listVulnerabilities";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListVulnerabilitiesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String pageToken = parameters.pageToken;
+    Long pageNumber = parameters.pageNumber;
+    VulnerabilityType filterType = parameters.filterType;
+    Double filterCvssBaseScoreOp = parameters.filterCvssBaseScoreOp;
+    VulnerabilitySeverity filterCvssBaseSeverity = parameters.filterCvssBaseSeverity;
+    String filterCvssBaseVector = parameters.filterCvssBaseVector;
+    Double filterCvssDatadogScoreOp = parameters.filterCvssDatadogScoreOp;
+    VulnerabilitySeverity filterCvssDatadogSeverity = parameters.filterCvssDatadogSeverity;
+    String filterCvssDatadogVector = parameters.filterCvssDatadogVector;
+    VulnerabilityStatus filterStatus = parameters.filterStatus;
+    VulnerabilityTool filterTool = parameters.filterTool;
+    String filterLibraryName = parameters.filterLibraryName;
+    String filterLibraryVersion = parameters.filterLibraryVersion;
+    String filterAdvisoryId = parameters.filterAdvisoryId;
+    Boolean filterRisksExploitationProbability = parameters.filterRisksExploitationProbability;
+    Boolean filterRisksPocExploitAvailable = parameters.filterRisksPocExploitAvailable;
+    Boolean filterRisksExploitAvailable = parameters.filterRisksExploitAvailable;
+    Double filterRisksEpssScoreOp = parameters.filterRisksEpssScoreOp;
+    VulnerabilitySeverity filterRisksEpssSeverity = parameters.filterRisksEpssSeverity;
+    String filterLanguage = parameters.filterLanguage;
+    VulnerabilityEcosystem filterEcosystem = parameters.filterEcosystem;
+    String filterCodeLocationLocation = parameters.filterCodeLocationLocation;
+    String filterCodeLocationFilePath = parameters.filterCodeLocationFilePath;
+    String filterCodeLocationMethod = parameters.filterCodeLocationMethod;
+    Boolean filterFixAvailable = parameters.filterFixAvailable;
+    String filterRepoDigests = parameters.filterRepoDigests;
+    String filterAssetName = parameters.filterAssetName;
+    AssetType filterAssetType = parameters.filterAssetType;
+    String filterAssetVersionFirst = parameters.filterAssetVersionFirst;
+    String filterAssetVersionLast = parameters.filterAssetVersionLast;
+    String filterAssetRepositoryUrl = parameters.filterAssetRepositoryUrl;
+    Boolean filterAssetRisksInProduction = parameters.filterAssetRisksInProduction;
+    Boolean filterAssetRisksUnderAttack = parameters.filterAssetRisksUnderAttack;
+    Boolean filterAssetRisksIsPubliclyAccessible = parameters.filterAssetRisksIsPubliclyAccessible;
+    Boolean filterAssetRisksHasPrivilegedAccess = parameters.filterAssetRisksHasPrivilegedAccess;
+    Boolean filterAssetRisksHasAccessToSensitiveData =
+        parameters.filterAssetRisksHasAccessToSensitiveData;
+    String filterAssetEnvironments = parameters.filterAssetEnvironments;
+    String filterAssetArch = parameters.filterAssetArch;
+    String filterAssetOperatingSystemName = parameters.filterAssetOperatingSystemName;
+    String filterAssetOperatingSystemVersion = parameters.filterAssetOperatingSystemVersion;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[token]", pageToken));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[type]", filterType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[cvss.base.score][`$op`]", filterCvssBaseScoreOp));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[cvss.base.severity]", filterCvssBaseSeverity));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[cvss.base.vector]", filterCvssBaseVector));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[cvss.datadog.score][`$op`]", filterCvssDatadogScoreOp));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[cvss.datadog.severity]", filterCvssDatadogSeverity));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[cvss.datadog.vector]", filterCvssDatadogVector));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tool]", filterTool));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[library.name]", filterLibraryName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[library.version]", filterLibraryVersion));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[advisory_id]", filterAdvisoryId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.exploitation_probability]", filterRisksExploitationProbability));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.poc_exploit_available]", filterRisksPocExploitAvailable));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.exploit_available]", filterRisksExploitAvailable));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[risks.epss.score][`$op`]", filterRisksEpssScoreOp));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[risks.epss.severity]", filterRisksEpssSeverity));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[language]", filterLanguage));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[ecosystem]", filterEcosystem));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[code_location.location]", filterCodeLocationLocation));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[code_location.file_path]", filterCodeLocationFilePath));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[code_location.method]", filterCodeLocationMethod));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[fix_available]", filterFixAvailable));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[repo_digests]", filterRepoDigests));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.name]", filterAssetName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.type]", filterAssetType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.version.first]", filterAssetVersionFirst));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.version.last]", filterAssetVersionLast));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.repository_url]", filterAssetRepositoryUrl));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[asset.risks.in_production]", filterAssetRisksInProduction));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[asset.risks.under_attack]", filterAssetRisksUnderAttack));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "",
+            "filter[asset.risks.is_publicly_accessible]",
+            filterAssetRisksIsPubliclyAccessible));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[asset.risks.has_privileged_access]", filterAssetRisksHasPrivilegedAccess));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "",
+            "filter[asset.risks.has_access_to_sensitive_data]",
+            filterAssetRisksHasAccessToSensitiveData));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.environments]", filterAssetEnvironments));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset.arch]", filterAssetArch));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[asset.operating_system.name]", filterAssetOperatingSystemName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[asset.operating_system.version]", filterAssetOperatingSystemVersion));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listVulnerabilities",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListVulnerabilitiesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListVulnerabilitiesResponse>() {});
+  }
+
+  /** Manage optional parameters to listVulnerableAssets. */
+  public static class ListVulnerableAssetsOptionalParameters {
+    private String pageToken;
+    private Long pageNumber;
+    private String filterName;
+    private AssetType filterType;
+    private String filterVersionFirst;
+    private String filterVersionLast;
+    private String filterRepositoryUrl;
+    private Boolean filterRisksInProduction;
+    private Boolean filterRisksUnderAttack;
+    private Boolean filterRisksIsPubliclyAccessible;
+    private Boolean filterRisksHasPrivilegedAccess;
+    private Boolean filterRisksHasAccessToSensitiveData;
+    private String filterEnvironments;
+    private String filterArch;
+    private String filterOperatingSystemName;
+    private String filterOperatingSystemVersion;
+
+    /**
+     * Set pageToken.
+     *
+     * @param pageToken Its value must come from the <code>links</code> section of the response of
+     *     the first request. Do not manually edit it. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber The page number to be retrieved. It should be equal or greater than <code>1
+     *     </code> (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set filterName.
+     *
+     * @param filterName Filter by name. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterName(String filterName) {
+      this.filterName = filterName;
+      return this;
+    }
+
+    /**
+     * Set filterType.
+     *
+     * @param filterType Filter by type. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterType(AssetType filterType) {
+      this.filterType = filterType;
+      return this;
+    }
+
+    /**
+     * Set filterVersionFirst.
+     *
+     * @param filterVersionFirst Filter by the first version of the asset since it has been
+     *     vulnerable. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterVersionFirst(String filterVersionFirst) {
+      this.filterVersionFirst = filterVersionFirst;
+      return this;
+    }
+
+    /**
+     * Set filterVersionLast.
+     *
+     * @param filterVersionLast Filter by the last detected version of the asset. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterVersionLast(String filterVersionLast) {
+      this.filterVersionLast = filterVersionLast;
+      return this;
+    }
+
+    /**
+     * Set filterRepositoryUrl.
+     *
+     * @param filterRepositoryUrl Filter by the repository url associated to the asset. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterRepositoryUrl(String filterRepositoryUrl) {
+      this.filterRepositoryUrl = filterRepositoryUrl;
+      return this;
+    }
+
+    /**
+     * Set filterRisksInProduction.
+     *
+     * @param filterRisksInProduction Filter whether the asset is in production or not. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterRisksInProduction(
+        Boolean filterRisksInProduction) {
+      this.filterRisksInProduction = filterRisksInProduction;
+      return this;
+    }
+
+    /**
+     * Set filterRisksUnderAttack.
+     *
+     * @param filterRisksUnderAttack Filter whether the asset (Service) is under attack or not.
+     *     (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterRisksUnderAttack(
+        Boolean filterRisksUnderAttack) {
+      this.filterRisksUnderAttack = filterRisksUnderAttack;
+      return this;
+    }
+
+    /**
+     * Set filterRisksIsPubliclyAccessible.
+     *
+     * @param filterRisksIsPubliclyAccessible Filter whether the asset (Host) is publicly accessible
+     *     or not. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterRisksIsPubliclyAccessible(
+        Boolean filterRisksIsPubliclyAccessible) {
+      this.filterRisksIsPubliclyAccessible = filterRisksIsPubliclyAccessible;
+      return this;
+    }
+
+    /**
+     * Set filterRisksHasPrivilegedAccess.
+     *
+     * @param filterRisksHasPrivilegedAccess Filter whether the asset (Host) has privileged access
+     *     or not. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterRisksHasPrivilegedAccess(
+        Boolean filterRisksHasPrivilegedAccess) {
+      this.filterRisksHasPrivilegedAccess = filterRisksHasPrivilegedAccess;
+      return this;
+    }
+
+    /**
+     * Set filterRisksHasAccessToSensitiveData.
+     *
+     * @param filterRisksHasAccessToSensitiveData Filter whether the asset (Host) has access to
+     *     sensitive data or not. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterRisksHasAccessToSensitiveData(
+        Boolean filterRisksHasAccessToSensitiveData) {
+      this.filterRisksHasAccessToSensitiveData = filterRisksHasAccessToSensitiveData;
+      return this;
+    }
+
+    /**
+     * Set filterEnvironments.
+     *
+     * @param filterEnvironments Filter by environment. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterEnvironments(String filterEnvironments) {
+      this.filterEnvironments = filterEnvironments;
+      return this;
+    }
+
+    /**
+     * Set filterArch.
+     *
+     * @param filterArch Filter by architecture. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterArch(String filterArch) {
+      this.filterArch = filterArch;
+      return this;
+    }
+
+    /**
+     * Set filterOperatingSystemName.
+     *
+     * @param filterOperatingSystemName Filter by operating system name. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterOperatingSystemName(
+        String filterOperatingSystemName) {
+      this.filterOperatingSystemName = filterOperatingSystemName;
+      return this;
+    }
+
+    /**
+     * Set filterOperatingSystemVersion.
+     *
+     * @param filterOperatingSystemVersion Filter by operating system version. (optional)
+     * @return ListVulnerableAssetsOptionalParameters
+     */
+    public ListVulnerableAssetsOptionalParameters filterOperatingSystemVersion(
+        String filterOperatingSystemVersion) {
+      this.filterOperatingSystemVersion = filterOperatingSystemVersion;
+      return this;
+    }
+  }
+
+  /**
+   * List vulnerable assets.
+   *
+   * <p>See {@link #listVulnerableAssetsWithHttpInfo}.
+   *
+   * @return ListVulnerableAssetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListVulnerableAssetsResponse listVulnerableAssets() throws ApiException {
+    return listVulnerableAssetsWithHttpInfo(new ListVulnerableAssetsOptionalParameters()).getData();
+  }
+
+  /**
+   * List vulnerable assets.
+   *
+   * <p>See {@link #listVulnerableAssetsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListVulnerableAssetsResponse&gt;
+   */
+  public CompletableFuture<ListVulnerableAssetsResponse> listVulnerableAssetsAsync() {
+    return listVulnerableAssetsWithHttpInfoAsync(new ListVulnerableAssetsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List vulnerable assets.
+   *
+   * <p>See {@link #listVulnerableAssetsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListVulnerableAssetsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListVulnerableAssetsResponse listVulnerableAssets(
+      ListVulnerableAssetsOptionalParameters parameters) throws ApiException {
+    return listVulnerableAssetsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List vulnerable assets.
+   *
+   * <p>See {@link #listVulnerableAssetsWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListVulnerableAssetsResponse&gt;
+   */
+  public CompletableFuture<ListVulnerableAssetsResponse> listVulnerableAssetsAsync(
+      ListVulnerableAssetsOptionalParameters parameters) {
+    return listVulnerableAssetsWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of vulnerable assets.
+   *
+   * <h3>Pagination</h3>
+   *
+   * <p>Please review the <a href="#pagination">Pagination section for the "List
+   * Vulnerabilities"</a> endpoint.
+   *
+   * <h3>Filtering</h3>
+   *
+   * <p>Please review the <a href="#filtering">Filtering section for the "List Vulnerabilities"</a>
+   * endpoint.
+   *
+   * <h3>Metadata</h3>
+   *
+   * <p>Please review the <a href="#metadata">Metadata section for the "List Vulnerabilities"</a>
+   * endpoint.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListVulnerableAssetsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found: There is no request associated with the provided token. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListVulnerableAssetsResponse> listVulnerableAssetsWithHttpInfo(
+      ListVulnerableAssetsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listVulnerableAssets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    String pageToken = parameters.pageToken;
+    Long pageNumber = parameters.pageNumber;
+    String filterName = parameters.filterName;
+    AssetType filterType = parameters.filterType;
+    String filterVersionFirst = parameters.filterVersionFirst;
+    String filterVersionLast = parameters.filterVersionLast;
+    String filterRepositoryUrl = parameters.filterRepositoryUrl;
+    Boolean filterRisksInProduction = parameters.filterRisksInProduction;
+    Boolean filterRisksUnderAttack = parameters.filterRisksUnderAttack;
+    Boolean filterRisksIsPubliclyAccessible = parameters.filterRisksIsPubliclyAccessible;
+    Boolean filterRisksHasPrivilegedAccess = parameters.filterRisksHasPrivilegedAccess;
+    Boolean filterRisksHasAccessToSensitiveData = parameters.filterRisksHasAccessToSensitiveData;
+    String filterEnvironments = parameters.filterEnvironments;
+    String filterArch = parameters.filterArch;
+    String filterOperatingSystemName = parameters.filterOperatingSystemName;
+    String filterOperatingSystemVersion = parameters.filterOperatingSystemVersion;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/assets";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[token]", pageToken));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[type]", filterType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[version.first]", filterVersionFirst));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[version.last]", filterVersionLast));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[repository_url]", filterRepositoryUrl));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[risks.in_production]", filterRisksInProduction));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[risks.under_attack]", filterRisksUnderAttack));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.is_publicly_accessible]", filterRisksIsPubliclyAccessible));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.has_privileged_access]", filterRisksHasPrivilegedAccess));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.has_access_to_sensitive_data]", filterRisksHasAccessToSensitiveData));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[environments]", filterEnvironments));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[arch]", filterArch));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[operating_system.name]", filterOperatingSystemName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[operating_system.version]", filterOperatingSystemVersion));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.listVulnerableAssets",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListVulnerableAssetsResponse>() {});
+  }
+
+  /**
+   * List vulnerable assets.
+   *
+   * <p>See {@link #listVulnerableAssetsWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListVulnerableAssetsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListVulnerableAssetsResponse>>
+      listVulnerableAssetsWithHttpInfoAsync(ListVulnerableAssetsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listVulnerableAssets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListVulnerableAssetsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    String pageToken = parameters.pageToken;
+    Long pageNumber = parameters.pageNumber;
+    String filterName = parameters.filterName;
+    AssetType filterType = parameters.filterType;
+    String filterVersionFirst = parameters.filterVersionFirst;
+    String filterVersionLast = parameters.filterVersionLast;
+    String filterRepositoryUrl = parameters.filterRepositoryUrl;
+    Boolean filterRisksInProduction = parameters.filterRisksInProduction;
+    Boolean filterRisksUnderAttack = parameters.filterRisksUnderAttack;
+    Boolean filterRisksIsPubliclyAccessible = parameters.filterRisksIsPubliclyAccessible;
+    Boolean filterRisksHasPrivilegedAccess = parameters.filterRisksHasPrivilegedAccess;
+    Boolean filterRisksHasAccessToSensitiveData = parameters.filterRisksHasAccessToSensitiveData;
+    String filterEnvironments = parameters.filterEnvironments;
+    String filterArch = parameters.filterArch;
+    String filterOperatingSystemName = parameters.filterOperatingSystemName;
+    String filterOperatingSystemVersion = parameters.filterOperatingSystemVersion;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/assets";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[token]", pageToken));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[type]", filterType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[version.first]", filterVersionFirst));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[version.last]", filterVersionLast));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[repository_url]", filterRepositoryUrl));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[risks.in_production]", filterRisksInProduction));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[risks.under_attack]", filterRisksUnderAttack));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.is_publicly_accessible]", filterRisksIsPubliclyAccessible));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.has_privileged_access]", filterRisksHasPrivilegedAccess));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[risks.has_access_to_sensitive_data]", filterRisksHasAccessToSensitiveData));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[environments]", filterEnvironments));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[arch]", filterArch));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[operating_system.name]", filterOperatingSystemName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs(
+            "", "filter[operating_system.version]", filterOperatingSystemVersion));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.listVulnerableAssets",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListVulnerableAssetsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListVulnerableAssetsResponse>() {});
   }
 
   /**
