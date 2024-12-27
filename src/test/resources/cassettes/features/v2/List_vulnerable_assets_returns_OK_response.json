@@ -1,0 +1,39 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/security/assets",
+      "queryStringParameters": {
+        "filter[type]": [
+          "Host"
+        ],
+        "filter[repository_url]": [
+          "github.com/datadog/dd-go"
+        ],
+        "filter[risks.in_production]": [
+          "true"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8b691c92-3faa-0d44-ea73-715eceb660c3"
+  }
+]
