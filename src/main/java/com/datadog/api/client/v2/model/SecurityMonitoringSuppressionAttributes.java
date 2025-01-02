@@ -27,6 +27,7 @@ import java.util.Objects;
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_EXPIRATION_DATE,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_NAME,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_RULE_QUERY,
+  SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_START_DATE,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_SUPPRESSION_QUERY,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_UPDATE_DATE,
   SecurityMonitoringSuppressionAttributes.JSON_PROPERTY_UPDATER,
@@ -62,6 +63,9 @@ public class SecurityMonitoringSuppressionAttributes {
 
   public static final String JSON_PROPERTY_RULE_QUERY = "rule_query";
   private String ruleQuery;
+
+  public static final String JSON_PROPERTY_START_DATE = "start_date";
+  private Long startDate;
 
   public static final String JSON_PROPERTY_SUPPRESSION_QUERY = "suppression_query";
   private String suppressionQuery;
@@ -269,6 +273,28 @@ public class SecurityMonitoringSuppressionAttributes {
     this.ruleQuery = ruleQuery;
   }
 
+  public SecurityMonitoringSuppressionAttributes startDate(Long startDate) {
+    this.startDate = startDate;
+    return this;
+  }
+
+  /**
+   * A Unix millisecond timestamp giving the start date for the suppression rule. After this date,
+   * it starts suppressing signals.
+   *
+   * @return startDate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_START_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getStartDate() {
+    return startDate;
+  }
+
+  public void setStartDate(Long startDate) {
+    this.startDate = startDate;
+  }
+
   public SecurityMonitoringSuppressionAttributes suppressionQuery(String suppressionQuery) {
     this.suppressionQuery = suppressionQuery;
     return this;
@@ -424,6 +450,7 @@ public class SecurityMonitoringSuppressionAttributes {
             this.expirationDate, securityMonitoringSuppressionAttributes.expirationDate)
         && Objects.equals(this.name, securityMonitoringSuppressionAttributes.name)
         && Objects.equals(this.ruleQuery, securityMonitoringSuppressionAttributes.ruleQuery)
+        && Objects.equals(this.startDate, securityMonitoringSuppressionAttributes.startDate)
         && Objects.equals(
             this.suppressionQuery, securityMonitoringSuppressionAttributes.suppressionQuery)
         && Objects.equals(this.updateDate, securityMonitoringSuppressionAttributes.updateDate)
@@ -446,6 +473,7 @@ public class SecurityMonitoringSuppressionAttributes {
         expirationDate,
         name,
         ruleQuery,
+        startDate,
         suppressionQuery,
         updateDate,
         updater,
@@ -466,6 +494,7 @@ public class SecurityMonitoringSuppressionAttributes {
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    ruleQuery: ").append(toIndentedString(ruleQuery)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    suppressionQuery: ").append(toIndentedString(suppressionQuery)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    updater: ").append(toIndentedString(updater)).append("\n");
