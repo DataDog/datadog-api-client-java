@@ -10,6 +10,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -335,6 +336,25 @@ public class RestrictionPoliciesApi {
         new GenericType<RestrictionPolicyResponse>() {});
   }
 
+  /** Manage optional parameters to updateRestrictionPolicy. */
+  public static class UpdateRestrictionPolicyOptionalParameters {
+    private String allowSelfLockout;
+
+    /**
+     * Set allowSelfLockout.
+     *
+     * @param allowSelfLockout Allows admins (users with the <code>user_access_manage</code>
+     *     permission) to remove their own access from the resource if set to <code>true</code>. By
+     *     default, this is set to <code>false</code>, preventing admins from locking themselves
+     *     out. (optional)
+     * @return UpdateRestrictionPolicyOptionalParameters
+     */
+    public UpdateRestrictionPolicyOptionalParameters allowSelfLockout(String allowSelfLockout) {
+      this.allowSelfLockout = allowSelfLockout;
+      return this;
+    }
+  }
+
   /**
    * Update a restriction policy.
    *
@@ -349,7 +369,9 @@ public class RestrictionPoliciesApi {
    */
   public RestrictionPolicyResponse updateRestrictionPolicy(
       String resourceId, RestrictionPolicyUpdateRequest body) throws ApiException {
-    return updateRestrictionPolicyWithHttpInfo(resourceId, body).getData();
+    return updateRestrictionPolicyWithHttpInfo(
+            resourceId, body, new UpdateRestrictionPolicyOptionalParameters())
+        .getData();
   }
 
   /**
@@ -365,7 +387,52 @@ public class RestrictionPoliciesApi {
    */
   public CompletableFuture<RestrictionPolicyResponse> updateRestrictionPolicyAsync(
       String resourceId, RestrictionPolicyUpdateRequest body) {
-    return updateRestrictionPolicyWithHttpInfoAsync(resourceId, body)
+    return updateRestrictionPolicyWithHttpInfoAsync(
+            resourceId, body, new UpdateRestrictionPolicyOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a restriction policy.
+   *
+   * <p>See {@link #updateRestrictionPolicyWithHttpInfo}.
+   *
+   * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
+   *     connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table
+   *     </code>, <code>security-rule</code>, <code>slo</code>. (required)
+   * @param body Restriction policy payload (required)
+   * @param parameters Optional parameters for the request.
+   * @return RestrictionPolicyResponse
+   * @throws ApiException if fails to make API call
+   */
+  public RestrictionPolicyResponse updateRestrictionPolicy(
+      String resourceId,
+      RestrictionPolicyUpdateRequest body,
+      UpdateRestrictionPolicyOptionalParameters parameters)
+      throws ApiException {
+    return updateRestrictionPolicyWithHttpInfo(resourceId, body, parameters).getData();
+  }
+
+  /**
+   * Update a restriction policy.
+   *
+   * <p>See {@link #updateRestrictionPolicyWithHttpInfoAsync}.
+   *
+   * @param resourceId Identifier, formatted as <code>type:id</code>. Supported types: <code>
+   *     connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table
+   *     </code>, <code>security-rule</code>, <code>slo</code>. (required)
+   * @param body Restriction policy payload (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;RestrictionPolicyResponse&gt;
+   */
+  public CompletableFuture<RestrictionPolicyResponse> updateRestrictionPolicyAsync(
+      String resourceId,
+      RestrictionPolicyUpdateRequest body,
+      UpdateRestrictionPolicyOptionalParameters parameters) {
+    return updateRestrictionPolicyWithHttpInfoAsync(resourceId, body, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -399,6 +466,7 @@ public class RestrictionPoliciesApi {
    *     connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table
    *     </code>, <code>security-rule</code>, <code>slo</code>. (required)
    * @param body Restriction policy payload (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;RestrictionPolicyResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -412,7 +480,10 @@ public class RestrictionPoliciesApi {
    *     </table>
    */
   public ApiResponse<RestrictionPolicyResponse> updateRestrictionPolicyWithHttpInfo(
-      String resourceId, RestrictionPolicyUpdateRequest body) throws ApiException {
+      String resourceId,
+      RestrictionPolicyUpdateRequest body,
+      UpdateRestrictionPolicyOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'resourceId' is set
@@ -426,19 +497,24 @@ public class RestrictionPoliciesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateRestrictionPolicy");
     }
+    String allowSelfLockout = parameters.allowSelfLockout;
     // create path and map variables
     String localVarPath =
         "/api/v2/restriction_policy/{resource_id}"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "allow_self_lockout", allowSelfLockout));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.RestrictionPoliciesApi.updateRestrictionPolicy",
             localVarPath,
-            new ArrayList<Pair>(),
+            localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -463,11 +539,14 @@ public class RestrictionPoliciesApi {
    *     connection</code>, <code>dashboard</code>, <code>notebook</code>, <code>reference-table
    *     </code>, <code>security-rule</code>, <code>slo</code>. (required)
    * @param body Restriction policy payload (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;RestrictionPolicyResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RestrictionPolicyResponse>>
       updateRestrictionPolicyWithHttpInfoAsync(
-          String resourceId, RestrictionPolicyUpdateRequest body) {
+          String resourceId,
+          RestrictionPolicyUpdateRequest body,
+          UpdateRestrictionPolicyOptionalParameters parameters) {
     Object localVarPostBody = body;
 
     // verify the required parameter 'resourceId' is set
@@ -488,13 +567,18 @@ public class RestrictionPoliciesApi {
               400, "Missing the required parameter 'body' when calling updateRestrictionPolicy"));
       return result;
     }
+    String allowSelfLockout = parameters.allowSelfLockout;
     // create path and map variables
     String localVarPath =
         "/api/v2/restriction_policy/{resource_id}"
             .replaceAll(
                 "\\{" + "resource_id" + "\\}", apiClient.escapeString(resourceId.toString()));
 
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "allow_self_lockout", allowSelfLockout));
 
     Invocation.Builder builder;
     try {
@@ -502,7 +586,7 @@ public class RestrictionPoliciesApi {
           apiClient.createBuilder(
               "v2.RestrictionPoliciesApi.updateRestrictionPolicy",
               localVarPath,
-              new ArrayList<Pair>(),
+              localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
