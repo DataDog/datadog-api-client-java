@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"enabled\":true,\"expiration_date\":1718039223000,\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1716224823\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"suppression_query\":\"env:staging status:low\"},\"type\":\"suppressions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"enabled\":true,\"expiration_date\":1734535354000,\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1732720954\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"start_date\":1733584954000,\"suppression_query\":\"env:staging status:low\"},\"type\":\"suppressions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,10 +12,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"8qj-mmz-zym\",\"attributes\":{\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1716224823\",\"enabled\":true,\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"suppression_query\":\"env:staging status:low\",\"data_exclusion_query\":\"\",\"expiration_date\":1718039223000,\"version\":1,\"creation_date\":1716224823374,\"update_date\":1716224823374,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"suppressions\"}}\n",
+      "body": "{\"data\":{\"id\":\"ejv-ksi-r4j\",\"type\":\"suppressions\",\"attributes\":{\"creation_date\":1732720954868,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"\"},\"data_exclusion_query\":\"\",\"description\":\"This rule suppresses low-severity signals in staging environments.\",\"editable\":true,\"enabled\":true,\"expiration_date\":1734535354000,\"name\":\"Test-Create_a_suppression_rule_returns_OK_response-1732720954\",\"rule_query\":\"type:log_detection source:cloudtrail\",\"start_date\":1733584954000,\"suppression_query\":\"env:staging status:low\",\"update_date\":1732720954868,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"\"},\"version\":1}}}",
       "headers": {
         "Content-Type": [
-          "application/json"
+          "application/vnd.api+json"
         ]
       },
       "statusCode": 200,
@@ -27,22 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "27a1f916-3c5e-7ca4-58af-a4dfedcf653a"
+    "id": "935a1a23-dd04-eabb-dc7d-2dd3caa616f9"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/suppressions/8qj-mmz-zym",
+      "path": "/api/v2/security_monitoring/configuration/suppressions/ejv-ksi-r4j",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Content-Type": [
-          "text/html; charset=utf-8"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -52,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d9f9b01e-0568-0cee-8935-b3a7c3962d93"
+    "id": "b62286dc-79a3-ad34-84cf-c79401028e80"
   }
 ]
