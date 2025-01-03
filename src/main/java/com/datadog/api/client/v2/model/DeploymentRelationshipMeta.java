@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** The definition of <code>DeploymentRelationshipMeta</code> object. */
 @JsonPropertyOrder({
@@ -37,7 +38,7 @@ public class DeploymentRelationshipMeta {
   private String userName;
 
   public static final String JSON_PROPERTY_USER_UUID = "user_uuid";
-  private String userUuid;
+  private UUID userUuid;
 
   public DeploymentRelationshipMeta createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -102,7 +103,7 @@ public class DeploymentRelationshipMeta {
     this.userName = userName;
   }
 
-  public DeploymentRelationshipMeta userUuid(String userUuid) {
+  public DeploymentRelationshipMeta userUuid(UUID userUuid) {
     this.userUuid = userUuid;
     return this;
   }
@@ -115,11 +116,11 @@ public class DeploymentRelationshipMeta {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER_UUID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUserUuid() {
+  public UUID getUserUuid() {
     return userUuid;
   }
 
-  public void setUserUuid(String userUuid) {
+  public void setUserUuid(UUID userUuid) {
     this.userUuid = userUuid;
   }
 
