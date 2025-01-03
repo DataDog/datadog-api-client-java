@@ -1,4 +1,4 @@
-// Get a list of logs returns "OK" response
+// Search logs (GET) returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
