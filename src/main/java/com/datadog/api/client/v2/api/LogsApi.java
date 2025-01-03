@@ -204,7 +204,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs.
+   * Search logs (POST).
    *
    * <p>See {@link #listLogsWithHttpInfo}.
    *
@@ -216,7 +216,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs.
+   * Search logs (POST).
    *
    * <p>See {@link #listLogsWithHttpInfoAsync}.
    *
@@ -231,7 +231,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs.
+   * Search logs (POST).
    *
    * <p>See {@link #listLogsWithHttpInfo}.
    *
@@ -244,7 +244,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs.
+   * Search logs (POST).
    *
    * <p>See {@link #listLogsWithHttpInfoAsync}.
    *
@@ -260,7 +260,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs.
+   * Search logs (POST).
    *
    * <p>See {@link #listLogsWithHttpInfo}.
    *
@@ -272,7 +272,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs.
+   * Search logs (POST).
    *
    * <p>See {@link #listLogsWithHttpInfo}.
    *
@@ -322,7 +322,7 @@ public class LogsApi {
    * List endpoint returns logs that match a log search query. <a
    * href="/logs/guide/collect-multiple-logs-with-pagination">Results are paginated</a>.
    *
-   * <p>Use this endpoint to build complex logs filtering and search.
+   * <p>Use this endpoint to search and filter your logs.
    *
    * <p><strong>If you are considering archiving logs for your organization, consider use of the
    * Datadog archive capabilities instead of the log list API. See <a
@@ -371,7 +371,7 @@ public class LogsApi {
   }
 
   /**
-   * Search logs.
+   * Search logs (POST).
    *
    * <p>See {@link #listLogsWithHttpInfo}.
    *
@@ -517,7 +517,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs.
+   * Search logs (GET).
    *
    * <p>See {@link #listLogsGetWithHttpInfo}.
    *
@@ -529,7 +529,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs.
+   * Search logs (GET).
    *
    * <p>See {@link #listLogsGetWithHttpInfoAsync}.
    *
@@ -544,7 +544,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs.
+   * Search logs (GET).
    *
    * <p>See {@link #listLogsGetWithHttpInfo}.
    *
@@ -558,7 +558,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs.
+   * Search logs (GET).
    *
    * <p>See {@link #listLogsGetWithHttpInfoAsync}.
    *
@@ -575,7 +575,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs.
+   * Search logs (GET).
    *
    * <p>See {@link #listLogsGetWithHttpInfo}.
    *
@@ -587,7 +587,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs.
+   * Search logs (GET).
    *
    * <p>See {@link #listLogsGetWithHttpInfo}.
    *
@@ -630,7 +630,7 @@ public class LogsApi {
    * List endpoint returns logs that match a log search query. <a
    * href="/logs/guide/collect-multiple-logs-with-pagination">Results are paginated</a>.
    *
-   * <p>Use this endpoint to see your latest logs.
+   * <p>Use this endpoint to search and filter your logs.
    *
    * <p><strong>If you are considering archiving logs for your organization, consider use of the
    * Datadog archive capabilities instead of the log list API. See <a
@@ -698,7 +698,7 @@ public class LogsApi {
   }
 
   /**
-   * Get a list of logs.
+   * Search logs (GET).
    *
    * <p>See {@link #listLogsGetWithHttpInfo}.
    *

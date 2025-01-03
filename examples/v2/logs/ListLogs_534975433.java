@@ -1,12 +1,12 @@
-// Search logs (POST) returns "OK" response
+// Search logs (POST) returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
-import com.datadog.api.client.ApiException;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.v2.api.LogsApi;
 import com.datadog.api.client.v2.api.LogsApi.ListLogsOptionalParameters;
+import com.datadog.api.client.v2.model.Log;
 import com.datadog.api.client.v2.model.LogsListRequest;
 import com.datadog.api.client.v2.model.LogsListRequestPage;
-import com.datadog.api.client.v2.model.LogsListResponse;
 import com.datadog.api.client.v2.model.LogsQueryFilter;
 import com.datadog.api.client.v2.model.LogsQueryOptions;
 import com.datadog.api.client.v2.model.LogsSort;
@@ -36,13 +36,15 @@ public class Example {
             .sort(LogsSort.TIMESTAMP_ASCENDING);
 
     try {
-      LogsListResponse result = apiInstance.listLogs(new ListLogsOptionalParameters().body(body));
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling LogsApi#listLogs");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
+      PaginationIterable<Log> iterable =
+          apiInstance.listLogsWithPagination(new ListLogsOptionalParameters().body(body));
+
+      for (Log item : iterable) {
+        System.out.println(item);
+      }
+    } catch (RuntimeException e) {
+      System.err.println("Exception when calling LogsApi#listLogsWithPagination");
+      System.err.println("Reason: " + e.getMessage());
       e.printStackTrace();
     }
   }
