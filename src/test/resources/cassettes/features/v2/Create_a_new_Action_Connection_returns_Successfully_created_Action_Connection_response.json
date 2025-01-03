@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"integration\":{\"credentials\":{\"account_id\":\"123456789123\",\"role\":\"MyRoleUpdated\",\"type\":\"AWSAssumeRole\"},\"type\":\"AWS\"},\"name\":\"Cassette Connection DELETE_ME\"},\"type\":\"action_connection\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions/connections",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4b5fedf7-ddf7-4d83-9604-1e12a37a02eb\",\"type\":\"action_connection\",\"attributes\":{\"integration\":{\"credentials\":{\"account_id\":\"123456789123\",\"role\":\"MyRoleUpdated\",\"external_id\":\"89671b070b6345849d94b9faca477213\",\"principal_id\":\"464622532012\",\"type\":\"AWSAssumeRole\"},\"type\":\"AWS\"},\"name\":\"Cassette Connection DELETE_ME\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "143d1c35-6301-e638-823f-d266922b4a2b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions/connections/4b5fedf7-ddf7-4d83-9604-1e12a37a02eb",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "37811a7c-d86e-fe58-30cd-cd4f0a08b361"
+  }
+]
