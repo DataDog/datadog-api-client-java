@@ -80,6 +80,19 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_DATE,
   UsageSummaryDate.JSON_PROPERTY_DBM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_DBM_QUERIES_COUNT_AVG,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_AWS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_AZURE_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_ENT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_GCP_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_HEROKU_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_ONLY_AAS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_ONLY_VSPHERE_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_APM_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_PRO_SUM,
+  UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_SUM,
   UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM,
@@ -373,6 +386,51 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_DBM_QUERIES_COUNT_AVG = "dbm_queries_count_avg";
   private Long dbmQueriesCountAvg;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM = "eph_infra_host_agent_sum";
+  private Long ephInfraHostAgentSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_SUM =
+      "eph_infra_host_alibaba_sum";
+  private Long ephInfraHostAlibabaSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_AWS_SUM = "eph_infra_host_aws_sum";
+  private Long ephInfraHostAwsSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_AZURE_SUM = "eph_infra_host_azure_sum";
+  private Long ephInfraHostAzureSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_ENT_SUM = "eph_infra_host_ent_sum";
+  private Long ephInfraHostEntSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_GCP_SUM = "eph_infra_host_gcp_sum";
+  private Long ephInfraHostGcpSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_HEROKU_SUM = "eph_infra_host_heroku_sum";
+  private Long ephInfraHostHerokuSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_ONLY_AAS_SUM =
+      "eph_infra_host_only_aas_sum";
+  private Long ephInfraHostOnlyAasSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_ONLY_VSPHERE_SUM =
+      "eph_infra_host_only_vsphere_sum";
+  private Long ephInfraHostOnlyVsphereSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_APM_SUM =
+      "eph_infra_host_opentelemetry_apm_sum";
+  private Long ephInfraHostOpentelemetryApmSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_SUM =
+      "eph_infra_host_opentelemetry_sum";
+  private Long ephInfraHostOpentelemetrySum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_PRO_SUM = "eph_infra_host_pro_sum";
+  private Long ephInfraHostProSum;
+
+  public static final String JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_SUM =
+      "eph_infra_host_proplus_sum";
+  private Long ephInfraHostProplusSum;
 
   public static final String JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM =
       "error_tracking_error_events_sum";
@@ -2000,6 +2058,292 @@ public class UsageSummaryDate {
 
   public void setDbmQueriesCountAvg(Long dbmQueriesCountAvg) {
     this.dbmQueriesCountAvg = dbmQueriesCountAvg;
+  }
+
+  public UsageSummaryDate ephInfraHostAgentSum(Long ephInfraHostAgentSum) {
+    this.ephInfraHostAgentSum = ephInfraHostAgentSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in
+   * the current date for the given org.
+   *
+   * @return ephInfraHostAgentSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_AGENT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostAgentSum() {
+    return ephInfraHostAgentSum;
+  }
+
+  public void setEphInfraHostAgentSum(Long ephInfraHostAgentSum) {
+    this.ephInfraHostAgentSum = ephInfraHostAgentSum;
+  }
+
+  public UsageSummaryDate ephInfraHostAlibabaSum(Long ephInfraHostAlibabaSum) {
+    this.ephInfraHostAlibabaSum = ephInfraHostAlibabaSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts on Alibaba over all hours in the current
+   * date for the given org.
+   *
+   * @return ephInfraHostAlibabaSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ALIBABA_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostAlibabaSum() {
+    return ephInfraHostAlibabaSum;
+  }
+
+  public void setEphInfraHostAlibabaSum(Long ephInfraHostAlibabaSum) {
+    this.ephInfraHostAlibabaSum = ephInfraHostAlibabaSum;
+  }
+
+  public UsageSummaryDate ephInfraHostAwsSum(Long ephInfraHostAwsSum) {
+    this.ephInfraHostAwsSum = ephInfraHostAwsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts on AWS over all hours in the current date
+   * for the given org.
+   *
+   * @return ephInfraHostAwsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_AWS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostAwsSum() {
+    return ephInfraHostAwsSum;
+  }
+
+  public void setEphInfraHostAwsSum(Long ephInfraHostAwsSum) {
+    this.ephInfraHostAwsSum = ephInfraHostAwsSum;
+  }
+
+  public UsageSummaryDate ephInfraHostAzureSum(Long ephInfraHostAzureSum) {
+    this.ephInfraHostAzureSum = ephInfraHostAzureSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts on Azure over all hours in the current date
+   * for the given org.
+   *
+   * @return ephInfraHostAzureSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_AZURE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostAzureSum() {
+    return ephInfraHostAzureSum;
+  }
+
+  public void setEphInfraHostAzureSum(Long ephInfraHostAzureSum) {
+    this.ephInfraHostAzureSum = ephInfraHostAzureSum;
+  }
+
+  public UsageSummaryDate ephInfraHostEntSum(Long ephInfraHostEntSum) {
+    this.ephInfraHostEntSum = ephInfraHostEntSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the
+   * current date for the given org.
+   *
+   * @return ephInfraHostEntSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ENT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostEntSum() {
+    return ephInfraHostEntSum;
+  }
+
+  public void setEphInfraHostEntSum(Long ephInfraHostEntSum) {
+    this.ephInfraHostEntSum = ephInfraHostEntSum;
+  }
+
+  public UsageSummaryDate ephInfraHostGcpSum(Long ephInfraHostGcpSum) {
+    this.ephInfraHostGcpSum = ephInfraHostGcpSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts on GCP over all hours in the current date
+   * for the given org.
+   *
+   * @return ephInfraHostGcpSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_GCP_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostGcpSum() {
+    return ephInfraHostGcpSum;
+  }
+
+  public void setEphInfraHostGcpSum(Long ephInfraHostGcpSum) {
+    this.ephInfraHostGcpSum = ephInfraHostGcpSum;
+  }
+
+  public UsageSummaryDate ephInfraHostHerokuSum(Long ephInfraHostHerokuSum) {
+    this.ephInfraHostHerokuSum = ephInfraHostHerokuSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts on Heroku over all hours in the current
+   * date for the given org.
+   *
+   * @return ephInfraHostHerokuSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_HEROKU_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostHerokuSum() {
+    return ephInfraHostHerokuSum;
+  }
+
+  public void setEphInfraHostHerokuSum(Long ephInfraHostHerokuSum) {
+    this.ephInfraHostHerokuSum = ephInfraHostHerokuSum;
+  }
+
+  public UsageSummaryDate ephInfraHostOnlyAasSum(Long ephInfraHostOnlyAasSum) {
+    this.ephInfraHostOnlyAasSum = ephInfraHostOnlyAasSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts with only Azure App Services over all hours
+   * in the current date for the given org.
+   *
+   * @return ephInfraHostOnlyAasSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ONLY_AAS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostOnlyAasSum() {
+    return ephInfraHostOnlyAasSum;
+  }
+
+  public void setEphInfraHostOnlyAasSum(Long ephInfraHostOnlyAasSum) {
+    this.ephInfraHostOnlyAasSum = ephInfraHostOnlyAasSum;
+  }
+
+  public UsageSummaryDate ephInfraHostOnlyVsphereSum(Long ephInfraHostOnlyVsphereSum) {
+    this.ephInfraHostOnlyVsphereSum = ephInfraHostOnlyVsphereSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts with only vSphere over all hours in the
+   * current date for the given org.
+   *
+   * @return ephInfraHostOnlyVsphereSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_ONLY_VSPHERE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostOnlyVsphereSum() {
+    return ephInfraHostOnlyVsphereSum;
+  }
+
+  public void setEphInfraHostOnlyVsphereSum(Long ephInfraHostOnlyVsphereSum) {
+    this.ephInfraHostOnlyVsphereSum = ephInfraHostOnlyVsphereSum;
+  }
+
+  public UsageSummaryDate ephInfraHostOpentelemetryApmSum(Long ephInfraHostOpentelemetryApmSum) {
+    this.ephInfraHostOpentelemetryApmSum = ephInfraHostOpentelemetryApmSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral APM hosts reported by the Datadog exporter for the OpenTelemetry
+   * Collector over all hours in the current date for the given org.
+   *
+   * @return ephInfraHostOpentelemetryApmSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_APM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostOpentelemetryApmSum() {
+    return ephInfraHostOpentelemetryApmSum;
+  }
+
+  public void setEphInfraHostOpentelemetryApmSum(Long ephInfraHostOpentelemetryApmSum) {
+    this.ephInfraHostOpentelemetryApmSum = ephInfraHostOpentelemetryApmSum;
+  }
+
+  public UsageSummaryDate ephInfraHostOpentelemetrySum(Long ephInfraHostOpentelemetrySum) {
+    this.ephInfraHostOpentelemetrySum = ephInfraHostOpentelemetrySum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral hosts reported by the Datadog exporter for the OpenTelemetry
+   * Collector over all hours in the current date for the given org.
+   *
+   * @return ephInfraHostOpentelemetrySum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostOpentelemetrySum() {
+    return ephInfraHostOpentelemetrySum;
+  }
+
+  public void setEphInfraHostOpentelemetrySum(Long ephInfraHostOpentelemetrySum) {
+    this.ephInfraHostOpentelemetrySum = ephInfraHostOpentelemetrySum;
+  }
+
+  public UsageSummaryDate ephInfraHostProSum(Long ephInfraHostProSum) {
+    this.ephInfraHostProSum = ephInfraHostProSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Pro over all hours in the current date
+   * for the given org.
+   *
+   * @return ephInfraHostProSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_PRO_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostProSum() {
+    return ephInfraHostProSum;
+  }
+
+  public void setEphInfraHostProSum(Long ephInfraHostProSum) {
+    this.ephInfraHostProSum = ephInfraHostProSum;
+  }
+
+  public UsageSummaryDate ephInfraHostProplusSum(Long ephInfraHostProplusSum) {
+    this.ephInfraHostProplusSum = ephInfraHostProplusSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current
+   * date for the given org.
+   *
+   * @return ephInfraHostProplusSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getEphInfraHostProplusSum() {
+    return ephInfraHostProplusSum;
+  }
+
+  public void setEphInfraHostProplusSum(Long ephInfraHostProplusSum) {
+    this.ephInfraHostProplusSum = ephInfraHostProplusSum;
   }
 
   public UsageSummaryDate errorTrackingErrorEventsSum(Long errorTrackingErrorEventsSum) {
@@ -4070,6 +4414,22 @@ public class UsageSummaryDate {
         && Objects.equals(this.date, usageSummaryDate.date)
         && Objects.equals(this.dbmHostTop99p, usageSummaryDate.dbmHostTop99p)
         && Objects.equals(this.dbmQueriesCountAvg, usageSummaryDate.dbmQueriesCountAvg)
+        && Objects.equals(this.ephInfraHostAgentSum, usageSummaryDate.ephInfraHostAgentSum)
+        && Objects.equals(this.ephInfraHostAlibabaSum, usageSummaryDate.ephInfraHostAlibabaSum)
+        && Objects.equals(this.ephInfraHostAwsSum, usageSummaryDate.ephInfraHostAwsSum)
+        && Objects.equals(this.ephInfraHostAzureSum, usageSummaryDate.ephInfraHostAzureSum)
+        && Objects.equals(this.ephInfraHostEntSum, usageSummaryDate.ephInfraHostEntSum)
+        && Objects.equals(this.ephInfraHostGcpSum, usageSummaryDate.ephInfraHostGcpSum)
+        && Objects.equals(this.ephInfraHostHerokuSum, usageSummaryDate.ephInfraHostHerokuSum)
+        && Objects.equals(this.ephInfraHostOnlyAasSum, usageSummaryDate.ephInfraHostOnlyAasSum)
+        && Objects.equals(
+            this.ephInfraHostOnlyVsphereSum, usageSummaryDate.ephInfraHostOnlyVsphereSum)
+        && Objects.equals(
+            this.ephInfraHostOpentelemetryApmSum, usageSummaryDate.ephInfraHostOpentelemetryApmSum)
+        && Objects.equals(
+            this.ephInfraHostOpentelemetrySum, usageSummaryDate.ephInfraHostOpentelemetrySum)
+        && Objects.equals(this.ephInfraHostProSum, usageSummaryDate.ephInfraHostProSum)
+        && Objects.equals(this.ephInfraHostProplusSum, usageSummaryDate.ephInfraHostProplusSum)
         && Objects.equals(
             this.errorTrackingErrorEventsSum, usageSummaryDate.errorTrackingErrorEventsSum)
         && Objects.equals(this.errorTrackingEventsSum, usageSummaryDate.errorTrackingEventsSum)
@@ -4282,6 +4642,19 @@ public class UsageSummaryDate {
         date,
         dbmHostTop99p,
         dbmQueriesCountAvg,
+        ephInfraHostAgentSum,
+        ephInfraHostAlibabaSum,
+        ephInfraHostAwsSum,
+        ephInfraHostAzureSum,
+        ephInfraHostEntSum,
+        ephInfraHostGcpSum,
+        ephInfraHostHerokuSum,
+        ephInfraHostOnlyAasSum,
+        ephInfraHostOnlyVsphereSum,
+        ephInfraHostOpentelemetryApmSum,
+        ephInfraHostOpentelemetrySum,
+        ephInfraHostProSum,
+        ephInfraHostProplusSum,
         errorTrackingErrorEventsSum,
         errorTrackingEventsSum,
         errorTrackingRumErrorEventsSum,
@@ -4506,6 +4879,37 @@ public class UsageSummaryDate {
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    dbmHostTop99p: ").append(toIndentedString(dbmHostTop99p)).append("\n");
     sb.append("    dbmQueriesCountAvg: ").append(toIndentedString(dbmQueriesCountAvg)).append("\n");
+    sb.append("    ephInfraHostAgentSum: ")
+        .append(toIndentedString(ephInfraHostAgentSum))
+        .append("\n");
+    sb.append("    ephInfraHostAlibabaSum: ")
+        .append(toIndentedString(ephInfraHostAlibabaSum))
+        .append("\n");
+    sb.append("    ephInfraHostAwsSum: ").append(toIndentedString(ephInfraHostAwsSum)).append("\n");
+    sb.append("    ephInfraHostAzureSum: ")
+        .append(toIndentedString(ephInfraHostAzureSum))
+        .append("\n");
+    sb.append("    ephInfraHostEntSum: ").append(toIndentedString(ephInfraHostEntSum)).append("\n");
+    sb.append("    ephInfraHostGcpSum: ").append(toIndentedString(ephInfraHostGcpSum)).append("\n");
+    sb.append("    ephInfraHostHerokuSum: ")
+        .append(toIndentedString(ephInfraHostHerokuSum))
+        .append("\n");
+    sb.append("    ephInfraHostOnlyAasSum: ")
+        .append(toIndentedString(ephInfraHostOnlyAasSum))
+        .append("\n");
+    sb.append("    ephInfraHostOnlyVsphereSum: ")
+        .append(toIndentedString(ephInfraHostOnlyVsphereSum))
+        .append("\n");
+    sb.append("    ephInfraHostOpentelemetryApmSum: ")
+        .append(toIndentedString(ephInfraHostOpentelemetryApmSum))
+        .append("\n");
+    sb.append("    ephInfraHostOpentelemetrySum: ")
+        .append(toIndentedString(ephInfraHostOpentelemetrySum))
+        .append("\n");
+    sb.append("    ephInfraHostProSum: ").append(toIndentedString(ephInfraHostProSum)).append("\n");
+    sb.append("    ephInfraHostProplusSum: ")
+        .append(toIndentedString(ephInfraHostProplusSum))
+        .append("\n");
     sb.append("    errorTrackingErrorEventsSum: ")
         .append(toIndentedString(errorTrackingErrorEventsSum))
         .append("\n");

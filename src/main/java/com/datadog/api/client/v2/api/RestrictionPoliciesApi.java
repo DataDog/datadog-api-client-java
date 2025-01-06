@@ -338,7 +338,7 @@ public class RestrictionPoliciesApi {
 
   /** Manage optional parameters to updateRestrictionPolicy. */
   public static class UpdateRestrictionPolicyOptionalParameters {
-    private String allowSelfLockout;
+    private Boolean allowSelfLockout;
 
     /**
      * Set allowSelfLockout.
@@ -349,7 +349,7 @@ public class RestrictionPoliciesApi {
      *     out. (optional)
      * @return UpdateRestrictionPolicyOptionalParameters
      */
-    public UpdateRestrictionPolicyOptionalParameters allowSelfLockout(String allowSelfLockout) {
+    public UpdateRestrictionPolicyOptionalParameters allowSelfLockout(Boolean allowSelfLockout) {
       this.allowSelfLockout = allowSelfLockout;
       return this;
     }
@@ -497,7 +497,7 @@ public class RestrictionPoliciesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateRestrictionPolicy");
     }
-    String allowSelfLockout = parameters.allowSelfLockout;
+    Boolean allowSelfLockout = parameters.allowSelfLockout;
     // create path and map variables
     String localVarPath =
         "/api/v2/restriction_policy/{resource_id}"
@@ -567,7 +567,7 @@ public class RestrictionPoliciesApi {
               400, "Missing the required parameter 'body' when calling updateRestrictionPolicy"));
       return result;
     }
-    String allowSelfLockout = parameters.allowSelfLockout;
+    Boolean allowSelfLockout = parameters.allowSelfLockout;
     // create path and map variables
     String localVarPath =
         "/api/v2/restriction_policy/{resource_id}"
