@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** The definition of <code>AppMeta</code> object. */
 @JsonPropertyOrder({
@@ -58,7 +59,7 @@ public class AppMeta {
   private String userName;
 
   public static final String JSON_PROPERTY_USER_UUID = "user_uuid";
-  private String userUuid;
+  private UUID userUuid;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
@@ -231,7 +232,7 @@ public class AppMeta {
     this.userName = userName;
   }
 
-  public AppMeta userUuid(String userUuid) {
+  public AppMeta userUuid(UUID userUuid) {
     this.userUuid = userUuid;
     return this;
   }
@@ -244,11 +245,11 @@ public class AppMeta {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER_UUID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUserUuid() {
+  public UUID getUserUuid() {
     return userUuid;
   }
 
-  public void setUserUuid(String userUuid) {
+  public void setUserUuid(UUID userUuid) {
     this.userUuid = userUuid;
   }
 
