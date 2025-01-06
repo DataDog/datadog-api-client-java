@@ -19,6 +19,8 @@ import java.util.Objects;
 /** API error response body */
 @JsonPropertyOrder({
   JSONAPIErrorItem.JSON_PROPERTY_DETAIL,
+  JSONAPIErrorItem.JSON_PROPERTY_META,
+  JSONAPIErrorItem.JSON_PROPERTY_SOURCE,
   JSONAPIErrorItem.JSON_PROPERTY_STATUS,
   JSONAPIErrorItem.JSON_PROPERTY_TITLE
 })
@@ -28,6 +30,12 @@ public class JSONAPIErrorItem {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DETAIL = "detail";
   private String detail;
+
+  public static final String JSON_PROPERTY_META = "meta";
+  private Map<String, Object> meta = null;
+
+  public static final String JSON_PROPERTY_SOURCE = "source";
+  private JSONAPIErrorItemSource source;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -54,6 +62,57 @@ public class JSONAPIErrorItem {
 
   public void setDetail(String detail) {
     this.detail = detail;
+  }
+
+  public JSONAPIErrorItem meta(Map<String, Object> meta) {
+    this.meta = meta;
+    return this;
+  }
+
+  public JSONAPIErrorItem putMetaItem(String key, Object metaItem) {
+    if (this.meta == null) {
+      this.meta = new HashMap<>();
+    }
+    this.meta.put(key, metaItem);
+    return this;
+  }
+
+  /**
+   * Non-standard meta-information about the error
+   *
+   * @return meta
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getMeta() {
+    return meta;
+  }
+
+  public void setMeta(Map<String, Object> meta) {
+    this.meta = meta;
+  }
+
+  public JSONAPIErrorItem source(JSONAPIErrorItemSource source) {
+    this.source = source;
+    this.unparsed |= source.unparsed;
+    return this;
+  }
+
+  /**
+   * References to the source of the error.
+   *
+   * @return source
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JSONAPIErrorItemSource getSource() {
+    return source;
+  }
+
+  public void setSource(JSONAPIErrorItemSource source) {
+    this.source = source;
   }
 
   public JSONAPIErrorItem status(String status) {
@@ -155,6 +214,8 @@ public class JSONAPIErrorItem {
     }
     JSONAPIErrorItem jsonapiErrorItem = (JSONAPIErrorItem) o;
     return Objects.equals(this.detail, jsonapiErrorItem.detail)
+        && Objects.equals(this.meta, jsonapiErrorItem.meta)
+        && Objects.equals(this.source, jsonapiErrorItem.source)
         && Objects.equals(this.status, jsonapiErrorItem.status)
         && Objects.equals(this.title, jsonapiErrorItem.title)
         && Objects.equals(this.additionalProperties, jsonapiErrorItem.additionalProperties);
@@ -162,7 +223,7 @@ public class JSONAPIErrorItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(detail, status, title, additionalProperties);
+    return Objects.hash(detail, meta, source, status, title, additionalProperties);
   }
 
   @Override
@@ -170,6 +231,8 @@ public class JSONAPIErrorItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class JSONAPIErrorItem {\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    additionalProperties: ")
