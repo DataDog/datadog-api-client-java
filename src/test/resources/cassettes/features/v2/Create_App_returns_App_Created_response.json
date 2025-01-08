@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"02c52f8c-78d9-4c14-ac27-b0bcac36ce74\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"2d9dd18e-c574-454c-8d43-3045b731d6a2\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,12 +33,12 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/app-builder/apps/02c52f8c-78d9-4c14-ac27-b0bcac36ce74",
+      "path": "/api/v2/app-builder/apps/2d9dd18e-c574-454c-8d43-3045b731d6a2",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"02c52f8c-78d9-4c14-ac27-b0bcac36ce74\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"2d9dd18e-c574-454c-8d43-3045b731d6a2\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "faf53efb-5573-c7ab-23e2-f60966d9bbd3"
+    "id": "1d96f31b-6242-7d87-11a6-166228a63510"
   }
 ]

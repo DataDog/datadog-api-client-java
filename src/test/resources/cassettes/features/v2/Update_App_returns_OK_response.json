@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"22653158-3691-4a09-bbd9-f4197f14dd0c\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"5a5e6785-d3f8-41bf-9d5d-95a179362e02\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,16 +33,16 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Updated Name\",\"rootInstanceName\":\"grid0\"},\"id\":\"22653158-3691-4a09-bbd9-f4197f14dd0c\",\"type\":\"appDefinitions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Updated Name\",\"rootInstanceName\":\"grid0\"},\"id\":\"5a5e6785-d3f8-41bf-9d5d-95a179362e02\",\"type\":\"appDefinitions\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/app-builder/apps/22653158-3691-4a09-bbd9-f4197f14dd0c",
+      "path": "/api/v2/app-builder/apps/5a5e6785-d3f8-41bf-9d5d-95a179362e02",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"22653158-3691-4a09-bbd9-f4197f14dd0c\",\"type\":\"appDefinitions\",\"attributes\":{\"components\":[{\"events\":[],\"name\":\"grid0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"gridCell0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"calloutValue0\",\"properties\":{\"isDisabled\":false,\"isLoading\":false,\"isVisible\":true,\"label\":\"CPU Usage\",\"size\":\"sm\",\"style\":\"vivid_yellow\",\"unit\":\"kB\",\"value\":\"42\"},\"type\":\"calloutValue\"}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"height\":8,\"width\":2,\"x\":0,\"y\":0}}},\"type\":\"gridCell\"}]},\"type\":\"grid\"}],\"description\":\"This is a simple example app\",\"embeddedQueries\":[],\"favorite\":false,\"name\":\"Updated Name\",\"rootInstanceName\":\"grid0\",\"selfService\":false,\"tags\":[]},\"meta\":{\"org_id\":1107852,\"user_id\":15479137,\"user_uuid\":\"b3f98453-b289-11ef-a4e9-d6d283f92d91\",\"user_name\":\"oliver.li@datadoghq.com\",\"version\":2,\"updated_since_deployment\":false,\"created_at\":\"2024-12-20T20:39:23.117622Z\",\"updated_at\":\"2024-12-20T20:39:23.317526Z\",\"deleted_at\":\"0001-01-01T00:00:00Z\"}}}",
+      "body": "{\"data\":{\"id\":\"5a5e6785-d3f8-41bf-9d5d-95a179362e02\",\"type\":\"appDefinitions\",\"attributes\":{\"components\":[{\"events\":[],\"name\":\"grid0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"gridCell0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"calloutValue0\",\"properties\":{\"isDisabled\":false,\"isLoading\":false,\"isVisible\":true,\"label\":\"CPU Usage\",\"size\":\"sm\",\"style\":\"vivid_yellow\",\"unit\":\"kB\",\"value\":\"42\"},\"type\":\"calloutValue\"}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"height\":8,\"width\":2,\"x\":0,\"y\":0}}},\"type\":\"gridCell\"}]},\"type\":\"grid\"}],\"description\":\"This is a simple example app\",\"embeddedQueries\":[],\"favorite\":false,\"name\":\"Updated Name\",\"rootInstanceName\":\"grid0\",\"selfService\":false,\"tags\":[]},\"meta\":{\"org_id\":321813,\"user_id\":2320499,\"user_uuid\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"user_name\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"version\":2,\"updated_since_deployment\":false,\"created_at\":\"2024-12-12T20:29:27.115629Z\",\"updated_at\":\"2024-12-12T20:29:27.362767Z\",\"deleted_at\":\"0001-01-01T00:00:00Z\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,18 +57,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "55df5978-eb09-568b-a45b-a8be9a1f9733"
+    "id": "1a396fb9-a6d0-f4fc-b44a-5c7599c23cb7"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/app-builder/apps/22653158-3691-4a09-bbd9-f4197f14dd0c",
+      "path": "/api/v2/app-builder/apps/5a5e6785-d3f8-41bf-9d5d-95a179362e02",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"22653158-3691-4a09-bbd9-f4197f14dd0c\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"5a5e6785-d3f8-41bf-9d5d-95a179362e02\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -83,6 +83,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "74c992c6-7b0b-26d2-7022-368a5f40dd1d"
+    "id": "f5f5b2ab-46c5-5f99-91c3-5b0f9cacb5bf"
   }
 ]

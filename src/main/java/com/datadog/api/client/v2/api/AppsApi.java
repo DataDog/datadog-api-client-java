@@ -10,8 +10,6 @@ import com.datadog.api.client.v2.model.CreateAppResponse;
 import com.datadog.api.client.v2.model.DeleteAppResponse;
 import com.datadog.api.client.v2.model.DeleteAppsRequest;
 import com.datadog.api.client.v2.model.DeleteAppsResponse;
-import com.datadog.api.client.v2.model.DeployAppResponse;
-import com.datadog.api.client.v2.model.DisableAppResponse;
 import com.datadog.api.client.v2.model.GetAppResponse;
 import com.datadog.api.client.v2.model.ListAppsResponse;
 import com.datadog.api.client.v2.model.UpdateAppRequest;
@@ -22,7 +20,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -97,7 +94,7 @@ public class AppsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> App Created </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden, e.g. missing required permissions to a connection or workflow used in the app </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -394,7 +391,7 @@ public class AppsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden, e.g. missing permissions to delete one or more apps </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -501,322 +498,6 @@ public class AppsApi {
   }
 
   /**
-   * Deploy App.
-   *
-   * <p>See {@link #deployAppWithHttpInfo}.
-   *
-   * @param appId (required)
-   * @return DeployAppResponse
-   * @throws ApiException if fails to make API call
-   */
-  public DeployAppResponse deployApp(String appId) throws ApiException {
-    return deployAppWithHttpInfo(appId).getData();
-  }
-
-  /**
-   * Deploy App.
-   *
-   * <p>See {@link #deployAppWithHttpInfoAsync}.
-   *
-   * @param appId (required)
-   * @return CompletableFuture&lt;DeployAppResponse&gt;
-   */
-  public CompletableFuture<DeployAppResponse> deployAppAsync(String appId) {
-    return deployAppWithHttpInfoAsync(appId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Deploy (publish) an app by ID
-   *
-   * @param appId (required)
-   * @return ApiResponse&lt;DeployAppResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<DeployAppResponse> deployAppWithHttpInfo(String appId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deployApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'appId' is set
-    if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling deployApp");
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/app-builder/apps/{app_id}/deployment"
-            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AppsApi.deployApp",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DeployAppResponse>() {});
-  }
-
-  /**
-   * Deploy App.
-   *
-   * <p>See {@link #deployAppWithHttpInfo}.
-   *
-   * @param appId (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;DeployAppResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<DeployAppResponse>> deployAppWithHttpInfoAsync(
-      String appId) {
-    // Check if unstable operation is enabled
-    String operationId = "deployApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeployAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'appId' is set
-    if (appId == null) {
-      CompletableFuture<ApiResponse<DeployAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'appId' when calling deployApp"));
-      return result;
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/app-builder/apps/{app_id}/deployment"
-            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AppsApi.deployApp",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<DeployAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "POST",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DeployAppResponse>() {});
-  }
-
-  /**
-   * Disable App.
-   *
-   * <p>See {@link #disableAppWithHttpInfo}.
-   *
-   * @param appId (required)
-   * @return DisableAppResponse
-   * @throws ApiException if fails to make API call
-   */
-  public DisableAppResponse disableApp(String appId) throws ApiException {
-    return disableAppWithHttpInfo(appId).getData();
-  }
-
-  /**
-   * Disable App.
-   *
-   * <p>See {@link #disableAppWithHttpInfoAsync}.
-   *
-   * @param appId (required)
-   * @return CompletableFuture&lt;DisableAppResponse&gt;
-   */
-  public CompletableFuture<DisableAppResponse> disableAppAsync(String appId) {
-    return disableAppWithHttpInfoAsync(appId)
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Disable an app by ID
-   *
-   * @param appId (required)
-   * @return ApiResponse&lt;DisableAppResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table border="1">
-   *    <caption>Response details</caption>
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<DisableAppResponse> disableAppWithHttpInfo(String appId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "disableApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'appId' is set
-    if (appId == null) {
-      throw new ApiException(400, "Missing the required parameter 'appId' when calling disableApp");
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/app-builder/apps/{app_id}/deployment"
-            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder =
-        apiClient.createBuilder(
-            "v2.AppsApi.disableApp",
-            localVarPath,
-            new ArrayList<Pair>(),
-            localVarHeaderParams,
-            new HashMap<String, String>(),
-            new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
-    return apiClient.invokeAPI(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DisableAppResponse>() {});
-  }
-
-  /**
-   * Disable App.
-   *
-   * <p>See {@link #disableAppWithHttpInfo}.
-   *
-   * @param appId (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;DisableAppResponse&gt;&gt;
-   */
-  public CompletableFuture<ApiResponse<DisableAppResponse>> disableAppWithHttpInfoAsync(
-      String appId) {
-    // Check if unstable operation is enabled
-    String operationId = "disableApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DisableAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
-    Object localVarPostBody = null;
-
-    // verify the required parameter 'appId' is set
-    if (appId == null) {
-      CompletableFuture<ApiResponse<DisableAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(400, "Missing the required parameter 'appId' when calling disableApp"));
-      return result;
-    }
-    // create path and map variables
-    String localVarPath =
-        "/api/v2/app-builder/apps/{app_id}/deployment"
-            .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
-
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    Invocation.Builder builder;
-    try {
-      builder =
-          apiClient.createBuilder(
-              "v2.AppsApi.disableApp",
-              localVarPath,
-              new ArrayList<Pair>(),
-              localVarHeaderParams,
-              new HashMap<String, String>(),
-              new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
-    } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<DisableAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(ex);
-      return result;
-    }
-    return apiClient.invokeAPIAsync(
-        "DELETE",
-        builder,
-        localVarHeaderParams,
-        new String[] {},
-        localVarPostBody,
-        new HashMap<String, Object>(),
-        false,
-        new GenericType<DisableAppResponse>() {});
-  }
-
-  /** Manage optional parameters to getApp. */
-  public static class GetAppOptionalParameters {
-    private String version;
-
-    /**
-     * Set version.
-     *
-     * @param version (optional)
-     * @return GetAppOptionalParameters
-     */
-    public GetAppOptionalParameters version(String version) {
-      this.version = version;
-      return this;
-    }
-  }
-
-  /**
    * Get App.
    *
    * <p>See {@link #getAppWithHttpInfo}.
@@ -826,7 +507,7 @@ public class AppsApi {
    * @throws ApiException if fails to make API call
    */
   public GetAppResponse getApp(String appId) throws ApiException {
-    return getAppWithHttpInfo(appId, new GetAppOptionalParameters()).getData();
+    return getAppWithHttpInfo(appId).getData();
   }
 
   /**
@@ -838,40 +519,7 @@ public class AppsApi {
    * @return CompletableFuture&lt;GetAppResponse&gt;
    */
   public CompletableFuture<GetAppResponse> getAppAsync(String appId) {
-    return getAppWithHttpInfoAsync(appId, new GetAppOptionalParameters())
-        .thenApply(
-            response -> {
-              return response.getData();
-            });
-  }
-
-  /**
-   * Get App.
-   *
-   * <p>See {@link #getAppWithHttpInfo}.
-   *
-   * @param appId (required)
-   * @param parameters Optional parameters for the request.
-   * @return GetAppResponse
-   * @throws ApiException if fails to make API call
-   */
-  public GetAppResponse getApp(String appId, GetAppOptionalParameters parameters)
-      throws ApiException {
-    return getAppWithHttpInfo(appId, parameters).getData();
-  }
-
-  /**
-   * Get App.
-   *
-   * <p>See {@link #getAppWithHttpInfoAsync}.
-   *
-   * @param appId (required)
-   * @param parameters Optional parameters for the request.
-   * @return CompletableFuture&lt;GetAppResponse&gt;
-   */
-  public CompletableFuture<GetAppResponse> getAppAsync(
-      String appId, GetAppOptionalParameters parameters) {
-    return getAppWithHttpInfoAsync(appId, parameters)
+    return getAppWithHttpInfoAsync(appId)
         .thenApply(
             response -> {
               return response.getData();
@@ -882,7 +530,6 @@ public class AppsApi {
    * Get the full definition of an app by ID
    *
    * @param appId (required)
-   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;GetAppResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -896,8 +543,7 @@ public class AppsApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<GetAppResponse> getAppWithHttpInfo(
-      String appId, GetAppOptionalParameters parameters) throws ApiException {
+  public ApiResponse<GetAppResponse> getAppWithHttpInfo(String appId) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getApp";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -911,22 +557,18 @@ public class AppsApi {
     if (appId == null) {
       throw new ApiException(400, "Missing the required parameter 'appId' when calling getApp");
     }
-    String version = parameters.version;
     // create path and map variables
     String localVarPath =
         "/api/v2/app-builder/apps/{app_id}"
             .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "version", version));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
             "v2.AppsApi.getApp",
             localVarPath,
-            localVarQueryParams,
+            new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
@@ -948,11 +590,9 @@ public class AppsApi {
    * <p>See {@link #getAppWithHttpInfo}.
    *
    * @param appId (required)
-   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;GetAppResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<GetAppResponse>> getAppWithHttpInfoAsync(
-      String appId, GetAppOptionalParameters parameters) {
+  public CompletableFuture<ApiResponse<GetAppResponse>> getAppWithHttpInfoAsync(String appId) {
     // Check if unstable operation is enabled
     String operationId = "getApp";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -972,16 +612,12 @@ public class AppsApi {
           new ApiException(400, "Missing the required parameter 'appId' when calling getApp"));
       return result;
     }
-    String version = parameters.version;
     // create path and map variables
     String localVarPath =
         "/api/v2/app-builder/apps/{app_id}"
             .replaceAll("\\{" + "app_id" + "\\}", apiClient.escapeString(appId.toString()));
 
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "version", version));
 
     Invocation.Builder builder;
     try {
@@ -989,7 +625,7 @@ public class AppsApi {
           apiClient.createBuilder(
               "v2.AppsApi.getApp",
               localVarPath,
-              localVarQueryParams,
+              new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
@@ -1015,19 +651,18 @@ public class AppsApi {
     private Long limit;
     private Long page;
     private String filterUserName;
-    private UUID filterUserUuid;
+    private String filterUserUuid;
     private String filterName;
     private String filterQuery;
     private Boolean filterDeployed;
     private String filterTags;
     private Boolean filterFavorite;
-    private Boolean filterSelfService;
     private List<AppsSortField> sort;
 
     /**
      * Set limit.
      *
-     * @param limit The number of apps to return per page. (optional)
+     * @param limit The number of apps to return per page (optional)
      * @return ListAppsOptionalParameters
      */
     public ListAppsOptionalParameters limit(Long limit) {
@@ -1038,7 +673,7 @@ public class AppsApi {
     /**
      * Set page.
      *
-     * @param page The page number to return. (optional)
+     * @param page The page number to return (optional)
      * @return ListAppsOptionalParameters
      */
     public ListAppsOptionalParameters page(Long page) {
@@ -1049,7 +684,7 @@ public class AppsApi {
     /**
      * Set filterUserName.
      *
-     * @param filterUserName Filter apps by the app creator. Usually the user's email. (optional)
+     * @param filterUserName The <code>AppsFilter</code> <code>user_name</code>. (optional)
      * @return ListAppsOptionalParameters
      */
     public ListAppsOptionalParameters filterUserName(String filterUserName) {
@@ -1060,10 +695,10 @@ public class AppsApi {
     /**
      * Set filterUserUuid.
      *
-     * @param filterUserUuid Filter apps by the app creator's UUID. (optional)
+     * @param filterUserUuid The <code>AppsFilter</code> <code>user_uuid</code>. (optional)
      * @return ListAppsOptionalParameters
      */
-    public ListAppsOptionalParameters filterUserUuid(UUID filterUserUuid) {
+    public ListAppsOptionalParameters filterUserUuid(String filterUserUuid) {
       this.filterUserUuid = filterUserUuid;
       return this;
     }
@@ -1071,7 +706,7 @@ public class AppsApi {
     /**
      * Set filterName.
      *
-     * @param filterName Filter by app name. (optional)
+     * @param filterName The <code>AppsFilter</code> <code>name</code>. (optional)
      * @return ListAppsOptionalParameters
      */
     public ListAppsOptionalParameters filterName(String filterName) {
@@ -1082,7 +717,7 @@ public class AppsApi {
     /**
      * Set filterQuery.
      *
-     * @param filterQuery Filter apps by the app name or the app creator. (optional)
+     * @param filterQuery The <code>AppsFilter</code> <code>query</code>. (optional)
      * @return ListAppsOptionalParameters
      */
     public ListAppsOptionalParameters filterQuery(String filterQuery) {
@@ -1093,7 +728,7 @@ public class AppsApi {
     /**
      * Set filterDeployed.
      *
-     * @param filterDeployed Filter apps by whether they are published. (optional)
+     * @param filterDeployed The <code>AppsFilter</code> <code>deployed</code>. (optional)
      * @return ListAppsOptionalParameters
      */
     public ListAppsOptionalParameters filterDeployed(Boolean filterDeployed) {
@@ -1104,7 +739,7 @@ public class AppsApi {
     /**
      * Set filterTags.
      *
-     * @param filterTags Filter apps by tags. (optional)
+     * @param filterTags The <code>AppsFilter</code> <code>tags</code>. (optional)
      * @return ListAppsOptionalParameters
      */
     public ListAppsOptionalParameters filterTags(String filterTags) {
@@ -1115,8 +750,7 @@ public class AppsApi {
     /**
      * Set filterFavorite.
      *
-     * @param filterFavorite Filter apps by whether you have added them to your favorites.
-     *     (optional)
+     * @param filterFavorite The <code>AppsFilter</code> <code>favorite</code>. (optional)
      * @return ListAppsOptionalParameters
      */
     public ListAppsOptionalParameters filterFavorite(Boolean filterFavorite) {
@@ -1125,20 +759,9 @@ public class AppsApi {
     }
 
     /**
-     * Set filterSelfService.
-     *
-     * @param filterSelfService Filter apps by whether they are enabled for self-service. (optional)
-     * @return ListAppsOptionalParameters
-     */
-    public ListAppsOptionalParameters filterSelfService(Boolean filterSelfService) {
-      this.filterSelfService = filterSelfService;
-      return this;
-    }
-
-    /**
      * Set sort.
      *
-     * @param sort The fields and direction to sort apps by. (optional)
+     * @param sort (optional)
      * @return ListAppsOptionalParameters
      */
     public ListAppsOptionalParameters sort(List<AppsSortField> sort) {
@@ -1214,7 +837,7 @@ public class AppsApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request, e.g. invalid sort parameter </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -1232,13 +855,12 @@ public class AppsApi {
     Long limit = parameters.limit;
     Long page = parameters.page;
     String filterUserName = parameters.filterUserName;
-    UUID filterUserUuid = parameters.filterUserUuid;
+    String filterUserUuid = parameters.filterUserUuid;
     String filterName = parameters.filterName;
     String filterQuery = parameters.filterQuery;
     Boolean filterDeployed = parameters.filterDeployed;
     String filterTags = parameters.filterTags;
     Boolean filterFavorite = parameters.filterFavorite;
-    Boolean filterSelfService = parameters.filterSelfService;
     List<AppsSortField> sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/app-builder/apps";
@@ -1255,8 +877,6 @@ public class AppsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[deployed]", filterDeployed));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[favorite]", filterFavorite));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[self_service]", filterSelfService));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "sort", sort));
 
     Invocation.Builder builder =
@@ -1303,13 +923,12 @@ public class AppsApi {
     Long limit = parameters.limit;
     Long page = parameters.page;
     String filterUserName = parameters.filterUserName;
-    UUID filterUserUuid = parameters.filterUserUuid;
+    String filterUserUuid = parameters.filterUserUuid;
     String filterName = parameters.filterName;
     String filterQuery = parameters.filterQuery;
     Boolean filterDeployed = parameters.filterDeployed;
     String filterTags = parameters.filterTags;
     Boolean filterFavorite = parameters.filterFavorite;
-    Boolean filterSelfService = parameters.filterSelfService;
     List<AppsSortField> sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v2/app-builder/apps";
@@ -1326,8 +945,6 @@ public class AppsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[deployed]", filterDeployed));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[favorite]", filterFavorite));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[self_service]", filterSelfService));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "sort", sort));
 
     Invocation.Builder builder;
@@ -1401,7 +1018,7 @@ public class AppsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden, e.g. missing required permissions to a connection or workflow used in the app </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
