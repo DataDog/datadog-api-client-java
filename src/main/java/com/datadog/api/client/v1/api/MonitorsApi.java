@@ -1146,7 +1146,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details.
+   * Get all monitors.
    *
    * <p>See {@link #listMonitorsWithHttpInfo}.
    *
@@ -1158,7 +1158,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details.
+   * Get all monitors.
    *
    * <p>See {@link #listMonitorsWithHttpInfoAsync}.
    *
@@ -1173,7 +1173,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details.
+   * Get all monitors.
    *
    * <p>See {@link #listMonitorsWithHttpInfo}.
    *
@@ -1186,7 +1186,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details.
+   * Get all monitors.
    *
    * <p>See {@link #listMonitorsWithHttpInfoAsync}.
    *
@@ -1203,7 +1203,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details.
+   * Get all monitors.
    *
    * <p>See {@link #listMonitorsWithHttpInfo}.
    *
@@ -1215,7 +1215,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details.
+   * Get all monitors.
    *
    * <p>See {@link #listMonitorsWithHttpInfo}.
    *
@@ -1256,7 +1256,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get details about the specified monitor from your organization.
+   * Get all monitors from your organization.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;List&lt;Monitor&gt;&gt;
@@ -1318,7 +1318,7 @@ public class MonitorsApi {
   }
 
   /**
-   * Get all monitor details.
+   * Get all monitors.
    *
    * <p>See {@link #listMonitorsWithHttpInfo}.
    *
