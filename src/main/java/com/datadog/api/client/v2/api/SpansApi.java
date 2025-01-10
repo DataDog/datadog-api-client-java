@@ -442,7 +442,8 @@ public class SpansApi {
     /**
      * Set pageLimit.
      *
-     * @param pageLimit Maximum number of spans in the response. (optional, default to 10)
+     * @param pageLimit Maximum number of spans in the response. Defaults to 10 and allows up to
+     *     5000. (optional, default to 10)
      * @return ListSpansGetOptionalParameters
      */
     public ListSpansGetOptionalParameters pageLimit(Integer pageLimit) {
