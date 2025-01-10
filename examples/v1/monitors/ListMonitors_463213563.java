@@ -1,4 +1,4 @@
-// Get all monitor details returns "OK" response with pagination
+// Get all monitors returns "OK" response with pagination
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.PaginationIterable;
