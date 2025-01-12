@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CreateAppRequestData</code> object. */
+/** The data object containing the app definition. */
 @JsonPropertyOrder({
   CreateAppRequestData.JSON_PROPERTY_ATTRIBUTES,
   CreateAppRequestData.JSON_PROPERTY_TYPE
@@ -30,13 +30,13 @@ public class CreateAppRequestData {
   private CreateAppRequestDataAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private CreateAppRequestDataType type = CreateAppRequestDataType.APPDEFINITIONS;
+  private AppDefinitionType type = AppDefinitionType.APPDEFINITIONS;
 
   public CreateAppRequestData() {}
 
   @JsonCreator
   public CreateAppRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CreateAppRequestDataType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AppDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -48,7 +48,7 @@ public class CreateAppRequestData {
   }
 
   /**
-   * The definition of <code>CreateAppRequestDataAttributes</code> object.
+   * App definition attributes such as name, description, and components.
    *
    * @return attributes
    */
@@ -63,24 +63,24 @@ public class CreateAppRequestData {
     this.attributes = attributes;
   }
 
-  public CreateAppRequestData type(CreateAppRequestDataType type) {
+  public CreateAppRequestData type(AppDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>CreateAppRequestDataType</code> object.
+   * The app definition type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CreateAppRequestDataType getType() {
+  public AppDefinitionType getType() {
     return type;
   }
 
-  public void setType(CreateAppRequestDataType type) {
+  public void setType(AppDefinitionType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

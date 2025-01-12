@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CustomConnectionAttributes</code> object. */
+/** The custom connection attributes. */
 @JsonPropertyOrder({
   CustomConnectionAttributes.JSON_PROPERTY_NAME,
   CustomConnectionAttributes.JSON_PROPERTY_ON_PREM_RUNNER
@@ -37,7 +37,7 @@ public class CustomConnectionAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>name</code>.
+   * The name of the custom connection.
    *
    * @return name
    */
@@ -60,7 +60,8 @@ public class CustomConnectionAttributes {
   }
 
   /**
-   * The definition of <code>CustomConnectionAttributesOnPremRunner</code> object.
+   * Information about the Private Action Runner used by the custom connection, if the custom
+   * connection is associated with a Private Action Runner.
    *
    * @return onPremRunner
    */

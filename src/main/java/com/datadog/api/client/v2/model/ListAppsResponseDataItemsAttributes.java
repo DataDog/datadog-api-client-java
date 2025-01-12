@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ListAppsResponseDataItemsAttributes</code> object. */
+/** Basic information about the app such as name, description, and tags. */
 @JsonPropertyOrder({
   ListAppsResponseDataItemsAttributes.JSON_PROPERTY_DESCRIPTION,
   ListAppsResponseDataItemsAttributes.JSON_PROPERTY_FAVORITE,
@@ -51,7 +51,7 @@ public class ListAppsResponseDataItemsAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>description</code>.
+   * A human-readable description for the app.
    *
    * @return description
    */
@@ -72,7 +72,7 @@ public class ListAppsResponseDataItemsAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>favorite</code>.
+   * Whether the app is marked as a favorite by the current user.
    *
    * @return favorite
    */
@@ -93,7 +93,7 @@ public class ListAppsResponseDataItemsAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>name</code>.
+   * The name of the app.
    *
    * @return name
    */
@@ -114,7 +114,7 @@ public class ListAppsResponseDataItemsAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>selfService</code>.
+   * Whether the app is enabled for use in the Datadog self-service hub.
    *
    * @return selfService
    */
@@ -143,7 +143,7 @@ public class ListAppsResponseDataItemsAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>tags</code>.
+   * A list of tags for the app, which can be used to filter apps.
    *
    * @return tags
    */

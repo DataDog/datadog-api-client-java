@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 /** The definition of <code>DeleteAppResponseData</code> object. */
 @JsonPropertyOrder({
@@ -27,60 +28,60 @@ import java.util.Objects;
 public class DeleteAppResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private DeleteAppResponseDataType type = DeleteAppResponseDataType.APPDEFINITIONS;
+  private AppDefinitionType type = AppDefinitionType.APPDEFINITIONS;
 
   public DeleteAppResponseData() {}
 
   @JsonCreator
   public DeleteAppResponseData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DeleteAppResponseDataType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AppDefinitionType type) {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public DeleteAppResponseData id(String id) {
+  public DeleteAppResponseData id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The <code>data</code> <code>id</code>.
+   * The ID of the deleted app.
    *
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public DeleteAppResponseData type(DeleteAppResponseDataType type) {
+  public DeleteAppResponseData type(AppDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>DeleteAppResponseDataType</code> object.
+   * The app definition type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DeleteAppResponseDataType getType() {
+  public AppDefinitionType getType() {
     return type;
   }
 
-  public void setType(DeleteAppResponseDataType type) {
+  public void setType(AppDefinitionType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

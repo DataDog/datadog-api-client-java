@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The definition of <code>ComponentType</code> object. */
+/** The UI component type. */
 @JsonSerialize(using = ComponentType.ComponentTypeSerializer.class)
 public class ComponentType extends ModelEnum<String> {
 
