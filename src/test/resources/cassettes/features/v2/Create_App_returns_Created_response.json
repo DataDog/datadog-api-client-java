@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"events\":[],\"name\":\"grid0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"gridCell0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"calloutValue0\",\"properties\":{\"isLoading\":false,\"isUnpublishd\":false,\"isVisible\":true,\"label\":\"CPU Usage\",\"size\":\"sm\",\"style\":\"vivid_yellow\",\"unit\":\"kB\",\"value\":\"42\"},\"type\":\"calloutValue\"}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"height\":8,\"width\":2,\"x\":0,\"y\":0}}},\"type\":\"gridCell\"}]},\"type\":\"grid\"}],\"description\":\"This is a simple example app\",\"embeddedQueries\":[],\"name\":\"Example App\",\"rootInstanceName\":\"grid0\"},\"type\":\"appDefinitions\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/app-builder/apps",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4cbecc90-b8a4-49c4-9608-1a880d9d3de5\",\"type\":\"appDefinitions\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3fbb37d7-7ebb-0217-970a-83d7832dc015"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/app-builder/apps/4cbecc90-b8a4-49c4-9608-1a880d9d3de5",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4cbecc90-b8a4-49c4-9608-1a880d9d3de5\",\"type\":\"appDefinitions\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6f9946bf-bb39-c08b-1efc-7838471a32d0"
+  }
+]

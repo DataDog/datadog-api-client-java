@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"detail\":\"missing required field\",\"source\":{\"pointer\":\"/data/attributes/name\"}}]}",
+      "body": "{\"errors\":[{\"title\":\"missing required field\",\"detail\":\"missing required field\",\"source\":{\"pointer\":\"/data/attributes/name\"}}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The definition of <code>QueryType</code> object. */
+/** The query type. */
 @JsonSerialize(using = QueryType.QueryTypeSerializer.class)
 public class QueryType extends ModelEnum<String> {
 

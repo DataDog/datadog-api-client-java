@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The definition of <code>CustomConnectionType</code> object. */
+/** The custom connection type. */
 @JsonSerialize(using = CustomConnectionType.CustomConnectionTypeSerializer.class)
 public class CustomConnectionType extends ModelEnum<String> {
 

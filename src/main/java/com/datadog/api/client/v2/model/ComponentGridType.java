@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The definition of <code>ComponentGridType</code> object. */
+/** The grid component type. */
 @JsonSerialize(using = ComponentGridType.ComponentGridTypeSerializer.class)
 public class ComponentGridType extends ModelEnum<String> {
 

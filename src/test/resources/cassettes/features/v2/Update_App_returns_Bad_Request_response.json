@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"2eb79081-77f2-4082-93d5-fbb4d2291dc7\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"b3f997e6-a9db-4984-a560-23005049c5f3\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,16 +33,16 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"rootInstanceName\":\"\"},\"id\":\"2eb79081-77f2-4082-93d5-fbb4d2291dc7\",\"type\":\"appDefinitions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"rootInstanceName\":\"\"},\"id\":\"b3f997e6-a9db-4984-a560-23005049c5f3\",\"type\":\"appDefinitions\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/app-builder/apps/2eb79081-77f2-4082-93d5-fbb4d2291dc7",
+      "path": "/api/v2/app-builder/apps/b3f997e6-a9db-4984-a560-23005049c5f3",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"detail\":\"missing required field\",\"source\":{\"pointer\":\"/data/attributes/rootInstanceName\"}}]}",
+      "body": "{\"errors\":[{\"title\":\"missing required field\",\"detail\":\"missing required field\",\"source\":{\"pointer\":\"/data/attributes/rootInstanceName\"}}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,18 +57,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "66dd124a-225f-4a1b-98f4-2f02c61653cb"
+    "id": "f0b0b525-922a-f9bb-68c8-3d0d65a5f15e"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/app-builder/apps/2eb79081-77f2-4082-93d5-fbb4d2291dc7",
+      "path": "/api/v2/app-builder/apps/b3f997e6-a9db-4984-a560-23005049c5f3",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"2eb79081-77f2-4082-93d5-fbb4d2291dc7\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"b3f997e6-a9db-4984-a560-23005049c5f3\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -83,6 +83,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dae6f0fa-3f61-dba8-a0f6-d8e7010ebe51"
+    "id": "4bd748f4-034f-7f8f-0e97-94ff64d8d37c"
   }
 ]
