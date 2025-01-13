@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.AssetType;
 import com.datadog.api.client.v2.model.BulkMuteFindingsRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsResponse;
 import com.datadog.api.client.v2.model.ConvertJobResultsToSignalsRequest;
+import com.datadog.api.client.v2.model.DeleteCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.Finding;
 import com.datadog.api.client.v2.model.FindingEvaluation;
 import com.datadog.api.client.v2.model.FindingStatus;
@@ -1099,6 +1100,189 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
+  /**
+   * Delete a custom framework.
+   *
+   * <p>See {@link #deleteCustomFrameworkWithHttpInfo}.
+   *
+   * @param orgId The ID of the organization. (required)
+   * @param handle The framework handle. (required)
+   * @param version The framework version. (required)
+   * @return DeleteCustomFrameworkResponse
+   * @throws ApiException if fails to make API call
+   */
+  public DeleteCustomFrameworkResponse deleteCustomFramework(
+      String orgId, String handle, String version) throws ApiException {
+    return deleteCustomFrameworkWithHttpInfo(orgId, handle, version).getData();
+  }
+
+  /**
+   * Delete a custom framework.
+   *
+   * <p>See {@link #deleteCustomFrameworkWithHttpInfoAsync}.
+   *
+   * @param orgId The ID of the organization. (required)
+   * @param handle The framework handle. (required)
+   * @param version The framework version. (required)
+   * @return CompletableFuture&lt;DeleteCustomFrameworkResponse&gt;
+   */
+  public CompletableFuture<DeleteCustomFrameworkResponse> deleteCustomFrameworkAsync(
+      String orgId, String handle, String version) {
+    return deleteCustomFrameworkWithHttpInfoAsync(orgId, handle, version)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a custom framework.
+   *
+   * @param orgId The ID of the organization. (required)
+   * @param handle The framework handle. (required)
+   * @param version The framework version. (required)
+   * @return ApiResponse&lt;DeleteCustomFrameworkResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Bad Request </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DeleteCustomFrameworkResponse> deleteCustomFrameworkWithHttpInfo(
+      String orgId, String handle, String version) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'orgId' is set
+    if (orgId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'orgId' when calling deleteCustomFramework");
+    }
+
+    // verify the required parameter 'handle' is set
+    if (handle == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'handle' when calling deleteCustomFramework");
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'version' when calling deleteCustomFramework");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/orgs/{org_id}/cloud_security_management/custom_frameworks/{handle}/{version}"
+            .replaceAll("\\{" + "org_id" + "\\}", apiClient.escapeString(orgId.toString()))
+            .replaceAll("\\{" + "handle" + "\\}", apiClient.escapeString(handle.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteCustomFramework",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeleteCustomFrameworkResponse>() {});
+  }
+
+  /**
+   * Delete a custom framework.
+   *
+   * <p>See {@link #deleteCustomFrameworkWithHttpInfo}.
+   *
+   * @param orgId The ID of the organization. (required)
+   * @param handle The framework handle. (required)
+   * @param version The framework version. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;DeleteCustomFrameworkResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<DeleteCustomFrameworkResponse>>
+      deleteCustomFrameworkWithHttpInfoAsync(String orgId, String handle, String version) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'orgId' is set
+    if (orgId == null) {
+      CompletableFuture<ApiResponse<DeleteCustomFrameworkResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'orgId' when calling deleteCustomFramework"));
+      return result;
+    }
+
+    // verify the required parameter 'handle' is set
+    if (handle == null) {
+      CompletableFuture<ApiResponse<DeleteCustomFrameworkResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'handle' when calling deleteCustomFramework"));
+      return result;
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      CompletableFuture<ApiResponse<DeleteCustomFrameworkResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'version' when calling deleteCustomFramework"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/orgs/{org_id}/cloud_security_management/custom_frameworks/{handle}/{version}"
+            .replaceAll("\\{" + "org_id" + "\\}", apiClient.escapeString(orgId.toString()))
+            .replaceAll("\\{" + "handle" + "\\}", apiClient.escapeString(handle.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteCustomFramework",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<DeleteCustomFrameworkResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<DeleteCustomFrameworkResponse>() {});
   }
 
   /**
