@@ -27,23 +27,18 @@ import java.util.Objects;
  * application key created by an admin.
  */
 @JsonPropertyOrder({
-  LogsPipeline.JSON_PROPERTY_DESCRIPTION,
   LogsPipeline.JSON_PROPERTY_FILTER,
   LogsPipeline.JSON_PROPERTY_ID,
   LogsPipeline.JSON_PROPERTY_IS_ENABLED,
   LogsPipeline.JSON_PROPERTY_IS_READ_ONLY,
   LogsPipeline.JSON_PROPERTY_NAME,
   LogsPipeline.JSON_PROPERTY_PROCESSORS,
-  LogsPipeline.JSON_PROPERTY_TAGS,
   LogsPipeline.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class LogsPipeline {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
-
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsFilter filter;
 
@@ -62,9 +57,6 @@ public class LogsPipeline {
   public static final String JSON_PROPERTY_PROCESSORS = "processors";
   private List<LogsProcessor> processors = null;
 
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<String> tags = null;
-
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
@@ -73,27 +65,6 @@ public class LogsPipeline {
   @JsonCreator
   public LogsPipeline(@JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
-  }
-
-  public LogsPipeline description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * A description of the pipeline.
-   *
-   * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 
   public LogsPipeline filter(LogsFilter filter) {
@@ -216,35 +187,6 @@ public class LogsPipeline {
     this.processors = processors;
   }
 
-  public LogsPipeline tags(List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public LogsPipeline addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-  /**
-   * A list of tags associated with the pipeline.
-   *
-   * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<String> tags) {
-    this.tags = tags;
-  }
-
   /**
    * Type of pipeline.
    *
@@ -313,14 +255,12 @@ public class LogsPipeline {
       return false;
     }
     LogsPipeline logsPipeline = (LogsPipeline) o;
-    return Objects.equals(this.description, logsPipeline.description)
-        && Objects.equals(this.filter, logsPipeline.filter)
+    return Objects.equals(this.filter, logsPipeline.filter)
         && Objects.equals(this.id, logsPipeline.id)
         && Objects.equals(this.isEnabled, logsPipeline.isEnabled)
         && Objects.equals(this.isReadOnly, logsPipeline.isReadOnly)
         && Objects.equals(this.name, logsPipeline.name)
         && Objects.equals(this.processors, logsPipeline.processors)
-        && Objects.equals(this.tags, logsPipeline.tags)
         && Objects.equals(this.type, logsPipeline.type)
         && Objects.equals(this.additionalProperties, logsPipeline.additionalProperties);
   }
@@ -328,30 +268,19 @@ public class LogsPipeline {
   @Override
   public int hashCode() {
     return Objects.hash(
-        description,
-        filter,
-        id,
-        isEnabled,
-        isReadOnly,
-        name,
-        processors,
-        tags,
-        type,
-        additionalProperties);
+        filter, id, isEnabled, isReadOnly, name, processors, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsPipeline {\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    isReadOnly: ").append(toIndentedString(isReadOnly)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
