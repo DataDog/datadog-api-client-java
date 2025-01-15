@@ -524,6 +524,43 @@ public class MonitorsApi {
    *   <li><code>#</code> an integer or decimal number used to set the threshold.
    * </ul>
    *
+   * <p><strong>Cost Alert Query</strong>
+   *
+   * <p>Example: <code>formula(query).last(time_window).function(parameter) operator #</code>
+   *
+   * <ul>
+   *   <li><code>query</code> The search query - following the <a
+   *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
+   *   <li><code>time_window</code> - supports daily roll-up e.g. <code>7d</code>
+   *   <li><code>function</code> - [optional, defaults to <code>threshold</code> monitor if omitted]
+   *       supports <code>change</code>, <code>anomaly</code>, <code>forecast</code>
+   *   <li><code>parameter</code> Specify the parameter of the type
+   *       <ul>
+   *         <li>for <code>change</code>:
+   *             <ul>
+   *               <li>supports <code>relative</code>, <code>absolute</code>
+   *               <li>[optional] supports <code>#</code>, where <code>#</code> is an integer or
+   *                   decimal number used to set the threshold
+   *             </ul>
+   *         <li>for <code>anomaly</code>:
+   *             <ul>
+   *               <li>supports <code>direction=both</code>, <code>direction=above</code>, <code>
+   *                   direction=below</code>
+   *               <li>[optional] supports <code>threshold=#</code>, where <code>#</code> is an
+   *                   integer or decimal number used to set the threshold
+   *             </ul>
+   *       </ul>
+   *   <li><code>operator</code>
+   *       <ul>
+   *         <li>for <code>threshold</code> supports <code>&lt;</code>, <code>&lt;=</code>, <code>
+   *             &gt;</code>, <code>&gt;=</code>, <code>==</code>, or <code>!=</code>
+   *         <li>for <code>change</code> supports <code>&gt;</code>, <code>&lt;</code>
+   *         <li>for <code>anomaly</code> supports <code>&gt;=</code>
+   *         <li>for <code>forecast</code> supports <code>&gt;</code>
+   *       </ul>
+   *   <li><code>#</code> an integer or decimal number used to set the threshold.
+   * </ul>
+   *
    * @param body Create a monitor request body. (required)
    * @return ApiResponse&lt;Monitor&gt;
    * @throws ApiException if fails to make API call
