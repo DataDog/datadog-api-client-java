@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.AssetType;
 import com.datadog.api.client.v2.model.BulkMuteFindingsRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsResponse;
 import com.datadog.api.client.v2.model.ConvertJobResultsToSignalsRequest;
+import com.datadog.api.client.v2.model.CreateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.Finding;
 import com.datadog.api.client.v2.model.FindingEvaluation;
 import com.datadog.api.client.v2.model.FindingStatus;
@@ -48,6 +49,7 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateReques
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionsResponse;
+import com.datadog.api.client.v2.model.UpdateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.VulnerabilityEcosystem;
 import com.datadog.api.client.v2.model.VulnerabilitySeverity;
 import com.datadog.api.client.v2.model.VulnerabilityStatus;
@@ -684,6 +686,153 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringRuleConvertResponse>() {});
+  }
+
+  /**
+   * Create a custom framework.
+   *
+   * <p>See {@link #createCustomFrameworkWithHttpInfo}.
+   *
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void createCustomFramework(CreateCustomFrameworkRequest body) throws ApiException {
+    createCustomFrameworkWithHttpInfo(body);
+  }
+
+  /**
+   * Create a custom framework.
+   *
+   * <p>See {@link #createCustomFrameworkWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> createCustomFrameworkAsync(CreateCustomFrameworkRequest body) {
+    return createCustomFrameworkWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a custom framework.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Bad Request </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> createCustomFrameworkWithHttpInfo(CreateCustomFrameworkRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createCustomFramework";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createCustomFramework");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cloud_security_management/custom_frameworks";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createCustomFramework",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Create a custom framework.
+   *
+   * <p>See {@link #createCustomFrameworkWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> createCustomFrameworkWithHttpInfoAsync(
+      CreateCustomFrameworkRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createCustomFramework";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createCustomFramework"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cloud_security_management/custom_frameworks";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createCustomFramework",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -7008,6 +7157,199 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringRuleTestResponse>() {});
+  }
+
+  /**
+   * Update a custom framework.
+   *
+   * <p>See {@link #updateCustomFrameworkWithHttpInfo}.
+   *
+   * @param handle The framework handle (required)
+   * @param version The framework version (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void updateCustomFramework(
+      String handle, String version, UpdateCustomFrameworkRequest body) throws ApiException {
+    updateCustomFrameworkWithHttpInfo(handle, version, body);
+  }
+
+  /**
+   * Update a custom framework.
+   *
+   * <p>See {@link #updateCustomFrameworkWithHttpInfoAsync}.
+   *
+   * @param handle The framework handle (required)
+   * @param version The framework version (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> updateCustomFrameworkAsync(
+      String handle, String version, UpdateCustomFrameworkRequest body) {
+    return updateCustomFrameworkWithHttpInfoAsync(handle, version, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a custom framework.
+   *
+   * @param handle The framework handle (required)
+   * @param version The framework version (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *       <tr><td> 500 </td><td> Bad Request </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> updateCustomFrameworkWithHttpInfo(
+      String handle, String version, UpdateCustomFrameworkRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateCustomFramework";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'handle' is set
+    if (handle == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'handle' when calling updateCustomFramework");
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'version' when calling updateCustomFramework");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateCustomFramework");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cloud_security_management/custom_frameworks/{handle}/{version}"
+            .replaceAll("\\{" + "handle" + "\\}", apiClient.escapeString(handle.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateCustomFramework",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Update a custom framework.
+   *
+   * <p>See {@link #updateCustomFrameworkWithHttpInfo}.
+   *
+   * @param handle The framework handle (required)
+   * @param version The framework version (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> updateCustomFrameworkWithHttpInfoAsync(
+      String handle, String version, UpdateCustomFrameworkRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateCustomFramework";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'handle' is set
+    if (handle == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'handle' when calling updateCustomFramework"));
+      return result;
+    }
+
+    // verify the required parameter 'version' is set
+    if (version == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'version' when calling updateCustomFramework"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateCustomFramework"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cloud_security_management/custom_frameworks/{handle}/{version}"
+            .replaceAll("\\{" + "handle" + "\\}", apiClient.escapeString(handle.toString()))
+            .replaceAll("\\{" + "version" + "\\}", apiClient.escapeString(version.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateCustomFramework",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
