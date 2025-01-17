@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"integration\":{\"credentials\":{\"account_id\":\"1\",\"role\":\"MyRoleUpdated\",\"type\":\"AWSAssumeRole\"},\"type\":\"AWS\"},\"name\":\"Cassette Connection\"},\"type\":\"action_connection\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/actions/connections/cb460d51-3c88-4e87-adac-d47131d0423d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"error creating connection: rpc error: code = InvalidArgument desc = multiple errors: 1 error occurred:\\n\\t* [error_code=8]: invalid UpdateCustomConnectionRequest.DataUpdate: embedded message failed validation | caused by: invalid CustomConnectionDataUpdate.Aws: embedded message failed validation | caused by: invalid CustomConnectionDataUpdate_AwsAuth.AssumeRole: embedded message failed validation | caused by: invalid CustomConnectionDataUpdate_AwsAuth_AssumeRole.AccountId: value does not match regex pattern \\\"^\\\\\\\\d{12}$\\\"\\n\\n\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a5f930b0-ef1e-06ab-26b3-a7298f5f18d8"
+  }
+]
