@@ -474,8 +474,8 @@ public class RestrictionPoliciesApi {
    * </code> Synthetic Global Variables | <code>viewer</code>, <code>editor</code> Synthetic Tests |
    * <code>viewer</code>, <code>editor</code> Synthetic Private Locations | <code>viewer</code>,
    * <code>editor</code> Monitors | <code>viewer</code>, <code>editor</code> Reference Tables |
-   * <code>viewer</code>, <code>editor</code> Workflows | <code>viewer</code>, <code>editor</code>
-   * App Builder Apps | <code>viewer</code>, <code>runner</code>, <code>editor</code> Connections |
+   * <code>viewer</code>, <code>editor</code> Workflows | <code>viewer</code>, <code>runner</code>,
+   * <code>editor</code> App Builder Apps | <code>viewer</code>, <code>editor</code> Connections |
    * <code>viewer</code>, <code>resolver</code>, <code>editor</code> Connection Groups | <code>
    * viewer</code>, <code>editor</code>
    *
