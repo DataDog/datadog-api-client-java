@@ -16,6 +16,10 @@ import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
 import com.datadog.api.client.v2.model.CustomCostsFileLineItem;
 import com.datadog.api.client.v2.model.CustomCostsFileListResponse;
 import com.datadog.api.client.v2.model.CustomCostsFileUploadResponse;
+import com.datadog.api.client.v2.model.GCPUsageCostConfigPatchRequest;
+import com.datadog.api.client.v2.model.GCPUsageCostConfigPostRequest;
+import com.datadog.api.client.v2.model.GCPUsageCostConfigResponse;
+import com.datadog.api.client.v2.model.GCPUsageCostConfigsResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -322,6 +326,140 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * Create Cloud Cost Management GCP Usage Cost config.
+   *
+   * <p>See {@link #createCostGCPUsageCostConfigWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return GCPUsageCostConfigResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GCPUsageCostConfigResponse createCostGCPUsageCostConfig(GCPUsageCostConfigPostRequest body)
+      throws ApiException {
+    return createCostGCPUsageCostConfigWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create Cloud Cost Management GCP Usage Cost config.
+   *
+   * <p>See {@link #createCostGCPUsageCostConfigWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;GCPUsageCostConfigResponse&gt;
+   */
+  public CompletableFuture<GCPUsageCostConfigResponse> createCostGCPUsageCostConfigAsync(
+      GCPUsageCostConfigPostRequest body) {
+    return createCostGCPUsageCostConfigWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a Cloud Cost Management account for an GCP Usage Cost config.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;GCPUsageCostConfigResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GCPUsageCostConfigResponse> createCostGCPUsageCostConfigWithHttpInfo(
+      GCPUsageCostConfigPostRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createCostGCPUsageCostConfig");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/gcp_uc_config";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.createCostGCPUsageCostConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GCPUsageCostConfigResponse>() {});
+  }
+
+  /**
+   * Create Cloud Cost Management GCP Usage Cost config.
+   *
+   * <p>See {@link #createCostGCPUsageCostConfigWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GCPUsageCostConfigResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GCPUsageCostConfigResponse>>
+      createCostGCPUsageCostConfigWithHttpInfoAsync(GCPUsageCostConfigPostRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<GCPUsageCostConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createCostGCPUsageCostConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/gcp_uc_config";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.createCostGCPUsageCostConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GCPUsageCostConfigResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GCPUsageCostConfigResponse>() {});
+  }
+
+  /**
    * Delete Cloud Cost Management AWS CUR config.
    *
    * <p>See {@link #deleteCostAWSCURConfigWithHttpInfo}.
@@ -581,6 +719,148 @@ public class CloudCostManagementApi {
       builder =
           apiClient.createBuilder(
               "v2.CloudCostManagementApi.deleteCostAzureUCConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete Cloud Cost Management GCP Usage Cost config.
+   *
+   * <p>See {@link #deleteCostGCPUsageCostConfigWithHttpInfo}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteCostGCPUsageCostConfig(String cloudAccountId) throws ApiException {
+    deleteCostGCPUsageCostConfigWithHttpInfo(cloudAccountId);
+  }
+
+  /**
+   * Delete Cloud Cost Management GCP Usage Cost config.
+   *
+   * <p>See {@link #deleteCostGCPUsageCostConfigWithHttpInfoAsync}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteCostGCPUsageCostConfigAsync(String cloudAccountId) {
+    return deleteCostGCPUsageCostConfigWithHttpInfoAsync(cloudAccountId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Archive a Cloud Cost Management account.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteCostGCPUsageCostConfigWithHttpInfo(String cloudAccountId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'cloudAccountId' when calling"
+              + " deleteCostGCPUsageCostConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/gcp_uc_config/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.deleteCostGCPUsageCostConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete Cloud Cost Management GCP Usage Cost config.
+   *
+   * <p>See {@link #deleteCostGCPUsageCostConfigWithHttpInfo}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteCostGCPUsageCostConfigWithHttpInfoAsync(
+      String cloudAccountId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'cloudAccountId' when calling"
+                  + " deleteCostGCPUsageCostConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/gcp_uc_config/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.deleteCostGCPUsageCostConfig",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -1092,6 +1372,118 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * List Cloud Cost Management GCP Usage Cost configs.
+   *
+   * <p>See {@link #listCostGCPUsageCostConfigsWithHttpInfo}.
+   *
+   * @return GCPUsageCostConfigsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GCPUsageCostConfigsResponse listCostGCPUsageCostConfigs() throws ApiException {
+    return listCostGCPUsageCostConfigsWithHttpInfo().getData();
+  }
+
+  /**
+   * List Cloud Cost Management GCP Usage Cost configs.
+   *
+   * <p>See {@link #listCostGCPUsageCostConfigsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;GCPUsageCostConfigsResponse&gt;
+   */
+  public CompletableFuture<GCPUsageCostConfigsResponse> listCostGCPUsageCostConfigsAsync() {
+    return listCostGCPUsageCostConfigsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List the GCP Usage Cost configs.
+   *
+   * @return ApiResponse&lt;GCPUsageCostConfigsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GCPUsageCostConfigsResponse> listCostGCPUsageCostConfigsWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/gcp_uc_config";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listCostGCPUsageCostConfigs",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GCPUsageCostConfigsResponse>() {});
+  }
+
+  /**
+   * List Cloud Cost Management GCP Usage Cost configs.
+   *
+   * <p>See {@link #listCostGCPUsageCostConfigsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;GCPUsageCostConfigsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GCPUsageCostConfigsResponse>>
+      listCostGCPUsageCostConfigsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/gcp_uc_config";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listCostGCPUsageCostConfigs",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GCPUsageCostConfigsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GCPUsageCostConfigsResponse>() {});
+  }
+
+  /**
    * List Custom Costs files.
    *
    * <p>See {@link #listCustomCostsFilesWithHttpInfo}.
@@ -1528,6 +1920,174 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AzureUCConfigPairsResponse>() {});
+  }
+
+  /**
+   * Update Cloud Cost Management GCP Usage Cost config.
+   *
+   * <p>See {@link #updateCostGCPUsageCostConfigWithHttpInfo}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @param body (required)
+   * @return GCPUsageCostConfigsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GCPUsageCostConfigsResponse updateCostGCPUsageCostConfig(
+      String cloudAccountId, GCPUsageCostConfigPatchRequest body) throws ApiException {
+    return updateCostGCPUsageCostConfigWithHttpInfo(cloudAccountId, body).getData();
+  }
+
+  /**
+   * Update Cloud Cost Management GCP Usage Cost config.
+   *
+   * <p>See {@link #updateCostGCPUsageCostConfigWithHttpInfoAsync}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;GCPUsageCostConfigsResponse&gt;
+   */
+  public CompletableFuture<GCPUsageCostConfigsResponse> updateCostGCPUsageCostConfigAsync(
+      String cloudAccountId, GCPUsageCostConfigPatchRequest body) {
+    return updateCostGCPUsageCostConfigWithHttpInfoAsync(cloudAccountId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the status of an GCP Usage Cost config (active/archived).
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;GCPUsageCostConfigsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GCPUsageCostConfigsResponse> updateCostGCPUsageCostConfigWithHttpInfo(
+      String cloudAccountId, GCPUsageCostConfigPatchRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'cloudAccountId' when calling"
+              + " updateCostGCPUsageCostConfig");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateCostGCPUsageCostConfig");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/gcp_uc_config/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.updateCostGCPUsageCostConfig",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GCPUsageCostConfigsResponse>() {});
+  }
+
+  /**
+   * Update Cloud Cost Management GCP Usage Cost config.
+   *
+   * <p>See {@link #updateCostGCPUsageCostConfigWithHttpInfo}.
+   *
+   * @param cloudAccountId Cloud Account id. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GCPUsageCostConfigsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GCPUsageCostConfigsResponse>>
+      updateCostGCPUsageCostConfigWithHttpInfoAsync(
+          String cloudAccountId, GCPUsageCostConfigPatchRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'cloudAccountId' is set
+    if (cloudAccountId == null) {
+      CompletableFuture<ApiResponse<GCPUsageCostConfigsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'cloudAccountId' when calling"
+                  + " updateCostGCPUsageCostConfig"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<GCPUsageCostConfigsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateCostGCPUsageCostConfig"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/gcp_uc_config/{cloud_account_id}"
+            .replaceAll(
+                "\\{" + "cloud_account_id" + "\\}",
+                apiClient.escapeString(cloudAccountId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.updateCostGCPUsageCostConfig",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GCPUsageCostConfigsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GCPUsageCostConfigsResponse>() {});
   }
 
   /**
