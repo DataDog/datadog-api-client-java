@@ -18,7 +18,10 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Data needed to create a data deletion request. */
-@JsonPropertyOrder({CreateDataDeletionRequestBodyData.JSON_PROPERTY_ATTRIBUTES})
+@JsonPropertyOrder({
+  CreateDataDeletionRequestBodyData.JSON_PROPERTY_ATTRIBUTES,
+  CreateDataDeletionRequestBodyData.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CreateDataDeletionRequestBodyData {
@@ -26,14 +29,21 @@ public class CreateDataDeletionRequestBodyData {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateDataDeletionRequestBodyAttributes attributes;
 
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private CreateDataDeletionRequestBodyDataType type;
+
   public CreateDataDeletionRequestBodyData() {}
 
   @JsonCreator
   public CreateDataDeletionRequestBodyData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          CreateDataDeletionRequestBodyAttributes attributes) {
+          CreateDataDeletionRequestBodyAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          CreateDataDeletionRequestBodyDataType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public CreateDataDeletionRequestBodyData attributes(
@@ -56,6 +66,30 @@ public class CreateDataDeletionRequestBodyData {
 
   public void setAttributes(CreateDataDeletionRequestBodyAttributes attributes) {
     this.attributes = attributes;
+  }
+
+  public CreateDataDeletionRequestBodyData type(CreateDataDeletionRequestBodyDataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * The deletion request type.
+   *
+   * @return type
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CreateDataDeletionRequestBodyDataType getType() {
+    return type;
+  }
+
+  public void setType(CreateDataDeletionRequestBodyDataType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -116,13 +150,14 @@ public class CreateDataDeletionRequestBodyData {
     CreateDataDeletionRequestBodyData createDataDeletionRequestBodyData =
         (CreateDataDeletionRequestBodyData) o;
     return Objects.equals(this.attributes, createDataDeletionRequestBodyData.attributes)
+        && Objects.equals(this.type, createDataDeletionRequestBodyData.type)
         && Objects.equals(
             this.additionalProperties, createDataDeletionRequestBodyData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, additionalProperties);
+    return Objects.hash(attributes, type, additionalProperties);
   }
 
   @Override
@@ -130,6 +165,7 @@ public class CreateDataDeletionRequestBodyData {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateDataDeletionRequestBodyData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
