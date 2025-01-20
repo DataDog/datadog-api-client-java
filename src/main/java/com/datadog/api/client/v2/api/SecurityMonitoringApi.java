@@ -14,6 +14,7 @@ import com.datadog.api.client.v2.model.FindingEvaluation;
 import com.datadog.api.client.v2.model.FindingStatus;
 import com.datadog.api.client.v2.model.FindingVulnerabilityType;
 import com.datadog.api.client.v2.model.GetFindingResponse;
+import com.datadog.api.client.v2.model.GetSBOMResponse;
 import com.datadog.api.client.v2.model.HistoricalJobResponse;
 import com.datadog.api.client.v2.model.JobCreateResponse;
 import com.datadog.api.client.v2.model.ListFindingsResponse;
@@ -2551,6 +2552,249 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<HistoricalJobResponse>() {});
+  }
+
+  /** Manage optional parameters to getSBOM. */
+  public static class GetSBOMOptionalParameters {
+    private String filterRepoDigest;
+
+    /**
+     * Set filterRepoDigest.
+     *
+     * @param filterRepoDigest The container image <code>repo_digest</code> for the SBOM request.
+     *     When the requested asset type is 'Image', this filter is mandatory. (optional)
+     * @return GetSBOMOptionalParameters
+     */
+    public GetSBOMOptionalParameters filterRepoDigest(String filterRepoDigest) {
+      this.filterRepoDigest = filterRepoDigest;
+      return this;
+    }
+  }
+
+  /**
+   * Get SBOM.
+   *
+   * <p>See {@link #getSBOMWithHttpInfo}.
+   *
+   * @param assetType The type of the asset for the SBOM request. (required)
+   * @param filterAssetName The name of the asset for the SBOM request. (required)
+   * @return GetSBOMResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetSBOMResponse getSBOM(AssetType assetType, String filterAssetName) throws ApiException {
+    return getSBOMWithHttpInfo(assetType, filterAssetName, new GetSBOMOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get SBOM.
+   *
+   * <p>See {@link #getSBOMWithHttpInfoAsync}.
+   *
+   * @param assetType The type of the asset for the SBOM request. (required)
+   * @param filterAssetName The name of the asset for the SBOM request. (required)
+   * @return CompletableFuture&lt;GetSBOMResponse&gt;
+   */
+  public CompletableFuture<GetSBOMResponse> getSBOMAsync(
+      AssetType assetType, String filterAssetName) {
+    return getSBOMWithHttpInfoAsync(assetType, filterAssetName, new GetSBOMOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get SBOM.
+   *
+   * <p>See {@link #getSBOMWithHttpInfo}.
+   *
+   * @param assetType The type of the asset for the SBOM request. (required)
+   * @param filterAssetName The name of the asset for the SBOM request. (required)
+   * @param parameters Optional parameters for the request.
+   * @return GetSBOMResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetSBOMResponse getSBOM(
+      AssetType assetType, String filterAssetName, GetSBOMOptionalParameters parameters)
+      throws ApiException {
+    return getSBOMWithHttpInfo(assetType, filterAssetName, parameters).getData();
+  }
+
+  /**
+   * Get SBOM.
+   *
+   * <p>See {@link #getSBOMWithHttpInfoAsync}.
+   *
+   * @param assetType The type of the asset for the SBOM request. (required)
+   * @param filterAssetName The name of the asset for the SBOM request. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;GetSBOMResponse&gt;
+   */
+  public CompletableFuture<GetSBOMResponse> getSBOMAsync(
+      AssetType assetType, String filterAssetName, GetSBOMOptionalParameters parameters) {
+    return getSBOMWithHttpInfoAsync(assetType, filterAssetName, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a single SBOM related to an asset by its type and name.
+   *
+   * @param assetType The type of the asset for the SBOM request. (required)
+   * @param filterAssetName The name of the asset for the SBOM request. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;GetSBOMResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found: asset not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetSBOMResponse> getSBOMWithHttpInfo(
+      AssetType assetType, String filterAssetName, GetSBOMOptionalParameters parameters)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getSBOM";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'assetType' is set
+    if (assetType == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'assetType' when calling getSBOM");
+    }
+
+    // verify the required parameter 'filterAssetName' is set
+    if (filterAssetName == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'filterAssetName' when calling getSBOM");
+    }
+    String filterRepoDigest = parameters.filterRepoDigest;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/sboms/{asset_type}"
+            .replaceAll("\\{" + "asset_type" + "\\}", apiClient.escapeString(assetType.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset_name]", filterAssetName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[repo_digest]", filterRepoDigest));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSBOM",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetSBOMResponse>() {});
+  }
+
+  /**
+   * Get SBOM.
+   *
+   * <p>See {@link #getSBOMWithHttpInfo}.
+   *
+   * @param assetType The type of the asset for the SBOM request. (required)
+   * @param filterAssetName The name of the asset for the SBOM request. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;GetSBOMResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetSBOMResponse>> getSBOMWithHttpInfoAsync(
+      AssetType assetType, String filterAssetName, GetSBOMOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getSBOM";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<GetSBOMResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'assetType' is set
+    if (assetType == null) {
+      CompletableFuture<ApiResponse<GetSBOMResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'assetType' when calling getSBOM"));
+      return result;
+    }
+
+    // verify the required parameter 'filterAssetName' is set
+    if (filterAssetName == null) {
+      CompletableFuture<ApiResponse<GetSBOMResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'filterAssetName' when calling getSBOM"));
+      return result;
+    }
+    String filterRepoDigest = parameters.filterRepoDigest;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/sboms/{asset_type}"
+            .replaceAll("\\{" + "asset_type" + "\\}", apiClient.escapeString(assetType.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[asset_name]", filterAssetName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[repo_digest]", filterRepoDigest));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSBOM",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetSBOMResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetSBOMResponse>() {});
   }
 
   /**

@@ -17,73 +17,68 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Vulnerability severities. */
+/** Asset operating system. */
 @JsonPropertyOrder({
-  VulnerabilityAttributesCvss.JSON_PROPERTY_BASE,
-  VulnerabilityAttributesCvss.JSON_PROPERTY_DATADOG
+  AssetOperatingSystem.JSON_PROPERTY_DESCRIPTION,
+  AssetOperatingSystem.JSON_PROPERTY_NAME
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class VulnerabilityAttributesCvss {
+public class AssetOperatingSystem {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_BASE = "base";
-  private CVSS base;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
-  public static final String JSON_PROPERTY_DATADOG = "datadog";
-  private CVSS datadog;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  public VulnerabilityAttributesCvss() {}
+  public AssetOperatingSystem() {}
 
   @JsonCreator
-  public VulnerabilityAttributesCvss(
-      @JsonProperty(required = true, value = JSON_PROPERTY_BASE) CVSS base,
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATADOG) CVSS datadog) {
-    this.base = base;
-    this.unparsed |= base.unparsed;
-    this.datadog = datadog;
-    this.unparsed |= datadog.unparsed;
+  public AssetOperatingSystem(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
   }
 
-  public VulnerabilityAttributesCvss base(CVSS base) {
-    this.base = base;
-    this.unparsed |= base.unparsed;
+  public AssetOperatingSystem description(String description) {
+    this.description = description;
     return this;
   }
 
   /**
-   * Vulnerability severity.
+   * Operating system version.
    *
-   * @return base
+   * @return description
    */
-  @JsonProperty(JSON_PROPERTY_BASE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CVSS getBase() {
-    return base;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
   }
 
-  public void setBase(CVSS base) {
-    this.base = base;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
-  public VulnerabilityAttributesCvss datadog(CVSS datadog) {
-    this.datadog = datadog;
-    this.unparsed |= datadog.unparsed;
+  public AssetOperatingSystem name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Vulnerability severity.
+   * Operating system name.
    *
-   * @return datadog
+   * @return name
    */
-  @JsonProperty(JSON_PROPERTY_DATADOG)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CVSS getDatadog() {
-    return datadog;
+  public String getName() {
+    return name;
   }
 
-  public void setDatadog(CVSS datadog) {
-    this.datadog = datadog;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -98,10 +93,10 @@ public class VulnerabilityAttributesCvss {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return VulnerabilityAttributesCvss
+   * @return AssetOperatingSystem
    */
   @JsonAnySetter
-  public VulnerabilityAttributesCvss putAdditionalProperty(String key, Object value) {
+  public AssetOperatingSystem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -132,7 +127,7 @@ public class VulnerabilityAttributesCvss {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this VulnerabilityAttributesCvss object is equal to o. */
+  /** Return true if this AssetOperatingSystem object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,24 +136,23 @@ public class VulnerabilityAttributesCvss {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VulnerabilityAttributesCvss vulnerabilityAttributesCvss = (VulnerabilityAttributesCvss) o;
-    return Objects.equals(this.base, vulnerabilityAttributesCvss.base)
-        && Objects.equals(this.datadog, vulnerabilityAttributesCvss.datadog)
-        && Objects.equals(
-            this.additionalProperties, vulnerabilityAttributesCvss.additionalProperties);
+    AssetOperatingSystem assetOperatingSystem = (AssetOperatingSystem) o;
+    return Objects.equals(this.description, assetOperatingSystem.description)
+        && Objects.equals(this.name, assetOperatingSystem.name)
+        && Objects.equals(this.additionalProperties, assetOperatingSystem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(base, datadog, additionalProperties);
+    return Objects.hash(description, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VulnerabilityAttributesCvss {\n");
-    sb.append("    base: ").append(toIndentedString(base)).append("\n");
-    sb.append("    datadog: ").append(toIndentedString(datadog)).append("\n");
+    sb.append("class AssetOperatingSystem {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

@@ -17,13 +17,10 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Asset version. */
-@JsonPropertyOrder({
-  AssetAttributesVersion.JSON_PROPERTY_FIRST,
-  AssetAttributesVersion.JSON_PROPERTY_LAST
-})
+@JsonPropertyOrder({AssetVersion.JSON_PROPERTY_FIRST, AssetVersion.JSON_PROPERTY_LAST})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AssetAttributesVersion {
+public class AssetVersion {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIRST = "first";
   private String first;
@@ -31,7 +28,7 @@ public class AssetAttributesVersion {
   public static final String JSON_PROPERTY_LAST = "last";
   private String last;
 
-  public AssetAttributesVersion first(String first) {
+  public AssetVersion first(String first) {
     this.first = first;
     return this;
   }
@@ -52,7 +49,7 @@ public class AssetAttributesVersion {
     this.first = first;
   }
 
-  public AssetAttributesVersion last(String last) {
+  public AssetVersion last(String last) {
     this.last = last;
     return this;
   }
@@ -85,10 +82,10 @@ public class AssetAttributesVersion {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AssetAttributesVersion
+   * @return AssetVersion
    */
   @JsonAnySetter
-  public AssetAttributesVersion putAdditionalProperty(String key, Object value) {
+  public AssetVersion putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -119,7 +116,7 @@ public class AssetAttributesVersion {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AssetAttributesVersion object is equal to o. */
+  /** Return true if this AssetVersion object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,10 +125,10 @@ public class AssetAttributesVersion {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AssetAttributesVersion assetAttributesVersion = (AssetAttributesVersion) o;
-    return Objects.equals(this.first, assetAttributesVersion.first)
-        && Objects.equals(this.last, assetAttributesVersion.last)
-        && Objects.equals(this.additionalProperties, assetAttributesVersion.additionalProperties);
+    AssetVersion assetVersion = (AssetVersion) o;
+    return Objects.equals(this.first, assetVersion.first)
+        && Objects.equals(this.last, assetVersion.last)
+        && Objects.equals(this.additionalProperties, assetVersion.additionalProperties);
   }
 
   @Override
@@ -142,7 +139,7 @@ public class AssetAttributesVersion {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AssetAttributesVersion {\n");
+    sb.append("class AssetVersion {\n");
     sb.append("    first: ").append(toIndentedString(first)).append("\n");
     sb.append("    last: ").append(toIndentedString(last)).append("\n");
     sb.append("    additionalProperties: ")
