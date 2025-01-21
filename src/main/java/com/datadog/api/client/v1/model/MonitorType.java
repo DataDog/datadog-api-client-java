@@ -45,7 +45,8 @@ public class MonitorType extends ModelEnum<String> {
               "ci-tests alert",
               "error-tracking alert",
               "database-monitoring alert",
-              "network-performance alert"));
+              "network-performance alert",
+              "cost alert"));
 
   public static final MonitorType COMPOSITE = new MonitorType("composite");
   public static final MonitorType EVENT_ALERT = new MonitorType("event alert");
@@ -67,6 +68,7 @@ public class MonitorType extends ModelEnum<String> {
       new MonitorType("database-monitoring alert");
   public static final MonitorType NETWORK_PERFORMANCE_ALERT =
       new MonitorType("network-performance alert");
+  public static final MonitorType COST_ALERT = new MonitorType("cost alert");
 
   MonitorType(String value) {
     super(value, allowedValues);

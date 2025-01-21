@@ -152,6 +152,9 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM,
@@ -647,6 +650,18 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM =
       "rum_mobile_lite_session_count_roku_sum";
   private Long rumMobileLiteSessionCountRokuSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM =
+      "rum_mobile_replay_session_count_android_sum";
+  private Long rumMobileReplaySessionCountAndroidSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM =
+      "rum_mobile_replay_session_count_ios_sum";
+  private Long rumMobileReplaySessionCountIosSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM =
+      "rum_mobile_replay_session_count_reactnative_sum";
+  private Long rumMobileReplaySessionCountReactnativeSum;
 
   public static final String JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM =
       "rum_replay_session_count_sum";
@@ -3348,7 +3363,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the 99th percentile of all profiled hosts over all hours in the current date for all
+   * Shows the 99th percentile of all profiled hosts over all hours within the current date for all
    * organizations.
    *
    * @return profilingHostTop99p
@@ -3688,8 +3703,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all mobile RUM lite sessions on Roku over all hours in the current date for
-   * all organizations (To be introduced on October 1st, 2024).
+   * Shows the sum of all mobile RUM lite sessions on Roku over all hours within the current date
+   * for all organizations (To be introduced on October 1st, 2024).
    *
    * @return rumMobileLiteSessionCountRokuSum
    */
@@ -3702,6 +3717,76 @@ public class UsageSummaryDate {
 
   public void setRumMobileLiteSessionCountRokuSum(Long rumMobileLiteSessionCountRokuSum) {
     this.rumMobileLiteSessionCountRokuSum = rumMobileLiteSessionCountRokuSum;
+  }
+
+  public UsageSummaryDate rumMobileReplaySessionCountAndroidSum(
+      Long rumMobileReplaySessionCountAndroidSum) {
+    this.rumMobileReplaySessionCountAndroidSum = rumMobileReplaySessionCountAndroidSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM replay sessions on Android over all hours within the current
+   * date for the given org.
+   *
+   * @return rumMobileReplaySessionCountAndroidSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileReplaySessionCountAndroidSum() {
+    return rumMobileReplaySessionCountAndroidSum;
+  }
+
+  public void setRumMobileReplaySessionCountAndroidSum(Long rumMobileReplaySessionCountAndroidSum) {
+    this.rumMobileReplaySessionCountAndroidSum = rumMobileReplaySessionCountAndroidSum;
+  }
+
+  public UsageSummaryDate rumMobileReplaySessionCountIosSum(
+      Long rumMobileReplaySessionCountIosSum) {
+    this.rumMobileReplaySessionCountIosSum = rumMobileReplaySessionCountIosSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM replay sessions on iOS over all hours within the current date
+   * for the given org.
+   *
+   * @return rumMobileReplaySessionCountIosSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileReplaySessionCountIosSum() {
+    return rumMobileReplaySessionCountIosSum;
+  }
+
+  public void setRumMobileReplaySessionCountIosSum(Long rumMobileReplaySessionCountIosSum) {
+    this.rumMobileReplaySessionCountIosSum = rumMobileReplaySessionCountIosSum;
+  }
+
+  public UsageSummaryDate rumMobileReplaySessionCountReactnativeSum(
+      Long rumMobileReplaySessionCountReactnativeSum) {
+    this.rumMobileReplaySessionCountReactnativeSum = rumMobileReplaySessionCountReactnativeSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM replay sessions on React Native over all hours within the
+   * current date for the given org.
+   *
+   * @return rumMobileReplaySessionCountReactnativeSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileReplaySessionCountReactnativeSum() {
+    return rumMobileReplaySessionCountReactnativeSum;
+  }
+
+  public void setRumMobileReplaySessionCountReactnativeSum(
+      Long rumMobileReplaySessionCountReactnativeSum) {
+    this.rumMobileReplaySessionCountReactnativeSum = rumMobileReplaySessionCountReactnativeSum;
   }
 
   public UsageSummaryDate rumReplaySessionCountSum(Long rumReplaySessionCountSum) {
@@ -4535,6 +4620,15 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.rumMobileLiteSessionCountRokuSum,
             usageSummaryDate.rumMobileLiteSessionCountRokuSum)
+        && Objects.equals(
+            this.rumMobileReplaySessionCountAndroidSum,
+            usageSummaryDate.rumMobileReplaySessionCountAndroidSum)
+        && Objects.equals(
+            this.rumMobileReplaySessionCountIosSum,
+            usageSummaryDate.rumMobileReplaySessionCountIosSum)
+        && Objects.equals(
+            this.rumMobileReplaySessionCountReactnativeSum,
+            usageSummaryDate.rumMobileReplaySessionCountReactnativeSum)
         && Objects.equals(this.rumReplaySessionCountSum, usageSummaryDate.rumReplaySessionCountSum)
         && Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum)
         && Objects.equals(this.rumTotalSessionCountSum, usageSummaryDate.rumTotalSessionCountSum)
@@ -4714,6 +4808,9 @@ public class UsageSummaryDate {
         rumMobileLiteSessionCountIosSum,
         rumMobileLiteSessionCountReactnativeSum,
         rumMobileLiteSessionCountRokuSum,
+        rumMobileReplaySessionCountAndroidSum,
+        rumMobileReplaySessionCountIosSum,
+        rumMobileReplaySessionCountReactnativeSum,
         rumReplaySessionCountSum,
         rumSessionCountSum,
         rumTotalSessionCountSum,
@@ -5062,6 +5159,15 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    rumMobileLiteSessionCountRokuSum: ")
         .append(toIndentedString(rumMobileLiteSessionCountRokuSum))
+        .append("\n");
+    sb.append("    rumMobileReplaySessionCountAndroidSum: ")
+        .append(toIndentedString(rumMobileReplaySessionCountAndroidSum))
+        .append("\n");
+    sb.append("    rumMobileReplaySessionCountIosSum: ")
+        .append(toIndentedString(rumMobileReplaySessionCountIosSum))
+        .append("\n");
+    sb.append("    rumMobileReplaySessionCountReactnativeSum: ")
+        .append(toIndentedString(rumMobileReplaySessionCountReactnativeSum))
         .append("\n");
     sb.append("    rumReplaySessionCountSum: ")
         .append(toIndentedString(rumReplaySessionCountSum))

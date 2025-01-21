@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"from\":1672527600000,\"indexes\":[\"test-index\",\"test-index-2\"],\"query\":{},\"to\":1704063600000}}}"
+        "json": "{\"data\":{\"attributes\":{\"from\":1672527600000,\"indexes\":[\"test-index\",\"test-index-2\"],\"query\":{},\"to\":1704063600000},\"type\":\"create_deletion_req\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dfc8b718-20e3-903c-facc-d726d2607b48"
+    "id": "85766018-9c75-0a95-ce16-8a08631ea4a9"
   }
 ]
