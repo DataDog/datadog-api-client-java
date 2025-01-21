@@ -20,6 +20,7 @@ import java.util.Objects;
 /** Attributes of the pipeline event to create. */
 @JsonPropertyOrder({
   CIAppCreatePipelineEventRequestAttributes.JSON_PROPERTY_ENV,
+  CIAppCreatePipelineEventRequestAttributes.JSON_PROPERTY_PROVIDER_NAME,
   CIAppCreatePipelineEventRequestAttributes.JSON_PROPERTY_RESOURCE,
   CIAppCreatePipelineEventRequestAttributes.JSON_PROPERTY_SERVICE
 })
@@ -29,6 +30,9 @@ public class CIAppCreatePipelineEventRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENV = "env";
   private String env;
+
+  public static final String JSON_PROPERTY_PROVIDER_NAME = "provider_name";
+  private String providerName;
 
   public static final String JSON_PROPERTY_RESOURCE = "resource";
   private CIAppCreatePipelineEventRequestAttributesResource resource;
@@ -65,6 +69,27 @@ public class CIAppCreatePipelineEventRequestAttributes {
 
   public void setEnv(String env) {
     this.env = env;
+  }
+
+  public CIAppCreatePipelineEventRequestAttributes providerName(String providerName) {
+    this.providerName = providerName;
+    return this;
+  }
+
+  /**
+   * The name of the CI provider. By default, this is "custom".
+   *
+   * @return providerName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROVIDER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProviderName() {
+    return providerName;
+  }
+
+  public void setProviderName(String providerName) {
+    this.providerName = providerName;
   }
 
   public CIAppCreatePipelineEventRequestAttributes resource(
@@ -168,6 +193,7 @@ public class CIAppCreatePipelineEventRequestAttributes {
     CIAppCreatePipelineEventRequestAttributes ciAppCreatePipelineEventRequestAttributes =
         (CIAppCreatePipelineEventRequestAttributes) o;
     return Objects.equals(this.env, ciAppCreatePipelineEventRequestAttributes.env)
+        && Objects.equals(this.providerName, ciAppCreatePipelineEventRequestAttributes.providerName)
         && Objects.equals(this.resource, ciAppCreatePipelineEventRequestAttributes.resource)
         && Objects.equals(this.service, ciAppCreatePipelineEventRequestAttributes.service)
         && Objects.equals(
@@ -177,7 +203,7 @@ public class CIAppCreatePipelineEventRequestAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(env, resource, service, additionalProperties);
+    return Objects.hash(env, providerName, resource, service, additionalProperties);
   }
 
   @Override
@@ -185,6 +211,7 @@ public class CIAppCreatePipelineEventRequestAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class CIAppCreatePipelineEventRequestAttributes {\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
+    sb.append("    providerName: ").append(toIndentedString(providerName)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    additionalProperties: ")
