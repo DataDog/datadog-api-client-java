@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,68 +16,35 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Asset operating system. */
-@JsonPropertyOrder({
-  AssetAttributesOperatingSystem.JSON_PROPERTY_DESCRIPTION,
-  AssetAttributesOperatingSystem.JSON_PROPERTY_NAME
-})
+/** Provides additional information about a BOM. */
+@JsonPropertyOrder({SBOMMetadata.JSON_PROPERTY_COMPONENT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AssetAttributesOperatingSystem {
+public class SBOMMetadata {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  public static final String JSON_PROPERTY_COMPONENT = "component";
+  private SBOMMetadataComponent component;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
-  public AssetAttributesOperatingSystem() {}
-
-  @JsonCreator
-  public AssetAttributesOperatingSystem(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
-  }
-
-  public AssetAttributesOperatingSystem description(String description) {
-    this.description = description;
+  public SBOMMetadata component(SBOMMetadataComponent component) {
+    this.component = component;
+    this.unparsed |= component.unparsed;
     return this;
   }
 
   /**
-   * Operating system version.
+   * The component that the BOM describes.
    *
-   * @return description
+   * @return component
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(JSON_PROPERTY_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
+  public SBOMMetadataComponent getComponent() {
+    return component;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public AssetAttributesOperatingSystem name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Operating system name.
-   *
-   * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setComponent(SBOMMetadataComponent component) {
+    this.component = component;
   }
 
   /**
@@ -93,10 +59,10 @@ public class AssetAttributesOperatingSystem {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AssetAttributesOperatingSystem
+   * @return SBOMMetadata
    */
   @JsonAnySetter
-  public AssetAttributesOperatingSystem putAdditionalProperty(String key, Object value) {
+  public SBOMMetadata putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -127,7 +93,7 @@ public class AssetAttributesOperatingSystem {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AssetAttributesOperatingSystem object is equal to o. */
+  /** Return true if this SBOMMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -136,25 +102,21 @@ public class AssetAttributesOperatingSystem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AssetAttributesOperatingSystem assetAttributesOperatingSystem =
-        (AssetAttributesOperatingSystem) o;
-    return Objects.equals(this.description, assetAttributesOperatingSystem.description)
-        && Objects.equals(this.name, assetAttributesOperatingSystem.name)
-        && Objects.equals(
-            this.additionalProperties, assetAttributesOperatingSystem.additionalProperties);
+    SBOMMetadata sbomMetadata = (SBOMMetadata) o;
+    return Objects.equals(this.component, sbomMetadata.component)
+        && Objects.equals(this.additionalProperties, sbomMetadata.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, additionalProperties);
+    return Objects.hash(component, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AssetAttributesOperatingSystem {\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("class SBOMMetadata {\n");
+    sb.append("    component: ").append(toIndentedString(component)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

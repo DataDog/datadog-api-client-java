@@ -43,16 +43,16 @@ public class AssetAttributes {
   private String name;
 
   public static final String JSON_PROPERTY_OPERATING_SYSTEM = "operating_system";
-  private AssetAttributesOperatingSystem operatingSystem;
+  private AssetOperatingSystem operatingSystem;
 
   public static final String JSON_PROPERTY_RISKS = "risks";
-  private AssetAttributesRisks risks;
+  private AssetRisks risks;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private AssetType type;
 
   public static final String JSON_PROPERTY_VERSION = "version";
-  private AssetAttributesVersion version;
+  private AssetVersion version;
 
   public AssetAttributes() {}
 
@@ -60,7 +60,7 @@ public class AssetAttributes {
   public AssetAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_ENVIRONMENTS) List<String> environments,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RISKS) AssetAttributesRisks risks,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RISKS) AssetRisks risks,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AssetType type) {
     this.environments = environments;
     this.name = name;
@@ -136,7 +136,7 @@ public class AssetAttributes {
     this.name = name;
   }
 
-  public AssetAttributes operatingSystem(AssetAttributesOperatingSystem operatingSystem) {
+  public AssetAttributes operatingSystem(AssetOperatingSystem operatingSystem) {
     this.operatingSystem = operatingSystem;
     this.unparsed |= operatingSystem.unparsed;
     return this;
@@ -150,15 +150,15 @@ public class AssetAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPERATING_SYSTEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AssetAttributesOperatingSystem getOperatingSystem() {
+  public AssetOperatingSystem getOperatingSystem() {
     return operatingSystem;
   }
 
-  public void setOperatingSystem(AssetAttributesOperatingSystem operatingSystem) {
+  public void setOperatingSystem(AssetOperatingSystem operatingSystem) {
     this.operatingSystem = operatingSystem;
   }
 
-  public AssetAttributes risks(AssetAttributesRisks risks) {
+  public AssetAttributes risks(AssetRisks risks) {
     this.risks = risks;
     this.unparsed |= risks.unparsed;
     return this;
@@ -171,11 +171,11 @@ public class AssetAttributes {
    */
   @JsonProperty(JSON_PROPERTY_RISKS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AssetAttributesRisks getRisks() {
+  public AssetRisks getRisks() {
     return risks;
   }
 
-  public void setRisks(AssetAttributesRisks risks) {
+  public void setRisks(AssetRisks risks) {
     this.risks = risks;
   }
 
@@ -203,7 +203,7 @@ public class AssetAttributes {
     this.type = type;
   }
 
-  public AssetAttributes version(AssetAttributesVersion version) {
+  public AssetAttributes version(AssetVersion version) {
     this.version = version;
     this.unparsed |= version.unparsed;
     return this;
@@ -217,11 +217,11 @@ public class AssetAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AssetAttributesVersion getVersion() {
+  public AssetVersion getVersion() {
     return version;
   }
 
-  public void setVersion(AssetAttributesVersion version) {
+  public void setVersion(AssetVersion version) {
     this.version = version;
   }
 
