@@ -19,15 +19,15 @@ import java.util.Objects;
 
 /** Asset risks. */
 @JsonPropertyOrder({
-  AssetAttributesRisks.JSON_PROPERTY_HAS_ACCESS_TO_SENSITIVE_DATA,
-  AssetAttributesRisks.JSON_PROPERTY_HAS_PRIVILEGED_ACCESS,
-  AssetAttributesRisks.JSON_PROPERTY_IN_PRODUCTION,
-  AssetAttributesRisks.JSON_PROPERTY_IS_PUBLICLY_ACCESSIBLE,
-  AssetAttributesRisks.JSON_PROPERTY_UNDER_ATTACK
+  AssetRisks.JSON_PROPERTY_HAS_ACCESS_TO_SENSITIVE_DATA,
+  AssetRisks.JSON_PROPERTY_HAS_PRIVILEGED_ACCESS,
+  AssetRisks.JSON_PROPERTY_IN_PRODUCTION,
+  AssetRisks.JSON_PROPERTY_IS_PUBLICLY_ACCESSIBLE,
+  AssetRisks.JSON_PROPERTY_UNDER_ATTACK
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AssetAttributesRisks {
+public class AssetRisks {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HAS_ACCESS_TO_SENSITIVE_DATA =
       "has_access_to_sensitive_data";
@@ -45,15 +45,15 @@ public class AssetAttributesRisks {
   public static final String JSON_PROPERTY_UNDER_ATTACK = "under_attack";
   private Boolean underAttack;
 
-  public AssetAttributesRisks() {}
+  public AssetRisks() {}
 
   @JsonCreator
-  public AssetAttributesRisks(
+  public AssetRisks(
       @JsonProperty(required = true, value = JSON_PROPERTY_IN_PRODUCTION) Boolean inProduction) {
     this.inProduction = inProduction;
   }
 
-  public AssetAttributesRisks hasAccessToSensitiveData(Boolean hasAccessToSensitiveData) {
+  public AssetRisks hasAccessToSensitiveData(Boolean hasAccessToSensitiveData) {
     this.hasAccessToSensitiveData = hasAccessToSensitiveData;
     return this;
   }
@@ -74,7 +74,7 @@ public class AssetAttributesRisks {
     this.hasAccessToSensitiveData = hasAccessToSensitiveData;
   }
 
-  public AssetAttributesRisks hasPrivilegedAccess(Boolean hasPrivilegedAccess) {
+  public AssetRisks hasPrivilegedAccess(Boolean hasPrivilegedAccess) {
     this.hasPrivilegedAccess = hasPrivilegedAccess;
     return this;
   }
@@ -95,7 +95,7 @@ public class AssetAttributesRisks {
     this.hasPrivilegedAccess = hasPrivilegedAccess;
   }
 
-  public AssetAttributesRisks inProduction(Boolean inProduction) {
+  public AssetRisks inProduction(Boolean inProduction) {
     this.inProduction = inProduction;
     return this;
   }
@@ -115,7 +115,7 @@ public class AssetAttributesRisks {
     this.inProduction = inProduction;
   }
 
-  public AssetAttributesRisks isPubliclyAccessible(Boolean isPubliclyAccessible) {
+  public AssetRisks isPubliclyAccessible(Boolean isPubliclyAccessible) {
     this.isPubliclyAccessible = isPubliclyAccessible;
     return this;
   }
@@ -136,7 +136,7 @@ public class AssetAttributesRisks {
     this.isPubliclyAccessible = isPubliclyAccessible;
   }
 
-  public AssetAttributesRisks underAttack(Boolean underAttack) {
+  public AssetRisks underAttack(Boolean underAttack) {
     this.underAttack = underAttack;
     return this;
   }
@@ -169,10 +169,10 @@ public class AssetAttributesRisks {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AssetAttributesRisks
+   * @return AssetRisks
    */
   @JsonAnySetter
-  public AssetAttributesRisks putAdditionalProperty(String key, Object value) {
+  public AssetRisks putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -203,7 +203,7 @@ public class AssetAttributesRisks {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AssetAttributesRisks object is equal to o. */
+  /** Return true if this AssetRisks object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -212,14 +212,13 @@ public class AssetAttributesRisks {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AssetAttributesRisks assetAttributesRisks = (AssetAttributesRisks) o;
-    return Objects.equals(
-            this.hasAccessToSensitiveData, assetAttributesRisks.hasAccessToSensitiveData)
-        && Objects.equals(this.hasPrivilegedAccess, assetAttributesRisks.hasPrivilegedAccess)
-        && Objects.equals(this.inProduction, assetAttributesRisks.inProduction)
-        && Objects.equals(this.isPubliclyAccessible, assetAttributesRisks.isPubliclyAccessible)
-        && Objects.equals(this.underAttack, assetAttributesRisks.underAttack)
-        && Objects.equals(this.additionalProperties, assetAttributesRisks.additionalProperties);
+    AssetRisks assetRisks = (AssetRisks) o;
+    return Objects.equals(this.hasAccessToSensitiveData, assetRisks.hasAccessToSensitiveData)
+        && Objects.equals(this.hasPrivilegedAccess, assetRisks.hasPrivilegedAccess)
+        && Objects.equals(this.inProduction, assetRisks.inProduction)
+        && Objects.equals(this.isPubliclyAccessible, assetRisks.isPubliclyAccessible)
+        && Objects.equals(this.underAttack, assetRisks.underAttack)
+        && Objects.equals(this.additionalProperties, assetRisks.additionalProperties);
   }
 
   @Override
@@ -236,7 +235,7 @@ public class AssetAttributesRisks {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AssetAttributesRisks {\n");
+    sb.append("class AssetRisks {\n");
     sb.append("    hasAccessToSensitiveData: ")
         .append(toIndentedString(hasAccessToSensitiveData))
         .append("\n");
