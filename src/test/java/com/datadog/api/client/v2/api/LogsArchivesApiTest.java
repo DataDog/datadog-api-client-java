@@ -289,15 +289,13 @@ public class LogsArchivesApiTest extends V2APITest {
         new LogsArchiveIntegrationS3()
             .accountId("711111111111")
             .roleName("DatadogGoClientTestIntegrationRole");
-    LogsArchiveEncryptionS3 encryptionS3 = 
-        new LogsArchiveEncryptionS3()
-            .key("test")
-            .type(LogsArchiveEncryptionS3Type.NO_OVERRIDE);
-    LogsArchiveDestinationS3 destination = 
+    LogsArchiveEncryptionS3 encryptionS3 =
+        new LogsArchiveEncryptionS3().key("test").type(LogsArchiveEncryptionS3Type.NO_OVERRIDE);
+    LogsArchiveDestinationS3 destination =
         new LogsArchiveDestinationS3()
             .integration(integration)
             .encryption(encryptionS3)
-        .bucket("dd-logs-test-datadog-api-client-go")
+            .bucket("dd-logs-test-datadog-api-client-go")
             .path("/path/toto")
             .type(LogsArchiveDestinationS3Type.S3);
     LogsArchiveCreateRequestAttributes attributes =

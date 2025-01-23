@@ -20,6 +20,7 @@ import java.util.Objects;
 /** The S3 archive destination. */
 @JsonPropertyOrder({
   LogsArchiveDestinationS3.JSON_PROPERTY_BUCKET,
+  LogsArchiveDestinationS3.JSON_PROPERTY_ENCRYPTION,
   LogsArchiveDestinationS3.JSON_PROPERTY_INTEGRATION,
   LogsArchiveDestinationS3.JSON_PROPERTY_PATH,
   LogsArchiveDestinationS3.JSON_PROPERTY_TYPE
@@ -30,6 +31,9 @@ public class LogsArchiveDestinationS3 {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUCKET = "bucket";
   private String bucket;
+
+  public static final String JSON_PROPERTY_ENCRYPTION = "encryption";
+  private LogsArchiveEncryptionS3 encryption;
 
   public static final String JSON_PROPERTY_INTEGRATION = "integration";
   private LogsArchiveIntegrationS3 integration;
@@ -74,6 +78,28 @@ public class LogsArchiveDestinationS3 {
 
   public void setBucket(String bucket) {
     this.bucket = bucket;
+  }
+
+  public LogsArchiveDestinationS3 encryption(LogsArchiveEncryptionS3 encryption) {
+    this.encryption = encryption;
+    this.unparsed |= encryption.unparsed;
+    return this;
+  }
+
+  /**
+   * The S3 encryption settings.
+   *
+   * @return encryption
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENCRYPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsArchiveEncryptionS3 getEncryption() {
+    return encryption;
+  }
+
+  public void setEncryption(LogsArchiveEncryptionS3 encryption) {
+    this.encryption = encryption;
   }
 
   public LogsArchiveDestinationS3 integration(LogsArchiveIntegrationS3 integration) {
@@ -199,6 +225,7 @@ public class LogsArchiveDestinationS3 {
     }
     LogsArchiveDestinationS3 logsArchiveDestinationS3 = (LogsArchiveDestinationS3) o;
     return Objects.equals(this.bucket, logsArchiveDestinationS3.bucket)
+        && Objects.equals(this.encryption, logsArchiveDestinationS3.encryption)
         && Objects.equals(this.integration, logsArchiveDestinationS3.integration)
         && Objects.equals(this.path, logsArchiveDestinationS3.path)
         && Objects.equals(this.type, logsArchiveDestinationS3.type)
@@ -207,7 +234,7 @@ public class LogsArchiveDestinationS3 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucket, integration, path, type, additionalProperties);
+    return Objects.hash(bucket, encryption, integration, path, type, additionalProperties);
   }
 
   @Override
@@ -215,6 +242,7 @@ public class LogsArchiveDestinationS3 {
     StringBuilder sb = new StringBuilder();
     sb.append("class LogsArchiveDestinationS3 {\n");
     sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
+    sb.append("    encryption: ").append(toIndentedString(encryption)).append("\n");
     sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
