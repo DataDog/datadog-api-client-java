@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"reason\":\"duplicate\"},\"enabled\":true,\"name\":\"Test-Update_a_mute_rule_returns_The_server_cannot_process_the_request_because_it_contains_invalid_data_re-1737639707\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"\",\"rule_ids\":[],\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"severities\":[\"critical\"]}},\"type\":\"mute_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"0582999c-857d-4be3-8aeb-5f70920f04fe\",\"type\":\"mute_rules\",\"attributes\":{\"action\":{\"reason\":\"duplicate\"},\"created_at\":1737639707463,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1737639707463,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Test-Update_a_mute_rule_returns_The_server_cannot_process_the_request_because_it_contains_invalid_data_re-1737639707\",\"rule\":{\"issue_type\":\"vulnerability\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"rule_ids\":[],\"query\":\"\",\"severities\":[\"critical\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9c36a170-0d3e-a031-a8ed-be624c4504fe"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"expire_at\":1893452400000,\"reason\":\"duplicate\",\"reason_description\":\"Muting for a while\"},\"enabled\":true,\"name\":\"Rule 1\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"key:val\",\"rule_ids\":[\"rule-id-1\"],\"rule_types\":[\"application_code_vulnerability\"],\"severities\":[\"critical\"]}},\"id\":\"00000000-0000-0000-0000-426655000000\",\"type\":\"mute_rules\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules/0582999c-857d-4be3-8aeb-5f70920f04fe",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"422\",\"title\":\"Unprocessable Entity\",\"detail\":\"Rule Ids in path and in request body differ\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 422,
+      "reasonPhrase": "Unprocessable Entity"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "18f3ea55-8d91-d640-2739-47f25871504b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules/0582999c-857d-4be3-8aeb-5f70920f04fe",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0bc0683b-a7c3-f6cf-33b9-35d34c49a9f3"
+  }
+]

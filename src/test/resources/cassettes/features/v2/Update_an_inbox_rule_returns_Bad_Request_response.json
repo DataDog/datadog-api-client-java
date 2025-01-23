@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"reason_description\":\"items to focus on\"},\"enabled\":true,\"name\":\"Test-Update_an_inbox_rule_returns_Bad_Request_response-1737621681\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"\",\"rule_ids\":[],\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"severities\":[\"critical\"]}},\"type\":\"inbox_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/vulnerabilities/pipelines/inbox_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ebe5f9b6-a0fe-4422-9909-2116aa9cb057\",\"type\":\"inbox_rules\",\"attributes\":{\"action\":{\"reason_description\":\"items to focus on\"},\"created_at\":1737621681706,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1737621681706,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Test-Update_an_inbox_rule_returns_Bad_Request_response-1737621681\",\"rule\":{\"issue_type\":\"vulnerability\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"rule_ids\":[],\"query\":\"\",\"severities\":[\"critical\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d1abe4c0-cabf-414b-50dd-045a1dc79e34"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"invalid\":{\"attributes\":{\"action\":{\"reason_description\":\"We want to focus on these items.\"},\"enabled\":true,\"name\":\"Rule 1\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"key:val\",\"rule_ids\":[\"rule-id-1\"],\"rule_types\":[\"application_code_vulnerability\"],\"severities\":[\"critical\"]}},\"id\":\"ebe5f9b6-a0fe-4422-9909-2116aa9cb057\",\"type\":\"inbox_rules\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/security/vulnerabilities/pipelines/inbox_rules/ebe5f9b6-a0fe-4422-9909-2116aa9cb057",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"Error while unmarshalling JSON API request\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "10eee6f8-3576-34ec-5fea-be6b81d4e78b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/vulnerabilities/pipelines/inbox_rules/ebe5f9b6-a0fe-4422-9909-2116aa9cb057",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "88f93961-ab19-2db6-ac05-098a2dff539f"
+  }
+]

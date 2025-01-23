@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"reason\":\"duplicate\"},\"enabled\":true,\"name\":\"Test-Delete_a_mute_rule_returns_Rule_successfully_deleted_response-1737639663\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"\",\"rule_ids\":[],\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"severities\":[\"critical\"]}},\"type\":\"mute_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"ba7a16f1-4f80-417d-a868-6b5f14dd3328\",\"type\":\"mute_rules\",\"attributes\":{\"action\":{\"reason\":\"duplicate\"},\"created_at\":1737639663734,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1737639663734,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Test-Delete_a_mute_rule_returns_Rule_successfully_deleted_response-1737639663\",\"rule\":{\"issue_type\":\"vulnerability\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"rule_ids\":[],\"query\":\"\",\"severities\":[\"critical\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c080f5ad-7312-ed05-4eab-ce29e20d5979"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules/ba7a16f1-4f80-417d-a868-6b5f14dd3328",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8bdd6f32-abc0-408b-a549-ce4945b37703"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules/ba7a16f1-4f80-417d-a868-6b5f14dd3328",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"Rule does not exist\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8bdd6f32-abc0-408b-a549-ce4945b37704"
+  }
+]

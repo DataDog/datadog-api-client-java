@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"reason_description\":\"We want to focus on these items.\"},\"enabled\":true,\"name\":\"Rule 1\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"key:val\",\"rule_ids\":[\"rule-id-1\"],\"rule_types\":[\"application_code_vulnerability\"],\"severities\":[\"critical\"]}}}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/vulnerabilities/pipelines/inbox_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"got type \\\"\\\" expected one of \\\"inbox_rules\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fdbd89c8-7513-7763-aa35-9650ea5170b2"
+  }
+]

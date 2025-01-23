@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"reason\":\"duplicate\"},\"enabled\":true,\"name\":\"Test-Get_details_of_a_mute_rule_returns_Mute_rule_details_response-1737639682\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"\",\"rule_ids\":[],\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"severities\":[\"critical\"]}},\"type\":\"mute_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"54f22733-b8d8-4b02-9b93-a9e608dfd489\",\"type\":\"mute_rules\",\"attributes\":{\"action\":{\"reason\":\"duplicate\"},\"created_at\":1737639682560,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1737639682560,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Test-Get_details_of_a_mute_rule_returns_Mute_rule_details_response-1737639682\",\"rule\":{\"issue_type\":\"vulnerability\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"rule_ids\":[],\"query\":\"\",\"severities\":[\"critical\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5bf97d7b-c49a-9504-b312-54abc37df248"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules/54f22733-b8d8-4b02-9b93-a9e608dfd489",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"54f22733-b8d8-4b02-9b93-a9e608dfd489\",\"type\":\"mute_rules\",\"attributes\":{\"action\":{\"reason\":\"duplicate\"},\"created_at\":1737639682560,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1737639682560,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Test-Get_details_of_a_mute_rule_returns_Mute_rule_details_response-1737639682\",\"rule\":{\"issue_type\":\"vulnerability\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"rule_ids\":[],\"query\":\"\",\"severities\":[\"critical\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "34df0f68-7516-e9a0-439a-2f3e2e5cb060"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules/54f22733-b8d8-4b02-9b93-a9e608dfd489",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4c121e6c-3e3d-bdd7-3d51-17b885ec8871"
+  }
+]

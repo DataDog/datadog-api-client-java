@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"reason_description\":\"items to focus on\"},\"enabled\":true,\"name\":\"Test-Patch_an_inbox_rule_returns_Inbox_rule_successfully_patched_response-1737621664\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"\",\"rule_ids\":[],\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"severities\":[\"critical\"]}},\"type\":\"inbox_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/vulnerabilities/pipelines/inbox_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"1a524ec9-504d-4aa0-9c81-52a994cfe8c1\",\"type\":\"inbox_rules\",\"attributes\":{\"action\":{\"reason_description\":\"items to focus on\"},\"created_at\":1737621664886,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1737621664886,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Test-Patch_an_inbox_rule_returns_Inbox_rule_successfully_patched_response-1737621664\",\"rule\":{\"issue_type\":\"vulnerability\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"rule_ids\":[],\"query\":\"\",\"severities\":[\"critical\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c9cb2765-3add-a7e5-5f62-7d30e9ceb019"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"reason_description\":\"We want to focus on these items.\"},\"enabled\":true,\"name\":\"Rule 1\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"key:val\",\"rule_ids\":[\"rule-id-1\"],\"rule_types\":[\"application_code_vulnerability\"],\"severities\":[\"critical\"]}},\"id\":\"1a524ec9-504d-4aa0-9c81-52a994cfe8c1\",\"type\":\"inbox_rules\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security/vulnerabilities/pipelines/inbox_rules/1a524ec9-504d-4aa0-9c81-52a994cfe8c1",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"1a524ec9-504d-4aa0-9c81-52a994cfe8c1\",\"type\":\"inbox_rules\",\"attributes\":{\"action\":{\"reason_description\":\"We want to focus on these items.\"},\"created_at\":1737621664886,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1737621665366,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Rule 1\",\"rule\":{\"issue_type\":\"vulnerability\",\"rule_types\":[\"application_code_vulnerability\"],\"rule_ids\":[\"rule-id-1\"],\"query\":\"key:val\",\"severities\":[\"critical\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e5e1fa61-838f-0fca-10a9-a60b7c84d9ae"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/vulnerabilities/pipelines/inbox_rules/1a524ec9-504d-4aa0-9c81-52a994cfe8c1",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "11d12271-d243-4065-42df-adca759fa936"
+  }
+]
