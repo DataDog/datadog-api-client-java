@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ListAppsResponseMeta</code> object. */
+/** Pagination metadata. */
 @JsonPropertyOrder({ListAppsResponseMeta.JSON_PROPERTY_PAGE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class ListAppsResponseMeta {
   }
 
   /**
-   * The definition of <code>ListAppsResponseMetaPage</code> object.
+   * Information on the total number of apps, to be used for pagination.
    *
    * @return page
    */

@@ -12,17 +12,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-/** The definition of <code>AppMeta</code> object. */
+/** Metadata of an app. */
 @JsonPropertyOrder({
   AppMeta.JSON_PROPERTY_CREATED_AT,
   AppMeta.JSON_PROPERTY_DELETED_AT,
   AppMeta.JSON_PROPERTY_ORG_ID,
-  AppMeta.JSON_PROPERTY_RUN_AS_USER,
   AppMeta.JSON_PROPERTY_UPDATED_AT,
   AppMeta.JSON_PROPERTY_UPDATED_SINCE_DEPLOYMENT,
   AppMeta.JSON_PROPERTY_USER_ID,
@@ -35,19 +35,16 @@ import java.util.UUID;
 public class AppMeta {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private String createdAt;
+  private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_DELETED_AT = "deleted_at";
-  private String deletedAt;
+  private OffsetDateTime deletedAt;
 
   public static final String JSON_PROPERTY_ORG_ID = "org_id";
   private Long orgId;
 
-  public static final String JSON_PROPERTY_RUN_AS_USER = "run_as_user";
-  private String runAsUser;
-
   public static final String JSON_PROPERTY_UPDATED_AT = "updated_at";
-  private String updatedAt;
+  private OffsetDateTime updatedAt;
 
   public static final String JSON_PROPERTY_UPDATED_SINCE_DEPLOYMENT = "updated_since_deployment";
   private Boolean updatedSinceDeployment;
@@ -64,45 +61,45 @@ public class AppMeta {
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
 
-  public AppMeta createdAt(String createdAt) {
+  public AppMeta createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * The <code>AppMeta</code> <code>created_at</code>.
+   * Timestamp of when the app was created.
    *
    * @return createdAt
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(String createdAt) {
+  public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
-  public AppMeta deletedAt(String deletedAt) {
+  public AppMeta deletedAt(OffsetDateTime deletedAt) {
     this.deletedAt = deletedAt;
     return this;
   }
 
   /**
-   * The <code>AppMeta</code> <code>deleted_at</code>.
+   * Timestamp of when the app was deleted.
    *
    * @return deletedAt
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELETED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDeletedAt() {
+  public OffsetDateTime getDeletedAt() {
     return deletedAt;
   }
 
-  public void setDeletedAt(String deletedAt) {
+  public void setDeletedAt(OffsetDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
 
@@ -112,7 +109,7 @@ public class AppMeta {
   }
 
   /**
-   * The <code>AppMeta</code> <code>org_id</code>.
+   * The Datadog organization ID that owns the app.
    *
    * @return orgId
    */
@@ -127,45 +124,24 @@ public class AppMeta {
     this.orgId = orgId;
   }
 
-  public AppMeta runAsUser(String runAsUser) {
-    this.runAsUser = runAsUser;
-    return this;
-  }
-
-  /**
-   * The <code>AppMeta</code> <code>run_as_user</code>.
-   *
-   * @return runAsUser
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RUN_AS_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRunAsUser() {
-    return runAsUser;
-  }
-
-  public void setRunAsUser(String runAsUser) {
-    this.runAsUser = runAsUser;
-  }
-
-  public AppMeta updatedAt(String updatedAt) {
+  public AppMeta updatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
   /**
-   * The <code>AppMeta</code> <code>updated_at</code>.
+   * Timestamp of when the app was last updated.
    *
    * @return updatedAt
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUpdatedAt() {
+  public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(String updatedAt) {
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
 
@@ -175,7 +151,8 @@ public class AppMeta {
   }
 
   /**
-   * The <code>AppMeta</code> <code>updated_since_deployment</code>.
+   * Whether the app was updated since it was last published. Published apps are pinned to a
+   * specific version and do not automatically update when the app is updated.
    *
    * @return updatedSinceDeployment
    */
@@ -196,7 +173,7 @@ public class AppMeta {
   }
 
   /**
-   * The <code>AppMeta</code> <code>user_id</code>.
+   * The ID of the user who created the app.
    *
    * @return userId
    */
@@ -217,7 +194,7 @@ public class AppMeta {
   }
 
   /**
-   * The <code>AppMeta</code> <code>user_name</code>.
+   * The name (or email address) of the user who created the app.
    *
    * @return userName
    */
@@ -238,7 +215,7 @@ public class AppMeta {
   }
 
   /**
-   * The <code>AppMeta</code> <code>user_uuid</code>.
+   * The UUID of the user who created the app.
    *
    * @return userUuid
    */
@@ -259,7 +236,7 @@ public class AppMeta {
   }
 
   /**
-   * The <code>AppMeta</code> <code>version</code>.
+   * The version number of the app. This starts at 1 and increments with each update.
    *
    * @return version
    */
@@ -333,7 +310,6 @@ public class AppMeta {
     return Objects.equals(this.createdAt, appMeta.createdAt)
         && Objects.equals(this.deletedAt, appMeta.deletedAt)
         && Objects.equals(this.orgId, appMeta.orgId)
-        && Objects.equals(this.runAsUser, appMeta.runAsUser)
         && Objects.equals(this.updatedAt, appMeta.updatedAt)
         && Objects.equals(this.updatedSinceDeployment, appMeta.updatedSinceDeployment)
         && Objects.equals(this.userId, appMeta.userId)
@@ -349,7 +325,6 @@ public class AppMeta {
         createdAt,
         deletedAt,
         orgId,
-        runAsUser,
         updatedAt,
         updatedSinceDeployment,
         userId,
@@ -366,7 +341,6 @@ public class AppMeta {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    deletedAt: ").append(toIndentedString(deletedAt)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
-    sb.append("    runAsUser: ").append(toIndentedString(runAsUser)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    updatedSinceDeployment: ")
         .append(toIndentedString(updatedSinceDeployment))

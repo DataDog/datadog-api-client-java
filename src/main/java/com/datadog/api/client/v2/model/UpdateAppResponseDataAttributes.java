@@ -18,16 +18,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>UpdateAppResponseDataAttributes</code> object. */
+/** The updated app definition attributes, such as name, description, and components. */
 @JsonPropertyOrder({
   UpdateAppResponseDataAttributes.JSON_PROPERTY_COMPONENTS,
   UpdateAppResponseDataAttributes.JSON_PROPERTY_DESCRIPTION,
   UpdateAppResponseDataAttributes.JSON_PROPERTY_EMBEDDED_QUERIES,
   UpdateAppResponseDataAttributes.JSON_PROPERTY_FAVORITE,
-  UpdateAppResponseDataAttributes.JSON_PROPERTY_INPUT_SCHEMA,
   UpdateAppResponseDataAttributes.JSON_PROPERTY_NAME,
   UpdateAppResponseDataAttributes.JSON_PROPERTY_ROOT_INSTANCE_NAME,
-  UpdateAppResponseDataAttributes.JSON_PROPERTY_SCRIPTS,
   UpdateAppResponseDataAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
@@ -46,17 +44,11 @@ public class UpdateAppResponseDataAttributes {
   public static final String JSON_PROPERTY_FAVORITE = "favorite";
   private Boolean favorite;
 
-  public static final String JSON_PROPERTY_INPUT_SCHEMA = "inputSchema";
-  private InputSchema inputSchema;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_ROOT_INSTANCE_NAME = "rootInstanceName";
   private String rootInstanceName;
-
-  public static final String JSON_PROPERTY_SCRIPTS = "scripts";
-  private List<Script> scripts = null;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -79,7 +71,7 @@ public class UpdateAppResponseDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>components</code>.
+   * The UI components that make up the app.
    *
    * @return components
    */
@@ -100,7 +92,7 @@ public class UpdateAppResponseDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>description</code>.
+   * The human-readable description for the app.
    *
    * @return description
    */
@@ -133,7 +125,7 @@ public class UpdateAppResponseDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>embeddedQueries</code>.
+   * An array of queries, such as external actions and state variables, that the app uses.
    *
    * @return embeddedQueries
    */
@@ -154,7 +146,7 @@ public class UpdateAppResponseDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>favorite</code>.
+   * Whether the app is marked as a favorite by the current user.
    *
    * @return favorite
    */
@@ -169,35 +161,13 @@ public class UpdateAppResponseDataAttributes {
     this.favorite = favorite;
   }
 
-  public UpdateAppResponseDataAttributes inputSchema(InputSchema inputSchema) {
-    this.inputSchema = inputSchema;
-    this.unparsed |= inputSchema.unparsed;
-    return this;
-  }
-
-  /**
-   * The definition of <code>InputSchema</code> object.
-   *
-   * @return inputSchema
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INPUT_SCHEMA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public InputSchema getInputSchema() {
-    return inputSchema;
-  }
-
-  public void setInputSchema(InputSchema inputSchema) {
-    this.inputSchema = inputSchema;
-  }
-
   public UpdateAppResponseDataAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The <code>attributes</code> <code>name</code>.
+   * The name of the app.
    *
    * @return name
    */
@@ -218,7 +188,8 @@ public class UpdateAppResponseDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>rootInstanceName</code>.
+   * The name of the root component of the app. This must be a <code>grid</code> component that
+   * contains all other components.
    *
    * @return rootInstanceName
    */
@@ -231,39 +202,6 @@ public class UpdateAppResponseDataAttributes {
 
   public void setRootInstanceName(String rootInstanceName) {
     this.rootInstanceName = rootInstanceName;
-  }
-
-  public UpdateAppResponseDataAttributes scripts(List<Script> scripts) {
-    this.scripts = scripts;
-    for (Script item : scripts) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public UpdateAppResponseDataAttributes addScriptsItem(Script scriptsItem) {
-    if (this.scripts == null) {
-      this.scripts = new ArrayList<>();
-    }
-    this.scripts.add(scriptsItem);
-    this.unparsed |= scriptsItem.unparsed;
-    return this;
-  }
-
-  /**
-   * The <code>attributes</code> <code>scripts</code>.
-   *
-   * @return scripts
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCRIPTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Script> getScripts() {
-    return scripts;
-  }
-
-  public void setScripts(List<Script> scripts) {
-    this.scripts = scripts;
   }
 
   public UpdateAppResponseDataAttributes tags(List<String> tags) {
@@ -280,7 +218,7 @@ public class UpdateAppResponseDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>tags</code>.
+   * A list of tags for the app, which can be used to filter apps.
    *
    * @return tags
    */
@@ -356,10 +294,8 @@ public class UpdateAppResponseDataAttributes {
         && Objects.equals(this.description, updateAppResponseDataAttributes.description)
         && Objects.equals(this.embeddedQueries, updateAppResponseDataAttributes.embeddedQueries)
         && Objects.equals(this.favorite, updateAppResponseDataAttributes.favorite)
-        && Objects.equals(this.inputSchema, updateAppResponseDataAttributes.inputSchema)
         && Objects.equals(this.name, updateAppResponseDataAttributes.name)
         && Objects.equals(this.rootInstanceName, updateAppResponseDataAttributes.rootInstanceName)
-        && Objects.equals(this.scripts, updateAppResponseDataAttributes.scripts)
         && Objects.equals(this.tags, updateAppResponseDataAttributes.tags)
         && Objects.equals(
             this.additionalProperties, updateAppResponseDataAttributes.additionalProperties);
@@ -372,10 +308,8 @@ public class UpdateAppResponseDataAttributes {
         description,
         embeddedQueries,
         favorite,
-        inputSchema,
         name,
         rootInstanceName,
-        scripts,
         tags,
         additionalProperties);
   }
@@ -388,10 +322,8 @@ public class UpdateAppResponseDataAttributes {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    embeddedQueries: ").append(toIndentedString(embeddedQueries)).append("\n");
     sb.append("    favorite: ").append(toIndentedString(favorite)).append("\n");
-    sb.append("    inputSchema: ").append(toIndentedString(inputSchema)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rootInstanceName: ").append(toIndentedString(rootInstanceName)).append("\n");
-    sb.append("    scripts: ").append(toIndentedString(scripts)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

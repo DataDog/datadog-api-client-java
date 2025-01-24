@@ -18,15 +18,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CreateAppRequestDataAttributes</code> object. */
+/** App definition attributes such as name, description, and components. */
 @JsonPropertyOrder({
   CreateAppRequestDataAttributes.JSON_PROPERTY_COMPONENTS,
   CreateAppRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
   CreateAppRequestDataAttributes.JSON_PROPERTY_EMBEDDED_QUERIES,
-  CreateAppRequestDataAttributes.JSON_PROPERTY_INPUT_SCHEMA,
   CreateAppRequestDataAttributes.JSON_PROPERTY_NAME,
   CreateAppRequestDataAttributes.JSON_PROPERTY_ROOT_INSTANCE_NAME,
-  CreateAppRequestDataAttributes.JSON_PROPERTY_SCRIPTS,
   CreateAppRequestDataAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
@@ -42,17 +40,11 @@ public class CreateAppRequestDataAttributes {
   public static final String JSON_PROPERTY_EMBEDDED_QUERIES = "embeddedQueries";
   private List<Query> embeddedQueries = null;
 
-  public static final String JSON_PROPERTY_INPUT_SCHEMA = "inputSchema";
-  private InputSchema inputSchema;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_ROOT_INSTANCE_NAME = "rootInstanceName";
   private String rootInstanceName;
-
-  public static final String JSON_PROPERTY_SCRIPTS = "scripts";
-  private List<Script> scripts = null;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -75,7 +67,7 @@ public class CreateAppRequestDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>components</code>.
+   * The UI components that make up the app.
    *
    * @return components
    */
@@ -96,7 +88,7 @@ public class CreateAppRequestDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>description</code>.
+   * A human-readable description for the app.
    *
    * @return description
    */
@@ -129,7 +121,7 @@ public class CreateAppRequestDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>embeddedQueries</code>.
+   * An array of queries, such as external actions and state variables, that the app uses.
    *
    * @return embeddedQueries
    */
@@ -144,35 +136,13 @@ public class CreateAppRequestDataAttributes {
     this.embeddedQueries = embeddedQueries;
   }
 
-  public CreateAppRequestDataAttributes inputSchema(InputSchema inputSchema) {
-    this.inputSchema = inputSchema;
-    this.unparsed |= inputSchema.unparsed;
-    return this;
-  }
-
-  /**
-   * The definition of <code>InputSchema</code> object.
-   *
-   * @return inputSchema
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INPUT_SCHEMA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public InputSchema getInputSchema() {
-    return inputSchema;
-  }
-
-  public void setInputSchema(InputSchema inputSchema) {
-    this.inputSchema = inputSchema;
-  }
-
   public CreateAppRequestDataAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The <code>attributes</code> <code>name</code>.
+   * The name of the app.
    *
    * @return name
    */
@@ -193,7 +163,8 @@ public class CreateAppRequestDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>rootInstanceName</code>.
+   * The name of the root component of the app. This must be a <code>grid</code> component that
+   * contains all other components.
    *
    * @return rootInstanceName
    */
@@ -206,39 +177,6 @@ public class CreateAppRequestDataAttributes {
 
   public void setRootInstanceName(String rootInstanceName) {
     this.rootInstanceName = rootInstanceName;
-  }
-
-  public CreateAppRequestDataAttributes scripts(List<Script> scripts) {
-    this.scripts = scripts;
-    for (Script item : scripts) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public CreateAppRequestDataAttributes addScriptsItem(Script scriptsItem) {
-    if (this.scripts == null) {
-      this.scripts = new ArrayList<>();
-    }
-    this.scripts.add(scriptsItem);
-    this.unparsed |= scriptsItem.unparsed;
-    return this;
-  }
-
-  /**
-   * The <code>attributes</code> <code>scripts</code>.
-   *
-   * @return scripts
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCRIPTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Script> getScripts() {
-    return scripts;
-  }
-
-  public void setScripts(List<Script> scripts) {
-    this.scripts = scripts;
   }
 
   public CreateAppRequestDataAttributes tags(List<String> tags) {
@@ -255,7 +193,7 @@ public class CreateAppRequestDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>tags</code>.
+   * A list of tags for the app, which can be used to filter apps.
    *
    * @return tags
    */
@@ -330,10 +268,8 @@ public class CreateAppRequestDataAttributes {
     return Objects.equals(this.components, createAppRequestDataAttributes.components)
         && Objects.equals(this.description, createAppRequestDataAttributes.description)
         && Objects.equals(this.embeddedQueries, createAppRequestDataAttributes.embeddedQueries)
-        && Objects.equals(this.inputSchema, createAppRequestDataAttributes.inputSchema)
         && Objects.equals(this.name, createAppRequestDataAttributes.name)
         && Objects.equals(this.rootInstanceName, createAppRequestDataAttributes.rootInstanceName)
-        && Objects.equals(this.scripts, createAppRequestDataAttributes.scripts)
         && Objects.equals(this.tags, createAppRequestDataAttributes.tags)
         && Objects.equals(
             this.additionalProperties, createAppRequestDataAttributes.additionalProperties);
@@ -345,10 +281,8 @@ public class CreateAppRequestDataAttributes {
         components,
         description,
         embeddedQueries,
-        inputSchema,
         name,
         rootInstanceName,
-        scripts,
         tags,
         additionalProperties);
   }
@@ -360,10 +294,8 @@ public class CreateAppRequestDataAttributes {
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    embeddedQueries: ").append(toIndentedString(embeddedQueries)).append("\n");
-    sb.append("    inputSchema: ").append(toIndentedString(inputSchema)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rootInstanceName: ").append(toIndentedString(rootInstanceName)).append("\n");
-    sb.append("    scripts: ").append(toIndentedString(scripts)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

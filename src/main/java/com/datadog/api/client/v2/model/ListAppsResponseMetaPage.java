@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ListAppsResponseMetaPage</code> object. */
+/** Information on the total number of apps, to be used for pagination. */
 @JsonPropertyOrder({
   ListAppsResponseMetaPage.JSON_PROPERTY_TOTAL_COUNT,
   ListAppsResponseMetaPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
@@ -37,7 +37,7 @@ public class ListAppsResponseMetaPage {
   }
 
   /**
-   * The <code>page</code> <code>totalCount</code>.
+   * The total number of apps under the Datadog organization, disregarding any filters applied.
    *
    * @return totalCount
    */
@@ -58,7 +58,7 @@ public class ListAppsResponseMetaPage {
   }
 
   /**
-   * The <code>page</code> <code>totalFilteredCount</code>.
+   * The total number of apps that match the specified filters.
    *
    * @return totalFilteredCount
    */

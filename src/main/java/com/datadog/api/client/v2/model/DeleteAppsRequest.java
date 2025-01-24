@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>DeleteAppsRequest</code> object. */
+/** A request object for deleting multiple apps by ID. */
 @JsonPropertyOrder({DeleteAppsRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,7 +45,7 @@ public class DeleteAppsRequest {
   }
 
   /**
-   * The <code>DeleteAppsRequest</code> <code>data</code>.
+   * An array of objects containing the IDs of the apps to delete.
    *
    * @return data
    */

@@ -16,8 +16,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The definition of <code>UpdateAppResponseData</code> object. */
+/** The data object containing the updated app definition. */
 @JsonPropertyOrder({
   UpdateAppResponseData.JSON_PROPERTY_ATTRIBUTES,
   UpdateAppResponseData.JSON_PROPERTY_ID,
@@ -31,10 +32,10 @@ public class UpdateAppResponseData {
   private UpdateAppResponseDataAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private UpdateAppResponseDataType type = UpdateAppResponseDataType.APPDEFINITIONS;
+  private AppDefinitionType type = AppDefinitionType.APPDEFINITIONS;
 
   public UpdateAppResponseData() {}
 
@@ -42,8 +43,8 @@ public class UpdateAppResponseData {
   public UpdateAppResponseData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           UpdateAppResponseDataAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) UpdateAppResponseDataType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AppDefinitionType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.id = id;
@@ -58,7 +59,7 @@ public class UpdateAppResponseData {
   }
 
   /**
-   * The definition of <code>UpdateAppResponseDataAttributes</code> object.
+   * The updated app definition attributes, such as name, description, and components.
    *
    * @return attributes
    */
@@ -72,44 +73,44 @@ public class UpdateAppResponseData {
     this.attributes = attributes;
   }
 
-  public UpdateAppResponseData id(String id) {
+  public UpdateAppResponseData id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The <code>data</code> <code>id</code>.
+   * The ID of the updated app.
    *
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public UpdateAppResponseData type(UpdateAppResponseDataType type) {
+  public UpdateAppResponseData type(AppDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>UpdateAppResponseDataType</code> object.
+   * The app definition type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public UpdateAppResponseDataType getType() {
+  public AppDefinitionType getType() {
     return type;
   }
 
-  public void setType(UpdateAppResponseDataType type) {
+  public void setType(AppDefinitionType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

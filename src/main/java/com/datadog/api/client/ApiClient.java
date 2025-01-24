@@ -375,10 +375,10 @@ public class ApiClient {
           put("v2.createApp", false);
           put("v2.deleteApp", false);
           put("v2.deleteApps", false);
-          put("v2.deployApp", false);
-          put("v2.disableApp", false);
           put("v2.getApp", false);
           put("v2.listApps", false);
+          put("v2.publishApp", false);
+          put("v2.unpublishApp", false);
           put("v2.updateApp", false);
           put("v2.getActiveBillingDimensions", false);
           put("v2.getMonthlyCostAttribution", false);

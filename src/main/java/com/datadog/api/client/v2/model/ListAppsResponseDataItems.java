@@ -16,8 +16,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The definition of <code>ListAppsResponseDataItems</code> object. */
+/**
+ * An app definition object. This contains only basic information about the app such as ID, name,
+ * and tags.
+ */
 @JsonPropertyOrder({
   ListAppsResponseDataItems.JSON_PROPERTY_ATTRIBUTES,
   ListAppsResponseDataItems.JSON_PROPERTY_ID,
@@ -33,7 +37,7 @@ public class ListAppsResponseDataItems {
   private ListAppsResponseDataItemsAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
   public static final String JSON_PROPERTY_META = "meta";
   private AppMeta meta;
@@ -42,7 +46,7 @@ public class ListAppsResponseDataItems {
   private ListAppsResponseDataItemsRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ListAppsResponseDataItemsType type = ListAppsResponseDataItemsType.APPDEFINITIONS;
+  private AppDefinitionType type = AppDefinitionType.APPDEFINITIONS;
 
   public ListAppsResponseDataItems() {}
 
@@ -50,9 +54,8 @@ public class ListAppsResponseDataItems {
   public ListAppsResponseDataItems(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           ListAppsResponseDataItemsAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ListAppsResponseDataItemsType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AppDefinitionType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.id = id;
@@ -67,7 +70,7 @@ public class ListAppsResponseDataItems {
   }
 
   /**
-   * The definition of <code>ListAppsResponseDataItemsAttributes</code> object.
+   * Basic information about the app such as name, description, and tags.
    *
    * @return attributes
    */
@@ -81,23 +84,23 @@ public class ListAppsResponseDataItems {
     this.attributes = attributes;
   }
 
-  public ListAppsResponseDataItems id(String id) {
+  public ListAppsResponseDataItems id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The <code>items</code> <code>id</code>.
+   * The ID of the app.
    *
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
@@ -108,7 +111,7 @@ public class ListAppsResponseDataItems {
   }
 
   /**
-   * The definition of <code>AppMeta</code> object.
+   * Metadata of an app.
    *
    * @return meta
    */
@@ -131,7 +134,7 @@ public class ListAppsResponseDataItems {
   }
 
   /**
-   * The definition of <code>ListAppsResponseDataItemsRelationships</code> object.
+   * The app's publication information.
    *
    * @return relationships
    */
@@ -146,24 +149,24 @@ public class ListAppsResponseDataItems {
     this.relationships = relationships;
   }
 
-  public ListAppsResponseDataItems type(ListAppsResponseDataItemsType type) {
+  public ListAppsResponseDataItems type(AppDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>ListAppsResponseDataItemsType</code> object.
+   * The app definition type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ListAppsResponseDataItemsType getType() {
+  public AppDefinitionType getType() {
     return type;
   }
 
-  public void setType(ListAppsResponseDataItemsType type) {
+  public void setType(AppDefinitionType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

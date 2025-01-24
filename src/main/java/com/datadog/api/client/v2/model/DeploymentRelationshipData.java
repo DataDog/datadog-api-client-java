@@ -15,8 +15,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The definition of <code>DeploymentRelationshipData</code> object. */
+/** Data object containing the deployment ID. */
 @JsonPropertyOrder({
   DeploymentRelationshipData.JSON_PROPERTY_ID,
   DeploymentRelationshipData.JSON_PROPERTY_TYPE
@@ -26,51 +27,51 @@ import java.util.Objects;
 public class DeploymentRelationshipData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private DeploymentRelationshipDataType type = DeploymentRelationshipDataType.DEPLOYMENT;
+  private AppDeploymentType type = AppDeploymentType.DEPLOYMENT;
 
-  public DeploymentRelationshipData id(String id) {
+  public DeploymentRelationshipData id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The <code>data</code> <code>id</code>.
+   * The deployment ID.
    *
    * @return id
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public DeploymentRelationshipData type(DeploymentRelationshipDataType type) {
+  public DeploymentRelationshipData type(AppDeploymentType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>DeploymentRelationshipDataType</code> object.
+   * The deployment type.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DeploymentRelationshipDataType getType() {
+  public AppDeploymentType getType() {
     return type;
   }
 
-  public void setType(DeploymentRelationshipDataType type) {
+  public void setType(AppDeploymentType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

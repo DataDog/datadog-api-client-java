@@ -18,7 +18,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ComponentProperties</code> object. */
+/**
+ * Properties of a UI component. Different component types can have their own additional unique
+ * properties. See the <a
+ * href="https://docs.datadoghq.com/service_management/app_builder/components/">components
+ * documentation</a> for more detail on each component type and its properties.
+ */
 @JsonPropertyOrder({
   ComponentProperties.JSON_PROPERTY_CHILDREN,
   ComponentProperties.JSON_PROPERTY_IS_VISIBLE
@@ -51,7 +56,7 @@ public class ComponentProperties {
   }
 
   /**
-   * The <code>ComponentProperties</code> <code>children</code>.
+   * The child components of the UI component.
    *
    * @return children
    */
@@ -73,7 +78,8 @@ public class ComponentProperties {
   }
 
   /**
-   * The definition of <code>ComponentPropertiesIsVisible</code> object.
+   * Whether the UI component is visible. If this is a string, it must be a valid JavaScript
+   * expression that evaluates to a boolean.
    *
    * @return isVisible
    */

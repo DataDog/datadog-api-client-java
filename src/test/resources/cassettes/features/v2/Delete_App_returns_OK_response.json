@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"500bf715-77a5-4c1d-b4ef-0d181b071daf\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"1d01a77d-1251-42fb-ab67-c99edfb26970\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,12 +33,12 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/app-builder/apps/500bf715-77a5-4c1d-b4ef-0d181b071daf",
+      "path": "/api/v2/app-builder/apps/1d01a77d-1251-42fb-ab67-c99edfb26970",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"500bf715-77a5-4c1d-b4ef-0d181b071daf\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"1d01a77d-1251-42fb-ab67-c99edfb26970\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,18 +53,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cdb2b576-1451-1182-5179-176076a149fd"
+    "id": "457caa5d-8eb8-6487-8fff-6a7d5b8e8dc1"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/app-builder/apps/500bf715-77a5-4c1d-b4ef-0d181b071daf",
+      "path": "/api/v2/app-builder/apps/1d01a77d-1251-42fb-ab67-c99edfb26970",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"detail\":\"app not found\"}]}",
+      "body": "{\"errors\":[{\"title\":\"app not found\",\"detail\":\"app not found\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -79,6 +79,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cdb2b576-1451-1182-5179-176076a149fe"
+    "id": "457caa5d-8eb8-6487-8fff-6a7d5b8e8dc2"
   }
 ]

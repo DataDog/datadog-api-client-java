@@ -18,8 +18,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The definition of <code>Query</code> object. */
+/**
+ * A query used by an app. This can take the form of an external action, a data transformation, or a
+ * state variable change.
+ */
 @JsonPropertyOrder({
   Query.JSON_PROPERTY_EVENTS,
   Query.JSON_PROPERTY_ID,
@@ -35,7 +39,7 @@ public class Query {
   private List<AppBuilderEvent> events = null;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -50,7 +54,7 @@ public class Query {
 
   @JsonCreator
   public Query(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) QueryType type) {
     this.id = id;
@@ -77,7 +81,7 @@ public class Query {
   }
 
   /**
-   * The <code>Query</code> <code>events</code>.
+   * Events to listen for downstream of the query.
    *
    * @return events
    */
@@ -92,23 +96,23 @@ public class Query {
     this.events = events;
   }
 
-  public Query id(String id) {
+  public Query id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The <code>Query</code> <code>id</code>.
+   * The ID of the query.
    *
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
@@ -118,7 +122,7 @@ public class Query {
   }
 
   /**
-   * The <code>Query</code> <code>name</code>.
+   * The name of the query. The name must be unique within the app and is visible in the app editor.
    *
    * @return name
    */
@@ -138,7 +142,7 @@ public class Query {
   }
 
   /**
-   * The <code>Query</code> <code>properties</code>.
+   * The properties of the query. The properties vary depending on the query type.
    *
    * @return properties
    */
@@ -160,7 +164,7 @@ public class Query {
   }
 
   /**
-   * The definition of <code>QueryType</code> object.
+   * The query type.
    *
    * @return type
    */

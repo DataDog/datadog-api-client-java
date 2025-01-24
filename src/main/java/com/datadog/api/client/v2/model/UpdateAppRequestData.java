@@ -16,8 +16,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The definition of <code>UpdateAppRequestData</code> object. */
+/**
+ * The data object containing the new app definition. Any fields not included in the request remain
+ * unchanged.
+ */
 @JsonPropertyOrder({
   UpdateAppRequestData.JSON_PROPERTY_ATTRIBUTES,
   UpdateAppRequestData.JSON_PROPERTY_ID,
@@ -31,16 +35,16 @@ public class UpdateAppRequestData {
   private UpdateAppRequestDataAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private UpdateAppRequestDataType type = UpdateAppRequestDataType.APPDEFINITIONS;
+  private AppDefinitionType type = AppDefinitionType.APPDEFINITIONS;
 
   public UpdateAppRequestData() {}
 
   @JsonCreator
   public UpdateAppRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) UpdateAppRequestDataType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AppDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -52,7 +56,7 @@ public class UpdateAppRequestData {
   }
 
   /**
-   * The definition of <code>UpdateAppRequestDataAttributes</code> object.
+   * App definition attributes to be updated, such as name, description, and components.
    *
    * @return attributes
    */
@@ -67,45 +71,45 @@ public class UpdateAppRequestData {
     this.attributes = attributes;
   }
 
-  public UpdateAppRequestData id(String id) {
+  public UpdateAppRequestData id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The <code>data</code> <code>id</code>.
+   * The ID of the app to update. The app ID must match the ID in the URL path.
    *
    * @return id
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public UpdateAppRequestData type(UpdateAppRequestDataType type) {
+  public UpdateAppRequestData type(AppDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>UpdateAppRequestDataType</code> object.
+   * The app definition type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public UpdateAppRequestDataType getType() {
+  public AppDefinitionType getType() {
     return type;
   }
 
-  public void setType(UpdateAppRequestDataType type) {
+  public void setType(AppDefinitionType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
