@@ -76,7 +76,7 @@ jobs:
           CI: "true"
           DD_ENV: prod
           DD_HTTP_CLIENT_ERROR_STATUSES: "500-599"
-          DD_LOGS_INJECTION: "true"
+          DD_AGENTLESS_LOG_SUBMISSION_ENABLED: "true"
           DD_SERVICE: datadog-api-client-java
           DD_TAGS: "team:integrations-tools-and-libraries"
           DD_TEST_CLIENT_API_KEY: ${{ secrets.DD_CLIENT_API_KEY }}
