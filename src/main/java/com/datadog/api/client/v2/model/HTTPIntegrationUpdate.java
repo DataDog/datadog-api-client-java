@@ -51,7 +51,7 @@ public class HTTPIntegrationUpdate {
   }
 
   /**
-   * Base HTTP url for the integration
+   * Base HTTP url for the integration.
    *
    * @return baseUrl
    */

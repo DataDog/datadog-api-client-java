@@ -60,7 +60,7 @@ public class ActionConnectionAttributesUpdate {
   }
 
   /**
-   * Name of the connection
+   * Name of the connection.
    *
    * @return name
    */

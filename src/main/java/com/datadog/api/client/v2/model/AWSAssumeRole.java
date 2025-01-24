@@ -63,7 +63,7 @@ public class AWSAssumeRole {
   }
 
   /**
-   * AWS account the connection is created for
+   * AWS account the connection is created for.
    *
    * @return accountId
    */
@@ -78,7 +78,7 @@ public class AWSAssumeRole {
   }
 
   /**
-   * External ID used to scope which connection can be used to assume the role
+   * External ID used to scope which connection can be used to assume the role.
    *
    * @return externalId
    */
@@ -90,7 +90,7 @@ public class AWSAssumeRole {
   }
 
   /**
-   * AWS account that will assume the role
+   * AWS account that will assume the role.
    *
    * @return principalId
    */
@@ -107,7 +107,7 @@ public class AWSAssumeRole {
   }
 
   /**
-   * Role to assume
+   * Role to assume.
    *
    * @return role
    */

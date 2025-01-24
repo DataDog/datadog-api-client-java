@@ -1,4 +1,4 @@
-// Create a new Action Connection returns "Successfully created an Action Connection." response
+// Create a new Action Connection returns "Successfully created Action Connection" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -24,20 +24,20 @@ public class Example {
         new CreateActionConnectionRequest()
             .data(
                 new ActionConnectionData()
+                    .type(ActionConnectionDataType.ACTION_CONNECTION)
                     .attributes(
                         new ActionConnectionAttributes()
+                            .name("Cassette Connection DELETE_ME")
                             .integration(
                                 new ActionConnectionIntegration(
                                     new AWSIntegration()
+                                        .type(AWSIntegrationType.AWS)
                                         .credentials(
                                             new AWSCredentials(
                                                 new AWSAssumeRole()
-                                                    .accountId("111222333444")
-                                                    .role("my-role")
-                                                    .type(AWSAssumeRoleType.AWSASSUMEROLE)))
-                                        .type(AWSIntegrationType.AWS)))
-                            .name("My AWS Connection"))
-                    .type(ActionConnectionDataType.ACTION_CONNECTION));
+                                                    .type(AWSAssumeRoleType.AWSASSUMEROLE)
+                                                    .role("MyRoleUpdated")
+                                                    .accountId("123456789123")))))));
 
     try {
       CreateActionConnectionResponse result = apiInstance.createActionConnection(body);
