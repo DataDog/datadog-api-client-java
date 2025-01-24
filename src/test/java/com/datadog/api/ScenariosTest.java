@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    plugin = {"pretty", "summary", "com.datadog.api.TracePlugin", "rerun:target/rerun.txt"},
+    plugin = {"pretty", "summary", "rerun:target/rerun.txt"},
     snippets = CAMELCASE,
     tags = "not @skip and not @skip-java")
 public class ScenariosTest {}
