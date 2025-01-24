@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.AssetType;
 import com.datadog.api.client.v2.model.BulkMuteFindingsRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsResponse;
 import com.datadog.api.client.v2.model.ConvertJobResultsToSignalsRequest;
+import com.datadog.api.client.v2.model.CreateNotificationRuleParameters;
 import com.datadog.api.client.v2.model.Finding;
 import com.datadog.api.client.v2.model.FindingEvaluation;
 import com.datadog.api.client.v2.model.FindingStatus;
@@ -21,6 +22,8 @@ import com.datadog.api.client.v2.model.ListFindingsResponse;
 import com.datadog.api.client.v2.model.ListHistoricalJobsResponse;
 import com.datadog.api.client.v2.model.ListVulnerabilitiesResponse;
 import com.datadog.api.client.v2.model.ListVulnerableAssetsResponse;
+import com.datadog.api.client.v2.model.NotificationRuleResponse;
+import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
 import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
@@ -1103,6 +1106,292 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Create a new signal-based rule.
+   *
+   * <p>See {@link #createSignalNotificationRuleWithHttpInfo}.
+   *
+   * @param body The body of the create notification rule request is composed of the rule type and
+   *     the rule attributes: the rule name, the selectors, the notification targets, and the rule
+   *     enabled status. (required)
+   * @return NotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public NotificationRuleResponse createSignalNotificationRule(
+      CreateNotificationRuleParameters body) throws ApiException {
+    return createSignalNotificationRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a new signal-based rule.
+   *
+   * <p>See {@link #createSignalNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param body The body of the create notification rule request is composed of the rule type and
+   *     the rule attributes: the rule name, the selectors, the notification targets, and the rule
+   *     enabled status. (required)
+   * @return CompletableFuture&lt;NotificationRuleResponse&gt;
+   */
+  public CompletableFuture<NotificationRuleResponse> createSignalNotificationRuleAsync(
+      CreateNotificationRuleParameters body) {
+    return createSignalNotificationRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new notification rule for security signals and return the created rule.
+   *
+   * @param body The body of the create notification rule request is composed of the rule type and
+   *     the rule attributes: the rule name, the selectors, the notification targets, and the rule
+   *     enabled status. (required)
+   * @return ApiResponse&lt;NotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Successfully created the notification rule. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NotificationRuleResponse> createSignalNotificationRuleWithHttpInfo(
+      CreateNotificationRuleParameters body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createSignalNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/signals/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createSignalNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Create a new signal-based rule.
+   *
+   * <p>See {@link #createSignalNotificationRuleWithHttpInfo}.
+   *
+   * @param body The body of the create notification rule request is composed of the rule type and
+   *     the rule attributes: the rule name, the selectors, the notification targets, and the rule
+   *     enabled status. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NotificationRuleResponse>>
+      createSignalNotificationRuleWithHttpInfoAsync(CreateNotificationRuleParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createSignalNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/signals/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createSignalNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Create a new vulnerability-based rule.
+   *
+   * <p>See {@link #createVulnerabilityNotificationRuleWithHttpInfo}.
+   *
+   * @param body The body of the create notification rule request is composed of the rule type and
+   *     the rule attributes: the rule name, the selectors, the notification targets, and the rule
+   *     enabled status. (required)
+   * @return NotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public NotificationRuleResponse createVulnerabilityNotificationRule(
+      CreateNotificationRuleParameters body) throws ApiException {
+    return createVulnerabilityNotificationRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a new vulnerability-based rule.
+   *
+   * <p>See {@link #createVulnerabilityNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param body The body of the create notification rule request is composed of the rule type and
+   *     the rule attributes: the rule name, the selectors, the notification targets, and the rule
+   *     enabled status. (required)
+   * @return CompletableFuture&lt;NotificationRuleResponse&gt;
+   */
+  public CompletableFuture<NotificationRuleResponse> createVulnerabilityNotificationRuleAsync(
+      CreateNotificationRuleParameters body) {
+    return createVulnerabilityNotificationRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new notification rule for security vulnerabilities and return the created rule.
+   *
+   * @param body The body of the create notification rule request is composed of the rule type and
+   *     the rule attributes: the rule name, the selectors, the notification targets, and the rule
+   *     enabled status. (required)
+   * @return ApiResponse&lt;NotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Successfully created the notification rule. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NotificationRuleResponse> createVulnerabilityNotificationRuleWithHttpInfo(
+      CreateNotificationRuleParameters body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling createVulnerabilityNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createVulnerabilityNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Create a new vulnerability-based rule.
+   *
+   * <p>See {@link #createVulnerabilityNotificationRuleWithHttpInfo}.
+   *
+   * @param body The body of the create notification rule request is composed of the rule type and
+   *     the rule attributes: the rule name, the selectors, the notification targets, and the rule
+   *     enabled status. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NotificationRuleResponse>>
+      createVulnerabilityNotificationRuleWithHttpInfoAsync(CreateNotificationRuleParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createVulnerabilityNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createVulnerabilityNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
    * Delete an existing job.
    *
    * <p>See {@link #deleteHistoricalJobWithHttpInfo}.
@@ -1648,6 +1937,277 @@ public class SecurityMonitoringApi {
       builder =
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.deleteSecurityMonitoringSuppression",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a signal-based rule.
+   *
+   * <p>See {@link #deleteSignalNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteSignalNotificationRule(String id) throws ApiException {
+    deleteSignalNotificationRuleWithHttpInfo(id);
+  }
+
+  /**
+   * Delete a signal-based rule.
+   *
+   * <p>See {@link #deleteSignalNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteSignalNotificationRuleAsync(String id) {
+    return deleteSignalNotificationRuleWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a notification rule for security signals.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Rule successfully deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteSignalNotificationRuleWithHttpInfo(String id) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling deleteSignalNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/signals/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteSignalNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a signal-based rule.
+   *
+   * <p>See {@link #deleteSignalNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteSignalNotificationRuleWithHttpInfoAsync(
+      String id) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling deleteSignalNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/signals/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteSignalNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a vulnerability-based rule.
+   *
+   * <p>See {@link #deleteVulnerabilityNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteVulnerabilityNotificationRule(String id) throws ApiException {
+    deleteVulnerabilityNotificationRuleWithHttpInfo(id);
+  }
+
+  /**
+   * Delete a vulnerability-based rule.
+   *
+   * <p>See {@link #deleteVulnerabilityNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteVulnerabilityNotificationRuleAsync(String id) {
+    return deleteVulnerabilityNotificationRuleWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a notification rule for security vulnerabilities.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Rule successfully deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteVulnerabilityNotificationRuleWithHttpInfo(String id)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'id' when calling deleteVulnerabilityNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteVulnerabilityNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a vulnerability-based rule.
+   *
+   * <p>See {@link #deleteVulnerabilityNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteVulnerabilityNotificationRuleWithHttpInfoAsync(
+      String id) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling"
+                  + " deleteVulnerabilityNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteVulnerabilityNotificationRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3364,6 +3924,499 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringSuppressionResponse>() {});
+  }
+
+  /**
+   * Get details of a signal-based rule.
+   *
+   * <p>See {@link #getSignalNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return NotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public NotificationRuleResponse getSignalNotificationRule(String id) throws ApiException {
+    return getSignalNotificationRuleWithHttpInfo(id).getData();
+  }
+
+  /**
+   * Get details of a signal-based rule.
+   *
+   * <p>See {@link #getSignalNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return CompletableFuture&lt;NotificationRuleResponse&gt;
+   */
+  public CompletableFuture<NotificationRuleResponse> getSignalNotificationRuleAsync(String id) {
+    return getSignalNotificationRuleWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of a notification rule for security signals.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return ApiResponse&lt;NotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Notification rule details. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NotificationRuleResponse> getSignalNotificationRuleWithHttpInfo(String id)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling getSignalNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/signals/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSignalNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Get details of a signal-based rule.
+   *
+   * <p>See {@link #getSignalNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NotificationRuleResponse>>
+      getSignalNotificationRuleWithHttpInfoAsync(String id) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling getSignalNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/signals/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSignalNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Get the list of signal-based rules.
+   *
+   * <p>See {@link #getSignalNotificationRulesWithHttpInfo}.
+   *
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object getSignalNotificationRules() throws ApiException {
+    return getSignalNotificationRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get the list of signal-based rules.
+   *
+   * <p>See {@link #getSignalNotificationRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;Object&gt;
+   */
+  public CompletableFuture<Object> getSignalNotificationRulesAsync() {
+    return getSignalNotificationRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns the list of notification rules for security signals.
+   *
+   * @return ApiResponse&lt;Object&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> The list of notification rules. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Object> getSignalNotificationRulesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/signals/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getSignalNotificationRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Get the list of signal-based rules.
+   *
+   * <p>See {@link #getSignalNotificationRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Object>> getSignalNotificationRulesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/signals/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getSignalNotificationRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Get details of a vulnerability-based rule.
+   *
+   * <p>See {@link #getVulnerabilityNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return NotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public NotificationRuleResponse getVulnerabilityNotificationRule(String id) throws ApiException {
+    return getVulnerabilityNotificationRuleWithHttpInfo(id).getData();
+  }
+
+  /**
+   * Get details of a vulnerability-based rule.
+   *
+   * <p>See {@link #getVulnerabilityNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return CompletableFuture&lt;NotificationRuleResponse&gt;
+   */
+  public CompletableFuture<NotificationRuleResponse> getVulnerabilityNotificationRuleAsync(
+      String id) {
+    return getVulnerabilityNotificationRuleWithHttpInfoAsync(id)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of a notification rule for security vulnerabilities.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return ApiResponse&lt;NotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Notification rule details. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NotificationRuleResponse> getVulnerabilityNotificationRuleWithHttpInfo(
+      String id) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling getVulnerabilityNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getVulnerabilityNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Get details of a vulnerability-based rule.
+   *
+   * <p>See {@link #getVulnerabilityNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NotificationRuleResponse>>
+      getVulnerabilityNotificationRuleWithHttpInfoAsync(String id) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling getVulnerabilityNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getVulnerabilityNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Get the list of vulnerability-based rules.
+   *
+   * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfo}.
+   *
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object getVulnerabilityNotificationRules() throws ApiException {
+    return getVulnerabilityNotificationRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get the list of vulnerability-based rules.
+   *
+   * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;Object&gt;
+   */
+  public CompletableFuture<Object> getVulnerabilityNotificationRulesAsync() {
+    return getVulnerabilityNotificationRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns the list of notification rules for security vulnerabilities.
+   *
+   * @return ApiResponse&lt;Object&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> The list of notification rules. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Object> getVulnerabilityNotificationRulesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getVulnerabilityNotificationRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Get the list of vulnerability-based rules.
+   *
+   * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Object>>
+      getVulnerabilityNotificationRulesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/notification_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getVulnerabilityNotificationRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
   }
 
   /** Manage optional parameters to listFindings. */
@@ -6559,6 +7612,333 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<BulkMuteFindingsResponse>() {});
+  }
+
+  /**
+   * Patch a signal-based rule.
+   *
+   * <p>See {@link #patchSignalNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @param body (required)
+   * @return NotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public NotificationRuleResponse patchSignalNotificationRule(
+      String id, PatchNotificationRuleParameters body) throws ApiException {
+    return patchSignalNotificationRuleWithHttpInfo(id, body).getData();
+  }
+
+  /**
+   * Patch a signal-based rule.
+   *
+   * <p>See {@link #patchSignalNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;NotificationRuleResponse&gt;
+   */
+  public CompletableFuture<NotificationRuleResponse> patchSignalNotificationRuleAsync(
+      String id, PatchNotificationRuleParameters body) {
+    return patchSignalNotificationRuleWithHttpInfoAsync(id, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Partially update the notification rule. All fields are optional; if a field is not provided, it
+   * is not updated.
+   *
+   * @param id ID of the notification rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;NotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Notification rule successfully patched. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> The server cannot process the request because it contains invalid data. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NotificationRuleResponse> patchSignalNotificationRuleWithHttpInfo(
+      String id, PatchNotificationRuleParameters body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'id' when calling patchSignalNotificationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling patchSignalNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/signals/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.patchSignalNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Patch a signal-based rule.
+   *
+   * <p>See {@link #patchSignalNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NotificationRuleResponse>>
+      patchSignalNotificationRuleWithHttpInfoAsync(
+          String id, PatchNotificationRuleParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'id' when calling patchSignalNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling patchSignalNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/signals/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.patchSignalNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Patch a vulnerability-based rule.
+   *
+   * <p>See {@link #patchVulnerabilityNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @param body (required)
+   * @return NotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public NotificationRuleResponse patchVulnerabilityNotificationRule(
+      String id, PatchNotificationRuleParameters body) throws ApiException {
+    return patchVulnerabilityNotificationRuleWithHttpInfo(id, body).getData();
+  }
+
+  /**
+   * Patch a vulnerability-based rule.
+   *
+   * <p>See {@link #patchVulnerabilityNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;NotificationRuleResponse&gt;
+   */
+  public CompletableFuture<NotificationRuleResponse> patchVulnerabilityNotificationRuleAsync(
+      String id, PatchNotificationRuleParameters body) {
+    return patchVulnerabilityNotificationRuleWithHttpInfoAsync(id, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Partially update the notification rule. All fields are optional; if a field is not provided, it
+   * is not updated.
+   *
+   * @param id ID of the notification rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;NotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Notification rule successfully patched. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> The server cannot process the request because it contains invalid data. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NotificationRuleResponse> patchVulnerabilityNotificationRuleWithHttpInfo(
+      String id, PatchNotificationRuleParameters body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'id' when calling patchVulnerabilityNotificationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling patchVulnerabilityNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.patchVulnerabilityNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Patch a vulnerability-based rule.
+   *
+   * <p>See {@link #patchVulnerabilityNotificationRuleWithHttpInfo}.
+   *
+   * @param id ID of the notification rule. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NotificationRuleResponse>>
+      patchVulnerabilityNotificationRuleWithHttpInfoAsync(
+          String id, PatchNotificationRuleParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'id' when calling"
+                  + " patchVulnerabilityNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " patchVulnerabilityNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/notification_rules/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.patchVulnerabilityNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotificationRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotificationRuleResponse>() {});
   }
 
   /**
