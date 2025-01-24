@@ -381,7 +381,6 @@ public class ApiClient {
           put("v2.listApps", false);
           put("v2.updateApp", false);
           put("v2.getActiveBillingDimensions", false);
-          put("v2.getBillingDimensionMapping", false);
           put("v2.getMonthlyCostAttribution", false);
           put("v2.cancelDataDeletionRequest", false);
           put("v2.createDataDeletionRequest", false);
