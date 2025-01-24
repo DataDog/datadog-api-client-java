@@ -55,7 +55,7 @@ public class AWSAssumeRoleUpdate {
   }
 
   /**
-   * AWS account the connection is created for
+   * AWS account the connection is created for.
    *
    * @return accountId
    */

@@ -1,4 +1,4 @@
-// Get an existing Action Connection returns "Successfully got an Action Connection." response
+// Get an existing Action Connection returns "Successfully get Action Connection" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -11,7 +11,8 @@ public class Example {
     ActionConnectionApi apiInstance = new ActionConnectionApi(defaultClient);
 
     try {
-      GetActionConnectionResponse result = apiInstance.getActionConnection("connection_id");
+      GetActionConnectionResponse result =
+          apiInstance.getActionConnection("cb460d51-3c88-4e87-adac-d47131d0423d");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActionConnectionApi#getActionConnection");

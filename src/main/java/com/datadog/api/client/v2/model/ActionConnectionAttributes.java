@@ -71,7 +71,7 @@ public class ActionConnectionAttributes {
   }
 
   /**
-   * Name of the connection
+   * Name of the connection.
    *
    * @return name
    */

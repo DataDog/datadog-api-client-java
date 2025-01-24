@@ -1,5 +1,4 @@
-// Update an existing Action Connection returns "Successfully updated an Action Connection."
-// response
+// Update an existing Action Connection returns "Successfully updated Action Connection" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -25,24 +24,24 @@ public class Example {
         new UpdateActionConnectionRequest()
             .data(
                 new ActionConnectionDataUpdate()
+                    .type(ActionConnectionDataType.ACTION_CONNECTION)
                     .attributes(
                         new ActionConnectionAttributesUpdate()
+                            .name("Cassette Connection")
                             .integration(
                                 new ActionConnectionIntegrationUpdate(
                                     new AWSIntegrationUpdate()
+                                        .type(AWSIntegrationType.AWS)
                                         .credentials(
                                             new AWSCredentialsUpdate(
                                                 new AWSAssumeRoleUpdate()
-                                                    .accountId("111222333444")
-                                                    .role("my-role")
-                                                    .type(AWSAssumeRoleType.AWSASSUMEROLE)))
-                                        .type(AWSIntegrationType.AWS)))
-                            .name("My AWS Connection"))
-                    .type(ActionConnectionDataType.ACTION_CONNECTION));
+                                                    .type(AWSAssumeRoleType.AWSASSUMEROLE)
+                                                    .role("MyRoleUpdated")
+                                                    .accountId("123456789123")))))));
 
     try {
       UpdateActionConnectionResponse result =
-          apiInstance.updateActionConnection("connection_id", body);
+          apiInstance.updateActionConnection("cb460d51-3c88-4e87-adac-d47131d0423d", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActionConnectionApi#updateActionConnection");

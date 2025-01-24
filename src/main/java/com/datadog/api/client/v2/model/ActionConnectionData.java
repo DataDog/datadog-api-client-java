@@ -71,7 +71,7 @@ public class ActionConnectionData {
   }
 
   /**
-   * The connection identifier
+   * The connection identifier.
    *
    * @return id
    */

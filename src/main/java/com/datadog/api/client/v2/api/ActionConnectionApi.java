@@ -79,7 +79,7 @@ public class ActionConnectionApi {
   }
 
   /**
-   * Create a new Action Connection
+   * Create a new Action Connection.
    *
    * @param body (required)
    * @return ApiResponse&lt;CreateActionConnectionResponse&gt;
@@ -88,7 +88,7 @@ public class ActionConnectionApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Successfully created Action Connection </td><td>  -  </td></tr>
+   *       <tr><td> 201 </td><td> Successfully created an Action Connection. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too Many Request </td><td>  -  </td></tr>
@@ -187,7 +187,7 @@ public class ActionConnectionApi {
    *
    * <p>See {@link #deleteActionConnectionWithHttpInfo}.
    *
-   * @param connectionId The ID of the action connection (required)
+   * @param connectionId The ID of the Action Connection. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteActionConnection(String connectionId) throws ApiException {
@@ -199,7 +199,7 @@ public class ActionConnectionApi {
    *
    * <p>See {@link #deleteActionConnectionWithHttpInfoAsync}.
    *
-   * @param connectionId The ID of the action connection (required)
+   * @param connectionId The ID of the Action Connection. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteActionConnectionAsync(String connectionId) {
@@ -211,9 +211,9 @@ public class ActionConnectionApi {
   }
 
   /**
-   * Delete an existing Action Connection
+   * Delete an existing Action Connection.
    *
-   * @param connectionId The ID of the action connection (required)
+   * @param connectionId The ID of the Action Connection. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -268,7 +268,7 @@ public class ActionConnectionApi {
    *
    * <p>See {@link #deleteActionConnectionWithHttpInfo}.
    *
-   * @param connectionId The ID of the action connection (required)
+   * @param connectionId The ID of the Action Connection. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteActionConnectionWithHttpInfoAsync(
@@ -324,7 +324,7 @@ public class ActionConnectionApi {
    *
    * <p>See {@link #getActionConnectionWithHttpInfo}.
    *
-   * @param connectionId The ID of the action connection (required)
+   * @param connectionId The ID of the Action Connection. (required)
    * @return GetActionConnectionResponse
    * @throws ApiException if fails to make API call
    */
@@ -337,7 +337,7 @@ public class ActionConnectionApi {
    *
    * <p>See {@link #getActionConnectionWithHttpInfoAsync}.
    *
-   * @param connectionId The ID of the action connection (required)
+   * @param connectionId The ID of the Action Connection. (required)
    * @return CompletableFuture&lt;GetActionConnectionResponse&gt;
    */
   public CompletableFuture<GetActionConnectionResponse> getActionConnectionAsync(
@@ -350,16 +350,16 @@ public class ActionConnectionApi {
   }
 
   /**
-   * Get an existing Action Connection
+   * Get an existing Action Connection.
    *
-   * @param connectionId The ID of the action connection (required)
+   * @param connectionId The ID of the Action Connection. (required)
    * @return ApiResponse&lt;GetActionConnectionResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Successfully get Action Connection </td><td>  -  </td></tr>
+   *       <tr><td> 200 </td><td> Successfully got an Action Connection. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -408,7 +408,7 @@ public class ActionConnectionApi {
    *
    * <p>See {@link #getActionConnectionWithHttpInfo}.
    *
-   * @param connectionId The ID of the action connection (required)
+   * @param connectionId The ID of the Action Connection. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;GetActionConnectionResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<GetActionConnectionResponse>>
@@ -466,8 +466,8 @@ public class ActionConnectionApi {
    *
    * <p>See {@link #updateActionConnectionWithHttpInfo}.
    *
-   * @param connectionId The ID of the action connection (required)
-   * @param body Update an existing Action Connection request body (required)
+   * @param connectionId The ID of the Action Connection. (required)
+   * @param body Update an existing Action Connection request body. (required)
    * @return UpdateActionConnectionResponse
    * @throws ApiException if fails to make API call
    */
@@ -481,8 +481,8 @@ public class ActionConnectionApi {
    *
    * <p>See {@link #updateActionConnectionWithHttpInfoAsync}.
    *
-   * @param connectionId The ID of the action connection (required)
-   * @param body Update an existing Action Connection request body (required)
+   * @param connectionId The ID of the Action Connection. (required)
+   * @param body Update an existing Action Connection request body. (required)
    * @return CompletableFuture&lt;UpdateActionConnectionResponse&gt;
    */
   public CompletableFuture<UpdateActionConnectionResponse> updateActionConnectionAsync(
@@ -497,15 +497,15 @@ public class ActionConnectionApi {
   /**
    * Update an existing Action Connection
    *
-   * @param connectionId The ID of the action connection (required)
-   * @param body Update an existing Action Connection request body (required)
+   * @param connectionId The ID of the Action Connection. (required)
+   * @param body Update an existing Action Connection request body. (required)
    * @return ApiResponse&lt;UpdateActionConnectionResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> Successfully updated Action Connection </td><td>  -  </td></tr>
+   *       <tr><td> 200 </td><td> Successfully updated an Action Connection. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
@@ -560,8 +560,8 @@ public class ActionConnectionApi {
    *
    * <p>See {@link #updateActionConnectionWithHttpInfo}.
    *
-   * @param connectionId The ID of the action connection (required)
-   * @param body Update an existing Action Connection request body (required)
+   * @param connectionId The ID of the Action Connection. (required)
+   * @param body Update an existing Action Connection request body. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;UpdateActionConnectionResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<UpdateActionConnectionResponse>>
