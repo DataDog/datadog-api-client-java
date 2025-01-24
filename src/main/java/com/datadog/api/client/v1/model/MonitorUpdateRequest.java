@@ -327,11 +327,10 @@ public class MonitorUpdateRequest {
    * unique identifiers for all roles can be pulled from the <a
    * href="https://docs.datadoghq.com/api/latest/roles/#list-roles">Roles API</a> and are located in
    * the <code>data.id</code> field. Editing a monitor includes any updates to the monitor
-   * configuration, monitor deletion, and muting of the monitor for any amount of time. <code>
-   * restricted_roles</code> is the successor of <code>locked</code>. For more information about
-   * <code>locked</code> and <code>restricted_roles</code>, see the <a
-   * href="https://docs.datadoghq.com/monitors/guide/monitor_api_options/#permissions-options">monitor
-   * options docs</a>.
+   * configuration, monitor deletion, and muting of the monitor for any amount of time. You can use
+   * the <a href="https://docs.datadoghq.com/api/latest/restriction-policies/">Restriction Policies
+   * API</a> to manage write authorization for individual monitors by teams and users, in addition
+   * to roles.
    *
    * @return restrictedRoles
    */
