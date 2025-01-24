@@ -128,6 +128,11 @@ jobs:
           java-version: ${{ matrix.java-version }}
           distribution: "temurin"
           cache: "maven"
+      - name: Configure Datadog Test Optimization
+        uses: datadog/test-visibility-github-action@v2
+        with:
+          languages: java
+          api_key: ${{ secrets.DD_CLIENT_API_KEY }}
       - name: Test
         run: ./run-tests.sh
 
