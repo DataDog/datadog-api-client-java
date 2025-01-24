@@ -54,7 +54,7 @@
                         <version>3.0.0-M5</version>
                         <configuration>
                             <runOrder>random</runOrder>
-                            <argLine>-Ddd.integration.junit.enabled=true -Ddd.prioritization.type=ENSURE_TRACE -Ddd.jmxfetch.enabled=false -javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber} --add-exports java.base/sun.security.x509=ALL-UNNAMED --add-opens java.base/sun.net.www.protocol.https=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED</argLine>
+                            <argLine>-Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber} --add-exports java.base/sun.security.x509=ALL-UNNAMED --add-opens java.base/sun.net.www.protocol.https=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED</argLine>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -177,7 +177,7 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <runOrder>random</runOrder>
-                    <argLine>-Ddd.integration.junit.enabled=true -Ddd.prioritization.type=ENSURE_TRACE -Ddd.jmxfetch.enabled=false -javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber}</argLine>
+                    <argLine>-Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber}</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -191,23 +191,6 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                            <artifactItem>
-                                <groupId>com.datadoghq</groupId>
-                                <artifactId>dd-java-agent</artifactId>
-                                <version>${dd-java-agent-version}</version>
-                                <outputDirectory>${project.build.directory}</outputDirectory>
-                            </artifactItem>
-                            </artifactItems>
                         </configuration>
                     </execution>
                 </executions>
@@ -635,7 +618,7 @@
         <jakarta-annotation-version>2.1.0</jakarta-annotation-version>
         <scribejava-version>8.3.1</scribejava-version>
         <junit-version>4.13.2</junit-version>
-        <dd-java-agent-version>1.41.1</dd-java-agent-version>
+        <dd-java-agent-version>1.45.2</dd-java-agent-version>
         <cucumber-version>7.2.3</cucumber-version>
         <project.scm.id>github</project.scm.id>
     </properties>
