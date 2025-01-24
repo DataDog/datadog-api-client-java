@@ -135,6 +135,8 @@ jobs:
           api_key: ${{ secrets.DD_CLIENT_API_KEY }}
       - name: Test
         run: ./run-tests.sh
+        env:
+          DD_CIVISIBILITY_COMPILER_PLUGIN_AUTO_CONFIGURATION_ENABLED: "false"
 
   examples:
     runs-on: ubuntu-latest
