@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Patch_a_signal_based_rule_returns_Bad_Request_response-1737539435\",\"selectors\":{\"query\":\"env:test\",\"rule_types\":[\"signal_correlation\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"]},\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/signals/notification_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"urx-vcd-58d\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1737539435658,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1737539435658,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Test-Patch_a_signal_based_rule_returns_Bad_Request_response-1737539435\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a85afce0-0d29-afc4-bbb4-59317a7479c2"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Rule 1\",\"selectors\":{\"query\":\"(source:production_service OR env:prod)\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_findings\"},\"targets\":[\"@john.doe@email.com\"],\"time_aggregation\":86400},\"id\":\"aaa-bbb-ccc\",\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security/signals/notification_rules/urx-vcd-58d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"input_validation_error(Field 'data.attributes.version' is invalid: Specify the notification rule version to update, it cannot be 0.)\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b36f2974-fa13-04dd-b7f7-ea68d9475efd"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/signals/notification_rules/urx-vcd-58d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "284d6f25-21c9-5253-0bab-9accac95b745"
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Patch_a_signal_based_rule_returns_Notification_rule_successfully_patched_response-1737539437\",\"selectors\":{\"query\":\"env:test\",\"rule_types\":[\"signal_correlation\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"]},\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/signals/notification_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"h6x-nyx-fkm\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1737539437401,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1737539437401,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Test-Patch_a_signal_based_rule_returns_Notification_rule_successfully_patched_response-1737539437\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3eb7e8c4-d487-ba87-c770-e7808401c4ec"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Rule 1\",\"selectors\":{\"query\":\"(source:production_service OR env:prod)\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_findings\"},\"targets\":[\"@john.doe@email.com\"],\"time_aggregation\":86400,\"version\":1},\"id\":\"aaa-bbb-ccc\",\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security/signals/notification_rules/h6x-nyx-fkm",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"h6x-nyx-fkm\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1737539437401,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1737539437810,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Rule 1\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"query\":\"(source:production_service OR env:prod)\",\"trigger_source\":\"security_findings\"},\"targets\":[\"@john.doe@email.com\"],\"time_aggregation\":86400,\"version\":2}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f4aa973f-45ec-fc59-24de-6ca7ad03345c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/signals/notification_rules/h6x-nyx-fkm",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8f4400e7-2104-8b85-1569-048ed64694c7"
+  }
+]
