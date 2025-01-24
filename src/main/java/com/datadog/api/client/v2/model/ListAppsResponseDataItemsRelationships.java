@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ListAppsResponseDataItemsRelationships</code> object. */
+/** The app's publication information. */
 @JsonPropertyOrder({ListAppsResponseDataItemsRelationships.JSON_PROPERTY_DEPLOYMENT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class ListAppsResponseDataItemsRelationships {
   }
 
   /**
-   * The definition of <code>DeploymentRelationship</code> object.
+   * Information pointing to the app's publication status.
    *
    * @return deployment
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>UpdateAppRequest</code> object. */
+/** A request object for updating an existing app. */
 @JsonPropertyOrder({UpdateAppRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,8 @@ public class UpdateAppRequest {
   }
 
   /**
-   * The definition of <code>UpdateAppRequestData</code> object.
+   * The data object containing the new app definition. Any fields not included in the request
+   * remain unchanged.
    *
    * @return data
    */

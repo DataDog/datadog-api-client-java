@@ -16,8 +16,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The definition of <code>CreateAppResponseData</code> object. */
+/** The data object containing the app ID. */
 @JsonPropertyOrder({
   CreateAppResponseData.JSON_PROPERTY_ID,
   CreateAppResponseData.JSON_PROPERTY_TYPE
@@ -27,60 +28,60 @@ import java.util.Objects;
 public class CreateAppResponseData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private CreateAppResponseDataType type = CreateAppResponseDataType.APPDEFINITIONS;
+  private AppDefinitionType type = AppDefinitionType.APPDEFINITIONS;
 
   public CreateAppResponseData() {}
 
   @JsonCreator
   public CreateAppResponseData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) CreateAppResponseDataType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AppDefinitionType type) {
     this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public CreateAppResponseData id(String id) {
+  public CreateAppResponseData id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The <code>data</code> <code>id</code>.
+   * The ID of the created app.
    *
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public CreateAppResponseData type(CreateAppResponseDataType type) {
+  public CreateAppResponseData type(AppDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>CreateAppResponseDataType</code> object.
+   * The app definition type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CreateAppResponseDataType getType() {
+  public AppDefinitionType getType() {
     return type;
   }
 
-  public void setType(CreateAppResponseDataType type) {
+  public void setType(AppDefinitionType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

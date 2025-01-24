@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>DeploymentRelationship</code> object. */
+/** Information pointing to the app's publication status. */
 @JsonPropertyOrder({
   DeploymentRelationship.JSON_PROPERTY_DATA,
   DeploymentRelationship.JSON_PROPERTY_META
@@ -29,7 +29,7 @@ public class DeploymentRelationship {
   private DeploymentRelationshipData data;
 
   public static final String JSON_PROPERTY_META = "meta";
-  private DeploymentRelationshipMeta meta;
+  private DeploymentMetadata meta;
 
   public DeploymentRelationship data(DeploymentRelationshipData data) {
     this.data = data;
@@ -38,7 +38,7 @@ public class DeploymentRelationship {
   }
 
   /**
-   * The definition of <code>DeploymentRelationshipData</code> object.
+   * Data object containing the deployment ID.
    *
    * @return data
    */
@@ -53,25 +53,25 @@ public class DeploymentRelationship {
     this.data = data;
   }
 
-  public DeploymentRelationship meta(DeploymentRelationshipMeta meta) {
+  public DeploymentRelationship meta(DeploymentMetadata meta) {
     this.meta = meta;
     this.unparsed |= meta.unparsed;
     return this;
   }
 
   /**
-   * The definition of <code>DeploymentRelationshipMeta</code> object.
+   * Metadata object containing the publication creation information.
    *
    * @return meta
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public DeploymentRelationshipMeta getMeta() {
+  public DeploymentMetadata getMeta() {
     return meta;
   }
 
-  public void setMeta(DeploymentRelationshipMeta meta) {
+  public void setMeta(DeploymentMetadata meta) {
     this.meta = meta;
   }
 

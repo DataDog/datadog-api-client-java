@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>UpdateAppResponse</code> object. */
+/** The response object after an app is successfully updated. */
 @JsonPropertyOrder({
   UpdateAppResponse.JSON_PROPERTY_DATA,
   UpdateAppResponse.JSON_PROPERTY_INCLUDED,
@@ -33,13 +33,13 @@ public class UpdateAppResponse {
   private UpdateAppResponseData data;
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<DeploymentIncluded> included = null;
+  private List<Deployment> included = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private AppMeta meta;
 
   public static final String JSON_PROPERTY_RELATIONSHIP = "relationship";
-  private UpdateAppResponseRelationship relationship;
+  private AppRelationship relationship;
 
   public UpdateAppResponse data(UpdateAppResponseData data) {
     this.data = data;
@@ -48,7 +48,7 @@ public class UpdateAppResponse {
   }
 
   /**
-   * The definition of <code>UpdateAppResponseData</code> object.
+   * The data object containing the updated app definition.
    *
    * @return data
    */
@@ -63,15 +63,15 @@ public class UpdateAppResponse {
     this.data = data;
   }
 
-  public UpdateAppResponse included(List<DeploymentIncluded> included) {
+  public UpdateAppResponse included(List<Deployment> included) {
     this.included = included;
-    for (DeploymentIncluded item : included) {
+    for (Deployment item : included) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public UpdateAppResponse addIncludedItem(DeploymentIncluded includedItem) {
+  public UpdateAppResponse addIncludedItem(Deployment includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
     }
@@ -81,18 +81,18 @@ public class UpdateAppResponse {
   }
 
   /**
-   * The <code>UpdateAppResponse</code> <code>included</code>.
+   * Data on the version of the app that was published.
    *
    * @return included
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DeploymentIncluded> getIncluded() {
+  public List<Deployment> getIncluded() {
     return included;
   }
 
-  public void setIncluded(List<DeploymentIncluded> included) {
+  public void setIncluded(List<Deployment> included) {
     this.included = included;
   }
 
@@ -103,7 +103,7 @@ public class UpdateAppResponse {
   }
 
   /**
-   * The definition of <code>AppMeta</code> object.
+   * Metadata of an app.
    *
    * @return meta
    */
@@ -118,25 +118,25 @@ public class UpdateAppResponse {
     this.meta = meta;
   }
 
-  public UpdateAppResponse relationship(UpdateAppResponseRelationship relationship) {
+  public UpdateAppResponse relationship(AppRelationship relationship) {
     this.relationship = relationship;
     this.unparsed |= relationship.unparsed;
     return this;
   }
 
   /**
-   * The definition of <code>UpdateAppResponseRelationship</code> object.
+   * The app's publication relationship and custom connections.
    *
    * @return relationship
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public UpdateAppResponseRelationship getRelationship() {
+  public AppRelationship getRelationship() {
     return relationship;
   }
 
-  public void setRelationship(UpdateAppResponseRelationship relationship) {
+  public void setRelationship(AppRelationship relationship) {
     this.relationship = relationship;
   }
 

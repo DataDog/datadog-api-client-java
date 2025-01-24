@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>DeleteAppsResponse</code> object. */
+/** The response object after multiple apps are successfully deleted. */
 @JsonPropertyOrder({DeleteAppsResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,7 +45,7 @@ public class DeleteAppsResponse {
   }
 
   /**
-   * The <code>DeleteAppsResponse</code> <code>data</code>.
+   * An array of objects containing the IDs of the deleted apps.
    *
    * @return data
    */

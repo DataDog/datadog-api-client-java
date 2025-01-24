@@ -19,7 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ComponentGrid</code> object. */
+/**
+ * A grid component. The grid component is the root canvas for an app and contains all other
+ * components.
+ */
 @JsonPropertyOrder({
   ComponentGrid.JSON_PROPERTY_EVENTS,
   ComponentGrid.JSON_PROPERTY_ID,
@@ -44,7 +47,7 @@ public class ComponentGrid {
   private ComponentGridProperties properties;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ComponentGridType type;
+  private ComponentGridType type = ComponentGridType.GRID;
 
   public ComponentGrid() {}
 
@@ -79,7 +82,7 @@ public class ComponentGrid {
   }
 
   /**
-   * The <code>ComponentGrid</code> <code>events</code>.
+   * Events to listen for on the grid component.
    *
    * @return events
    */
@@ -100,7 +103,8 @@ public class ComponentGrid {
   }
 
   /**
-   * The <code>ComponentGrid</code> <code>id</code>.
+   * The ID of the grid component. This property is deprecated; use <code>name</code> to identify
+   * individual components instead.
    *
    * @return id
    */
@@ -121,7 +125,7 @@ public class ComponentGrid {
   }
 
   /**
-   * The <code>ComponentGrid</code> <code>name</code>.
+   * A unique identifier for this grid component. This name is also visible in the app editor.
    *
    * @return name
    */
@@ -142,7 +146,7 @@ public class ComponentGrid {
   }
 
   /**
-   * The definition of <code>ComponentGridProperties</code> object.
+   * Properties of a grid component.
    *
    * @return properties
    */
@@ -163,7 +167,7 @@ public class ComponentGrid {
   }
 
   /**
-   * The definition of <code>ComponentGridType</code> object.
+   * The grid component type.
    *
    * @return type
    */

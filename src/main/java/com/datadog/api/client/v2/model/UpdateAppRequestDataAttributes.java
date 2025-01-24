@@ -18,15 +18,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>UpdateAppRequestDataAttributes</code> object. */
+/** App definition attributes to be updated, such as name, description, and components. */
 @JsonPropertyOrder({
   UpdateAppRequestDataAttributes.JSON_PROPERTY_COMPONENTS,
   UpdateAppRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
   UpdateAppRequestDataAttributes.JSON_PROPERTY_EMBEDDED_QUERIES,
-  UpdateAppRequestDataAttributes.JSON_PROPERTY_INPUT_SCHEMA,
   UpdateAppRequestDataAttributes.JSON_PROPERTY_NAME,
   UpdateAppRequestDataAttributes.JSON_PROPERTY_ROOT_INSTANCE_NAME,
-  UpdateAppRequestDataAttributes.JSON_PROPERTY_SCRIPTS,
   UpdateAppRequestDataAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
@@ -42,17 +40,11 @@ public class UpdateAppRequestDataAttributes {
   public static final String JSON_PROPERTY_EMBEDDED_QUERIES = "embeddedQueries";
   private List<Query> embeddedQueries = null;
 
-  public static final String JSON_PROPERTY_INPUT_SCHEMA = "inputSchema";
-  private InputSchema inputSchema;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_ROOT_INSTANCE_NAME = "rootInstanceName";
   private String rootInstanceName;
-
-  public static final String JSON_PROPERTY_SCRIPTS = "scripts";
-  private List<Script> scripts = null;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -75,7 +67,8 @@ public class UpdateAppRequestDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>components</code>.
+   * The new UI components that make up the app. If this field is set, all existing components are
+   * replaced with the new components under this field.
    *
    * @return components
    */
@@ -96,7 +89,7 @@ public class UpdateAppRequestDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>description</code>.
+   * The new human-readable description for the app.
    *
    * @return description
    */
@@ -129,7 +122,8 @@ public class UpdateAppRequestDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>embeddedQueries</code>.
+   * The new array of queries, such as external actions and state variables, that the app uses. If
+   * this field is set, all existing queries are replaced with the new queries under this field.
    *
    * @return embeddedQueries
    */
@@ -144,35 +138,13 @@ public class UpdateAppRequestDataAttributes {
     this.embeddedQueries = embeddedQueries;
   }
 
-  public UpdateAppRequestDataAttributes inputSchema(InputSchema inputSchema) {
-    this.inputSchema = inputSchema;
-    this.unparsed |= inputSchema.unparsed;
-    return this;
-  }
-
-  /**
-   * The definition of <code>InputSchema</code> object.
-   *
-   * @return inputSchema
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INPUT_SCHEMA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public InputSchema getInputSchema() {
-    return inputSchema;
-  }
-
-  public void setInputSchema(InputSchema inputSchema) {
-    this.inputSchema = inputSchema;
-  }
-
   public UpdateAppRequestDataAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * The <code>attributes</code> <code>name</code>.
+   * The new name of the app.
    *
    * @return name
    */
@@ -193,7 +165,8 @@ public class UpdateAppRequestDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>rootInstanceName</code>.
+   * The new name of the root component of the app. This must be a <code>grid</code> component that
+   * contains all other components.
    *
    * @return rootInstanceName
    */
@@ -206,39 +179,6 @@ public class UpdateAppRequestDataAttributes {
 
   public void setRootInstanceName(String rootInstanceName) {
     this.rootInstanceName = rootInstanceName;
-  }
-
-  public UpdateAppRequestDataAttributes scripts(List<Script> scripts) {
-    this.scripts = scripts;
-    for (Script item : scripts) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public UpdateAppRequestDataAttributes addScriptsItem(Script scriptsItem) {
-    if (this.scripts == null) {
-      this.scripts = new ArrayList<>();
-    }
-    this.scripts.add(scriptsItem);
-    this.unparsed |= scriptsItem.unparsed;
-    return this;
-  }
-
-  /**
-   * The <code>attributes</code> <code>scripts</code>.
-   *
-   * @return scripts
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SCRIPTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Script> getScripts() {
-    return scripts;
-  }
-
-  public void setScripts(List<Script> scripts) {
-    this.scripts = scripts;
   }
 
   public UpdateAppRequestDataAttributes tags(List<String> tags) {
@@ -255,7 +195,8 @@ public class UpdateAppRequestDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>tags</code>.
+   * The new list of tags for the app, which can be used to filter apps. If this field is set, any
+   * existing tags not included in the request are removed.
    *
    * @return tags
    */
@@ -330,10 +271,8 @@ public class UpdateAppRequestDataAttributes {
     return Objects.equals(this.components, updateAppRequestDataAttributes.components)
         && Objects.equals(this.description, updateAppRequestDataAttributes.description)
         && Objects.equals(this.embeddedQueries, updateAppRequestDataAttributes.embeddedQueries)
-        && Objects.equals(this.inputSchema, updateAppRequestDataAttributes.inputSchema)
         && Objects.equals(this.name, updateAppRequestDataAttributes.name)
         && Objects.equals(this.rootInstanceName, updateAppRequestDataAttributes.rootInstanceName)
-        && Objects.equals(this.scripts, updateAppRequestDataAttributes.scripts)
         && Objects.equals(this.tags, updateAppRequestDataAttributes.tags)
         && Objects.equals(
             this.additionalProperties, updateAppRequestDataAttributes.additionalProperties);
@@ -345,10 +284,8 @@ public class UpdateAppRequestDataAttributes {
         components,
         description,
         embeddedQueries,
-        inputSchema,
         name,
         rootInstanceName,
-        scripts,
         tags,
         additionalProperties);
   }
@@ -360,10 +297,8 @@ public class UpdateAppRequestDataAttributes {
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    embeddedQueries: ").append(toIndentedString(embeddedQueries)).append("\n");
-    sb.append("    inputSchema: ").append(toIndentedString(inputSchema)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rootInstanceName: ").append(toIndentedString(rootInstanceName)).append("\n");
-    sb.append("    scripts: ").append(toIndentedString(scripts)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ListAppsResponse</code> object. */
+/** A paginated list of apps matching the specified filters and sorting. */
 @JsonPropertyOrder({
   ListAppsResponse.JSON_PROPERTY_DATA,
   ListAppsResponse.JSON_PROPERTY_INCLUDED,
@@ -32,7 +32,7 @@ public class ListAppsResponse {
   private List<ListAppsResponseDataItems> data = null;
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<DeploymentIncluded> included = null;
+  private List<Deployment> included = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private ListAppsResponseMeta meta;
@@ -55,7 +55,7 @@ public class ListAppsResponse {
   }
 
   /**
-   * The <code>ListAppsResponse</code> <code>data</code>.
+   * An array of app definitions.
    *
    * @return data
    */
@@ -70,15 +70,15 @@ public class ListAppsResponse {
     this.data = data;
   }
 
-  public ListAppsResponse included(List<DeploymentIncluded> included) {
+  public ListAppsResponse included(List<Deployment> included) {
     this.included = included;
-    for (DeploymentIncluded item : included) {
+    for (Deployment item : included) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public ListAppsResponse addIncludedItem(DeploymentIncluded includedItem) {
+  public ListAppsResponse addIncludedItem(Deployment includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
     }
@@ -88,18 +88,18 @@ public class ListAppsResponse {
   }
 
   /**
-   * The <code>ListAppsResponse</code> <code>included</code>.
+   * Data on the version of the app that was published.
    *
    * @return included
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DeploymentIncluded> getIncluded() {
+  public List<Deployment> getIncluded() {
     return included;
   }
 
-  public void setIncluded(List<DeploymentIncluded> included) {
+  public void setIncluded(List<Deployment> included) {
     this.included = included;
   }
 
@@ -110,7 +110,7 @@ public class ListAppsResponse {
   }
 
   /**
-   * The definition of <code>ListAppsResponseMeta</code> object.
+   * Pagination metadata.
    *
    * @return meta
    */

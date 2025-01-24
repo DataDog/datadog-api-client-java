@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>ComponentGridProperties</code> object. */
+/** Properties of a grid component. */
 @JsonPropertyOrder({
   ComponentGridProperties.JSON_PROPERTY_BACKGROUND_COLOR,
   ComponentGridProperties.JSON_PROPERTY_CHILDREN,
@@ -43,7 +43,7 @@ public class ComponentGridProperties {
   }
 
   /**
-   * The <code>ComponentGridProperties</code> <code>backgroundColor</code>.
+   * The background color of the grid.
    *
    * @return backgroundColor
    */
@@ -76,7 +76,7 @@ public class ComponentGridProperties {
   }
 
   /**
-   * The <code>ComponentGridProperties</code> <code>children</code>.
+   * The child components of the grid.
    *
    * @return children
    */
@@ -98,7 +98,8 @@ public class ComponentGridProperties {
   }
 
   /**
-   * The definition of <code>ComponentGridPropertiesIsVisible</code> object.
+   * Whether the grid component and its children are visible. If a string, it must be a valid
+   * JavaScript expression that evaluates to a boolean.
    *
    * @return isVisible
    */

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>CreateAppRequest</code> object. */
+/** A request object for creating a new app. */
 @JsonPropertyOrder({CreateAppRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -32,7 +32,7 @@ public class CreateAppRequest {
   }
 
   /**
-   * The definition of <code>CreateAppRequestData</code> object.
+   * The data object containing the app definition.
    *
    * @return data
    */

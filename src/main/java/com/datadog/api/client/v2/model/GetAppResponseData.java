@@ -16,8 +16,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The definition of <code>GetAppResponseData</code> object. */
+/** The data object containing the app definition. */
 @JsonPropertyOrder({
   GetAppResponseData.JSON_PROPERTY_ATTRIBUTES,
   GetAppResponseData.JSON_PROPERTY_ID,
@@ -31,10 +32,10 @@ public class GetAppResponseData {
   private GetAppResponseDataAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private GetAppResponseDataType type = GetAppResponseDataType.APPDEFINITIONS;
+  private AppDefinitionType type = AppDefinitionType.APPDEFINITIONS;
 
   public GetAppResponseData() {}
 
@@ -42,8 +43,8 @@ public class GetAppResponseData {
   public GetAppResponseData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           GetAppResponseDataAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GetAppResponseDataType type) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AppDefinitionType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     this.id = id;
@@ -58,7 +59,7 @@ public class GetAppResponseData {
   }
 
   /**
-   * The definition of <code>GetAppResponseDataAttributes</code> object.
+   * The app definition attributes, such as name, description, and components.
    *
    * @return attributes
    */
@@ -72,44 +73,44 @@ public class GetAppResponseData {
     this.attributes = attributes;
   }
 
-  public GetAppResponseData id(String id) {
+  public GetAppResponseData id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The <code>data</code> <code>id</code>.
+   * The ID of the app.
    *
    * @return id
    */
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  public GetAppResponseData type(GetAppResponseDataType type) {
+  public GetAppResponseData type(AppDefinitionType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The definition of <code>GetAppResponseDataType</code> object.
+   * The app definition type.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GetAppResponseDataType getType() {
+  public AppDefinitionType getType() {
     return type;
   }
 
-  public void setType(GetAppResponseDataType type) {
+  public void setType(AppDefinitionType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }

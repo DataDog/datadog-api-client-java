@@ -20,7 +20,10 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The definition of <code>Component</code> object. */
+/**
+ * <a href="https://docs.datadoghq.com/service_management/app_builder/components/">Definition of a
+ * UI component in the app</a>
+ */
 @JsonPropertyOrder({
   Component.JSON_PROPERTY_EVENTS,
   Component.JSON_PROPERTY_ID,
@@ -80,7 +83,7 @@ public class Component {
   }
 
   /**
-   * The <code>Component</code> <code>events</code>.
+   * Events to listen for on the UI component.
    *
    * @return events
    */
@@ -101,7 +104,8 @@ public class Component {
   }
 
   /**
-   * The <code>Component</code> <code>id</code>.
+   * The ID of the UI component. This property is deprecated; use <code>name</code> to identify
+   * individual components instead.
    *
    * @return id
    */
@@ -132,7 +136,7 @@ public class Component {
   }
 
   /**
-   * The <code>Component</code> <code>name</code>.
+   * A unique identifier for this UI component. This name is also visible in the app editor.
    *
    * @return name
    */
@@ -153,7 +157,10 @@ public class Component {
   }
 
   /**
-   * The definition of <code>ComponentProperties</code> object.
+   * Properties of a UI component. Different component types can have their own additional unique
+   * properties. See the <a
+   * href="https://docs.datadoghq.com/service_management/app_builder/components/">components
+   * documentation</a> for more detail on each component type and its properties.
    *
    * @return properties
    */
@@ -174,7 +181,7 @@ public class Component {
   }
 
   /**
-   * The definition of <code>ComponentType</code> object.
+   * The UI component type.
    *
    * @return type
    */

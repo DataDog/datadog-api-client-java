@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>AppBuilderEvent</code> object. */
+/** An event on a UI component that triggers a response or action in an app. */
 @JsonPropertyOrder({AppBuilderEvent.JSON_PROPERTY_NAME, AppBuilderEvent.JSON_PROPERTY_TYPE})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

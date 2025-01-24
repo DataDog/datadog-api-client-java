@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"884b37bc-71b8-40bc-8967-12684ec7f3c4\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"7b5a5fec-3026-47a9-acca-e01dc557af0a\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "820bad24-1ae4-7d45-b443-7591eb8052bd"
+    "id": "820bad24-1ae4-7d45-b443-7591eb8052be"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":[{\"id\":\"884b37bc-71b8-40bc-8967-12684ec7f3c4\",\"type\":\"appDefinitions\"}]}"
+        "json": "{\"data\":[{\"id\":\"7b5a5fec-3026-47a9-acca-e01dc557af0a\",\"type\":\"appDefinitions\"}]}"
       },
       "headers": {},
       "method": "DELETE",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"id\":\"884b37bc-71b8-40bc-8967-12684ec7f3c4\",\"type\":\"appDefinitions\"}]}",
+      "body": "{\"data\":[{\"id\":\"7b5a5fec-3026-47a9-acca-e01dc557af0a\",\"type\":\"appDefinitions\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,18 +57,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a5d24919-c4f7-470d-cb66-19b89e020b7a"
+    "id": "cca5f80f-5590-2343-08b8-636c13c1e347"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/app-builder/apps/884b37bc-71b8-40bc-8967-12684ec7f3c4",
+      "path": "/api/v2/app-builder/apps/7b5a5fec-3026-47a9-acca-e01dc557af0a",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"detail\":\"app not found\"}]}",
+      "body": "{\"errors\":[{\"title\":\"app not found\",\"detail\":\"app not found\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -83,6 +83,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "11bf9896-67b9-b708-494f-737f49e7dc3f"
+    "id": "e677c7b8-0fdc-51c1-e317-293ca94515de"
   }
 ]

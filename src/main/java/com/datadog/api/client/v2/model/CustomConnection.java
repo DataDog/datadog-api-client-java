@@ -15,8 +15,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
-/** The definition of <code>CustomConnection</code> object. */
+/** A custom connection used by an app. */
 @JsonPropertyOrder({
   CustomConnection.JSON_PROPERTY_ATTRIBUTES,
   CustomConnection.JSON_PROPERTY_ID,
@@ -30,7 +31,7 @@ public class CustomConnection {
   private CustomConnectionAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private UUID id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private CustomConnectionType type = CustomConnectionType.CUSTOM_CONNECTIONS;
@@ -42,7 +43,7 @@ public class CustomConnection {
   }
 
   /**
-   * The definition of <code>CustomConnectionAttributes</code> object.
+   * The custom connection attributes.
    *
    * @return attributes
    */
@@ -57,24 +58,24 @@ public class CustomConnection {
     this.attributes = attributes;
   }
 
-  public CustomConnection id(String id) {
+  public CustomConnection id(UUID id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The <code>CustomConnection</code> <code>id</code>.
+   * The ID of the custom connection.
    *
    * @return id
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
@@ -85,7 +86,7 @@ public class CustomConnection {
   }
 
   /**
-   * The definition of <code>CustomConnectionType</code> object.
+   * The custom connection type.
    *
    * @return type
    */
