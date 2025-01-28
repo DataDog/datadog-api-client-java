@@ -9,6 +9,8 @@ import com.datadog.api.client.v2.model.AssetType;
 import com.datadog.api.client.v2.model.BulkMuteFindingsRequest;
 import com.datadog.api.client.v2.model.BulkMuteFindingsResponse;
 import com.datadog.api.client.v2.model.ConvertJobResultsToSignalsRequest;
+import com.datadog.api.client.v2.model.CreateInboxRuleParameters;
+import com.datadog.api.client.v2.model.CreateMuteRuleParameters;
 import com.datadog.api.client.v2.model.CreateNotificationRuleParameters;
 import com.datadog.api.client.v2.model.Finding;
 import com.datadog.api.client.v2.model.FindingEvaluation;
@@ -17,13 +19,19 @@ import com.datadog.api.client.v2.model.FindingVulnerabilityType;
 import com.datadog.api.client.v2.model.GetFindingResponse;
 import com.datadog.api.client.v2.model.GetSBOMResponse;
 import com.datadog.api.client.v2.model.HistoricalJobResponse;
+import com.datadog.api.client.v2.model.InboxRuleResponse;
 import com.datadog.api.client.v2.model.JobCreateResponse;
 import com.datadog.api.client.v2.model.ListFindingsResponse;
 import com.datadog.api.client.v2.model.ListHistoricalJobsResponse;
 import com.datadog.api.client.v2.model.ListVulnerabilitiesResponse;
 import com.datadog.api.client.v2.model.ListVulnerableAssetsResponse;
+import com.datadog.api.client.v2.model.MuteRuleResponse;
 import com.datadog.api.client.v2.model.NotificationRuleResponse;
+import com.datadog.api.client.v2.model.PatchInboxRulesParameters;
+import com.datadog.api.client.v2.model.PatchMuteRuleParameters;
 import com.datadog.api.client.v2.model.PatchNotificationRuleParameters;
+import com.datadog.api.client.v2.model.ReorderInboxRulesParameters;
+import com.datadog.api.client.v2.model.ReorderMuteRulesParameters;
 import com.datadog.api.client.v2.model.RunHistoricalJobRequest;
 import com.datadog.api.client.v2.model.SecurityFilterCreateRequest;
 import com.datadog.api.client.v2.model.SecurityFilterResponse;
@@ -52,6 +60,8 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionCreateReques
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionResponse;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateRequest;
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionsResponse;
+import com.datadog.api.client.v2.model.UpdateInboxRuleParameters;
+import com.datadog.api.client.v2.model.UpdateMuteRuleParameters;
 import com.datadog.api.client.v2.model.VulnerabilityEcosystem;
 import com.datadog.api.client.v2.model.VulnerabilitySeverity;
 import com.datadog.api.client.v2.model.VulnerabilityStatus;
@@ -65,6 +75,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 @jakarta.annotation.Generated(
@@ -688,6 +699,300 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringRuleConvertResponse>() {});
+  }
+
+  /**
+   * Create a new inbox rule.
+   *
+   * <p>See {@link #createInboxRuleWithHttpInfo}.
+   *
+   * @param body Mandatory fields are the rule type and the required attributes: rule name, rule
+   *     details, and action. The rule details are composed of issue types and security rule types
+   *     on which the rule applies. Optional security rule IDs, severities, and a tag or attribute
+   *     query can be provided. The action is composed of the optional reason description.
+   *     (required)
+   * @return InboxRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InboxRuleResponse createInboxRule(CreateInboxRuleParameters body) throws ApiException {
+    return createInboxRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a new inbox rule.
+   *
+   * <p>See {@link #createInboxRuleWithHttpInfoAsync}.
+   *
+   * @param body Mandatory fields are the rule type and the required attributes: rule name, rule
+   *     details, and action. The rule details are composed of issue types and security rule types
+   *     on which the rule applies. Optional security rule IDs, severities, and a tag or attribute
+   *     query can be provided. The action is composed of the optional reason description.
+   *     (required)
+   * @return CompletableFuture&lt;InboxRuleResponse&gt;
+   */
+  public CompletableFuture<InboxRuleResponse> createInboxRuleAsync(CreateInboxRuleParameters body) {
+    return createInboxRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new inbox rule and return the created rule.
+   *
+   * @param body Mandatory fields are the rule type and the required attributes: rule name, rule
+   *     details, and action. The rule details are composed of issue types and security rule types
+   *     on which the rule applies. Optional security rule IDs, severities, and a tag or attribute
+   *     query can be provided. The action is composed of the optional reason description.
+   *     (required)
+   * @return ApiResponse&lt;InboxRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Successfully created the inbox rule </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<InboxRuleResponse> createInboxRuleWithHttpInfo(CreateInboxRuleParameters body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createInboxRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/inbox_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
+   * Create a new inbox rule.
+   *
+   * <p>See {@link #createInboxRuleWithHttpInfo}.
+   *
+   * @param body Mandatory fields are the rule type and the required attributes: rule name, rule
+   *     details, and action. The rule details are composed of issue types and security rule types
+   *     on which the rule applies. Optional security rule IDs, severities, and a tag or attribute
+   *     query can be provided. The action is composed of the optional reason description.
+   *     (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;InboxRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<InboxRuleResponse>> createInboxRuleWithHttpInfoAsync(
+      CreateInboxRuleParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/inbox_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
+   * Create a new mute rule.
+   *
+   * <p>See {@link #createMuteRuleWithHttpInfo}.
+   *
+   * @param body Mandatory fields are the rule type and the required attributes: rule name, rule
+   *     details, and action. The rule details are composed of issue types and security rule types
+   *     on which the rule applies. Optional security rule IDs, severities, and a tag or attribute
+   *     query can be provided. The action is composed of the reason for muting and the rule
+   *     expiration date, and optionally a description of the rule. (required)
+   * @return MuteRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MuteRuleResponse createMuteRule(CreateMuteRuleParameters body) throws ApiException {
+    return createMuteRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a new mute rule.
+   *
+   * <p>See {@link #createMuteRuleWithHttpInfoAsync}.
+   *
+   * @param body Mandatory fields are the rule type and the required attributes: rule name, rule
+   *     details, and action. The rule details are composed of issue types and security rule types
+   *     on which the rule applies. Optional security rule IDs, severities, and a tag or attribute
+   *     query can be provided. The action is composed of the reason for muting and the rule
+   *     expiration date, and optionally a description of the rule. (required)
+   * @return CompletableFuture&lt;MuteRuleResponse&gt;
+   */
+  public CompletableFuture<MuteRuleResponse> createMuteRuleAsync(CreateMuteRuleParameters body) {
+    return createMuteRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new mute rule and return the created rule.
+   *
+   * @param body Mandatory fields are the rule type and the required attributes: rule name, rule
+   *     details, and action. The rule details are composed of issue types and security rule types
+   *     on which the rule applies. Optional security rule IDs, severities, and a tag or attribute
+   *     query can be provided. The action is composed of the reason for muting and the rule
+   *     expiration date, and optionally a description of the rule. (required)
+   * @return ApiResponse&lt;MuteRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Successfully created the mute rule </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MuteRuleResponse> createMuteRuleWithHttpInfo(CreateMuteRuleParameters body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createMuteRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/mute_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.createMuteRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Create a new mute rule.
+   *
+   * <p>See {@link #createMuteRuleWithHttpInfo}.
+   *
+   * @param body Mandatory fields are the rule type and the required attributes: rule name, rule
+   *     details, and action. The rule details are composed of issue types and security rule types
+   *     on which the rule applies. Optional security rule IDs, severities, and a tag or attribute
+   *     query can be provided. The action is composed of the reason for muting and the rule
+   *     expiration date, and optionally a description of the rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MuteRuleResponse>> createMuteRuleWithHttpInfoAsync(
+      CreateMuteRuleParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createMuteRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/mute_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.createMuteRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
   }
 
   /**
@@ -1521,6 +1826,274 @@ public class SecurityMonitoringApi {
       builder =
           apiClient.createBuilder(
               "v2.SecurityMonitoringApi.deleteHistoricalJob",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an inbox rule.
+   *
+   * <p>See {@link #deleteInboxRuleWithHttpInfo}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteInboxRule(UUID inboxRuleId) throws ApiException {
+    deleteInboxRuleWithHttpInfo(inboxRuleId);
+  }
+
+  /**
+   * Delete an inbox rule.
+   *
+   * <p>See {@link #deleteInboxRuleWithHttpInfoAsync}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteInboxRuleAsync(UUID inboxRuleId) {
+    return deleteInboxRuleWithHttpInfoAsync(inboxRuleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an inbox rule
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Rule successfully deleted </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteInboxRuleWithHttpInfo(UUID inboxRuleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'inboxRuleId' is set
+    if (inboxRuleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'inboxRuleId' when calling deleteInboxRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}"
+            .replaceAll(
+                "\\{" + "inbox_rule_id" + "\\}", apiClient.escapeString(inboxRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an inbox rule.
+   *
+   * <p>See {@link #deleteInboxRuleWithHttpInfo}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteInboxRuleWithHttpInfoAsync(UUID inboxRuleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'inboxRuleId' is set
+    if (inboxRuleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'inboxRuleId' when calling deleteInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}"
+            .replaceAll(
+                "\\{" + "inbox_rule_id" + "\\}", apiClient.escapeString(inboxRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a mute rule.
+   *
+   * <p>See {@link #deleteMuteRuleWithHttpInfo}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteMuteRule(UUID muteRuleId) throws ApiException {
+    deleteMuteRuleWithHttpInfo(muteRuleId);
+  }
+
+  /**
+   * Delete a mute rule.
+   *
+   * <p>See {@link #deleteMuteRuleWithHttpInfoAsync}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteMuteRuleAsync(UUID muteRuleId) {
+    return deleteMuteRuleWithHttpInfoAsync(muteRuleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a mute rule
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Rule successfully deleted </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteMuteRuleWithHttpInfo(UUID muteRuleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'muteRuleId' is set
+    if (muteRuleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'muteRuleId' when calling deleteMuteRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}"
+            .replaceAll(
+                "\\{" + "mute_rule_id" + "\\}", apiClient.escapeString(muteRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.deleteMuteRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a mute rule.
+   *
+   * <p>See {@link #deleteMuteRuleWithHttpInfo}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteMuteRuleWithHttpInfoAsync(UUID muteRuleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'muteRuleId' is set
+    if (muteRuleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'muteRuleId' when calling deleteMuteRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}"
+            .replaceAll(
+                "\\{" + "mute_rule_id" + "\\}", apiClient.escapeString(muteRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.deleteMuteRule",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -3112,6 +3685,500 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<HistoricalJobResponse>() {});
+  }
+
+  /**
+   * Get details of an inbox rule.
+   *
+   * <p>See {@link #getInboxRuleWithHttpInfo}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @return InboxRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InboxRuleResponse getInboxRule(UUID inboxRuleId) throws ApiException {
+    return getInboxRuleWithHttpInfo(inboxRuleId).getData();
+  }
+
+  /**
+   * Get details of an inbox rule.
+   *
+   * <p>See {@link #getInboxRuleWithHttpInfoAsync}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @return CompletableFuture&lt;InboxRuleResponse&gt;
+   */
+  public CompletableFuture<InboxRuleResponse> getInboxRuleAsync(UUID inboxRuleId) {
+    return getInboxRuleWithHttpInfoAsync(inboxRuleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of an inbox rule.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @return ApiResponse&lt;InboxRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Inbox rule details </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<InboxRuleResponse> getInboxRuleWithHttpInfo(UUID inboxRuleId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'inboxRuleId' is set
+    if (inboxRuleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'inboxRuleId' when calling getInboxRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}"
+            .replaceAll(
+                "\\{" + "inbox_rule_id" + "\\}", apiClient.escapeString(inboxRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
+   * Get details of an inbox rule.
+   *
+   * <p>See {@link #getInboxRuleWithHttpInfo}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;InboxRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<InboxRuleResponse>> getInboxRuleWithHttpInfoAsync(
+      UUID inboxRuleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'inboxRuleId' is set
+    if (inboxRuleId == null) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'inboxRuleId' when calling getInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}"
+            .replaceAll(
+                "\\{" + "inbox_rule_id" + "\\}", apiClient.escapeString(inboxRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
+   * Get the ordered list of inbox rules.
+   *
+   * <p>See {@link #getInboxRulesWithHttpInfo}.
+   *
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object getInboxRules() throws ApiException {
+    return getInboxRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get the ordered list of inbox rules.
+   *
+   * <p>See {@link #getInboxRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;Object&gt;
+   */
+  public CompletableFuture<Object> getInboxRulesAsync() {
+    return getInboxRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns the ordered list of inbox rules in the pipeline (first match applies)
+   *
+   * @return ApiResponse&lt;Object&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> The list of inbox rules </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Object> getInboxRulesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/inbox_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getInboxRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Get the ordered list of inbox rules.
+   *
+   * <p>See {@link #getInboxRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Object>> getInboxRulesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/inbox_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getInboxRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Get details of a mute rule.
+   *
+   * <p>See {@link #getMuteRuleWithHttpInfo}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @return MuteRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MuteRuleResponse getMuteRule(UUID muteRuleId) throws ApiException {
+    return getMuteRuleWithHttpInfo(muteRuleId).getData();
+  }
+
+  /**
+   * Get details of a mute rule.
+   *
+   * <p>See {@link #getMuteRuleWithHttpInfoAsync}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @return CompletableFuture&lt;MuteRuleResponse&gt;
+   */
+  public CompletableFuture<MuteRuleResponse> getMuteRuleAsync(UUID muteRuleId) {
+    return getMuteRuleWithHttpInfoAsync(muteRuleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the details of a mute rule.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @return ApiResponse&lt;MuteRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Mute rule details </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MuteRuleResponse> getMuteRuleWithHttpInfo(UUID muteRuleId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'muteRuleId' is set
+    if (muteRuleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'muteRuleId' when calling getMuteRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}"
+            .replaceAll(
+                "\\{" + "mute_rule_id" + "\\}", apiClient.escapeString(muteRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getMuteRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Get details of a mute rule.
+   *
+   * <p>See {@link #getMuteRuleWithHttpInfo}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MuteRuleResponse>> getMuteRuleWithHttpInfoAsync(
+      UUID muteRuleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'muteRuleId' is set
+    if (muteRuleId == null) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'muteRuleId' when calling getMuteRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}"
+            .replaceAll(
+                "\\{" + "mute_rule_id" + "\\}", apiClient.escapeString(muteRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getMuteRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Get the ordered list of mute rules.
+   *
+   * <p>See {@link #getMuteRulesWithHttpInfo}.
+   *
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object getMuteRules() throws ApiException {
+    return getMuteRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get the ordered list of mute rules.
+   *
+   * <p>See {@link #getMuteRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;Object&gt;
+   */
+  public CompletableFuture<Object> getMuteRulesAsync() {
+    return getMuteRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns the ordered list of mute rules in the pipeline (first match applies)
+   *
+   * @return ApiResponse&lt;Object&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> The list of mute rules </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Object> getMuteRulesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/mute_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getMuteRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Get the ordered list of mute rules.
+   *
+   * <p>See {@link #getMuteRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Object>> getMuteRulesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/mute_rules";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getMuteRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
   }
 
   /** Manage optional parameters to getSBOM. */
@@ -7615,6 +8682,328 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Patch an inbox rule.
+   *
+   * <p>See {@link #patchInboxRuleWithHttpInfo}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @param body (required)
+   * @return InboxRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InboxRuleResponse patchInboxRule(UUID inboxRuleId, PatchInboxRulesParameters body)
+      throws ApiException {
+    return patchInboxRuleWithHttpInfo(inboxRuleId, body).getData();
+  }
+
+  /**
+   * Patch an inbox rule.
+   *
+   * <p>See {@link #patchInboxRuleWithHttpInfoAsync}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;InboxRuleResponse&gt;
+   */
+  public CompletableFuture<InboxRuleResponse> patchInboxRuleAsync(
+      UUID inboxRuleId, PatchInboxRulesParameters body) {
+    return patchInboxRuleWithHttpInfoAsync(inboxRuleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Partially update the inbox rule. All fields are optional; if a field is not provided, it is not
+   * updated.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @param body (required)
+   * @return ApiResponse&lt;InboxRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Inbox rule successfully patched </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> The server cannot process the request because it contains invalid data. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<InboxRuleResponse> patchInboxRuleWithHttpInfo(
+      UUID inboxRuleId, PatchInboxRulesParameters body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'inboxRuleId' is set
+    if (inboxRuleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'inboxRuleId' when calling patchInboxRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling patchInboxRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}"
+            .replaceAll(
+                "\\{" + "inbox_rule_id" + "\\}", apiClient.escapeString(inboxRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.patchInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
+   * Patch an inbox rule.
+   *
+   * <p>See {@link #patchInboxRuleWithHttpInfo}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;InboxRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<InboxRuleResponse>> patchInboxRuleWithHttpInfoAsync(
+      UUID inboxRuleId, PatchInboxRulesParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'inboxRuleId' is set
+    if (inboxRuleId == null) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'inboxRuleId' when calling patchInboxRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling patchInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}"
+            .replaceAll(
+                "\\{" + "inbox_rule_id" + "\\}", apiClient.escapeString(inboxRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.patchInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
+   * Patch a mute rule.
+   *
+   * <p>See {@link #patchMuteRuleWithHttpInfo}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @param body (required)
+   * @return MuteRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MuteRuleResponse patchMuteRule(UUID muteRuleId, PatchMuteRuleParameters body)
+      throws ApiException {
+    return patchMuteRuleWithHttpInfo(muteRuleId, body).getData();
+  }
+
+  /**
+   * Patch a mute rule.
+   *
+   * <p>See {@link #patchMuteRuleWithHttpInfoAsync}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;MuteRuleResponse&gt;
+   */
+  public CompletableFuture<MuteRuleResponse> patchMuteRuleAsync(
+      UUID muteRuleId, PatchMuteRuleParameters body) {
+    return patchMuteRuleWithHttpInfoAsync(muteRuleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Partially update the mute rule. All fields are optional; if a field is not provided, it is not
+   * updated.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @param body (required)
+   * @return ApiResponse&lt;MuteRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Mute rule successfully patched </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> The server cannot process the request because it contains invalid data. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MuteRuleResponse> patchMuteRuleWithHttpInfo(
+      UUID muteRuleId, PatchMuteRuleParameters body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'muteRuleId' is set
+    if (muteRuleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'muteRuleId' when calling patchMuteRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling patchMuteRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}"
+            .replaceAll(
+                "\\{" + "mute_rule_id" + "\\}", apiClient.escapeString(muteRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.patchMuteRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Patch a mute rule.
+   *
+   * <p>See {@link #patchMuteRuleWithHttpInfo}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MuteRuleResponse>> patchMuteRuleWithHttpInfoAsync(
+      UUID muteRuleId, PatchMuteRuleParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'muteRuleId' is set
+    if (muteRuleId == null) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'muteRuleId' when calling patchMuteRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling patchMuteRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}"
+            .replaceAll(
+                "\\{" + "mute_rule_id" + "\\}", apiClient.escapeString(muteRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.patchMuteRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
    * Patch a signal-based rule.
    *
    * <p>See {@link #patchSignalNotificationRuleWithHttpInfo}.
@@ -7939,6 +9328,278 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<NotificationRuleResponse>() {});
+  }
+
+  /**
+   * Reorder the list of inbox rules in the pipeline.
+   *
+   * <p>See {@link #reorderInboxRulesWithHttpInfo}.
+   *
+   * @param body The list of rules to reorder. The order of the rules in the list becomes the new
+   *     order in the pipeline. (required)
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object reorderInboxRules(ReorderInboxRulesParameters body) throws ApiException {
+    return reorderInboxRulesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Reorder the list of inbox rules in the pipeline.
+   *
+   * <p>See {@link #reorderInboxRulesWithHttpInfoAsync}.
+   *
+   * @param body The list of rules to reorder. The order of the rules in the list becomes the new
+   *     order in the pipeline. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
+  public CompletableFuture<Object> reorderInboxRulesAsync(ReorderInboxRulesParameters body) {
+    return reorderInboxRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Reorder the list of inbox rules in the pipeline and return the reordered list of rules. To
+   * reorder fields, you must provide the full list of pipeline rules in the new order.
+   *
+   * @param body The list of rules to reorder. The order of the rules in the list becomes the new
+   *     order in the pipeline. (required)
+   * @return ApiResponse&lt;Object&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> The list of inbox rules </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Object> reorderInboxRulesWithHttpInfo(ReorderInboxRulesParameters body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling reorderInboxRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/inbox_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.reorderInboxRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Reorder the list of inbox rules in the pipeline.
+   *
+   * <p>See {@link #reorderInboxRulesWithHttpInfo}.
+   *
+   * @param body The list of rules to reorder. The order of the rules in the list becomes the new
+   *     order in the pipeline. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Object>> reorderInboxRulesWithHttpInfoAsync(
+      ReorderInboxRulesParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling reorderInboxRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/inbox_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.reorderInboxRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Reorder the list of mute rules in the pipeline.
+   *
+   * <p>See {@link #reorderMuteRulesWithHttpInfo}.
+   *
+   * @param body The list of rules to reorder. The order of the rules in the list becomes the new
+   *     order in the pipeline. (required)
+   * @return Object
+   * @throws ApiException if fails to make API call
+   */
+  public Object reorderMuteRules(ReorderMuteRulesParameters body) throws ApiException {
+    return reorderMuteRulesWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Reorder the list of mute rules in the pipeline.
+   *
+   * <p>See {@link #reorderMuteRulesWithHttpInfoAsync}.
+   *
+   * @param body The list of rules to reorder. The order of the rules in the list becomes the new
+   *     order in the pipeline. (required)
+   * @return CompletableFuture&lt;Object&gt;
+   */
+  public CompletableFuture<Object> reorderMuteRulesAsync(ReorderMuteRulesParameters body) {
+    return reorderMuteRulesWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Reorder the list of mute rules in the pipeline and return the reordered list of rules. To
+   * reorder fields, you must provide the full list of pipeline rules in the new order.
+   *
+   * @param body The list of rules to reorder. The order of the rules in the list becomes the new
+   *     order in the pipeline. (required)
+   * @return ApiResponse&lt;Object&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> The list of mute rules </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Object> reorderMuteRulesWithHttpInfo(ReorderMuteRulesParameters body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling reorderMuteRules");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/mute_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.reorderMuteRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
+  }
+
+  /**
+   * Reorder the list of mute rules in the pipeline.
+   *
+   * <p>See {@link #reorderMuteRulesWithHttpInfo}.
+   *
+   * @param body The list of rules to reorder. The order of the rules in the list becomes the new
+   *     order in the pipeline. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Object&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Object>> reorderMuteRulesWithHttpInfoAsync(
+      ReorderMuteRulesParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling reorderMuteRules"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security/vulnerabilities/pipelines/mute_rules/reorder";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.reorderMuteRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Object>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<Object>() {});
   }
 
   /**
@@ -8632,6 +10293,328 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<SecurityMonitoringRuleTestResponse>() {});
+  }
+
+  /**
+   * Update an inbox rule.
+   *
+   * <p>See {@link #updateInboxRuleWithHttpInfo}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @param body (required)
+   * @return InboxRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public InboxRuleResponse updateInboxRule(UUID inboxRuleId, UpdateInboxRuleParameters body)
+      throws ApiException {
+    return updateInboxRuleWithHttpInfo(inboxRuleId, body).getData();
+  }
+
+  /**
+   * Update an inbox rule.
+   *
+   * <p>See {@link #updateInboxRuleWithHttpInfoAsync}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;InboxRuleResponse&gt;
+   */
+  public CompletableFuture<InboxRuleResponse> updateInboxRuleAsync(
+      UUID inboxRuleId, UpdateInboxRuleParameters body) {
+    return updateInboxRuleWithHttpInfoAsync(inboxRuleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the whole inbox rule. If an optional field is not provided, it is set to its default
+   * value.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @param body (required)
+   * @return ApiResponse&lt;InboxRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Inbox rule successfully updated </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> The server cannot process the request because it contains invalid data. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<InboxRuleResponse> updateInboxRuleWithHttpInfo(
+      UUID inboxRuleId, UpdateInboxRuleParameters body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'inboxRuleId' is set
+    if (inboxRuleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'inboxRuleId' when calling updateInboxRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateInboxRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}"
+            .replaceAll(
+                "\\{" + "inbox_rule_id" + "\\}", apiClient.escapeString(inboxRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateInboxRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
+   * Update an inbox rule.
+   *
+   * <p>See {@link #updateInboxRuleWithHttpInfo}.
+   *
+   * @param inboxRuleId ID of the inbox rule (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;InboxRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<InboxRuleResponse>> updateInboxRuleWithHttpInfoAsync(
+      UUID inboxRuleId, UpdateInboxRuleParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'inboxRuleId' is set
+    if (inboxRuleId == null) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'inboxRuleId' when calling updateInboxRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateInboxRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/inbox_rules/{inbox_rule_id}"
+            .replaceAll(
+                "\\{" + "inbox_rule_id" + "\\}", apiClient.escapeString(inboxRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateInboxRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<InboxRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<InboxRuleResponse>() {});
+  }
+
+  /**
+   * Update a mute rule.
+   *
+   * <p>See {@link #updateMuteRuleWithHttpInfo}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @param body (required)
+   * @return MuteRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MuteRuleResponse updateMuteRule(UUID muteRuleId, UpdateMuteRuleParameters body)
+      throws ApiException {
+    return updateMuteRuleWithHttpInfo(muteRuleId, body).getData();
+  }
+
+  /**
+   * Update a mute rule.
+   *
+   * <p>See {@link #updateMuteRuleWithHttpInfoAsync}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;MuteRuleResponse&gt;
+   */
+  public CompletableFuture<MuteRuleResponse> updateMuteRuleAsync(
+      UUID muteRuleId, UpdateMuteRuleParameters body) {
+    return updateMuteRuleWithHttpInfoAsync(muteRuleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update the whole mute rule. If an optional field is not provided, it is set to its default
+   * value.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @param body (required)
+   * @return ApiResponse&lt;MuteRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Mute rule successfully updated </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> The server cannot process the request because it contains invalid data. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MuteRuleResponse> updateMuteRuleWithHttpInfo(
+      UUID muteRuleId, UpdateMuteRuleParameters body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'muteRuleId' is set
+    if (muteRuleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'muteRuleId' when calling updateMuteRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateMuteRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}"
+            .replaceAll(
+                "\\{" + "mute_rule_id" + "\\}", apiClient.escapeString(muteRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateMuteRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
+  }
+
+  /**
+   * Update a mute rule.
+   *
+   * <p>See {@link #updateMuteRuleWithHttpInfo}.
+   *
+   * @param muteRuleId ID of the mute rule (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MuteRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MuteRuleResponse>> updateMuteRuleWithHttpInfoAsync(
+      UUID muteRuleId, UpdateMuteRuleParameters body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'muteRuleId' is set
+    if (muteRuleId == null) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'muteRuleId' when calling updateMuteRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateMuteRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security/vulnerabilities/pipelines/mute_rules/{mute_rule_id}"
+            .replaceAll(
+                "\\{" + "mute_rule_id" + "\\}", apiClient.escapeString(muteRuleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateMuteRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MuteRuleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MuteRuleResponse>() {});
   }
 
   /**

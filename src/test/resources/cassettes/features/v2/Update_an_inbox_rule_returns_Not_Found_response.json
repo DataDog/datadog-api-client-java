@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"reason_description\":\"We want to focus on these items.\"},\"enabled\":true,\"name\":\"Rule 1\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"key:val\",\"rule_ids\":[\"rule-id-1\"],\"rule_types\":[\"application_code_vulnerability\"],\"severities\":[\"critical\"]}},\"id\":\"00000000-0000-0000-0000-426655000000\",\"type\":\"inbox_rules\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/security/vulnerabilities/pipelines/inbox_rules/00000000-0000-0000-0000-426655000000",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\",\"detail\":\"Rule does not exist\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dafc2706-5a56-ec0f-6590-f235f016ffef"
+  }
+]

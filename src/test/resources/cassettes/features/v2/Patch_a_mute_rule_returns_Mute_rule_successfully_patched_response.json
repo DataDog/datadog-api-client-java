@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"reason\":\"duplicate\"},\"enabled\":true,\"name\":\"Test-Patch_a_mute_rule_returns_Mute_rule_successfully_patched_response-1738076222\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"\",\"rule_ids\":[],\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"severities\":[\"critical\"]}},\"type\":\"mute_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"d7a109ad-032f-4f25-b80c-de7fef3f7b94\",\"type\":\"mute_rules\",\"attributes\":{\"action\":{\"reason\":\"duplicate\"},\"created_at\":1738076222803,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1738076222803,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Test-Patch_a_mute_rule_returns_Mute_rule_successfully_patched_response-1738076222\",\"rule\":{\"issue_type\":\"vulnerability\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"rule_ids\":[],\"query\":\"\",\"severities\":[\"critical\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "dfb64d85-afdf-98f0-6fc7-698ed7a0b6d4"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"action\":{\"expire_at\":1893452400000,\"reason\":\"duplicate\",\"reason_description\":\"Muting for a while\"},\"enabled\":true,\"name\":\"Rule 1\",\"rule\":{\"issue_type\":\"vulnerability\",\"query\":\"key:val\",\"rule_ids\":[\"rule-id-1\"],\"rule_types\":[\"application_code_vulnerability\"],\"severities\":[\"critical\"]}},\"id\":\"d7a109ad-032f-4f25-b80c-de7fef3f7b94\",\"type\":\"mute_rules\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules/d7a109ad-032f-4f25-b80c-de7fef3f7b94",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"d7a109ad-032f-4f25-b80c-de7fef3f7b94\",\"type\":\"mute_rules\",\"attributes\":{\"action\":{\"reason\":\"duplicate\",\"reason_description\":\"Muting for a while\",\"expire_at\":1893452400000},\"created_at\":1738076222803,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1738076223290,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Rule 1\",\"rule\":{\"issue_type\":\"vulnerability\",\"rule_types\":[\"application_code_vulnerability\"],\"rule_ids\":[\"rule-id-1\"],\"query\":\"key:val\",\"severities\":[\"critical\"]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d902280f-4b75-2d26-21e9-76879bb6af9f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/vulnerabilities/pipelines/mute_rules/d7a109ad-032f-4f25-b80c-de7fef3f7b94",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5a351265-dd42-e9d8-5ef7-5ac5dbba0d31"
+  }
+]
