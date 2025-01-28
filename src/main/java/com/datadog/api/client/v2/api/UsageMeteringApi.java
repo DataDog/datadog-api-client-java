@@ -99,13 +99,6 @@ public class UsageMeteringApi {
    */
   public ApiResponse<ActiveBillingDimensionsResponse> getActiveBillingDimensionsWithHttpInfo()
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getActiveBillingDimensions";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/cost_by_tag/active_billing_dimensions";
@@ -141,17 +134,6 @@ public class UsageMeteringApi {
    */
   public CompletableFuture<ApiResponse<ActiveBillingDimensionsResponse>>
       getActiveBillingDimensionsWithHttpInfoAsync() {
-    // Check if unstable operation is enabled
-    String operationId = "getActiveBillingDimensions";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ActiveBillingDimensionsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/api/v2/cost_by_tag/active_billing_dimensions";
@@ -1841,13 +1823,6 @@ public class UsageMeteringApi {
       String fields,
       GetMonthlyCostAttributionOptionalParameters parameters)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getMonthlyCostAttribution";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startMonth' is set
@@ -1931,17 +1906,6 @@ public class UsageMeteringApi {
           OffsetDateTime startMonth,
           String fields,
           GetMonthlyCostAttributionOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getMonthlyCostAttribution";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<MonthlyCostAttributionResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'startMonth' is set

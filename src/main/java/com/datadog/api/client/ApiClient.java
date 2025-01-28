@@ -380,8 +380,6 @@ public class ApiClient {
           put("v2.publishApp", false);
           put("v2.unpublishApp", false);
           put("v2.updateApp", false);
-          put("v2.getActiveBillingDimensions", false);
-          put("v2.getMonthlyCostAttribution", false);
           put("v2.cancelDataDeletionRequest", false);
           put("v2.createDataDeletionRequest", false);
           put("v2.getDataDeletionRequests", false);
