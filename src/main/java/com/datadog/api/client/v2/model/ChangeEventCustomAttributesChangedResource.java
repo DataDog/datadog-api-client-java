@@ -17,10 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object representing a uniquely identified resource. Only the resource type <code>feature_flag
- * </code> is supported.
- */
+/** Object representing a uniquely identified resource. */
 @JsonPropertyOrder({
   ChangeEventCustomAttributesChangedResource.JSON_PROPERTY_NAME,
   ChangeEventCustomAttributesChangedResource.JSON_PROPERTY_TYPE
