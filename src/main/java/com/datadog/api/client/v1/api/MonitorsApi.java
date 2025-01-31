@@ -526,11 +526,15 @@ public class MonitorsApi {
    *
    * <p><strong>Cost Alert Query</strong>
    *
-   * <p>Example: <code>formula(query).last(time_window).function(parameter) operator #</code>
+   * <p>Example: <code>formula(query).timeframe_type(time_window).function(parameter) operator #
+   * </code>
    *
    * <ul>
    *   <li><code>query</code> The search query - following the <a
    *       href="https://docs.datadoghq.com/logs/search_syntax/">Log search syntax</a>.
+   *   <li><code>timeframe_type</code> The timeframe type to evaluate the cost - for <code>forecast
+   *       </code> supports <code>current</code> - for <code>change</code>, <code>anomaly</code>,
+   *       <code>threshold</code> supports <code>last</code>
    *   <li><code>time_window</code> - supports daily roll-up e.g. <code>7d</code>
    *   <li><code>function</code> - [optional, defaults to <code>threshold</code> monitor if omitted]
    *       supports <code>change</code>, <code>anomaly</code>, <code>forecast</code>
