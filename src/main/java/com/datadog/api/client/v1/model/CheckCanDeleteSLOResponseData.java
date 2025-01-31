@@ -41,7 +41,7 @@ public class CheckCanDeleteSLOResponseData {
   }
 
   /**
-   * An array of of SLO IDs that can be safely deleted.
+   * An array of SLO IDs that can be safely deleted.
    *
    * @return ok
    */
