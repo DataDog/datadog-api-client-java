@@ -77,7 +77,7 @@ public class Example {
                                                     "{'datacenter': 'devcycle.us1.prod'}")))))
                             .category(EventCategory.CHANGE)
                             .message("payment_processed feature flag has been enabled")
-                            .tags(Collections.singletonList("environment:test"))
+                            .tags(Collections.singletonList("env:test"))
                             .title("payment_processed feature flag updated"))
                     .type(EventCreateRequestType.EVENT));
 

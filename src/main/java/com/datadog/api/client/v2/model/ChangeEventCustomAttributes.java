@@ -121,8 +121,7 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * Object representing a uniquely identified resource. Only the resource type <code>feature_flag
-   * </code> is supported.
+   * Object representing a uniquely identified resource.
    *
    * @return changedResource
    */
