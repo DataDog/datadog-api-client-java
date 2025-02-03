@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"title\":\"one or more apps not found\",\"detail\":\"one or more apps not found\"}]}",
+      "body": "{\"errors\":[{\"title\":\"one or more apps not found\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"

@@ -22,8 +22,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   CreateAppRequestDataAttributes.JSON_PROPERTY_COMPONENTS,
   CreateAppRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
-  CreateAppRequestDataAttributes.JSON_PROPERTY_EMBEDDED_QUERIES,
   CreateAppRequestDataAttributes.JSON_PROPERTY_NAME,
+  CreateAppRequestDataAttributes.JSON_PROPERTY_QUERIES,
   CreateAppRequestDataAttributes.JSON_PROPERTY_ROOT_INSTANCE_NAME,
   CreateAppRequestDataAttributes.JSON_PROPERTY_TAGS
 })
@@ -37,11 +37,11 @@ public class CreateAppRequestDataAttributes {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String JSON_PROPERTY_EMBEDDED_QUERIES = "embeddedQueries";
-  private List<Query> embeddedQueries = null;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_QUERIES = "queries";
+  private List<Query> queries = null;
 
   public static final String JSON_PROPERTY_ROOT_INSTANCE_NAME = "rootInstanceName";
   private String rootInstanceName;
@@ -103,39 +103,6 @@ public class CreateAppRequestDataAttributes {
     this.description = description;
   }
 
-  public CreateAppRequestDataAttributes embeddedQueries(List<Query> embeddedQueries) {
-    this.embeddedQueries = embeddedQueries;
-    for (Query item : embeddedQueries) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public CreateAppRequestDataAttributes addEmbeddedQueriesItem(Query embeddedQueriesItem) {
-    if (this.embeddedQueries == null) {
-      this.embeddedQueries = new ArrayList<>();
-    }
-    this.embeddedQueries.add(embeddedQueriesItem);
-    this.unparsed |= embeddedQueriesItem.unparsed;
-    return this;
-  }
-
-  /**
-   * An array of queries, such as external actions and state variables, that the app uses.
-   *
-   * @return embeddedQueries
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMBEDDED_QUERIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Query> getEmbeddedQueries() {
-    return embeddedQueries;
-  }
-
-  public void setEmbeddedQueries(List<Query> embeddedQueries) {
-    this.embeddedQueries = embeddedQueries;
-  }
-
   public CreateAppRequestDataAttributes name(String name) {
     this.name = name;
     return this;
@@ -155,6 +122,39 @@ public class CreateAppRequestDataAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public CreateAppRequestDataAttributes queries(List<Query> queries) {
+    this.queries = queries;
+    for (Query item : queries) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public CreateAppRequestDataAttributes addQueriesItem(Query queriesItem) {
+    if (this.queries == null) {
+      this.queries = new ArrayList<>();
+    }
+    this.queries.add(queriesItem);
+    this.unparsed |= queriesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * An array of queries, such as external actions and state variables, that the app uses.
+   *
+   * @return queries
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Query> getQueries() {
+    return queries;
+  }
+
+  public void setQueries(List<Query> queries) {
+    this.queries = queries;
   }
 
   public CreateAppRequestDataAttributes rootInstanceName(String rootInstanceName) {
@@ -267,8 +267,8 @@ public class CreateAppRequestDataAttributes {
         (CreateAppRequestDataAttributes) o;
     return Objects.equals(this.components, createAppRequestDataAttributes.components)
         && Objects.equals(this.description, createAppRequestDataAttributes.description)
-        && Objects.equals(this.embeddedQueries, createAppRequestDataAttributes.embeddedQueries)
         && Objects.equals(this.name, createAppRequestDataAttributes.name)
+        && Objects.equals(this.queries, createAppRequestDataAttributes.queries)
         && Objects.equals(this.rootInstanceName, createAppRequestDataAttributes.rootInstanceName)
         && Objects.equals(this.tags, createAppRequestDataAttributes.tags)
         && Objects.equals(
@@ -278,13 +278,7 @@ public class CreateAppRequestDataAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        components,
-        description,
-        embeddedQueries,
-        name,
-        rootInstanceName,
-        tags,
-        additionalProperties);
+        components, description, name, queries, rootInstanceName, tags, additionalProperties);
   }
 
   @Override
@@ -293,8 +287,8 @@ public class CreateAppRequestDataAttributes {
     sb.append("class CreateAppRequestDataAttributes {\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    embeddedQueries: ").append(toIndentedString(embeddedQueries)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    rootInstanceName: ").append(toIndentedString(rootInstanceName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"This is a bad example app\",\"embeddedQueries\":[],\"rootInstanceName\":\"grid0\"},\"type\":\"appDefinitions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"This is a bad example app\",\"queries\":[],\"rootInstanceName\":\"grid0\"},\"type\":\"appDefinitions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"title\":\"missing required field\",\"detail\":\"missing required field\",\"source\":{\"pointer\":\"/data/attributes/name\"}}]}",
+      "body": "{\"errors\":[{\"title\":\"missing required field\",\"source\":{\"pointer\":\"/data/attributes/name\"}}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cac8f72e-b8c3-9caf-9580-ed4fa55c0d31"
+    "id": "318f4ef0-caac-5539-a476-81f4bbdc0114"
   }
 ]
