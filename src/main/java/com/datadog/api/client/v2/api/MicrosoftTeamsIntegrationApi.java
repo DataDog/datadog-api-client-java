@@ -5,10 +5,14 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.MicrosoftTeamsCreateTenantBasedHandleRequest;
+import com.datadog.api.client.v2.model.MicrosoftTeamsCreateWorkflowsWebhookHandleRequest;
 import com.datadog.api.client.v2.model.MicrosoftTeamsGetChannelByNameResponse;
 import com.datadog.api.client.v2.model.MicrosoftTeamsTenantBasedHandleResponse;
 import com.datadog.api.client.v2.model.MicrosoftTeamsTenantBasedHandlesResponse;
 import com.datadog.api.client.v2.model.MicrosoftTeamsUpdateTenantBasedHandleRequest;
+import com.datadog.api.client.v2.model.MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest;
+import com.datadog.api.client.v2.model.MicrosoftTeamsWorkflowsWebhookHandleResponse;
+import com.datadog.api.client.v2.model.MicrosoftTeamsWorkflowsWebhookHandlesResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -187,6 +191,148 @@ public class MicrosoftTeamsIntegrationApi {
   }
 
   /**
+   * Create Workflows webhook handle.
+   *
+   * <p>See {@link #createWorkflowsWebhookHandleWithHttpInfo}.
+   *
+   * @param body Workflows Webhook handle payload. (required)
+   * @return MicrosoftTeamsWorkflowsWebhookHandleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MicrosoftTeamsWorkflowsWebhookHandleResponse createWorkflowsWebhookHandle(
+      MicrosoftTeamsCreateWorkflowsWebhookHandleRequest body) throws ApiException {
+    return createWorkflowsWebhookHandleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create Workflows webhook handle.
+   *
+   * <p>See {@link #createWorkflowsWebhookHandleWithHttpInfoAsync}.
+   *
+   * @param body Workflows Webhook handle payload. (required)
+   * @return CompletableFuture&lt;MicrosoftTeamsWorkflowsWebhookHandleResponse&gt;
+   */
+  public CompletableFuture<MicrosoftTeamsWorkflowsWebhookHandleResponse>
+      createWorkflowsWebhookHandleAsync(MicrosoftTeamsCreateWorkflowsWebhookHandleRequest body) {
+    return createWorkflowsWebhookHandleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a Workflows webhook handle in the Datadog Microsoft Teams integration.
+   *
+   * @param body Workflows Webhook handle payload. (required)
+   * @return ApiResponse&lt;MicrosoftTeamsWorkflowsWebhookHandleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Failed Precondition </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>
+      createWorkflowsWebhookHandleWithHttpInfo(
+          MicrosoftTeamsCreateWorkflowsWebhookHandleRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createWorkflowsWebhookHandle");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MicrosoftTeamsIntegrationApi.createWorkflowsWebhookHandle",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsWorkflowsWebhookHandleResponse>() {});
+  }
+
+  /**
+   * Create Workflows webhook handle.
+   *
+   * <p>See {@link #createWorkflowsWebhookHandleWithHttpInfo}.
+   *
+   * @param body Workflows Webhook handle payload. (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsWorkflowsWebhookHandleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>>
+      createWorkflowsWebhookHandleWithHttpInfoAsync(
+          MicrosoftTeamsCreateWorkflowsWebhookHandleRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createWorkflowsWebhookHandle"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MicrosoftTeamsIntegrationApi.createWorkflowsWebhookHandle",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsWorkflowsWebhookHandleResponse>() {});
+  }
+
+  /**
    * Delete tenant-based handle.
    *
    * <p>See {@link #deleteTenantBasedHandleWithHttpInfo}.
@@ -300,6 +446,144 @@ public class MicrosoftTeamsIntegrationApi {
       builder =
           apiClient.createBuilder(
               "v2.MicrosoftTeamsIntegrationApi.deleteTenantBasedHandle",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete Workflows webhook handle.
+   *
+   * <p>See {@link #deleteWorkflowsWebhookHandleWithHttpInfo}.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteWorkflowsWebhookHandle(String handleId) throws ApiException {
+    deleteWorkflowsWebhookHandleWithHttpInfo(handleId);
+  }
+
+  /**
+   * Delete Workflows webhook handle.
+   *
+   * <p>See {@link #deleteWorkflowsWebhookHandleWithHttpInfoAsync}.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteWorkflowsWebhookHandleAsync(String handleId) {
+    return deleteWorkflowsWebhookHandleWithHttpInfoAsync(handleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a Workflows webhook handle from the Datadog Microsoft Teams integration.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Failed Precondition </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteWorkflowsWebhookHandleWithHttpInfo(String handleId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'handleId' is set
+    if (handleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'handleId' when calling deleteWorkflowsWebhookHandle");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}"
+            .replaceAll("\\{" + "handle_id" + "\\}", apiClient.escapeString(handleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MicrosoftTeamsIntegrationApi.deleteWorkflowsWebhookHandle",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete Workflows webhook handle.
+   *
+   * <p>See {@link #deleteWorkflowsWebhookHandleWithHttpInfo}.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteWorkflowsWebhookHandleWithHttpInfoAsync(
+      String handleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'handleId' is set
+    if (handleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'handleId' when calling"
+                  + " deleteWorkflowsWebhookHandle"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}"
+            .replaceAll("\\{" + "handle_id" + "\\}", apiClient.escapeString(handleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MicrosoftTeamsIntegrationApi.deleteWorkflowsWebhookHandle",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -652,6 +936,149 @@ public class MicrosoftTeamsIntegrationApi {
         new GenericType<MicrosoftTeamsTenantBasedHandleResponse>() {});
   }
 
+  /**
+   * Get Workflows webhook handle information.
+   *
+   * <p>See {@link #getWorkflowsWebhookHandleWithHttpInfo}.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @return MicrosoftTeamsWorkflowsWebhookHandleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MicrosoftTeamsWorkflowsWebhookHandleResponse getWorkflowsWebhookHandle(String handleId)
+      throws ApiException {
+    return getWorkflowsWebhookHandleWithHttpInfo(handleId).getData();
+  }
+
+  /**
+   * Get Workflows webhook handle information.
+   *
+   * <p>See {@link #getWorkflowsWebhookHandleWithHttpInfoAsync}.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @return CompletableFuture&lt;MicrosoftTeamsWorkflowsWebhookHandleResponse&gt;
+   */
+  public CompletableFuture<MicrosoftTeamsWorkflowsWebhookHandleResponse>
+      getWorkflowsWebhookHandleAsync(String handleId) {
+    return getWorkflowsWebhookHandleWithHttpInfoAsync(handleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the name of a Workflows webhook handle from the Datadog Microsoft Teams integration.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @return ApiResponse&lt;MicrosoftTeamsWorkflowsWebhookHandleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Failed Precondition </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>
+      getWorkflowsWebhookHandleWithHttpInfo(String handleId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'handleId' is set
+    if (handleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'handleId' when calling getWorkflowsWebhookHandle");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}"
+            .replaceAll("\\{" + "handle_id" + "\\}", apiClient.escapeString(handleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MicrosoftTeamsIntegrationApi.getWorkflowsWebhookHandle",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsWorkflowsWebhookHandleResponse>() {});
+  }
+
+  /**
+   * Get Workflows webhook handle information.
+   *
+   * <p>See {@link #getWorkflowsWebhookHandleWithHttpInfo}.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsWorkflowsWebhookHandleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>>
+      getWorkflowsWebhookHandleWithHttpInfoAsync(String handleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'handleId' is set
+    if (handleId == null) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'handleId' when calling getWorkflowsWebhookHandle"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}"
+            .replaceAll("\\{" + "handle_id" + "\\}", apiClient.escapeString(handleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MicrosoftTeamsIntegrationApi.getWorkflowsWebhookHandle",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsWorkflowsWebhookHandleResponse>() {});
+  }
+
   /** Manage optional parameters to listTenantBasedHandles. */
   public static class ListTenantBasedHandlesOptionalParameters {
     private String tenantId;
@@ -841,6 +1268,186 @@ public class MicrosoftTeamsIntegrationApi {
         new GenericType<MicrosoftTeamsTenantBasedHandlesResponse>() {});
   }
 
+  /** Manage optional parameters to listWorkflowsWebhookHandles. */
+  public static class ListWorkflowsWebhookHandlesOptionalParameters {
+    private String name;
+
+    /**
+     * Set name.
+     *
+     * @param name Your Workflows webhook handle name. (optional)
+     * @return ListWorkflowsWebhookHandlesOptionalParameters
+     */
+    public ListWorkflowsWebhookHandlesOptionalParameters name(String name) {
+      this.name = name;
+      return this;
+    }
+  }
+
+  /**
+   * Get all Workflows webhook handles.
+   *
+   * <p>See {@link #listWorkflowsWebhookHandlesWithHttpInfo}.
+   *
+   * @return MicrosoftTeamsWorkflowsWebhookHandlesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MicrosoftTeamsWorkflowsWebhookHandlesResponse listWorkflowsWebhookHandles()
+      throws ApiException {
+    return listWorkflowsWebhookHandlesWithHttpInfo(
+            new ListWorkflowsWebhookHandlesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get all Workflows webhook handles.
+   *
+   * <p>See {@link #listWorkflowsWebhookHandlesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;MicrosoftTeamsWorkflowsWebhookHandlesResponse&gt;
+   */
+  public CompletableFuture<MicrosoftTeamsWorkflowsWebhookHandlesResponse>
+      listWorkflowsWebhookHandlesAsync() {
+    return listWorkflowsWebhookHandlesWithHttpInfoAsync(
+            new ListWorkflowsWebhookHandlesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all Workflows webhook handles.
+   *
+   * <p>See {@link #listWorkflowsWebhookHandlesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return MicrosoftTeamsWorkflowsWebhookHandlesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MicrosoftTeamsWorkflowsWebhookHandlesResponse listWorkflowsWebhookHandles(
+      ListWorkflowsWebhookHandlesOptionalParameters parameters) throws ApiException {
+    return listWorkflowsWebhookHandlesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all Workflows webhook handles.
+   *
+   * <p>See {@link #listWorkflowsWebhookHandlesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;MicrosoftTeamsWorkflowsWebhookHandlesResponse&gt;
+   */
+  public CompletableFuture<MicrosoftTeamsWorkflowsWebhookHandlesResponse>
+      listWorkflowsWebhookHandlesAsync(ListWorkflowsWebhookHandlesOptionalParameters parameters) {
+    return listWorkflowsWebhookHandlesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of all Workflows webhook handles from the Datadog Microsoft Teams integration.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;MicrosoftTeamsWorkflowsWebhookHandlesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Failed Precondition </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MicrosoftTeamsWorkflowsWebhookHandlesResponse>
+      listWorkflowsWebhookHandlesWithHttpInfo(
+          ListWorkflowsWebhookHandlesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String name = parameters.name;
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MicrosoftTeamsIntegrationApi.listWorkflowsWebhookHandles",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsWorkflowsWebhookHandlesResponse>() {});
+  }
+
+  /**
+   * Get all Workflows webhook handles.
+   *
+   * <p>See {@link #listWorkflowsWebhookHandlesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsWorkflowsWebhookHandlesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandlesResponse>>
+      listWorkflowsWebhookHandlesWithHttpInfoAsync(
+          ListWorkflowsWebhookHandlesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String name = parameters.name;
+    // create path and map variables
+    String localVarPath = "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MicrosoftTeamsIntegrationApi.listWorkflowsWebhookHandles",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandlesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsWorkflowsWebhookHandlesResponse>() {});
+  }
+
   /**
    * Update tenant-based handle.
    *
@@ -1003,5 +1610,176 @@ public class MicrosoftTeamsIntegrationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MicrosoftTeamsTenantBasedHandleResponse>() {});
+  }
+
+  /**
+   * Update Workflows webhook handle.
+   *
+   * <p>See {@link #updateWorkflowsWebhookHandleWithHttpInfo}.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @param body Workflows Webhook handle payload. (required)
+   * @return MicrosoftTeamsWorkflowsWebhookHandleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MicrosoftTeamsWorkflowsWebhookHandleResponse updateWorkflowsWebhookHandle(
+      String handleId, MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest body) throws ApiException {
+    return updateWorkflowsWebhookHandleWithHttpInfo(handleId, body).getData();
+  }
+
+  /**
+   * Update Workflows webhook handle.
+   *
+   * <p>See {@link #updateWorkflowsWebhookHandleWithHttpInfoAsync}.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @param body Workflows Webhook handle payload. (required)
+   * @return CompletableFuture&lt;MicrosoftTeamsWorkflowsWebhookHandleResponse&gt;
+   */
+  public CompletableFuture<MicrosoftTeamsWorkflowsWebhookHandleResponse>
+      updateWorkflowsWebhookHandleAsync(
+          String handleId, MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest body) {
+    return updateWorkflowsWebhookHandleWithHttpInfoAsync(handleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a Workflows webhook handle from the Datadog Microsoft Teams integration.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @param body Workflows Webhook handle payload. (required)
+   * @return ApiResponse&lt;MicrosoftTeamsWorkflowsWebhookHandleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 412 </td><td> Failed Precondition </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>
+      updateWorkflowsWebhookHandleWithHttpInfo(
+          String handleId, MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'handleId' is set
+    if (handleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'handleId' when calling updateWorkflowsWebhookHandle");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateWorkflowsWebhookHandle");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}"
+            .replaceAll("\\{" + "handle_id" + "\\}", apiClient.escapeString(handleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MicrosoftTeamsIntegrationApi.updateWorkflowsWebhookHandle",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsWorkflowsWebhookHandleResponse>() {});
+  }
+
+  /**
+   * Update Workflows webhook handle.
+   *
+   * <p>See {@link #updateWorkflowsWebhookHandleWithHttpInfo}.
+   *
+   * @param handleId Your Workflows webhook handle id. (required)
+   * @param body Workflows Webhook handle payload. (required)
+   * @return
+   *     CompletableFuture&lt;ApiResponse&lt;MicrosoftTeamsWorkflowsWebhookHandleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>>
+      updateWorkflowsWebhookHandleWithHttpInfoAsync(
+          String handleId, MicrosoftTeamsUpdateWorkflowsWebhookHandleRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'handleId' is set
+    if (handleId == null) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'handleId' when calling"
+                  + " updateWorkflowsWebhookHandle"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateWorkflowsWebhookHandle"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/{handle_id}"
+            .replaceAll("\\{" + "handle_id" + "\\}", apiClient.escapeString(handleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MicrosoftTeamsIntegrationApi.updateWorkflowsWebhookHandle",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MicrosoftTeamsWorkflowsWebhookHandleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MicrosoftTeamsWorkflowsWebhookHandleResponse>() {});
   }
 }
