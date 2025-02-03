@@ -3222,13 +3222,6 @@ public class SecurityMonitoringApi {
   public ApiResponse<GetSBOMResponse> getSBOMWithHttpInfo(
       AssetType assetType, String filterAssetName, GetSBOMOptionalParameters parameters)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getSBOM";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'assetType' is set
@@ -3288,16 +3281,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<GetSBOMResponse>> getSBOMWithHttpInfoAsync(
       AssetType assetType, String filterAssetName, GetSBOMOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getSBOM";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<GetSBOMResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'assetType' is set
@@ -6584,13 +6567,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<ListVulnerabilitiesResponse> listVulnerabilitiesWithHttpInfo(
       ListVulnerabilitiesOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listVulnerabilities";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     String pageToken = parameters.pageToken;
     Long pageNumber = parameters.pageNumber;
@@ -6761,17 +6737,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<ListVulnerabilitiesResponse>>
       listVulnerabilitiesWithHttpInfoAsync(ListVulnerabilitiesOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listVulnerabilities";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ListVulnerabilitiesResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     String pageToken = parameters.pageToken;
     Long pageNumber = parameters.pageNumber;
@@ -7242,13 +7207,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<ListVulnerableAssetsResponse> listVulnerableAssetsWithHttpInfo(
       ListVulnerableAssetsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listVulnerableAssets";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     String pageToken = parameters.pageToken;
     Long pageNumber = parameters.pageNumber;
@@ -7334,17 +7292,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<ListVulnerableAssetsResponse>>
       listVulnerableAssetsWithHttpInfoAsync(ListVulnerableAssetsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listVulnerableAssets";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ListVulnerableAssetsResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     String pageToken = parameters.pageToken;
     Long pageNumber = parameters.pageNumber;
