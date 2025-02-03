@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_workflow_webhook_handle_returns_OK_response-1738093013\",\"url\":\"https://prod-100.westus.logic.azure.com:443/workflows/abcd1234\"},\"type\":\"workflows-webhook-handle\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"756d04a2-e0b5-439a-9be0-8772b62ba02c\",\"type\":\"workflows-webhook-handle\",\"attributes\":{\"name\":\"Test-Update_workflow_webhook_handle_returns_OK_response-1738093013\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "838f46de-bf54-5ed0-b209-f2f21c763a8e"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Update_workflow_webhook_handle_returns_OK_response-1738093013--updated\"},\"type\":\"workflows-webhook-handle\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/756d04a2-e0b5-439a-9be0-8772b62ba02c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"756d04a2-e0b5-439a-9be0-8772b62ba02c\",\"type\":\"workflows-webhook-handle\",\"attributes\":{\"name\":\"Test-Update_workflow_webhook_handle_returns_OK_response-1738093013--updated\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2f3def58-42ca-7770-b8d0-a06a6bbf31c4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/756d04a2-e0b5-439a-9be0-8772b62ba02c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3e903108-b451-4621-9c91-cf179a305669"
+  }
+]

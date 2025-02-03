@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_workflow_webhook_handle_returns_CREATED_response-1738093012\",\"url\":\"https://fake.url.com\"},\"type\":\"workflows-webhook-handle\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"264ae337-af6e-4c54-8e90-2612426f270e\",\"type\":\"workflows-webhook-handle\",\"attributes\":{\"name\":\"Test-Create_workflow_webhook_handle_returns_CREATED_response-1738093012\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2cd4a6d4-0ecb-e5f5-c0a8-6a4f800af0b6"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/264ae337-af6e-4c54-8e90-2612426f270e",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c1bbdff8-4281-f2e9-b7e1-21c4b15d1dcb"
+  }
+]

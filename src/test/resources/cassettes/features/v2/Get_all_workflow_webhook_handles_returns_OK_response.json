@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_all_workflow_webhook_handles_returns_OK_response-1738093013\",\"url\":\"https://prod-100.westus.logic.azure.com:443/workflows/abcd1234\"},\"type\":\"workflows-webhook-handle\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"49cc81df-ccaf-48e3-b532-abf24d3b5287\",\"type\":\"workflows-webhook-handle\",\"attributes\":{\"name\":\"Test-Get_all_workflow_webhook_handles_returns_OK_response-1738093013\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "95d7bcc7-5e76-9897-0917-99a183f8f722"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"49cc81df-ccaf-48e3-b532-abf24d3b5287\",\"type\":\"workflows-webhook-handle\",\"attributes\":{\"name\":\"Test-Get_all_workflow_webhook_handles_returns_OK_response-1738093013\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "200f8c5b-fccf-ac37-0053-ea06ccaa8097"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/integration/ms-teams/configuration/workflows-webhook-handles/49cc81df-ccaf-48e3-b532-abf24d3b5287",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f51b0784-46ce-bb74-1d3b-328a283b7362"
+  }
+]
