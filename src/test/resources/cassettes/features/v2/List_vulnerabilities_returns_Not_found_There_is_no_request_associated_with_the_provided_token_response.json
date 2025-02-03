@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\"}]}",
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"rpc error: code = Internal desc = no cached result set found for queryID: unknown\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
