@@ -8,7 +8,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"title\":\"app not found\",\"detail\":\"app not found\"}]}",
+      "body": "{\"errors\":[{\"title\":\"app not found\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"

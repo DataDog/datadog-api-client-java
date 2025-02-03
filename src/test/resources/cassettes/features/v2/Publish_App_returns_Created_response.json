@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"components\":[{\"events\":[],\"name\":\"grid0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"gridCell0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"calloutValue0\",\"properties\":{\"isDisabled\":false,\"isLoading\":false,\"isVisible\":true,\"label\":\"CPU Usage\",\"size\":\"sm\",\"style\":\"vivid_yellow\",\"unit\":\"kB\",\"value\":\"42\"},\"type\":\"calloutValue\"}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"height\":8,\"width\":2,\"x\":0,\"y\":0}}},\"type\":\"gridCell\"}]},\"type\":\"grid\"}],\"description\":\"This is a simple example app\",\"embeddedQueries\":[],\"name\":\"Example App\",\"rootInstanceName\":\"grid0\"},\"type\":\"appDefinitions\"}}"
+        "json": "{\"data\":{\"attributes\":{\"components\":[{\"events\":[],\"name\":\"grid0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"gridCell0\",\"properties\":{\"children\":[{\"events\":[],\"name\":\"calloutValue0\",\"properties\":{\"isDisabled\":false,\"isLoading\":false,\"isVisible\":true,\"label\":\"CPU Usage\",\"size\":\"sm\",\"style\":\"vivid_yellow\",\"unit\":\"kB\",\"value\":\"42\"},\"type\":\"calloutValue\"}],\"isVisible\":\"true\",\"layout\":{\"default\":{\"height\":8,\"width\":2,\"x\":0,\"y\":0}}},\"type\":\"gridCell\"}]},\"type\":\"grid\"}],\"description\":\"This is a simple example app\",\"name\":\"Example App\",\"queries\":[],\"rootInstanceName\":\"grid0\"},\"type\":\"appDefinitions\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"f33cfd55-b517-4c29-862b-45c99742ed0e\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"4e22b013-8758-49b7-98ea-0b2508c97bbf\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "820bad24-1ae4-7d45-b443-7591eb8052c3"
+    "id": "b8e7d077-8c77-c831-844b-014fb6c12fad"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/app-builder/apps/f33cfd55-b517-4c29-862b-45c99742ed0e/deployment",
+      "path": "/api/v2/app-builder/apps/4e22b013-8758-49b7-98ea-0b2508c97bbf/deployment",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"01087e5d-de82-4a28-bf05-d2e66ec4ed44\",\"type\":\"deployment\",\"attributes\":{\"app_version_id\":\"f638f430-5534-447f-85c8-860693539ff6\"},\"meta\":{\"created_at\":\"2025-01-09T20:40:39.764785Z\",\"user_id\":15479137,\"user_uuid\":\"b3f98453-b289-11ef-a4e9-d6d283f92d91\",\"user_name\":\"oliver.li@datadoghq.com\"}}}",
+      "body": "{\"data\":{\"id\":\"62438b66-95eb-47d3-b540-a5d4b0b0a791\",\"type\":\"deployment\",\"attributes\":{\"app_version_id\":\"178fbd22-f8b5-4841-92eb-f8c1c03d44c1\"},\"meta\":{\"created_at\":\"2025-01-30T22:30:44.12194Z\",\"user_id\":15479137,\"user_uuid\":\"b3f98453-b289-11ef-a4e9-d6d283f92d91\",\"user_name\":\"oliver.li@datadoghq.com\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,18 +53,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "82f3f4cf-21de-10d5-1f63-7685a2c869dd"
+    "id": "8287658c-6e1c-bb6a-486a-73edd26af881"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/app-builder/apps/f33cfd55-b517-4c29-862b-45c99742ed0e",
+      "path": "/api/v2/app-builder/apps/4e22b013-8758-49b7-98ea-0b2508c97bbf",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"f33cfd55-b517-4c29-862b-45c99742ed0e\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"4e22b013-8758-49b7-98ea-0b2508c97bbf\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -79,6 +79,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "00e0a51b-9ee2-1c19-dea8-a77cef62e3c5"
+    "id": "bbf23951-1d38-f770-32bd-f15be7a906ef"
   }
 ]

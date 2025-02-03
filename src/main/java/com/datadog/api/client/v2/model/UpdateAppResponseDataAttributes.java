@@ -22,9 +22,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UpdateAppResponseDataAttributes.JSON_PROPERTY_COMPONENTS,
   UpdateAppResponseDataAttributes.JSON_PROPERTY_DESCRIPTION,
-  UpdateAppResponseDataAttributes.JSON_PROPERTY_EMBEDDED_QUERIES,
   UpdateAppResponseDataAttributes.JSON_PROPERTY_FAVORITE,
   UpdateAppResponseDataAttributes.JSON_PROPERTY_NAME,
+  UpdateAppResponseDataAttributes.JSON_PROPERTY_QUERIES,
   UpdateAppResponseDataAttributes.JSON_PROPERTY_ROOT_INSTANCE_NAME,
   UpdateAppResponseDataAttributes.JSON_PROPERTY_TAGS
 })
@@ -38,14 +38,14 @@ public class UpdateAppResponseDataAttributes {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public static final String JSON_PROPERTY_EMBEDDED_QUERIES = "embeddedQueries";
-  private List<Query> embeddedQueries = null;
-
   public static final String JSON_PROPERTY_FAVORITE = "favorite";
   private Boolean favorite;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_QUERIES = "queries";
+  private List<Query> queries = null;
 
   public static final String JSON_PROPERTY_ROOT_INSTANCE_NAME = "rootInstanceName";
   private String rootInstanceName;
@@ -107,39 +107,6 @@ public class UpdateAppResponseDataAttributes {
     this.description = description;
   }
 
-  public UpdateAppResponseDataAttributes embeddedQueries(List<Query> embeddedQueries) {
-    this.embeddedQueries = embeddedQueries;
-    for (Query item : embeddedQueries) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public UpdateAppResponseDataAttributes addEmbeddedQueriesItem(Query embeddedQueriesItem) {
-    if (this.embeddedQueries == null) {
-      this.embeddedQueries = new ArrayList<>();
-    }
-    this.embeddedQueries.add(embeddedQueriesItem);
-    this.unparsed |= embeddedQueriesItem.unparsed;
-    return this;
-  }
-
-  /**
-   * An array of queries, such as external actions and state variables, that the app uses.
-   *
-   * @return embeddedQueries
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMBEDDED_QUERIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Query> getEmbeddedQueries() {
-    return embeddedQueries;
-  }
-
-  public void setEmbeddedQueries(List<Query> embeddedQueries) {
-    this.embeddedQueries = embeddedQueries;
-  }
-
   public UpdateAppResponseDataAttributes favorite(Boolean favorite) {
     this.favorite = favorite;
     return this;
@@ -180,6 +147,39 @@ public class UpdateAppResponseDataAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public UpdateAppResponseDataAttributes queries(List<Query> queries) {
+    this.queries = queries;
+    for (Query item : queries) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public UpdateAppResponseDataAttributes addQueriesItem(Query queriesItem) {
+    if (this.queries == null) {
+      this.queries = new ArrayList<>();
+    }
+    this.queries.add(queriesItem);
+    this.unparsed |= queriesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * An array of queries, such as external actions and state variables, that the app uses.
+   *
+   * @return queries
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Query> getQueries() {
+    return queries;
+  }
+
+  public void setQueries(List<Query> queries) {
+    this.queries = queries;
   }
 
   public UpdateAppResponseDataAttributes rootInstanceName(String rootInstanceName) {
@@ -292,9 +292,9 @@ public class UpdateAppResponseDataAttributes {
         (UpdateAppResponseDataAttributes) o;
     return Objects.equals(this.components, updateAppResponseDataAttributes.components)
         && Objects.equals(this.description, updateAppResponseDataAttributes.description)
-        && Objects.equals(this.embeddedQueries, updateAppResponseDataAttributes.embeddedQueries)
         && Objects.equals(this.favorite, updateAppResponseDataAttributes.favorite)
         && Objects.equals(this.name, updateAppResponseDataAttributes.name)
+        && Objects.equals(this.queries, updateAppResponseDataAttributes.queries)
         && Objects.equals(this.rootInstanceName, updateAppResponseDataAttributes.rootInstanceName)
         && Objects.equals(this.tags, updateAppResponseDataAttributes.tags)
         && Objects.equals(
@@ -306,9 +306,9 @@ public class UpdateAppResponseDataAttributes {
     return Objects.hash(
         components,
         description,
-        embeddedQueries,
         favorite,
         name,
+        queries,
         rootInstanceName,
         tags,
         additionalProperties);
@@ -320,9 +320,9 @@ public class UpdateAppResponseDataAttributes {
     sb.append("class UpdateAppResponseDataAttributes {\n");
     sb.append("    components: ").append(toIndentedString(components)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    embeddedQueries: ").append(toIndentedString(embeddedQueries)).append("\n");
     sb.append("    favorite: ").append(toIndentedString(favorite)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    rootInstanceName: ").append(toIndentedString(rootInstanceName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
