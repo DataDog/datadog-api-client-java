@@ -1452,6 +1452,7 @@ public class MetricsApi {
     private Boolean filterIncludePercentiles;
     private Boolean filterQueried;
     private String filterTags;
+    private Boolean filterRelatedAssets;
     private Long windowSeconds;
     private Integer pageSize;
     private String pageCursor;
@@ -1527,6 +1528,19 @@ public class MetricsApi {
      */
     public ListTagConfigurationsOptionalParameters filterTags(String filterTags) {
       this.filterTags = filterTags;
+      return this;
+    }
+
+    /**
+     * Set filterRelatedAssets.
+     *
+     * @param filterRelatedAssets Filter metrics that are used in dashboards, monitors, notebooks,
+     *     SLOs. (optional)
+     * @return ListTagConfigurationsOptionalParameters
+     */
+    public ListTagConfigurationsOptionalParameters filterRelatedAssets(
+        Boolean filterRelatedAssets) {
+      this.filterRelatedAssets = filterRelatedAssets;
       return this;
     }
 
@@ -1712,6 +1726,7 @@ public class MetricsApi {
     Boolean filterIncludePercentiles = parameters.filterIncludePercentiles;
     Boolean filterQueried = parameters.filterQueried;
     String filterTags = parameters.filterTags;
+    Boolean filterRelatedAssets = parameters.filterRelatedAssets;
     Long windowSeconds = parameters.windowSeconds;
     Integer pageSize = parameters.pageSize;
     String pageCursor = parameters.pageCursor;
@@ -1731,6 +1746,8 @@ public class MetricsApi {
         apiClient.parameterToPairs("", "filter[include_percentiles]", filterIncludePercentiles));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[queried]", filterQueried));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[related_assets]", filterRelatedAssets));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
@@ -1772,6 +1789,7 @@ public class MetricsApi {
     Boolean filterIncludePercentiles = parameters.filterIncludePercentiles;
     Boolean filterQueried = parameters.filterQueried;
     String filterTags = parameters.filterTags;
+    Boolean filterRelatedAssets = parameters.filterRelatedAssets;
     Long windowSeconds = parameters.windowSeconds;
     Integer pageSize = parameters.pageSize;
     String pageCursor = parameters.pageCursor;
@@ -1791,6 +1809,8 @@ public class MetricsApi {
         apiClient.parameterToPairs("", "filter[include_percentiles]", filterIncludePercentiles));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[queried]", filterQueried));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tags]", filterTags));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "filter[related_assets]", filterRelatedAssets));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "window[seconds]", windowSeconds));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
