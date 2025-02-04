@@ -67,7 +67,7 @@ public class EntityV3Metadata {
   private String namespace;
 
   public static final String JSON_PROPERTY_OWNER = "owner";
-  private EntityV3MetadataOwner owner = null;
+  private String owner;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -336,9 +336,8 @@ public class EntityV3Metadata {
     this.namespace = namespace;
   }
 
-  public EntityV3Metadata owner(EntityV3MetadataOwner owner) {
+  public EntityV3Metadata owner(String owner) {
     this.owner = owner;
-    this.unparsed |= owner.unparsed;
     return this;
   }
 
@@ -350,11 +349,11 @@ public class EntityV3Metadata {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OWNER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EntityV3MetadataOwner getOwner() {
+  public String getOwner() {
     return owner;
   }
 
-  public void setOwner(EntityV3MetadataOwner owner) {
+  public void setOwner(String owner) {
     this.owner = owner;
   }
 
