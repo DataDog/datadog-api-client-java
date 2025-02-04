@@ -60,7 +60,7 @@ public class CreateOpenAPIResponseData {
   }
 
   /**
-   * API identifier.
+   * Test
    *
    * @return id
    */
