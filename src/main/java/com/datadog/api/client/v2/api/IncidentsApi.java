@@ -415,7 +415,9 @@ public class IncidentsApi {
    * @param body Incident todo payload. (required)
    * @return IncidentTodoResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentTodoResponse createIncidentTodo(String incidentId, IncidentTodoCreateRequest body)
       throws ApiException {
     return createIncidentTodoWithHttpInfo(incidentId, body).getData();
@@ -429,7 +431,9 @@ public class IncidentsApi {
    * @param incidentId The UUID of the incident. (required)
    * @param body Incident todo payload. (required)
    * @return CompletableFuture&lt;IncidentTodoResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentTodoResponse> createIncidentTodoAsync(
       String incidentId, IncidentTodoCreateRequest body) {
     return createIncidentTodoWithHttpInfoAsync(incidentId, body)
@@ -457,7 +461,10 @@ public class IncidentsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentTodoResponse> createIncidentTodoWithHttpInfo(
       String incidentId, IncidentTodoCreateRequest body) throws ApiException {
     // Check if unstable operation is enabled
@@ -516,7 +523,9 @@ public class IncidentsApi {
    * @param incidentId The UUID of the incident. (required)
    * @param body Incident todo payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentTodoResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentTodoResponse>> createIncidentTodoWithHttpInfoAsync(
       String incidentId, IncidentTodoCreateRequest body) {
     // Check if unstable operation is enabled
@@ -1085,7 +1094,9 @@ public class IncidentsApi {
    * @param incidentId The UUID of the incident. (required)
    * @param todoId The UUID of the incident todo. (required)
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public void deleteIncidentTodo(String incidentId, String todoId) throws ApiException {
     deleteIncidentTodoWithHttpInfo(incidentId, todoId);
   }
@@ -1098,7 +1109,9 @@ public class IncidentsApi {
    * @param incidentId The UUID of the incident. (required)
    * @param todoId The UUID of the incident todo. (required)
    * @return CompletableFuture
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Void> deleteIncidentTodoAsync(String incidentId, String todoId) {
     return deleteIncidentTodoWithHttpInfoAsync(incidentId, todoId)
         .thenApply(
@@ -1125,7 +1138,10 @@ public class IncidentsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Void> deleteIncidentTodoWithHttpInfo(String incidentId, String todoId)
       throws ApiException {
     // Check if unstable operation is enabled
@@ -1185,7 +1201,9 @@ public class IncidentsApi {
    * @param incidentId The UUID of the incident. (required)
    * @param todoId The UUID of the incident todo. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Void>> deleteIncidentTodoWithHttpInfoAsync(
       String incidentId, String todoId) {
     // Check if unstable operation is enabled
@@ -1828,7 +1846,9 @@ public class IncidentsApi {
    * @param todoId The UUID of the incident todo. (required)
    * @return IncidentTodoResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentTodoResponse getIncidentTodo(String incidentId, String todoId)
       throws ApiException {
     return getIncidentTodoWithHttpInfo(incidentId, todoId).getData();
@@ -1842,7 +1862,9 @@ public class IncidentsApi {
    * @param incidentId The UUID of the incident. (required)
    * @param todoId The UUID of the incident todo. (required)
    * @return CompletableFuture&lt;IncidentTodoResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentTodoResponse> getIncidentTodoAsync(
       String incidentId, String todoId) {
     return getIncidentTodoWithHttpInfoAsync(incidentId, todoId)
@@ -1870,7 +1892,10 @@ public class IncidentsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentTodoResponse> getIncidentTodoWithHttpInfo(
       String incidentId, String todoId) throws ApiException {
     // Check if unstable operation is enabled
@@ -1930,7 +1955,9 @@ public class IncidentsApi {
    * @param incidentId The UUID of the incident. (required)
    * @param todoId The UUID of the incident todo. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentTodoResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentTodoResponse>> getIncidentTodoWithHttpInfoAsync(
       String incidentId, String todoId) {
     // Check if unstable operation is enabled
@@ -2848,7 +2875,9 @@ public class IncidentsApi {
    * @param incidentId The UUID of the incident. (required)
    * @return IncidentTodoListResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentTodoListResponse listIncidentTodos(String incidentId) throws ApiException {
     return listIncidentTodosWithHttpInfo(incidentId).getData();
   }
@@ -2860,7 +2889,9 @@ public class IncidentsApi {
    *
    * @param incidentId The UUID of the incident. (required)
    * @return CompletableFuture&lt;IncidentTodoListResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentTodoListResponse> listIncidentTodosAsync(String incidentId) {
     return listIncidentTodosWithHttpInfoAsync(incidentId)
         .thenApply(
@@ -2886,7 +2917,10 @@ public class IncidentsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentTodoListResponse> listIncidentTodosWithHttpInfo(String incidentId)
       throws ApiException {
     // Check if unstable operation is enabled
@@ -2938,7 +2972,9 @@ public class IncidentsApi {
    *
    * @param incidentId The UUID of the incident. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentTodoListResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentTodoListResponse>>
       listIncidentTodosWithHttpInfoAsync(String incidentId) {
     // Check if unstable operation is enabled
@@ -4261,7 +4297,9 @@ public class IncidentsApi {
    * @param body Incident todo payload. (required)
    * @return IncidentTodoResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public IncidentTodoResponse updateIncidentTodo(
       String incidentId, String todoId, IncidentTodoPatchRequest body) throws ApiException {
     return updateIncidentTodoWithHttpInfo(incidentId, todoId, body).getData();
@@ -4276,7 +4314,9 @@ public class IncidentsApi {
    * @param todoId The UUID of the incident todo. (required)
    * @param body Incident todo payload. (required)
    * @return CompletableFuture&lt;IncidentTodoResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<IncidentTodoResponse> updateIncidentTodoAsync(
       String incidentId, String todoId, IncidentTodoPatchRequest body) {
     return updateIncidentTodoWithHttpInfoAsync(incidentId, todoId, body)
@@ -4305,7 +4345,10 @@ public class IncidentsApi {
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<IncidentTodoResponse> updateIncidentTodoWithHttpInfo(
       String incidentId, String todoId, IncidentTodoPatchRequest body) throws ApiException {
     // Check if unstable operation is enabled
@@ -4372,7 +4415,9 @@ public class IncidentsApi {
    * @param todoId The UUID of the incident todo. (required)
    * @param body Incident todo payload. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;IncidentTodoResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<IncidentTodoResponse>> updateIncidentTodoWithHttpInfoAsync(
       String incidentId, String todoId, IncidentTodoPatchRequest body) {
     // Check if unstable operation is enabled
