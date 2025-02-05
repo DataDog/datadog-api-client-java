@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -30,6 +31,8 @@ public class DORAIncidentType extends ModelEnum<String> {
   DORAIncidentType(String value) {
     super(value, allowedValues);
   }
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class DORAIncidentTypeSerializer extends StdSerializer<DORAIncidentType> {
     public DORAIncidentTypeSerializer(Class<DORAIncidentType> t) {

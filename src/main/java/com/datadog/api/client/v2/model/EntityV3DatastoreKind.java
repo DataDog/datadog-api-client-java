@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -29,6 +30,8 @@ public class EntityV3DatastoreKind extends ModelEnum<String> {
   EntityV3DatastoreKind(String value) {
     super(value, allowedValues);
   }
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class EntityV3DatastoreKindSerializer extends StdSerializer<EntityV3DatastoreKind> {
     public EntityV3DatastoreKindSerializer(Class<EntityV3DatastoreKind> t) {

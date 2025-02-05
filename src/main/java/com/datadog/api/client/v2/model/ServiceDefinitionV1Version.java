@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -29,6 +30,8 @@ public class ServiceDefinitionV1Version extends ModelEnum<String> {
   ServiceDefinitionV1Version(String value) {
     super(value, allowedValues);
   }
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class ServiceDefinitionV1VersionSerializer
       extends StdSerializer<ServiceDefinitionV1Version> {

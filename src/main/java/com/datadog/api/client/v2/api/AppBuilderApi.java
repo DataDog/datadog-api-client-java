@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.AppVersionSelector;
 import com.datadog.api.client.v2.model.AppsSortField;
 import com.datadog.api.client.v2.model.CreateAppRequest;
 import com.datadog.api.client.v2.model.CreateAppResponse;
@@ -501,7 +502,7 @@ public class AppBuilderApi {
 
   /** Manage optional parameters to getApp. */
   public static class GetAppOptionalParameters {
-    private String version;
+    private AppVersionSelector version;
 
     /**
      * Set version.
@@ -512,7 +513,7 @@ public class AppBuilderApi {
      *     latest version or the published version, respectively. (optional)
      * @return GetAppOptionalParameters
      */
-    public GetAppOptionalParameters version(String version) {
+    public GetAppOptionalParameters version(AppVersionSelector version) {
       this.version = version;
       return this;
     }
@@ -613,7 +614,7 @@ public class AppBuilderApi {
     if (appId == null) {
       throw new ApiException(400, "Missing the required parameter 'appId' when calling getApp");
     }
-    String version = parameters.version;
+    AppVersionSelector version = parameters.version;
     // create path and map variables
     String localVarPath =
         "/api/v2/app-builder/apps/{app_id}"
@@ -674,7 +675,7 @@ public class AppBuilderApi {
           new ApiException(400, "Missing the required parameter 'appId' when calling getApp"));
       return result;
     }
-    String version = parameters.version;
+    AppVersionSelector version = parameters.version;
     // create path and map variables
     String localVarPath =
         "/api/v2/app-builder/apps/{app_id}"

@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -29,6 +30,8 @@ public class DowntimeResourceType extends ModelEnum<String> {
   DowntimeResourceType(String value) {
     super(value, allowedValues);
   }
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class DowntimeResourceTypeSerializer extends StdSerializer<DowntimeResourceType> {
     public DowntimeResourceTypeSerializer(Class<DowntimeResourceType> t) {

@@ -67,7 +67,7 @@ def get_api_models(operations):
             break
         for content in operation.get("parameters", []):
             if "schema" in content and (
-                content["schema"].get("type") in ("object", "array") or content["schema"].get("enum")
+                content["schema"].get("type") in ("object", "array") or content["schema"].get("enum") or content["schema"].get("oneOf")
             ):
                 name = formatter.schema_name(content["schema"])
                 if name and name not in seen:
