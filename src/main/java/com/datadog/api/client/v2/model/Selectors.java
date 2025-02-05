@@ -93,7 +93,7 @@ public class Selectors {
   }
 
   /**
-   * Security rule types used to filter signals and vulnerabilities generating notifications.
+   * Security rule types used as filters in security rules.
    *
    * @return ruleTypes
    */
