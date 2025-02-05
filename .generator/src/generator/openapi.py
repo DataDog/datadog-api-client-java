@@ -34,6 +34,11 @@ def is_primitive(schema):
         return True
     return False
 
+def is_primitive_oneof(schema):
+    if schema.get("type") in PRIMITIVE_TYPES:
+        return True
+    return False
+
 
 def is_java_base_type(type):
     return type in JAVA_TYPES

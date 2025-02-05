@@ -45,6 +45,7 @@ def cli(specs, output):
     env.filters["upperfirst"] = formatter.upperfirst
     env.filters["variable_name"] = formatter.variable_name
     env.filters["is_primitive"] = openapi.is_primitive
+    env.filters["is_primitive_oneof"] = openapi.is_primitive_oneof
     env.filters["is_java_base_type"] = openapi.is_java_base_type
     env.filters["is_model"] = openapi.is_model
     env.filters["get_required_attributes"] = openapi.get_required_attributes

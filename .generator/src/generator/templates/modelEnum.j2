@@ -27,8 +27,6 @@ public class {{ name }} extends ModelEnum<{{ model|simple_type }}> {
   {{ name }}({{ model|simple_type }} value) {
     super(value, allowedValues);
   }
-  @JsonIgnore
-  public boolean unparsed = false;
 
   public static class {{ name }}Serializer extends StdSerializer<{{ name }}> {
       public {{ name }}Serializer(Class<{{ name }}> t) {
