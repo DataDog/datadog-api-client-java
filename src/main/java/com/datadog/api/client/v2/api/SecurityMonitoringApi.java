@@ -1106,7 +1106,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new signal-based rule.
+   * Create a new signal-based notification rule.
    *
    * <p>See {@link #createSignalNotificationRuleWithHttpInfo}.
    *
@@ -1122,7 +1122,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new signal-based rule.
+   * Create a new signal-based notification rule.
    *
    * <p>See {@link #createSignalNotificationRuleWithHttpInfoAsync}.
    *
@@ -1193,7 +1193,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new signal-based rule.
+   * Create a new signal-based notification rule.
    *
    * <p>See {@link #createSignalNotificationRuleWithHttpInfo}.
    *
@@ -1248,7 +1248,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new vulnerability-based rule.
+   * Create a new vulnerability-based notification rule.
    *
    * <p>See {@link #createVulnerabilityNotificationRuleWithHttpInfo}.
    *
@@ -1264,7 +1264,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new vulnerability-based rule.
+   * Create a new vulnerability-based notification rule.
    *
    * <p>See {@link #createVulnerabilityNotificationRuleWithHttpInfoAsync}.
    *
@@ -1336,7 +1336,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a new vulnerability-based rule.
+   * Create a new vulnerability-based notification rule.
    *
    * <p>See {@link #createVulnerabilityNotificationRuleWithHttpInfo}.
    *
@@ -1960,7 +1960,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a signal-based rule.
+   * Delete a signal-based notification rule.
    *
    * <p>See {@link #deleteSignalNotificationRuleWithHttpInfo}.
    *
@@ -1972,7 +1972,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a signal-based rule.
+   * Delete a signal-based notification rule.
    *
    * <p>See {@link #deleteSignalNotificationRuleWithHttpInfoAsync}.
    *
@@ -2039,7 +2039,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a signal-based rule.
+   * Delete a signal-based notification rule.
    *
    * <p>See {@link #deleteSignalNotificationRuleWithHttpInfo}.
    *
@@ -2094,7 +2094,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a vulnerability-based rule.
+   * Delete a vulnerability-based notification rule.
    *
    * <p>See {@link #deleteVulnerabilityNotificationRuleWithHttpInfo}.
    *
@@ -2106,7 +2106,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a vulnerability-based rule.
+   * Delete a vulnerability-based notification rule.
    *
    * <p>See {@link #deleteVulnerabilityNotificationRuleWithHttpInfoAsync}.
    *
@@ -2175,7 +2175,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Delete a vulnerability-based rule.
+   * Delete a vulnerability-based notification rule.
    *
    * <p>See {@link #deleteVulnerabilityNotificationRuleWithHttpInfo}.
    *
@@ -3910,7 +3910,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get details of a signal-based rule.
+   * Get details of a signal-based notification rule.
    *
    * <p>See {@link #getSignalNotificationRuleWithHttpInfo}.
    *
@@ -3923,7 +3923,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get details of a signal-based rule.
+   * Get details of a signal-based notification rule.
    *
    * <p>See {@link #getSignalNotificationRuleWithHttpInfoAsync}.
    *
@@ -3992,7 +3992,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get details of a signal-based rule.
+   * Get details of a signal-based notification rule.
    *
    * <p>See {@link #getSignalNotificationRuleWithHttpInfo}.
    *
@@ -4046,7 +4046,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the list of signal-based rules.
+   * Get the list of signal-based notification rules.
    *
    * <p>See {@link #getSignalNotificationRulesWithHttpInfo}.
    *
@@ -4058,7 +4058,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the list of signal-based rules.
+   * Get the list of signal-based notification rules.
    *
    * <p>See {@link #getSignalNotificationRulesWithHttpInfoAsync}.
    *
@@ -4114,7 +4114,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the list of signal-based rules.
+   * Get the list of signal-based notification rules.
    *
    * <p>See {@link #getSignalNotificationRulesWithHttpInfo}.
    *
@@ -4155,7 +4155,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get details of a vulnerability-based rule.
+   * Get details of a vulnerability notification rule.
    *
    * <p>See {@link #getVulnerabilityNotificationRuleWithHttpInfo}.
    *
@@ -4168,7 +4168,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get details of a vulnerability-based rule.
+   * Get details of a vulnerability notification rule.
    *
    * <p>See {@link #getVulnerabilityNotificationRuleWithHttpInfoAsync}.
    *
@@ -4238,7 +4238,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get details of a vulnerability-based rule.
+   * Get details of a vulnerability notification rule.
    *
    * <p>See {@link #getVulnerabilityNotificationRuleWithHttpInfo}.
    *
@@ -4293,7 +4293,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the list of vulnerability-based rules.
+   * Get the list of vulnerability notification rules.
    *
    * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfo}.
    *
@@ -4305,7 +4305,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the list of vulnerability-based rules.
+   * Get the list of vulnerability notification rules.
    *
    * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfoAsync}.
    *
@@ -4361,7 +4361,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get the list of vulnerability-based rules.
+   * Get the list of vulnerability notification rules.
    *
    * <p>See {@link #getVulnerabilityNotificationRulesWithHttpInfo}.
    *
@@ -7562,7 +7562,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Patch a signal-based rule.
+   * Patch a signal-based notification rule.
    *
    * <p>See {@link #patchSignalNotificationRuleWithHttpInfo}.
    *
@@ -7577,7 +7577,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Patch a signal-based rule.
+   * Patch a signal-based notification rule.
    *
    * <p>See {@link #patchSignalNotificationRuleWithHttpInfoAsync}.
    *
@@ -7657,7 +7657,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Patch a signal-based rule.
+   * Patch a signal-based notification rule.
    *
    * <p>See {@link #patchSignalNotificationRuleWithHttpInfo}.
    *
@@ -7723,7 +7723,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Patch a vulnerability-based rule.
+   * Patch a vulnerability-based notification rule.
    *
    * <p>See {@link #patchVulnerabilityNotificationRuleWithHttpInfo}.
    *
@@ -7738,7 +7738,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Patch a vulnerability-based rule.
+   * Patch a vulnerability-based notification rule.
    *
    * <p>See {@link #patchVulnerabilityNotificationRuleWithHttpInfoAsync}.
    *
@@ -7820,7 +7820,7 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Patch a vulnerability-based rule.
+   * Patch a vulnerability-based notification rule.
    *
    * <p>See {@link #patchVulnerabilityNotificationRuleWithHttpInfo}.
    *
