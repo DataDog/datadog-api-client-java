@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -34,6 +35,8 @@ public class ServiceDefinitionV2Dot1OpsgenieRegion extends ModelEnum<String> {
   ServiceDefinitionV2Dot1OpsgenieRegion(String value) {
     super(value, allowedValues);
   }
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class ServiceDefinitionV2Dot1OpsgenieRegionSerializer
       extends StdSerializer<ServiceDefinitionV2Dot1OpsgenieRegion> {

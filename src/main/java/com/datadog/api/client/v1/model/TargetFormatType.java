@@ -8,6 +8,7 @@ package com.datadog.api.client.v1.model;
 
 import com.datadog.api.client.ModelEnum;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
@@ -38,6 +39,8 @@ public class TargetFormatType extends ModelEnum<String> {
   TargetFormatType(String value) {
     super(value, allowedValues);
   }
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class TargetFormatTypeSerializer extends StdSerializer<TargetFormatType> {
     public TargetFormatTypeSerializer(Class<TargetFormatType> t) {
