@@ -3,16 +3,16 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Patch_a_vulnerability_based_rule_returns_Bad_Request_response-1737539438\",\"selectors\":{\"query\":\"env:test\",\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_findings\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":86400},\"type\":\"notification_rules\"}}"
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Patch_a_signal_based_notification_rule_returns_Bad_Request_response-1738763171\",\"selectors\":{\"query\":\"env:test\",\"rule_types\":[\"signal_correlation\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"]},\"type\":\"notification_rules\"}}"
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/security/vulnerabilities/notification_rules",
+      "path": "/api/v2/security/signals/notification_rules",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ks5-ywq-grp\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1737539438831,\"created_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"enabled\":true,\"modified_at\":1737539438831,\"modified_by\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"name\":\"Test-Patch_a_vulnerability_based_rule_returns_Bad_Request_response-1737539438\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"misconfiguration\",\"attack_path\"],\"query\":\"env:test\",\"trigger_source\":\"security_findings\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":86400,\"version\":1}}}",
+      "body": "{\"data\":{\"id\":\"uwx-6n1-x2z\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1738763171531,\"created_by\":{\"name\":\"\",\"handle\":\"\"},\"enabled\":true,\"modified_at\":1738763171531,\"modified_by\":{\"name\":\"\",\"handle\":\"\"},\"name\":\"Test-Patch_a_signal_based_notification_rule_returns_Bad_Request_response-1738763171\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ad12b284-6671-5e3c-c12a-f909c401de8a"
+    "id": "5465fd63-1ad9-f036-d4de-86a2bee8be2f"
   },
   {
     "httpRequest": {
@@ -37,7 +37,7 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security/vulnerabilities/notification_rules/ks5-ywq-grp",
+      "path": "/api/v2/security/signals/notification_rules/uwx-6n1-x2z",
       "keepAlive": false,
       "secure": true
     },
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f361b399-f42d-b29f-de49-bfea9bbb7f8a"
+    "id": "e7f62ae6-2be6-0274-cbac-7df3efec6433"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security/vulnerabilities/notification_rules/ks5-ywq-grp",
+      "path": "/api/v2/security/signals/notification_rules/uwx-6n1-x2z",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "be665bec-3834-2cb9-f7b5-ac1e15cbe737"
+    "id": "4d804465-6bb1-f69d-2514-3f86f04ad696"
   }
 ]

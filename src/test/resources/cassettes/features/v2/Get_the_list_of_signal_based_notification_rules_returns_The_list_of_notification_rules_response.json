@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"name\":\"Test-Get_the_list_of_signal_based_notification_rules_returns_The_list_of_notification_rules_response-1738763164\",\"selectors\":{\"query\":\"env:test\",\"rule_types\":[\"signal_correlation\"],\"severities\":[\"critical\"],\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"]},\"type\":\"notification_rules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security/signals/notification_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"btd-udo-vn7\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1738763164939,\"created_by\":{\"name\":\"\",\"handle\":\"\"},\"enabled\":true,\"modified_at\":1738763164939,\"modified_by\":{\"name\":\"\",\"handle\":\"\"},\"name\":\"Test-Get_the_list_of_signal_based_notification_rules_returns_The_list_of_notification_rules_response-1738763164\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "36450e02-5c21-6f92-98f6-f2bd9b210ca6"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/security/signals/notification_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"btd-udo-vn7\",\"type\":\"notification_rules\",\"attributes\":{\"created_at\":1738763164939,\"created_by\":{\"name\":\"\",\"handle\":\"\"},\"enabled\":true,\"modified_at\":1738763164939,\"modified_by\":{\"name\":\"\",\"handle\":\"\"},\"name\":\"Test-Get_the_list_of_signal_based_notification_rules_returns_The_list_of_notification_rules_response-1738763164\",\"selectors\":{\"severities\":[\"critical\"],\"rule_types\":[\"signal_correlation\"],\"query\":\"env:test\",\"trigger_source\":\"security_signals\"},\"targets\":[\"@email@email.com\"],\"time_aggregation\":0,\"version\":1}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f6b346e6-ddaf-c00f-81e2-42ae9307c4dc"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/security/signals/notification_rules/btd-udo-vn7",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "97135ae7-8827-0f4a-5ede-bfc41954206f"
+  }
+]
