@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"finished_at\":1693491984000000000,\"git\":{\"commit_sha\":\"66adc9350f2cc9b250b69abddab733dd55e1a588\",\"repository_url\":\"https://github.com/organization/example-repository\"},\"service\":\"shopist\",\"started_at\":1693491974000000000,\"version\":\"v1.12.07\"}}}"
+        "json": "{\"data\":{\"attributes\":{\"finished_at\":1693491984000,\"git\":{\"commit_sha\":\"66adc9350f2cc9b250b69abddab733dd55e1a588\",\"repository_url\":\"https://github.com/organization/example-repository\"},\"service\":\"shopist\",\"started_at\":16934919740000,\"version\":\"v1.12.07\"}}}"
       },
       "headers": {},
       "method": "POST",
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "89b0b557-54cf-a77e-61b3-69a1bee5bac6"
+    "id": "d766d5bb-b37d-849c-6e59-818cec461a84"
   }
 ]

@@ -22,7 +22,7 @@ public class Example {
                 new DORAIncidentRequestData()
                     .attributes(
                         new DORAIncidentRequestAttributes()
-                            .finishedAt(1707842944600000000L)
+                            .finishedAt(17078429446000L)
                             .git(
                                 new DORAGitInfo()
                                     .commitSha("66adc9350f2cc9b250b69abddab733dd55e1a588")
@@ -31,7 +31,7 @@ public class Example {
                             .name("Webserver is down failing all requests")
                             .services(Collections.singletonList("shopist"))
                             .severity("High")
-                            .startedAt(1707842944500000000L)
+                            .startedAt(17078429445000L)
                             .team("backend")
                             .version("v1.12.07")));
 
