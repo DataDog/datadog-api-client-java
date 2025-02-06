@@ -1,4 +1,5 @@
-// Create a new signal-based rule returns "Successfully created the notification rule." response
+// Create a new signal-based notification rule returns "Successfully created the notification rule."
+// response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
