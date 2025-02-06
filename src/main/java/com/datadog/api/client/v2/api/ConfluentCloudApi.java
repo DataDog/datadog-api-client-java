@@ -188,7 +188,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #createConfluentResourceWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param body Confluent payload (required)
    * @return ConfluentResourceResponse
    * @throws ApiException if fails to make API call
@@ -203,7 +203,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #createConfluentResourceWithHttpInfoAsync}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param body Confluent payload (required)
    * @return CompletableFuture&lt;ConfluentResourceResponse&gt;
    */
@@ -219,7 +219,7 @@ public class ConfluentCloudApi {
   /**
    * Create a Confluent resource for the account associated with the provided ID.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param body Confluent payload (required)
    * @return ApiResponse&lt;ConfluentResourceResponse&gt;
    * @throws ApiException if fails to make API call
@@ -281,7 +281,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #createConfluentResourceWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param body Confluent payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ConfluentResourceResponse&gt;&gt;
    */
@@ -346,7 +346,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #deleteConfluentAccountWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @throws ApiException if fails to make API call
    */
   public void deleteConfluentAccount(String accountId) throws ApiException {
@@ -358,7 +358,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #deleteConfluentAccountWithHttpInfoAsync}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @return CompletableFuture
    */
   public CompletableFuture<Void> deleteConfluentAccountAsync(String accountId) {
@@ -372,7 +372,7 @@ public class ConfluentCloudApi {
   /**
    * Delete a Confluent account with the provided account ID.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -427,7 +427,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #deleteConfluentAccountWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteConfluentAccountWithHttpInfoAsync(
@@ -482,7 +482,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #deleteConfluentResourceWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @throws ApiException if fails to make API call
    */
@@ -495,7 +495,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #deleteConfluentResourceWithHttpInfoAsync}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @return CompletableFuture
    */
@@ -511,7 +511,7 @@ public class ConfluentCloudApi {
    * Delete a Confluent resource with the provided resource id for the account associated with the
    * provided account ID.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -575,7 +575,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #deleteConfluentResourceWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -643,7 +643,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #getConfluentAccountWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @return ConfluentAccountResponse
    * @throws ApiException if fails to make API call
    */
@@ -656,7 +656,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #getConfluentAccountWithHttpInfoAsync}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @return CompletableFuture&lt;ConfluentAccountResponse&gt;
    */
   public CompletableFuture<ConfluentAccountResponse> getConfluentAccountAsync(String accountId) {
@@ -670,7 +670,7 @@ public class ConfluentCloudApi {
   /**
    * Get the Confluent account with the provided account ID.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @return ApiResponse&lt;ConfluentAccountResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -725,7 +725,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #getConfluentAccountWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ConfluentAccountResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ConfluentAccountResponse>>
@@ -779,7 +779,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #getConfluentResourceWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @return ConfluentResourceResponse
    * @throws ApiException if fails to make API call
@@ -794,7 +794,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #getConfluentResourceWithHttpInfoAsync}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @return CompletableFuture&lt;ConfluentResourceResponse&gt;
    */
@@ -811,7 +811,7 @@ public class ConfluentCloudApi {
    * Get a Confluent resource with the provided resource id for the account associated with the
    * provided account ID.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @return ApiResponse&lt;ConfluentResourceResponse&gt;
    * @throws ApiException if fails to make API call
@@ -875,7 +875,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #getConfluentResourceWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ConfluentResourceResponse&gt;&gt;
    */
@@ -1055,7 +1055,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #listConfluentResourceWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @return ConfluentResourcesResponse
    * @throws ApiException if fails to make API call
    */
@@ -1068,7 +1068,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #listConfluentResourceWithHttpInfoAsync}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @return CompletableFuture&lt;ConfluentResourcesResponse&gt;
    */
   public CompletableFuture<ConfluentResourcesResponse> listConfluentResourceAsync(
@@ -1083,7 +1083,7 @@ public class ConfluentCloudApi {
   /**
    * Get a Confluent resource for the account associated with the provided ID.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @return ApiResponse&lt;ConfluentResourcesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1138,7 +1138,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #listConfluentResourceWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ConfluentResourcesResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ConfluentResourcesResponse>>
@@ -1193,7 +1193,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #updateConfluentAccountWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param body Confluent payload (required)
    * @return ConfluentAccountResponse
    * @throws ApiException if fails to make API call
@@ -1208,7 +1208,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #updateConfluentAccountWithHttpInfoAsync}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param body Confluent payload (required)
    * @return CompletableFuture&lt;ConfluentAccountResponse&gt;
    */
@@ -1224,7 +1224,7 @@ public class ConfluentCloudApi {
   /**
    * Update the Confluent account with the provided account ID.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param body Confluent payload (required)
    * @return ApiResponse&lt;ConfluentAccountResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1286,7 +1286,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #updateConfluentAccountWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param body Confluent payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ConfluentAccountResponse&gt;&gt;
    */
@@ -1352,7 +1352,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #updateConfluentResourceWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @param body Confluent payload (required)
    * @return ConfluentResourceResponse
@@ -1368,7 +1368,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #updateConfluentResourceWithHttpInfoAsync}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @param body Confluent payload (required)
    * @return CompletableFuture&lt;ConfluentResourceResponse&gt;
@@ -1386,7 +1386,7 @@ public class ConfluentCloudApi {
    * Update a Confluent resource with the provided resource id for the account associated with the
    * provided account ID.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @param body Confluent payload (required)
    * @return ApiResponse&lt;ConfluentResourceResponse&gt;
@@ -1457,7 +1457,7 @@ public class ConfluentCloudApi {
    *
    * <p>See {@link #updateConfluentResourceWithHttpInfo}.
    *
-   * @param accountId Confluent Account id. (required)
+   * @param accountId Confluent Account ID. (required)
    * @param resourceId Confluent Account Resource ID. (required)
    * @param body Confluent payload (required)
    * @return CompletableFuture&lt;ApiResponse&lt;ConfluentResourceResponse&gt;&gt;
