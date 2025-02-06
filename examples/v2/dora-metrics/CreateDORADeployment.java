@@ -21,14 +21,14 @@ public class Example {
                 new DORADeploymentRequestData()
                     .attributes(
                         new DORADeploymentRequestAttributes()
-                            .finishedAt(1693491984000000000L)
+                            .finishedAt(1693491984000L)
                             .git(
                                 new DORAGitInfo()
                                     .commitSha("66adc9350f2cc9b250b69abddab733dd55e1a588")
                                     .repositoryUrl(
                                         "https://github.com/organization/example-repository"))
                             .service("shopist")
-                            .startedAt(1693491974000000000L)
+                            .startedAt(1693491974000L)
                             .version("v1.12.07")));
 
     try {
