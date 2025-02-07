@@ -17,5 +17,4 @@ jobs:
         dd_app_key: ${{ secrets.DD_APP_KEY }}
         dd_service: datadog-api-client-java
         dd_site: datadoghq.com
-        dd_env: ci
         cpu_count: 2
