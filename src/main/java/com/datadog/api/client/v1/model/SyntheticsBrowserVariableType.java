@@ -23,7 +23,7 @@ import java.util.Set;
 public class SyntheticsBrowserVariableType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("element", "email", "global", "javascript", "text"));
+      new HashSet<String>(Arrays.asList("element", "email", "global", "text"));
 
   public static final SyntheticsBrowserVariableType ELEMENT =
       new SyntheticsBrowserVariableType("element");
@@ -31,8 +31,6 @@ public class SyntheticsBrowserVariableType extends ModelEnum<String> {
       new SyntheticsBrowserVariableType("email");
   public static final SyntheticsBrowserVariableType GLOBAL =
       new SyntheticsBrowserVariableType("global");
-  public static final SyntheticsBrowserVariableType JAVASCRIPT =
-      new SyntheticsBrowserVariableType("javascript");
   public static final SyntheticsBrowserVariableType TEXT =
       new SyntheticsBrowserVariableType("text");
 
