@@ -44,7 +44,7 @@ public class FastlyService {
   }
 
   /**
-   * The id of the Fastly service
+   * The ID of the Fastly service
    *
    * @return id
    */
