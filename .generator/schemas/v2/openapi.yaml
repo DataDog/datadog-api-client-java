@@ -50064,7 +50064,7 @@ tags:
     for more information.
   name: CI Visibility Pipelines
 - description: Search or aggregate your CI Visibility test events over HTTP. See the
-    [Test Visibility in Datadog page](https://docs.datadoghq.com/tests/) for more
+    [Test Optimization in Datadog](https://docs.datadoghq.com/tests/) page for more
     information.
   name: CI Visibility Tests
 - description: 'Datadog Cloud Security Management (CSM) delivers real-time threat
