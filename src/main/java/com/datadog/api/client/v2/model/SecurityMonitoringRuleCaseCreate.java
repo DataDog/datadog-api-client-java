@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Case when signal is generated. */
 @JsonPropertyOrder({
+  SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_ACTIONS,
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_CONDITION,
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_NAME,
   SecurityMonitoringRuleCaseCreate.JSON_PROPERTY_NOTIFICATIONS,
@@ -30,6 +31,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleCaseCreate {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACTIONS = "actions";
+  private List<SecurityMonitoringRuleCaseAction> actions = null;
+
   public static final String JSON_PROPERTY_CONDITION = "condition";
   private String condition;
 
@@ -50,6 +54,40 @@ public class SecurityMonitoringRuleCaseCreate {
           SecurityMonitoringRuleSeverity status) {
     this.status = status;
     this.unparsed |= !status.isValid();
+  }
+
+  public SecurityMonitoringRuleCaseCreate actions(List<SecurityMonitoringRuleCaseAction> actions) {
+    this.actions = actions;
+    for (SecurityMonitoringRuleCaseAction item : actions) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SecurityMonitoringRuleCaseCreate addActionsItem(
+      SecurityMonitoringRuleCaseAction actionsItem) {
+    if (this.actions == null) {
+      this.actions = new ArrayList<>();
+    }
+    this.actions.add(actionsItem);
+    this.unparsed |= actionsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * Action to perform for each rule case.
+   *
+   * @return actions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SecurityMonitoringRuleCaseAction> getActions() {
+    return actions;
+  }
+
+  public void setActions(List<SecurityMonitoringRuleCaseAction> actions) {
+    this.actions = actions;
   }
 
   public SecurityMonitoringRuleCaseCreate condition(String condition) {
@@ -206,7 +244,8 @@ public class SecurityMonitoringRuleCaseCreate {
     }
     SecurityMonitoringRuleCaseCreate securityMonitoringRuleCaseCreate =
         (SecurityMonitoringRuleCaseCreate) o;
-    return Objects.equals(this.condition, securityMonitoringRuleCaseCreate.condition)
+    return Objects.equals(this.actions, securityMonitoringRuleCaseCreate.actions)
+        && Objects.equals(this.condition, securityMonitoringRuleCaseCreate.condition)
         && Objects.equals(this.name, securityMonitoringRuleCaseCreate.name)
         && Objects.equals(this.notifications, securityMonitoringRuleCaseCreate.notifications)
         && Objects.equals(this.status, securityMonitoringRuleCaseCreate.status)
@@ -216,13 +255,14 @@ public class SecurityMonitoringRuleCaseCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(condition, name, notifications, status, additionalProperties);
+    return Objects.hash(actions, condition, name, notifications, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleCaseCreate {\n");
+    sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
     sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");

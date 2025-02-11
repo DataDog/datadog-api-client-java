@@ -24,6 +24,7 @@ import java.util.Objects;
   JobDefinition.JSON_PROPERTY_CALCULATED_FIELDS,
   JobDefinition.JSON_PROPERTY_CASES,
   JobDefinition.JSON_PROPERTY_FROM,
+  JobDefinition.JSON_PROPERTY_GROUP_SIGNALS_BY,
   JobDefinition.JSON_PROPERTY_INDEX,
   JobDefinition.JSON_PROPERTY_MESSAGE,
   JobDefinition.JSON_PROPERTY_NAME,
@@ -47,6 +48,9 @@ public class JobDefinition {
 
   public static final String JSON_PROPERTY_FROM = "from";
   private Long from;
+
+  public static final String JSON_PROPERTY_GROUP_SIGNALS_BY = "groupSignalsBy";
+  private List<String> groupSignalsBy = null;
 
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
@@ -180,6 +184,36 @@ public class JobDefinition {
 
   public void setFrom(Long from) {
     this.from = from;
+  }
+
+  public JobDefinition groupSignalsBy(List<String> groupSignalsBy) {
+    this.groupSignalsBy = groupSignalsBy;
+    return this;
+  }
+
+  public JobDefinition addGroupSignalsByItem(String groupSignalsByItem) {
+    if (this.groupSignalsBy == null) {
+      this.groupSignalsBy = new ArrayList<>();
+    }
+    this.groupSignalsBy.add(groupSignalsByItem);
+    return this;
+  }
+
+  /**
+   * Additional grouping to perform on top of the existing groups in the query section. Must be a
+   * subset of the existing groups.
+   *
+   * @return groupSignalsBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_SIGNALS_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getGroupSignalsBy() {
+    return groupSignalsBy;
+  }
+
+  public void setGroupSignalsBy(List<String> groupSignalsBy) {
+    this.groupSignalsBy = groupSignalsBy;
   }
 
   public JobDefinition index(String index) {
@@ -492,6 +526,7 @@ public class JobDefinition {
     return Objects.equals(this.calculatedFields, jobDefinition.calculatedFields)
         && Objects.equals(this.cases, jobDefinition.cases)
         && Objects.equals(this.from, jobDefinition.from)
+        && Objects.equals(this.groupSignalsBy, jobDefinition.groupSignalsBy)
         && Objects.equals(this.index, jobDefinition.index)
         && Objects.equals(this.message, jobDefinition.message)
         && Objects.equals(this.name, jobDefinition.name)
@@ -511,6 +546,7 @@ public class JobDefinition {
         calculatedFields,
         cases,
         from,
+        groupSignalsBy,
         index,
         message,
         name,
@@ -531,6 +567,7 @@ public class JobDefinition {
     sb.append("    calculatedFields: ").append(toIndentedString(calculatedFields)).append("\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
     sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    groupSignalsBy: ").append(toIndentedString(groupSignalsBy)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
