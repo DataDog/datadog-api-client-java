@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_CASES,
   SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_FILTERS,
+  SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_GROUP_SIGNALS_BY,
   SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_HAS_EXTENDED_TITLE,
   SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_IS_ENABLED,
   SecurityMonitoringStandardRuleTestPayload.JSON_PROPERTY_MESSAGE,
@@ -43,6 +44,9 @@ public class SecurityMonitoringStandardRuleTestPayload {
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<SecurityMonitoringFilter> filters = null;
+
+  public static final String JSON_PROPERTY_GROUP_SIGNALS_BY = "groupSignalsBy";
+  private List<String> groupSignalsBy = null;
 
   public static final String JSON_PROPERTY_HAS_EXTENDED_TITLE = "hasExtendedTitle";
   private Boolean hasExtendedTitle;
@@ -160,6 +164,37 @@ public class SecurityMonitoringStandardRuleTestPayload {
 
   public void setFilters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+  }
+
+  public SecurityMonitoringStandardRuleTestPayload groupSignalsBy(List<String> groupSignalsBy) {
+    this.groupSignalsBy = groupSignalsBy;
+    return this;
+  }
+
+  public SecurityMonitoringStandardRuleTestPayload addGroupSignalsByItem(
+      String groupSignalsByItem) {
+    if (this.groupSignalsBy == null) {
+      this.groupSignalsBy = new ArrayList<>();
+    }
+    this.groupSignalsBy.add(groupSignalsByItem);
+    return this;
+  }
+
+  /**
+   * Additional grouping to perform on top of the existing groups in the query section. Must be a
+   * subset of the existing groups.
+   *
+   * @return groupSignalsBy
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROUP_SIGNALS_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getGroupSignalsBy() {
+    return groupSignalsBy;
+  }
+
+  public void setGroupSignalsBy(List<String> groupSignalsBy) {
+    this.groupSignalsBy = groupSignalsBy;
   }
 
   public SecurityMonitoringStandardRuleTestPayload hasExtendedTitle(Boolean hasExtendedTitle) {
@@ -479,6 +514,8 @@ public class SecurityMonitoringStandardRuleTestPayload {
     return Objects.equals(this.cases, securityMonitoringStandardRuleTestPayload.cases)
         && Objects.equals(this.filters, securityMonitoringStandardRuleTestPayload.filters)
         && Objects.equals(
+            this.groupSignalsBy, securityMonitoringStandardRuleTestPayload.groupSignalsBy)
+        && Objects.equals(
             this.hasExtendedTitle, securityMonitoringStandardRuleTestPayload.hasExtendedTitle)
         && Objects.equals(this.isEnabled, securityMonitoringStandardRuleTestPayload.isEnabled)
         && Objects.equals(this.message, securityMonitoringStandardRuleTestPayload.message)
@@ -501,6 +538,7 @@ public class SecurityMonitoringStandardRuleTestPayload {
     return Objects.hash(
         cases,
         filters,
+        groupSignalsBy,
         hasExtendedTitle,
         isEnabled,
         message,
@@ -520,6 +558,7 @@ public class SecurityMonitoringStandardRuleTestPayload {
     sb.append("class SecurityMonitoringStandardRuleTestPayload {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    groupSignalsBy: ").append(toIndentedString(groupSignalsBy)).append("\n");
     sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
