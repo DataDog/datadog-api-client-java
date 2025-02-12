@@ -1954,7 +1954,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of the the high-water marks of Cloud Security Management Pro containers over all
+   * Shows the sum of the high-water marks of Cloud Security Management Pro containers over all
    * hours in the current month for all organizations.
    *
    * @return cspmContainerHwmSum
@@ -2938,8 +2938,8 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows sum of the the high-water marks of incident management monthly active users in the
-   * current month for all organizations.
+   * Shows sum of the high-water marks of incident management monthly active users in the current
+   * month for all organizations.
    *
    * @return incidentManagementMonthlyActiveUsersHwmSum
    */
@@ -3073,8 +3073,8 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the the most recent hour in the current month for all organizations for which all usages
-   * were calculated.
+   * Shows the most recent hour in the current month for all organizations for which all usages were
+   * calculated.
    *
    * @return lastUpdated
    */
