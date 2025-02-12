@@ -51,7 +51,7 @@ public class SLOCorrectionListResponse {
   }
 
   /**
-   * The list of of SLO corrections objects.
+   * The list of SLO corrections objects.
    *
    * @return data
    */
