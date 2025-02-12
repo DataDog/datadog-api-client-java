@@ -1089,7 +1089,7 @@ public class MonitorsApi {
      *
      * @param groupStates When specified, shows additional information about the group states.
      *     Choose one or more from <code>all</code>, <code>alert</code>, <code>warn</code>, and
-     *     <code>no data</code>. (optional)
+     *     <code>no data</code> (<code>no%20data</code>). (optional)
      * @return ListMonitorsOptionalParameters
      */
     public ListMonitorsOptionalParameters groupStates(String groupStates) {
