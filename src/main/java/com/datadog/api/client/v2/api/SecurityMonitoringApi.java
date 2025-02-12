@@ -15,6 +15,7 @@ import com.datadog.api.client.v2.model.FindingEvaluation;
 import com.datadog.api.client.v2.model.FindingStatus;
 import com.datadog.api.client.v2.model.FindingVulnerabilityType;
 import com.datadog.api.client.v2.model.GetFindingResponse;
+import com.datadog.api.client.v2.model.GetRuleVersionHistoryResponse;
 import com.datadog.api.client.v2.model.GetSBOMResponse;
 import com.datadog.api.client.v2.model.HistoricalJobResponse;
 import com.datadog.api.client.v2.model.JobCreateResponse;
@@ -3112,6 +3113,242 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<HistoricalJobResponse>() {});
+  }
+
+  /** Manage optional parameters to getRuleVersionHistory. */
+  public static class GetRuleVersionHistoryOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
+     *     to 10)
+     * @return GetRuleVersionHistoryOptionalParameters
+     */
+    public GetRuleVersionHistoryOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return GetRuleVersionHistoryOptionalParameters
+     */
+    public GetRuleVersionHistoryOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+  }
+
+  /**
+   * Get a rule&#39;s version history.
+   *
+   * <p>See {@link #getRuleVersionHistoryWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return GetRuleVersionHistoryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetRuleVersionHistoryResponse getRuleVersionHistory(String ruleId) throws ApiException {
+    return getRuleVersionHistoryWithHttpInfo(ruleId, new GetRuleVersionHistoryOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get a rule&#39;s version history.
+   *
+   * <p>See {@link #getRuleVersionHistoryWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return CompletableFuture&lt;GetRuleVersionHistoryResponse&gt;
+   */
+  public CompletableFuture<GetRuleVersionHistoryResponse> getRuleVersionHistoryAsync(
+      String ruleId) {
+    return getRuleVersionHistoryWithHttpInfoAsync(
+            ruleId, new GetRuleVersionHistoryOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a rule&#39;s version history.
+   *
+   * <p>See {@link #getRuleVersionHistoryWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param parameters Optional parameters for the request.
+   * @return GetRuleVersionHistoryResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetRuleVersionHistoryResponse getRuleVersionHistory(
+      String ruleId, GetRuleVersionHistoryOptionalParameters parameters) throws ApiException {
+    return getRuleVersionHistoryWithHttpInfo(ruleId, parameters).getData();
+  }
+
+  /**
+   * Get a rule&#39;s version history.
+   *
+   * <p>See {@link #getRuleVersionHistoryWithHttpInfoAsync}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;GetRuleVersionHistoryResponse&gt;
+   */
+  public CompletableFuture<GetRuleVersionHistoryResponse> getRuleVersionHistoryAsync(
+      String ruleId, GetRuleVersionHistoryOptionalParameters parameters) {
+    return getRuleVersionHistoryWithHttpInfoAsync(ruleId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a rule's version history.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;GetRuleVersionHistoryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetRuleVersionHistoryResponse> getRuleVersionHistoryWithHttpInfo(
+      String ruleId, GetRuleVersionHistoryOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getRuleVersionHistory";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling getRuleVersionHistory");
+    }
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/{rule_id}/version_history"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getRuleVersionHistory",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetRuleVersionHistoryResponse>() {});
+  }
+
+  /**
+   * Get a rule&#39;s version history.
+   *
+   * <p>See {@link #getRuleVersionHistoryWithHttpInfo}.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;GetRuleVersionHistoryResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetRuleVersionHistoryResponse>>
+      getRuleVersionHistoryWithHttpInfoAsync(
+          String ruleId, GetRuleVersionHistoryOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "getRuleVersionHistory";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<GetRuleVersionHistoryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<GetRuleVersionHistoryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'ruleId' when calling getRuleVersionHistory"));
+      return result;
+    }
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/rules/{rule_id}/version_history"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getRuleVersionHistory",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetRuleVersionHistoryResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetRuleVersionHistoryResponse>() {});
   }
 
   /** Manage optional parameters to getSBOM. */
