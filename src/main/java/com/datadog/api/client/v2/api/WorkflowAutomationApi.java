@@ -4,6 +4,11 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.CreateWorkflowRequest;
+import com.datadog.api.client.v2.model.CreateWorkflowResponse;
+import com.datadog.api.client.v2.model.GetWorkflowResponse;
+import com.datadog.api.client.v2.model.UpdateWorkflowRequest;
+import com.datadog.api.client.v2.model.UpdateWorkflowResponse;
 import com.datadog.api.client.v2.model.WorkflowInstanceCreateRequest;
 import com.datadog.api.client.v2.model.WorkflowInstanceCreateResponse;
 import com.datadog.api.client.v2.model.WorkflowListInstancesResponse;
@@ -218,6 +223,138 @@ public class WorkflowAutomationApi {
   }
 
   /**
+   * Create a Workflow.
+   *
+   * <p>See {@link #createWorkflowWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CreateWorkflowResponse
+   * @throws ApiException if fails to make API call
+   */
+  public CreateWorkflowResponse createWorkflow(CreateWorkflowRequest body) throws ApiException {
+    return createWorkflowWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a Workflow.
+   *
+   * <p>See {@link #createWorkflowWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;CreateWorkflowResponse&gt;
+   */
+  public CompletableFuture<CreateWorkflowResponse> createWorkflowAsync(CreateWorkflowRequest body) {
+    return createWorkflowWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new workflow, returning the workflow ID. This API requires an application key scoped
+   * with the <code>workflows_write</code> permission.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;CreateWorkflowResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Successfully created a workflow. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<CreateWorkflowResponse> createWorkflowWithHttpInfo(CreateWorkflowRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createWorkflow");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/workflows";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.WorkflowAutomationApi.createWorkflow",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CreateWorkflowResponse>() {});
+  }
+
+  /**
+   * Create a Workflow.
+   *
+   * <p>See {@link #createWorkflowWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;CreateWorkflowResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<CreateWorkflowResponse>> createWorkflowWithHttpInfoAsync(
+      CreateWorkflowRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<CreateWorkflowResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createWorkflow"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/workflows";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.WorkflowAutomationApi.createWorkflow",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<CreateWorkflowResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<CreateWorkflowResponse>() {});
+  }
+
+  /**
    * Execute a workflow.
    *
    * <p>See {@link #createWorkflowInstanceWithHttpInfo}.
@@ -379,6 +516,280 @@ public class WorkflowAutomationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<WorkflowInstanceCreateResponse>() {});
+  }
+
+  /**
+   * Delete an existing Workflow.
+   *
+   * <p>See {@link #deleteWorkflowWithHttpInfo}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteWorkflow(String workflowId) throws ApiException {
+    deleteWorkflowWithHttpInfo(workflowId);
+  }
+
+  /**
+   * Delete an existing Workflow.
+   *
+   * <p>See {@link #deleteWorkflowWithHttpInfoAsync}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteWorkflowAsync(String workflowId) {
+    return deleteWorkflowWithHttpInfoAsync(workflowId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a workflow by ID. This API requires an application key scoped with the <code>
+   * workflows_write</code> permission.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Successfully deleted a workflow. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteWorkflowWithHttpInfo(String workflowId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'workflowId' when calling deleteWorkflow");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflows/{workflow_id}"
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.WorkflowAutomationApi.deleteWorkflow",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete an existing Workflow.
+   *
+   * <p>See {@link #deleteWorkflowWithHttpInfo}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteWorkflowWithHttpInfoAsync(String workflowId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'workflowId' when calling deleteWorkflow"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflows/{workflow_id}"
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.WorkflowAutomationApi.deleteWorkflow",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Get an existing Workflow.
+   *
+   * <p>See {@link #getWorkflowWithHttpInfo}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @return GetWorkflowResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetWorkflowResponse getWorkflow(String workflowId) throws ApiException {
+    return getWorkflowWithHttpInfo(workflowId).getData();
+  }
+
+  /**
+   * Get an existing Workflow.
+   *
+   * <p>See {@link #getWorkflowWithHttpInfoAsync}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @return CompletableFuture&lt;GetWorkflowResponse&gt;
+   */
+  public CompletableFuture<GetWorkflowResponse> getWorkflowAsync(String workflowId) {
+    return getWorkflowWithHttpInfoAsync(workflowId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a workflow by ID. This API requires an application key scoped with the <code>workflows_read
+   * </code> permission.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @return ApiResponse&lt;GetWorkflowResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully got a workflow. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetWorkflowResponse> getWorkflowWithHttpInfo(String workflowId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'workflowId' when calling getWorkflow");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflows/{workflow_id}"
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.WorkflowAutomationApi.getWorkflow",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetWorkflowResponse>() {});
+  }
+
+  /**
+   * Get an existing Workflow.
+   *
+   * <p>See {@link #getWorkflowWithHttpInfo}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;GetWorkflowResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetWorkflowResponse>> getWorkflowWithHttpInfoAsync(
+      String workflowId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      CompletableFuture<ApiResponse<GetWorkflowResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'workflowId' when calling getWorkflow"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflows/{workflow_id}"
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.WorkflowAutomationApi.getWorkflow",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetWorkflowResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetWorkflowResponse>() {});
   }
 
   /**
@@ -769,5 +1180,165 @@ public class WorkflowAutomationApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<WorkflowListInstancesResponse>() {});
+  }
+
+  /**
+   * Update an existing Workflow.
+   *
+   * <p>See {@link #updateWorkflowWithHttpInfo}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param body (required)
+   * @return UpdateWorkflowResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UpdateWorkflowResponse updateWorkflow(String workflowId, UpdateWorkflowRequest body)
+      throws ApiException {
+    return updateWorkflowWithHttpInfo(workflowId, body).getData();
+  }
+
+  /**
+   * Update an existing Workflow.
+   *
+   * <p>See {@link #updateWorkflowWithHttpInfoAsync}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;UpdateWorkflowResponse&gt;
+   */
+  public CompletableFuture<UpdateWorkflowResponse> updateWorkflowAsync(
+      String workflowId, UpdateWorkflowRequest body) {
+    return updateWorkflowWithHttpInfoAsync(workflowId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update a workflow by ID. This API requires an application key scoped with the <code>
+   * workflows_write</code> permission.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;UpdateWorkflowResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Successfully updated a workflow. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UpdateWorkflowResponse> updateWorkflowWithHttpInfo(
+      String workflowId, UpdateWorkflowRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'workflowId' when calling updateWorkflow");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateWorkflow");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflows/{workflow_id}"
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.WorkflowAutomationApi.updateWorkflow",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpdateWorkflowResponse>() {});
+  }
+
+  /**
+   * Update an existing Workflow.
+   *
+   * <p>See {@link #updateWorkflowWithHttpInfo}.
+   *
+   * @param workflowId The ID of the workflow. (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UpdateWorkflowResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UpdateWorkflowResponse>> updateWorkflowWithHttpInfoAsync(
+      String workflowId, UpdateWorkflowRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'workflowId' is set
+    if (workflowId == null) {
+      CompletableFuture<ApiResponse<UpdateWorkflowResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'workflowId' when calling updateWorkflow"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UpdateWorkflowResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateWorkflow"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/workflows/{workflow_id}"
+            .replaceAll(
+                "\\{" + "workflow_id" + "\\}", apiClient.escapeString(workflowId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.WorkflowAutomationApi.updateWorkflow",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UpdateWorkflowResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpdateWorkflowResponse>() {});
   }
 }

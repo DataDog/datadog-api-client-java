@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Cassette Workflow x-given\",\"spec\":{\"steps\":[{\"actionId\":\"com.datadoghq.core.noop\",\"name\":\"No_op\"}],\"triggers\":[{\"startStepNames\":[\"No_op\"],\"workflowTrigger\":{}}]}},\"type\":\"workflows\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/workflows",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"94300e37-bf51-498b-b56b-83d17ef45e6b\",\"type\":\"workflows\",\"attributes\":{\"createdAt\":\"2025-02-04T04:58:33.538848Z\",\"description\":\"\",\"name\":\"Cassette Workflow x-given\",\"published\":true,\"spec\":{\"triggers\":[{\"startStepNames\":[\"No_op\"],\"workflowTrigger\":{}}],\"steps\":[{\"name\":\"No_op\",\"actionId\":\"com.datadoghq.core.noop\"}]},\"tags\":[],\"updatedAt\":\"2025-02-04T04:58:33.538848Z\"},\"relationships\":{\"creator\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"owner\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ef58c8e5-8d44-f741-5735-0d8c01ffa21d"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/workflows/94300e37-bf51-498b-b56b-83d17ef45e6b",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e8341d25-c544-632e-afe2-e81fd2bcba07"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/workflows/94300e37-bf51-498b-b56b-83d17ef45e6b",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"detail\":\"workflow not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e8341d25-c544-632e-afe2-e81fd2bcba08"
+  }
+]

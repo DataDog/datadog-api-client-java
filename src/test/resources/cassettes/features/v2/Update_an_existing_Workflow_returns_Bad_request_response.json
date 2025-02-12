@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Cassette Workflow x-given\",\"spec\":{\"steps\":[{\"actionId\":\"com.datadoghq.core.noop\",\"name\":\"No_op\"}],\"triggers\":[{\"startStepNames\":[\"No_op\"],\"workflowTrigger\":{}}]}},\"type\":\"workflows\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/workflows",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"748a9d1b-a9a5-415b-9360-3d8374329957\",\"type\":\"workflows\",\"attributes\":{\"createdAt\":\"2025-02-04T04:58:34.263325Z\",\"description\":\"\",\"name\":\"Cassette Workflow x-given\",\"published\":true,\"spec\":{\"triggers\":[{\"startStepNames\":[\"No_op\"],\"workflowTrigger\":{}}],\"steps\":[{\"name\":\"No_op\",\"actionId\":\"com.datadoghq.core.noop\"}]},\"tags\":[],\"updatedAt\":\"2025-02-04T04:58:34.263325Z\"},\"relationships\":{\"creator\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"owner\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ef58c8e5-8d44-f741-5735-0d8c01ffa21e"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"name\":\"Too many characters in description\",\"spec\":{}},\"id\":\"22222222-2222-2222-2222-222222222222\",\"type\":\"workflows\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/workflows/748a9d1b-a9a5-415b-9360-3d8374329957",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"detail\":\"workflow description exceeds size limit of [300] characters\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2a88c302-487a-a9dc-d84a-6250dba77e2b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/workflows/748a9d1b-a9a5-415b-9360-3d8374329957",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "68664620-392a-c355-4d90-95f4155a8b5c"
+  }
+]
