@@ -18,39 +18,37 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The query type. */
-@JsonSerialize(using = QueryType.QueryTypeSerializer.class)
-public class QueryType extends ModelEnum<String> {
+/** The data transform type. */
+@JsonSerialize(using = DataTransformType.DataTransformTypeSerializer.class)
+public class DataTransformType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("action", "stateVariable", "dataTransform"));
+      new HashSet<String>(Arrays.asList("dataTransform"));
 
-  public static final QueryType ACTION = new QueryType("action");
-  public static final QueryType STATEVARIABLE = new QueryType("stateVariable");
-  public static final QueryType DATATRANSFORM = new QueryType("dataTransform");
+  public static final DataTransformType DATATRANSFORM = new DataTransformType("dataTransform");
 
-  QueryType(String value) {
+  DataTransformType(String value) {
     super(value, allowedValues);
   }
 
-  public static class QueryTypeSerializer extends StdSerializer<QueryType> {
-    public QueryTypeSerializer(Class<QueryType> t) {
+  public static class DataTransformTypeSerializer extends StdSerializer<DataTransformType> {
+    public DataTransformTypeSerializer(Class<DataTransformType> t) {
       super(t);
     }
 
-    public QueryTypeSerializer() {
+    public DataTransformTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(QueryType value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(DataTransformType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static QueryType fromValue(String value) {
-    return new QueryType(value);
+  public static DataTransformType fromValue(String value) {
+    return new DataTransformType(value);
   }
 }
