@@ -71,7 +71,9 @@ public class ApiManagementApi {
    *
    * @return CreateOpenAPIResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CreateOpenAPIResponse createOpenAPI() throws ApiException {
     return createOpenAPIWithHttpInfo(new CreateOpenAPIOptionalParameters()).getData();
   }
@@ -82,7 +84,9 @@ public class ApiManagementApi {
    * <p>See {@link #createOpenAPIWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;CreateOpenAPIResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<CreateOpenAPIResponse> createOpenAPIAsync() {
     return createOpenAPIWithHttpInfoAsync(new CreateOpenAPIOptionalParameters())
         .thenApply(
@@ -99,7 +103,9 @@ public class ApiManagementApi {
    * @param parameters Optional parameters for the request.
    * @return CreateOpenAPIResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public CreateOpenAPIResponse createOpenAPI(CreateOpenAPIOptionalParameters parameters)
       throws ApiException {
     return createOpenAPIWithHttpInfo(parameters).getData();
@@ -112,7 +118,9 @@ public class ApiManagementApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;CreateOpenAPIResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<CreateOpenAPIResponse> createOpenAPIAsync(
       CreateOpenAPIOptionalParameters parameters) {
     return createOpenAPIWithHttpInfoAsync(parameters)
@@ -140,7 +148,10 @@ public class ApiManagementApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<CreateOpenAPIResponse> createOpenAPIWithHttpInfo(
       CreateOpenAPIOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
@@ -189,7 +200,9 @@ public class ApiManagementApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;CreateOpenAPIResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<CreateOpenAPIResponse>> createOpenAPIWithHttpInfoAsync(
       CreateOpenAPIOptionalParameters parameters) {
     // Check if unstable operation is enabled
@@ -248,7 +261,9 @@ public class ApiManagementApi {
    *
    * @param id ID of the API to delete (required)
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public void deleteOpenAPI(UUID id) throws ApiException {
     deleteOpenAPIWithHttpInfo(id);
   }
@@ -260,7 +275,9 @@ public class ApiManagementApi {
    *
    * @param id ID of the API to delete (required)
    * @return CompletableFuture
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<Void> deleteOpenAPIAsync(UUID id) {
     return deleteOpenAPIWithHttpInfoAsync(id)
         .thenApply(
@@ -285,7 +302,10 @@ public class ApiManagementApi {
    *       <tr><td> 404 </td><td> API not found error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Void> deleteOpenAPIWithHttpInfo(UUID id) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "deleteOpenAPI";
@@ -334,7 +354,9 @@ public class ApiManagementApi {
    *
    * @param id ID of the API to delete (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<Void>> deleteOpenAPIWithHttpInfoAsync(UUID id) {
     // Check if unstable operation is enabled
     String operationId = "deleteOpenAPI";
@@ -397,7 +419,9 @@ public class ApiManagementApi {
    * @param id ID of the API to retrieve (required)
    * @return File
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public File getOpenAPI(UUID id) throws ApiException {
     return getOpenAPIWithHttpInfo(id).getData();
   }
@@ -409,7 +433,9 @@ public class ApiManagementApi {
    *
    * @param id ID of the API to retrieve (required)
    * @return CompletableFuture&lt;File&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<File> getOpenAPIAsync(UUID id) {
     return getOpenAPIWithHttpInfoAsync(id)
         .thenApply(
@@ -435,7 +461,10 @@ public class ApiManagementApi {
    *       <tr><td> 404 </td><td> API not found error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<File> getOpenAPIWithHttpInfo(UUID id) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "getOpenAPI";
@@ -484,7 +513,9 @@ public class ApiManagementApi {
    *
    * @param id ID of the API to retrieve (required)
    * @return CompletableFuture&lt;ApiResponse&lt;File&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<File>> getOpenAPIWithHttpInfoAsync(UUID id) {
     // Check if unstable operation is enabled
     String operationId = "getOpenAPI";
@@ -586,7 +617,9 @@ public class ApiManagementApi {
    *
    * @return ListAPIsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ListAPIsResponse listAPIs() throws ApiException {
     return listAPIsWithHttpInfo(new ListAPIsOptionalParameters()).getData();
   }
@@ -597,7 +630,9 @@ public class ApiManagementApi {
    * <p>See {@link #listAPIsWithHttpInfoAsync}.
    *
    * @return CompletableFuture&lt;ListAPIsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ListAPIsResponse> listAPIsAsync() {
     return listAPIsWithHttpInfoAsync(new ListAPIsOptionalParameters())
         .thenApply(
@@ -614,7 +649,9 @@ public class ApiManagementApi {
    * @param parameters Optional parameters for the request.
    * @return ListAPIsResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public ListAPIsResponse listAPIs(ListAPIsOptionalParameters parameters) throws ApiException {
     return listAPIsWithHttpInfo(parameters).getData();
   }
@@ -626,7 +663,9 @@ public class ApiManagementApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ListAPIsResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ListAPIsResponse> listAPIsAsync(ListAPIsOptionalParameters parameters) {
     return listAPIsWithHttpInfoAsync(parameters)
         .thenApply(
@@ -650,7 +689,10 @@ public class ApiManagementApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<ListAPIsResponse> listAPIsWithHttpInfo(ListAPIsOptionalParameters parameters)
       throws ApiException {
     // Check if unstable operation is enabled
@@ -701,7 +743,9 @@ public class ApiManagementApi {
    *
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;ListAPIsResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<ListAPIsResponse>> listAPIsWithHttpInfoAsync(
       ListAPIsOptionalParameters parameters) {
     // Check if unstable operation is enabled
@@ -779,7 +823,9 @@ public class ApiManagementApi {
    * @param id ID of the API to modify (required)
    * @return UpdateOpenAPIResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UpdateOpenAPIResponse updateOpenAPI(UUID id) throws ApiException {
     return updateOpenAPIWithHttpInfo(id, new UpdateOpenAPIOptionalParameters()).getData();
   }
@@ -791,7 +837,9 @@ public class ApiManagementApi {
    *
    * @param id ID of the API to modify (required)
    * @return CompletableFuture&lt;UpdateOpenAPIResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UpdateOpenAPIResponse> updateOpenAPIAsync(UUID id) {
     return updateOpenAPIWithHttpInfoAsync(id, new UpdateOpenAPIOptionalParameters())
         .thenApply(
@@ -809,7 +857,9 @@ public class ApiManagementApi {
    * @param parameters Optional parameters for the request.
    * @return UpdateOpenAPIResponse
    * @throws ApiException if fails to make API call
+   * @deprecated
    */
+  @Deprecated
   public UpdateOpenAPIResponse updateOpenAPI(UUID id, UpdateOpenAPIOptionalParameters parameters)
       throws ApiException {
     return updateOpenAPIWithHttpInfo(id, parameters).getData();
@@ -823,7 +873,9 @@ public class ApiManagementApi {
    * @param id ID of the API to modify (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;UpdateOpenAPIResponse&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<UpdateOpenAPIResponse> updateOpenAPIAsync(
       UUID id, UpdateOpenAPIOptionalParameters parameters) {
     return updateOpenAPIWithHttpInfoAsync(id, parameters)
@@ -852,7 +904,10 @@ public class ApiManagementApi {
    *       <tr><td> 404 </td><td> API not found error </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<UpdateOpenAPIResponse> updateOpenAPIWithHttpInfo(
       UUID id, UpdateOpenAPIOptionalParameters parameters) throws ApiException {
     // Check if unstable operation is enabled
@@ -909,7 +964,9 @@ public class ApiManagementApi {
    * @param id ID of the API to modify (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;UpdateOpenAPIResponse&gt;&gt;
+   * @deprecated
    */
+  @Deprecated
   public CompletableFuture<ApiResponse<UpdateOpenAPIResponse>> updateOpenAPIWithHttpInfoAsync(
       UUID id, UpdateOpenAPIOptionalParameters parameters) {
     // Check if unstable operation is enabled
