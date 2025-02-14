@@ -1237,7 +1237,8 @@ public class CloudCostManagementApi {
   }
 
   /**
-   * Update the status of an AWS CUR config (active/archived).
+   * Update the status (active/archived) and/or account filtering configuration of an AWS CUR
+   * config.
    *
    * @param cloudAccountId Cloud Account id. (required)
    * @param body (required)
