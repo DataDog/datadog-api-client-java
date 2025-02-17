@@ -34,7 +34,8 @@ import java.util.Objects;
   QueryValueWidgetRequest.JSON_PROPERTY_QUERIES,
   QueryValueWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   QueryValueWidgetRequest.JSON_PROPERTY_RUM_QUERY,
-  QueryValueWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
+  QueryValueWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
+  QueryValueWidgetRequest.JSON_PROPERTY_SORT
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -84,6 +85,9 @@ public class QueryValueWidgetRequest {
 
   public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
   private LogQueryDefinition securityQuery;
+
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private ColumnSortObject sort;
 
   public QueryValueWidgetRequest aggregator(WidgetAggregator aggregator) {
     this.aggregator = aggregator;
@@ -456,6 +460,28 @@ public class QueryValueWidgetRequest {
     this.securityQuery = securityQuery;
   }
 
+  public QueryValueWidgetRequest sort(ColumnSortObject sort) {
+    this.sort = sort;
+    this.unparsed |= sort.unparsed;
+    return this;
+  }
+
+  /**
+   * Sort object
+   *
+   * @return sort
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ColumnSortObject getSort() {
+    return sort;
+  }
+
+  public void setSort(ColumnSortObject sort) {
+    this.sort = sort;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -527,6 +553,7 @@ public class QueryValueWidgetRequest {
         && Objects.equals(this.responseFormat, queryValueWidgetRequest.responseFormat)
         && Objects.equals(this.rumQuery, queryValueWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, queryValueWidgetRequest.securityQuery)
+        && Objects.equals(this.sort, queryValueWidgetRequest.sort)
         && Objects.equals(this.additionalProperties, queryValueWidgetRequest.additionalProperties);
   }
 
@@ -548,6 +575,7 @@ public class QueryValueWidgetRequest {
         responseFormat,
         rumQuery,
         securityQuery,
+        sort,
         additionalProperties);
   }
 
@@ -572,6 +600,7 @@ public class QueryValueWidgetRequest {
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
