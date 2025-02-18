@@ -23,6 +23,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object describing a monitor. */
 @JsonPropertyOrder({
+  Monitor.JSON_PROPERTY_CLASSIFICATION,
   Monitor.JSON_PROPERTY_CREATED,
   Monitor.JSON_PROPERTY_CREATOR,
   Monitor.JSON_PROPERTY_DELETED,
@@ -45,6 +46,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class Monitor {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CLASSIFICATION = "classification";
+  private String classification;
+
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
 
@@ -105,6 +109,18 @@ public class Monitor {
     this.query = query;
     this.type = type;
     this.unparsed |= !type.isValid();
+  }
+
+  /**
+   * The classification of the monitor.
+   *
+   * @return classification
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLASSIFICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getClassification() {
+    return classification;
   }
 
   /**
@@ -525,7 +541,8 @@ public class Monitor {
       return false;
     }
     Monitor monitor = (Monitor) o;
-    return Objects.equals(this.created, monitor.created)
+    return Objects.equals(this.classification, monitor.classification)
+        && Objects.equals(this.created, monitor.created)
         && Objects.equals(this.creator, monitor.creator)
         && Objects.equals(this.deleted, monitor.deleted)
         && Objects.equals(this.id, monitor.id)
@@ -548,6 +565,7 @@ public class Monitor {
   @Override
   public int hashCode() {
     return Objects.hash(
+        classification,
         created,
         creator,
         deleted,
@@ -572,6 +590,7 @@ public class Monitor {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Monitor {\n");
+    sb.append("    classification: ").append(toIndentedString(classification)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
