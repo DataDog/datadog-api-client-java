@@ -22,6 +22,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   MetricBulkTagConfigCreateAttributes.JSON_PROPERTY_EMAILS,
   MetricBulkTagConfigCreateAttributes.JSON_PROPERTY_EXCLUDE_TAGS_MODE,
+  MetricBulkTagConfigCreateAttributes.JSON_PROPERTY_INCLUDE_ACTIVELY_QUERIED_TAGS_WINDOW,
+  MetricBulkTagConfigCreateAttributes.JSON_PROPERTY_OVERRIDE_EXISTING_CONFIGURATIONS,
   MetricBulkTagConfigCreateAttributes.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(
@@ -33,6 +35,14 @@ public class MetricBulkTagConfigCreateAttributes {
 
   public static final String JSON_PROPERTY_EXCLUDE_TAGS_MODE = "exclude_tags_mode";
   private Boolean excludeTagsMode;
+
+  public static final String JSON_PROPERTY_INCLUDE_ACTIVELY_QUERIED_TAGS_WINDOW =
+      "include_actively_queried_tags_window";
+  private Double includeActivelyQueriedTagsWindow;
+
+  public static final String JSON_PROPERTY_OVERRIDE_EXISTING_CONFIGURATIONS =
+      "override_existing_configurations";
+  private Boolean overrideExistingConfigurations;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -87,6 +97,54 @@ public class MetricBulkTagConfigCreateAttributes {
 
   public void setExcludeTagsMode(Boolean excludeTagsMode) {
     this.excludeTagsMode = excludeTagsMode;
+  }
+
+  public MetricBulkTagConfigCreateAttributes includeActivelyQueriedTagsWindow(
+      Double includeActivelyQueriedTagsWindow) {
+    this.includeActivelyQueriedTagsWindow = includeActivelyQueriedTagsWindow;
+    return this;
+  }
+
+  /**
+   * When provided, all tags that have been actively queried are configured (and, therefore, remain
+   * queryable) for each metric that matches the given prefix. Minimum value is 1 second, and
+   * maximum value is 7,776,000 seconds (90 days). minimum: 1 maximum: 7776000
+   *
+   * @return includeActivelyQueriedTagsWindow
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDE_ACTIVELY_QUERIED_TAGS_WINDOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getIncludeActivelyQueriedTagsWindow() {
+    return includeActivelyQueriedTagsWindow;
+  }
+
+  public void setIncludeActivelyQueriedTagsWindow(Double includeActivelyQueriedTagsWindow) {
+    this.includeActivelyQueriedTagsWindow = includeActivelyQueriedTagsWindow;
+  }
+
+  public MetricBulkTagConfigCreateAttributes overrideExistingConfigurations(
+      Boolean overrideExistingConfigurations) {
+    this.overrideExistingConfigurations = overrideExistingConfigurations;
+    return this;
+  }
+
+  /**
+   * When set to true, the configuration overrides any existing configurations for the given metric
+   * with the new set of tags in this configuration request. If false, old configurations are kept
+   * and are merged with the set of tags in this configuration request. Defaults to true.
+   *
+   * @return overrideExistingConfigurations
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OVERRIDE_EXISTING_CONFIGURATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getOverrideExistingConfigurations() {
+    return overrideExistingConfigurations;
+  }
+
+  public void setOverrideExistingConfigurations(Boolean overrideExistingConfigurations) {
+    this.overrideExistingConfigurations = overrideExistingConfigurations;
   }
 
   public MetricBulkTagConfigCreateAttributes tags(List<String> tags) {
@@ -177,6 +235,12 @@ public class MetricBulkTagConfigCreateAttributes {
         (MetricBulkTagConfigCreateAttributes) o;
     return Objects.equals(this.emails, metricBulkTagConfigCreateAttributes.emails)
         && Objects.equals(this.excludeTagsMode, metricBulkTagConfigCreateAttributes.excludeTagsMode)
+        && Objects.equals(
+            this.includeActivelyQueriedTagsWindow,
+            metricBulkTagConfigCreateAttributes.includeActivelyQueriedTagsWindow)
+        && Objects.equals(
+            this.overrideExistingConfigurations,
+            metricBulkTagConfigCreateAttributes.overrideExistingConfigurations)
         && Objects.equals(this.tags, metricBulkTagConfigCreateAttributes.tags)
         && Objects.equals(
             this.additionalProperties, metricBulkTagConfigCreateAttributes.additionalProperties);
@@ -184,7 +248,13 @@ public class MetricBulkTagConfigCreateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(emails, excludeTagsMode, tags, additionalProperties);
+    return Objects.hash(
+        emails,
+        excludeTagsMode,
+        includeActivelyQueriedTagsWindow,
+        overrideExistingConfigurations,
+        tags,
+        additionalProperties);
   }
 
   @Override
@@ -193,6 +263,12 @@ public class MetricBulkTagConfigCreateAttributes {
     sb.append("class MetricBulkTagConfigCreateAttributes {\n");
     sb.append("    emails: ").append(toIndentedString(emails)).append("\n");
     sb.append("    excludeTagsMode: ").append(toIndentedString(excludeTagsMode)).append("\n");
+    sb.append("    includeActivelyQueriedTagsWindow: ")
+        .append(toIndentedString(includeActivelyQueriedTagsWindow))
+        .append("\n");
+    sb.append("    overrideExistingConfigurations: ")
+        .append(toIndentedString(overrideExistingConfigurations))
+        .append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
