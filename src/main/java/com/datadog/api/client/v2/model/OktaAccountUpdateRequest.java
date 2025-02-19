@@ -24,7 +24,7 @@ import java.util.Objects;
 public class OktaAccountUpdateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private OktaAccountUpdateRequestData data = new OktaAccountUpdateRequestData();
+  private OktaAccountUpdateRequestData data;
 
   public OktaAccountUpdateRequest() {}
 

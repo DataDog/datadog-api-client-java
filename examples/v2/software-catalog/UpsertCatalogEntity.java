@@ -14,6 +14,7 @@ import com.datadog.api.client.v2.model.EntityV3DatadogPerformance;
 import com.datadog.api.client.v2.model.EntityV3DatadogPipelines;
 import com.datadog.api.client.v2.model.EntityV3Integrations;
 import com.datadog.api.client.v2.model.EntityV3Metadata;
+import com.datadog.api.client.v2.model.EntityV3MetadataAdditionalOwnersItems;
 import com.datadog.api.client.v2.model.EntityV3MetadataContactsItems;
 import com.datadog.api.client.v2.model.EntityV3MetadataLinksItems;
 import com.datadog.api.client.v2.model.EntityV3Service;
@@ -55,6 +56,9 @@ public class Example {
                     .kind(EntityV3ServiceKind.SERVICE)
                     .metadata(
                         new EntityV3Metadata()
+                            .additionalOwners(
+                                Collections.singletonList(
+                                    new EntityV3MetadataAdditionalOwnersItems().name("")))
                             .contacts(
                                 Collections.singletonList(
                                     new EntityV3MetadataContactsItems()
