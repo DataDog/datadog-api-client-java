@@ -26,6 +26,7 @@ import java.util.Objects;
   WidgetFormula.JSON_PROPERTY_CONDITIONAL_FORMATS,
   WidgetFormula.JSON_PROPERTY_FORMULA,
   WidgetFormula.JSON_PROPERTY_LIMIT,
+  WidgetFormula.JSON_PROPERTY_NUMBER_FORMAT,
   WidgetFormula.JSON_PROPERTY_STYLE
 })
 @jakarta.annotation.Generated(
@@ -46,6 +47,9 @@ public class WidgetFormula {
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private WidgetFormulaLimit limit;
+
+  public static final String JSON_PROPERTY_NUMBER_FORMAT = "number_format";
+  private WidgetNumberFormat numberFormat;
 
   public static final String JSON_PROPERTY_STYLE = "style";
   private WidgetFormulaStyle style;
@@ -179,6 +183,28 @@ public class WidgetFormula {
     this.limit = limit;
   }
 
+  public WidgetFormula numberFormat(WidgetNumberFormat numberFormat) {
+    this.numberFormat = numberFormat;
+    this.unparsed |= numberFormat.unparsed;
+    return this;
+  }
+
+  /**
+   * Number format options for the widget.
+   *
+   * @return numberFormat
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NUMBER_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetNumberFormat getNumberFormat() {
+    return numberFormat;
+  }
+
+  public void setNumberFormat(WidgetNumberFormat numberFormat) {
+    this.numberFormat = numberFormat;
+  }
+
   public WidgetFormula style(WidgetFormulaStyle style) {
     this.style = style;
     this.unparsed |= style.unparsed;
@@ -262,6 +288,7 @@ public class WidgetFormula {
         && Objects.equals(this.conditionalFormats, widgetFormula.conditionalFormats)
         && Objects.equals(this.formula, widgetFormula.formula)
         && Objects.equals(this.limit, widgetFormula.limit)
+        && Objects.equals(this.numberFormat, widgetFormula.numberFormat)
         && Objects.equals(this.style, widgetFormula.style)
         && Objects.equals(this.additionalProperties, widgetFormula.additionalProperties);
   }
@@ -269,7 +296,14 @@ public class WidgetFormula {
   @Override
   public int hashCode() {
     return Objects.hash(
-        alias, cellDisplayMode, conditionalFormats, formula, limit, style, additionalProperties);
+        alias,
+        cellDisplayMode,
+        conditionalFormats,
+        formula,
+        limit,
+        numberFormat,
+        style,
+        additionalProperties);
   }
 
   @Override
@@ -281,6 +315,7 @@ public class WidgetFormula {
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    numberFormat: ").append(toIndentedString(numberFormat)).append("\n");
     sb.append("    style: ").append(toIndentedString(style)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
