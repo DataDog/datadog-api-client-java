@@ -52,7 +52,7 @@ public class SyntheticsTriggerBody {
   }
 
   /**
-   * Individual Synthetic test.
+   * List of Synthetic tests.
    *
    * @return tests
    */
