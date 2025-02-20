@@ -45,7 +45,7 @@ public class SyntheticsCITestBody {
   }
 
   /**
-   * Individual synthetics test.
+   * List of Synthetic tests with overrides.
    *
    * @return tests
    */
