@@ -21,6 +21,7 @@ import java.util.Objects;
 
 /** Attributes for An AWS CUR config. */
 @JsonPropertyOrder({
+  AwsCURConfigAttributes.JSON_PROPERTY_ACCOUNT_FILTERS,
   AwsCURConfigAttributes.JSON_PROPERTY_ACCOUNT_ID,
   AwsCURConfigAttributes.JSON_PROPERTY_BUCKET_NAME,
   AwsCURConfigAttributes.JSON_PROPERTY_BUCKET_REGION,
@@ -37,6 +38,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AwsCURConfigAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_FILTERS = "account_filters";
+  private AccountFilteringConfig accountFilters;
+
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
@@ -86,6 +90,28 @@ public class AwsCURConfigAttributes {
     this.reportName = reportName;
     this.reportPrefix = reportPrefix;
     this.status = status;
+  }
+
+  public AwsCURConfigAttributes accountFilters(AccountFilteringConfig accountFilters) {
+    this.accountFilters = accountFilters;
+    this.unparsed |= accountFilters.unparsed;
+    return this;
+  }
+
+  /**
+   * The account filtering configuration.
+   *
+   * @return accountFilters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AccountFilteringConfig getAccountFilters() {
+    return accountFilters;
+  }
+
+  public void setAccountFilters(AccountFilteringConfig accountFilters) {
+    this.accountFilters = accountFilters;
   }
 
   public AwsCURConfigAttributes accountId(String accountId) {
@@ -380,7 +406,8 @@ public class AwsCURConfigAttributes {
       return false;
     }
     AwsCURConfigAttributes awsCurConfigAttributes = (AwsCURConfigAttributes) o;
-    return Objects.equals(this.accountId, awsCurConfigAttributes.accountId)
+    return Objects.equals(this.accountFilters, awsCurConfigAttributes.accountFilters)
+        && Objects.equals(this.accountId, awsCurConfigAttributes.accountId)
         && Objects.equals(this.bucketName, awsCurConfigAttributes.bucketName)
         && Objects.equals(this.bucketRegion, awsCurConfigAttributes.bucketRegion)
         && Objects.equals(this.createdAt, awsCurConfigAttributes.createdAt)
@@ -397,6 +424,7 @@ public class AwsCURConfigAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        accountFilters,
         accountId,
         bucketName,
         bucketRegion,
@@ -415,6 +443,7 @@ public class AwsCURConfigAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AwsCURConfigAttributes {\n");
+    sb.append("    accountFilters: ").append(toIndentedString(accountFilters)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
     sb.append("    bucketRegion: ").append(toIndentedString(bucketRegion)).append("\n");
