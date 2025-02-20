@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,20 +17,40 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Attributes for AWS CUR config Patch Request. */
-@JsonPropertyOrder({AwsCURConfigPatchRequestAttributes.JSON_PROPERTY_IS_ENABLED})
+@JsonPropertyOrder({
+  AwsCURConfigPatchRequestAttributes.JSON_PROPERTY_ACCOUNT_FILTERS,
+  AwsCURConfigPatchRequestAttributes.JSON_PROPERTY_IS_ENABLED
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class AwsCURConfigPatchRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_FILTERS = "account_filters";
+  private AccountFilteringConfig accountFilters;
+
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled;
 
-  public AwsCURConfigPatchRequestAttributes() {}
+  public AwsCURConfigPatchRequestAttributes accountFilters(AccountFilteringConfig accountFilters) {
+    this.accountFilters = accountFilters;
+    this.unparsed |= accountFilters.unparsed;
+    return this;
+  }
 
-  @JsonCreator
-  public AwsCURConfigPatchRequestAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_IS_ENABLED) Boolean isEnabled) {
-    this.isEnabled = isEnabled;
+  /**
+   * The account filtering configuration.
+   *
+   * @return accountFilters
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AccountFilteringConfig getAccountFilters() {
+    return accountFilters;
+  }
+
+  public void setAccountFilters(AccountFilteringConfig accountFilters) {
+    this.accountFilters = accountFilters;
   }
 
   public AwsCURConfigPatchRequestAttributes isEnabled(Boolean isEnabled) {
@@ -44,8 +63,9 @@ public class AwsCURConfigPatchRequestAttributes {
    *
    * @return isEnabled
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsEnabled() {
     return isEnabled;
   }
@@ -111,20 +131,22 @@ public class AwsCURConfigPatchRequestAttributes {
     }
     AwsCURConfigPatchRequestAttributes awsCurConfigPatchRequestAttributes =
         (AwsCURConfigPatchRequestAttributes) o;
-    return Objects.equals(this.isEnabled, awsCurConfigPatchRequestAttributes.isEnabled)
+    return Objects.equals(this.accountFilters, awsCurConfigPatchRequestAttributes.accountFilters)
+        && Objects.equals(this.isEnabled, awsCurConfigPatchRequestAttributes.isEnabled)
         && Objects.equals(
             this.additionalProperties, awsCurConfigPatchRequestAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isEnabled, additionalProperties);
+    return Objects.hash(accountFilters, isEnabled, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AwsCURConfigPatchRequestAttributes {\n");
+    sb.append("    accountFilters: ").append(toIndentedString(accountFilters)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
