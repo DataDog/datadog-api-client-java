@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"query\":\"source:python\"},\"name\":\"testPipeline\",\"processors\":[{\"is_enabled\":true,\"name\":\"test_filter\",\"sources\":[\"dd.span_id\"],\"type\":\"span-id-remapper\"}],\"tags\":[]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v1/logs/config/pipelines",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"id\":\"duWU4bc3ROq5nz7GVi5TzA\",\"type\":\"pipeline\",\"name\":\"testPipeline\",\"is_enabled\":false,\"is_read_only\":false,\"filter\":{\"query\":\"source:python\"},\"processors\":[{\"name\":\"test_filter\",\"is_enabled\":true,\"sources\":[\"dd.span_id\"],\"type\":\"span-id-remapper\"}],\"tags\":[]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ff199a6e-f822-fafe-3c9d-8e4c5427da4e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v1/logs/config/pipelines/duWU4bc3ROq5nz7GVi5TzA",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a339ab27-e5bf-3993-c7b2-ede49178b2e4"
+  }
+]
