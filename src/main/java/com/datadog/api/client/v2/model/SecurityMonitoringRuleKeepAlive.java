@@ -27,7 +27,8 @@ import java.util.Set;
 public class SecurityMonitoringRuleKeepAlive extends ModelEnum<Integer> {
 
   private static final Set<Integer> allowedValues =
-      new HashSet<Integer>(Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600));
+      new HashSet<Integer>(
+          Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400));
 
   public static final SecurityMonitoringRuleKeepAlive ZERO_MINUTES =
       new SecurityMonitoringRuleKeepAlive(0);
@@ -49,6 +50,10 @@ public class SecurityMonitoringRuleKeepAlive extends ModelEnum<Integer> {
       new SecurityMonitoringRuleKeepAlive(10800);
   public static final SecurityMonitoringRuleKeepAlive SIX_HOURS =
       new SecurityMonitoringRuleKeepAlive(21600);
+  public static final SecurityMonitoringRuleKeepAlive TWELVE_HOURS =
+      new SecurityMonitoringRuleKeepAlive(43200);
+  public static final SecurityMonitoringRuleKeepAlive ONE_DAY =
+      new SecurityMonitoringRuleKeepAlive(86400);
 
   SecurityMonitoringRuleKeepAlive(Integer value) {
     super(value, allowedValues);
