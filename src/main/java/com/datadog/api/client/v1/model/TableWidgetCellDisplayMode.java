@@ -23,10 +23,11 @@ import java.util.Set;
 public class TableWidgetCellDisplayMode extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("number", "bar"));
+      new HashSet<String>(Arrays.asList("number", "bar", "trend"));
 
   public static final TableWidgetCellDisplayMode NUMBER = new TableWidgetCellDisplayMode("number");
   public static final TableWidgetCellDisplayMode BAR = new TableWidgetCellDisplayMode("bar");
+  public static final TableWidgetCellDisplayMode TREND = new TableWidgetCellDisplayMode("trend");
 
   TableWidgetCellDisplayMode(String value) {
     super(value, allowedValues);
