@@ -23,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   WidgetFormula.JSON_PROPERTY_ALIAS,
   WidgetFormula.JSON_PROPERTY_CELL_DISPLAY_MODE,
+  WidgetFormula.JSON_PROPERTY_CELL_DISPLAY_MODE_OPTIONS,
   WidgetFormula.JSON_PROPERTY_CONDITIONAL_FORMATS,
   WidgetFormula.JSON_PROPERTY_FORMULA,
   WidgetFormula.JSON_PROPERTY_LIMIT,
@@ -38,6 +39,9 @@ public class WidgetFormula {
 
   public static final String JSON_PROPERTY_CELL_DISPLAY_MODE = "cell_display_mode";
   private TableWidgetCellDisplayMode cellDisplayMode;
+
+  public static final String JSON_PROPERTY_CELL_DISPLAY_MODE_OPTIONS = "cell_display_mode_options";
+  private WidgetFormulaCellDisplayModeOptions cellDisplayModeOptions;
 
   public static final String JSON_PROPERTY_CONDITIONAL_FORMATS = "conditional_formats";
   private List<WidgetConditionalFormat> conditionalFormats = null;
@@ -106,6 +110,31 @@ public class WidgetFormula {
       this.unparsed = true;
     }
     this.cellDisplayMode = cellDisplayMode;
+  }
+
+  public WidgetFormula cellDisplayModeOptions(
+      WidgetFormulaCellDisplayModeOptions cellDisplayModeOptions) {
+    this.cellDisplayModeOptions = cellDisplayModeOptions;
+    this.unparsed |= cellDisplayModeOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Cell display mode options for the widget formula. (only if <code>cell_display_mode</code> is
+   * set to <code>trend</code>).
+   *
+   * @return cellDisplayModeOptions
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetFormulaCellDisplayModeOptions getCellDisplayModeOptions() {
+    return cellDisplayModeOptions;
+  }
+
+  public void setCellDisplayModeOptions(
+      WidgetFormulaCellDisplayModeOptions cellDisplayModeOptions) {
+    this.cellDisplayModeOptions = cellDisplayModeOptions;
   }
 
   public WidgetFormula conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
@@ -285,6 +314,7 @@ public class WidgetFormula {
     WidgetFormula widgetFormula = (WidgetFormula) o;
     return Objects.equals(this.alias, widgetFormula.alias)
         && Objects.equals(this.cellDisplayMode, widgetFormula.cellDisplayMode)
+        && Objects.equals(this.cellDisplayModeOptions, widgetFormula.cellDisplayModeOptions)
         && Objects.equals(this.conditionalFormats, widgetFormula.conditionalFormats)
         && Objects.equals(this.formula, widgetFormula.formula)
         && Objects.equals(this.limit, widgetFormula.limit)
@@ -298,6 +328,7 @@ public class WidgetFormula {
     return Objects.hash(
         alias,
         cellDisplayMode,
+        cellDisplayModeOptions,
         conditionalFormats,
         formula,
         limit,
@@ -312,6 +343,9 @@ public class WidgetFormula {
     sb.append("class WidgetFormula {\n");
     sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
     sb.append("    cellDisplayMode: ").append(toIndentedString(cellDisplayMode)).append("\n");
+    sb.append("    cellDisplayModeOptions: ")
+        .append(toIndentedString(cellDisplayModeOptions))
+        .append("\n");
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
