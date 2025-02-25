@@ -24,16 +24,23 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /** The metadata object associated with how a dashboard has been/will be shared. */
 @JsonPropertyOrder({
   SharedDashboard.JSON_PROPERTY_AUTHOR,
-  SharedDashboard.JSON_PROPERTY_CREATED_AT,
+  SharedDashboard.JSON_PROPERTY_CREATED,
   SharedDashboard.JSON_PROPERTY_DASHBOARD_ID,
   SharedDashboard.JSON_PROPERTY_DASHBOARD_TYPE,
+  SharedDashboard.JSON_PROPERTY_EMBEDDABLE_DOMAINS,
+  SharedDashboard.JSON_PROPERTY_EXPIRATION,
   SharedDashboard.JSON_PROPERTY_GLOBAL_TIME,
   SharedDashboard.JSON_PROPERTY_GLOBAL_TIME_SELECTABLE_ENABLED,
+  SharedDashboard.JSON_PROPERTY_INVITEES,
+  SharedDashboard.JSON_PROPERTY_LAST_ACCESSED,
   SharedDashboard.JSON_PROPERTY_PUBLIC_URL,
   SharedDashboard.JSON_PROPERTY_SELECTABLE_TEMPLATE_VARS,
   SharedDashboard.JSON_PROPERTY_SHARE_LIST,
   SharedDashboard.JSON_PROPERTY_SHARE_TYPE,
-  SharedDashboard.JSON_PROPERTY_TOKEN
+  SharedDashboard.JSON_PROPERTY_STATUS,
+  SharedDashboard.JSON_PROPERTY_TITLE,
+  SharedDashboard.JSON_PROPERTY_TOKEN,
+  SharedDashboard.JSON_PROPERTY_VIEWING_PREFERENCES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -42,8 +49,8 @@ public class SharedDashboard {
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private SharedDashboardAuthor author;
 
-  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private OffsetDateTime createdAt;
+  public static final String JSON_PROPERTY_CREATED = "created";
+  private OffsetDateTime created;
 
   public static final String JSON_PROPERTY_DASHBOARD_ID = "dashboard_id";
   private String dashboardId;
@@ -51,12 +58,24 @@ public class SharedDashboard {
   public static final String JSON_PROPERTY_DASHBOARD_TYPE = "dashboard_type";
   private DashboardType dashboardType;
 
+  public static final String JSON_PROPERTY_EMBEDDABLE_DOMAINS = "embeddable_domains";
+  private List<String> embeddableDomains = null;
+
+  public static final String JSON_PROPERTY_EXPIRATION = "expiration";
+  private JsonNullable<OffsetDateTime> expiration = JsonNullable.<OffsetDateTime>undefined();
+
   public static final String JSON_PROPERTY_GLOBAL_TIME = "global_time";
   private DashboardGlobalTime globalTime;
 
   public static final String JSON_PROPERTY_GLOBAL_TIME_SELECTABLE_ENABLED =
       "global_time_selectable_enabled";
   private JsonNullable<Boolean> globalTimeSelectableEnabled = JsonNullable.<Boolean>undefined();
+
+  public static final String JSON_PROPERTY_INVITEES = "invitees";
+  private List<SharedDashboardInviteesItems> invitees = null;
+
+  public static final String JSON_PROPERTY_LAST_ACCESSED = "last_accessed";
+  private JsonNullable<OffsetDateTime> lastAccessed = JsonNullable.<OffsetDateTime>undefined();
 
   public static final String JSON_PROPERTY_PUBLIC_URL = "public_url";
   private String publicUrl;
@@ -71,8 +90,17 @@ public class SharedDashboard {
   public static final String JSON_PROPERTY_SHARE_TYPE = "share_type";
   private JsonNullable<DashboardShareType> shareType = JsonNullable.<DashboardShareType>undefined();
 
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private SharedDashboardStatus status;
+
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
+
   public static final String JSON_PROPERTY_TOKEN = "token";
   private String token;
+
+  public static final String JSON_PROPERTY_VIEWING_PREFERENCES = "viewing_preferences";
+  private ViewingPreferences viewingPreferences;
 
   public SharedDashboard() {}
 
@@ -101,13 +129,13 @@ public class SharedDashboard {
   /**
    * Date the dashboard was shared.
    *
-   * @return createdAt
+   * @return created
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
+  public OffsetDateTime getCreated() {
+    return created;
   }
 
   public SharedDashboard dashboardId(String dashboardId) {
@@ -152,6 +180,66 @@ public class SharedDashboard {
       this.unparsed = true;
     }
     this.dashboardType = dashboardType;
+  }
+
+  public SharedDashboard embeddableDomains(List<String> embeddableDomains) {
+    this.embeddableDomains = embeddableDomains;
+    return this;
+  }
+
+  public SharedDashboard addEmbeddableDomainsItem(String embeddableDomainsItem) {
+    if (this.embeddableDomains == null) {
+      this.embeddableDomains = new ArrayList<>();
+    }
+    this.embeddableDomains.add(embeddableDomainsItem);
+    return this;
+  }
+
+  /**
+   * The <code>SharedDashboard</code> <code>embeddable_domains</code>.
+   *
+   * @return embeddableDomains
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EMBEDDABLE_DOMAINS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getEmbeddableDomains() {
+    return embeddableDomains;
+  }
+
+  public void setEmbeddableDomains(List<String> embeddableDomains) {
+    this.embeddableDomains = embeddableDomains;
+  }
+
+  public SharedDashboard expiration(OffsetDateTime expiration) {
+    this.expiration = JsonNullable.<OffsetDateTime>of(expiration);
+    return this;
+  }
+
+  /**
+   * The time when an OPEN shared dashboard becomes publicly unavailable.
+   *
+   * @return expiration
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getExpiration() {
+    return expiration.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXPIRATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<OffsetDateTime> getExpiration_JsonNullable() {
+    return expiration;
+  }
+
+  @JsonProperty(JSON_PROPERTY_EXPIRATION)
+  public void setExpiration_JsonNullable(JsonNullable<OffsetDateTime> expiration) {
+    this.expiration = expiration;
+  }
+
+  public void setExpiration(OffsetDateTime expiration) {
+    this.expiration = JsonNullable.<OffsetDateTime>of(expiration);
   }
 
   public SharedDashboard globalTime(DashboardGlobalTime globalTime) {
@@ -206,6 +294,65 @@ public class SharedDashboard {
 
   public void setGlobalTimeSelectableEnabled(Boolean globalTimeSelectableEnabled) {
     this.globalTimeSelectableEnabled = JsonNullable.<Boolean>of(globalTimeSelectableEnabled);
+  }
+
+  public SharedDashboard invitees(List<SharedDashboardInviteesItems> invitees) {
+    this.invitees = invitees;
+    for (SharedDashboardInviteesItems item : invitees) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SharedDashboard addInviteesItem(SharedDashboardInviteesItems inviteesItem) {
+    if (this.invitees == null) {
+      this.invitees = new ArrayList<>();
+    }
+    this.invitees.add(inviteesItem);
+    this.unparsed |= inviteesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * The <code>SharedDashboard</code> <code>invitees</code>.
+   *
+   * @return invitees
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INVITEES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SharedDashboardInviteesItems> getInvitees() {
+    return invitees;
+  }
+
+  public void setInvitees(List<SharedDashboardInviteesItems> invitees) {
+    this.invitees = invitees;
+  }
+
+  /**
+   * The last time the shared dashboard was accessed. Null if never accessed.
+   *
+   * @return lastAccessed
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public OffsetDateTime getLastAccessed() {
+
+    if (lastAccessed == null) {
+      lastAccessed = JsonNullable.<OffsetDateTime>undefined();
+    }
+    return lastAccessed.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_ACCESSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<OffsetDateTime> getLastAccessed_JsonNullable() {
+    return lastAccessed;
+  }
+
+  @JsonProperty(JSON_PROPERTY_LAST_ACCESSED)
+  private void setLastAccessed_JsonNullable(JsonNullable<OffsetDateTime> lastAccessed) {
+    this.lastAccessed = lastAccessed;
   }
 
   /**
@@ -293,13 +440,16 @@ public class SharedDashboard {
    * List of email addresses that can receive an invitation to access to the shared dashboard.
    *
    * @return shareList
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonIgnore
   public List<String> getShareList() {
     return shareList.orElse(null);
   }
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_SHARE_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public JsonNullable<List<String>> getShareList_JsonNullable() {
@@ -349,6 +499,53 @@ public class SharedDashboard {
     this.shareType = JsonNullable.<DashboardShareType>of(shareType);
   }
 
+  public SharedDashboard status(SharedDashboardStatus status) {
+    this.status = status;
+    this.unparsed |= !status.isValid();
+    return this;
+  }
+
+  /**
+   * Active means the dashboard is publicly available. Paused means the dashboard is not publicly
+   * available.
+   *
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SharedDashboardStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(SharedDashboardStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
+    this.status = status;
+  }
+
+  public SharedDashboard title(String title) {
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * Title of the shared dashboard.
+   *
+   * @return title
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
   /**
    * A unique token assigned to the shared dashboard.
    *
@@ -359,6 +556,28 @@ public class SharedDashboard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getToken() {
     return token;
+  }
+
+  public SharedDashboard viewingPreferences(ViewingPreferences viewingPreferences) {
+    this.viewingPreferences = viewingPreferences;
+    this.unparsed |= viewingPreferences.unparsed;
+    return this;
+  }
+
+  /**
+   * The viewing preferences for a shared dashboard.
+   *
+   * @return viewingPreferences
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VIEWING_PREFERENCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ViewingPreferences getViewingPreferences() {
+    return viewingPreferences;
+  }
+
+  public void setViewingPreferences(ViewingPreferences viewingPreferences) {
+    this.viewingPreferences = viewingPreferences;
   }
 
   /**
@@ -418,17 +637,24 @@ public class SharedDashboard {
     }
     SharedDashboard sharedDashboard = (SharedDashboard) o;
     return Objects.equals(this.author, sharedDashboard.author)
-        && Objects.equals(this.createdAt, sharedDashboard.createdAt)
+        && Objects.equals(this.created, sharedDashboard.created)
         && Objects.equals(this.dashboardId, sharedDashboard.dashboardId)
         && Objects.equals(this.dashboardType, sharedDashboard.dashboardType)
+        && Objects.equals(this.embeddableDomains, sharedDashboard.embeddableDomains)
+        && Objects.equals(this.expiration, sharedDashboard.expiration)
         && Objects.equals(this.globalTime, sharedDashboard.globalTime)
         && Objects.equals(
             this.globalTimeSelectableEnabled, sharedDashboard.globalTimeSelectableEnabled)
+        && Objects.equals(this.invitees, sharedDashboard.invitees)
+        && Objects.equals(this.lastAccessed, sharedDashboard.lastAccessed)
         && Objects.equals(this.publicUrl, sharedDashboard.publicUrl)
         && Objects.equals(this.selectableTemplateVars, sharedDashboard.selectableTemplateVars)
         && Objects.equals(this.shareList, sharedDashboard.shareList)
         && Objects.equals(this.shareType, sharedDashboard.shareType)
+        && Objects.equals(this.status, sharedDashboard.status)
+        && Objects.equals(this.title, sharedDashboard.title)
         && Objects.equals(this.token, sharedDashboard.token)
+        && Objects.equals(this.viewingPreferences, sharedDashboard.viewingPreferences)
         && Objects.equals(this.additionalProperties, sharedDashboard.additionalProperties);
   }
 
@@ -436,16 +662,23 @@ public class SharedDashboard {
   public int hashCode() {
     return Objects.hash(
         author,
-        createdAt,
+        created,
         dashboardId,
         dashboardType,
+        embeddableDomains,
+        expiration,
         globalTime,
         globalTimeSelectableEnabled,
+        invitees,
+        lastAccessed,
         publicUrl,
         selectableTemplateVars,
         shareList,
         shareType,
+        status,
+        title,
         token,
+        viewingPreferences,
         additionalProperties);
   }
 
@@ -454,20 +687,27 @@ public class SharedDashboard {
     StringBuilder sb = new StringBuilder();
     sb.append("class SharedDashboard {\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    dashboardId: ").append(toIndentedString(dashboardId)).append("\n");
     sb.append("    dashboardType: ").append(toIndentedString(dashboardType)).append("\n");
+    sb.append("    embeddableDomains: ").append(toIndentedString(embeddableDomains)).append("\n");
+    sb.append("    expiration: ").append(toIndentedString(expiration)).append("\n");
     sb.append("    globalTime: ").append(toIndentedString(globalTime)).append("\n");
     sb.append("    globalTimeSelectableEnabled: ")
         .append(toIndentedString(globalTimeSelectableEnabled))
         .append("\n");
+    sb.append("    invitees: ").append(toIndentedString(invitees)).append("\n");
+    sb.append("    lastAccessed: ").append(toIndentedString(lastAccessed)).append("\n");
     sb.append("    publicUrl: ").append(toIndentedString(publicUrl)).append("\n");
     sb.append("    selectableTemplateVars: ")
         .append(toIndentedString(selectableTemplateVars))
         .append("\n");
     sb.append("    shareList: ").append(toIndentedString(shareList)).append("\n");
     sb.append("    shareType: ").append(toIndentedString(shareType)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    viewingPreferences: ").append(toIndentedString(viewingPreferences)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

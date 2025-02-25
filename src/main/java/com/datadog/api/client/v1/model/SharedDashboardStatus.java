@@ -18,39 +18,42 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Type of sharing access (either open to anyone who has the public URL or invite-only). */
-@JsonSerialize(using = DashboardShareType.DashboardShareTypeSerializer.class)
-public class DashboardShareType extends ModelEnum<String> {
+/**
+ * Active means the dashboard is publicly available. Paused means the dashboard is not publicly
+ * available.
+ */
+@JsonSerialize(using = SharedDashboardStatus.SharedDashboardStatusSerializer.class)
+public class SharedDashboardStatus extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("open", "invite", "embed"));
+      new HashSet<String>(Arrays.asList("active", "paused"));
 
-  public static final DashboardShareType OPEN = new DashboardShareType("open");
-  public static final DashboardShareType INVITE = new DashboardShareType("invite");
-  public static final DashboardShareType EMBED = new DashboardShareType("embed");
+  public static final SharedDashboardStatus ACTIVE = new SharedDashboardStatus("active");
+  public static final SharedDashboardStatus PAUSED = new SharedDashboardStatus("paused");
 
-  DashboardShareType(String value) {
+  SharedDashboardStatus(String value) {
     super(value, allowedValues);
   }
 
-  public static class DashboardShareTypeSerializer extends StdSerializer<DashboardShareType> {
-    public DashboardShareTypeSerializer(Class<DashboardShareType> t) {
+  public static class SharedDashboardStatusSerializer extends StdSerializer<SharedDashboardStatus> {
+    public SharedDashboardStatusSerializer(Class<SharedDashboardStatus> t) {
       super(t);
     }
 
-    public DashboardShareTypeSerializer() {
+    public SharedDashboardStatusSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(DashboardShareType value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        SharedDashboardStatus value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static DashboardShareType fromValue(String value) {
-    return new DashboardShareType(value);
+  public static SharedDashboardStatus fromValue(String value) {
+    return new SharedDashboardStatus(value);
   }
 }
