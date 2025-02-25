@@ -24,7 +24,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   MonitorOptionsSchedulingOptionsEvaluationWindow.JSON_PROPERTY_DAY_STARTS,
   MonitorOptionsSchedulingOptionsEvaluationWindow.JSON_PROPERTY_HOUR_STARTS,
-  MonitorOptionsSchedulingOptionsEvaluationWindow.JSON_PROPERTY_MONTH_STARTS
+  MonitorOptionsSchedulingOptionsEvaluationWindow.JSON_PROPERTY_MONTH_STARTS,
+  MonitorOptionsSchedulingOptionsEvaluationWindow.JSON_PROPERTY_TIMEZONE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -39,14 +40,16 @@ public class MonitorOptionsSchedulingOptionsEvaluationWindow {
   public static final String JSON_PROPERTY_MONTH_STARTS = "month_starts";
   private Integer monthStarts;
 
+  public static final String JSON_PROPERTY_TIMEZONE = "timezone";
+  private String timezone;
+
   public MonitorOptionsSchedulingOptionsEvaluationWindow dayStarts(String dayStarts) {
     this.dayStarts = dayStarts;
     return this;
   }
 
   /**
-   * The time of the day at which a one day cumulative evaluation window starts. Must be defined in
-   * UTC time in <code>HH:mm</code> format.
+   * The time of the day at which a one day cumulative evaluation window starts.
    *
    * @return dayStarts
    */
@@ -103,6 +106,27 @@ public class MonitorOptionsSchedulingOptionsEvaluationWindow {
 
   public void setMonthStarts(Integer monthStarts) {
     this.monthStarts = monthStarts;
+  }
+
+  public MonitorOptionsSchedulingOptionsEvaluationWindow timezone(String timezone) {
+    this.timezone = timezone;
+    return this;
+  }
+
+  /**
+   * The timezone of the time of the day of the cumulative evaluation window start.
+   *
+   * @return timezone
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMEZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTimezone() {
+    return timezone;
+  }
+
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
   }
 
   /**
@@ -169,6 +193,7 @@ public class MonitorOptionsSchedulingOptionsEvaluationWindow {
             this.hourStarts, monitorOptionsSchedulingOptionsEvaluationWindow.hourStarts)
         && Objects.equals(
             this.monthStarts, monitorOptionsSchedulingOptionsEvaluationWindow.monthStarts)
+        && Objects.equals(this.timezone, monitorOptionsSchedulingOptionsEvaluationWindow.timezone)
         && Objects.equals(
             this.additionalProperties,
             monitorOptionsSchedulingOptionsEvaluationWindow.additionalProperties);
@@ -176,7 +201,7 @@ public class MonitorOptionsSchedulingOptionsEvaluationWindow {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dayStarts, hourStarts, monthStarts, additionalProperties);
+    return Objects.hash(dayStarts, hourStarts, monthStarts, timezone, additionalProperties);
   }
 
   @Override
@@ -186,6 +211,7 @@ public class MonitorOptionsSchedulingOptionsEvaluationWindow {
     sb.append("    dayStarts: ").append(toIndentedString(dayStarts)).append("\n");
     sb.append("    hourStarts: ").append(toIndentedString(hourStarts)).append("\n");
     sb.append("    monthStarts: ").append(toIndentedString(monthStarts)).append("\n");
+    sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
