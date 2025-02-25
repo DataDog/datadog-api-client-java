@@ -414,7 +414,7 @@ public class SoftwareCatalogApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
-            false,
+            true,
             limit,
             args);
 
