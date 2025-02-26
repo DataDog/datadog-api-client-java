@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Get_rule_version_history_returns_OK_response-1738708757\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metrics\":[],\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Get_rule_version_history_returns_OK_response-1740590952\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metrics\":[],\"query\":\"@test:true\"}],\"tags\":[],\"type\":\"log_detection\"}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"name\":\"Test-Get_rule_version_history_returns_OK_response-1738708757\",\"createdAt\":1738708757817,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isBeta\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\"}],\"options\":{\"evaluationWindow\":900,\"detectionMethod\":\"threshold\",\"maxSignalDuration\":86400,\"keepAlive\":3600},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a \\u003e 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[],\"version\":1,\"id\":\"gvq-qqd-jc7\"}",
+      "body": "{\"name\":\"Test-Get_rule_version_history_returns_OK_response-1740590952\",\"createdAt\":1740590952333,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isBeta\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"dataSource\":\"logs\"}],\"options\":{\"evaluationWindow\":900,\"detectionMethod\":\"threshold\",\"maxSignalDuration\":86400,\"keepAlive\":3600},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a \\u003e 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[],\"version\":1,\"id\":\"s3a-zh4-3yj\",\"blocking\":false,\"metadata\":{\"entities\":null,\"sources\":null},\"creationAuthorId\":1445416,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"updater\":{\"handle\":\"\",\"name\":\"\"}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "828d57e6-57b4-424f-e84a-86d7f1db705f"
+    "id": "6453287b-70ba-240c-72a3-089271f73bf9"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security_monitoring/rules/gvq-qqd-jc7/version_history",
+      "path": "/api/v2/security_monitoring/rules/s3a-zh4-3yj/version_history",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"gvq-qqd-jc7\",\"type\":\"GetRuleVersionHistoryResponse\",\"attributes\":{\"count\":1,\"data\":{\"1\":{\"rule\":{\"name\":\"Test-Get_rule_version_history_returns_OK_response-1738708757\",\"createdAt\":1738708757817,\"isDefault\":false,\"isEnabled\":true,\"isDeleted\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\"}],\"options\":{\"evaluationWindow\":900,\"detectionMethod\":\"threshold\",\"maxSignalDuration\":86400,\"keepAlive\":3600},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a \\u003e 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[],\"version\":1,\"id\":\"gvq-qqd-jc7\",\"metadata\":{\"entities\":null,\"sources\":null},\"creator\":{\"handle\":\"\",\"name\":\"\"},\"updater\":{\"handle\":\"\",\"name\":\"\"}},\"changes\":[]}}}}}",
+      "body": "{\"data\":{\"id\":\"s3a-zh4-3yj\",\"type\":\"GetRuleVersionHistoryResponse\",\"attributes\":{\"count\":1,\"data\":{\"1\":{\"rule\":{\"name\":\"Test-Get_rule_version_history_returns_OK_response-1740590952\",\"createdAt\":1740590952333,\"isDefault\":false,\"isPartner\":false,\"isEnabled\":true,\"isBeta\":false,\"isDeleted\":false,\"isDeprecated\":false,\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"hasOptionalGroupByFields\":false,\"distinctFields\":[],\"aggregation\":\"count\",\"name\":\"\",\"dataSource\":\"logs\"}],\"options\":{\"evaluationWindow\":900,\"detectionMethod\":\"threshold\",\"maxSignalDuration\":86400,\"keepAlive\":3600},\"cases\":[{\"name\":\"\",\"status\":\"info\",\"notifications\":[],\"condition\":\"a \\u003e 0\"}],\"message\":\"Test rule\",\"tags\":[],\"hasExtendedTitle\":false,\"type\":\"log_detection\",\"filters\":[],\"version\":1,\"id\":\"s3a-zh4-3yj\",\"blocking\":false,\"metadata\":{\"entities\":null,\"sources\":null},\"creationAuthorId\":1445416,\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":\"frog\"},\"updater\":{\"handle\":\"\",\"name\":\"\"}},\"changes\":[]}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "09be8bb5-92c9-1241-1f3b-4e3a4e3fb2d2"
+    "id": "c1c6d7f4-cbdf-9636-ef7a-534f4db6593f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/gvq-qqd-jc7",
+      "path": "/api/v2/security_monitoring/rules/s3a-zh4-3yj",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cd1c7942-8cc1-a501-d7a7-dd3c38ee275f"
+    "id": "e8e6630e-5f08-1004-45fc-a24f1be4ebd2"
   }
 ]
