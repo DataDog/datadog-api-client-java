@@ -28,11 +28,10 @@ import java.util.Objects;
 public class SecurityMonitoringRuleNewValueOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORGET_AFTER = "forgetAfter";
-  private SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter;
+  private Integer forgetAfter;
 
   public static final String JSON_PROPERTY_LEARNING_DURATION = "learningDuration";
-  private SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration =
-      SecurityMonitoringRuleNewValueOptionsLearningDuration.ZERO_DAYS;
+  private Integer learningDuration = 0;
 
   public static final String JSON_PROPERTY_LEARNING_METHOD = "learningMethod";
   private SecurityMonitoringRuleNewValueOptionsLearningMethod learningMethod =
@@ -42,58 +41,48 @@ public class SecurityMonitoringRuleNewValueOptions {
   private SecurityMonitoringRuleNewValueOptionsLearningThreshold learningThreshold =
       SecurityMonitoringRuleNewValueOptionsLearningThreshold.ZERO_OCCURRENCES;
 
-  public SecurityMonitoringRuleNewValueOptions forgetAfter(
-      SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter) {
+  public SecurityMonitoringRuleNewValueOptions forgetAfter(Integer forgetAfter) {
     this.forgetAfter = forgetAfter;
-    this.unparsed |= !forgetAfter.isValid();
     return this;
   }
 
   /**
-   * The duration in days after which a learned value is forgotten.
+   * The duration in days after which a learned value is forgotten. minimum: 1 maximum: 30
    *
    * @return forgetAfter
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FORGET_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleNewValueOptionsForgetAfter getForgetAfter() {
+  public Integer getForgetAfter() {
     return forgetAfter;
   }
 
-  public void setForgetAfter(SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter) {
-    if (!forgetAfter.isValid()) {
-      this.unparsed = true;
-    }
+  public void setForgetAfter(Integer forgetAfter) {
     this.forgetAfter = forgetAfter;
   }
 
-  public SecurityMonitoringRuleNewValueOptions learningDuration(
-      SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration) {
+  public SecurityMonitoringRuleNewValueOptions learningDuration(Integer learningDuration) {
     this.learningDuration = learningDuration;
-    this.unparsed |= !learningDuration.isValid();
     return this;
   }
 
   /**
    * The duration in days during which values are learned, and after which signals will be generated
    * for values that weren't learned. If set to 0, a signal will be generated for all new values
-   * after the first value is learned.
+   * after the first value is learned. The value must be between 0 and 30 (inclusive). minimum: 0
+   * maximum: 30
    *
    * @return learningDuration
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LEARNING_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SecurityMonitoringRuleNewValueOptionsLearningDuration getLearningDuration() {
+  public Integer getLearningDuration() {
     return learningDuration;
   }
 
-  public void setLearningDuration(
-      SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration) {
-    if (!learningDuration.isValid()) {
-      this.unparsed = true;
-    }
+  public void setLearningDuration(Integer learningDuration) {
     this.learningDuration = learningDuration;
   }
 
