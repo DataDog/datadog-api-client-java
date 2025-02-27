@@ -3501,7 +3501,7 @@ public class SecurityMonitoringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -3577,7 +3577,7 @@ public class SecurityMonitoringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<GetSBOMResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -6821,6 +6821,13 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<ListVulnerabilitiesResponse> listVulnerabilitiesWithHttpInfo(
       ListVulnerabilitiesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listVulnerabilities";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     String pageToken = parameters.pageToken;
     Long pageNumber = parameters.pageNumber;
@@ -6969,7 +6976,7 @@ public class SecurityMonitoringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -6991,6 +6998,17 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<ListVulnerabilitiesResponse>>
       listVulnerabilitiesWithHttpInfoAsync(ListVulnerabilitiesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listVulnerabilities";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListVulnerabilitiesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
     String pageToken = parameters.pageToken;
     Long pageNumber = parameters.pageNumber;
@@ -7141,7 +7159,7 @@ public class SecurityMonitoringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ListVulnerabilitiesResponse>> result =
           new CompletableFuture<>();
@@ -7461,6 +7479,13 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<ListVulnerableAssetsResponse> listVulnerableAssetsWithHttpInfo(
       ListVulnerableAssetsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listVulnerableAssets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
     Object localVarPostBody = null;
     String pageToken = parameters.pageToken;
     Long pageNumber = parameters.pageNumber;
@@ -7524,7 +7549,7 @@ public class SecurityMonitoringApi {
             localVarHeaderParams,
             new HashMap<String, String>(),
             new String[] {"application/json"},
-            new String[] {"apiKeyAuth", "appKeyAuth"});
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
         builder,
@@ -7546,6 +7571,17 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<ListVulnerableAssetsResponse>>
       listVulnerableAssetsWithHttpInfoAsync(ListVulnerableAssetsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listVulnerableAssets";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListVulnerableAssetsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
     Object localVarPostBody = null;
     String pageToken = parameters.pageToken;
     Long pageNumber = parameters.pageNumber;
@@ -7611,7 +7647,7 @@ public class SecurityMonitoringApi {
               localVarHeaderParams,
               new HashMap<String, String>(),
               new String[] {"application/json"},
-              new String[] {"apiKeyAuth", "appKeyAuth"});
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<ListVulnerableAssetsResponse>> result =
           new CompletableFuture<>();
