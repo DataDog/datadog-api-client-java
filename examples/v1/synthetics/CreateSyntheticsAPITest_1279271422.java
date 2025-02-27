@@ -84,7 +84,9 @@ public class Example {
                                             .httpVersion(SyntheticsTestOptionsHTTPVersion.HTTP2))
                                     .retry(
                                         new SyntheticsTestOptionsRetry().count(5L).interval(1000.0))
-                                    .subtype(SyntheticsAPITestStepSubtype.HTTP)),
+                                    .subtype(SyntheticsAPITestStepSubtype.HTTP)
+                                    .extractedValuesFromScript(
+                                        "dd.variable.set('STATUS_CODE', dd.response.statusCode);")),
                             new SyntheticsAPIStep(
                                 new SyntheticsAPIWaitStep()
                                     .name("Wait")
