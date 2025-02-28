@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"5677160c-03ea-41cf-b9cb-1dabc7904656\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"84b262f9-ae08-4be9-9050-93ff89ccd474\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,25 +27,30 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c782b1f3-1b03-d50f-8fcd-12e51226c511"
+    "id": "c782b1f3-1b03-d50f-8fcd-12e51226c50c"
   },
   {
     "httpRequest": {
       "headers": {},
-      "method": "POST",
-      "path": "/api/v2/app-builder/apps/5677160c-03ea-41cf-b9cb-1dabc7904656/deployment",
+      "method": "GET",
+      "path": "/api/v2/app-builder/apps/84b262f9-ae08-4be9-9050-93ff89ccd474",
+      "queryStringParameters": {
+        "version": [
+          "31"
+        ]
+      },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"9f189b09-3c00-4922-9e01-66c76bf81519\",\"type\":\"deployment\",\"attributes\":{\"app_version_id\":\"8038b7ec-533a-4bb3-b6dd-4ac11cb45ff9\"},\"meta\":{\"created_at\":\"2025-02-14T16:45:04.203717Z\",\"user_id\":15479137,\"user_uuid\":\"b3f98453-b289-11ef-a4e9-d6d283f92d91\",\"user_name\":\"oliver.li@datadoghq.com\"}}}",
+      "body": "{\"errors\":[{\"title\":\"app version not found\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
         ]
       },
-      "statusCode": 201,
-      "reasonPhrase": "Created"
+      "statusCode": 410,
+      "reasonPhrase": "Gone"
     },
     "times": {
       "remainingTimes": 1
@@ -53,18 +58,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "72d9da7c-f6dc-60d9-75cf-70174ea103c3"
+    "id": "884f20ea-6d1c-d653-17ba-dd0718187d24"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/app-builder/apps/5677160c-03ea-41cf-b9cb-1dabc7904656",
+      "path": "/api/v2/app-builder/apps/84b262f9-ae08-4be9-9050-93ff89ccd474",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"5677160c-03ea-41cf-b9cb-1dabc7904656\",\"type\":\"appDefinitions\"}}",
+      "body": "{\"data\":{\"id\":\"84b262f9-ae08-4be9-9050-93ff89ccd474\",\"type\":\"appDefinitions\"}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -79,6 +84,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1cdfbefe-ffab-53da-9238-dcd04a11e4d0"
+    "id": "e1e4c482-44bc-d12f-8ede-91e499f6182f"
   }
 ]

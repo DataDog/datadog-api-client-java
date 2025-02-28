@@ -103,13 +103,6 @@ public class AppBuilderApi {
    */
   public ApiResponse<CreateAppResponse> createAppWithHttpInfo(CreateAppRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "createApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -151,16 +144,6 @@ public class AppBuilderApi {
    */
   public CompletableFuture<ApiResponse<CreateAppResponse>> createAppWithHttpInfoAsync(
       CreateAppRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "createApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<CreateAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -250,13 +233,6 @@ public class AppBuilderApi {
    *     </table>
    */
   public ApiResponse<DeleteAppResponse> deleteAppWithHttpInfo(UUID appId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -299,16 +275,6 @@ public class AppBuilderApi {
    * @return CompletableFuture&lt;ApiResponse&lt;DeleteAppResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<DeleteAppResponse>> deleteAppWithHttpInfoAsync(UUID appId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeleteAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -400,13 +366,6 @@ public class AppBuilderApi {
    */
   public ApiResponse<DeleteAppsResponse> deleteAppsWithHttpInfo(DeleteAppsRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteApps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -448,16 +407,6 @@ public class AppBuilderApi {
    */
   public CompletableFuture<ApiResponse<DeleteAppsResponse>> deleteAppsWithHttpInfoAsync(
       DeleteAppsRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteApps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<DeleteAppsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -595,18 +544,12 @@ public class AppBuilderApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 410 </td><td> Gone </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<GetAppResponse> getAppWithHttpInfo(
       UUID appId, GetAppOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -655,16 +598,6 @@ public class AppBuilderApi {
    */
   public CompletableFuture<ApiResponse<GetAppResponse>> getAppWithHttpInfoAsync(
       UUID appId, GetAppOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<GetAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -924,13 +857,6 @@ public class AppBuilderApi {
    */
   public ApiResponse<ListAppsResponse> listAppsWithHttpInfo(ListAppsOptionalParameters parameters)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listApps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     Long limit = parameters.limit;
     Long page = parameters.page;
@@ -992,16 +918,6 @@ public class AppBuilderApi {
    */
   public CompletableFuture<ApiResponse<ListAppsResponse>> listAppsWithHttpInfoAsync(
       ListAppsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listApps";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ListAppsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     Long limit = parameters.limit;
     Long page = parameters.page;
@@ -1110,13 +1026,6 @@ public class AppBuilderApi {
    *     </table>
    */
   public ApiResponse<PublishAppResponse> publishAppWithHttpInfo(UUID appId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "publishApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -1160,16 +1069,6 @@ public class AppBuilderApi {
    */
   public CompletableFuture<ApiResponse<PublishAppResponse>> publishAppWithHttpInfoAsync(
       UUID appId) {
-    // Check if unstable operation is enabled
-    String operationId = "publishApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<PublishAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -1264,13 +1163,6 @@ public class AppBuilderApi {
    */
   public ApiResponse<UnpublishAppResponse> unpublishAppWithHttpInfo(UUID appId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "unpublishApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -1315,16 +1207,6 @@ public class AppBuilderApi {
    */
   public CompletableFuture<ApiResponse<UnpublishAppResponse>> unpublishAppWithHttpInfoAsync(
       UUID appId) {
-    // Check if unstable operation is enabled
-    String operationId = "unpublishApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<UnpublishAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'appId' is set
@@ -1419,13 +1301,6 @@ public class AppBuilderApi {
    */
   public ApiResponse<UpdateAppResponse> updateAppWithHttpInfo(UUID appId, UpdateAppRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "updateApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set
@@ -1475,16 +1350,6 @@ public class AppBuilderApi {
    */
   public CompletableFuture<ApiResponse<UpdateAppResponse>> updateAppWithHttpInfoAsync(
       UUID appId, UpdateAppRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "updateApp";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<UpdateAppResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'appId' is set

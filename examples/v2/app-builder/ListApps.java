@@ -8,7 +8,6 @@ import com.datadog.api.client.v2.model.ListAppsResponse;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.listApps", true);
     AppBuilderApi apiInstance = new AppBuilderApi(defaultClient);
 
     try {
