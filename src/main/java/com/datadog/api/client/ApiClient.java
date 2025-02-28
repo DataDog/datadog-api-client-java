@@ -425,6 +425,8 @@ public class ApiClient {
           put("v2.getSBOM", false);
           put("v2.listFindings", false);
           put("v2.listHistoricalJobs", false);
+          put("v2.listVulnerabilities", false);
+          put("v2.listVulnerableAssets", false);
           put("v2.muteFindings", false);
           put("v2.runHistoricalJob", false);
           put("v2.createScorecardOutcomesBatch", false);
