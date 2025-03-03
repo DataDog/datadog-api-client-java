@@ -9,7 +9,6 @@ import java.util.UUID;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.unpublishApp", true);
     AppBuilderApi apiInstance = new AppBuilderApi(defaultClient);
 
     // there is a valid "app" in the system
