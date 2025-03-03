@@ -6,273 +6,332 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
+import com.datadog.api.client.AbstractOpenApiSchema;
+import com.datadog.api.client.JSON;
+import com.datadog.api.client.UnparsedObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import jakarta.ws.rs.core.GenericType;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- * A query used by an app. This can take the form of an external action, a data transformation, or a
- * state variable change.
- */
-@JsonPropertyOrder({
-  Query.JSON_PROPERTY_EVENTS,
-  Query.JSON_PROPERTY_ID,
-  Query.JSON_PROPERTY_NAME,
-  Query.JSON_PROPERTY_PROPERTIES,
-  Query.JSON_PROPERTY_TYPE
-})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class Query {
+@JsonDeserialize(using = Query.QueryDeserializer.class)
+@JsonSerialize(using = Query.QuerySerializer.class)
+public class Query extends AbstractOpenApiSchema {
+  private static final Logger log = Logger.getLogger(Query.class.getName());
+
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_EVENTS = "events";
-  private List<AppBuilderEvent> events = null;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private UUID id;
-
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
-
-  public static final String JSON_PROPERTY_PROPERTIES = "properties";
-  private Object properties = null;
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private QueryType type;
-
-  public Query() {}
-
-  @JsonCreator
-  public Query(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) UUID id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) QueryType type) {
-    this.id = id;
-    this.name = name;
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public Query events(List<AppBuilderEvent> events) {
-    this.events = events;
-    for (AppBuilderEvent item : events) {
-      this.unparsed |= item.unparsed;
+  public static class QuerySerializer extends StdSerializer<Query> {
+    public QuerySerializer(Class<Query> t) {
+      super(t);
     }
-    return this;
-  }
 
-  public Query addEventsItem(AppBuilderEvent eventsItem) {
-    if (this.events == null) {
-      this.events = new ArrayList<>();
+    public QuerySerializer() {
+      this(null);
     }
-    this.events.add(eventsItem);
-    this.unparsed |= eventsItem.unparsed;
-    return this;
-  }
 
-  /**
-   * Events to listen for downstream of the query.
-   *
-   * @return events
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EVENTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AppBuilderEvent> getEvents() {
-    return events;
-  }
-
-  public void setEvents(List<AppBuilderEvent> events) {
-    this.events = events;
-  }
-
-  public Query id(UUID id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The ID of the query.
-   *
-   * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
-  }
-
-  public Query name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The name of the query. The name must be unique within the app and is visible in the app editor.
-   *
-   * @return name
-   */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Query properties(Object properties) {
-    this.properties = properties;
-    return this;
-  }
-
-  /**
-   * The properties of the query. The properties vary depending on the query type.
-   *
-   * @return properties
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROPERTIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getProperties() {
-    return properties;
-  }
-
-  public void setProperties(Object properties) {
-    this.properties = properties;
-  }
-
-  public Query type(QueryType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * The query type.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public QueryType getType() {
-    return type;
-  }
-
-  public void setType(QueryType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+    @Override
+    public void serialize(Query value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.getActualInstance());
     }
-    this.type = type;
   }
 
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return Query
-   */
-  @JsonAnySetter
-  public Query putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
+  public static class QueryDeserializer extends StdDeserializer<Query> {
+    public QueryDeserializer() {
+      this(Query.class);
     }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
 
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
+    public QueryDeserializer(Class<?> vc) {
+      super(vc);
     }
-    return this.additionalProperties.get(key);
+
+    @Override
+    public Query deserialize(JsonParser jp, DeserializationContext ctxt)
+        throws IOException, JsonProcessingException {
+      JsonNode tree = jp.readValueAsTree();
+      Object deserialized = null;
+      Object tmp = null;
+      boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+      int match = 0;
+      JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+      // deserialize ActionQuery
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ActionQuery.class.equals(Integer.class)
+            || ActionQuery.class.equals(Long.class)
+            || ActionQuery.class.equals(Float.class)
+            || ActionQuery.class.equals(Double.class)
+            || ActionQuery.class.equals(Boolean.class)
+            || ActionQuery.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ActionQuery.class.equals(Integer.class) || ActionQuery.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ActionQuery.class.equals(Float.class) || ActionQuery.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ActionQuery.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ActionQuery.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ActionQuery.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ActionQuery) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ActionQuery'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ActionQuery'", e);
+      }
+
+      // deserialize DataTransform
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (DataTransform.class.equals(Integer.class)
+            || DataTransform.class.equals(Long.class)
+            || DataTransform.class.equals(Float.class)
+            || DataTransform.class.equals(Double.class)
+            || DataTransform.class.equals(Boolean.class)
+            || DataTransform.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((DataTransform.class.equals(Integer.class)
+                        || DataTransform.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((DataTransform.class.equals(Float.class)
+                        || DataTransform.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (DataTransform.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (DataTransform.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(DataTransform.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((DataTransform) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'DataTransform'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'DataTransform'", e);
+      }
+
+      // deserialize StateVariable
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (StateVariable.class.equals(Integer.class)
+            || StateVariable.class.equals(Long.class)
+            || StateVariable.class.equals(Float.class)
+            || StateVariable.class.equals(Double.class)
+            || StateVariable.class.equals(Boolean.class)
+            || StateVariable.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((StateVariable.class.equals(Integer.class)
+                        || StateVariable.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((StateVariable.class.equals(Float.class)
+                        || StateVariable.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (StateVariable.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (StateVariable.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(StateVariable.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((StateVariable) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'StateVariable'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'StateVariable'", e);
+      }
+
+      Query ret = new Query();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
+    }
+
+    /** Handle deserialization of the 'null' value. */
+    @Override
+    public Query getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+      throw new JsonMappingException(ctxt.getParser(), "Query cannot be null");
+    }
   }
 
-  /** Return true if this Query object is equal to o. */
+  // store a list of schema names defined in oneOf
+  public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
+
+  public Query() {
+    super("oneOf", Boolean.FALSE);
+  }
+
+  public Query(ActionQuery o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public Query(DataTransform o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public Query(StateVariable o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  static {
+    schemas.put("ActionQuery", new GenericType<ActionQuery>() {});
+    schemas.put("DataTransform", new GenericType<DataTransform>() {});
+    schemas.put("StateVariable", new GenericType<StateVariable>() {});
+    JSON.registerDescendants(Query.class, Collections.unmodifiableMap(schemas));
+  }
+
   @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Query query = (Query) o;
-    return Objects.equals(this.events, query.events)
-        && Objects.equals(this.id, query.id)
-        && Objects.equals(this.name, query.name)
-        && Objects.equals(this.properties, query.properties)
-        && Objects.equals(this.type, query.type)
-        && Objects.equals(this.additionalProperties, query.additionalProperties);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(events, id, name, properties, type, additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Query {\n");
-    sb.append("    events: ").append(toIndentedString(events)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
-    sb.append('}');
-    return sb.toString();
+  public Map<String, GenericType> getSchemas() {
+    return Query.schemas;
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Set the instance that matches the oneOf child schema, check the instance parameter is valid
+   * against the oneOf child schemas: ActionQuery, DataTransform, StateVariable
+   *
+   * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
+   * composed schema (allOf, anyOf, oneOf).
    */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @Override
+  public void setActualInstance(Object instance) {
+    if (JSON.isInstanceOf(ActionQuery.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
     }
-    return o.toString().replace("\n", "\n    ");
+    if (JSON.isInstanceOf(DataTransform.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(StateVariable.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    throw new RuntimeException(
+        "Invalid instance type. Must be ActionQuery, DataTransform, StateVariable");
+  }
+
+  /**
+   * Get the actual instance, which can be the following: ActionQuery, DataTransform, StateVariable
+   *
+   * @return The actual instance (ActionQuery, DataTransform, StateVariable)
+   */
+  @Override
+  public Object getActualInstance() {
+    return super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ActionQuery`. If the actual instance is not `ActionQuery`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ActionQuery`
+   * @throws ClassCastException if the instance is not `ActionQuery`
+   */
+  public ActionQuery getActionQuery() throws ClassCastException {
+    return (ActionQuery) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `DataTransform`. If the actual instance is not `DataTransform`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `DataTransform`
+   * @throws ClassCastException if the instance is not `DataTransform`
+   */
+  public DataTransform getDataTransform() throws ClassCastException {
+    return (DataTransform) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `StateVariable`. If the actual instance is not `StateVariable`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `StateVariable`
+   * @throws ClassCastException if the instance is not `StateVariable`
+   */
+  public StateVariable getStateVariable() throws ClassCastException {
+    return (StateVariable) super.getActualInstance();
   }
 }
