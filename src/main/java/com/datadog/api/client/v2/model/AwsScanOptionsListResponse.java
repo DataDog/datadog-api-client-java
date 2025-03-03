@@ -12,38 +12,51 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response object that includes the scan options of an AWS account. */
-@JsonPropertyOrder({AwsScanOptionsResponse.JSON_PROPERTY_DATA})
+/** Response object that includes a list of AWS scan options. */
+@JsonPropertyOrder({AwsScanOptionsListResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AwsScanOptionsResponse {
+public class AwsScanOptionsListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private AwsScanOptionsData data;
+  private List<AwsScanOptionsData> data = null;
 
-  public AwsScanOptionsResponse data(AwsScanOptionsData data) {
+  public AwsScanOptionsListResponse data(List<AwsScanOptionsData> data) {
     this.data = data;
-    this.unparsed |= data.unparsed;
+    for (AwsScanOptionsData item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public AwsScanOptionsListResponse addDataItem(AwsScanOptionsData dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * Single AWS Scan Options entry.
+   * A list of AWS scan options.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AwsScanOptionsData getData() {
+  public List<AwsScanOptionsData> getData() {
     return data;
   }
 
-  public void setData(AwsScanOptionsData data) {
+  public void setData(List<AwsScanOptionsData> data) {
     this.data = data;
   }
 
@@ -59,10 +72,10 @@ public class AwsScanOptionsResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AwsScanOptionsResponse
+   * @return AwsScanOptionsListResponse
    */
   @JsonAnySetter
-  public AwsScanOptionsResponse putAdditionalProperty(String key, Object value) {
+  public AwsScanOptionsListResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +106,7 @@ public class AwsScanOptionsResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AwsScanOptionsResponse object is equal to o. */
+  /** Return true if this AwsScanOptionsListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,9 +115,10 @@ public class AwsScanOptionsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AwsScanOptionsResponse awsScanOptionsResponse = (AwsScanOptionsResponse) o;
-    return Objects.equals(this.data, awsScanOptionsResponse.data)
-        && Objects.equals(this.additionalProperties, awsScanOptionsResponse.additionalProperties);
+    AwsScanOptionsListResponse awsScanOptionsListResponse = (AwsScanOptionsListResponse) o;
+    return Objects.equals(this.data, awsScanOptionsListResponse.data)
+        && Objects.equals(
+            this.additionalProperties, awsScanOptionsListResponse.additionalProperties);
   }
 
   @Override
@@ -115,7 +129,7 @@ public class AwsScanOptionsResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AwsScanOptionsResponse {\n");
+    sb.append("class AwsScanOptionsListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

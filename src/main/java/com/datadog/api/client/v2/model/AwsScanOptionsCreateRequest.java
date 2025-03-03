@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,34 +17,42 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response object that includes the scan options of an AWS account. */
-@JsonPropertyOrder({AwsScanOptionsResponse.JSON_PROPERTY_DATA})
+/** Request object that includes the scan options to create. */
+@JsonPropertyOrder({AwsScanOptionsCreateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AwsScanOptionsResponse {
+public class AwsScanOptionsCreateRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private AwsScanOptionsData data;
+  private AwsScanOptionsCreateData data;
 
-  public AwsScanOptionsResponse data(AwsScanOptionsData data) {
+  public AwsScanOptionsCreateRequest() {}
+
+  @JsonCreator
+  public AwsScanOptionsCreateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) AwsScanOptionsCreateData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
+  public AwsScanOptionsCreateRequest data(AwsScanOptionsCreateData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Single AWS Scan Options entry.
+   * Object for the scan options of a single AWS account.
    *
    * @return data
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AwsScanOptionsData getData() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public AwsScanOptionsCreateData getData() {
     return data;
   }
 
-  public void setData(AwsScanOptionsData data) {
+  public void setData(AwsScanOptionsCreateData data) {
     this.data = data;
   }
 
@@ -59,10 +68,10 @@ public class AwsScanOptionsResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AwsScanOptionsResponse
+   * @return AwsScanOptionsCreateRequest
    */
   @JsonAnySetter
-  public AwsScanOptionsResponse putAdditionalProperty(String key, Object value) {
+  public AwsScanOptionsCreateRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -93,7 +102,7 @@ public class AwsScanOptionsResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AwsScanOptionsResponse object is equal to o. */
+  /** Return true if this AwsScanOptionsCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,9 +111,10 @@ public class AwsScanOptionsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AwsScanOptionsResponse awsScanOptionsResponse = (AwsScanOptionsResponse) o;
-    return Objects.equals(this.data, awsScanOptionsResponse.data)
-        && Objects.equals(this.additionalProperties, awsScanOptionsResponse.additionalProperties);
+    AwsScanOptionsCreateRequest awsScanOptionsCreateRequest = (AwsScanOptionsCreateRequest) o;
+    return Objects.equals(this.data, awsScanOptionsCreateRequest.data)
+        && Objects.equals(
+            this.additionalProperties, awsScanOptionsCreateRequest.additionalProperties);
   }
 
   @Override
@@ -115,7 +125,7 @@ public class AwsScanOptionsResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AwsScanOptionsResponse {\n");
+    sb.append("class AwsScanOptionsCreateRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
