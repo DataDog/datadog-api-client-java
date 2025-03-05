@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"event_type\":\"view\",\"name\":\"Test updating retention filter\",\"query\":\"\",\"sample_rate\":100},\"id\":\"Test-Update_a_RUM_retention_filter_returns_Bad_Request_response-1741206209\",\"type\":\"invalid_type\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/rum/applications/a33671aa-24fd-4dcd-ba4b-5bbdbafe7690/retention_filters/Test-Update_a_RUM_retention_filter_returns_Bad_Request_response-1741206209",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"got type \\\"invalid_type\\\" expected one of \\\"retention_filters\\\"\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f3e7e81e-4e3d-0572-e56e-fb6377e634c4"
+  }
+]

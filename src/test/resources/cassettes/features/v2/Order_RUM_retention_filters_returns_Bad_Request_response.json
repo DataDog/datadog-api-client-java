@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"id\":\"325631eb-94c9-49c0-93f9-ab7e4fd24529\",\"type\":\"retention_filters\"}]}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/rum/applications/1d4b9c34-7ac4-423a-91cf-9902d926e9b3/relationships/retention_filters",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0531648b-cd76-cfc9-b669-83aed9e67df2"
+  }
+]
