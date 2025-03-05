@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"event_type\":\"view\",\"name\":\"Test updating retention filter\",\"query\":\"view_query\",\"sample_rate\":100},\"id\":\"4b95d361-f65d-4515-9824-c9aaeba5ac2a\",\"type\":\"retention_filters\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/rum/applications/a33671aa-24fd-4dcd-ba4b-5bbdbafe7690/retention_filters/4b95d361-f65d-4515-9824-c9aaeba5ac2a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4b95d361-f65d-4515-9824-c9aaeba5ac2a\",\"type\":\"retention_filters\",\"attributes\":{\"enabled\":true,\"event_type\":\"view\",\"name\":\"Test updating retention filter\",\"query\":\"view_query\",\"sample_rate\":100},\"meta\":{\"source\":\"unknown\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fcd64798-9b30-c240-cc25-dd3bde11e457"
+  }
+]

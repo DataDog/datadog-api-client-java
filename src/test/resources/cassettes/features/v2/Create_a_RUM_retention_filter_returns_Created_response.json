@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"event_type\":\"session\",\"name\":\"Test creating retention filter\",\"query\":\"custom_query\",\"sample_rate\":50},\"meta\":{\"source\":\"terraform\"},\"type\":\"retention_filters\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/rum/applications/a33671aa-24fd-4dcd-ba4b-5bbdbafe7690/retention_filters",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4b95d361-f65d-4515-9824-c9aaeba5ac2a\",\"type\":\"retention_filters\",\"attributes\":{\"enabled\":true,\"event_type\":\"session\",\"name\":\"Test creating retention filter\",\"query\":\"custom_query\",\"sample_rate\":50},\"meta\":{\"source\":\"terraform\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "beca70c0-e9f5-eed6-07cd-8cb8d30eccf7"
+  }
+]
