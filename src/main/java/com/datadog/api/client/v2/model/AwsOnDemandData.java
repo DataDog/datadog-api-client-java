@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,73 +16,60 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object for the scan options of a single AWS account. */
+/** Single AWS on demand task. */
 @JsonPropertyOrder({
-  AwsScanOptionsUpdateData.JSON_PROPERTY_ATTRIBUTES,
-  AwsScanOptionsUpdateData.JSON_PROPERTY_ID,
-  AwsScanOptionsUpdateData.JSON_PROPERTY_TYPE
+  AwsOnDemandData.JSON_PROPERTY_ATTRIBUTES,
+  AwsOnDemandData.JSON_PROPERTY_ID,
+  AwsOnDemandData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AwsScanOptionsUpdateData {
+public class AwsOnDemandData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private AwsScanOptionsUpdateAttributes attributes;
+  private AwsOnDemandAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private AwsScanOptionsType type = AwsScanOptionsType.AWS_SCAN_OPTIONS;
+  private AwsOnDemandType type = AwsOnDemandType.AWS_RESOURCE;
 
-  public AwsScanOptionsUpdateData() {}
-
-  @JsonCreator
-  public AwsScanOptionsUpdateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          AwsScanOptionsUpdateAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AwsScanOptionsType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public AwsScanOptionsUpdateData attributes(AwsScanOptionsUpdateAttributes attributes) {
+  public AwsOnDemandData attributes(AwsOnDemandAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for the AWS scan options to update.
+   * Attributes for the AWS on demand task.
    *
    * @return attributes
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AwsScanOptionsUpdateAttributes getAttributes() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AwsOnDemandAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(AwsScanOptionsUpdateAttributes attributes) {
+  public void setAttributes(AwsOnDemandAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public AwsScanOptionsUpdateData id(String id) {
+  public AwsOnDemandData id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * The ID of the AWS account.
+   * The UUID of the task.
    *
    * @return id
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
@@ -92,24 +78,25 @@ public class AwsScanOptionsUpdateData {
     this.id = id;
   }
 
-  public AwsScanOptionsUpdateData type(AwsScanOptionsType type) {
+  public AwsOnDemandData type(AwsOnDemandType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The type of the resource. The value should always be <code>aws_scan_options</code>.
+   * The type of the on demand task. The value should always be <code>aws_resource</code>.
    *
    * @return type
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AwsScanOptionsType getType() {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AwsOnDemandType getType() {
     return type;
   }
 
-  public void setType(AwsScanOptionsType type) {
+  public void setType(AwsOnDemandType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -128,10 +115,10 @@ public class AwsScanOptionsUpdateData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AwsScanOptionsUpdateData
+   * @return AwsOnDemandData
    */
   @JsonAnySetter
-  public AwsScanOptionsUpdateData putAdditionalProperty(String key, Object value) {
+  public AwsOnDemandData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -162,7 +149,7 @@ public class AwsScanOptionsUpdateData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AwsScanOptionsUpdateData object is equal to o. */
+  /** Return true if this AwsOnDemandData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -171,11 +158,11 @@ public class AwsScanOptionsUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AwsScanOptionsUpdateData awsScanOptionsUpdateData = (AwsScanOptionsUpdateData) o;
-    return Objects.equals(this.attributes, awsScanOptionsUpdateData.attributes)
-        && Objects.equals(this.id, awsScanOptionsUpdateData.id)
-        && Objects.equals(this.type, awsScanOptionsUpdateData.type)
-        && Objects.equals(this.additionalProperties, awsScanOptionsUpdateData.additionalProperties);
+    AwsOnDemandData awsOnDemandData = (AwsOnDemandData) o;
+    return Objects.equals(this.attributes, awsOnDemandData.attributes)
+        && Objects.equals(this.id, awsOnDemandData.id)
+        && Objects.equals(this.type, awsOnDemandData.type)
+        && Objects.equals(this.additionalProperties, awsOnDemandData.additionalProperties);
   }
 
   @Override
@@ -186,7 +173,7 @@ public class AwsScanOptionsUpdateData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AwsScanOptionsUpdateData {\n");
+    sb.append("class AwsOnDemandData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

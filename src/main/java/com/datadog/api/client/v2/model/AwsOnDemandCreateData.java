@@ -17,99 +17,73 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object for the scan options of a single AWS account. */
+/** Object for a single AWS on demand task. */
 @JsonPropertyOrder({
-  AwsScanOptionsUpdateData.JSON_PROPERTY_ATTRIBUTES,
-  AwsScanOptionsUpdateData.JSON_PROPERTY_ID,
-  AwsScanOptionsUpdateData.JSON_PROPERTY_TYPE
+  AwsOnDemandCreateData.JSON_PROPERTY_ATTRIBUTES,
+  AwsOnDemandCreateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class AwsScanOptionsUpdateData {
+public class AwsOnDemandCreateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private AwsScanOptionsUpdateAttributes attributes;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  private AwsOnDemandCreateAttributes attributes;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private AwsScanOptionsType type = AwsScanOptionsType.AWS_SCAN_OPTIONS;
+  private AwsOnDemandType type = AwsOnDemandType.AWS_RESOURCE;
 
-  public AwsScanOptionsUpdateData() {}
+  public AwsOnDemandCreateData() {}
 
   @JsonCreator
-  public AwsScanOptionsUpdateData(
+  public AwsOnDemandCreateData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          AwsScanOptionsUpdateAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AwsScanOptionsType type) {
+          AwsOnDemandCreateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AwsOnDemandType type) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
-    this.id = id;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public AwsScanOptionsUpdateData attributes(AwsScanOptionsUpdateAttributes attributes) {
+  public AwsOnDemandCreateData attributes(AwsOnDemandCreateAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for the AWS scan options to update.
+   * Attributes for the AWS on demand task.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AwsScanOptionsUpdateAttributes getAttributes() {
+  public AwsOnDemandCreateAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(AwsScanOptionsUpdateAttributes attributes) {
+  public void setAttributes(AwsOnDemandCreateAttributes attributes) {
     this.attributes = attributes;
   }
 
-  public AwsScanOptionsUpdateData id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The ID of the AWS account.
-   *
-   * @return id
-   */
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public AwsScanOptionsUpdateData type(AwsScanOptionsType type) {
+  public AwsOnDemandCreateData type(AwsOnDemandType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The type of the resource. The value should always be <code>aws_scan_options</code>.
+   * The type of the on demand task. The value should always be <code>aws_resource</code>.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AwsScanOptionsType getType() {
+  public AwsOnDemandType getType() {
     return type;
   }
 
-  public void setType(AwsScanOptionsType type) {
+  public void setType(AwsOnDemandType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -128,10 +102,10 @@ public class AwsScanOptionsUpdateData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return AwsScanOptionsUpdateData
+   * @return AwsOnDemandCreateData
    */
   @JsonAnySetter
-  public AwsScanOptionsUpdateData putAdditionalProperty(String key, Object value) {
+  public AwsOnDemandCreateData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -162,7 +136,7 @@ public class AwsScanOptionsUpdateData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this AwsScanOptionsUpdateData object is equal to o. */
+  /** Return true if this AwsOnDemandCreateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -171,24 +145,22 @@ public class AwsScanOptionsUpdateData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AwsScanOptionsUpdateData awsScanOptionsUpdateData = (AwsScanOptionsUpdateData) o;
-    return Objects.equals(this.attributes, awsScanOptionsUpdateData.attributes)
-        && Objects.equals(this.id, awsScanOptionsUpdateData.id)
-        && Objects.equals(this.type, awsScanOptionsUpdateData.type)
-        && Objects.equals(this.additionalProperties, awsScanOptionsUpdateData.additionalProperties);
+    AwsOnDemandCreateData awsOnDemandCreateData = (AwsOnDemandCreateData) o;
+    return Objects.equals(this.attributes, awsOnDemandCreateData.attributes)
+        && Objects.equals(this.type, awsOnDemandCreateData.type)
+        && Objects.equals(this.additionalProperties, awsOnDemandCreateData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, type, additionalProperties);
+    return Objects.hash(attributes, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AwsScanOptionsUpdateData {\n");
+    sb.append("class AwsOnDemandCreateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

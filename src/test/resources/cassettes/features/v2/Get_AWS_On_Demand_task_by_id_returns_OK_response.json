@@ -1,0 +1,28 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/agentless_scanning/ondemand/aws/63d6b4f5-e5d0-4d90-824a-9580f05f026a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"63d6b4f5-e5d0-4d90-824a-9580f05f026a\",\"type\":\"aws_resource\",\"attributes\":{\"arn\":\"arn:aws:lambda:eu-west-3:376334461865:function:This-Is-An-Api-Spec-Test\",\"created_at\":\"2025-03-05T14:24:46.915915Z\",\"status\":\"QUEUED\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6e597e91-1a7b-26f6-97a8-b4b2658f33d9"
+  }
+]

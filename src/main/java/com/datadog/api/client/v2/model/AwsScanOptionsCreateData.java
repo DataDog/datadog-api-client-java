@@ -28,7 +28,7 @@ import java.util.Objects;
 public class AwsScanOptionsCreateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private AwsScanOptionsAttributes attributes;
+  private AwsScanOptionsCreateAttributes attributes;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -41,7 +41,7 @@ public class AwsScanOptionsCreateData {
   @JsonCreator
   public AwsScanOptionsCreateData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          AwsScanOptionsAttributes attributes,
+          AwsScanOptionsCreateAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) AwsScanOptionsType type) {
     this.attributes = attributes;
@@ -51,24 +51,24 @@ public class AwsScanOptionsCreateData {
     this.unparsed |= !type.isValid();
   }
 
-  public AwsScanOptionsCreateData attributes(AwsScanOptionsAttributes attributes) {
+  public AwsScanOptionsCreateData attributes(AwsScanOptionsCreateAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes for the AWS scan options.
+   * Attributes for the AWS scan options to create.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public AwsScanOptionsAttributes getAttributes() {
+  public AwsScanOptionsCreateAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(AwsScanOptionsAttributes attributes) {
+  public void setAttributes(AwsScanOptionsCreateAttributes attributes) {
     this.attributes = attributes;
   }
 
@@ -78,7 +78,7 @@ public class AwsScanOptionsCreateData {
   }
 
   /**
-   * The ID of an AWS account.
+   * The ID of the AWS account.
    *
    * @return id
    */
