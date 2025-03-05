@@ -393,7 +393,6 @@ public class SoftwareCatalogApi {
     String valueGetterPath = "";
     String valueSetterPath = "pageOffset";
     Boolean valueSetterParamOptional = true;
-    parameters.pageOffset(0l);
     Long limit;
 
     if (parameters.pageLimit == null) {
@@ -414,7 +413,7 @@ public class SoftwareCatalogApi {
             valueGetterPath,
             valueSetterPath,
             valueSetterParamOptional,
-            false,
+            true,
             limit,
             args);
 
