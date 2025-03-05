@@ -4,6 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.AwsOnDemandCreateRequest;
+import com.datadog.api.client.v2.model.AwsOnDemandListResponse;
+import com.datadog.api.client.v2.model.AwsOnDemandResponse;
 import com.datadog.api.client.v2.model.AwsScanOptionsCreateRequest;
 import com.datadog.api.client.v2.model.AwsScanOptionsListResponse;
 import com.datadog.api.client.v2.model.AwsScanOptionsResponse;
@@ -44,6 +47,139 @@ public class AgentlessScanningApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Post an AWS on demand task.
+   *
+   * <p>See {@link #createAwsOnDemandTaskWithHttpInfo}.
+   *
+   * @param body The definition of the on demand task. (required)
+   * @return AwsOnDemandResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AwsOnDemandResponse createAwsOnDemandTask(AwsOnDemandCreateRequest body)
+      throws ApiException {
+    return createAwsOnDemandTaskWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Post an AWS on demand task.
+   *
+   * <p>See {@link #createAwsOnDemandTaskWithHttpInfoAsync}.
+   *
+   * @param body The definition of the on demand task. (required)
+   * @return CompletableFuture&lt;AwsOnDemandResponse&gt;
+   */
+  public CompletableFuture<AwsOnDemandResponse> createAwsOnDemandTaskAsync(
+      AwsOnDemandCreateRequest body) {
+    return createAwsOnDemandTaskWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Trigger the scan of an AWS resource with a high priority.
+   *
+   * @param body The definition of the on demand task. (required)
+   * @return ApiResponse&lt;AwsOnDemandResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> AWS on demand task created successfully. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AwsOnDemandResponse> createAwsOnDemandTaskWithHttpInfo(
+      AwsOnDemandCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createAwsOnDemandTask");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/agentless_scanning/ondemand/aws";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentlessScanningApi.createAwsOnDemandTask",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AwsOnDemandResponse>() {});
+  }
+
+  /**
+   * Post an AWS on demand task.
+   *
+   * <p>See {@link #createAwsOnDemandTaskWithHttpInfo}.
+   *
+   * @param body The definition of the on demand task. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AwsOnDemandResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AwsOnDemandResponse>> createAwsOnDemandTaskWithHttpInfoAsync(
+      AwsOnDemandCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<AwsOnDemandResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createAwsOnDemandTask"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/agentless_scanning/ondemand/aws";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentlessScanningApi.createAwsOnDemandTask",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AwsOnDemandResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AwsOnDemandResponse>() {});
   }
 
   /**
@@ -315,6 +451,117 @@ public class AgentlessScanningApi {
   }
 
   /**
+   * Get AWS On Demand tasks.
+   *
+   * <p>See {@link #listAwsOnDemandTasksWithHttpInfo}.
+   *
+   * @return AwsOnDemandListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AwsOnDemandListResponse listAwsOnDemandTasks() throws ApiException {
+    return listAwsOnDemandTasksWithHttpInfo().getData();
+  }
+
+  /**
+   * Get AWS On Demand tasks.
+   *
+   * <p>See {@link #listAwsOnDemandTasksWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;AwsOnDemandListResponse&gt;
+   */
+  public CompletableFuture<AwsOnDemandListResponse> listAwsOnDemandTasksAsync() {
+    return listAwsOnDemandTasksWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetches the most recent 1000 AWS on demand tasks.
+   *
+   * @return ApiResponse&lt;AwsOnDemandListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AwsOnDemandListResponse> listAwsOnDemandTasksWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/agentless_scanning/ondemand/aws";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentlessScanningApi.listAwsOnDemandTasks",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AwsOnDemandListResponse>() {});
+  }
+
+  /**
+   * Get AWS On Demand tasks.
+   *
+   * <p>See {@link #listAwsOnDemandTasksWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;AwsOnDemandListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AwsOnDemandListResponse>>
+      listAwsOnDemandTasksWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/agentless_scanning/ondemand/aws";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentlessScanningApi.listAwsOnDemandTasks",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AwsOnDemandListResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AwsOnDemandListResponse>() {});
+  }
+
+  /**
    * Get AWS Scan Options.
    *
    * <p>See {@link #listAwsScanOptionsWithHttpInfo}.
@@ -423,6 +670,142 @@ public class AgentlessScanningApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AwsScanOptionsListResponse>() {});
+  }
+
+  /**
+   * Get AWS On Demand task by id.
+   *
+   * <p>See {@link #retrieveAwsOnDemandTaskWithHttpInfo}.
+   *
+   * @param taskId The UUID of the task. (required)
+   * @return AwsOnDemandResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AwsOnDemandResponse retrieveAwsOnDemandTask(String taskId) throws ApiException {
+    return retrieveAwsOnDemandTaskWithHttpInfo(taskId).getData();
+  }
+
+  /**
+   * Get AWS On Demand task by id.
+   *
+   * <p>See {@link #retrieveAwsOnDemandTaskWithHttpInfoAsync}.
+   *
+   * @param taskId The UUID of the task. (required)
+   * @return CompletableFuture&lt;AwsOnDemandResponse&gt;
+   */
+  public CompletableFuture<AwsOnDemandResponse> retrieveAwsOnDemandTaskAsync(String taskId) {
+    return retrieveAwsOnDemandTaskWithHttpInfoAsync(taskId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Fetch the data of a specific on demand task.
+   *
+   * @param taskId The UUID of the task. (required)
+   * @return ApiResponse&lt;AwsOnDemandResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AwsOnDemandResponse> retrieveAwsOnDemandTaskWithHttpInfo(String taskId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'taskId' is set
+    if (taskId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'taskId' when calling retrieveAwsOnDemandTask");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/ondemand/aws/{task_id}"
+            .replaceAll("\\{" + "task_id" + "\\}", apiClient.escapeString(taskId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.AgentlessScanningApi.retrieveAwsOnDemandTask",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AwsOnDemandResponse>() {});
+  }
+
+  /**
+   * Get AWS On Demand task by id.
+   *
+   * <p>See {@link #retrieveAwsOnDemandTaskWithHttpInfo}.
+   *
+   * @param taskId The UUID of the task. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;AwsOnDemandResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<AwsOnDemandResponse>>
+      retrieveAwsOnDemandTaskWithHttpInfoAsync(String taskId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'taskId' is set
+    if (taskId == null) {
+      CompletableFuture<ApiResponse<AwsOnDemandResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'taskId' when calling retrieveAwsOnDemandTask"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/agentless_scanning/ondemand/aws/{task_id}"
+            .replaceAll("\\{" + "task_id" + "\\}", apiClient.escapeString(taskId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.AgentlessScanningApi.retrieveAwsOnDemandTask",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<AwsOnDemandResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<AwsOnDemandResponse>() {});
   }
 
   /**

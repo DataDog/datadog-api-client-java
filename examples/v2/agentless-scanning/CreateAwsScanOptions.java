@@ -3,7 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.AgentlessScanningApi;
-import com.datadog.api.client.v2.model.AwsScanOptionsAttributes;
+import com.datadog.api.client.v2.model.AwsScanOptionsCreateAttributes;
 import com.datadog.api.client.v2.model.AwsScanOptionsCreateData;
 import com.datadog.api.client.v2.model.AwsScanOptionsCreateRequest;
 import com.datadog.api.client.v2.model.AwsScanOptionsResponse;
@@ -21,7 +21,7 @@ public class Example {
                     .id("000000000003")
                     .type(AwsScanOptionsType.AWS_SCAN_OPTIONS)
                     .attributes(
-                        new AwsScanOptionsAttributes()
+                        new AwsScanOptionsCreateAttributes()
                             .lambda(true)
                             .sensitiveData(false)
                             .vulnContainersOs(true)
