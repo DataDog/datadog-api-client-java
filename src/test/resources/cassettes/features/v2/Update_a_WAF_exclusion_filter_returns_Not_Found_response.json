@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Exclude false positives on a path\",\"enabled\":true,\"parameters\":[\"list.search.query\"],\"path_glob\":\"/accounts/*\",\"rules_target\":[{\"rule_id\":\"dog-913-009\",\"tags\":{\"category\":\"attack_attempt\",\"type\":\"lfi\"}}],\"scope\":[{\"env\":\"www\",\"service\":\"prod\"}]},\"type\":\"exclusion_filter\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/remote_config/products/asm/waf/exclusion_filters/unknown",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"id not found\",\"code\":\"404\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f51e6632-61f9-bdfe-6612-640437eab49a"
+  }
+]
