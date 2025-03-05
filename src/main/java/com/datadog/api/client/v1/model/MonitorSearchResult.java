@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorSearchResult.JSON_PROPERTY_NAME,
   MonitorSearchResult.JSON_PROPERTY_NOTIFICATIONS,
   MonitorSearchResult.JSON_PROPERTY_ORG_ID,
+  MonitorSearchResult.JSON_PROPERTY_QUALITY_ISSUES,
   MonitorSearchResult.JSON_PROPERTY_QUERY,
   MonitorSearchResult.JSON_PROPERTY_SCOPES,
   MonitorSearchResult.JSON_PROPERTY_STATUS,
@@ -62,6 +63,9 @@ public class MonitorSearchResult {
 
   public static final String JSON_PROPERTY_ORG_ID = "org_id";
   private Long orgId;
+
+  public static final String JSON_PROPERTY_QUALITY_ISSUES = "quality_issues";
+  private List<String> qualityIssues = null;
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
@@ -186,6 +190,18 @@ public class MonitorSearchResult {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getOrgId() {
     return orgId;
+  }
+
+  /**
+   * Quality issues detected with the monitor.
+   *
+   * @return qualityIssues
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUALITY_ISSUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getQualityIssues() {
+    return qualityIssues;
   }
 
   public MonitorSearchResult query(String query) {
@@ -355,6 +371,7 @@ public class MonitorSearchResult {
         && Objects.equals(this.name, monitorSearchResult.name)
         && Objects.equals(this.notifications, monitorSearchResult.notifications)
         && Objects.equals(this.orgId, monitorSearchResult.orgId)
+        && Objects.equals(this.qualityIssues, monitorSearchResult.qualityIssues)
         && Objects.equals(this.query, monitorSearchResult.query)
         && Objects.equals(this.scopes, monitorSearchResult.scopes)
         && Objects.equals(this.status, monitorSearchResult.status)
@@ -374,6 +391,7 @@ public class MonitorSearchResult {
         name,
         notifications,
         orgId,
+        qualityIssues,
         query,
         scopes,
         status,
@@ -394,6 +412,7 @@ public class MonitorSearchResult {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+    sb.append("    qualityIssues: ").append(toIndentedString(qualityIssues)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
