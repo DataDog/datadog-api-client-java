@@ -178,6 +178,140 @@ public class LogsIndexesApi {
   }
 
   /**
+   * Delete an index.
+   *
+   * <p>See {@link #deleteLogsIndexWithHttpInfo}.
+   *
+   * @param name Name of the log index. (required)
+   * @return LogsIndex
+   * @throws ApiException if fails to make API call
+   */
+  public LogsIndex deleteLogsIndex(String name) throws ApiException {
+    return deleteLogsIndexWithHttpInfo(name).getData();
+  }
+
+  /**
+   * Delete an index.
+   *
+   * <p>See {@link #deleteLogsIndexWithHttpInfoAsync}.
+   *
+   * @param name Name of the log index. (required)
+   * @return CompletableFuture&lt;LogsIndex&gt;
+   */
+  public CompletableFuture<LogsIndex> deleteLogsIndexAsync(String name) {
+    return deleteLogsIndexWithHttpInfoAsync(name)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an existing index from your organization. Index deletions are permanent and cannot be
+   * reverted. You cannot recreate an index with the same name as deleted ones.
+   *
+   * @param name Name of the log index. (required)
+   * @return ApiResponse&lt;LogsIndex&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LogsIndex> deleteLogsIndexWithHttpInfo(String name) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'name' when calling deleteLogsIndex");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/logs/config/indexes/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v1.LogsIndexesApi.deleteLogsIndex",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsIndex>() {});
+  }
+
+  /**
+   * Delete an index.
+   *
+   * <p>See {@link #deleteLogsIndexWithHttpInfo}.
+   *
+   * @param name Name of the log index. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;LogsIndex&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<LogsIndex>> deleteLogsIndexWithHttpInfoAsync(String name) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'name' is set
+    if (name == null) {
+      CompletableFuture<ApiResponse<LogsIndex>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'name' when calling deleteLogsIndex"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/logs/config/indexes/{name}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v1.LogsIndexesApi.deleteLogsIndex",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<LogsIndex>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<LogsIndex>() {});
+  }
+
+  /**
    * Get an index.
    *
    * <p>See {@link #getLogsIndexWithHttpInfo}.
