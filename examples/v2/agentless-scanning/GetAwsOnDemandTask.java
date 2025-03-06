@@ -12,10 +12,10 @@ public class Example {
 
     try {
       AwsOnDemandResponse result =
-          apiInstance.retrieveAwsOnDemandTask("63d6b4f5-e5d0-4d90-824a-9580f05f026a");
+          apiInstance.getAwsOnDemandTask("63d6b4f5-e5d0-4d90-824a-9580f05f026a");
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AgentlessScanningApi#retrieveAwsOnDemandTask");
+      System.err.println("Exception when calling AgentlessScanningApi#getAwsOnDemandTask");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
