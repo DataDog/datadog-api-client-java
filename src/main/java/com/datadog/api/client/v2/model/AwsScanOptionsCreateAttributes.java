@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -39,6 +40,21 @@ public class AwsScanOptionsCreateAttributes {
   public static final String JSON_PROPERTY_VULN_HOST_OS = "vuln_host_os";
   private Boolean vulnHostOs;
 
+  public AwsScanOptionsCreateAttributes() {}
+
+  @JsonCreator
+  public AwsScanOptionsCreateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_LAMBDA) Boolean lambda,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SENSITIVE_DATA) Boolean sensitiveData,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VULN_CONTAINERS_OS)
+          Boolean vulnContainersOs,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VULN_HOST_OS) Boolean vulnHostOs) {
+    this.lambda = lambda;
+    this.sensitiveData = sensitiveData;
+    this.vulnContainersOs = vulnContainersOs;
+    this.vulnHostOs = vulnHostOs;
+  }
+
   public AwsScanOptionsCreateAttributes lambda(Boolean lambda) {
     this.lambda = lambda;
     return this;
@@ -49,9 +65,8 @@ public class AwsScanOptionsCreateAttributes {
    *
    * @return lambda
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAMBDA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getLambda() {
     return lambda;
   }
@@ -70,9 +85,8 @@ public class AwsScanOptionsCreateAttributes {
    *
    * @return sensitiveData
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SENSITIVE_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getSensitiveData() {
     return sensitiveData;
   }
@@ -91,9 +105,8 @@ public class AwsScanOptionsCreateAttributes {
    *
    * @return vulnContainersOs
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VULN_CONTAINERS_OS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getVulnContainersOs() {
     return vulnContainersOs;
   }
@@ -112,9 +125,8 @@ public class AwsScanOptionsCreateAttributes {
    *
    * @return vulnHostOs
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VULN_HOST_OS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Boolean getVulnHostOs() {
     return vulnHostOs;
   }

@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,6 +26,14 @@ public class AwsOnDemandCreateAttributes {
   public static final String JSON_PROPERTY_ARN = "arn";
   private String arn;
 
+  public AwsOnDemandCreateAttributes() {}
+
+  @JsonCreator
+  public AwsOnDemandCreateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ARN) String arn) {
+    this.arn = arn;
+  }
+
   public AwsOnDemandCreateAttributes arn(String arn) {
     this.arn = arn;
     return this;
@@ -36,9 +45,8 @@ public class AwsOnDemandCreateAttributes {
    *
    * @return arn
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getArn() {
     return arn;
   }
