@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"blocking\":false,\"conditions\":[{\"operator\":\"match_regex\",\"parameters\":{\"inputs\":[{\"address\":\"server.request.query\",\"key_path\":[\"id\"]}],\"regex\":\"badactor\"}}],\"enabled\":true,\"name\":\"test\",\"path_glob\":\"/test\",\"scope\":[{\"env\":\"test\",\"service\":\"test\"}],\"tags\":{\"category\":\"attack_attempt\",\"type\":\"test\"}},\"type\":\"custom_rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/asm/waf/custom_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"c72e76c1-ddf7-49bb-b7a2-0b178c16a987\",\"type\":\"custom_rule\",\"attributes\":{\"blocking\":false,\"conditions\":[{\"operator\":\"match_regex\",\"parameters\":{\"inputs\":[{\"address\":\"server.request.query\",\"key_path\":[\"id\"]}],\"regex\":\"badactor\",\"options\":{}}}],\"enabled\":true,\"metadata\":{\"added_at\":\"2025-03-05T21:09:13Z\",\"added_by\":\"frog@datadoghq.com\",\"added_by_name\":\"frog\"},\"name\":\"test - 12\",\"path_glob\":\"/test\",\"scope\":[{\"env\":\"test\",\"service\":\"test\"}],\"tags\":{\"category\":\"attack_attempt\",\"type\":\"test\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "337b2f05-cc5f-2fb5-c7be-e2e0e5bf9441"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Exclude false positives on a path\",\"enabled\":false,\"ip_list\":[\"198.51.100.72\"],\"on_match\":\"monitor\",\"parameters\":[\"list.search.query\"],\"path_glob\":\"/accounts/*\",\"rules_target\":[{\"rule_id\":\"dog-913-009\",\"tags\":{\"category\":\"attack_attempt\",\"type\":\"lfi\"}}],\"scope\":[{\"env\":\"www\",\"service\":\"prod\"}]},\"type\":\"exclusion_filter\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/remote_config/products/asm/waf/exclusion_filters/c72e76c1-ddf7-49bb-b7a2-0b178c16a987",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"only IPs are supported for monitored exclusion filters\",\"code\":\"400\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e5bbab16-ecb6-911e-8715-6690899de6e5"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/asm/waf/custom_rules/c72e76c1-ddf7-49bb-b7a2-0b178c16a987",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ef2b0045-1fcf-6026-cc91-e129c0737a71"
+  }
+]

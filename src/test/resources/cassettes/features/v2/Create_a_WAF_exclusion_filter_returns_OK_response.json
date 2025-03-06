@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Exclude false positives on a path\",\"enabled\":true,\"parameters\":[\"list.search.query\"],\"path_glob\":\"/accounts/*\",\"rules_target\":[{\"tags\":{\"category\":\"attack_attempt\",\"type\":\"lfi\"}}],\"scope\":[{\"env\":\"www\",\"service\":\"prod\"}]},\"type\":\"exclusion_filter\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/asm/waf/exclusion_filters",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"662e28c3-e4fe-42c8-bc93-79b73cd04d48\",\"type\":\"exclusion_filter\",\"attributes\":{\"description\":\"Exclude false positives on a path\",\"enabled\":true,\"metadata\":{\"added_at\":\"2025-02-25T19:11:26Z\",\"added_by\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"added_by_name\":\"CI Account\"},\"parameters\":[\"list.search.query\"],\"path_glob\":\"/accounts/*\",\"rules_target\":[{\"tags\":{\"category\":\"attack_attempt\",\"type\":\"lfi\"}}],\"scope\":[{\"env\":\"www\",\"service\":\"prod\"}],\"search_query\":\"(env:www AND service:prod) AND (@http.url_details.path:\\\\/accounts\\\\/* OR @rpc.grpc.full_method:\\\\/accounts\\\\/*) AND ((@appsec.triggers.rule_matches.parameters.address:server.request.query AND (@appsec.triggers.rule_matches.parameters.key:list.search.query OR @appsec.triggers.rule_matches.parameters.params.key:list.search.query)) OR (@appsec.triggers.rule_matches.parameters.address:server.request.body AND (@appsec.triggers.rule_matches.parameters.key:list.search.query OR @appsec.triggers.rule_matches.parameters.params.key:list.search.query)) OR (@appsec.triggers.rule_matches.parameters.address:server.request.path_params AND (@appsec.triggers.rule_matches.parameters.key:list.search.query OR @appsec.triggers.rule_matches.parameters.params.key:list.search.query))) AND (@appsec.category:attack_attempt AND @appsec.type:lfi)\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "edce4466-0a2d-2a15-9a32-7b236da27236"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/asm/waf/exclusion_filters/662e28c3-e4fe-42c8-bc93-79b73cd04d48",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9b4122a3-3983-c096-450c-1e9f38044312"
+  }
+]
