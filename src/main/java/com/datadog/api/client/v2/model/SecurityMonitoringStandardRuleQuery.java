@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Query for matching rule. */
 @JsonPropertyOrder({
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_AGGREGATION,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_DATA_SOURCE,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_DISTINCT_FIELDS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS,
@@ -35,6 +36,9 @@ public class SecurityMonitoringStandardRuleQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private SecurityMonitoringRuleQueryAggregation aggregation;
+
+  public static final String JSON_PROPERTY_DATA_SOURCE = "dataSource";
+  private String dataSource;
 
   public static final String JSON_PROPERTY_DISTINCT_FIELDS = "distinctFields";
   private List<String> distinctFields = null;
@@ -82,6 +86,27 @@ public class SecurityMonitoringStandardRuleQuery {
       this.unparsed = true;
     }
     this.aggregation = aggregation;
+  }
+
+  public SecurityMonitoringStandardRuleQuery dataSource(String dataSource) {
+    this.dataSource = dataSource;
+    return this;
+  }
+
+  /**
+   * Track of logs events.
+   *
+   * @return dataSource
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDataSource() {
+    return dataSource;
+  }
+
+  public void setDataSource(String dataSource) {
+    this.dataSource = dataSource;
   }
 
   public SecurityMonitoringStandardRuleQuery distinctFields(List<String> distinctFields) {
@@ -311,6 +336,7 @@ public class SecurityMonitoringStandardRuleQuery {
     SecurityMonitoringStandardRuleQuery securityMonitoringStandardRuleQuery =
         (SecurityMonitoringStandardRuleQuery) o;
     return Objects.equals(this.aggregation, securityMonitoringStandardRuleQuery.aggregation)
+        && Objects.equals(this.dataSource, securityMonitoringStandardRuleQuery.dataSource)
         && Objects.equals(this.distinctFields, securityMonitoringStandardRuleQuery.distinctFields)
         && Objects.equals(this.groupByFields, securityMonitoringStandardRuleQuery.groupByFields)
         && Objects.equals(
@@ -328,6 +354,7 @@ public class SecurityMonitoringStandardRuleQuery {
   public int hashCode() {
     return Objects.hash(
         aggregation,
+        dataSource,
         distinctFields,
         groupByFields,
         hasOptionalGroupByFields,
@@ -343,6 +370,7 @@ public class SecurityMonitoringStandardRuleQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringStandardRuleQuery {\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
+    sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
     sb.append("    hasOptionalGroupByFields: ")
