@@ -3,7 +3,7 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/rum/applications/a33671aa-24fd-4dcd-ba4b-5bbdbafe7690/retention_filters/Test-Get_a_RUM_retention_filter_returns_Not_Found_response-1741036883",
+      "path": "/api/v2/rum/applications/a33671aa-24fd-4dcd-ba4b-5bbdbafe7690/retention_filters/Test-Get_a_RUM_retention_filter_returns_Not_Found_response-1741624500",
       "keepAlive": false,
       "secure": true
     },
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8d60ed7a-dfa4-f431-b12b-60e382b82c70"
+    "id": "3d77c145-f8d6-e68b-7ad0-14ad1389f7f4"
   }
 ]

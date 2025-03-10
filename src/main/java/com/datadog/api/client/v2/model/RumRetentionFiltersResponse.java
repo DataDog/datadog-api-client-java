@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** All RUM retention filters for an application. */
+/** All RUM retention filters for a RUM application. */
 @JsonPropertyOrder({RumRetentionFiltersResponse.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

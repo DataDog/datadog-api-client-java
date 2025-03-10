@@ -32,7 +32,7 @@ public class RumRetentionFilterMeta {
   }
 
   /**
-   * The type of RUM events to filter on.
+   * The source that defines the origin of the retention filter.
    *
    * @return source
    */
