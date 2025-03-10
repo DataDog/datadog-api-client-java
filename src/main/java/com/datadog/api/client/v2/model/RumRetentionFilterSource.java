@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of RUM events to filter on. */
+/** The source that defines the origin of the retention filter. */
 @JsonSerialize(using = RumRetentionFilterSource.RumRetentionFilterSourceSerializer.class)
 public class RumRetentionFilterSource extends ModelEnum<String> {
 

@@ -3,11 +3,11 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"event_type\":\"view\",\"name\":\"Test updating retention filter\",\"query\":\"\",\"sample_rate\":100},\"id\":\"Test-Update_a_RUM_retention_filter_returns_Not_Found_response-1741036884\",\"type\":\"retention_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"event_type\":\"view\",\"name\":\"Test updating retention filter\",\"query\":\"\",\"sample_rate\":100},\"id\":\"Test-Update_a_RUM_retention_filter_returns_Not_Found_response-1741624500\",\"type\":\"retention_filters\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/rum/applications/a33671aa-24fd-4dcd-ba4b-5bbdbafe7690/retention_filters/Test-Update_a_RUM_retention_filter_returns_Not_Found_response-1741036884",
+      "path": "/api/v2/rum/applications/a33671aa-24fd-4dcd-ba4b-5bbdbafe7690/retention_filters/Test-Update_a_RUM_retention_filter_returns_Not_Found_response-1741624500",
       "keepAlive": false,
       "secure": true
     },
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "fdbc0026-1271-7da7-8f68-493bf10ea7aa"
+    "id": "08e926cf-0002-8d33-5e47-a7dbb04186be"
   }
 ]

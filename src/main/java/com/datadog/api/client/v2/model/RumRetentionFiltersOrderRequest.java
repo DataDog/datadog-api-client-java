@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /**
  * The list of RUM retention filter IDs along with their corresponding type to reorder. All
- * retention filter IDs should be included in the list created for an application.
+ * retention filter IDs should be included in the list created for a RUM application.
  */
 @JsonPropertyOrder({RumRetentionFiltersOrderRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(

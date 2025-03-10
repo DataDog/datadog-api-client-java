@@ -7,9 +7,7 @@ import com.datadog.api.client.v2.model.RumRetentionFilterCreateAttributes;
 import com.datadog.api.client.v2.model.RumRetentionFilterCreateData;
 import com.datadog.api.client.v2.model.RumRetentionFilterCreateRequest;
 import com.datadog.api.client.v2.model.RumRetentionFilterEventType;
-import com.datadog.api.client.v2.model.RumRetentionFilterMeta;
 import com.datadog.api.client.v2.model.RumRetentionFilterResponse;
-import com.datadog.api.client.v2.model.RumRetentionFilterSource;
 import com.datadog.api.client.v2.model.RumRetentionFilterType;
 
 public class Example {
@@ -28,8 +26,7 @@ public class Example {
                             .eventType(RumRetentionFilterEventType.SESSION)
                             .query("custom_query")
                             .sampleRate(50L)
-                            .enabled(true))
-                    .meta(new RumRetentionFilterMeta().source(RumRetentionFilterSource.TERRAFORM)));
+                            .enabled(true)));
 
     try {
       RumRetentionFilterResponse result =
