@@ -23,6 +23,7 @@ import java.util.Objects;
   LogsArchiveDestinationS3.JSON_PROPERTY_ENCRYPTION,
   LogsArchiveDestinationS3.JSON_PROPERTY_INTEGRATION,
   LogsArchiveDestinationS3.JSON_PROPERTY_PATH,
+  LogsArchiveDestinationS3.JSON_PROPERTY_STORAGE_CLASS,
   LogsArchiveDestinationS3.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -40,6 +41,9 @@ public class LogsArchiveDestinationS3 {
 
   public static final String JSON_PROPERTY_PATH = "path";
   private String path;
+
+  public static final String JSON_PROPERTY_STORAGE_CLASS = "storage_class";
+  private LogsArchiveStorageClassS3Type storageClass = LogsArchiveStorageClassS3Type.STANDARD;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsArchiveDestinationS3Type type = LogsArchiveDestinationS3Type.S3;
@@ -144,6 +148,31 @@ public class LogsArchiveDestinationS3 {
     this.path = path;
   }
 
+  public LogsArchiveDestinationS3 storageClass(LogsArchiveStorageClassS3Type storageClass) {
+    this.storageClass = storageClass;
+    this.unparsed |= !storageClass.isValid();
+    return this;
+  }
+
+  /**
+   * The storage class where the archive will be stored.
+   *
+   * @return storageClass
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STORAGE_CLASS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsArchiveStorageClassS3Type getStorageClass() {
+    return storageClass;
+  }
+
+  public void setStorageClass(LogsArchiveStorageClassS3Type storageClass) {
+    if (!storageClass.isValid()) {
+      this.unparsed = true;
+    }
+    this.storageClass = storageClass;
+  }
+
   public LogsArchiveDestinationS3 type(LogsArchiveDestinationS3Type type) {
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -228,13 +257,15 @@ public class LogsArchiveDestinationS3 {
         && Objects.equals(this.encryption, logsArchiveDestinationS3.encryption)
         && Objects.equals(this.integration, logsArchiveDestinationS3.integration)
         && Objects.equals(this.path, logsArchiveDestinationS3.path)
+        && Objects.equals(this.storageClass, logsArchiveDestinationS3.storageClass)
         && Objects.equals(this.type, logsArchiveDestinationS3.type)
         && Objects.equals(this.additionalProperties, logsArchiveDestinationS3.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bucket, encryption, integration, path, type, additionalProperties);
+    return Objects.hash(
+        bucket, encryption, integration, path, storageClass, type, additionalProperties);
   }
 
   @Override
@@ -245,6 +276,7 @@ public class LogsArchiveDestinationS3 {
     sb.append("    encryption: ").append(toIndentedString(encryption)).append("\n");
     sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    storageClass: ").append(toIndentedString(storageClass)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
