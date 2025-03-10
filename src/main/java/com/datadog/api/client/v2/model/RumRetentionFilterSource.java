@@ -18,7 +18,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of RUM events to filter on. */
+/**
+ * The origin source of the retention filter, which may be created or updated through the Datadog
+ * UI, terraform, or other channels such as direct API calls.
+ */
 @JsonSerialize(using = RumRetentionFilterSource.RumRetentionFilterSourceSerializer.class)
 public class RumRetentionFilterSource extends ModelEnum<String> {
 
