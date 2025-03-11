@@ -183,11 +183,10 @@ public class LogsIndexesApi {
    * <p>See {@link #deleteLogsIndexWithHttpInfo}.
    *
    * @param name Name of the log index. (required)
-   * @return LogsIndex
    * @throws ApiException if fails to make API call
    */
-  public LogsIndex deleteLogsIndex(String name) throws ApiException {
-    return deleteLogsIndexWithHttpInfo(name).getData();
+  public void deleteLogsIndex(String name) throws ApiException {
+    deleteLogsIndexWithHttpInfo(name);
   }
 
   /**
@@ -196,9 +195,9 @@ public class LogsIndexesApi {
    * <p>See {@link #deleteLogsIndexWithHttpInfoAsync}.
    *
    * @param name Name of the log index. (required)
-   * @return CompletableFuture&lt;LogsIndex&gt;
+   * @return CompletableFuture
    */
-  public CompletableFuture<LogsIndex> deleteLogsIndexAsync(String name) {
+  public CompletableFuture<Void> deleteLogsIndexAsync(String name) {
     return deleteLogsIndexWithHttpInfoAsync(name)
         .thenApply(
             response -> {
@@ -211,7 +210,7 @@ public class LogsIndexesApi {
    * reverted. You cannot recreate an index with the same name as deleted ones.
    *
    * @param name Name of the log index. (required)
-   * @return ApiResponse&lt;LogsIndex&gt;
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -223,7 +222,7 @@ public class LogsIndexesApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<LogsIndex> deleteLogsIndexWithHttpInfo(String name) throws ApiException {
+  public ApiResponse<Void> deleteLogsIndexWithHttpInfo(String name) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'name' is set
@@ -245,7 +244,7 @@ public class LogsIndexesApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json"},
+            new String[] {"*/*"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "DELETE",
@@ -255,7 +254,7 @@ public class LogsIndexesApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<LogsIndex>() {});
+        null);
   }
 
   /**
@@ -264,14 +263,14 @@ public class LogsIndexesApi {
    * <p>See {@link #deleteLogsIndexWithHttpInfo}.
    *
    * @param name Name of the log index. (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;LogsIndex&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<LogsIndex>> deleteLogsIndexWithHttpInfoAsync(String name) {
+  public CompletableFuture<ApiResponse<Void>> deleteLogsIndexWithHttpInfoAsync(String name) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'name' is set
     if (name == null) {
-      CompletableFuture<ApiResponse<LogsIndex>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'name' when calling deleteLogsIndex"));
@@ -293,10 +292,10 @@ public class LogsIndexesApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json"},
+              new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<LogsIndex>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -308,7 +307,7 @@ public class LogsIndexesApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<LogsIndex>() {});
+        null);
   }
 
   /**

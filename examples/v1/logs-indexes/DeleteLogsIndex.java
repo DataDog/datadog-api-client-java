@@ -3,7 +3,6 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.LogsIndexesApi;
-import com.datadog.api.client.v1.model.LogsIndex;
 
 public class Example {
   public static void main(String[] args) {
@@ -11,8 +10,7 @@ public class Example {
     LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
 
     try {
-      LogsIndex result = apiInstance.deleteLogsIndex("name");
-      System.out.println(result);
+      apiInstance.deleteLogsIndex("name");
     } catch (ApiException e) {
       System.err.println("Exception when calling LogsIndexesApi#deleteLogsIndex");
       System.err.println("Status code: " + e.getCode());
