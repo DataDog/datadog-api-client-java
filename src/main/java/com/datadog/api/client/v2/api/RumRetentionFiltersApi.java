@@ -53,7 +53,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #createRetentionFilterWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param body The definition of the new RUM retention filter. (required)
    * @return RumRetentionFilterResponse
    * @throws ApiException if fails to make API call
@@ -68,7 +68,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #createRetentionFilterWithHttpInfoAsync}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param body The definition of the new RUM retention filter. (required)
    * @return CompletableFuture&lt;RumRetentionFilterResponse&gt;
    */
@@ -82,10 +82,10 @@ public class RumRetentionFiltersApi {
   }
 
   /**
-   * Create a RUM retention filter for an application. Returns RUM retention filter objects from the
-   * request body when the request is successful.
+   * Create a RUM retention filter for a RUM application. Returns RUM retention filter objects from
+   * the request body when the request is successful.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param body The definition of the new RUM retention filter. (required)
    * @return ApiResponse&lt;RumRetentionFilterResponse&gt;
    * @throws ApiException if fails to make API call
@@ -146,7 +146,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #createRetentionFilterWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param body The definition of the new RUM retention filter. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionFilterResponse&gt;&gt;
    */
@@ -210,7 +210,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #deleteRetentionFilterWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @throws ApiException if fails to make API call
    */
@@ -223,7 +223,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #deleteRetentionFilterWithHttpInfoAsync}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @return CompletableFuture
    */
@@ -236,9 +236,9 @@ public class RumRetentionFiltersApi {
   }
 
   /**
-   * Delete a RUM retention filter for an application.
+   * Delete a RUM retention filter for a RUM application.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -300,7 +300,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #deleteRetentionFilterWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
@@ -365,7 +365,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #getRetentionFilterWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @return RumRetentionFilterResponse
    * @throws ApiException if fails to make API call
@@ -380,7 +380,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #getRetentionFilterWithHttpInfoAsync}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @return CompletableFuture&lt;RumRetentionFilterResponse&gt;
    */
@@ -394,9 +394,9 @@ public class RumRetentionFiltersApi {
   }
 
   /**
-   * Get a RUM retention filter for an application.
+   * Get a RUM retention filter for a RUM application.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @return ApiResponse&lt;RumRetentionFilterResponse&gt;
    * @throws ApiException if fails to make API call
@@ -458,7 +458,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #getRetentionFilterWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionFilterResponse&gt;&gt;
    */
@@ -523,7 +523,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #listRetentionFiltersWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @return RumRetentionFiltersResponse
    * @throws ApiException if fails to make API call
    */
@@ -536,7 +536,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #listRetentionFiltersWithHttpInfoAsync}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @return CompletableFuture&lt;RumRetentionFiltersResponse&gt;
    */
   public CompletableFuture<RumRetentionFiltersResponse> listRetentionFiltersAsync(String appId) {
@@ -548,9 +548,9 @@ public class RumRetentionFiltersApi {
   }
 
   /**
-   * Get the list of RUM retention filters for an application.
+   * Get the list of RUM retention filters for a RUM application.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @return ApiResponse&lt;RumRetentionFiltersResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -603,7 +603,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #listRetentionFiltersWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionFiltersResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<RumRetentionFiltersResponse>>
@@ -659,7 +659,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #orderRetentionFiltersWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param body New definition of the RUM retention filter. (required)
    * @return RumRetentionFiltersOrderResponse
    * @throws ApiException if fails to make API call
@@ -674,7 +674,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #orderRetentionFiltersWithHttpInfoAsync}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param body New definition of the RUM retention filter. (required)
    * @return CompletableFuture&lt;RumRetentionFiltersOrderResponse&gt;
    */
@@ -688,10 +688,10 @@ public class RumRetentionFiltersApi {
   }
 
   /**
-   * Order RUM retention filters for an application. Returns RUM retention filter objects without
-   * attributes and meta from the request body when the request is successful.
+   * Order RUM retention filters for a RUM application. Returns RUM retention filter objects without
+   * attributes from the request body when the request is successful.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param body New definition of the RUM retention filter. (required)
    * @return ApiResponse&lt;RumRetentionFiltersOrderResponse&gt;
    * @throws ApiException if fails to make API call
@@ -752,7 +752,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #orderRetentionFiltersWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param body New definition of the RUM retention filter. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionFiltersOrderResponse&gt;&gt;
    */
@@ -819,7 +819,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #updateRetentionFilterWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @param body New definition of the RUM retention filter. (required)
    * @return RumRetentionFilterResponse
@@ -835,7 +835,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #updateRetentionFilterWithHttpInfoAsync}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @param body New definition of the RUM retention filter. (required)
    * @return CompletableFuture&lt;RumRetentionFilterResponse&gt;
@@ -850,10 +850,10 @@ public class RumRetentionFiltersApi {
   }
 
   /**
-   * Update a RUM retention filter for an application. Returns RUM retention filter objects from the
-   * request body when the request is successful.
+   * Update a RUM retention filter for a RUM application. Returns RUM retention filter objects from
+   * the request body when the request is successful.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @param body New definition of the RUM retention filter. (required)
    * @return ApiResponse&lt;RumRetentionFilterResponse&gt;
@@ -923,7 +923,7 @@ public class RumRetentionFiltersApi {
    *
    * <p>See {@link #updateRetentionFilterWithHttpInfo}.
    *
-   * @param appId Application ID. (required)
+   * @param appId RUM application ID. (required)
    * @param rfId Retention filter ID. (required)
    * @param body New definition of the RUM retention filter. (required)
    * @return CompletableFuture&lt;ApiResponse&lt;RumRetentionFilterResponse&gt;&gt;

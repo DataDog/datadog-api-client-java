@@ -20,7 +20,6 @@ import java.util.Objects;
 /** The new RUM retention filter properties to create. */
 @JsonPropertyOrder({
   RumRetentionFilterCreateData.JSON_PROPERTY_ATTRIBUTES,
-  RumRetentionFilterCreateData.JSON_PROPERTY_META,
   RumRetentionFilterCreateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -29,9 +28,6 @@ public class RumRetentionFilterCreateData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private RumRetentionFilterCreateAttributes attributes;
-
-  public static final String JSON_PROPERTY_META = "meta";
-  private RumRetentionFilterMeta meta;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private RumRetentionFilterType type = RumRetentionFilterType.RETENTION_FILTERS;
@@ -68,28 +64,6 @@ public class RumRetentionFilterCreateData {
 
   public void setAttributes(RumRetentionFilterCreateAttributes attributes) {
     this.attributes = attributes;
-  }
-
-  public RumRetentionFilterCreateData meta(RumRetentionFilterMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * The object describing metadata of a RUM retention filter.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RumRetentionFilterMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(RumRetentionFilterMeta meta) {
-    this.meta = meta;
   }
 
   public RumRetentionFilterCreateData type(RumRetentionFilterType type) {
@@ -173,7 +147,6 @@ public class RumRetentionFilterCreateData {
     }
     RumRetentionFilterCreateData rumRetentionFilterCreateData = (RumRetentionFilterCreateData) o;
     return Objects.equals(this.attributes, rumRetentionFilterCreateData.attributes)
-        && Objects.equals(this.meta, rumRetentionFilterCreateData.meta)
         && Objects.equals(this.type, rumRetentionFilterCreateData.type)
         && Objects.equals(
             this.additionalProperties, rumRetentionFilterCreateData.additionalProperties);
@@ -181,7 +154,7 @@ public class RumRetentionFilterCreateData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, meta, type, additionalProperties);
+    return Objects.hash(attributes, type, additionalProperties);
   }
 
   @Override
@@ -189,7 +162,6 @@ public class RumRetentionFilterCreateData {
     StringBuilder sb = new StringBuilder();
     sb.append("class RumRetentionFilterCreateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
