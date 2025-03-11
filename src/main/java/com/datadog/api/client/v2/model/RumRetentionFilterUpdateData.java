@@ -21,7 +21,6 @@ import java.util.Objects;
 @JsonPropertyOrder({
   RumRetentionFilterUpdateData.JSON_PROPERTY_ATTRIBUTES,
   RumRetentionFilterUpdateData.JSON_PROPERTY_ID,
-  RumRetentionFilterUpdateData.JSON_PROPERTY_META,
   RumRetentionFilterUpdateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -33,9 +32,6 @@ public class RumRetentionFilterUpdateData {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
-
-  public static final String JSON_PROPERTY_META = "meta";
-  private RumRetentionFilterMeta meta;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private RumRetentionFilterType type = RumRetentionFilterType.RETENTION_FILTERS;
@@ -94,28 +90,6 @@ public class RumRetentionFilterUpdateData {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public RumRetentionFilterUpdateData meta(RumRetentionFilterMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * The object describing metadata of a RUM retention filter.
-   *
-   * @return meta
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RumRetentionFilterMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(RumRetentionFilterMeta meta) {
-    this.meta = meta;
   }
 
   public RumRetentionFilterUpdateData type(RumRetentionFilterType type) {
@@ -200,7 +174,6 @@ public class RumRetentionFilterUpdateData {
     RumRetentionFilterUpdateData rumRetentionFilterUpdateData = (RumRetentionFilterUpdateData) o;
     return Objects.equals(this.attributes, rumRetentionFilterUpdateData.attributes)
         && Objects.equals(this.id, rumRetentionFilterUpdateData.id)
-        && Objects.equals(this.meta, rumRetentionFilterUpdateData.meta)
         && Objects.equals(this.type, rumRetentionFilterUpdateData.type)
         && Objects.equals(
             this.additionalProperties, rumRetentionFilterUpdateData.additionalProperties);
@@ -208,7 +181,7 @@ public class RumRetentionFilterUpdateData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, meta, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
@@ -217,7 +190,6 @@ public class RumRetentionFilterUpdateData {
     sb.append("class RumRetentionFilterUpdateData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
