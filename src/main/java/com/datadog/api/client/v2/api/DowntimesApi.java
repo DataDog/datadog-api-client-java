@@ -83,6 +83,10 @@ public class DowntimesApi {
   /**
    * Cancel a downtime.
    *
+   * <p><strong>Note</strong>: Downtimes canceled through the API are no longer active, but are
+   * retained for approximately two days before being permanently removed. The downtime may still
+   * appear in search results until it is permanently removed.
+   *
    * @param downtimeId ID of the downtime to cancel. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
