@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Query for selecting logs analyzed by the historical job. */
 @JsonPropertyOrder({
   HistoricalJobQuery.JSON_PROPERTY_AGGREGATION,
+  HistoricalJobQuery.JSON_PROPERTY_DATA_SOURCE,
   HistoricalJobQuery.JSON_PROPERTY_DISTINCT_FIELDS,
   HistoricalJobQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
   HistoricalJobQuery.JSON_PROPERTY_HAS_OPTIONAL_GROUP_BY_FIELDS,
@@ -34,6 +35,10 @@ public class HistoricalJobQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private SecurityMonitoringRuleQueryAggregation aggregation;
+
+  public static final String JSON_PROPERTY_DATA_SOURCE = "dataSource";
+  private SecurityMonitoringStandardDataSource dataSource =
+      SecurityMonitoringStandardDataSource.LOGS;
 
   public static final String JSON_PROPERTY_DISTINCT_FIELDS = "distinctFields";
   private List<String> distinctFields = null;
@@ -77,6 +82,31 @@ public class HistoricalJobQuery {
       this.unparsed = true;
     }
     this.aggregation = aggregation;
+  }
+
+  public HistoricalJobQuery dataSource(SecurityMonitoringStandardDataSource dataSource) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    return this;
+  }
+
+  /**
+   * Source of events, either logs or audit trail.
+   *
+   * @return dataSource
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringStandardDataSource getDataSource() {
+    return dataSource;
+  }
+
+  public void setDataSource(SecurityMonitoringStandardDataSource dataSource) {
+    if (!dataSource.isValid()) {
+      this.unparsed = true;
+    }
+    this.dataSource = dataSource;
   }
 
   public HistoricalJobQuery distinctFields(List<String> distinctFields) {
@@ -280,6 +310,7 @@ public class HistoricalJobQuery {
     }
     HistoricalJobQuery historicalJobQuery = (HistoricalJobQuery) o;
     return Objects.equals(this.aggregation, historicalJobQuery.aggregation)
+        && Objects.equals(this.dataSource, historicalJobQuery.dataSource)
         && Objects.equals(this.distinctFields, historicalJobQuery.distinctFields)
         && Objects.equals(this.groupByFields, historicalJobQuery.groupByFields)
         && Objects.equals(
@@ -294,6 +325,7 @@ public class HistoricalJobQuery {
   public int hashCode() {
     return Objects.hash(
         aggregation,
+        dataSource,
         distinctFields,
         groupByFields,
         hasOptionalGroupByFields,
@@ -308,6 +340,7 @@ public class HistoricalJobQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricalJobQuery {\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
+    sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");
     sb.append("    hasOptionalGroupByFields: ")
