@@ -84,7 +84,7 @@ public class ServiceDefinitionV2Dot2 {
   private String tier;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private ServiceDefinitionV2Dot2Type type;
+  private String type;
 
   public ServiceDefinitionV2Dot2() {}
 
@@ -455,9 +455,8 @@ public class ServiceDefinitionV2Dot2 {
     this.tier = tier;
   }
 
-  public ServiceDefinitionV2Dot2 type(ServiceDefinitionV2Dot2Type type) {
+  public ServiceDefinitionV2Dot2 type(String type) {
     this.type = type;
-    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -469,14 +468,11 @@ public class ServiceDefinitionV2Dot2 {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ServiceDefinitionV2Dot2Type getType() {
+  public String getType() {
     return type;
   }
 
-  public void setType(ServiceDefinitionV2Dot2Type type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
+  public void setType(String type) {
     this.type = type;
   }
 

@@ -11,7 +11,6 @@ import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Link;
 import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Opsgenie;
 import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2OpsgenieRegion;
 import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Pagerduty;
-import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Type;
 import com.datadog.api.client.v2.model.ServiceDefinitionV2Dot2Version;
 import com.datadog.api.client.v2.model.ServiceDefinitionsCreateRequest;
 import java.util.Arrays;
@@ -62,7 +61,7 @@ public class Example {
                 .tags(Arrays.asList("my:tag", "service:tag"))
                 .team("my-team")
                 .tier("High")
-                .type(ServiceDefinitionV2Dot2Type.WEB));
+                .type("web"));
 
     try {
       ServiceDefinitionCreateResponse result = apiInstance.createOrUpdateServiceDefinitions(body);
