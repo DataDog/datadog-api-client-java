@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -32,6 +33,14 @@ public class EntityResponseIncludedRelatedOncallAttributes {
 
   public static final String JSON_PROPERTY_PROVIDER = "provider";
   private String provider;
+
+  public EntityResponseIncludedRelatedOncallAttributes() {}
+
+  @JsonCreator
+  public EntityResponseIncludedRelatedOncallAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PROVIDER) String provider) {
+    this.provider = provider;
+  }
 
   public EntityResponseIncludedRelatedOncallAttributes escalations(
       List<EntityResponseIncludedRelatedOncallEscalationItem> escalations) {
@@ -78,9 +87,8 @@ public class EntityResponseIncludedRelatedOncallAttributes {
    *
    * @return provider
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROVIDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getProvider() {
     return provider;
   }

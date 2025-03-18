@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,6 +26,15 @@ public class EntityResponseIncludedSchemaAttributes {
   public static final String JSON_PROPERTY_SCHEMA = "schema";
   private EntityV3 schema;
 
+  public EntityResponseIncludedSchemaAttributes() {}
+
+  @JsonCreator
+  public EntityResponseIncludedSchemaAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SCHEMA) EntityV3 schema) {
+    this.schema = schema;
+    this.unparsed |= schema.unparsed;
+  }
+
   public EntityResponseIncludedSchemaAttributes schema(EntityV3 schema) {
     this.schema = schema;
     this.unparsed |= schema.unparsed;
@@ -36,9 +46,8 @@ public class EntityResponseIncludedSchemaAttributes {
    *
    * @return schema
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCHEMA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public EntityV3 getSchema() {
     return schema;
   }
