@@ -153,10 +153,13 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ANDROID_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_FLUTTER_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_IOS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_ROKU_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_UNITY_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_REPLAY_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
@@ -664,6 +667,10 @@ public class UsageSummaryDateOrg {
       "rum_mobile_lite_session_count_ios_sum";
   private Long rumMobileLiteSessionCountIosSum;
 
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM =
+      "rum_mobile_lite_session_count_kotlinmultiplatform_sum";
+  private Long rumMobileLiteSessionCountKotlinmultiplatformSum;
+
   public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_REACTNATIVE_SUM =
       "rum_mobile_lite_session_count_reactnative_sum";
   private Long rumMobileLiteSessionCountReactnativeSum;
@@ -672,6 +679,10 @@ public class UsageSummaryDateOrg {
       "rum_mobile_lite_session_count_roku_sum";
   private Long rumMobileLiteSessionCountRokuSum;
 
+  public static final String JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_UNITY_SUM =
+      "rum_mobile_lite_session_count_unity_sum";
+  private Long rumMobileLiteSessionCountUnitySum;
+
   public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_ANDROID_SUM =
       "rum_mobile_replay_session_count_android_sum";
   private Long rumMobileReplaySessionCountAndroidSum;
@@ -679,6 +690,10 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_IOS_SUM =
       "rum_mobile_replay_session_count_ios_sum";
   private Long rumMobileReplaySessionCountIosSum;
+
+  public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM =
+      "rum_mobile_replay_session_count_kotlinmultiplatform_sum";
+  private Long rumMobileReplaySessionCountKotlinmultiplatformSum;
 
   public static final String JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_REACTNATIVE_SUM =
       "rum_mobile_replay_session_count_reactnative_sum";
@@ -3808,6 +3823,32 @@ public class UsageSummaryDateOrg {
     this.rumMobileLiteSessionCountIosSum = rumMobileLiteSessionCountIosSum;
   }
 
+  public UsageSummaryDateOrg rumMobileLiteSessionCountKotlinmultiplatformSum(
+      Long rumMobileLiteSessionCountKotlinmultiplatformSum) {
+    this.rumMobileLiteSessionCountKotlinmultiplatformSum =
+        rumMobileLiteSessionCountKotlinmultiplatformSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM lite sessions on Kotlin Multiplatform over all hours within the
+   * current date for the given org.
+   *
+   * @return rumMobileLiteSessionCountKotlinmultiplatformSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLiteSessionCountKotlinmultiplatformSum() {
+    return rumMobileLiteSessionCountKotlinmultiplatformSum;
+  }
+
+  public void setRumMobileLiteSessionCountKotlinmultiplatformSum(
+      Long rumMobileLiteSessionCountKotlinmultiplatformSum) {
+    this.rumMobileLiteSessionCountKotlinmultiplatformSum =
+        rumMobileLiteSessionCountKotlinmultiplatformSum;
+  }
+
   public UsageSummaryDateOrg rumMobileLiteSessionCountReactnativeSum(
       Long rumMobileLiteSessionCountReactnativeSum) {
     this.rumMobileLiteSessionCountReactnativeSum = rumMobileLiteSessionCountReactnativeSum;
@@ -3855,6 +3896,29 @@ public class UsageSummaryDateOrg {
     this.rumMobileLiteSessionCountRokuSum = rumMobileLiteSessionCountRokuSum;
   }
 
+  public UsageSummaryDateOrg rumMobileLiteSessionCountUnitySum(
+      Long rumMobileLiteSessionCountUnitySum) {
+    this.rumMobileLiteSessionCountUnitySum = rumMobileLiteSessionCountUnitySum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM lite sessions on Unity over all hours within the current date
+   * for the given org.
+   *
+   * @return rumMobileLiteSessionCountUnitySum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_LITE_SESSION_COUNT_UNITY_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileLiteSessionCountUnitySum() {
+    return rumMobileLiteSessionCountUnitySum;
+  }
+
+  public void setRumMobileLiteSessionCountUnitySum(Long rumMobileLiteSessionCountUnitySum) {
+    this.rumMobileLiteSessionCountUnitySum = rumMobileLiteSessionCountUnitySum;
+  }
+
   public UsageSummaryDateOrg rumMobileReplaySessionCountAndroidSum(
       Long rumMobileReplaySessionCountAndroidSum) {
     this.rumMobileReplaySessionCountAndroidSum = rumMobileReplaySessionCountAndroidSum;
@@ -3899,6 +3963,32 @@ public class UsageSummaryDateOrg {
 
   public void setRumMobileReplaySessionCountIosSum(Long rumMobileReplaySessionCountIosSum) {
     this.rumMobileReplaySessionCountIosSum = rumMobileReplaySessionCountIosSum;
+  }
+
+  public UsageSummaryDateOrg rumMobileReplaySessionCountKotlinmultiplatformSum(
+      Long rumMobileReplaySessionCountKotlinmultiplatformSum) {
+    this.rumMobileReplaySessionCountKotlinmultiplatformSum =
+        rumMobileReplaySessionCountKotlinmultiplatformSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM replay sessions on Kotlin Multiplatform over all hours within
+   * the current date for the given org.
+   *
+   * @return rumMobileReplaySessionCountKotlinmultiplatformSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RUM_MOBILE_REPLAY_SESSION_COUNT_KOTLINMULTIPLATFORM_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumMobileReplaySessionCountKotlinmultiplatformSum() {
+    return rumMobileReplaySessionCountKotlinmultiplatformSum;
+  }
+
+  public void setRumMobileReplaySessionCountKotlinmultiplatformSum(
+      Long rumMobileReplaySessionCountKotlinmultiplatformSum) {
+    this.rumMobileReplaySessionCountKotlinmultiplatformSum =
+        rumMobileReplaySessionCountKotlinmultiplatformSum;
   }
 
   public UsageSummaryDateOrg rumMobileReplaySessionCountReactnativeSum(
@@ -4772,17 +4862,26 @@ public class UsageSummaryDateOrg {
             this.rumMobileLiteSessionCountIosSum,
             usageSummaryDateOrg.rumMobileLiteSessionCountIosSum)
         && Objects.equals(
+            this.rumMobileLiteSessionCountKotlinmultiplatformSum,
+            usageSummaryDateOrg.rumMobileLiteSessionCountKotlinmultiplatformSum)
+        && Objects.equals(
             this.rumMobileLiteSessionCountReactnativeSum,
             usageSummaryDateOrg.rumMobileLiteSessionCountReactnativeSum)
         && Objects.equals(
             this.rumMobileLiteSessionCountRokuSum,
             usageSummaryDateOrg.rumMobileLiteSessionCountRokuSum)
         && Objects.equals(
+            this.rumMobileLiteSessionCountUnitySum,
+            usageSummaryDateOrg.rumMobileLiteSessionCountUnitySum)
+        && Objects.equals(
             this.rumMobileReplaySessionCountAndroidSum,
             usageSummaryDateOrg.rumMobileReplaySessionCountAndroidSum)
         && Objects.equals(
             this.rumMobileReplaySessionCountIosSum,
             usageSummaryDateOrg.rumMobileReplaySessionCountIosSum)
+        && Objects.equals(
+            this.rumMobileReplaySessionCountKotlinmultiplatformSum,
+            usageSummaryDateOrg.rumMobileReplaySessionCountKotlinmultiplatformSum)
         && Objects.equals(
             this.rumMobileReplaySessionCountReactnativeSum,
             usageSummaryDateOrg.rumMobileReplaySessionCountReactnativeSum)
@@ -4971,10 +5070,13 @@ public class UsageSummaryDateOrg {
         rumMobileLiteSessionCountAndroidSum,
         rumMobileLiteSessionCountFlutterSum,
         rumMobileLiteSessionCountIosSum,
+        rumMobileLiteSessionCountKotlinmultiplatformSum,
         rumMobileLiteSessionCountReactnativeSum,
         rumMobileLiteSessionCountRokuSum,
+        rumMobileLiteSessionCountUnitySum,
         rumMobileReplaySessionCountAndroidSum,
         rumMobileReplaySessionCountIosSum,
+        rumMobileReplaySessionCountKotlinmultiplatformSum,
         rumMobileReplaySessionCountReactnativeSum,
         rumReplaySessionCountSum,
         rumSessionCountSum,
@@ -5327,17 +5429,26 @@ public class UsageSummaryDateOrg {
     sb.append("    rumMobileLiteSessionCountIosSum: ")
         .append(toIndentedString(rumMobileLiteSessionCountIosSum))
         .append("\n");
+    sb.append("    rumMobileLiteSessionCountKotlinmultiplatformSum: ")
+        .append(toIndentedString(rumMobileLiteSessionCountKotlinmultiplatformSum))
+        .append("\n");
     sb.append("    rumMobileLiteSessionCountReactnativeSum: ")
         .append(toIndentedString(rumMobileLiteSessionCountReactnativeSum))
         .append("\n");
     sb.append("    rumMobileLiteSessionCountRokuSum: ")
         .append(toIndentedString(rumMobileLiteSessionCountRokuSum))
         .append("\n");
+    sb.append("    rumMobileLiteSessionCountUnitySum: ")
+        .append(toIndentedString(rumMobileLiteSessionCountUnitySum))
+        .append("\n");
     sb.append("    rumMobileReplaySessionCountAndroidSum: ")
         .append(toIndentedString(rumMobileReplaySessionCountAndroidSum))
         .append("\n");
     sb.append("    rumMobileReplaySessionCountIosSum: ")
         .append(toIndentedString(rumMobileReplaySessionCountIosSum))
+        .append("\n");
+    sb.append("    rumMobileReplaySessionCountKotlinmultiplatformSum: ")
+        .append(toIndentedString(rumMobileReplaySessionCountKotlinmultiplatformSum))
         .append("\n");
     sb.append("    rumMobileReplaySessionCountReactnativeSum: ")
         .append(toIndentedString(rumMobileReplaySessionCountReactnativeSum))
