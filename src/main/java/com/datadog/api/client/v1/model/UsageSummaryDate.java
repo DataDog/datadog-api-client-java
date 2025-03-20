@@ -93,6 +93,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_OPENTELEMETRY_SUM,
   UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_PRO_SUM,
   UsageSummaryDate.JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_SUM,
+  UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_EVENTS_SUM,
   UsageSummaryDate.JSON_PROPERTY_ERROR_TRACKING_RUM_ERROR_EVENTS_SUM,
@@ -437,6 +438,10 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_EPH_INFRA_HOST_PROPLUS_SUM =
       "eph_infra_host_proplus_sum";
   private Long ephInfraHostProplusSum;
+
+  public static final String JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_SUM =
+      "error_tracking_apm_error_events_sum";
+  private Long errorTrackingApmErrorEventsSum;
 
   public static final String JSON_PROPERTY_ERROR_TRACKING_ERROR_EVENTS_SUM =
       "error_tracking_error_events_sum";
@@ -2374,6 +2379,28 @@ public class UsageSummaryDate {
 
   public void setEphInfraHostProplusSum(Long ephInfraHostProplusSum) {
     this.ephInfraHostProplusSum = ephInfraHostProplusSum;
+  }
+
+  public UsageSummaryDate errorTrackingApmErrorEventsSum(Long errorTrackingApmErrorEventsSum) {
+    this.errorTrackingApmErrorEventsSum = errorTrackingApmErrorEventsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all Error Tracking APM error events over all hours in the current date for the
+   * given org.
+   *
+   * @return errorTrackingApmErrorEventsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERROR_TRACKING_APM_ERROR_EVENTS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getErrorTrackingApmErrorEventsSum() {
+    return errorTrackingApmErrorEventsSum;
+  }
+
+  public void setErrorTrackingApmErrorEventsSum(Long errorTrackingApmErrorEventsSum) {
+    this.errorTrackingApmErrorEventsSum = errorTrackingApmErrorEventsSum;
   }
 
   public UsageSummaryDate errorTrackingErrorEventsSum(Long errorTrackingErrorEventsSum) {
@@ -4606,6 +4633,8 @@ public class UsageSummaryDate {
         && Objects.equals(this.ephInfraHostProSum, usageSummaryDate.ephInfraHostProSum)
         && Objects.equals(this.ephInfraHostProplusSum, usageSummaryDate.ephInfraHostProplusSum)
         && Objects.equals(
+            this.errorTrackingApmErrorEventsSum, usageSummaryDate.errorTrackingApmErrorEventsSum)
+        && Objects.equals(
             this.errorTrackingErrorEventsSum, usageSummaryDate.errorTrackingErrorEventsSum)
         && Objects.equals(this.errorTrackingEventsSum, usageSummaryDate.errorTrackingEventsSum)
         && Objects.equals(
@@ -4848,6 +4877,7 @@ public class UsageSummaryDate {
         ephInfraHostOpentelemetrySum,
         ephInfraHostProSum,
         ephInfraHostProplusSum,
+        errorTrackingApmErrorEventsSum,
         errorTrackingErrorEventsSum,
         errorTrackingEventsSum,
         errorTrackingRumErrorEventsSum,
@@ -5108,6 +5138,9 @@ public class UsageSummaryDate {
     sb.append("    ephInfraHostProSum: ").append(toIndentedString(ephInfraHostProSum)).append("\n");
     sb.append("    ephInfraHostProplusSum: ")
         .append(toIndentedString(ephInfraHostProplusSum))
+        .append("\n");
+    sb.append("    errorTrackingApmErrorEventsSum: ")
+        .append(toIndentedString(errorTrackingApmErrorEventsSum))
         .append("\n");
     sb.append("    errorTrackingErrorEventsSum: ")
         .append(toIndentedString(errorTrackingErrorEventsSum))
