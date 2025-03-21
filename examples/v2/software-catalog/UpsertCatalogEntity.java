@@ -58,7 +58,8 @@ public class Example {
                         new EntityV3Metadata()
                             .additionalOwners(
                                 Collections.singletonList(
-                                    new EntityV3MetadataAdditionalOwnersItems().name("")))
+                                    new EntityV3MetadataAdditionalOwnersItems()
+                                        .name("fake-team-name")))
                             .contacts(
                                 Collections.singletonList(
                                     new EntityV3MetadataContactsItems()
