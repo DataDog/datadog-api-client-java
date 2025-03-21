@@ -23,11 +23,12 @@ import java.util.Set;
 public class ContentEncoding extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("identity", "gzip", "deflate"));
+      new HashSet<String>(Arrays.asList("identity", "gzip", "deflate", "zstd1"));
 
   public static final ContentEncoding IDENTITY = new ContentEncoding("identity");
   public static final ContentEncoding GZIP = new ContentEncoding("gzip");
   public static final ContentEncoding DEFLATE = new ContentEncoding("deflate");
+  public static final ContentEncoding ZSTD1 = new ContentEncoding("zstd1");
 
   ContentEncoding(String value) {
     super(value, allowedValues);
