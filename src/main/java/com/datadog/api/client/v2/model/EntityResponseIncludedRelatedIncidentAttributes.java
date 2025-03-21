@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -43,6 +44,14 @@ public class EntityResponseIncludedRelatedIncidentAttributes {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  public EntityResponseIncludedRelatedIncidentAttributes() {}
+
+  @JsonCreator
+  public EntityResponseIncludedRelatedIncidentAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
+    this.title = title;
+  }
 
   public EntityResponseIncludedRelatedIncidentAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
@@ -138,9 +147,8 @@ public class EntityResponseIncludedRelatedIncidentAttributes {
    *
    * @return title
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTitle() {
     return title;
   }
