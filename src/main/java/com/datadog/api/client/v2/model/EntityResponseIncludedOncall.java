@@ -33,7 +33,7 @@ public class EntityResponseIncludedOncall {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private EntityResponseIncludedOncallType type;
 
   public EntityResponseIncludedOncall attributes(
       EntityResponseIncludedRelatedOncallAttributes attributes) {
@@ -79,8 +79,9 @@ public class EntityResponseIncludedOncall {
     this.id = id;
   }
 
-  public EntityResponseIncludedOncall type(String type) {
+  public EntityResponseIncludedOncall type(EntityResponseIncludedOncallType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -92,11 +93,14 @@ public class EntityResponseIncludedOncall {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
+  public EntityResponseIncludedOncallType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(EntityResponseIncludedOncallType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

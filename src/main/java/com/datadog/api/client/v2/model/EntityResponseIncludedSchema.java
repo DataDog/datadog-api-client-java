@@ -33,7 +33,7 @@ public class EntityResponseIncludedSchema {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private EntityResponseIncludedSchemaType type;
 
   public EntityResponseIncludedSchema attributes(
       EntityResponseIncludedSchemaAttributes attributes) {
@@ -79,8 +79,9 @@ public class EntityResponseIncludedSchema {
     this.id = id;
   }
 
-  public EntityResponseIncludedSchema type(String type) {
+  public EntityResponseIncludedSchema type(EntityResponseIncludedSchemaType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -92,11 +93,14 @@ public class EntityResponseIncludedSchema {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
+  public EntityResponseIncludedSchemaType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(EntityResponseIncludedSchemaType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
