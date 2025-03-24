@@ -37,7 +37,7 @@ public class EntityResponseIncludedRelatedEntity {
   private EntityResponseIncludedRelatedEntityMeta meta;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private EntityResponseIncludedRelatedEntityType type;
 
   public EntityResponseIncludedRelatedEntity attributes(
       EntityResponseIncludedRelatedEntityAttributes attributes) {
@@ -105,8 +105,9 @@ public class EntityResponseIncludedRelatedEntity {
     this.meta = meta;
   }
 
-  public EntityResponseIncludedRelatedEntity type(String type) {
+  public EntityResponseIncludedRelatedEntity type(EntityResponseIncludedRelatedEntityType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -118,11 +119,14 @@ public class EntityResponseIncludedRelatedEntity {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
+  public EntityResponseIncludedRelatedEntityType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(EntityResponseIncludedRelatedEntityType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

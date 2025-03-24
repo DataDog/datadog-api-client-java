@@ -33,7 +33,7 @@ public class EntityResponseIncludedIncident {
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private EntityResponseIncludedIncidentType type;
 
   public EntityResponseIncludedIncident attributes(
       EntityResponseIncludedRelatedIncidentAttributes attributes) {
@@ -79,8 +79,9 @@ public class EntityResponseIncludedIncident {
     this.id = id;
   }
 
-  public EntityResponseIncludedIncident type(String type) {
+  public EntityResponseIncludedIncident type(EntityResponseIncludedIncidentType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -92,11 +93,14 @@ public class EntityResponseIncludedIncident {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
+  public EntityResponseIncludedIncidentType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(EntityResponseIncludedIncidentType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
