@@ -50,7 +50,7 @@ public class CaseTriggerWrapper {
   }
 
   /**
-   * Trigger a workflow VIA a Case. For automatic triggering a handle must be configured and the
+   * Trigger a workflow from a Case. For automatic triggering a handle must be configured and the
    * workflow must be published.
    *
    * @return caseTrigger

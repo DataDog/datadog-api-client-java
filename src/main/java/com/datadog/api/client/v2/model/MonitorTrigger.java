@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Trigger a workflow VIA a Monitor. For automatic triggering a handle must be configured and the
+ * Trigger a workflow from a Monitor. For automatic triggering a handle must be configured and the
  * workflow must be published.
  */
 @JsonPropertyOrder({MonitorTrigger.JSON_PROPERTY_RATE_LIMIT})

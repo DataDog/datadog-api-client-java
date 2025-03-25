@@ -78,7 +78,7 @@ public class WorkflowTriggerWrapper {
   }
 
   /**
-   * Trigger a workflow VIA the Datadog UI. Only required if no other trigger exists.
+   * Trigger a workflow from the Datadog UI. Only required if no other trigger exists.
    *
    * @return workflowTrigger
    */

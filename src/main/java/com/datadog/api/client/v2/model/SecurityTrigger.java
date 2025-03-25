@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Trigger a workflow VIA a Security Signal or Finding. For automatic triggering a handle must be
+ * Trigger a workflow from a Security Signal or Finding. For automatic triggering a handle must be
  * configured and the workflow must be published.
  */
 @JsonPropertyOrder({SecurityTrigger.JSON_PROPERTY_RATE_LIMIT})

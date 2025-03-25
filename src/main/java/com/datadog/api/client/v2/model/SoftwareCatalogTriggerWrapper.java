@@ -19,63 +19,56 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for a GitHub webhook-based trigger. */
+/** Schema for a Software Catalog-based trigger. */
 @JsonPropertyOrder({
-  GithubWebhookTriggerWrapper.JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER,
-  GithubWebhookTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
+  SoftwareCatalogTriggerWrapper.JSON_PROPERTY_SOFTWARE_CATALOG_TRIGGER,
+  SoftwareCatalogTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class GithubWebhookTriggerWrapper {
+public class SoftwareCatalogTriggerWrapper {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER = "githubWebhookTrigger";
-  private GithubWebhookTrigger githubWebhookTrigger;
+  public static final String JSON_PROPERTY_SOFTWARE_CATALOG_TRIGGER = "softwareCatalogTrigger";
+  private Object softwareCatalogTrigger;
 
   public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
   private List<String> startStepNames = null;
 
-  public GithubWebhookTriggerWrapper() {}
+  public SoftwareCatalogTriggerWrapper() {}
 
   @JsonCreator
-  public GithubWebhookTriggerWrapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER)
-          GithubWebhookTrigger githubWebhookTrigger) {
-    this.githubWebhookTrigger = githubWebhookTrigger;
-    this.unparsed |= githubWebhookTrigger.unparsed;
+  public SoftwareCatalogTriggerWrapper(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SOFTWARE_CATALOG_TRIGGER)
+          Object softwareCatalogTrigger) {
+    this.softwareCatalogTrigger = softwareCatalogTrigger;
   }
 
-  public GithubWebhookTriggerWrapper githubWebhookTrigger(
-      GithubWebhookTrigger githubWebhookTrigger) {
-    this.githubWebhookTrigger = githubWebhookTrigger;
-    this.unparsed |= githubWebhookTrigger.unparsed;
+  public SoftwareCatalogTriggerWrapper softwareCatalogTrigger(Object softwareCatalogTrigger) {
+    this.softwareCatalogTrigger = softwareCatalogTrigger;
     return this;
   }
 
   /**
-   * Trigger a workflow from a GitHub webhook. To trigger a workflow from GitHub, you must set a
-   * <code>webhookSecret</code>. In your GitHub Webhook Settings, set the Payload URL to
-   * "base_url"/api/v2/workflows/"workflow_id"/webhook?orgId="org_id", select application/json for
-   * the content type, and be highly recommend enabling SSL verification for security. The workflow
-   * must be published.
+   * Trigger a workflow from Software Catalog.
    *
-   * @return githubWebhookTrigger
+   * @return softwareCatalogTrigger
    */
-  @JsonProperty(JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER)
+  @JsonProperty(JSON_PROPERTY_SOFTWARE_CATALOG_TRIGGER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GithubWebhookTrigger getGithubWebhookTrigger() {
-    return githubWebhookTrigger;
+  public Object getSoftwareCatalogTrigger() {
+    return softwareCatalogTrigger;
   }
 
-  public void setGithubWebhookTrigger(GithubWebhookTrigger githubWebhookTrigger) {
-    this.githubWebhookTrigger = githubWebhookTrigger;
+  public void setSoftwareCatalogTrigger(Object softwareCatalogTrigger) {
+    this.softwareCatalogTrigger = softwareCatalogTrigger;
   }
 
-  public GithubWebhookTriggerWrapper startStepNames(List<String> startStepNames) {
+  public SoftwareCatalogTriggerWrapper startStepNames(List<String> startStepNames) {
     this.startStepNames = startStepNames;
     return this;
   }
 
-  public GithubWebhookTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
+  public SoftwareCatalogTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
     if (this.startStepNames == null) {
       this.startStepNames = new ArrayList<>();
     }
@@ -111,10 +104,10 @@ public class GithubWebhookTriggerWrapper {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return GithubWebhookTriggerWrapper
+   * @return SoftwareCatalogTriggerWrapper
    */
   @JsonAnySetter
-  public GithubWebhookTriggerWrapper putAdditionalProperty(String key, Object value) {
+  public SoftwareCatalogTriggerWrapper putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -145,7 +138,7 @@ public class GithubWebhookTriggerWrapper {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GithubWebhookTriggerWrapper object is equal to o. */
+  /** Return true if this SoftwareCatalogTriggerWrapper object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -154,25 +147,25 @@ public class GithubWebhookTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GithubWebhookTriggerWrapper githubWebhookTriggerWrapper = (GithubWebhookTriggerWrapper) o;
+    SoftwareCatalogTriggerWrapper softwareCatalogTriggerWrapper = (SoftwareCatalogTriggerWrapper) o;
     return Objects.equals(
-            this.githubWebhookTrigger, githubWebhookTriggerWrapper.githubWebhookTrigger)
-        && Objects.equals(this.startStepNames, githubWebhookTriggerWrapper.startStepNames)
+            this.softwareCatalogTrigger, softwareCatalogTriggerWrapper.softwareCatalogTrigger)
+        && Objects.equals(this.startStepNames, softwareCatalogTriggerWrapper.startStepNames)
         && Objects.equals(
-            this.additionalProperties, githubWebhookTriggerWrapper.additionalProperties);
+            this.additionalProperties, softwareCatalogTriggerWrapper.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(githubWebhookTrigger, startStepNames, additionalProperties);
+    return Objects.hash(softwareCatalogTrigger, startStepNames, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GithubWebhookTriggerWrapper {\n");
-    sb.append("    githubWebhookTrigger: ")
-        .append(toIndentedString(githubWebhookTrigger))
+    sb.append("class SoftwareCatalogTriggerWrapper {\n");
+    sb.append("    softwareCatalogTrigger: ")
+        .append(toIndentedString(softwareCatalogTrigger))
         .append("\n");
     sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
     sb.append("    additionalProperties: ")

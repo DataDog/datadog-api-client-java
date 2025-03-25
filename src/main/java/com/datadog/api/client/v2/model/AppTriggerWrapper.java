@@ -48,7 +48,7 @@ public class AppTriggerWrapper {
   }
 
   /**
-   * Trigger a workflow VIA an App.
+   * Trigger a workflow from an App.
    *
    * @return appTrigger
    */

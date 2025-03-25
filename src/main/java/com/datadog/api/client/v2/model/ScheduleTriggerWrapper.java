@@ -51,7 +51,7 @@ public class ScheduleTriggerWrapper {
   }
 
   /**
-   * Trigger a workflow VIA a Schedule. The workflow must be published.
+   * Trigger a workflow from a Schedule. The workflow must be published.
    *
    * @return scheduleTrigger
    */

@@ -50,7 +50,7 @@ public class APITriggerWrapper {
   }
 
   /**
-   * Trigger a workflow VIA an API. The workflow must be published.
+   * Trigger a workflow from an API request. The workflow must be published.
    *
    * @return apiTrigger
    */

@@ -51,7 +51,7 @@ public class SecurityTriggerWrapper {
   }
 
   /**
-   * Trigger a workflow VIA a Security Signal or Finding. For automatic triggering a handle must be
+   * Trigger a workflow from a Security Signal or Finding. For automatic triggering a handle must be
    * configured and the workflow must be published.
    *
    * @return securityTrigger

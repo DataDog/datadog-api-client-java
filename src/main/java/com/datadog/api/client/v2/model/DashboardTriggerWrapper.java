@@ -49,7 +49,7 @@ public class DashboardTriggerWrapper {
   }
 
   /**
-   * Trigger a workflow VIA a Dashboard.
+   * Trigger a workflow from a Dashboard.
    *
    * @return dashboardTrigger
    */

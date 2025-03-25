@@ -51,7 +51,7 @@ public class IncidentTriggerWrapper {
   }
 
   /**
-   * Trigger a workflow VIA an Incident. For automatic triggering a handle must be configured and
+   * Trigger a workflow from an Incident. For automatic triggering a handle must be configured and
    * the workflow must be published.
    *
    * @return incidentTrigger
