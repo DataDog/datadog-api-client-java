@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Trigger a workflow VIA an API. The workflow must be published. */
+/** Trigger a workflow from an API request. The workflow must be published. */
 @JsonPropertyOrder({APITrigger.JSON_PROPERTY_RATE_LIMIT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

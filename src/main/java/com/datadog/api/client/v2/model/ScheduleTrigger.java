@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Trigger a workflow VIA a Schedule. The workflow must be published. */
+/** Trigger a workflow from a Schedule. The workflow must be published. */
 @JsonPropertyOrder({ScheduleTrigger.JSON_PROPERTY_RRULE_EXPRESSION})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")

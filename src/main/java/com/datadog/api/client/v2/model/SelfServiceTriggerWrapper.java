@@ -19,63 +19,56 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for a GitHub webhook-based trigger. */
+/** Schema for a Self Service-based trigger. */
 @JsonPropertyOrder({
-  GithubWebhookTriggerWrapper.JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER,
-  GithubWebhookTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
+  SelfServiceTriggerWrapper.JSON_PROPERTY_SELF_SERVICE_TRIGGER,
+  SelfServiceTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class GithubWebhookTriggerWrapper {
+public class SelfServiceTriggerWrapper {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER = "githubWebhookTrigger";
-  private GithubWebhookTrigger githubWebhookTrigger;
+  public static final String JSON_PROPERTY_SELF_SERVICE_TRIGGER = "selfServiceTrigger";
+  private Object selfServiceTrigger;
 
   public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
   private List<String> startStepNames = null;
 
-  public GithubWebhookTriggerWrapper() {}
+  public SelfServiceTriggerWrapper() {}
 
   @JsonCreator
-  public GithubWebhookTriggerWrapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER)
-          GithubWebhookTrigger githubWebhookTrigger) {
-    this.githubWebhookTrigger = githubWebhookTrigger;
-    this.unparsed |= githubWebhookTrigger.unparsed;
+  public SelfServiceTriggerWrapper(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SELF_SERVICE_TRIGGER)
+          Object selfServiceTrigger) {
+    this.selfServiceTrigger = selfServiceTrigger;
   }
 
-  public GithubWebhookTriggerWrapper githubWebhookTrigger(
-      GithubWebhookTrigger githubWebhookTrigger) {
-    this.githubWebhookTrigger = githubWebhookTrigger;
-    this.unparsed |= githubWebhookTrigger.unparsed;
+  public SelfServiceTriggerWrapper selfServiceTrigger(Object selfServiceTrigger) {
+    this.selfServiceTrigger = selfServiceTrigger;
     return this;
   }
 
   /**
-   * Trigger a workflow from a GitHub webhook. To trigger a workflow from GitHub, you must set a
-   * <code>webhookSecret</code>. In your GitHub Webhook Settings, set the Payload URL to
-   * "base_url"/api/v2/workflows/"workflow_id"/webhook?orgId="org_id", select application/json for
-   * the content type, and be highly recommend enabling SSL verification for security. The workflow
-   * must be published.
+   * Trigger a workflow from Self Service.
    *
-   * @return githubWebhookTrigger
+   * @return selfServiceTrigger
    */
-  @JsonProperty(JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER)
+  @JsonProperty(JSON_PROPERTY_SELF_SERVICE_TRIGGER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GithubWebhookTrigger getGithubWebhookTrigger() {
-    return githubWebhookTrigger;
+  public Object getSelfServiceTrigger() {
+    return selfServiceTrigger;
   }
 
-  public void setGithubWebhookTrigger(GithubWebhookTrigger githubWebhookTrigger) {
-    this.githubWebhookTrigger = githubWebhookTrigger;
+  public void setSelfServiceTrigger(Object selfServiceTrigger) {
+    this.selfServiceTrigger = selfServiceTrigger;
   }
 
-  public GithubWebhookTriggerWrapper startStepNames(List<String> startStepNames) {
+  public SelfServiceTriggerWrapper startStepNames(List<String> startStepNames) {
     this.startStepNames = startStepNames;
     return this;
   }
 
-  public GithubWebhookTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
+  public SelfServiceTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
     if (this.startStepNames == null) {
       this.startStepNames = new ArrayList<>();
     }
@@ -111,10 +104,10 @@ public class GithubWebhookTriggerWrapper {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return GithubWebhookTriggerWrapper
+   * @return SelfServiceTriggerWrapper
    */
   @JsonAnySetter
-  public GithubWebhookTriggerWrapper putAdditionalProperty(String key, Object value) {
+  public SelfServiceTriggerWrapper putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -145,7 +138,7 @@ public class GithubWebhookTriggerWrapper {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GithubWebhookTriggerWrapper object is equal to o. */
+  /** Return true if this SelfServiceTriggerWrapper object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -154,26 +147,23 @@ public class GithubWebhookTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GithubWebhookTriggerWrapper githubWebhookTriggerWrapper = (GithubWebhookTriggerWrapper) o;
-    return Objects.equals(
-            this.githubWebhookTrigger, githubWebhookTriggerWrapper.githubWebhookTrigger)
-        && Objects.equals(this.startStepNames, githubWebhookTriggerWrapper.startStepNames)
+    SelfServiceTriggerWrapper selfServiceTriggerWrapper = (SelfServiceTriggerWrapper) o;
+    return Objects.equals(this.selfServiceTrigger, selfServiceTriggerWrapper.selfServiceTrigger)
+        && Objects.equals(this.startStepNames, selfServiceTriggerWrapper.startStepNames)
         && Objects.equals(
-            this.additionalProperties, githubWebhookTriggerWrapper.additionalProperties);
+            this.additionalProperties, selfServiceTriggerWrapper.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(githubWebhookTrigger, startStepNames, additionalProperties);
+    return Objects.hash(selfServiceTrigger, startStepNames, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GithubWebhookTriggerWrapper {\n");
-    sb.append("    githubWebhookTrigger: ")
-        .append(toIndentedString(githubWebhookTrigger))
-        .append("\n");
+    sb.append("class SelfServiceTriggerWrapper {\n");
+    sb.append("    selfServiceTrigger: ").append(toIndentedString(selfServiceTrigger)).append("\n");
     sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

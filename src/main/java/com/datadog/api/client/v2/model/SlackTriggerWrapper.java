@@ -48,7 +48,7 @@ public class SlackTriggerWrapper {
   }
 
   /**
-   * Trigger a workflow VIA Slack. The workflow must be published.
+   * Trigger a workflow from Slack. The workflow must be published.
    *
    * @return slackTrigger
    */

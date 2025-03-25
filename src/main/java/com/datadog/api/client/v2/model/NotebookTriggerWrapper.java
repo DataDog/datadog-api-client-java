@@ -19,63 +19,56 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Schema for a GitHub webhook-based trigger. */
+/** Schema for a Notebook-based trigger. */
 @JsonPropertyOrder({
-  GithubWebhookTriggerWrapper.JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER,
-  GithubWebhookTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
+  NotebookTriggerWrapper.JSON_PROPERTY_NOTEBOOK_TRIGGER,
+  NotebookTriggerWrapper.JSON_PROPERTY_START_STEP_NAMES
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class GithubWebhookTriggerWrapper {
+public class NotebookTriggerWrapper {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER = "githubWebhookTrigger";
-  private GithubWebhookTrigger githubWebhookTrigger;
+  public static final String JSON_PROPERTY_NOTEBOOK_TRIGGER = "notebookTrigger";
+  private Object notebookTrigger;
 
   public static final String JSON_PROPERTY_START_STEP_NAMES = "startStepNames";
   private List<String> startStepNames = null;
 
-  public GithubWebhookTriggerWrapper() {}
+  public NotebookTriggerWrapper() {}
 
   @JsonCreator
-  public GithubWebhookTriggerWrapper(
-      @JsonProperty(required = true, value = JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER)
-          GithubWebhookTrigger githubWebhookTrigger) {
-    this.githubWebhookTrigger = githubWebhookTrigger;
-    this.unparsed |= githubWebhookTrigger.unparsed;
+  public NotebookTriggerWrapper(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NOTEBOOK_TRIGGER)
+          Object notebookTrigger) {
+    this.notebookTrigger = notebookTrigger;
   }
 
-  public GithubWebhookTriggerWrapper githubWebhookTrigger(
-      GithubWebhookTrigger githubWebhookTrigger) {
-    this.githubWebhookTrigger = githubWebhookTrigger;
-    this.unparsed |= githubWebhookTrigger.unparsed;
+  public NotebookTriggerWrapper notebookTrigger(Object notebookTrigger) {
+    this.notebookTrigger = notebookTrigger;
     return this;
   }
 
   /**
-   * Trigger a workflow from a GitHub webhook. To trigger a workflow from GitHub, you must set a
-   * <code>webhookSecret</code>. In your GitHub Webhook Settings, set the Payload URL to
-   * "base_url"/api/v2/workflows/"workflow_id"/webhook?orgId="org_id", select application/json for
-   * the content type, and be highly recommend enabling SSL verification for security. The workflow
-   * must be published.
+   * Trigger a workflow from a Notebook.
    *
-   * @return githubWebhookTrigger
+   * @return notebookTrigger
    */
-  @JsonProperty(JSON_PROPERTY_GITHUB_WEBHOOK_TRIGGER)
+  @JsonProperty(JSON_PROPERTY_NOTEBOOK_TRIGGER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public GithubWebhookTrigger getGithubWebhookTrigger() {
-    return githubWebhookTrigger;
+  public Object getNotebookTrigger() {
+    return notebookTrigger;
   }
 
-  public void setGithubWebhookTrigger(GithubWebhookTrigger githubWebhookTrigger) {
-    this.githubWebhookTrigger = githubWebhookTrigger;
+  public void setNotebookTrigger(Object notebookTrigger) {
+    this.notebookTrigger = notebookTrigger;
   }
 
-  public GithubWebhookTriggerWrapper startStepNames(List<String> startStepNames) {
+  public NotebookTriggerWrapper startStepNames(List<String> startStepNames) {
     this.startStepNames = startStepNames;
     return this;
   }
 
-  public GithubWebhookTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
+  public NotebookTriggerWrapper addStartStepNamesItem(String startStepNamesItem) {
     if (this.startStepNames == null) {
       this.startStepNames = new ArrayList<>();
     }
@@ -111,10 +104,10 @@ public class GithubWebhookTriggerWrapper {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return GithubWebhookTriggerWrapper
+   * @return NotebookTriggerWrapper
    */
   @JsonAnySetter
-  public GithubWebhookTriggerWrapper putAdditionalProperty(String key, Object value) {
+  public NotebookTriggerWrapper putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -145,7 +138,7 @@ public class GithubWebhookTriggerWrapper {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this GithubWebhookTriggerWrapper object is equal to o. */
+  /** Return true if this NotebookTriggerWrapper object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -154,26 +147,22 @@ public class GithubWebhookTriggerWrapper {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GithubWebhookTriggerWrapper githubWebhookTriggerWrapper = (GithubWebhookTriggerWrapper) o;
-    return Objects.equals(
-            this.githubWebhookTrigger, githubWebhookTriggerWrapper.githubWebhookTrigger)
-        && Objects.equals(this.startStepNames, githubWebhookTriggerWrapper.startStepNames)
-        && Objects.equals(
-            this.additionalProperties, githubWebhookTriggerWrapper.additionalProperties);
+    NotebookTriggerWrapper notebookTriggerWrapper = (NotebookTriggerWrapper) o;
+    return Objects.equals(this.notebookTrigger, notebookTriggerWrapper.notebookTrigger)
+        && Objects.equals(this.startStepNames, notebookTriggerWrapper.startStepNames)
+        && Objects.equals(this.additionalProperties, notebookTriggerWrapper.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(githubWebhookTrigger, startStepNames, additionalProperties);
+    return Objects.hash(notebookTrigger, startStepNames, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GithubWebhookTriggerWrapper {\n");
-    sb.append("    githubWebhookTrigger: ")
-        .append(toIndentedString(githubWebhookTrigger))
-        .append("\n");
+    sb.append("class NotebookTriggerWrapper {\n");
+    sb.append("    notebookTrigger: ").append(toIndentedString(notebookTrigger)).append("\n");
     sb.append("    startStepNames: ").append(toIndentedString(startStepNames)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

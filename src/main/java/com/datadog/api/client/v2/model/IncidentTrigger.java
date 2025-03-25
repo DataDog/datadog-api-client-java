@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Trigger a workflow VIA an Incident. For automatic triggering a handle must be configured and the
+ * Trigger a workflow from an Incident. For automatic triggering a handle must be configured and the
  * workflow must be published.
  */
 @JsonPropertyOrder({IncidentTrigger.JSON_PROPERTY_RATE_LIMIT})

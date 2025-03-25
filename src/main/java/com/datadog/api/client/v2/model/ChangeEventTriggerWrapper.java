@@ -49,7 +49,7 @@ public class ChangeEventTriggerWrapper {
   }
 
   /**
-   * Trigger a workflow VIA a Change Event.
+   * Trigger a workflow from a Change Event.
    *
    * @return changeEventTrigger
    */

@@ -51,7 +51,7 @@ public class MonitorTriggerWrapper {
   }
 
   /**
-   * Trigger a workflow VIA a Monitor. For automatic triggering a handle must be configured and the
+   * Trigger a workflow from a Monitor. For automatic triggering a handle must be configured and the
    * workflow must be published.
    *
    * @return monitorTrigger
