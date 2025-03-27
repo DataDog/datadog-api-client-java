@@ -16,6 +16,7 @@ import java.util.Objects;
 
 /** The definition of Entity V3 Service Spec object. */
 @JsonPropertyOrder({
+  EntityV3ServiceSpec.JSON_PROPERTY_COMPONENT_OF,
   EntityV3ServiceSpec.JSON_PROPERTY_DEPENDS_ON,
   EntityV3ServiceSpec.JSON_PROPERTY_LANGUAGES,
   EntityV3ServiceSpec.JSON_PROPERTY_LIFECYCLE,
@@ -26,6 +27,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EntityV3ServiceSpec {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMPONENT_OF = "componentOf";
+  private List<String> componentOf = null;
+
   public static final String JSON_PROPERTY_DEPENDS_ON = "dependsOn";
   private List<String> dependsOn = null;
 
@@ -40,6 +44,35 @@ public class EntityV3ServiceSpec {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  public EntityV3ServiceSpec componentOf(List<String> componentOf) {
+    this.componentOf = componentOf;
+    return this;
+  }
+
+  public EntityV3ServiceSpec addComponentOfItem(String componentOfItem) {
+    if (this.componentOf == null) {
+      this.componentOf = new ArrayList<>();
+    }
+    this.componentOf.add(componentOfItem);
+    return this;
+  }
+
+  /**
+   * A list of components the service is a part of
+   *
+   * @return componentOf
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPONENT_OF)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getComponentOf() {
+    return componentOf;
+  }
+
+  public void setComponentOf(List<String> componentOf) {
+    this.componentOf = componentOf;
+  }
 
   public EntityV3ServiceSpec dependsOn(List<String> dependsOn) {
     this.dependsOn = dependsOn;
@@ -172,7 +205,8 @@ public class EntityV3ServiceSpec {
       return false;
     }
     EntityV3ServiceSpec entityV3ServiceSpec = (EntityV3ServiceSpec) o;
-    return Objects.equals(this.dependsOn, entityV3ServiceSpec.dependsOn)
+    return Objects.equals(this.componentOf, entityV3ServiceSpec.componentOf)
+        && Objects.equals(this.dependsOn, entityV3ServiceSpec.dependsOn)
         && Objects.equals(this.languages, entityV3ServiceSpec.languages)
         && Objects.equals(this.lifecycle, entityV3ServiceSpec.lifecycle)
         && Objects.equals(this.tier, entityV3ServiceSpec.tier)
@@ -181,13 +215,14 @@ public class EntityV3ServiceSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dependsOn, languages, lifecycle, tier, type);
+    return Objects.hash(componentOf, dependsOn, languages, lifecycle, tier, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EntityV3ServiceSpec {\n");
+    sb.append("    componentOf: ").append(toIndentedString(componentOf)).append("\n");
     sb.append("    dependsOn: ").append(toIndentedString(dependsOn)).append("\n");
     sb.append("    languages: ").append(toIndentedString(languages)).append("\n");
     sb.append("    lifecycle: ").append(toIndentedString(lifecycle)).append("\n");
