@@ -10,10 +10,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /** The definition of Entity V3 Queue Spec object. */
 @JsonPropertyOrder({
+  EntityV3QueueSpec.JSON_PROPERTY_COMPONENT_OF,
   EntityV3QueueSpec.JSON_PROPERTY_LIFECYCLE,
   EntityV3QueueSpec.JSON_PROPERTY_TIER,
   EntityV3QueueSpec.JSON_PROPERTY_TYPE
@@ -22,6 +25,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EntityV3QueueSpec {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMPONENT_OF = "componentOf";
+  private List<String> componentOf = null;
+
   public static final String JSON_PROPERTY_LIFECYCLE = "lifecycle";
   private String lifecycle;
 
@@ -30,6 +36,35 @@ public class EntityV3QueueSpec {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  public EntityV3QueueSpec componentOf(List<String> componentOf) {
+    this.componentOf = componentOf;
+    return this;
+  }
+
+  public EntityV3QueueSpec addComponentOfItem(String componentOfItem) {
+    if (this.componentOf == null) {
+      this.componentOf = new ArrayList<>();
+    }
+    this.componentOf.add(componentOfItem);
+    return this;
+  }
+
+  /**
+   * A list of components the queue is a part of
+   *
+   * @return componentOf
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPONENT_OF)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getComponentOf() {
+    return componentOf;
+  }
+
+  public void setComponentOf(List<String> componentOf) {
+    this.componentOf = componentOf;
+  }
 
   public EntityV3QueueSpec lifecycle(String lifecycle) {
     this.lifecycle = lifecycle;
@@ -104,20 +139,22 @@ public class EntityV3QueueSpec {
       return false;
     }
     EntityV3QueueSpec entityV3QueueSpec = (EntityV3QueueSpec) o;
-    return Objects.equals(this.lifecycle, entityV3QueueSpec.lifecycle)
+    return Objects.equals(this.componentOf, entityV3QueueSpec.componentOf)
+        && Objects.equals(this.lifecycle, entityV3QueueSpec.lifecycle)
         && Objects.equals(this.tier, entityV3QueueSpec.tier)
         && Objects.equals(this.type, entityV3QueueSpec.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lifecycle, tier, type);
+    return Objects.hash(componentOf, lifecycle, tier, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EntityV3QueueSpec {\n");
+    sb.append("    componentOf: ").append(toIndentedString(componentOf)).append("\n");
     sb.append("    lifecycle: ").append(toIndentedString(lifecycle)).append("\n");
     sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
