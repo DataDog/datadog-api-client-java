@@ -68,11 +68,13 @@ public class LogsListRequest {
   }
 
   /**
-   * Global query options that are used during the query. Note: you should supply either timezone or
-   * time offset, but not both. Otherwise, the query will fail.
+   * Global query options that are used during the query. Note: These fields are currently
+   * deprecated and do not affect the query results.
    *
    * @return options
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,6 +82,7 @@ public class LogsListRequest {
     return options;
   }
 
+  @Deprecated
   public void setOptions(LogsQueryOptions options) {
     this.options = options;
   }
