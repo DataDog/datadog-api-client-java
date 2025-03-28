@@ -17,9 +17,12 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Global query options that are used during the query. Note: you should supply either timezone or
- * time offset, but not both. Otherwise, the query will fail.
+ * Global query options that are used during the query. Note: These fields are currently deprecated
+ * and do not affect the query results.
+ *
+ * @deprecated
  */
+@Deprecated
 @JsonPropertyOrder({
   LogsQueryOptions.JSON_PROPERTY_TIME_OFFSET,
   LogsQueryOptions.JSON_PROPERTY_TIMEZONE
