@@ -3,7 +3,37 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == sh\",\"name\":\"testcreateacsmthreatsagentrulereturnsbadrequestresponse1713895064\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateacsmthreatsagentrulereturnsbadrequestresponse1743170333\"},\"type\":\"policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/cws/policy",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"3t4-vlv-lsd\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testcreateacsmthreatsagentrulereturnsbadrequestresponse1743170333\",\"policyVersion\":\"1\",\"priority\":1000000026,\"ruleCount\":226,\"updateDate\":1743170333959,\"updater\":{\"name\":\"Quentin Guillard\",\"handle\":\"quentin.guillard@datadoghq.com\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "819a122f-d8b4-7cb9-b047-9b212f00e8e2"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name\",\"filters\":[],\"name\":\"my_agent_rule\",\"policy_id\":\"3t4-vlv-lsd\",\"product_tags\":[]},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testcreateacsmthreatsagentrulereturnsbadrequestresponse1713895064` error: rule compilation error: field `sh` not found)\"]}",
+      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `my_agent_rule` error: rule syntax error: bool expected: 1:1: exec.file.name\\n^)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +57,31 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5ac51b84-f3dc-4859-1cb2-aee7e669dc09"
+    "id": "aabc493d-8db5-8dd6-5bdf-36a55643a105"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/3t4-vlv-lsd",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9ffdc0fe-cb4b-940c-19a3-37b9d84062ba"
   }
 ]

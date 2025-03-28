@@ -3,16 +3,46 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"id\":\"abc-123-xyz\",\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsnotfoundresponse1743170357\"},\"type\":\"policy\"}}"
       },
       "headers": {},
-      "method": "PATCH",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/abc-123-xyz",
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/cws/policy",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Agent rule not found: agentRuleId=abc-123-xyz)\"]}\n",
+      "body": "{\"data\":{\"id\":\"blc-byi-dur\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsnotfoundresponse1743170357\",\"policyVersion\":\"1\",\"priority\":1000000026,\"ruleCount\":226,\"updateDate\":1743170357534,\"updater\":{\"name\":\"Quentin Guillard\",\"handle\":\"quentin.guillard@datadoghq.com\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "36d5738f-1aef-a61f-5d95-535ccc5b8a10"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"policy_id\":\"blc-byi-dur\",\"product_tags\":[]},\"id\":\"non-existent-rule-id\",\"type\":\"agent_rule\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/non-existent-rule-id",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Not found\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +57,31 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7edac9ea-36b8-deb4-6f4b-a1e4b54dd869"
+    "id": "242f92f3-6665-dcda-0f21-a6c7cc573bb2"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/blc-byi-dur",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9ea8eb91-aca1-369d-9526-b9db06be31ed"
   }
 ]

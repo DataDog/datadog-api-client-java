@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateacsmthreatsagentpolicyreturnsokresponse1743170353\"},\"type\":\"policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/cws/policy",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"fxs-7da-cga\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testupdateacsmthreatsagentpolicyreturnsokresponse1743170353\",\"policyVersion\":\"1\",\"priority\":1000000026,\"ruleCount\":226,\"updateDate\":1743170354184,\"updater\":{\"name\":\"Quentin Guillard\",\"handle\":\"quentin.guillard@datadoghq.com\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "666c7bb8-f9b8-48c7-6dcf-f95a53d915bc"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Updated agent policy\",\"enabled\":true,\"hostTags\":[\"env:test\"],\"name\":\"updated_agent_policy\",\"priority\":20},\"id\":\"fxs-7da-cga\",\"type\":\"policy\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/remote_config/products/cws/policy/fxs-7da-cga",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"fxs-7da-cga\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"Updated agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:test\"],\"monitoringRulesCount\":225,\"name\":\"updated_agent_policy\",\"policyVersion\":\"2\",\"priority\":20,\"ruleCount\":226,\"updateDate\":1743170354822,\"updater\":{\"name\":\"Quentin Guillard\",\"handle\":\"quentin.guillard@datadoghq.com\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fd267a80-bd17-e619-deb4-61c3e80fe74e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/fxs-7da-cga",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b4cab770-f229-85b6-4bfd-c2fc8999af75"
+  }
+]
