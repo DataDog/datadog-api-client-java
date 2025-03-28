@@ -14,18 +14,22 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     CsmThreatsApi apiInstance = new CsmThreatsApi(defaultClient);
 
+    // there is a valid "policy_rc" in the system
+    String POLICY_DATA_ID = System.getenv("POLICY_DATA_ID");
+
     CloudWorkloadSecurityAgentRuleCreateRequest body =
         new CloudWorkloadSecurityAgentRuleCreateRequest()
             .data(
                 new CloudWorkloadSecurityAgentRuleCreateData()
                     .attributes(
                         new CloudWorkloadSecurityAgentRuleCreateAttributes()
-                            .description("Test Agent rule")
+                            .description("My Agent rule")
                             .enabled(true)
                             .expression("""
 exec.file.name == "sh"
 """)
-                            .name("examplecsmthreat"))
+                            .name("examplecsmthreat")
+                            .policyId(POLICY_DATA_ID))
                     .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
 
     try {

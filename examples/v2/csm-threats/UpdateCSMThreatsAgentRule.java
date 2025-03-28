@@ -17,19 +17,23 @@ public class Example {
     // there is a valid "agent_rule_rc" in the system
     String AGENT_RULE_DATA_ID = System.getenv("AGENT_RULE_DATA_ID");
 
+    // there is a valid "policy_rc" in the system
+    String POLICY_DATA_ID = System.getenv("POLICY_DATA_ID");
+
     CloudWorkloadSecurityAgentRuleUpdateRequest body =
         new CloudWorkloadSecurityAgentRuleUpdateRequest()
             .data(
                 new CloudWorkloadSecurityAgentRuleUpdateData()
                     .attributes(
                         new CloudWorkloadSecurityAgentRuleUpdateAttributes()
-                            .description("Test Agent rule")
+                            .description("My Agent rule")
                             .enabled(true)
                             .expression("""
 exec.file.name == "sh"
-"""))
-                    .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE)
-                    .id(AGENT_RULE_DATA_ID));
+""")
+                            .policyId(POLICY_DATA_ID))
+                    .id(AGENT_RULE_DATA_ID)
+                    .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
 
     try {
       CloudWorkloadSecurityAgentRuleResponse result =

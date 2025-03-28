@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request object that includes the Agent rule with the attributes to update. */
+/** Request object that includes the Agent rule with the attributes to update */
 @JsonPropertyOrder({CloudWorkloadSecurityAgentRuleUpdateRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -44,7 +44,7 @@ public class CloudWorkloadSecurityAgentRuleUpdateRequest {
   }
 
   /**
-   * Object for a single Agent rule.
+   * Object for a single Agent rule
    *
    * @return data
    */

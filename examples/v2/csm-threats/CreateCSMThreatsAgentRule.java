@@ -8,12 +8,14 @@ import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateData;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateRequest;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleType;
-import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     CsmThreatsApi apiInstance = new CsmThreatsApi(defaultClient);
+
+    // there is a valid "policy_rc" in the system
+    String POLICY_DATA_ID = System.getenv("POLICY_DATA_ID");
 
     CloudWorkloadSecurityAgentRuleCreateRequest body =
         new CloudWorkloadSecurityAgentRuleCreateRequest()
@@ -26,10 +28,8 @@ public class Example {
                             .expression("""
 exec.file.name == "sh"
 """)
-                            .filters(Collections.singletonList("""
-os == "linux"
-"""))
-                            .name("examplecsmthreat"))
+                            .name("examplecsmthreat")
+                            .policyId(POLICY_DATA_ID))
                     .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
 
     try {

@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"policies\":[{\"delete\":true,\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[],\"id\":\"mdh-tah-lj9\",\"name\":\"my_agent_policy\",\"priority\":10}]},\"id\":\"batch_update_req\",\"type\":\"policies\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/remote_config/products/cws/policy",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"failed to update policy\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b08eea7a-8da9-1676-190c-c8f8724110c4"
+  }
+]
