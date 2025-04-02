@@ -25,12 +25,21 @@ import java.util.Set;
 public class SecurityMonitoringStandardDataSource extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("logs", "audit"));
+      new HashSet<String>(
+          Arrays.asList("logs", "audit", "app_sec_spans", "spans", "security_runtime", "network"));
 
   public static final SecurityMonitoringStandardDataSource LOGS =
       new SecurityMonitoringStandardDataSource("logs");
   public static final SecurityMonitoringStandardDataSource AUDIT =
       new SecurityMonitoringStandardDataSource("audit");
+  public static final SecurityMonitoringStandardDataSource APP_SEC_SPANS =
+      new SecurityMonitoringStandardDataSource("app_sec_spans");
+  public static final SecurityMonitoringStandardDataSource SPANS =
+      new SecurityMonitoringStandardDataSource("spans");
+  public static final SecurityMonitoringStandardDataSource SECURITY_RUNTIME =
+      new SecurityMonitoringStandardDataSource("security_runtime");
+  public static final SecurityMonitoringStandardDataSource NETWORK =
+      new SecurityMonitoringStandardDataSource("network");
 
   SecurityMonitoringStandardDataSource(String value) {
     super(value, allowedValues);
