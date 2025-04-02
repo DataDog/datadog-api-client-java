@@ -10,10 +10,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /** The definition of Entity V3 Datastore Spec object. */
 @JsonPropertyOrder({
+  EntityV3DatastoreSpec.JSON_PROPERTY_COMPONENT_OF,
   EntityV3DatastoreSpec.JSON_PROPERTY_LIFECYCLE,
   EntityV3DatastoreSpec.JSON_PROPERTY_TIER,
   EntityV3DatastoreSpec.JSON_PROPERTY_TYPE
@@ -22,6 +25,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EntityV3DatastoreSpec {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMPONENT_OF = "componentOf";
+  private List<String> componentOf = null;
+
   public static final String JSON_PROPERTY_LIFECYCLE = "lifecycle";
   private String lifecycle;
 
@@ -30,6 +36,35 @@ public class EntityV3DatastoreSpec {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
+
+  public EntityV3DatastoreSpec componentOf(List<String> componentOf) {
+    this.componentOf = componentOf;
+    return this;
+  }
+
+  public EntityV3DatastoreSpec addComponentOfItem(String componentOfItem) {
+    if (this.componentOf == null) {
+      this.componentOf = new ArrayList<>();
+    }
+    this.componentOf.add(componentOfItem);
+    return this;
+  }
+
+  /**
+   * A list of components the datastore is a part of
+   *
+   * @return componentOf
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPONENT_OF)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getComponentOf() {
+    return componentOf;
+  }
+
+  public void setComponentOf(List<String> componentOf) {
+    this.componentOf = componentOf;
+  }
 
   public EntityV3DatastoreSpec lifecycle(String lifecycle) {
     this.lifecycle = lifecycle;
@@ -104,20 +139,22 @@ public class EntityV3DatastoreSpec {
       return false;
     }
     EntityV3DatastoreSpec entityV3DatastoreSpec = (EntityV3DatastoreSpec) o;
-    return Objects.equals(this.lifecycle, entityV3DatastoreSpec.lifecycle)
+    return Objects.equals(this.componentOf, entityV3DatastoreSpec.componentOf)
+        && Objects.equals(this.lifecycle, entityV3DatastoreSpec.lifecycle)
         && Objects.equals(this.tier, entityV3DatastoreSpec.tier)
         && Objects.equals(this.type, entityV3DatastoreSpec.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lifecycle, tier, type);
+    return Objects.hash(componentOf, lifecycle, tier, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EntityV3DatastoreSpec {\n");
+    sb.append("    componentOf: ").append(toIndentedString(componentOf)).append("\n");
     sb.append("    lifecycle: ").append(toIndentedString(lifecycle)).append("\n");
     sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
