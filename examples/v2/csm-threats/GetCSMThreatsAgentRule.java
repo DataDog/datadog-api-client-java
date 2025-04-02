@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CsmThreatsApi;
+import com.datadog.api.client.v2.api.CsmThreatsApi.GetCSMThreatsAgentRuleOptionalParameters;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 
 public class Example {
@@ -13,9 +14,14 @@ public class Example {
     // there is a valid "agent_rule_rc" in the system
     String AGENT_RULE_DATA_ID = System.getenv("AGENT_RULE_DATA_ID");
 
+    // there is a valid "policy_rc" in the system
+    String POLICY_DATA_ID = System.getenv("POLICY_DATA_ID");
+
     try {
       CloudWorkloadSecurityAgentRuleResponse result =
-          apiInstance.getCSMThreatsAgentRule(AGENT_RULE_DATA_ID);
+          apiInstance.getCSMThreatsAgentRule(
+              AGENT_RULE_DATA_ID,
+              new GetCSMThreatsAgentRuleOptionalParameters().policyId(POLICY_DATA_ID));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CsmThreatsApi#getCSMThreatsAgentRule");

@@ -3,16 +3,46 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"id\":\"abc-123-xyz\",\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsnotfoundresponse1743517866\"},\"type\":\"policy\"}}"
       },
       "headers": {},
-      "method": "PATCH",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/abc-123-xyz",
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/cws/policy",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Agent rule not found: agentRuleId=abc-123-xyz)\"]}\n",
+      "body": "{\"data\":{\"id\":\"p9j-hpd-lvq\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsnotfoundresponse1743517866\",\"policyVersion\":\"1\",\"priority\":1000000001,\"ruleCount\":226,\"updateDate\":1743517866364,\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "52fdd49f-6100-87c1-30eb-c4e205424419"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"policy_id\":\"p9j-hpd-lvq\",\"product_tags\":[]},\"id\":\"non-existent-rule-id\",\"type\":\"agent_rule\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/non-existent-rule-id",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Not found\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +57,31 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7edac9ea-36b8-deb4-6f4b-a1e4b54dd869"
+    "id": "b87d0dd4-965c-1559-ce0c-1d705f696f90"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/p9j-hpd-lvq",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b8f38455-c49a-6ce1-1d1c-30e549e2a38b"
   }
 ]
