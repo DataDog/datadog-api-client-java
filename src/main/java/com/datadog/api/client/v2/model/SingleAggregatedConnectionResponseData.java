@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>SingleAggregatedConnectionResponseData</code> object. */
+/** Object describing an aggregated connection. */
 @JsonPropertyOrder({
   SingleAggregatedConnectionResponseData.JSON_PROPERTY_ATTRIBUTES,
   SingleAggregatedConnectionResponseData.JSON_PROPERTY_ID,
@@ -44,7 +44,7 @@ public class SingleAggregatedConnectionResponseData {
   }
 
   /**
-   * The definition of <code>SingleAggregatedConnectionResponseDataAttributes</code> object.
+   * Attributes for an aggregated connection.
    *
    * @return attributes
    */
@@ -65,7 +65,7 @@ public class SingleAggregatedConnectionResponseData {
   }
 
   /**
-   * The <code>SingleAggregatedConnectionResponseData</code> <code>id</code>.
+   * A unique identifier for the aggregated connection based on the group by values.
    *
    * @return id
    */
@@ -88,8 +88,7 @@ public class SingleAggregatedConnectionResponseData {
   }
 
   /**
-   * Aggregated connection resource type. Allowed enum values: <code>aggregated_connection</code>.
-   * default: <code>aggregated_connection</code>
+   * Aggregated connection resource type.
    *
    * @return type
    */

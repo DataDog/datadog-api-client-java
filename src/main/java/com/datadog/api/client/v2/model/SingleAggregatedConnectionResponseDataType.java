@@ -18,10 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Aggregated connection resource type. Allowed enum values: <code>aggregated_connection</code>.
- * default: <code>aggregated_connection</code>
- */
+/** Aggregated connection resource type. */
 @JsonSerialize(
     using =
         SingleAggregatedConnectionResponseDataType
