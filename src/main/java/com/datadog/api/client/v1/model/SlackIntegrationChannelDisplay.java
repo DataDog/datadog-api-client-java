@@ -19,6 +19,7 @@ import java.util.Objects;
 /** Configuration options for what is shown in an alert event message. */
 @JsonPropertyOrder({
   SlackIntegrationChannelDisplay.JSON_PROPERTY_MESSAGE,
+  SlackIntegrationChannelDisplay.JSON_PROPERTY_MUTE_BUTTONS,
   SlackIntegrationChannelDisplay.JSON_PROPERTY_NOTIFIED,
   SlackIntegrationChannelDisplay.JSON_PROPERTY_SNAPSHOT,
   SlackIntegrationChannelDisplay.JSON_PROPERTY_TAGS
@@ -29,6 +30,9 @@ public class SlackIntegrationChannelDisplay {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private Boolean message = true;
+
+  public static final String JSON_PROPERTY_MUTE_BUTTONS = "mute_buttons";
+  private Boolean muteButtons = false;
 
   public static final String JSON_PROPERTY_NOTIFIED = "notified";
   private Boolean notified = true;
@@ -58,6 +62,27 @@ public class SlackIntegrationChannelDisplay {
 
   public void setMessage(Boolean message) {
     this.message = message;
+  }
+
+  public SlackIntegrationChannelDisplay muteButtons(Boolean muteButtons) {
+    this.muteButtons = muteButtons;
+    return this;
+  }
+
+  /**
+   * Show interactive buttons to mute the alerting monitor.
+   *
+   * @return muteButtons
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MUTE_BUTTONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getMuteButtons() {
+    return muteButtons;
+  }
+
+  public void setMuteButtons(Boolean muteButtons) {
+    this.muteButtons = muteButtons;
   }
 
   public SlackIntegrationChannelDisplay notified(Boolean notified) {
@@ -181,6 +206,7 @@ public class SlackIntegrationChannelDisplay {
     SlackIntegrationChannelDisplay slackIntegrationChannelDisplay =
         (SlackIntegrationChannelDisplay) o;
     return Objects.equals(this.message, slackIntegrationChannelDisplay.message)
+        && Objects.equals(this.muteButtons, slackIntegrationChannelDisplay.muteButtons)
         && Objects.equals(this.notified, slackIntegrationChannelDisplay.notified)
         && Objects.equals(this.snapshot, slackIntegrationChannelDisplay.snapshot)
         && Objects.equals(this.tags, slackIntegrationChannelDisplay.tags)
@@ -190,7 +216,7 @@ public class SlackIntegrationChannelDisplay {
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, notified, snapshot, tags, additionalProperties);
+    return Objects.hash(message, muteButtons, notified, snapshot, tags, additionalProperties);
   }
 
   @Override
@@ -198,6 +224,7 @@ public class SlackIntegrationChannelDisplay {
     StringBuilder sb = new StringBuilder();
     sb.append("class SlackIntegrationChannelDisplay {\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    muteButtons: ").append(toIndentedString(muteButtons)).append("\n");
     sb.append("    notified: ").append(toIndentedString(notified)).append("\n");
     sb.append("    snapshot: ").append(toIndentedString(snapshot)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

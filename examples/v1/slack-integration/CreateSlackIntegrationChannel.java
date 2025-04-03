@@ -16,6 +16,7 @@ public class Example {
             .display(
                 new SlackIntegrationChannelDisplay()
                     .message(true)
+                    .muteButtons(false)
                     .notified(true)
                     .snapshot(true)
                     .tags(true))
