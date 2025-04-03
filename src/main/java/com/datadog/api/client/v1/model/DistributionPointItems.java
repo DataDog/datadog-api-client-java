@@ -37,42 +37,43 @@ import java.util.logging.Logger;
 
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-@JsonDeserialize(using = DistributionPointItem.DistributionPointItemDeserializer.class)
-@JsonSerialize(using = DistributionPointItem.DistributionPointItemSerializer.class)
-public class DistributionPointItem extends AbstractOpenApiSchema {
-  private static final Logger log = Logger.getLogger(DistributionPointItem.class.getName());
+@JsonDeserialize(using = DistributionPointItems.DistributionPointItemsDeserializer.class)
+@JsonSerialize(using = DistributionPointItems.DistributionPointItemsSerializer.class)
+public class DistributionPointItems extends AbstractOpenApiSchema {
+  private static final Logger log = Logger.getLogger(DistributionPointItems.class.getName());
 
   @JsonIgnore public boolean unparsed = false;
 
-  public static class DistributionPointItemSerializer extends StdSerializer<DistributionPointItem> {
-    public DistributionPointItemSerializer(Class<DistributionPointItem> t) {
+  public static class DistributionPointItemsSerializer
+      extends StdSerializer<DistributionPointItems> {
+    public DistributionPointItemsSerializer(Class<DistributionPointItems> t) {
       super(t);
     }
 
-    public DistributionPointItemSerializer() {
+    public DistributionPointItemsSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        DistributionPointItem value, JsonGenerator jgen, SerializerProvider provider)
+        DistributionPointItems value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.getActualInstance());
     }
   }
 
-  public static class DistributionPointItemDeserializer
-      extends StdDeserializer<DistributionPointItem> {
-    public DistributionPointItemDeserializer() {
-      this(DistributionPointItem.class);
+  public static class DistributionPointItemsDeserializer
+      extends StdDeserializer<DistributionPointItems> {
+    public DistributionPointItemsDeserializer() {
+      this(DistributionPointItems.class);
     }
 
-    public DistributionPointItemDeserializer(Class<?> vc) {
+    public DistributionPointItemsDeserializer(Class<?> vc) {
       super(vc);
     }
 
     @Override
-    public DistributionPointItem deserialize(JsonParser jp, DeserializationContext ctxt)
+    public DistributionPointItems deserialize(JsonParser jp, DeserializationContext ctxt)
         throws IOException, JsonProcessingException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
@@ -161,7 +162,7 @@ public class DistributionPointItem extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'List'", e);
       }
 
-      DistributionPointItem ret = new DistributionPointItem();
+      DistributionPointItems ret = new DistributionPointItems();
       if (match == 1) {
         ret.setActualInstance(deserialized);
       } else {
@@ -177,25 +178,25 @@ public class DistributionPointItem extends AbstractOpenApiSchema {
 
     /** Handle deserialization of the 'null' value. */
     @Override
-    public DistributionPointItem getNullValue(DeserializationContext ctxt)
+    public DistributionPointItems getNullValue(DeserializationContext ctxt)
         throws JsonMappingException {
-      throw new JsonMappingException(ctxt.getParser(), "DistributionPointItem cannot be null");
+      throw new JsonMappingException(ctxt.getParser(), "DistributionPointItems cannot be null");
     }
   }
 
   // store a list of schema names defined in oneOf
   public static final Map<String, GenericType> schemas = new HashMap<String, GenericType>();
 
-  public DistributionPointItem() {
+  public DistributionPointItems() {
     super("oneOf", Boolean.FALSE);
   }
 
-  public DistributionPointItem(Double o) {
+  public DistributionPointItems(Double o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
-  public DistributionPointItem(List<Double> o) {
+  public DistributionPointItems(List<Double> o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -203,12 +204,12 @@ public class DistributionPointItem extends AbstractOpenApiSchema {
   static {
     schemas.put("Double", new GenericType<Double>() {});
     schemas.put("List<Double>", new GenericType<List<Double>>() {});
-    JSON.registerDescendants(DistributionPointItem.class, Collections.unmodifiableMap(schemas));
+    JSON.registerDescendants(DistributionPointItems.class, Collections.unmodifiableMap(schemas));
   }
 
   @Override
   public Map<String, GenericType> getSchemas() {
-    return DistributionPointItem.schemas;
+    return DistributionPointItems.schemas;
   }
 
   /**

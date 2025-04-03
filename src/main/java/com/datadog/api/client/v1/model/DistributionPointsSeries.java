@@ -38,7 +38,7 @@ public class DistributionPointsSeries {
   private String metric;
 
   public static final String JSON_PROPERTY_POINTS = "points";
-  private List<List<DistributionPointItem>> points = new ArrayList<>();
+  private List<List<DistributionPointItems>> points = new ArrayList<>();
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
@@ -52,7 +52,7 @@ public class DistributionPointsSeries {
   public DistributionPointsSeries(
       @JsonProperty(required = true, value = JSON_PROPERTY_METRIC) String metric,
       @JsonProperty(required = true, value = JSON_PROPERTY_POINTS)
-          List<List<DistributionPointItem>> points) {
+          List<List<DistributionPointItems>> points) {
     this.metric = metric;
     this.points = points;
   }
@@ -98,12 +98,12 @@ public class DistributionPointsSeries {
     this.metric = metric;
   }
 
-  public DistributionPointsSeries points(List<List<DistributionPointItem>> points) {
+  public DistributionPointsSeries points(List<List<DistributionPointItems>> points) {
     this.points = points;
     return this;
   }
 
-  public DistributionPointsSeries addPointsItem(List<DistributionPointItem> pointsItem) {
+  public DistributionPointsSeries addPointsItem(List<DistributionPointItems> pointsItem) {
     this.points.add(pointsItem);
     return this;
   }
@@ -116,11 +116,11 @@ public class DistributionPointsSeries {
    */
   @JsonProperty(JSON_PROPERTY_POINTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<List<DistributionPointItem>> getPoints() {
+  public List<List<DistributionPointItems>> getPoints() {
     return points;
   }
 
-  public void setPoints(List<List<DistributionPointItem>> points) {
+  public void setPoints(List<List<DistributionPointItems>> points) {
     this.points = points;
   }
 

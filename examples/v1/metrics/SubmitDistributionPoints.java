@@ -1,34 +1,33 @@
 // Submit distribution points returns "Payload accepted" response
-import com.datadog.api.client.ApiClient;
+import java.time.OffsetDateTime;
+
 import com.datadog.api.client.ApiException;
+import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.v1.api.MetricsApi;
-import com.datadog.api.client.v1.model.DistributionPointItem;
+import com.datadog.api.client.v1.model.IntakePayloadAccepted;
+import com.datadog.api.client.v1.model.DistributionPointItems;
 import com.datadog.api.client.v1.model.DistributionPointsPayload;
 import com.datadog.api.client.v1.model.DistributionPointsSeries;
-import com.datadog.api.client.v1.model.IntakePayloadAccepted;
+import com.datadog.api.client.v1.model.DistributionPointTimestamp;
+import com.datadog.api.client.v1.model.List<DistributionPointItems>;
+import java.io.File;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
-    DistributionPointsPayload body =
-        new DistributionPointsPayload()
-            .series(
-                Collections.singletonList(
-                    new DistributionPointsSeries()
-                        .metric("system.load.1.dist")
-                        .points(
-                            Collections.singletonList(
-                                Arrays.asList(
-                                    new DistributionPointItem(
-                                        Long.valueOf(
-                                                OffsetDateTime.now().toInstant().getEpochSecond())
-                                            .doubleValue()),
-                                    new DistributionPointItem(Arrays.asList(1.0, 2.0)))))));
+    DistributionPointsPayload body = new DistributionPointsPayload()
+.series(Collections.singletonList(new DistributionPointsSeries()
+.metric("system.load.1.dist")
+.points(Collections.singletonList(Arrays.asList(new DistributionPointItems(
+Long.valueOf(OffsetDateTime.now().toInstant().getEpochSecond()).doubleValue()), new List<DistributionPointItems>(Arrays.asList(1.0, 2.0)))))));
 
     try {
       IntakePayloadAccepted result = apiInstance.submitDistributionPoints(body);
