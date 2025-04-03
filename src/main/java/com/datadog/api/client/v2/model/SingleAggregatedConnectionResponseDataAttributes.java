@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>SingleAggregatedConnectionResponseDataAttributes</code> object. */
+/** Attributes for an aggregated connection. */
 @JsonPropertyOrder({
   SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_BYTES_SENT_BY_CLIENT,
   SingleAggregatedConnectionResponseDataAttributes.JSON_PROPERTY_BYTES_SENT_BY_SERVER,
@@ -133,7 +133,7 @@ public class SingleAggregatedConnectionResponseDataAttributes {
   }
 
   /**
-   * The <code>attributes</code> <code>group_bys</code>.
+   * The key, value pairs for each group by.
    *
    * @return groupBys
    */

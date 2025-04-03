@@ -56,8 +56,9 @@ public class CloudNetworkMonitoringApi {
      * Set from.
      *
      * @param from Unix timestamp (number of seconds since epoch) of the start of the query window.
-     *     If not provided, the start of the query window is 15 minutes before the "to" timestamp.
-     *     If neither "from" nor "to" are provided, the query window is [now - 15m, now]. (optional)
+     *     If not provided, the start of the query window is 15 minutes before the <code>to</code>
+     *     timestamp. If neither <code>from</code> nor <code>to</code> are provided, the query
+     *     window is <code>[now - 15m, now]</code>. (optional)
      * @return GetAggregatedConnectionsOptionalParameters
      */
     public GetAggregatedConnectionsOptionalParameters from(Long from) {
@@ -69,8 +70,9 @@ public class CloudNetworkMonitoringApi {
      * Set to.
      *
      * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If
-     *     not provided, the end of the query window is the current time. If neither "from" nor "to"
-     *     are provided, the query window is [now - 15m, now]. (optional)
+     *     not provided, the end of the query window is the current time. If neither <code>from
+     *     </code> nor <code>to</code> are provided, the query window is <code>[now - 15m, now]
+     *     </code>. (optional)
      * @return GetAggregatedConnectionsOptionalParameters
      */
     public GetAggregatedConnectionsOptionalParameters to(Long to) {
@@ -114,7 +116,7 @@ public class CloudNetworkMonitoringApi {
   }
 
   /**
-   * Get aggregated connections.
+   * Get all aggregated connections.
    *
    * <p>See {@link #getAggregatedConnectionsWithHttpInfo}.
    *
@@ -127,7 +129,7 @@ public class CloudNetworkMonitoringApi {
   }
 
   /**
-   * Get aggregated connections.
+   * Get all aggregated connections.
    *
    * <p>See {@link #getAggregatedConnectionsWithHttpInfoAsync}.
    *
@@ -144,7 +146,7 @@ public class CloudNetworkMonitoringApi {
   }
 
   /**
-   * Get aggregated connections.
+   * Get all aggregated connections.
    *
    * <p>See {@link #getAggregatedConnectionsWithHttpInfo}.
    *
@@ -158,7 +160,7 @@ public class CloudNetworkMonitoringApi {
   }
 
   /**
-   * Get aggregated connections.
+   * Get all aggregated connections.
    *
    * <p>See {@link #getAggregatedConnectionsWithHttpInfoAsync}.
    *
@@ -175,7 +177,7 @@ public class CloudNetworkMonitoringApi {
   }
 
   /**
-   * Get aggregated connections
+   * Get all aggregated connections.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SingleAggregatedConnectionResponseArray&gt;
@@ -237,7 +239,7 @@ public class CloudNetworkMonitoringApi {
   }
 
   /**
-   * Get aggregated connections.
+   * Get all aggregated connections.
    *
    * <p>See {@link #getAggregatedConnectionsWithHttpInfo}.
    *

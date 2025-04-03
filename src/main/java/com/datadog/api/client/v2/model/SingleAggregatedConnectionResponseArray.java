@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** The definition of <code>SingleAggregatedConnectionResponseArray</code> object. */
+/** List of aggregated connections. */
 @JsonPropertyOrder({SingleAggregatedConnectionResponseArray.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -47,7 +47,7 @@ public class SingleAggregatedConnectionResponseArray {
   }
 
   /**
-   * The <code>SingleAggregatedConnectionResponseArray</code> <code>data</code>.
+   * Array of aggregated connection objects.
    *
    * @return data
    */

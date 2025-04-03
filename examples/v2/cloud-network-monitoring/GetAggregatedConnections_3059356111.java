@@ -1,4 +1,4 @@
-// Get all aggregated connections returns "OK" response
+// Get aggregated connections returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
