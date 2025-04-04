@@ -115,7 +115,7 @@ def snake_case(value):
 
 
 def camel_case(value):
-    return "".join(upperfirst(x) if idx != 0 else x for idx, x in enumerate(snake_case(value).split("_")))
+    return "".join(upperfirst(x) if idx != 0 else x for idx, x in enumerate(snake_case(value).replace("-", "_").split("_")))
 
 
 def untitle_case(value):

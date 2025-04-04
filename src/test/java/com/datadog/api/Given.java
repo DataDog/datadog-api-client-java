@@ -94,7 +94,7 @@ public class Given {
   }
 
   public String getAPIName() {
-    return Pattern.compile(" ").matcher(tag).replaceAll("");
+    return Pattern.compile("[- ]").matcher(tag).replaceAll("");
   }
 
   public String getOperationName() {
