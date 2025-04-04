@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-02-03T05:00:00Z\",\"end_date\":\"2025-12-31T00:00:00Z\",\"interval\":{\"days\":1},\"members\":[{\"user\":{\"id\":\"890f29d4-0b7a-11f0-aeb2-760fcae4f596\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-02-01T00:00:00Z\"}],\"name\":\"Test-Get_on_call_schedule_returns_OK_response-1743731061\",\"tags\":[\"tag1\",\"tag2\"],\"time_zone\":\"America/New_York\"},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/on-call/schedules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"9dec3014-dbcc-44d5-a96b-ad93d823cc62\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Get_on_call_schedule_returns_OK_response-1743731061\",\"tags\":[\"tag1\",\"tag2\"],\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"b64cb04a-c1cf-4cb7-b7ae-eee643fff26b\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}}},\"included\":[{\"id\":\"b64cb04a-c1cf-4cb7-b7ae-eee643fff26b\",\"type\":\"layers\",\"attributes\":{\"effective_date\":\"2025-02-03T05:00:00Z\",\"end_date\":\"2025-12-31T00:00:00Z\",\"interval\":{\"days\":1},\"name\":\"Layer 1\",\"restrictions\":[{\"start_time\":\"09:00:00\",\"start_day\":\"monday\",\"end_time\":\"17:00:00\",\"end_day\":\"friday\"}],\"rotation_start\":\"2025-02-01T00:00:00Z\"},\"relationships\":{\"members\":{\"data\":[{\"id\":\"b64cb04a-c1cf-4cb7-b7ae-eee643fff26b-member-1\",\"type\":\"members\"}]}}},{\"id\":\"b64cb04a-c1cf-4cb7-b7ae-eee643fff26b-member-1\",\"type\":\"members\",\"relationships\":{\"user\":{\"data\":{\"id\":\"890f29d4-0b7a-11f0-aeb2-760fcae4f596\",\"type\":\"users\"}}}},{\"id\":\"890f29d4-0b7a-11f0-aeb2-760fcae4f596\",\"type\":\"users\",\"attributes\":{\"email\":\"team-bugle+sdk-ci-frog-org@datadoghq.com\",\"name\":\"\"}},{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\",\"attributes\":{\"avatar\":\"\",\"description\":\"\",\"handle\":\"test-team-oncall\",\"name\":\"test-team-oncall\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b89a67f5-425e-0904-9f4b-597ffc47ff7e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/on-call/schedules/9dec3014-dbcc-44d5-a96b-ad93d823cc62",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"9dec3014-dbcc-44d5-a96b-ad93d823cc62\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Get_on_call_schedule_returns_OK_response-1743731061\",\"tags\":[\"tag1\",\"tag2\"],\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"b64cb04a-c1cf-4cb7-b7ae-eee643fff26b\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}}},\"included\":[{\"id\":\"b64cb04a-c1cf-4cb7-b7ae-eee643fff26b\",\"type\":\"layers\",\"attributes\":{\"effective_date\":\"2025-02-03T05:00:00Z\",\"end_date\":\"2025-12-31T00:00:00Z\",\"interval\":{\"days\":1},\"name\":\"Layer 1\",\"restrictions\":[{\"start_time\":\"09:00:00\",\"start_day\":\"monday\",\"end_time\":\"17:00:00\",\"end_day\":\"friday\"}],\"rotation_start\":\"2025-02-01T00:00:00Z\"},\"relationships\":{\"members\":{\"data\":[{\"id\":\"b64cb04a-c1cf-4cb7-b7ae-eee643fff26b-member-1\",\"type\":\"members\"}]}}},{\"id\":\"b64cb04a-c1cf-4cb7-b7ae-eee643fff26b-member-1\",\"type\":\"members\",\"relationships\":{\"user\":{\"data\":{\"id\":\"890f29d4-0b7a-11f0-aeb2-760fcae4f596\",\"type\":\"users\"}}}},{\"id\":\"890f29d4-0b7a-11f0-aeb2-760fcae4f596\",\"type\":\"users\",\"attributes\":{\"email\":\"team-bugle+sdk-ci-frog-org@datadoghq.com\",\"name\":\"\"}},{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\",\"attributes\":{\"avatar\":\"\",\"description\":\"\",\"handle\":\"test-team-oncall\",\"name\":\"test-team-oncall\"}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "29a2a631-6296-086b-b9d7-3392d1217d95"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/on-call/schedules/9dec3014-dbcc-44d5-a96b-ad93d823cc62",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "75188864-c2b3-e7cf-9cfa-58648a8e02e7"
+  }
+]
