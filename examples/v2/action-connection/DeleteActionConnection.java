@@ -9,8 +9,11 @@ public class Example {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     ActionConnectionApi apiInstance = new ActionConnectionApi(defaultClient);
 
+    // there is a valid "action_connection" in the system
+    String ACTION_CONNECTION_DATA_ID = System.getenv("ACTION_CONNECTION_DATA_ID");
+
     try {
-      apiInstance.deleteActionConnection("connection_id");
+      apiInstance.deleteActionConnection(ACTION_CONNECTION_DATA_ID);
     } catch (ApiException e) {
       System.err.println("Exception when calling ActionConnectionApi#deleteActionConnection");
       System.err.println("Status code: " + e.getCode());

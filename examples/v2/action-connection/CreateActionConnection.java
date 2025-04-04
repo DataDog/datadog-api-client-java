@@ -27,7 +27,7 @@ public class Example {
                     .type(ActionConnectionDataType.ACTION_CONNECTION)
                     .attributes(
                         new ActionConnectionAttributes()
-                            .name("Cassette Connection DELETE_ME")
+                            .name("Cassette Connection exampleactionconnection")
                             .integration(
                                 new ActionConnectionIntegration(
                                     new AWSIntegration()
