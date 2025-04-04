@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"tags\":[\"app:test-delete_a_monitor_notification_rule_returns_ok_response-1743786634\"]},\"name\":\"test rule\",\"recipients\":[\"slack-monitor-app\"]},\"type\":\"monitor-notification-rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/notification_rule",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"monitor-notification-rule\",\"id\":\"93faf8a4-881a-47e7-8d74-6ad37e702a57\",\"attributes\":{\"recipients\":[\"slack-monitor-app\"],\"created_at\":\"2025-04-04T17:10:35.016562+00:00\",\"creator_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"name\":\"test rule\",\"filter\":{\"tags\":[\"app:test-delete_a_monitor_notification_rule_returns_ok_response-1743786634\"]},\"modified_at\":\"1970-01-01T00:00:00+00:00\"}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "20076d86-d454-dec7-3303-ce911dbb1c33"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/notification_rule/93faf8a4-881a-47e7-8d74-6ad37e702a57",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "26f01575-f0b7-98c2-e800-9be1ea810d11"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/notification_rule/93faf8a4-881a-47e7-8d74-6ad37e702a57",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Monitor notification rule not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "26f01575-f0b7-98c2-e800-9be1ea810d12"
+  }
+]

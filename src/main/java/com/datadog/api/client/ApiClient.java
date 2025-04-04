@@ -408,6 +408,11 @@ public class ApiClient {
           put("v2.listAWSNamespaces", false);
           put("v2.updateAWSAccount", false);
           put("v2.listAWSLogsServices", false);
+          put("v2.createMonitorNotificationRule", false);
+          put("v2.deleteMonitorNotificationRule", false);
+          put("v2.getMonitorNotificationRule", false);
+          put("v2.getMonitorNotificationRules", false);
+          put("v2.updateMonitorNotificationRule", false);
           put("v2.getAggregatedConnections", false);
           put("v2.cancelHistoricalJob", false);
           put("v2.convertJobResultToSignal", false);

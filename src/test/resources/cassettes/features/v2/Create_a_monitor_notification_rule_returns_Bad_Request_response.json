@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"tags\":[\"test:test-create_a_monitor_notification_rule_returns_bad_request_response-1743786633\",\"host:abc\"]},\"name\":\"test rule\",\"recipients\":[\"@slack-test-channel\",\"@jira-test\"]},\"type\":\"monitor-notification-rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/notification_rule",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid recipients: Recipient handle should not start with '@'\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "eae3698b-9482-f08b-0244-92a47dfdd69c"
+  }
+]
