@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"tags\":[\"app:test-update_a_monitor_notification_rule_returns_bad_request_response-1743786638\"]},\"name\":\"test rule\",\"recipients\":[\"slack-monitor-app\"]},\"type\":\"monitor-notification-rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/notification_rule",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"monitor-notification-rule\",\"attributes\":{\"modified_at\":\"1970-01-01T00:00:00+00:00\",\"recipients\":[\"slack-monitor-app\"],\"name\":\"test rule\",\"creator_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"filter\":{\"tags\":[\"app:test-update_a_monitor_notification_rule_returns_bad_request_response-1743786638\"]},\"created_at\":\"2025-04-04T17:10:38.399066+00:00\"},\"id\":\"a55aafcd-667f-4731-8b2f-273092bf440f\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "070438e4-c4fe-9e37-7744-63653de84ca5"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"tags\":[\"test:test-update_a_monitor_notification_rule_returns_bad_request_response-1743786638\",\"host:abc\"]},\"name\":\"updated rule\",\"recipients\":[\"@slack-test-channel\"]},\"id\":\"a55aafcd-667f-4731-8b2f-273092bf440f\",\"type\":\"monitor-notification-rule\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/monitor/notification_rule/a55aafcd-667f-4731-8b2f-273092bf440f",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid recipients: Recipient handle should not start with '@'\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "306dad3e-093c-4294-e77b-4efece3209ad"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/notification_rule/a55aafcd-667f-4731-8b2f-273092bf440f",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0a8d38b7-71a7-b92f-bdaf-0e8e46b10325"
+  }
+]

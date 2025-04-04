@@ -8,6 +8,10 @@ import com.datadog.api.client.v2.model.MonitorConfigPolicyCreateRequest;
 import com.datadog.api.client.v2.model.MonitorConfigPolicyEditRequest;
 import com.datadog.api.client.v2.model.MonitorConfigPolicyListResponse;
 import com.datadog.api.client.v2.model.MonitorConfigPolicyResponse;
+import com.datadog.api.client.v2.model.MonitorNotificationRuleCreateRequest;
+import com.datadog.api.client.v2.model.MonitorNotificationRuleListResponse;
+import com.datadog.api.client.v2.model.MonitorNotificationRuleResponse;
+import com.datadog.api.client.v2.model.MonitorNotificationRuleUpdateRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -182,6 +186,160 @@ public class MonitorsApi {
   }
 
   /**
+   * Create a monitor notification rule.
+   *
+   * <p>See {@link #createMonitorNotificationRuleWithHttpInfo}.
+   *
+   * @param body Request body to create a monitor notification rule. (required)
+   * @return MonitorNotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorNotificationRuleResponse createMonitorNotificationRule(
+      MonitorNotificationRuleCreateRequest body) throws ApiException {
+    return createMonitorNotificationRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a monitor notification rule.
+   *
+   * <p>See {@link #createMonitorNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param body Request body to create a monitor notification rule. (required)
+   * @return CompletableFuture&lt;MonitorNotificationRuleResponse&gt;
+   */
+  public CompletableFuture<MonitorNotificationRuleResponse> createMonitorNotificationRuleAsync(
+      MonitorNotificationRuleCreateRequest body) {
+    return createMonitorNotificationRuleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Creates a monitor notification rule.
+   *
+   * @param body Request body to create a monitor notification rule. (required)
+   * @return ApiResponse&lt;MonitorNotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonitorNotificationRuleResponse> createMonitorNotificationRuleWithHttpInfo(
+      MonitorNotificationRuleCreateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "createMonitorNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createMonitorNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/monitor/notification_rule";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.createMonitorNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Create a monitor notification rule.
+   *
+   * <p>See {@link #createMonitorNotificationRuleWithHttpInfo}.
+   *
+   * @param body Request body to create a monitor notification rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorNotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>>
+      createMonitorNotificationRuleWithHttpInfoAsync(MonitorNotificationRuleCreateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "createMonitorNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createMonitorNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/monitor/notification_rule";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.createMonitorNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorNotificationRuleResponse>() {});
+  }
+
+  /**
    * Delete a monitor configuration policy.
    *
    * <p>See {@link #deleteMonitorConfigPolicyWithHttpInfo}.
@@ -301,6 +459,160 @@ public class MonitorsApi {
               new HashMap<String, String>(),
               new String[] {"*/*"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a monitor notification rule.
+   *
+   * <p>See {@link #deleteMonitorNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId ID of the monitor notification rule to delete. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteMonitorNotificationRule(String ruleId) throws ApiException {
+    deleteMonitorNotificationRuleWithHttpInfo(ruleId);
+  }
+
+  /**
+   * Delete a monitor notification rule.
+   *
+   * <p>See {@link #deleteMonitorNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId ID of the monitor notification rule to delete. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteMonitorNotificationRuleAsync(String ruleId) {
+    return deleteMonitorNotificationRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Deletes a monitor notification rule by <code>rule_id</code>.
+   *
+   * @param ruleId ID of the monitor notification rule to delete. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteMonitorNotificationRuleWithHttpInfo(String ruleId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "deleteMonitorNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling deleteMonitorNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/notification_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.deleteMonitorNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a monitor notification rule.
+   *
+   * <p>See {@link #deleteMonitorNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId ID of the monitor notification rule to delete. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteMonitorNotificationRuleWithHttpInfoAsync(
+      String ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "deleteMonitorNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " deleteMonitorNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/notification_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.deleteMonitorNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
@@ -454,6 +766,294 @@ public class MonitorsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MonitorConfigPolicyResponse>() {});
+  }
+
+  /**
+   * Get a monitor notification rule.
+   *
+   * <p>See {@link #getMonitorNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId ID of the monitor notification rule to fetch. (required)
+   * @return MonitorNotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorNotificationRuleResponse getMonitorNotificationRule(String ruleId)
+      throws ApiException {
+    return getMonitorNotificationRuleWithHttpInfo(ruleId).getData();
+  }
+
+  /**
+   * Get a monitor notification rule.
+   *
+   * <p>See {@link #getMonitorNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId ID of the monitor notification rule to fetch. (required)
+   * @return CompletableFuture&lt;MonitorNotificationRuleResponse&gt;
+   */
+  public CompletableFuture<MonitorNotificationRuleResponse> getMonitorNotificationRuleAsync(
+      String ruleId) {
+    return getMonitorNotificationRuleWithHttpInfoAsync(ruleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns a monitor notification rule by <code>rule_id</code>.
+   *
+   * @param ruleId ID of the monitor notification rule to fetch. (required)
+   * @return ApiResponse&lt;MonitorNotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonitorNotificationRuleResponse> getMonitorNotificationRuleWithHttpInfo(
+      String ruleId) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getMonitorNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'ruleId' when calling getMonitorNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/notification_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.getMonitorNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Get a monitor notification rule.
+   *
+   * <p>See {@link #getMonitorNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId ID of the monitor notification rule to fetch. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorNotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>>
+      getMonitorNotificationRuleWithHttpInfoAsync(String ruleId) {
+    // Check if unstable operation is enabled
+    String operationId = "getMonitorNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling getMonitorNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/notification_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.getMonitorNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Get all monitor notification rules.
+   *
+   * <p>See {@link #getMonitorNotificationRulesWithHttpInfo}.
+   *
+   * @return MonitorNotificationRuleListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorNotificationRuleListResponse getMonitorNotificationRules() throws ApiException {
+    return getMonitorNotificationRulesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get all monitor notification rules.
+   *
+   * <p>See {@link #getMonitorNotificationRulesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;MonitorNotificationRuleListResponse&gt;
+   */
+  public CompletableFuture<MonitorNotificationRuleListResponse> getMonitorNotificationRulesAsync() {
+    return getMonitorNotificationRulesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns a list of all monitor notification rules.
+   *
+   * @return ApiResponse&lt;MonitorNotificationRuleListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonitorNotificationRuleListResponse> getMonitorNotificationRulesWithHttpInfo()
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "getMonitorNotificationRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/monitor/notification_rule";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.getMonitorNotificationRules",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorNotificationRuleListResponse>() {});
+  }
+
+  /**
+   * Get all monitor notification rules.
+   *
+   * <p>See {@link #getMonitorNotificationRulesWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorNotificationRuleListResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonitorNotificationRuleListResponse>>
+      getMonitorNotificationRulesWithHttpInfoAsync() {
+    // Check if unstable operation is enabled
+    String operationId = "getMonitorNotificationRules";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/monitor/notification_rule";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.getMonitorNotificationRules",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleListResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorNotificationRuleListResponse>() {});
   }
 
   /**
@@ -728,5 +1328,188 @@ public class MonitorsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MonitorConfigPolicyResponse>() {});
+  }
+
+  /**
+   * Update a monitor notification rule.
+   *
+   * <p>See {@link #updateMonitorNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId ID of the monitor notification rule to update. (required)
+   * @param body Request body to update the monitor notification rule. (required)
+   * @return MonitorNotificationRuleResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MonitorNotificationRuleResponse updateMonitorNotificationRule(
+      String ruleId, MonitorNotificationRuleUpdateRequest body) throws ApiException {
+    return updateMonitorNotificationRuleWithHttpInfo(ruleId, body).getData();
+  }
+
+  /**
+   * Update a monitor notification rule.
+   *
+   * <p>See {@link #updateMonitorNotificationRuleWithHttpInfoAsync}.
+   *
+   * @param ruleId ID of the monitor notification rule to update. (required)
+   * @param body Request body to update the monitor notification rule. (required)
+   * @return CompletableFuture&lt;MonitorNotificationRuleResponse&gt;
+   */
+  public CompletableFuture<MonitorNotificationRuleResponse> updateMonitorNotificationRuleAsync(
+      String ruleId, MonitorNotificationRuleUpdateRequest body) {
+    return updateMonitorNotificationRuleWithHttpInfoAsync(ruleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Updates a monitor notification rule by <code>rule_id</code>.
+   *
+   * @param ruleId ID of the monitor notification rule to update. (required)
+   * @param body Request body to update the monitor notification rule. (required)
+   * @return ApiResponse&lt;MonitorNotificationRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonitorNotificationRuleResponse> updateMonitorNotificationRuleWithHttpInfo(
+      String ruleId, MonitorNotificationRuleUpdateRequest body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "updateMonitorNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'ruleId' when calling updateMonitorNotificationRule");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateMonitorNotificationRule");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/notification_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MonitorsApi.updateMonitorNotificationRule",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorNotificationRuleResponse>() {});
+  }
+
+  /**
+   * Update a monitor notification rule.
+   *
+   * <p>See {@link #updateMonitorNotificationRuleWithHttpInfo}.
+   *
+   * @param ruleId ID of the monitor notification rule to update. (required)
+   * @param body Request body to update the monitor notification rule. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MonitorNotificationRuleResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>>
+      updateMonitorNotificationRuleWithHttpInfoAsync(
+          String ruleId, MonitorNotificationRuleUpdateRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "updateMonitorNotificationRule";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == null) {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'ruleId' when calling"
+                  + " updateMonitorNotificationRule"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateMonitorNotificationRule"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/monitor/notification_rule/{rule_id}"
+            .replaceAll("\\{" + "rule_id" + "\\}", apiClient.escapeString(ruleId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MonitorsApi.updateMonitorNotificationRule",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MonitorNotificationRuleResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PATCH",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MonitorNotificationRuleResponse>() {});
   }
 }
