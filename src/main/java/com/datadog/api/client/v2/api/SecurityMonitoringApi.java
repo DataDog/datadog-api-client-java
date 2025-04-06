@@ -147,13 +147,6 @@ public class SecurityMonitoringApi {
    *     </table>
    */
   public ApiResponse<Void> cancelHistoricalJobWithHttpInfo(String jobId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "cancelHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'jobId' is set
@@ -197,16 +190,6 @@ public class SecurityMonitoringApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> cancelHistoricalJobWithHttpInfoAsync(String jobId) {
-    // Check if unstable operation is enabled
-    String operationId = "cancelHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'jobId' is set
@@ -445,13 +428,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<Void> convertJobResultToSignalWithHttpInfo(
       ConvertJobResultsToSignalsRequest body) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "convertJobResultToSignal";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -494,16 +470,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<Void>> convertJobResultToSignalWithHttpInfoAsync(
       ConvertJobResultsToSignalsRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "convertJobResultToSignal";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1440,13 +1406,6 @@ public class SecurityMonitoringApi {
    *     </table>
    */
   public ApiResponse<Void> deleteHistoricalJobWithHttpInfo(String jobId) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "deleteHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'jobId' is set
@@ -1490,16 +1449,6 @@ public class SecurityMonitoringApi {
    * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
    */
   public CompletableFuture<ApiResponse<Void>> deleteHistoricalJobWithHttpInfoAsync(String jobId) {
-    // Check if unstable operation is enabled
-    String operationId = "deleteHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'jobId' is set
@@ -3010,13 +2959,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<HistoricalJobResponse> getHistoricalJobWithHttpInfo(String jobId)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'jobId' is set
@@ -3061,16 +3003,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<HistoricalJobResponse>> getHistoricalJobWithHttpInfoAsync(
       String jobId) {
-    // Check if unstable operation is enabled
-    String operationId = "getHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<HistoricalJobResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'jobId' is set
@@ -5289,13 +5221,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<ListHistoricalJobsResponse> listHistoricalJobsWithHttpInfo(
       ListHistoricalJobsOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "listHistoricalJobs";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -5342,16 +5267,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<ListHistoricalJobsResponse>>
       listHistoricalJobsWithHttpInfoAsync(ListHistoricalJobsOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "listHistoricalJobs";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<ListHistoricalJobsResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
     Long pageSize = parameters.pageSize;
     Long pageNumber = parameters.pageNumber;
@@ -8227,13 +8142,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<JobCreateResponse> runHistoricalJobWithHttpInfo(RunHistoricalJobRequest body)
       throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "runHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -8276,16 +8184,6 @@ public class SecurityMonitoringApi {
    */
   public CompletableFuture<ApiResponse<JobCreateResponse>> runHistoricalJobWithHttpInfoAsync(
       RunHistoricalJobRequest body) {
-    // Check if unstable operation is enabled
-    String operationId = "runHistoricalJob";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<JobCreateResponse>> result = new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
