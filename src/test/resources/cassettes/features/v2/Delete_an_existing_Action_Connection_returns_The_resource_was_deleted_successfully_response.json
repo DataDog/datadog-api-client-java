@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"integration\":{\"credentials\":{\"account_id\":\"123456789123\",\"role\":\"MyRole\",\"type\":\"AWSAssumeRole\"},\"type\":\"AWS\"},\"name\":\"Cassette Connection testdeleteanexistingactionconnectionreturnstheresourcewasdeletedsuccessfullyresponse1743020700\"},\"type\":\"action_connection\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/actions/connections",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"c3c3d83b-c495-4c1b-bb1d-592825d21db0\",\"type\":\"action_connection\",\"attributes\":{\"integration\":{\"credentials\":{\"account_id\":\"123456789123\",\"external_id\":\"6183670d1ceb4278808cf2df9aa03a07\",\"principal_id\":\"464622532012\",\"role\":\"MyRole\",\"type\":\"AWSAssumeRole\"},\"type\":\"AWS\"},\"name\":\"Cassette Connection testdeleteanexistingactionconnectionreturnstheresourcewasdeletedsuccessfullyresponse1743020700\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d622b652-bd44-a22d-1527-2fe726a42d5a"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions/connections/c3c3d83b-c495-4c1b-bb1d-592825d21db0",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "67294d8d-49a4-c8c6-e910-111ce63e8aeb"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/actions/connections/c3c3d83b-c495-4c1b-bb1d-592825d21db0",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"error deleting connection: rpc error: code = NotFound desc = connection not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "67294d8d-49a4-c8c6-e910-111ce63e8aec"
+  }
+]

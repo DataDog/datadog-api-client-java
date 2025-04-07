@@ -29,14 +29,14 @@ import java.util.Set;
 public class ApplicationSecurityWafCustomRuleTagsCategory extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("attack_attempt", "business_logic", "security_responses"));
+      new HashSet<String>(Arrays.asList("attack_attempt", "business_logic", "security_response"));
 
   public static final ApplicationSecurityWafCustomRuleTagsCategory ATTACK_ATTEMPT =
       new ApplicationSecurityWafCustomRuleTagsCategory("attack_attempt");
   public static final ApplicationSecurityWafCustomRuleTagsCategory BUSINESS_LOGIC =
       new ApplicationSecurityWafCustomRuleTagsCategory("business_logic");
-  public static final ApplicationSecurityWafCustomRuleTagsCategory SECURITY_RESPONSES =
-      new ApplicationSecurityWafCustomRuleTagsCategory("security_responses");
+  public static final ApplicationSecurityWafCustomRuleTagsCategory SECURITY_RESPONSE =
+      new ApplicationSecurityWafCustomRuleTagsCategory("security_response");
 
   ApplicationSecurityWafCustomRuleTagsCategory(String value) {
     super(value, allowedValues);

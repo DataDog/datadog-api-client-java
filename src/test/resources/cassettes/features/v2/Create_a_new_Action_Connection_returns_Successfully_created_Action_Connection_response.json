@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"integration\":{\"credentials\":{\"account_id\":\"123456789123\",\"role\":\"MyRoleUpdated\",\"type\":\"AWSAssumeRole\"},\"type\":\"AWS\"},\"name\":\"Cassette Connection DELETE_ME\"},\"type\":\"action_connection\"}}"
+        "json": "{\"data\":{\"attributes\":{\"integration\":{\"credentials\":{\"account_id\":\"123456789123\",\"role\":\"MyRoleUpdated\",\"type\":\"AWSAssumeRole\"},\"type\":\"AWS\"},\"name\":\"Cassette Connection testcreateanewactionconnectionreturnssuccessfullycreatedactionconnectionresponse1743020699\"},\"type\":\"action_connection\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"db41b6cb-ef93-45bd-9857-548e9474737c\",\"type\":\"action_connection\",\"attributes\":{\"integration\":{\"credentials\":{\"account_id\":\"123456789123\",\"role\":\"MyRoleUpdated\",\"external_id\":\"c6f62d439f14423b963e4dd4246af4a7\",\"principal_id\":\"464622532012\",\"type\":\"AWSAssumeRole\"},\"type\":\"AWS\"},\"name\":\"Cassette Connection DELETE_ME\"}}}",
+      "body": "{\"data\":{\"id\":\"67aa2f61-266d-48d1-a1ee-cf7c3acc6b20\",\"type\":\"action_connection\",\"attributes\":{\"integration\":{\"credentials\":{\"account_id\":\"123456789123\",\"external_id\":\"70f4660c99684420821b0c13a67eb4d1\",\"principal_id\":\"464622532012\",\"role\":\"MyRoleUpdated\",\"type\":\"AWSAssumeRole\"},\"type\":\"AWS\"},\"name\":\"Cassette Connection testcreateanewactionconnectionreturnssuccessfullycreatedactionconnectionresponse1743020699\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "143d1c35-6301-e638-823f-d266922b4a2b"
+    "id": "04556392-bb7b-98ed-b374-d36633910050"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/actions/connections/db41b6cb-ef93-45bd-9857-548e9474737c",
+      "path": "/api/v2/actions/connections/67aa2f61-266d-48d1-a1ee-cf7c3acc6b20",
       "keepAlive": false,
       "secure": true
     },
@@ -48,6 +48,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "bf4a6792-05b2-4047-13ab-b319f5aac56c"
+    "id": "7561c857-b479-1fb9-a517-18620d730ba3"
   }
 ]
