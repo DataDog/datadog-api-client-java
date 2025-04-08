@@ -28,7 +28,8 @@ import java.util.Objects;
   RetentionFilterAllAttributes.JSON_PROPERTY_MODIFIED_AT,
   RetentionFilterAllAttributes.JSON_PROPERTY_MODIFIED_BY,
   RetentionFilterAllAttributes.JSON_PROPERTY_NAME,
-  RetentionFilterAllAttributes.JSON_PROPERTY_RATE
+  RetentionFilterAllAttributes.JSON_PROPERTY_RATE,
+  RetentionFilterAllAttributes.JSON_PROPERTY_TRACE_RATE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -66,6 +67,9 @@ public class RetentionFilterAllAttributes {
 
   public static final String JSON_PROPERTY_RATE = "rate";
   private Double rate;
+
+  public static final String JSON_PROPERTY_TRACE_RATE = "trace_rate";
+  private Double traceRate;
 
   public RetentionFilterAllAttributes createdAt(Long createdAt) {
     this.createdAt = createdAt;
@@ -304,6 +308,28 @@ public class RetentionFilterAllAttributes {
     this.rate = rate;
   }
 
+  public RetentionFilterAllAttributes traceRate(Double traceRate) {
+    this.traceRate = traceRate;
+    return this;
+  }
+
+  /**
+   * Sample rate to apply to traces containing spans going through this retention filter. A value of
+   * 1.0 keeps all traces with spans matching the query.
+   *
+   * @return traceRate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRACE_RATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getTraceRate() {
+    return traceRate;
+  }
+
+  public void setTraceRate(Double traceRate) {
+    this.traceRate = traceRate;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -371,6 +397,7 @@ public class RetentionFilterAllAttributes {
         && Objects.equals(this.modifiedBy, retentionFilterAllAttributes.modifiedBy)
         && Objects.equals(this.name, retentionFilterAllAttributes.name)
         && Objects.equals(this.rate, retentionFilterAllAttributes.rate)
+        && Objects.equals(this.traceRate, retentionFilterAllAttributes.traceRate)
         && Objects.equals(
             this.additionalProperties, retentionFilterAllAttributes.additionalProperties);
   }
@@ -389,6 +416,7 @@ public class RetentionFilterAllAttributes {
         modifiedBy,
         name,
         rate,
+        traceRate,
         additionalProperties);
   }
 
@@ -407,6 +435,7 @@ public class RetentionFilterAllAttributes {
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
+    sb.append("    traceRate: ").append(toIndentedString(traceRate)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

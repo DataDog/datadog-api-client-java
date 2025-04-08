@@ -23,7 +23,8 @@ import java.util.Objects;
   RetentionFilterCreateAttributes.JSON_PROPERTY_FILTER,
   RetentionFilterCreateAttributes.JSON_PROPERTY_FILTER_TYPE,
   RetentionFilterCreateAttributes.JSON_PROPERTY_NAME,
-  RetentionFilterCreateAttributes.JSON_PROPERTY_RATE
+  RetentionFilterCreateAttributes.JSON_PROPERTY_RATE,
+  RetentionFilterCreateAttributes.JSON_PROPERTY_TRACE_RATE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -43,6 +44,9 @@ public class RetentionFilterCreateAttributes {
 
   public static final String JSON_PROPERTY_RATE = "rate";
   private Double rate;
+
+  public static final String JSON_PROPERTY_TRACE_RATE = "trace_rate";
+  private Double traceRate;
 
   public RetentionFilterCreateAttributes() {}
 
@@ -169,6 +173,28 @@ public class RetentionFilterCreateAttributes {
     this.rate = rate;
   }
 
+  public RetentionFilterCreateAttributes traceRate(Double traceRate) {
+    this.traceRate = traceRate;
+    return this;
+  }
+
+  /**
+   * Sample rate to apply to traces containing spans going through this retention filter. A value of
+   * 1.0 keeps all traces with spans matching the query.
+   *
+   * @return traceRate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRACE_RATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getTraceRate() {
+    return traceRate;
+  }
+
+  public void setTraceRate(Double traceRate) {
+    this.traceRate = traceRate;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -231,13 +257,14 @@ public class RetentionFilterCreateAttributes {
         && Objects.equals(this.filterType, retentionFilterCreateAttributes.filterType)
         && Objects.equals(this.name, retentionFilterCreateAttributes.name)
         && Objects.equals(this.rate, retentionFilterCreateAttributes.rate)
+        && Objects.equals(this.traceRate, retentionFilterCreateAttributes.traceRate)
         && Objects.equals(
             this.additionalProperties, retentionFilterCreateAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, filter, filterType, name, rate, additionalProperties);
+    return Objects.hash(enabled, filter, filterType, name, rate, traceRate, additionalProperties);
   }
 
   @Override
@@ -249,6 +276,7 @@ public class RetentionFilterCreateAttributes {
     sb.append("    filterType: ").append(toIndentedString(filterType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
+    sb.append("    traceRate: ").append(toIndentedString(traceRate)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

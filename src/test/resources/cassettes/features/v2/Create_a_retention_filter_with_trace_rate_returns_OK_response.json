@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"filter_type\":\"spans-sampling-processor\",\"name\":\"my retention filter\",\"rate\":1},\"type\":\"apm_retention_filter\"}}"
+        "json": "{\"data\":{\"attributes\":{\"enabled\":true,\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"filter_type\":\"spans-sampling-processor\",\"name\":\"my retention filter\",\"rate\":1,\"trace_rate\":1},\"type\":\"apm_retention_filter\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"x1aRVkAVQN2CBx1ghs4xDQ\",\"attributes\":{\"name\":\"my retention filter\",\"rate\":1.0,\"trace_rate\":0.0,\"enabled\":true,\"filter_type\":\"spans-sampling-processor\",\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"editable\":true,\"modified_by\":\"frog@datadoghq.com\",\"modified_at\":1744111965,\"created_by\":\"frog@datadoghq.com\",\"created_at\":1744111965},\"type\":\"apm_retention_filter\"}}\n",
+      "body": "{\"data\":{\"id\":\"QAtIbDKzQmCnHSvQde-VWw\",\"attributes\":{\"name\":\"my retention filter\",\"rate\":1.0,\"trace_rate\":1.0,\"enabled\":true,\"filter_type\":\"spans-sampling-processor\",\"filter\":{\"query\":\"@http.status_code:200 service:my-service\"},\"editable\":true,\"modified_by\":\"frog@datadoghq.com\",\"modified_at\":1744111966,\"created_by\":\"frog@datadoghq.com\",\"created_at\":1744111966},\"type\":\"apm_retention_filter\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7a697c95-a508-933d-64da-7d94bc8da12e"
+    "id": "b840b606-a9fb-f591-c658-82fd24902d51"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/apm/config/retention-filters/x1aRVkAVQN2CBx1ghs4xDQ",
+      "path": "/api/v2/apm/config/retention-filters/QAtIbDKzQmCnHSvQde-VWw",
       "keepAlive": false,
       "secure": true
     },
@@ -53,6 +53,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8bfe0723-db60-aef5-b1a3-06ff3861214a"
+    "id": "1ed39428-b559-1943-3aab-87ada02154fc"
   }
 ]
