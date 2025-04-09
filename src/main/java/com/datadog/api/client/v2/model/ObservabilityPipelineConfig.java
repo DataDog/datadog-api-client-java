@@ -33,7 +33,7 @@ public class ObservabilityPipelineConfig {
   private List<ObservabilityPipelineConfigDestinationItem> destinations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PROCESSORS = "processors";
-  private List<ObservabilityPipelineConfigProcessorItem> processors = new ArrayList<>();
+  private List<ObservabilityPipelineConfigProcessorItem> processors = null;
 
   public static final String JSON_PROPERTY_SOURCES = "sources";
   private List<ObservabilityPipelineConfigSourceItem> sources = new ArrayList<>();
@@ -44,12 +44,9 @@ public class ObservabilityPipelineConfig {
   public ObservabilityPipelineConfig(
       @JsonProperty(required = true, value = JSON_PROPERTY_DESTINATIONS)
           List<ObservabilityPipelineConfigDestinationItem> destinations,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PROCESSORS)
-          List<ObservabilityPipelineConfigProcessorItem> processors,
       @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES)
           List<ObservabilityPipelineConfigSourceItem> sources) {
     this.destinations = destinations;
-    this.processors = processors;
     this.sources = sources;
   }
 
@@ -95,6 +92,9 @@ public class ObservabilityPipelineConfig {
 
   public ObservabilityPipelineConfig addProcessorsItem(
       ObservabilityPipelineConfigProcessorItem processorsItem) {
+    if (this.processors == null) {
+      this.processors = new ArrayList<>();
+    }
     this.processors.add(processorsItem);
     this.unparsed |= processorsItem.unparsed;
     return this;
@@ -105,8 +105,9 @@ public class ObservabilityPipelineConfig {
    *
    * @return processors
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSORS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ObservabilityPipelineConfigProcessorItem> getProcessors() {
     return processors;
   }

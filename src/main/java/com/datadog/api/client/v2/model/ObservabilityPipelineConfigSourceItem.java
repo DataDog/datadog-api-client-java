@@ -186,6 +186,101 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
             e);
       }
 
+      // deserialize ObservabilityPipelineFluentSource
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineFluentSource.class.equals(Integer.class)
+            || ObservabilityPipelineFluentSource.class.equals(Long.class)
+            || ObservabilityPipelineFluentSource.class.equals(Float.class)
+            || ObservabilityPipelineFluentSource.class.equals(Double.class)
+            || ObservabilityPipelineFluentSource.class.equals(Boolean.class)
+            || ObservabilityPipelineFluentSource.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineFluentSource.class.equals(Integer.class)
+                        || ObservabilityPipelineFluentSource.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineFluentSource.class.equals(Float.class)
+                        || ObservabilityPipelineFluentSource.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineFluentSource.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineFluentSource.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineFluentSource.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineFluentSource) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineFluentSource'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'ObservabilityPipelineFluentSource'", e);
+      }
+
+      // deserialize ObservabilityPipelineHttpServerSource
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineHttpServerSource.class.equals(Integer.class)
+            || ObservabilityPipelineHttpServerSource.class.equals(Long.class)
+            || ObservabilityPipelineHttpServerSource.class.equals(Float.class)
+            || ObservabilityPipelineHttpServerSource.class.equals(Double.class)
+            || ObservabilityPipelineHttpServerSource.class.equals(Boolean.class)
+            || ObservabilityPipelineHttpServerSource.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineHttpServerSource.class.equals(Integer.class)
+                        || ObservabilityPipelineHttpServerSource.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineHttpServerSource.class.equals(Float.class)
+                        || ObservabilityPipelineHttpServerSource.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineHttpServerSource.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineHttpServerSource.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineHttpServerSource.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineHttpServerSource) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineHttpServerSource'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineHttpServerSource'",
+            e);
+      }
+
       ObservabilityPipelineConfigSourceItem ret = new ObservabilityPipelineConfigSourceItem();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -226,12 +321,28 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineFluentSource o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineHttpServerSource o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "ObservabilityPipelineKafkaSource", new GenericType<ObservabilityPipelineKafkaSource>() {});
     schemas.put(
         "ObservabilityPipelineDatadogAgentSource",
         new GenericType<ObservabilityPipelineDatadogAgentSource>() {});
+    schemas.put(
+        "ObservabilityPipelineFluentSource",
+        new GenericType<ObservabilityPipelineFluentSource>() {});
+    schemas.put(
+        "ObservabilityPipelineHttpServerSource",
+        new GenericType<ObservabilityPipelineHttpServerSource>() {});
     JSON.registerDescendants(
         ObservabilityPipelineConfigSourceItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -244,7 +355,8 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: ObservabilityPipelineKafkaSource,
-   * ObservabilityPipelineDatadogAgentSource
+   * ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineFluentSource,
+   * ObservabilityPipelineHttpServerSource
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -261,6 +373,16 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineFluentSource.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineHttpServerSource.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -268,15 +390,18 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
     }
     throw new RuntimeException(
         "Invalid instance type. Must be ObservabilityPipelineKafkaSource,"
-            + " ObservabilityPipelineDatadogAgentSource");
+            + " ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineFluentSource,"
+            + " ObservabilityPipelineHttpServerSource");
   }
 
   /**
    * Get the actual instance, which can be the following: ObservabilityPipelineKafkaSource,
-   * ObservabilityPipelineDatadogAgentSource
+   * ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineFluentSource,
+   * ObservabilityPipelineHttpServerSource
    *
    * @return The actual instance (ObservabilityPipelineKafkaSource,
-   *     ObservabilityPipelineDatadogAgentSource)
+   *     ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineFluentSource,
+   *     ObservabilityPipelineHttpServerSource)
    */
   @Override
   public Object getActualInstance() {
@@ -305,5 +430,29 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
   public ObservabilityPipelineDatadogAgentSource getObservabilityPipelineDatadogAgentSource()
       throws ClassCastException {
     return (ObservabilityPipelineDatadogAgentSource) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineFluentSource`. If the actual instance is not
+   * `ObservabilityPipelineFluentSource`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineFluentSource`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineFluentSource`
+   */
+  public ObservabilityPipelineFluentSource getObservabilityPipelineFluentSource()
+      throws ClassCastException {
+    return (ObservabilityPipelineFluentSource) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineHttpServerSource`. If the actual instance is
+   * not `ObservabilityPipelineHttpServerSource`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineHttpServerSource`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineHttpServerSource`
+   */
+  public ObservabilityPipelineHttpServerSource getObservabilityPipelineHttpServerSource()
+      throws ClassCastException {
+    return (ObservabilityPipelineHttpServerSource) super.getActualInstance();
   }
 }
