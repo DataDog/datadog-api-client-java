@@ -12,7 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -21,6 +23,7 @@ import java.util.Objects;
   InterfaceAttributes.JSON_PROPERTY_ALIAS,
   InterfaceAttributes.JSON_PROPERTY_DESCRIPTION,
   InterfaceAttributes.JSON_PROPERTY_INDEX,
+  InterfaceAttributes.JSON_PROPERTY_IP_ADDRESSES,
   InterfaceAttributes.JSON_PROPERTY_MAC_ADDRESS,
   InterfaceAttributes.JSON_PROPERTY_NAME,
   InterfaceAttributes.JSON_PROPERTY_STATUS
@@ -37,6 +40,9 @@ public class InterfaceAttributes {
 
   public static final String JSON_PROPERTY_INDEX = "index";
   private Long index;
+
+  public static final String JSON_PROPERTY_IP_ADDRESSES = "ip_addresses";
+  private List<String> ipAddresses = null;
 
   public static final String JSON_PROPERTY_MAC_ADDRESS = "mac_address";
   private String macAddress;
@@ -108,6 +114,35 @@ public class InterfaceAttributes {
 
   public void setIndex(Long index) {
     this.index = index;
+  }
+
+  public InterfaceAttributes ipAddresses(List<String> ipAddresses) {
+    this.ipAddresses = ipAddresses;
+    return this;
+  }
+
+  public InterfaceAttributes addIpAddressesItem(String ipAddressesItem) {
+    if (this.ipAddresses == null) {
+      this.ipAddresses = new ArrayList<>();
+    }
+    this.ipAddresses.add(ipAddressesItem);
+    return this;
+  }
+
+  /**
+   * The interface IP addresses
+   *
+   * @return ipAddresses
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IP_ADDRESSES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIpAddresses() {
+    return ipAddresses;
+  }
+
+  public void setIpAddresses(List<String> ipAddresses) {
+    this.ipAddresses = ipAddresses;
   }
 
   public InterfaceAttributes macAddress(String macAddress) {
@@ -236,6 +271,7 @@ public class InterfaceAttributes {
     return Objects.equals(this.alias, interfaceAttributes.alias)
         && Objects.equals(this.description, interfaceAttributes.description)
         && Objects.equals(this.index, interfaceAttributes.index)
+        && Objects.equals(this.ipAddresses, interfaceAttributes.ipAddresses)
         && Objects.equals(this.macAddress, interfaceAttributes.macAddress)
         && Objects.equals(this.name, interfaceAttributes.name)
         && Objects.equals(this.status, interfaceAttributes.status)
@@ -244,7 +280,8 @@ public class InterfaceAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alias, description, index, macAddress, name, status, additionalProperties);
+    return Objects.hash(
+        alias, description, index, ipAddresses, macAddress, name, status, additionalProperties);
   }
 
   @Override
@@ -254,6 +291,7 @@ public class InterfaceAttributes {
     sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    ipAddresses: ").append(toIndentedString(ipAddresses)).append("\n");
     sb.append("    macAddress: ").append(toIndentedString(macAddress)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
