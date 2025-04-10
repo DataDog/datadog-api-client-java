@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"tags\":[\"app:test-update_a_monitor_notification_rule_returns_ok_response-1744280997\"]},\"name\":\"test rule\",\"recipients\":[\"slack-monitor-app\"]},\"type\":\"monitor-notification-rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/notification_rule",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"monitor-notification-rule\",\"attributes\":{\"name\":\"test rule\",\"recipients\":[\"slack-monitor-app\"],\"modified_at\":\"1970-01-01T00:00:00+00:00\",\"filter\":{\"tags\":[\"app:test-update_a_monitor_notification_rule_returns_ok_response-1744280997\"]},\"created_at\":\"2025-04-10T10:29:57.930349+00:00\"},\"id\":\"da2c8a3b-94ea-49be-a85b-39c5eff99d6a\",\"relationships\":{\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}},\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\",\"created_at\":\"2019-10-02T08:15:39.795051+00:00\",\"modified_at\":\"2025-04-07T20:19:46.118466+00:00\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Active\"}}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a98f8ac4-d010-c01c-7e07-bc74f9c6448f"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"tags\":[\"test:test-update_a_monitor_notification_rule_returns_ok_response-1744280997\",\"host:abc\"]},\"name\":\"updated rule\",\"recipients\":[\"slack-test-channel\"]},\"id\":\"da2c8a3b-94ea-49be-a85b-39c5eff99d6a\",\"type\":\"monitor-notification-rule\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/monitor/notification_rule/da2c8a3b-94ea-49be-a85b-39c5eff99d6a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"monitor-notification-rule\",\"id\":\"da2c8a3b-94ea-49be-a85b-39c5eff99d6a\",\"attributes\":{\"modified_at\":\"2025-04-10T10:29:58.320928+00:00\",\"recipients\":[\"slack-test-channel\"],\"name\":\"updated rule\",\"filter\":{\"tags\":[\"test:test-update_a_monitor_notification_rule_returns_ok_response-1744280997\",\"host:abc\"]},\"created_at\":\"2025-04-10T10:29:57.930349+00:00\"},\"relationships\":{\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}},\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\",\"created_at\":\"2019-10-02T08:15:39.795051+00:00\",\"modified_at\":\"2025-04-07T20:19:46.118466+00:00\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Active\"}}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5d8a915a-d4fb-ca3f-07db-dbf76f88609f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/notification_rule/da2c8a3b-94ea-49be-a85b-39c5eff99d6a",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "730c60e4-fa7f-30e5-8a1a-146641ea7397"
+  }
+]
