@@ -45,12 +45,17 @@ public class Example {
                             .status(SecurityMonitoringRuleSeverity.INFO)
                             .condition("a > 100000")
                             .actions(
-                                Collections.singletonList(
+                                Arrays.asList(
                                     new SecurityMonitoringRuleCaseAction()
                                         .type(SecurityMonitoringRuleCaseActionType.BLOCK_IP)
                                         .options(
                                             new SecurityMonitoringRuleCaseActionOptions()
-                                                .duration(900L))))))
+                                                .duration(900L)),
+                                    new SecurityMonitoringRuleCaseAction()
+                                        .type(SecurityMonitoringRuleCaseActionType.USER_BEHAVIOR)
+                                        .options(
+                                            new SecurityMonitoringRuleCaseActionOptions()
+                                                .userBehaviorName("behavior"))))))
                 .options(
                     new SecurityMonitoringRuleOptions()
                         .keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)

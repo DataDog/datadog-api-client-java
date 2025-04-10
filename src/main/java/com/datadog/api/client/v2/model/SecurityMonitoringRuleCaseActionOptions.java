@@ -17,13 +17,19 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Options for the rule action */
-@JsonPropertyOrder({SecurityMonitoringRuleCaseActionOptions.JSON_PROPERTY_DURATION})
+@JsonPropertyOrder({
+  SecurityMonitoringRuleCaseActionOptions.JSON_PROPERTY_DURATION,
+  SecurityMonitoringRuleCaseActionOptions.JSON_PROPERTY_USER_BEHAVIOR_NAME
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class SecurityMonitoringRuleCaseActionOptions {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DURATION = "duration";
   private Long duration;
+
+  public static final String JSON_PROPERTY_USER_BEHAVIOR_NAME = "userBehaviorName";
+  private String userBehaviorName;
 
   public SecurityMonitoringRuleCaseActionOptions duration(Long duration) {
     this.duration = duration;
@@ -44,6 +50,28 @@ public class SecurityMonitoringRuleCaseActionOptions {
 
   public void setDuration(Long duration) {
     this.duration = duration;
+  }
+
+  public SecurityMonitoringRuleCaseActionOptions userBehaviorName(String userBehaviorName) {
+    this.userBehaviorName = userBehaviorName;
+    return this;
+  }
+
+  /**
+   * Used with the case action of type 'user_behavior'. The value specified in this field is applied
+   * as a risk tag to all users affected by the rule.
+   *
+   * @return userBehaviorName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USER_BEHAVIOR_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUserBehaviorName() {
+    return userBehaviorName;
+  }
+
+  public void setUserBehaviorName(String userBehaviorName) {
+    this.userBehaviorName = userBehaviorName;
   }
 
   /**
@@ -105,13 +133,15 @@ public class SecurityMonitoringRuleCaseActionOptions {
         (SecurityMonitoringRuleCaseActionOptions) o;
     return Objects.equals(this.duration, securityMonitoringRuleCaseActionOptions.duration)
         && Objects.equals(
+            this.userBehaviorName, securityMonitoringRuleCaseActionOptions.userBehaviorName)
+        && Objects.equals(
             this.additionalProperties,
             securityMonitoringRuleCaseActionOptions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(duration, additionalProperties);
+    return Objects.hash(duration, userBehaviorName, additionalProperties);
   }
 
   @Override
@@ -119,6 +149,7 @@ public class SecurityMonitoringRuleCaseActionOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringRuleCaseActionOptions {\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+    sb.append("    userBehaviorName: ").append(toIndentedString(userBehaviorName)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
