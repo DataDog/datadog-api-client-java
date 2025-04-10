@@ -34,6 +34,7 @@ public class SyntheticsStepType extends ModelEnum<String> {
               "assertFromJavascript",
               "assertPageContains",
               "assertPageLacks",
+              "assertRequests",
               "click",
               "extractFromJavascript",
               "extractVariable",
@@ -68,6 +69,7 @@ public class SyntheticsStepType extends ModelEnum<String> {
       new SyntheticsStepType("assertPageContains");
   public static final SyntheticsStepType ASSERT_PAGE_LACKS =
       new SyntheticsStepType("assertPageLacks");
+  public static final SyntheticsStepType ASSERT_REQUESTS = new SyntheticsStepType("assertRequests");
   public static final SyntheticsStepType CLICK = new SyntheticsStepType("click");
   public static final SyntheticsStepType EXTRACT_FROM_JAVASCRIPT =
       new SyntheticsStepType("extractFromJavascript");
