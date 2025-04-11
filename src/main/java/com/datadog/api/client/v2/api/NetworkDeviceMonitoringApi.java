@@ -181,6 +181,22 @@ public class NetworkDeviceMonitoringApi {
         new GenericType<GetDeviceResponse>() {});
   }
 
+  /** Manage optional parameters to getInterfaces. */
+  public static class GetInterfacesOptionalParameters {
+    private Boolean getIpAddresses;
+
+    /**
+     * Set getIpAddresses.
+     *
+     * @param getIpAddresses Whether to get the IP addresses of the interfaces. (optional)
+     * @return GetInterfacesOptionalParameters
+     */
+    public GetInterfacesOptionalParameters getIpAddresses(Boolean getIpAddresses) {
+      this.getIpAddresses = getIpAddresses;
+      return this;
+    }
+  }
+
   /**
    * Get the list of interfaces of the device.
    *
@@ -191,7 +207,7 @@ public class NetworkDeviceMonitoringApi {
    * @throws ApiException if fails to make API call
    */
   public GetInterfacesResponse getInterfaces(String deviceId) throws ApiException {
-    return getInterfacesWithHttpInfo(deviceId).getData();
+    return getInterfacesWithHttpInfo(deviceId, new GetInterfacesOptionalParameters()).getData();
   }
 
   /**
@@ -203,7 +219,40 @@ public class NetworkDeviceMonitoringApi {
    * @return CompletableFuture&lt;GetInterfacesResponse&gt;
    */
   public CompletableFuture<GetInterfacesResponse> getInterfacesAsync(String deviceId) {
-    return getInterfacesWithHttpInfoAsync(deviceId)
+    return getInterfacesWithHttpInfoAsync(deviceId, new GetInterfacesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get the list of interfaces of the device.
+   *
+   * <p>See {@link #getInterfacesWithHttpInfo}.
+   *
+   * @param deviceId The ID of the device to get interfaces from. (required)
+   * @param parameters Optional parameters for the request.
+   * @return GetInterfacesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetInterfacesResponse getInterfaces(
+      String deviceId, GetInterfacesOptionalParameters parameters) throws ApiException {
+    return getInterfacesWithHttpInfo(deviceId, parameters).getData();
+  }
+
+  /**
+   * Get the list of interfaces of the device.
+   *
+   * <p>See {@link #getInterfacesWithHttpInfoAsync}.
+   *
+   * @param deviceId The ID of the device to get interfaces from. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;GetInterfacesResponse&gt;
+   */
+  public CompletableFuture<GetInterfacesResponse> getInterfacesAsync(
+      String deviceId, GetInterfacesOptionalParameters parameters) {
+    return getInterfacesWithHttpInfoAsync(deviceId, parameters)
         .thenApply(
             response -> {
               return response.getData();
@@ -214,6 +263,7 @@ public class NetworkDeviceMonitoringApi {
    * Get the list of interfaces of the device.
    *
    * @param deviceId The ID of the device to get interfaces from. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;GetInterfacesResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -225,8 +275,8 @@ public class NetworkDeviceMonitoringApi {
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<GetInterfacesResponse> getInterfacesWithHttpInfo(String deviceId)
-      throws ApiException {
+  public ApiResponse<GetInterfacesResponse> getInterfacesWithHttpInfo(
+      String deviceId, GetInterfacesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'deviceId' is set
@@ -234,6 +284,7 @@ public class NetworkDeviceMonitoringApi {
       throw new ApiException(
           400, "Missing the required parameter 'deviceId' when calling getInterfaces");
     }
+    Boolean getIpAddresses = parameters.getIpAddresses;
     // create path and map variables
     String localVarPath = "/api/v2/ndm/interfaces";
 
@@ -241,6 +292,7 @@ public class NetworkDeviceMonitoringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "device_id", deviceId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "get_ip_addresses", getIpAddresses));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -268,10 +320,11 @@ public class NetworkDeviceMonitoringApi {
    * <p>See {@link #getInterfacesWithHttpInfo}.
    *
    * @param deviceId The ID of the device to get interfaces from. (required)
+   * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;GetInterfacesResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<GetInterfacesResponse>> getInterfacesWithHttpInfoAsync(
-      String deviceId) {
+      String deviceId, GetInterfacesOptionalParameters parameters) {
     Object localVarPostBody = null;
 
     // verify the required parameter 'deviceId' is set
@@ -282,6 +335,7 @@ public class NetworkDeviceMonitoringApi {
               400, "Missing the required parameter 'deviceId' when calling getInterfaces"));
       return result;
     }
+    Boolean getIpAddresses = parameters.getIpAddresses;
     // create path and map variables
     String localVarPath = "/api/v2/ndm/interfaces";
 
@@ -289,6 +343,7 @@ public class NetworkDeviceMonitoringApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "device_id", deviceId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "get_ip_addresses", getIpAddresses));
 
     Invocation.Builder builder;
     try {
