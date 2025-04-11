@@ -25,12 +25,14 @@ import java.util.Set;
 public class SecurityMonitoringRuleCaseActionType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("block_ip", "block_user"));
+      new HashSet<String>(Arrays.asList("block_ip", "block_user", "user_behavior"));
 
   public static final SecurityMonitoringRuleCaseActionType BLOCK_IP =
       new SecurityMonitoringRuleCaseActionType("block_ip");
   public static final SecurityMonitoringRuleCaseActionType BLOCK_USER =
       new SecurityMonitoringRuleCaseActionType("block_user");
+  public static final SecurityMonitoringRuleCaseActionType USER_BEHAVIOR =
+      new SecurityMonitoringRuleCaseActionType("user_behavior");
 
   SecurityMonitoringRuleCaseActionType(String value) {
     super(value, allowedValues);
