@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"name\":\"Security Incident\"},\"type\":\"incident_types\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"name\":\"fa473c6f81961a61\"},\"type\":\"incident_types\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"dbf7f2e1-8f37-4624-9762-6e744db257aa\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2024-11-04T19:02:22.674338166Z\",\"createdBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modifiedAt\":\"2024-11-04T19:02:22.674338166Z\",\"name\":\"Security Incident\",\"prefix\":\"IR\"}}}",
+      "body": "{\"data\":{\"id\":\"dc0ba7fa-64c9-46bd-a93d-1249070b52b6\",\"type\":\"incident_types\",\"attributes\":{\"createdAt\":\"2025-04-09T20:37:30.487313985Z\",\"createdBy\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"description\":\"Any incidents that harm (or have the potential to) the confidentiality, integrity, or availability of our data.\",\"is_default\":false,\"lastModifiedBy\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"modifiedAt\":\"2025-04-09T20:37:30.487314108Z\",\"name\":\"fa473c6f81961a61\",\"prefix\":\"IR\"},\"relationships\":{\"created_by_user\":{\"data\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"type\":\"users\"}},\"google_meet_configuration\":{\"data\":null},\"last_modified_by_user\":{\"data\":{\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"type\":\"users\"}},\"zoom_configuration\":{\"data\":null}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7bcfec66-5300-9891-51e5-e4d7e0833bd2"
+    "id": "3fd98a16-4d1a-75de-4258-7da6f0430ff3"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/dbf7f2e1-8f37-4624-9762-6e744db257aa",
+      "path": "/api/v2/incidents/config/types/dc0ba7fa-64c9-46bd-a93d-1249070b52b6",
       "keepAlive": false,
       "secure": true
     },
@@ -48,20 +48,25 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ee735fea-f0c7-4690-d419-1605f40650b7"
+    "id": "a0d57de3-e50e-8630-146a-a24f9ccbf1bb"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/incidents/config/types/dbf7f2e1-8f37-4624-9762-6e744db257aa",
+      "path": "/api/v2/incidents/config/types/dc0ba7fa-64c9-46bd-a93d-1249070b52b6",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {},
-      "statusCode": 204,
-      "reasonPhrase": "No Content"
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
     },
     "times": {
       "remainingTimes": 1
@@ -69,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ee735fea-f0c7-4690-d419-1605f40650b8"
+    "id": "a0d57de3-e50e-8630-146a-a24f9ccbf1bc"
   }
 ]
