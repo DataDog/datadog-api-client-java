@@ -90,8 +90,8 @@ public class Undo {
   }
 
   public String getAPIName() {
-    if (undo.tag != null) return Pattern.compile(" ").matcher(undo.tag).replaceAll("");
-    return Pattern.compile(" ").matcher(tag).replaceAll("");
+    if (undo.tag != null) return Pattern.compile("[- ]").matcher(undo.tag).replaceAll("");
+    return Pattern.compile("[- ]").matcher(tag).replaceAll("");
   }
 
   public String getOperationName() {

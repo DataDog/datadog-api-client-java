@@ -118,6 +118,7 @@ public class ClientSteps {
           java.lang.IllegalAccessException,
           java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException {
+    apiName = apiName.replace("-", "");
     world.setupAPI(apiVersion, World.toClassName(apiName));
   }
 
