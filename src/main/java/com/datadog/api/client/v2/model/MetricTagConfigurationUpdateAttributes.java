@@ -20,7 +20,6 @@ import java.util.Objects;
 
 /** Object containing the definition of a metric tag configuration to be updated. */
 @JsonPropertyOrder({
-  MetricTagConfigurationUpdateAttributes.JSON_PROPERTY_AGGREGATIONS,
   MetricTagConfigurationUpdateAttributes.JSON_PROPERTY_EXCLUDE_TAGS_MODE,
   MetricTagConfigurationUpdateAttributes.JSON_PROPERTY_INCLUDE_PERCENTILES,
   MetricTagConfigurationUpdateAttributes.JSON_PROPERTY_TAGS
@@ -29,9 +28,6 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricTagConfigurationUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AGGREGATIONS = "aggregations";
-  private List<MetricCustomAggregation> aggregations = null;
-
   public static final String JSON_PROPERTY_EXCLUDE_TAGS_MODE = "exclude_tags_mode";
   private Boolean excludeTagsMode;
 
@@ -40,59 +36,6 @@ public class MetricTagConfigurationUpdateAttributes {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
-
-  public MetricTagConfigurationUpdateAttributes aggregations(
-      List<MetricCustomAggregation> aggregations) {
-    this.aggregations = aggregations;
-    for (MetricCustomAggregation item : aggregations) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public MetricTagConfigurationUpdateAttributes addAggregationsItem(
-      MetricCustomAggregation aggregationsItem) {
-    if (this.aggregations == null) {
-      this.aggregations = new ArrayList<>();
-    }
-    this.aggregations.add(aggregationsItem);
-    this.unparsed |= aggregationsItem.unparsed;
-    return this;
-  }
-
-  /**
-   * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default,
-   * count and rate metrics require the (time: sum, space: sum) aggregation and Gauge metrics
-   * require the (time: avg, space: avg) aggregation. Additional time &amp; space combinations are
-   * also available:
-   *
-   * <ul>
-   *   <li>time: avg, space: avg
-   *   <li>time: avg, space: max
-   *   <li>time: avg, space: min
-   *   <li>time: avg, space: sum
-   *   <li>time: count, space: sum
-   *   <li>time: max, space: max
-   *   <li>time: min, space: min
-   *   <li>time: sum, space: avg
-   *   <li>time: sum, space: sum
-   * </ul>
-   *
-   * <p>Can only be applied to non_distribution metrics that have a <code>metric_type</code> of
-   * <code>count</code>, <code>rate</code>, or <code>gauge</code>.
-   *
-   * @return aggregations
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<MetricCustomAggregation> getAggregations() {
-    return aggregations;
-  }
-
-  public void setAggregations(List<MetricCustomAggregation> aggregations) {
-    this.aggregations = aggregations;
-  }
 
   public MetricTagConfigurationUpdateAttributes excludeTagsMode(Boolean excludeTagsMode) {
     this.excludeTagsMode = excludeTagsMode;
@@ -225,8 +168,7 @@ public class MetricTagConfigurationUpdateAttributes {
     }
     MetricTagConfigurationUpdateAttributes metricTagConfigurationUpdateAttributes =
         (MetricTagConfigurationUpdateAttributes) o;
-    return Objects.equals(this.aggregations, metricTagConfigurationUpdateAttributes.aggregations)
-        && Objects.equals(
+    return Objects.equals(
             this.excludeTagsMode, metricTagConfigurationUpdateAttributes.excludeTagsMode)
         && Objects.equals(
             this.includePercentiles, metricTagConfigurationUpdateAttributes.includePercentiles)
@@ -237,15 +179,13 @@ public class MetricTagConfigurationUpdateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        aggregations, excludeTagsMode, includePercentiles, tags, additionalProperties);
+    return Objects.hash(excludeTagsMode, includePercentiles, tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricTagConfigurationUpdateAttributes {\n");
-    sb.append("    aggregations: ").append(toIndentedString(aggregations)).append("\n");
     sb.append("    excludeTagsMode: ").append(toIndentedString(excludeTagsMode)).append("\n");
     sb.append("    includePercentiles: ").append(toIndentedString(includePercentiles)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

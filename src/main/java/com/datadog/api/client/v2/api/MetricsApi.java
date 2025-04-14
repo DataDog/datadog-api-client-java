@@ -248,11 +248,10 @@ public class MetricsApi {
 
   /**
    * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution
-   * metric. Optionally, include percentile aggregations on any distribution metric or configure
-   * custom aggregations on any count, rate, or gauge metric. By setting <code>exclude_tags_mode
-   * </code> to true the behavior is changed from an allow-list to a deny-list, and tags in the
-   * defined list will not be queryable. Can only be used with application keys of users with the
-   * <code>Manage Tags for Metrics</code> permission.
+   * metric. Optionally, include percentile aggregations on any distribution metric. By setting
+   * <code>exclude_tags_mode</code> to true the behavior is changed from an allow-list to a
+   * deny-list, and tags in the defined list will not be queryable. Can only be used with
+   * application keys of users with the <code>Manage Tags for Metrics</code> permission.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)
@@ -667,7 +666,6 @@ public class MetricsApi {
   public static class EstimateMetricsOutputSeriesOptionalParameters {
     private String filterGroups;
     private Integer filterHoursAgo;
-    private Integer filterNumAggregations;
     private Boolean filterPct;
     private Integer filterTimespanH;
 
@@ -691,20 +689,6 @@ public class MetricsApi {
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterHoursAgo(Integer filterHoursAgo) {
       this.filterHoursAgo = filterHoursAgo;
-      return this;
-    }
-
-    /**
-     * Set filterNumAggregations.
-     *
-     * @param filterNumAggregations The number of aggregations that a <code>count</code>, <code>rate
-     *     </code>, or <code>gauge</code> metric is configured to use. Max number of aggregation
-     *     combos is 9. (optional)
-     * @return EstimateMetricsOutputSeriesOptionalParameters
-     */
-    public EstimateMetricsOutputSeriesOptionalParameters filterNumAggregations(
-        Integer filterNumAggregations) {
-      this.filterNumAggregations = filterNumAggregations;
       return this;
     }
 
@@ -801,8 +785,8 @@ public class MetricsApi {
   }
 
   /**
-   * Returns the estimated cardinality for a metric with a given tag, percentile and number of
-   * aggregations configuration using Metrics without Limits&trade;.
+   * Returns the estimated cardinality for a metric with a given tag and percentile configuration
+   * using Metrics without Limits&trade;.
    *
    * @param metricName The name of the metric. (required)
    * @param parameters Optional parameters for the request.
@@ -832,7 +816,6 @@ public class MetricsApi {
     }
     String filterGroups = parameters.filterGroups;
     Integer filterHoursAgo = parameters.filterHoursAgo;
-    Integer filterNumAggregations = parameters.filterNumAggregations;
     Boolean filterPct = parameters.filterPct;
     Integer filterTimespanH = parameters.filterTimespanH;
     // create path and map variables
@@ -846,8 +829,6 @@ public class MetricsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[groups]", filterGroups));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[hours_ago]", filterHoursAgo));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[num_aggregations]", filterNumAggregations));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[pct]", filterPct));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[timespan_h]", filterTimespanH));
@@ -898,7 +879,6 @@ public class MetricsApi {
     }
     String filterGroups = parameters.filterGroups;
     Integer filterHoursAgo = parameters.filterHoursAgo;
-    Integer filterNumAggregations = parameters.filterNumAggregations;
     Boolean filterPct = parameters.filterPct;
     Integer filterTimespanH = parameters.filterTimespanH;
     // create path and map variables
@@ -912,8 +892,6 @@ public class MetricsApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[groups]", filterGroups));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[hours_ago]", filterHoursAgo));
-    localVarQueryParams.addAll(
-        apiClient.parameterToPairs("", "filter[num_aggregations]", filterNumAggregations));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[pct]", filterPct));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "filter[timespan_h]", filterTimespanH));
@@ -964,7 +942,7 @@ public class MetricsApi {
   }
 
   /**
-   * List active tags and aggregations.
+   * List active tags.
    *
    * <p>See {@link #listActiveMetricConfigurationsWithHttpInfo}.
    *
@@ -980,7 +958,7 @@ public class MetricsApi {
   }
 
   /**
-   * List active tags and aggregations.
+   * List active tags.
    *
    * <p>See {@link #listActiveMetricConfigurationsWithHttpInfoAsync}.
    *
@@ -998,7 +976,7 @@ public class MetricsApi {
   }
 
   /**
-   * List active tags and aggregations.
+   * List active tags.
    *
    * <p>See {@link #listActiveMetricConfigurationsWithHttpInfo}.
    *
@@ -1014,7 +992,7 @@ public class MetricsApi {
   }
 
   /**
-   * List active tags and aggregations.
+   * List active tags.
    *
    * <p>See {@link #listActiveMetricConfigurationsWithHttpInfoAsync}.
    *
@@ -1033,8 +1011,8 @@ public class MetricsApi {
   }
 
   /**
-   * List tags and aggregations that are actively queried on dashboards, notebooks, monitors, the
-   * Metrics Explorer, and using the API for a given metric name.
+   * List tags that are actively queried on dashboards, notebooks, monitors, the Metrics Explorer,
+   * and using the API for a given metric name.
    *
    * @param metricName The name of the metric. (required)
    * @param parameters Optional parameters for the request.
@@ -1097,7 +1075,7 @@ public class MetricsApi {
   }
 
   /**
-   * List active tags and aggregations.
+   * List active tags.
    *
    * <p>See {@link #listActiveMetricConfigurationsWithHttpInfo}.
    *
@@ -2639,12 +2617,11 @@ public class MetricsApi {
   }
 
   /**
-   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or
-   * custom aggregations of a count, rate, or gauge metric. By setting <code>exclude_tags_mode
-   * </code> to true the behavior is changed from an allow-list to a deny-list, and tags in the
-   * defined list will not be queryable. Can only be used with application keys from users with the
-   * <code>Manage Tags for Metrics</code> permission. This endpoint requires a tag configuration to
-   * be created first.
+   * Update the tag configuration of a metric or percentile aggregations of a distribution metric.
+   * By setting <code>exclude_tags_mode</code> to true the behavior is changed from an allow-list to
+   * a deny-list, and tags in the defined list will not be queryable. Can only be used with
+   * application keys from users with the <code>Manage Tags for Metrics</code> permission. This
+   * endpoint requires a tag configuration to be created first.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)

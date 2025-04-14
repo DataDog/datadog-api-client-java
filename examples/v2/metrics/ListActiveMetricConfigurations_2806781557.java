@@ -1,4 +1,4 @@
-// List active tags returns "Success" response
+// List active tags and aggregations returns "Success" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -12,7 +12,7 @@ public class Example {
 
     try {
       MetricSuggestedTagsAndAggregationsResponse result =
-          apiInstance.listActiveMetricConfigurations("metric_name");
+          apiInstance.listActiveMetricConfigurations("static_test_metric_donotdelete");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#listActiveMetricConfigurations");
