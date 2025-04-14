@@ -158,7 +158,7 @@ public class RetentionFilterUpdateAttributes {
   }
 
   /**
-   * Sample rate to apply to spans going through this retention filter, a value of 1.0 keeps all
+   * Sample rate to apply to spans going through this retention filter. A value of 1.0 keeps all
    * spans matching the query.
    *
    * @return rate
