@@ -7,6 +7,9 @@
       "queryStringParameters": {
         "device_id": [
           "default:1.2.3.4"
+        ],
+        "get_ip_addresses": [
+          "true"
         ]
       },
       "keepAlive": false,
@@ -28,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5a6a117e-682a-544c-1c30-e0f45537c11a"
+    "id": "6c05b199-6e29-df1a-c976-189f432c5396"
   }
 ]
