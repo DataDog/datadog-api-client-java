@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.NetworkDeviceMonitoringApi;
+import com.datadog.api.client.v2.api.NetworkDeviceMonitoringApi.GetInterfacesOptionalParameters;
 import com.datadog.api.client.v2.model.GetInterfacesResponse;
 
 public class Example {
@@ -11,7 +12,9 @@ public class Example {
     NetworkDeviceMonitoringApi apiInstance = new NetworkDeviceMonitoringApi(defaultClient);
 
     try {
-      GetInterfacesResponse result = apiInstance.getInterfaces("default:1.2.3.4");
+      GetInterfacesResponse result =
+          apiInstance.getInterfaces(
+              "default:1.2.3.4", new GetInterfacesOptionalParameters().getIpAddresses(true));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling NetworkDeviceMonitoringApi#getInterfaces");
