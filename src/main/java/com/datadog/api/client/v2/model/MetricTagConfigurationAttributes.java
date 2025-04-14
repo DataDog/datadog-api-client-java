@@ -21,7 +21,6 @@ import java.util.Objects;
 
 /** Object containing the definition of a metric tag configuration attributes. */
 @JsonPropertyOrder({
-  MetricTagConfigurationAttributes.JSON_PROPERTY_AGGREGATIONS,
   MetricTagConfigurationAttributes.JSON_PROPERTY_CREATED_AT,
   MetricTagConfigurationAttributes.JSON_PROPERTY_EXCLUDE_TAGS_MODE,
   MetricTagConfigurationAttributes.JSON_PROPERTY_INCLUDE_PERCENTILES,
@@ -33,9 +32,6 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class MetricTagConfigurationAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AGGREGATIONS = "aggregations";
-  private List<MetricCustomAggregation> aggregations = null;
-
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -53,58 +49,6 @@ public class MetricTagConfigurationAttributes {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
-
-  public MetricTagConfigurationAttributes aggregations(List<MetricCustomAggregation> aggregations) {
-    this.aggregations = aggregations;
-    for (MetricCustomAggregation item : aggregations) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public MetricTagConfigurationAttributes addAggregationsItem(
-      MetricCustomAggregation aggregationsItem) {
-    if (this.aggregations == null) {
-      this.aggregations = new ArrayList<>();
-    }
-    this.aggregations.add(aggregationsItem);
-    this.unparsed |= aggregationsItem.unparsed;
-    return this;
-  }
-
-  /**
-   * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default,
-   * count and rate metrics require the (time: sum, space: sum) aggregation and Gauge metrics
-   * require the (time: avg, space: avg) aggregation. Additional time &amp; space combinations are
-   * also available:
-   *
-   * <ul>
-   *   <li>time: avg, space: avg
-   *   <li>time: avg, space: max
-   *   <li>time: avg, space: min
-   *   <li>time: avg, space: sum
-   *   <li>time: count, space: sum
-   *   <li>time: max, space: max
-   *   <li>time: min, space: min
-   *   <li>time: sum, space: avg
-   *   <li>time: sum, space: sum
-   * </ul>
-   *
-   * <p>Can only be applied to non_distribution metrics that have a <code>metric_type</code> of
-   * <code>count</code>, <code>rate</code>, or <code>gauge</code>.
-   *
-   * @return aggregations
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<MetricCustomAggregation> getAggregations() {
-    return aggregations;
-  }
-
-  public void setAggregations(List<MetricCustomAggregation> aggregations) {
-    this.aggregations = aggregations;
-  }
 
   public MetricTagConfigurationAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
@@ -304,8 +248,7 @@ public class MetricTagConfigurationAttributes {
     }
     MetricTagConfigurationAttributes metricTagConfigurationAttributes =
         (MetricTagConfigurationAttributes) o;
-    return Objects.equals(this.aggregations, metricTagConfigurationAttributes.aggregations)
-        && Objects.equals(this.createdAt, metricTagConfigurationAttributes.createdAt)
+    return Objects.equals(this.createdAt, metricTagConfigurationAttributes.createdAt)
         && Objects.equals(this.excludeTagsMode, metricTagConfigurationAttributes.excludeTagsMode)
         && Objects.equals(
             this.includePercentiles, metricTagConfigurationAttributes.includePercentiles)
@@ -319,7 +262,6 @@ public class MetricTagConfigurationAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        aggregations,
         createdAt,
         excludeTagsMode,
         includePercentiles,
@@ -333,7 +275,6 @@ public class MetricTagConfigurationAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricTagConfigurationAttributes {\n");
-    sb.append("    aggregations: ").append(toIndentedString(aggregations)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    excludeTagsMode: ").append(toIndentedString(excludeTagsMode)).append("\n");
     sb.append("    includePercentiles: ").append(toIndentedString(includePercentiles)).append("\n");
