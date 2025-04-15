@@ -12,10 +12,13 @@ import com.datadog.api.client.v2.model.AzureUCConfigPairsResponse;
 import com.datadog.api.client.v2.model.AzureUCConfigPatchRequest;
 import com.datadog.api.client.v2.model.AzureUCConfigPostRequest;
 import com.datadog.api.client.v2.model.AzureUCConfigsResponse;
+import com.datadog.api.client.v2.model.BudgetArray;
+import com.datadog.api.client.v2.model.BudgetWithEntries;
 import com.datadog.api.client.v2.model.CustomCostsFileGetResponse;
 import com.datadog.api.client.v2.model.CustomCostsFileLineItem;
 import com.datadog.api.client.v2.model.CustomCostsFileListResponse;
 import com.datadog.api.client.v2.model.CustomCostsFileUploadResponse;
+import com.datadog.api.client.v2.model.NotFoundResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -319,6 +322,140 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<AzureUCConfigPairsResponse>() {});
+  }
+
+  /**
+   * Delete a budget.
+   *
+   * <p>See {@link #deleteBudgetWithHttpInfo}.
+   *
+   * @param budgetId Budget id. (required)
+   * @return NotFoundResponse
+   * @throws ApiException if fails to make API call
+   */
+  public NotFoundResponse deleteBudget(String budgetId) throws ApiException {
+    return deleteBudgetWithHttpInfo(budgetId).getData();
+  }
+
+  /**
+   * Delete a budget.
+   *
+   * <p>See {@link #deleteBudgetWithHttpInfoAsync}.
+   *
+   * @param budgetId Budget id. (required)
+   * @return CompletableFuture&lt;NotFoundResponse&gt;
+   */
+  public CompletableFuture<NotFoundResponse> deleteBudgetAsync(String budgetId) {
+    return deleteBudgetWithHttpInfoAsync(budgetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a budget.
+   *
+   * @param budgetId Budget id. (required)
+   * @return ApiResponse&lt;NotFoundResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<NotFoundResponse> deleteBudgetWithHttpInfo(String budgetId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'budgetId' is set
+    if (budgetId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'budgetId' when calling deleteBudget");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/budget/{budget_id}"
+            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.deleteBudget",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotFoundResponse>() {});
+  }
+
+  /**
+   * Delete a budget.
+   *
+   * <p>See {@link #deleteBudgetWithHttpInfo}.
+   *
+   * @param budgetId Budget id. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;NotFoundResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<NotFoundResponse>> deleteBudgetWithHttpInfoAsync(
+      String budgetId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'budgetId' is set
+    if (budgetId == null) {
+      CompletableFuture<ApiResponse<NotFoundResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'budgetId' when calling deleteBudget"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/budget/{budget_id}"
+            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.deleteBudget",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<NotFoundResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<NotFoundResponse>() {});
   }
 
   /**
@@ -736,6 +873,140 @@ public class CloudCostManagementApi {
   }
 
   /**
+   * Get a budget.
+   *
+   * <p>See {@link #getBudgetWithHttpInfo}.
+   *
+   * @param budgetId Budget id. (required)
+   * @return BudgetWithEntries
+   * @throws ApiException if fails to make API call
+   */
+  public BudgetWithEntries getBudget(String budgetId) throws ApiException {
+    return getBudgetWithHttpInfo(budgetId).getData();
+  }
+
+  /**
+   * Get a budget.
+   *
+   * <p>See {@link #getBudgetWithHttpInfoAsync}.
+   *
+   * @param budgetId Budget id. (required)
+   * @return CompletableFuture&lt;BudgetWithEntries&gt;
+   */
+  public CompletableFuture<BudgetWithEntries> getBudgetAsync(String budgetId) {
+    return getBudgetWithHttpInfoAsync(budgetId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a budget.
+   *
+   * @param budgetId Budget id. (required)
+   * @return ApiResponse&lt;BudgetWithEntries&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<BudgetWithEntries> getBudgetWithHttpInfo(String budgetId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'budgetId' is set
+    if (budgetId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'budgetId' when calling getBudget");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/budget/{budget_id}"
+            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.getBudget",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BudgetWithEntries>() {});
+  }
+
+  /**
+   * Get a budget.
+   *
+   * <p>See {@link #getBudgetWithHttpInfo}.
+   *
+   * @param budgetId Budget id. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;BudgetWithEntries&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<BudgetWithEntries>> getBudgetWithHttpInfoAsync(
+      String budgetId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'budgetId' is set
+    if (budgetId == null) {
+      CompletableFuture<ApiResponse<BudgetWithEntries>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'budgetId' when calling getBudget"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/cost/budget/{budget_id}"
+            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.getBudget",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<BudgetWithEntries>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BudgetWithEntries>() {});
+  }
+
+  /**
    * Get Custom Costs file.
    *
    * <p>See {@link #getCustomCostsFileWithHttpInfo}.
@@ -867,6 +1138,114 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CustomCostsFileGetResponse>() {});
+  }
+
+  /**
+   * List budgets.
+   *
+   * <p>See {@link #listBudgetsWithHttpInfo}.
+   *
+   * @return BudgetArray
+   * @throws ApiException if fails to make API call
+   */
+  public BudgetArray listBudgets() throws ApiException {
+    return listBudgetsWithHttpInfo().getData();
+  }
+
+  /**
+   * List budgets.
+   *
+   * <p>See {@link #listBudgetsWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;BudgetArray&gt;
+   */
+  public CompletableFuture<BudgetArray> listBudgetsAsync() {
+    return listBudgetsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List budgets.
+   *
+   * @return ApiResponse&lt;BudgetArray&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<BudgetArray> listBudgetsWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/budgets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.listBudgets",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BudgetArray>() {});
+  }
+
+  /**
+   * List budgets.
+   *
+   * <p>See {@link #listBudgetsWithHttpInfo}.
+   *
+   * @return CompletableFuture&lt;ApiResponse&lt;BudgetArray&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<BudgetArray>> listBudgetsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/budgets";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.listBudgets",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<BudgetArray>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BudgetArray>() {});
   }
 
   /**
@@ -1663,5 +2042,135 @@ public class CloudCostManagementApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<CustomCostsFileUploadResponse>() {});
+  }
+
+  /**
+   * Update if exists, or create a new budget.
+   *
+   * <p>See {@link #upsertBudgetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return BudgetWithEntries
+   * @throws ApiException if fails to make API call
+   */
+  public BudgetWithEntries upsertBudget(BudgetWithEntries body) throws ApiException {
+    return upsertBudgetWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Update if exists, or create a new budget.
+   *
+   * <p>See {@link #upsertBudgetWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;BudgetWithEntries&gt;
+   */
+  public CompletableFuture<BudgetWithEntries> upsertBudgetAsync(BudgetWithEntries body) {
+    return upsertBudgetWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new budget or update an existing one.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;BudgetWithEntries&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<BudgetWithEntries> upsertBudgetWithHttpInfo(BudgetWithEntries body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling upsertBudget");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/budget";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.CloudCostManagementApi.upsertBudget",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BudgetWithEntries>() {});
+  }
+
+  /**
+   * Update if exists, or create a new budget.
+   *
+   * <p>See {@link #upsertBudgetWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;BudgetWithEntries&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<BudgetWithEntries>> upsertBudgetWithHttpInfoAsync(
+      BudgetWithEntries body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<BudgetWithEntries>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling upsertBudget"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cost/budget";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.CloudCostManagementApi.upsertBudget",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<BudgetWithEntries>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<BudgetWithEntries>() {});
   }
 }
