@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"handle-testretrieveacustomframeworkreturnsokresponse1744141484\",\"icon_url\":\"https://example.com/icon-testretrieveacustomframeworkreturnsokresponse1744141484.png\",\"name\":\"Framework-testretrieveacustomframeworkreturnsokresponse1744141484\",\"requirements\":[{\"controls\":[{\"name\":\"Control-testretrieveacustomframeworkreturnsokresponse1744141484\",\"rules_id\":[\"def-000-cea\"]}],\"name\":\"Requirement-testretrieveacustomframeworkreturnsokresponse1744141484\"}],\"version\":\"1.0.testretrieveacustomframeworkreturnsokresponse1744141484\"},\"type\":\"custom_framework\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cloud_security_management/custom_frameworks",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"invalid_argument(Invalid rule configuration)\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "55fe9137-2a4b-0a3e-2474-77322a691505"
+  }
+]

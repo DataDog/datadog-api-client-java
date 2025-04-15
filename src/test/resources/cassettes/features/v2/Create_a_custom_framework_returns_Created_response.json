@@ -1,0 +1,27 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"ponse1744139743\",\"icon_url\":\"\",\"name\":\"ponse1744139743\",\"requirements\":[{\"controls\":[{\"name\":\"ponse1744139743\",\"rules_id\":[\"def-000-cea\"]}],\"name\":\"ponse1744139743\"}],\"version\":\"ponse1744139743\"},\"type\":\"custom_framework\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cloud_security_management/custom_frameworks",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "17969bd2-d309-7a8f-de8c-ddd5c29659b6"
+  }
+]

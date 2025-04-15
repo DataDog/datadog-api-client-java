@@ -1,0 +1,53 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"new-terraform-framework\",\"icon_url\":\"\",\"name\":\"ponse1744226684\",\"requirements\":[{\"controls\":[{\"name\":\"ponse1744226684\",\"rules_id\":[\"def-000-cea\"]}],\"name\":\"ponse1744226684\"}],\"version\":\"4\"},\"type\":\"custom_framework\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cloud_security_management/custom_frameworks",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1c23f4de-1c81-6b0b-d2ff-4d3d5198cf2c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/cloud_security_management/custom_frameworks/%7Bhandle%7D/%7Bversion%7D",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"500\",\"title\":\"Internal Server Error\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 500,
+      "reasonPhrase": "Internal Server Error"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c0df458c-81b1-bf02-08cf-913887126752"
+  }
+]
