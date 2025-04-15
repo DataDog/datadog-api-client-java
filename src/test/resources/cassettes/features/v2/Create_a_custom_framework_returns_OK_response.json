@@ -1,0 +1,31 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"rreb\",\"icon_url\":\"\",\"name\":\"bare\",\"requirements\":[{\"controls\":[{\"name\":\"sdee\",\"rules_id\":[\"tge-nhp-wjz\"]}],\"name\":\"serd\"}],\"version\":\"cr2e\"},\"type\":\"custom_framework\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cloud_security_management/custom_frameworks",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4d904633-0406-79e4-8155-95b48a4edb4a"
+  }
+]
