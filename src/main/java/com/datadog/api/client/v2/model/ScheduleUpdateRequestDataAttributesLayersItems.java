@@ -190,7 +190,7 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
   }
 
   /**
-   * The name for this layer (for example, “Secondary Coverage”).
+   * The name for this layer (for example, "Secondary Coverage").
    *
    * @return name
    */

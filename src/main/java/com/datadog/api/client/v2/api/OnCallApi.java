@@ -4,6 +4,9 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.EscalationPolicy;
+import com.datadog.api.client.v2.model.EscalationPolicyCreateRequest;
+import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequest;
 import com.datadog.api.client.v2.model.Schedule;
 import com.datadog.api.client.v2.model.ScheduleCreateRequest;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequest;
@@ -44,6 +47,209 @@ public class OnCallApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /** Manage optional parameters to createOnCallEscalationPolicy. */
+  public static class CreateOnCallEscalationPolicyOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>teams</code>, <code>steps</code>, <code>steps.targets</code>. (optional)
+     * @return CreateOnCallEscalationPolicyOptionalParameters
+     */
+    public CreateOnCallEscalationPolicyOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Create on call escalation policy.
+   *
+   * <p>See {@link #createOnCallEscalationPolicyWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return EscalationPolicy
+   * @throws ApiException if fails to make API call
+   */
+  public EscalationPolicy createOnCallEscalationPolicy(EscalationPolicyCreateRequest body)
+      throws ApiException {
+    return createOnCallEscalationPolicyWithHttpInfo(
+            body, new CreateOnCallEscalationPolicyOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Create on call escalation policy.
+   *
+   * <p>See {@link #createOnCallEscalationPolicyWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;EscalationPolicy&gt;
+   */
+  public CompletableFuture<EscalationPolicy> createOnCallEscalationPolicyAsync(
+      EscalationPolicyCreateRequest body) {
+    return createOnCallEscalationPolicyWithHttpInfoAsync(
+            body, new CreateOnCallEscalationPolicyOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create on call escalation policy.
+   *
+   * <p>See {@link #createOnCallEscalationPolicyWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return EscalationPolicy
+   * @throws ApiException if fails to make API call
+   */
+  public EscalationPolicy createOnCallEscalationPolicy(
+      EscalationPolicyCreateRequest body, CreateOnCallEscalationPolicyOptionalParameters parameters)
+      throws ApiException {
+    return createOnCallEscalationPolicyWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Create on call escalation policy.
+   *
+   * <p>See {@link #createOnCallEscalationPolicyWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;EscalationPolicy&gt;
+   */
+  public CompletableFuture<EscalationPolicy> createOnCallEscalationPolicyAsync(
+      EscalationPolicyCreateRequest body,
+      CreateOnCallEscalationPolicyOptionalParameters parameters) {
+    return createOnCallEscalationPolicyWithHttpInfoAsync(body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create a new on-call escalation policy
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;EscalationPolicy&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EscalationPolicy> createOnCallEscalationPolicyWithHttpInfo(
+      EscalationPolicyCreateRequest body, CreateOnCallEscalationPolicyOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createOnCallEscalationPolicy");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/on-call/escalation-policies";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.createOnCallEscalationPolicy",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EscalationPolicy>() {});
+  }
+
+  /**
+   * Create on call escalation policy.
+   *
+   * <p>See {@link #createOnCallEscalationPolicyWithHttpInfo}.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;EscalationPolicy&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EscalationPolicy>>
+      createOnCallEscalationPolicyWithHttpInfoAsync(
+          EscalationPolicyCreateRequest body,
+          CreateOnCallEscalationPolicyOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<EscalationPolicy>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling createOnCallEscalationPolicy"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/on-call/escalation-policies";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.createOnCallEscalationPolicy",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<EscalationPolicy>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EscalationPolicy>() {});
   }
 
   /** Manage optional parameters to createOnCallSchedule. */
@@ -243,6 +449,144 @@ public class OnCallApi {
   }
 
   /**
+   * Delete on call escalation policy.
+   *
+   * <p>See {@link #deleteOnCallEscalationPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteOnCallEscalationPolicy(String policyId) throws ApiException {
+    deleteOnCallEscalationPolicyWithHttpInfo(policyId);
+  }
+
+  /**
+   * Delete on call escalation policy.
+   *
+   * <p>See {@link #deleteOnCallEscalationPolicyWithHttpInfoAsync}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteOnCallEscalationPolicyAsync(String policyId) {
+    return deleteOnCallEscalationPolicyWithHttpInfoAsync(policyId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete an on-call escalation policy
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteOnCallEscalationPolicyWithHttpInfo(String policyId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'policyId' when calling deleteOnCallEscalationPolicy");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/escalation-policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.deleteOnCallEscalationPolicy",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete on call escalation policy.
+   *
+   * <p>See {@link #deleteOnCallEscalationPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteOnCallEscalationPolicyWithHttpInfoAsync(
+      String policyId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'policyId' when calling"
+                  + " deleteOnCallEscalationPolicy"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/escalation-policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.deleteOnCallEscalationPolicy",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
    * Delete on-call schedule.
    *
    * <p>See {@link #deleteOnCallScheduleWithHttpInfo}.
@@ -377,6 +721,208 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         null);
+  }
+
+  /** Manage optional parameters to getOnCallEscalationPolicy. */
+  public static class GetOnCallEscalationPolicyOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>teams</code>, <code>steps</code>, <code>steps.targets</code>. (optional)
+     * @return GetOnCallEscalationPolicyOptionalParameters
+     */
+    public GetOnCallEscalationPolicyOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get on call escalation policy.
+   *
+   * <p>See {@link #getOnCallEscalationPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @return EscalationPolicy
+   * @throws ApiException if fails to make API call
+   */
+  public EscalationPolicy getOnCallEscalationPolicy(String policyId) throws ApiException {
+    return getOnCallEscalationPolicyWithHttpInfo(
+            policyId, new GetOnCallEscalationPolicyOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get on call escalation policy.
+   *
+   * <p>See {@link #getOnCallEscalationPolicyWithHttpInfoAsync}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @return CompletableFuture&lt;EscalationPolicy&gt;
+   */
+  public CompletableFuture<EscalationPolicy> getOnCallEscalationPolicyAsync(String policyId) {
+    return getOnCallEscalationPolicyWithHttpInfoAsync(
+            policyId, new GetOnCallEscalationPolicyOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get on call escalation policy.
+   *
+   * <p>See {@link #getOnCallEscalationPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @param parameters Optional parameters for the request.
+   * @return EscalationPolicy
+   * @throws ApiException if fails to make API call
+   */
+  public EscalationPolicy getOnCallEscalationPolicy(
+      String policyId, GetOnCallEscalationPolicyOptionalParameters parameters) throws ApiException {
+    return getOnCallEscalationPolicyWithHttpInfo(policyId, parameters).getData();
+  }
+
+  /**
+   * Get on call escalation policy.
+   *
+   * <p>See {@link #getOnCallEscalationPolicyWithHttpInfoAsync}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;EscalationPolicy&gt;
+   */
+  public CompletableFuture<EscalationPolicy> getOnCallEscalationPolicyAsync(
+      String policyId, GetOnCallEscalationPolicyOptionalParameters parameters) {
+    return getOnCallEscalationPolicyWithHttpInfoAsync(policyId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get an on-call escalation policy
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;EscalationPolicy&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EscalationPolicy> getOnCallEscalationPolicyWithHttpInfo(
+      String policyId, GetOnCallEscalationPolicyOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'policyId' when calling getOnCallEscalationPolicy");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/escalation-policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.getOnCallEscalationPolicy",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EscalationPolicy>() {});
+  }
+
+  /**
+   * Get on call escalation policy.
+   *
+   * <p>See {@link #getOnCallEscalationPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;EscalationPolicy&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EscalationPolicy>>
+      getOnCallEscalationPolicyWithHttpInfoAsync(
+          String policyId, GetOnCallEscalationPolicyOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      CompletableFuture<ApiResponse<EscalationPolicy>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'policyId' when calling getOnCallEscalationPolicy"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/escalation-policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.getOnCallEscalationPolicy",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<EscalationPolicy>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EscalationPolicy>() {});
   }
 
   /** Manage optional parameters to getOnCallSchedule. */
@@ -577,6 +1123,244 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Schedule>() {});
+  }
+
+  /** Manage optional parameters to updateOnCallEscalationPolicy. */
+  public static class UpdateOnCallEscalationPolicyOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>teams</code>, <code>steps</code>, <code>steps.targets</code>. (optional)
+     * @return UpdateOnCallEscalationPolicyOptionalParameters
+     */
+    public UpdateOnCallEscalationPolicyOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Update on call escalation policy.
+   *
+   * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @param body (required)
+   * @return EscalationPolicy
+   * @throws ApiException if fails to make API call
+   */
+  public EscalationPolicy updateOnCallEscalationPolicy(
+      String policyId, EscalationPolicyUpdateRequest body) throws ApiException {
+    return updateOnCallEscalationPolicyWithHttpInfo(
+            policyId, body, new UpdateOnCallEscalationPolicyOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Update on call escalation policy.
+   *
+   * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfoAsync}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;EscalationPolicy&gt;
+   */
+  public CompletableFuture<EscalationPolicy> updateOnCallEscalationPolicyAsync(
+      String policyId, EscalationPolicyUpdateRequest body) {
+    return updateOnCallEscalationPolicyWithHttpInfoAsync(
+            policyId, body, new UpdateOnCallEscalationPolicyOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update on call escalation policy.
+   *
+   * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return EscalationPolicy
+   * @throws ApiException if fails to make API call
+   */
+  public EscalationPolicy updateOnCallEscalationPolicy(
+      String policyId,
+      EscalationPolicyUpdateRequest body,
+      UpdateOnCallEscalationPolicyOptionalParameters parameters)
+      throws ApiException {
+    return updateOnCallEscalationPolicyWithHttpInfo(policyId, body, parameters).getData();
+  }
+
+  /**
+   * Update on call escalation policy.
+   *
+   * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfoAsync}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;EscalationPolicy&gt;
+   */
+  public CompletableFuture<EscalationPolicy> updateOnCallEscalationPolicyAsync(
+      String policyId,
+      EscalationPolicyUpdateRequest body,
+      UpdateOnCallEscalationPolicyOptionalParameters parameters) {
+    return updateOnCallEscalationPolicyWithHttpInfoAsync(policyId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update an on-call escalation policy
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;EscalationPolicy&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EscalationPolicy> updateOnCallEscalationPolicyWithHttpInfo(
+      String policyId,
+      EscalationPolicyUpdateRequest body,
+      UpdateOnCallEscalationPolicyOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'policyId' when calling updateOnCallEscalationPolicy");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateOnCallEscalationPolicy");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/escalation-policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.updateOnCallEscalationPolicy",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EscalationPolicy>() {});
+  }
+
+  /**
+   * Update on call escalation policy.
+   *
+   * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfo}.
+   *
+   * @param policyId The ID of the escalation policy (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;EscalationPolicy&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<EscalationPolicy>>
+      updateOnCallEscalationPolicyWithHttpInfoAsync(
+          String policyId,
+          EscalationPolicyUpdateRequest body,
+          UpdateOnCallEscalationPolicyOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'policyId' is set
+    if (policyId == null) {
+      CompletableFuture<ApiResponse<EscalationPolicy>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'policyId' when calling"
+                  + " updateOnCallEscalationPolicy"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<EscalationPolicy>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling updateOnCallEscalationPolicy"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/escalation-policies/{policy_id}"
+            .replaceAll("\\{" + "policy_id" + "\\}", apiClient.escapeString(policyId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.updateOnCallEscalationPolicy",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<EscalationPolicy>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<EscalationPolicy>() {});
   }
 
   /** Manage optional parameters to updateOnCallSchedule. */
