@@ -30,8 +30,8 @@ public class Example {
     // there is a valid "user" in the system
     String USER_DATA_ID = System.getenv("USER_DATA_ID");
 
-    // there is a valid "team" in the system
-    String TEAM_DATA_ID = System.getenv("TEAM_DATA_ID");
+    // there is a valid "dd_team" in the system
+    String DD_TEAM_DATA_ID = System.getenv("DD_TEAM_DATA_ID");
 
     ScheduleCreateRequest body =
         new ScheduleCreateRequest()
@@ -76,7 +76,7 @@ public class Example {
                                     .data(
                                         Collections.singletonList(
                                             new ScheduleCreateRequestDataRelationshipsTeamsDataItems()
-                                                .id(TEAM_DATA_ID)
+                                                .id(DD_TEAM_DATA_ID)
                                                 .type(
                                                     ScheduleCreateRequestDataRelationshipsTeamsDataItemsType
                                                         .TEAMS)))))
