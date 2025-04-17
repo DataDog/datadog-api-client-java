@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -38,6 +39,15 @@ public class ScheduleData {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ScheduleDataType type = ScheduleDataType.SCHEDULES;
+
+  public ScheduleData() {}
+
+  @JsonCreator
+  public ScheduleData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ScheduleDataType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
   public ScheduleData attributes(ScheduleDataAttributes attributes) {
     this.attributes = attributes;
@@ -115,9 +125,8 @@ public class ScheduleData {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ScheduleDataType getType() {
     return type;
   }

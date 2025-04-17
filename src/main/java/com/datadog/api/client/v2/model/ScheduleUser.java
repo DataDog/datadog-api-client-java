@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -37,6 +38,15 @@ public class ScheduleUser {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ScheduleUserType type = ScheduleUserType.USERS;
+
+  public ScheduleUser() {}
+
+  @JsonCreator
+  public ScheduleUser(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ScheduleUserType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
   public ScheduleUser attributes(ScheduleUserAttributes attributes) {
     this.attributes = attributes;
@@ -92,9 +102,8 @@ public class ScheduleUser {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ScheduleUserType getType() {
     return type;
   }

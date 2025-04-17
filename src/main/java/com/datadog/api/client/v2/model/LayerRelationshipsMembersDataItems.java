@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,6 +36,18 @@ public class LayerRelationshipsMembersDataItems {
   private LayerRelationshipsMembersDataItemsType type =
       LayerRelationshipsMembersDataItemsType.MEMBERS;
 
+  public LayerRelationshipsMembersDataItems() {}
+
+  @JsonCreator
+  public LayerRelationshipsMembersDataItems(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          LayerRelationshipsMembersDataItemsType type) {
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
   public LayerRelationshipsMembersDataItems id(String id) {
     this.id = id;
     return this;
@@ -45,9 +58,8 @@ public class LayerRelationshipsMembersDataItems {
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
@@ -67,9 +79,8 @@ public class LayerRelationshipsMembersDataItems {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LayerRelationshipsMembersDataItemsType getType() {
     return type;
   }
