@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -38,6 +39,15 @@ public class TeamReference {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TeamReferenceType type = TeamReferenceType.TEAMS;
+
+  public TeamReference() {}
+
+  @JsonCreator
+  public TeamReference(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TeamReferenceType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
   public TeamReference attributes(TeamReferenceAttributes attributes) {
     this.attributes = attributes;
@@ -116,9 +126,8 @@ public class TeamReference {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public TeamReferenceType getType() {
     return type;
   }

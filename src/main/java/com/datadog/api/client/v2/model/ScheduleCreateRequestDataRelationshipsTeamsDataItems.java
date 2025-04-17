@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,6 +36,18 @@ public class ScheduleCreateRequestDataRelationshipsTeamsDataItems {
   private ScheduleCreateRequestDataRelationshipsTeamsDataItemsType type =
       ScheduleCreateRequestDataRelationshipsTeamsDataItemsType.TEAMS;
 
+  public ScheduleCreateRequestDataRelationshipsTeamsDataItems() {}
+
+  @JsonCreator
+  public ScheduleCreateRequestDataRelationshipsTeamsDataItems(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ScheduleCreateRequestDataRelationshipsTeamsDataItemsType type) {
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
   public ScheduleCreateRequestDataRelationshipsTeamsDataItems id(String id) {
     this.id = id;
     return this;
@@ -45,9 +58,8 @@ public class ScheduleCreateRequestDataRelationshipsTeamsDataItems {
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
@@ -68,9 +80,8 @@ public class ScheduleCreateRequestDataRelationshipsTeamsDataItems {
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ScheduleCreateRequestDataRelationshipsTeamsDataItemsType getType() {
     return type;
   }

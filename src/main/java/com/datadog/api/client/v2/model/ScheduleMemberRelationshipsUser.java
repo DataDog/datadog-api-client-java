@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,6 +26,16 @@ public class ScheduleMemberRelationshipsUser {
   public static final String JSON_PROPERTY_DATA = "data";
   private ScheduleMemberRelationshipsUserData data;
 
+  public ScheduleMemberRelationshipsUser() {}
+
+  @JsonCreator
+  public ScheduleMemberRelationshipsUser(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          ScheduleMemberRelationshipsUserData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
+
   public ScheduleMemberRelationshipsUser data(ScheduleMemberRelationshipsUserData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
@@ -36,9 +47,8 @@ public class ScheduleMemberRelationshipsUser {
    *
    * @return data
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ScheduleMemberRelationshipsUserData getData() {
     return data;
   }

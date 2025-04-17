@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -50,7 +51,8 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
   private ScheduleUpdateRequestDataAttributesLayersItemsInterval interval;
 
   public static final String JSON_PROPERTY_MEMBERS = "members";
-  private List<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems> members = null;
+  private List<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems> members =
+      new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -60,6 +62,27 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
 
   public static final String JSON_PROPERTY_ROTATION_START = "rotation_start";
   private OffsetDateTime rotationStart;
+
+  public ScheduleUpdateRequestDataAttributesLayersItems() {}
+
+  @JsonCreator
+  public ScheduleUpdateRequestDataAttributesLayersItems(
+      @JsonProperty(required = true, value = JSON_PROPERTY_EFFECTIVE_DATE)
+          OffsetDateTime effectiveDate,
+      @JsonProperty(required = true, value = JSON_PROPERTY_INTERVAL)
+          ScheduleUpdateRequestDataAttributesLayersItemsInterval interval,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MEMBERS)
+          List<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems> members,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ROTATION_START)
+          OffsetDateTime rotationStart) {
+    this.effectiveDate = effectiveDate;
+    this.interval = interval;
+    this.unparsed |= interval.unparsed;
+    this.members = members;
+    this.name = name;
+    this.rotationStart = rotationStart;
+  }
 
   public ScheduleUpdateRequestDataAttributesLayersItems effectiveDate(
       OffsetDateTime effectiveDate) {
@@ -72,9 +95,8 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
    *
    * @return effectiveDate
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EFFECTIVE_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getEffectiveDate() {
     return effectiveDate;
   }
@@ -138,9 +160,8 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
    *
    * @return interval
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ScheduleUpdateRequestDataAttributesLayersItemsInterval getInterval() {
     return interval;
   }
@@ -160,9 +181,6 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
 
   public ScheduleUpdateRequestDataAttributesLayersItems addMembersItem(
       ScheduleUpdateRequestDataAttributesLayersItemsMembersItems membersItem) {
-    if (this.members == null) {
-      this.members = new ArrayList<>();
-    }
     this.members.add(membersItem);
     this.unparsed |= membersItem.unparsed;
     return this;
@@ -173,9 +191,8 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
    *
    * @return members
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MEMBERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<ScheduleUpdateRequestDataAttributesLayersItemsMembersItems> getMembers() {
     return members;
   }
@@ -194,9 +211,8 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
    *
    * @return name
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
@@ -252,9 +268,8 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
    *
    * @return rotationStart
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ROTATION_START)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public OffsetDateTime getRotationStart() {
     return rotationStart;
   }
