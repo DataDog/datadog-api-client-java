@@ -393,6 +393,106 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             e);
       }
 
+      // deserialize ObservabilityPipelineSampleProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineSampleProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineSampleProcessor.class.equals(Long.class)
+            || ObservabilityPipelineSampleProcessor.class.equals(Float.class)
+            || ObservabilityPipelineSampleProcessor.class.equals(Double.class)
+            || ObservabilityPipelineSampleProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineSampleProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineSampleProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineSampleProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineSampleProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineSampleProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineSampleProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineSampleProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineSampleProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineSampleProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineSampleProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineSampleProcessor'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineParseGrokProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineParseGrokProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineParseGrokProcessor.class.equals(Long.class)
+            || ObservabilityPipelineParseGrokProcessor.class.equals(Float.class)
+            || ObservabilityPipelineParseGrokProcessor.class.equals(Double.class)
+            || ObservabilityPipelineParseGrokProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineParseGrokProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineParseGrokProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineParseGrokProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineParseGrokProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineParseGrokProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineParseGrokProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineParseGrokProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineParseGrokProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineParseGrokProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ObservabilityPipelineParseGrokProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineParseGrokProcessor'",
+            e);
+      }
+
       ObservabilityPipelineConfigProcessorItem ret = new ObservabilityPipelineConfigProcessorItem();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -453,6 +553,16 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineSampleProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineParseGrokProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "ObservabilityPipelineFilterProcessor",
@@ -472,6 +582,12 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     schemas.put(
         "ObservabilityPipelineRenameFieldsProcessor",
         new GenericType<ObservabilityPipelineRenameFieldsProcessor>() {});
+    schemas.put(
+        "ObservabilityPipelineSampleProcessor",
+        new GenericType<ObservabilityPipelineSampleProcessor>() {});
+    schemas.put(
+        "ObservabilityPipelineParseGrokProcessor",
+        new GenericType<ObservabilityPipelineParseGrokProcessor>() {});
     JSON.registerDescendants(
         ObservabilityPipelineConfigProcessorItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -486,7 +602,8 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * against the oneOf child schemas: ObservabilityPipelineFilterProcessor,
    * ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineQuotaProcessor,
    * ObservabilityPipelineAddFieldsProcessor, ObservabilityPipelineRemoveFieldsProcessor,
-   * ObservabilityPipelineRenameFieldsProcessor
+   * ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,
+   * ObservabilityPipelineParseGrokProcessor
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -523,6 +640,16 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineSampleProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineParseGrokProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -533,19 +660,22 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             + " ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineQuotaProcessor,"
             + " ObservabilityPipelineAddFieldsProcessor,"
             + " ObservabilityPipelineRemoveFieldsProcessor,"
-            + " ObservabilityPipelineRenameFieldsProcessor");
+            + " ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,"
+            + " ObservabilityPipelineParseGrokProcessor");
   }
 
   /**
    * Get the actual instance, which can be the following: ObservabilityPipelineFilterProcessor,
    * ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineQuotaProcessor,
    * ObservabilityPipelineAddFieldsProcessor, ObservabilityPipelineRemoveFieldsProcessor,
-   * ObservabilityPipelineRenameFieldsProcessor
+   * ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,
+   * ObservabilityPipelineParseGrokProcessor
    *
    * @return The actual instance (ObservabilityPipelineFilterProcessor,
    *     ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineQuotaProcessor,
    *     ObservabilityPipelineAddFieldsProcessor, ObservabilityPipelineRemoveFieldsProcessor,
-   *     ObservabilityPipelineRenameFieldsProcessor)
+   *     ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineSampleProcessor,
+   *     ObservabilityPipelineParseGrokProcessor)
    */
   @Override
   public Object getActualInstance() {
@@ -622,5 +752,29 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
   public ObservabilityPipelineRenameFieldsProcessor getObservabilityPipelineRenameFieldsProcessor()
       throws ClassCastException {
     return (ObservabilityPipelineRenameFieldsProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineSampleProcessor`. If the actual instance is
+   * not `ObservabilityPipelineSampleProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineSampleProcessor`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineSampleProcessor`
+   */
+  public ObservabilityPipelineSampleProcessor getObservabilityPipelineSampleProcessor()
+      throws ClassCastException {
+    return (ObservabilityPipelineSampleProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineParseGrokProcessor`. If the actual instance is
+   * not `ObservabilityPipelineParseGrokProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineParseGrokProcessor`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineParseGrokProcessor`
+   */
+  public ObservabilityPipelineParseGrokProcessor getObservabilityPipelineParseGrokProcessor()
+      throws ClassCastException {
+    return (ObservabilityPipelineParseGrokProcessor) super.getActualInstance();
   }
 }
