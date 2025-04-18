@@ -419,7 +419,6 @@ public class ApiClient {
           put("v2.deleteHistoricalJob", false);
           put("v2.getFinding", false);
           put("v2.getHistoricalJob", false);
-          put("v2.getRuleVersionHistory", false);
           put("v2.getSBOM", false);
           put("v2.listFindings", false);
           put("v2.listHistoricalJobs", false);

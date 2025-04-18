@@ -3229,13 +3229,6 @@ public class SecurityMonitoringApi {
    */
   public ApiResponse<GetRuleVersionHistoryResponse> getRuleVersionHistoryWithHttpInfo(
       String ruleId, GetRuleVersionHistoryOptionalParameters parameters) throws ApiException {
-    // Check if unstable operation is enabled
-    String operationId = "getRuleVersionHistory";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'ruleId' is set
@@ -3288,17 +3281,6 @@ public class SecurityMonitoringApi {
   public CompletableFuture<ApiResponse<GetRuleVersionHistoryResponse>>
       getRuleVersionHistoryWithHttpInfoAsync(
           String ruleId, GetRuleVersionHistoryOptionalParameters parameters) {
-    // Check if unstable operation is enabled
-    String operationId = "getRuleVersionHistory";
-    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      CompletableFuture<ApiResponse<GetRuleVersionHistoryResponse>> result =
-          new CompletableFuture<>();
-      result.completeExceptionally(
-          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
-      return result;
-    }
     Object localVarPostBody = null;
 
     // verify the required parameter 'ruleId' is set
