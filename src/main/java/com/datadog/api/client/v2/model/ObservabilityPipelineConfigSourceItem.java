@@ -186,6 +186,152 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
             e);
       }
 
+      // deserialize ObservabilityPipelineSplunkTcpSource
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineSplunkTcpSource.class.equals(Integer.class)
+            || ObservabilityPipelineSplunkTcpSource.class.equals(Long.class)
+            || ObservabilityPipelineSplunkTcpSource.class.equals(Float.class)
+            || ObservabilityPipelineSplunkTcpSource.class.equals(Double.class)
+            || ObservabilityPipelineSplunkTcpSource.class.equals(Boolean.class)
+            || ObservabilityPipelineSplunkTcpSource.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineSplunkTcpSource.class.equals(Integer.class)
+                        || ObservabilityPipelineSplunkTcpSource.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineSplunkTcpSource.class.equals(Float.class)
+                        || ObservabilityPipelineSplunkTcpSource.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineSplunkTcpSource.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineSplunkTcpSource.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineSplunkTcpSource.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineSplunkTcpSource) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineSplunkTcpSource'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineSplunkTcpSource'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineSplunkHecSource
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineSplunkHecSource.class.equals(Integer.class)
+            || ObservabilityPipelineSplunkHecSource.class.equals(Long.class)
+            || ObservabilityPipelineSplunkHecSource.class.equals(Float.class)
+            || ObservabilityPipelineSplunkHecSource.class.equals(Double.class)
+            || ObservabilityPipelineSplunkHecSource.class.equals(Boolean.class)
+            || ObservabilityPipelineSplunkHecSource.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineSplunkHecSource.class.equals(Integer.class)
+                        || ObservabilityPipelineSplunkHecSource.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineSplunkHecSource.class.equals(Float.class)
+                        || ObservabilityPipelineSplunkHecSource.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineSplunkHecSource.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineSplunkHecSource.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineSplunkHecSource.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineSplunkHecSource) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineSplunkHecSource'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineSplunkHecSource'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineAmazonS3Source
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineAmazonS3Source.class.equals(Integer.class)
+            || ObservabilityPipelineAmazonS3Source.class.equals(Long.class)
+            || ObservabilityPipelineAmazonS3Source.class.equals(Float.class)
+            || ObservabilityPipelineAmazonS3Source.class.equals(Double.class)
+            || ObservabilityPipelineAmazonS3Source.class.equals(Boolean.class)
+            || ObservabilityPipelineAmazonS3Source.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineAmazonS3Source.class.equals(Integer.class)
+                        || ObservabilityPipelineAmazonS3Source.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineAmazonS3Source.class.equals(Float.class)
+                        || ObservabilityPipelineAmazonS3Source.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineAmazonS3Source.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineAmazonS3Source.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineAmazonS3Source.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineAmazonS3Source) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineAmazonS3Source'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineAmazonS3Source'",
+            e);
+      }
+
       ObservabilityPipelineConfigSourceItem ret = new ObservabilityPipelineConfigSourceItem();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -226,12 +372,36 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineSplunkTcpSource o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineSplunkHecSource o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineAmazonS3Source o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "ObservabilityPipelineKafkaSource", new GenericType<ObservabilityPipelineKafkaSource>() {});
     schemas.put(
         "ObservabilityPipelineDatadogAgentSource",
         new GenericType<ObservabilityPipelineDatadogAgentSource>() {});
+    schemas.put(
+        "ObservabilityPipelineSplunkTcpSource",
+        new GenericType<ObservabilityPipelineSplunkTcpSource>() {});
+    schemas.put(
+        "ObservabilityPipelineSplunkHecSource",
+        new GenericType<ObservabilityPipelineSplunkHecSource>() {});
+    schemas.put(
+        "ObservabilityPipelineAmazonS3Source",
+        new GenericType<ObservabilityPipelineAmazonS3Source>() {});
     JSON.registerDescendants(
         ObservabilityPipelineConfigSourceItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -244,7 +414,8 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: ObservabilityPipelineKafkaSource,
-   * ObservabilityPipelineDatadogAgentSource
+   * ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineSplunkTcpSource,
+   * ObservabilityPipelineSplunkHecSource, ObservabilityPipelineAmazonS3Source
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -261,6 +432,21 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineSplunkTcpSource.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineSplunkHecSource.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineAmazonS3Source.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -268,15 +454,18 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
     }
     throw new RuntimeException(
         "Invalid instance type. Must be ObservabilityPipelineKafkaSource,"
-            + " ObservabilityPipelineDatadogAgentSource");
+            + " ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineSplunkTcpSource,"
+            + " ObservabilityPipelineSplunkHecSource, ObservabilityPipelineAmazonS3Source");
   }
 
   /**
    * Get the actual instance, which can be the following: ObservabilityPipelineKafkaSource,
-   * ObservabilityPipelineDatadogAgentSource
+   * ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineSplunkTcpSource,
+   * ObservabilityPipelineSplunkHecSource, ObservabilityPipelineAmazonS3Source
    *
    * @return The actual instance (ObservabilityPipelineKafkaSource,
-   *     ObservabilityPipelineDatadogAgentSource)
+   *     ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineSplunkTcpSource,
+   *     ObservabilityPipelineSplunkHecSource, ObservabilityPipelineAmazonS3Source)
    */
   @Override
   public Object getActualInstance() {
@@ -305,5 +494,41 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
   public ObservabilityPipelineDatadogAgentSource getObservabilityPipelineDatadogAgentSource()
       throws ClassCastException {
     return (ObservabilityPipelineDatadogAgentSource) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineSplunkTcpSource`. If the actual instance is
+   * not `ObservabilityPipelineSplunkTcpSource`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineSplunkTcpSource`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineSplunkTcpSource`
+   */
+  public ObservabilityPipelineSplunkTcpSource getObservabilityPipelineSplunkTcpSource()
+      throws ClassCastException {
+    return (ObservabilityPipelineSplunkTcpSource) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineSplunkHecSource`. If the actual instance is
+   * not `ObservabilityPipelineSplunkHecSource`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineSplunkHecSource`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineSplunkHecSource`
+   */
+  public ObservabilityPipelineSplunkHecSource getObservabilityPipelineSplunkHecSource()
+      throws ClassCastException {
+    return (ObservabilityPipelineSplunkHecSource) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineAmazonS3Source`. If the actual instance is not
+   * `ObservabilityPipelineAmazonS3Source`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineAmazonS3Source`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineAmazonS3Source`
+   */
+  public ObservabilityPipelineAmazonS3Source getObservabilityPipelineAmazonS3Source()
+      throws ClassCastException {
+    return (ObservabilityPipelineAmazonS3Source) super.getActualInstance();
   }
 }
