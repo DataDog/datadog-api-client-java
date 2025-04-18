@@ -3,16 +3,16 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testdeleteacsmthreatsagentrulereturnsokresponse1713895065\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testdeleteacsmthreatsagentrulereturnsokresponse1743517852\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/remote_config/products/cws/agent_rules",
+      "path": "/api/v2/remote_config/products/cws/policy",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"r8q-52h-8r2\",\"type\":\"agent_rule\",\"attributes\":{\"category\":\"Process Activity\",\"creationDate\":1713895065801,\"creator\":{\"name\":\"\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"name\":\"testdeleteacsmthreatsagentrulereturnsokresponse1713895065\",\"updateDate\":1713895065801,\"updater\":{\"name\":\"\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"kqm-fhb-eay\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testdeleteacsmthreatsagentrulereturnsokresponse1743517852\",\"policyVersion\":\"1\",\"priority\":1000000001,\"ruleCount\":226,\"updateDate\":1743517852178,\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,48 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ee0179b3-5d7a-ff9f-fc55-c3742c3922ef"
+    "id": "4f76bbc7-21ec-50b0-bee4-961e511310a1"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testdeleteacsmthreatsagentrulereturnsokresponse1743517852\",\"policy_id\":\"kqm-fhb-eay\",\"product_tags\":[\"security:attack\",\"technique:T1059\"]},\"type\":\"agent_rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/cws/agent_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"pjy-nkm-0wb\",\"type\":\"agent_rule\",\"attributes\":{\"category\":\"Process Activity\",\"creationDate\":1743517852458,\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"name\":\"testdeleteacsmthreatsagentrulereturnsokresponse1743517852\",\"updateDate\":1743517852458,\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1c8f6f2e-7e2a-a819-ee4e-c6a17d759a59"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/r8q-52h-8r2",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/pjy-nkm-0wb",
+      "queryStringParameters": {
+        "policy_id": [
+          "kqm-fhb-eay"
+        ]
+      },
       "keepAlive": false,
       "secure": true
     },
@@ -52,13 +87,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a98fb6b3-1ebb-c73d-4156-6eb0a2fdcab5"
+    "id": "051dd302-ae69-4fc9-b7e1-b2374822608d"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/r8q-52h-8r2",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/pjy-nkm-0wb",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +113,31 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a98fb6b3-1ebb-c73d-4156-6eb0a2fdcab6"
+    "id": "553271fe-77cf-080d-8c01-e84523cfab6b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/kqm-fhb-eay",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "10b0a06a-54fa-48ac-a1f6-9cf4e9e9ef1c"
   }
 ]
