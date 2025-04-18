@@ -1,4 +1,4 @@
-// Create on call escalation policy returns "Created" response
+// Create on-call escalation policy returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -44,7 +44,7 @@ public class Example {
                             .resolvePageOnPolicyEnd(true)
                             .retries(2L)
                             .steps(
-                                Arrays.asList(
+                                Collections.singletonList(
                                     new EscalationPolicyCreateRequestDataAttributesStepsItems()
                                         .assignment(
                                             EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment
@@ -62,18 +62,6 @@ public class Example {
                                                     .type(
                                                         EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType
                                                             .SCHEDULES),
-                                                new EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems()
-                                                    .id(DD_TEAM_DATA_ID)
-                                                    .type(
-                                                        EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType
-                                                            .TEAMS))),
-                                    new EscalationPolicyCreateRequestDataAttributesStepsItems()
-                                        .assignment(
-                                            EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment
-                                                .ROUND_ROBIN)
-                                        .escalateAfterSeconds(3600L)
-                                        .targets(
-                                            Collections.singletonList(
                                                 new EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems()
                                                     .id(DD_TEAM_DATA_ID)
                                                     .type(

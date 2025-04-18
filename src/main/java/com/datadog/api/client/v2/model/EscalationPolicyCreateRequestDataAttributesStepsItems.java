@@ -59,8 +59,7 @@ public class EscalationPolicyCreateRequestDataAttributesStepsItems {
   }
 
   /**
-   * Specifies how this escalation step will assign targets (example <code>default</code> or <code>
-   * round-robin</code>).
+   * Specifies how this escalation step will assign targets (example <code>default</code>).
    *
    * @return assignment
    */
