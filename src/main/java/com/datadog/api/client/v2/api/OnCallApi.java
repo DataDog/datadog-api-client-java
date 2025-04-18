@@ -67,7 +67,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on call escalation policy.
+   * Create on-call escalation policy.
    *
    * <p>See {@link #createOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -83,7 +83,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on call escalation policy.
+   * Create on-call escalation policy.
    *
    * <p>See {@link #createOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -101,7 +101,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on call escalation policy.
+   * Create on-call escalation policy.
    *
    * <p>See {@link #createOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -117,7 +117,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on call escalation policy.
+   * Create on-call escalation policy.
    *
    * <p>See {@link #createOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -193,7 +193,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on call escalation policy.
+   * Create on-call escalation policy.
    *
    * <p>See {@link #createOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -449,7 +449,7 @@ public class OnCallApi {
   }
 
   /**
-   * Delete on call escalation policy.
+   * Delete on-call escalation policy.
    *
    * <p>See {@link #deleteOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -461,7 +461,7 @@ public class OnCallApi {
   }
 
   /**
-   * Delete on call escalation policy.
+   * Delete on-call escalation policy.
    *
    * <p>See {@link #deleteOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -531,7 +531,7 @@ public class OnCallApi {
   }
 
   /**
-   * Delete on call escalation policy.
+   * Delete on-call escalation policy.
    *
    * <p>See {@link #deleteOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -741,7 +741,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on call escalation policy.
+   * Get on-call escalation policy.
    *
    * <p>See {@link #getOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -756,7 +756,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on call escalation policy.
+   * Get on-call escalation policy.
    *
    * <p>See {@link #getOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -773,7 +773,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on call escalation policy.
+   * Get on-call escalation policy.
    *
    * <p>See {@link #getOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -788,7 +788,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on call escalation policy.
+   * Get on-call escalation policy.
    *
    * <p>See {@link #getOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -865,7 +865,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on call escalation policy.
+   * Get on-call escalation policy.
    *
    * <p>See {@link #getOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -1143,7 +1143,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on call escalation policy.
+   * Update on-call escalation policy.
    *
    * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -1160,7 +1160,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on call escalation policy.
+   * Update on-call escalation policy.
    *
    * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -1179,7 +1179,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on call escalation policy.
+   * Update on-call escalation policy.
    *
    * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -1198,7 +1198,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on call escalation policy.
+   * Update on-call escalation policy.
    *
    * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -1289,7 +1289,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on call escalation policy.
+   * Update on-call escalation policy.
    *
    * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfo}.
    *

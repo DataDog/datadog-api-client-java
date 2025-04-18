@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,14 +43,6 @@ public class EscalationPolicyDataAttributes {
   public static final String JSON_PROPERTY_RETRIES = "retries";
   private Long retries;
 
-  public EscalationPolicyDataAttributes() {}
-
-  @JsonCreator
-  public EscalationPolicyDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
-  }
-
   public EscalationPolicyDataAttributes description(String description) {
     this.description = description;
     return this;
@@ -83,8 +74,9 @@ public class EscalationPolicyDataAttributes {
    *
    * @return name
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
     return name;
   }

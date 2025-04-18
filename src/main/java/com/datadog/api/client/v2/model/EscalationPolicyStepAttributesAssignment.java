@@ -18,23 +18,17 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Specifies how this escalation step will assign targets (example <code>default</code> or <code>
- * round-robin</code>).
- */
+/** Specifies how this escalation step will assign targets (example <code>default</code>). */
 @JsonSerialize(
     using =
         EscalationPolicyStepAttributesAssignment.EscalationPolicyStepAttributesAssignmentSerializer
             .class)
 public class EscalationPolicyStepAttributesAssignment extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("default", "round-robin"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("default"));
 
   public static final EscalationPolicyStepAttributesAssignment DEFAULT =
       new EscalationPolicyStepAttributesAssignment("default");
-  public static final EscalationPolicyStepAttributesAssignment ROUND_ROBIN =
-      new EscalationPolicyStepAttributesAssignment("round-robin");
 
   EscalationPolicyStepAttributesAssignment(String value) {
     super(value, allowedValues);

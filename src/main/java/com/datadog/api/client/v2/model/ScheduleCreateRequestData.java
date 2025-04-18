@@ -43,8 +43,12 @@ public class ScheduleCreateRequestData {
 
   @JsonCreator
   public ScheduleCreateRequestData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          ScheduleCreateRequestDataAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ScheduleCreateRequestDataType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -61,9 +65,8 @@ public class ScheduleCreateRequestData {
    *
    * @return attributes
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ScheduleCreateRequestDataAttributes getAttributes() {
     return attributes;
   }
