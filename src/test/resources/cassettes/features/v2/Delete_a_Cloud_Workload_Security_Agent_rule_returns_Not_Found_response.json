@@ -3,12 +3,12 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/abc-123-xyz",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/non-existent-rule-id",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Agent rule not found: agentRuleId=abc-123-xyz)\"]}\n",
+      "body": "{\"errors\":[\"Not found\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "61e04474-6a78-83ac-9581-36cfc11f87f4"
+    "id": "a1e7af54-a2bd-4cd0-da9e-410f5ec68aab"
   }
 ]
