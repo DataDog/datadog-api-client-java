@@ -234,7 +234,7 @@ public class ObservabilityPipelineQuotaProcessor {
   }
 
   /**
-   * Name for identifying the processor.
+   * Name of the quota.
    *
    * @return name
    */
