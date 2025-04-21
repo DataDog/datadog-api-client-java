@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"c06831ee-1140-11f0-9fe5-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"filter-processor\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"id\":\"filter-processor\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"type\":\"filter\"}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
+      "body": "{\"data\":{\"id\":\"d3d686e6-1eaf-11f0-99b0-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"filter-processor\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"id\":\"filter-processor\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"type\":\"filter\"}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ccedcb24-9a42-7cb7-5505-c852f00f431d"
+    "id": "ccedcb24-9a42-7cb7-5505-c852f00f431e"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/c06831ee-1140-11f0-9fe5-da7ad0900002",
+      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/d3d686e6-1eaf-11f0-99b0-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"c06831ee-1140-11f0-9fe5-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"filter-processor\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"id\":\"filter-processor\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"type\":\"filter\"}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
+      "body": "{\"data\":{\"id\":\"d3d686e6-1eaf-11f0-99b0-da7ad0900002\",\"type\":\"pipelines\",\"attributes\":{\"name\":\"Main Observability Pipeline\",\"config\":{\"destinations\":[{\"id\":\"datadog-logs-destination\",\"inputs\":[\"filter-processor\"],\"type\":\"datadog_logs\"}],\"processors\":[{\"id\":\"filter-processor\",\"include\":\"service:my-service\",\"inputs\":[\"datadog-agent-source\"],\"type\":\"filter\"}],\"sources\":[{\"id\":\"datadog-agent-source\",\"type\":\"datadog_agent\"}]}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1b08c3e8-e45d-c983-c7d1-8fa834c00d39"
+    "id": "b119cfcc-d39d-ab0d-9274-dec7b01eaf09"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/c06831ee-1140-11f0-9fe5-da7ad0900002",
+      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines/d3d686e6-1eaf-11f0-99b0-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "157c5e04-ad54-8e72-7615-8bd9095245a7"
+    "id": "60ee8f96-88d9-9041-3bdf-7668d7c3baba"
   }
 ]

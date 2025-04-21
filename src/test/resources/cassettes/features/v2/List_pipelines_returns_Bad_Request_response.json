@@ -1,0 +1,33 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/remote_config/products/obs_pipelines/pipelines",
+      "queryStringParameters": {
+        "page[size]": [
+          "0"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"page[size] must be a number between 1 and 50\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "986c80b1-2bab-98f5-4c61-f0c3e4c7fb8c"
+  }
+]
