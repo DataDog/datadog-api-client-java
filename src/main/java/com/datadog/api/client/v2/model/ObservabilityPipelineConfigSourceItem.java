@@ -186,6 +186,151 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
             e);
       }
 
+      // deserialize ObservabilityPipelineSumoLogicSource
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineSumoLogicSource.class.equals(Integer.class)
+            || ObservabilityPipelineSumoLogicSource.class.equals(Long.class)
+            || ObservabilityPipelineSumoLogicSource.class.equals(Float.class)
+            || ObservabilityPipelineSumoLogicSource.class.equals(Double.class)
+            || ObservabilityPipelineSumoLogicSource.class.equals(Boolean.class)
+            || ObservabilityPipelineSumoLogicSource.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineSumoLogicSource.class.equals(Integer.class)
+                        || ObservabilityPipelineSumoLogicSource.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineSumoLogicSource.class.equals(Float.class)
+                        || ObservabilityPipelineSumoLogicSource.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineSumoLogicSource.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineSumoLogicSource.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineSumoLogicSource.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineSumoLogicSource) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineSumoLogicSource'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineSumoLogicSource'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineRsyslogSource
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineRsyslogSource.class.equals(Integer.class)
+            || ObservabilityPipelineRsyslogSource.class.equals(Long.class)
+            || ObservabilityPipelineRsyslogSource.class.equals(Float.class)
+            || ObservabilityPipelineRsyslogSource.class.equals(Double.class)
+            || ObservabilityPipelineRsyslogSource.class.equals(Boolean.class)
+            || ObservabilityPipelineRsyslogSource.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineRsyslogSource.class.equals(Integer.class)
+                        || ObservabilityPipelineRsyslogSource.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineRsyslogSource.class.equals(Float.class)
+                        || ObservabilityPipelineRsyslogSource.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineRsyslogSource.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineRsyslogSource.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineRsyslogSource.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineRsyslogSource) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineRsyslogSource'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineRsyslogSource'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineSyslogNgSource
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineSyslogNgSource.class.equals(Integer.class)
+            || ObservabilityPipelineSyslogNgSource.class.equals(Long.class)
+            || ObservabilityPipelineSyslogNgSource.class.equals(Float.class)
+            || ObservabilityPipelineSyslogNgSource.class.equals(Double.class)
+            || ObservabilityPipelineSyslogNgSource.class.equals(Boolean.class)
+            || ObservabilityPipelineSyslogNgSource.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineSyslogNgSource.class.equals(Integer.class)
+                        || ObservabilityPipelineSyslogNgSource.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineSyslogNgSource.class.equals(Float.class)
+                        || ObservabilityPipelineSyslogNgSource.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineSyslogNgSource.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineSyslogNgSource.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineSyslogNgSource.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineSyslogNgSource) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineSyslogNgSource'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineSyslogNgSource'",
+            e);
+      }
+
       ObservabilityPipelineConfigSourceItem ret = new ObservabilityPipelineConfigSourceItem();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -226,12 +371,36 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineSumoLogicSource o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineRsyslogSource o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigSourceItem(ObservabilityPipelineSyslogNgSource o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "ObservabilityPipelineKafkaSource", new GenericType<ObservabilityPipelineKafkaSource>() {});
     schemas.put(
         "ObservabilityPipelineDatadogAgentSource",
         new GenericType<ObservabilityPipelineDatadogAgentSource>() {});
+    schemas.put(
+        "ObservabilityPipelineSumoLogicSource",
+        new GenericType<ObservabilityPipelineSumoLogicSource>() {});
+    schemas.put(
+        "ObservabilityPipelineRsyslogSource",
+        new GenericType<ObservabilityPipelineRsyslogSource>() {});
+    schemas.put(
+        "ObservabilityPipelineSyslogNgSource",
+        new GenericType<ObservabilityPipelineSyslogNgSource>() {});
     JSON.registerDescendants(
         ObservabilityPipelineConfigSourceItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -244,7 +413,8 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: ObservabilityPipelineKafkaSource,
-   * ObservabilityPipelineDatadogAgentSource
+   * ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineSumoLogicSource,
+   * ObservabilityPipelineRsyslogSource, ObservabilityPipelineSyslogNgSource
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -261,6 +431,21 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineSumoLogicSource.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineRsyslogSource.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineSyslogNgSource.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -268,15 +453,18 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
     }
     throw new RuntimeException(
         "Invalid instance type. Must be ObservabilityPipelineKafkaSource,"
-            + " ObservabilityPipelineDatadogAgentSource");
+            + " ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineSumoLogicSource,"
+            + " ObservabilityPipelineRsyslogSource, ObservabilityPipelineSyslogNgSource");
   }
 
   /**
    * Get the actual instance, which can be the following: ObservabilityPipelineKafkaSource,
-   * ObservabilityPipelineDatadogAgentSource
+   * ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineSumoLogicSource,
+   * ObservabilityPipelineRsyslogSource, ObservabilityPipelineSyslogNgSource
    *
    * @return The actual instance (ObservabilityPipelineKafkaSource,
-   *     ObservabilityPipelineDatadogAgentSource)
+   *     ObservabilityPipelineDatadogAgentSource, ObservabilityPipelineSumoLogicSource,
+   *     ObservabilityPipelineRsyslogSource, ObservabilityPipelineSyslogNgSource)
    */
   @Override
   public Object getActualInstance() {
@@ -305,5 +493,41 @@ public class ObservabilityPipelineConfigSourceItem extends AbstractOpenApiSchema
   public ObservabilityPipelineDatadogAgentSource getObservabilityPipelineDatadogAgentSource()
       throws ClassCastException {
     return (ObservabilityPipelineDatadogAgentSource) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineSumoLogicSource`. If the actual instance is
+   * not `ObservabilityPipelineSumoLogicSource`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineSumoLogicSource`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineSumoLogicSource`
+   */
+  public ObservabilityPipelineSumoLogicSource getObservabilityPipelineSumoLogicSource()
+      throws ClassCastException {
+    return (ObservabilityPipelineSumoLogicSource) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineRsyslogSource`. If the actual instance is not
+   * `ObservabilityPipelineRsyslogSource`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineRsyslogSource`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineRsyslogSource`
+   */
+  public ObservabilityPipelineRsyslogSource getObservabilityPipelineRsyslogSource()
+      throws ClassCastException {
+    return (ObservabilityPipelineRsyslogSource) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineSyslogNgSource`. If the actual instance is not
+   * `ObservabilityPipelineSyslogNgSource`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineSyslogNgSource`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineSyslogNgSource`
+   */
+  public ObservabilityPipelineSyslogNgSource getObservabilityPipelineSyslogNgSource()
+      throws ClassCastException {
+    return (ObservabilityPipelineSyslogNgSource) super.getActualInstance();
   }
 }
