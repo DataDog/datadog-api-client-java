@@ -26,6 +26,7 @@ import java.util.Objects;
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_CLOUD_RUN_REVISION_FILTERS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_HOST_FILTERS,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_CSPM_ENABLED,
+  GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_PER_PROJECT_QUOTA_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_RESOURCE_CHANGE_COLLECTION_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_IS_SECURITY_COMMAND_CENTER_ENABLED,
   GCPSTSServiceAccountAttributes.JSON_PROPERTY_METRIC_NAMESPACE_CONFIGS,
@@ -53,6 +54,10 @@ public class GCPSTSServiceAccountAttributes {
 
   public static final String JSON_PROPERTY_IS_CSPM_ENABLED = "is_cspm_enabled";
   private Boolean isCspmEnabled;
+
+  public static final String JSON_PROPERTY_IS_PER_PROJECT_QUOTA_ENABLED =
+      "is_per_project_quota_enabled";
+  private Boolean isPerProjectQuotaEnabled = false;
 
   public static final String JSON_PROPERTY_IS_RESOURCE_CHANGE_COLLECTION_ENABLED =
       "is_resource_change_collection_enabled";
@@ -223,6 +228,29 @@ public class GCPSTSServiceAccountAttributes {
     this.isCspmEnabled = isCspmEnabled;
   }
 
+  public GCPSTSServiceAccountAttributes isPerProjectQuotaEnabled(Boolean isPerProjectQuotaEnabled) {
+    this.isPerProjectQuotaEnabled = isPerProjectQuotaEnabled;
+    return this;
+  }
+
+  /**
+   * When enabled, Datadog applies the <code>X-Goog-User-Project</code> header, attributing Google
+   * Cloud billing and quota usage to the project being monitored rather than the default service
+   * account project.
+   *
+   * @return isPerProjectQuotaEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_PER_PROJECT_QUOTA_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsPerProjectQuotaEnabled() {
+    return isPerProjectQuotaEnabled;
+  }
+
+  public void setIsPerProjectQuotaEnabled(Boolean isPerProjectQuotaEnabled) {
+    this.isPerProjectQuotaEnabled = isPerProjectQuotaEnabled;
+  }
+
   public GCPSTSServiceAccountAttributes isResourceChangeCollectionEnabled(
       Boolean isResourceChangeCollectionEnabled) {
     this.isResourceChangeCollectionEnabled = isResourceChangeCollectionEnabled;
@@ -390,6 +418,8 @@ public class GCPSTSServiceAccountAttributes {
         && Objects.equals(this.hostFilters, gcpstsServiceAccountAttributes.hostFilters)
         && Objects.equals(this.isCspmEnabled, gcpstsServiceAccountAttributes.isCspmEnabled)
         && Objects.equals(
+            this.isPerProjectQuotaEnabled, gcpstsServiceAccountAttributes.isPerProjectQuotaEnabled)
+        && Objects.equals(
             this.isResourceChangeCollectionEnabled,
             gcpstsServiceAccountAttributes.isResourceChangeCollectionEnabled)
         && Objects.equals(
@@ -413,6 +443,7 @@ public class GCPSTSServiceAccountAttributes {
         cloudRunRevisionFilters,
         hostFilters,
         isCspmEnabled,
+        isPerProjectQuotaEnabled,
         isResourceChangeCollectionEnabled,
         isSecurityCommandCenterEnabled,
         metricNamespaceConfigs,
@@ -432,6 +463,9 @@ public class GCPSTSServiceAccountAttributes {
         .append("\n");
     sb.append("    hostFilters: ").append(toIndentedString(hostFilters)).append("\n");
     sb.append("    isCspmEnabled: ").append(toIndentedString(isCspmEnabled)).append("\n");
+    sb.append("    isPerProjectQuotaEnabled: ")
+        .append(toIndentedString(isPerProjectQuotaEnabled))
+        .append("\n");
     sb.append("    isResourceChangeCollectionEnabled: ")
         .append(toIndentedString(isResourceChangeCollectionEnabled))
         .append("\n");
