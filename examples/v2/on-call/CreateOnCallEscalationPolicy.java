@@ -1,4 +1,4 @@
-// Create on call escalation policy returns "Created" response
+// Create on-call escalation policy returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
