@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Create_on_call_schedule_returns_Created_response-1744783236@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Create_on_call_schedule_returns_Created_response-1745462967@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"users\",\"id\":\"1e3c9def-1a88-11f0-9652-d6bc07db26a7\",\"attributes\":{\"name\":null,\"handle\":\"test-create_on_call_schedule_returns_created_response-1744783236@datadoghq.com\",\"created_at\":\"2025-04-16T06:00:37.364925+00:00\",\"modified_at\":\"2025-04-16T06:00:37.364925+00:00\",\"email\":\"test-create_on_call_schedule_returns_created_response-1744783236@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/549c982027f39726928c2daf578cd7a3?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"bd4b5c17-20b6-11f0-9b89-56a869ed3f0e\",\"attributes\":{\"name\":null,\"handle\":\"test-create_on_call_schedule_returns_created_response-1745462967@datadoghq.com\",\"created_at\":\"2025-04-24T02:49:28.045501+00:00\",\"modified_at\":\"2025-04-24T02:49:28.045501+00:00\",\"email\":\"test-create_on_call_schedule_returns_created_response-1745462967@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/774508323ca0432fa93ee1fdf7111c87?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d359adb6-cad3-d4dc-6365-e570e3f89300"
+    "id": "8bfe4249-ed75-2ef7-6133-6d6290fbab1a"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-fffd709aba6bf7b6\",\"name\":\"test-name-fffd709aba6bf7b6\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-3bb36357ae7d207e\",\"name\":\"test-name-3bb36357ae7d207e\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"bd265b58-a132-468b-b972-f8d35af45c94\",\"attributes\":{\"name\":\"test-name-fffd709aba6bf7b6\",\"handle\":\"test-handle-fffd709aba6bf7b6\",\"summary\":null,\"description\":null,\"avatar\":null,\"banner\":0,\"visible_modules\":[],\"hidden_modules\":[],\"created_at\":\"2025-04-16T06:00:38.271363+00:00\",\"modified_at\":\"2025-04-16T06:00:38.271369+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/bd265b58-a132-468b-b972-f8d35af45c94/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/bd265b58-a132-468b-b972-f8d35af45c94/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"04f134fc-d975-4111-825d-5447611962c3\",\"attributes\":{\"name\":\"test-name-3bb36357ae7d207e\",\"handle\":\"test-handle-3bb36357ae7d207e\",\"summary\":null,\"description\":null,\"avatar\":null,\"banner\":0,\"visible_modules\":[],\"hidden_modules\":[],\"created_at\":\"2025-04-24T02:49:28.946742+00:00\",\"modified_at\":\"2025-04-24T02:49:28.946751+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/04f134fc-d975-4111-825d-5447611962c3/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/04f134fc-d975-4111-825d-5447611962c3/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a4bf79c5-485c-69f9-0e75-a502b869779e"
+    "id": "b3f6b7ed-e9d6-8ba8-f5c3-4b4a0753128a"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-04-06T06:00:36.600Z\",\"end_date\":\"2025-04-26T06:00:36.600Z\",\"interval\":{\"days\":1},\"members\":[{\"user\":{\"id\":\"1e3c9def-1a88-11f0-9652-d6bc07db26a7\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-04-11T06:00:36.600Z\"}],\"name\":\"Test-Create_on_call_schedule_returns_Created_response-1744783236\",\"tags\":[\"tag1\",\"tag2\"],\"time_zone\":\"America/New_York\"},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"bd265b58-a132-468b-b972-f8d35af45c94\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
+        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-04-14T02:49:27.251Z\",\"end_date\":\"2025-05-04T02:49:27.251Z\",\"interval\":{\"days\":1},\"members\":[{\"user\":{\"id\":\"bd4b5c17-20b6-11f0-9b89-56a869ed3f0e\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-04-19T02:49:27.251Z\"}],\"name\":\"Test-Create_on_call_schedule_returns_Created_response-1745462967\",\"tags\":[\"tag1\",\"tag2\"],\"time_zone\":\"America/New_York\"},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"04f134fc-d975-4111-825d-5447611962c3\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -72,7 +72,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"fc047920-3b71-40a5-b601-f53b5f9c93ec\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Create_on_call_schedule_returns_Created_response-1744783236\",\"tags\":[\"tag1\",\"tag2\"],\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"8ed3b446-7e0b-4813-96d6-0bec0fedb71f\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"bd265b58-a132-468b-b972-f8d35af45c94\",\"type\":\"teams\"}]}}}}",
+      "body": "{\"data\":{\"id\":\"123b1c19-c34b-45b6-9c33-41f9e4dda1dd\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Create_on_call_schedule_returns_Created_response-1745462967\",\"tags\":[\"tag1\",\"tag2\"],\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"ed1f2d1b-726e-4a53-b54e-1c6bf2b5901e\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"04f134fc-d975-4111-825d-5447611962c3\",\"type\":\"teams\"}]}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -87,13 +87,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1d89b356-e73c-dd9f-6213-a396fb57cae5"
+    "id": "5d36fd19-bd5b-7b5b-d2d2-8a308c3ddcef"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/on-call/schedules/fc047920-3b71-40a5-b601-f53b5f9c93ec",
+      "path": "/api/v2/on-call/schedules/123b1c19-c34b-45b6-9c33-41f9e4dda1dd",
       "keepAlive": false,
       "secure": true
     },
@@ -108,13 +108,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e6e51eb4-887e-64a9-7d3c-a2c07f256df4"
+    "id": "435783fa-7c9f-d8fc-e35a-7ee2254b539d"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/bd265b58-a132-468b-b972-f8d35af45c94",
+      "path": "/api/v2/team/04f134fc-d975-4111-825d-5447611962c3",
       "keepAlive": false,
       "secure": true
     },
@@ -129,13 +129,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e92ee00d-b461-dde7-6103-167e77a62308"
+    "id": "702b6332-87fd-9ca4-33d1-fa57fd3295cc"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/users/1e3c9def-1a88-11f0-9652-d6bc07db26a7",
+      "path": "/api/v2/users/bd4b5c17-20b6-11f0-9b89-56a869ed3f0e",
       "keepAlive": false,
       "secure": true
     },
@@ -150,6 +150,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d6ceafae-1c80-0368-66c5-6cb876d4f4de"
+    "id": "a32ba13a-c060-2260-9b05-5b2dd0537844"
   }
 ]
