@@ -393,6 +393,309 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             e);
       }
 
+      // deserialize ObservabilityPipelineOcsfMapperProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineOcsfMapperProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineOcsfMapperProcessor.class.equals(Long.class)
+            || ObservabilityPipelineOcsfMapperProcessor.class.equals(Float.class)
+            || ObservabilityPipelineOcsfMapperProcessor.class.equals(Double.class)
+            || ObservabilityPipelineOcsfMapperProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineOcsfMapperProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineOcsfMapperProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineOcsfMapperProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineOcsfMapperProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineOcsfMapperProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineOcsfMapperProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineOcsfMapperProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineOcsfMapperProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineOcsfMapperProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ObservabilityPipelineOcsfMapperProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineOcsfMapperProcessor'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineAddEnvVarsProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineAddEnvVarsProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineAddEnvVarsProcessor.class.equals(Long.class)
+            || ObservabilityPipelineAddEnvVarsProcessor.class.equals(Float.class)
+            || ObservabilityPipelineAddEnvVarsProcessor.class.equals(Double.class)
+            || ObservabilityPipelineAddEnvVarsProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineAddEnvVarsProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineAddEnvVarsProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineAddEnvVarsProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineAddEnvVarsProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineAddEnvVarsProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineAddEnvVarsProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineAddEnvVarsProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineAddEnvVarsProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineAddEnvVarsProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ObservabilityPipelineAddEnvVarsProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineAddEnvVarsProcessor'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineDedupeProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineDedupeProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineDedupeProcessor.class.equals(Long.class)
+            || ObservabilityPipelineDedupeProcessor.class.equals(Float.class)
+            || ObservabilityPipelineDedupeProcessor.class.equals(Double.class)
+            || ObservabilityPipelineDedupeProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineDedupeProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineDedupeProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineDedupeProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineDedupeProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineDedupeProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineDedupeProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineDedupeProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineDedupeProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineDedupeProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineDedupeProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineDedupeProcessor'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineEnrichmentTableProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineEnrichmentTableProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineEnrichmentTableProcessor.class.equals(Long.class)
+            || ObservabilityPipelineEnrichmentTableProcessor.class.equals(Float.class)
+            || ObservabilityPipelineEnrichmentTableProcessor.class.equals(Double.class)
+            || ObservabilityPipelineEnrichmentTableProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineEnrichmentTableProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineEnrichmentTableProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineEnrichmentTableProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineEnrichmentTableProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineEnrichmentTableProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineEnrichmentTableProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineEnrichmentTableProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineEnrichmentTableProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineEnrichmentTableProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'ObservabilityPipelineEnrichmentTableProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineEnrichmentTableProcessor'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineReduceProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineReduceProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineReduceProcessor.class.equals(Long.class)
+            || ObservabilityPipelineReduceProcessor.class.equals(Float.class)
+            || ObservabilityPipelineReduceProcessor.class.equals(Double.class)
+            || ObservabilityPipelineReduceProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineReduceProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineReduceProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineReduceProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineReduceProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineReduceProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineReduceProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineReduceProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(ObservabilityPipelineReduceProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineReduceProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'ObservabilityPipelineReduceProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineReduceProcessor'",
+            e);
+      }
+
+      // deserialize ObservabilityPipelineThrottleProcessor
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ObservabilityPipelineThrottleProcessor.class.equals(Integer.class)
+            || ObservabilityPipelineThrottleProcessor.class.equals(Long.class)
+            || ObservabilityPipelineThrottleProcessor.class.equals(Float.class)
+            || ObservabilityPipelineThrottleProcessor.class.equals(Double.class)
+            || ObservabilityPipelineThrottleProcessor.class.equals(Boolean.class)
+            || ObservabilityPipelineThrottleProcessor.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ObservabilityPipelineThrottleProcessor.class.equals(Integer.class)
+                        || ObservabilityPipelineThrottleProcessor.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ObservabilityPipelineThrottleProcessor.class.equals(Float.class)
+                        || ObservabilityPipelineThrottleProcessor.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ObservabilityPipelineThrottleProcessor.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ObservabilityPipelineThrottleProcessor.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(ObservabilityPipelineThrottleProcessor.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((ObservabilityPipelineThrottleProcessor) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'ObservabilityPipelineThrottleProcessor'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'ObservabilityPipelineThrottleProcessor'",
+            e);
+      }
+
       ObservabilityPipelineConfigProcessorItem ret = new ObservabilityPipelineConfigProcessorItem();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -453,6 +756,36 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     setActualInstance(o);
   }
 
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineOcsfMapperProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineAddEnvVarsProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineDedupeProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineEnrichmentTableProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineReduceProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
+  public ObservabilityPipelineConfigProcessorItem(ObservabilityPipelineThrottleProcessor o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "ObservabilityPipelineFilterProcessor",
@@ -472,6 +805,24 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
     schemas.put(
         "ObservabilityPipelineRenameFieldsProcessor",
         new GenericType<ObservabilityPipelineRenameFieldsProcessor>() {});
+    schemas.put(
+        "ObservabilityPipelineOcsfMapperProcessor",
+        new GenericType<ObservabilityPipelineOcsfMapperProcessor>() {});
+    schemas.put(
+        "ObservabilityPipelineAddEnvVarsProcessor",
+        new GenericType<ObservabilityPipelineAddEnvVarsProcessor>() {});
+    schemas.put(
+        "ObservabilityPipelineDedupeProcessor",
+        new GenericType<ObservabilityPipelineDedupeProcessor>() {});
+    schemas.put(
+        "ObservabilityPipelineEnrichmentTableProcessor",
+        new GenericType<ObservabilityPipelineEnrichmentTableProcessor>() {});
+    schemas.put(
+        "ObservabilityPipelineReduceProcessor",
+        new GenericType<ObservabilityPipelineReduceProcessor>() {});
+    schemas.put(
+        "ObservabilityPipelineThrottleProcessor",
+        new GenericType<ObservabilityPipelineThrottleProcessor>() {});
     JSON.registerDescendants(
         ObservabilityPipelineConfigProcessorItem.class, Collections.unmodifiableMap(schemas));
   }
@@ -486,7 +837,10 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
    * against the oneOf child schemas: ObservabilityPipelineFilterProcessor,
    * ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineQuotaProcessor,
    * ObservabilityPipelineAddFieldsProcessor, ObservabilityPipelineRemoveFieldsProcessor,
-   * ObservabilityPipelineRenameFieldsProcessor
+   * ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineOcsfMapperProcessor,
+   * ObservabilityPipelineAddEnvVarsProcessor, ObservabilityPipelineDedupeProcessor,
+   * ObservabilityPipelineEnrichmentTableProcessor, ObservabilityPipelineReduceProcessor,
+   * ObservabilityPipelineThrottleProcessor
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -523,6 +877,36 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineOcsfMapperProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineAddEnvVarsProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineDedupeProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineEnrichmentTableProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineReduceProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+    if (JSON.isInstanceOf(
+        ObservabilityPipelineThrottleProcessor.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -533,19 +917,29 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
             + " ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineQuotaProcessor,"
             + " ObservabilityPipelineAddFieldsProcessor,"
             + " ObservabilityPipelineRemoveFieldsProcessor,"
-            + " ObservabilityPipelineRenameFieldsProcessor");
+            + " ObservabilityPipelineRenameFieldsProcessor,"
+            + " ObservabilityPipelineOcsfMapperProcessor, ObservabilityPipelineAddEnvVarsProcessor,"
+            + " ObservabilityPipelineDedupeProcessor,"
+            + " ObservabilityPipelineEnrichmentTableProcessor,"
+            + " ObservabilityPipelineReduceProcessor, ObservabilityPipelineThrottleProcessor");
   }
 
   /**
    * Get the actual instance, which can be the following: ObservabilityPipelineFilterProcessor,
    * ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineQuotaProcessor,
    * ObservabilityPipelineAddFieldsProcessor, ObservabilityPipelineRemoveFieldsProcessor,
-   * ObservabilityPipelineRenameFieldsProcessor
+   * ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineOcsfMapperProcessor,
+   * ObservabilityPipelineAddEnvVarsProcessor, ObservabilityPipelineDedupeProcessor,
+   * ObservabilityPipelineEnrichmentTableProcessor, ObservabilityPipelineReduceProcessor,
+   * ObservabilityPipelineThrottleProcessor
    *
    * @return The actual instance (ObservabilityPipelineFilterProcessor,
    *     ObservabilityPipelineParseJSONProcessor, ObservabilityPipelineQuotaProcessor,
    *     ObservabilityPipelineAddFieldsProcessor, ObservabilityPipelineRemoveFieldsProcessor,
-   *     ObservabilityPipelineRenameFieldsProcessor)
+   *     ObservabilityPipelineRenameFieldsProcessor, ObservabilityPipelineOcsfMapperProcessor,
+   *     ObservabilityPipelineAddEnvVarsProcessor, ObservabilityPipelineDedupeProcessor,
+   *     ObservabilityPipelineEnrichmentTableProcessor, ObservabilityPipelineReduceProcessor,
+   *     ObservabilityPipelineThrottleProcessor)
    */
   @Override
   public Object getActualInstance() {
@@ -622,5 +1016,79 @@ public class ObservabilityPipelineConfigProcessorItem extends AbstractOpenApiSch
   public ObservabilityPipelineRenameFieldsProcessor getObservabilityPipelineRenameFieldsProcessor()
       throws ClassCastException {
     return (ObservabilityPipelineRenameFieldsProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineOcsfMapperProcessor`. If the actual instance
+   * is not `ObservabilityPipelineOcsfMapperProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineOcsfMapperProcessor`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineOcsfMapperProcessor`
+   */
+  public ObservabilityPipelineOcsfMapperProcessor getObservabilityPipelineOcsfMapperProcessor()
+      throws ClassCastException {
+    return (ObservabilityPipelineOcsfMapperProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineAddEnvVarsProcessor`. If the actual instance
+   * is not `ObservabilityPipelineAddEnvVarsProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineAddEnvVarsProcessor`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineAddEnvVarsProcessor`
+   */
+  public ObservabilityPipelineAddEnvVarsProcessor getObservabilityPipelineAddEnvVarsProcessor()
+      throws ClassCastException {
+    return (ObservabilityPipelineAddEnvVarsProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineDedupeProcessor`. If the actual instance is
+   * not `ObservabilityPipelineDedupeProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineDedupeProcessor`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineDedupeProcessor`
+   */
+  public ObservabilityPipelineDedupeProcessor getObservabilityPipelineDedupeProcessor()
+      throws ClassCastException {
+    return (ObservabilityPipelineDedupeProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineEnrichmentTableProcessor`. If the actual
+   * instance is not `ObservabilityPipelineEnrichmentTableProcessor`, the ClassCastException will be
+   * thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineEnrichmentTableProcessor`
+   * @throws ClassCastException if the instance is not
+   *     `ObservabilityPipelineEnrichmentTableProcessor`
+   */
+  public ObservabilityPipelineEnrichmentTableProcessor
+      getObservabilityPipelineEnrichmentTableProcessor() throws ClassCastException {
+    return (ObservabilityPipelineEnrichmentTableProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineReduceProcessor`. If the actual instance is
+   * not `ObservabilityPipelineReduceProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineReduceProcessor`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineReduceProcessor`
+   */
+  public ObservabilityPipelineReduceProcessor getObservabilityPipelineReduceProcessor()
+      throws ClassCastException {
+    return (ObservabilityPipelineReduceProcessor) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ObservabilityPipelineThrottleProcessor`. If the actual instance is
+   * not `ObservabilityPipelineThrottleProcessor`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ObservabilityPipelineThrottleProcessor`
+   * @throws ClassCastException if the instance is not `ObservabilityPipelineThrottleProcessor`
+   */
+  public ObservabilityPipelineThrottleProcessor getObservabilityPipelineThrottleProcessor()
+      throws ClassCastException {
+    return (ObservabilityPipelineThrottleProcessor) super.getActualInstance();
   }
 }
