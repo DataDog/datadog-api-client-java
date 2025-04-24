@@ -1,4 +1,4 @@
-// Delete on call escalation policy returns "No Content" response
+// Delete on-call escalation policy returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
