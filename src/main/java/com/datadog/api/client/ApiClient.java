@@ -430,7 +430,9 @@ public class ApiClient {
           put("v2.createPipeline", false);
           put("v2.deletePipeline", false);
           put("v2.getPipeline", false);
+          put("v2.listPipelines", false);
           put("v2.updatePipeline", false);
+          put("v2.validatePipeline", false);
           put("v2.createScorecardOutcomesBatch", false);
           put("v2.createScorecardRule", false);
           put("v2.deleteScorecardRule", false);

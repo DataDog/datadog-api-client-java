@@ -17,7 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Configuration for enabling TLS encryption. */
+/**
+ * Configuration for enabling TLS encryption between the pipeline component and external services.
+ */
 @JsonPropertyOrder({
   ObservabilityPipelineTls.JSON_PROPERTY_CA_FILE,
   ObservabilityPipelineTls.JSON_PROPERTY_CRT_FILE,
