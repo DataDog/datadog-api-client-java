@@ -3,6 +3,7 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.CsmThreatsApi;
+import com.datadog.api.client.v2.api.CsmThreatsApi.UpdateCSMThreatsAgentRuleOptionalParameters;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleType;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleUpdateAttributes;
@@ -17,23 +18,30 @@ public class Example {
     // there is a valid "agent_rule_rc" in the system
     String AGENT_RULE_DATA_ID = System.getenv("AGENT_RULE_DATA_ID");
 
+    // there is a valid "policy_rc" in the system
+    String POLICY_DATA_ID = System.getenv("POLICY_DATA_ID");
+
     CloudWorkloadSecurityAgentRuleUpdateRequest body =
         new CloudWorkloadSecurityAgentRuleUpdateRequest()
             .data(
                 new CloudWorkloadSecurityAgentRuleUpdateData()
                     .attributes(
                         new CloudWorkloadSecurityAgentRuleUpdateAttributes()
-                            .description("Test Agent rule")
+                            .description("My Agent rule")
                             .enabled(true)
                             .expression("""
 exec.file.name == "sh"
-"""))
-                    .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE)
-                    .id(AGENT_RULE_DATA_ID));
+""")
+                            .policyId(POLICY_DATA_ID))
+                    .id(AGENT_RULE_DATA_ID)
+                    .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
 
     try {
       CloudWorkloadSecurityAgentRuleResponse result =
-          apiInstance.updateCSMThreatsAgentRule(AGENT_RULE_DATA_ID, body);
+          apiInstance.updateCSMThreatsAgentRule(
+              AGENT_RULE_DATA_ID,
+              body,
+              new UpdateCSMThreatsAgentRuleOptionalParameters().policyId(POLICY_DATA_ID));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CsmThreatsApi#updateCSMThreatsAgentRule");
