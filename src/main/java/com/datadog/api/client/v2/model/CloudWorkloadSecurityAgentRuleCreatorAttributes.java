@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of the user who created the Agent rule. */
+/** The attributes of the user who created the Agent rule */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleCreatorAttributes.JSON_PROPERTY_HANDLE,
   CloudWorkloadSecurityAgentRuleCreatorAttributes.JSON_PROPERTY_NAME
@@ -38,7 +38,7 @@ public class CloudWorkloadSecurityAgentRuleCreatorAttributes {
   }
 
   /**
-   * The handle of the user.
+   * The handle of the user
    *
    * @return handle
    */
@@ -59,7 +59,7 @@ public class CloudWorkloadSecurityAgentRuleCreatorAttributes {
   }
 
   /**
-   * The name of the user.
+   * The name of the user
    *
    * @return name
    */

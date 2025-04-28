@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object for a single Agent rule. */
+/** Object for a single Agent rule */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleData.JSON_PROPERTY_ATTRIBUTES,
   CloudWorkloadSecurityAgentRuleData.JSON_PROPERTY_ID,
@@ -43,7 +43,7 @@ public class CloudWorkloadSecurityAgentRuleData {
   }
 
   /**
-   * A Cloud Workload Security Agent rule returned by the API.
+   * A Cloud Workload Security Agent rule returned by the API
    *
    * @return attributes
    */
@@ -64,7 +64,7 @@ public class CloudWorkloadSecurityAgentRuleData {
   }
 
   /**
-   * The ID of the Agent rule.
+   * The ID of the Agent rule
    *
    * @return id
    */
@@ -86,7 +86,7 @@ public class CloudWorkloadSecurityAgentRuleData {
   }
 
   /**
-   * The type of the resource. The value should always be <code>agent_rule</code>.
+   * The type of the resource, must always be <code>agent_rule</code>
    *
    * @return type
    */

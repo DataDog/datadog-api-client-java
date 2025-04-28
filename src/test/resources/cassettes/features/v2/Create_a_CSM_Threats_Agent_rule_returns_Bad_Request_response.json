@@ -3,7 +3,37 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == sh\",\"name\":\"testcreateacsmthreatsagentrulereturnsbadrequestresponse1713895064\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateacsmthreatsagentrulereturnsbadrequestresponse1743517845\"},\"type\":\"policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/cws/policy",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"mrs-qdn-jq8\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testcreateacsmthreatsagentrulereturnsbadrequestresponse1743517845\",\"policyVersion\":\"1\",\"priority\":1000000001,\"ruleCount\":226,\"updateDate\":1743517845323,\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "2c22f6b8-0057-2221-bb82-a94431d3f6f7"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name\",\"filters\":[],\"name\":\"my_agent_rule\",\"policy_id\":\"mrs-qdn-jq8\",\"product_tags\":[]},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testcreateacsmthreatsagentrulereturnsbadrequestresponse1713895064` error: rule compilation error: field `sh` not found)\"]}",
+      "body": "{\"errors\":[\"input_validation_error(Field 'name' is invalid: rule `my_agent_rule` error: multiple definition with the same ID)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +57,31 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5ac51b84-f3dc-4859-1cb2-aee7e669dc09"
+    "id": "3362265e-367b-0482-ae52-3fc0311cf28b"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/mrs-qdn-jq8",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a246d260-6a96-d40b-a485-5db945980300"
   }
 ]

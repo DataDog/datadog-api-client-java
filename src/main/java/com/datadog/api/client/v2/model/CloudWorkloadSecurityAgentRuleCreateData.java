@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object for a single Agent rule. */
+/** Object for a single Agent rule */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleCreateData.JSON_PROPERTY_ATTRIBUTES,
   CloudWorkloadSecurityAgentRuleCreateData.JSON_PROPERTY_TYPE
@@ -75,7 +75,7 @@ public class CloudWorkloadSecurityAgentRuleCreateData {
   }
 
   /**
-   * The type of the resource. The value should always be <code>agent_rule</code>.
+   * The type of the resource, must always be <code>agent_rule</code>
    *
    * @return type
    */
