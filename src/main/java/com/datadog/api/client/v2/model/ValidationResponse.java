@@ -8,53 +8,56 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Top-level schema representing a pipeline. */
-@JsonPropertyOrder({ObservabilityPipelineCreateRequest.JSON_PROPERTY_DATA})
+/** Response containing validation errors. */
+@JsonPropertyOrder({ValidationResponse.JSON_PROPERTY_ERRORS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineCreateRequest {
+public class ValidationResponse {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private ObservabilityPipelineCreateRequestData data;
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  private List<ValidationError> errors = null;
 
-  public ObservabilityPipelineCreateRequest() {}
-
-  @JsonCreator
-  public ObservabilityPipelineCreateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          ObservabilityPipelineCreateRequestData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public ValidationResponse errors(List<ValidationError> errors) {
+    this.errors = errors;
+    for (ValidationError item : errors) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
   }
 
-  public ObservabilityPipelineCreateRequest data(ObservabilityPipelineCreateRequestData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public ValidationResponse addErrorsItem(ValidationError errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
+    }
+    this.errors.add(errorsItem);
+    this.unparsed |= errorsItem.unparsed;
     return this;
   }
 
   /**
-   * Contains the pipeline’s ID, type, and configuration attributes.
+   * The <code>ValidationResponse</code> <code>errors</code>.
    *
-   * @return data
+   * @return errors
    */
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineCreateRequestData getData() {
-    return data;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<ValidationError> getErrors() {
+    return errors;
   }
 
-  public void setData(ObservabilityPipelineCreateRequestData data) {
-    this.data = data;
+  public void setErrors(List<ValidationError> errors) {
+    this.errors = errors;
   }
 
   /**
@@ -69,10 +72,10 @@ public class ObservabilityPipelineCreateRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineCreateRequest
+   * @return ValidationResponse
    */
   @JsonAnySetter
-  public ObservabilityPipelineCreateRequest putAdditionalProperty(String key, Object value) {
+  public ValidationResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -103,7 +106,7 @@ public class ObservabilityPipelineCreateRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineCreateRequest object is equal to o. */
+  /** Return true if this ValidationResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,23 +115,21 @@ public class ObservabilityPipelineCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineCreateRequest observabilityPipelineCreateRequest =
-        (ObservabilityPipelineCreateRequest) o;
-    return Objects.equals(this.data, observabilityPipelineCreateRequest.data)
-        && Objects.equals(
-            this.additionalProperties, observabilityPipelineCreateRequest.additionalProperties);
+    ValidationResponse validationResponse = (ValidationResponse) o;
+    return Objects.equals(this.errors, validationResponse.errors)
+        && Objects.equals(this.additionalProperties, validationResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(errors, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineCreateRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class ValidationResponse {\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

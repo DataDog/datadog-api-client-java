@@ -4,12 +4,15 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.ListPipelinesResponse;
 import com.datadog.api.client.v2.model.ObservabilityPipeline;
-import com.datadog.api.client.v2.model.ObservabilityPipelineCreateRequest;
+import com.datadog.api.client.v2.model.ObservabilityPipelineSpec;
+import com.datadog.api.client.v2.model.ValidationResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -53,8 +56,7 @@ public class ObservabilityPipelinesApi {
    * @return ObservabilityPipeline
    * @throws ApiException if fails to make API call
    */
-  public ObservabilityPipeline createPipeline(ObservabilityPipelineCreateRequest body)
-      throws ApiException {
+  public ObservabilityPipeline createPipeline(ObservabilityPipelineSpec body) throws ApiException {
     return createPipelineWithHttpInfo(body).getData();
   }
 
@@ -67,7 +69,7 @@ public class ObservabilityPipelinesApi {
    * @return CompletableFuture&lt;ObservabilityPipeline&gt;
    */
   public CompletableFuture<ObservabilityPipeline> createPipelineAsync(
-      ObservabilityPipelineCreateRequest body) {
+      ObservabilityPipelineSpec body) {
     return createPipelineWithHttpInfoAsync(body)
         .thenApply(
             response -> {
@@ -87,13 +89,13 @@ public class ObservabilityPipelinesApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<ObservabilityPipeline> createPipelineWithHttpInfo(
-      ObservabilityPipelineCreateRequest body) throws ApiException {
+      ObservabilityPipelineSpec body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "createPipeline";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -142,7 +144,7 @@ public class ObservabilityPipelinesApi {
    * @return CompletableFuture&lt;ApiResponse&lt;ObservabilityPipeline&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ObservabilityPipeline>> createPipelineWithHttpInfoAsync(
-      ObservabilityPipelineCreateRequest body) {
+      ObservabilityPipelineSpec body) {
     // Check if unstable operation is enabled
     String operationId = "createPipeline";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -500,6 +502,209 @@ public class ObservabilityPipelinesApi {
         new GenericType<ObservabilityPipeline>() {});
   }
 
+  /** Manage optional parameters to listPipelines. */
+  public static class ListPipelinesOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
+     *     to 10)
+     * @return ListPipelinesOptionalParameters
+     */
+    public ListPipelinesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListPipelinesOptionalParameters
+     */
+    public ListPipelinesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+  }
+
+  /**
+   * List pipelines.
+   *
+   * <p>See {@link #listPipelinesWithHttpInfo}.
+   *
+   * @return ListPipelinesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListPipelinesResponse listPipelines() throws ApiException {
+    return listPipelinesWithHttpInfo(new ListPipelinesOptionalParameters()).getData();
+  }
+
+  /**
+   * List pipelines.
+   *
+   * <p>See {@link #listPipelinesWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListPipelinesResponse&gt;
+   */
+  public CompletableFuture<ListPipelinesResponse> listPipelinesAsync() {
+    return listPipelinesWithHttpInfoAsync(new ListPipelinesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List pipelines.
+   *
+   * <p>See {@link #listPipelinesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListPipelinesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListPipelinesResponse listPipelines(ListPipelinesOptionalParameters parameters)
+      throws ApiException {
+    return listPipelinesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List pipelines.
+   *
+   * <p>See {@link #listPipelinesWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListPipelinesResponse&gt;
+   */
+  public CompletableFuture<ListPipelinesResponse> listPipelinesAsync(
+      ListPipelinesOptionalParameters parameters) {
+    return listPipelinesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Retrieve a list of pipelines.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListPipelinesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListPipelinesResponse> listPipelinesWithHttpInfo(
+      ListPipelinesOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listPipelines";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v2/remote_config/products/obs_pipelines/pipelines";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ObservabilityPipelinesApi.listPipelines",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListPipelinesResponse>() {});
+  }
+
+  /**
+   * List pipelines.
+   *
+   * <p>See {@link #listPipelinesWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListPipelinesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListPipelinesResponse>> listPipelinesWithHttpInfoAsync(
+      ListPipelinesOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listPipelines";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ListPipelinesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    // create path and map variables
+    String localVarPath = "/api/v2/remote_config/products/obs_pipelines/pipelines";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ObservabilityPipelinesApi.listPipelines",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListPipelinesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListPipelinesResponse>() {});
+  }
+
   /**
    * Update a pipeline.
    *
@@ -546,7 +751,7 @@ public class ObservabilityPipelinesApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -675,5 +880,155 @@ public class ObservabilityPipelinesApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ObservabilityPipeline>() {});
+  }
+
+  /**
+   * Validate an observability pipeline.
+   *
+   * <p>See {@link #validatePipelineWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return ValidationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ValidationResponse validatePipeline(ObservabilityPipelineSpec body) throws ApiException {
+    return validatePipelineWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Validate an observability pipeline.
+   *
+   * <p>See {@link #validatePipelineWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ValidationResponse&gt;
+   */
+  public CompletableFuture<ValidationResponse> validatePipelineAsync(
+      ObservabilityPipelineSpec body) {
+    return validatePipelineWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Validates a pipeline configuration without creating or updating any resources. Returns a list
+   * of validation errors, if any.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;ValidationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ValidationResponse> validatePipelineWithHttpInfo(
+      ObservabilityPipelineSpec body) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "validatePipeline";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling validatePipeline");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/remote_config/products/obs_pipelines/pipelines/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.ObservabilityPipelinesApi.validatePipeline",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ValidationResponse>() {});
+  }
+
+  /**
+   * Validate an observability pipeline.
+   *
+   * <p>See {@link #validatePipelineWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;ValidationResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ValidationResponse>> validatePipelineWithHttpInfoAsync(
+      ObservabilityPipelineSpec body) {
+    // Check if unstable operation is enabled
+    String operationId = "validatePipeline";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<ValidationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<ValidationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling validatePipeline"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/remote_config/products/obs_pipelines/pipelines/validate";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.ObservabilityPipelinesApi.validatePipeline",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ValidationResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ValidationResponse>() {});
   }
 }

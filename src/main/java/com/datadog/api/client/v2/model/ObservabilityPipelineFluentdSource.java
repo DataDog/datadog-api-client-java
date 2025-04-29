@@ -17,73 +17,102 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Contains the pipeline’s ID, type, and configuration attributes. */
+/** The <code>fluentd</code> source ingests logs from a Fluentd-compatible service. */
 @JsonPropertyOrder({
-  ObservabilityPipelineCreateRequestData.JSON_PROPERTY_ATTRIBUTES,
-  ObservabilityPipelineCreateRequestData.JSON_PROPERTY_TYPE
+  ObservabilityPipelineFluentdSource.JSON_PROPERTY_ID,
+  ObservabilityPipelineFluentdSource.JSON_PROPERTY_TLS,
+  ObservabilityPipelineFluentdSource.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineCreateRequestData {
+public class ObservabilityPipelineFluentdSource {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private ObservabilityPipelineDataAttributes attributes;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
+
+  public static final String JSON_PROPERTY_TLS = "tls";
+  private ObservabilityPipelineTls tls;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "pipelines";
+  private ObservabilityPipelineFluentdSourceType type =
+      ObservabilityPipelineFluentdSourceType.FLUENTD;
 
-  public ObservabilityPipelineCreateRequestData() {}
+  public ObservabilityPipelineFluentdSource() {}
 
   @JsonCreator
-  public ObservabilityPipelineCreateRequestData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          ObservabilityPipelineDataAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public ObservabilityPipelineFluentdSource(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ObservabilityPipelineFluentdSourceType type) {
+    this.id = id;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
-  public ObservabilityPipelineCreateRequestData attributes(
-      ObservabilityPipelineDataAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public ObservabilityPipelineFluentdSource id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Defines the pipeline’s name and its components (sources, processors, and destinations).
+   * The unique identifier for this component. Used to reference this component in other parts of
+   * the pipeline (for example, as the <code>input</code> to downstream components).
    *
-   * @return attributes
+   * @return id
    */
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineDataAttributes getAttributes() {
-    return attributes;
+  public String getId() {
+    return id;
   }
 
-  public void setAttributes(ObservabilityPipelineDataAttributes attributes) {
-    this.attributes = attributes;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public ObservabilityPipelineCreateRequestData type(String type) {
-    this.type = type;
+  public ObservabilityPipelineFluentdSource tls(ObservabilityPipelineTls tls) {
+    this.tls = tls;
+    this.unparsed |= tls.unparsed;
     return this;
   }
 
   /**
-   * The resource type identifier. For pipeline resources, this should always be set to <code>
-   * pipelines</code>.
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
+   *
+   * @return tls
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TLS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineTls getTls() {
+    return tls;
+  }
+
+  public void setTls(ObservabilityPipelineTls tls) {
+    this.tls = tls;
+  }
+
+  public ObservabilityPipelineFluentdSource type(ObservabilityPipelineFluentdSourceType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * The source type. The value should always be `fluentd.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getType() {
+  public ObservabilityPipelineFluentdSourceType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(ObservabilityPipelineFluentdSourceType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
@@ -99,10 +128,10 @@ public class ObservabilityPipelineCreateRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineCreateRequestData
+   * @return ObservabilityPipelineFluentdSource
    */
   @JsonAnySetter
-  public ObservabilityPipelineCreateRequestData putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineFluentdSource putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +162,7 @@ public class ObservabilityPipelineCreateRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineCreateRequestData object is equal to o. */
+  /** Return true if this ObservabilityPipelineFluentdSource object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,24 +171,26 @@ public class ObservabilityPipelineCreateRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineCreateRequestData observabilityPipelineCreateRequestData =
-        (ObservabilityPipelineCreateRequestData) o;
-    return Objects.equals(this.attributes, observabilityPipelineCreateRequestData.attributes)
-        && Objects.equals(this.type, observabilityPipelineCreateRequestData.type)
+    ObservabilityPipelineFluentdSource observabilityPipelineFluentdSource =
+        (ObservabilityPipelineFluentdSource) o;
+    return Objects.equals(this.id, observabilityPipelineFluentdSource.id)
+        && Objects.equals(this.tls, observabilityPipelineFluentdSource.tls)
+        && Objects.equals(this.type, observabilityPipelineFluentdSource.type)
         && Objects.equals(
-            this.additionalProperties, observabilityPipelineCreateRequestData.additionalProperties);
+            this.additionalProperties, observabilityPipelineFluentdSource.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(id, tls, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineCreateRequestData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class ObservabilityPipelineFluentdSource {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    tls: ").append(toIndentedString(tls)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

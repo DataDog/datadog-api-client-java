@@ -77,7 +77,7 @@ public class ObservabilityPipelineDatadogAgentSource {
   }
 
   /**
-   * Configuration for enabling TLS encryption.
+   * Configuration for enabling TLS encryption between the pipeline component and external services.
    *
    * @return tls
    */

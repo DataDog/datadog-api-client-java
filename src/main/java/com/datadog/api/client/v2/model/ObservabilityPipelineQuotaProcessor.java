@@ -31,6 +31,7 @@ import java.util.Objects;
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_INPUTS,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_LIMIT,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_NAME,
+  ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_OVERFLOW_ACTION,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_OVERRIDES,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_PARTITION_FIELDS,
   ObservabilityPipelineQuotaProcessor.JSON_PROPERTY_TYPE
@@ -60,6 +61,9 @@ public class ObservabilityPipelineQuotaProcessor {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_OVERFLOW_ACTION = "overflow_action";
+  private ObservabilityPipelineQuotaProcessorOverflowAction overflowAction;
 
   public static final String JSON_PROPERTY_OVERRIDES = "overrides";
   private List<ObservabilityPipelineQuotaProcessorOverride> overrides = null;
@@ -234,7 +238,7 @@ public class ObservabilityPipelineQuotaProcessor {
   }
 
   /**
-   * Name for identifying the processor.
+   * Name of the quota.
    *
    * @return name
    */
@@ -246,6 +250,34 @@ public class ObservabilityPipelineQuotaProcessor {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ObservabilityPipelineQuotaProcessor overflowAction(
+      ObservabilityPipelineQuotaProcessorOverflowAction overflowAction) {
+    this.overflowAction = overflowAction;
+    this.unparsed |= !overflowAction.isValid();
+    return this;
+  }
+
+  /**
+   * The action to take when the quota is exceeded. Options: - <code>drop</code>: Drop the event. -
+   * <code>no_action</code>: Let the event pass through. - <code>overflow_routing</code>: Route to
+   * an overflow destination.
+   *
+   * @return overflowAction
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OVERFLOW_ACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ObservabilityPipelineQuotaProcessorOverflowAction getOverflowAction() {
+    return overflowAction;
+  }
+
+  public void setOverflowAction(ObservabilityPipelineQuotaProcessorOverflowAction overflowAction) {
+    if (!overflowAction.isValid()) {
+      this.unparsed = true;
+    }
+    this.overflowAction = overflowAction;
   }
 
   public ObservabilityPipelineQuotaProcessor overrides(
@@ -404,6 +436,7 @@ public class ObservabilityPipelineQuotaProcessor {
         && Objects.equals(this.inputs, observabilityPipelineQuotaProcessor.inputs)
         && Objects.equals(this.limit, observabilityPipelineQuotaProcessor.limit)
         && Objects.equals(this.name, observabilityPipelineQuotaProcessor.name)
+        && Objects.equals(this.overflowAction, observabilityPipelineQuotaProcessor.overflowAction)
         && Objects.equals(this.overrides, observabilityPipelineQuotaProcessor.overrides)
         && Objects.equals(this.partitionFields, observabilityPipelineQuotaProcessor.partitionFields)
         && Objects.equals(this.type, observabilityPipelineQuotaProcessor.type)
@@ -421,6 +454,7 @@ public class ObservabilityPipelineQuotaProcessor {
         inputs,
         limit,
         name,
+        overflowAction,
         overrides,
         partitionFields,
         type,
@@ -440,6 +474,7 @@ public class ObservabilityPipelineQuotaProcessor {
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    overflowAction: ").append(toIndentedString(overflowAction)).append("\n");
     sb.append("    overrides: ").append(toIndentedString(overrides)).append("\n");
     sb.append("    partitionFields: ").append(toIndentedString(partitionFields)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

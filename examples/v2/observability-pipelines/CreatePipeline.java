@@ -8,8 +8,6 @@ import com.datadog.api.client.v2.model.ObservabilityPipelineConfig;
 import com.datadog.api.client.v2.model.ObservabilityPipelineConfigDestinationItem;
 import com.datadog.api.client.v2.model.ObservabilityPipelineConfigProcessorItem;
 import com.datadog.api.client.v2.model.ObservabilityPipelineConfigSourceItem;
-import com.datadog.api.client.v2.model.ObservabilityPipelineCreateRequest;
-import com.datadog.api.client.v2.model.ObservabilityPipelineCreateRequestData;
 import com.datadog.api.client.v2.model.ObservabilityPipelineDataAttributes;
 import com.datadog.api.client.v2.model.ObservabilityPipelineDatadogAgentSource;
 import com.datadog.api.client.v2.model.ObservabilityPipelineDatadogAgentSourceType;
@@ -17,6 +15,8 @@ import com.datadog.api.client.v2.model.ObservabilityPipelineDatadogLogsDestinati
 import com.datadog.api.client.v2.model.ObservabilityPipelineDatadogLogsDestinationType;
 import com.datadog.api.client.v2.model.ObservabilityPipelineFilterProcessor;
 import com.datadog.api.client.v2.model.ObservabilityPipelineFilterProcessorType;
+import com.datadog.api.client.v2.model.ObservabilityPipelineSpec;
+import com.datadog.api.client.v2.model.ObservabilityPipelineSpecData;
 import java.util.Collections;
 
 public class Example {
@@ -25,10 +25,10 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("v2.createPipeline", true);
     ObservabilityPipelinesApi apiInstance = new ObservabilityPipelinesApi(defaultClient);
 
-    ObservabilityPipelineCreateRequest body =
-        new ObservabilityPipelineCreateRequest()
+    ObservabilityPipelineSpec body =
+        new ObservabilityPipelineSpec()
             .data(
-                new ObservabilityPipelineCreateRequestData()
+                new ObservabilityPipelineSpecData()
                     .attributes(
                         new ObservabilityPipelineDataAttributes()
                             .config(
