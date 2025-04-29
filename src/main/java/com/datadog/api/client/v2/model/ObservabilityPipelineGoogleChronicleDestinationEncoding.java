@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The encoding format for the logs sent to Google Chronicle. */
+/** The encoding format for the logs sent to Chronicle. */
 @JsonSerialize(
     using =
         ObservabilityPipelineGoogleChronicleDestinationEncoding

@@ -123,7 +123,7 @@ public class ObservabilityPipelineGoogleChronicleDestination {
   }
 
   /**
-   * The encoding format for the logs sent to Google Chronicle.
+   * The encoding format for the logs sent to Chronicle.
    *
    * @return encoding
    */

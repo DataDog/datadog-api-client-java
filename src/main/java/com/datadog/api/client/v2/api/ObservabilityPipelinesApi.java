@@ -6,8 +6,8 @@ import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.ListPipelinesResponse;
 import com.datadog.api.client.v2.model.ObservabilityPipeline;
-import com.datadog.api.client.v2.model.ObservabilityPipelineCreateRequest;
-import com.datadog.api.client.v2.model.ValidationErrorResponse;
+import com.datadog.api.client.v2.model.ObservabilityPipelineSpec;
+import com.datadog.api.client.v2.model.ValidationResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -56,8 +56,7 @@ public class ObservabilityPipelinesApi {
    * @return ObservabilityPipeline
    * @throws ApiException if fails to make API call
    */
-  public ObservabilityPipeline createPipeline(ObservabilityPipelineCreateRequest body)
-      throws ApiException {
+  public ObservabilityPipeline createPipeline(ObservabilityPipelineSpec body) throws ApiException {
     return createPipelineWithHttpInfo(body).getData();
   }
 
@@ -70,7 +69,7 @@ public class ObservabilityPipelinesApi {
    * @return CompletableFuture&lt;ObservabilityPipeline&gt;
    */
   public CompletableFuture<ObservabilityPipeline> createPipelineAsync(
-      ObservabilityPipelineCreateRequest body) {
+      ObservabilityPipelineSpec body) {
     return createPipelineWithHttpInfoAsync(body)
         .thenApply(
             response -> {
@@ -90,13 +89,13 @@ public class ObservabilityPipelinesApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<ObservabilityPipeline> createPipelineWithHttpInfo(
-      ObservabilityPipelineCreateRequest body) throws ApiException {
+      ObservabilityPipelineSpec body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "createPipeline";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -145,7 +144,7 @@ public class ObservabilityPipelinesApi {
    * @return CompletableFuture&lt;ApiResponse&lt;ObservabilityPipeline&gt;&gt;
    */
   public CompletableFuture<ApiResponse<ObservabilityPipeline>> createPipelineWithHttpInfoAsync(
-      ObservabilityPipelineCreateRequest body) {
+      ObservabilityPipelineSpec body) {
     // Check if unstable operation is enabled
     String operationId = "createPipeline";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -602,7 +601,7 @@ public class ObservabilityPipelinesApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -752,7 +751,7 @@ public class ObservabilityPipelinesApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -889,11 +888,10 @@ public class ObservabilityPipelinesApi {
    * <p>See {@link #validatePipelineWithHttpInfo}.
    *
    * @param body (required)
-   * @return ValidationErrorResponse
+   * @return ValidationResponse
    * @throws ApiException if fails to make API call
    */
-  public ValidationErrorResponse validatePipeline(ObservabilityPipelineCreateRequest body)
-      throws ApiException {
+  public ValidationResponse validatePipeline(ObservabilityPipelineSpec body) throws ApiException {
     return validatePipelineWithHttpInfo(body).getData();
   }
 
@@ -903,10 +901,10 @@ public class ObservabilityPipelinesApi {
    * <p>See {@link #validatePipelineWithHttpInfoAsync}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;ValidationErrorResponse&gt;
+   * @return CompletableFuture&lt;ValidationResponse&gt;
    */
-  public CompletableFuture<ValidationErrorResponse> validatePipelineAsync(
-      ObservabilityPipelineCreateRequest body) {
+  public CompletableFuture<ValidationResponse> validatePipelineAsync(
+      ObservabilityPipelineSpec body) {
     return validatePipelineWithHttpInfoAsync(body)
         .thenApply(
             response -> {
@@ -919,7 +917,7 @@ public class ObservabilityPipelinesApi {
    * of validation errors, if any.
    *
    * @param body (required)
-   * @return ApiResponse&lt;ValidationErrorResponse&gt;
+   * @return ApiResponse&lt;ValidationResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table border="1">
@@ -927,11 +925,12 @@ public class ObservabilityPipelinesApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<ValidationErrorResponse> validatePipelineWithHttpInfo(
-      ObservabilityPipelineCreateRequest body) throws ApiException {
+  public ApiResponse<ValidationResponse> validatePipelineWithHttpInfo(
+      ObservabilityPipelineSpec body) throws ApiException {
     // Check if unstable operation is enabled
     String operationId = "validatePipeline";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
@@ -968,7 +967,7 @@ public class ObservabilityPipelinesApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<ValidationErrorResponse>() {});
+        new GenericType<ValidationResponse>() {});
   }
 
   /**
@@ -977,16 +976,16 @@ public class ObservabilityPipelinesApi {
    * <p>See {@link #validatePipelineWithHttpInfo}.
    *
    * @param body (required)
-   * @return CompletableFuture&lt;ApiResponse&lt;ValidationErrorResponse&gt;&gt;
+   * @return CompletableFuture&lt;ApiResponse&lt;ValidationResponse&gt;&gt;
    */
-  public CompletableFuture<ApiResponse<ValidationErrorResponse>> validatePipelineWithHttpInfoAsync(
-      ObservabilityPipelineCreateRequest body) {
+  public CompletableFuture<ApiResponse<ValidationResponse>> validatePipelineWithHttpInfoAsync(
+      ObservabilityPipelineSpec body) {
     // Check if unstable operation is enabled
     String operationId = "validatePipeline";
     if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
       apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
     } else {
-      CompletableFuture<ApiResponse<ValidationErrorResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<ValidationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
       return result;
@@ -995,7 +994,7 @@ public class ObservabilityPipelinesApi {
 
     // verify the required parameter 'body' is set
     if (body == null) {
-      CompletableFuture<ApiResponse<ValidationErrorResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<ValidationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(
           new ApiException(
               400, "Missing the required parameter 'body' when calling validatePipeline"));
@@ -1018,7 +1017,7 @@ public class ObservabilityPipelinesApi {
               new String[] {"application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
-      CompletableFuture<ApiResponse<ValidationErrorResponse>> result = new CompletableFuture<>();
+      CompletableFuture<ApiResponse<ValidationResponse>> result = new CompletableFuture<>();
       result.completeExceptionally(ex);
       return result;
     }
@@ -1030,6 +1029,6 @@ public class ObservabilityPipelinesApi {
         localVarPostBody,
         new HashMap<String, Object>(),
         false,
-        new GenericType<ValidationErrorResponse>() {});
+        new GenericType<ValidationResponse>() {});
   }
 }

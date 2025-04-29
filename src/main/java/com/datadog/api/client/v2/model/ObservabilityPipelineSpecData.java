@@ -17,14 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Contains the pipeline’s ID, type, and configuration attributes. */
+/** Contains the the pipeline configuration. */
 @JsonPropertyOrder({
-  ObservabilityPipelineCreateRequestData.JSON_PROPERTY_ATTRIBUTES,
-  ObservabilityPipelineCreateRequestData.JSON_PROPERTY_TYPE
+  ObservabilityPipelineSpecData.JSON_PROPERTY_ATTRIBUTES,
+  ObservabilityPipelineSpecData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineCreateRequestData {
+public class ObservabilityPipelineSpecData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private ObservabilityPipelineDataAttributes attributes;
@@ -32,10 +32,10 @@ public class ObservabilityPipelineCreateRequestData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type = "pipelines";
 
-  public ObservabilityPipelineCreateRequestData() {}
+  public ObservabilityPipelineSpecData() {}
 
   @JsonCreator
-  public ObservabilityPipelineCreateRequestData(
+  public ObservabilityPipelineSpecData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
           ObservabilityPipelineDataAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
@@ -44,8 +44,7 @@ public class ObservabilityPipelineCreateRequestData {
     this.type = type;
   }
 
-  public ObservabilityPipelineCreateRequestData attributes(
-      ObservabilityPipelineDataAttributes attributes) {
+  public ObservabilityPipelineSpecData attributes(ObservabilityPipelineDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
@@ -66,7 +65,7 @@ public class ObservabilityPipelineCreateRequestData {
     this.attributes = attributes;
   }
 
-  public ObservabilityPipelineCreateRequestData type(String type) {
+  public ObservabilityPipelineSpecData type(String type) {
     this.type = type;
     return this;
   }
@@ -99,10 +98,10 @@ public class ObservabilityPipelineCreateRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineCreateRequestData
+   * @return ObservabilityPipelineSpecData
    */
   @JsonAnySetter
-  public ObservabilityPipelineCreateRequestData putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineSpecData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -133,7 +132,7 @@ public class ObservabilityPipelineCreateRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineCreateRequestData object is equal to o. */
+  /** Return true if this ObservabilityPipelineSpecData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,12 +141,11 @@ public class ObservabilityPipelineCreateRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineCreateRequestData observabilityPipelineCreateRequestData =
-        (ObservabilityPipelineCreateRequestData) o;
-    return Objects.equals(this.attributes, observabilityPipelineCreateRequestData.attributes)
-        && Objects.equals(this.type, observabilityPipelineCreateRequestData.type)
+    ObservabilityPipelineSpecData observabilityPipelineSpecData = (ObservabilityPipelineSpecData) o;
+    return Objects.equals(this.attributes, observabilityPipelineSpecData.attributes)
+        && Objects.equals(this.type, observabilityPipelineSpecData.type)
         && Objects.equals(
-            this.additionalProperties, observabilityPipelineCreateRequestData.additionalProperties);
+            this.additionalProperties, observabilityPipelineSpecData.additionalProperties);
   }
 
   @Override
@@ -158,7 +156,7 @@ public class ObservabilityPipelineCreateRequestData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineCreateRequestData {\n");
+    sb.append("class ObservabilityPipelineSpecData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

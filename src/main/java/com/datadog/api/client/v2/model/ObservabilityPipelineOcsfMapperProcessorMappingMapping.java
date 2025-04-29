@@ -126,10 +126,9 @@ public class ObservabilityPipelineOcsfMapperProcessorMappingMapping extends Abst
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((ObservabilityPipelineOcsfMappingLibrary) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
+          deserialized = tmp;
+          match++;
+
           log.log(
               Level.FINER, "Input data matches schema 'ObservabilityPipelineOcsfMappingLibrary'");
         }

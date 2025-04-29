@@ -1,9 +1,8 @@
-// Create a new pipeline returns "OK" response
+// Validate an observability pipeline returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.ObservabilityPipelinesApi;
-import com.datadog.api.client.v2.model.ObservabilityPipeline;
 import com.datadog.api.client.v2.model.ObservabilityPipelineConfig;
 import com.datadog.api.client.v2.model.ObservabilityPipelineConfigDestinationItem;
 import com.datadog.api.client.v2.model.ObservabilityPipelineConfigProcessorItem;
@@ -17,12 +16,13 @@ import com.datadog.api.client.v2.model.ObservabilityPipelineFilterProcessor;
 import com.datadog.api.client.v2.model.ObservabilityPipelineFilterProcessorType;
 import com.datadog.api.client.v2.model.ObservabilityPipelineSpec;
 import com.datadog.api.client.v2.model.ObservabilityPipelineSpecData;
+import com.datadog.api.client.v2.model.ValidationResponse;
 import java.util.Collections;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.createPipeline", true);
+    defaultClient.setUnstableOperationEnabled("v2.validatePipeline", true);
     ObservabilityPipelinesApi apiInstance = new ObservabilityPipelinesApi(defaultClient);
 
     ObservabilityPipelineSpec body =
@@ -68,10 +68,10 @@ public class Example {
                     .type("pipelines"));
 
     try {
-      ObservabilityPipeline result = apiInstance.createPipeline(body);
+      ValidationResponse result = apiInstance.validatePipeline(body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling ObservabilityPipelinesApi#createPipeline");
+      System.err.println("Exception when calling ObservabilityPipelinesApi#validatePipeline");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

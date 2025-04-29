@@ -92,7 +92,7 @@ public class ObservabilityPipelineThrottleProcessor {
   }
 
   /**
-   * Optional list of fields used to group events before applying throttling.
+   * Optional list of fields used to group events before the threshold has been reached.
    *
    * @return groupBy
    */
@@ -178,7 +178,8 @@ public class ObservabilityPipelineThrottleProcessor {
   }
 
   /**
-   * The number of events to allow before throttling is applied.
+   * the number of events allowed in a given time window. Events sent after the threshold has been
+   * reached, are dropped.
    *
    * @return threshold
    */

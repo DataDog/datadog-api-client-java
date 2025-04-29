@@ -17,43 +17,46 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Top-level schema representing a pipeline. */
-@JsonPropertyOrder({ObservabilityPipelineCreateRequest.JSON_PROPERTY_DATA})
+/**
+ * Input schema representing an observability pipeline configuration. Used in create and validate
+ * requests.
+ */
+@JsonPropertyOrder({ObservabilityPipelineSpec.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ObservabilityPipelineCreateRequest {
+public class ObservabilityPipelineSpec {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private ObservabilityPipelineCreateRequestData data;
+  private ObservabilityPipelineSpecData data;
 
-  public ObservabilityPipelineCreateRequest() {}
+  public ObservabilityPipelineSpec() {}
 
   @JsonCreator
-  public ObservabilityPipelineCreateRequest(
+  public ObservabilityPipelineSpec(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          ObservabilityPipelineCreateRequestData data) {
+          ObservabilityPipelineSpecData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public ObservabilityPipelineCreateRequest data(ObservabilityPipelineCreateRequestData data) {
+  public ObservabilityPipelineSpec data(ObservabilityPipelineSpecData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Contains the pipeline’s ID, type, and configuration attributes.
+   * Contains the the pipeline configuration.
    *
    * @return data
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ObservabilityPipelineCreateRequestData getData() {
+  public ObservabilityPipelineSpecData getData() {
     return data;
   }
 
-  public void setData(ObservabilityPipelineCreateRequestData data) {
+  public void setData(ObservabilityPipelineSpecData data) {
     this.data = data;
   }
 
@@ -69,10 +72,10 @@ public class ObservabilityPipelineCreateRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ObservabilityPipelineCreateRequest
+   * @return ObservabilityPipelineSpec
    */
   @JsonAnySetter
-  public ObservabilityPipelineCreateRequest putAdditionalProperty(String key, Object value) {
+  public ObservabilityPipelineSpec putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -103,7 +106,7 @@ public class ObservabilityPipelineCreateRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ObservabilityPipelineCreateRequest object is equal to o. */
+  /** Return true if this ObservabilityPipelineSpec object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,11 +115,10 @@ public class ObservabilityPipelineCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ObservabilityPipelineCreateRequest observabilityPipelineCreateRequest =
-        (ObservabilityPipelineCreateRequest) o;
-    return Objects.equals(this.data, observabilityPipelineCreateRequest.data)
+    ObservabilityPipelineSpec observabilityPipelineSpec = (ObservabilityPipelineSpec) o;
+    return Objects.equals(this.data, observabilityPipelineSpec.data)
         && Objects.equals(
-            this.additionalProperties, observabilityPipelineCreateRequest.additionalProperties);
+            this.additionalProperties, observabilityPipelineSpec.additionalProperties);
   }
 
   @Override
@@ -127,7 +129,7 @@ public class ObservabilityPipelineCreateRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ObservabilityPipelineCreateRequest {\n");
+    sb.append("class ObservabilityPipelineSpec {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

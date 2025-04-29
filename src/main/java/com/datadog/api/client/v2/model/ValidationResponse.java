@@ -19,15 +19,15 @@ import java.util.Map;
 import java.util.Objects;
 
 /** Response containing validation errors. */
-@JsonPropertyOrder({ValidationErrorResponse.JSON_PROPERTY_ERRORS})
+@JsonPropertyOrder({ValidationResponse.JSON_PROPERTY_ERRORS})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ValidationErrorResponse {
+public class ValidationResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<ValidationError> errors = null;
 
-  public ValidationErrorResponse errors(List<ValidationError> errors) {
+  public ValidationResponse errors(List<ValidationError> errors) {
     this.errors = errors;
     for (ValidationError item : errors) {
       this.unparsed |= item.unparsed;
@@ -35,7 +35,7 @@ public class ValidationErrorResponse {
     return this;
   }
 
-  public ValidationErrorResponse addErrorsItem(ValidationError errorsItem) {
+  public ValidationResponse addErrorsItem(ValidationError errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -45,7 +45,7 @@ public class ValidationErrorResponse {
   }
 
   /**
-   * The <code>ValidationErrorResponse</code> <code>errors</code>.
+   * The <code>ValidationResponse</code> <code>errors</code>.
    *
    * @return errors
    */
@@ -72,10 +72,10 @@ public class ValidationErrorResponse {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ValidationErrorResponse
+   * @return ValidationResponse
    */
   @JsonAnySetter
-  public ValidationErrorResponse putAdditionalProperty(String key, Object value) {
+  public ValidationResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -106,7 +106,7 @@ public class ValidationErrorResponse {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ValidationErrorResponse object is equal to o. */
+  /** Return true if this ValidationResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,9 +115,9 @@ public class ValidationErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ValidationErrorResponse validationErrorResponse = (ValidationErrorResponse) o;
-    return Objects.equals(this.errors, validationErrorResponse.errors)
-        && Objects.equals(this.additionalProperties, validationErrorResponse.additionalProperties);
+    ValidationResponse validationResponse = (ValidationResponse) o;
+    return Objects.equals(this.errors, validationResponse.errors)
+        && Objects.equals(this.additionalProperties, validationResponse.additionalProperties);
   }
 
   @Override
@@ -128,7 +128,7 @@ public class ValidationErrorResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ValidationErrorResponse {\n");
+    sb.append("class ValidationResponse {\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
