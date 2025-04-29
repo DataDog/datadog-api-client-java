@@ -1,0 +1,58 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}],\"name\":\"requirement\"}],\"version\":\"10\"},\"type\":\"custom_framework\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/cloud_security_management/custom_frameworks",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"handle\":\"create-framework-new\",\"version\":\"10\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "13fe9685-b072-5fe0-c841-4499a9e71c72"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/cloud_security_management/custom_frameworks/create-framework-new/10",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"created_at\":1744297581542,\"created_by\":\"team-intg-tools-libs-spam@datadoghq.com\",\"description\":\"\",\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"modified_at\":1745353074397,\"name\":\"name\",\"org_id\":321813,\"version\":\"10\"}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e535722a-99e3-30cf-49f7-2d093bd78b3b"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"\",\"name\":\"\",\"requirements\":[{\"controls\":[{\"name\":\"\",\"rules_id\":[\"\"]}],\"name\":\"\"}],\"version\":\"\"},\"type\":\"custom_framework\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/cloud_security_management/custom_frameworks/create-framework-new/10",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"input_validation_error(Field 'data.attributes.requirements.name' is invalid: field 'requirements.name' must not be empty), input_validation_error(Field 'data.attributes.controls.name' is invalid: field 'controls.name' must not be empty), input_validation_error(Field 'data.attributes.name' is invalid: field 'name' must not be empty)\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "32b0bd24-0336-5d0f-102b-3da1a84d7902"
+  }
+]
