@@ -866,7 +866,7 @@ public class TagsApi {
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
-   * @param body Add tags to host (required)
+   * @param body Add tags to host. (required)
    * @return HostTags
    * @throws ApiException if fails to make API call
    */
@@ -882,7 +882,7 @@ public class TagsApi {
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
-   * @param body Add tags to host (required)
+   * @param body Add tags to host. (required)
    * @return CompletableFuture&lt;HostTags&gt;
    */
   public CompletableFuture<HostTags> updateHostTagsAsync(String hostName, HostTags body) {
@@ -900,7 +900,7 @@ public class TagsApi {
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
-   * @param body Add tags to host (required)
+   * @param body Add tags to host. (required)
    * @param parameters Optional parameters for the request.
    * @return HostTags
    * @throws ApiException if fails to make API call
@@ -918,7 +918,7 @@ public class TagsApi {
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
-   * @param body Add tags to host (required)
+   * @param body Add tags to host. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;HostTags&gt;
    */
@@ -937,7 +937,7 @@ public class TagsApi {
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
-   * @param body Add tags to host (required)
+   * @param body Add tags to host. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;HostTags&gt;
    * @throws ApiException if fails to make API call
@@ -1005,7 +1005,7 @@ public class TagsApi {
    *
    * @param hostName This endpoint allows you to update/replace all in an integration source with
    *     those supplied in the request. (required)
-   * @param body Add tags to host (required)
+   * @param body Add tags to host. (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;HostTags&gt;&gt;
    */
