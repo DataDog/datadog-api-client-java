@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"end_month\":202502,\"entries\":[{\"amount\":500,\"month\":202501,\"tag_filters\":[{\"tag_key\":\"service\",\"tag_value\":\"ec2\"}]},{\"amount\":500,\"month\":202502,\"tag_filters\":[{\"tag_key\":\"service\",\"tag_value\":\"ec2\"}]}],\"metrics_query\":\"aws.cost.amortized{service:ec2} by {service}\",\"name\":\"my budget\",\"start_month\":202501,\"tags\":[\"service\"]},\"id\":\"00000000-0a0a-0a0a-aaa0-00000000000a\",\"type\":\"budget\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/cost/budget",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"failed to upsert budget: budget not found\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "148ba35c-0db1-18f8-99fb-da67881a9eec"
+  }
+]
