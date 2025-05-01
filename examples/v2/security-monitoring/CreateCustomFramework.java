@@ -25,7 +25,7 @@ public class Example {
                     .attributes(
                         new CustomFrameworkDataAttributes()
                             .name("name")
-                            .handle("create-framework-new")
+                            .handle("")
                             .version("10")
                             .iconUrl("test-url")
                             .requirements(

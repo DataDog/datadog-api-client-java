@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}],\"name\":\"requirement\"}],\"version\":\"10\"},\"type\":\"custom_framework\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"GetacustomframeworkreturnsOKresponse\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}],\"name\":\"requirement\"}],\"version\":\"10\"},\"type\":\"custom_framework\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"handle\":\"create-framework-new\",\"version\":\"10\"}}}",
+      "body": "{\"data\":{\"id\":\"GetacustomframeworkreturnsOKresponse-10\",\"type\":\"custom_framework\",\"attributes\":{\"handle\":\"GetacustomframeworkreturnsOKresponse\",\"version\":\"10\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "13fe9685-b072-5fe0-c841-4499a9e71c71"
+    "id": "7e8cbf88-394a-7298-8c12-ed2fa4176d10"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/cloud_security_management/custom_frameworks/create-framework-new/10",
+      "path": "/api/v2/cloud_security_management/custom_frameworks/GetacustomframeworkreturnsOKresponse/10",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"description\":\"\",\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"name\":\"requirement\",\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}]}],\"version\":\"10\"}}}",
+      "body": "{\"data\":{\"id\":\"GetacustomframeworkreturnsOKresponse-10\",\"type\":\"custom_framework\",\"attributes\":{\"description\":\"\",\"handle\":\"GetacustomframeworkreturnsOKresponse\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"name\":\"requirement\",\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}]}],\"version\":\"10\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,18 +53,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2d05687e-af69-d556-0b4d-5a69c2280ff4"
+    "id": "565b357c-5288-308b-3ec7-5c54a46f3fb4"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/cloud_security_management/custom_frameworks/create-framework-new/10",
+      "path": "/api/v2/cloud_security_management/custom_frameworks/GetacustomframeworkreturnsOKresponse/10",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"description\":\"\",\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"name\":\"name\",\"version\":\"10\"}}}",
+      "body": "{\"data\":{\"id\":\"GetacustomframeworkreturnsOKresponse-10\",\"type\":\"custom_framework\",\"attributes\":{\"description\":\"\",\"handle\":\"GetacustomframeworkreturnsOKresponse\",\"icon_url\":\"test-url\",\"name\":\"name\",\"version\":\"10\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -79,6 +79,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e535722a-99e3-30cf-49f7-2d093bd78b3a"
+    "id": "b74c5ce4-d8e2-0f17-ae5b-5efb50600b63"
   }
 ]

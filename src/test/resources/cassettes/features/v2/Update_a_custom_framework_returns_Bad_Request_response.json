@@ -7,7 +7,7 @@
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/cloud_security_management/custom_frameworks/create-framework-new/10",
+      "path": "/api/v2/cloud_security_management/custom_frameworks/UpdateacustomframeworkreturnsBadRequestresponse/10",
       "keepAlive": false,
       "secure": true
     },
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "32b0bd24-0336-5d0f-102b-3da1a84d7902"
+    "id": "c6478eb4-0d54-3c11-89f2-47a98f477460"
   }
 ]

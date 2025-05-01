@@ -25,7 +25,7 @@ public class Example {
                     .attributes(
                         new CustomFrameworkDataAttributes()
                             .name("name")
-                            .handle("create-framework-new")
+                            .handle("")
                             .version("10")
                             .iconUrl("test-url")
                             .requirements(
@@ -41,8 +41,7 @@ public class Example {
                                                             "def-000-be9"))))))));
 
     try {
-      UpdateCustomFrameworkResponse result =
-          apiInstance.updateCustomFramework("create-framework-new", "10", body);
+      UpdateCustomFrameworkResponse result = apiInstance.updateCustomFramework("", "10", body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SecurityMonitoringApi#updateCustomFramework");
