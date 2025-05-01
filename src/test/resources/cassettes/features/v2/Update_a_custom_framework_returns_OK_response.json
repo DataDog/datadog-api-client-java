@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}],\"name\":\"requirement\"}],\"version\":\"10\"},\"type\":\"custom_framework\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"UpdateacustomframeworkreturnsOKresponse\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}],\"name\":\"requirement\"}],\"version\":\"10\"},\"type\":\"custom_framework\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"handle\":\"create-framework-new\",\"version\":\"10\"}}}",
+      "body": "{\"data\":{\"id\":\"UpdateacustomframeworkreturnsOKresponse-10\",\"type\":\"custom_framework\",\"attributes\":{\"handle\":\"UpdateacustomframeworkreturnsOKresponse\",\"version\":\"10\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "13fe9685-b072-5fe0-c841-4499a9e71c73"
+    "id": "21310561-f91f-0b18-8ee2-31a5429699ea"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}],\"name\":\"requirement\"}],\"version\":\"10\"},\"type\":\"custom_framework\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"UpdateacustomframeworkreturnsOKresponse\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}],\"name\":\"requirement\"}],\"version\":\"10\"},\"type\":\"custom_framework\"}}"
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/cloud_security_management/custom_frameworks/create-framework-new/10",
+      "path": "/api/v2/cloud_security_management/custom_frameworks/UpdateacustomframeworkreturnsOKresponse/10",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"handle\":\"create-framework-new\",\"version\":\"10\"}}}",
+      "body": "{\"data\":{\"id\":\"UpdateacustomframeworkreturnsOKresponse-10\",\"type\":\"custom_framework\",\"attributes\":{\"handle\":\"UpdateacustomframeworkreturnsOKresponse\",\"version\":\"10\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,18 +57,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "94936cae-e61b-3f92-1d07-d9a6ab0cb353"
+    "id": "95dab595-5e75-66e3-e165-ad793c905e8f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/cloud_security_management/custom_frameworks/create-framework-new/10",
+      "path": "/api/v2/cloud_security_management/custom_frameworks/UpdateacustomframeworkreturnsOKresponse/10",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"created_at\":1744297581542,\"created_by\":\"frog@datadoghq.com\",\"description\":\"\",\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"modified_at\":1745353074397,\"name\":\"name\",\"org_id\":321813,\"version\":\"10\"}}}",
+      "body": "{\"data\":{\"id\":\"UpdateacustomframeworkreturnsOKresponse-10\",\"type\":\"custom_framework\",\"attributes\":{\"description\":\"\",\"handle\":\"UpdateacustomframeworkreturnsOKresponse\",\"icon_url\":\"test-url\",\"name\":\"name\",\"version\":\"10\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -83,6 +83,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e535722a-99e3-30cf-49f7-2d093bd78b3c"
+    "id": "7709c1f3-25fc-8bad-ae76-4c6ee322811d"
   }
 ]

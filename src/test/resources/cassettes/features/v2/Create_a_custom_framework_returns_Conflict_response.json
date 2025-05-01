@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}],\"name\":\"requirement\"}],\"version\":\"10\"},\"type\":\"custom_framework\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"CreateacustomframeworkreturnsConflictresponse\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}],\"name\":\"requirement\"}],\"version\":\"10\"},\"type\":\"custom_framework\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"handle\":\"create-framework-new\",\"version\":\"10\"}}}",
+      "body": "{\"data\":{\"id\":\"CreateacustomframeworkreturnsConflictresponse-10\",\"type\":\"custom_framework\",\"attributes\":{\"handle\":\"CreateacustomframeworkreturnsConflictresponse\",\"version\":\"10\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "13fe9685-b072-5fe0-c841-4499a9e71c74"
+    "id": "3586614e-1fc8-3300-ac44-adeb8d1bff61"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}],\"name\":\"requirement\"}],\"version\":\"10\"},\"type\":\"custom_framework\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"CreateacustomframeworkreturnsConflictresponse\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}],\"name\":\"requirement\"}],\"version\":\"10\"},\"type\":\"custom_framework\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"409\",\"title\":\"Status Conflict\",\"detail\":\"already_exists(Framework 'create-framework-new' already existed)\"}]}",
+      "body": "{\"errors\":[{\"status\":\"409\",\"title\":\"Status Conflict\",\"detail\":\"already_exists(Framework 'CreateacustomframeworkreturnsConflictresponse' already existed)\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,18 +57,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "13fe9685-b072-5fe0-c841-4499a9e71c75"
+    "id": "3586614e-1fc8-3300-ac44-adeb8d1bff62"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/cloud_security_management/custom_frameworks/create-framework-new/10",
+      "path": "/api/v2/cloud_security_management/custom_frameworks/CreateacustomframeworkreturnsConflictresponse/10",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"created_at\":1744297581542,\"created_by\":\"frog@datadoghq.com\",\"description\":\"\",\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"modified_at\":1745349916258,\"name\":\"name\",\"org_id\":321813,\"version\":\"10\"}}}",
+      "body": "{\"data\":{\"id\":\"CreateacustomframeworkreturnsConflictresponse-10\",\"type\":\"custom_framework\",\"attributes\":{\"description\":\"\",\"handle\":\"CreateacustomframeworkreturnsConflictresponse\",\"icon_url\":\"test-url\",\"name\":\"name\",\"version\":\"10\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -83,6 +83,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e535722a-99e3-30cf-49f7-2d093bd78b3d"
+    "id": "09520365-ad57-0fe8-60d3-9878cd8eb9d8"
   }
 ]

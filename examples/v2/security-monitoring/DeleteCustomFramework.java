@@ -11,8 +11,7 @@ public class Example {
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     try {
-      DeleteCustomFrameworkResponse result =
-          apiInstance.deleteCustomFramework("create-framework-new", "10");
+      DeleteCustomFrameworkResponse result = apiInstance.deleteCustomFramework("", "10");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SecurityMonitoringApi#deleteCustomFramework");

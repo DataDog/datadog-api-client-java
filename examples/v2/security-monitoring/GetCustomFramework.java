@@ -11,8 +11,7 @@ public class Example {
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
     try {
-      GetCustomFrameworkResponse result =
-          apiInstance.getCustomFramework("create-framework-new", "10");
+      GetCustomFrameworkResponse result = apiInstance.getCustomFramework("", "10");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SecurityMonitoringApi#getCustomFramework");
