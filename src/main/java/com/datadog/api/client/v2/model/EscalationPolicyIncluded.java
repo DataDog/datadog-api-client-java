@@ -169,132 +169,91 @@ public class EscalationPolicyIncluded extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'EscalationPolicyStep'", e);
       }
 
-      // deserialize UserTarget
+      // deserialize EscalationPolicyUser
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (UserTarget.class.equals(Integer.class)
-            || UserTarget.class.equals(Long.class)
-            || UserTarget.class.equals(Float.class)
-            || UserTarget.class.equals(Double.class)
-            || UserTarget.class.equals(Boolean.class)
-            || UserTarget.class.equals(String.class)) {
+        if (EscalationPolicyUser.class.equals(Integer.class)
+            || EscalationPolicyUser.class.equals(Long.class)
+            || EscalationPolicyUser.class.equals(Float.class)
+            || EscalationPolicyUser.class.equals(Double.class)
+            || EscalationPolicyUser.class.equals(Boolean.class)
+            || EscalationPolicyUser.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((UserTarget.class.equals(Integer.class) || UserTarget.class.equals(Long.class))
+                ((EscalationPolicyUser.class.equals(Integer.class)
+                        || EscalationPolicyUser.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((UserTarget.class.equals(Float.class) || UserTarget.class.equals(Double.class))
+                ((EscalationPolicyUser.class.equals(Float.class)
+                        || EscalationPolicyUser.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (UserTarget.class.equals(Boolean.class)
+                (EscalationPolicyUser.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
             attemptParsing |=
-                (UserTarget.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                (EscalationPolicyUser.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(UserTarget.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(EscalationPolicyUser.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((UserTarget) tmp).unparsed) {
+          if (!((EscalationPolicyUser) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'UserTarget'");
+          log.log(Level.FINER, "Input data matches schema 'EscalationPolicyUser'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'UserTarget'", e);
+        log.log(Level.FINER, "Input data does not match schema 'EscalationPolicyUser'", e);
       }
 
-      // deserialize ScheduleTarget
+      // deserialize ScheduleData
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (ScheduleTarget.class.equals(Integer.class)
-            || ScheduleTarget.class.equals(Long.class)
-            || ScheduleTarget.class.equals(Float.class)
-            || ScheduleTarget.class.equals(Double.class)
-            || ScheduleTarget.class.equals(Boolean.class)
-            || ScheduleTarget.class.equals(String.class)) {
+        if (ScheduleData.class.equals(Integer.class)
+            || ScheduleData.class.equals(Long.class)
+            || ScheduleData.class.equals(Float.class)
+            || ScheduleData.class.equals(Double.class)
+            || ScheduleData.class.equals(Boolean.class)
+            || ScheduleData.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((ScheduleTarget.class.equals(Integer.class)
-                        || ScheduleTarget.class.equals(Long.class))
+                ((ScheduleData.class.equals(Integer.class) || ScheduleData.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((ScheduleTarget.class.equals(Float.class)
-                        || ScheduleTarget.class.equals(Double.class))
+                ((ScheduleData.class.equals(Float.class) || ScheduleData.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (ScheduleTarget.class.equals(Boolean.class)
+                (ScheduleData.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
             attemptParsing |=
-                (ScheduleTarget.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                (ScheduleData.class.equals(String.class) && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(ScheduleTarget.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(ScheduleData.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((ScheduleTarget) tmp).unparsed) {
+          if (!((ScheduleData) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'ScheduleTarget'");
+          log.log(Level.FINER, "Input data matches schema 'ScheduleData'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'ScheduleTarget'", e);
-      }
-
-      // deserialize TeamTarget
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (TeamTarget.class.equals(Integer.class)
-            || TeamTarget.class.equals(Long.class)
-            || TeamTarget.class.equals(Float.class)
-            || TeamTarget.class.equals(Double.class)
-            || TeamTarget.class.equals(Boolean.class)
-            || TeamTarget.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((TeamTarget.class.equals(Integer.class) || TeamTarget.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((TeamTarget.class.equals(Float.class) || TeamTarget.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (TeamTarget.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (TeamTarget.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(TeamTarget.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          if (!((TeamTarget) tmp).unparsed) {
-            deserialized = tmp;
-            match++;
-          }
-          log.log(Level.FINER, "Input data matches schema 'TeamTarget'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'TeamTarget'", e);
+        log.log(Level.FINER, "Input data does not match schema 'ScheduleData'", e);
       }
 
       EscalationPolicyIncluded ret = new EscalationPolicyIncluded();
@@ -336,17 +295,12 @@ public class EscalationPolicyIncluded extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
-  public EscalationPolicyIncluded(UserTarget o) {
+  public EscalationPolicyIncluded(EscalationPolicyUser o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
-  public EscalationPolicyIncluded(ScheduleTarget o) {
-    super("oneOf", Boolean.FALSE);
-    setActualInstance(o);
-  }
-
-  public EscalationPolicyIncluded(TeamTarget o) {
+  public EscalationPolicyIncluded(ScheduleData o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
@@ -354,9 +308,8 @@ public class EscalationPolicyIncluded extends AbstractOpenApiSchema {
   static {
     schemas.put("TeamReference", new GenericType<TeamReference>() {});
     schemas.put("EscalationPolicyStep", new GenericType<EscalationPolicyStep>() {});
-    schemas.put("UserTarget", new GenericType<UserTarget>() {});
-    schemas.put("ScheduleTarget", new GenericType<ScheduleTarget>() {});
-    schemas.put("TeamTarget", new GenericType<TeamTarget>() {});
+    schemas.put("EscalationPolicyUser", new GenericType<EscalationPolicyUser>() {});
+    schemas.put("ScheduleData", new GenericType<ScheduleData>() {});
     JSON.registerDescendants(EscalationPolicyIncluded.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -367,8 +320,8 @@ public class EscalationPolicyIncluded extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: TeamReference, EscalationPolicyStep, UserTarget,
-   * ScheduleTarget, TeamTarget
+   * against the oneOf child schemas: TeamReference, EscalationPolicyStep, EscalationPolicyUser,
+   * ScheduleData
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -383,15 +336,11 @@ public class EscalationPolicyIncluded extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(UserTarget.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(EscalationPolicyUser.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(ScheduleTarget.class, instance, new HashSet<Class<?>>())) {
-      super.setActualInstance(instance);
-      return;
-    }
-    if (JSON.isInstanceOf(TeamTarget.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(ScheduleData.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -401,16 +350,16 @@ public class EscalationPolicyIncluded extends AbstractOpenApiSchema {
       return;
     }
     throw new RuntimeException(
-        "Invalid instance type. Must be TeamReference, EscalationPolicyStep, UserTarget,"
-            + " ScheduleTarget, TeamTarget");
+        "Invalid instance type. Must be TeamReference, EscalationPolicyStep, EscalationPolicyUser,"
+            + " ScheduleData");
   }
 
   /**
    * Get the actual instance, which can be the following: TeamReference, EscalationPolicyStep,
-   * UserTarget, ScheduleTarget, TeamTarget
+   * EscalationPolicyUser, ScheduleData
    *
-   * @return The actual instance (TeamReference, EscalationPolicyStep, UserTarget, ScheduleTarget,
-   *     TeamTarget)
+   * @return The actual instance (TeamReference, EscalationPolicyStep, EscalationPolicyUser,
+   *     ScheduleData)
    */
   @Override
   public Object getActualInstance() {
@@ -440,35 +389,24 @@ public class EscalationPolicyIncluded extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `UserTarget`. If the actual instance is not `UserTarget`, the
-   * ClassCastException will be thrown.
+   * Get the actual instance of `EscalationPolicyUser`. If the actual instance is not
+   * `EscalationPolicyUser`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `UserTarget`
-   * @throws ClassCastException if the instance is not `UserTarget`
+   * @return The actual instance of `EscalationPolicyUser`
+   * @throws ClassCastException if the instance is not `EscalationPolicyUser`
    */
-  public UserTarget getUserTarget() throws ClassCastException {
-    return (UserTarget) super.getActualInstance();
+  public EscalationPolicyUser getEscalationPolicyUser() throws ClassCastException {
+    return (EscalationPolicyUser) super.getActualInstance();
   }
 
   /**
-   * Get the actual instance of `ScheduleTarget`. If the actual instance is not `ScheduleTarget`,
-   * the ClassCastException will be thrown.
-   *
-   * @return The actual instance of `ScheduleTarget`
-   * @throws ClassCastException if the instance is not `ScheduleTarget`
-   */
-  public ScheduleTarget getScheduleTarget() throws ClassCastException {
-    return (ScheduleTarget) super.getActualInstance();
-  }
-
-  /**
-   * Get the actual instance of `TeamTarget`. If the actual instance is not `TeamTarget`, the
+   * Get the actual instance of `ScheduleData`. If the actual instance is not `ScheduleData`, the
    * ClassCastException will be thrown.
    *
-   * @return The actual instance of `TeamTarget`
-   * @throws ClassCastException if the instance is not `TeamTarget`
+   * @return The actual instance of `ScheduleData`
+   * @throws ClassCastException if the instance is not `ScheduleData`
    */
-  public TeamTarget getTeamTarget() throws ClassCastException {
-    return (TeamTarget) super.getActualInstance();
+  public ScheduleData getScheduleData() throws ClassCastException {
+    return (ScheduleData) super.getActualInstance();
   }
 }

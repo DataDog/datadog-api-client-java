@@ -16,15 +16,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Provides basic user information for a schedule, including a name and email address. */
+/** Provides basic user information for an escalation policy, including a name and email address. */
 @JsonPropertyOrder({
-  ScheduleUserAttributes.JSON_PROPERTY_EMAIL,
-  ScheduleUserAttributes.JSON_PROPERTY_NAME,
-  ScheduleUserAttributes.JSON_PROPERTY_STATUS
+  EscalationPolicyUserAttributes.JSON_PROPERTY_EMAIL,
+  EscalationPolicyUserAttributes.JSON_PROPERTY_NAME,
+  EscalationPolicyUserAttributes.JSON_PROPERTY_STATUS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleUserAttributes {
+public class EscalationPolicyUserAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
@@ -35,7 +35,7 @@ public class ScheduleUserAttributes {
   public static final String JSON_PROPERTY_STATUS = "status";
   private UserAttributesStatus status;
 
-  public ScheduleUserAttributes email(String email) {
+  public EscalationPolicyUserAttributes email(String email) {
     this.email = email;
     return this;
   }
@@ -56,7 +56,7 @@ public class ScheduleUserAttributes {
     this.email = email;
   }
 
-  public ScheduleUserAttributes name(String name) {
+  public EscalationPolicyUserAttributes name(String name) {
     this.name = name;
     return this;
   }
@@ -77,7 +77,7 @@ public class ScheduleUserAttributes {
     this.name = name;
   }
 
-  public ScheduleUserAttributes status(UserAttributesStatus status) {
+  public EscalationPolicyUserAttributes status(UserAttributesStatus status) {
     this.status = status;
     this.unparsed |= !status.isValid();
     return this;
@@ -114,10 +114,10 @@ public class ScheduleUserAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleUserAttributes
+   * @return EscalationPolicyUserAttributes
    */
   @JsonAnySetter
-  public ScheduleUserAttributes putAdditionalProperty(String key, Object value) {
+  public EscalationPolicyUserAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -148,7 +148,7 @@ public class ScheduleUserAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScheduleUserAttributes object is equal to o. */
+  /** Return true if this EscalationPolicyUserAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -157,11 +157,13 @@ public class ScheduleUserAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleUserAttributes scheduleUserAttributes = (ScheduleUserAttributes) o;
-    return Objects.equals(this.email, scheduleUserAttributes.email)
-        && Objects.equals(this.name, scheduleUserAttributes.name)
-        && Objects.equals(this.status, scheduleUserAttributes.status)
-        && Objects.equals(this.additionalProperties, scheduleUserAttributes.additionalProperties);
+    EscalationPolicyUserAttributes escalationPolicyUserAttributes =
+        (EscalationPolicyUserAttributes) o;
+    return Objects.equals(this.email, escalationPolicyUserAttributes.email)
+        && Objects.equals(this.name, escalationPolicyUserAttributes.name)
+        && Objects.equals(this.status, escalationPolicyUserAttributes.status)
+        && Objects.equals(
+            this.additionalProperties, escalationPolicyUserAttributes.additionalProperties);
   }
 
   @Override
@@ -172,7 +174,7 @@ public class ScheduleUserAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleUserAttributes {\n");
+    sb.append("class EscalationPolicyUserAttributes {\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

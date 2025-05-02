@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,90 +17,102 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Provides basic user information for a schedule, including a name and email address. */
+/**
+ * Represents a user object in the context of an escalation policy, including their <code>id</code>,
+ * type, and basic attributes.
+ */
 @JsonPropertyOrder({
-  ScheduleUserAttributes.JSON_PROPERTY_EMAIL,
-  ScheduleUserAttributes.JSON_PROPERTY_NAME,
-  ScheduleUserAttributes.JSON_PROPERTY_STATUS
+  EscalationPolicyUser.JSON_PROPERTY_ATTRIBUTES,
+  EscalationPolicyUser.JSON_PROPERTY_ID,
+  EscalationPolicyUser.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleUserAttributes {
+public class EscalationPolicyUser {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_EMAIL = "email";
-  private String email;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private EscalationPolicyUserAttributes attributes;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private UserAttributesStatus status;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private EscalationPolicyUserType type = EscalationPolicyUserType.USERS;
 
-  public ScheduleUserAttributes email(String email) {
-    this.email = email;
+  public EscalationPolicyUser() {}
+
+  @JsonCreator
+  public EscalationPolicyUser(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) EscalationPolicyUserType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public EscalationPolicyUser attributes(EscalationPolicyUserAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * The user's email address.
+   * Provides basic user information for an escalation policy, including a name and email address.
    *
-   * @return email
+   * @return attributes
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMAIL)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getEmail() {
-    return email;
+  public EscalationPolicyUserAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setAttributes(EscalationPolicyUserAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public ScheduleUserAttributes name(String name) {
-    this.name = name;
+  public EscalationPolicyUser id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * The user's name.
+   * The unique user identifier.
    *
-   * @return name
+   * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
+  public String getId() {
+    return id;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public ScheduleUserAttributes status(UserAttributesStatus status) {
-    this.status = status;
-    this.unparsed |= !status.isValid();
+  public EscalationPolicyUser type(EscalationPolicyUserType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The user's status.
+   * Users resource type.
    *
-   * @return status
+   * @return type
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public UserAttributesStatus getStatus() {
-    return status;
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public EscalationPolicyUserType getType() {
+    return type;
   }
 
-  public void setStatus(UserAttributesStatus status) {
-    if (!status.isValid()) {
+  public void setType(EscalationPolicyUserType type) {
+    if (!type.isValid()) {
       this.unparsed = true;
     }
-    this.status = status;
+    this.type = type;
   }
 
   /**
@@ -114,10 +127,10 @@ public class ScheduleUserAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleUserAttributes
+   * @return EscalationPolicyUser
    */
   @JsonAnySetter
-  public ScheduleUserAttributes putAdditionalProperty(String key, Object value) {
+  public EscalationPolicyUser putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -148,7 +161,7 @@ public class ScheduleUserAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScheduleUserAttributes object is equal to o. */
+  /** Return true if this EscalationPolicyUser object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -157,25 +170,25 @@ public class ScheduleUserAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleUserAttributes scheduleUserAttributes = (ScheduleUserAttributes) o;
-    return Objects.equals(this.email, scheduleUserAttributes.email)
-        && Objects.equals(this.name, scheduleUserAttributes.name)
-        && Objects.equals(this.status, scheduleUserAttributes.status)
-        && Objects.equals(this.additionalProperties, scheduleUserAttributes.additionalProperties);
+    EscalationPolicyUser escalationPolicyUser = (EscalationPolicyUser) o;
+    return Objects.equals(this.attributes, escalationPolicyUser.attributes)
+        && Objects.equals(this.id, escalationPolicyUser.id)
+        && Objects.equals(this.type, escalationPolicyUser.type)
+        && Objects.equals(this.additionalProperties, escalationPolicyUser.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, name, status, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleUserAttributes {\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("class EscalationPolicyUser {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
