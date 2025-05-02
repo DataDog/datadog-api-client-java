@@ -619,7 +619,7 @@ public class MonitorOptions {
    * conditions by setting <code>notify_by</code> to <code>["cluster"]</code>. Tags mentioned in
    * <code>notify_by</code> must be a subset of the grouping tags in the query. For example, a query
    * grouped by <code>cluster</code> and <code>namespace</code> cannot notify on <code>region</code>
-   * . Setting <code>notify_by</code> to <code>[*]</code> configures the monitor to notify as a
+   * . Setting <code>notify_by</code> to <code>["*"]</code> configures the monitor to notify as a
    * simple-alert.
    *
    * @return notifyBy
