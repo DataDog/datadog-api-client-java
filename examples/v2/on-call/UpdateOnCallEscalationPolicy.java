@@ -4,13 +4,13 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
 import com.datadog.api.client.v2.model.EscalationPolicy;
+import com.datadog.api.client.v2.model.EscalationPolicyStepAttributesAssignment;
+import com.datadog.api.client.v2.model.EscalationPolicyStepTarget;
+import com.datadog.api.client.v2.model.EscalationPolicyStepTargetType;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequest;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestData;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataAttributes;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataAttributesStepsItems;
-import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment;
-import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems;
-import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataRelationships;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataRelationshipsTeams;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems;
@@ -48,17 +48,14 @@ public class Example {
                                 Collections.singletonList(
                                     new EscalationPolicyUpdateRequestDataAttributesStepsItems()
                                         .assignment(
-                                            EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment
-                                                .DEFAULT)
+                                            EscalationPolicyStepAttributesAssignment.DEFAULT)
                                         .escalateAfterSeconds(3600L)
                                         .id(ESCALATION_POLICY_DATA_RELATIONSHIPS_STEPS_DATA_0_ID)
                                         .targets(
                                             Collections.singletonList(
-                                                new EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems()
+                                                new EscalationPolicyStepTarget()
                                                     .id(USER_DATA_ID)
-                                                    .type(
-                                                        EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType
-                                                            .USERS))))))
+                                                    .type(EscalationPolicyStepTargetType.USERS))))))
                     .id(ESCALATION_POLICY_DATA_ID)
                     .relationships(
                         new EscalationPolicyUpdateRequestDataRelationships()

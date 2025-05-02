@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,37 +17,46 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Defines a single escalation target within a step for an escalation policy creation request.
- * Contains <code>id</code> and <code>type</code>.
- */
+/** Defines a relationship item to link a routing rule by its ID and type. */
 @JsonPropertyOrder({
-  EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.JSON_PROPERTY_ID,
-  EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.JSON_PROPERTY_TYPE
+  TeamRoutingRulesDataRelationshipsRulesDataItems.JSON_PROPERTY_ID,
+  TeamRoutingRulesDataRelationshipsRulesDataItems.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems {
+public class TeamRoutingRulesDataRelationshipsRulesDataItems {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType type;
+  private TeamRoutingRulesDataRelationshipsRulesDataItemsType type =
+      TeamRoutingRulesDataRelationshipsRulesDataItemsType.TEAM_ROUTING_RULES;
 
-  public EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems id(String id) {
+  public TeamRoutingRulesDataRelationshipsRulesDataItems() {}
+
+  @JsonCreator
+  public TeamRoutingRulesDataRelationshipsRulesDataItems(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          TeamRoutingRulesDataRelationshipsRulesDataItemsType type) {
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
+
+  public TeamRoutingRulesDataRelationshipsRulesDataItems id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Specifies the unique identifier for this target.
+   * Specifies the unique identifier for the related routing rule.
    *
    * @return id
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
@@ -55,27 +65,25 @@ public class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems {
     this.id = id;
   }
 
-  public EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems type(
-      EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType type) {
+  public TeamRoutingRulesDataRelationshipsRulesDataItems type(
+      TeamRoutingRulesDataRelationshipsRulesDataItemsType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Specifies the type of escalation target (example <code>users</code>, <code>schedules</code>, or
-   * <code>teams</code>).
+   * Indicates that the resource is of type 'team_routing_rules'.
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType getType() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TeamRoutingRulesDataRelationshipsRulesDataItemsType getType() {
     return type;
   }
 
-  public void setType(EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType type) {
+  public void setType(TeamRoutingRulesDataRelationshipsRulesDataItemsType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -94,10 +102,10 @@ public class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems
+   * @return TeamRoutingRulesDataRelationshipsRulesDataItems
    */
   @JsonAnySetter
-  public EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems putAdditionalProperty(
+  public TeamRoutingRulesDataRelationshipsRulesDataItems putAdditionalProperty(
       String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
@@ -129,10 +137,7 @@ public class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems object is
-   * equal to o.
-   */
+  /** Return true if this TeamRoutingRulesDataRelationshipsRulesDataItems object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,16 +146,14 @@ public class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems
-        escalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems =
-            (EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems) o;
-    return Objects.equals(
-            this.id, escalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.id)
-        && Objects.equals(
-            this.type, escalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.type)
+    TeamRoutingRulesDataRelationshipsRulesDataItems
+        teamRoutingRulesDataRelationshipsRulesDataItems =
+            (TeamRoutingRulesDataRelationshipsRulesDataItems) o;
+    return Objects.equals(this.id, teamRoutingRulesDataRelationshipsRulesDataItems.id)
+        && Objects.equals(this.type, teamRoutingRulesDataRelationshipsRulesDataItems.type)
         && Objects.equals(
             this.additionalProperties,
-            escalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems.additionalProperties);
+            teamRoutingRulesDataRelationshipsRulesDataItems.additionalProperties);
   }
 
   @Override
@@ -161,7 +164,7 @@ public class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems {\n");
+    sb.append("class TeamRoutingRulesDataRelationshipsRulesDataItems {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

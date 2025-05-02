@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,70 +17,95 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Defines a single escalation target within a step for an escalation policy update request.
- * Contains <code>id</code> and <code>type</code>.
- */
+/** Sends a message to a Slack channel. */
 @JsonPropertyOrder({
-  EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems.JSON_PROPERTY_ID,
-  EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems.JSON_PROPERTY_TYPE
+  SlackAction.JSON_PROPERTY_CHANNEL,
+  SlackAction.JSON_PROPERTY_TYPE,
+  SlackAction.JSON_PROPERTY_WORKSPACE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems {
+public class SlackAction {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_CHANNEL = "channel";
+  private String channel;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType type;
+  private String type;
 
-  public EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems id(String id) {
-    this.id = id;
-    return this;
-  }
+  public static final String JSON_PROPERTY_WORKSPACE = "workspace";
+  private String workspace;
 
-  /**
-   * Specifies the unique identifier for this target.
-   *
-   * @return id
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
+  public SlackAction() {}
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems type(
-      EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType type) {
+  @JsonCreator
+  public SlackAction(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CHANNEL) String channel,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_WORKSPACE) String workspace) {
+    this.channel = channel;
     this.type = type;
-    this.unparsed |= !type.isValid();
+    this.workspace = workspace;
+  }
+
+  public SlackAction channel(String channel) {
+    this.channel = channel;
     return this;
   }
 
   /**
-   * Specifies the type of escalation target (example <code>users</code>, <code>schedules</code>, or
-   * <code>teams</code>).
+   * The channel ID.
+   *
+   * @return channel
+   */
+  @JsonProperty(JSON_PROPERTY_CHANNEL)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getChannel() {
+    return channel;
+  }
+
+  public void setChannel(String channel) {
+    this.channel = channel;
+  }
+
+  public SlackAction type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Must be set to "send_slack_message".
    *
    * @return type
    */
-  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType getType() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getType() {
     return type;
   }
 
-  public void setType(EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItemsType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
+  public void setType(String type) {
     this.type = type;
+  }
+
+  public SlackAction workspace(String workspace) {
+    this.workspace = workspace;
+    return this;
+  }
+
+  /**
+   * The workspace ID.
+   *
+   * @return workspace
+   */
+  @JsonProperty(JSON_PROPERTY_WORKSPACE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getWorkspace() {
+    return workspace;
+  }
+
+  public void setWorkspace(String workspace) {
+    this.workspace = workspace;
   }
 
   /**
@@ -94,11 +120,10 @@ public class EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems
+   * @return SlackAction
    */
   @JsonAnySetter
-  public EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems putAdditionalProperty(
-      String key, Object value) {
+  public SlackAction putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -129,10 +154,7 @@ public class EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems object is
-   * equal to o.
-   */
+  /** Return true if this SlackAction object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,29 +163,25 @@ public class EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems
-        escalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems =
-            (EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems) o;
-    return Objects.equals(
-            this.id, escalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems.id)
-        && Objects.equals(
-            this.type, escalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems.type)
-        && Objects.equals(
-            this.additionalProperties,
-            escalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems.additionalProperties);
+    SlackAction slackAction = (SlackAction) o;
+    return Objects.equals(this.channel, slackAction.channel)
+        && Objects.equals(this.type, slackAction.type)
+        && Objects.equals(this.workspace, slackAction.workspace)
+        && Objects.equals(this.additionalProperties, slackAction.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(channel, type, workspace, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class SlackAction {\n");
+    sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    workspace: ").append(toIndentedString(workspace)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

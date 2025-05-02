@@ -8,14 +8,14 @@ import com.datadog.api.client.v2.model.EscalationPolicyCreateRequest;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestData;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataAttributes;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataAttributesStepsItems;
-import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment;
-import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems;
-import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataRelationships;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataRelationshipsTeams;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataRelationshipsTeamsDataItems;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataRelationshipsTeamsDataItemsType;
 import com.datadog.api.client.v2.model.EscalationPolicyCreateRequestDataType;
+import com.datadog.api.client.v2.model.EscalationPolicyStepAttributesAssignment;
+import com.datadog.api.client.v2.model.EscalationPolicyStepTarget;
+import com.datadog.api.client.v2.model.EscalationPolicyStepTargetType;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -47,38 +47,28 @@ public class Example {
                                 Arrays.asList(
                                     new EscalationPolicyCreateRequestDataAttributesStepsItems()
                                         .assignment(
-                                            EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment
-                                                .DEFAULT)
+                                            EscalationPolicyStepAttributesAssignment.DEFAULT)
                                         .escalateAfterSeconds(3600L)
                                         .targets(
                                             Arrays.asList(
-                                                new EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems()
+                                                new EscalationPolicyStepTarget()
                                                     .id(USER_DATA_ID)
-                                                    .type(
-                                                        EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType
-                                                            .USERS),
-                                                new EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems()
+                                                    .type(EscalationPolicyStepTargetType.USERS),
+                                                new EscalationPolicyStepTarget()
                                                     .id(SCHEDULE_DATA_ID)
-                                                    .type(
-                                                        EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType
-                                                            .SCHEDULES),
-                                                new EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems()
+                                                    .type(EscalationPolicyStepTargetType.SCHEDULES),
+                                                new EscalationPolicyStepTarget()
                                                     .id(DD_TEAM_DATA_ID)
-                                                    .type(
-                                                        EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType
-                                                            .TEAMS))),
+                                                    .type(EscalationPolicyStepTargetType.TEAMS))),
                                     new EscalationPolicyCreateRequestDataAttributesStepsItems()
                                         .assignment(
-                                            EscalationPolicyCreateRequestDataAttributesStepsItemsAssignment
-                                                .ROUND_ROBIN)
+                                            EscalationPolicyStepAttributesAssignment.ROUND_ROBIN)
                                         .escalateAfterSeconds(3600L)
                                         .targets(
                                             Collections.singletonList(
-                                                new EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItems()
+                                                new EscalationPolicyStepTarget()
                                                     .id(DD_TEAM_DATA_ID)
-                                                    .type(
-                                                        EscalationPolicyCreateRequestDataAttributesStepsItemsTargetsItemsType
-                                                            .TEAMS))))))
+                                                    .type(EscalationPolicyStepTargetType.TEAMS))))))
                     .relationships(
                         new EscalationPolicyCreateRequestDataRelationships()
                             .teams(
