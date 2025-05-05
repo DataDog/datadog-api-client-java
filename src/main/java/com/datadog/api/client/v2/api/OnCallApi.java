@@ -10,6 +10,8 @@ import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequest;
 import com.datadog.api.client.v2.model.Schedule;
 import com.datadog.api.client.v2.model.ScheduleCreateRequest;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequest;
+import com.datadog.api.client.v2.model.TeamRoutingRules;
+import com.datadog.api.client.v2.model.TeamRoutingRulesRequest;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -1123,6 +1125,435 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Schedule>() {});
+  }
+
+  /** Manage optional parameters to getOnCallTeamRoutingRules. */
+  public static class GetOnCallTeamRoutingRulesOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>rules</code>, <code>rules.policy</code>. (optional)
+     * @return GetOnCallTeamRoutingRulesOptionalParameters
+     */
+    public GetOnCallTeamRoutingRulesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get on-call team routing rules.
+   *
+   * <p>See {@link #getOnCallTeamRoutingRulesWithHttpInfo}.
+   *
+   * @param teamId The team ID (required)
+   * @return TeamRoutingRules
+   * @throws ApiException if fails to make API call
+   */
+  public TeamRoutingRules getOnCallTeamRoutingRules(String teamId) throws ApiException {
+    return getOnCallTeamRoutingRulesWithHttpInfo(
+            teamId, new GetOnCallTeamRoutingRulesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get on-call team routing rules.
+   *
+   * <p>See {@link #getOnCallTeamRoutingRulesWithHttpInfoAsync}.
+   *
+   * @param teamId The team ID (required)
+   * @return CompletableFuture&lt;TeamRoutingRules&gt;
+   */
+  public CompletableFuture<TeamRoutingRules> getOnCallTeamRoutingRulesAsync(String teamId) {
+    return getOnCallTeamRoutingRulesWithHttpInfoAsync(
+            teamId, new GetOnCallTeamRoutingRulesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get on-call team routing rules.
+   *
+   * <p>See {@link #getOnCallTeamRoutingRulesWithHttpInfo}.
+   *
+   * @param teamId The team ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return TeamRoutingRules
+   * @throws ApiException if fails to make API call
+   */
+  public TeamRoutingRules getOnCallTeamRoutingRules(
+      String teamId, GetOnCallTeamRoutingRulesOptionalParameters parameters) throws ApiException {
+    return getOnCallTeamRoutingRulesWithHttpInfo(teamId, parameters).getData();
+  }
+
+  /**
+   * Get on-call team routing rules.
+   *
+   * <p>See {@link #getOnCallTeamRoutingRulesWithHttpInfoAsync}.
+   *
+   * @param teamId The team ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TeamRoutingRules&gt;
+   */
+  public CompletableFuture<TeamRoutingRules> getOnCallTeamRoutingRulesAsync(
+      String teamId, GetOnCallTeamRoutingRulesOptionalParameters parameters) {
+    return getOnCallTeamRoutingRulesWithHttpInfoAsync(teamId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a team's on-call routing rules
+   *
+   * @param teamId The team ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TeamRoutingRules&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamRoutingRules> getOnCallTeamRoutingRulesWithHttpInfo(
+      String teamId, GetOnCallTeamRoutingRulesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling getOnCallTeamRoutingRules");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/teams/{team_id}/routing-rules"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.getOnCallTeamRoutingRules",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamRoutingRules>() {});
+  }
+
+  /**
+   * Get on-call team routing rules.
+   *
+   * <p>See {@link #getOnCallTeamRoutingRulesWithHttpInfo}.
+   *
+   * @param teamId The team ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamRoutingRules&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamRoutingRules>>
+      getOnCallTeamRoutingRulesWithHttpInfoAsync(
+          String teamId, GetOnCallTeamRoutingRulesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<TeamRoutingRules>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'teamId' when calling getOnCallTeamRoutingRules"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/teams/{team_id}/routing-rules"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.getOnCallTeamRoutingRules",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamRoutingRules>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamRoutingRules>() {});
+  }
+
+  /** Manage optional parameters to setOnCallTeamRoutingRules. */
+  public static class SetOnCallTeamRoutingRulesOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>rules</code>, <code>rules.policy</code>. (optional)
+     * @return SetOnCallTeamRoutingRulesOptionalParameters
+     */
+    public SetOnCallTeamRoutingRulesOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Set on-call team routing rules.
+   *
+   * <p>See {@link #setOnCallTeamRoutingRulesWithHttpInfo}.
+   *
+   * @param teamId The team ID (required)
+   * @param body (required)
+   * @return TeamRoutingRules
+   * @throws ApiException if fails to make API call
+   */
+  public TeamRoutingRules setOnCallTeamRoutingRules(String teamId, TeamRoutingRulesRequest body)
+      throws ApiException {
+    return setOnCallTeamRoutingRulesWithHttpInfo(
+            teamId, body, new SetOnCallTeamRoutingRulesOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Set on-call team routing rules.
+   *
+   * <p>See {@link #setOnCallTeamRoutingRulesWithHttpInfoAsync}.
+   *
+   * @param teamId The team ID (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;TeamRoutingRules&gt;
+   */
+  public CompletableFuture<TeamRoutingRules> setOnCallTeamRoutingRulesAsync(
+      String teamId, TeamRoutingRulesRequest body) {
+    return setOnCallTeamRoutingRulesWithHttpInfoAsync(
+            teamId, body, new SetOnCallTeamRoutingRulesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Set on-call team routing rules.
+   *
+   * <p>See {@link #setOnCallTeamRoutingRulesWithHttpInfo}.
+   *
+   * @param teamId The team ID (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return TeamRoutingRules
+   * @throws ApiException if fails to make API call
+   */
+  public TeamRoutingRules setOnCallTeamRoutingRules(
+      String teamId,
+      TeamRoutingRulesRequest body,
+      SetOnCallTeamRoutingRulesOptionalParameters parameters)
+      throws ApiException {
+    return setOnCallTeamRoutingRulesWithHttpInfo(teamId, body, parameters).getData();
+  }
+
+  /**
+   * Set on-call team routing rules.
+   *
+   * <p>See {@link #setOnCallTeamRoutingRulesWithHttpInfoAsync}.
+   *
+   * @param teamId The team ID (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TeamRoutingRules&gt;
+   */
+  public CompletableFuture<TeamRoutingRules> setOnCallTeamRoutingRulesAsync(
+      String teamId,
+      TeamRoutingRulesRequest body,
+      SetOnCallTeamRoutingRulesOptionalParameters parameters) {
+    return setOnCallTeamRoutingRulesWithHttpInfoAsync(teamId, body, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Set a team's on-call routing rules
+   *
+   * @param teamId The team ID (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TeamRoutingRules&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamRoutingRules> setOnCallTeamRoutingRulesWithHttpInfo(
+      String teamId,
+      TeamRoutingRulesRequest body,
+      SetOnCallTeamRoutingRulesOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling setOnCallTeamRoutingRules");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling setOnCallTeamRoutingRules");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/teams/{team_id}/routing-rules"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.setOnCallTeamRoutingRules",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamRoutingRules>() {});
+  }
+
+  /**
+   * Set on-call team routing rules.
+   *
+   * <p>See {@link #setOnCallTeamRoutingRulesWithHttpInfo}.
+   *
+   * @param teamId The team ID (required)
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamRoutingRules&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamRoutingRules>>
+      setOnCallTeamRoutingRulesWithHttpInfoAsync(
+          String teamId,
+          TeamRoutingRulesRequest body,
+          SetOnCallTeamRoutingRulesOptionalParameters parameters) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<TeamRoutingRules>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'teamId' when calling setOnCallTeamRoutingRules"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<TeamRoutingRules>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling setOnCallTeamRoutingRules"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/teams/{team_id}/routing-rules"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.setOnCallTeamRoutingRules",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamRoutingRules>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamRoutingRules>() {});
   }
 
   /** Manage optional parameters to updateOnCallEscalationPolicy. */

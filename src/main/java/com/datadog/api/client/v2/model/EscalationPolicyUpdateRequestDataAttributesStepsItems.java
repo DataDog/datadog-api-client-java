@@ -34,7 +34,7 @@ import java.util.Objects;
 public class EscalationPolicyUpdateRequestDataAttributesStepsItems {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSIGNMENT = "assignment";
-  private EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment assignment;
+  private EscalationPolicyStepAttributesAssignment assignment;
 
   public static final String JSON_PROPERTY_ESCALATE_AFTER_SECONDS = "escalate_after_seconds";
   private Long escalateAfterSeconds;
@@ -43,20 +43,19 @@ public class EscalationPolicyUpdateRequestDataAttributesStepsItems {
   private String id;
 
   public static final String JSON_PROPERTY_TARGETS = "targets";
-  private List<EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems> targets =
-      new ArrayList<>();
+  private List<EscalationPolicyStepTarget> targets = new ArrayList<>();
 
   public EscalationPolicyUpdateRequestDataAttributesStepsItems() {}
 
   @JsonCreator
   public EscalationPolicyUpdateRequestDataAttributesStepsItems(
       @JsonProperty(required = true, value = JSON_PROPERTY_TARGETS)
-          List<EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems> targets) {
+          List<EscalationPolicyStepTarget> targets) {
     this.targets = targets;
   }
 
   public EscalationPolicyUpdateRequestDataAttributesStepsItems assignment(
-      EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment assignment) {
+      EscalationPolicyStepAttributesAssignment assignment) {
     this.assignment = assignment;
     this.unparsed |= !assignment.isValid();
     return this;
@@ -71,12 +70,11 @@ public class EscalationPolicyUpdateRequestDataAttributesStepsItems {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ASSIGNMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment getAssignment() {
+  public EscalationPolicyStepAttributesAssignment getAssignment() {
     return assignment;
   }
 
-  public void setAssignment(
-      EscalationPolicyUpdateRequestDataAttributesStepsItemsAssignment assignment) {
+  public void setAssignment(EscalationPolicyStepAttributesAssignment assignment) {
     if (!assignment.isValid()) {
       this.unparsed = true;
     }
@@ -127,16 +125,16 @@ public class EscalationPolicyUpdateRequestDataAttributesStepsItems {
   }
 
   public EscalationPolicyUpdateRequestDataAttributesStepsItems targets(
-      List<EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems> targets) {
+      List<EscalationPolicyStepTarget> targets) {
     this.targets = targets;
-    for (EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems item : targets) {
+    for (EscalationPolicyStepTarget item : targets) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public EscalationPolicyUpdateRequestDataAttributesStepsItems addTargetsItem(
-      EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems targetsItem) {
+      EscalationPolicyStepTarget targetsItem) {
     this.targets.add(targetsItem);
     this.unparsed |= targetsItem.unparsed;
     return this;
@@ -149,12 +147,11 @@ public class EscalationPolicyUpdateRequestDataAttributesStepsItems {
    */
   @JsonProperty(JSON_PROPERTY_TARGETS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems> getTargets() {
+  public List<EscalationPolicyStepTarget> getTargets() {
     return targets;
   }
 
-  public void setTargets(
-      List<EscalationPolicyUpdateRequestDataAttributesStepsItemsTargetsItems> targets) {
+  public void setTargets(List<EscalationPolicyStepTarget> targets) {
     this.targets = targets;
   }
 
