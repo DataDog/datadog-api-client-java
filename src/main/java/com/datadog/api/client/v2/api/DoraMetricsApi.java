@@ -92,6 +92,7 @@ public class DoraMetricsApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 202 </td><td> OK - but delayed due to incident </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -243,6 +244,7 @@ public class DoraMetricsApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 202 </td><td> OK - but delayed due to incident </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>

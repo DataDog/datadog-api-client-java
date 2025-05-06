@@ -301,6 +301,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -740,6 +741,8 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *       <tr><td> 500 </td><td> Bad Request </td><td>  -  </td></tr>
@@ -880,6 +883,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -1014,6 +1018,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -1150,6 +1155,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -1297,6 +1303,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Successfully created the notification rule. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -1439,6 +1446,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 201 </td><td> Successfully created the notification rule. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -1580,6 +1588,8 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *       <tr><td> 500 </td><td> Bad Request </td><td>  -  </td></tr>
    *     </table>
@@ -1886,6 +1896,7 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -2027,6 +2038,7 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -2162,6 +2174,7 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -2302,6 +2315,7 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> Rule successfully deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -2436,6 +2450,7 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> Rule successfully deleted. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -3096,6 +3111,8 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *       <tr><td> 500 </td><td> Bad Request </td><td>  -  </td></tr>
    *     </table>
@@ -3300,6 +3317,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found: The requested finding cannot be found. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests: The rate limit set by the API has been exceeded. </td><td>  -  </td></tr>
@@ -3464,6 +3482,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -3912,6 +3931,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found: asset not found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -4099,6 +4119,7 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -4241,6 +4262,8 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -4380,6 +4403,8 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -4521,6 +4546,7 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -4665,6 +4691,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Notification rule details. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -4797,6 +4824,7 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> The list of notification rules. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -4911,6 +4939,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Notification rule details. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -5044,6 +5073,7 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> The list of notification rules. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -5460,6 +5490,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found: The requested finding cannot be found. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests: The rate limit set by the API has been exceeded. </td><td>  -  </td></tr>
@@ -5744,6 +5775,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -5893,6 +5925,7 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -6069,6 +6102,8 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
@@ -6366,6 +6401,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -6511,6 +6547,7 @@ public class SecurityMonitoringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -7275,6 +7312,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found: There is no request associated with the provided token. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -7933,6 +7971,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found: There is no request associated with the provided token. </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -8195,6 +8234,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request: The server cannot process the request due to invalid syntax in the request. </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden: Access denied </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found: The requested finding cannot be found. </td><td>  -  </td></tr>
    *       <tr><td> 422 </td><td> Invalid Request: The server understands the request syntax but cannot process it due to invalid data. </td><td>  -  </td></tr>
@@ -8359,6 +8399,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Notification rule successfully patched. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 422 </td><td> The server cannot process the request because it contains invalid data. </td><td>  -  </td></tr>
@@ -8520,6 +8561,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Notification rule successfully patched. </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 422 </td><td> The server cannot process the request because it contains invalid data. </td><td>  -  </td></tr>
@@ -8945,6 +8987,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -9381,6 +9424,8 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *       <tr><td> 500 </td><td> Bad Request </td><td>  -  </td></tr>
    *     </table>
@@ -9561,6 +9606,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Concurrent Modification </td><td>  -  </td></tr>
@@ -9895,6 +9941,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Concurrent Modification </td><td>  -  </td></tr>
@@ -10064,6 +10111,7 @@ public class SecurityMonitoringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>

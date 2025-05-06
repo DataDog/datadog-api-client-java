@@ -312,6 +312,7 @@ public class LogsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> Response from server (always 200 empty JSON). </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> unexpected error </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    *
