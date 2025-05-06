@@ -1,0 +1,36 @@
+[
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/cloud_security_management/resource_filters",
+      "queryStringParameters": {
+        "cloud_provider": [
+          "aws"
+        ],
+        "account_id": [
+          "123456789"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"436195a0-5491-42a8-ac40-e0c0b61879bd\",\"type\":\"csm_resource_filter\",\"attributes\":{\"cloud_provider\":{}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "000eff50-ec68-762b-ad7f-1f9d22febfbf"
+  }
+]
