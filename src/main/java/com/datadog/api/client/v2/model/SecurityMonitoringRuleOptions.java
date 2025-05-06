@@ -228,7 +228,7 @@ public class SecurityMonitoringRuleOptions {
   }
 
   /**
-   * Once a signal is generated, the signal will remain “open” if a case is matched at least once
+   * Once a signal is generated, the signal will remain "open" if a case is matched at least once
    * within this keep alive window. For third party detection method, this field is not used.
    *
    * @return keepAlive
@@ -255,7 +255,7 @@ public class SecurityMonitoringRuleOptions {
   }
 
   /**
-   * A signal will “close” regardless of the query being matched once the time exceeds the maximum
+   * A signal will "close" regardless of the query being matched once the time exceeds the maximum
    * duration. This time is calculated from the first seen timestamp.
    *
    * @return maxSignalDuration
