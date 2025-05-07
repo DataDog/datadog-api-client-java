@@ -832,7 +832,6 @@ public class DashboardsApiTest extends V1ApiTest {
             .addWidgetsItem(toplistWidget)
             .title(getUniqueEntityName("ordered"))
             .description("Test dashboard for Java client")
-            .isReadOnly(false)
             .templateVariables(templateVariables)
             .addTemplateVariablePresetsItem(dashboardTemplateVariablePreset)
             .addNotifyListItem("test@datadoghq.com");
@@ -858,7 +857,6 @@ public class DashboardsApiTest extends V1ApiTest {
             .addWidgetsItem(serviceSummaryWidget)
             .title(getUniqueEntityName("free"))
             .description("Test Free layout dashboard for Java client")
-            .isReadOnly(false)
             .templateVariables(templateVariables);
     Dashboard createFreeResponse = api.createDashboard(freeDashboard);
     cleanupDashIDs.add(createFreeResponse.getId());
@@ -868,7 +866,6 @@ public class DashboardsApiTest extends V1ApiTest {
     // Assert root dashboard items on the create response
     assertEquals(dashboard.getTitle(), response.getTitle());
     assertEquals(dashboard.getDescription(), response.getDescription());
-    assertEquals(dashboard.getIsReadOnly(), response.getIsReadOnly());
     // The end of the url is a normalized version fo the title, so lets just check the beginning of
     // the URL
     assertTrue(response.getUrl().contains(String.format("/dashboard/%s", response.getId())));
