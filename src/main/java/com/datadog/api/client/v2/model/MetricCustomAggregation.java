@@ -17,7 +17,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A time and space aggregation combination for use in query. */
+/**
+ * A time and space aggregation combination for use in query.
+ *
+ * @deprecated
+ */
+@Deprecated
 @JsonPropertyOrder({
   MetricCustomAggregation.JSON_PROPERTY_SPACE,
   MetricCustomAggregation.JSON_PROPERTY_TIME

@@ -99,7 +99,9 @@ public class MetricTagConfigurationCreateAttributes {
    * <code>count</code>, <code>rate</code>, or <code>gauge</code>.
    *
    * @return aggregations
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,6 +109,7 @@ public class MetricTagConfigurationCreateAttributes {
     return aggregations;
   }
 
+  @Deprecated
   public void setAggregations(List<MetricCustomAggregation> aggregations) {
     this.aggregations = aggregations;
   }

@@ -15,9 +15,7 @@ public class Example {
       MetricEstimateResponse result =
           apiInstance.estimateMetricsOutputSeries(
               "system.cpu.idle",
-              new EstimateMetricsOutputSeriesOptionalParameters()
-                  .filterGroups("app,host")
-                  .filterNumAggregations(4));
+              new EstimateMetricsOutputSeriesOptionalParameters().filterGroups("app,host"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#estimateMetricsOutputSeries");
