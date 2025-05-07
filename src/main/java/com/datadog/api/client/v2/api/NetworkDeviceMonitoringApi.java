@@ -3,7 +3,9 @@ package com.datadog.api.client.v2.api;
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
+import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.DevicesListData;
 import com.datadog.api.client.v2.model.GetDeviceResponse;
 import com.datadog.api.client.v2.model.GetInterfacesResponse;
 import com.datadog.api.client.v2.model.ListDevicesResponse;
@@ -12,6 +14,7 @@ import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -374,30 +377,31 @@ public class NetworkDeviceMonitoringApi {
 
   /** Manage optional parameters to listDevices. */
   public static class ListDevicesOptionalParameters {
-    private Long pageNumber;
     private Long pageSize;
+    private Long pageNumber;
     private String sort;
     private String filterTag;
 
     /**
-     * Set pageNumber.
-     *
-     * @param pageNumber The page number to fetch. (optional)
-     * @return ListDevicesOptionalParameters
-     */
-    public ListDevicesOptionalParameters pageNumber(Long pageNumber) {
-      this.pageNumber = pageNumber;
-      return this;
-    }
-
-    /**
      * Set pageSize.
      *
-     * @param pageSize The number of devices to return per page. (optional)
+     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
+     *     to 10)
      * @return ListDevicesOptionalParameters
      */
     public ListDevicesOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListDevicesOptionalParameters
+     */
+    public ListDevicesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
       return this;
     }
 
@@ -485,6 +489,59 @@ public class NetworkDeviceMonitoringApi {
   /**
    * Get the list of devices.
    *
+   * <p>See {@link #listDevicesWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;DevicesListData&gt;
+   */
+  public PaginationIterable<DevicesListData> listDevicesWithPagination() {
+    ListDevicesOptionalParameters parameters = new ListDevicesOptionalParameters();
+    return listDevicesWithPagination(parameters);
+  }
+
+  /**
+   * Get the list of devices.
+   *
+   * <p>See {@link #listDevicesWithHttpInfo}.
+   *
+   * @return ListDevicesResponse
+   */
+  public PaginationIterable<DevicesListData> listDevicesWithPagination(
+      ListDevicesOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listDevices",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
+   * Get the list of devices.
+   *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;ListDevicesResponse&gt;
    * @throws ApiException if fails to make API call
@@ -501,8 +558,8 @@ public class NetworkDeviceMonitoringApi {
   public ApiResponse<ListDevicesResponse> listDevicesWithHttpInfo(
       ListDevicesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
-    Long pageNumber = parameters.pageNumber;
     Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     String sort = parameters.sort;
     String filterTag = parameters.filterTag;
     // create path and map variables
@@ -511,8 +568,8 @@ public class NetworkDeviceMonitoringApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tag]", filterTag));
 
@@ -547,8 +604,8 @@ public class NetworkDeviceMonitoringApi {
   public CompletableFuture<ApiResponse<ListDevicesResponse>> listDevicesWithHttpInfoAsync(
       ListDevicesOptionalParameters parameters) {
     Object localVarPostBody = null;
-    Long pageNumber = parameters.pageNumber;
     Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     String sort = parameters.sort;
     String filterTag = parameters.filterTag;
     // create path and map variables
@@ -557,8 +614,8 @@ public class NetworkDeviceMonitoringApi {
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[tag]", filterTag));
 
