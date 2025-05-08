@@ -23,9 +23,11 @@ import java.util.Set;
 public class IncidentSeverity extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("UNKNOWN", "SEV-1", "SEV-2", "SEV-3", "SEV-4", "SEV-5"));
+      new HashSet<String>(
+          Arrays.asList("UNKNOWN", "SEV-0", "SEV-1", "SEV-2", "SEV-3", "SEV-4", "SEV-5"));
 
   public static final IncidentSeverity UNKNOWN = new IncidentSeverity("UNKNOWN");
+  public static final IncidentSeverity SEV_0 = new IncidentSeverity("SEV-0");
   public static final IncidentSeverity SEV_1 = new IncidentSeverity("SEV-1");
   public static final IncidentSeverity SEV_2 = new IncidentSeverity("SEV-2");
   public static final IncidentSeverity SEV_3 = new IncidentSeverity("SEV-3");
