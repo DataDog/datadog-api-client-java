@@ -61,25 +61,8 @@ public class MetricTagConfigurationUpdateAttributes {
   }
 
   /**
-   * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default,
-   * count and rate metrics require the (time: sum, space: sum) aggregation and Gauge metrics
-   * require the (time: avg, space: avg) aggregation. Additional time &amp; space combinations are
-   * also available:
-   *
-   * <ul>
-   *   <li>time: avg, space: avg
-   *   <li>time: avg, space: max
-   *   <li>time: avg, space: min
-   *   <li>time: avg, space: sum
-   *   <li>time: count, space: sum
-   *   <li>time: max, space: max
-   *   <li>time: min, space: min
-   *   <li>time: sum, space: avg
-   *   <li>time: sum, space: sum
-   * </ul>
-   *
-   * <p>Can only be applied to non_distribution metrics that have a <code>metric_type</code> of
-   * <code>count</code>, <code>rate</code>, or <code>gauge</code>.
+   * Deprecated. You no longer need to configure specific time and space aggregations for Metrics
+   * Without Limits.
    *
    * @return aggregations
    */
