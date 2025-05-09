@@ -19,6 +19,7 @@ import java.util.Objects;
 /** Object containing an event response. */
 @JsonPropertyOrder({
   EventCreateResponse.JSON_PROPERTY_ATTRIBUTES,
+  EventCreateResponse.JSON_PROPERTY_ID,
   EventCreateResponse.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -27,6 +28,9 @@ public class EventCreateResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private EventCreateResponseAttributes attributes;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -51,6 +55,28 @@ public class EventCreateResponse {
 
   public void setAttributes(EventCreateResponseAttributes attributes) {
     this.attributes = attributes;
+  }
+
+  public EventCreateResponse id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * A numerical ID compatible with the V1 endpoint. This field is not populated in response from
+   * the V2 endpoint. To retrieve this ID, refer to the event attributes in the Event Explorer.
+   *
+   * @return id
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public EventCreateResponse type(String type) {
@@ -131,13 +157,14 @@ public class EventCreateResponse {
     }
     EventCreateResponse eventCreateResponse = (EventCreateResponse) o;
     return Objects.equals(this.attributes, eventCreateResponse.attributes)
+        && Objects.equals(this.id, eventCreateResponse.id)
         && Objects.equals(this.type, eventCreateResponse.type)
         && Objects.equals(this.additionalProperties, eventCreateResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
@@ -145,6 +172,7 @@ public class EventCreateResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventCreateResponse {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
