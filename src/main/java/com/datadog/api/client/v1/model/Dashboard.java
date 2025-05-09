@@ -64,7 +64,7 @@ public class Dashboard {
   private String id;
 
   public static final String JSON_PROPERTY_IS_READ_ONLY = "is_read_only";
-  private Boolean isReadOnly;
+  private Boolean isReadOnly = false;
 
   public static final String JSON_PROPERTY_LAYOUT_TYPE = "layout_type";
   private DashboardLayoutType layoutType;
