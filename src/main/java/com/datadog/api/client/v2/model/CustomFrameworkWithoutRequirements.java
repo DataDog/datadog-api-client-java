@@ -48,14 +48,10 @@ public class CustomFrameworkWithoutRequirements {
 
   @JsonCreator
   public CustomFrameworkWithoutRequirements(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
       @JsonProperty(required = true, value = JSON_PROPERTY_HANDLE) String handle,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ICON_URL) String iconUrl,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) String version) {
-    this.description = description;
     this.handle = handle;
-    this.iconUrl = iconUrl;
     this.name = name;
     this.version = version;
   }
@@ -70,8 +66,9 @@ public class CustomFrameworkWithoutRequirements {
    *
    * @return description
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDescription() {
     return description;
   }
@@ -110,8 +107,9 @@ public class CustomFrameworkWithoutRequirements {
    *
    * @return iconUrl
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ICON_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIconUrl() {
     return iconUrl;
   }
