@@ -21,7 +21,6 @@ import java.util.Objects;
 
 /** Full Framework Data Attributes. */
 @JsonPropertyOrder({
-  FullCustomFrameworkDataAttributes.JSON_PROPERTY_DESCRIPTION,
   FullCustomFrameworkDataAttributes.JSON_PROPERTY_HANDLE,
   FullCustomFrameworkDataAttributes.JSON_PROPERTY_ICON_URL,
   FullCustomFrameworkDataAttributes.JSON_PROPERTY_NAME,
@@ -32,9 +31,6 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FullCustomFrameworkDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
-
   public static final String JSON_PROPERTY_HANDLE = "handle";
   private String handle;
 
@@ -54,39 +50,15 @@ public class FullCustomFrameworkDataAttributes {
 
   @JsonCreator
   public FullCustomFrameworkDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
       @JsonProperty(required = true, value = JSON_PROPERTY_HANDLE) String handle,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ICON_URL) String iconUrl,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_REQUIREMENTS)
           List<CustomFrameworkRequirement> requirements,
       @JsonProperty(required = true, value = JSON_PROPERTY_VERSION) String version) {
-    this.description = description;
     this.handle = handle;
-    this.iconUrl = iconUrl;
     this.name = name;
     this.requirements = requirements;
     this.version = version;
-  }
-
-  public FullCustomFrameworkDataAttributes description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Framework Description
-   *
-   * @return description
-   */
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 
   public FullCustomFrameworkDataAttributes handle(String handle) {
@@ -119,8 +91,9 @@ public class FullCustomFrameworkDataAttributes {
    *
    * @return iconUrl
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ICON_URL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getIconUrl() {
     return iconUrl;
   }
@@ -257,8 +230,7 @@ public class FullCustomFrameworkDataAttributes {
     }
     FullCustomFrameworkDataAttributes fullCustomFrameworkDataAttributes =
         (FullCustomFrameworkDataAttributes) o;
-    return Objects.equals(this.description, fullCustomFrameworkDataAttributes.description)
-        && Objects.equals(this.handle, fullCustomFrameworkDataAttributes.handle)
+    return Objects.equals(this.handle, fullCustomFrameworkDataAttributes.handle)
         && Objects.equals(this.iconUrl, fullCustomFrameworkDataAttributes.iconUrl)
         && Objects.equals(this.name, fullCustomFrameworkDataAttributes.name)
         && Objects.equals(this.requirements, fullCustomFrameworkDataAttributes.requirements)
@@ -269,15 +241,13 @@ public class FullCustomFrameworkDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        description, handle, iconUrl, name, requirements, version, additionalProperties);
+    return Objects.hash(handle, iconUrl, name, requirements, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FullCustomFrameworkDataAttributes {\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
     sb.append("    iconUrl: ").append(toIndentedString(iconUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
