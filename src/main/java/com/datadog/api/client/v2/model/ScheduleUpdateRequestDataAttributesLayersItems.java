@@ -58,7 +58,7 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
   private String name;
 
   public static final String JSON_PROPERTY_RESTRICTIONS = "restrictions";
-  private List<ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems> restrictions = null;
+  private List<TimeRestriction> restrictions = null;
 
   public static final String JSON_PROPERTY_ROTATION_START = "rotation_start";
   private OffsetDateTime rotationStart;
@@ -222,16 +222,16 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
   }
 
   public ScheduleUpdateRequestDataAttributesLayersItems restrictions(
-      List<ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems> restrictions) {
+      List<TimeRestriction> restrictions) {
     this.restrictions = restrictions;
-    for (ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems item : restrictions) {
+    for (TimeRestriction item : restrictions) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public ScheduleUpdateRequestDataAttributesLayersItems addRestrictionsItem(
-      ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems restrictionsItem) {
+      TimeRestriction restrictionsItem) {
     if (this.restrictions == null) {
       this.restrictions = new ArrayList<>();
     }
@@ -248,12 +248,11 @@ public class ScheduleUpdateRequestDataAttributesLayersItems {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESTRICTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems> getRestrictions() {
+  public List<TimeRestriction> getRestrictions() {
     return restrictions;
   }
 
-  public void setRestrictions(
-      List<ScheduleUpdateRequestDataAttributesLayersItemsRestrictionsItems> restrictions) {
+  public void setRestrictions(List<TimeRestriction> restrictions) {
     this.restrictions = restrictions;
   }
 
