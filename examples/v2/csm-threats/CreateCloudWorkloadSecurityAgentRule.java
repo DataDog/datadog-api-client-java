@@ -20,7 +20,7 @@ public class Example {
                 new CloudWorkloadSecurityAgentRuleCreateData()
                     .attributes(
                         new CloudWorkloadSecurityAgentRuleCreateAttributes()
-                            .description("Test Agent rule")
+                            .description("My Agent rule")
                             .enabled(true)
                             .expression("""
 exec.file.name == "sh"

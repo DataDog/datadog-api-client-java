@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[],\"name\":\"my_agent_policy\"},\"id\":\"non-existent-policy-id\",\"type\":\"policy\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/remote_config/products/cws/policy/non-existent-policy-id",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"failed to update policy\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "53c2d138-ea8f-e494-db00-9481f45b660f"
+  }
+]

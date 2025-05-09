@@ -3,16 +3,16 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsokresponse1713895065\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsokresponse1743517849\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules",
+      "path": "/api/v2/remote_config/products/cws/policy",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"igj-qzb-9eq\",\"attributes\":{\"version\":1,\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsokresponse1713895065\",\"description\":\"Test Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1713895065356,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1713895065356,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"4o4-2ha-t4b\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsokresponse1743517849\",\"policyVersion\":\"1\",\"priority\":1000000001,\"ruleCount\":226,\"updateDate\":1743517849954,\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,43 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3f58a3dd-9886-b92d-0186-494e4cdb8179"
+    "id": "7c285ff6-b1ea-26ec-704d-9b5f0246d02d"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[],\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsokresponse1743517849\"},\"type\":\"agent_rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"amk-lsa-s1q\",\"attributes\":{\"version\":1,\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsokresponse1743517849\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"defaultRule\":false,\"enabled\":true,\"creationAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"creationDate\":1743517850483,\"updateAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"updateDate\":1743517850483,\"filters\":[],\"actions\":[],\"agentConstraint\":\"\",\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}},\"type\":\"agent_rule\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f29574c7-79d9-5925-2699-b0bbd20ea20d"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/igj-qzb-9eq",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/amk-lsa-s1q",
       "keepAlive": false,
       "secure": true
     },
@@ -48,6 +78,31 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0c1bd236-ec0c-dff6-17af-fc03ca098caf"
+    "id": "213da503-7db2-f282-57f9-696487873321"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/4o4-2ha-t4b",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "139ce589-a272-ef27-1fbf-867fa4c6b67d"
   }
 ]

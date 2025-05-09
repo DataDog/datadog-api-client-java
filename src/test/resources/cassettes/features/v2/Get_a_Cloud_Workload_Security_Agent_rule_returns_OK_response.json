@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1713895068\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1744967413\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ei4-rq6-ept\",\"attributes\":{\"version\":1,\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1713895068\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1713895068731,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1713895068731,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"ajb-znb-t3g\",\"attributes\":{\"version\":1,\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1744967413\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"defaultRule\":false,\"enabled\":true,\"creationAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"creationDate\":1744967414208,\"updateAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"updateDate\":1744967414208,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0dec293b-85d2-10dd-119f-35f568a5273f"
+    "id": "396a5dc9-132e-919e-9d88-cf562a6e9d95"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ei4-rq6-ept",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ajb-znb-t3g",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ei4-rq6-ept\",\"attributes\":{\"version\":1,\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1713895068\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1713895068731,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1713895068731,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"enabled\":true,\"defaultRule\":false,\"creator\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":null,\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"ajb-znb-t3g\",\"attributes\":{\"version\":1,\"name\":\"testgetacloudworkloadsecurityagentrulereturnsokresponse1744967413\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"defaultRule\":false,\"enabled\":true,\"creationAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"creationDate\":1744967414208,\"updateAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"updateDate\":1744967414208,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e9d2fdc2-1ea8-86bd-462b-96d289388521"
+    "id": "8d9f05ef-f286-26ab-9b61-6ec475d8c5a2"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ei4-rq6-ept",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ajb-znb-t3g",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "86492460-d3e5-7501-1f32-18113b23cd8e"
+    "id": "123e0530-9270-5bba-2906-395d131199f7"
   }
 ]

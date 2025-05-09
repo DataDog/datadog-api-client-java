@@ -23,13 +23,12 @@ public class Example {
                 new CloudWorkloadSecurityAgentRuleUpdateData()
                     .attributes(
                         new CloudWorkloadSecurityAgentRuleUpdateAttributes()
-                            .description("Test Agent rule")
-                            .enabled(true)
+                            .description("Updated Agent rule")
                             .expression("""
 exec.file.name == "sh"
 """))
-                    .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE)
-                    .id(AGENT_RULE_DATA_ID));
+                    .id(AGENT_RULE_DATA_ID)
+                    .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
 
     try {
       CloudWorkloadSecurityAgentRuleResponse result =

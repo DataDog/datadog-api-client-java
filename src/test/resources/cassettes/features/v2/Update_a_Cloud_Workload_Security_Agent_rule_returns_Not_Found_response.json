@@ -3,16 +3,16 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"id\":\"abc-123-xyz\",\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"id\":\"invalid-agent-rule-id\",\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/abc-123-xyz",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/non-existent-rule-id",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"not_found(Agent rule not found: agentRuleId=abc-123-xyz)\"]}\n",
+      "body": "{\"errors\":[\"Not found\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7edac9ea-36b8-deb4-6f4b-a1e4b54dd869"
+    "id": "f6805e00-15e4-871e-20ec-52d323b5f750"
   }
 ]
