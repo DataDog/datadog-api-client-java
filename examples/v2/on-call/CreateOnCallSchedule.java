@@ -10,14 +10,13 @@ import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributesLayers
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributesLayersItemsInterval;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributesLayersItemsMembersItems;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser;
-import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems;
-import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItemsEndDay;
-import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItemsStartDay;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataRelationships;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataRelationshipsTeams;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataRelationshipsTeamsDataItems;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataRelationshipsTeamsDataItemsType;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataType;
+import com.datadog.api.client.v2.model.TimeRestriction;
+import com.datadog.api.client.v2.model.Weekday;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.Collections;
@@ -56,14 +55,10 @@ public class Example {
                                         .name("Layer 1")
                                         .restrictions(
                                             Collections.singletonList(
-                                                new ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItems()
-                                                    .endDay(
-                                                        ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItemsEndDay
-                                                            .FRIDAY)
+                                                new TimeRestriction()
+                                                    .endDay(Weekday.FRIDAY)
                                                     .endTime("17:00:00")
-                                                    .startDay(
-                                                        ScheduleCreateRequestDataAttributesLayersItemsRestrictionsItemsStartDay
-                                                            .MONDAY)
+                                                    .startDay(Weekday.MONDAY)
                                                     .startTime("09:00:00")))
                                         .rotationStart(OffsetDateTime.now().plusDays(-5))))
                             .name("Example-On-Call")
