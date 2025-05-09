@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of the resource. The value should always be <code>agent_rule</code>. */
+/** The type of the resource, must always be <code>agent_rule</code> */
 @JsonSerialize(
     using = CloudWorkloadSecurityAgentRuleType.CloudWorkloadSecurityAgentRuleTypeSerializer.class)
 public class CloudWorkloadSecurityAgentRuleType extends ModelEnum<String> {

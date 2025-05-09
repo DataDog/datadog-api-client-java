@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** A Cloud Workload Security Agent rule returned by the API. */
+/** A Cloud Workload Security Agent rule returned by the API */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_ACTIONS,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_AGENT_CONSTRAINT,
@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_EXPRESSION,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_FILTERS,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_NAME,
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_PRODUCT_TAGS,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATE_AUTHOR_UU_ID,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATE_DATE,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATED_AT,
@@ -80,6 +81,9 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+  public static final String JSON_PROPERTY_PRODUCT_TAGS = "product_tags";
+  private List<String> productTags = null;
+
   public static final String JSON_PROPERTY_UPDATE_AUTHOR_UU_ID = "updateAuthorUuId";
   private String updateAuthorUuId;
 
@@ -115,7 +119,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * The array of actions the rule can perform if triggered.
+   * The array of actions the rule can perform if triggered
    *
    * @return actions
    */
@@ -147,7 +151,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * The version of the agent.
+   * The version of the Agent
    *
    * @return agentConstraint
    */
@@ -168,7 +172,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * The category of the Agent rule.
+   * The category of the Agent rule
    *
    * @return category
    */
@@ -189,7 +193,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * The ID of the user who created the rule.
+   * The ID of the user who created the rule
    *
    * @return creationAuthorUuId
    */
@@ -210,7 +214,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * When the Agent rule was created, timestamp in milliseconds.
+   * When the Agent rule was created, timestamp in milliseconds
    *
    * @return creationDate
    */
@@ -233,7 +237,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * The attributes of the user who created the Agent rule.
+   * The attributes of the user who created the Agent rule
    *
    * @return creator
    */
@@ -254,7 +258,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * Whether the rule is included by default.
+   * Whether the rule is included by default
    *
    * @return defaultRule
    */
@@ -275,7 +279,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * The description of the Agent rule.
+   * The description of the Agent rule
    *
    * @return description
    */
@@ -296,7 +300,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * Whether the Agent rule is enabled.
+   * Whether the Agent rule is enabled
    *
    * @return enabled
    */
@@ -317,7 +321,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * The SECL expression of the Agent rule.
+   * The SECL expression of the Agent rule
    *
    * @return expression
    */
@@ -346,7 +350,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * The platforms the Agent rule is supported on.
+   * The platforms the Agent rule is supported on
    *
    * @return filters
    */
@@ -367,7 +371,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * The name of the Agent rule.
+   * The name of the Agent rule
    *
    * @return name
    */
@@ -382,13 +386,42 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     this.name = name;
   }
 
+  public CloudWorkloadSecurityAgentRuleAttributes productTags(List<String> productTags) {
+    this.productTags = productTags;
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAttributes addProductTagsItem(String productTagsItem) {
+    if (this.productTags == null) {
+      this.productTags = new ArrayList<>();
+    }
+    this.productTags.add(productTagsItem);
+    return this;
+  }
+
+  /**
+   * The list of product tags associated with the rule
+   *
+   * @return productTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getProductTags() {
+    return productTags;
+  }
+
+  public void setProductTags(List<String> productTags) {
+    this.productTags = productTags;
+  }
+
   public CloudWorkloadSecurityAgentRuleAttributes updateAuthorUuId(String updateAuthorUuId) {
     this.updateAuthorUuId = updateAuthorUuId;
     return this;
   }
 
   /**
-   * The ID of the user who updated the rule.
+   * The ID of the user who updated the rule
    *
    * @return updateAuthorUuId
    */
@@ -409,7 +442,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * Timestamp in milliseconds when the Agent rule was last updated.
+   * Timestamp in milliseconds when the Agent rule was last updated
    *
    * @return updateDate
    */
@@ -430,7 +463,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * When the Agent rule was last updated, timestamp in milliseconds.
+   * When the Agent rule was last updated, timestamp in milliseconds
    *
    * @return updatedAt
    */
@@ -453,7 +486,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * The attributes of the user who last updated the Agent rule.
+   * The attributes of the user who last updated the Agent rule
    *
    * @return updater
    */
@@ -474,7 +507,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   }
 
   /**
-   * The version of the Agent rule.
+   * The version of the Agent rule
    *
    * @return version
    */
@@ -560,6 +593,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
         && Objects.equals(this.expression, cloudWorkloadSecurityAgentRuleAttributes.expression)
         && Objects.equals(this.filters, cloudWorkloadSecurityAgentRuleAttributes.filters)
         && Objects.equals(this.name, cloudWorkloadSecurityAgentRuleAttributes.name)
+        && Objects.equals(this.productTags, cloudWorkloadSecurityAgentRuleAttributes.productTags)
         && Objects.equals(
             this.updateAuthorUuId, cloudWorkloadSecurityAgentRuleAttributes.updateAuthorUuId)
         && Objects.equals(this.updateDate, cloudWorkloadSecurityAgentRuleAttributes.updateDate)
@@ -586,6 +620,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
         expression,
         filters,
         name,
+        productTags,
         updateAuthorUuId,
         updateDate,
         updatedAt,
@@ -610,6 +645,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productTags: ").append(toIndentedString(productTags)).append("\n");
     sb.append("    updateAuthorUuId: ").append(toIndentedString(updateAuthorUuId)).append("\n");
     sb.append("    updateDate: ").append(toIndentedString(updateDate)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** The action the rule can perform if triggered. */
+/** The action the rule can perform if triggered */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_FILTER,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_KILL

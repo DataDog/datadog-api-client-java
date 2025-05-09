@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1716925089\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1744967414\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"qdg-dfm-kku\",\"attributes\":{\"version\":1,\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1716925089\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"creationAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"creationDate\":1716925089625,\"updateAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"updateDate\":1716925089625,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"defaultRule\":false,\"enabled\":true,\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"03s-ro8-kgi\",\"attributes\":{\"version\":1,\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1744967414\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"defaultRule\":false,\"enabled\":true,\"creationAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"creationDate\":1744967414924,\"updateAuthorUuId\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"updateDate\":1744967414924,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"creator\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"},\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a135c5ab-5ca5-e218-38b2-ea5530f3a5c9"
+    "id": "6117d741-146f-7545-62ac-cea7ec42f4ff"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"open.file.path = sh\"},\"id\":\"qdg-dfm-kku\",\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name\"},\"id\":\"03s-ro8-kgi\",\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/qdg-dfm-kku",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/03s-ro8-kgi",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1716925089` error: syntax error `1:18: unexpected token \\\"sh\\\" (expected \\\"~\\\")`)\"]}\n",
+      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1744967414` error: rule syntax error: bool expected: 1:1: exec.file.name\\n^)\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f29f2542-be39-334f-dc8b-2ad205b681c8"
+    "id": "8b083a0f-780e-6fec-489c-57490e757c7e"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/qdg-dfm-kku",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/03s-ro8-kgi",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "12b5b1ee-2dbb-abf1-ccfc-539561fe7778"
+    "id": "253a3c81-6e61-cec1-0cb2-25fbb073e320"
   }
 ]

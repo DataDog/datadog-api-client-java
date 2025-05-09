@@ -25,7 +25,9 @@ import java.util.Objects;
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_ENABLED,
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_EXPRESSION,
   CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_FILTERS,
-  CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_NAME
+  CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_NAME,
+  CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_POLICY_ID,
+  CloudWorkloadSecurityAgentRuleCreateAttributes.JSON_PROPERTY_PRODUCT_TAGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -45,6 +47,12 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_POLICY_ID = "policy_id";
+  private String policyId;
+
+  public static final String JSON_PROPERTY_PRODUCT_TAGS = "product_tags";
+  private List<String> productTags = null;
 
   public CloudWorkloadSecurityAgentRuleCreateAttributes() {}
 
@@ -83,7 +91,7 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
   }
 
   /**
-   * Whether the Agent rule is enabled.
+   * Whether the Agent rule is enabled
    *
    * @return enabled
    */
@@ -132,7 +140,7 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
   }
 
   /**
-   * The platforms the Agent rule is supported on.
+   * The platforms the Agent rule is supported on
    *
    * @return filters
    */
@@ -165,6 +173,56 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public CloudWorkloadSecurityAgentRuleCreateAttributes policyId(String policyId) {
+    this.policyId = policyId;
+    return this;
+  }
+
+  /**
+   * The ID of the policy where the Agent rule is saved
+   *
+   * @return policyId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POLICY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPolicyId() {
+    return policyId;
+  }
+
+  public void setPolicyId(String policyId) {
+    this.policyId = policyId;
+  }
+
+  public CloudWorkloadSecurityAgentRuleCreateAttributes productTags(List<String> productTags) {
+    this.productTags = productTags;
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentRuleCreateAttributes addProductTagsItem(String productTagsItem) {
+    if (this.productTags == null) {
+      this.productTags = new ArrayList<>();
+    }
+    this.productTags.add(productTagsItem);
+    return this;
+  }
+
+  /**
+   * The list of product tags associated with the rule
+   *
+   * @return productTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getProductTags() {
+    return productTags;
+  }
+
+  public void setProductTags(List<String> productTags) {
+    this.productTags = productTags;
   }
 
   /**
@@ -232,6 +290,9 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
             this.expression, cloudWorkloadSecurityAgentRuleCreateAttributes.expression)
         && Objects.equals(this.filters, cloudWorkloadSecurityAgentRuleCreateAttributes.filters)
         && Objects.equals(this.name, cloudWorkloadSecurityAgentRuleCreateAttributes.name)
+        && Objects.equals(this.policyId, cloudWorkloadSecurityAgentRuleCreateAttributes.policyId)
+        && Objects.equals(
+            this.productTags, cloudWorkloadSecurityAgentRuleCreateAttributes.productTags)
         && Objects.equals(
             this.additionalProperties,
             cloudWorkloadSecurityAgentRuleCreateAttributes.additionalProperties);
@@ -239,7 +300,15 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, enabled, expression, filters, name, additionalProperties);
+    return Objects.hash(
+        description,
+        enabled,
+        expression,
+        filters,
+        name,
+        policyId,
+        productTags,
+        additionalProperties);
   }
 
   @Override
@@ -251,6 +320,8 @@ public class CloudWorkloadSecurityAgentRuleCreateAttributes {
     sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    policyId: ").append(toIndentedString(policyId)).append("\n");
+    sb.append("    productTags: ").append(toIndentedString(productTags)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

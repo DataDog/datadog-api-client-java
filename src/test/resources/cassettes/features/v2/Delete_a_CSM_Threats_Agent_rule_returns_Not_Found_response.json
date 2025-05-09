@@ -3,7 +3,7 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/abc-123-xyz",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/non-existent-rule-id",
       "keepAlive": false,
       "secure": true
     },
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ceb83d3d-046b-71c1-42fb-4beb5c1fae4a"
+    "id": "37943dec-e34a-4139-6fd6-39d539b08422"
   }
 ]
