@@ -14,7 +14,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"is_read_only\":false,\"layout_type\":null,\"title\":null,\"widgets\":[]}"
+      "json" : "{\"layout_type\":null,\"title\":null,\"widgets\":[]}"
     }
   },
   "times" : {
@@ -58,7 +58,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"is_read_only\":false,\"layout_type\":null,\"title\":null,\"widgets\":[]}"
+      "json" : "{\"layout_type\":null,\"title\":null,\"widgets\":[]}"
     }
   },
   "times" : {
