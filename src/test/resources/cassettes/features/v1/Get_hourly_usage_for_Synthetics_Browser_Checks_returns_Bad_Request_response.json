@@ -6,17 +6,17 @@
       "path": "/api/v1/usage/synthetics_browser",
       "queryStringParameters": {
         "start_hr": [
-          "2022-03-29T00:41:28.391Z"
+          "2025-05-09T11:35:53.111Z"
         ],
         "end_hr": [
-          "2022-03-27T00:41:28.391Z"
+          "2025-05-07T11:35:53.111Z"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "81a7a11e-4a23-9d2d-edbf-480594a7cfaa"
+    "id": "b3f92113-6b83-2f1c-1730-cca44ccfa055"
   }
 ]

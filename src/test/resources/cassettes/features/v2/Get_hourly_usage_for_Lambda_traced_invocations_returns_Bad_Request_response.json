@@ -6,10 +6,10 @@
       "path": "/api/v2/usage/lambda_traced_invocations",
       "queryStringParameters": {
         "start_hr": [
-          "2024-01-21T20:56:23.911Z"
+          "2025-05-09T12:32:51.888Z"
         ],
         "end_hr": [
-          "2024-01-19T20:56:23.911Z"
+          "2025-05-07T12:32:51.888Z"
         ]
       },
       "keepAlive": false,
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "af201a68-1472-acf2-fa02-feb5049e78f4"
+    "id": "4b8e4cc2-c0a6-d61f-10f2-1d18c64ddfa6"
   }
 ]

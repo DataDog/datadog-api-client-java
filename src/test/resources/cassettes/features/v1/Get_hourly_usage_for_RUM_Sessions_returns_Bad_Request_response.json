@@ -6,17 +6,17 @@
       "path": "/api/v1/usage/rum_sessions",
       "queryStringParameters": {
         "start_hr": [
-          "2022-03-29T00:41:26.836Z"
+          "2025-05-09T11:35:47.745Z"
         ],
         "end_hr": [
-          "2022-03-27T00:41:26.836Z"
+          "2025-05-07T11:35:47.745Z"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7a52ad74-9770-3580-38ea-c2a090eaab4b"
+    "id": "5f7955bb-ca7c-8773-c7b8-48c8dded76f5"
   }
 ]

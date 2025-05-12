@@ -6,10 +6,10 @@
       "path": "/api/v2/usage/hourly_usage",
       "queryStringParameters": {
         "filter[timestamp][start]": [
-          "2022-07-16T14:57:41.335Z"
+          "2025-05-09T12:32:50.132Z"
         ],
         "filter[timestamp][end]": [
-          "2022-07-14T14:57:41.335Z"
+          "2025-05-07T12:32:50.132Z"
         ],
         "filter[product_families]": [
           "infra_hosts"
@@ -19,7 +19,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}\n",
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -34,6 +34,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cc496d18-a216-a654-906e-24e1671e2b27"
+    "id": "5a771a18-73ce-8775-cbe1-7d6517274c4a"
   }
 ]

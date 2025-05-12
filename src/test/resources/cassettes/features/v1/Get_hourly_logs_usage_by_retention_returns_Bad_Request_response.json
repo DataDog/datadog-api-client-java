@@ -6,17 +6,17 @@
       "path": "/api/v1/usage/logs-by-retention",
       "queryStringParameters": {
         "start_hr": [
-          "2022-03-29T00:41:21.295Z"
+          "2025-05-09T11:35:29.344Z"
         ],
         "end_hr": [
-          "2022-03-27T00:41:21.295Z"
+          "2025-05-07T11:35:29.344Z"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e1c0741e-f718-ee3d-3344-b6a5fa498a6f"
+    "id": "4de42e8b-ae4d-1855-52af-d90bc2fee74c"
   }
 ]

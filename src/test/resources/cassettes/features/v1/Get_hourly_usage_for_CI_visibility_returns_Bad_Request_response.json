@@ -6,10 +6,10 @@
       "path": "/api/v1/usage/ci-app",
       "queryStringParameters": {
         "start_hr": [
-          "2023-09-22T19:13:30.824Z"
+          "2025-05-09T11:35:34.125Z"
         ],
         "end_hr": [
-          "2023-09-20T19:13:30.824Z"
+          "2025-05-07T11:35:34.125Z"
         ]
       },
       "keepAlive": false,
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1f69f826-fa77-6ee3-f1a0-75db67924860"
+    "id": "71d81ee4-a214-6ca8-0736-fd240938dac6"
   }
 ]

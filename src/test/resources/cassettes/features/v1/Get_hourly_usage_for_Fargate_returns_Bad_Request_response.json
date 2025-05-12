@@ -6,17 +6,17 @@
       "path": "/api/v1/usage/fargate",
       "queryStringParameters": {
         "start_hr": [
-          "2022-03-29T00:41:23.099Z"
+          "2025-05-09T11:35:37.319Z"
         ],
         "end_hr": [
-          "2022-03-27T00:41:23.099Z"
+          "2025-05-07T11:35:37.319Z"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dc845438-d3ad-c146-e22e-a622bfd46bcf"
+    "id": "e4281220-c5bd-dd9b-ab3d-5366f1a48972"
   }
 ]

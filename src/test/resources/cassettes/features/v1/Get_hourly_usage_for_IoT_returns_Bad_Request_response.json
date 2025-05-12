@@ -6,17 +6,17 @@
       "path": "/api/v1/usage/iot",
       "queryStringParameters": {
         "start_hr": [
-          "2022-01-28T09:34:27.865Z"
+          "2025-05-09T11:35:38.816Z"
         ],
         "end_hr": [
-          "2022-01-26T09:34:27.865Z"
+          "2025-05-07T11:35:38.816Z"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "503729ea-9981-d4f5-15aa-98293efed595"
+    "id": "b287c242-004d-a8a4-3a95-54e5fd97cf88"
   }
 ]

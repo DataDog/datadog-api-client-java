@@ -6,17 +6,17 @@
       "path": "/api/v1/usage/ingested-spans",
       "queryStringParameters": {
         "start_hr": [
-          "2022-01-28T09:34:33.304Z"
+          "2025-05-09T11:36:02.152Z"
         ],
         "end_hr": [
-          "2022-01-26T09:34:33.304Z"
+          "2025-05-07T11:36:02.152Z"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "7125aa1e-c027-9d2f-6927-e0974da9f3f4"
+    "id": "85038a9b-2b91-9323-ef13-c223e958b3e3"
   }
 ]
