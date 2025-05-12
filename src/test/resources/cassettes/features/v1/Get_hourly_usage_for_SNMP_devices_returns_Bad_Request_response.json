@@ -6,17 +6,17 @@
       "path": "/api/v1/usage/snmp",
       "queryStringParameters": {
         "start_hr": [
-          "2022-01-28T09:34:29.203Z"
+          "2025-05-09T11:35:49.801Z"
         ],
         "end_hr": [
-          "2022-01-26T09:34:29.203Z"
+          "2025-05-07T11:35:49.801Z"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "912be5ab-b0dc-df85-2187-c6caaa2afd56"
+    "id": "4b0ee5f6-b049-d0b6-a860-4bd8c30081a2"
   }
 ]

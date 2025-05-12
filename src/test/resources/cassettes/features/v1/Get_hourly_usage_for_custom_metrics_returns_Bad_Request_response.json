@@ -6,17 +6,17 @@
       "path": "/api/v1/usage/timeseries",
       "queryStringParameters": {
         "start_hr": [
-          "2022-03-29T00:41:29.079Z"
+          "2025-05-09T11:35:57.279Z"
         ],
         "end_hr": [
-          "2022-03-27T00:41:29.079Z"
+          "2025-05-07T11:35:57.279Z"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
+      "body": "{\"errors\":[\"start_hr [YYYY-MM-DDThh] must be before end_hr [YYYY-MM-DDThh]\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "42e2f85a-3db1-bf02-1d22-60e243700a30"
+    "id": "c946334a-2582-ec72-50d3-92f8c8edfd2a"
   }
 ]

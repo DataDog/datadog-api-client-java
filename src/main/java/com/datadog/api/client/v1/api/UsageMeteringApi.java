@@ -220,6 +220,7 @@ public class UsageMeteringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -252,7 +253,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -302,7 +303,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
@@ -484,6 +485,7 @@ public class UsageMeteringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -532,7 +534,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -612,7 +614,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<HourlyUsageAttributionResponse>> result =
@@ -746,6 +748,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -780,7 +783,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -838,7 +841,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageIncidentManagementResponse>> result =
@@ -969,6 +972,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -1002,7 +1006,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -1059,7 +1063,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageIngestedSpansResponse>> result = new CompletableFuture<>();
@@ -1214,6 +1218,7 @@ public class UsageMeteringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -1246,7 +1251,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -1297,7 +1302,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCustomReportsResponse>> result = new CompletableFuture<>();
@@ -1512,6 +1517,7 @@ public class UsageMeteringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -1565,7 +1571,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -1651,7 +1657,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<MonthlyUsageAttributionResponse>> result =
@@ -1719,6 +1725,7 @@ public class UsageMeteringApi {
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -1751,7 +1758,7 @@ public class UsageMeteringApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -1805,7 +1812,7 @@ public class UsageMeteringApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
@@ -1874,6 +1881,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -1907,7 +1915,7 @@ public class UsageMeteringApi {
             new ArrayList<Pair>(),
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -1961,7 +1969,7 @@ public class UsageMeteringApi {
               new ArrayList<Pair>(),
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSpecifiedCustomReportsResponse>> result =
@@ -2095,6 +2103,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -2129,7 +2138,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -2186,7 +2195,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageAnalyzedLogsResponse>> result = new CompletableFuture<>();
@@ -2310,6 +2319,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -2343,7 +2353,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -2399,7 +2409,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageAuditLogsResponse>> result = new CompletableFuture<>();
@@ -2524,6 +2534,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -2550,7 +2561,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -2596,7 +2607,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageBillableSummaryResponse>> result =
@@ -2725,6 +2736,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -2758,7 +2770,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -2814,7 +2826,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCIVisibilityResponse>> result = new CompletableFuture<>();
@@ -2950,6 +2962,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -2988,7 +3001,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -3049,7 +3062,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCloudSecurityPostureManagementResponse>> result =
@@ -3178,6 +3191,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -3211,7 +3225,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -3267,7 +3281,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageCWSResponse>> result = new CompletableFuture<>();
@@ -3395,6 +3409,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -3428,7 +3443,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -3484,7 +3499,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageDBMResponse>> result = new CompletableFuture<>();
@@ -3614,6 +3629,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -3647,7 +3663,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -3703,7 +3719,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageFargateResponse>> result = new CompletableFuture<>();
@@ -3831,6 +3847,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -3864,7 +3881,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -3920,7 +3937,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageHostsResponse>> result = new CompletableFuture<>();
@@ -4053,6 +4070,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -4087,7 +4105,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -4144,7 +4162,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageIndexedSpansResponse>> result = new CompletableFuture<>();
@@ -4276,6 +4294,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -4310,7 +4329,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -4367,7 +4386,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageIoTResponse>> result = new CompletableFuture<>();
@@ -4495,6 +4514,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -4528,7 +4548,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -4584,7 +4604,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageLambdaResponse>> result = new CompletableFuture<>();
@@ -4712,6 +4732,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -4745,7 +4766,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -4801,7 +4822,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageLogsResponse>> result = new CompletableFuture<>();
@@ -4932,6 +4953,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -4965,7 +4987,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -5022,7 +5044,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageLogsByIndexResponse>> result = new CompletableFuture<>();
@@ -5156,6 +5178,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -5190,7 +5213,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -5249,7 +5272,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageLogsByRetentionResponse>> result =
@@ -5383,6 +5406,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -5417,7 +5441,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -5474,7 +5498,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageNetworkFlowsResponse>> result = new CompletableFuture<>();
@@ -5607,6 +5631,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -5641,7 +5666,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -5698,7 +5723,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageNetworkHostsResponse>> result = new CompletableFuture<>();
@@ -5831,6 +5856,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -5865,7 +5891,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -5922,7 +5948,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageOnlineArchiveResponse>> result = new CompletableFuture<>();
@@ -6051,6 +6077,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -6084,7 +6111,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -6140,7 +6167,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageProfilingResponse>> result = new CompletableFuture<>();
@@ -6286,6 +6313,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -6322,7 +6350,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -6381,7 +6409,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageRumSessionsResponse>> result = new CompletableFuture<>();
@@ -6511,6 +6539,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -6544,7 +6573,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -6600,7 +6629,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageRumUnitsResponse>> result = new CompletableFuture<>();
@@ -6728,6 +6757,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -6761,7 +6791,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -6817,7 +6847,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSDSResponse>> result = new CompletableFuture<>();
@@ -6945,6 +6975,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -6978,7 +7009,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -7034,7 +7065,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSNMPResponse>> result = new CompletableFuture<>();
@@ -7181,6 +7212,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -7217,7 +7249,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -7277,7 +7309,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSummaryResponse>> result = new CompletableFuture<>();
@@ -7408,6 +7440,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -7441,7 +7474,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -7498,7 +7531,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSyntheticsResponse>> result = new CompletableFuture<>();
@@ -7632,6 +7665,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -7666,7 +7700,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -7723,7 +7757,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSyntheticsAPIResponse>> result = new CompletableFuture<>();
@@ -7857,6 +7891,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -7891,7 +7926,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -7950,7 +7985,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageSyntheticsBrowserResponse>> result =
@@ -8083,6 +8118,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -8116,7 +8152,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -8173,7 +8209,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageTimeseriesResponse>> result = new CompletableFuture<>();
@@ -8334,6 +8370,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
@@ -8365,7 +8402,7 @@ public class UsageMeteringApi {
             localVarQueryParams,
             localVarHeaderParams,
             new HashMap<String, String>(),
-            new String[] {"application/json;datetime-format=rfc3339"},
+            new String[] {"application/json;datetime-format=rfc3339", "application/json"},
             new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     return apiClient.invokeAPI(
         "GET",
@@ -8415,7 +8452,7 @@ public class UsageMeteringApi {
               localVarQueryParams,
               localVarHeaderParams,
               new HashMap<String, String>(),
-              new String[] {"application/json;datetime-format=rfc3339"},
+              new String[] {"application/json;datetime-format=rfc3339", "application/json"},
               new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
     } catch (ApiException ex) {
       CompletableFuture<ApiResponse<UsageTopAvgMetricsResponse>> result = new CompletableFuture<>();

@@ -8,7 +8,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"The parameter 'month/day' is required\"]}",
+      "body": "{\"errors\":[\"The parameter 'month/day' is required\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "38e4a9c2-2752-15a2-6aa1-d247eea5cbf3"
+    "id": "6bb0685c-7677-7cba-2283-05c127eea284"
   }
 ]
