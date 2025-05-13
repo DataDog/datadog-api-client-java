@@ -32,7 +32,7 @@ public class EscalationPolicyDataRelationships {
   private EscalationPolicyDataRelationshipsSteps steps;
 
   public static final String JSON_PROPERTY_TEAMS = "teams";
-  private EscalationPolicyDataRelationshipsTeams teams;
+  private DataRelationshipsTeams teams;
 
   public EscalationPolicyDataRelationships() {}
 
@@ -66,26 +66,25 @@ public class EscalationPolicyDataRelationships {
     this.steps = steps;
   }
 
-  public EscalationPolicyDataRelationships teams(EscalationPolicyDataRelationshipsTeams teams) {
+  public EscalationPolicyDataRelationships teams(DataRelationshipsTeams teams) {
     this.teams = teams;
     this.unparsed |= teams.unparsed;
     return this;
   }
 
   /**
-   * Defines the relationship to a collection of teams within an escalation policy. Contains an
-   * array of team data references.
+   * Associates teams with this schedule in a data structure.
    *
    * @return teams
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEAMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EscalationPolicyDataRelationshipsTeams getTeams() {
+  public DataRelationshipsTeams getTeams() {
     return teams;
   }
 
-  public void setTeams(EscalationPolicyDataRelationshipsTeams teams) {
+  public void setTeams(DataRelationshipsTeams teams) {
     this.teams = teams;
   }
 

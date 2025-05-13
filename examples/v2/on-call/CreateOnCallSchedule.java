@@ -2,19 +2,19 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
+import com.datadog.api.client.v2.model.DataRelationshipsTeams;
+import com.datadog.api.client.v2.model.DataRelationshipsTeamsDataItems;
+import com.datadog.api.client.v2.model.DataRelationshipsTeamsDataItemsType;
+import com.datadog.api.client.v2.model.LayerAttributesInterval;
 import com.datadog.api.client.v2.model.Schedule;
 import com.datadog.api.client.v2.model.ScheduleCreateRequest;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestData;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributes;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributesLayersItems;
-import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributesLayersItemsInterval;
-import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributesLayersItemsMembersItems;
-import com.datadog.api.client.v2.model.ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataRelationships;
-import com.datadog.api.client.v2.model.ScheduleCreateRequestDataRelationshipsTeams;
-import com.datadog.api.client.v2.model.ScheduleCreateRequestDataRelationshipsTeamsDataItems;
-import com.datadog.api.client.v2.model.ScheduleCreateRequestDataRelationshipsTeamsDataItemsType;
 import com.datadog.api.client.v2.model.ScheduleCreateRequestDataType;
+import com.datadog.api.client.v2.model.ScheduleRequestDataAttributesLayersItemsMembersItems;
+import com.datadog.api.client.v2.model.ScheduleRequestDataAttributesLayersItemsMembersItemsUser;
 import com.datadog.api.client.v2.model.TimeRestriction;
 import com.datadog.api.client.v2.model.Weekday;
 import java.time.OffsetDateTime;
@@ -43,14 +43,12 @@ public class Example {
                                     new ScheduleCreateRequestDataAttributesLayersItems()
                                         .effectiveDate(OffsetDateTime.now().plusDays(-10))
                                         .endDate(OffsetDateTime.now().plusDays(10))
-                                        .interval(
-                                            new ScheduleCreateRequestDataAttributesLayersItemsInterval()
-                                                .days(1))
+                                        .interval(new LayerAttributesInterval().days(1))
                                         .members(
                                             Collections.singletonList(
-                                                new ScheduleCreateRequestDataAttributesLayersItemsMembersItems()
+                                                new ScheduleRequestDataAttributesLayersItemsMembersItems()
                                                     .user(
-                                                        new ScheduleCreateRequestDataAttributesLayersItemsMembersItemsUser()
+                                                        new ScheduleRequestDataAttributesLayersItemsMembersItemsUser()
                                                             .id(USER_DATA_ID))))
                                         .name("Layer 1")
                                         .restrictions(
@@ -67,14 +65,12 @@ public class Example {
                     .relationships(
                         new ScheduleCreateRequestDataRelationships()
                             .teams(
-                                new ScheduleCreateRequestDataRelationshipsTeams()
+                                new DataRelationshipsTeams()
                                     .data(
                                         Collections.singletonList(
-                                            new ScheduleCreateRequestDataRelationshipsTeamsDataItems()
+                                            new DataRelationshipsTeamsDataItems()
                                                 .id(DD_TEAM_DATA_ID)
-                                                .type(
-                                                    ScheduleCreateRequestDataRelationshipsTeamsDataItemsType
-                                                        .TEAMS)))))
+                                                .type(DataRelationshipsTeamsDataItemsType.TEAMS)))))
                     .type(ScheduleCreateRequestDataType.SCHEDULES));
 
     try {

@@ -17,36 +17,36 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Defines a single member within a layer during an update request, referring to a specific user.
+ * Defines a single member within a schedule layer, including the reference to the underlying user.
  */
-@JsonPropertyOrder({ScheduleUpdateRequestDataAttributesLayersItemsMembersItems.JSON_PROPERTY_USER})
+@JsonPropertyOrder({ScheduleRequestDataAttributesLayersItemsMembersItems.JSON_PROPERTY_USER})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleUpdateRequestDataAttributesLayersItemsMembersItems {
+public class ScheduleRequestDataAttributesLayersItemsMembersItems {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USER = "user";
-  private ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser user;
+  private ScheduleRequestDataAttributesLayersItemsMembersItemsUser user;
 
-  public ScheduleUpdateRequestDataAttributesLayersItemsMembersItems user(
-      ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser user) {
+  public ScheduleRequestDataAttributesLayersItemsMembersItems user(
+      ScheduleRequestDataAttributesLayersItemsMembersItemsUser user) {
     this.user = user;
     this.unparsed |= user.unparsed;
     return this;
   }
 
   /**
-   * Identifies the user who is assigned to this member object. Only <code>id</code> is required.
+   * Identifies the user participating in this layer as a single object with an <code>id</code>.
    *
    * @return user
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser getUser() {
+  public ScheduleRequestDataAttributesLayersItemsMembersItemsUser getUser() {
     return user;
   }
 
-  public void setUser(ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser user) {
+  public void setUser(ScheduleRequestDataAttributesLayersItemsMembersItemsUser user) {
     this.user = user;
   }
 
@@ -62,10 +62,10 @@ public class ScheduleUpdateRequestDataAttributesLayersItemsMembersItems {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleUpdateRequestDataAttributesLayersItemsMembersItems
+   * @return ScheduleRequestDataAttributesLayersItemsMembersItems
    */
   @JsonAnySetter
-  public ScheduleUpdateRequestDataAttributesLayersItemsMembersItems putAdditionalProperty(
+  public ScheduleRequestDataAttributesLayersItemsMembersItems putAdditionalProperty(
       String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
@@ -98,8 +98,7 @@ public class ScheduleUpdateRequestDataAttributesLayersItemsMembersItems {
   }
 
   /**
-   * Return true if this ScheduleUpdateRequestDataAttributesLayersItemsMembersItems object is equal
-   * to o.
+   * Return true if this ScheduleRequestDataAttributesLayersItemsMembersItems object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -109,14 +108,13 @@ public class ScheduleUpdateRequestDataAttributesLayersItemsMembersItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleUpdateRequestDataAttributesLayersItemsMembersItems
-        scheduleUpdateRequestDataAttributesLayersItemsMembersItems =
-            (ScheduleUpdateRequestDataAttributesLayersItemsMembersItems) o;
-    return Objects.equals(
-            this.user, scheduleUpdateRequestDataAttributesLayersItemsMembersItems.user)
+    ScheduleRequestDataAttributesLayersItemsMembersItems
+        scheduleRequestDataAttributesLayersItemsMembersItems =
+            (ScheduleRequestDataAttributesLayersItemsMembersItems) o;
+    return Objects.equals(this.user, scheduleRequestDataAttributesLayersItemsMembersItems.user)
         && Objects.equals(
             this.additionalProperties,
-            scheduleUpdateRequestDataAttributesLayersItemsMembersItems.additionalProperties);
+            scheduleRequestDataAttributesLayersItemsMembersItems.additionalProperties);
   }
 
   @Override
@@ -127,7 +125,7 @@ public class ScheduleUpdateRequestDataAttributesLayersItemsMembersItems {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleUpdateRequestDataAttributesLayersItemsMembersItems {\n");
+    sb.append("class ScheduleRequestDataAttributesLayersItemsMembersItems {\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

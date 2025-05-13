@@ -3,6 +3,9 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
+import com.datadog.api.client.v2.model.DataRelationshipsTeams;
+import com.datadog.api.client.v2.model.DataRelationshipsTeamsDataItems;
+import com.datadog.api.client.v2.model.DataRelationshipsTeamsDataItemsType;
 import com.datadog.api.client.v2.model.EscalationPolicy;
 import com.datadog.api.client.v2.model.EscalationPolicyStepAttributesAssignment;
 import com.datadog.api.client.v2.model.EscalationPolicyStepTarget;
@@ -12,9 +15,6 @@ import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestData;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataAttributes;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataAttributesStepsItems;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataRelationships;
-import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataRelationshipsTeams;
-import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems;
-import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType;
 import com.datadog.api.client.v2.model.EscalationPolicyUpdateRequestDataType;
 import java.util.Collections;
 
@@ -60,14 +60,12 @@ public class Example {
                     .relationships(
                         new EscalationPolicyUpdateRequestDataRelationships()
                             .teams(
-                                new EscalationPolicyUpdateRequestDataRelationshipsTeams()
+                                new DataRelationshipsTeams()
                                     .data(
                                         Collections.singletonList(
-                                            new EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems()
+                                            new DataRelationshipsTeamsDataItems()
                                                 .id(DD_TEAM_DATA_ID)
-                                                .type(
-                                                    EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType
-                                                        .TEAMS)))))
+                                                .type(DataRelationshipsTeamsDataItemsType.TEAMS)))))
                     .type(EscalationPolicyUpdateRequestDataType.POLICIES));
 
     try {

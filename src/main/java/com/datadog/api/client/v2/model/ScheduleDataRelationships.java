@@ -29,7 +29,7 @@ public class ScheduleDataRelationships {
   private ScheduleDataRelationshipsLayers layers;
 
   public static final String JSON_PROPERTY_TEAMS = "teams";
-  private ScheduleDataRelationshipsTeams teams;
+  private DataRelationshipsTeams teams;
 
   public ScheduleDataRelationships layers(ScheduleDataRelationshipsLayers layers) {
     this.layers = layers;
@@ -53,7 +53,7 @@ public class ScheduleDataRelationships {
     this.layers = layers;
   }
 
-  public ScheduleDataRelationships teams(ScheduleDataRelationshipsTeams teams) {
+  public ScheduleDataRelationships teams(DataRelationshipsTeams teams) {
     this.teams = teams;
     this.unparsed |= teams.unparsed;
     return this;
@@ -67,11 +67,11 @@ public class ScheduleDataRelationships {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEAMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScheduleDataRelationshipsTeams getTeams() {
+  public DataRelationshipsTeams getTeams() {
     return teams;
   }
 
-  public void setTeams(ScheduleDataRelationshipsTeams teams) {
+  public void setTeams(DataRelationshipsTeams teams) {
     this.teams = teams;
   }
 

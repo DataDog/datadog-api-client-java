@@ -20,43 +20,39 @@ import java.util.Set;
 
 /** Teams resource type. */
 @JsonSerialize(
-    using =
-        ScheduleDataRelationshipsTeamsDataItemsType
-            .ScheduleDataRelationshipsTeamsDataItemsTypeSerializer.class)
-public class ScheduleDataRelationshipsTeamsDataItemsType extends ModelEnum<String> {
+    using = DataRelationshipsTeamsDataItemsType.DataRelationshipsTeamsDataItemsTypeSerializer.class)
+public class DataRelationshipsTeamsDataItemsType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("teams"));
 
-  public static final ScheduleDataRelationshipsTeamsDataItemsType TEAMS =
-      new ScheduleDataRelationshipsTeamsDataItemsType("teams");
+  public static final DataRelationshipsTeamsDataItemsType TEAMS =
+      new DataRelationshipsTeamsDataItemsType("teams");
 
-  ScheduleDataRelationshipsTeamsDataItemsType(String value) {
+  DataRelationshipsTeamsDataItemsType(String value) {
     super(value, allowedValues);
   }
 
-  public static class ScheduleDataRelationshipsTeamsDataItemsTypeSerializer
-      extends StdSerializer<ScheduleDataRelationshipsTeamsDataItemsType> {
-    public ScheduleDataRelationshipsTeamsDataItemsTypeSerializer(
-        Class<ScheduleDataRelationshipsTeamsDataItemsType> t) {
+  public static class DataRelationshipsTeamsDataItemsTypeSerializer
+      extends StdSerializer<DataRelationshipsTeamsDataItemsType> {
+    public DataRelationshipsTeamsDataItemsTypeSerializer(
+        Class<DataRelationshipsTeamsDataItemsType> t) {
       super(t);
     }
 
-    public ScheduleDataRelationshipsTeamsDataItemsTypeSerializer() {
+    public DataRelationshipsTeamsDataItemsTypeSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        ScheduleDataRelationshipsTeamsDataItemsType value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
+        DataRelationshipsTeamsDataItemsType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static ScheduleDataRelationshipsTeamsDataItemsType fromValue(String value) {
-    return new ScheduleDataRelationshipsTeamsDataItemsType(value);
+  public static DataRelationshipsTeamsDataItemsType fromValue(String value) {
+    return new DataRelationshipsTeamsDataItemsType(value);
   }
 }

@@ -8,58 +8,87 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Associates the new schedule with one or more teams. */
-@JsonPropertyOrder({ScheduleCreateRequestDataRelationshipsTeams.JSON_PROPERTY_DATA})
+/**
+ * Relates a team to this schedule, identified by <code>id</code> and <code>type</code> (must be
+ * <code>teams</code>).
+ */
+@JsonPropertyOrder({
+  DataRelationshipsTeamsDataItems.JSON_PROPERTY_ID,
+  DataRelationshipsTeamsDataItems.JSON_PROPERTY_TYPE
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleCreateRequestDataRelationshipsTeams {
+public class DataRelationshipsTeamsDataItems {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<ScheduleCreateRequestDataRelationshipsTeamsDataItems> data = null;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-  public ScheduleCreateRequestDataRelationshipsTeams data(
-      List<ScheduleCreateRequestDataRelationshipsTeamsDataItems> data) {
-    this.data = data;
-    for (ScheduleCreateRequestDataRelationshipsTeamsDataItems item : data) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private DataRelationshipsTeamsDataItemsType type = DataRelationshipsTeamsDataItemsType.TEAMS;
+
+  public DataRelationshipsTeamsDataItems() {}
+
+  @JsonCreator
+  public DataRelationshipsTeamsDataItems(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          DataRelationshipsTeamsDataItemsType type) {
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
-  public ScheduleCreateRequestDataRelationshipsTeams addDataItem(
-      ScheduleCreateRequestDataRelationshipsTeamsDataItems dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
+  public DataRelationshipsTeamsDataItems id(String id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * An array of team references for this schedule.
+   * The unique identifier of the team in this relationship.
    *
-   * @return data
+   * @return id
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ScheduleCreateRequestDataRelationshipsTeamsDataItems> getData() {
-    return data;
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
   }
 
-  public void setData(List<ScheduleCreateRequestDataRelationshipsTeamsDataItems> data) {
-    this.data = data;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public DataRelationshipsTeamsDataItems type(DataRelationshipsTeamsDataItemsType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Teams resource type.
+   *
+   * @return type
+   */
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public DataRelationshipsTeamsDataItemsType getType() {
+    return type;
+  }
+
+  public void setType(DataRelationshipsTeamsDataItemsType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
+    this.type = type;
   }
 
   /**
@@ -74,11 +103,10 @@ public class ScheduleCreateRequestDataRelationshipsTeams {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleCreateRequestDataRelationshipsTeams
+   * @return DataRelationshipsTeamsDataItems
    */
   @JsonAnySetter
-  public ScheduleCreateRequestDataRelationshipsTeams putAdditionalProperty(
-      String key, Object value) {
+  public DataRelationshipsTeamsDataItems putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -109,7 +137,7 @@ public class ScheduleCreateRequestDataRelationshipsTeams {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ScheduleCreateRequestDataRelationshipsTeams object is equal to o. */
+  /** Return true if this DataRelationshipsTeamsDataItems object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -118,24 +146,25 @@ public class ScheduleCreateRequestDataRelationshipsTeams {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleCreateRequestDataRelationshipsTeams scheduleCreateRequestDataRelationshipsTeams =
-        (ScheduleCreateRequestDataRelationshipsTeams) o;
-    return Objects.equals(this.data, scheduleCreateRequestDataRelationshipsTeams.data)
+    DataRelationshipsTeamsDataItems dataRelationshipsTeamsDataItems =
+        (DataRelationshipsTeamsDataItems) o;
+    return Objects.equals(this.id, dataRelationshipsTeamsDataItems.id)
+        && Objects.equals(this.type, dataRelationshipsTeamsDataItems.type)
         && Objects.equals(
-            this.additionalProperties,
-            scheduleCreateRequestDataRelationshipsTeams.additionalProperties);
+            this.additionalProperties, dataRelationshipsTeamsDataItems.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(id, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleCreateRequestDataRelationshipsTeams {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class DataRelationshipsTeamsDataItems {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
