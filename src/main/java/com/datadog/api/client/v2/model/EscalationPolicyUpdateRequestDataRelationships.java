@@ -25,29 +25,27 @@ import java.util.Objects;
 public class EscalationPolicyUpdateRequestDataRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TEAMS = "teams";
-  private EscalationPolicyUpdateRequestDataRelationshipsTeams teams;
+  private DataRelationshipsTeams teams;
 
-  public EscalationPolicyUpdateRequestDataRelationships teams(
-      EscalationPolicyUpdateRequestDataRelationshipsTeams teams) {
+  public EscalationPolicyUpdateRequestDataRelationships teams(DataRelationshipsTeams teams) {
     this.teams = teams;
     this.unparsed |= teams.unparsed;
     return this;
   }
 
   /**
-   * Defines the relationship to teams within an escalation policy update request, referencing the
-   * teams to be associated with or removed from the policy.
+   * Associates teams with this schedule in a data structure.
    *
    * @return teams
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEAMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EscalationPolicyUpdateRequestDataRelationshipsTeams getTeams() {
+  public DataRelationshipsTeams getTeams() {
     return teams;
   }
 
-  public void setTeams(EscalationPolicyUpdateRequestDataRelationshipsTeams teams) {
+  public void setTeams(DataRelationshipsTeams teams) {
     this.teams = teams;
   }
 

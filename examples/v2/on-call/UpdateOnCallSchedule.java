@@ -2,18 +2,18 @@
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
+import com.datadog.api.client.v2.model.DataRelationshipsTeams;
+import com.datadog.api.client.v2.model.DataRelationshipsTeamsDataItems;
+import com.datadog.api.client.v2.model.DataRelationshipsTeamsDataItemsType;
+import com.datadog.api.client.v2.model.LayerAttributesInterval;
 import com.datadog.api.client.v2.model.Schedule;
+import com.datadog.api.client.v2.model.ScheduleRequestDataAttributesLayersItemsMembersItems;
+import com.datadog.api.client.v2.model.ScheduleRequestDataAttributesLayersItemsMembersItemsUser;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequest;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequestData;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataAttributes;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataAttributesLayersItems;
-import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataAttributesLayersItemsInterval;
-import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataAttributesLayersItemsMembersItems;
-import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataRelationships;
-import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataRelationshipsTeams;
-import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataRelationshipsTeamsDataItems;
-import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataRelationshipsTeamsDataItemsType;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataType;
 import com.datadog.api.client.v2.model.TimeRestriction;
 import com.datadog.api.client.v2.model.Weekday;
@@ -50,14 +50,12 @@ public class Example {
                                         .id(SCHEDULE_DATA_RELATIONSHIPS_LAYERS_DATA_0_ID)
                                         .effectiveDate(OffsetDateTime.now().plusDays(-10))
                                         .endDate(OffsetDateTime.now().plusDays(10))
-                                        .interval(
-                                            new ScheduleUpdateRequestDataAttributesLayersItemsInterval()
-                                                .seconds(300L))
+                                        .interval(new LayerAttributesInterval().seconds(300L))
                                         .members(
                                             Collections.singletonList(
-                                                new ScheduleUpdateRequestDataAttributesLayersItemsMembersItems()
+                                                new ScheduleRequestDataAttributesLayersItemsMembersItems()
                                                     .user(
-                                                        new ScheduleUpdateRequestDataAttributesLayersItemsMembersItemsUser()
+                                                        new ScheduleRequestDataAttributesLayersItemsMembersItemsUser()
                                                             .id(USER_DATA_ID))))
                                         .name("Layer 1")
                                         .restrictions(
@@ -74,14 +72,12 @@ public class Example {
                     .relationships(
                         new ScheduleUpdateRequestDataRelationships()
                             .teams(
-                                new ScheduleUpdateRequestDataRelationshipsTeams()
+                                new DataRelationshipsTeams()
                                     .data(
                                         Collections.singletonList(
-                                            new ScheduleUpdateRequestDataRelationshipsTeamsDataItems()
+                                            new DataRelationshipsTeamsDataItems()
                                                 .id(DD_TEAM_DATA_ID)
-                                                .type(
-                                                    ScheduleUpdateRequestDataRelationshipsTeamsDataItemsType
-                                                        .TEAMS)))))
+                                                .type(DataRelationshipsTeamsDataItemsType.TEAMS)))))
                     .type(ScheduleUpdateRequestDataType.SCHEDULES));
 
     try {

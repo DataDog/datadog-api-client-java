@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,80 +16,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Defines a single relationship to a team within an escalation policy update request. Contains the
- * team's <code>id</code> and <code>type</code>.
- */
-@JsonPropertyOrder({
-  EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems.JSON_PROPERTY_ID,
-  EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems.JSON_PROPERTY_TYPE
-})
+/** Identifies the user participating in this layer as a single object with an <code>id</code>. */
+@JsonPropertyOrder({ScheduleRequestDataAttributesLayersItemsMembersItemsUser.JSON_PROPERTY_ID})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems {
+public class ScheduleRequestDataAttributesLayersItemsMembersItemsUser {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType type =
-      EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType.TEAMS;
-
-  public EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems() {}
-
-  @JsonCreator
-  public EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems id(String id) {
+  public ScheduleRequestDataAttributesLayersItemsMembersItemsUser id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Specifies the unique identifier for the related team.
+   * The user's ID.
    *
    * @return id
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems type(
-      EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Indicates that the resource is of type <code>teams</code>.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType getType() {
-    return type;
-  }
-
-  public void setType(EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItemsType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
   }
 
   /**
@@ -105,10 +58,10 @@ public class EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems
+   * @return ScheduleRequestDataAttributesLayersItemsMembersItemsUser
    */
   @JsonAnySetter
-  public EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems putAdditionalProperty(
+  public ScheduleRequestDataAttributesLayersItemsMembersItemsUser putAdditionalProperty(
       String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
@@ -141,8 +94,8 @@ public class EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems {
   }
 
   /**
-   * Return true if this EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems object is
-   * equal to o.
+   * Return true if this ScheduleRequestDataAttributesLayersItemsMembersItemsUser object is equal to
+   * o.
    */
   @Override
   public boolean equals(Object o) {
@@ -152,28 +105,25 @@ public class EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems
-        escalationPolicyUpdateRequestDataRelationshipsTeamsDataItems =
-            (EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems) o;
-    return Objects.equals(this.id, escalationPolicyUpdateRequestDataRelationshipsTeamsDataItems.id)
-        && Objects.equals(
-            this.type, escalationPolicyUpdateRequestDataRelationshipsTeamsDataItems.type)
+    ScheduleRequestDataAttributesLayersItemsMembersItemsUser
+        scheduleRequestDataAttributesLayersItemsMembersItemsUser =
+            (ScheduleRequestDataAttributesLayersItemsMembersItemsUser) o;
+    return Objects.equals(this.id, scheduleRequestDataAttributesLayersItemsMembersItemsUser.id)
         && Objects.equals(
             this.additionalProperties,
-            escalationPolicyUpdateRequestDataRelationshipsTeamsDataItems.additionalProperties);
+            scheduleRequestDataAttributesLayersItemsMembersItemsUser.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, additionalProperties);
+    return Objects.hash(id, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EscalationPolicyUpdateRequestDataRelationshipsTeamsDataItems {\n");
+    sb.append("class ScheduleRequestDataAttributesLayersItemsMembersItemsUser {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

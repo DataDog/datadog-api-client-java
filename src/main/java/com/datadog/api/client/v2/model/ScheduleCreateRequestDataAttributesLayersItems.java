@@ -44,11 +44,10 @@ public class ScheduleCreateRequestDataAttributesLayersItems {
   private OffsetDateTime endDate;
 
   public static final String JSON_PROPERTY_INTERVAL = "interval";
-  private ScheduleCreateRequestDataAttributesLayersItemsInterval interval;
+  private LayerAttributesInterval interval;
 
   public static final String JSON_PROPERTY_MEMBERS = "members";
-  private List<ScheduleCreateRequestDataAttributesLayersItemsMembersItems> members =
-      new ArrayList<>();
+  private List<ScheduleRequestDataAttributesLayersItemsMembersItems> members = new ArrayList<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -66,9 +65,9 @@ public class ScheduleCreateRequestDataAttributesLayersItems {
       @JsonProperty(required = true, value = JSON_PROPERTY_EFFECTIVE_DATE)
           OffsetDateTime effectiveDate,
       @JsonProperty(required = true, value = JSON_PROPERTY_INTERVAL)
-          ScheduleCreateRequestDataAttributesLayersItemsInterval interval,
+          LayerAttributesInterval interval,
       @JsonProperty(required = true, value = JSON_PROPERTY_MEMBERS)
-          List<ScheduleCreateRequestDataAttributesLayersItemsMembersItems> members,
+          List<ScheduleRequestDataAttributesLayersItemsMembersItems> members,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_ROTATION_START)
           OffsetDateTime rotationStart) {
@@ -122,39 +121,38 @@ public class ScheduleCreateRequestDataAttributesLayersItems {
     this.endDate = endDate;
   }
 
-  public ScheduleCreateRequestDataAttributesLayersItems interval(
-      ScheduleCreateRequestDataAttributesLayersItemsInterval interval) {
+  public ScheduleCreateRequestDataAttributesLayersItems interval(LayerAttributesInterval interval) {
     this.interval = interval;
     this.unparsed |= interval.unparsed;
     return this;
   }
 
   /**
-   * Defines how frequently the rotation repeats, using days and/or seconds (up to certain limits).
+   * Defines how often the rotation repeats, using a combination of days and optional seconds.
    *
    * @return interval
    */
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ScheduleCreateRequestDataAttributesLayersItemsInterval getInterval() {
+  public LayerAttributesInterval getInterval() {
     return interval;
   }
 
-  public void setInterval(ScheduleCreateRequestDataAttributesLayersItemsInterval interval) {
+  public void setInterval(LayerAttributesInterval interval) {
     this.interval = interval;
   }
 
   public ScheduleCreateRequestDataAttributesLayersItems members(
-      List<ScheduleCreateRequestDataAttributesLayersItemsMembersItems> members) {
+      List<ScheduleRequestDataAttributesLayersItemsMembersItems> members) {
     this.members = members;
-    for (ScheduleCreateRequestDataAttributesLayersItemsMembersItems item : members) {
+    for (ScheduleRequestDataAttributesLayersItemsMembersItems item : members) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public ScheduleCreateRequestDataAttributesLayersItems addMembersItem(
-      ScheduleCreateRequestDataAttributesLayersItemsMembersItems membersItem) {
+      ScheduleRequestDataAttributesLayersItemsMembersItems membersItem) {
     this.members.add(membersItem);
     this.unparsed |= membersItem.unparsed;
     return this;
@@ -167,11 +165,11 @@ public class ScheduleCreateRequestDataAttributesLayersItems {
    */
   @JsonProperty(JSON_PROPERTY_MEMBERS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public List<ScheduleCreateRequestDataAttributesLayersItemsMembersItems> getMembers() {
+  public List<ScheduleRequestDataAttributesLayersItemsMembersItems> getMembers() {
     return members;
   }
 
-  public void setMembers(List<ScheduleCreateRequestDataAttributesLayersItemsMembersItems> members) {
+  public void setMembers(List<ScheduleRequestDataAttributesLayersItemsMembersItems> members) {
     this.members = members;
   }
 

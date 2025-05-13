@@ -25,28 +25,27 @@ import java.util.Objects;
 public class ScheduleCreateRequestDataRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TEAMS = "teams";
-  private ScheduleCreateRequestDataRelationshipsTeams teams;
+  private DataRelationshipsTeams teams;
 
-  public ScheduleCreateRequestDataRelationships teams(
-      ScheduleCreateRequestDataRelationshipsTeams teams) {
+  public ScheduleCreateRequestDataRelationships teams(DataRelationshipsTeams teams) {
     this.teams = teams;
     this.unparsed |= teams.unparsed;
     return this;
   }
 
   /**
-   * Associates the new schedule with one or more teams.
+   * Associates teams with this schedule in a data structure.
    *
    * @return teams
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEAMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ScheduleCreateRequestDataRelationshipsTeams getTeams() {
+  public DataRelationshipsTeams getTeams() {
     return teams;
   }
 
-  public void setTeams(ScheduleCreateRequestDataRelationshipsTeams teams) {
+  public void setTeams(DataRelationshipsTeams teams) {
     this.teams = teams;
   }
 

@@ -12,68 +12,52 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Specifies how the rotation repeats: number of days, plus optional seconds, up to the given
- * maximums.
- */
-@JsonPropertyOrder({
-  ScheduleUpdateRequestDataAttributesLayersItemsInterval.JSON_PROPERTY_DAYS,
-  ScheduleUpdateRequestDataAttributesLayersItemsInterval.JSON_PROPERTY_SECONDS
-})
+/** Associates teams with this schedule in a data structure. */
+@JsonPropertyOrder({DataRelationshipsTeams.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ScheduleUpdateRequestDataAttributesLayersItemsInterval {
+public class DataRelationshipsTeams {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DAYS = "days";
-  private Integer days;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<DataRelationshipsTeamsDataItems> data = null;
 
-  public static final String JSON_PROPERTY_SECONDS = "seconds";
-  private Long seconds;
+  public DataRelationshipsTeams data(List<DataRelationshipsTeamsDataItems> data) {
+    this.data = data;
+    for (DataRelationshipsTeamsDataItems item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
 
-  public ScheduleUpdateRequestDataAttributesLayersItemsInterval days(Integer days) {
-    this.days = days;
+  public DataRelationshipsTeams addDataItem(DataRelationshipsTeamsDataItems dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * How many days each rotation cycle should span. maximum: 400
+   * An array of team references for this schedule.
    *
-   * @return days
+   * @return data
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DAYS)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Integer getDays() {
-    return days;
+  public List<DataRelationshipsTeamsDataItems> getData() {
+    return data;
   }
 
-  public void setDays(Integer days) {
-    this.days = days;
-  }
-
-  public ScheduleUpdateRequestDataAttributesLayersItemsInterval seconds(Long seconds) {
-    this.seconds = seconds;
-    return this;
-  }
-
-  /**
-   * Additional seconds to add to the rotation cycle (for example, partial days). maximum: 2592000
-   *
-   * @return seconds
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SECONDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getSeconds() {
-    return seconds;
-  }
-
-  public void setSeconds(Long seconds) {
-    this.seconds = seconds;
+  public void setData(List<DataRelationshipsTeamsDataItems> data) {
+    this.data = data;
   }
 
   /**
@@ -88,11 +72,10 @@ public class ScheduleUpdateRequestDataAttributesLayersItemsInterval {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ScheduleUpdateRequestDataAttributesLayersItemsInterval
+   * @return DataRelationshipsTeams
    */
   @JsonAnySetter
-  public ScheduleUpdateRequestDataAttributesLayersItemsInterval putAdditionalProperty(
-      String key, Object value) {
+  public DataRelationshipsTeams putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -123,10 +106,7 @@ public class ScheduleUpdateRequestDataAttributesLayersItemsInterval {
     return this.additionalProperties.get(key);
   }
 
-  /**
-   * Return true if this ScheduleUpdateRequestDataAttributesLayersItemsInterval object is equal to
-   * o.
-   */
+  /** Return true if this DataRelationshipsTeams object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,28 +115,21 @@ public class ScheduleUpdateRequestDataAttributesLayersItemsInterval {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScheduleUpdateRequestDataAttributesLayersItemsInterval
-        scheduleUpdateRequestDataAttributesLayersItemsInterval =
-            (ScheduleUpdateRequestDataAttributesLayersItemsInterval) o;
-    return Objects.equals(this.days, scheduleUpdateRequestDataAttributesLayersItemsInterval.days)
-        && Objects.equals(
-            this.seconds, scheduleUpdateRequestDataAttributesLayersItemsInterval.seconds)
-        && Objects.equals(
-            this.additionalProperties,
-            scheduleUpdateRequestDataAttributesLayersItemsInterval.additionalProperties);
+    DataRelationshipsTeams dataRelationshipsTeams = (DataRelationshipsTeams) o;
+    return Objects.equals(this.data, dataRelationshipsTeams.data)
+        && Objects.equals(this.additionalProperties, dataRelationshipsTeams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(days, seconds, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScheduleUpdateRequestDataAttributesLayersItemsInterval {\n");
-    sb.append("    days: ").append(toIndentedString(days)).append("\n");
-    sb.append("    seconds: ").append(toIndentedString(seconds)).append("\n");
+    sb.append("class DataRelationshipsTeams {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
