@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "13fe9685-b072-5fe0-c841-4499a9e71c71"
+    "id": "13fe9685-b072-5fe0-c841-4499a9e71c76"
   },
   {
     "httpRequest": {
@@ -38,7 +38,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"description\":\"\",\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"name\":\"requirement\",\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}]}],\"version\":\"10\"}}}",
+      "body": "{\"data\":{\"id\":\"create-framework-new-10\",\"type\":\"custom_framework\",\"attributes\":{\"handle\":\"create-framework-new\",\"icon_url\":\"test-url\",\"name\":\"name\",\"requirements\":[{\"name\":\"requirement\",\"controls\":[{\"name\":\"control\",\"rules_id\":[\"def-000-be9\"]}]}],\"version\":\"10\"}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -79,6 +79,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e535722a-99e3-30cf-49f7-2d093bd78b3a"
+    "id": "e535722a-99e3-30cf-49f7-2d093bd78b3f"
   }
 ]
