@@ -248,11 +248,10 @@ public class MetricsApi {
 
   /**
    * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution
-   * metric. Optionally, include percentile aggregations on any distribution metric or configure
-   * custom aggregations on any count, rate, or gauge metric. By setting <code>exclude_tags_mode
-   * </code> to true the behavior is changed from an allow-list to a deny-list, and tags in the
-   * defined list will not be queryable. Can only be used with application keys of users with the
-   * <code>Manage Tags for Metrics</code> permission.
+   * metric. Optionally, include percentile aggregations on any distribution metric. By setting
+   * <code>exclude_tags_mode</code> to true, the behavior is changed from an allow-list to a
+   * deny-list, and tags in the defined list are not queryable. Can only be used with application
+   * keys of users with the <code>Manage Tags for Metrics</code> permission.
    *
    * @param metricName The name of the metric. (required)
    * @param body (required)
@@ -697,9 +696,8 @@ public class MetricsApi {
     /**
      * Set filterNumAggregations.
      *
-     * @param filterNumAggregations The number of aggregations that a <code>count</code>, <code>rate
-     *     </code>, or <code>gauge</code> metric is configured to use. Max number of aggregation
-     *     combos is 9. (optional)
+     * @param filterNumAggregations Deprecated. Number of aggregations has no impact on volume.
+     *     (optional)
      * @return EstimateMetricsOutputSeriesOptionalParameters
      */
     public EstimateMetricsOutputSeriesOptionalParameters filterNumAggregations(
