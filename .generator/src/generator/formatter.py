@@ -392,6 +392,16 @@ def format_data_with_schema(
                     raise TypeError(f"{x} is not supported type {schema}")
                 return float(x)
 
+            def format_int(x):
+                if isinstance(x, str):
+                    raise TypeError(f"{x} is not supported type {schema}")
+                return str(x)
+
+            def format_int64(x):
+                if isinstance(x, str):
+                    raise TypeError(f"{x} is not supported type {schema}")
+                return str(x) + "L"
+
             def format_string(x):
                 if isinstance(x, bool):
                     raise TypeError(f"{x} is not supported type {schema}")
@@ -425,8 +435,8 @@ def format_data_with_schema(
                 return f"new File({format_string(x)})"
 
             formatters = {
-                "int32": lambda x: str(int(x)),
-                "int64": lambda x: str(int(x)) + "L",
+                "int32": format_int,
+                "int64": format_int64,
                 "double": format_double,
                 "date-time": format_datetime,
                 "number": format_number,
