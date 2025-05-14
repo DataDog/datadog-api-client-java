@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.MonitorsApi;
 import com.datadog.api.client.v1.model.Monitor;
+import com.datadog.api.client.v1.model.MonitorDraftStatus;
 import com.datadog.api.client.v1.model.MonitorOptions;
 import com.datadog.api.client.v1.model.MonitorThresholds;
 import com.datadog.api.client.v1.model.MonitorType;
@@ -25,7 +26,8 @@ error-tracking-rum("service:foo AND @error.source:source").rollup("count").by("@
             .message("some message")
             .tags(Arrays.asList("test:examplemonitor", "env:ci"))
             .priority(3L)
-            .options(new MonitorOptions().thresholds(new MonitorThresholds().critical(1.0)));
+            .options(new MonitorOptions().thresholds(new MonitorThresholds().critical(1.0)))
+            .draftStatus(MonitorDraftStatus.DRAFT);
 
     try {
       Monitor result = apiInstance.createMonitor(body);
