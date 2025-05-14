@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** A custom metadata entry to attach to each object uploaded to the GCS bucket. */
+/** A custom metadata entry. */
 @JsonPropertyOrder({
   ObservabilityPipelineMetadataEntry.JSON_PROPERTY_NAME,
   ObservabilityPipelineMetadataEntry.JSON_PROPERTY_VALUE
