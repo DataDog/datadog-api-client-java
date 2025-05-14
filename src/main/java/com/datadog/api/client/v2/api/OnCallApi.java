@@ -1357,7 +1357,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get the schedule of an on-call user.
+   * Get the schedule on-call user.
    *
    * <p>See {@link #getScheduleOnCallUserWithHttpInfo}.
    *
@@ -1372,7 +1372,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get the schedule of an on-call user.
+   * Get the schedule on-call user.
    *
    * <p>See {@link #getScheduleOnCallUserWithHttpInfoAsync}.
    *
@@ -1389,7 +1389,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get the schedule of an on-call user.
+   * Get the schedule on-call user.
    *
    * <p>See {@link #getScheduleOnCallUserWithHttpInfo}.
    *
@@ -1404,7 +1404,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get the schedule of an on-call user.
+   * Get the schedule on-call user.
    *
    * <p>See {@link #getScheduleOnCallUserWithHttpInfoAsync}.
    *
@@ -1484,7 +1484,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get the schedule of an on-call user.
+   * Get the schedule on-call user.
    *
    * <p>See {@link #getScheduleOnCallUserWithHttpInfo}.
    *
