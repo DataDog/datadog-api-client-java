@@ -57,7 +57,7 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
   private String keyPrefix;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private List<ObservabilityPipelineMetadataEntry> metadata = new ArrayList<>();
+  private List<ObservabilityPipelineMetadataEntry> metadata = null;
 
   public static final String JSON_PROPERTY_STORAGE_CLASS = "storage_class";
   private ObservabilityPipelineGoogleCloudStorageDestinationStorageClass storageClass;
@@ -76,8 +76,6 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
       @JsonProperty(required = true, value = JSON_PROPERTY_BUCKET) String bucket,
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_INPUTS) List<String> inputs,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METADATA)
-          List<ObservabilityPipelineMetadataEntry> metadata,
       @JsonProperty(required = true, value = JSON_PROPERTY_STORAGE_CLASS)
           ObservabilityPipelineGoogleCloudStorageDestinationStorageClass storageClass,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
@@ -89,7 +87,6 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
     this.bucket = bucket;
     this.id = id;
     this.inputs = inputs;
-    this.metadata = metadata;
     this.storageClass = storageClass;
     this.unparsed |= !storageClass.isValid();
     this.type = type;
@@ -240,18 +237,22 @@ public class ObservabilityPipelineGoogleCloudStorageDestination {
 
   public ObservabilityPipelineGoogleCloudStorageDestination addMetadataItem(
       ObservabilityPipelineMetadataEntry metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new ArrayList<>();
+    }
     this.metadata.add(metadataItem);
     this.unparsed |= metadataItem.unparsed;
     return this;
   }
 
   /**
-   * Custom metadata key-value pairs added to each object.
+   * Custom metadata to attach to each object uploaded to the GCS bucket.
    *
    * @return metadata
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<ObservabilityPipelineMetadataEntry> getMetadata() {
     return metadata;
   }
