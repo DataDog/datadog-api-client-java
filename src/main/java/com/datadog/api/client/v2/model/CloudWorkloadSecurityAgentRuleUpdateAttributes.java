@@ -20,9 +20,12 @@ import java.util.Objects;
 
 /** Update an existing Cloud Workload Security Agent rule */
 @JsonPropertyOrder({
+  CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_BLOCKING,
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_DESCRIPTION,
+  CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_DISABLED,
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_ENABLED,
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_EXPRESSION,
+  CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_MONITORING,
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_POLICY_ID,
   CloudWorkloadSecurityAgentRuleUpdateAttributes.JSON_PROPERTY_PRODUCT_TAGS
 })
@@ -30,8 +33,14 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BLOCKING = "blocking";
+  private List<String> blocking = null;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
+
+  public static final String JSON_PROPERTY_DISABLED = "disabled";
+  private List<String> disabled = null;
 
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
@@ -39,11 +48,43 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
   public static final String JSON_PROPERTY_EXPRESSION = "expression";
   private String expression;
 
+  public static final String JSON_PROPERTY_MONITORING = "monitoring";
+  private List<String> monitoring = null;
+
   public static final String JSON_PROPERTY_POLICY_ID = "policy_id";
   private String policyId;
 
   public static final String JSON_PROPERTY_PRODUCT_TAGS = "product_tags";
   private List<String> productTags = null;
+
+  public CloudWorkloadSecurityAgentRuleUpdateAttributes blocking(List<String> blocking) {
+    this.blocking = blocking;
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentRuleUpdateAttributes addBlockingItem(String blockingItem) {
+    if (this.blocking == null) {
+      this.blocking = new ArrayList<>();
+    }
+    this.blocking.add(blockingItem);
+    return this;
+  }
+
+  /**
+   * The blocking policies that the rule belongs to
+   *
+   * @return blocking
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BLOCKING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getBlocking() {
+    return blocking;
+  }
+
+  public void setBlocking(List<String> blocking) {
+    this.blocking = blocking;
+  }
 
   public CloudWorkloadSecurityAgentRuleUpdateAttributes description(String description) {
     this.description = description;
@@ -64,6 +105,35 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public CloudWorkloadSecurityAgentRuleUpdateAttributes disabled(List<String> disabled) {
+    this.disabled = disabled;
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentRuleUpdateAttributes addDisabledItem(String disabledItem) {
+    if (this.disabled == null) {
+      this.disabled = new ArrayList<>();
+    }
+    this.disabled.add(disabledItem);
+    return this;
+  }
+
+  /**
+   * The disabled policies that the rule belongs to
+   *
+   * @return disabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDisabled() {
+    return disabled;
+  }
+
+  public void setDisabled(List<String> disabled) {
+    this.disabled = disabled;
   }
 
   public CloudWorkloadSecurityAgentRuleUpdateAttributes enabled(Boolean enabled) {
@@ -106,6 +176,35 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
 
   public void setExpression(String expression) {
     this.expression = expression;
+  }
+
+  public CloudWorkloadSecurityAgentRuleUpdateAttributes monitoring(List<String> monitoring) {
+    this.monitoring = monitoring;
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentRuleUpdateAttributes addMonitoringItem(String monitoringItem) {
+    if (this.monitoring == null) {
+      this.monitoring = new ArrayList<>();
+    }
+    this.monitoring.add(monitoringItem);
+    return this;
+  }
+
+  /**
+   * The monitoring policies that the rule belongs to
+   *
+   * @return monitoring
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONITORING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getMonitoring() {
+    return monitoring;
+  }
+
+  public void setMonitoring(List<String> monitoring) {
+    this.monitoring = monitoring;
   }
 
   public CloudWorkloadSecurityAgentRuleUpdateAttributes policyId(String policyId) {
@@ -216,11 +315,15 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
     }
     CloudWorkloadSecurityAgentRuleUpdateAttributes cloudWorkloadSecurityAgentRuleUpdateAttributes =
         (CloudWorkloadSecurityAgentRuleUpdateAttributes) o;
-    return Objects.equals(
+    return Objects.equals(this.blocking, cloudWorkloadSecurityAgentRuleUpdateAttributes.blocking)
+        && Objects.equals(
             this.description, cloudWorkloadSecurityAgentRuleUpdateAttributes.description)
+        && Objects.equals(this.disabled, cloudWorkloadSecurityAgentRuleUpdateAttributes.disabled)
         && Objects.equals(this.enabled, cloudWorkloadSecurityAgentRuleUpdateAttributes.enabled)
         && Objects.equals(
             this.expression, cloudWorkloadSecurityAgentRuleUpdateAttributes.expression)
+        && Objects.equals(
+            this.monitoring, cloudWorkloadSecurityAgentRuleUpdateAttributes.monitoring)
         && Objects.equals(this.policyId, cloudWorkloadSecurityAgentRuleUpdateAttributes.policyId)
         && Objects.equals(
             this.productTags, cloudWorkloadSecurityAgentRuleUpdateAttributes.productTags)
@@ -232,16 +335,27 @@ public class CloudWorkloadSecurityAgentRuleUpdateAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        description, enabled, expression, policyId, productTags, additionalProperties);
+        blocking,
+        description,
+        disabled,
+        enabled,
+        expression,
+        monitoring,
+        policyId,
+        productTags,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudWorkloadSecurityAgentRuleUpdateAttributes {\n");
+    sb.append("    blocking: ").append(toIndentedString(blocking)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
+    sb.append("    monitoring: ").append(toIndentedString(monitoring)).append("\n");
     sb.append("    policyId: ").append(toIndentedString(policyId)).append("\n");
     sb.append("    productTags: ").append(toIndentedString(productTags)).append("\n");
     sb.append("    additionalProperties: ")
