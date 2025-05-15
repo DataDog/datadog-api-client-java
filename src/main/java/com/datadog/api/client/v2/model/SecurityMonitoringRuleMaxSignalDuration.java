@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * A signal will “close” regardless of the query being matched once the time exceeds the maximum
+ * A signal will "close" regardless of the query being matched once the time exceeds the maximum
  * duration. This time is calculated from the first seen timestamp.
  */
 @JsonSerialize(
