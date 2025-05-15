@@ -1,4 +1,4 @@
-// Get the latest Cloud Workload Security policy returns "OK" response
+// Download the Workload Protection policy (US1-FED) returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

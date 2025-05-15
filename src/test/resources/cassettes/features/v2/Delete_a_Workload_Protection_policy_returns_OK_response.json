@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testdeleteaworkloadprotectionpolicyreturnsokresponse1747319667\"},\"type\":\"policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/cws/policy",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"koo-gxa-p0y\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testdeleteaworkloadprotectionpolicyreturnsokresponse1747319667\",\"policyVersion\":\"1\",\"priority\":1000000070,\"ruleCount\":226,\"updateDate\":1747319667081,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "337c85f1-5210-7d2f-5a70-18203c9938cd"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/koo-gxa-p0y",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d3c3bc67-29ac-6074-e942-2eafddbc6424"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/koo-gxa-p0y",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"failed to delete policy\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d3c3bc67-29ac-6074-e942-2eafddbc6425"
+  }
+]

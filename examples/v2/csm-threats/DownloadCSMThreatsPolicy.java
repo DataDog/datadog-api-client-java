@@ -1,4 +1,4 @@
-// Get the latest CSM Threats policy returns "OK" response
+// Download the Workload Protection policy returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

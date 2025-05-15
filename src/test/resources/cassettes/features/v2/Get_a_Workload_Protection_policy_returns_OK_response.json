@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testgetaworkloadprotectionpolicyreturnsokresponse1747319673\"},\"type\":\"policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/cws/policy",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"6zj-1yv-myk\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testgetaworkloadprotectionpolicyreturnsokresponse1747319673\",\"policyVersion\":\"1\",\"priority\":1000000070,\"ruleCount\":226,\"updateDate\":1747319673849,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "11e97d12-e061-5849-c552-a92c0cbfba9c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/remote_config/products/cws/policy/6zj-1yv-myk",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"6zj-1yv-myk\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testgetaworkloadprotectionpolicyreturnsokresponse1747319673\",\"policyVersion\":\"1\",\"priority\":1000000070,\"ruleCount\":226,\"updateDate\":1747319673849,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "378862bd-26ea-bb8e-43ac-461344bb6a35"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/6zj-1yv-myk",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "52783fc2-304b-4bc2-f446-ee70c58f93c7"
+  }
+]

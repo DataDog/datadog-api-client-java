@@ -1,0 +1,142 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1747319692\"},\"type\":\"policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/cws/policy",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"cas-zuo-dud\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1747319692\",\"policyVersion\":\"1\",\"priority\":1000000070,\"ruleCount\":226,\"updateDate\":1747319692308,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "d5045508-3fee-a6db-e323-844feb7e1c88"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1747319692\",\"policy_id\":\"cas-zuo-dud\",\"product_tags\":[\"security:attack\",\"technique:T1059\"]},\"type\":\"agent_rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/cws/agent_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"sa6-p9i-qqx\",\"type\":\"agent_rule\",\"attributes\":{\"category\":\"Process Activity\",\"creationDate\":1747319692771,\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"monitoring\":[\"cas-zuo-dud\"],\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1747319692\",\"product_tags\":[\"security:attack\",\"technique:T1059\"],\"updateDate\":1747319692771,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a8989ed5-5eac-710a-06c7-8442b504b338"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"policy_id\":\"cas-zuo-dud\",\"product_tags\":[]},\"id\":\"invalid-agent-rule-id\",\"type\":\"agent_rule\"}}"
+      },
+      "headers": {},
+      "method": "PATCH",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/sa6-p9i-qqx",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"failed to update rule\"}]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "83be1c08-18cb-d2f9-6904-a50ef3e02ce7"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/sa6-p9i-qqx",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "975ef467-b442-7773-d245-d98cf319186a"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/cas-zuo-dud",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f43a7c39-0ebf-d701-5b10-05be66739c39"
+  }
+]

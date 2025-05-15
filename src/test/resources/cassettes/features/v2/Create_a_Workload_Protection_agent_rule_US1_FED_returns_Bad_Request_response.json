@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateaworkloadprotectionagentruleus1fedreturnsbadrequestresponse1747319653\"},\"type\":\"policy\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/remote_config/products/cws/policy",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"g5s-mcw-glz\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testcreateaworkloadprotectionagentruleus1fedreturnsbadrequestresponse1747319653\",\"policyVersion\":\"1\",\"priority\":1000000070,\"ruleCount\":226,\"updateDate\":1747319653551,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8d0bf069-9367-7227-ec66-8f08a1bc36e1"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name\",\"filters\":[],\"name\":\"my_agent_rule\"},\"type\":\"agent_rule\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `my_agent_rule` error: rule syntax error: bool expected: 1:1: exec.file.name\\n^)\"]}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a201dc06-069a-389a-992f-d7d4af1e7d97"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/remote_config/products/cws/policy/g5s-mcw-glz",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c3b26b14-81d5-9489-ff48-b9b30aee0a79"
+  }
+]

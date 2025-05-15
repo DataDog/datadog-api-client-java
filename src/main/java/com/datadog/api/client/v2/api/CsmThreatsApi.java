@@ -53,11 +53,11 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a Cloud Workload Security Agent rule.
+   * Create a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #createCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
-   * @param body The definition of the new Agent rule (required)
+   * @param body The definition of the new agent rule (required)
    * @return CloudWorkloadSecurityAgentRuleResponse
    * @throws ApiException if fails to make API call
    */
@@ -67,11 +67,11 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a Cloud Workload Security Agent rule.
+   * Create a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #createCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
    *
-   * @param body The definition of the new Agent rule (required)
+   * @param body The definition of the new agent rule (required)
    * @return CompletableFuture&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
    */
   public CompletableFuture<CloudWorkloadSecurityAgentRuleResponse>
@@ -84,9 +84,11 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a new Agent rule with the given parameters.
+   * Create a new agent rule with the given parameters.
    *
-   * @param body The definition of the new Agent rule (required)
+   * <p><strong>Note</strong>: This endpoint should only be used for the Government (US1-FED) site.
+   *
+   * @param body The definition of the new agent rule (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -138,11 +140,11 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a Cloud Workload Security Agent rule.
+   * Create a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #createCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
-   * @param body The definition of the new Agent rule (required)
+   * @param body The definition of the new agent rule (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>>
@@ -195,7 +197,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a CSM Threats Agent policy.
+   * Create a Workload Protection policy.
    *
    * <p>See {@link #createCSMThreatsAgentPolicyWithHttpInfo}.
    *
@@ -209,7 +211,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a CSM Threats Agent policy.
+   * Create a Workload Protection policy.
    *
    * <p>See {@link #createCSMThreatsAgentPolicyWithHttpInfoAsync}.
    *
@@ -226,7 +228,10 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a new Cloud Security Management Threats Agent policy with the given parameters
+   * Create a new Workload Protection policy with the given parameters.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   * Please reference the (US1-FED) specific resource below.
    *
    * @param body The definition of the new Agent policy (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentPolicyResponse&gt;
@@ -278,7 +283,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a CSM Threats Agent policy.
+   * Create a Workload Protection policy.
    *
    * <p>See {@link #createCSMThreatsAgentPolicyWithHttpInfo}.
    *
@@ -334,11 +339,11 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a CSM Threats Agent rule.
+   * Create a Workload Protection agent rule.
    *
    * <p>See {@link #createCSMThreatsAgentRuleWithHttpInfo}.
    *
-   * @param body The definition of the new Agent rule (required)
+   * @param body The definition of the new agent rule (required)
    * @return CloudWorkloadSecurityAgentRuleResponse
    * @throws ApiException if fails to make API call
    */
@@ -348,11 +353,11 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a CSM Threats Agent rule.
+   * Create a Workload Protection agent rule.
    *
    * <p>See {@link #createCSMThreatsAgentRuleWithHttpInfoAsync}.
    *
-   * @param body The definition of the new Agent rule (required)
+   * @param body The definition of the new agent rule (required)
    * @return CompletableFuture&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
    */
   public CompletableFuture<CloudWorkloadSecurityAgentRuleResponse> createCSMThreatsAgentRuleAsync(
@@ -365,9 +370,12 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a new Cloud Security Management Threats Agent rule with the given parameters
+   * Create a new Workload Protection agent rule with the given parameters.
    *
-   * @param body The definition of the new Agent rule (required)
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   * Please reference the (US1-FED) specific resource below.
+   *
+   * @param body The definition of the new agent rule (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -416,11 +424,11 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Create a CSM Threats Agent rule.
+   * Create a Workload Protection agent rule.
    *
    * <p>See {@link #createCSMThreatsAgentRuleWithHttpInfo}.
    *
-   * @param body The definition of the new Agent rule (required)
+   * @param body The definition of the new agent rule (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>>
@@ -470,7 +478,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a Cloud Workload Security Agent rule.
+   * Delete a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #deleteCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
@@ -482,7 +490,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a Cloud Workload Security Agent rule.
+   * Delete a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #deleteCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
    *
@@ -498,7 +506,9 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a specific Agent rule
+   * Delete a specific agent rule.
+   *
+   * <p><strong>Note</strong>: This endpoint should only be used for the Government (US1-FED) site.
    *
    * @param agentRuleId The ID of the Agent rule (required)
    * @return ApiResponse&lt;Void&gt;
@@ -553,7 +563,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a Cloud Workload Security Agent rule.
+   * Delete a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #deleteCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
@@ -610,7 +620,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a CSM Threats Agent policy.
+   * Delete a Workload Protection policy.
    *
    * <p>See {@link #deleteCSMThreatsAgentPolicyWithHttpInfo}.
    *
@@ -622,7 +632,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a CSM Threats Agent policy.
+   * Delete a Workload Protection policy.
    *
    * <p>See {@link #deleteCSMThreatsAgentPolicyWithHttpInfoAsync}.
    *
@@ -638,7 +648,10 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a specific Cloud Security Management Threats Agent policy
+   * Delete a specific Workload Protection policy.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   * Please reference the (US1-FED) specific resource below.
    *
    * @param policyId The ID of the Agent policy (required)
    * @return ApiResponse&lt;Void&gt;
@@ -692,7 +705,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a CSM Threats Agent policy.
+   * Delete a Workload Protection policy.
    *
    * <p>See {@link #deleteCSMThreatsAgentPolicyWithHttpInfo}.
    *
@@ -764,7 +777,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a CSM Threats Agent rule.
+   * Delete a Workload Protection agent rule.
    *
    * <p>See {@link #deleteCSMThreatsAgentRuleWithHttpInfo}.
    *
@@ -777,7 +790,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a CSM Threats Agent rule.
+   * Delete a Workload Protection agent rule.
    *
    * <p>See {@link #deleteCSMThreatsAgentRuleWithHttpInfoAsync}.
    *
@@ -794,7 +807,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a CSM Threats Agent rule.
+   * Delete a Workload Protection agent rule.
    *
    * <p>See {@link #deleteCSMThreatsAgentRuleWithHttpInfo}.
    *
@@ -809,7 +822,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a CSM Threats Agent rule.
+   * Delete a Workload Protection agent rule.
    *
    * <p>See {@link #deleteCSMThreatsAgentRuleWithHttpInfoAsync}.
    *
@@ -827,7 +840,10 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a specific Cloud Security Management Threats Agent rule
+   * Delete a specific Workload Protection agent rule.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   * Please reference the (US1-FED) specific resource below.
    *
    * @param agentRuleId The ID of the Agent rule (required)
    * @param parameters Optional parameters for the request.
@@ -887,7 +903,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Delete a CSM Threats Agent rule.
+   * Delete a Workload Protection agent rule.
    *
    * <p>See {@link #deleteCSMThreatsAgentRuleWithHttpInfo}.
    *
@@ -949,7 +965,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the latest Cloud Workload Security policy.
+   * Download the Workload Protection policy (US1-FED).
    *
    * <p>See {@link #downloadCloudWorkloadPolicyFileWithHttpInfo}.
    *
@@ -961,7 +977,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the latest Cloud Workload Security policy.
+   * Download the Workload Protection policy (US1-FED).
    *
    * <p>See {@link #downloadCloudWorkloadPolicyFileWithHttpInfoAsync}.
    *
@@ -976,9 +992,11 @@ public class CsmThreatsApi {
   }
 
   /**
-   * The download endpoint generates a Cloud Workload Security policy file from your currently
-   * active Cloud Workload Security rules, and downloads them as a .policy file. This file can then
-   * be deployed to your Agents to update the policy running in your environment.
+   * The download endpoint generates a Workload Protection policy file from your currently active
+   * Workload Protection agent rules, and downloads them as a <code>.policy</code> file. This file
+   * can then be deployed to your agents to update the policy running in your environment.
+   *
+   * <p><strong>Note</strong>: This endpoint should only be used for the Government (US1-FED) site.
    *
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
@@ -1019,7 +1037,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the latest Cloud Workload Security policy.
+   * Download the Workload Protection policy (US1-FED).
    *
    * <p>See {@link #downloadCloudWorkloadPolicyFileWithHttpInfo}.
    *
@@ -1060,7 +1078,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the latest CSM Threats policy.
+   * Download the Workload Protection policy.
    *
    * <p>See {@link #downloadCSMThreatsPolicyWithHttpInfo}.
    *
@@ -1072,7 +1090,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the latest CSM Threats policy.
+   * Download the Workload Protection policy.
    *
    * <p>See {@link #downloadCSMThreatsPolicyWithHttpInfoAsync}.
    *
@@ -1087,9 +1105,12 @@ public class CsmThreatsApi {
   }
 
   /**
-   * The download endpoint generates a CSM Threats policy file from your currently active CSM
-   * Threats rules, and downloads them as a <code>.policy</code> file. This file can then be
-   * deployed to your Agents to update the policy running in your environment.
+   * The download endpoint generates a Workload Protection policy file from your currently active
+   * Workload Protection agent rules, and downloads them as a <code>.policy</code> file. This file
+   * can then be deployed to your agents to update the policy running in your environment.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   * Please reference the (US1-FED) specific resource below.
    *
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
@@ -1130,7 +1151,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the latest CSM Threats policy.
+   * Download the Workload Protection policy.
    *
    * <p>See {@link #downloadCSMThreatsPolicyWithHttpInfo}.
    *
@@ -1171,7 +1192,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get a Cloud Workload Security Agent rule.
+   * Get a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #getCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
@@ -1185,7 +1206,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get a Cloud Workload Security Agent rule.
+   * Get a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #getCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
    *
@@ -1202,7 +1223,9 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the details of a specific Agent rule
+   * Get the details of a specific agent rule.
+   *
+   * <p><strong>Note</strong>: This endpoint should only be used for the Government (US1-FED) site.
    *
    * @param agentRuleId The ID of the Agent rule (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
@@ -1257,7 +1280,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get a Cloud Workload Security Agent rule.
+   * Get a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #getCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
@@ -1316,7 +1339,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get a CSM Threats Agent policy.
+   * Get a Workload Protection policy.
    *
    * <p>See {@link #getCSMThreatsAgentPolicyWithHttpInfo}.
    *
@@ -1330,7 +1353,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get a CSM Threats Agent policy.
+   * Get a Workload Protection policy.
    *
    * <p>See {@link #getCSMThreatsAgentPolicyWithHttpInfoAsync}.
    *
@@ -1347,7 +1370,10 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the details of a specific Cloud Security Management Threats Agent policy
+   * Get the details of a specific Workload Protection policy.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   * Please reference the (US1-FED) specific resource below.
    *
    * @param policyId The ID of the Agent policy (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentPolicyResponse&gt;
@@ -1399,7 +1425,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get a CSM Threats Agent policy.
+   * Get a Workload Protection policy.
    *
    * <p>See {@link #getCSMThreatsAgentPolicyWithHttpInfo}.
    *
@@ -1472,7 +1498,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get a CSM Threats Agent rule.
+   * Get a Workload Protection agent rule.
    *
    * <p>See {@link #getCSMThreatsAgentRuleWithHttpInfo}.
    *
@@ -1488,7 +1514,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get a CSM Threats Agent rule.
+   * Get a Workload Protection agent rule.
    *
    * <p>See {@link #getCSMThreatsAgentRuleWithHttpInfoAsync}.
    *
@@ -1506,7 +1532,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get a CSM Threats Agent rule.
+   * Get a Workload Protection agent rule.
    *
    * <p>See {@link #getCSMThreatsAgentRuleWithHttpInfo}.
    *
@@ -1521,7 +1547,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get a CSM Threats Agent rule.
+   * Get a Workload Protection agent rule.
    *
    * <p>See {@link #getCSMThreatsAgentRuleWithHttpInfoAsync}.
    *
@@ -1539,7 +1565,10 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the details of a specific Cloud Security Management Threats Agent rule
+   * Get the details of a specific Workload Protection agent rule.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   * Please reference the (US1-FED) specific resource below.
    *
    * @param agentRuleId The ID of the Agent rule (required)
    * @param parameters Optional parameters for the request.
@@ -1597,7 +1626,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get a CSM Threats Agent rule.
+   * Get a Workload Protection agent rule.
    *
    * <p>See {@link #getCSMThreatsAgentRuleWithHttpInfo}.
    *
@@ -1661,7 +1690,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get all Cloud Workload Security Agent rules.
+   * Get all Workload Protection agent rules (US1-FED).
    *
    * <p>See {@link #listCloudWorkloadSecurityAgentRulesWithHttpInfo}.
    *
@@ -1674,7 +1703,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get all Cloud Workload Security Agent rules.
+   * Get all Workload Protection agent rules (US1-FED).
    *
    * <p>See {@link #listCloudWorkloadSecurityAgentRulesWithHttpInfoAsync}.
    *
@@ -1690,7 +1719,9 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the list of Agent rules
+   * Get the list of agent rules.
+   *
+   * <p><strong>Note</strong>: This endpoint should only be used for the Government (US1-FED) site.
    *
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRulesListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1732,7 +1763,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get all Cloud Workload Security Agent rules.
+   * Get all Workload Protection agent rules (US1-FED).
    *
    * <p>See {@link #listCloudWorkloadSecurityAgentRulesWithHttpInfo}.
    *
@@ -1775,7 +1806,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get all CSM Threats Agent policies.
+   * Get all Workload Protection policies.
    *
    * <p>See {@link #listCSMThreatsAgentPoliciesWithHttpInfo}.
    *
@@ -1788,7 +1819,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get all CSM Threats Agent policies.
+   * Get all Workload Protection policies.
    *
    * <p>See {@link #listCSMThreatsAgentPoliciesWithHttpInfoAsync}.
    *
@@ -1804,7 +1835,10 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the list of Cloud Security Management Threats Agent policies
+   * Get the list of Workload Protection policies.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   * Please reference the (US1-FED) specific resource below.
    *
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentPoliciesListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1846,7 +1880,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get all CSM Threats Agent policies.
+   * Get all Workload Protection policies.
    *
    * <p>See {@link #listCSMThreatsAgentPoliciesWithHttpInfo}.
    *
@@ -1906,7 +1940,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get all CSM Threats Agent rules.
+   * Get all Workload Protection agent rules.
    *
    * <p>See {@link #listCSMThreatsAgentRulesWithHttpInfo}.
    *
@@ -1920,7 +1954,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get all CSM Threats Agent rules.
+   * Get all Workload Protection agent rules.
    *
    * <p>See {@link #listCSMThreatsAgentRulesWithHttpInfoAsync}.
    *
@@ -1937,7 +1971,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get all CSM Threats Agent rules.
+   * Get all Workload Protection agent rules.
    *
    * <p>See {@link #listCSMThreatsAgentRulesWithHttpInfo}.
    *
@@ -1951,7 +1985,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get all CSM Threats Agent rules.
+   * Get all Workload Protection agent rules.
    *
    * <p>See {@link #listCSMThreatsAgentRulesWithHttpInfoAsync}.
    *
@@ -1968,7 +2002,10 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get the list of Cloud Security Management Threats Agent rules
+   * Get the list of Workload Protection agent rules.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   * Please reference the (US1-FED) specific resource below.
    *
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRulesListResponse&gt;
@@ -2016,7 +2053,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Get all CSM Threats Agent rules.
+   * Get all Workload Protection agent rules.
    *
    * <p>See {@link #listCSMThreatsAgentRulesWithHttpInfo}.
    *
@@ -2065,12 +2102,12 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a Cloud Workload Security Agent rule.
+   * Update a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #updateCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
    * @param agentRuleId The ID of the Agent rule (required)
-   * @param body New definition of the Agent rule (required)
+   * @param body New definition of the agent rule (required)
    * @return CloudWorkloadSecurityAgentRuleResponse
    * @throws ApiException if fails to make API call
    */
@@ -2080,12 +2117,12 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a Cloud Workload Security Agent rule.
+   * Update a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #updateCloudWorkloadSecurityAgentRuleWithHttpInfoAsync}.
    *
    * @param agentRuleId The ID of the Agent rule (required)
-   * @param body New definition of the Agent rule (required)
+   * @param body New definition of the agent rule (required)
    * @return CompletableFuture&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
    */
   public CompletableFuture<CloudWorkloadSecurityAgentRuleResponse>
@@ -2099,10 +2136,12 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a specific Agent rule. Returns the Agent rule object when the request is successful.
+   * Update a specific agent rule. Returns the agent rule object when the request is successful.
+   *
+   * <p><strong>Note</strong>: This endpoint should only be used for the Government (US1-FED) site.
    *
    * @param agentRuleId The ID of the Agent rule (required)
-   * @param body New definition of the Agent rule (required)
+   * @param body New definition of the agent rule (required)
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2167,12 +2206,12 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a Cloud Workload Security Agent rule.
+   * Update a Workload Protection agent rule (US1-FED).
    *
    * <p>See {@link #updateCloudWorkloadSecurityAgentRuleWithHttpInfo}.
    *
    * @param agentRuleId The ID of the Agent rule (required)
-   * @param body New definition of the Agent rule (required)
+   * @param body New definition of the agent rule (required)
    * @return CompletableFuture&lt;ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;&gt;
    */
   public CompletableFuture<ApiResponse<CloudWorkloadSecurityAgentRuleResponse>>
@@ -2240,7 +2279,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a CSM Threats Agent policy.
+   * Update a Workload Protection policy.
    *
    * <p>See {@link #updateCSMThreatsAgentPolicyWithHttpInfo}.
    *
@@ -2255,7 +2294,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a CSM Threats Agent policy.
+   * Update a Workload Protection policy.
    *
    * <p>See {@link #updateCSMThreatsAgentPolicyWithHttpInfoAsync}.
    *
@@ -2274,8 +2313,11 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a specific Cloud Security Management Threats Agent policy. Returns the Agent policy
-   * object when the request is successful.
+   * Update a specific Workload Protection policy. Returns the policy object when the request is
+   * successful.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   * Please reference the (US1-FED) specific resource below.
    *
    * @param policyId The ID of the Agent policy (required)
    * @param body New definition of the Agent policy (required)
@@ -2338,7 +2380,7 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a CSM Threats Agent policy.
+   * Update a Workload Protection policy.
    *
    * <p>See {@link #updateCSMThreatsAgentPolicyWithHttpInfo}.
    *
@@ -2425,12 +2467,12 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a CSM Threats Agent rule.
+   * Update a Workload Protection agent rule.
    *
    * <p>See {@link #updateCSMThreatsAgentRuleWithHttpInfo}.
    *
    * @param agentRuleId The ID of the Agent rule (required)
-   * @param body New definition of the Agent rule (required)
+   * @param body New definition of the agent rule (required)
    * @return CloudWorkloadSecurityAgentRuleResponse
    * @throws ApiException if fails to make API call
    */
@@ -2442,12 +2484,12 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a CSM Threats Agent rule.
+   * Update a Workload Protection agent rule.
    *
    * <p>See {@link #updateCSMThreatsAgentRuleWithHttpInfoAsync}.
    *
    * @param agentRuleId The ID of the Agent rule (required)
-   * @param body New definition of the Agent rule (required)
+   * @param body New definition of the agent rule (required)
    * @return CompletableFuture&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
    */
   public CompletableFuture<CloudWorkloadSecurityAgentRuleResponse> updateCSMThreatsAgentRuleAsync(
@@ -2461,12 +2503,12 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a CSM Threats Agent rule.
+   * Update a Workload Protection agent rule.
    *
    * <p>See {@link #updateCSMThreatsAgentRuleWithHttpInfo}.
    *
    * @param agentRuleId The ID of the Agent rule (required)
-   * @param body New definition of the Agent rule (required)
+   * @param body New definition of the agent rule (required)
    * @param parameters Optional parameters for the request.
    * @return CloudWorkloadSecurityAgentRuleResponse
    * @throws ApiException if fails to make API call
@@ -2480,12 +2522,12 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a CSM Threats Agent rule.
+   * Update a Workload Protection agent rule.
    *
    * <p>See {@link #updateCSMThreatsAgentRuleWithHttpInfoAsync}.
    *
    * @param agentRuleId The ID of the Agent rule (required)
-   * @param body New definition of the Agent rule (required)
+   * @param body New definition of the agent rule (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
    */
@@ -2501,11 +2543,14 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a specific Cloud Security Management Threats Agent rule. Returns the Agent rule object
-   * when the request is successful.
+   * Update a specific Workload Protection Agent rule. Returns the agent rule object when the
+   * request is successful.
+   *
+   * <p><strong>Note</strong>: This endpoint is not available for the Government (US1-FED) site.
+   * Please reference the (US1-FED) specific resource below.
    *
    * @param agentRuleId The ID of the Agent rule (required)
-   * @param body New definition of the Agent rule (required)
+   * @param body New definition of the agent rule (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;
    * @throws ApiException if fails to make API call
@@ -2573,12 +2618,12 @@ public class CsmThreatsApi {
   }
 
   /**
-   * Update a CSM Threats Agent rule.
+   * Update a Workload Protection agent rule.
    *
    * <p>See {@link #updateCSMThreatsAgentRuleWithHttpInfo}.
    *
    * @param agentRuleId The ID of the Agent rule (required)
-   * @param body New definition of the Agent rule (required)
+   * @param body New definition of the agent rule (required)
    * @param parameters Optional parameters for the request.
    * @return CompletableFuture&lt;ApiResponse&lt;CloudWorkloadSecurityAgentRuleResponse&gt;&gt;
    */
