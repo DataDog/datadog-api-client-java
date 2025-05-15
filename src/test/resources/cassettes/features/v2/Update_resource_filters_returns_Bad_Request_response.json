@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"cloud_provider\":{\"invalid\":{\"aws_account_id\":[\"tag1:v1\"]}}},\"id\":\"csm_resource_filter\",\"type\":\"csm_resource_filter\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/cloud_security_management/resource_filters",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"Invalid cloud provider invalid\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cce07500-c645-2924-d6e9-0016839fe00e"
+  }
+]
