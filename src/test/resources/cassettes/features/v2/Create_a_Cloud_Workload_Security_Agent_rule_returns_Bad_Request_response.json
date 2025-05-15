@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1744967411\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1747309753\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"byc-7rh-p5l\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1744967411\",\"policyVersion\":\"1\",\"priority\":1000000002,\"ruleCount\":226,\"updateDate\":1744967411964,\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
+      "body": "{\"data\":{\"id\":\"ouu-6xr-bab\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsbadrequestresponse1747309753\",\"policyVersion\":\"1\",\"priority\":1000000070,\"ruleCount\":226,\"updateDate\":1747309753145,\"updater\":{\"name\":\"CI Account\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3ae8b90b-9d2e-3042-3def-b6d96385b207"
+    "id": "8d0967e6-8683-b1bb-395c-670ae69f2084"
   },
   {
     "httpRequest": {
@@ -63,7 +63,7 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/byc-7rh-p5l",
+      "path": "/api/v2/remote_config/products/cws/policy/ouu-6xr-bab",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "078ed09b-2e4a-5af6-20a6-254dc85646c3"
+    "id": "6c461dcf-2490-d491-28d4-f9faec76a185"
   }
 ]
