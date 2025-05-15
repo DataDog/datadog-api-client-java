@@ -1,4 +1,4 @@
-// Update a CSM Threats Agent policy returns "OK" response
+// Update a Workload Protection policy returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
