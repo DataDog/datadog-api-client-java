@@ -19,7 +19,9 @@ import java.util.Objects;
 /** The action the rule can perform if triggered */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_FILTER,
-  CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_KILL
+  CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_KILL,
+  CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_METADATA,
+  CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_SET
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -30,6 +32,12 @@ public class CloudWorkloadSecurityAgentRuleAction {
 
   public static final String JSON_PROPERTY_KILL = "kill";
   private CloudWorkloadSecurityAgentRuleKill kill;
+
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private CloudWorkloadSecurityAgentRuleActionMetadata metadata;
+
+  public static final String JSON_PROPERTY_SET = "set";
+  private CloudWorkloadSecurityAgentRuleActionSet set;
 
   public CloudWorkloadSecurityAgentRuleAction filter(String filter) {
     this.filter = filter;
@@ -72,6 +80,51 @@ public class CloudWorkloadSecurityAgentRuleAction {
 
   public void setKill(CloudWorkloadSecurityAgentRuleKill kill) {
     this.kill = kill;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAction metadata(
+      CloudWorkloadSecurityAgentRuleActionMetadata metadata) {
+    this.metadata = metadata;
+    this.unparsed |= metadata.unparsed;
+    return this;
+  }
+
+  /**
+   * The metadata action applied on the scope matching the rule
+   *
+   * @return metadata
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudWorkloadSecurityAgentRuleActionMetadata getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(CloudWorkloadSecurityAgentRuleActionMetadata metadata) {
+    this.metadata = metadata;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAction set(CloudWorkloadSecurityAgentRuleActionSet set) {
+    this.set = set;
+    this.unparsed |= set.unparsed;
+    return this;
+  }
+
+  /**
+   * The set action applied on the scope matching the rule
+   *
+   * @return set
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public CloudWorkloadSecurityAgentRuleActionSet getSet() {
+    return set;
+  }
+
+  public void setSet(CloudWorkloadSecurityAgentRuleActionSet set) {
+    this.set = set;
   }
 
   /**
@@ -133,13 +186,15 @@ public class CloudWorkloadSecurityAgentRuleAction {
         (CloudWorkloadSecurityAgentRuleAction) o;
     return Objects.equals(this.filter, cloudWorkloadSecurityAgentRuleAction.filter)
         && Objects.equals(this.kill, cloudWorkloadSecurityAgentRuleAction.kill)
+        && Objects.equals(this.metadata, cloudWorkloadSecurityAgentRuleAction.metadata)
+        && Objects.equals(this.set, cloudWorkloadSecurityAgentRuleAction.set)
         && Objects.equals(
             this.additionalProperties, cloudWorkloadSecurityAgentRuleAction.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, kill, additionalProperties);
+    return Objects.hash(filter, kill, metadata, set, additionalProperties);
   }
 
   @Override
@@ -148,6 +203,8 @@ public class CloudWorkloadSecurityAgentRuleAction {
     sb.append("class CloudWorkloadSecurityAgentRuleAction {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    kill: ").append(toIndentedString(kill)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    set: ").append(toIndentedString(set)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

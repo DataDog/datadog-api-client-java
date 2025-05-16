@@ -18,9 +18,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Create a new Cloud Workload Security Agent policy */
 @JsonPropertyOrder({
+  CloudWorkloadSecurityAgentPolicyCreateAttributes.JSON_PROPERTY_ACTIONS,
   CloudWorkloadSecurityAgentPolicyCreateAttributes.JSON_PROPERTY_DESCRIPTION,
   CloudWorkloadSecurityAgentPolicyCreateAttributes.JSON_PROPERTY_ENABLED,
   CloudWorkloadSecurityAgentPolicyCreateAttributes.JSON_PROPERTY_HOST_TAGS,
@@ -31,6 +33,10 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class CloudWorkloadSecurityAgentPolicyCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACTIONS = "actions";
+  private JsonNullable<List<CloudWorkloadSecurityAgentRuleAction>> actions =
+      JsonNullable.<List<CloudWorkloadSecurityAgentRuleAction>>undefined();
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -52,6 +58,52 @@ public class CloudWorkloadSecurityAgentPolicyCreateAttributes {
   public CloudWorkloadSecurityAgentPolicyCreateAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
+  }
+
+  public CloudWorkloadSecurityAgentPolicyCreateAttributes actions(
+      List<CloudWorkloadSecurityAgentRuleAction> actions) {
+    this.actions = JsonNullable.<List<CloudWorkloadSecurityAgentRuleAction>>of(actions);
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentPolicyCreateAttributes addActionsItem(
+      CloudWorkloadSecurityAgentRuleAction actionsItem) {
+    if (this.actions == null || !this.actions.isPresent()) {
+      this.actions = JsonNullable.<List<CloudWorkloadSecurityAgentRuleAction>>of(new ArrayList<>());
+    }
+    try {
+      this.actions.get().add(actionsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The array of actions the rule can perform if triggered
+   *
+   * @return actions
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<CloudWorkloadSecurityAgentRuleAction> getActions() {
+    return actions.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ACTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<CloudWorkloadSecurityAgentRuleAction>> getActions_JsonNullable() {
+    return actions;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ACTIONS)
+  public void setActions_JsonNullable(
+      JsonNullable<List<CloudWorkloadSecurityAgentRuleAction>> actions) {
+    this.actions = actions;
+  }
+
+  public void setActions(List<CloudWorkloadSecurityAgentRuleAction> actions) {
+    this.actions = JsonNullable.<List<CloudWorkloadSecurityAgentRuleAction>>of(actions);
   }
 
   public CloudWorkloadSecurityAgentPolicyCreateAttributes description(String description) {
@@ -236,7 +288,8 @@ public class CloudWorkloadSecurityAgentPolicyCreateAttributes {
     CloudWorkloadSecurityAgentPolicyCreateAttributes
         cloudWorkloadSecurityAgentPolicyCreateAttributes =
             (CloudWorkloadSecurityAgentPolicyCreateAttributes) o;
-    return Objects.equals(
+    return Objects.equals(this.actions, cloudWorkloadSecurityAgentPolicyCreateAttributes.actions)
+        && Objects.equals(
             this.description, cloudWorkloadSecurityAgentPolicyCreateAttributes.description)
         && Objects.equals(this.enabled, cloudWorkloadSecurityAgentPolicyCreateAttributes.enabled)
         && Objects.equals(this.hostTags, cloudWorkloadSecurityAgentPolicyCreateAttributes.hostTags)
@@ -250,13 +303,15 @@ public class CloudWorkloadSecurityAgentPolicyCreateAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, enabled, hostTags, hostTagsLists, name, additionalProperties);
+    return Objects.hash(
+        actions, description, enabled, hostTags, hostTagsLists, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudWorkloadSecurityAgentPolicyCreateAttributes {\n");
+    sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    hostTags: ").append(toIndentedString(hostTags)).append("\n");
