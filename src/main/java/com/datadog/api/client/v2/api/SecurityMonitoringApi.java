@@ -5132,6 +5132,7 @@ public class SecurityMonitoringApi {
     private FindingEvaluation filterEvaluation;
     private FindingStatus filterStatus;
     private List<FindingVulnerabilityType> filterVulnerabilityType;
+    private Boolean detailedFindings;
 
     /**
      * Set pageLimit.
@@ -5285,6 +5286,17 @@ public class SecurityMonitoringApi {
       this.filterVulnerabilityType = filterVulnerabilityType;
       return this;
     }
+
+    /**
+     * Set detailedFindings.
+     *
+     * @param detailedFindings Return additional fields for some findings. (optional)
+     * @return ListFindingsOptionalParameters
+     */
+    public ListFindingsOptionalParameters detailedFindings(Boolean detailedFindings) {
+      this.detailedFindings = detailedFindings;
+      return this;
+    }
   }
 
   /**
@@ -5435,6 +5447,17 @@ public class SecurityMonitoringApi {
    * Duplicated query parameters (e.g. <code>filter[status]=low&amp;filter[status]=info</code>) are
    * not allowed.
    *
+   * <h3>Additional Extension</h3>
+   *
+   * <p>Additional extension fields are available for some findings.
+   *
+   * <p>The data is available by including the query parameter <code>?detailed_findings=true</code>
+   * in the request.
+   *
+   * <p>The following fields are available for findings: - <code>description</code>: The description
+   * and remediation steps for this finding. - <code>datadog_link</code>: The Datadog relative link
+   * for this finding.
+   *
    * <h3>Response</h3>
    *
    * <p>The response includes an array of finding objects, pagination metadata, and a count of items
@@ -5488,6 +5511,7 @@ public class SecurityMonitoringApi {
     FindingEvaluation filterEvaluation = parameters.filterEvaluation;
     FindingStatus filterStatus = parameters.filterStatus;
     List<FindingVulnerabilityType> filterVulnerabilityType = parameters.filterVulnerabilityType;
+    Boolean detailedFindings = parameters.detailedFindings;
     // create path and map variables
     String localVarPath = "/api/v2/posture_management/findings";
 
@@ -5513,6 +5537,8 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("multi", "filter[vulnerability_type]", filterVulnerabilityType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "detailed_findings", detailedFindings));
 
     Invocation.Builder builder =
         apiClient.createBuilder(
@@ -5568,6 +5594,7 @@ public class SecurityMonitoringApi {
     FindingEvaluation filterEvaluation = parameters.filterEvaluation;
     FindingStatus filterStatus = parameters.filterStatus;
     List<FindingVulnerabilityType> filterVulnerabilityType = parameters.filterVulnerabilityType;
+    Boolean detailedFindings = parameters.detailedFindings;
     // create path and map variables
     String localVarPath = "/api/v2/posture_management/findings";
 
@@ -5593,6 +5620,8 @@ public class SecurityMonitoringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[status]", filterStatus));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("multi", "filter[vulnerability_type]", filterVulnerabilityType));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "detailed_findings", detailedFindings));
 
     Invocation.Builder builder;
     try {
