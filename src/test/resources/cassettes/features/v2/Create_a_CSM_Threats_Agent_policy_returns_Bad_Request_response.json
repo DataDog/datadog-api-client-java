@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"title\":\"failed to create policy\"}]}\n",
+      "body": "{\"errors\":[\"input_validation_error(Field 'tags' is invalid: cannot have both the new and the legacy field populated)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
