@@ -1,4 +1,4 @@
-// Get all Cloud Workload Security Agent rules returns "OK" response
+// Get all Workload Protection agent rules (US1-FED) returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

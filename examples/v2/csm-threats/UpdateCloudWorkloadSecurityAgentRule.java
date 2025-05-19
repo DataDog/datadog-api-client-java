@@ -1,4 +1,4 @@
-// Update a Cloud Workload Security Agent rule returns "OK" response
+// Update a Workload Protection agent rule (US1-FED) returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
