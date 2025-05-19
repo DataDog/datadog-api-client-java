@@ -1,4 +1,4 @@
-// Get all CSM Threats Agent policies returns "OK" response
+// Get all Workload Protection policies returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

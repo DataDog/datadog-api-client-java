@@ -1,4 +1,4 @@
-// Create a CSM Threats Agent rule returns "OK" response
+// Create a Workload Protection agent rule returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
