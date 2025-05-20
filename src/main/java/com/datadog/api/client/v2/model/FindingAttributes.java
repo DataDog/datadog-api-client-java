@@ -20,6 +20,8 @@ import java.util.Objects;
 
 /** The JSON:API attributes of the finding. */
 @JsonPropertyOrder({
+  FindingAttributes.JSON_PROPERTY_DATADOG_LINK,
+  FindingAttributes.JSON_PROPERTY_DESCRIPTION,
   FindingAttributes.JSON_PROPERTY_EVALUATION,
   FindingAttributes.JSON_PROPERTY_EVALUATION_CHANGED_AT,
   FindingAttributes.JSON_PROPERTY_MUTE,
@@ -35,6 +37,12 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class FindingAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATADOG_LINK = "datadog_link";
+  private String datadogLink;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
+
   public static final String JSON_PROPERTY_EVALUATION = "evaluation";
   private FindingEvaluation evaluation;
 
@@ -64,6 +72,48 @@ public class FindingAttributes {
 
   public static final String JSON_PROPERTY_VULNERABILITY_TYPE = "vulnerability_type";
   private FindingVulnerabilityType vulnerabilityType;
+
+  public FindingAttributes datadogLink(String datadogLink) {
+    this.datadogLink = datadogLink;
+    return this;
+  }
+
+  /**
+   * The Datadog relative link for this finding.
+   *
+   * @return datadogLink
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATADOG_LINK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDatadogLink() {
+    return datadogLink;
+  }
+
+  public void setDatadogLink(String datadogLink) {
+    this.datadogLink = datadogLink;
+  }
+
+  public FindingAttributes description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description and remediation steps for this finding.
+   *
+   * @return description
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
   public FindingAttributes evaluation(FindingEvaluation evaluation) {
     this.evaluation = evaluation;
@@ -353,7 +403,9 @@ public class FindingAttributes {
       return false;
     }
     FindingAttributes findingAttributes = (FindingAttributes) o;
-    return Objects.equals(this.evaluation, findingAttributes.evaluation)
+    return Objects.equals(this.datadogLink, findingAttributes.datadogLink)
+        && Objects.equals(this.description, findingAttributes.description)
+        && Objects.equals(this.evaluation, findingAttributes.evaluation)
         && Objects.equals(this.evaluationChangedAt, findingAttributes.evaluationChangedAt)
         && Objects.equals(this.mute, findingAttributes.mute)
         && Objects.equals(this.resource, findingAttributes.resource)
@@ -369,6 +421,8 @@ public class FindingAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        datadogLink,
+        description,
         evaluation,
         evaluationChangedAt,
         mute,
@@ -386,6 +440,8 @@ public class FindingAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FindingAttributes {\n");
+    sb.append("    datadogLink: ").append(toIndentedString(datadogLink)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    evaluation: ").append(toIndentedString(evaluation)).append("\n");
     sb.append("    evaluationChangedAt: ")
         .append(toIndentedString(evaluationChangedAt))
