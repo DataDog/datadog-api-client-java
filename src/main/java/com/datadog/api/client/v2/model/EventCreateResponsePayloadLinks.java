@@ -8,7 +8,6 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,78 +16,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object representing the entity that made the change. Optional field but if provided should
- * include type and name.
- */
-@JsonPropertyOrder({
-  ChangeEventCustomAttributesAuthor.JSON_PROPERTY_NAME,
-  ChangeEventCustomAttributesAuthor.JSON_PROPERTY_TYPE
-})
+/** Links attributes. */
+@JsonPropertyOrder({EventCreateResponsePayloadLinks.JSON_PROPERTY_SELF})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class ChangeEventCustomAttributesAuthor {
+public class EventCreateResponsePayloadLinks {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_SELF = "self";
+  private String self;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private ChangeEventCustomAttributesAuthorType type;
-
-  public ChangeEventCustomAttributesAuthor() {}
-
-  @JsonCreator
-  public ChangeEventCustomAttributesAuthor(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          ChangeEventCustomAttributesAuthorType type) {
-    this.name = name;
-    this.type = type;
-    this.unparsed |= !type.isValid();
-  }
-
-  public ChangeEventCustomAttributesAuthor name(String name) {
-    this.name = name;
+  public EventCreateResponsePayloadLinks self(String self) {
+    this.self = self;
     return this;
   }
 
   /**
-   * Author's name. Limited to 128 characters.
+   * The URL of the event. This link is only functional when using the default subdomain.
    *
-   * @return name
+   * @return self
    */
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SELF)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSelf() {
+    return self;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ChangeEventCustomAttributesAuthor type(ChangeEventCustomAttributesAuthorType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Author's type.
-   *
-   * @return type
-   */
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ChangeEventCustomAttributesAuthorType getType() {
-    return type;
-  }
-
-  public void setType(ChangeEventCustomAttributesAuthorType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
-    }
-    this.type = type;
+  public void setSelf(String self) {
+    this.self = self;
   }
 
   /**
@@ -103,10 +58,10 @@ public class ChangeEventCustomAttributesAuthor {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return ChangeEventCustomAttributesAuthor
+   * @return EventCreateResponsePayloadLinks
    */
   @JsonAnySetter
-  public ChangeEventCustomAttributesAuthor putAdditionalProperty(String key, Object value) {
+  public EventCreateResponsePayloadLinks putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -137,7 +92,7 @@ public class ChangeEventCustomAttributesAuthor {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this ChangeEventCustomAttributesAuthor object is equal to o. */
+  /** Return true if this EventCreateResponsePayloadLinks object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,25 +101,23 @@ public class ChangeEventCustomAttributesAuthor {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChangeEventCustomAttributesAuthor changeEventCustomAttributesAuthor =
-        (ChangeEventCustomAttributesAuthor) o;
-    return Objects.equals(this.name, changeEventCustomAttributesAuthor.name)
-        && Objects.equals(this.type, changeEventCustomAttributesAuthor.type)
+    EventCreateResponsePayloadLinks eventCreateResponsePayloadLinks =
+        (EventCreateResponsePayloadLinks) o;
+    return Objects.equals(this.self, eventCreateResponsePayloadLinks.self)
         && Objects.equals(
-            this.additionalProperties, changeEventCustomAttributesAuthor.additionalProperties);
+            this.additionalProperties, eventCreateResponsePayloadLinks.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, additionalProperties);
+    return Objects.hash(self, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChangeEventCustomAttributesAuthor {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class EventCreateResponsePayloadLinks {\n");
+    sb.append("    self: ").append(toIndentedString(self)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
