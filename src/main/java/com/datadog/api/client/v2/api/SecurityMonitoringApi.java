@@ -19,6 +19,7 @@ import com.datadog.api.client.v2.model.FindingStatus;
 import com.datadog.api.client.v2.model.FindingVulnerabilityType;
 import com.datadog.api.client.v2.model.GetCustomFrameworkResponse;
 import com.datadog.api.client.v2.model.GetFindingResponse;
+import com.datadog.api.client.v2.model.GetResourceEvaluationFiltersResponse;
 import com.datadog.api.client.v2.model.GetRuleVersionHistoryResponse;
 import com.datadog.api.client.v2.model.GetSBOMResponse;
 import com.datadog.api.client.v2.model.HistoricalJobResponse;
@@ -59,6 +60,8 @@ import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionUpdateReques
 import com.datadog.api.client.v2.model.SecurityMonitoringSuppressionsResponse;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkRequest;
 import com.datadog.api.client.v2.model.UpdateCustomFrameworkResponse;
+import com.datadog.api.client.v2.model.UpdateResourceEvaluationFiltersRequest;
+import com.datadog.api.client.v2.model.UpdateResourceEvaluationFiltersResponse;
 import com.datadog.api.client.v2.model.VulnerabilityEcosystem;
 import com.datadog.api.client.v2.model.VulnerabilitySeverity;
 import com.datadog.api.client.v2.model.VulnerabilityStatus;
@@ -3574,6 +3577,215 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<HistoricalJobResponse>() {});
+  }
+
+  /** Manage optional parameters to getResourceEvaluationFilters. */
+  public static class GetResourceEvaluationFiltersOptionalParameters {
+    private String cloudProvider;
+    private String accountId;
+    private Boolean skipCache;
+
+    /**
+     * Set cloudProvider.
+     *
+     * @param cloudProvider Filter resource filters by cloud provider (e.g. aws, gcp, azure).
+     *     (optional)
+     * @return GetResourceEvaluationFiltersOptionalParameters
+     */
+    public GetResourceEvaluationFiltersOptionalParameters cloudProvider(String cloudProvider) {
+      this.cloudProvider = cloudProvider;
+      return this;
+    }
+
+    /**
+     * Set accountId.
+     *
+     * @param accountId Filter resource filters by cloud provider account ID. This parameter is only
+     *     valid when provider is specified. (optional)
+     * @return GetResourceEvaluationFiltersOptionalParameters
+     */
+    public GetResourceEvaluationFiltersOptionalParameters accountId(String accountId) {
+      this.accountId = accountId;
+      return this;
+    }
+
+    /**
+     * Set skipCache.
+     *
+     * @param skipCache Skip cache for resource filters. (optional)
+     * @return GetResourceEvaluationFiltersOptionalParameters
+     */
+    public GetResourceEvaluationFiltersOptionalParameters skipCache(Boolean skipCache) {
+      this.skipCache = skipCache;
+      return this;
+    }
+  }
+
+  /**
+   * List resource filters.
+   *
+   * <p>See {@link #getResourceEvaluationFiltersWithHttpInfo}.
+   *
+   * @return GetResourceEvaluationFiltersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetResourceEvaluationFiltersResponse getResourceEvaluationFilters() throws ApiException {
+    return getResourceEvaluationFiltersWithHttpInfo(
+            new GetResourceEvaluationFiltersOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * List resource filters.
+   *
+   * <p>See {@link #getResourceEvaluationFiltersWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;GetResourceEvaluationFiltersResponse&gt;
+   */
+  public CompletableFuture<GetResourceEvaluationFiltersResponse>
+      getResourceEvaluationFiltersAsync() {
+    return getResourceEvaluationFiltersWithHttpInfoAsync(
+            new GetResourceEvaluationFiltersOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List resource filters.
+   *
+   * <p>See {@link #getResourceEvaluationFiltersWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return GetResourceEvaluationFiltersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public GetResourceEvaluationFiltersResponse getResourceEvaluationFilters(
+      GetResourceEvaluationFiltersOptionalParameters parameters) throws ApiException {
+    return getResourceEvaluationFiltersWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List resource filters.
+   *
+   * <p>See {@link #getResourceEvaluationFiltersWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;GetResourceEvaluationFiltersResponse&gt;
+   */
+  public CompletableFuture<GetResourceEvaluationFiltersResponse> getResourceEvaluationFiltersAsync(
+      GetResourceEvaluationFiltersOptionalParameters parameters) {
+    return getResourceEvaluationFiltersWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List resource filters.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;GetResourceEvaluationFiltersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GetResourceEvaluationFiltersResponse> getResourceEvaluationFiltersWithHttpInfo(
+      GetResourceEvaluationFiltersOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String cloudProvider = parameters.cloudProvider;
+    String accountId = parameters.accountId;
+    Boolean skipCache = parameters.skipCache;
+    // create path and map variables
+    String localVarPath = "/api/v2/cloud_security_management/resource_filters";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cloud_provider", cloudProvider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "skip_cache", skipCache));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.getResourceEvaluationFilters",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetResourceEvaluationFiltersResponse>() {});
+  }
+
+  /**
+   * List resource filters.
+   *
+   * <p>See {@link #getResourceEvaluationFiltersWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;GetResourceEvaluationFiltersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<GetResourceEvaluationFiltersResponse>>
+      getResourceEvaluationFiltersWithHttpInfoAsync(
+          GetResourceEvaluationFiltersOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String cloudProvider = parameters.cloudProvider;
+    String accountId = parameters.accountId;
+    Boolean skipCache = parameters.skipCache;
+    // create path and map variables
+    String localVarPath = "/api/v2/cloud_security_management/resource_filters";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "cloud_provider", cloudProvider));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "account_id", accountId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "skip_cache", skipCache));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.getResourceEvaluationFilters",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<GetResourceEvaluationFiltersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<GetResourceEvaluationFiltersResponse>() {});
   }
 
   /** Manage optional parameters to getRuleVersionHistory. */
@@ -9512,6 +9724,146 @@ public class SecurityMonitoringApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UpdateCustomFrameworkResponse>() {});
+  }
+
+  /**
+   * Update resource filters.
+   *
+   * <p>See {@link #updateResourceEvaluationFiltersWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return UpdateResourceEvaluationFiltersResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UpdateResourceEvaluationFiltersResponse updateResourceEvaluationFilters(
+      UpdateResourceEvaluationFiltersRequest body) throws ApiException {
+    return updateResourceEvaluationFiltersWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Update resource filters.
+   *
+   * <p>See {@link #updateResourceEvaluationFiltersWithHttpInfoAsync}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;UpdateResourceEvaluationFiltersResponse&gt;
+   */
+  public CompletableFuture<UpdateResourceEvaluationFiltersResponse>
+      updateResourceEvaluationFiltersAsync(UpdateResourceEvaluationFiltersRequest body) {
+    return updateResourceEvaluationFiltersWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Update resource filters.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;UpdateResourceEvaluationFiltersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UpdateResourceEvaluationFiltersResponse>
+      updateResourceEvaluationFiltersWithHttpInfo(UpdateResourceEvaluationFiltersRequest body)
+          throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'body' when calling updateResourceEvaluationFilters");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cloud_security_management/resource_filters";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SecurityMonitoringApi.updateResourceEvaluationFilters",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpdateResourceEvaluationFiltersResponse>() {});
+  }
+
+  /**
+   * Update resource filters.
+   *
+   * <p>See {@link #updateResourceEvaluationFiltersWithHttpInfo}.
+   *
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UpdateResourceEvaluationFiltersResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UpdateResourceEvaluationFiltersResponse>>
+      updateResourceEvaluationFiltersWithHttpInfoAsync(
+          UpdateResourceEvaluationFiltersRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UpdateResourceEvaluationFiltersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateResourceEvaluationFilters"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/cloud_security_management/resource_filters";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SecurityMonitoringApi.updateResourceEvaluationFilters",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UpdateResourceEvaluationFiltersResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "PUT",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpdateResourceEvaluationFiltersResponse>() {});
   }
 
   /**
