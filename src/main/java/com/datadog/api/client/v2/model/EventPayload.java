@@ -24,6 +24,7 @@ import java.util.Objects;
   EventPayload.JSON_PROPERTY_AGGREGATION_KEY,
   EventPayload.JSON_PROPERTY_ATTRIBUTES,
   EventPayload.JSON_PROPERTY_CATEGORY,
+  EventPayload.JSON_PROPERTY_INTEGRATION_ID,
   EventPayload.JSON_PROPERTY_MESSAGE,
   EventPayload.JSON_PROPERTY_TAGS,
   EventPayload.JSON_PROPERTY_TIMESTAMP,
@@ -41,6 +42,9 @@ public class EventPayload {
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private EventCategory category;
+
+  public static final String JSON_PROPERTY_INTEGRATION_ID = "integration_id";
+  private EventPayloadIntegrationId integrationId;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -75,7 +79,8 @@ public class EventPayload {
   }
 
   /**
-   * An arbitrary string to use for aggregation when correlating events. Limited to 100 characters.
+   * An arbitrary string to use for aggregation when correlating events. If you specify a key,
+   * events are deduplicated to alerts based on this key. Limited to 100 characters.
    *
    * @return aggregationKey
    */
@@ -97,7 +102,7 @@ public class EventPayload {
   }
 
   /**
-   * JSON object for custom attributes. Schema are different per each event category.
+   * JSON object for custom attributes. Schema is different per event category.
    *
    * @return attributes
    */
@@ -118,9 +123,7 @@ public class EventPayload {
   }
 
   /**
-   * Event category to identify the type of event. Only the value <code>change</code> is supported.
-   * Support for other categories are coming. please reach out to datadog support if you're
-   * interested.
+   * Event category to identify the type of event.
    *
    * @return category
    */
@@ -135,6 +138,32 @@ public class EventPayload {
       this.unparsed = true;
     }
     this.category = category;
+  }
+
+  public EventPayload integrationId(EventPayloadIntegrationId integrationId) {
+    this.integrationId = integrationId;
+    this.unparsed |= !integrationId.isValid();
+    return this;
+  }
+
+  /**
+   * Integration IDs sourced from integration manifests. Currently, only <code>custom-events</code>
+   * is supported.
+   *
+   * @return integrationId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTEGRATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EventPayloadIntegrationId getIntegrationId() {
+    return integrationId;
+  }
+
+  public void setIntegrationId(EventPayloadIntegrationId integrationId) {
+    if (!integrationId.isValid()) {
+      this.unparsed = true;
+    }
+    this.integrationId = integrationId;
   }
 
   public EventPayload message(String message) {
@@ -291,6 +320,7 @@ public class EventPayload {
     return Objects.equals(this.aggregationKey, eventPayload.aggregationKey)
         && Objects.equals(this.attributes, eventPayload.attributes)
         && Objects.equals(this.category, eventPayload.category)
+        && Objects.equals(this.integrationId, eventPayload.integrationId)
         && Objects.equals(this.message, eventPayload.message)
         && Objects.equals(this.tags, eventPayload.tags)
         && Objects.equals(this.timestamp, eventPayload.timestamp)
@@ -304,6 +334,7 @@ public class EventPayload {
         aggregationKey,
         attributes,
         category,
+        integrationId,
         message,
         tags,
         timestamp,
@@ -318,6 +349,7 @@ public class EventPayload {
     sb.append("    aggregationKey: ").append(toIndentedString(aggregationKey)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
