@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"from\":\"2025-03-23T00:00:00Z\",\"limit\":1,\"to\":\"2025-03-24T00:00:00Z\"},\"type\":\"dora_failures_list_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/dora/failures",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ff9b2962-0b42-02d8-8ae9-22d7bbb9ff5a"
+  }
+]
