@@ -383,22 +383,22 @@ def format_data_with_schema(
         else:
 
             def format_number(x):
-                if isinstance(x, bool):
+                if isinstance(x, bool | str):
                     raise TypeError(f"{x} is not supported type {schema}")
                 return str(x)
 
             def format_double(x):
-                if isinstance(x, bool):
+                if isinstance(x, bool | str):
                     raise TypeError(f"{x} is not supported type {schema}")
                 return float(x)
 
             def format_int(x):
-                if isinstance(x, str):
+                if isinstance(x, bool | str):
                     raise TypeError(f"{x} is not supported type {schema}")
                 return str(x)
 
             def format_int64(x):
-                if isinstance(x, str):
+                if isinstance(x, bool | str):
                     raise TypeError(f"{x} is not supported type {schema}")
                 return str(x) + "L"
 
