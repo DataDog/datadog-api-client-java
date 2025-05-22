@@ -145,7 +145,7 @@ public class DORAIncidentRequestAttributes {
   }
 
   /**
-   * Incident ID. Required to update a previously sent incident.
+   * Incident ID. Must have at least 16 characters. Required to update a previously sent incident.
    *
    * @return id
    */
