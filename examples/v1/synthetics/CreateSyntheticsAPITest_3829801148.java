@@ -9,6 +9,7 @@ import com.datadog.api.client.v1.model.SyntheticsAPITestType;
 import com.datadog.api.client.v1.model.SyntheticsAssertion;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionTargetValue;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
@@ -32,12 +33,12 @@ public class Example {
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.IS)
-                                    .target("message")
+                                    .target(new SyntheticsAssertionTargetValue("message"))
                                     .type(SyntheticsAssertionType.RECEIVED_MESSAGE)),
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                    .target(2000)
+                                    .target(new SyntheticsAssertionTargetValue(2000.0))
                                     .type(SyntheticsAssertionType.RESPONSE_TIME))))
                     .request(
                         new SyntheticsTestRequest()

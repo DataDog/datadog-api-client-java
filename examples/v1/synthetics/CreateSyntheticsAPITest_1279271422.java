@@ -14,6 +14,7 @@ import com.datadog.api.client.v1.model.SyntheticsAPIWaitStepSubtype;
 import com.datadog.api.client.v1.model.SyntheticsAssertion;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionTargetValue;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
@@ -59,7 +60,9 @@ public class Example {
                                                 new SyntheticsAssertionTarget()
                                                     .operator(SyntheticsAssertionOperator.IS)
                                                     .type(SyntheticsAssertionType.STATUS_CODE)
-                                                    .target(200))))
+                                                    .target(
+                                                        new SyntheticsAssertionTargetValue(
+                                                            200.0)))))
                                     .exitIfSucceed(true)
                                     .extractedValues(
                                         Collections.singletonList(
@@ -106,7 +109,9 @@ public class Example {
                                                 new SyntheticsAssertionTarget()
                                                     .operator(SyntheticsAssertionOperator.LESS_THAN)
                                                     .type(SyntheticsAssertionType.RESPONSE_TIME)
-                                                    .target(1000))))
+                                                    .target(
+                                                        new SyntheticsAssertionTargetValue(
+                                                            1000.0)))))
                                     .request(
                                         new SyntheticsTestRequest()
                                             .host("grpcbin.test.k6.io")

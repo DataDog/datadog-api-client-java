@@ -16,6 +16,7 @@ import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONSchemaTargetTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionTargetValue;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariable;
 import com.datadog.api.client.v1.model.SyntheticsConfigVariableType;
@@ -48,12 +49,12 @@ public class Example {
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.IS)
                                     .property("{{ PROPERTY }}")
-                                    .target("text/html")
+                                    .target(new SyntheticsAssertionTargetValue("text/html"))
                                     .type(SyntheticsAssertionType.HEADER)),
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                    .target(2000)
+                                    .target(new SyntheticsAssertionTargetValue(2000.0))
                                     .type(SyntheticsAssertionType.RESPONSE_TIME)),
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionJSONPathTarget()
@@ -63,7 +64,7 @@ public class Example {
                                         new SyntheticsAssertionJSONPathTargetTarget()
                                             .jsonPath("topKey")
                                             .operator("isNot")
-                                            .targetValue("0"))
+                                            .targetValue(new SyntheticsAssertionTargetValue("0")))
                                     .type(SyntheticsAssertionType.BODY)),
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionJSONSchemaTarget()

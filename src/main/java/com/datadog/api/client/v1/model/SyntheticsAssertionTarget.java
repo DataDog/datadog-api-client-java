@@ -36,7 +36,7 @@ public class SyntheticsAssertionTarget {
   private String property;
 
   public static final String JSON_PROPERTY_TARGET = "target";
-  private Object target = new Object();
+  private SyntheticsAssertionTargetValue target;
 
   public static final String JSON_PROPERTY_TIMINGS_SCOPE = "timingsScope";
   private SyntheticsAssertionTimingsScope timingsScope;
@@ -50,11 +50,13 @@ public class SyntheticsAssertionTarget {
   public SyntheticsAssertionTarget(
       @JsonProperty(required = true, value = JSON_PROPERTY_OPERATOR)
           SyntheticsAssertionOperator operator,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) Object target,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET)
+          SyntheticsAssertionTargetValue target,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsAssertionType type) {
     this.operator = operator;
     this.unparsed |= !operator.isValid();
     this.target = target;
+    this.unparsed |= target.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -104,23 +106,24 @@ public class SyntheticsAssertionTarget {
     this.property = property;
   }
 
-  public SyntheticsAssertionTarget target(Object target) {
+  public SyntheticsAssertionTarget target(SyntheticsAssertionTargetValue target) {
     this.target = target;
+    this.unparsed |= target.unparsed;
     return this;
   }
 
   /**
-   * Value used by the operator.
+   * Value used by the operator in assertions. Can be either a number or string.
    *
    * @return target
    */
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Object getTarget() {
+  public SyntheticsAssertionTargetValue getTarget() {
     return target;
   }
 
-  public void setTarget(Object target) {
+  public void setTarget(SyntheticsAssertionTargetValue target) {
     this.target = target;
   }
 

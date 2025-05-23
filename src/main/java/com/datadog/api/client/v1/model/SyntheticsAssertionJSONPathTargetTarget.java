@@ -37,7 +37,7 @@ public class SyntheticsAssertionJSONPathTargetTarget {
   private String operator;
 
   public static final String JSON_PROPERTY_TARGET_VALUE = "targetValue";
-  private Object targetValue = null;
+  private SyntheticsAssertionTargetValue targetValue;
 
   public SyntheticsAssertionJSONPathTargetTarget elementsOperator(String elementsOperator) {
     this.elementsOperator = elementsOperator;
@@ -105,24 +105,26 @@ public class SyntheticsAssertionJSONPathTargetTarget {
     this.operator = operator;
   }
 
-  public SyntheticsAssertionJSONPathTargetTarget targetValue(Object targetValue) {
+  public SyntheticsAssertionJSONPathTargetTarget targetValue(
+      SyntheticsAssertionTargetValue targetValue) {
     this.targetValue = targetValue;
+    this.unparsed |= targetValue.unparsed;
     return this;
   }
 
   /**
-   * The path target value to compare to.
+   * Value used by the operator in assertions. Can be either a number or string.
    *
    * @return targetValue
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getTargetValue() {
+  public SyntheticsAssertionTargetValue getTargetValue() {
     return targetValue;
   }
 
-  public void setTargetValue(Object targetValue) {
+  public void setTargetValue(SyntheticsAssertionTargetValue targetValue) {
     this.targetValue = targetValue;
   }
 
