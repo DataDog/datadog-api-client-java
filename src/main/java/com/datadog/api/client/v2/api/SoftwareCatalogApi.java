@@ -8,6 +8,9 @@ import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.EntityData;
 import com.datadog.api.client.v2.model.IncludeType;
 import com.datadog.api.client.v2.model.ListEntityCatalogResponse;
+import com.datadog.api.client.v2.model.ListRelationCatalogResponse;
+import com.datadog.api.client.v2.model.RelationIncludeType;
+import com.datadog.api.client.v2.model.RelationResponse;
 import com.datadog.api.client.v2.model.RelationType;
 import com.datadog.api.client.v2.model.UpsertCatalogEntityRequest;
 import com.datadog.api.client.v2.model.UpsertCatalogEntityResponse;
@@ -552,6 +555,310 @@ public class SoftwareCatalogApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListEntityCatalogResponse>() {});
+  }
+
+  /** Manage optional parameters to listCatalogRelation. */
+  public static class ListCatalogRelationOptionalParameters {
+    private Long pageOffset;
+    private Long pageLimit;
+    private RelationType filterType;
+    private String filterFromRef;
+    private String filterToRef;
+    private RelationIncludeType include;
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
+     *     default to 0)
+     * @return ListCatalogRelationOptionalParameters
+     */
+    public ListCatalogRelationOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of relations in the response. (optional, default to 100)
+     * @return ListCatalogRelationOptionalParameters
+     */
+    public ListCatalogRelationOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set filterType.
+     *
+     * @param filterType Filter relations by type. (optional)
+     * @return ListCatalogRelationOptionalParameters
+     */
+    public ListCatalogRelationOptionalParameters filterType(RelationType filterType) {
+      this.filterType = filterType;
+      return this;
+    }
+
+    /**
+     * Set filterFromRef.
+     *
+     * @param filterFromRef Filter relations by the reference of the first entity in the relation.
+     *     (optional)
+     * @return ListCatalogRelationOptionalParameters
+     */
+    public ListCatalogRelationOptionalParameters filterFromRef(String filterFromRef) {
+      this.filterFromRef = filterFromRef;
+      return this;
+    }
+
+    /**
+     * Set filterToRef.
+     *
+     * @param filterToRef Filter relations by the reference of the second entity in the relation.
+     *     (optional)
+     * @return ListCatalogRelationOptionalParameters
+     */
+    public ListCatalogRelationOptionalParameters filterToRef(String filterToRef) {
+      this.filterToRef = filterToRef;
+      return this;
+    }
+
+    /**
+     * Set include.
+     *
+     * @param include Include relationship data. (optional)
+     * @return ListCatalogRelationOptionalParameters
+     */
+    public ListCatalogRelationOptionalParameters include(RelationIncludeType include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get a list of entity relations.
+   *
+   * <p>See {@link #listCatalogRelationWithHttpInfo}.
+   *
+   * @return ListRelationCatalogResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListRelationCatalogResponse listCatalogRelation() throws ApiException {
+    return listCatalogRelationWithHttpInfo(new ListCatalogRelationOptionalParameters()).getData();
+  }
+
+  /**
+   * Get a list of entity relations.
+   *
+   * <p>See {@link #listCatalogRelationWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListRelationCatalogResponse&gt;
+   */
+  public CompletableFuture<ListRelationCatalogResponse> listCatalogRelationAsync() {
+    return listCatalogRelationWithHttpInfoAsync(new ListCatalogRelationOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of entity relations.
+   *
+   * <p>See {@link #listCatalogRelationWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListRelationCatalogResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListRelationCatalogResponse listCatalogRelation(
+      ListCatalogRelationOptionalParameters parameters) throws ApiException {
+    return listCatalogRelationWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get a list of entity relations.
+   *
+   * <p>See {@link #listCatalogRelationWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListRelationCatalogResponse&gt;
+   */
+  public CompletableFuture<ListRelationCatalogResponse> listCatalogRelationAsync(
+      ListCatalogRelationOptionalParameters parameters) {
+    return listCatalogRelationWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of entity relations.
+   *
+   * <p>See {@link #listCatalogRelationWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;RelationResponse&gt;
+   */
+  public PaginationIterable<RelationResponse> listCatalogRelationWithPagination() {
+    ListCatalogRelationOptionalParameters parameters = new ListCatalogRelationOptionalParameters();
+    return listCatalogRelationWithPagination(parameters);
+  }
+
+  /**
+   * Get a list of entity relations.
+   *
+   * <p>See {@link #listCatalogRelationWithHttpInfo}.
+   *
+   * @return ListRelationCatalogResponse
+   */
+  public PaginationIterable<RelationResponse> listCatalogRelationWithPagination(
+      ListCatalogRelationOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageOffset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 100l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listCatalogRelation",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
+   * Get a list of entity relations from Software Catalog.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListRelationCatalogResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListRelationCatalogResponse> listCatalogRelationWithHttpInfo(
+      ListCatalogRelationOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    RelationType filterType = parameters.filterType;
+    String filterFromRef = parameters.filterFromRef;
+    String filterToRef = parameters.filterToRef;
+    RelationIncludeType include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/catalog/relation";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[type]", filterType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from_ref]", filterFromRef));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to_ref]", filterToRef));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SoftwareCatalogApi.listCatalogRelation",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListRelationCatalogResponse>() {});
+  }
+
+  /**
+   * Get a list of entity relations.
+   *
+   * <p>See {@link #listCatalogRelationWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListRelationCatalogResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListRelationCatalogResponse>>
+      listCatalogRelationWithHttpInfoAsync(ListCatalogRelationOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    RelationType filterType = parameters.filterType;
+    String filterFromRef = parameters.filterFromRef;
+    String filterToRef = parameters.filterToRef;
+    RelationIncludeType include = parameters.include;
+    // create path and map variables
+    String localVarPath = "/api/v2/catalog/relation";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[type]", filterType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[from_ref]", filterFromRef));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[to_ref]", filterToRef));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SoftwareCatalogApi.listCatalogRelation",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListRelationCatalogResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListRelationCatalogResponse>() {});
   }
 
   /**
