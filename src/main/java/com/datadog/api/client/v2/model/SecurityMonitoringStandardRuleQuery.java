@@ -97,7 +97,7 @@ public class SecurityMonitoringStandardRuleQuery {
   }
 
   /**
-   * Source of events, either logs or audit trail.
+   * Source of events, either logs, audit trail, or Datadog events.
    *
    * @return dataSource
    */
