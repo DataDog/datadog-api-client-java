@@ -42,7 +42,7 @@ public class Example {
                                         .tagName("browser_name")))
                             .uniqueness(
                                 new RumMetricUniqueness().when(RumMetricUniquenessWhen.WHEN_MATCH)))
-                    .id("rum.sessions.webui.count")
+                    .id("examplerummetric")
                     .type(RumMetricType.RUM_METRICS));
 
     try {
