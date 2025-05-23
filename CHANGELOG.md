@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 2.35.0/2025-05-23
+
+### Fixed
+* Make assertion target be int or string [#2859](https://github.com/DataDog/datadog-api-client-java/pull/2859)
+* Fix incorrect pattern for url [#2851](https://github.com/DataDog/datadog-api-client-java/pull/2851)
+* Make metadata optional for GCS destination [#2840](https://github.com/DataDog/datadog-api-client-java/pull/2840)
+* Remove isReadOnly default when creating dashboards [#2839](https://github.com/DataDog/datadog-api-client-java/pull/2839)
+* Update On-Call Escalation policies endpoints schemas and description [#2820](https://github.com/DataDog/datadog-api-client-java/pull/2820)
+
+### Added
+* Adding endpoints to manage Resource Evaluation Filters [#2857](https://github.com/DataDog/datadog-api-client-java/pull/2857)
+* Add Sev0 as a supported incident severity [#2854](https://github.com/DataDog/datadog-api-client-java/pull/2854)
+* Share timerestriction object [#2850](https://github.com/DataDog/datadog-api-client-java/pull/2850)
+* add On-Call Paging spec [#2843](https://github.com/DataDog/datadog-api-client-java/pull/2843)
+* Add pagination method for NDM ListDevices. [#2837](https://github.com/DataDog/datadog-api-client-java/pull/2837)
+* Add On-Call Team Rules [#2835](https://github.com/DataDog/datadog-api-client-java/pull/2835)
+* Add a new endpoint for listing Software Catalog relations  [#2828](https://github.com/DataDog/datadog-api-client-java/pull/2828)
+* Complete Observability Pipelines API [#2825](https://github.com/DataDog/datadog-api-client-java/pull/2825)
+* datadog_integration_gcp_sts Add Support for IsPerProjectQuotaEnabled for GCP STS Service Accounts  [#2817](https://github.com/DataDog/datadog-api-client-java/pull/2817)
+
 ## 2.34.1 / 2025-04-14
 
 ### Fixed
