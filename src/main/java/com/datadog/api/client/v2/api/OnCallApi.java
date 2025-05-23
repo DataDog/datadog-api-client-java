@@ -70,7 +70,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on-call escalation policy.
+   * Create On-Call escalation policy.
    *
    * <p>See {@link #createOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -86,7 +86,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on-call escalation policy.
+   * Create On-Call escalation policy.
    *
    * <p>See {@link #createOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -104,7 +104,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on-call escalation policy.
+   * Create On-Call escalation policy.
    *
    * <p>See {@link #createOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -120,7 +120,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on-call escalation policy.
+   * Create On-Call escalation policy.
    *
    * <p>See {@link #createOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -139,7 +139,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create a new on-call escalation policy
+   * Create a new On-Call escalation policy
    *
    * @param body (required)
    * @param parameters Optional parameters for the request.
@@ -196,7 +196,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on-call escalation policy.
+   * Create On-Call escalation policy.
    *
    * <p>See {@link #createOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -274,7 +274,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on-call schedule.
+   * Create On-Call schedule.
    *
    * <p>See {@link #createOnCallScheduleWithHttpInfo}.
    *
@@ -288,7 +288,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on-call schedule.
+   * Create On-Call schedule.
    *
    * <p>See {@link #createOnCallScheduleWithHttpInfoAsync}.
    *
@@ -304,7 +304,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on-call schedule.
+   * Create On-Call schedule.
    *
    * <p>See {@link #createOnCallScheduleWithHttpInfo}.
    *
@@ -320,7 +320,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on-call schedule.
+   * Create On-Call schedule.
    *
    * <p>See {@link #createOnCallScheduleWithHttpInfoAsync}.
    *
@@ -338,7 +338,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create a new on-call schedule
+   * Create a new On-Call schedule
    *
    * @param body (required)
    * @param parameters Optional parameters for the request.
@@ -395,7 +395,7 @@ public class OnCallApi {
   }
 
   /**
-   * Create on-call schedule.
+   * Create On-Call schedule.
    *
    * <p>See {@link #createOnCallScheduleWithHttpInfo}.
    *
@@ -452,7 +452,7 @@ public class OnCallApi {
   }
 
   /**
-   * Delete on-call escalation policy.
+   * Delete On-Call escalation policy.
    *
    * <p>See {@link #deleteOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -464,7 +464,7 @@ public class OnCallApi {
   }
 
   /**
-   * Delete on-call escalation policy.
+   * Delete On-Call escalation policy.
    *
    * <p>See {@link #deleteOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -480,7 +480,7 @@ public class OnCallApi {
   }
 
   /**
-   * Delete an on-call escalation policy
+   * Delete an On-Call escalation policy
    *
    * @param policyId The ID of the escalation policy (required)
    * @return ApiResponse&lt;Void&gt;
@@ -534,7 +534,7 @@ public class OnCallApi {
   }
 
   /**
-   * Delete on-call escalation policy.
+   * Delete On-Call escalation policy.
    *
    * <p>See {@link #deleteOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -590,7 +590,7 @@ public class OnCallApi {
   }
 
   /**
-   * Delete on-call schedule.
+   * Delete On-Call schedule.
    *
    * <p>See {@link #deleteOnCallScheduleWithHttpInfo}.
    *
@@ -602,7 +602,7 @@ public class OnCallApi {
   }
 
   /**
-   * Delete on-call schedule.
+   * Delete On-Call schedule.
    *
    * <p>See {@link #deleteOnCallScheduleWithHttpInfoAsync}.
    *
@@ -618,7 +618,7 @@ public class OnCallApi {
   }
 
   /**
-   * Delete an on-call schedule
+   * Delete an On-Call schedule
    *
    * @param scheduleId The ID of the schedule (required)
    * @return ApiResponse&lt;Void&gt;
@@ -671,7 +671,7 @@ public class OnCallApi {
   }
 
   /**
-   * Delete on-call schedule.
+   * Delete On-Call schedule.
    *
    * <p>See {@link #deleteOnCallScheduleWithHttpInfo}.
    *
@@ -744,7 +744,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call escalation policy.
+   * Get On-Call escalation policy.
    *
    * <p>See {@link #getOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -759,7 +759,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call escalation policy.
+   * Get On-Call escalation policy.
    *
    * <p>See {@link #getOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -776,7 +776,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call escalation policy.
+   * Get On-Call escalation policy.
    *
    * <p>See {@link #getOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -791,7 +791,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call escalation policy.
+   * Get On-Call escalation policy.
    *
    * <p>See {@link #getOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -809,7 +809,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get an on-call escalation policy
+   * Get an On-Call escalation policy
    *
    * @param policyId The ID of the escalation policy (required)
    * @param parameters Optional parameters for the request.
@@ -868,7 +868,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call escalation policy.
+   * Get On-Call escalation policy.
    *
    * <p>See {@link #getOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -947,7 +947,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call schedule.
+   * Get On-Call schedule.
    *
    * <p>See {@link #getOnCallScheduleWithHttpInfo}.
    *
@@ -961,7 +961,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call schedule.
+   * Get On-Call schedule.
    *
    * <p>See {@link #getOnCallScheduleWithHttpInfoAsync}.
    *
@@ -977,7 +977,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call schedule.
+   * Get On-Call schedule.
    *
    * <p>See {@link #getOnCallScheduleWithHttpInfo}.
    *
@@ -992,7 +992,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call schedule.
+   * Get On-Call schedule.
    *
    * <p>See {@link #getOnCallScheduleWithHttpInfoAsync}.
    *
@@ -1010,7 +1010,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get an on-call schedule
+   * Get an On-Call schedule
    *
    * @param scheduleId The ID of the schedule (required)
    * @param parameters Optional parameters for the request.
@@ -1069,7 +1069,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call schedule.
+   * Get On-Call schedule.
    *
    * <p>See {@link #getOnCallScheduleWithHttpInfo}.
    *
@@ -1146,7 +1146,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call team routing rules.
+   * Get On-Call team routing rules.
    *
    * <p>See {@link #getOnCallTeamRoutingRulesWithHttpInfo}.
    *
@@ -1161,7 +1161,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call team routing rules.
+   * Get On-Call team routing rules.
    *
    * <p>See {@link #getOnCallTeamRoutingRulesWithHttpInfoAsync}.
    *
@@ -1178,7 +1178,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call team routing rules.
+   * Get On-Call team routing rules.
    *
    * <p>See {@link #getOnCallTeamRoutingRulesWithHttpInfo}.
    *
@@ -1193,7 +1193,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call team routing rules.
+   * Get On-Call team routing rules.
    *
    * <p>See {@link #getOnCallTeamRoutingRulesWithHttpInfoAsync}.
    *
@@ -1211,7 +1211,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get a team's on-call routing rules
+   * Get a team's On-Call routing rules
    *
    * @param teamId The team ID (required)
    * @param parameters Optional parameters for the request.
@@ -1266,7 +1266,7 @@ public class OnCallApi {
   }
 
   /**
-   * Get on-call team routing rules.
+   * Get On-Call team routing rules.
    *
    * <p>See {@link #getOnCallTeamRoutingRulesWithHttpInfo}.
    *
@@ -1564,7 +1564,7 @@ public class OnCallApi {
   }
 
   /**
-   * Set on-call team routing rules.
+   * Set On-Call team routing rules.
    *
    * <p>See {@link #setOnCallTeamRoutingRulesWithHttpInfo}.
    *
@@ -1581,7 +1581,7 @@ public class OnCallApi {
   }
 
   /**
-   * Set on-call team routing rules.
+   * Set On-Call team routing rules.
    *
    * <p>See {@link #setOnCallTeamRoutingRulesWithHttpInfoAsync}.
    *
@@ -1600,7 +1600,7 @@ public class OnCallApi {
   }
 
   /**
-   * Set on-call team routing rules.
+   * Set On-Call team routing rules.
    *
    * <p>See {@link #setOnCallTeamRoutingRulesWithHttpInfo}.
    *
@@ -1619,7 +1619,7 @@ public class OnCallApi {
   }
 
   /**
-   * Set on-call team routing rules.
+   * Set On-Call team routing rules.
    *
    * <p>See {@link #setOnCallTeamRoutingRulesWithHttpInfoAsync}.
    *
@@ -1640,7 +1640,7 @@ public class OnCallApi {
   }
 
   /**
-   * Set a team's on-call routing rules
+   * Set a team's On-Call routing rules
    *
    * @param teamId The team ID (required)
    * @param body (required)
@@ -1705,7 +1705,7 @@ public class OnCallApi {
   }
 
   /**
-   * Set on-call team routing rules.
+   * Set On-Call team routing rules.
    *
    * <p>See {@link #setOnCallTeamRoutingRulesWithHttpInfo}.
    *
@@ -1795,7 +1795,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on-call escalation policy.
+   * Update On-Call escalation policy.
    *
    * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -1812,7 +1812,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on-call escalation policy.
+   * Update On-Call escalation policy.
    *
    * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -1831,7 +1831,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on-call escalation policy.
+   * Update On-Call escalation policy.
    *
    * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -1850,7 +1850,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on-call escalation policy.
+   * Update On-Call escalation policy.
    *
    * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfoAsync}.
    *
@@ -1871,7 +1871,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update an on-call escalation policy
+   * Update an On-Call escalation policy
    *
    * @param policyId The ID of the escalation policy (required)
    * @param body (required)
@@ -1941,7 +1941,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on-call escalation policy.
+   * Update On-Call escalation policy.
    *
    * <p>See {@link #updateOnCallEscalationPolicyWithHttpInfo}.
    *
@@ -2034,7 +2034,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on-call schedule.
+   * Update On-Call schedule.
    *
    * <p>See {@link #updateOnCallScheduleWithHttpInfo}.
    *
@@ -2051,7 +2051,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on-call schedule.
+   * Update On-Call schedule.
    *
    * <p>See {@link #updateOnCallScheduleWithHttpInfoAsync}.
    *
@@ -2070,7 +2070,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on-call schedule.
+   * Update On-Call schedule.
    *
    * <p>See {@link #updateOnCallScheduleWithHttpInfo}.
    *
@@ -2089,7 +2089,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on-call schedule.
+   * Update On-Call schedule.
    *
    * <p>See {@link #updateOnCallScheduleWithHttpInfoAsync}.
    *
@@ -2110,7 +2110,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update a new on-call schedule
+   * Update a new On-Call schedule
    *
    * @param scheduleId The ID of the schedule (required)
    * @param body (required)
@@ -2180,7 +2180,7 @@ public class OnCallApi {
   }
 
   /**
-   * Update on-call schedule.
+   * Update On-Call schedule.
    *
    * <p>See {@link #updateOnCallScheduleWithHttpInfo}.
    *

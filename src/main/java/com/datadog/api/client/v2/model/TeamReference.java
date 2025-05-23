@@ -21,7 +21,6 @@ import java.util.Objects;
 @JsonPropertyOrder({
   TeamReference.JSON_PROPERTY_ATTRIBUTES,
   TeamReference.JSON_PROPERTY_ID,
-  TeamReference.JSON_PROPERTY_RELATIONSHIPS,
   TeamReference.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
@@ -33,9 +32,6 @@ public class TeamReference {
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
-
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private TeamReferenceRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private TeamReferenceType type = TeamReferenceType.TEAMS;
@@ -91,28 +87,6 @@ public class TeamReference {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public TeamReference relationships(TeamReferenceRelationships relationships) {
-    this.relationships = relationships;
-    this.unparsed |= relationships.unparsed;
-    return this;
-  }
-
-  /**
-   * Collects the key relationship fields for a team reference, specifically on-call users.
-   *
-   * @return relationships
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamReferenceRelationships getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(TeamReferenceRelationships relationships) {
-    this.relationships = relationships;
   }
 
   public TeamReference type(TeamReferenceType type) {
@@ -197,14 +171,13 @@ public class TeamReference {
     TeamReference teamReference = (TeamReference) o;
     return Objects.equals(this.attributes, teamReference.attributes)
         && Objects.equals(this.id, teamReference.id)
-        && Objects.equals(this.relationships, teamReference.relationships)
         && Objects.equals(this.type, teamReference.type)
         && Objects.equals(this.additionalProperties, teamReference.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, id, relationships, type, additionalProperties);
+    return Objects.hash(attributes, id, type, additionalProperties);
   }
 
   @Override
@@ -213,7 +186,6 @@ public class TeamReference {
     sb.append("class TeamReference {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

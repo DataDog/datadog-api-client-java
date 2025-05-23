@@ -29,7 +29,7 @@ public class CreatePageRequestDataAttributesTarget {
   private String identifier;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private OnCallPageTargetType type;
 
   public CreatePageRequestDataAttributesTarget identifier(String identifier) {
     this.identifier = identifier;
@@ -37,7 +37,7 @@ public class CreatePageRequestDataAttributesTarget {
   }
 
   /**
-   * A unique ID for the target (for example, team handle or user UUID).
+   * Identifier for the target (for example, team handle or user ID).
    *
    * @return identifier
    */
@@ -52,24 +52,28 @@ public class CreatePageRequestDataAttributesTarget {
     this.identifier = identifier;
   }
 
-  public CreatePageRequestDataAttributesTarget type(String type) {
+  public CreatePageRequestDataAttributesTarget type(OnCallPageTargetType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * The kind of target, <code>team_uuid</code> | <code>team_handle</code> | <code>user_uuid</code>.
+   * The kind of target, <code>team_id</code> | <code>team_handle</code> | <code>user_id</code>.
    *
    * @return type
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getType() {
+  public OnCallPageTargetType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(OnCallPageTargetType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

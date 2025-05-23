@@ -1,4 +1,4 @@
-// Get on-call team routing rules returns "OK" response
+// Get On-Call team routing rules returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

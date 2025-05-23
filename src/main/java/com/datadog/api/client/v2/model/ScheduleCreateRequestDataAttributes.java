@@ -20,13 +20,11 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Describes the main attributes for creating a new schedule, including name, layers, time zone, and
- * tags.
+ * Describes the main attributes for creating a new schedule, including name, layers, and time zone.
  */
 @JsonPropertyOrder({
   ScheduleCreateRequestDataAttributes.JSON_PROPERTY_LAYERS,
   ScheduleCreateRequestDataAttributes.JSON_PROPERTY_NAME,
-  ScheduleCreateRequestDataAttributes.JSON_PROPERTY_TAGS,
   ScheduleCreateRequestDataAttributes.JSON_PROPERTY_TIME_ZONE
 })
 @jakarta.annotation.Generated(
@@ -38,9 +36,6 @@ public class ScheduleCreateRequestDataAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
-
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "time_zone";
   private String timeZone;
@@ -75,7 +70,7 @@ public class ScheduleCreateRequestDataAttributes {
   }
 
   /**
-   * The layers of on-call coverage that define rotation intervals and restrictions.
+   * The layers of On-Call coverage that define rotation intervals and restrictions.
    *
    * @return layers
    */
@@ -107,35 +102,6 @@ public class ScheduleCreateRequestDataAttributes {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public ScheduleCreateRequestDataAttributes tags(List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public ScheduleCreateRequestDataAttributes addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-  /**
-   * A list of tags for categorizing or filtering the schedule.
-   *
-   * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<String> tags) {
-    this.tags = tags;
   }
 
   public ScheduleCreateRequestDataAttributes timeZone(String timeZone) {
@@ -217,7 +183,6 @@ public class ScheduleCreateRequestDataAttributes {
         (ScheduleCreateRequestDataAttributes) o;
     return Objects.equals(this.layers, scheduleCreateRequestDataAttributes.layers)
         && Objects.equals(this.name, scheduleCreateRequestDataAttributes.name)
-        && Objects.equals(this.tags, scheduleCreateRequestDataAttributes.tags)
         && Objects.equals(this.timeZone, scheduleCreateRequestDataAttributes.timeZone)
         && Objects.equals(
             this.additionalProperties, scheduleCreateRequestDataAttributes.additionalProperties);
@@ -225,7 +190,7 @@ public class ScheduleCreateRequestDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(layers, name, tags, timeZone, additionalProperties);
+    return Objects.hash(layers, name, timeZone, additionalProperties);
   }
 
   @Override
@@ -234,7 +199,6 @@ public class ScheduleCreateRequestDataAttributes {
     sb.append("class ScheduleCreateRequestDataAttributes {\n");
     sb.append("    layers: ").append(toIndentedString(layers)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

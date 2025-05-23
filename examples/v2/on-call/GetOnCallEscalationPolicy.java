@@ -1,8 +1,9 @@
-// Get on-call escalation policy returns "OK" response
+// Get On-Call escalation policy returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
+import com.datadog.api.client.v2.api.OnCallApi.GetOnCallEscalationPolicyOptionalParameters;
 import com.datadog.api.client.v2.model.EscalationPolicy;
 
 public class Example {
@@ -14,7 +15,10 @@ public class Example {
     String ESCALATION_POLICY_DATA_ID = System.getenv("ESCALATION_POLICY_DATA_ID");
 
     try {
-      EscalationPolicy result = apiInstance.getOnCallEscalationPolicy(ESCALATION_POLICY_DATA_ID);
+      EscalationPolicy result =
+          apiInstance.getOnCallEscalationPolicy(
+              ESCALATION_POLICY_DATA_ID,
+              new GetOnCallEscalationPolicyOptionalParameters().include("steps.targets"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OnCallApi#getOnCallEscalationPolicy");

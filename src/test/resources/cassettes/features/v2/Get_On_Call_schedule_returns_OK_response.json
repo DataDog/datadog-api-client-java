@@ -1,0 +1,79 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-05-11T11:01:55.033Z\",\"end_date\":\"2025-05-31T11:01:55.033Z\",\"interval\":{\"days\":1},\"members\":[{\"user\":{\"id\":\"890f29d4-0b7a-11f0-aeb2-760fcae4f596\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-05-16T11:01:55.033Z\"}],\"name\":\"Test-Get_On_Call_schedule_returns_OK_response-1747825315\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/on-call/schedules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"68403f49-4f50-4307-bdf2-663ebab53587\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Get_On_Call_schedule_returns_OK_response-1747825315\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"15bf3013-34f8-474c-925f-87f468e3eaff\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cee8831b-d404-7133-bf73-f8273d58ba9c"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/on-call/schedules/68403f49-4f50-4307-bdf2-663ebab53587",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"68403f49-4f50-4307-bdf2-663ebab53587\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Get_On_Call_schedule_returns_OK_response-1747825315\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"15bf3013-34f8-474c-925f-87f468e3eaff\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "66010346-21dd-3790-9342-dd7dc562e4ed"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/on-call/schedules/68403f49-4f50-4307-bdf2-663ebab53587",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e5d95b66-b104-2f2c-42c1-4af9ed1a73fd"
+  }
+]

@@ -9,6 +9,7 @@ import com.datadog.api.client.v2.model.CreatePageRequestDataAttributes;
 import com.datadog.api.client.v2.model.CreatePageRequestDataAttributesTarget;
 import com.datadog.api.client.v2.model.CreatePageRequestDataType;
 import com.datadog.api.client.v2.model.CreatePageResponse;
+import com.datadog.api.client.v2.model.OnCallPageTargetType;
 import com.datadog.api.client.v2.model.PageUrgency;
 import java.util.Collections;
 
@@ -28,7 +29,7 @@ public class Example {
                             .target(
                                 new CreatePageRequestDataAttributesTarget()
                                     .identifier("my-team")
-                                    .type("team_handle"))
+                                    .type(OnCallPageTargetType.TEAM_HANDLE))
                             .title("Page title")
                             .urgency(PageUrgency.LOW))
                     .type(CreatePageRequestDataType.PAGES));

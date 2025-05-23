@@ -24,7 +24,6 @@ import java.util.Objects;
  * resolution behavior, retries, and steps.
  */
 @JsonPropertyOrder({
-  EscalationPolicyCreateRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
   EscalationPolicyCreateRequestDataAttributes.JSON_PROPERTY_NAME,
   EscalationPolicyCreateRequestDataAttributes.JSON_PROPERTY_RESOLVE_PAGE_ON_POLICY_END,
   EscalationPolicyCreateRequestDataAttributes.JSON_PROPERTY_RETRIES,
@@ -34,9 +33,6 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EscalationPolicyCreateRequestDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
-
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -59,27 +55,6 @@ public class EscalationPolicyCreateRequestDataAttributes {
           List<EscalationPolicyCreateRequestDataAttributesStepsItems> steps) {
     this.name = name;
     this.steps = steps;
-  }
-
-  public EscalationPolicyCreateRequestDataAttributes description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Provides a detailed text description of the new escalation policy.
-   *
-   * @return description
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 
   public EscalationPolicyCreateRequestDataAttributes name(String name) {
@@ -235,8 +210,7 @@ public class EscalationPolicyCreateRequestDataAttributes {
     }
     EscalationPolicyCreateRequestDataAttributes escalationPolicyCreateRequestDataAttributes =
         (EscalationPolicyCreateRequestDataAttributes) o;
-    return Objects.equals(this.description, escalationPolicyCreateRequestDataAttributes.description)
-        && Objects.equals(this.name, escalationPolicyCreateRequestDataAttributes.name)
+    return Objects.equals(this.name, escalationPolicyCreateRequestDataAttributes.name)
         && Objects.equals(
             this.resolvePageOnPolicyEnd,
             escalationPolicyCreateRequestDataAttributes.resolvePageOnPolicyEnd)
@@ -249,15 +223,13 @@ public class EscalationPolicyCreateRequestDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        description, name, resolvePageOnPolicyEnd, retries, steps, additionalProperties);
+    return Objects.hash(name, resolvePageOnPolicyEnd, retries, steps, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EscalationPolicyCreateRequestDataAttributes {\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    resolvePageOnPolicyEnd: ")
         .append(toIndentedString(resolvePageOnPolicyEnd))

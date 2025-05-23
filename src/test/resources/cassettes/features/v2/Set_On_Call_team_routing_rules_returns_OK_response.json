@@ -1,0 +1,246 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Set_On_Call_team_routing_rules_returns_OK_response-1747825315@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/users",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"022c3a60-3633-11f0-b7ed-ce2381807b05\",\"attributes\":{\"name\":null,\"handle\":\"test-set_on_call_team_routing_rules_returns_ok_response-1747825315@datadoghq.com\",\"created_at\":\"2025-05-21T11:01:55.617066+00:00\",\"modified_at\":\"2025-05-21T11:01:55.617066+00:00\",\"email\":\"test-set_on_call_team_routing_rules_returns_ok_response-1747825315@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/83f881635a4cf010167f0bf22fa154a3?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e64a7905-fcd3-e328-ef36-d1f00a0d42a0"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-deb316d25d38fe23\",\"name\":\"test-name-deb316d25d38fe23\"},\"type\":\"team\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/team",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"68a584b9-c8e4-414a-aedd-31f30ab44d27\",\"attributes\":{\"name\":\"test-name-deb316d25d38fe23\",\"handle\":\"test-handle-deb316d25d38fe23\",\"summary\":null,\"description\":null,\"avatar\":null,\"banner\":1,\"visible_modules\":[],\"hidden_modules\":[],\"created_at\":\"2025-05-21T11:01:55.737730+00:00\",\"modified_at\":\"2025-05-21T11:01:55.737740+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/68a584b9-c8e4-414a-aedd-31f30ab44d27/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/68a584b9-c8e4-414a-aedd-31f30ab44d27/permission-settings\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5e279696-9952-68c9-3a3a-d48040897950"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-05-11T11:01:55.512Z\",\"end_date\":\"2025-05-31T11:01:55.512Z\",\"interval\":{\"days\":1},\"members\":[{\"user\":{\"id\":\"890f29d4-0b7a-11f0-aeb2-760fcae4f596\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-05-16T11:01:55.512Z\"}],\"name\":\"Test-Set_On_Call_team_routing_rules_returns_OK_response-1747825315\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/on-call/schedules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"b1819128-6086-4eb2-b555-87f33398825d\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Set_On_Call_team_routing_rules_returns_OK_response-1747825315\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"19e523ad-b55a-4f32-8c41-008ba17be5fe\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "105e223a-bcce-d9e7-b293-415ece603fd4"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Set_On_Call_team_routing_rules_returns_OK_response-1747825315\",\"resolve_page_on_policy_end\":true,\"retries\":2,\"steps\":[{\"assignment\":\"default\",\"escalate_after_seconds\":3600,\"targets\":[{\"id\":\"68a584b9-c8e4-414a-aedd-31f30ab44d27\",\"type\":\"teams\"},{\"id\":\"b1819128-6086-4eb2-b555-87f33398825d\",\"type\":\"schedules\"},{\"id\":\"022c3a60-3633-11f0-b7ed-ce2381807b05\",\"type\":\"users\"}]},{\"assignment\":\"round-robin\",\"escalate_after_seconds\":3600,\"targets\":[{\"id\":\"68a584b9-c8e4-414a-aedd-31f30ab44d27\",\"type\":\"teams\"}]}]},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"68a584b9-c8e4-414a-aedd-31f30ab44d27\",\"type\":\"teams\"}]}},\"type\":\"policies\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/on-call/escalation-policies",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"4926e7bf-727c-4899-ab45-3cbf3bed0c23\",\"type\":\"policies\",\"attributes\":{\"name\":\"Test-Set_On_Call_team_routing_rules_returns_OK_response-1747825315\",\"resolve_page_on_policy_end\":true,\"retries\":2},\"relationships\":{\"steps\":{\"data\":[{\"id\":\"0b8001d8-17ab-46ab-979e-b426e69b6423\",\"type\":\"steps\"},{\"id\":\"b02f1fc4-3cdc-4b70-bcf2-fae24d5b09f9\",\"type\":\"steps\"}]},\"teams\":{\"data\":[{\"id\":\"68a584b9-c8e4-414a-aedd-31f30ab44d27\",\"type\":\"teams\"}]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "0e8615d7-aa9d-d674-a688-bdb9eaa5a229"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"rules\":[{\"actions\":[{\"channel\":\"channel\",\"type\":\"send_slack_message\",\"workspace\":\"workspace\"}],\"query\":\"tags.service:test\",\"time_restriction\":{\"restrictions\":[{\"end_day\":\"monday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"},{\"end_day\":\"tuesday\",\"end_time\":\"17:00:00\",\"start_day\":\"tuesday\",\"start_time\":\"09:00:00\"}],\"time_zone\":\"Europe/Paris\"},\"urgency\":\"high\"},{\"policy_id\":\"4926e7bf-727c-4899-ab45-3cbf3bed0c23\",\"query\":\"\",\"urgency\":\"low\"}]},\"id\":\"68a584b9-c8e4-414a-aedd-31f30ab44d27\",\"type\":\"team_routing_rules\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/on-call/teams/68a584b9-c8e4-414a-aedd-31f30ab44d27/routing-rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"68a584b9-c8e4-414a-aedd-31f30ab44d27\",\"type\":\"team_routing_rules\",\"relationships\":{\"rules\":{\"data\":[{\"id\":\"virtual-68a584b9-c8e4-414a-aedd-31f30ab44d27-rule-0\",\"type\":\"team_routing_rules\"},{\"id\":\"virtual-68a584b9-c8e4-414a-aedd-31f30ab44d27-rule-1\",\"type\":\"team_routing_rules\"}]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6be74749-ec19-730c-33b1-7e7ebfa1dfa2"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/on-call/escalation-policies/4926e7bf-727c-4899-ab45-3cbf3bed0c23",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"policy[4926e7bf-727c-4899-ab45-3cbf3bed0c23] is in use\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 409,
+      "reasonPhrase": "Conflict"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "08ef7235-9c22-ce01-3497-60a9c031b0bc"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/on-call/schedules/b1819128-6086-4eb2-b555-87f33398825d",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"title\":\"Generic Error\",\"detail\":\"schedule[b1819128-6086-4eb2-b555-87f33398825d] is in use\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 409,
+      "reasonPhrase": "Conflict"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8e6ce1f8-dcde-105a-54e7-9a32259bcd42"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/team/68a584b9-c8e4-414a-aedd-31f30ab44d27",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4ef8df33-71e6-da6b-7e6f-ea4b3824b0e0"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/users/022c3a60-3633-11f0-b7ed-ce2381807b05",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e14dfed5-ff4e-78eb-b1d1-b064af6fa05f"
+  }
+]

@@ -1,8 +1,9 @@
-// Create on-call escalation policy returns "Created" response
+// Create On-Call escalation policy returns "Created" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
+import com.datadog.api.client.v2.api.OnCallApi.CreateOnCallEscalationPolicyOptionalParameters;
 import com.datadog.api.client.v2.model.DataRelationshipsTeams;
 import com.datadog.api.client.v2.model.DataRelationshipsTeamsDataItems;
 import com.datadog.api.client.v2.model.DataRelationshipsTeamsDataItemsType;
@@ -39,7 +40,6 @@ public class Example {
                 new EscalationPolicyCreateRequestData()
                     .attributes(
                         new EscalationPolicyCreateRequestDataAttributes()
-                            .description("Escalation Policy 1 description")
                             .name("Example-On-Call")
                             .resolvePageOnPolicyEnd(true)
                             .retries(2L)
@@ -81,7 +81,9 @@ public class Example {
                     .type(EscalationPolicyCreateRequestDataType.POLICIES));
 
     try {
-      EscalationPolicy result = apiInstance.createOnCallEscalationPolicy(body);
+      EscalationPolicy result =
+          apiInstance.createOnCallEscalationPolicy(
+              body, new CreateOnCallEscalationPolicyOptionalParameters().include("steps.targets"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OnCallApi#createOnCallEscalationPolicy");

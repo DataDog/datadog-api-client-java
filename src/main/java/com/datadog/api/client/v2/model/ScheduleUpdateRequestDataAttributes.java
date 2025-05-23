@@ -19,11 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Defines the updatable attributes for a schedule, such as name, time zone, tags, and layers. */
+/** Defines the updatable attributes for a schedule, such as name, time zone, and layers. */
 @JsonPropertyOrder({
   ScheduleUpdateRequestDataAttributes.JSON_PROPERTY_LAYERS,
   ScheduleUpdateRequestDataAttributes.JSON_PROPERTY_NAME,
-  ScheduleUpdateRequestDataAttributes.JSON_PROPERTY_TAGS,
   ScheduleUpdateRequestDataAttributes.JSON_PROPERTY_TIME_ZONE
 })
 @jakarta.annotation.Generated(
@@ -35,9 +34,6 @@ public class ScheduleUpdateRequestDataAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
-
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "time_zone";
   private String timeZone;
@@ -104,35 +100,6 @@ public class ScheduleUpdateRequestDataAttributes {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public ScheduleUpdateRequestDataAttributes tags(List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public ScheduleUpdateRequestDataAttributes addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-  /**
-   * A list of tags that you can associate with this schedule.
-   *
-   * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<String> tags) {
-    this.tags = tags;
   }
 
   public ScheduleUpdateRequestDataAttributes timeZone(String timeZone) {
@@ -214,7 +181,6 @@ public class ScheduleUpdateRequestDataAttributes {
         (ScheduleUpdateRequestDataAttributes) o;
     return Objects.equals(this.layers, scheduleUpdateRequestDataAttributes.layers)
         && Objects.equals(this.name, scheduleUpdateRequestDataAttributes.name)
-        && Objects.equals(this.tags, scheduleUpdateRequestDataAttributes.tags)
         && Objects.equals(this.timeZone, scheduleUpdateRequestDataAttributes.timeZone)
         && Objects.equals(
             this.additionalProperties, scheduleUpdateRequestDataAttributes.additionalProperties);
@@ -222,7 +188,7 @@ public class ScheduleUpdateRequestDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(layers, name, tags, timeZone, additionalProperties);
+    return Objects.hash(layers, name, timeZone, additionalProperties);
   }
 
   @Override
@@ -231,7 +197,6 @@ public class ScheduleUpdateRequestDataAttributes {
     sb.append("class ScheduleUpdateRequestDataAttributes {\n");
     sb.append("    layers: ").append(toIndentedString(layers)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

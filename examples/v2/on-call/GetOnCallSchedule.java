@@ -1,4 +1,4 @@
-// Get on-call schedule returns "OK" response
+// Get On-Call schedule returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;

@@ -1,4 +1,4 @@
-// Update on-call escalation policy returns "OK" response
+// Update On-Call escalation policy returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -40,7 +40,6 @@ public class Example {
                 new EscalationPolicyUpdateRequestData()
                     .attributes(
                         new EscalationPolicyUpdateRequestDataAttributes()
-                            .description("Example-On-Call")
                             .name("Example-On-Call-updated")
                             .resolvePageOnPolicyEnd(false)
                             .retries(0L)
