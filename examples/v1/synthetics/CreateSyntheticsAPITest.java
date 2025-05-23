@@ -9,6 +9,7 @@ import com.datadog.api.client.v1.model.SyntheticsAPITestType;
 import com.datadog.api.client.v1.model.SyntheticsAssertion;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionTargetValue;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsBrowserTestRumSettings;
 import com.datadog.api.client.v1.model.SyntheticsTestCiOptions;
@@ -40,7 +41,7 @@ public class Example {
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                    .target(1000)
+                                    .target(new SyntheticsAssertionTargetValue(1000.0))
                                     .type(SyntheticsAssertionType.RESPONSE_TIME))))
                     .request(new SyntheticsTestRequest().method("GET").url("https://example.com")))
             .locations(Collections.singletonList("aws:eu-west-3"))

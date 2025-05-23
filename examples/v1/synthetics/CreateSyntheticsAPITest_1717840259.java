@@ -13,6 +13,7 @@ import com.datadog.api.client.v1.model.SyntheticsAPITestType;
 import com.datadog.api.client.v1.model.SyntheticsAssertion;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionTargetValue;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsBasicAuth;
 import com.datadog.api.client.v1.model.SyntheticsBasicAuthDigest;
@@ -53,7 +54,9 @@ public class Example {
                                                 new SyntheticsAssertionTarget()
                                                     .operator(SyntheticsAssertionOperator.IS)
                                                     .type(SyntheticsAssertionType.STATUS_CODE)
-                                                    .target(200))))
+                                                    .target(
+                                                        new SyntheticsAssertionTargetValue(
+                                                            200.0)))))
                                     .name("request is sent")
                                     .request(
                                         new SyntheticsTestRequest()
@@ -73,7 +76,9 @@ public class Example {
                                                 new SyntheticsAssertionTarget()
                                                     .operator(SyntheticsAssertionOperator.IS)
                                                     .type(SyntheticsAssertionType.STATUS_CODE)
-                                                    .target(200))))
+                                                    .target(
+                                                        new SyntheticsAssertionTargetValue(
+                                                            200.0)))))
                                     .name("request is sent")
                                     .request(
                                         new SyntheticsTestRequest()
@@ -94,7 +99,9 @@ public class Example {
                                                 new SyntheticsAssertionTarget()
                                                     .operator(SyntheticsAssertionOperator.IS)
                                                     .type(SyntheticsAssertionType.STATUS_CODE)
-                                                    .target(200))))
+                                                    .target(
+                                                        new SyntheticsAssertionTargetValue(
+                                                            200.0)))))
                                     .name("request is sent")
                                     .request(
                                         new SyntheticsTestRequest()
@@ -115,7 +122,9 @@ public class Example {
                                                 new SyntheticsAssertionTarget()
                                                     .operator(SyntheticsAssertionOperator.IS)
                                                     .type(SyntheticsAssertionType.STATUS_CODE)
-                                                    .target(200))))
+                                                    .target(
+                                                        new SyntheticsAssertionTargetValue(
+                                                            200.0)))))
                                     .name("request is sent")
                                     .request(
                                         new SyntheticsTestRequest()
@@ -134,7 +143,9 @@ public class Example {
                                                 new SyntheticsAssertionTarget()
                                                     .operator(SyntheticsAssertionOperator.IS)
                                                     .type(SyntheticsAssertionType.STATUS_CODE)
-                                                    .target(200))))
+                                                    .target(
+                                                        new SyntheticsAssertionTargetValue(
+                                                            200.0)))))
                                     .name("request is sent")
                                     .request(
                                         new SyntheticsTestRequest()
@@ -156,7 +167,9 @@ public class Example {
                                                 new SyntheticsAssertionTarget()
                                                     .operator(SyntheticsAssertionOperator.IS)
                                                     .type(SyntheticsAssertionType.STATUS_CODE)
-                                                    .target(200))))
+                                                    .target(
+                                                        new SyntheticsAssertionTargetValue(
+                                                            200.0)))))
                                     .name("request is sent")
                                     .request(
                                         new SyntheticsTestRequest()
@@ -183,7 +196,9 @@ public class Example {
                                                 new SyntheticsAssertionTarget()
                                                     .operator(SyntheticsAssertionOperator.IS)
                                                     .type(SyntheticsAssertionType.STATUS_CODE)
-                                                    .target(200))))
+                                                    .target(
+                                                        new SyntheticsAssertionTargetValue(
+                                                            200.0)))))
                                     .name("request is sent")
                                     .request(
                                         new SyntheticsTestRequest()

@@ -9,6 +9,7 @@ import com.datadog.api.client.v1.model.SyntheticsAPITestType;
 import com.datadog.api.client.v1.model.SyntheticsAssertion;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionTargetValue;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsTestDetailsSubType;
 import com.datadog.api.client.v1.model.SyntheticsTestOptions;
@@ -33,17 +34,17 @@ public class Example {
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.IS)
-                                    .target(1)
+                                    .target(new SyntheticsAssertionTargetValue(1.0))
                                     .type(SyntheticsAssertionType.GRPC_HEALTHCHECK_STATUS)),
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.IS)
-                                    .target("proto target")
+                                    .target(new SyntheticsAssertionTargetValue("proto target"))
                                     .type(SyntheticsAssertionType.GRPC_PROTO)),
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.IS)
-                                    .target("123")
+                                    .target(new SyntheticsAssertionTargetValue("123"))
                                     .property("property")
                                     .type(SyntheticsAssertionType.GRPC_METADATA))))
                     .request(

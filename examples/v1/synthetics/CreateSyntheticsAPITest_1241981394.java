@@ -12,6 +12,7 @@ import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionJSONPathTargetTarget;
 import com.datadog.api.client.v1.model.SyntheticsAssertionOperator;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTarget;
+import com.datadog.api.client.v1.model.SyntheticsAssertionTargetValue;
 import com.datadog.api.client.v1.model.SyntheticsAssertionTimingsScope;
 import com.datadog.api.client.v1.model.SyntheticsAssertionType;
 import com.datadog.api.client.v1.model.SyntheticsAssertionXPathOperator;
@@ -52,12 +53,12 @@ public class Example {
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.IS)
                                     .property("{{ PROPERTY }}")
-                                    .target("text/html")
+                                    .target(new SyntheticsAssertionTargetValue("text/html"))
                                     .type(SyntheticsAssertionType.HEADER)),
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionTarget()
                                     .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                    .target(2000)
+                                    .target(new SyntheticsAssertionTargetValue(2000.0))
                                     .type(SyntheticsAssertionType.RESPONSE_TIME)
                                     .timingsScope(SyntheticsAssertionTimingsScope.WITHOUT_DNS)),
                             new SyntheticsAssertion(
@@ -68,7 +69,7 @@ public class Example {
                                         new SyntheticsAssertionJSONPathTargetTarget()
                                             .jsonPath("topKey")
                                             .operator("isNot")
-                                            .targetValue("0"))
+                                            .targetValue(new SyntheticsAssertionTargetValue("0")))
                                     .type(SyntheticsAssertionType.BODY)),
                             new SyntheticsAssertion(
                                 new SyntheticsAssertionXPathTarget()
@@ -76,7 +77,7 @@ public class Example {
                                     .target(
                                         new SyntheticsAssertionXPathTargetTarget()
                                             .xPath("target-xpath")
-                                            .targetValue("0")
+                                            .targetValue(new SyntheticsAssertionTargetValue("0"))
                                             .operator("contains"))
                                     .type(SyntheticsAssertionType.BODY))))
                     .configVariables(
