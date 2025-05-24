@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"A description.\",\"monitor_definition\":{\"message\":\"A msg.\",\"name\":\"A name test-create_a_monitor_user_template_returns_ok_response-1748051531\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"},\"tags\":[\"integration:Azure\"],\"template_variables\":[{\"available_values\":[\"value1\",\"value2\"],\"defaults\":[\"defaultValue\"],\"name\":\"regionName\",\"tag_key\":\"datacenter\"}],\"title\":\"Postgres DB test-create_a_monitor_user_template_returns_ok_response-1748051531\"},\"type\":\"monitor-user-template\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/template",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "[\"H4sIAAAAAAAEA6ySTc/TMAzH73yKKicQT6ak69t6QBrijDggLghFbuuW6OnLSNJKY+p3x842iSMHLpXj2H/7/0tvooMAor6JcL2gqMW0zDYsTq4enQw4XUYIKF6E7eiy7NuuOWatLE4lyiw7oqwK3UtdVp1CrE4V5lQLITjbrAF9FH6ImA2chWbk7HeaB4N5xSup8gYtzgEd9XbYwzoGrnnG32BcUfwg3Q3syAokRalYEyNNjTFIuWyGiZ04HOwyf+bDTtmHMUMDLFmkK15uQu9h4PJzMvnhQEKP9nPCQUImgmwdEgUD5inCdMyTjnEYVjd7s7xS6C/L7JGQZJXKdX7k3X6t6NgpbMPbEXww+fSu9utU+6snlcOM4dBcaZRx7dbdfi4+1PxRe/Ih0UqRxON5olICI7ogdqblW2cvdzdk4a8zWyHGEZIluIMDLqvPv1cXaW7ofKSgXkQ0uDizrvGdj9Dl2anpJTagpNZ4klCWIFWp8qwqikJ1vNMdC/8YqUpzqXKZZl+VrvO01vpQlTqrqvdK1XcDNozM+Qv5GghT8unj/4E7LZ3tLf7TGvu+v/kDAAD//wMAknCBJPMCAAA=\"]",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b1f5a8bb-5a59-79ee-7df5-974955961b35"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/template/7fcdb34c-697e-443e-861f-178d0ee898e5",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "38e2635e-42b0-404a-b871-dc650ffc4e73"
+  }
+]
