@@ -1,0 +1,82 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"It's a threshold\",\"monitor_definition\":{\"message\":\"cats\",\"name\":\"High Error Rate on service\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"},\"tags\":[\"category:test\"],\"template_variables\":[{\"available_values\":[],\"defaults\":[\"cats\"],\"name\":\"scope\"}],\"title\":\"api spec given template\"},\"type\":\"monitor-user-template\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/template",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "[\"H4sIAAAAAAAEA4ySMY+cMBCF+/wKy00S5bwaWGD3KNJFStoo3emEBjzLWgJM7AEJof3vGaO9Po0bv/fme2Pv2iKjrnfN20y61qOfHPtglkjBMI3zgEz6RSNzcO3CFJO4C4SiapbFWTGd0ZbFa3sz1CKYLKNXg5cLGrhAWVyrqgILkmEpdsHN7Pwkpl/8OSpUfA8U736wIjhiKSXmkJcGSpMXfyCry7zOilMGcL1evwHUkNIYe2F5050A9j5stbCxfpeLJ3WzYnDYDgn5bZfpN1wG/vDEJJ1wTKVj56W8lFzRDckh1mE5fO8Pka0U4gENku54SB6cnYozdap3K03qY6ikjN66m/vfGs+FN4LnZPXHmF2PFCP2aY7UixL6JP3p+rv6EYIP6rf0Vn5S8lCr6xL+34XCltDW/suAkZty/FrHZazjFoXvNBGf2k3W1IRutfvdR67TAQ/1Xcl2JeL5C44khQMF1o/Hiz5euTtXFnJoTdFmlSk6ezEtnCuD5xtZC1BUVIr60z8AAAD//wMAzmldOlQCAAA=\"]",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e3400ba8-20a3-1438-7082-1da44c2f0be4"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/template/c36d020b-4b16-4cd7-b036-a3fedd0046e5",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f47f63bf-6a6f-8258-ed9a-5f36cfe5b3a2"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/template/c36d020b-4b16-4cd7-b036-a3fedd0046e5",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f47f63bf-6a6f-8258-ed9a-5f36cfe5b3a3"
+  }
+]

@@ -3,12 +3,12 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/monitor/notification_rule/00000000-0000-1234-0000-000000000000",
+      "path": "/api/v2/monitor/template/00000000-0000-1234-0000-000000000000",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Monitor Notification Rule not found\"]}",
+      "body": "[\"H4sIAAAAAAAEA6pWSi0qyi8qVrKKVvLNz8ssyS9SKEnNLchJLElVyMsvUUjLL81LUYqtBQAAAP//AwC5UfrkKQAAAA==\"]",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f20498bf-1a3e-c9d7-0f5a-6a495ad1e2d1"
+    "id": "30b92dd5-13fe-ec50-65f8-96afdc66fa88"
   }
 ]

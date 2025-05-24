@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"It's a threshold\",\"monitor_definition\":{\"message\":\"cats\",\"name\":\"High Error Rate on service\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"},\"tags\":[\"category:test\"],\"template_variables\":[{\"available_values\":[],\"defaults\":[\"cats\"],\"name\":\"scope\"}],\"title\":\"api spec given template\"},\"type\":\"monitor-user-template\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/template",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"monitor-user-template\",\"attributes\":{\"monitor_definition\":{\"message\":\"cats\",\"name\":\"High Error Rate on service\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"},\"title\":\"api spec given template\",\"template_variables\":[{\"available_values\":[],\"defaults\":[\"cats\"],\"name\":\"scope\"}],\"modified\":\"2025-05-24T02:19:19.277448+00:00\",\"description\":\"It's a threshold\",\"creator_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"version\":0,\"tags\":[\"category:test\"],\"created\":\"2025-05-24T02:19:19.277448+00:00\"},\"id\":\"8f0d7752-17e8-4bce-873f-2ca9c10f44a5\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e3400ba8-20a3-1438-7082-1da44c2f0be2"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"A description.\",\"id\":\"00000000-0000-1234-0000-000000000000\",\"type\":\"monitor-user-template\"}}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/monitor/template/8f0d7752-17e8-4bce-873f-2ca9c10f44a5",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Required parameter 'id' is missing\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "aaa9fe7a-270f-61fd-3b25-f24415ebbbfe"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/template/8f0d7752-17e8-4bce-873f-2ca9c10f44a5",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4872236f-0415-9af0-aa02-91f9efca9a03"
+  }
+]

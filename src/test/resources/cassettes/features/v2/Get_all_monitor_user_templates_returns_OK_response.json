@@ -1,0 +1,83 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"It's a threshold\",\"monitor_definition\":{\"message\":\"cats\",\"name\":\"High Error Rate on service\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"},\"tags\":[\"category:test\"],\"template_variables\":[{\"available_values\":[],\"defaults\":[\"cats\"],\"name\":\"scope\"}],\"title\":\"api spec given template\"},\"type\":\"monitor-user-template\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/template",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "[\"H4sIAAAAAAAEA4yRP4+cMBDF+3wKy00SZb0yLIbDRbpISRtdF53QgAfWEv9iD0gI8d3PRrtXX2PL43nPb37euQECrndO24xc82EaLU1OLB6dIBzmHgj5hQORs/VC6GPzis7baeRaXoLC2NaiCeJUpkpIJdLsVSZapTp5ueZ5kSTZDym1lMHHoG+cnelU8z/01TNgdHfo71NvQkPjEEKAallstLyBUVlZtwJrkCJJsBRQFCBkIVX2kue5NNH2mbRawVmo+xjz385hBdvHY6j3y1l8u/ARhjiqb6YwcozUwtJTVPAGwv52hKYHiCrc2oDkzLvzAb2HLqrPzg+v37a7s1/OTY79DcDYNLIAcLVNfOD/gm4LEli7bz14qtTwXftl0H7zIfh1RLrWW0BbuWY1+33ypOMiD/aTJSe2x++cTgx6dMSPB6vPkidLfQwOs2V+xoZ1dsWRPclFiNA9IWA3uU2HSBRoXPj5FVi2tZJNK2R6A5FBbURZ3qSQslAqbZMyUwk/ji/vAAAA//8DAExc8xRUAgAA\"]",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e3400ba8-20a3-1438-7082-1da44c2f0be6"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "GET",
+      "path": "/api/v2/monitor/template",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "[\"H4sIAAAAAAAEA4yRzY6cMBCE73kKy5dslPHIMBgWH/a20uYa7W01Qg1uGEv8xTZIaMS7b5tMohxzQcJuV31VfecGAnD9cedhm5FrPkyjDZMTi0cnAg5zDwH5iUMIztZLQM/1nTcOgaaqZbGGHl3AqKysW4E1SJEkWAooChCykCp7zvNcGkkaATp6/cEbkuwmt2lSC/x64is6b6eRa3kiAGNbi1E2lakSUok0e5eJVqlOns95XiRJ9l1KLQ/JB2G1grNQ9xGPwowwxDC+mSgUwa9g+3hLY/1yzJCrwRaWPvxB8vy60+kR7b/tbeijEcyW+Rkb1tkVR/ZPb48+KzKz1OyR8i/fm+1u7NW5ybGf1AmbRka1r7aJ0I+F/FrQbQx6dIEOj79ouHZPPfhQqeGb9sug/ebJ9TxiONcb9Vq5ZjX32+SDjh+5sxeWHJUN6D10kZr24Pkei/CNs/NvOP4jfPUMWLg59LepN3Hi2DKWba1k0wqZXkBkUBtRlhcppCyUStukzFTC9+v+5RMAAP//AwDjHLkoVgIAAA==\"]",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "562225db-c581-6227-28a2-1773abd0c05e"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/template/e9fb50cf-023a-4abd-9930-007552f19451",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7f7ab527-ed6e-abcf-cf32-3f51f62fa0dc"
+  }
+]
