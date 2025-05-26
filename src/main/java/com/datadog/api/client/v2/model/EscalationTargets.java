@@ -18,26 +18,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Defines which users are on-call within a team, stored as an array of references. */
-@JsonPropertyOrder({TeamReferenceRelationshipsOncallUsers.JSON_PROPERTY_DATA})
+/** A list of escalation targets for a step */
+@JsonPropertyOrder({EscalationTargets.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamReferenceRelationshipsOncallUsers {
+public class EscalationTargets {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<TeamReferenceRelationshipsOncallUsersDataItems> data = null;
+  private List<EscalationTarget> data = null;
 
-  public TeamReferenceRelationshipsOncallUsers data(
-      List<TeamReferenceRelationshipsOncallUsersDataItems> data) {
+  public EscalationTargets data(List<EscalationTarget> data) {
     this.data = data;
-    for (TeamReferenceRelationshipsOncallUsersDataItems item : data) {
+    for (EscalationTarget item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public TeamReferenceRelationshipsOncallUsers addDataItem(
-      TeamReferenceRelationshipsOncallUsersDataItems dataItem) {
+  public EscalationTargets addDataItem(EscalationTarget dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -47,18 +45,18 @@ public class TeamReferenceRelationshipsOncallUsers {
   }
 
   /**
-   * The list of user references who are on-call for this team.
+   * The <code>EscalationTargets</code> <code>data</code>.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<TeamReferenceRelationshipsOncallUsersDataItems> getData() {
+  public List<EscalationTarget> getData() {
     return data;
   }
 
-  public void setData(List<TeamReferenceRelationshipsOncallUsersDataItems> data) {
+  public void setData(List<EscalationTarget> data) {
     this.data = data;
   }
 
@@ -74,10 +72,10 @@ public class TeamReferenceRelationshipsOncallUsers {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamReferenceRelationshipsOncallUsers
+   * @return EscalationTargets
    */
   @JsonAnySetter
-  public TeamReferenceRelationshipsOncallUsers putAdditionalProperty(String key, Object value) {
+  public EscalationTargets putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -108,7 +106,7 @@ public class TeamReferenceRelationshipsOncallUsers {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamReferenceRelationshipsOncallUsers object is equal to o. */
+  /** Return true if this EscalationTargets object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,11 +115,9 @@ public class TeamReferenceRelationshipsOncallUsers {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamReferenceRelationshipsOncallUsers teamReferenceRelationshipsOncallUsers =
-        (TeamReferenceRelationshipsOncallUsers) o;
-    return Objects.equals(this.data, teamReferenceRelationshipsOncallUsers.data)
-        && Objects.equals(
-            this.additionalProperties, teamReferenceRelationshipsOncallUsers.additionalProperties);
+    EscalationTargets escalationTargets = (EscalationTargets) o;
+    return Objects.equals(this.data, escalationTargets.data)
+        && Objects.equals(this.additionalProperties, escalationTargets.additionalProperties);
   }
 
   @Override
@@ -132,7 +128,7 @@ public class TeamReferenceRelationshipsOncallUsers {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamReferenceRelationshipsOncallUsers {\n");
+    sb.append("class EscalationTargets {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

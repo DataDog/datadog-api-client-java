@@ -12,16 +12,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Provides core properties of a schedule object, such as its name, time zone, and tags. */
+/** Provides core properties of a schedule object such as its name and time zone. */
 @JsonPropertyOrder({
   ScheduleDataAttributes.JSON_PROPERTY_NAME,
-  ScheduleDataAttributes.JSON_PROPERTY_TAGS,
   ScheduleDataAttributes.JSON_PROPERTY_TIME_ZONE
 })
 @jakarta.annotation.Generated(
@@ -30,9 +27,6 @@ public class ScheduleDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
-
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "time_zone";
   private String timeZone;
@@ -56,35 +50,6 @@ public class ScheduleDataAttributes {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public ScheduleDataAttributes tags(List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public ScheduleDataAttributes addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-  /**
-   * A list of tags associated with this schedule.
-   *
-   * @return tags
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<String> tags) {
-    this.tags = tags;
   }
 
   public ScheduleDataAttributes timeZone(String timeZone) {
@@ -165,14 +130,13 @@ public class ScheduleDataAttributes {
     }
     ScheduleDataAttributes scheduleDataAttributes = (ScheduleDataAttributes) o;
     return Objects.equals(this.name, scheduleDataAttributes.name)
-        && Objects.equals(this.tags, scheduleDataAttributes.tags)
         && Objects.equals(this.timeZone, scheduleDataAttributes.timeZone)
         && Objects.equals(this.additionalProperties, scheduleDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, tags, timeZone, additionalProperties);
+    return Objects.hash(name, timeZone, additionalProperties);
   }
 
   @Override
@@ -180,7 +144,6 @@ public class ScheduleDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class ScheduleDataAttributes {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

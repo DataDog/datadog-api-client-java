@@ -56,7 +56,7 @@ public class ScheduleData {
   }
 
   /**
-   * Provides core properties of a schedule object, such as its name, time zone, and tags.
+   * Provides core properties of a schedule object such as its name and time zone.
    *
    * @return attributes
    */

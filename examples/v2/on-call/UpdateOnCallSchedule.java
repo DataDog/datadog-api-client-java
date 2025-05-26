@@ -1,4 +1,4 @@
-// Update on-call schedule returns "OK" response
+// Update On-Call schedule returns "OK" response
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
@@ -18,7 +18,6 @@ import com.datadog.api.client.v2.model.ScheduleUpdateRequestDataType;
 import com.datadog.api.client.v2.model.TimeRestriction;
 import com.datadog.api.client.v2.model.Weekday;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -67,7 +66,6 @@ public class Example {
                                                     .startTime("09:00:00")))
                                         .rotationStart(OffsetDateTime.now().plusDays(-5))))
                             .name("Example-On-Call")
-                            .tags(Arrays.asList("tag1", "tag2", "tag3"))
                             .timeZone("America/New_York"))
                     .relationships(
                         new ScheduleUpdateRequestDataRelationships()
