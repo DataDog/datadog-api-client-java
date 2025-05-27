@@ -1,10 +1,12 @@
-// Set on-call team routing rules returns "OK" response
+// Set On-Call team routing rules returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
+import com.datadog.api.client.v2.api.OnCallApi.SetOnCallTeamRoutingRulesOptionalParameters;
 import com.datadog.api.client.v2.model.RoutingRuleAction;
-import com.datadog.api.client.v2.model.SlackAction;
+import com.datadog.api.client.v2.model.SendSlackMessageAction;
+import com.datadog.api.client.v2.model.SendSlackMessageActionType;
 import com.datadog.api.client.v2.model.TeamRoutingRules;
 import com.datadog.api.client.v2.model.TeamRoutingRulesRequest;
 import com.datadog.api.client.v2.model.TeamRoutingRulesRequestData;
@@ -41,9 +43,11 @@ public class Example {
                                         .actions(
                                             Collections.singletonList(
                                                 new RoutingRuleAction(
-                                                    new SlackAction()
+                                                    new SendSlackMessageAction()
                                                         .channel("channel")
-                                                        .type("send_slack_message")
+                                                        .type(
+                                                            SendSlackMessageActionType
+                                                                .SEND_SLACK_MESSAGE)
                                                         .workspace("workspace"))))
                                         .query("tags.service:test")
                                         .timeRestriction(
@@ -60,8 +64,7 @@ public class Example {
                                                             .endDay(Weekday.TUESDAY)
                                                             .endTime("17:00:00")
                                                             .startDay(Weekday.TUESDAY)
-                                                            .startTime("09:00:00"))))
-                                        .urgency(Urgency.HIGH),
+                                                            .startTime("09:00:00")))),
                                     new TeamRoutingRulesRequestRule()
                                         .policyId(ESCALATION_POLICY_DATA_ID)
                                         .query("")
@@ -70,7 +73,11 @@ public class Example {
                     .type(TeamRoutingRulesRequestDataType.TEAM_ROUTING_RULES));
 
     try {
-      TeamRoutingRules result = apiInstance.setOnCallTeamRoutingRules(DD_TEAM_DATA_ID, body);
+      TeamRoutingRules result =
+          apiInstance.setOnCallTeamRoutingRules(
+              DD_TEAM_DATA_ID,
+              body,
+              new SetOnCallTeamRoutingRulesOptionalParameters().include("rules"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OnCallApi#setOnCallTeamRoutingRules");

@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Contains all data needed to update an existing schedule, including its attributes (such as name,
- * layers, or tags) and any relationships to teams.
+ * Contains all data needed to update an existing schedule, including its attributes (such as name
+ * and time zone) and any relationships to teams.
  */
 @JsonPropertyOrder({
   ScheduleUpdateRequestData.JSON_PROPERTY_ATTRIBUTES,
@@ -66,7 +66,7 @@ public class ScheduleUpdateRequestData {
   }
 
   /**
-   * Defines the updatable attributes for a schedule, such as name, time zone, tags, and layers.
+   * Defines the updatable attributes for a schedule, such as name, time zone, and layers.
    *
    * @return attributes
    */

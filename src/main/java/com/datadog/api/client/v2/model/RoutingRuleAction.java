@@ -77,88 +77,94 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize SlackAction
+      // deserialize SendSlackMessageAction
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (SlackAction.class.equals(Integer.class)
-            || SlackAction.class.equals(Long.class)
-            || SlackAction.class.equals(Float.class)
-            || SlackAction.class.equals(Double.class)
-            || SlackAction.class.equals(Boolean.class)
-            || SlackAction.class.equals(String.class)) {
+        if (SendSlackMessageAction.class.equals(Integer.class)
+            || SendSlackMessageAction.class.equals(Long.class)
+            || SendSlackMessageAction.class.equals(Float.class)
+            || SendSlackMessageAction.class.equals(Double.class)
+            || SendSlackMessageAction.class.equals(Boolean.class)
+            || SendSlackMessageAction.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((SlackAction.class.equals(Integer.class) || SlackAction.class.equals(Long.class))
+                ((SendSlackMessageAction.class.equals(Integer.class)
+                        || SendSlackMessageAction.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((SlackAction.class.equals(Float.class) || SlackAction.class.equals(Double.class))
+                ((SendSlackMessageAction.class.equals(Float.class)
+                        || SendSlackMessageAction.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (SlackAction.class.equals(Boolean.class)
+                (SendSlackMessageAction.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
             attemptParsing |=
-                (SlackAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                (SendSlackMessageAction.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(SlackAction.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SendSlackMessageAction.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((SlackAction) tmp).unparsed) {
+          if (!((SendSlackMessageAction) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'SlackAction'");
+          log.log(Level.FINER, "Input data matches schema 'SendSlackMessageAction'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'SlackAction'", e);
+        log.log(Level.FINER, "Input data does not match schema 'SendSlackMessageAction'", e);
       }
 
-      // deserialize TeamsAction
+      // deserialize SendTeamsMessageAction
       try {
         boolean attemptParsing = true;
         // ensure that we respect type coercion as set on the client ObjectMapper
-        if (TeamsAction.class.equals(Integer.class)
-            || TeamsAction.class.equals(Long.class)
-            || TeamsAction.class.equals(Float.class)
-            || TeamsAction.class.equals(Double.class)
-            || TeamsAction.class.equals(Boolean.class)
-            || TeamsAction.class.equals(String.class)) {
+        if (SendTeamsMessageAction.class.equals(Integer.class)
+            || SendTeamsMessageAction.class.equals(Long.class)
+            || SendTeamsMessageAction.class.equals(Float.class)
+            || SendTeamsMessageAction.class.equals(Double.class)
+            || SendTeamsMessageAction.class.equals(Boolean.class)
+            || SendTeamsMessageAction.class.equals(String.class)) {
           attemptParsing = typeCoercion;
           if (!attemptParsing) {
             attemptParsing |=
-                ((TeamsAction.class.equals(Integer.class) || TeamsAction.class.equals(Long.class))
+                ((SendTeamsMessageAction.class.equals(Integer.class)
+                        || SendTeamsMessageAction.class.equals(Long.class))
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
-                ((TeamsAction.class.equals(Float.class) || TeamsAction.class.equals(Double.class))
+                ((SendTeamsMessageAction.class.equals(Float.class)
+                        || SendTeamsMessageAction.class.equals(Double.class))
                     && (token == JsonToken.VALUE_NUMBER_FLOAT
                         || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
-                (TeamsAction.class.equals(Boolean.class)
+                (SendTeamsMessageAction.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
             attemptParsing |=
-                (TeamsAction.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                (SendTeamsMessageAction.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
           }
         }
         if (attemptParsing) {
-          tmp = tree.traverse(jp.getCodec()).readValueAs(TeamsAction.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SendTeamsMessageAction.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          if (!((TeamsAction) tmp).unparsed) {
+          if (!((SendTeamsMessageAction) tmp).unparsed) {
             deserialized = tmp;
             match++;
           }
-          log.log(Level.FINER, "Input data matches schema 'TeamsAction'");
+          log.log(Level.FINER, "Input data matches schema 'SendTeamsMessageAction'");
         }
       } catch (Exception e) {
         // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'TeamsAction'", e);
+        log.log(Level.FINER, "Input data does not match schema 'SendTeamsMessageAction'", e);
       }
 
       RoutingRuleAction ret = new RoutingRuleAction();
@@ -189,19 +195,19 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
     super("oneOf", Boolean.FALSE);
   }
 
-  public RoutingRuleAction(SlackAction o) {
+  public RoutingRuleAction(SendSlackMessageAction o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
-  public RoutingRuleAction(TeamsAction o) {
+  public RoutingRuleAction(SendTeamsMessageAction o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
   }
 
   static {
-    schemas.put("SlackAction", new GenericType<SlackAction>() {});
-    schemas.put("TeamsAction", new GenericType<TeamsAction>() {});
+    schemas.put("SendSlackMessageAction", new GenericType<SendSlackMessageAction>() {});
+    schemas.put("SendTeamsMessageAction", new GenericType<SendTeamsMessageAction>() {});
     JSON.registerDescendants(RoutingRuleAction.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -212,18 +218,18 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
 
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-   * against the oneOf child schemas: SlackAction, TeamsAction
+   * against the oneOf child schemas: SendSlackMessageAction, SendTeamsMessageAction
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
    */
   @Override
   public void setActualInstance(Object instance) {
-    if (JSON.isInstanceOf(SlackAction.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(SendSlackMessageAction.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
-    if (JSON.isInstanceOf(TeamsAction.class, instance, new HashSet<Class<?>>())) {
+    if (JSON.isInstanceOf(SendTeamsMessageAction.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
     }
@@ -232,13 +238,15 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
-    throw new RuntimeException("Invalid instance type. Must be SlackAction, TeamsAction");
+    throw new RuntimeException(
+        "Invalid instance type. Must be SendSlackMessageAction, SendTeamsMessageAction");
   }
 
   /**
-   * Get the actual instance, which can be the following: SlackAction, TeamsAction
+   * Get the actual instance, which can be the following: SendSlackMessageAction,
+   * SendTeamsMessageAction
    *
-   * @return The actual instance (SlackAction, TeamsAction)
+   * @return The actual instance (SendSlackMessageAction, SendTeamsMessageAction)
    */
   @Override
   public Object getActualInstance() {
@@ -246,24 +254,24 @@ public class RoutingRuleAction extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `SlackAction`. If the actual instance is not `SlackAction`, the
-   * ClassCastException will be thrown.
+   * Get the actual instance of `SendSlackMessageAction`. If the actual instance is not
+   * `SendSlackMessageAction`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `SlackAction`
-   * @throws ClassCastException if the instance is not `SlackAction`
+   * @return The actual instance of `SendSlackMessageAction`
+   * @throws ClassCastException if the instance is not `SendSlackMessageAction`
    */
-  public SlackAction getSlackAction() throws ClassCastException {
-    return (SlackAction) super.getActualInstance();
+  public SendSlackMessageAction getSendSlackMessageAction() throws ClassCastException {
+    return (SendSlackMessageAction) super.getActualInstance();
   }
 
   /**
-   * Get the actual instance of `TeamsAction`. If the actual instance is not `TeamsAction`, the
-   * ClassCastException will be thrown.
+   * Get the actual instance of `SendTeamsMessageAction`. If the actual instance is not
+   * `SendTeamsMessageAction`, the ClassCastException will be thrown.
    *
-   * @return The actual instance of `TeamsAction`
-   * @throws ClassCastException if the instance is not `TeamsAction`
+   * @return The actual instance of `SendTeamsMessageAction`
+   * @throws ClassCastException if the instance is not `SendTeamsMessageAction`
    */
-  public TeamsAction getTeamsAction() throws ClassCastException {
-    return (TeamsAction) super.getActualInstance();
+  public SendTeamsMessageAction getSendTeamsMessageAction() throws ClassCastException {
+    return (SendTeamsMessageAction) super.getActualInstance();
   }
 }

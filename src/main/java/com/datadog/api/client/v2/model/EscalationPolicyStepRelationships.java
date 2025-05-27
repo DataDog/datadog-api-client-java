@@ -23,27 +23,27 @@ import java.util.Objects;
 public class EscalationPolicyStepRelationships {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TARGETS = "targets";
-  private EscalationTarget targets;
+  private EscalationTargets targets;
 
-  public EscalationPolicyStepRelationships targets(EscalationTarget targets) {
+  public EscalationPolicyStepRelationships targets(EscalationTargets targets) {
     this.targets = targets;
     this.unparsed |= targets.unparsed;
     return this;
   }
 
   /**
-   * Represents an escalation target, which can be a team, user, or schedule.
+   * A list of escalation targets for a step
    *
    * @return targets
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EscalationTarget getTargets() {
+  public EscalationTargets getTargets() {
     return targets;
   }
 
-  public void setTargets(EscalationTarget targets) {
+  public void setTargets(EscalationTargets targets) {
     this.targets = targets;
   }
 

@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Source of events, either logs or audit trail. */
+/** Source of events, either logs, audit trail, or Datadog events. */
 @JsonSerialize(
     using =
         SecurityMonitoringStandardDataSource.SecurityMonitoringStandardDataSourceSerializer.class)
@@ -26,7 +26,8 @@ public class SecurityMonitoringStandardDataSource extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("logs", "audit", "app_sec_spans", "spans", "security_runtime", "network"));
+          Arrays.asList(
+              "logs", "audit", "app_sec_spans", "spans", "security_runtime", "network", "events"));
 
   public static final SecurityMonitoringStandardDataSource LOGS =
       new SecurityMonitoringStandardDataSource("logs");
@@ -40,6 +41,8 @@ public class SecurityMonitoringStandardDataSource extends ModelEnum<String> {
       new SecurityMonitoringStandardDataSource("security_runtime");
   public static final SecurityMonitoringStandardDataSource NETWORK =
       new SecurityMonitoringStandardDataSource("network");
+  public static final SecurityMonitoringStandardDataSource EVENTS =
+      new SecurityMonitoringStandardDataSource("events");
 
   SecurityMonitoringStandardDataSource(String value) {
     super(value, allowedValues);

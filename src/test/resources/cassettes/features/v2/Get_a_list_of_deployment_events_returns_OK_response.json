@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"from\":\"2025-03-23T00:00:00Z\",\"limit\":1,\"to\":\"2025-03-24T00:00:00Z\"},\"type\":\"dora_deployments_list_request\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/dora/deployments",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c2b81df5-7288-016a-dc7b-43b10f30e046"
+  }
+]
