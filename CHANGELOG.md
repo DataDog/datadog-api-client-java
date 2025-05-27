@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 2.35.0/2025-05-27
+
+### Fixed
+* add `include` parameter to On-Call team rules test [#2877](https://github.com/DataDog/datadog-api-client-java/pull/2877)
+* fix On-Call spec [#2867](https://github.com/DataDog/datadog-api-client-java/pull/2867)
+* Make assertion target be int or string [#2859](https://github.com/DataDog/datadog-api-client-java/pull/2859)
+* Fix incorrect pattern for url [#2851](https://github.com/DataDog/datadog-api-client-java/pull/2851)
+* Make metadata optional for GCS destination [#2840](https://github.com/DataDog/datadog-api-client-java/pull/2840)
+* Remove isReadOnly default when creating dashboards [#2839](https://github.com/DataDog/datadog-api-client-java/pull/2839)
+
+### Added
+* Add support for Datadog Events as a data source for rules [#2870](https://github.com/DataDog/datadog-api-client-java/pull/2870)
+* Add public APIs to search DORA events [#2868](https://github.com/DataDog/datadog-api-client-java/pull/2868)
+* Adding endpoints to manage Resource Evaluation Filters [#2857](https://github.com/DataDog/datadog-api-client-java/pull/2857)
+* Add Sev0 as a supported incident severity [#2854](https://github.com/DataDog/datadog-api-client-java/pull/2854)
+* Share timerestriction object [#2850](https://github.com/DataDog/datadog-api-client-java/pull/2850)
+* add On-Call Paging spec [#2843](https://github.com/DataDog/datadog-api-client-java/pull/2843)
+* Add pagination method for NDM ListDevices. [#2837](https://github.com/DataDog/datadog-api-client-java/pull/2837)
+* Add On-Call Team Rules [#2835](https://github.com/DataDog/datadog-api-client-java/pull/2835)
+
 ## 2.34.1 / 2025-04-14
 
 ### Fixed
