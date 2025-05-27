@@ -17,38 +17,45 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Sends a message to a Slack channel. */
+/** Sends a message to a Microsoft Teams channel. */
 @JsonPropertyOrder({
-  SlackAction.JSON_PROPERTY_CHANNEL,
-  SlackAction.JSON_PROPERTY_TYPE,
-  SlackAction.JSON_PROPERTY_WORKSPACE
+  SendTeamsMessageAction.JSON_PROPERTY_CHANNEL,
+  SendTeamsMessageAction.JSON_PROPERTY_TEAM,
+  SendTeamsMessageAction.JSON_PROPERTY_TENANT,
+  SendTeamsMessageAction.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class SlackAction {
+public class SendTeamsMessageAction {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHANNEL = "channel";
   private String channel;
 
+  public static final String JSON_PROPERTY_TEAM = "team";
+  private String team;
+
+  public static final String JSON_PROPERTY_TENANT = "tenant";
+  private String tenant;
+
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private SendTeamsMessageActionType type = SendTeamsMessageActionType.SEND_TEAMS_MESSAGE;
 
-  public static final String JSON_PROPERTY_WORKSPACE = "workspace";
-  private String workspace;
-
-  public SlackAction() {}
+  public SendTeamsMessageAction() {}
 
   @JsonCreator
-  public SlackAction(
+  public SendTeamsMessageAction(
       @JsonProperty(required = true, value = JSON_PROPERTY_CHANNEL) String channel,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type,
-      @JsonProperty(required = true, value = JSON_PROPERTY_WORKSPACE) String workspace) {
+      @JsonProperty(required = true, value = JSON_PROPERTY_TEAM) String team,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TENANT) String tenant,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SendTeamsMessageActionType type) {
     this.channel = channel;
+    this.team = team;
+    this.tenant = tenant;
     this.type = type;
-    this.workspace = workspace;
+    this.unparsed |= !type.isValid();
   }
 
-  public SlackAction channel(String channel) {
+  public SendTeamsMessageAction channel(String channel) {
     this.channel = channel;
     return this;
   }
@@ -68,44 +75,68 @@ public class SlackAction {
     this.channel = channel;
   }
 
-  public SlackAction type(String type) {
-    this.type = type;
+  public SendTeamsMessageAction team(String team) {
+    this.team = team;
     return this;
   }
 
   /**
-   * Must be set to "send_slack_message".
+   * The team ID.
+   *
+   * @return team
+   */
+  @JsonProperty(JSON_PROPERTY_TEAM)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getTeam() {
+    return team;
+  }
+
+  public void setTeam(String team) {
+    this.team = team;
+  }
+
+  public SendTeamsMessageAction tenant(String tenant) {
+    this.tenant = tenant;
+    return this;
+  }
+
+  /**
+   * The tenant ID.
+   *
+   * @return tenant
+   */
+  @JsonProperty(JSON_PROPERTY_TENANT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getTenant() {
+    return tenant;
+  }
+
+  public void setTenant(String tenant) {
+    this.tenant = tenant;
+  }
+
+  public SendTeamsMessageAction type(SendTeamsMessageActionType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Indicates that the action is a send Microsoft Teams message action.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getType() {
+  public SendTeamsMessageActionType getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(SendTeamsMessageActionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
-  }
-
-  public SlackAction workspace(String workspace) {
-    this.workspace = workspace;
-    return this;
-  }
-
-  /**
-   * The workspace ID.
-   *
-   * @return workspace
-   */
-  @JsonProperty(JSON_PROPERTY_WORKSPACE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getWorkspace() {
-    return workspace;
-  }
-
-  public void setWorkspace(String workspace) {
-    this.workspace = workspace;
   }
 
   /**
@@ -120,10 +151,10 @@ public class SlackAction {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return SlackAction
+   * @return SendTeamsMessageAction
    */
   @JsonAnySetter
-  public SlackAction putAdditionalProperty(String key, Object value) {
+  public SendTeamsMessageAction putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -154,7 +185,7 @@ public class SlackAction {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this SlackAction object is equal to o. */
+  /** Return true if this SendTeamsMessageAction object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -163,25 +194,27 @@ public class SlackAction {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SlackAction slackAction = (SlackAction) o;
-    return Objects.equals(this.channel, slackAction.channel)
-        && Objects.equals(this.type, slackAction.type)
-        && Objects.equals(this.workspace, slackAction.workspace)
-        && Objects.equals(this.additionalProperties, slackAction.additionalProperties);
+    SendTeamsMessageAction sendTeamsMessageAction = (SendTeamsMessageAction) o;
+    return Objects.equals(this.channel, sendTeamsMessageAction.channel)
+        && Objects.equals(this.team, sendTeamsMessageAction.team)
+        && Objects.equals(this.tenant, sendTeamsMessageAction.tenant)
+        && Objects.equals(this.type, sendTeamsMessageAction.type)
+        && Objects.equals(this.additionalProperties, sendTeamsMessageAction.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(channel, type, workspace, additionalProperties);
+    return Objects.hash(channel, team, tenant, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SlackAction {\n");
+    sb.append("class SendTeamsMessageAction {\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
+    sb.append("    team: ").append(toIndentedString(team)).append("\n");
+    sb.append("    tenant: ").append(toIndentedString(tenant)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    workspace: ").append(toIndentedString(workspace)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
