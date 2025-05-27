@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateaworkloadprotectionagentruleus1fedreturnsbadrequestresponse1747319690\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateaworkloadprotectionagentruleus1fedreturnsbadrequestresponse1748342045\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"qny-a5d-mul\",\"attributes\":{\"version\":1,\"name\":\"testupdateaworkloadprotectionagentruleus1fedreturnsbadrequestresponse1747319690\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"defaultRule\":false,\"enabled\":true,\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1747319690855,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1747319690855,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"q58-cpj-dtw\",\"attributes\":{\"version\":1,\"name\":\"testupdateaworkloadprotectionagentruleus1fedreturnsbadrequestresponse1748342045\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"defaultRule\":false,\"enabled\":true,\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1748342046325,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1748342046325,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "de32e4a7-c5db-021a-7243-d04f578629ee"
+    "id": "df2a89a9-53a5-2e52-e11f-6336eeef6ae0"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name\"},\"id\":\"qny-a5d-mul\",\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name\"},\"id\":\"q58-cpj-dtw\",\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/qny-a5d-mul",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/q58-cpj-dtw",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testupdateaworkloadprotectionagentruleus1fedreturnsbadrequestresponse1747319690` error: rule syntax error: bool expected: 1:1: exec.file.name\\n^)\"]}\n",
+      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testupdateaworkloadprotectionagentruleus1fedreturnsbadrequestresponse1748342045` error: rule syntax error: bool expected: 1:1: exec.file.name\\n^)\"]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f4568639-7bcd-2446-5f0f-cede781ec74f"
+    "id": "41b73a56-8de9-33f8-a008-5563e6480511"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/qny-a5d-mul",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/q58-cpj-dtw",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "de15ac51-ce62-296a-f85b-56266b54bec7"
+    "id": "bc04a17a-c603-a789-de9d-e3426c6e934d"
   }
 ]

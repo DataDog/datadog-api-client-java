@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateaworkloadprotectionpolicyreturnsokresponse1747319697\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateaworkloadprotectionpolicyreturnsokresponse1748341524\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"qsc-b2c-cxf\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testupdateaworkloadprotectionpolicyreturnsokresponse1747319697\",\"policyVersion\":\"1\",\"priority\":1000000070,\"ruleCount\":226,\"updateDate\":1747319697796,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"qn1-4by-5zr\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testupdateaworkloadprotectionpolicyreturnsokresponse1748341524\",\"policyVersion\":\"1\",\"priority\":1000000011,\"ruleCount\":226,\"updateDate\":1748341524459,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,22 +27,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a4592542-132d-2480-4060-ae7fb5005828"
+    "id": "b8057113-460a-80e3-316d-c5b4a9e4c84f"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"Updated agent policy\",\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"name\":\"updated_agent_policy\"},\"id\":\"qsc-b2c-cxf\",\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Updated agent policy\",\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"name\":\"updated_agent_policy\"},\"id\":\"qn1-4by-5zr\",\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/remote_config/products/cws/policy/qsc-b2c-cxf",
+      "path": "/api/v2/remote_config/products/cws/policy/qn1-4by-5zr",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"qsc-b2c-cxf\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"Updated agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"monitoringRulesCount\":225,\"name\":\"updated_agent_policy\",\"policyVersion\":\"2\",\"priority\":1000000070,\"ruleCount\":226,\"updateDate\":1747319698400,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"qn1-4by-5zr\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"Updated agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTagsLists\":[[\"env:test\"]],\"monitoringRulesCount\":225,\"name\":\"updated_agent_policy\",\"policyVersion\":\"2\",\"priority\":1000000011,\"ruleCount\":226,\"updateDate\":1748341525121,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1ae40c02-c3ee-0927-d67e-25a25799b0d6"
+    "id": "df01da6d-f4f4-c08a-319c-28cfe4b95eff"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/qsc-b2c-cxf",
+      "path": "/api/v2/remote_config/products/cws/policy/qn1-4by-5zr",
       "keepAlive": false,
       "secure": true
     },
@@ -82,6 +82,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a4de4bbc-9c9c-6556-1568-5494414d154f"
+    "id": "eb6721fd-8733-df81-892c-7cdc7b31f7b4"
   }
 ]

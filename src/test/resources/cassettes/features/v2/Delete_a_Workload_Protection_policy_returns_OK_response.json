@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testdeleteaworkloadprotectionpolicyreturnsokresponse1747319667\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testdeleteaworkloadprotectionpolicyreturnsokresponse1748341506\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"koo-gxa-p0y\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testdeleteaworkloadprotectionpolicyreturnsokresponse1747319667\",\"policyVersion\":\"1\",\"priority\":1000000070,\"ruleCount\":226,\"updateDate\":1747319667081,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"1a4-eoy-qob\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testdeleteaworkloadprotectionpolicyreturnsokresponse1748341506\",\"policyVersion\":\"1\",\"priority\":1000000011,\"ruleCount\":226,\"updateDate\":1748341506537,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "337c85f1-5210-7d2f-5a70-18203c9938cd"
+    "id": "6b2989ad-e923-4d94-4200-a178bcf1d41f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/koo-gxa-p0y",
+      "path": "/api/v2/remote_config/products/cws/policy/1a4-eoy-qob",
       "keepAlive": false,
       "secure": true
     },
@@ -52,13 +52,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d3c3bc67-29ac-6074-e942-2eafddbc6424"
+    "id": "7b152d3e-08d3-e492-78b8-11fb01dcbf79"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/koo-gxa-p0y",
+      "path": "/api/v2/remote_config/products/cws/policy/1a4-eoy-qob",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d3c3bc67-29ac-6074-e942-2eafddbc6425"
+    "id": "7b152d3e-08d3-e492-78b8-11fb01dcbf7a"
   }
 ]
