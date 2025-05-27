@@ -41,14 +41,14 @@ jobs:
           GH_TOKEN: ${{ steps.get_token.outputs.token }}
         shell: bash
         run: |
-          CHANGED_PACKAGE_JSON_FILES=$(git diff --diff-filter=MACR --name-only $BASE_SHA...$HEAD_SHA \
-            | grep -E 'package\.json$' \
+          CHANGED_POM_XML_FILES=$(git diff --diff-filter=MACR --name-only $BASE_SHA...$HEAD_SHA \
+            | grep -E 'pom\.xml$' \
             | xargs dirname \
             | sort \
             | uniq)
 
           declare -A versions
-          for package in $CHANGED_PACKAGE_JSON_FILES; do
+          for package in $CHANGED_POM_XML_FILES; do
             base_version=$(git show $BASE_SHA:$package/pom.xml | grep -E '<version>.*</version>' | head -n 1 | sed -E 's/.*<version>(.*)<\/version>.*/\1/')
             head_version=$(git show $HEAD_SHA:$package/pom.xml | grep -E '<version>.*</version>' | head -n 1 | sed -E 's/.*<version>(.*)<\/version>.*/\1/')
 
