@@ -56,7 +56,6 @@ public class Example {
                                                                 "11111111-1111-1111-1111-111111111111")
                                                             .label("INTEGRATION_DATADOG")))
                                                 .env(ConnectionEnvEnv.DEFAULT)))
-                                    .handle("my-handle")
                                     .inputSchema(
                                         new InputSchema()
                                             .parameters(

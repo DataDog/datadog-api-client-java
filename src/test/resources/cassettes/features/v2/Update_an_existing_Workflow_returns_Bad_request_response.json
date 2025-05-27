@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"748a9d1b-a9a5-415b-9360-3d8374329957\",\"type\":\"workflows\",\"attributes\":{\"createdAt\":\"2025-02-04T04:58:34.263325Z\",\"description\":\"\",\"name\":\"Cassette Workflow x-given\",\"published\":true,\"spec\":{\"triggers\":[{\"startStepNames\":[\"No_op\"],\"workflowTrigger\":{}}],\"steps\":[{\"name\":\"No_op\",\"actionId\":\"com.datadoghq.core.noop\"}]},\"tags\":[],\"updatedAt\":\"2025-02-04T04:58:34.263325Z\"},\"relationships\":{\"creator\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"owner\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"b40d1eb8-5741-474c-a137-897f73527a77\",\"type\":\"workflows\",\"attributes\":{\"createdAt\":\"2025-05-26T17:23:44.603489Z\",\"description\":\"\",\"name\":\"Cassette Workflow x-given\",\"published\":true,\"spec\":{\"triggers\":[{\"startStepNames\":[\"No_op\"],\"workflowTrigger\":{}}],\"steps\":[{\"name\":\"No_op\",\"actionId\":\"com.datadoghq.core.noop\"}]},\"tags\":[],\"updatedAt\":\"2025-05-26T17:23:44.603489Z\"},\"relationships\":{\"creator\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"owner\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -37,12 +37,12 @@
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/workflows/748a9d1b-a9a5-415b-9360-3d8374329957",
+      "path": "/api/v2/workflows/b40d1eb8-5741-474c-a137-897f73527a77",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"detail\":\"workflow description exceeds size limit of [300] characters\"}]}",
+      "body": "{\"errors\":[{\"detail\":\"workflow description exceeds size limit of [300] characters\"},{\"detail\":\"spec is invalid\"},{\"detail\":\"no trigger found. At least one trigger is required.\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -57,13 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2a88c302-487a-a9dc-d84a-6250dba77e2b"
+    "id": "a578d81a-a8c5-aff6-9290-8ac24acd331c"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/workflows/748a9d1b-a9a5-415b-9360-3d8374329957",
+      "path": "/api/v2/workflows/b40d1eb8-5741-474c-a137-897f73527a77",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "68664620-392a-c355-4d90-95f4155a8b5c"
+    "id": "1c991af0-4d19-81c3-14bd-df83116917df"
   }
 ]

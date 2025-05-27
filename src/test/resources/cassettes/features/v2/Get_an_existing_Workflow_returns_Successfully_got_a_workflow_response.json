@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"6ffa14c3-816b-4463-9386-cb8eb5b73438\",\"type\":\"workflows\",\"attributes\":{\"createdAt\":\"2025-02-04T04:58:33.952654Z\",\"description\":\"\",\"name\":\"Cassette Workflow x-given\",\"published\":true,\"spec\":{\"triggers\":[{\"startStepNames\":[\"No_op\"],\"workflowTrigger\":{}}],\"steps\":[{\"name\":\"No_op\",\"actionId\":\"com.datadoghq.core.noop\"}]},\"tags\":[],\"updatedAt\":\"2025-02-04T04:58:33.952654Z\"},\"relationships\":{\"creator\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"owner\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"dec8dfd0-2031-480a-90ce-4e9179b22793\",\"type\":\"workflows\",\"attributes\":{\"createdAt\":\"2025-05-26T17:23:44.222906Z\",\"description\":\"\",\"name\":\"Cassette Workflow x-given\",\"published\":true,\"spec\":{\"triggers\":[{\"startStepNames\":[\"No_op\"],\"workflowTrigger\":{}}],\"steps\":[{\"name\":\"No_op\",\"actionId\":\"com.datadoghq.core.noop\"}]},\"tags\":[],\"updatedAt\":\"2025-05-26T17:23:44.222906Z\"},\"relationships\":{\"creator\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"owner\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -33,12 +33,12 @@
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/workflows/6ffa14c3-816b-4463-9386-cb8eb5b73438",
+      "path": "/api/v2/workflows/dec8dfd0-2031-480a-90ce-4e9179b22793",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"6ffa14c3-816b-4463-9386-cb8eb5b73438\",\"type\":\"workflows\",\"attributes\":{\"createdAt\":\"2025-02-04T04:58:33.952654Z\",\"description\":\"\",\"name\":\"Cassette Workflow x-given\",\"published\":true,\"spec\":{\"triggers\":[{\"startStepNames\":[\"No_op\"],\"workflowTrigger\":{}}],\"steps\":[{\"name\":\"No_op\",\"actionId\":\"com.datadoghq.core.noop\"}]},\"tags\":[],\"updatedAt\":\"2025-02-04T04:58:33.952654Z\"},\"relationships\":{\"creator\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"owner\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
+      "body": "{\"data\":{\"id\":\"dec8dfd0-2031-480a-90ce-4e9179b22793\",\"type\":\"workflows\",\"attributes\":{\"createdAt\":\"2025-05-26T17:23:44.222906Z\",\"description\":\"\",\"name\":\"Cassette Workflow x-given\",\"published\":true,\"spec\":{\"triggers\":[{\"startStepNames\":[\"No_op\"],\"workflowTrigger\":{}}],\"steps\":[{\"name\":\"No_op\",\"actionId\":\"com.datadoghq.core.noop\"}]},\"tags\":[],\"updatedAt\":\"2025-05-26T17:23:44.222906Z\"},\"relationships\":{\"creator\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}},\"owner\":{\"data\":{\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"type\":\"users\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "27cb74b4-39b5-1a32-253f-039d781db16f"
+    "id": "86542334-fa5d-35f4-887d-682a2adf7139"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/workflows/6ffa14c3-816b-4463-9386-cb8eb5b73438",
+      "path": "/api/v2/workflows/dec8dfd0-2031-480a-90ce-4e9179b22793",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "394bd3a4-9cbd-9afd-0ced-e3d9311c8247"
+    "id": "78aa6840-6135-8524-fbc0-713ed8449d58"
   }
 ]
