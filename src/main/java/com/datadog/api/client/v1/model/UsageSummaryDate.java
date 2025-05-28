@@ -136,6 +136,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_APM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_ORGS,
+  UsageSummaryDate.JSON_PROPERTY_PRODUCT_ANALYTICS_SUM,
   UsageSummaryDate.JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT,
@@ -592,6 +593,9 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private List<UsageSummaryDateOrg> orgs = null;
 
+  public static final String JSON_PROPERTY_PRODUCT_ANALYTICS_SUM = "product_analytics_sum";
+  private Long productAnalyticsSum;
+
   public static final String JSON_PROPERTY_PROFILING_AAS_COUNT_TOP99P =
       "profiling_aas_count_top99p";
   private Long profilingAasCountTop99p;
@@ -826,8 +830,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for the
-   * given org.
+   * Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for all
+   * organizations.
    *
    * @return apmDevsecopsHostTop99p
    */
@@ -1186,7 +1190,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all CI pipeline indexed spans over all hours in the current month for all
+   * Shows the sum of all CI pipeline indexed spans over all hours in the current date for all
    * organizations.
    *
    * @return ciPipelineIndexedSpansSum
@@ -1208,7 +1212,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all CI test indexed spans over all hours in the current month for all
+   * Shows the sum of all CI test indexed spans over all hours in the current date for all
    * organizations.
    *
    * @return ciTestIndexedSpansSum
@@ -1231,7 +1235,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the high-water mark of all CI visibility intelligent test runner committers over all
-   * hours in the current month for all organizations.
+   * hours in the current date for all organizations.
    *
    * @return ciVisibilityItrCommittersHwm
    */
@@ -1254,7 +1258,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the high-water mark of all CI visibility pipeline committers over all hours in the
-   * current month for all organizations.
+   * current date for all organizations.
    *
    * @return ciVisibilityPipelineCommittersHwm
    */
@@ -1276,7 +1280,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the high-water mark of all CI visibility test committers over all hours in the current
-   * month for all organizations.
+   * date for all organizations.
    *
    * @return ciVisibilityTestCommittersHwm
    */
@@ -1298,7 +1302,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Host count average of Cloud Cost Management for AWS for the given date and given organization.
+   * Host count average for Cloud Cost Management for AWS for the given date for all organizations.
    *
    * @return cloudCostManagementAwsHostCountAvg
    */
@@ -1320,8 +1324,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Host count average of Cloud Cost Management for Azure for the given date and given
-   * organization.
+   * Host count average for Cloud Cost Management for Azure for the given date for all
+   * organizations.
    *
    * @return cloudCostManagementAzureHostCountAvg
    */
@@ -1343,7 +1347,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Host count average of Cloud Cost Management for GCP for the given date and given organization.
+   * Host count average for Cloud Cost Management for GCP for the given date for all organizations.
    *
    * @return cloudCostManagementGcpHostCountAvg
    */
@@ -1364,8 +1368,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Host count average of Cloud Cost Management for all cloud providers for the given date and
-   * given organization.
+   * Host count average for Cloud Cost Management for all cloud providers for the given date for all
+   * organizations.
    *
    * @return cloudCostManagementHostCountAvg
    */
@@ -1387,7 +1391,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all Cloud Security Information and Event Management events over all hours in
-   * the current date for the given org.
+   * the current date for all organizations.
    *
    * @return cloudSiemEventsSum
    */
@@ -1409,7 +1413,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the high-water mark of all Static Analysis committers over all hours in the current date
-   * for the given org.
+   * for all organizations.
    *
    * @return codeAnalysisSaCommittersHwm
    */
@@ -1431,7 +1435,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the high-water mark of all static Software Composition Analysis committers over all hours
-   * in the current date for the given org.
+   * in the current date for all organizations.
    *
    * @return codeAnalysisScaCommittersHwm
    */
@@ -1452,8 +1456,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the 99th percentile of all Code Security hosts over all hours in the current date for the
-   * given org.
+   * Shows the 99th percentile of all Code Security hosts over all hours in the current date for all
+   * organizations.
    *
    * @return codeSecurityHostTop99p
    */
@@ -1542,7 +1546,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours
-   * in the current date for the given org.
+   * in the current date for all organizations.
    *
    * @return csmContainerEnterpriseComplianceCountSum
    */
@@ -1566,7 +1570,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers
-   * over all hours in the current date for the given org.
+   * over all hours in the current date for all organizations.
    *
    * @return csmContainerEnterpriseCwsCountSum
    */
@@ -1589,7 +1593,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all Cloud Security Management Enterprise containers over all hours in the
-   * current date for the given org.
+   * current date for all organizations.
    *
    * @return csmContainerEnterpriseTotalCountSum
    */
@@ -1612,7 +1616,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts
-   * over all hours in the current date for the given org.
+   * over all hours in the current date for all organizations.
    *
    * @return csmHostEnterpriseAasHostCountTop99p
    */
@@ -1635,7 +1639,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours
-   * in the current date for the given org.
+   * on the current date for all organizations.
    *
    * @return csmHostEnterpriseAwsHostCountTop99p
    */
@@ -1658,7 +1662,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all
-   * hours in the current date for the given org.
+   * hours on the current date for all organizations.
    *
    * @return csmHostEnterpriseAzureHostCountTop99p
    */
@@ -1681,7 +1685,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all
-   * hours in the current date for the given org.
+   * hours on the current date for all organizations.
    *
    * @return csmHostEnterpriseComplianceHostCountTop99p
    */
@@ -1705,7 +1709,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security
-   * hosts over all hours in the current date for the given org.
+   * hosts over all hours on the current date for all organizations.
    *
    * @return csmHostEnterpriseCwsHostCountTop99p
    */
@@ -1728,7 +1732,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours
-   * in the current date for the given org.
+   * in the current date for all organizations.
    *
    * @return csmHostEnterpriseGcpHostCountTop99p
    */
@@ -1751,7 +1755,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in
-   * the current date for the given org.
+   * the current date for all organizations.
    *
    * @return csmHostEnterpriseTotalHostCountTop99p
    */
@@ -2014,8 +2018,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for the
-   * given org.
+   * Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for all
+   * organizations.
    *
    * @return dataJobsMonitoringHostHrSum
    */
@@ -2102,7 +2106,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral infrastructure hosts with the Datadog Agent over all hours in
-   * the current date for the given org.
+   * the current date for all organizations.
    *
    * @return ephInfraHostAgentSum
    */
@@ -2124,7 +2128,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral infrastructure hosts on Alibaba over all hours in the current
-   * date for the given org.
+   * date for all organizations.
    *
    * @return ephInfraHostAlibabaSum
    */
@@ -2146,7 +2150,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral infrastructure hosts on AWS over all hours in the current date
-   * for the given org.
+   * for all organizations.
    *
    * @return ephInfraHostAwsSum
    */
@@ -2168,7 +2172,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral infrastructure hosts on Azure over all hours in the current date
-   * for the given org.
+   * for all organizations.
    *
    * @return ephInfraHostAzureSum
    */
@@ -2190,7 +2194,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral infrastructure hosts for Enterprise over all hours in the
-   * current date for the given org.
+   * current date for all organizations.
    *
    * @return ephInfraHostEntSum
    */
@@ -2212,7 +2216,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral infrastructure hosts on GCP over all hours in the current date
-   * for the given org.
+   * for all organizations.
    *
    * @return ephInfraHostGcpSum
    */
@@ -2234,7 +2238,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral infrastructure hosts on Heroku over all hours in the current
-   * date for the given org.
+   * date for all organizations.
    *
    * @return ephInfraHostHerokuSum
    */
@@ -2256,7 +2260,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral infrastructure hosts with only Azure App Services over all hours
-   * in the current date for the given org.
+   * in the current date for all organizations.
    *
    * @return ephInfraHostOnlyAasSum
    */
@@ -2278,7 +2282,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral infrastructure hosts with only vSphere over all hours in the
-   * current date for the given org.
+   * current date for all organizations.
    *
    * @return ephInfraHostOnlyVsphereSum
    */
@@ -2300,7 +2304,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral APM hosts reported by the Datadog exporter for the OpenTelemetry
-   * Collector over all hours in the current date for the given org.
+   * Collector over all hours in the current date for all organizations.
    *
    * @return ephInfraHostOpentelemetryApmSum
    */
@@ -2322,7 +2326,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral hosts reported by the Datadog exporter for the OpenTelemetry
-   * Collector over all hours in the current date for the given org.
+   * Collector over all hours in the current date for all organizations.
    *
    * @return ephInfraHostOpentelemetrySum
    */
@@ -2344,7 +2348,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral infrastructure hosts for Pro over all hours in the current date
-   * for the given org.
+   * for all organizations.
    *
    * @return ephInfraHostProSum
    */
@@ -2366,7 +2370,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all ephemeral infrastructure hosts for Pro Plus over all hours in the current
-   * date for the given org.
+   * date for all organizations.
    *
    * @return ephInfraHostProplusSum
    */
@@ -2387,8 +2391,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all Error Tracking APM error events over all hours in the current date for the
-   * given org.
+   * Shows the sum of all Error Tracking APM error events over all hours in the current date for all
+   * organizations.
    *
    * @return errorTrackingApmErrorEventsSum
    */
@@ -2409,8 +2413,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all Error Tracking error events over all hours in the current date for the
-   * given org.
+   * Shows the sum of all Error Tracking error events over all hours in the current date for all
+   * organizations.
    *
    * @return errorTrackingErrorEventsSum
    */
@@ -2431,8 +2435,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all Error Tracking events over all hours in the current date for the given
-   * org.
+   * Shows the sum of all Error Tracking events over all hours in the current date for all
+   * organizations.
    *
    * @return errorTrackingEventsSum
    */
@@ -2453,8 +2457,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all Error Tracking RUM error events over all hours in the current date for the
-   * given org.
+   * Shows the sum of all Error Tracking RUM error events over all hours in the current date for all
+   * organizations.
    *
    * @return errorTrackingRumErrorEventsSum
    */
@@ -2570,7 +2574,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the average number of Flex Logs Compute Large Instances over all hours in the current
-   * date for the given org.
+   * date for all organizations.
    *
    * @return flexLogsComputeLargeAvg
    */
@@ -2592,7 +2596,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the average number of Flex Logs Compute Medium Instances over all hours in the current
-   * date for the given org.
+   * date for all organizations.
    *
    * @return flexLogsComputeMediumAvg
    */
@@ -2614,7 +2618,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the average number of Flex Logs Compute Small Instances over all hours in the current
-   * date for the given org.
+   * date for all organizations.
    *
    * @return flexLogsComputeSmallAvg
    */
@@ -2636,7 +2640,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the
-   * current date for the given org.
+   * current date for all organizations.
    *
    * @return flexLogsComputeXsmallAvg
    */
@@ -2658,7 +2662,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the average number of Flex Logs Starter Instances over all hours in the current date for
-   * the given org.
+   * all organizations.
    *
    * @return flexLogsStarterAvg
    */
@@ -2680,7 +2684,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the average number of Flex Logs Starter Storage Index Instances over all hours in the
-   * current date for the given org.
+   * current date for all organizations.
    *
    * @return flexLogsStarterStorageIndexAvg
    */
@@ -2704,7 +2708,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the average number of Flex Logs Starter Storage Retention Adjustment Instances over all
-   * hours in the current date for the given org.
+   * hours in the current date for all organizations.
    *
    * @return flexLogsStarterStorageRetentionAdjustmentAvg
    */
@@ -2727,7 +2731,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the average of all Flex Stored Logs over all hours in the current date for the given org.
+   * Shows the average of all Flex Stored Logs over all hours in the current date for all
+   * organizations.
    *
    * @return flexStoredLogsAvg
    */
@@ -3149,7 +3154,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current
-   * date for the given org.
+   * date for all organizations.
    *
    * @return ndmNetflowEventsSum
    */
@@ -3218,8 +3223,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Sum of all observability pipelines bytes processed over all hours in the current date for the
-   * given org.
+   * Sum of all observability pipelines bytes processed over all hours in the current date for all
+   * organizations.
    *
    * @return observabilityPipelinesBytesProcessedSum
    */
@@ -3242,7 +3247,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all Oracle Cloud Infrastructure hosts over all hours in the current date for
-   * the given org.
+   * all organizations.
    *
    * @return ociHostSum
    */
@@ -3264,7 +3269,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the 99th percentile of all Oracle Cloud Infrastructure hosts over all hours in the
-   * current date for the given org.
+   * current date for all organizations.
    *
    * @return ociHostTop99p
    */
@@ -3377,6 +3382,27 @@ public class UsageSummaryDate {
     this.orgs = orgs;
   }
 
+  public UsageSummaryDate productAnalyticsSum(Long productAnalyticsSum) {
+    this.productAnalyticsSum = productAnalyticsSum;
+    return this;
+  }
+
+  /**
+   * Sum of all product analytics sessions over all hours in the current date for all organizations.
+   *
+   * @return productAnalyticsSum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT_ANALYTICS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getProductAnalyticsSum() {
+    return productAnalyticsSum;
+  }
+
+  public void setProductAnalyticsSum(Long productAnalyticsSum) {
+    this.productAnalyticsSum = productAnalyticsSum;
+  }
+
   public UsageSummaryDate profilingAasCountTop99p(Long profilingAasCountTop99p) {
     this.profilingAasCountTop99p = profilingAasCountTop99p;
     return this;
@@ -3428,7 +3454,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in
-   * the current month for all organizations (To be deprecated on October 1st, 2024).
+   * the current date for all organizations (To be deprecated on October 1st, 2024).
    *
    * @return rumBrowserAndMobileSessionCount
    */
@@ -4007,7 +4033,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the average of all Software Composition Analysis Fargate tasks over all hours in the
-   * current date for the given org.
+   * current date for all organizations.
    *
    * @return scaFargateCountAvg
    */
@@ -4029,7 +4055,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over
-   * all hours in the current date for the given org.
+   * all hours in the current date for all organizations.
    *
    * @return scaFargateCountHwm
    */
@@ -4094,8 +4120,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours
-   * in the current month for all organizations.
+   * Shows the sum of all bytes scanned by the Sensitive Data Scanner for logs usage across all
+   * organizations over all hours on the current date.
    *
    * @return sdsLogsScannedBytesSum
    */
@@ -4138,8 +4164,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over
-   * all hours in the current month for all organizations.
+   * Shows the sum of all bytes scanned by the Sensitive Data Scanner across all usage types over
+   * all hours of the current date for all organizations.
    *
    * @return sdsTotalScannedBytesSum
    */
@@ -4160,7 +4186,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the average of the number of Serverless Apps for Azure for the given date and given org.
+   * Shows the average number of Serverless Apps for Azure for the given date for all organizations.
    *
    * @return serverlessAppsAzureCountAvg
    */
@@ -4181,8 +4207,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the average of the number of Serverless Apps for Google Cloud for the given date and
-   * given org.
+   * Shows the average number of Serverless Apps for Google Cloud for the given date for all
+   * organizations.
    *
    * @return serverlessAppsGoogleCountAvg
    */
@@ -4203,8 +4229,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the average of the number of Serverless Apps for Azure and Google Cloud for the given
-   * date and given org.
+   * Shows the average number of Serverless Apps for Azure and Google Cloud for the given date for
+   * all organizations.
    *
    * @return serverlessAppsTotalCountAvg
    */
@@ -4226,7 +4252,7 @@ public class UsageSummaryDate {
 
   /**
    * Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for
-   * the given org.
+   * all organizations.
    *
    * @return siemAnalyzedLogsAddOnCountSum
    */
@@ -4382,8 +4408,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the 99th percentile of all universal service management hosts over all hours in the
-   * current date for the given org.
+   * Shows the 99th percentile of all universal service management hosts over all hours on the
+   * current date for all organizations.
    *
    * @return universalServiceMonitoringHostTop99p
    */
@@ -4426,8 +4452,8 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in
-   * the current date for the given org.
+   * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours on
+   * the current date for all organizations.
    *
    * @return vulnManagementHostCountTop99p
    */
@@ -4699,6 +4725,7 @@ public class UsageSummaryDate {
             this.opentelemetryApmHostTop99p, usageSummaryDate.opentelemetryApmHostTop99p)
         && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDate.opentelemetryHostTop99p)
         && Objects.equals(this.orgs, usageSummaryDate.orgs)
+        && Objects.equals(this.productAnalyticsSum, usageSummaryDate.productAnalyticsSum)
         && Objects.equals(this.profilingAasCountTop99p, usageSummaryDate.profilingAasCountTop99p)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p)
         && Objects.equals(
@@ -4920,6 +4947,7 @@ public class UsageSummaryDate {
         opentelemetryApmHostTop99p,
         opentelemetryHostTop99p,
         orgs,
+        productAnalyticsSum,
         profilingAasCountTop99p,
         profilingHostTop99p,
         rumBrowserAndMobileSessionCount,
@@ -5244,6 +5272,9 @@ public class UsageSummaryDate {
         .append(toIndentedString(opentelemetryHostTop99p))
         .append("\n");
     sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
+    sb.append("    productAnalyticsSum: ")
+        .append(toIndentedString(productAnalyticsSum))
+        .append("\n");
     sb.append("    profilingAasCountTop99p: ")
         .append(toIndentedString(profilingAasCountTop99p))
         .append("\n");
