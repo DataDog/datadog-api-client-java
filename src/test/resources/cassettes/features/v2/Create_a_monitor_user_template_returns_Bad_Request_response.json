@@ -1,0 +1,32 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"A description.\",\"monitor_definition\":{},\"tags\":[\"integration:Azure\"],\"template_variables\":[{\"available_values\":[\"value1\",\"value2\"],\"defaults\":[\"defaultValue\"],\"name\":\"regionName\",\"tag_key\":\"datacenter\"}],\"title\":\"Postgres DB test-create_a_monitor_user_template_returns_bad_request_response-1748486175\"},\"type\":\"monitor-user-template\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/template",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid monitor_definition or template variables: Monitor definition cannot be empty.\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8ec2c017-89a9-45e5-e2d1-299b06661e5b"
+  }
+]
