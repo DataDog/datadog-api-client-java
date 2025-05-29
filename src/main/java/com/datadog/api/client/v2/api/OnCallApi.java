@@ -11,6 +11,7 @@ import com.datadog.api.client.v2.model.Schedule;
 import com.datadog.api.client.v2.model.ScheduleCreateRequest;
 import com.datadog.api.client.v2.model.ScheduleUpdateRequest;
 import com.datadog.api.client.v2.model.Shift;
+import com.datadog.api.client.v2.model.TeamOnCallResponders;
 import com.datadog.api.client.v2.model.TeamRoutingRules;
 import com.datadog.api.client.v2.model.TeamRoutingRulesRequest;
 import jakarta.ws.rs.client.Invocation;
@@ -1544,6 +1545,205 @@ public class OnCallApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<Shift>() {});
+  }
+
+  /** Manage optional parameters to getTeamOnCallUsers. */
+  public static class GetTeamOnCallUsersOptionalParameters {
+    private String include;
+
+    /**
+     * Set include.
+     *
+     * @param include Comma-separated list of included relationships to be returned. Allowed values:
+     *     <code>responders</code>, <code>escalations</code>, <code>escalations.responders</code>.
+     *     (optional)
+     * @return GetTeamOnCallUsersOptionalParameters
+     */
+    public GetTeamOnCallUsersOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get team on-call users.
+   *
+   * <p>See {@link #getTeamOnCallUsersWithHttpInfo}.
+   *
+   * @param teamId The team ID (required)
+   * @return TeamOnCallResponders
+   * @throws ApiException if fails to make API call
+   */
+  public TeamOnCallResponders getTeamOnCallUsers(String teamId) throws ApiException {
+    return getTeamOnCallUsersWithHttpInfo(teamId, new GetTeamOnCallUsersOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get team on-call users.
+   *
+   * <p>See {@link #getTeamOnCallUsersWithHttpInfoAsync}.
+   *
+   * @param teamId The team ID (required)
+   * @return CompletableFuture&lt;TeamOnCallResponders&gt;
+   */
+  public CompletableFuture<TeamOnCallResponders> getTeamOnCallUsersAsync(String teamId) {
+    return getTeamOnCallUsersWithHttpInfoAsync(teamId, new GetTeamOnCallUsersOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get team on-call users.
+   *
+   * <p>See {@link #getTeamOnCallUsersWithHttpInfo}.
+   *
+   * @param teamId The team ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return TeamOnCallResponders
+   * @throws ApiException if fails to make API call
+   */
+  public TeamOnCallResponders getTeamOnCallUsers(
+      String teamId, GetTeamOnCallUsersOptionalParameters parameters) throws ApiException {
+    return getTeamOnCallUsersWithHttpInfo(teamId, parameters).getData();
+  }
+
+  /**
+   * Get team on-call users.
+   *
+   * <p>See {@link #getTeamOnCallUsersWithHttpInfoAsync}.
+   *
+   * @param teamId The team ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TeamOnCallResponders&gt;
+   */
+  public CompletableFuture<TeamOnCallResponders> getTeamOnCallUsersAsync(
+      String teamId, GetTeamOnCallUsersOptionalParameters parameters) {
+    return getTeamOnCallUsersWithHttpInfoAsync(teamId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a team's on-call users at a given time
+   *
+   * @param teamId The team ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TeamOnCallResponders&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamOnCallResponders> getTeamOnCallUsersWithHttpInfo(
+      String teamId, GetTeamOnCallUsersOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'teamId' when calling getTeamOnCallUsers");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/teams/{team_id}/on-call"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.OnCallApi.getTeamOnCallUsers",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamOnCallResponders>() {});
+  }
+
+  /**
+   * Get team on-call users.
+   *
+   * <p>See {@link #getTeamOnCallUsersWithHttpInfo}.
+   *
+   * @param teamId The team ID (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamOnCallResponders&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamOnCallResponders>> getTeamOnCallUsersWithHttpInfoAsync(
+      String teamId, GetTeamOnCallUsersOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'teamId' is set
+    if (teamId == null) {
+      CompletableFuture<ApiResponse<TeamOnCallResponders>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'teamId' when calling getTeamOnCallUsers"));
+      return result;
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/on-call/teams/{team_id}/on-call"
+            .replaceAll("\\{" + "team_id" + "\\}", apiClient.escapeString(teamId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.OnCallApi.getTeamOnCallUsers",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamOnCallResponders>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamOnCallResponders>() {});
   }
 
   /** Manage optional parameters to setOnCallTeamRoutingRules. */
