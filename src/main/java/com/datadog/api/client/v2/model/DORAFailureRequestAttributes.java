@@ -19,22 +19,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Attributes to create a DORA incident event. */
+/** Attributes to create a DORA failure event. */
 @JsonPropertyOrder({
-  DORAIncidentRequestAttributes.JSON_PROPERTY_ENV,
-  DORAIncidentRequestAttributes.JSON_PROPERTY_FINISHED_AT,
-  DORAIncidentRequestAttributes.JSON_PROPERTY_GIT,
-  DORAIncidentRequestAttributes.JSON_PROPERTY_ID,
-  DORAIncidentRequestAttributes.JSON_PROPERTY_NAME,
-  DORAIncidentRequestAttributes.JSON_PROPERTY_SERVICES,
-  DORAIncidentRequestAttributes.JSON_PROPERTY_SEVERITY,
-  DORAIncidentRequestAttributes.JSON_PROPERTY_STARTED_AT,
-  DORAIncidentRequestAttributes.JSON_PROPERTY_TEAM,
-  DORAIncidentRequestAttributes.JSON_PROPERTY_VERSION
+  DORAFailureRequestAttributes.JSON_PROPERTY_ENV,
+  DORAFailureRequestAttributes.JSON_PROPERTY_FINISHED_AT,
+  DORAFailureRequestAttributes.JSON_PROPERTY_GIT,
+  DORAFailureRequestAttributes.JSON_PROPERTY_ID,
+  DORAFailureRequestAttributes.JSON_PROPERTY_NAME,
+  DORAFailureRequestAttributes.JSON_PROPERTY_SERVICES,
+  DORAFailureRequestAttributes.JSON_PROPERTY_SEVERITY,
+  DORAFailureRequestAttributes.JSON_PROPERTY_STARTED_AT,
+  DORAFailureRequestAttributes.JSON_PROPERTY_TEAM,
+  DORAFailureRequestAttributes.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAIncidentRequestAttributes {
+public class DORAFailureRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENV = "env";
   private String env;
@@ -66,21 +66,21 @@ public class DORAIncidentRequestAttributes {
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
 
-  public DORAIncidentRequestAttributes() {}
+  public DORAFailureRequestAttributes() {}
 
   @JsonCreator
-  public DORAIncidentRequestAttributes(
+  public DORAFailureRequestAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) Long startedAt) {
     this.startedAt = startedAt;
   }
 
-  public DORAIncidentRequestAttributes env(String env) {
+  public DORAFailureRequestAttributes env(String env) {
     this.env = env;
     return this;
   }
 
   /**
-   * Environment name that was impacted by the incident.
+   * Environment name that was impacted by the failure.
    *
    * @return env
    */
@@ -95,13 +95,13 @@ public class DORAIncidentRequestAttributes {
     this.env = env;
   }
 
-  public DORAIncidentRequestAttributes finishedAt(Long finishedAt) {
+  public DORAFailureRequestAttributes finishedAt(Long finishedAt) {
     this.finishedAt = finishedAt;
     return this;
   }
 
   /**
-   * Unix timestamp when the incident finished. It must be in nanoseconds, milliseconds, or seconds,
+   * Unix timestamp when the failure finished. It must be in nanoseconds, milliseconds, or seconds,
    * and it should not be older than 1 hour.
    *
    * @return finishedAt
@@ -117,7 +117,7 @@ public class DORAIncidentRequestAttributes {
     this.finishedAt = finishedAt;
   }
 
-  public DORAIncidentRequestAttributes git(DORAGitInfo git) {
+  public DORAFailureRequestAttributes git(DORAGitInfo git) {
     this.git = git;
     this.unparsed |= git.unparsed;
     return this;
@@ -139,13 +139,13 @@ public class DORAIncidentRequestAttributes {
     this.git = git;
   }
 
-  public DORAIncidentRequestAttributes id(String id) {
+  public DORAFailureRequestAttributes id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Incident ID. Must have at least 16 characters. Required to update a previously sent incident.
+   * Failure ID. Must have at least 16 characters. Required to update a previously sent failure.
    *
    * @return id
    */
@@ -160,13 +160,13 @@ public class DORAIncidentRequestAttributes {
     this.id = id;
   }
 
-  public DORAIncidentRequestAttributes name(String name) {
+  public DORAFailureRequestAttributes name(String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Incident name.
+   * Failure name.
    *
    * @return name
    */
@@ -181,12 +181,12 @@ public class DORAIncidentRequestAttributes {
     this.name = name;
   }
 
-  public DORAIncidentRequestAttributes services(List<String> services) {
+  public DORAFailureRequestAttributes services(List<String> services) {
     this.services = services;
     return this;
   }
 
-  public DORAIncidentRequestAttributes addServicesItem(String servicesItem) {
+  public DORAFailureRequestAttributes addServicesItem(String servicesItem) {
     if (this.services == null) {
       this.services = new ArrayList<>();
     }
@@ -195,7 +195,7 @@ public class DORAIncidentRequestAttributes {
   }
 
   /**
-   * Service names impacted by the incident. If possible, use names registered in the Service
+   * Service names impacted by the failure. If possible, use names registered in the Service
    * Catalog. Required when the team field is not provided.
    *
    * @return services
@@ -211,13 +211,13 @@ public class DORAIncidentRequestAttributes {
     this.services = services;
   }
 
-  public DORAIncidentRequestAttributes severity(String severity) {
+  public DORAFailureRequestAttributes severity(String severity) {
     this.severity = severity;
     return this;
   }
 
   /**
-   * Incident severity.
+   * Failure severity.
    *
    * @return severity
    */
@@ -232,13 +232,13 @@ public class DORAIncidentRequestAttributes {
     this.severity = severity;
   }
 
-  public DORAIncidentRequestAttributes startedAt(Long startedAt) {
+  public DORAFailureRequestAttributes startedAt(Long startedAt) {
     this.startedAt = startedAt;
     return this;
   }
 
   /**
-   * Unix timestamp when the incident started. It must be in nanoseconds, milliseconds, or seconds.
+   * Unix timestamp when the failure started. It must be in nanoseconds, milliseconds, or seconds.
    *
    * @return startedAt
    */
@@ -252,7 +252,7 @@ public class DORAIncidentRequestAttributes {
     this.startedAt = startedAt;
   }
 
-  public DORAIncidentRequestAttributes team(String team) {
+  public DORAFailureRequestAttributes team(String team) {
     this.team = team;
     return this;
   }
@@ -274,7 +274,7 @@ public class DORAIncidentRequestAttributes {
     this.team = team;
   }
 
-  public DORAIncidentRequestAttributes version(String version) {
+  public DORAFailureRequestAttributes version(String version) {
     this.version = version;
     return this;
   }
@@ -309,10 +309,10 @@ public class DORAIncidentRequestAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAIncidentRequestAttributes
+   * @return DORAFailureRequestAttributes
    */
   @JsonAnySetter
-  public DORAIncidentRequestAttributes putAdditionalProperty(String key, Object value) {
+  public DORAFailureRequestAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -343,7 +343,7 @@ public class DORAIncidentRequestAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAIncidentRequestAttributes object is equal to o. */
+  /** Return true if this DORAFailureRequestAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -352,19 +352,19 @@ public class DORAIncidentRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAIncidentRequestAttributes doraIncidentRequestAttributes = (DORAIncidentRequestAttributes) o;
-    return Objects.equals(this.env, doraIncidentRequestAttributes.env)
-        && Objects.equals(this.finishedAt, doraIncidentRequestAttributes.finishedAt)
-        && Objects.equals(this.git, doraIncidentRequestAttributes.git)
-        && Objects.equals(this.id, doraIncidentRequestAttributes.id)
-        && Objects.equals(this.name, doraIncidentRequestAttributes.name)
-        && Objects.equals(this.services, doraIncidentRequestAttributes.services)
-        && Objects.equals(this.severity, doraIncidentRequestAttributes.severity)
-        && Objects.equals(this.startedAt, doraIncidentRequestAttributes.startedAt)
-        && Objects.equals(this.team, doraIncidentRequestAttributes.team)
-        && Objects.equals(this.version, doraIncidentRequestAttributes.version)
+    DORAFailureRequestAttributes doraFailureRequestAttributes = (DORAFailureRequestAttributes) o;
+    return Objects.equals(this.env, doraFailureRequestAttributes.env)
+        && Objects.equals(this.finishedAt, doraFailureRequestAttributes.finishedAt)
+        && Objects.equals(this.git, doraFailureRequestAttributes.git)
+        && Objects.equals(this.id, doraFailureRequestAttributes.id)
+        && Objects.equals(this.name, doraFailureRequestAttributes.name)
+        && Objects.equals(this.services, doraFailureRequestAttributes.services)
+        && Objects.equals(this.severity, doraFailureRequestAttributes.severity)
+        && Objects.equals(this.startedAt, doraFailureRequestAttributes.startedAt)
+        && Objects.equals(this.team, doraFailureRequestAttributes.team)
+        && Objects.equals(this.version, doraFailureRequestAttributes.version)
         && Objects.equals(
-            this.additionalProperties, doraIncidentRequestAttributes.additionalProperties);
+            this.additionalProperties, doraFailureRequestAttributes.additionalProperties);
   }
 
   @Override
@@ -386,7 +386,7 @@ public class DORAIncidentRequestAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAIncidentRequestAttributes {\n");
+    sb.append("class DORAFailureRequestAttributes {\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    finishedAt: ").append(toIndentedString(finishedAt)).append("\n");
     sb.append("    git: ").append(toIndentedString(git)).append("\n");

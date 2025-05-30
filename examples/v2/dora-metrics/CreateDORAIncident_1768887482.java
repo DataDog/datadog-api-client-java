@@ -1,4 +1,4 @@
-// Send an incident event for DORA Metrics returns "OK" response
+// Send a failure event for DORA Metrics returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -21,17 +21,16 @@ public class Example {
                 new DORAFailureRequestData()
                     .attributes(
                         new DORAFailureRequestAttributes()
-                            .env("staging")
-                            .finishedAt(1693491984000000000L)
+                            .finishedAt(1707842944600000000L)
                             .git(
                                 new DORAGitInfo()
                                     .commitSha("66adc9350f2cc9b250b69abddab733dd55e1a588")
                                     .repositoryUrl(
                                         "https://github.com/organization/example-repository"))
-                            .name("Webserver is down failing all requests.")
+                            .name("Webserver is down failing all requests")
                             .services(Collections.singletonList("shopist"))
                             .severity("High")
-                            .startedAt(1693491974000000000L)
+                            .startedAt(1707842944500000000L)
                             .team("backend")
                             .version("v1.12.07")));
 
