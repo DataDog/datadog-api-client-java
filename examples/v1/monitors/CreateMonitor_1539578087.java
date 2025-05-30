@@ -4,6 +4,7 @@ import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v1.api.MonitorsApi;
 import com.datadog.api.client.v1.model.Monitor;
+import com.datadog.api.client.v1.model.MonitorDraftStatus;
 import com.datadog.api.client.v1.model.MonitorOptions;
 import com.datadog.api.client.v1.model.MonitorOptionsCustomSchedule;
 import com.datadog.api.client.v1.model.MonitorOptionsCustomScheduleRecurrence;
@@ -42,7 +43,8 @@ public class Example {
                                                 .rrule("FREQ=DAILY;INTERVAL=1")
                                                 .timezone("America/Los_Angeles")
                                                 .start("2024-10-26T09:13:00"))))))
-            .type(MonitorType.QUERY_ALERT);
+            .type(MonitorType.QUERY_ALERT)
+            .draftStatus(MonitorDraftStatus.PUBLISHED);
 
     try {
       Monitor result = apiInstance.createMonitor(body);
