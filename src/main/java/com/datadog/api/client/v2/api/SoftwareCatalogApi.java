@@ -7,13 +7,17 @@ import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
 import com.datadog.api.client.v2.model.EntityData;
 import com.datadog.api.client.v2.model.IncludeType;
+import com.datadog.api.client.v2.model.KindData;
 import com.datadog.api.client.v2.model.ListEntityCatalogResponse;
+import com.datadog.api.client.v2.model.ListKindCatalogResponse;
 import com.datadog.api.client.v2.model.ListRelationCatalogResponse;
 import com.datadog.api.client.v2.model.RelationIncludeType;
 import com.datadog.api.client.v2.model.RelationResponse;
 import com.datadog.api.client.v2.model.RelationType;
 import com.datadog.api.client.v2.model.UpsertCatalogEntityRequest;
 import com.datadog.api.client.v2.model.UpsertCatalogEntityResponse;
+import com.datadog.api.client.v2.model.UpsertCatalogKindRequest;
+import com.datadog.api.client.v2.model.UpsertCatalogKindResponse;
 import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
@@ -166,6 +170,139 @@ public class SoftwareCatalogApi {
       builder =
           apiClient.createBuilder(
               "v2.SoftwareCatalogApi.deleteCatalogEntity",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a single kind.
+   *
+   * <p>See {@link #deleteCatalogKindWithHttpInfo}.
+   *
+   * @param kindId Entity kind. (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void deleteCatalogKind(String kindId) throws ApiException {
+    deleteCatalogKindWithHttpInfo(kindId);
+  }
+
+  /**
+   * Delete a single kind.
+   *
+   * <p>See {@link #deleteCatalogKindWithHttpInfoAsync}.
+   *
+   * @param kindId Entity kind. (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> deleteCatalogKindAsync(String kindId) {
+    return deleteCatalogKindWithHttpInfoAsync(kindId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Delete a single kind in Software Catalog.
+   *
+   * @param kindId Entity kind. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteCatalogKindWithHttpInfo(String kindId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'kindId' is set
+    if (kindId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'kindId' when calling deleteCatalogKind");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/catalog/kind/{kind_id}"
+            .replaceAll("\\{" + "kind_id" + "\\}", apiClient.escapeString(kindId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SoftwareCatalogApi.deleteCatalogKind",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Delete a single kind.
+   *
+   * <p>See {@link #deleteCatalogKindWithHttpInfo}.
+   *
+   * @param kindId Entity kind. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteCatalogKindWithHttpInfoAsync(String kindId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'kindId' is set
+    if (kindId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'kindId' when calling deleteCatalogKind"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/catalog/kind/{kind_id}"
+            .replaceAll("\\{" + "kind_id" + "\\}", apiClient.escapeString(kindId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SoftwareCatalogApi.deleteCatalogKind",
               localVarPath,
               new ArrayList<Pair>(),
               localVarHeaderParams,
@@ -555,6 +692,276 @@ public class SoftwareCatalogApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<ListEntityCatalogResponse>() {});
+  }
+
+  /** Manage optional parameters to listCatalogKind. */
+  public static class ListCatalogKindOptionalParameters {
+    private Long pageOffset;
+    private Long pageLimit;
+    private String filterId;
+    private String filterName;
+
+    /**
+     * Set pageOffset.
+     *
+     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
+     *     default to 0)
+     * @return ListCatalogKindOptionalParameters
+     */
+    public ListCatalogKindOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set pageLimit.
+     *
+     * @param pageLimit Maximum number of kinds in the response. (optional, default to 100)
+     * @return ListCatalogKindOptionalParameters
+     */
+    public ListCatalogKindOptionalParameters pageLimit(Long pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Set filterId.
+     *
+     * @param filterId Filter entities by UUID. (optional)
+     * @return ListCatalogKindOptionalParameters
+     */
+    public ListCatalogKindOptionalParameters filterId(String filterId) {
+      this.filterId = filterId;
+      return this;
+    }
+
+    /**
+     * Set filterName.
+     *
+     * @param filterName Filter entities by name. (optional)
+     * @return ListCatalogKindOptionalParameters
+     */
+    public ListCatalogKindOptionalParameters filterName(String filterName) {
+      this.filterName = filterName;
+      return this;
+    }
+  }
+
+  /**
+   * Get a list of entity kinds.
+   *
+   * <p>See {@link #listCatalogKindWithHttpInfo}.
+   *
+   * @return ListKindCatalogResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListKindCatalogResponse listCatalogKind() throws ApiException {
+    return listCatalogKindWithHttpInfo(new ListCatalogKindOptionalParameters()).getData();
+  }
+
+  /**
+   * Get a list of entity kinds.
+   *
+   * <p>See {@link #listCatalogKindWithHttpInfoAsync}.
+   *
+   * @return CompletableFuture&lt;ListKindCatalogResponse&gt;
+   */
+  public CompletableFuture<ListKindCatalogResponse> listCatalogKindAsync() {
+    return listCatalogKindWithHttpInfoAsync(new ListCatalogKindOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of entity kinds.
+   *
+   * <p>See {@link #listCatalogKindWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ListKindCatalogResponse
+   * @throws ApiException if fails to make API call
+   */
+  public ListKindCatalogResponse listCatalogKind(ListCatalogKindOptionalParameters parameters)
+      throws ApiException {
+    return listCatalogKindWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get a list of entity kinds.
+   *
+   * <p>See {@link #listCatalogKindWithHttpInfoAsync}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ListKindCatalogResponse&gt;
+   */
+  public CompletableFuture<ListKindCatalogResponse> listCatalogKindAsync(
+      ListCatalogKindOptionalParameters parameters) {
+    return listCatalogKindWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get a list of entity kinds.
+   *
+   * <p>See {@link #listCatalogKindWithHttpInfo}.
+   *
+   * @return PaginationIterable&lt;KindData&gt;
+   */
+  public PaginationIterable<KindData> listCatalogKindWithPagination() {
+    ListCatalogKindOptionalParameters parameters = new ListCatalogKindOptionalParameters();
+    return listCatalogKindWithPagination(parameters);
+  }
+
+  /**
+   * Get a list of entity kinds.
+   *
+   * <p>See {@link #listCatalogKindWithHttpInfo}.
+   *
+   * @return ListKindCatalogResponse
+   */
+  public PaginationIterable<KindData> listCatalogKindWithPagination(
+      ListCatalogKindOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageOffset";
+    Boolean valueSetterParamOptional = true;
+    Long limit;
+
+    if (parameters.pageLimit == null) {
+      limit = 100l;
+      parameters.pageLimit(limit);
+    } else {
+      limit = parameters.pageLimit;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listCatalogKind",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            true,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
+   * Get a list of entity kinds from Software Catalog.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ListKindCatalogResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ListKindCatalogResponse> listCatalogKindWithHttpInfo(
+      ListCatalogKindOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    String filterId = parameters.filterId;
+    String filterName = parameters.filterName;
+    // create path and map variables
+    String localVarPath = "/api/v2/catalog/kind";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[id]", filterId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SoftwareCatalogApi.listCatalogKind",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListKindCatalogResponse>() {});
+  }
+
+  /**
+   * Get a list of entity kinds.
+   *
+   * <p>See {@link #listCatalogKindWithHttpInfo}.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;ListKindCatalogResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<ListKindCatalogResponse>> listCatalogKindWithHttpInfoAsync(
+      ListCatalogKindOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageOffset = parameters.pageOffset;
+    Long pageLimit = parameters.pageLimit;
+    String filterId = parameters.filterId;
+    String filterName = parameters.filterName;
+    // create path and map variables
+    String localVarPath = "/api/v2/catalog/kind";
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[offset]", pageOffset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[id]", filterId));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[name]", filterName));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SoftwareCatalogApi.listCatalogKind",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<ListKindCatalogResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<ListKindCatalogResponse>() {});
   }
 
   /** Manage optional parameters to listCatalogRelation. */
@@ -994,5 +1401,138 @@ public class SoftwareCatalogApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<UpsertCatalogEntityResponse>() {});
+  }
+
+  /**
+   * Create or update kinds.
+   *
+   * <p>See {@link #upsertCatalogKindWithHttpInfo}.
+   *
+   * @param body Kind YAML or JSON. (required)
+   * @return UpsertCatalogKindResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UpsertCatalogKindResponse upsertCatalogKind(UpsertCatalogKindRequest body)
+      throws ApiException {
+    return upsertCatalogKindWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create or update kinds.
+   *
+   * <p>See {@link #upsertCatalogKindWithHttpInfoAsync}.
+   *
+   * @param body Kind YAML or JSON. (required)
+   * @return CompletableFuture&lt;UpsertCatalogKindResponse&gt;
+   */
+  public CompletableFuture<UpsertCatalogKindResponse> upsertCatalogKindAsync(
+      UpsertCatalogKindRequest body) {
+    return upsertCatalogKindWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Create or update kinds in Software Catalog.
+   *
+   * @param body Kind YAML or JSON. (required)
+   * @return ApiResponse&lt;UpsertCatalogKindResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> ACCEPTED </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UpsertCatalogKindResponse> upsertCatalogKindWithHttpInfo(
+      UpsertCatalogKindRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling upsertCatalogKind");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/catalog/kind";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.SoftwareCatalogApi.upsertCatalogKind",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpsertCatalogKindResponse>() {});
+  }
+
+  /**
+   * Create or update kinds.
+   *
+   * <p>See {@link #upsertCatalogKindWithHttpInfo}.
+   *
+   * @param body Kind YAML or JSON. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;UpsertCatalogKindResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<UpsertCatalogKindResponse>>
+      upsertCatalogKindWithHttpInfoAsync(UpsertCatalogKindRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UpsertCatalogKindResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling upsertCatalogKind"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/catalog/kind";
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.SoftwareCatalogApi.upsertCatalogKind",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<UpsertCatalogKindResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<UpsertCatalogKindResponse>() {});
   }
 }
