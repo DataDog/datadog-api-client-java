@@ -18,37 +18,37 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** JSON:API type for DORA incident events. */
-@JsonSerialize(using = DORAIncidentType.DORAIncidentTypeSerializer.class)
-public class DORAIncidentType extends ModelEnum<String> {
+/** JSON:API type for DORA failure events. */
+@JsonSerialize(using = DORAFailureType.DORAFailureTypeSerializer.class)
+public class DORAFailureType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("dora_incident"));
+      new HashSet<String>(Arrays.asList("dora_failure"));
 
-  public static final DORAIncidentType DORA_INCIDENT = new DORAIncidentType("dora_incident");
+  public static final DORAFailureType DORA_FAILURE = new DORAFailureType("dora_failure");
 
-  DORAIncidentType(String value) {
+  DORAFailureType(String value) {
     super(value, allowedValues);
   }
 
-  public static class DORAIncidentTypeSerializer extends StdSerializer<DORAIncidentType> {
-    public DORAIncidentTypeSerializer(Class<DORAIncidentType> t) {
+  public static class DORAFailureTypeSerializer extends StdSerializer<DORAFailureType> {
+    public DORAFailureTypeSerializer(Class<DORAFailureType> t) {
       super(t);
     }
 
-    public DORAIncidentTypeSerializer() {
+    public DORAFailureTypeSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(DORAIncidentType value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(DORAFailureType value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
   }
 
   @JsonCreator
-  public static DORAIncidentType fromValue(String value) {
-    return new DORAIncidentType(value);
+  public static DORAFailureType fromValue(String value) {
+    return new DORAFailureType(value);
   }
 }

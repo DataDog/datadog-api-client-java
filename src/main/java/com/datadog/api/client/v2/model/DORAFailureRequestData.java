@@ -18,42 +18,42 @@ import java.util.Map;
 import java.util.Objects;
 
 /** The JSON:API data. */
-@JsonPropertyOrder({DORAIncidentRequestData.JSON_PROPERTY_ATTRIBUTES})
+@JsonPropertyOrder({DORAFailureRequestData.JSON_PROPERTY_ATTRIBUTES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAIncidentRequestData {
+public class DORAFailureRequestData {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private DORAIncidentRequestAttributes attributes;
+  private DORAFailureRequestAttributes attributes;
 
-  public DORAIncidentRequestData() {}
+  public DORAFailureRequestData() {}
 
   @JsonCreator
-  public DORAIncidentRequestData(
+  public DORAFailureRequestData(
       @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          DORAIncidentRequestAttributes attributes) {
+          DORAFailureRequestAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
   }
 
-  public DORAIncidentRequestData attributes(DORAIncidentRequestAttributes attributes) {
+  public DORAFailureRequestData attributes(DORAFailureRequestAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Attributes to create a DORA incident event.
+   * Attributes to create a DORA failure event.
    *
    * @return attributes
    */
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DORAIncidentRequestAttributes getAttributes() {
+  public DORAFailureRequestAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(DORAIncidentRequestAttributes attributes) {
+  public void setAttributes(DORAFailureRequestAttributes attributes) {
     this.attributes = attributes;
   }
 
@@ -69,10 +69,10 @@ public class DORAIncidentRequestData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAIncidentRequestData
+   * @return DORAFailureRequestData
    */
   @JsonAnySetter
-  public DORAIncidentRequestData putAdditionalProperty(String key, Object value) {
+  public DORAFailureRequestData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -103,7 +103,7 @@ public class DORAIncidentRequestData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAIncidentRequestData object is equal to o. */
+  /** Return true if this DORAFailureRequestData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,9 +112,9 @@ public class DORAIncidentRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAIncidentRequestData doraIncidentRequestData = (DORAIncidentRequestData) o;
-    return Objects.equals(this.attributes, doraIncidentRequestData.attributes)
-        && Objects.equals(this.additionalProperties, doraIncidentRequestData.additionalProperties);
+    DORAFailureRequestData doraFailureRequestData = (DORAFailureRequestData) o;
+    return Objects.equals(this.attributes, doraFailureRequestData.attributes)
+        && Objects.equals(this.additionalProperties, doraFailureRequestData.additionalProperties);
   }
 
   @Override
@@ -125,7 +125,7 @@ public class DORAIncidentRequestData {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAIncidentRequestData {\n");
+    sb.append("class DORAFailureRequestData {\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
