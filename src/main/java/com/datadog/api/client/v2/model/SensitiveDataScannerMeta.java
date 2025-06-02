@@ -22,7 +22,9 @@ import java.util.Objects;
   SensitiveDataScannerMeta.JSON_PROPERTY_GROUP_COUNT_LIMIT,
   SensitiveDataScannerMeta.JSON_PROPERTY_HAS_HIGHLIGHT_ENABLED,
   SensitiveDataScannerMeta.JSON_PROPERTY_HAS_MULTI_PASS_ENABLED,
+  SensitiveDataScannerMeta.JSON_PROPERTY_IS_FLOAT_SAMPLING_RATE_ENABLED,
   SensitiveDataScannerMeta.JSON_PROPERTY_IS_PCI_COMPLIANT,
+  SensitiveDataScannerMeta.JSON_PROPERTY_MIN_SAMPLING_RATE,
   SensitiveDataScannerMeta.JSON_PROPERTY_VERSION
 })
 @jakarta.annotation.Generated(
@@ -41,8 +43,15 @@ public class SensitiveDataScannerMeta {
   public static final String JSON_PROPERTY_HAS_MULTI_PASS_ENABLED = "has_multi_pass_enabled";
   private Boolean hasMultiPassEnabled;
 
+  public static final String JSON_PROPERTY_IS_FLOAT_SAMPLING_RATE_ENABLED =
+      "is_float_sampling_rate_enabled";
+  private Boolean isFloatSamplingRateEnabled;
+
   public static final String JSON_PROPERTY_IS_PCI_COMPLIANT = "is_pci_compliant";
   private Boolean isPciCompliant;
+
+  public static final String JSON_PROPERTY_MIN_SAMPLING_RATE = "min_sampling_rate";
+  private Double minSamplingRate;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
@@ -137,6 +146,28 @@ public class SensitiveDataScannerMeta {
     this.hasMultiPassEnabled = hasMultiPassEnabled;
   }
 
+  public SensitiveDataScannerMeta isFloatSamplingRateEnabled(Boolean isFloatSamplingRateEnabled) {
+    this.isFloatSamplingRateEnabled = isFloatSamplingRateEnabled;
+    return this;
+  }
+
+  /**
+   * Whether or not the sampling rate for products can be set to a float point number (as opposed to
+   * an integer).
+   *
+   * @return isFloatSamplingRateEnabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_FLOAT_SAMPLING_RATE_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsFloatSamplingRateEnabled() {
+    return isFloatSamplingRateEnabled;
+  }
+
+  public void setIsFloatSamplingRateEnabled(Boolean isFloatSamplingRateEnabled) {
+    this.isFloatSamplingRateEnabled = isFloatSamplingRateEnabled;
+  }
+
   public SensitiveDataScannerMeta isPciCompliant(Boolean isPciCompliant) {
     this.isPciCompliant = isPciCompliant;
     return this;
@@ -156,6 +187,28 @@ public class SensitiveDataScannerMeta {
 
   public void setIsPciCompliant(Boolean isPciCompliant) {
     this.isPciCompliant = isPciCompliant;
+  }
+
+  public SensitiveDataScannerMeta minSamplingRate(Double minSamplingRate) {
+    this.minSamplingRate = minSamplingRate;
+    return this;
+  }
+
+  /**
+   * Global minimum sampling rate allowed for all product within the org. minimum: 0.0 maximum:
+   * 100.0
+   *
+   * @return minSamplingRate
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MIN_SAMPLING_RATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getMinSamplingRate() {
+    return minSamplingRate;
+  }
+
+  public void setMinSamplingRate(Double minSamplingRate) {
+    this.minSamplingRate = minSamplingRate;
   }
 
   public SensitiveDataScannerMeta version(Long version) {
@@ -239,7 +292,10 @@ public class SensitiveDataScannerMeta {
         && Objects.equals(this.groupCountLimit, sensitiveDataScannerMeta.groupCountLimit)
         && Objects.equals(this.hasHighlightEnabled, sensitiveDataScannerMeta.hasHighlightEnabled)
         && Objects.equals(this.hasMultiPassEnabled, sensitiveDataScannerMeta.hasMultiPassEnabled)
+        && Objects.equals(
+            this.isFloatSamplingRateEnabled, sensitiveDataScannerMeta.isFloatSamplingRateEnabled)
         && Objects.equals(this.isPciCompliant, sensitiveDataScannerMeta.isPciCompliant)
+        && Objects.equals(this.minSamplingRate, sensitiveDataScannerMeta.minSamplingRate)
         && Objects.equals(this.version, sensitiveDataScannerMeta.version)
         && Objects.equals(this.additionalProperties, sensitiveDataScannerMeta.additionalProperties);
   }
@@ -251,7 +307,9 @@ public class SensitiveDataScannerMeta {
         groupCountLimit,
         hasHighlightEnabled,
         hasMultiPassEnabled,
+        isFloatSamplingRateEnabled,
         isPciCompliant,
+        minSamplingRate,
         version,
         additionalProperties);
   }
@@ -268,7 +326,11 @@ public class SensitiveDataScannerMeta {
     sb.append("    hasMultiPassEnabled: ")
         .append(toIndentedString(hasMultiPassEnabled))
         .append("\n");
+    sb.append("    isFloatSamplingRateEnabled: ")
+        .append(toIndentedString(isFloatSamplingRateEnabled))
+        .append("\n");
     sb.append("    isPciCompliant: ").append(toIndentedString(isPciCompliant)).append("\n");
+    sb.append("    minSamplingRate: ").append(toIndentedString(minSamplingRate)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

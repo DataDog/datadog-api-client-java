@@ -24,6 +24,7 @@ import java.util.Objects;
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_EXCLUDED_NAMESPACES,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_INCLUDED_KEYWORD_CONFIGURATION,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_IS_ENABLED,
+  SensitiveDataScannerRuleAttributes.JSON_PROPERTY_LABELS,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_NAME,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_NAMESPACES,
   SensitiveDataScannerRuleAttributes.JSON_PROPERTY_PATTERN,
@@ -47,6 +48,9 @@ public class SensitiveDataScannerRuleAttributes {
 
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled;
+
+  public static final String JSON_PROPERTY_LABELS = "labels";
+  private List<String> labels = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -164,6 +168,35 @@ public class SensitiveDataScannerRuleAttributes {
 
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
+  }
+
+  public SensitiveDataScannerRuleAttributes labels(List<String> labels) {
+    this.labels = labels;
+    return this;
+  }
+
+  public SensitiveDataScannerRuleAttributes addLabelsItem(String labelsItem) {
+    if (this.labels == null) {
+      this.labels = new ArrayList<>();
+    }
+    this.labels.add(labelsItem);
+    return this;
+  }
+
+  /**
+   * List of labels.
+   *
+   * @return labels
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LABELS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getLabels() {
+    return labels;
+  }
+
+  public void setLabels(List<String> labels) {
+    this.labels = labels;
   }
 
   public SensitiveDataScannerRuleAttributes name(String name) {
@@ -375,6 +408,7 @@ public class SensitiveDataScannerRuleAttributes {
             this.includedKeywordConfiguration,
             sensitiveDataScannerRuleAttributes.includedKeywordConfiguration)
         && Objects.equals(this.isEnabled, sensitiveDataScannerRuleAttributes.isEnabled)
+        && Objects.equals(this.labels, sensitiveDataScannerRuleAttributes.labels)
         && Objects.equals(this.name, sensitiveDataScannerRuleAttributes.name)
         && Objects.equals(this.namespaces, sensitiveDataScannerRuleAttributes.namespaces)
         && Objects.equals(this.pattern, sensitiveDataScannerRuleAttributes.pattern)
@@ -392,6 +426,7 @@ public class SensitiveDataScannerRuleAttributes {
         excludedNamespaces,
         includedKeywordConfiguration,
         isEnabled,
+        labels,
         name,
         namespaces,
         pattern,
@@ -411,6 +446,7 @@ public class SensitiveDataScannerRuleAttributes {
         .append(toIndentedString(includedKeywordConfiguration))
         .append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
     sb.append("    pattern: ").append(toIndentedString(pattern)).append("\n");
