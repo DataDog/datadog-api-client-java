@@ -13,12 +13,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes to create a DORA deployment event. */
 @JsonPropertyOrder({
+  DORADeploymentRequestAttributes.JSON_PROPERTY_CUSTOM_TAGS,
   DORADeploymentRequestAttributes.JSON_PROPERTY_ENV,
   DORADeploymentRequestAttributes.JSON_PROPERTY_FINISHED_AT,
   DORADeploymentRequestAttributes.JSON_PROPERTY_GIT,
@@ -32,6 +36,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DORADeploymentRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CUSTOM_TAGS = "custom_tags";
+  private JsonNullable<List<String>> customTags = JsonNullable.<List<String>>undefined();
+
   public static final String JSON_PROPERTY_ENV = "env";
   private String env;
 
@@ -66,6 +73,50 @@ public class DORADeploymentRequestAttributes {
     this.finishedAt = finishedAt;
     this.service = service;
     this.startedAt = startedAt;
+  }
+
+  public DORADeploymentRequestAttributes customTags(List<String> customTags) {
+    this.customTags = JsonNullable.<List<String>>of(customTags);
+    return this;
+  }
+
+  public DORADeploymentRequestAttributes addCustomTagsItem(String customTagsItem) {
+    if (this.customTags == null || !this.customTags.isPresent()) {
+      this.customTags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.customTags.get().add(customTagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * A list of user-defined tags. The tags must follow the <code>key:value</code> pattern. Up to 100
+   * may be added per event.
+   *
+   * @return customTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getCustomTags() {
+    return customTags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getCustomTags_JsonNullable() {
+    return customTags;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)
+  public void setCustomTags_JsonNullable(JsonNullable<List<String>> customTags) {
+    this.customTags = customTags;
+  }
+
+  public void setCustomTags(List<String> customTags) {
+    this.customTags = JsonNullable.<List<String>>of(customTags);
   }
 
   public DORADeploymentRequestAttributes env(String env) {
@@ -296,7 +347,8 @@ public class DORADeploymentRequestAttributes {
     }
     DORADeploymentRequestAttributes doraDeploymentRequestAttributes =
         (DORADeploymentRequestAttributes) o;
-    return Objects.equals(this.env, doraDeploymentRequestAttributes.env)
+    return Objects.equals(this.customTags, doraDeploymentRequestAttributes.customTags)
+        && Objects.equals(this.env, doraDeploymentRequestAttributes.env)
         && Objects.equals(this.finishedAt, doraDeploymentRequestAttributes.finishedAt)
         && Objects.equals(this.git, doraDeploymentRequestAttributes.git)
         && Objects.equals(this.id, doraDeploymentRequestAttributes.id)
@@ -311,13 +363,23 @@ public class DORADeploymentRequestAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        env, finishedAt, git, id, service, startedAt, team, version, additionalProperties);
+        customTags,
+        env,
+        finishedAt,
+        git,
+        id,
+        service,
+        startedAt,
+        team,
+        version,
+        additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DORADeploymentRequestAttributes {\n");
+    sb.append("    customTags: ").append(toIndentedString(customTags)).append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    finishedAt: ").append(toIndentedString(finishedAt)).append("\n");
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
