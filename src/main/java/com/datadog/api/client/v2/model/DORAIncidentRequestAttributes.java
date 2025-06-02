@@ -18,9 +18,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes to create a DORA incident event. */
 @JsonPropertyOrder({
+  DORAIncidentRequestAttributes.JSON_PROPERTY_CUSTOM_TAGS,
   DORAIncidentRequestAttributes.JSON_PROPERTY_ENV,
   DORAIncidentRequestAttributes.JSON_PROPERTY_FINISHED_AT,
   DORAIncidentRequestAttributes.JSON_PROPERTY_GIT,
@@ -36,6 +38,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DORAIncidentRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CUSTOM_TAGS = "custom_tags";
+  private JsonNullable<List<String>> customTags = JsonNullable.<List<String>>undefined();
+
   public static final String JSON_PROPERTY_ENV = "env";
   private String env;
 
@@ -72,6 +77,50 @@ public class DORAIncidentRequestAttributes {
   public DORAIncidentRequestAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) Long startedAt) {
     this.startedAt = startedAt;
+  }
+
+  public DORAIncidentRequestAttributes customTags(List<String> customTags) {
+    this.customTags = JsonNullable.<List<String>>of(customTags);
+    return this;
+  }
+
+  public DORAIncidentRequestAttributes addCustomTagsItem(String customTagsItem) {
+    if (this.customTags == null || !this.customTags.isPresent()) {
+      this.customTags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.customTags.get().add(customTagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * A list of user-defined tags. The tags must follow the <code>key:value</code> pattern. Up to 100
+   * may be added per event.
+   *
+   * @return customTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getCustomTags() {
+    return customTags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getCustomTags_JsonNullable() {
+    return customTags;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)
+  public void setCustomTags_JsonNullable(JsonNullable<List<String>> customTags) {
+    this.customTags = customTags;
+  }
+
+  public void setCustomTags(List<String> customTags) {
+    this.customTags = JsonNullable.<List<String>>of(customTags);
   }
 
   public DORAIncidentRequestAttributes env(String env) {
@@ -353,7 +402,8 @@ public class DORAIncidentRequestAttributes {
       return false;
     }
     DORAIncidentRequestAttributes doraIncidentRequestAttributes = (DORAIncidentRequestAttributes) o;
-    return Objects.equals(this.env, doraIncidentRequestAttributes.env)
+    return Objects.equals(this.customTags, doraIncidentRequestAttributes.customTags)
+        && Objects.equals(this.env, doraIncidentRequestAttributes.env)
         && Objects.equals(this.finishedAt, doraIncidentRequestAttributes.finishedAt)
         && Objects.equals(this.git, doraIncidentRequestAttributes.git)
         && Objects.equals(this.id, doraIncidentRequestAttributes.id)
@@ -370,6 +420,7 @@ public class DORAIncidentRequestAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        customTags,
         env,
         finishedAt,
         git,
@@ -387,6 +438,7 @@ public class DORAIncidentRequestAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DORAIncidentRequestAttributes {\n");
+    sb.append("    customTags: ").append(toIndentedString(customTags)).append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    finishedAt: ").append(toIndentedString(finishedAt)).append("\n");
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
