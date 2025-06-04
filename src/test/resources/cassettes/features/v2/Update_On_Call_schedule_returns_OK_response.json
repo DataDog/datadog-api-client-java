@@ -3,7 +3,37 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-05-11T11:01:58.116Z\",\"end_date\":\"2025-05-31T11:01:58.116Z\",\"interval\":{\"days\":1},\"members\":[{\"user\":{\"id\":\"890f29d4-0b7a-11f0-aeb2-760fcae4f596\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-05-16T11:01:58.116Z\"}],\"name\":\"Test-Update_On_Call_schedule_returns_OK_response-1747825318\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Update_On_Call_schedule_returns_OK_response-1748494464@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/users",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"fe6b1fbd-3c48-11f0-90c9-4ad2f0f8c382\",\"attributes\":{\"name\":null,\"handle\":\"test-update_on_call_schedule_returns_ok_response-1748494464@datadoghq.com\",\"created_at\":\"2025-05-29T04:54:25.223093+00:00\",\"modified_at\":\"2025-05-29T04:54:25.223093+00:00\",\"email\":\"test-update_on_call_schedule_returns_ok_response-1748494464@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/6bc23e301121dc7a0a2d1adc71bbbc54?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "3dfc52a4-3481-6e93-eef6-f7a0b8e7f737"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-05-19T04:54:24.605Z\",\"end_date\":\"2025-06-08T04:54:24.605Z\",\"interval\":{\"days\":1},\"members\":[{\"user\":{\"id\":\"fe6b1fbd-3c48-11f0-90c9-4ad2f0f8c382\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-05-24T04:54:24.605Z\"}],\"name\":\"Test-Update_On_Call_schedule_returns_OK_response-1748494464\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"65e112fe-2c12-4a2b-8406-522b07cccd1c\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Update_On_Call_schedule_returns_OK_response-1747825318\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"7f8a6ed7-bc86-48ef-872b-f68b05b28f6b\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}}}}",
+      "body": "{\"data\":{\"id\":\"f12650c6-beae-40fd-a686-7e57d72216c6\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Update_On_Call_schedule_returns_OK_response-1748494464\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"b9dca7b6-b083-44d3-9971-6c2c796fb352\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,43 +57,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4bbdc4b2-b26b-3006-ddc2-2fa0644c9b37"
+    "id": "b1a4eb5b-8ba3-5920-f3aa-28a98ae8704e"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Update_On_Call_schedule_returns_OK_response-1747825318@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
-      },
-      "headers": {},
-      "method": "POST",
-      "path": "/api/v2/users",
-      "keepAlive": false,
-      "secure": true
-    },
-    "httpResponse": {
-      "body": "{\"data\":{\"type\":\"users\",\"id\":\"03c4b5bd-3633-11f0-8139-36deebce65db\",\"attributes\":{\"name\":null,\"handle\":\"test-update_on_call_schedule_returns_ok_response-1747825318@datadoghq.com\",\"created_at\":\"2025-05-21T11:01:58.294092+00:00\",\"modified_at\":\"2025-05-21T11:01:58.294092+00:00\",\"email\":\"test-update_on_call_schedule_returns_ok_response-1747825318@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/e928709686b830ca3733b32dcf0e20e6?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
-      "headers": {
-        "Content-Type": [
-          "application/json"
-        ]
-      },
-      "statusCode": 201,
-      "reasonPhrase": "Created"
-    },
-    "times": {
-      "remainingTimes": 1
-    },
-    "timeToLive": {
-      "unlimited": true
-    },
-    "id": "c87be681-aa6b-bf03-699b-4afc6b0a8c9e"
-  },
-  {
-    "httpRequest": {
-      "body": {
-        "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-190dee1bd22c94a1\",\"name\":\"test-name-190dee1bd22c94a1\"},\"type\":\"team\"}}"
+        "json": "{\"data\":{\"attributes\":{\"handle\":\"test-handle-ed2e958dacae5dbc\",\"name\":\"test-name-ed2e958dacae5dbc\"},\"type\":\"team\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -72,7 +72,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"team\",\"id\":\"72687222-d9aa-4f6a-8af2-1f1811c66378\",\"attributes\":{\"name\":\"test-name-190dee1bd22c94a1\",\"handle\":\"test-handle-190dee1bd22c94a1\",\"summary\":null,\"description\":null,\"avatar\":null,\"banner\":7,\"visible_modules\":[],\"hidden_modules\":[],\"created_at\":\"2025-05-21T11:01:58.429935+00:00\",\"modified_at\":\"2025-05-21T11:01:58.429944+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/72687222-d9aa-4f6a-8af2-1f1811c66378/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/72687222-d9aa-4f6a-8af2-1f1811c66378/permission-settings\"}}}}}\n",
+      "body": "{\"data\":{\"type\":\"team\",\"id\":\"522c3ff2-76b4-41db-8cfa-9bb9876145e4\",\"attributes\":{\"name\":\"test-name-ed2e958dacae5dbc\",\"handle\":\"test-handle-ed2e958dacae5dbc\",\"summary\":null,\"description\":null,\"avatar\":null,\"banner\":13,\"visible_modules\":[],\"hidden_modules\":[],\"created_at\":\"2025-05-29T04:54:26.535052+00:00\",\"modified_at\":\"2025-05-29T04:54:26.535061+00:00\",\"user_count\":0,\"link_count\":0},\"relationships\":{\"team_links\":{\"links\":{\"related\":\"/api/v2/team/522c3ff2-76b4-41db-8cfa-9bb9876145e4/links\"}},\"user_team_permissions\":{\"links\":{\"related\":\"/api/v2/team/522c3ff2-76b4-41db-8cfa-9bb9876145e4/permission-settings\"}}}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -87,22 +87,22 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5957d0f5-859b-a70c-9b95-76f56c3cd867"
+    "id": "f81af878-7e5d-3dca-59c1-05a2db811a71"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-05-11T11:01:58.116Z\",\"end_date\":\"2025-05-31T11:01:58.116Z\",\"id\":\"7f8a6ed7-bc86-48ef-872b-f68b05b28f6b\",\"interval\":{\"seconds\":300},\"members\":[{\"user\":{\"id\":\"03c4b5bd-3633-11f0-8139-36deebce65db\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-05-16T11:01:58.116Z\"}],\"name\":\"Test-Update_On_Call_schedule_returns_OK_response-1747825318\",\"time_zone\":\"America/New_York\"},\"id\":\"65e112fe-2c12-4a2b-8406-522b07cccd1c\",\"relationships\":{\"teams\":{\"data\":[{\"id\":\"72687222-d9aa-4f6a-8af2-1f1811c66378\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
+        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-05-19T04:54:24.605Z\",\"end_date\":\"2025-06-08T04:54:24.605Z\",\"id\":\"b9dca7b6-b083-44d3-9971-6c2c796fb352\",\"interval\":{\"seconds\":300},\"members\":[{\"user\":{\"id\":\"fe6b1fbd-3c48-11f0-90c9-4ad2f0f8c382\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-05-24T04:54:24.605Z\"}],\"name\":\"Test-Update_On_Call_schedule_returns_OK_response-1748494464\",\"time_zone\":\"America/New_York\"},\"id\":\"f12650c6-beae-40fd-a686-7e57d72216c6\",\"relationships\":{\"teams\":{\"data\":[{\"id\":\"522c3ff2-76b4-41db-8cfa-9bb9876145e4\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
       },
       "headers": {},
       "method": "PUT",
-      "path": "/api/v2/on-call/schedules/65e112fe-2c12-4a2b-8406-522b07cccd1c",
+      "path": "/api/v2/on-call/schedules/f12650c6-beae-40fd-a686-7e57d72216c6",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"65e112fe-2c12-4a2b-8406-522b07cccd1c\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Update_On_Call_schedule_returns_OK_response-1747825318\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"7f8a6ed7-bc86-48ef-872b-f68b05b28f6b\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"72687222-d9aa-4f6a-8af2-1f1811c66378\",\"type\":\"teams\"}]}}}}",
+      "body": "{\"data\":{\"id\":\"f12650c6-beae-40fd-a686-7e57d72216c6\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Update_On_Call_schedule_returns_OK_response-1748494464\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"b9dca7b6-b083-44d3-9971-6c2c796fb352\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"522c3ff2-76b4-41db-8cfa-9bb9876145e4\",\"type\":\"teams\"}]}}}}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -117,13 +117,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a396a16a-4047-1816-9651-ec2c1f736658"
+    "id": "57417837-6494-49bf-fc24-806ec352e923"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/team/72687222-d9aa-4f6a-8af2-1f1811c66378",
+      "path": "/api/v2/team/522c3ff2-76b4-41db-8cfa-9bb9876145e4",
       "keepAlive": false,
       "secure": true
     },
@@ -138,13 +138,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0d4a8e39-56a5-dcfe-41be-f83eb53a9bae"
+    "id": "524bfd86-c3a2-55f6-aac5-5c75b9594611"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/users/03c4b5bd-3633-11f0-8139-36deebce65db",
+      "path": "/api/v2/on-call/schedules/f12650c6-beae-40fd-a686-7e57d72216c6",
       "keepAlive": false,
       "secure": true
     },
@@ -159,13 +159,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c65430c9-e3a7-b60c-a8f4-dd3ca0165478"
+    "id": "f82cfa04-ac52-3400-073a-dc3acc5b676f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/on-call/schedules/65e112fe-2c12-4a2b-8406-522b07cccd1c",
+      "path": "/api/v2/users/fe6b1fbd-3c48-11f0-90c9-4ad2f0f8c382",
       "keepAlive": false,
       "secure": true
     },
@@ -180,6 +180,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3325aba1-a2b7-5b2f-5aed-16a1bc5465c6"
+    "id": "55faab6d-00cb-54aa-8835-da815c33db09"
   }
 ]
