@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"filter\":{\"tags\":[\"app:test-delete_a_monitor_notification_rule_returns_ok_response-1744280987\"]},\"name\":\"test rule\",\"recipients\":[\"slack-monitor-app\"]},\"type\":\"monitor-notification-rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"tags\":[\"app:test-delete_a_monitor_notification_rule_returns_ok_response-1743713883\"]},\"name\":\"test rule\",\"recipients\":[\"slack-monitor-app\"]},\"type\":\"monitor-notification-rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"monitor-notification-rule\",\"relationships\":{\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}},\"attributes\":{\"filter\":{\"tags\":[\"app:test-delete_a_monitor_notification_rule_returns_ok_response-1744280987\"]},\"created_at\":\"2025-04-10T10:29:47.326243+00:00\",\"name\":\"test rule\",\"recipients\":[\"slack-monitor-app\"],\"modified_at\":\"1970-01-01T00:00:00+00:00\"},\"id\":\"66e399af-c07e-414d-b4f2-93e196d7b7b7\"},\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\",\"created_at\":\"2019-10-02T08:15:39.795051+00:00\",\"modified_at\":\"2025-04-07T20:19:46.118466+00:00\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Active\"}}]}\n",
+      "body": "{\"data\":{\"type\":\"monitor-notification-rule\",\"id\":\"cef4c2c7-27b3-4259-9bdd-ec434b4a8a0e\",\"attributes\":{\"creator_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"name\":\"test rule\",\"created_at\":\"2025-04-03T20:58:03.555501+00:00\",\"modified_at\":\"1970-01-01T00:00:00+00:00\",\"filter\":{\"tags\":[\"app:test-delete_a_monitor_notification_rule_returns_ok_response-1743713883\"]},\"recipients\":[\"slack-monitor-app\"]}}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f29d6b1a-1390-0907-8849-e50300212a7b"
+    "id": "cc9c5eec-9fe0-5613-6313-f12924098385"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/monitor/notification_rule/66e399af-c07e-414d-b4f2-93e196d7b7b7",
+      "path": "/api/v2/monitor/notification_rule/cef4c2c7-27b3-4259-9bdd-ec434b4a8a0e",
       "keepAlive": false,
       "secure": true
     },
@@ -52,18 +52,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "eb4ba1ca-e100-619c-3b62-8ac1142bd6df"
+    "id": "48ef7220-800a-880b-4825-cf5ede8d013f"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/monitor/notification_rule/66e399af-c07e-414d-b4f2-93e196d7b7b7",
+      "path": "/api/v2/monitor/notification_rule/cef4c2c7-27b3-4259-9bdd-ec434b4a8a0e",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Monitor Notification Rule not found\"]}",
+      "body": "{\"errors\":[\"Monitor notification rule not found\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "eb4ba1ca-e100-619c-3b62-8ac1142bd6e0"
+    "id": "48ef7220-800a-880b-4825-cf5ede8d0140"
   }
 ]
