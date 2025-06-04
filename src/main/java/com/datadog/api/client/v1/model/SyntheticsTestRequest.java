@@ -33,6 +33,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER_PORT,
   SyntheticsTestRequest.JSON_PROPERTY_FILES,
   SyntheticsTestRequest.JSON_PROPERTY_FOLLOW_REDIRECTS,
+  SyntheticsTestRequest.JSON_PROPERTY_FORM,
   SyntheticsTestRequest.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
   SyntheticsTestRequest.JSON_PROPERTY_HTTP_VERSION,
@@ -93,6 +94,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_FOLLOW_REDIRECTS = "follow_redirects";
   private Boolean followRedirects;
+
+  public static final String JSON_PROPERTY_FORM = "form";
+  private Map<String, String> form = null;
 
   public static final String JSON_PROPERTY_HEADERS = "headers";
   private Map<String, String> headers = null;
@@ -414,7 +418,8 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * Files to be used as part of the request in the test.
+   * Files to be used as part of the request in the test. Only valid if <code>bodyType</code> is
+   * <code>multipart/form-data</code>.
    *
    * @return files
    */
@@ -448,6 +453,36 @@ public class SyntheticsTestRequest {
 
   public void setFollowRedirects(Boolean followRedirects) {
     this.followRedirects = followRedirects;
+  }
+
+  public SyntheticsTestRequest form(Map<String, String> form) {
+    this.form = form;
+    return this;
+  }
+
+  public SyntheticsTestRequest putFormItem(String key, String formItem) {
+    if (this.form == null) {
+      this.form = new HashMap<>();
+    }
+    this.form.put(key, formItem);
+    return this;
+  }
+
+  /**
+   * Form to be used as part of the request in the test. Only valid if <code>bodyType</code> is
+   * <code>multipart/form-data</code>.
+   *
+   * @return form
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getForm() {
+    return form;
+  }
+
+  public void setForm(Map<String, String> form) {
+    this.form = form;
   }
 
   public SyntheticsTestRequest headers(Map<String, String> headers) {
@@ -903,6 +938,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.dnsServerPort, syntheticsTestRequest.dnsServerPort)
         && Objects.equals(this.files, syntheticsTestRequest.files)
         && Objects.equals(this.followRedirects, syntheticsTestRequest.followRedirects)
+        && Objects.equals(this.form, syntheticsTestRequest.form)
         && Objects.equals(this.headers, syntheticsTestRequest.headers)
         && Objects.equals(this.host, syntheticsTestRequest.host)
         && Objects.equals(this.httpVersion, syntheticsTestRequest.httpVersion)
@@ -939,6 +975,7 @@ public class SyntheticsTestRequest {
         dnsServerPort,
         files,
         followRedirects,
+        form,
         headers,
         host,
         httpVersion,
@@ -980,6 +1017,7 @@ public class SyntheticsTestRequest {
     sb.append("    dnsServerPort: ").append(toIndentedString(dnsServerPort)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
+    sb.append("    form: ").append(toIndentedString(form)).append("\n");
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
