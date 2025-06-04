@@ -23,15 +23,18 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_ACTIONS,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_AGENT_CONSTRAINT,
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_BLOCKING,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CATEGORY,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CREATION_AUTHOR_UU_ID,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CREATION_DATE,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_CREATOR,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_DEFAULT_RULE,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_DESCRIPTION,
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_DISABLED,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_ENABLED,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_EXPRESSION,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_FILTERS,
+  CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_MONITORING,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_NAME,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_PRODUCT_TAGS,
   CloudWorkloadSecurityAgentRuleAttributes.JSON_PROPERTY_UPDATE_AUTHOR_UU_ID,
@@ -51,6 +54,9 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   public static final String JSON_PROPERTY_AGENT_CONSTRAINT = "agentConstraint";
   private String agentConstraint;
 
+  public static final String JSON_PROPERTY_BLOCKING = "blocking";
+  private List<String> blocking = null;
+
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private String category;
 
@@ -69,6 +75,9 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public static final String JSON_PROPERTY_DISABLED = "disabled";
+  private List<String> disabled = null;
+
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
 
@@ -77,6 +86,9 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<String> filters = null;
+
+  public static final String JSON_PROPERTY_MONITORING = "monitoring";
+  private List<String> monitoring = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -164,6 +176,35 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public void setAgentConstraint(String agentConstraint) {
     this.agentConstraint = agentConstraint;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAttributes blocking(List<String> blocking) {
+    this.blocking = blocking;
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAttributes addBlockingItem(String blockingItem) {
+    if (this.blocking == null) {
+      this.blocking = new ArrayList<>();
+    }
+    this.blocking.add(blockingItem);
+    return this;
+  }
+
+  /**
+   * The blocking policies that the rule belongs to
+   *
+   * @return blocking
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BLOCKING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getBlocking() {
+    return blocking;
+  }
+
+  public void setBlocking(List<String> blocking) {
+    this.blocking = blocking;
   }
 
   public CloudWorkloadSecurityAgentRuleAttributes category(String category) {
@@ -294,6 +335,35 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     this.description = description;
   }
 
+  public CloudWorkloadSecurityAgentRuleAttributes disabled(List<String> disabled) {
+    this.disabled = disabled;
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAttributes addDisabledItem(String disabledItem) {
+    if (this.disabled == null) {
+      this.disabled = new ArrayList<>();
+    }
+    this.disabled.add(disabledItem);
+    return this;
+  }
+
+  /**
+   * The disabled policies that the rule belongs to
+   *
+   * @return disabled
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDisabled() {
+    return disabled;
+  }
+
+  public void setDisabled(List<String> disabled) {
+    this.disabled = disabled;
+  }
+
   public CloudWorkloadSecurityAgentRuleAttributes enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
@@ -363,6 +433,35 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
 
   public void setFilters(List<String> filters) {
     this.filters = filters;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAttributes monitoring(List<String> monitoring) {
+    this.monitoring = monitoring;
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAttributes addMonitoringItem(String monitoringItem) {
+    if (this.monitoring == null) {
+      this.monitoring = new ArrayList<>();
+    }
+    this.monitoring.add(monitoringItem);
+    return this;
+  }
+
+  /**
+   * The monitoring policies that the rule belongs to
+   *
+   * @return monitoring
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MONITORING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getMonitoring() {
+    return monitoring;
+  }
+
+  public void setMonitoring(List<String> monitoring) {
+    this.monitoring = monitoring;
   }
 
   public CloudWorkloadSecurityAgentRuleAttributes name(String name) {
@@ -582,6 +681,7 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     return Objects.equals(this.actions, cloudWorkloadSecurityAgentRuleAttributes.actions)
         && Objects.equals(
             this.agentConstraint, cloudWorkloadSecurityAgentRuleAttributes.agentConstraint)
+        && Objects.equals(this.blocking, cloudWorkloadSecurityAgentRuleAttributes.blocking)
         && Objects.equals(this.category, cloudWorkloadSecurityAgentRuleAttributes.category)
         && Objects.equals(
             this.creationAuthorUuId, cloudWorkloadSecurityAgentRuleAttributes.creationAuthorUuId)
@@ -589,9 +689,11 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
         && Objects.equals(this.creator, cloudWorkloadSecurityAgentRuleAttributes.creator)
         && Objects.equals(this.defaultRule, cloudWorkloadSecurityAgentRuleAttributes.defaultRule)
         && Objects.equals(this.description, cloudWorkloadSecurityAgentRuleAttributes.description)
+        && Objects.equals(this.disabled, cloudWorkloadSecurityAgentRuleAttributes.disabled)
         && Objects.equals(this.enabled, cloudWorkloadSecurityAgentRuleAttributes.enabled)
         && Objects.equals(this.expression, cloudWorkloadSecurityAgentRuleAttributes.expression)
         && Objects.equals(this.filters, cloudWorkloadSecurityAgentRuleAttributes.filters)
+        && Objects.equals(this.monitoring, cloudWorkloadSecurityAgentRuleAttributes.monitoring)
         && Objects.equals(this.name, cloudWorkloadSecurityAgentRuleAttributes.name)
         && Objects.equals(this.productTags, cloudWorkloadSecurityAgentRuleAttributes.productTags)
         && Objects.equals(
@@ -610,15 +712,18 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     return Objects.hash(
         actions,
         agentConstraint,
+        blocking,
         category,
         creationAuthorUuId,
         creationDate,
         creator,
         defaultRule,
         description,
+        disabled,
         enabled,
         expression,
         filters,
+        monitoring,
         name,
         productTags,
         updateAuthorUuId,
@@ -635,15 +740,18 @@ public class CloudWorkloadSecurityAgentRuleAttributes {
     sb.append("class CloudWorkloadSecurityAgentRuleAttributes {\n");
     sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
     sb.append("    agentConstraint: ").append(toIndentedString(agentConstraint)).append("\n");
+    sb.append("    blocking: ").append(toIndentedString(blocking)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    creationAuthorUuId: ").append(toIndentedString(creationAuthorUuId)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    defaultRule: ").append(toIndentedString(defaultRule)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    monitoring: ").append(toIndentedString(monitoring)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    productTags: ").append(toIndentedString(productTags)).append("\n");
     sb.append("    updateAuthorUuId: ").append(toIndentedString(updateAuthorUuId)).append("\n");

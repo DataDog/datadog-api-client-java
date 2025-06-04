@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testgetaworkloadprotectionagentruleus1fedreturnsokresponse1747319669\"},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testgetaworkloadprotectionagentruleus1fedreturnsokresponse1748341509\"},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"edf-58c-lqp\",\"attributes\":{\"version\":1,\"name\":\"testgetaworkloadprotectionagentruleus1fedreturnsokresponse1747319669\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"defaultRule\":false,\"enabled\":true,\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1747319669780,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1747319669780,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"ser-ofz-4ms\",\"attributes\":{\"version\":1,\"name\":\"testgetaworkloadprotectionagentruleus1fedreturnsokresponse1748341509\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"defaultRule\":false,\"enabled\":true,\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1748341510125,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1748341510125,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,18 +27,18 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f2497205-a6e0-8861-4793-ed839e315b64"
+    "id": "68f95447-e730-25ba-1a49-28c41592e64b"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "GET",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/edf-58c-lqp",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ser-ofz-4ms",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"edf-58c-lqp\",\"attributes\":{\"version\":1,\"name\":\"testgetaworkloadprotectionagentruleus1fedreturnsokresponse1747319669\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"defaultRule\":false,\"enabled\":true,\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1747319669780,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1747319669780,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
+      "body": "{\"data\":{\"id\":\"ser-ofz-4ms\",\"attributes\":{\"version\":1,\"name\":\"testgetaworkloadprotectionagentruleus1fedreturnsokresponse1748341509\",\"description\":\"My Agent rule\",\"expression\":\"exec.file.name == \\\"sh\\\"\",\"category\":\"Process Activity\",\"defaultRule\":false,\"enabled\":true,\"creationAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creationDate\":1748341510125,\"updateAuthorUuId\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"updateDate\":1748341510125,\"filters\":[\"os == \\\"linux\\\"\"],\"actions\":[],\"agentConstraint\":\"\",\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}},\"type\":\"agent_rule\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -53,13 +53,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e45d6e75-910f-d297-145c-6198d6bd3a95"
+    "id": "6fbe4c41-69d5-7f60-1163-db5e2c06e287"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/edf-58c-lqp",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/ser-ofz-4ms",
       "keepAlive": false,
       "secure": true
     },
@@ -74,6 +74,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2c9d5d85-9db7-a45a-389b-62debaaf55dc"
+    "id": "8d34d34a-25ea-9711-4aaf-47087023439c"
   }
 ]
