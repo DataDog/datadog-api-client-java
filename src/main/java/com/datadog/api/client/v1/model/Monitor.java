@@ -26,6 +26,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Monitor.JSON_PROPERTY_CREATED,
   Monitor.JSON_PROPERTY_CREATOR,
   Monitor.JSON_PROPERTY_DELETED,
+  Monitor.JSON_PROPERTY_DRAFT_STATUS,
   Monitor.JSON_PROPERTY_ID,
   Monitor.JSON_PROPERTY_MATCHING_DOWNTIMES,
   Monitor.JSON_PROPERTY_MESSAGE,
@@ -53,6 +54,9 @@ public class Monitor {
 
   public static final String JSON_PROPERTY_DELETED = "deleted";
   private JsonNullable<OffsetDateTime> deleted = JsonNullable.<OffsetDateTime>undefined();
+
+  public static final String JSON_PROPERTY_DRAFT_STATUS = "draft_status";
+  private MonitorDraftStatus draftStatus = MonitorDraftStatus.PUBLISHED;
 
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
@@ -155,6 +159,37 @@ public class Monitor {
   @JsonProperty(JSON_PROPERTY_DELETED)
   private void setDeleted_JsonNullable(JsonNullable<OffsetDateTime> deleted) {
     this.deleted = deleted;
+  }
+
+  public Monitor draftStatus(MonitorDraftStatus draftStatus) {
+    this.draftStatus = draftStatus;
+    this.unparsed |= !draftStatus.isValid();
+    return this;
+  }
+
+  /**
+   * Indicates whether the monitor is in a draft or published state.
+   *
+   * <p><code>draft</code>: The monitor appears as Draft and does not send notifications. <code>
+   * published</code>: The monitor is active and evaluates conditions and notify as configured.
+   *
+   * <p>This field is in preview. The draft value is only available to customers with the feature
+   * enabled.
+   *
+   * @return draftStatus
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DRAFT_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorDraftStatus getDraftStatus() {
+    return draftStatus;
+  }
+
+  public void setDraftStatus(MonitorDraftStatus draftStatus) {
+    if (!draftStatus.isValid()) {
+      this.unparsed = true;
+    }
+    this.draftStatus = draftStatus;
   }
 
   /**
@@ -528,6 +563,7 @@ public class Monitor {
     return Objects.equals(this.created, monitor.created)
         && Objects.equals(this.creator, monitor.creator)
         && Objects.equals(this.deleted, monitor.deleted)
+        && Objects.equals(this.draftStatus, monitor.draftStatus)
         && Objects.equals(this.id, monitor.id)
         && Objects.equals(this.matchingDowntimes, monitor.matchingDowntimes)
         && Objects.equals(this.message, monitor.message)
@@ -551,6 +587,7 @@ public class Monitor {
         created,
         creator,
         deleted,
+        draftStatus,
         id,
         matchingDowntimes,
         message,
@@ -575,6 +612,7 @@ public class Monitor {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    draftStatus: ").append(toIndentedString(draftStatus)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    matchingDowntimes: ").append(toIndentedString(matchingDowntimes)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
