@@ -86,11 +86,14 @@ public class EventsApi {
   /**
    * This endpoint allows you to post events.
    *
-   * <p>✅ <strong>Only events with the <code>change</code> category</strong> are in General
-   * Availability. See <a href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for
-   * more details.
+   * <p>✅ <strong>Only events with the <code>change</code> or <code>alert</code> category</strong>
+   * are in General Availability. For change events, see <a
+   * href="https://docs.datadoghq.com/change_tracking">Change Tracking</a> for more details.
    *
    * <p>❌ For use cases involving other event categories, please use the V1 endpoint.
+   *
+   * <p>❌ Currently, notifications are not supported for events sent to this endpoint, please use
+   * the V1 endpoint for notification functionality.
    *
    * @param body Event request object (required)
    * @return ApiResponse&lt;EventCreateResponsePayload&gt;
@@ -99,7 +102,7 @@ public class EventsApi {
    *     <table border="1">
    *    <caption>Response details</caption>
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>

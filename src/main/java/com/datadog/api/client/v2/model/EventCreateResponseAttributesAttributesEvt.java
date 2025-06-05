@@ -17,7 +17,10 @@ import java.util.Map;
 import java.util.Objects;
 
 /** JSON object of event system attributes. */
-@JsonPropertyOrder({EventCreateResponseAttributesAttributesEvt.JSON_PROPERTY_ID})
+@JsonPropertyOrder({
+  EventCreateResponseAttributesAttributesEvt.JSON_PROPERTY_ID,
+  EventCreateResponseAttributesAttributesEvt.JSON_PROPERTY_UID
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventCreateResponseAttributesAttributesEvt {
@@ -25,16 +28,21 @@ public class EventCreateResponseAttributesAttributesEvt {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
+  public static final String JSON_PROPERTY_UID = "uid";
+  private String uid;
+
   public EventCreateResponseAttributesAttributesEvt id(String id) {
     this.id = id;
     return this;
   }
 
   /**
-   * Event id
+   * (Deprecated) Event id. Use <code>uid</code> instead.
    *
    * @return id
+   * @deprecated
    */
+  @Deprecated
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -42,8 +50,30 @@ public class EventCreateResponseAttributesAttributesEvt {
     return id;
   }
 
+  @Deprecated
   public void setId(String id) {
     this.id = id;
+  }
+
+  public EventCreateResponseAttributesAttributesEvt uid(String uid) {
+    this.uid = uid;
+    return this;
+  }
+
+  /**
+   * A unique identifier for the event. You can use this id to query or reference the event.
+   *
+   * @return uid
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUid() {
+    return uid;
+  }
+
+  public void setUid(String uid) {
+    this.uid = uid;
   }
 
   /**
@@ -105,6 +135,7 @@ public class EventCreateResponseAttributesAttributesEvt {
     EventCreateResponseAttributesAttributesEvt eventCreateResponseAttributesAttributesEvt =
         (EventCreateResponseAttributesAttributesEvt) o;
     return Objects.equals(this.id, eventCreateResponseAttributesAttributesEvt.id)
+        && Objects.equals(this.uid, eventCreateResponseAttributesAttributesEvt.uid)
         && Objects.equals(
             this.additionalProperties,
             eventCreateResponseAttributesAttributesEvt.additionalProperties);
@@ -112,7 +143,7 @@ public class EventCreateResponseAttributesAttributesEvt {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, additionalProperties);
+    return Objects.hash(id, uid, additionalProperties);
   }
 
   @Override
@@ -120,6 +151,7 @@ public class EventCreateResponseAttributesAttributesEvt {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventCreateResponseAttributesAttributesEvt {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

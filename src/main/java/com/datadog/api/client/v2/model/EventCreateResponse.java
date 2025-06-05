@@ -59,7 +59,7 @@ public class EventCreateResponse {
   }
 
   /**
-   * Event type
+   * Event type.
    *
    * @return type
    */
