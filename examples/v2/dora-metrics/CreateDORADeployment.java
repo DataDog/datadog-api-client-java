@@ -12,7 +12,6 @@ import com.datadog.api.client.v2.model.DORAGitInfo;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
-    defaultClient.setUnstableOperationEnabled("v2.createDORADeployment", true);
     DoraMetricsApi apiInstance = new DoraMetricsApi(defaultClient);
 
     DORADeploymentRequest body =

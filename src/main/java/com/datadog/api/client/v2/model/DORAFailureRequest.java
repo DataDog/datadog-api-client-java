@@ -17,25 +17,25 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Request to create a DORA incident event. */
-@JsonPropertyOrder({DORAIncidentRequest.JSON_PROPERTY_DATA})
+/** Request to create a DORA failure event. */
+@JsonPropertyOrder({DORAFailureRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class DORAIncidentRequest {
+public class DORAFailureRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private DORAIncidentRequestData data;
+  private DORAFailureRequestData data;
 
-  public DORAIncidentRequest() {}
+  public DORAFailureRequest() {}
 
   @JsonCreator
-  public DORAIncidentRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) DORAIncidentRequestData data) {
+  public DORAFailureRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) DORAFailureRequestData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
   }
 
-  public DORAIncidentRequest data(DORAIncidentRequestData data) {
+  public DORAFailureRequest data(DORAFailureRequestData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
@@ -48,11 +48,11 @@ public class DORAIncidentRequest {
    */
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public DORAIncidentRequestData getData() {
+  public DORAFailureRequestData getData() {
     return data;
   }
 
-  public void setData(DORAIncidentRequestData data) {
+  public void setData(DORAFailureRequestData data) {
     this.data = data;
   }
 
@@ -68,10 +68,10 @@ public class DORAIncidentRequest {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return DORAIncidentRequest
+   * @return DORAFailureRequest
    */
   @JsonAnySetter
-  public DORAIncidentRequest putAdditionalProperty(String key, Object value) {
+  public DORAFailureRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -102,7 +102,7 @@ public class DORAIncidentRequest {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this DORAIncidentRequest object is equal to o. */
+  /** Return true if this DORAFailureRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,9 +111,9 @@ public class DORAIncidentRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DORAIncidentRequest doraIncidentRequest = (DORAIncidentRequest) o;
-    return Objects.equals(this.data, doraIncidentRequest.data)
-        && Objects.equals(this.additionalProperties, doraIncidentRequest.additionalProperties);
+    DORAFailureRequest doraFailureRequest = (DORAFailureRequest) o;
+    return Objects.equals(this.data, doraFailureRequest.data)
+        && Objects.equals(this.additionalProperties, doraFailureRequest.additionalProperties);
   }
 
   @Override
@@ -124,7 +124,7 @@ public class DORAIncidentRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DORAIncidentRequest {\n");
+    sb.append("class DORAFailureRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))

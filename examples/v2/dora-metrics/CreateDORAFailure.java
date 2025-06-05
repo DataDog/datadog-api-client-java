@@ -1,4 +1,4 @@
-// Send an incident event for DORA Metrics returns "OK" response
+// Send a failure event for DORA Metrics returns "OK - but delayed due to incident" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
@@ -36,10 +36,10 @@ public class Example {
                             .version("v1.12.07")));
 
     try {
-      DORAFailureResponse result = apiInstance.createDORAIncident(body);
+      DORAFailureResponse result = apiInstance.createDORAFailure(body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DoraMetricsApi#createDORAIncident");
+      System.err.println("Exception when calling DoraMetricsApi#createDORAFailure");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
