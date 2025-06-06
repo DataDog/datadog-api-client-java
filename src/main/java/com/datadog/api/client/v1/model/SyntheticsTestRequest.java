@@ -27,6 +27,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_CALL_TYPE,
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE,
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE_DOMAINS,
+  SyntheticsTestRequest.JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION,
   SyntheticsTestRequest.JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR,
   SyntheticsTestRequest.JSON_PROPERTY_COMPRESSED_PROTO_FILE,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER,
@@ -36,6 +37,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
   SyntheticsTestRequest.JSON_PROPERTY_HTTP_VERSION,
+  SyntheticsTestRequest.JSON_PROPERTY_IS_MESSAGE_BASE64_ENCODED,
   SyntheticsTestRequest.JSON_PROPERTY_MESSAGE,
   SyntheticsTestRequest.JSON_PROPERTY_METADATA,
   SyntheticsTestRequest.JSON_PROPERTY_METHOD,
@@ -76,6 +78,10 @@ public class SyntheticsTestRequest {
   public static final String JSON_PROPERTY_CERTIFICATE_DOMAINS = "certificateDomains";
   private List<String> certificateDomains = null;
 
+  public static final String JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION =
+      "checkCertificateRevocation";
+  private Boolean checkCertificateRevocation;
+
   public static final String JSON_PROPERTY_COMPRESSED_JSON_DESCRIPTOR = "compressedJsonDescriptor";
   private String compressedJsonDescriptor;
 
@@ -102,6 +108,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_HTTP_VERSION = "httpVersion";
   private SyntheticsTestOptionsHTTPVersion httpVersion;
+
+  public static final String JSON_PROPERTY_IS_MESSAGE_BASE64_ENCODED = "isMessageBase64Encoded";
+  private Boolean isMessageBase64Encoded;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -310,6 +319,27 @@ public class SyntheticsTestRequest {
 
   public void setCertificateDomains(List<String> certificateDomains) {
     this.certificateDomains = certificateDomains;
+  }
+
+  public SyntheticsTestRequest checkCertificateRevocation(Boolean checkCertificateRevocation) {
+    this.checkCertificateRevocation = checkCertificateRevocation;
+    return this;
+  }
+
+  /**
+   * Check for certificate revocation.
+   *
+   * @return checkCertificateRevocation
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHECK_CERTIFICATE_REVOCATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCheckCertificateRevocation() {
+    return checkCertificateRevocation;
+  }
+
+  public void setCheckCertificateRevocation(Boolean checkCertificateRevocation) {
+    this.checkCertificateRevocation = checkCertificateRevocation;
   }
 
   public SyntheticsTestRequest compressedJsonDescriptor(String compressedJsonDescriptor) {
@@ -523,6 +553,27 @@ public class SyntheticsTestRequest {
       this.unparsed = true;
     }
     this.httpVersion = httpVersion;
+  }
+
+  public SyntheticsTestRequest isMessageBase64Encoded(Boolean isMessageBase64Encoded) {
+    this.isMessageBase64Encoded = isMessageBase64Encoded;
+    return this;
+  }
+
+  /**
+   * Whether the message is base64 encoded.
+   *
+   * @return isMessageBase64Encoded
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_IS_MESSAGE_BASE64_ENCODED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsMessageBase64Encoded() {
+    return isMessageBase64Encoded;
+  }
+
+  public void setIsMessageBase64Encoded(Boolean isMessageBase64Encoded) {
+    this.isMessageBase64Encoded = isMessageBase64Encoded;
   }
 
   public SyntheticsTestRequest message(String message) {
@@ -897,6 +948,8 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.certificate, syntheticsTestRequest.certificate)
         && Objects.equals(this.certificateDomains, syntheticsTestRequest.certificateDomains)
         && Objects.equals(
+            this.checkCertificateRevocation, syntheticsTestRequest.checkCertificateRevocation)
+        && Objects.equals(
             this.compressedJsonDescriptor, syntheticsTestRequest.compressedJsonDescriptor)
         && Objects.equals(this.compressedProtoFile, syntheticsTestRequest.compressedProtoFile)
         && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer)
@@ -906,6 +959,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.headers, syntheticsTestRequest.headers)
         && Objects.equals(this.host, syntheticsTestRequest.host)
         && Objects.equals(this.httpVersion, syntheticsTestRequest.httpVersion)
+        && Objects.equals(this.isMessageBase64Encoded, syntheticsTestRequest.isMessageBase64Encoded)
         && Objects.equals(this.message, syntheticsTestRequest.message)
         && Objects.equals(this.metadata, syntheticsTestRequest.metadata)
         && Objects.equals(this.method, syntheticsTestRequest.method)
@@ -933,6 +987,7 @@ public class SyntheticsTestRequest {
         callType,
         certificate,
         certificateDomains,
+        checkCertificateRevocation,
         compressedJsonDescriptor,
         compressedProtoFile,
         dnsServer,
@@ -942,6 +997,7 @@ public class SyntheticsTestRequest {
         headers,
         host,
         httpVersion,
+        isMessageBase64Encoded,
         message,
         metadata,
         method,
@@ -970,6 +1026,9 @@ public class SyntheticsTestRequest {
     sb.append("    callType: ").append(toIndentedString(callType)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    certificateDomains: ").append(toIndentedString(certificateDomains)).append("\n");
+    sb.append("    checkCertificateRevocation: ")
+        .append(toIndentedString(checkCertificateRevocation))
+        .append("\n");
     sb.append("    compressedJsonDescriptor: ")
         .append(toIndentedString(compressedJsonDescriptor))
         .append("\n");
@@ -983,6 +1042,9 @@ public class SyntheticsTestRequest {
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    httpVersion: ").append(toIndentedString(httpVersion)).append("\n");
+    sb.append("    isMessageBase64Encoded: ")
+        .append(toIndentedString(isMessageBase64Encoded))
+        .append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");

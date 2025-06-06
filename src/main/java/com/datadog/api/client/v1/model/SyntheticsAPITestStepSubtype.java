@@ -23,10 +23,18 @@ import java.util.Set;
 public class SyntheticsAPITestStepSubtype extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("http", "grpc"));
+      new HashSet<String>(
+          Arrays.asList("http", "grpc", "ssl", "dns", "tcp", "udp", "icmp", "websocket"));
 
   public static final SyntheticsAPITestStepSubtype HTTP = new SyntheticsAPITestStepSubtype("http");
   public static final SyntheticsAPITestStepSubtype GRPC = new SyntheticsAPITestStepSubtype("grpc");
+  public static final SyntheticsAPITestStepSubtype SSL = new SyntheticsAPITestStepSubtype("ssl");
+  public static final SyntheticsAPITestStepSubtype DNS = new SyntheticsAPITestStepSubtype("dns");
+  public static final SyntheticsAPITestStepSubtype TCP = new SyntheticsAPITestStepSubtype("tcp");
+  public static final SyntheticsAPITestStepSubtype UDP = new SyntheticsAPITestStepSubtype("udp");
+  public static final SyntheticsAPITestStepSubtype ICMP = new SyntheticsAPITestStepSubtype("icmp");
+  public static final SyntheticsAPITestStepSubtype WEBSOCKET =
+      new SyntheticsAPITestStepSubtype("websocket");
 
   SyntheticsAPITestStepSubtype(String value) {
     super(value, allowedValues);
