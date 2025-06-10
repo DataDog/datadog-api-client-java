@@ -1,23 +1,24 @@
-// Get On-Call team routing rules returns "OK" response
+// Delete an override returns "No Content" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
-import com.datadog.api.client.v2.model.TeamRoutingRules;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OnCallApi apiInstance = new OnCallApi(defaultClient);
 
-    // there is a valid "dd_team" in the system
-    String DD_TEAM_DATA_ID = System.getenv("DD_TEAM_DATA_ID");
+    // there is a valid "schedule" in the system
+    String SCHEDULE_DATA_ID = System.getenv("SCHEDULE_DATA_ID");
+
+    // there is a valid "override" in the system
+    String OVERRIDE_DATA_0_ID = System.getenv("OVERRIDE_DATA_0_ID");
 
     try {
-      TeamRoutingRules result = apiInstance.getOnCallTeamRoutingRules(DD_TEAM_DATA_ID);
-      System.out.println(result);
+      apiInstance.deleteOnCallScheduleOverride(SCHEDULE_DATA_ID, OVERRIDE_DATA_0_ID);
     } catch (ApiException e) {
-      System.err.println("Exception when calling OnCallApi#getOnCallTeamRoutingRules");
+      System.err.println("Exception when calling OnCallApi#deleteOnCallScheduleOverride");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

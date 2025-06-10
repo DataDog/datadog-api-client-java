@@ -1,0 +1,181 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"email\":\"Test-Delete_an_override_returns_No_Content_response-1749511815@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/users",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"users\",\"id\":\"b2a8c8e6-4589-11f0-8c93-d6008d2166ed\",\"attributes\":{\"name\":null,\"handle\":\"test-delete_an_override_returns_no_content_response-1749511815@datadoghq.com\",\"created_at\":\"2025-06-09T23:30:15.872777+00:00\",\"modified_at\":\"2025-06-09T23:30:15.872777+00:00\",\"email\":\"test-delete_an_override_returns_no_content_response-1749511815@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/49f12a88e1d0d2808f4ad18cf228a08c?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c07b94e8-5843-2246-6c8f-ab58ef87dc79"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"layers\":[{\"effective_date\":\"2025-05-30T23:30:15.221Z\",\"end_date\":\"2025-06-19T23:30:15.221Z\",\"interval\":{\"days\":1},\"members\":[{\"user\":{\"id\":\"b2a8c8e6-4589-11f0-8c93-d6008d2166ed\"}}],\"name\":\"Layer 1\",\"restrictions\":[{\"end_day\":\"friday\",\"end_time\":\"17:00:00\",\"start_day\":\"monday\",\"start_time\":\"09:00:00\"}],\"rotation_start\":\"2025-06-04T23:30:15.221Z\"}],\"name\":\"Test-Delete_an_override_returns_No_Content_response-1749511815\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}},\"type\":\"schedules\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/on-call/schedules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"id\":\"bc5808ac-2b71-4213-8f8d-b9bcdb59b605\",\"type\":\"schedules\",\"attributes\":{\"name\":\"Test-Delete_an_override_returns_No_Content_response-1749511815\",\"time_zone\":\"America/New_York\"},\"relationships\":{\"layers\":{\"data\":[{\"id\":\"af7496af-5a70-4599-8c90-aa4a6a9fc8b7\",\"type\":\"layers\"}]},\"teams\":{\"data\":[{\"id\":\"65aea9d0-941c-4607-bf8a-14fc0dac2820\",\"type\":\"teams\"}]}}}}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c3469939-52dc-93b4-998e-c8da129bdbba"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":[{\"attributes\":{\"end\":\"2025-06-10T00:30:15.221Z\",\"start\":\"2025-06-09T23:30:15.221Z\"},\"relationships\":{\"user\":{\"data\":{\"id\":\"b2a8c8e6-4589-11f0-8c93-d6008d2166ed\",\"type\":\"users\"}}},\"type\":\"overrides\"}]}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/on-call/schedules/bc5808ac-2b71-4213-8f8d-b9bcdb59b605/overrides",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[{\"id\":\"b289bd65-d407-4dc8-b606-d7dedcffc88e\",\"type\":\"overrides\",\"attributes\":{\"end\":\"2025-06-10T00:30:15.221Z\",\"start\":\"2025-06-09T23:30:15.221Z\"},\"relationships\":{\"user\":{\"data\":{\"id\":\"b2a8c8e6-4589-11f0-8c93-d6008d2166ed\",\"type\":\"users\"}}}}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "af41941d-4699-36d2-4a56-d2b68cab41b5"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/on-call/schedules/bc5808ac-2b71-4213-8f8d-b9bcdb59b605/overrides/b289bd65-d407-4dc8-b606-d7dedcffc88e",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4c6e089e-9abd-383e-7243-55d7b6449edc"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/on-call/schedules/%7Bschedule_id%7D/overrides/b289bd65-d407-4dc8-b606-d7dedcffc88e",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[{\"status\":\"400\",\"title\":\"Bad Request\",\"detail\":\"attribute \\\"uuid\\\" [{schedule_id}] is not a valid UUID\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/vnd.api+json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "04307be8-9315-f2f1-0553-d166691fffb1"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/on-call/schedules/bc5808ac-2b71-4213-8f8d-b9bcdb59b605",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a49ca8e8-bc3c-8e9c-2d64-3ca7de13303f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/users/b2a8c8e6-4589-11f0-8c93-d6008d2166ed",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1c01e1d1-c1a9-309c-a587-1997e1145e56"
+  }
+]

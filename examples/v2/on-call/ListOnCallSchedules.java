@@ -1,23 +1,20 @@
-// Get On-Call team routing rules returns "OK" response
+// Get a list of all on-call schedules returns "OK" response
 
 import com.datadog.api.client.ApiClient;
 import com.datadog.api.client.ApiException;
 import com.datadog.api.client.v2.api.OnCallApi;
-import com.datadog.api.client.v2.model.TeamRoutingRules;
+import com.datadog.api.client.v2.model.SchedulesResponse;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = ApiClient.getDefaultApiClient();
     OnCallApi apiInstance = new OnCallApi(defaultClient);
 
-    // there is a valid "dd_team" in the system
-    String DD_TEAM_DATA_ID = System.getenv("DD_TEAM_DATA_ID");
-
     try {
-      TeamRoutingRules result = apiInstance.getOnCallTeamRoutingRules(DD_TEAM_DATA_ID);
+      SchedulesResponse result = apiInstance.listOnCallSchedules();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling OnCallApi#getOnCallTeamRoutingRules");
+      System.err.println("Exception when calling OnCallApi#listOnCallSchedules");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

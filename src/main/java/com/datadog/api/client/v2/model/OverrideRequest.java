@@ -8,6 +8,7 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,74 +19,50 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Root object representing a team's on-call responder configuration. */
-@JsonPropertyOrder({
-  TeamOnCallResponders.JSON_PROPERTY_DATA,
-  TeamOnCallResponders.JSON_PROPERTY_INCLUDED
-})
+/** The definition of <code>OverrideRequest</code> object. */
+@JsonPropertyOrder({OverrideRequest.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamOnCallResponders {
+public class OverrideRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private TeamOnCallRespondersData data;
+  private List<OverrideCreateData> data = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<TeamOnCallRespondersIncluded> included = null;
+  public OverrideRequest() {}
 
-  public TeamOnCallResponders data(TeamOnCallRespondersData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-    return this;
-  }
-
-  /**
-   * Defines the main on-call responder object for a team, including relationships.
-   *
-   * @return data
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamOnCallRespondersData getData() {
-    return data;
-  }
-
-  public void setData(TeamOnCallRespondersData data) {
+  @JsonCreator
+  public OverrideRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<OverrideCreateData> data) {
     this.data = data;
   }
 
-  public TeamOnCallResponders included(List<TeamOnCallRespondersIncluded> included) {
-    this.included = included;
-    for (TeamOnCallRespondersIncluded item : included) {
+  public OverrideRequest data(List<OverrideCreateData> data) {
+    this.data = data;
+    for (OverrideCreateData item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public TeamOnCallResponders addIncludedItem(TeamOnCallRespondersIncluded includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
-    this.unparsed |= includedItem.unparsed;
+  public OverrideRequest addDataItem(OverrideCreateData dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * The <code>TeamOnCallResponders</code> <code>included</code>.
+   * The <code>OverrideRequest</code> <code>data</code>.
    *
-   * @return included
+   * @return data
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<TeamOnCallRespondersIncluded> getIncluded() {
-    return included;
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<OverrideCreateData> getData() {
+    return data;
   }
 
-  public void setIncluded(List<TeamOnCallRespondersIncluded> included) {
-    this.included = included;
+  public void setData(List<OverrideCreateData> data) {
+    this.data = data;
   }
 
   /**
@@ -100,10 +77,10 @@ public class TeamOnCallResponders {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamOnCallResponders
+   * @return OverrideRequest
    */
   @JsonAnySetter
-  public TeamOnCallResponders putAdditionalProperty(String key, Object value) {
+  public OverrideRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,7 +111,7 @@ public class TeamOnCallResponders {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamOnCallResponders object is equal to o. */
+  /** Return true if this OverrideRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,23 +120,21 @@ public class TeamOnCallResponders {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamOnCallResponders teamOnCallResponders = (TeamOnCallResponders) o;
-    return Objects.equals(this.data, teamOnCallResponders.data)
-        && Objects.equals(this.included, teamOnCallResponders.included)
-        && Objects.equals(this.additionalProperties, teamOnCallResponders.additionalProperties);
+    OverrideRequest overrideRequest = (OverrideRequest) o;
+    return Objects.equals(this.data, overrideRequest.data)
+        && Objects.equals(this.additionalProperties, overrideRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamOnCallResponders {\n");
+    sb.append("class OverrideRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
