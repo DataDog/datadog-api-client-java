@@ -8,7 +8,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Monitor notification rule not found\"]}",
+      "body": "{\"errors\":[\"Monitor Notification Rule not found\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -23,6 +23,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f20498bf-1a3e-c9d7-0f5a-6a495ad1e2d2"
+    "id": "f20498bf-1a3e-c9d7-0f5a-6a495ad1e2d1"
   }
 ]
