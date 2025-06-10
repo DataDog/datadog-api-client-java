@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"filter\":{\"tags\":[\"test:test-update_a_monitor_notification_rule_returns_not_found_response-1743713885\",\"host:abc\"]},\"name\":\"updated rule\",\"recipients\":[\"slack-test-channel\",\"jira-test\"]},\"id\":\"00000000-0000-1234-0000-000000000000\",\"type\":\"monitor-notification-rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"filter\":{\"tags\":[\"test:test-update_a_monitor_notification_rule_returns_not_found_response-1744280997\",\"host:abc\"]},\"name\":\"updated rule\",\"recipients\":[\"slack-test-channel\",\"jira-test\"]},\"id\":\"00000000-0000-1234-0000-000000000000\",\"type\":\"monitor-notification-rule\"}}"
       },
       "headers": {},
       "method": "PATCH",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[\"Monitor notification rule not found\"]}",
+      "body": "{\"errors\":[\"Monitor Notification Rule not found\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dbb1eee5-d6e5-291a-3302-2dbb6966f098"
+    "id": "628841ca-a128-299d-5e13-8b1a9470b263"
   }
 ]
