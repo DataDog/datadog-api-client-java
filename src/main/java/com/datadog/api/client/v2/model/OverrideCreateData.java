@@ -17,99 +17,99 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Defines the main on-call responder object for a team, including relationships. */
+/** The definition of <code>OverrideCreateData</code> object. */
 @JsonPropertyOrder({
-  TeamOnCallRespondersData.JSON_PROPERTY_ID,
-  TeamOnCallRespondersData.JSON_PROPERTY_RELATIONSHIPS,
-  TeamOnCallRespondersData.JSON_PROPERTY_TYPE
+  OverrideCreateData.JSON_PROPERTY_ATTRIBUTES,
+  OverrideCreateData.JSON_PROPERTY_RELATIONSHIPS,
+  OverrideCreateData.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamOnCallRespondersData {
+public class OverrideCreateData {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private OverrideCreateDataAttributes attributes;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private TeamOnCallRespondersDataRelationships relationships;
+  private OverrideCreateDataRelationships relationships;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TeamOnCallRespondersDataType type = TeamOnCallRespondersDataType.TEAM_ONCALL_RESPONDERS;
+  private OverrideCreateDataType type;
 
-  public TeamOnCallRespondersData() {}
+  public OverrideCreateData() {}
 
   @JsonCreator
-  public TeamOnCallRespondersData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          TeamOnCallRespondersDataType type) {
+  public OverrideCreateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          OverrideCreateDataAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) OverrideCreateDataType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
 
-  public TeamOnCallRespondersData id(String id) {
-    this.id = id;
+  public OverrideCreateData attributes(OverrideCreateDataAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
   /**
-   * Unique identifier of the on-call responder configuration.
+   * The definition of <code>OverrideCreateDataAttributes</code> object.
    *
-   * @return id
+   * @return attributes
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OverrideCreateDataAttributes getAttributes() {
+    return attributes;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setAttributes(OverrideCreateDataAttributes attributes) {
+    this.attributes = attributes;
   }
 
-  public TeamOnCallRespondersData relationships(
-      TeamOnCallRespondersDataRelationships relationships) {
+  public OverrideCreateData relationships(OverrideCreateDataRelationships relationships) {
     this.relationships = relationships;
     this.unparsed |= relationships.unparsed;
     return this;
   }
 
   /**
-   * Relationship objects linked to a team's on-call responder configuration, including escalations
-   * and responders.
+   * The definition of <code>OverrideCreateDataRelationships</code> object.
    *
    * @return relationships
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamOnCallRespondersDataRelationships getRelationships() {
+  public OverrideCreateDataRelationships getRelationships() {
     return relationships;
   }
 
-  public void setRelationships(TeamOnCallRespondersDataRelationships relationships) {
+  public void setRelationships(OverrideCreateDataRelationships relationships) {
     this.relationships = relationships;
   }
 
-  public TeamOnCallRespondersData type(TeamOnCallRespondersDataType type) {
+  public OverrideCreateData type(OverrideCreateDataType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
   /**
-   * Represents the resource type for a group of users assigned to handle on-call duties within a
-   * team.
+   * The definition of <code>OverrideCreateDataType</code> object.
    *
    * @return type
    */
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public TeamOnCallRespondersDataType getType() {
+  public OverrideCreateDataType getType() {
     return type;
   }
 
-  public void setType(TeamOnCallRespondersDataType type) {
+  public void setType(OverrideCreateDataType type) {
     if (!type.isValid()) {
       this.unparsed = true;
     }
@@ -128,10 +128,10 @@ public class TeamOnCallRespondersData {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamOnCallRespondersData
+   * @return OverrideCreateData
    */
   @JsonAnySetter
-  public TeamOnCallRespondersData putAdditionalProperty(String key, Object value) {
+  public OverrideCreateData putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -162,7 +162,7 @@ public class TeamOnCallRespondersData {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamOnCallRespondersData object is equal to o. */
+  /** Return true if this OverrideCreateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -171,23 +171,23 @@ public class TeamOnCallRespondersData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamOnCallRespondersData teamOnCallRespondersData = (TeamOnCallRespondersData) o;
-    return Objects.equals(this.id, teamOnCallRespondersData.id)
-        && Objects.equals(this.relationships, teamOnCallRespondersData.relationships)
-        && Objects.equals(this.type, teamOnCallRespondersData.type)
-        && Objects.equals(this.additionalProperties, teamOnCallRespondersData.additionalProperties);
+    OverrideCreateData overrideCreateData = (OverrideCreateData) o;
+    return Objects.equals(this.attributes, overrideCreateData.attributes)
+        && Objects.equals(this.relationships, overrideCreateData.relationships)
+        && Objects.equals(this.type, overrideCreateData.type)
+        && Objects.equals(this.additionalProperties, overrideCreateData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, relationships, type, additionalProperties);
+    return Objects.hash(attributes, relationships, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamOnCallRespondersData {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class OverrideCreateData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ")

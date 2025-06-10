@@ -18,52 +18,63 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Root object representing a team's on-call responder configuration. */
+/** Response with a list of escalation policies. */
 @JsonPropertyOrder({
-  TeamOnCallResponders.JSON_PROPERTY_DATA,
-  TeamOnCallResponders.JSON_PROPERTY_INCLUDED
+  EscalationPoliciesResponse.JSON_PROPERTY_DATA,
+  EscalationPoliciesResponse.JSON_PROPERTY_INCLUDED
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamOnCallResponders {
+public class EscalationPoliciesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private TeamOnCallRespondersData data;
+  private List<EscalationPolicyData> data = null;
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<TeamOnCallRespondersIncluded> included = null;
+  private List<EscalationPolicyIncluded> included = null;
 
-  public TeamOnCallResponders data(TeamOnCallRespondersData data) {
+  public EscalationPoliciesResponse data(List<EscalationPolicyData> data) {
     this.data = data;
-    this.unparsed |= data.unparsed;
+    for (EscalationPolicyData item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public EscalationPoliciesResponse addDataItem(EscalationPolicyData dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * Defines the main on-call responder object for a team, including relationships.
+   * A list of escalation policies.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamOnCallRespondersData getData() {
+  public List<EscalationPolicyData> getData() {
     return data;
   }
 
-  public void setData(TeamOnCallRespondersData data) {
+  public void setData(List<EscalationPolicyData> data) {
     this.data = data;
   }
 
-  public TeamOnCallResponders included(List<TeamOnCallRespondersIncluded> included) {
+  public EscalationPoliciesResponse included(List<EscalationPolicyIncluded> included) {
     this.included = included;
-    for (TeamOnCallRespondersIncluded item : included) {
+    for (EscalationPolicyIncluded item : included) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public TeamOnCallResponders addIncludedItem(TeamOnCallRespondersIncluded includedItem) {
+  public EscalationPoliciesResponse addIncludedItem(EscalationPolicyIncluded includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
     }
@@ -73,18 +84,18 @@ public class TeamOnCallResponders {
   }
 
   /**
-   * The <code>TeamOnCallResponders</code> <code>included</code>.
+   * Provides any included related resources, such as steps or targets, returned with the policy.
    *
    * @return included
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<TeamOnCallRespondersIncluded> getIncluded() {
+  public List<EscalationPolicyIncluded> getIncluded() {
     return included;
   }
 
-  public void setIncluded(List<TeamOnCallRespondersIncluded> included) {
+  public void setIncluded(List<EscalationPolicyIncluded> included) {
     this.included = included;
   }
 
@@ -100,10 +111,10 @@ public class TeamOnCallResponders {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamOnCallResponders
+   * @return EscalationPoliciesResponse
    */
   @JsonAnySetter
-  public TeamOnCallResponders putAdditionalProperty(String key, Object value) {
+  public EscalationPoliciesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,7 +145,7 @@ public class TeamOnCallResponders {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamOnCallResponders object is equal to o. */
+  /** Return true if this EscalationPoliciesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,10 +154,11 @@ public class TeamOnCallResponders {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamOnCallResponders teamOnCallResponders = (TeamOnCallResponders) o;
-    return Objects.equals(this.data, teamOnCallResponders.data)
-        && Objects.equals(this.included, teamOnCallResponders.included)
-        && Objects.equals(this.additionalProperties, teamOnCallResponders.additionalProperties);
+    EscalationPoliciesResponse escalationPoliciesResponse = (EscalationPoliciesResponse) o;
+    return Objects.equals(this.data, escalationPoliciesResponse.data)
+        && Objects.equals(this.included, escalationPoliciesResponse.included)
+        && Objects.equals(
+            this.additionalProperties, escalationPoliciesResponse.additionalProperties);
   }
 
   @Override
@@ -157,7 +169,7 @@ public class TeamOnCallResponders {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamOnCallResponders {\n");
+    sb.append("class EscalationPoliciesResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")

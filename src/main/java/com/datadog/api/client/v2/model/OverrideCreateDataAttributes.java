@@ -8,84 +8,79 @@ package com.datadog.api.client.v2.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Root object representing a team's on-call responder configuration. */
+/** The definition of <code>OverrideCreateDataAttributes</code> object. */
 @JsonPropertyOrder({
-  TeamOnCallResponders.JSON_PROPERTY_DATA,
-  TeamOnCallResponders.JSON_PROPERTY_INCLUDED
+  OverrideCreateDataAttributes.JSON_PROPERTY_END,
+  OverrideCreateDataAttributes.JSON_PROPERTY_START
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamOnCallResponders {
+public class OverrideCreateDataAttributes {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private TeamOnCallRespondersData data;
+  public static final String JSON_PROPERTY_END = "end";
+  private OffsetDateTime end;
 
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<TeamOnCallRespondersIncluded> included = null;
+  public static final String JSON_PROPERTY_START = "start";
+  private OffsetDateTime start;
 
-  public TeamOnCallResponders data(TeamOnCallRespondersData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+  public OverrideCreateDataAttributes() {}
+
+  @JsonCreator
+  public OverrideCreateDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_END) OffsetDateTime end,
+      @JsonProperty(required = true, value = JSON_PROPERTY_START) OffsetDateTime start) {
+    this.end = end;
+    this.start = start;
+  }
+
+  public OverrideCreateDataAttributes end(OffsetDateTime end) {
+    this.end = end;
     return this;
   }
 
   /**
-   * Defines the main on-call responder object for a team, including relationships.
+   * The end time of the override.
    *
-   * @return data
+   * @return end
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamOnCallRespondersData getData() {
-    return data;
+  @JsonProperty(JSON_PROPERTY_END)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getEnd() {
+    return end;
   }
 
-  public void setData(TeamOnCallRespondersData data) {
-    this.data = data;
+  public void setEnd(OffsetDateTime end) {
+    this.end = end;
   }
 
-  public TeamOnCallResponders included(List<TeamOnCallRespondersIncluded> included) {
-    this.included = included;
-    for (TeamOnCallRespondersIncluded item : included) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public TeamOnCallResponders addIncludedItem(TeamOnCallRespondersIncluded includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
-    this.unparsed |= includedItem.unparsed;
+  public OverrideCreateDataAttributes start(OffsetDateTime start) {
+    this.start = start;
     return this;
   }
 
   /**
-   * The <code>TeamOnCallResponders</code> <code>included</code>.
+   * The start time of the override.
    *
-   * @return included
+   * @return start
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<TeamOnCallRespondersIncluded> getIncluded() {
-    return included;
+  @JsonProperty(JSON_PROPERTY_START)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public OffsetDateTime getStart() {
+    return start;
   }
 
-  public void setIncluded(List<TeamOnCallRespondersIncluded> included) {
-    this.included = included;
+  public void setStart(OffsetDateTime start) {
+    this.start = start;
   }
 
   /**
@@ -100,10 +95,10 @@ public class TeamOnCallResponders {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamOnCallResponders
+   * @return OverrideCreateDataAttributes
    */
   @JsonAnySetter
-  public TeamOnCallResponders putAdditionalProperty(String key, Object value) {
+  public OverrideCreateDataAttributes putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,7 +129,7 @@ public class TeamOnCallResponders {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamOnCallResponders object is equal to o. */
+  /** Return true if this OverrideCreateDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,23 +138,24 @@ public class TeamOnCallResponders {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamOnCallResponders teamOnCallResponders = (TeamOnCallResponders) o;
-    return Objects.equals(this.data, teamOnCallResponders.data)
-        && Objects.equals(this.included, teamOnCallResponders.included)
-        && Objects.equals(this.additionalProperties, teamOnCallResponders.additionalProperties);
+    OverrideCreateDataAttributes overrideCreateDataAttributes = (OverrideCreateDataAttributes) o;
+    return Objects.equals(this.end, overrideCreateDataAttributes.end)
+        && Objects.equals(this.start, overrideCreateDataAttributes.start)
+        && Objects.equals(
+            this.additionalProperties, overrideCreateDataAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(end, start, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamOnCallResponders {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
+    sb.append("class OverrideCreateDataAttributes {\n");
+    sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

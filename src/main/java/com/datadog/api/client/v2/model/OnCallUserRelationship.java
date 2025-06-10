@@ -12,80 +12,39 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Root object representing a team's on-call responder configuration. */
-@JsonPropertyOrder({
-  TeamOnCallResponders.JSON_PROPERTY_DATA,
-  TeamOnCallResponders.JSON_PROPERTY_INCLUDED
-})
+/** The definition of <code>OnCallUserRelationship</code> object. */
+@JsonPropertyOrder({OnCallUserRelationship.JSON_PROPERTY_DATA})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamOnCallResponders {
+public class OnCallUserRelationship {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private TeamOnCallRespondersData data;
+  private OnCallUserRelationshipData data;
 
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<TeamOnCallRespondersIncluded> included = null;
-
-  public TeamOnCallResponders data(TeamOnCallRespondersData data) {
+  public OnCallUserRelationship data(OnCallUserRelationshipData data) {
     this.data = data;
     this.unparsed |= data.unparsed;
     return this;
   }
 
   /**
-   * Defines the main on-call responder object for a team, including relationships.
+   * The definition of <code>OnCallUserRelationshipData</code> object.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamOnCallRespondersData getData() {
+  public OnCallUserRelationshipData getData() {
     return data;
   }
 
-  public void setData(TeamOnCallRespondersData data) {
+  public void setData(OnCallUserRelationshipData data) {
     this.data = data;
-  }
-
-  public TeamOnCallResponders included(List<TeamOnCallRespondersIncluded> included) {
-    this.included = included;
-    for (TeamOnCallRespondersIncluded item : included) {
-      this.unparsed |= item.unparsed;
-    }
-    return this;
-  }
-
-  public TeamOnCallResponders addIncludedItem(TeamOnCallRespondersIncluded includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
-    this.unparsed |= includedItem.unparsed;
-    return this;
-  }
-
-  /**
-   * The <code>TeamOnCallResponders</code> <code>included</code>.
-   *
-   * @return included
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<TeamOnCallRespondersIncluded> getIncluded() {
-    return included;
-  }
-
-  public void setIncluded(List<TeamOnCallRespondersIncluded> included) {
-    this.included = included;
   }
 
   /**
@@ -100,10 +59,10 @@ public class TeamOnCallResponders {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamOnCallResponders
+   * @return OnCallUserRelationship
    */
   @JsonAnySetter
-  public TeamOnCallResponders putAdditionalProperty(String key, Object value) {
+  public OnCallUserRelationship putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,7 +93,7 @@ public class TeamOnCallResponders {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamOnCallResponders object is equal to o. */
+  /** Return true if this OnCallUserRelationship object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,23 +102,21 @@ public class TeamOnCallResponders {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamOnCallResponders teamOnCallResponders = (TeamOnCallResponders) o;
-    return Objects.equals(this.data, teamOnCallResponders.data)
-        && Objects.equals(this.included, teamOnCallResponders.included)
-        && Objects.equals(this.additionalProperties, teamOnCallResponders.additionalProperties);
+    OnCallUserRelationship onCallUserRelationship = (OnCallUserRelationship) o;
+    return Objects.equals(this.data, onCallUserRelationship.data)
+        && Objects.equals(this.additionalProperties, onCallUserRelationship.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included, additionalProperties);
+    return Objects.hash(data, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamOnCallResponders {\n");
+    sb.append("class OnCallUserRelationship {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

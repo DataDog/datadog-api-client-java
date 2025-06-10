@@ -18,52 +18,60 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Root object representing a team's on-call responder configuration. */
-@JsonPropertyOrder({
-  TeamOnCallResponders.JSON_PROPERTY_DATA,
-  TeamOnCallResponders.JSON_PROPERTY_INCLUDED
-})
+/** Response with a list of on-call schedules. */
+@JsonPropertyOrder({SchedulesResponse.JSON_PROPERTY_DATA, SchedulesResponse.JSON_PROPERTY_INCLUDED})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class TeamOnCallResponders {
+public class SchedulesResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private TeamOnCallRespondersData data;
+  private List<ScheduleData> data = null;
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<TeamOnCallRespondersIncluded> included = null;
+  private List<ScheduleDataIncludedItem> included = null;
 
-  public TeamOnCallResponders data(TeamOnCallRespondersData data) {
+  public SchedulesResponse data(List<ScheduleData> data) {
     this.data = data;
-    this.unparsed |= data.unparsed;
+    for (ScheduleData item : data) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SchedulesResponse addDataItem(ScheduleData dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
   /**
-   * Defines the main on-call responder object for a team, including relationships.
+   * A list of on-call schedules.
    *
    * @return data
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public TeamOnCallRespondersData getData() {
+  public List<ScheduleData> getData() {
     return data;
   }
 
-  public void setData(TeamOnCallRespondersData data) {
+  public void setData(List<ScheduleData> data) {
     this.data = data;
   }
 
-  public TeamOnCallResponders included(List<TeamOnCallRespondersIncluded> included) {
+  public SchedulesResponse included(List<ScheduleDataIncludedItem> included) {
     this.included = included;
-    for (TeamOnCallRespondersIncluded item : included) {
+    for (ScheduleDataIncludedItem item : included) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public TeamOnCallResponders addIncludedItem(TeamOnCallRespondersIncluded includedItem) {
+  public SchedulesResponse addIncludedItem(ScheduleDataIncludedItem includedItem) {
     if (this.included == null) {
       this.included = new ArrayList<>();
     }
@@ -73,18 +81,18 @@ public class TeamOnCallResponders {
   }
 
   /**
-   * The <code>TeamOnCallResponders</code> <code>included</code>.
+   * Any additional resources related to this schedule, such as teams and layers.
    *
    * @return included
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<TeamOnCallRespondersIncluded> getIncluded() {
+  public List<ScheduleDataIncludedItem> getIncluded() {
     return included;
   }
 
-  public void setIncluded(List<TeamOnCallRespondersIncluded> included) {
+  public void setIncluded(List<ScheduleDataIncludedItem> included) {
     this.included = included;
   }
 
@@ -100,10 +108,10 @@ public class TeamOnCallResponders {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return TeamOnCallResponders
+   * @return SchedulesResponse
    */
   @JsonAnySetter
-  public TeamOnCallResponders putAdditionalProperty(String key, Object value) {
+  public SchedulesResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,7 +142,7 @@ public class TeamOnCallResponders {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this TeamOnCallResponders object is equal to o. */
+  /** Return true if this SchedulesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,10 +151,10 @@ public class TeamOnCallResponders {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TeamOnCallResponders teamOnCallResponders = (TeamOnCallResponders) o;
-    return Objects.equals(this.data, teamOnCallResponders.data)
-        && Objects.equals(this.included, teamOnCallResponders.included)
-        && Objects.equals(this.additionalProperties, teamOnCallResponders.additionalProperties);
+    SchedulesResponse schedulesResponse = (SchedulesResponse) o;
+    return Objects.equals(this.data, schedulesResponse.data)
+        && Objects.equals(this.included, schedulesResponse.included)
+        && Objects.equals(this.additionalProperties, schedulesResponse.additionalProperties);
   }
 
   @Override
@@ -157,7 +165,7 @@ public class TeamOnCallResponders {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TeamOnCallResponders {\n");
+    sb.append("class SchedulesResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("    additionalProperties: ")
