@@ -8,6 +8,7 @@ import com.datadog.api.client.v2.model.DORAFailureRequestAttributes;
 import com.datadog.api.client.v2.model.DORAFailureRequestData;
 import com.datadog.api.client.v2.model.DORAFailureResponse;
 import com.datadog.api.client.v2.model.DORAGitInfo;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Example {
@@ -21,6 +22,7 @@ public class Example {
                 new DORAFailureRequestData()
                     .attributes(
                         new DORAFailureRequestAttributes()
+                            .customTags(Arrays.asList("language:java", "department:engineering"))
                             .env("staging")
                             .finishedAt(1693491984000000000L)
                             .git(
