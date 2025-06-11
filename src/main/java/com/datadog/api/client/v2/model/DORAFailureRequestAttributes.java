@@ -18,9 +18,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes to create a DORA failure event. */
 @JsonPropertyOrder({
+  DORAFailureRequestAttributes.JSON_PROPERTY_CUSTOM_TAGS,
   DORAFailureRequestAttributes.JSON_PROPERTY_ENV,
   DORAFailureRequestAttributes.JSON_PROPERTY_FINISHED_AT,
   DORAFailureRequestAttributes.JSON_PROPERTY_GIT,
@@ -36,6 +38,9 @@ import java.util.Objects;
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class DORAFailureRequestAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CUSTOM_TAGS = "custom_tags";
+  private JsonNullable<List<String>> customTags = JsonNullable.<List<String>>undefined();
+
   public static final String JSON_PROPERTY_ENV = "env";
   private String env;
 
@@ -72,6 +77,50 @@ public class DORAFailureRequestAttributes {
   public DORAFailureRequestAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_STARTED_AT) Long startedAt) {
     this.startedAt = startedAt;
+  }
+
+  public DORAFailureRequestAttributes customTags(List<String> customTags) {
+    this.customTags = JsonNullable.<List<String>>of(customTags);
+    return this;
+  }
+
+  public DORAFailureRequestAttributes addCustomTagsItem(String customTagsItem) {
+    if (this.customTags == null || !this.customTags.isPresent()) {
+      this.customTags = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.customTags.get().add(customTagsItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * A list of user-defined tags. The tags must follow the <code>key:value</code> pattern. Up to 100
+   * may be added per event.
+   *
+   * @return customTags
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+  public List<String> getCustomTags() {
+    return customTags.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getCustomTags_JsonNullable() {
+    return customTags;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CUSTOM_TAGS)
+  public void setCustomTags_JsonNullable(JsonNullable<List<String>> customTags) {
+    this.customTags = customTags;
+  }
+
+  public void setCustomTags(List<String> customTags) {
+    this.customTags = JsonNullable.<List<String>>of(customTags);
   }
 
   public DORAFailureRequestAttributes env(String env) {
@@ -353,7 +402,8 @@ public class DORAFailureRequestAttributes {
       return false;
     }
     DORAFailureRequestAttributes doraFailureRequestAttributes = (DORAFailureRequestAttributes) o;
-    return Objects.equals(this.env, doraFailureRequestAttributes.env)
+    return Objects.equals(this.customTags, doraFailureRequestAttributes.customTags)
+        && Objects.equals(this.env, doraFailureRequestAttributes.env)
         && Objects.equals(this.finishedAt, doraFailureRequestAttributes.finishedAt)
         && Objects.equals(this.git, doraFailureRequestAttributes.git)
         && Objects.equals(this.id, doraFailureRequestAttributes.id)
@@ -370,6 +420,7 @@ public class DORAFailureRequestAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
+        customTags,
         env,
         finishedAt,
         git,
@@ -387,6 +438,7 @@ public class DORAFailureRequestAttributes {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DORAFailureRequestAttributes {\n");
+    sb.append("    customTags: ").append(toIndentedString(customTags)).append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    finishedAt: ").append(toIndentedString(finishedAt)).append("\n");
     sb.append("    git: ").append(toIndentedString(git)).append("\n");
