@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1748341517\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1749644133\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"3f2-3l2-9wi\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1748341517\",\"policyVersion\":\"1\",\"priority\":1000000011,\"ruleCount\":226,\"updateDate\":1748341517477,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"kle-vun-qmy\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1749644133\",\"policyVersion\":\"1\",\"priority\":1000000013,\"ruleCount\":226,\"updateDate\":1749644133394,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "104e3ec5-2ce7-cc4f-51eb-1a3abb64c1d1"
+    "id": "4a4039ce-b3fd-7b7a-22a8-bba87e77ea57"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"scope\":\"process\",\"value\":\"test_value\"}}],\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1748341517\",\"policy_id\":\"3f2-3l2-9wi\",\"product_tags\":[\"security:attack\",\"technique:T1059\"]},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"actions\":[{\"hash\":{},\"set\":{\"name\":\"test_set\",\"scope\":\"process\",\"value\":\"test_value\"}}],\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1749644133\",\"policy_id\":\"kle-vun-qmy\",\"product_tags\":[\"security:attack\",\"technique:T1059\"]},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"rhm-wzc-6qu\",\"type\":\"agent_rule\",\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"value\":\"test_value\",\"scope\":\"process\"},\"disabled\":false}],\"category\":\"Process Activity\",\"creationDate\":1748341518091,\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"monitoring\":[\"3f2-3l2-9wi\"],\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1748341517\",\"product_tags\":[\"security:attack\",\"technique:T1059\"],\"updateDate\":1748341518091,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"dbf-bvb-57b\",\"type\":\"agent_rule\",\"attributes\":{\"actions\":[{\"hash\":{},\"set\":{\"name\":\"test_set\",\"value\":\"test_value\",\"scope\":\"process\"},\"disabled\":false}],\"category\":\"Process Activity\",\"creationDate\":1749644133847,\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"monitoring\":[\"kle-vun-qmy\"],\"name\":\"testupdateaworkloadprotectionagentrulereturnsbadrequestresponse1749644133\",\"product_tags\":[\"security:attack\",\"technique:T1059\"],\"updateDate\":1749644133847,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,17 +57,17 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "46ec6a2c-0bb7-ed05-c468-cadcecc418ad"
+    "id": "a55482d7-2805-ad42-2b99-703fc4494728"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"policy_id\":\"3f2-3l2-9wi\",\"product_tags\":[]},\"id\":\"invalid-agent-rule-id\",\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"policy_id\":\"kle-vun-qmy\",\"product_tags\":[]},\"id\":\"invalid-agent-rule-id\",\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "PATCH",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/rhm-wzc-6qu",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/dbf-bvb-57b",
       "keepAlive": false,
       "secure": true
     },
@@ -87,13 +87,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "743a632a-bf4e-8375-343b-27de04ea0c81"
+    "id": "da7fa472-1c3b-b2bc-88a4-7970884e3249"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/rhm-wzc-6qu",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/dbf-bvb-57b",
       "keepAlive": false,
       "secure": true
     },
@@ -112,13 +112,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "68133c35-0f21-edb9-11a3-ad015ccfab86"
+    "id": "77029a50-9654-cd79-7b8f-6ecf21885e42"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/3f2-3l2-9wi",
+      "path": "/api/v2/remote_config/products/cws/policy/kle-vun-qmy",
       "keepAlive": false,
       "secure": true
     },
@@ -137,6 +137,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3e06de04-096e-0a2e-65d6-18f85dac1608"
+    "id": "30192b88-7a8a-4081-025e-ed4ef2881ab8"
   }
 ]

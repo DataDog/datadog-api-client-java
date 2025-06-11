@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1748341502\"},\"type\":\"policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My agent policy\",\"enabled\":true,\"hostTags\":[\"env:staging\"],\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1749644199\"},\"type\":\"policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"ney-zeu-tex\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1748341502\",\"policyVersion\":\"1\",\"priority\":1000000011,\"ruleCount\":226,\"updateDate\":1748341502642,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"lih-oi0-gt3\",\"type\":\"policy\",\"attributes\":{\"blockingRulesCount\":0,\"datadogManaged\":false,\"description\":\"My agent policy\",\"disabledRulesCount\":1,\"enabled\":true,\"hostTags\":[\"env:staging\"],\"monitoringRulesCount\":225,\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1749644199\",\"policyVersion\":\"1\",\"priority\":1000000013,\"ruleCount\":226,\"updateDate\":1749644200118,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "35bbae56-8f61-568e-de69-47c665ea0e01"
+    "id": "05782ba5-501e-fa7f-f40a-79a0d4a2d3ea"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"scope\":\"process\",\"value\":\"test_value\"}}],\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1748341502\",\"policy_id\":\"ney-zeu-tex\",\"product_tags\":[\"security:attack\",\"technique:T1059\"]},\"type\":\"agent_rule\"}}"
+        "json": "{\"data\":{\"attributes\":{\"actions\":[{\"hash\":{},\"set\":{\"name\":\"test_set\",\"scope\":\"process\",\"value\":\"test_value\"}}],\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1749644199\",\"policy_id\":\"lih-oi0-gt3\",\"product_tags\":[\"security:attack\",\"technique:T1059\"]},\"type\":\"agent_rule\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -42,7 +42,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"gys-bzk-zs4\",\"type\":\"agent_rule\",\"attributes\":{\"actions\":[{\"set\":{\"name\":\"test_set\",\"value\":\"test_value\",\"scope\":\"process\"},\"disabled\":false}],\"category\":\"Process Activity\",\"creationDate\":1748341503254,\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"monitoring\":[\"ney-zeu-tex\"],\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1748341502\",\"product_tags\":[\"security:attack\",\"technique:T1059\"],\"updateDate\":1748341503254,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
+      "body": "{\"data\":{\"id\":\"6qz-j4g-zv7\",\"type\":\"agent_rule\",\"attributes\":{\"actions\":[{\"hash\":{},\"set\":{\"name\":\"test_set\",\"value\":\"test_value\",\"scope\":\"process\"},\"disabled\":false}],\"category\":\"Process Activity\",\"creationDate\":1749644200725,\"creator\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"},\"defaultRule\":false,\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"filters\":[\"os == \\\"linux\\\"\"],\"monitoring\":[\"lih-oi0-gt3\"],\"name\":\"testdeleteaworkloadprotectionagentrulereturnsokresponse1749644199\",\"product_tags\":[\"security:attack\",\"technique:T1059\"],\"updateDate\":1749644200725,\"updater\":{\"name\":\"frog\",\"handle\":\"frog@datadoghq.com\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -57,16 +57,16 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "47e2316e-b74b-8f0c-c1d3-3fd0692e4107"
+    "id": "e5e18c2f-ef8c-50f8-1179-1aa925872bde"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/gys-bzk-zs4",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/6qz-j4g-zv7",
       "queryStringParameters": {
         "policy_id": [
-          "ney-zeu-tex"
+          "lih-oi0-gt3"
         ]
       },
       "keepAlive": false,
@@ -87,13 +87,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "b7ea5ab7-5071-abc5-f069-2aed3ff8500f"
+    "id": "9ab9d91d-14fa-e839-93ea-1b3f60026072"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/agent_rules/gys-bzk-zs4",
+      "path": "/api/v2/remote_config/products/cws/agent_rules/6qz-j4g-zv7",
       "keepAlive": false,
       "secure": true
     },
@@ -113,13 +113,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a8735ec0-33f5-01cc-f0ad-79bb449d8764"
+    "id": "e2e21783-8e93-49da-3277-e88692408ecf"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/remote_config/products/cws/policy/ney-zeu-tex",
+      "path": "/api/v2/remote_config/products/cws/policy/lih-oi0-gt3",
       "keepAlive": false,
       "secure": true
     },
@@ -138,6 +138,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5c3879bc-7035-b3e1-518b-a3df1638b00a"
+    "id": "54d73ca3-54a1-a5fa-1fd0-0b4b152f1896"
   }
 ]
