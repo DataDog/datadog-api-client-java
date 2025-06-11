@@ -38,7 +38,7 @@ public class EventCreateResponse {
   }
 
   /**
-   * JSON object containing all events attributes and their associated values.
+   * JSON object containing event attributes and their associated values.
    *
    * @return attributes
    */
@@ -59,7 +59,7 @@ public class EventCreateResponse {
   }
 
   /**
-   * Event type
+   * Entity type.
    *
    * @return type
    */
