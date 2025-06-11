@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"testcreateamonitorconfigurationpolicyreturnsokresponse1682627699\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"type\":\"monitor-config-policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"testcreateamonitorconfigurationpolicyreturnsokresponse1748486175\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"type\":\"monitor-config-policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"monitor-config-policy\",\"id\":\"fabd0b6e-e53a-11ed-a07b-da7ad0900002\",\"attributes\":{\"policy\":{\"valid_tag_values\":[\"prod\",\"staging\"],\"tag_key_required\":false,\"tag_key\":\"testcreateamonitorconfigurationpolicyreturnsokresponse1682627699\"},\"policy_type\":\"tag\"}}}\n",
+      "body": "{\"data\":{\"type\":\"monitor-config-policy\",\"attributes\":{\"policy_type\":\"tag\",\"policy\":{\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"],\"tag_key\":\"testcreateamonitorconfigurationpolicyreturnsokresponse1748486175\"}},\"id\":\"edb99130-4a6a-4970-b6df-83b5cba1182a\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,13 +27,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "34ccf19e-84f9-5ca9-a5ce-9abc55740131"
+    "id": "5c775d71-e26a-468c-1c50-19f49491afde"
   },
   {
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/monitor/policy/fabd0b6e-e53a-11ed-a07b-da7ad0900002",
+      "path": "/api/v2/monitor/policy/edb99130-4a6a-4970-b6df-83b5cba1182a",
       "keepAlive": false,
       "secure": true
     },
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "851156f6-1954-b2f7-ef5a-3aca57b00d80"
+    "id": "14428c3e-677d-7eb5-6efd-3a938730678f"
   }
 ]

@@ -1,0 +1,87 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"It's a threshold\",\"monitor_definition\":{\"message\":\"cats\",\"name\":\"High Error Rate on service\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"},\"tags\":[\"category:test\"],\"template_variables\":[{\"available_values\":[],\"defaults\":[\"cats\"],\"name\":\"scope\"}],\"title\":\"api spec given template test-update_a_monitor_user_template_to_a_new_version_returns_bad_request_response-1748486182\"},\"type\":\"monitor-user-template\"}}"
+      },
+      "headers": {},
+      "method": "POST",
+      "path": "/api/v2/monitor/template",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"monitor-user-template\",\"attributes\":{\"version\":0,\"created\":\"2025-05-29T02:36:23.224659+00:00\",\"template_variables\":[{\"available_values\":[],\"name\":\"scope\",\"defaults\":[\"cats\"]}],\"monitor_definition\":{\"message\":\"cats\",\"name\":\"High Error Rate on service\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"type\":\"query alert\"},\"title\":\"api spec given template test-update_a_monitor_user_template_to_a_new_version_returns_bad_request_response-1748486182\",\"description\":\"It's a threshold\",\"tags\":[\"category:test\"],\"creator_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"modified\":\"2025-05-29T02:36:23.224659+00:00\"},\"id\":\"a68243ec-7e1c-40da-a99d-8966282c3726\"}}\n",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5f7c7e0e-7548-cae7-657e-7b0cb01071e2"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"A description.\",\"monitor_definition\":{},\"tags\":[\"integration:Azure\"],\"template_variables\":[{\"available_values\":[\"value1\",\"value2\"],\"defaults\":[\"defaultValue\"],\"name\":\"regionName\",\"tag_key\":\"datacenter\"}],\"title\":\"Postgres DB test-update_a_monitor_user_template_to_a_new_version_returns_bad_request_response-1748486182\"},\"id\":\"00000000-0000-1234-0000-000000000000\",\"type\":\"monitor-user-template\"}}"
+      },
+      "headers": {},
+      "method": "PUT",
+      "path": "/api/v2/monitor/template/a68243ec-7e1c-40da-a99d-8966282c3726",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"Invalid monitor_definition or template variables: Monitor definition cannot be empty.\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ba10741e-3fbd-d0be-47a8-66aa776ab89f"
+  },
+  {
+    "httpRequest": {
+      "headers": {},
+      "method": "DELETE",
+      "path": "/api/v2/monitor/template/a68243ec-7e1c-40da-a99d-8966282c3726",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Content-Type": [
+          "text/html; charset=utf-8"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "c1fe368b-d92a-189e-658b-c07fb32b79cf"
+  }
+]

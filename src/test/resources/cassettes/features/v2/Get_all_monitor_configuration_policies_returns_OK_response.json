@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"testgetallmonitorconfigurationpoliciesreturnsokresponse1682627703\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"type\":\"monitor-config-policy\"}}"
+        "json": "{\"data\":{\"attributes\":{\"policy\":{\"tag_key\":\"testgetallmonitorconfigurationpoliciesreturnsokresponse1748486180\",\"tag_key_required\":false,\"valid_tag_values\":[\"prod\",\"staging\"]},\"policy_type\":\"tag\"},\"type\":\"monitor-config-policy\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"monitor-config-policy\",\"attributes\":{\"policy\":{\"valid_tag_values\":[\"prod\",\"staging\"],\"tag_key_required\":false,\"tag_key\":\"testgetallmonitorconfigurationpoliciesreturnsokresponse1682627703\"},\"policy_type\":\"tag\"},\"id\":\"fd3bfd14-e53a-11ed-975d-da7ad0900002\"}}\n",
+      "body": "{\"data\":{\"type\":\"monitor-config-policy\",\"attributes\":{\"policy\":{\"valid_tag_values\":[\"prod\",\"staging\"],\"tag_key\":\"testgetallmonitorconfigurationpoliciesreturnsokresponse1748486180\",\"tag_key_required\":false},\"policy_type\":\"tag\"},\"id\":\"426917ea-f9b0-4c7d-938d-902208db50f8\"}}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,7 +27,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d561b038-547c-904c-29c9-50c56b53a2ec"
+    "id": "4785ba76-3810-54e9-2223-e04927f0c4c5"
   },
   {
     "httpRequest": {
@@ -38,7 +38,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"type\":\"monitor-config-policy\",\"id\":\"fd3bfd14-e53a-11ed-975d-da7ad0900002\",\"attributes\":{\"policy\":{\"valid_tag_values\":[\"prod\",\"staging\"],\"tag_key_required\":false,\"tag_key\":\"testgetallmonitorconfigurationpoliciesreturnsokresponse1682627703\"},\"policy_type\":\"tag\"}}]}\n",
+      "body": "{\"data\":[{\"type\":\"monitor-config-policy\",\"attributes\":{\"policy\":{\"valid_tag_values\":[\"value\"],\"tag_key\":\"tagKey\",\"tag_key_required\":false},\"policy_type\":\"tag\"},\"id\":\"2817dfb9-d616-4a75-8a6b-c34f20493b76\"},{\"type\":\"monitor-config-policy\",\"attributes\":{\"policy\":{\"valid_tag_values\":[\"prod\",\"staging\"],\"tag_key\":\"testgetallmonitorconfigurationpoliciesreturnsokresponse1748486180\",\"tag_key_required\":false},\"policy_type\":\"tag\"},\"id\":\"426917ea-f9b0-4c7d-938d-902208db50f8\"}]}\n",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -59,7 +59,7 @@
     "httpRequest": {
       "headers": {},
       "method": "DELETE",
-      "path": "/api/v2/monitor/policy/fd3bfd14-e53a-11ed-975d-da7ad0900002",
+      "path": "/api/v2/monitor/policy/426917ea-f9b0-4c7d-938d-902208db50f8",
       "keepAlive": false,
       "secure": true
     },
@@ -78,6 +78,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "505c2cbd-235b-8c7f-009a-12119c87d3e8"
+    "id": "1f1717d8-1246-028c-6a63-30053981aa93"
   }
 ]
