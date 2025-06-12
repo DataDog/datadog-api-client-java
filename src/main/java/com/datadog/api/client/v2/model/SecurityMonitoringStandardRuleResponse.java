@@ -24,6 +24,8 @@ import java.util.Objects;
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CUSTOM_MESSAGE,
+  SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_CUSTOM_NAME,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_DEFAULT_TAGS,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_DEPRECATION_DATE,
   SecurityMonitoringStandardRuleResponse.JSON_PROPERTY_FILTERS,
@@ -60,6 +62,12 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public static final String JSON_PROPERTY_CREATION_AUTHOR_ID = "creationAuthorId";
   private Long creationAuthorId;
+
+  public static final String JSON_PROPERTY_CUSTOM_MESSAGE = "customMessage";
+  private String customMessage;
+
+  public static final String JSON_PROPERTY_CUSTOM_NAME = "customName";
+  private String customName;
 
   public static final String JSON_PROPERTY_DEFAULT_TAGS = "defaultTags";
   private List<String> defaultTags = null;
@@ -218,6 +226,48 @@ public class SecurityMonitoringStandardRuleResponse {
 
   public void setCreationAuthorId(Long creationAuthorId) {
     this.creationAuthorId = creationAuthorId;
+  }
+
+  public SecurityMonitoringStandardRuleResponse customMessage(String customMessage) {
+    this.customMessage = customMessage;
+    return this;
+  }
+
+  /**
+   * Custom/Overridden message for generated signals (used in case of Default rule update).
+   *
+   * @return customMessage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomMessage() {
+    return customMessage;
+  }
+
+  public void setCustomMessage(String customMessage) {
+    this.customMessage = customMessage;
+  }
+
+  public SecurityMonitoringStandardRuleResponse customName(String customName) {
+    this.customName = customName;
+    return this;
+  }
+
+  /**
+   * Custom/Overridden name of the rule (used in case of Default rule update).
+   *
+   * @return customName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomName() {
+    return customName;
+  }
+
+  public void setCustomName(String customName) {
+    this.customName = customName;
   }
 
   public SecurityMonitoringStandardRuleResponse defaultTags(List<String> defaultTags) {
@@ -790,6 +840,8 @@ public class SecurityMonitoringStandardRuleResponse {
         && Objects.equals(this.createdAt, securityMonitoringStandardRuleResponse.createdAt)
         && Objects.equals(
             this.creationAuthorId, securityMonitoringStandardRuleResponse.creationAuthorId)
+        && Objects.equals(this.customMessage, securityMonitoringStandardRuleResponse.customMessage)
+        && Objects.equals(this.customName, securityMonitoringStandardRuleResponse.customName)
         && Objects.equals(this.defaultTags, securityMonitoringStandardRuleResponse.defaultTags)
         && Objects.equals(
             this.deprecationDate, securityMonitoringStandardRuleResponse.deprecationDate)
@@ -827,6 +879,8 @@ public class SecurityMonitoringStandardRuleResponse {
         complianceSignalOptions,
         createdAt,
         creationAuthorId,
+        customMessage,
+        customName,
         defaultTags,
         deprecationDate,
         filters,
@@ -860,6 +914,8 @@ public class SecurityMonitoringStandardRuleResponse {
         .append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
+    sb.append("    customMessage: ").append(toIndentedString(customMessage)).append("\n");
+    sb.append("    customName: ").append(toIndentedString(customName)).append("\n");
     sb.append("    defaultTags: ").append(toIndentedString(defaultTags)).append("\n");
     sb.append("    deprecationDate: ").append(toIndentedString(deprecationDate)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
