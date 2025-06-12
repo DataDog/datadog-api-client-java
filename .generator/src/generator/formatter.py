@@ -605,7 +605,7 @@ def format_data_with_schema_dict(
         return _format_oneof(schema, data, name, default_name, replace_values, imports)
 
     # NOTE this is a special case for unnamed objects that should be avoided in the future
-    if schema.get("type") == "object" and not data:
+    if schema.get("type") == "object" and not data and "additionalProperties" not in schema:
         return "Object", "new Object()", set()
 
     if schema.get("type") == "object" and "properties" not in schema and schema.get("additionalProperties") == {}:
