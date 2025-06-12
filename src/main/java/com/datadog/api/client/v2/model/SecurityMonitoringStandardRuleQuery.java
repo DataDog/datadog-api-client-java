@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Query for matching rule. */
 @JsonPropertyOrder({
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_AGGREGATION,
+  SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_CUSTOM_QUERY_EXTENSION,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_DATA_SOURCE,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_DISTINCT_FIELDS,
   SecurityMonitoringStandardRuleQuery.JSON_PROPERTY_GROUP_BY_FIELDS,
@@ -36,6 +37,9 @@ public class SecurityMonitoringStandardRuleQuery {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private SecurityMonitoringRuleQueryAggregation aggregation;
+
+  public static final String JSON_PROPERTY_CUSTOM_QUERY_EXTENSION = "customQueryExtension";
+  private String customQueryExtension;
 
   public static final String JSON_PROPERTY_DATA_SOURCE = "dataSource";
   private SecurityMonitoringStandardDataSource dataSource =
@@ -87,6 +91,27 @@ public class SecurityMonitoringStandardRuleQuery {
       this.unparsed = true;
     }
     this.aggregation = aggregation;
+  }
+
+  public SecurityMonitoringStandardRuleQuery customQueryExtension(String customQueryExtension) {
+    this.customQueryExtension = customQueryExtension;
+    return this;
+  }
+
+  /**
+   * Query extension to append to the logs query.
+   *
+   * @return customQueryExtension
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_QUERY_EXTENSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomQueryExtension() {
+    return customQueryExtension;
+  }
+
+  public void setCustomQueryExtension(String customQueryExtension) {
+    this.customQueryExtension = customQueryExtension;
   }
 
   public SecurityMonitoringStandardRuleQuery dataSource(
@@ -342,6 +367,8 @@ public class SecurityMonitoringStandardRuleQuery {
     SecurityMonitoringStandardRuleQuery securityMonitoringStandardRuleQuery =
         (SecurityMonitoringStandardRuleQuery) o;
     return Objects.equals(this.aggregation, securityMonitoringStandardRuleQuery.aggregation)
+        && Objects.equals(
+            this.customQueryExtension, securityMonitoringStandardRuleQuery.customQueryExtension)
         && Objects.equals(this.dataSource, securityMonitoringStandardRuleQuery.dataSource)
         && Objects.equals(this.distinctFields, securityMonitoringStandardRuleQuery.distinctFields)
         && Objects.equals(this.groupByFields, securityMonitoringStandardRuleQuery.groupByFields)
@@ -360,6 +387,7 @@ public class SecurityMonitoringStandardRuleQuery {
   public int hashCode() {
     return Objects.hash(
         aggregation,
+        customQueryExtension,
         dataSource,
         distinctFields,
         groupByFields,
@@ -376,6 +404,9 @@ public class SecurityMonitoringStandardRuleQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringStandardRuleQuery {\n");
     sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
+    sb.append("    customQueryExtension: ")
+        .append(toIndentedString(customQueryExtension))
+        .append("\n");
     sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
     sb.append("    distinctFields: ").append(toIndentedString(distinctFields)).append("\n");
     sb.append("    groupByFields: ").append(toIndentedString(groupByFields)).append("\n");

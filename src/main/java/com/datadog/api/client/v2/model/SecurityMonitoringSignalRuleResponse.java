@@ -23,6 +23,8 @@ import java.util.Objects;
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CASES,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CUSTOM_MESSAGE,
+  SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_CUSTOM_NAME,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_DEPRECATION_DATE,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_FILTERS,
   SecurityMonitoringSignalRuleResponse.JSON_PROPERTY_HAS_EXTENDED_TITLE,
@@ -51,6 +53,12 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public static final String JSON_PROPERTY_CREATION_AUTHOR_ID = "creationAuthorId";
   private Long creationAuthorId;
+
+  public static final String JSON_PROPERTY_CUSTOM_MESSAGE = "customMessage";
+  private String customMessage;
+
+  public static final String JSON_PROPERTY_CUSTOM_NAME = "customName";
+  private String customName;
 
   public static final String JSON_PROPERTY_DEPRECATION_DATE = "deprecationDate";
   private Long deprecationDate;
@@ -170,6 +178,48 @@ public class SecurityMonitoringSignalRuleResponse {
 
   public void setCreationAuthorId(Long creationAuthorId) {
     this.creationAuthorId = creationAuthorId;
+  }
+
+  public SecurityMonitoringSignalRuleResponse customMessage(String customMessage) {
+    this.customMessage = customMessage;
+    return this;
+  }
+
+  /**
+   * Custom/Overridden message for generated signals (used in case of Default rule update).
+   *
+   * @return customMessage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomMessage() {
+    return customMessage;
+  }
+
+  public void setCustomMessage(String customMessage) {
+    this.customMessage = customMessage;
+  }
+
+  public SecurityMonitoringSignalRuleResponse customName(String customName) {
+    this.customName = customName;
+    return this;
+  }
+
+  /**
+   * Custom/Overridden name of the rule (used in case of Default rule update).
+   *
+   * @return customName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomName() {
+    return customName;
+  }
+
+  public void setCustomName(String customName) {
+    this.customName = customName;
   }
 
   public SecurityMonitoringSignalRuleResponse deprecationDate(Long deprecationDate) {
@@ -588,6 +638,8 @@ public class SecurityMonitoringSignalRuleResponse {
         && Objects.equals(this.createdAt, securityMonitoringSignalRuleResponse.createdAt)
         && Objects.equals(
             this.creationAuthorId, securityMonitoringSignalRuleResponse.creationAuthorId)
+        && Objects.equals(this.customMessage, securityMonitoringSignalRuleResponse.customMessage)
+        && Objects.equals(this.customName, securityMonitoringSignalRuleResponse.customName)
         && Objects.equals(
             this.deprecationDate, securityMonitoringSignalRuleResponse.deprecationDate)
         && Objects.equals(this.filters, securityMonitoringSignalRuleResponse.filters)
@@ -615,6 +667,8 @@ public class SecurityMonitoringSignalRuleResponse {
         cases,
         createdAt,
         creationAuthorId,
+        customMessage,
+        customName,
         deprecationDate,
         filters,
         hasExtendedTitle,
@@ -640,6 +694,8 @@ public class SecurityMonitoringSignalRuleResponse {
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
+    sb.append("    customMessage: ").append(toIndentedString(customMessage)).append("\n");
+    sb.append("    customName: ").append(toIndentedString(customName)).append("\n");
     sb.append("    deprecationDate: ").append(toIndentedString(deprecationDate)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
