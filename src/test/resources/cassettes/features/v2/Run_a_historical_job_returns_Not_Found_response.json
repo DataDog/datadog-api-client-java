@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"fromRule\":{\"caseIndex\":0,\"from\":1730201035064,\"id\":\"non-existng\",\"index\":\"main\",\"notifications\":[],\"to\":1730204635115}},\"type\":\"historicalDetectionsJobCreate\"}}"
+        "json": "{\"data\":{\"attributes\":{\"fromRule\":{\"from\":1730201035064,\"id\":\"non-existng\",\"index\":\"main\",\"notifications\":[],\"to\":1730204635115}},\"type\":\"historicalDetectionsJobCreate\"}}"
       },
       "headers": {},
       "method": "POST",
@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\":[{\"status\":\"404\",\"detail\":\"failed to get rule details\"}]}",
+      "body": "{\"errors\":[{\"status\":\"404\",\"title\":\"Not Found\"}]}",
       "headers": {
         "Content-Type": [
           "application/vnd.api+json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "8056350d-00d9-df6e-525e-771fe22b1354"
+    "id": "6baefcd2-575a-7f9d-36bf-f35d836edcfc"
   }
 ]
