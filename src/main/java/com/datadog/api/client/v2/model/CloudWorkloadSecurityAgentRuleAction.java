@@ -19,6 +19,7 @@ import java.util.Objects;
 /** The action the rule can perform if triggered */
 @JsonPropertyOrder({
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_FILTER,
+  CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_HASH,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_KILL,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_METADATA,
   CloudWorkloadSecurityAgentRuleAction.JSON_PROPERTY_SET
@@ -29,6 +30,9 @@ public class CloudWorkloadSecurityAgentRuleAction {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
   private String filter;
+
+  public static final String JSON_PROPERTY_HASH = "hash";
+  private Map<String, Object> hash = null;
 
   public static final String JSON_PROPERTY_KILL = "kill";
   private CloudWorkloadSecurityAgentRuleKill kill;
@@ -58,6 +62,35 @@ public class CloudWorkloadSecurityAgentRuleAction {
 
   public void setFilter(String filter) {
     this.filter = filter;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAction hash(Map<String, Object> hash) {
+    this.hash = hash;
+    return this;
+  }
+
+  public CloudWorkloadSecurityAgentRuleAction putHashItem(String key, Object hashItem) {
+    if (this.hash == null) {
+      this.hash = new HashMap<>();
+    }
+    this.hash.put(key, hashItem);
+    return this;
+  }
+
+  /**
+   * An empty object indicating the hash action
+   *
+   * @return hash
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HASH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, Object> getHash() {
+    return hash;
+  }
+
+  public void setHash(Map<String, Object> hash) {
+    this.hash = hash;
   }
 
   public CloudWorkloadSecurityAgentRuleAction kill(CloudWorkloadSecurityAgentRuleKill kill) {
@@ -185,6 +218,7 @@ public class CloudWorkloadSecurityAgentRuleAction {
     CloudWorkloadSecurityAgentRuleAction cloudWorkloadSecurityAgentRuleAction =
         (CloudWorkloadSecurityAgentRuleAction) o;
     return Objects.equals(this.filter, cloudWorkloadSecurityAgentRuleAction.filter)
+        && Objects.equals(this.hash, cloudWorkloadSecurityAgentRuleAction.hash)
         && Objects.equals(this.kill, cloudWorkloadSecurityAgentRuleAction.kill)
         && Objects.equals(this.metadata, cloudWorkloadSecurityAgentRuleAction.metadata)
         && Objects.equals(this.set, cloudWorkloadSecurityAgentRuleAction.set)
@@ -194,7 +228,7 @@ public class CloudWorkloadSecurityAgentRuleAction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, kill, metadata, set, additionalProperties);
+    return Objects.hash(filter, hash, kill, metadata, set, additionalProperties);
   }
 
   @Override
@@ -202,6 +236,7 @@ public class CloudWorkloadSecurityAgentRuleAction {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudWorkloadSecurityAgentRuleAction {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+    sb.append("    hash: ").append(toIndentedString(hash)).append("\n");
     sb.append("    kill: ").append(toIndentedString(kill)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    set: ").append(toIndentedString(set)).append("\n");
