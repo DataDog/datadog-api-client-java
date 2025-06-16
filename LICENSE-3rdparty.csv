@@ -111,3 +111,4 @@ import,org.tomitribe:tomitribe-http-signatures,Apache-2.0,
 import,org.xmlunit:xmlunit-core,Apache-2.0,
 import,org.xmlunit:xmlunit-legacy,BSD-3-Clause,2001-2015 - Jeff Martin and Tim Bacon
 import,org.xmlunit:xmlunit-placeholders,Apache-2.0,
+import,net.bytebuddy:byte-buddy,Apache-2.0,2014- Rafael Winterhalter

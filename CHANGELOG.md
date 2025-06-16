@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 2.36.0/2025-06-16
+
+### Changed
+* Add billing read permission [#2902](https://github.com/DataDog/datadog-api-client-java/pull/2902)
+* Update DORA endpoints [#2885](https://github.com/DataDog/datadog-api-client-java/pull/2885)
+
+### Added
+* Add `form` field for `multipart/form-data` HTTP API tests [#2898](https://github.com/DataDog/datadog-api-client-java/pull/2898)
+* Add new endpoint to upsert/list/delete custom kinds [#2892](https://github.com/DataDog/datadog-api-client-java/pull/2892)
+* Add spec for team on-call endpoint [#2890](https://github.com/DataDog/datadog-api-client-java/pull/2890)
+* Add support for all subtypes in multistep steps [#2865](https://github.com/DataDog/datadog-api-client-java/pull/2865)
+* Added new optional field definition to include more detail in findings for '/api/v2/posture_management/findings'  [#2863](https://github.com/DataDog/datadog-api-client-java/pull/2863)
+* Exposing set action on Terraform V2 [#2862](https://github.com/DataDog/datadog-api-client-java/pull/2862)
+* Add monitor draft status field [#2861](https://github.com/DataDog/datadog-api-client-java/pull/2861)
+* Add rum application to restriction policy [#2762](https://github.com/DataDog/datadog-api-client-java/pull/2762)
+
 ## 2.35.0/2025-05-28
 
 ### Fixed
