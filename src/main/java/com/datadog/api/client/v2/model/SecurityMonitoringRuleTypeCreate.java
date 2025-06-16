@@ -25,8 +25,11 @@ public class SecurityMonitoringRuleTypeCreate extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
-          Arrays.asList("application_security", "log_detection", "workload_security"));
+          Arrays.asList(
+              "api_security", "application_security", "log_detection", "workload_security"));
 
+  public static final SecurityMonitoringRuleTypeCreate API_SECURITY =
+      new SecurityMonitoringRuleTypeCreate("api_security");
   public static final SecurityMonitoringRuleTypeCreate APPLICATION_SECURITY =
       new SecurityMonitoringRuleTypeCreate("application_security");
   public static final SecurityMonitoringRuleTypeCreate LOG_DETECTION =
