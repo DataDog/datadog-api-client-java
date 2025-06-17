@@ -24,7 +24,8 @@ import java.util.Objects;
   SensitiveDataScannerGroupAttributes.JSON_PROPERTY_FILTER,
   SensitiveDataScannerGroupAttributes.JSON_PROPERTY_IS_ENABLED,
   SensitiveDataScannerGroupAttributes.JSON_PROPERTY_NAME,
-  SensitiveDataScannerGroupAttributes.JSON_PROPERTY_PRODUCT_LIST
+  SensitiveDataScannerGroupAttributes.JSON_PROPERTY_PRODUCT_LIST,
+  SensitiveDataScannerGroupAttributes.JSON_PROPERTY_SAMPLINGS
 })
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -44,6 +45,9 @@ public class SensitiveDataScannerGroupAttributes {
 
   public static final String JSON_PROPERTY_PRODUCT_LIST = "product_list";
   private List<SensitiveDataScannerProduct> productList = null;
+
+  public static final String JSON_PROPERTY_SAMPLINGS = "samplings";
+  private List<SensitiveDataScannerSamplings> samplings = null;
 
   public SensitiveDataScannerGroupAttributes description(String description) {
     this.description = description;
@@ -162,6 +166,41 @@ public class SensitiveDataScannerGroupAttributes {
     this.productList = productList;
   }
 
+  public SensitiveDataScannerGroupAttributes samplings(
+      List<SensitiveDataScannerSamplings> samplings) {
+    this.samplings = samplings;
+    for (SensitiveDataScannerSamplings item : samplings) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public SensitiveDataScannerGroupAttributes addSamplingsItem(
+      SensitiveDataScannerSamplings samplingsItem) {
+    if (this.samplings == null) {
+      this.samplings = new ArrayList<>();
+    }
+    this.samplings.add(samplingsItem);
+    this.unparsed |= samplingsItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of sampling rates per product type.
+   *
+   * @return samplings
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SAMPLINGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SensitiveDataScannerSamplings> getSamplings() {
+    return samplings;
+  }
+
+  public void setSamplings(List<SensitiveDataScannerSamplings> samplings) {
+    this.samplings = samplings;
+  }
+
   /**
    * A container for additional, undeclared properties. This is a holder for any undeclared
    * properties as specified with the 'additionalProperties' keyword in the OAS document.
@@ -224,13 +263,15 @@ public class SensitiveDataScannerGroupAttributes {
         && Objects.equals(this.isEnabled, sensitiveDataScannerGroupAttributes.isEnabled)
         && Objects.equals(this.name, sensitiveDataScannerGroupAttributes.name)
         && Objects.equals(this.productList, sensitiveDataScannerGroupAttributes.productList)
+        && Objects.equals(this.samplings, sensitiveDataScannerGroupAttributes.samplings)
         && Objects.equals(
             this.additionalProperties, sensitiveDataScannerGroupAttributes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, filter, isEnabled, name, productList, additionalProperties);
+    return Objects.hash(
+        description, filter, isEnabled, name, productList, samplings, additionalProperties);
   }
 
   @Override
@@ -242,6 +283,7 @@ public class SensitiveDataScannerGroupAttributes {
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    productList: ").append(toIndentedString(productList)).append("\n");
+    sb.append("    samplings: ").append(toIndentedString(samplings)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
