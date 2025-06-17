@@ -689,6 +689,9 @@ public class ApiClient {
           put("v2.createSLOReportJob", false);
           put("v2.getSLOReport", false);
           put("v2.getSLOReportJobStatus", false);
+          put("v2.addMemberTeam", false);
+          put("v2.listMemberTeams", false);
+          put("v2.removeMemberTeam", false);
           put("v2.createIncidentTeam", false);
           put("v2.deleteIncidentTeam", false);
           put("v2.getIncidentTeam", false);
