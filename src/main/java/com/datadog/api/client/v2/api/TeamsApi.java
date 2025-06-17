@@ -5,6 +5,7 @@ import com.datadog.api.client.ApiException;
 import com.datadog.api.client.ApiResponse;
 import com.datadog.api.client.PaginationIterable;
 import com.datadog.api.client.Pair;
+import com.datadog.api.client.v2.model.AddMemberTeamRequest;
 import com.datadog.api.client.v2.model.GetTeamMembershipsSort;
 import com.datadog.api.client.v2.model.ListTeamsInclude;
 import com.datadog.api.client.v2.model.ListTeamsSort;
@@ -63,6 +64,179 @@ public class TeamsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Add a member team.
+   *
+   * <p>See {@link #addMemberTeamWithHttpInfo}.
+   *
+   * @param superTeamId None (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void addMemberTeam(String superTeamId, AddMemberTeamRequest body) throws ApiException {
+    addMemberTeamWithHttpInfo(superTeamId, body);
+  }
+
+  /**
+   * Add a member team.
+   *
+   * <p>See {@link #addMemberTeamWithHttpInfoAsync}.
+   *
+   * @param superTeamId None (required)
+   * @param body (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> addMemberTeamAsync(String superTeamId, AddMemberTeamRequest body) {
+    return addMemberTeamWithHttpInfoAsync(superTeamId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Add a member team. Adds the team given by the <code>id</code> in the body as a member team of
+   * the super team.
+   *
+   * @param superTeamId None (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> Added </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> addMemberTeamWithHttpInfo(String superTeamId, AddMemberTeamRequest body)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "addMemberTeam";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'superTeamId' is set
+    if (superTeamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'superTeamId' when calling addMemberTeam");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling addMemberTeam");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{super_team_id}/member_teams"
+            .replaceAll(
+                "\\{" + "super_team_id" + "\\}", apiClient.escapeString(superTeamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.addMemberTeam",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Add a member team.
+   *
+   * <p>See {@link #addMemberTeamWithHttpInfo}.
+   *
+   * @param superTeamId None (required)
+   * @param body (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> addMemberTeamWithHttpInfoAsync(
+      String superTeamId, AddMemberTeamRequest body) {
+    // Check if unstable operation is enabled
+    String operationId = "addMemberTeam";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'superTeamId' is set
+    if (superTeamId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'superTeamId' when calling addMemberTeam"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling addMemberTeam"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{super_team_id}/member_teams"
+            .replaceAll(
+                "\\{" + "super_team_id" + "\\}", apiClient.escapeString(superTeamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.addMemberTeam",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "POST",
+        builder,
+        localVarHeaderParams,
+        new String[] {"application/json"},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
@@ -1946,6 +2120,309 @@ public class TeamsApi {
         new GenericType<UserTeamsResponse>() {});
   }
 
+  /** Manage optional parameters to listMemberTeams. */
+  public static class ListMemberTeamsOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private List<TeamsField> fieldsTeam;
+
+    /**
+     * Set pageSize.
+     *
+     * @param pageSize Size for a given page. The maximum allowed value is 100. (optional, default
+     *     to 10)
+     * @return ListMemberTeamsOptionalParameters
+     */
+    public ListMemberTeamsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber.
+     *
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListMemberTeamsOptionalParameters
+     */
+    public ListMemberTeamsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set fieldsTeam.
+     *
+     * @param fieldsTeam List of fields that need to be fetched. (optional)
+     * @return ListMemberTeamsOptionalParameters
+     */
+    public ListMemberTeamsOptionalParameters fieldsTeam(List<TeamsField> fieldsTeam) {
+      this.fieldsTeam = fieldsTeam;
+      return this;
+    }
+  }
+
+  /**
+   * Get all member teams.
+   *
+   * <p>See {@link #listMemberTeamsWithHttpInfo}.
+   *
+   * @param superTeamId None (required)
+   * @return TeamsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TeamsResponse listMemberTeams(String superTeamId) throws ApiException {
+    return listMemberTeamsWithHttpInfo(superTeamId, new ListMemberTeamsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get all member teams.
+   *
+   * <p>See {@link #listMemberTeamsWithHttpInfoAsync}.
+   *
+   * @param superTeamId None (required)
+   * @return CompletableFuture&lt;TeamsResponse&gt;
+   */
+  public CompletableFuture<TeamsResponse> listMemberTeamsAsync(String superTeamId) {
+    return listMemberTeamsWithHttpInfoAsync(superTeamId, new ListMemberTeamsOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all member teams.
+   *
+   * <p>See {@link #listMemberTeamsWithHttpInfo}.
+   *
+   * @param superTeamId None (required)
+   * @param parameters Optional parameters for the request.
+   * @return TeamsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public TeamsResponse listMemberTeams(
+      String superTeamId, ListMemberTeamsOptionalParameters parameters) throws ApiException {
+    return listMemberTeamsWithHttpInfo(superTeamId, parameters).getData();
+  }
+
+  /**
+   * Get all member teams.
+   *
+   * <p>See {@link #listMemberTeamsWithHttpInfoAsync}.
+   *
+   * @param superTeamId None (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;TeamsResponse&gt;
+   */
+  public CompletableFuture<TeamsResponse> listMemberTeamsAsync(
+      String superTeamId, ListMemberTeamsOptionalParameters parameters) {
+    return listMemberTeamsWithHttpInfoAsync(superTeamId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all member teams.
+   *
+   * <p>See {@link #listMemberTeamsWithHttpInfo}.
+   *
+   * @param superTeamId None (required)
+   * @return PaginationIterable&lt;Team&gt;
+   */
+  public PaginationIterable<Team> listMemberTeamsWithPagination(String superTeamId) {
+    ListMemberTeamsOptionalParameters parameters = new ListMemberTeamsOptionalParameters();
+    return listMemberTeamsWithPagination(superTeamId, parameters);
+  }
+
+  /**
+   * Get all member teams.
+   *
+   * <p>See {@link #listMemberTeamsWithHttpInfo}.
+   *
+   * @param superTeamId None (required)
+   * @return TeamsResponse
+   */
+  public PaginationIterable<Team> listMemberTeamsWithPagination(
+      String superTeamId, ListMemberTeamsOptionalParameters parameters) {
+    String resultsPath = "getData";
+    String valueGetterPath = "";
+    String valueSetterPath = "pageNumber";
+    Boolean valueSetterParamOptional = true;
+    parameters.pageNumber(0l);
+    Long limit;
+
+    if (parameters.pageSize == null) {
+      limit = 10l;
+      parameters.pageSize(limit);
+    } else {
+      limit = parameters.pageSize;
+    }
+
+    LinkedHashMap<String, Object> args = new LinkedHashMap<String, Object>();
+    args.put("superTeamId", superTeamId);
+    args.put("optionalParams", parameters);
+
+    PaginationIterable iterator =
+        new PaginationIterable(
+            this,
+            "listMemberTeams",
+            resultsPath,
+            valueGetterPath,
+            valueSetterPath,
+            valueSetterParamOptional,
+            false,
+            limit,
+            args);
+
+    return iterator;
+  }
+
+  /**
+   * Get all member teams.
+   *
+   * @param superTeamId None (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;TeamsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<TeamsResponse> listMemberTeamsWithHttpInfo(
+      String superTeamId, ListMemberTeamsOptionalParameters parameters) throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "listMemberTeams";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'superTeamId' is set
+    if (superTeamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'superTeamId' when calling listMemberTeams");
+    }
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    List<TeamsField> fieldsTeam = parameters.fieldsTeam;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{super_team_id}/member_teams"
+            .replaceAll(
+                "\\{" + "super_team_id" + "\\}", apiClient.escapeString(superTeamId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "fields[team]", fieldsTeam));
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.listMemberTeams",
+            localVarPath,
+            localVarQueryParams,
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamsResponse>() {});
+  }
+
+  /**
+   * Get all member teams.
+   *
+   * <p>See {@link #listMemberTeamsWithHttpInfo}.
+   *
+   * @param superTeamId None (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture&lt;ApiResponse&lt;TeamsResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<TeamsResponse>> listMemberTeamsWithHttpInfoAsync(
+      String superTeamId, ListMemberTeamsOptionalParameters parameters) {
+    // Check if unstable operation is enabled
+    String operationId = "listMemberTeams";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<TeamsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'superTeamId' is set
+    if (superTeamId == null) {
+      CompletableFuture<ApiResponse<TeamsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'superTeamId' when calling listMemberTeams"));
+      return result;
+    }
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    List<TeamsField> fieldsTeam = parameters.fieldsTeam;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{super_team_id}/member_teams"
+            .replaceAll(
+                "\\{" + "super_team_id" + "\\}", apiClient.escapeString(superTeamId.toString()));
+
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "fields[team]", fieldsTeam));
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.listMemberTeams",
+              localVarPath,
+              localVarQueryParams,
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<TeamsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<TeamsResponse>() {});
+  }
+
   /** Manage optional parameters to listTeams. */
   public static class ListTeamsOptionalParameters {
     private Long pageNumber;
@@ -2262,6 +2739,182 @@ public class TeamsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<TeamsResponse>() {});
+  }
+
+  /**
+   * Remove a member team.
+   *
+   * <p>See {@link #removeMemberTeamWithHttpInfo}.
+   *
+   * @param superTeamId None (required)
+   * @param memberTeamId None (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void removeMemberTeam(String superTeamId, String memberTeamId) throws ApiException {
+    removeMemberTeamWithHttpInfo(superTeamId, memberTeamId);
+  }
+
+  /**
+   * Remove a member team.
+   *
+   * <p>See {@link #removeMemberTeamWithHttpInfoAsync}.
+   *
+   * @param superTeamId None (required)
+   * @param memberTeamId None (required)
+   * @return CompletableFuture
+   */
+  public CompletableFuture<Void> removeMemberTeamAsync(String superTeamId, String memberTeamId) {
+    return removeMemberTeamWithHttpInfoAsync(superTeamId, memberTeamId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Remove a super team's member team identified by <code>member_team_id</code>.
+   *
+   * @param superTeamId None (required)
+   * @param memberTeamId None (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> API error response. </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> removeMemberTeamWithHttpInfo(String superTeamId, String memberTeamId)
+      throws ApiException {
+    // Check if unstable operation is enabled
+    String operationId = "removeMemberTeam";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'superTeamId' is set
+    if (superTeamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'superTeamId' when calling removeMemberTeam");
+    }
+
+    // verify the required parameter 'memberTeamId' is set
+    if (memberTeamId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'memberTeamId' when calling removeMemberTeam");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{super_team_id}/member_teams/{member_team_id}"
+            .replaceAll(
+                "\\{" + "super_team_id" + "\\}", apiClient.escapeString(superTeamId.toString()))
+            .replaceAll(
+                "\\{" + "member_team_id" + "\\}", apiClient.escapeString(memberTeamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.TeamsApi.removeMemberTeam",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"*/*"},
+            new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
+  }
+
+  /**
+   * Remove a member team.
+   *
+   * <p>See {@link #removeMemberTeamWithHttpInfo}.
+   *
+   * @param superTeamId None (required)
+   * @param memberTeamId None (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;Void&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<Void>> removeMemberTeamWithHttpInfoAsync(
+      String superTeamId, String memberTeamId) {
+    // Check if unstable operation is enabled
+    String operationId = "removeMemberTeam";
+    if (apiClient.isUnstableOperationEnabled("v2." + operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId)));
+      return result;
+    }
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'superTeamId' is set
+    if (superTeamId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'superTeamId' when calling removeMemberTeam"));
+      return result;
+    }
+
+    // verify the required parameter 'memberTeamId' is set
+    if (memberTeamId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'memberTeamId' when calling removeMemberTeam"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/team/{super_team_id}/member_teams/{member_team_id}"
+            .replaceAll(
+                "\\{" + "super_team_id" + "\\}", apiClient.escapeString(superTeamId.toString()))
+            .replaceAll(
+                "\\{" + "member_team_id" + "\\}", apiClient.escapeString(memberTeamId.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.TeamsApi.removeMemberTeam",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"*/*"},
+              new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "DELETE",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        null);
   }
 
   /**
