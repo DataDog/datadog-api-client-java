@@ -23,6 +23,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   CloudConfigurationRulePayload.JSON_PROPERTY_CASES,
   CloudConfigurationRulePayload.JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS,
+  CloudConfigurationRulePayload.JSON_PROPERTY_CUSTOM_MESSAGE,
+  CloudConfigurationRulePayload.JSON_PROPERTY_CUSTOM_NAME,
   CloudConfigurationRulePayload.JSON_PROPERTY_FILTERS,
   CloudConfigurationRulePayload.JSON_PROPERTY_IS_ENABLED,
   CloudConfigurationRulePayload.JSON_PROPERTY_MESSAGE,
@@ -40,6 +42,12 @@ public class CloudConfigurationRulePayload {
 
   public static final String JSON_PROPERTY_COMPLIANCE_SIGNAL_OPTIONS = "complianceSignalOptions";
   private CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions;
+
+  public static final String JSON_PROPERTY_CUSTOM_MESSAGE = "customMessage";
+  private String customMessage;
+
+  public static final String JSON_PROPERTY_CUSTOM_NAME = "customName";
+  private String customName;
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<SecurityMonitoringFilter> filters = null;
@@ -136,6 +144,48 @@ public class CloudConfigurationRulePayload {
   public void setComplianceSignalOptions(
       CloudConfigurationRuleComplianceSignalOptions complianceSignalOptions) {
     this.complianceSignalOptions = complianceSignalOptions;
+  }
+
+  public CloudConfigurationRulePayload customMessage(String customMessage) {
+    this.customMessage = customMessage;
+    return this;
+  }
+
+  /**
+   * Custom/Overridden message for generated signals (used in case of Default rule update).
+   *
+   * @return customMessage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomMessage() {
+    return customMessage;
+  }
+
+  public void setCustomMessage(String customMessage) {
+    this.customMessage = customMessage;
+  }
+
+  public CloudConfigurationRulePayload customName(String customName) {
+    this.customName = customName;
+    return this;
+  }
+
+  /**
+   * Custom/Overridden name of the rule (used in case of Default rule update).
+   *
+   * @return customName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomName() {
+    return customName;
+  }
+
+  public void setCustomName(String customName) {
+    this.customName = customName;
   }
 
   public CloudConfigurationRulePayload filters(List<SecurityMonitoringFilter> filters) {
@@ -365,6 +415,8 @@ public class CloudConfigurationRulePayload {
     return Objects.equals(this.cases, cloudConfigurationRulePayload.cases)
         && Objects.equals(
             this.complianceSignalOptions, cloudConfigurationRulePayload.complianceSignalOptions)
+        && Objects.equals(this.customMessage, cloudConfigurationRulePayload.customMessage)
+        && Objects.equals(this.customName, cloudConfigurationRulePayload.customName)
         && Objects.equals(this.filters, cloudConfigurationRulePayload.filters)
         && Objects.equals(this.isEnabled, cloudConfigurationRulePayload.isEnabled)
         && Objects.equals(this.message, cloudConfigurationRulePayload.message)
@@ -381,6 +433,8 @@ public class CloudConfigurationRulePayload {
     return Objects.hash(
         cases,
         complianceSignalOptions,
+        customMessage,
+        customName,
         filters,
         isEnabled,
         message,
@@ -399,6 +453,8 @@ public class CloudConfigurationRulePayload {
     sb.append("    complianceSignalOptions: ")
         .append(toIndentedString(complianceSignalOptions))
         .append("\n");
+    sb.append("    customMessage: ").append(toIndentedString(customMessage)).append("\n");
+    sb.append("    customName: ").append(toIndentedString(customName)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
