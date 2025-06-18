@@ -10,7 +10,8 @@ import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateData;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleCreateRequest;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleResponse;
 import com.datadog.api.client.v2.model.CloudWorkloadSecurityAgentRuleType;
-import java.util.Collections;
+import java.util.Arrays;
+import java.util.Map;
 
 public class Example {
   public static void main(String[] args) {
@@ -34,13 +35,15 @@ exec.file.name == "sh"
                             .name("examplecsmthreat")
                             .policyId(POLICY_DATA_ID)
                             .actions(
-                                Collections.singletonList(
+                                Arrays.asList(
                                     new CloudWorkloadSecurityAgentRuleAction()
                                         .set(
                                             new CloudWorkloadSecurityAgentRuleActionSet()
                                                 .name("test_set")
                                                 .value("test_value")
-                                                .scope("process")))))
+                                                .scope("process")),
+                                    new CloudWorkloadSecurityAgentRuleAction()
+                                        .hash(Map.ofEntries()))))
                     .type(CloudWorkloadSecurityAgentRuleType.AGENT_RULE));
 
     try {
