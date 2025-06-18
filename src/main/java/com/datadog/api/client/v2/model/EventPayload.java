@@ -6,17 +6,13 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /** Event attributes. */
@@ -24,6 +20,7 @@ import java.util.Objects;
   EventPayload.JSON_PROPERTY_AGGREGATION_KEY,
   EventPayload.JSON_PROPERTY_ATTRIBUTES,
   EventPayload.JSON_PROPERTY_CATEGORY,
+  EventPayload.JSON_PROPERTY_INTEGRATION_ID,
   EventPayload.JSON_PROPERTY_MESSAGE,
   EventPayload.JSON_PROPERTY_TAGS,
   EventPayload.JSON_PROPERTY_TIMESTAMP,
@@ -41,6 +38,9 @@ public class EventPayload {
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private EventCategory category;
+
+  public static final String JSON_PROPERTY_INTEGRATION_ID = "integration_id";
+  private EventPayloadIntegrationId integrationId;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -75,7 +75,10 @@ public class EventPayload {
   }
 
   /**
-   * An arbitrary string to use for aggregation when correlating events. Limited to 100 characters.
+   * A string used for aggregation when <a
+   * href="https://docs.datadoghq.com/service_management/events/correlation/">correlating</a>
+   * events. If you specify a key, events are deduplicated to alerts based on this key. Limited to
+   * 100 characters.
    *
    * @return aggregationKey
    */
@@ -97,7 +100,7 @@ public class EventPayload {
   }
 
   /**
-   * JSON object for custom attributes. Schema are different per each event category.
+   * JSON object for category-specific attributes. Schema is different per event category.
    *
    * @return attributes
    */
@@ -118,9 +121,7 @@ public class EventPayload {
   }
 
   /**
-   * Event category to identify the type of event. Only the value <code>change</code> is supported.
-   * Support for other categories are coming. please reach out to datadog support if you're
-   * interested.
+   * Event category identifying the type of event.
    *
    * @return category
    */
@@ -137,13 +138,40 @@ public class EventPayload {
     this.category = category;
   }
 
+  public EventPayload integrationId(EventPayloadIntegrationId integrationId) {
+    this.integrationId = integrationId;
+    this.unparsed |= !integrationId.isValid();
+    return this;
+  }
+
+  /**
+   * Integration ID sourced from integration manifests.
+   *
+   * @return integrationId
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INTEGRATION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EventPayloadIntegrationId getIntegrationId() {
+    return integrationId;
+  }
+
+  public void setIntegrationId(EventPayloadIntegrationId integrationId) {
+    if (!integrationId.isValid()) {
+      this.unparsed = true;
+    }
+    this.integrationId = integrationId;
+  }
+
   public EventPayload message(String message) {
     this.message = message;
     return this;
   }
 
   /**
-   * The body of the event. Limited to 4000 characters.
+   * Free formed text associated with the event. It's suggested to use <code>
+   * data.attributes.attributes.custom</code> for well-structured attributes. Limited to 4000
+   * characters.
    *
    * @return message
    */
@@ -172,7 +200,7 @@ public class EventPayload {
   }
 
   /**
-   * A list of tags to apply to the event. Refer to <a
+   * A list of tags associated with the event. Maximum of 100 tags allowed. Refer to <a
    * href="https://docs.datadoghq.com/getting_started/tagging/">Tags docs</a>.
    *
    * @return tags
@@ -218,7 +246,7 @@ public class EventPayload {
   }
 
   /**
-   * The event title. Limited to 500 characters.
+   * The title of the event. Limited to 500 characters.
    *
    * @return title
    */
@@ -230,52 +258,6 @@ public class EventPayload {
 
   public void setTitle(String title) {
     this.title = title;
-  }
-
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return EventPayload
-   */
-  @JsonAnySetter
-  public EventPayload putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
   }
 
   /** Return true if this EventPayload object is equal to o. */
@@ -291,24 +273,17 @@ public class EventPayload {
     return Objects.equals(this.aggregationKey, eventPayload.aggregationKey)
         && Objects.equals(this.attributes, eventPayload.attributes)
         && Objects.equals(this.category, eventPayload.category)
+        && Objects.equals(this.integrationId, eventPayload.integrationId)
         && Objects.equals(this.message, eventPayload.message)
         && Objects.equals(this.tags, eventPayload.tags)
         && Objects.equals(this.timestamp, eventPayload.timestamp)
-        && Objects.equals(this.title, eventPayload.title)
-        && Objects.equals(this.additionalProperties, eventPayload.additionalProperties);
+        && Objects.equals(this.title, eventPayload.title);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        aggregationKey,
-        attributes,
-        category,
-        message,
-        tags,
-        timestamp,
-        title,
-        additionalProperties);
+        aggregationKey, attributes, category, integrationId, message, tags, timestamp, title);
   }
 
   @Override
@@ -318,13 +293,11 @@ public class EventPayload {
     sb.append("    aggregationKey: ").append(toIndentedString(aggregationKey)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
     sb.append('}');
     return sb.toString();
   }

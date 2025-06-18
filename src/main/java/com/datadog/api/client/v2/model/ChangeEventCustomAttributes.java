@@ -6,8 +6,6 @@
 
 package com.datadog.api.client.v2.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -19,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object representing custom change event attributes. */
+/** Change event attributes. */
 @JsonPropertyOrder({
   ChangeEventCustomAttributes.JSON_PROPERTY_AUTHOR,
   ChangeEventCustomAttributes.JSON_PROPERTY_CHANGE_METADATA,
@@ -67,8 +65,8 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * Object representing the entity which made the change. Optional field but if provided should
-   * include <code>type</code> and <code>name</code>.
+   * The entity that made the change. Optional, if provided it must include <code>type</code> and
+   * <code>name</code>.
    *
    * @return author
    */
@@ -97,8 +95,8 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * Free form object with information related to the <code>change</code> event. Can be arbitrarily
-   * nested and contain any valid JSON.
+   * Free form JSON object with information related to the <code>change</code> event. Supports up to
+   * 100 properties per object and a maximum nesting depth of 10 levels.
    *
    * @return changeMetadata
    */
@@ -121,7 +119,7 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * Object representing a uniquely identified resource.
+   * A uniquely identified resource.
    *
    * @return changedResource
    */
@@ -156,8 +154,8 @@ public class ChangeEventCustomAttributes {
 
   /**
    * A list of resources impacted by this change. It is recommended to provide an impacted resource
-   * to display the change event at the right location. Only resources of type <code>service</code>
-   * are supported.
+   * to display the change event at the correct location. Only resources of type <code>service
+   * </code> are supported. Maximum of 100 impacted resources allowed.
    *
    * @return impactedResources
    */
@@ -187,7 +185,7 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * Free form object to track new value of the changed resource.
+   * Free form JSON object representing the new state of the changed resource.
    *
    * @return newValue
    */
@@ -216,7 +214,7 @@ public class ChangeEventCustomAttributes {
   }
 
   /**
-   * Free form object to track previous value of the changed resource.
+   * Free form JSON object representing the previous state of the changed resource.
    *
    * @return prevValue
    */
@@ -229,52 +227,6 @@ public class ChangeEventCustomAttributes {
 
   public void setPrevValue(Map<String, Object> prevValue) {
     this.prevValue = prevValue;
-  }
-
-  /**
-   * A container for additional, undeclared properties. This is a holder for any undeclared
-   * properties as specified with the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value. If the property
-   * does not already exist, create it otherwise replace it.
-   *
-   * @param key The arbitrary key to set
-   * @param value The associated value
-   * @return ChangeEventCustomAttributes
-   */
-  @JsonAnySetter
-  public ChangeEventCustomAttributes putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-      this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return The additional properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key The arbitrary key to get
-   * @return The specific additional property for the given key
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-      return null;
-    }
-    return this.additionalProperties.get(key);
   }
 
   /** Return true if this ChangeEventCustomAttributes object is equal to o. */
@@ -292,21 +244,13 @@ public class ChangeEventCustomAttributes {
         && Objects.equals(this.changedResource, changeEventCustomAttributes.changedResource)
         && Objects.equals(this.impactedResources, changeEventCustomAttributes.impactedResources)
         && Objects.equals(this.newValue, changeEventCustomAttributes.newValue)
-        && Objects.equals(this.prevValue, changeEventCustomAttributes.prevValue)
-        && Objects.equals(
-            this.additionalProperties, changeEventCustomAttributes.additionalProperties);
+        && Objects.equals(this.prevValue, changeEventCustomAttributes.prevValue);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        author,
-        changeMetadata,
-        changedResource,
-        impactedResources,
-        newValue,
-        prevValue,
-        additionalProperties);
+        author, changeMetadata, changedResource, impactedResources, newValue, prevValue);
   }
 
   @Override
@@ -319,9 +263,6 @@ public class ChangeEventCustomAttributes {
     sb.append("    impactedResources: ").append(toIndentedString(impactedResources)).append("\n");
     sb.append("    newValue: ").append(toIndentedString(newValue)).append("\n");
     sb.append("    prevValue: ").append(toIndentedString(prevValue)).append("\n");
-    sb.append("    additionalProperties: ")
-        .append(toIndentedString(additionalProperties))
-        .append("\n");
     sb.append('}');
     return sb.toString();
   }

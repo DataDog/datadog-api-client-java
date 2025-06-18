@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** JSON object of attributes from your events. */
+/** JSON object for category-specific attributes. */
 @JsonPropertyOrder({EventCreateResponseAttributesAttributes.JSON_PROPERTY_EVT})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
