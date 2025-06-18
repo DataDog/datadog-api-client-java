@@ -22,6 +22,8 @@ import java.util.Objects;
 /** The payload of a rule. */
 @JsonPropertyOrder({
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_CASES,
+  SecurityMonitoringStandardRulePayload.JSON_PROPERTY_CUSTOM_MESSAGE,
+  SecurityMonitoringStandardRulePayload.JSON_PROPERTY_CUSTOM_NAME,
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_FILTERS,
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_GROUP_SIGNALS_BY,
   SecurityMonitoringStandardRulePayload.JSON_PROPERTY_HAS_EXTENDED_TITLE,
@@ -41,6 +43,12 @@ public class SecurityMonitoringStandardRulePayload {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCaseCreate> cases = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_CUSTOM_MESSAGE = "customMessage";
+  private String customMessage;
+
+  public static final String JSON_PROPERTY_CUSTOM_NAME = "customName";
+  private String customName;
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<SecurityMonitoringFilter> filters = null;
@@ -128,6 +136,48 @@ public class SecurityMonitoringStandardRulePayload {
 
   public void setCases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;
+  }
+
+  public SecurityMonitoringStandardRulePayload customMessage(String customMessage) {
+    this.customMessage = customMessage;
+    return this;
+  }
+
+  /**
+   * Custom/Overridden message for generated signals (used in case of Default rule update).
+   *
+   * @return customMessage
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomMessage() {
+    return customMessage;
+  }
+
+  public void setCustomMessage(String customMessage) {
+    this.customMessage = customMessage;
+  }
+
+  public SecurityMonitoringStandardRulePayload customName(String customName) {
+    this.customName = customName;
+    return this;
+  }
+
+  /**
+   * Custom/Overridden name of the rule (used in case of Default rule update).
+   *
+   * @return customName
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CUSTOM_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomName() {
+    return customName;
+  }
+
+  public void setCustomName(String customName) {
+    this.customName = customName;
   }
 
   public SecurityMonitoringStandardRulePayload filters(List<SecurityMonitoringFilter> filters) {
@@ -510,6 +560,8 @@ public class SecurityMonitoringStandardRulePayload {
     SecurityMonitoringStandardRulePayload securityMonitoringStandardRulePayload =
         (SecurityMonitoringStandardRulePayload) o;
     return Objects.equals(this.cases, securityMonitoringStandardRulePayload.cases)
+        && Objects.equals(this.customMessage, securityMonitoringStandardRulePayload.customMessage)
+        && Objects.equals(this.customName, securityMonitoringStandardRulePayload.customName)
         && Objects.equals(this.filters, securityMonitoringStandardRulePayload.filters)
         && Objects.equals(this.groupSignalsBy, securityMonitoringStandardRulePayload.groupSignalsBy)
         && Objects.equals(
@@ -533,6 +585,8 @@ public class SecurityMonitoringStandardRulePayload {
   public int hashCode() {
     return Objects.hash(
         cases,
+        customMessage,
+        customName,
         filters,
         groupSignalsBy,
         hasExtendedTitle,
@@ -553,6 +607,8 @@ public class SecurityMonitoringStandardRulePayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityMonitoringStandardRulePayload {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
+    sb.append("    customMessage: ").append(toIndentedString(customMessage)).append("\n");
+    sb.append("    customName: ").append(toIndentedString(customName)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    groupSignalsBy: ").append(toIndentedString(groupSignalsBy)).append("\n");
     sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
