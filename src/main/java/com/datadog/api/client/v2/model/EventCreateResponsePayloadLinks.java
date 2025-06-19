@@ -16,36 +16,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Event attributes. */
-@JsonPropertyOrder({EventCreateResponseAttributes.JSON_PROPERTY_ATTRIBUTES})
+/** Links to the event. */
+@JsonPropertyOrder({EventCreateResponsePayloadLinks.JSON_PROPERTY_SELF})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
-public class EventCreateResponseAttributes {
+public class EventCreateResponsePayloadLinks {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private EventCreateResponseAttributesAttributes attributes;
+  public static final String JSON_PROPERTY_SELF = "self";
+  private String self;
 
-  public EventCreateResponseAttributes attributes(
-      EventCreateResponseAttributesAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
+  public EventCreateResponsePayloadLinks self(String self) {
+    this.self = self;
     return this;
   }
 
   /**
-   * JSON object for category-specific attributes.
+   * The URL of the event. This link is only functional when using the default subdomain.
    *
-   * @return attributes
+   * @return self
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_SELF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public EventCreateResponseAttributesAttributes getAttributes() {
-    return attributes;
+  public String getSelf() {
+    return self;
   }
 
-  public void setAttributes(EventCreateResponseAttributesAttributes attributes) {
-    this.attributes = attributes;
+  public void setSelf(String self) {
+    this.self = self;
   }
 
   /**
@@ -60,10 +58,10 @@ public class EventCreateResponseAttributes {
    *
    * @param key The arbitrary key to set
    * @param value The associated value
-   * @return EventCreateResponseAttributes
+   * @return EventCreateResponsePayloadLinks
    */
   @JsonAnySetter
-  public EventCreateResponseAttributes putAdditionalProperty(String key, Object value) {
+  public EventCreateResponsePayloadLinks putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
       this.additionalProperties = new HashMap<String, Object>();
     }
@@ -94,7 +92,7 @@ public class EventCreateResponseAttributes {
     return this.additionalProperties.get(key);
   }
 
-  /** Return true if this EventCreateResponseAttributes object is equal to o. */
+  /** Return true if this EventCreateResponsePayloadLinks object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,22 +101,23 @@ public class EventCreateResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EventCreateResponseAttributes eventCreateResponseAttributes = (EventCreateResponseAttributes) o;
-    return Objects.equals(this.attributes, eventCreateResponseAttributes.attributes)
+    EventCreateResponsePayloadLinks eventCreateResponsePayloadLinks =
+        (EventCreateResponsePayloadLinks) o;
+    return Objects.equals(this.self, eventCreateResponsePayloadLinks.self)
         && Objects.equals(
-            this.additionalProperties, eventCreateResponseAttributes.additionalProperties);
+            this.additionalProperties, eventCreateResponsePayloadLinks.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, additionalProperties);
+    return Objects.hash(self, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EventCreateResponseAttributes {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class EventCreateResponsePayloadLinks {\n");
+    sb.append("    self: ").append(toIndentedString(self)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");

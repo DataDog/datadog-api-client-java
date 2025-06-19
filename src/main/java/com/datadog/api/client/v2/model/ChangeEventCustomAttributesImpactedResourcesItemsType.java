@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Resource's type. */
+/** The type of the impacted resource. */
 @JsonSerialize(
     using =
         ChangeEventCustomAttributesImpactedResourcesItemsType

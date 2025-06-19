@@ -16,14 +16,20 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Response containing information about created event. */
-@JsonPropertyOrder({EventCreateResponsePayload.JSON_PROPERTY_DATA})
+/** Event creation response. */
+@JsonPropertyOrder({
+  EventCreateResponsePayload.JSON_PROPERTY_DATA,
+  EventCreateResponsePayload.JSON_PROPERTY_LINKS
+})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
 public class EventCreateResponsePayload {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private EventCreateResponse data;
+
+  public static final String JSON_PROPERTY_LINKS = "links";
+  private EventCreateResponsePayloadLinks links;
 
   public EventCreateResponsePayload data(EventCreateResponse data) {
     this.data = data;
@@ -32,7 +38,7 @@ public class EventCreateResponsePayload {
   }
 
   /**
-   * Object containing an event response.
+   * Event object.
    *
    * @return data
    */
@@ -45,6 +51,28 @@ public class EventCreateResponsePayload {
 
   public void setData(EventCreateResponse data) {
     this.data = data;
+  }
+
+  public EventCreateResponsePayload links(EventCreateResponsePayloadLinks links) {
+    this.links = links;
+    this.unparsed |= links.unparsed;
+    return this;
+  }
+
+  /**
+   * Links to the event.
+   *
+   * @return links
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public EventCreateResponsePayloadLinks getLinks() {
+    return links;
+  }
+
+  public void setLinks(EventCreateResponsePayloadLinks links) {
+    this.links = links;
   }
 
   /**
@@ -104,13 +132,14 @@ public class EventCreateResponsePayload {
     }
     EventCreateResponsePayload eventCreateResponsePayload = (EventCreateResponsePayload) o;
     return Objects.equals(this.data, eventCreateResponsePayload.data)
+        && Objects.equals(this.links, eventCreateResponsePayload.links)
         && Objects.equals(
             this.additionalProperties, eventCreateResponsePayload.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, additionalProperties);
+    return Objects.hash(data, links, additionalProperties);
   }
 
   @Override
@@ -118,6 +147,7 @@ public class EventCreateResponsePayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventCreateResponsePayload {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    additionalProperties: ")
         .append(toIndentedString(additionalProperties))
         .append("\n");
