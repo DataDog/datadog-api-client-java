@@ -256,6 +256,70 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
             e);
       }
 
+      // deserialize CustomDestinationResponseForwardDestinationMicrosoftSentinel
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (CustomDestinationResponseForwardDestinationMicrosoftSentinel.class.equals(Integer.class)
+            || CustomDestinationResponseForwardDestinationMicrosoftSentinel.class.equals(Long.class)
+            || CustomDestinationResponseForwardDestinationMicrosoftSentinel.class.equals(
+                Float.class)
+            || CustomDestinationResponseForwardDestinationMicrosoftSentinel.class.equals(
+                Double.class)
+            || CustomDestinationResponseForwardDestinationMicrosoftSentinel.class.equals(
+                Boolean.class)
+            || CustomDestinationResponseForwardDestinationMicrosoftSentinel.class.equals(
+                String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((CustomDestinationResponseForwardDestinationMicrosoftSentinel.class.equals(
+                            Integer.class)
+                        || CustomDestinationResponseForwardDestinationMicrosoftSentinel.class
+                            .equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((CustomDestinationResponseForwardDestinationMicrosoftSentinel.class.equals(
+                            Float.class)
+                        || CustomDestinationResponseForwardDestinationMicrosoftSentinel.class
+                            .equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (CustomDestinationResponseForwardDestinationMicrosoftSentinel.class.equals(
+                        Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (CustomDestinationResponseForwardDestinationMicrosoftSentinel.class.equals(
+                        String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(CustomDestinationResponseForwardDestinationMicrosoftSentinel.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((CustomDestinationResponseForwardDestinationMicrosoftSentinel) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema"
+                  + " 'CustomDestinationResponseForwardDestinationMicrosoftSentinel'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'CustomDestinationResponseForwardDestinationMicrosoftSentinel'",
+            e);
+      }
+
       CustomDestinationResponseForwardDestination ret =
           new CustomDestinationResponseForwardDestination();
       if (match == 1) {
@@ -305,6 +369,12 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
     setActualInstance(o);
   }
 
+  public CustomDestinationResponseForwardDestination(
+      CustomDestinationResponseForwardDestinationMicrosoftSentinel o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "CustomDestinationResponseForwardDestinationHttp",
@@ -315,6 +385,9 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
     schemas.put(
         "CustomDestinationResponseForwardDestinationElasticsearch",
         new GenericType<CustomDestinationResponseForwardDestinationElasticsearch>() {});
+    schemas.put(
+        "CustomDestinationResponseForwardDestinationMicrosoftSentinel",
+        new GenericType<CustomDestinationResponseForwardDestinationMicrosoftSentinel>() {});
     JSON.registerDescendants(
         CustomDestinationResponseForwardDestination.class, Collections.unmodifiableMap(schemas));
   }
@@ -328,7 +401,8 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: CustomDestinationResponseForwardDestinationHttp,
    * CustomDestinationResponseForwardDestinationSplunk,
-   * CustomDestinationResponseForwardDestinationElasticsearch
+   * CustomDestinationResponseForwardDestinationElasticsearch,
+   * CustomDestinationResponseForwardDestinationMicrosoftSentinel
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -354,6 +428,13 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        CustomDestinationResponseForwardDestinationMicrosoftSentinel.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -362,18 +443,21 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
     throw new RuntimeException(
         "Invalid instance type. Must be CustomDestinationResponseForwardDestinationHttp,"
             + " CustomDestinationResponseForwardDestinationSplunk,"
-            + " CustomDestinationResponseForwardDestinationElasticsearch");
+            + " CustomDestinationResponseForwardDestinationElasticsearch,"
+            + " CustomDestinationResponseForwardDestinationMicrosoftSentinel");
   }
 
   /**
    * Get the actual instance, which can be the following:
    * CustomDestinationResponseForwardDestinationHttp,
    * CustomDestinationResponseForwardDestinationSplunk,
-   * CustomDestinationResponseForwardDestinationElasticsearch
+   * CustomDestinationResponseForwardDestinationElasticsearch,
+   * CustomDestinationResponseForwardDestinationMicrosoftSentinel
    *
    * @return The actual instance (CustomDestinationResponseForwardDestinationHttp,
    *     CustomDestinationResponseForwardDestinationSplunk,
-   *     CustomDestinationResponseForwardDestinationElasticsearch)
+   *     CustomDestinationResponseForwardDestinationElasticsearch,
+   *     CustomDestinationResponseForwardDestinationMicrosoftSentinel)
    */
   @Override
   public Object getActualInstance() {
@@ -420,5 +504,19 @@ public class CustomDestinationResponseForwardDestination extends AbstractOpenApi
   public CustomDestinationResponseForwardDestinationElasticsearch
       getCustomDestinationResponseForwardDestinationElasticsearch() throws ClassCastException {
     return (CustomDestinationResponseForwardDestinationElasticsearch) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `CustomDestinationResponseForwardDestinationMicrosoftSentinel`. If
+   * the actual instance is not `CustomDestinationResponseForwardDestinationMicrosoftSentinel`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `CustomDestinationResponseForwardDestinationMicrosoftSentinel`
+   * @throws ClassCastException if the instance is not
+   *     `CustomDestinationResponseForwardDestinationMicrosoftSentinel`
+   */
+  public CustomDestinationResponseForwardDestinationMicrosoftSentinel
+      getCustomDestinationResponseForwardDestinationMicrosoftSentinel() throws ClassCastException {
+    return (CustomDestinationResponseForwardDestinationMicrosoftSentinel) super.getActualInstance();
   }
 }
