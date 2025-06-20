@@ -25,12 +25,16 @@ import java.util.Set;
 public class ChangeEventCustomAttributesAuthorType extends ModelEnum<String> {
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("user", "system"));
+      new HashSet<String>(Arrays.asList("user", "system", "api", "automation"));
 
   public static final ChangeEventCustomAttributesAuthorType USER =
       new ChangeEventCustomAttributesAuthorType("user");
   public static final ChangeEventCustomAttributesAuthorType SYSTEM =
       new ChangeEventCustomAttributesAuthorType("system");
+  public static final ChangeEventCustomAttributesAuthorType API =
+      new ChangeEventCustomAttributesAuthorType("api");
+  public static final ChangeEventCustomAttributesAuthorType AUTOMATION =
+      new ChangeEventCustomAttributesAuthorType("automation");
 
   ChangeEventCustomAttributesAuthorType(String value) {
     super(value, allowedValues);
