@@ -15,6 +15,7 @@ import com.datadog.api.client.v2.model.MetricContentEncoding;
 import com.datadog.api.client.v2.model.MetricEstimateResponse;
 import com.datadog.api.client.v2.model.MetricPayload;
 import com.datadog.api.client.v2.model.MetricSuggestedTagsAndAggregationsResponse;
+import com.datadog.api.client.v2.model.MetricTagCardinalitiesResponse;
 import com.datadog.api.client.v2.model.MetricTagConfigurationCreateRequest;
 import com.datadog.api.client.v2.model.MetricTagConfigurationMetricTypeCategory;
 import com.datadog.api.client.v2.model.MetricTagConfigurationResponse;
@@ -941,6 +942,151 @@ public class MetricsApi {
         new HashMap<String, Object>(),
         false,
         new GenericType<MetricEstimateResponse>() {});
+  }
+
+  /**
+   * Get tag key cardinality details.
+   *
+   * <p>See {@link #getTagKeyCardinalityDetailsWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return MetricTagCardinalitiesResponse
+   * @throws ApiException if fails to make API call
+   */
+  public MetricTagCardinalitiesResponse getTagKeyCardinalityDetails(String metricName)
+      throws ApiException {
+    return getTagKeyCardinalityDetailsWithHttpInfo(metricName).getData();
+  }
+
+  /**
+   * Get tag key cardinality details.
+   *
+   * <p>See {@link #getTagKeyCardinalityDetailsWithHttpInfoAsync}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;MetricTagCardinalitiesResponse&gt;
+   */
+  public CompletableFuture<MetricTagCardinalitiesResponse> getTagKeyCardinalityDetailsAsync(
+      String metricName) {
+    return getTagKeyCardinalityDetailsWithHttpInfoAsync(metricName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Returns the cardinality details of tags for a specific metric.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return ApiResponse&lt;MetricTagCardinalitiesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table border="1">
+   *    <caption>Response details</caption>
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MetricTagCardinalitiesResponse> getTagKeyCardinalityDetailsWithHttpInfo(
+      String metricName) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'metricName' when calling getTagKeyCardinalityDetails");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-cardinalities"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder =
+        apiClient.createBuilder(
+            "v2.MetricsApi.getTagKeyCardinalityDetails",
+            localVarPath,
+            new ArrayList<Pair>(),
+            localVarHeaderParams,
+            new HashMap<String, String>(),
+            new String[] {"application/json"},
+            new String[] {"apiKeyAuth", "appKeyAuth"});
+    return apiClient.invokeAPI(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricTagCardinalitiesResponse>() {});
+  }
+
+  /**
+   * Get tag key cardinality details.
+   *
+   * <p>See {@link #getTagKeyCardinalityDetailsWithHttpInfo}.
+   *
+   * @param metricName The name of the metric. (required)
+   * @return CompletableFuture&lt;ApiResponse&lt;MetricTagCardinalitiesResponse&gt;&gt;
+   */
+  public CompletableFuture<ApiResponse<MetricTagCardinalitiesResponse>>
+      getTagKeyCardinalityDetailsWithHttpInfoAsync(String metricName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'metricName' is set
+    if (metricName == null) {
+      CompletableFuture<ApiResponse<MetricTagCardinalitiesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'metricName' when calling"
+                  + " getTagKeyCardinalityDetails"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/metrics/{metric_name}/tag-cardinalities"
+            .replaceAll(
+                "\\{" + "metric_name" + "\\}", apiClient.escapeString(metricName.toString()));
+
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+    Invocation.Builder builder;
+    try {
+      builder =
+          apiClient.createBuilder(
+              "v2.MetricsApi.getTagKeyCardinalityDetails",
+              localVarPath,
+              new ArrayList<Pair>(),
+              localVarHeaderParams,
+              new HashMap<String, String>(),
+              new String[] {"application/json"},
+              new String[] {"apiKeyAuth", "appKeyAuth"});
+    } catch (ApiException ex) {
+      CompletableFuture<ApiResponse<MetricTagCardinalitiesResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(ex);
+      return result;
+    }
+    return apiClient.invokeAPIAsync(
+        "GET",
+        builder,
+        localVarHeaderParams,
+        new String[] {},
+        localVarPostBody,
+        new HashMap<String, Object>(),
+        false,
+        new GenericType<MetricTagCardinalitiesResponse>() {});
   }
 
   /** Manage optional parameters to listActiveMetricConfigurations. */
