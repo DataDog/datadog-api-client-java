@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Event attributes. */
+/** JSON object containing all events attributes and their associated values. */
 @JsonPropertyOrder({EventCreateResponseAttributes.JSON_PROPERTY_ATTRIBUTES})
 @jakarta.annotation.Generated(
     value = "https://github.com/DataDog/datadog-api-client-java/blob/master/.generator")
@@ -33,7 +33,7 @@ public class EventCreateResponseAttributes {
   }
 
   /**
-   * JSON object for category-specific attributes.
+   * JSON object of attributes from your events.
    *
    * @return attributes
    */

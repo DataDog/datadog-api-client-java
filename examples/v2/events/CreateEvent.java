@@ -17,7 +17,6 @@ import com.datadog.api.client.v2.model.EventCreateRequestType;
 import com.datadog.api.client.v2.model.EventCreateResponsePayload;
 import com.datadog.api.client.v2.model.EventPayload;
 import com.datadog.api.client.v2.model.EventPayloadAttributes;
-import com.datadog.api.client.v2.model.EventPayloadIntegrationId;
 import java.util.Collections;
 import java.util.Map;
 
@@ -32,13 +31,12 @@ public class Example {
                 new EventCreateRequest()
                     .attributes(
                         new EventPayload()
-                            .aggregationKey("aggregation_key_123")
                             .attributes(
                                 new EventPayloadAttributes(
                                     new ChangeEventCustomAttributes()
                                         .author(
                                             new ChangeEventCustomAttributesAuthor()
-                                                .name("example@datadog.com")
+                                                .name("datadog@datadog.com")
                                                 .type(ChangeEventCustomAttributesAuthorType.USER))
                                         .changeMetadata(
                                             Map.ofEntries(
@@ -78,9 +76,8 @@ public class Example {
                                                     "rule",
                                                     "{'datacenter': 'devcycle.us1.prod'}")))))
                             .category(EventCategory.CHANGE)
-                            .integrationId(EventPayloadIntegrationId.CUSTOM_EVENTS)
                             .message("payment_processed feature flag has been enabled")
-                            .tags(Collections.singletonList("env:api_client_test"))
+                            .tags(Collections.singletonList("env:test"))
                             .title("payment_processed feature flag updated"))
                     .type(EventCreateRequestType.EVENT));
 

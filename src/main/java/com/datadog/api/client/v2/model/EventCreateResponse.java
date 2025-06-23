@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Event object. */
+/** Object containing an event response. */
 @JsonPropertyOrder({
   EventCreateResponse.JSON_PROPERTY_ATTRIBUTES,
   EventCreateResponse.JSON_PROPERTY_TYPE
@@ -38,7 +38,7 @@ public class EventCreateResponse {
   }
 
   /**
-   * Event attributes.
+   * JSON object containing all events attributes and their associated values.
    *
    * @return attributes
    */
@@ -59,7 +59,7 @@ public class EventCreateResponse {
   }
 
   /**
-   * Entity type.
+   * Event type
    *
    * @return type
    */
