@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 2.37.0/2025-06-23
+
+### Fixed
+* Fix basic auth requirements [#2932](https://github.com/DataDog/datadog-api-client-java/pull/2932)
+* Add support for the api_security detection rule type [#2927](https://github.com/DataDog/datadog-api-client-java/pull/2927)
+
+### Added
+* Microsoft Sentinel Public API support [#2930](https://github.com/DataDog/datadog-api-client-java/pull/2930)
+* Add hash field to actions in CWS agent rules [#2921](https://github.com/DataDog/datadog-api-client-java/pull/2921)
+* Add custom fields to Rule update/validate API public documentation. [#2917](https://github.com/DataDog/datadog-api-client-java/pull/2917)
+* SDCD-1142: adding `custom_tags` optional attribute to DORA API spec [#2897](https://github.com/DataDog/datadog-api-client-java/pull/2897)
+* Add sampling fields to SDS spec [#2893](https://github.com/DataDog/datadog-api-client-java/pull/2893)
+* Add API spec for team hierarchy APIs [#2871](https://github.com/DataDog/datadog-api-client-java/pull/2871)
+
+### Changed
+* Update events intake specs for v2 Events post endpoint [#2907](https://github.com/DataDog/datadog-api-client-java/pull/2907)
+
 ## 2.36.0/2025-06-16
 
 ### Changed
