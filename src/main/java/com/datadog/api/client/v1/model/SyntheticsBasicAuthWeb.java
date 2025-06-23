@@ -8,7 +8,6 @@ package com.datadog.api.client.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,16 +35,6 @@ public class SyntheticsBasicAuthWeb {
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
 
-  public SyntheticsBasicAuthWeb() {}
-
-  @JsonCreator
-  public SyntheticsBasicAuthWeb(
-      @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
-      @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
-    this.password = password;
-    this.username = username;
-  }
-
   public SyntheticsBasicAuthWeb password(String password) {
     this.password = password;
     return this;
@@ -56,8 +45,9 @@ public class SyntheticsBasicAuthWeb {
    *
    * @return password
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PASSWORD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPassword() {
     return password;
   }
@@ -101,8 +91,9 @@ public class SyntheticsBasicAuthWeb {
    *
    * @return username
    */
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USERNAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUsername() {
     return username;
   }
