@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** The type of the resource that was changed. */
+/** Resource's type. */
 @JsonSerialize(
     using =
         ChangeEventCustomAttributesChangedResourceType

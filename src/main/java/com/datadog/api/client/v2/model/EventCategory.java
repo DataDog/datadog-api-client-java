@@ -18,15 +18,17 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-/** Event category identifying the type of event. */
+/**
+ * Event category to identify the type of event. Only the value <code>change</code> is supported.
+ * Support for other categories are coming. please reach out to datadog support if you're
+ * interested.
+ */
 @JsonSerialize(using = EventCategory.EventCategorySerializer.class)
 public class EventCategory extends ModelEnum<String> {
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("change", "alert"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("change"));
 
   public static final EventCategory CHANGE = new EventCategory("change");
-  public static final EventCategory ALERT = new EventCategory("alert");
 
   EventCategory(String value) {
     super(value, allowedValues);
