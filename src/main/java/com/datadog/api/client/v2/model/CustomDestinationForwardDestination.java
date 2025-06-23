@@ -241,6 +241,61 @@ public class CustomDestinationForwardDestination extends AbstractOpenApiSchema {
             e);
       }
 
+      // deserialize CustomDestinationForwardDestinationMicrosoftSentinel
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(Integer.class)
+            || CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(Long.class)
+            || CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(Float.class)
+            || CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(Double.class)
+            || CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(Boolean.class)
+            || CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(Integer.class)
+                        || CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(Float.class)
+                        || CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (CustomDestinationForwardDestinationMicrosoftSentinel.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(CustomDestinationForwardDestinationMicrosoftSentinel.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((CustomDestinationForwardDestinationMicrosoftSentinel) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'CustomDestinationForwardDestinationMicrosoftSentinel'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema"
+                + " 'CustomDestinationForwardDestinationMicrosoftSentinel'",
+            e);
+      }
+
       CustomDestinationForwardDestination ret = new CustomDestinationForwardDestination();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -286,6 +341,12 @@ public class CustomDestinationForwardDestination extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public CustomDestinationForwardDestination(
+      CustomDestinationForwardDestinationMicrosoftSentinel o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put(
         "CustomDestinationForwardDestinationHttp",
@@ -296,6 +357,9 @@ public class CustomDestinationForwardDestination extends AbstractOpenApiSchema {
     schemas.put(
         "CustomDestinationForwardDestinationElasticsearch",
         new GenericType<CustomDestinationForwardDestinationElasticsearch>() {});
+    schemas.put(
+        "CustomDestinationForwardDestinationMicrosoftSentinel",
+        new GenericType<CustomDestinationForwardDestinationMicrosoftSentinel>() {});
     JSON.registerDescendants(
         CustomDestinationForwardDestination.class, Collections.unmodifiableMap(schemas));
   }
@@ -308,7 +372,8 @@ public class CustomDestinationForwardDestination extends AbstractOpenApiSchema {
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: CustomDestinationForwardDestinationHttp,
-   * CustomDestinationForwardDestinationSplunk, CustomDestinationForwardDestinationElasticsearch
+   * CustomDestinationForwardDestinationSplunk, CustomDestinationForwardDestinationElasticsearch,
+   * CustomDestinationForwardDestinationMicrosoftSentinel
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -332,6 +397,13 @@ public class CustomDestinationForwardDestination extends AbstractOpenApiSchema {
       super.setActualInstance(instance);
       return;
     }
+    if (JSON.isInstanceOf(
+        CustomDestinationForwardDestinationMicrosoftSentinel.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
 
     if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -340,16 +412,19 @@ public class CustomDestinationForwardDestination extends AbstractOpenApiSchema {
     throw new RuntimeException(
         "Invalid instance type. Must be CustomDestinationForwardDestinationHttp,"
             + " CustomDestinationForwardDestinationSplunk,"
-            + " CustomDestinationForwardDestinationElasticsearch");
+            + " CustomDestinationForwardDestinationElasticsearch,"
+            + " CustomDestinationForwardDestinationMicrosoftSentinel");
   }
 
   /**
    * Get the actual instance, which can be the following: CustomDestinationForwardDestinationHttp,
-   * CustomDestinationForwardDestinationSplunk, CustomDestinationForwardDestinationElasticsearch
+   * CustomDestinationForwardDestinationSplunk, CustomDestinationForwardDestinationElasticsearch,
+   * CustomDestinationForwardDestinationMicrosoftSentinel
    *
    * @return The actual instance (CustomDestinationForwardDestinationHttp,
    *     CustomDestinationForwardDestinationSplunk,
-   *     CustomDestinationForwardDestinationElasticsearch)
+   *     CustomDestinationForwardDestinationElasticsearch,
+   *     CustomDestinationForwardDestinationMicrosoftSentinel)
    */
   @Override
   public Object getActualInstance() {
@@ -392,5 +467,19 @@ public class CustomDestinationForwardDestination extends AbstractOpenApiSchema {
   public CustomDestinationForwardDestinationElasticsearch
       getCustomDestinationForwardDestinationElasticsearch() throws ClassCastException {
     return (CustomDestinationForwardDestinationElasticsearch) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `CustomDestinationForwardDestinationMicrosoftSentinel`. If the
+   * actual instance is not `CustomDestinationForwardDestinationMicrosoftSentinel`, the
+   * ClassCastException will be thrown.
+   *
+   * @return The actual instance of `CustomDestinationForwardDestinationMicrosoftSentinel`
+   * @throws ClassCastException if the instance is not
+   *     `CustomDestinationForwardDestinationMicrosoftSentinel`
+   */
+  public CustomDestinationForwardDestinationMicrosoftSentinel
+      getCustomDestinationForwardDestinationMicrosoftSentinel() throws ClassCastException {
+    return (CustomDestinationForwardDestinationMicrosoftSentinel) super.getActualInstance();
   }
 }
